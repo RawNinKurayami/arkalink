@@ -6,24 +6,80 @@ body {
   padding: 0;
   text-align: center;
 }
-nav {
-    margin-top: 1rem;
-}
 
-nav a {
-    color: #f7c95c;
-    text-decoration: none;
-    margin: 0 1rem;
-    font-weight: bold;
+#topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #ede8e8;
+  border-bottom: 1px solid #333;
+  z-index: 1000;
+  transition: top 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero {
-  padding: 4rem 1rem;
-  background-color: #1a1a1d;  
+  height: 30vh;
+  background-color: #6e6e6e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 60px;
+  position: relative;
+  z-index: 1;
 }
 
-.sottotitolo {
-  font-style: italic;
-  color: #ccc;
-  margin-bottom: 1rem;  
+.hero h1 {
+  font-size: 3rem;
+  color: #fcb500;
+  text-shadow: 2px 2px 8px #000;
+  margin: 0;
+  letter-spacing: 5px;  
+}
+
+.hero p {
+    font-size: 1rem;
+  color: #f4750d;
+  text-shadow: 2px 2px 8px #000;
+  margin: 0;
+  letter-spacing: 3px;    
+    
+}
+
+.navbox {
+  background-color: #fbfbfb;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;   
+}
+
+.navlist {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  margin: 0;
+  padding: 0;  
+}
+
+.navlist li a {
+  display: block;
+  padding: 0.7rem 2rem;
+  background-color: #1f1f1f;
+  border: 2px solid #f1d99b;
+  border-radius: 5px;
+  color: #f1d99b;
+  text-decoration: solid;
+  font-weight: bold;
+  transition: all 0.3s ease;  
+}
+
+.navlist li a:hover {
+  background-color: #f1f1f1;
+  color: #0e0e10;  
 }
