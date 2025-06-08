@@ -11,7 +11,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 60px;
+  height: 80px;
   background-color: #ede8e8;
   border-bottom: 1px solid #333;
   z-index: 1000;
@@ -20,6 +20,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.logo {
+  height: 150px;  
+  align-items: center;
+}
+
 
 
 .hero {
@@ -33,31 +39,62 @@ body {
   padding-top: 60px;
   position: relative;
   z-index: 1;
+
+  background-image: url("img/badge.png");
+  background-size: cover;
+  Background-position: center;
+  background-repeat: no-repeat;
+
+  Height: 35vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position:relative;
+  z-index: 1;
+  color: #fbf8f3;
+
 }
 
 .hero h1 {
   font-size: 3rem;
-  color: #fcb500;
-  text-shadow: 2px 2px 8px #000;
+  color: #f1d99b;
+  text-shadow: 4px 4px 10px #000;
   margin: 0;
   letter-spacing: 5px;  
 }
 
 .hero p {
     font-size: 1rem;
-  color: #f4750d;
-  text-shadow: 2px 2px 8px #000;
+  color: #fcfaf8;
+  text-shadow: 4px 4px 10px #000;
   margin: 0;
   letter-spacing: 3px;    
     
 }
 
 .navbox {
-  background-color: #fbfbfb;
+  background-color: #2a2a2e;
   padding: 1rem;
   display: flex;
   justify-content: center;
-  align-items: center;   
+  align-items: center;
+  
+  background-image: url("img/badge\ 2.png");
+  background-size: cover;
+  Background-position: center;
+  background-repeat: no-repeat;
+
+  Height: 8vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position:relative;
+  z-index: 1;
+  color: #fbf8f3;
 }
 
 .navlist {
@@ -66,6 +103,8 @@ body {
   gap: 3rem;
   margin: 0;
   padding: 0;  
+  align-items: center;
+  justify-content: center;
 }
 
 .navlist li a {
