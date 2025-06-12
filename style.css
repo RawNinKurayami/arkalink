@@ -1,8 +1,9 @@
+
 body {
   background-color: #0e0e10;  
   color: #fbfbfb;
-  font-family: 'Segoe UI', Helvetica, sans-serif;
   margin: 0;
+  font-family: 'GothamNarrow', sans-serif;
   padding: 0;
   text-align: center;
 }
@@ -67,16 +68,18 @@ html {
 
 .hero h1 {
   font-size: 3rem;
+  font-family: 'Gotham Narrow';
   color: #f1d99b;
-  text-shadow: 4px 4px 10px #000;
+  text-shadow: 3px 3px 7px #000;
   margin: 0;
   letter-spacing: 5px;  
 }
 
 .hero p {
     font-size: 1rem;
+    font-family: 'Gotham Narrow';
   color: #fcfaf8;
-  text-shadow: 4px 4px 10px #000;
+  text-shadow: 3px 3px 7px #000;
   margin: 0;
   letter-spacing: 3px;    
     
@@ -88,6 +91,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Gotham Narrow';
   
   background-image: url("img/badge\ 2.png");
   background-size: cover;
@@ -133,22 +137,23 @@ html {
 }
 
 .box-novità {
-  background-color: #121212;
+  background-color: #ede8e8;
   border: 1px solid #d4af37;
   border-radius: 16px;
   padding: 3rem 2rem;
   margin: 3rem auto;
-  max-width: 1100px;
+  max-width: 2000px;
   box-shadow: 0 0 20px #00000055;
   color: #f2e9dc;
   text-align: center;
 }
 
 .box-novità h2 {
-  font-size: 2rem;
-  color: #ffffff;
-  margin-bottom: 2rem;
-  text-shadow: 0 0 6px #000;
+  font-size: 2.5rem;
+  color: #000;
+  font-family:'gotham narrow';
+  font-style: bold;
+  margin-bottom: 3rem;
 }
 
 .news-cards {
@@ -160,8 +165,7 @@ html {
 
 .card {
   width: 280px;
-  height: 180px;
-  border-radius: 12px;
+  height: 280px;
   overflow: hidden;
   text-decoration: none;
   color: #f2e9dc;
@@ -190,10 +194,11 @@ html {
   position: relative;
   z-index: 2;
   padding: 1rem;
+  font-family: 'Gotham Narrow';
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: lighter;
   text-shadow: 0 0 4px #000;
-  color: #d4af37;
+  color:#f1f1f1;
 }
 
 .Benvenuto {
