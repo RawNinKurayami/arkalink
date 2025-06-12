@@ -39,7 +39,7 @@ html {
 
 .hero {
   height: 30vh;
-  background-color: #6e6e6e;
+  background-color: #000000;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,11 +50,12 @@ html {
   z-index: 1;
 
   background-image: url("img/badge.png");
-  background-size: cover;
+  background-size: 50%;
   Background-position: center;
   background-repeat: no-repeat;
 
-  Height: 35vh;
+  Height: 50vh;
+  max-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,7 +63,7 @@ html {
   text-align: center;
   position:relative;
   z-index: 1;
-  color: #fbf8f3;
+  color: #000000;
 
 }
 
@@ -138,10 +139,8 @@ html {
 
 .box-novità {
   background-color: #ede8e8;
-  border: 1px solid #d4af37;
-  border-radius: 16px;
   padding: 3rem 2rem;
-  margin: 3rem auto;
+  margin-top: 3px;
   max-width: 2000px;
   box-shadow: 0 0 20px #00000055;
   color: #f2e9dc;
@@ -167,9 +166,11 @@ html {
   width: 280px;
   height: 280px;
   overflow: hidden;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: #f2e9dc;
-  background-color: #1a1a1c;
+  background-color: #fbfbff;
   box-shadow: 0 0 10px #00000066;
   transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
@@ -191,14 +192,15 @@ html {
 }
 
 .card h3 {
-  position: relative;
-  z-index: 2;
+  position:absolute;
+  bottom: 0;
+  text-align: center;
+  z-index:auto;
   padding: 1rem;
   font-family: 'Gotham Narrow';
-  font-size: 1.2rem;
-  font-weight: lighter;
-  text-shadow: 0 0 4px #000;
-  color:#f1f1f1;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color:#000000;
 }
 
 .Benvenuto {
