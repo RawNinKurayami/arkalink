@@ -72,14 +72,13 @@ html {
 }
 
 .navbox {
-  background-color: #2a2a2e;
+  background-color: #ede8e8;
   padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Gotham Narrow';
   
-  background-image: url("img/badge\ 2.png");
   background-size: cover;
   Background-position: center;
   background-repeat: no-repeat;
