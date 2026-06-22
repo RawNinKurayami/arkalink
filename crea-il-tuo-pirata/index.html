@@ -194,6 +194,132 @@ footer.foot{text-align:center;margin-top:26px;font-size:13px;color:var(--ink-sof
 
 .ds-list.talenti .li-n i{color:#8a6a1e;font-style:italic;}
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
+<style id="glc-auth-css">
+#glc-auth{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(120% 90% at 50% -10%,#14323d 0%,#0a1920 55%,#060f14 100%);font-family:'Cormorant Garamond',Georgia,serif;color:#ecdcb6;transition:opacity .4s ease}
+#glc-auth.hide{opacity:0;pointer-events:none}
+#glc-auth .card{width:min(420px,100%);background:linear-gradient(168deg,#ecdcb6,#e3d0a4);color:#34271a;border:1px solid #cdb487;border-radius:8px;padding:30px 28px;box-shadow:0 24px 60px rgba(0,0,0,.5);text-align:center}
+#glc-auth .mark{width:52px;height:52px;color:#9a241a;margin-bottom:4px}
+#glc-auth .k{font-family:'Marcellus SC',serif;letter-spacing:.24em;text-transform:uppercase;font-size:11px;color:#9a7a2a}
+#glc-auth h2{font-family:'Cinzel Decorative',serif;font-weight:700;font-size:1.55rem;color:#2a1f12;margin:4px 0}
+#glc-auth p.sub{font-size:1.02rem;color:#5e4c34;margin:6px 0 18px}
+#glc-auth input{width:100%;padding:12px 14px;border:1px solid #b9a06f;border-radius:5px;background:#fffaf0;font-family:inherit;font-size:1.05rem;color:#2a1f12;margin-bottom:12px}
+#glc-auth input:focus{outline:2px solid #c9a24a;outline-offset:1px}
+#glc-auth button.go{width:100%;padding:13px;border:none;border-radius:5px;background:linear-gradient(180deg,#ecca77,#c9a24a);color:#23170a;font-family:'Marcellus SC',serif;letter-spacing:.1em;text-transform:uppercase;font-size:13px;cursor:pointer;transition:transform .15s}
+#glc-auth button.go:hover{transform:translateY(-1px)}
+#glc-auth button.go:disabled{opacity:.6;cursor:default;transform:none}
+#glc-auth .msg{min-height:20px;margin-top:12px;font-size:.98rem;color:#7a1410;line-height:1.35}
+#glc-auth .msg.ok{color:#2f6d4a}
+#glc-auth .later{display:inline-block;margin-top:15px;font-size:.92rem;color:#8a6a3a;text-decoration:underline;cursor:pointer}
+#glc-bar{position:fixed;top:10px;right:12px;z-index:9000;display:flex;align-items:center;gap:10px;background:rgba(10,25,32,.85);border:1px solid rgba(201,162,74,.4);border-radius:999px;padding:6px 8px 6px 14px;color:#ecdcb6;font-family:'Cormorant Garamond',serif;font-size:.92rem;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+#glc-bar b{color:#ecca77;font-weight:600}
+#glc-bar button{border:1px solid rgba(201,162,74,.5);background:transparent;color:#ecca77;border-radius:999px;padding:5px 12px;font-family:'Marcellus SC',serif;letter-spacing:.08em;text-transform:uppercase;font-size:10px;cursor:pointer}
+#glc-flash{position:fixed;bottom:16px;left:50%;transform:translateX(-50%) translateY(20px);z-index:9500;background:rgba(10,25,32,.93);color:#ecdcb6;border:1px solid rgba(201,162,74,.45);border-radius:6px;padding:9px 16px;font-family:'Cormorant Garamond',serif;font-size:.96rem;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none}
+#glc-flash.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#glc-flash.err{border-color:#9a241a;color:#f0c9b0}
+@media(prefers-reduced-motion:reduce){#glc-auth,#glc-flash{transition:none}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function(){
+  var SUPABASE_URL="https://anzxglqwmqbsthpqnxhc.supabase.co";
+  var SUPABASE_ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFuenhnbHF3bXFic3RocHFueGhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxNDU2MDAsImV4cCI6MjA5NzcyMTYwMH0.aCPTlWmNapvU17ZwedkkhNztMG4PuskpZx3D9EfunIU";
+  var SAVE_KEY="glc_pirata_v4";
+  var REDIRECT=location.origin+location.pathname;
+  if(!window.supabase){ console.error("Supabase non caricato"); return; }
+  var sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON);
+  window.__glcSB=sb;
+  var currentUser=null, revealed=false, saveTimer=null;
+  var _setItem=localStorage.setItem.bind(localStorage);
+  localStorage.setItem=function(k,v){ _setItem(k,v); if(k===SAVE_KEY && currentUser){ clearTimeout(saveTimer); saveTimer=setTimeout(cloudSave,900); } };
+
+  async function cloudSave(){
+    if(!currentUser) return;
+    var raw=localStorage.getItem(SAVE_KEY); if(raw==null) return;
+    var data; try{ data=JSON.parse(raw); }catch(e){ return; }
+    try{
+      var res=await sb.from('saves').upsert({user_id:currentUser.id,key:SAVE_KEY,data:data},{onConflict:'user_id,key'});
+      if(res.error) throw res.error;
+      flash('Salvato nel cloud \u2713');
+    }catch(e){ console.error('cloudSave',e); flash('Salvataggio cloud non riuscito',true); }
+  }
+  async function cloudLoadAndReveal(){
+    var flagKey='glc_synced_'+SAVE_KEY+'_'+currentUser.id;
+    try{
+      var r=await sb.from('saves').select('data').eq('key',SAVE_KEY).maybeSingle();
+      if(r.error) throw r.error;
+      var cloudHas=r.data && r.data.data!=null;
+      var synced=sessionStorage.getItem(flagKey)==='1';
+      if(cloudHas){
+        if(!synced){ _setItem(SAVE_KEY,JSON.stringify(r.data.data)); sessionStorage.setItem(flagKey,'1'); location.reload(); return; }
+      } else {
+        if(localStorage.getItem(SAVE_KEY)!=null){ await cloudSave(); }
+        sessionStorage.setItem(flagKey,'1');
+      }
+    }catch(e){ console.error('cloudLoad',e); flash('Sync non riuscita: uso i dati locali',true); }
+    reveal();
+  }
+  function reveal(){ if(revealed){ buildBar(); return; } revealed=true; var o=document.getElementById('glc-auth'); if(o){ o.classList.add('hide'); setTimeout(function(){ if(o&&o.parentNode) o.parentNode.removeChild(o); },420);} buildBar(); }
+
+  function buildOverlay(){
+    if(document.getElementById('glc-auth')) return;
+    var o=document.createElement('div'); o.id='glc-auth';
+    o.innerHTML='<div class="card">'+
+      '<svg class="mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="24" r="21"/><path d="M24 6 L27 24 L24 42 L21 24 Z" fill="currentColor" stroke="none"/><path d="M6 24h36" opacity=".4"/></svg>'+
+      '<div class="k">Grand Line Chronicles</div>'+
+      '<h2>Il tuo registro</h2>'+
+      '<p class="sub">Entra con la tua email: ti mando un link e ritrovi la tua scheda su ogni dispositivo.</p>'+
+      '<input id="glc-email" type="email" placeholder="la-tua@email.com" autocomplete="email">'+
+      '<button class="go" id="glc-send">Invia il link d\'accesso</button>'+
+      '<div class="msg" id="glc-msg"></div>'+
+      '<span class="later" id="glc-later">Entra pi\u00f9 tardi \u00b7 usa solo su questo dispositivo</span>'+
+      '</div>';
+    document.body.appendChild(o);
+    document.getElementById('glc-send').onclick=sendLink;
+    document.getElementById('glc-later').onclick=function(){ reveal(); };
+    document.getElementById('glc-email').addEventListener('keydown',function(e){ if(e.key==='Enter') sendLink(); });
+  }
+  async function sendLink(){
+    var email=(document.getElementById('glc-email').value||'').trim();
+    var msg=document.getElementById('glc-msg'); msg.className='msg';
+    if(!/.+@.+\..+/.test(email)){ msg.textContent='Inserisci un indirizzo email valido.'; return; }
+    var btn=document.getElementById('glc-send'); btn.disabled=true; btn.textContent='Invio in corso\u2026';
+    try{
+      var r=await sb.auth.signInWithOtp({email:email, options:{ emailRedirectTo:REDIRECT }});
+      if(r.error) throw r.error;
+      msg.className='msg ok'; msg.textContent='Fatto! Link inviato a '+email+'. Aprilo per entrare (controlla anche lo spam).';
+      btn.textContent='Link inviato \u2713';
+    }catch(e){ msg.className='msg'; msg.textContent='Non riuscito: '+(e.message||e); btn.disabled=false; btn.textContent='Invia il link d\'accesso'; }
+  }
+  function buildBar(){
+    if(!currentUser) return;
+    var ex=document.getElementById('glc-bar'); if(ex){ ex.querySelector('b').textContent=currentUser.email||''; return; }
+    var b=document.createElement('div'); b.id='glc-bar';
+    b.innerHTML='<span>Ciurma: <b>'+(currentUser.email||'')+'</b></span><button id="glc-out">Esci</button>';
+    document.body.appendChild(b);
+    document.getElementById('glc-out').onclick=async function(){
+      try{ await cloudSave(); }catch(e){}
+      var uid=currentUser?currentUser.id:'';
+      try{ await sb.auth.signOut(); }catch(e){}
+      sessionStorage.removeItem('glc_synced_'+SAVE_KEY+'_'+uid);
+      localStorage.removeItem(SAVE_KEY);
+      location.reload();
+    };
+  }
+  function flash(text,err){
+    var f=document.getElementById('glc-flash');
+    if(!f){ f=document.createElement('div'); f.id='glc-flash'; document.body.appendChild(f); }
+    f.textContent=text; f.className=err?'show err':'show';
+    clearTimeout(f._t); f._t=setTimeout(function(){ f.className=err?'err':''; },1800);
+  }
+  function start(){
+    buildOverlay();
+    sb.auth.getSession().then(function(res){ if(res.data && res.data.session){ currentUser=res.data.session.user; cloudLoadAndReveal(); } });
+    sb.auth.onAuthStateChange(function(event,session){ if(session && session.user){ currentUser=session.user; if(!revealed) cloudLoadAndReveal(); else buildBar(); } });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
+})();
+</script>
 </head>
 <body>
 <div class="wrap">
