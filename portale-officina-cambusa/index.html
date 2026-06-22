@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Grand Line Chronicles — Listino degli Oggetti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Pirata+One&family=Rye&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+:root{--ink:#2b1d12;--ink-soft:#5a4633;--red:#8c1c13;--red-bright:#b71c1c;--gold:#b8860b;--gold-soft:#c8a24b;--paper:#f3e3c3;--paper-2:#ecd9b2;--line:#cdb487;--shadow:rgba(60,40,15,.35);}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;}
+body{font-family:'EB Garamond',Georgia,serif;color:var(--ink);font-size:18px;line-height:1.5;background-color:#e7d2a6;background-image:radial-gradient(ellipse at 20% 0%,#f6e8c9 0%,rgba(246,232,201,0) 55%),radial-gradient(ellipse at 100% 100%,#e3cb9c 0%,rgba(227,203,156,0) 60%),radial-gradient(circle at 50% 40%,#f1e0bd 0%,#e2c896 100%);min-height:100vh;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.06;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
+.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:26px 20px 70px;}
+header.top{text-align:center;padding:10px 0 6px;}
+header.top .anchor{font-size:38px;color:var(--red);line-height:1;}
+header.top h1{font-family:'Pirata One',cursive;font-size:clamp(36px,6vw,60px);color:var(--red);margin:.05em 0 0;text-shadow:1px 1px 0 rgba(0,0,0,.12);}
+header.top .sub{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.26em;text-transform:uppercase;font-size:12px;color:var(--ink-soft);margin-top:2px;}
+.rule{height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:12px auto 18px;max-width:640px;}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;margin-bottom:8px;}
+.toolbar input[type=text],.toolbar select{font-family:'EB Garamond',serif;font-size:16px;color:var(--ink);background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:2px;padding:8px 11px;}
+.toolbar input[type=text]{min-width:200px;}
+.toolbar input:focus,.toolbar select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 2px rgba(140,28,19,.15);}
+.btn{font-family:'Cinzel',serif;font-weight:700;font-size:13px;letter-spacing:.05em;border:1px solid var(--red);background:var(--red);color:#fff;padding:9px 16px;border-radius:2px;cursor:pointer;transition:.15s;}
+.btn:hover{background:var(--red-bright);}
+.btn.gold{border-color:var(--gold);background:var(--gold);}.btn.gold:hover{background:var(--gold-soft);}
+.btn.ghost{background:transparent;color:var(--red);}.btn.ghost:hover{background:rgba(140,28,19,.08);}
+.tally{text-align:center;font-family:'Cinzel',serif;font-size:13px;color:var(--ink-soft);letter-spacing:.04em;margin:6px 0 16px;}
+.tally b{color:var(--red);}
+/* griglia */
+.catalog{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;}
+.item{position:relative;background:linear-gradient(var(--paper),var(--paper-2));border:2px solid #6b4f2a;box-shadow:inset 0 0 0 1px var(--gold-soft),0 8px 20px var(--shadow);border-radius:3px;padding:14px 14px 12px;display:flex;flex-direction:column;}
+.item .kill{position:absolute;top:6px;right:8px;border:none;background:rgba(255,255,255,.6);color:var(--red);cursor:pointer;font-size:13px;border-radius:50%;width:24px;height:24px;line-height:1;z-index:4;}
+.item .kill:hover{background:var(--red);color:#fff;}
+.imgbox{position:relative;width:100%;aspect-ratio:4/3;border:5px solid #3a2a16;outline:2px solid #ead7af;outline-offset:-7px;background:#cdb78d url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 90'><g fill='none' stroke='%237a5a2e' stroke-width='3' opacity='.45'><rect x='28' y='30' width='64' height='40' rx='4'/><path d='M28 56l18-16 14 12 12-10 20 18'/><circle cx='44' cy='42' r='5'/></g></svg>") center/64px no-repeat;display:flex;align-items:flex-end;justify-content:center;cursor:pointer;overflow:hidden;transition:.15s;}
+.imgbox:hover{outline-color:var(--gold-soft);}
+.imgbox.drag{box-shadow:inset 0 0 0 3px var(--red);}
+.imgbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.18) contrast(1.03);}
+.imgbox .ph{position:relative;z-index:1;margin-bottom:8px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;color:#6b4f2a;background:rgba(240,228,200,.78);padding:3px 8px;border-radius:2px;}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px;}
+.tag{font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);background:rgba(255,255,255,.4);color:var(--ink-soft);padding:2px 7px;border-radius:10px;}
+.tag.man{border-color:var(--gold);color:#8a6a1e;}
+.tag.bonus{border-color:var(--red);color:var(--red);font-weight:700;}
+/* campi seamless */
+.f{border:1px solid transparent;background:transparent;font-family:inherit;font-size:inherit;color:inherit;width:100%;padding:2px 4px;border-radius:2px;}
+.f:hover{background:rgba(255,255,255,.4);border-color:var(--line);}
+.f:focus{outline:none;background:#fff;border-color:var(--red);box-shadow:0 0 0 1px var(--red);}
+textarea.f{resize:vertical;min-height:34px;line-height:1.4;}
+select.f{cursor:pointer;}select.f:hover{background:rgba(255,255,255,.5);}
+.nome{font-family:'Pirata One',cursive;color:#7a1410;font-size:23px;line-height:1.05;margin-top:8px;}
+.priceline{display:flex;align-items:baseline;gap:6px;margin-top:6px;border-top:1px dashed var(--line);padding-top:8px;}
+.priceline .sym{font-family:'Cinzel',serif;font-weight:900;color:var(--red);font-size:22px;}
+.price{font-family:'Cinzel',serif;font-weight:900;color:var(--red);font-size:22px;text-align:left;flex:1;}
+.priceline .ber{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.2em;color:var(--ink-soft);}
+.eff{font-size:14px;color:var(--ink);margin-top:6px;font-style:italic;}
+details.build{margin-top:8px;border-top:1px dashed var(--line);padding-top:6px;}
+details.build summary{cursor:pointer;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);list-style:none;}
+details.build summary::-webkit-details-marker{display:none;}
+details.build summary::before{content:"\2693 ";color:var(--gold);}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;margin-top:8px;}
+.brow{font-size:13px;}
+.brow.full{grid-column:1 / -1;}
+.brow label{display:block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1px;}
+footer.foot{text-align:center;margin-top:26px;font-size:13px;color:var(--ink-soft);font-family:'Cinzel',serif;letter-spacing:.08em;}
+@media print{body{background:#fff;}body::before{display:none;}.wrap{max-width:none;padding:0;}.toolbar,.foot,.item .kill{display:none!important;}.catalog{grid-template-columns:repeat(2,1fr);gap:10px;}.item{box-shadow:none;page-break-inside:avoid;}details.build{}details.build[open] summary{}}
+/* ===== schede & cucina ===== */
+.tabs{display:flex;justify-content:center;gap:8px;margin:2px 0 20px;flex-wrap:wrap;}
+.tab{font-family:'Cinzel',serif;font-weight:700;font-size:14px;letter-spacing:.07em;border:2px solid #6b4f2a;background:linear-gradient(var(--paper),var(--paper-2));color:var(--ink-soft);padding:9px 20px;border-radius:3px;cursor:pointer;box-shadow:inset 0 0 0 1px var(--gold-soft);transition:.15s;}
+.tab:hover{color:var(--red);}
+.tab.active{color:#fff;background:var(--red);border-color:var(--red);box-shadow:inset 0 0 0 1px var(--gold-soft),0 5px 14px var(--shadow);}
+.tabpane[hidden]{display:none;}
+.cuc-intro{text-align:center;font-style:italic;color:var(--ink-soft);max-width:720px;margin:0 auto 16px;font-size:15px;line-height:1.5;}
+.cuc-intro b{color:var(--red);font-style:normal;}
+.dishes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;}
+.dish{background:linear-gradient(var(--paper),var(--paper-2));border:2px solid #6b4f2a;box-shadow:inset 0 0 0 1px var(--gold-soft),0 8px 20px var(--shadow);border-radius:3px;padding:14px 15px 13px;display:flex;flex-direction:column;}
+.dish .dhead{display:flex;align-items:baseline;justify-content:space-between;gap:8px;border-bottom:1px dashed var(--line);padding-bottom:7px;}
+.dish .dnome{font-family:'Pirata One',cursive;color:#7a1410;font-size:22px;line-height:1.05;}
+.dish .soglia{font-family:'Cinzel',serif;font-weight:900;color:var(--red);font-size:13px;white-space:nowrap;text-align:right;}
+.dish .soglia small{font-weight:700;color:var(--ink-soft);letter-spacing:.1em;font-size:8.5px;display:block;}
+.dish .dcat{font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);background:rgba(255,255,255,.4);color:var(--ink-soft);padding:2px 8px;border-radius:10px;align-self:flex-start;margin-top:9px;}
+.dish .ingr{font-size:13.5px;font-style:italic;color:var(--ink);margin-top:9px;}
+.dish .ingr b{font-style:normal;font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:1px;}
+.outcomes{width:100%;border-collapse:collapse;margin-top:11px;font-size:13px;}
+.outcomes th{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;text-align:left;padding:0 6px 4px;}
+.outcomes td{padding:3px 6px;border-top:1px solid rgba(205,180,135,.55);}
+.outcomes td.lab{font-family:'Cinzel',serif;font-size:11.5px;}
+.outcomes td.pv{color:#7a1410;font-weight:700;}
+.outcomes td.st{color:#8a6a1e;font-weight:700;}
+.ingr-panel{margin-top:34px;}
+.ingr-panel h2{font-family:'Pirata One',cursive;color:var(--red);font-size:30px;text-align:center;margin:0;}
+.ingr-tables{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.itab{background:linear-gradient(var(--paper),var(--paper-2));border:2px solid #6b4f2a;box-shadow:inset 0 0 0 1px var(--gold-soft);border-radius:3px;padding:12px 15px;}
+.itab h3{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin:0 0 8px;text-align:center;}
+.itab table{width:100%;border-collapse:collapse;font-size:13px;}
+.itab td{padding:5px 6px;border-top:1px solid rgba(205,180,135,.55);vertical-align:top;}
+.itab tr:first-child td{border-top:none;}
+.itab .nm{font-weight:700;color:#7a1410;}
+.itab .rare{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);}
+@media(max-width:760px){.ingr-tables{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="anchor">⚓</div>
+    <h1>Officina &amp; Cambusa</h1>
+    <div class="sub">Grand Line Chronicles · Crafting · Listini · Cucina</div>
+  </header>
+  <div class="rule"></div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="oggetti">⚓ Oggetti &amp; Strumenti</button>
+    <button class="tab" data-tab="cucina">🍳 Cucina</button>
+  </nav>
+
+  <section id="tab-oggetti" class="tabpane">
+  <div class="toolbar">
+    <input type="text" id="search" placeholder="🔍 Cerca un oggetto…" />
+    <select id="catFilter"><option value="">Tutte le categorie</option></select>
+    <button class="btn" id="add">+ Aggiungi oggetto</button>
+    <button class="btn gold" onclick="window.print()">🖨 Stampa</button>
+    <button class="btn ghost" id="export">⬇ .json</button>
+    <button class="btn ghost" id="importBtn">⬆ Importa</button>
+    <button class="btn ghost" id="reset">↺ Ripristina</button>
+    <input type="file" id="importFile" accept="application/json" style="display:none;" />
+    <input type="file" id="imgFile" accept="image/*" style="display:none;" />
+  </div>
+  <div class="tally" id="tally"></div>
+
+  <div class="catalog" id="catalog"></div>
+  </section>
+
+  <section id="tab-cucina" class="tabpane" hidden>
+    <p class="cuc-intro">Il cuoco tira <b>Spirito + Cucina</b> contro la Soglia del piatto. Dal margine esce l'esito — <b>+4 Critico</b>, <b>+1/+3 Successo</b>, <b>0 Stentato</b>, <b>sotto Fallimento</b> — e più alto l'esito, più recuperano <b>PV</b> e <b>Stamina</b> i commensali.</p>
+    <div class="toolbar">
+      <input type="text" id="dishSearch" placeholder="🔍 Cerca un piatto…" />
+      <select id="dishCat"><option value="">Tutte le portate</option></select>
+    </div>
+    <div class="dishes" id="dishes"></div>
+    <div class="ingr-panel">
+      <h2>Ingredienti &amp; Cambusa</h2>
+      <div class="rule"></div>
+      <div class="ingr-tables">
+        <div class="itab"><h3>Categorie &amp; scorte</h3><table id="ingrCat"></table></div>
+        <div class="itab"><h3>⭐ Ingredienti notevoli</h3><table id="ingrNote"></table></div>
+      </div>
+    </div>
+  </section>
+  <footer class="foot">Grand Line Chronicles ⚓ Ogni Berry ha il suo prezzo · Ogni piatto, la sua forza.</footer>
+</div>
+
+<script>
+"use strict";
+const CATS=["Navigazione","Vedetta","Sopravvivenza","Medico","Preparati del Medico","Tossicologo","Chimico","Archeologia","Musica","Ingegneria","Clima","Comunicazione","Combattimento","Varie"];
+const MANS=["Base","Standard","Avanzata","Esperta"];
+const DICE=["d4","d6","d8","d10","d12","d20"];
+const PRICE_BY_MAN={Base:3000,Standard:12000,Avanzata:40000,Esperta:120000};
+
+/* Oggetti di default dal manuale Crafting */
+const DEFAULTS=[
+ ["Bussola artigianale","Navigazione","d4","Base","Astuzia + Meccanica",7,8,"Ferro, ago magnetico, legno, vetro","+d4 ai tiri di Navigazione (come bussola standard).","Inutile nel Grand Line (serve il Log Pose); utile nei Mari Blu."],
+ ["Log Pose artigianale","Navigazione","d6","Standard","Astuzia + Meccanica",11,20,"Ferro magnetico raffinato, ago sensibile, vetro soffiato, cuoio","+d6 ai tiri di Navigazione nel Grand Line. Si calibra in 2d6 giorni.","Equivale a un Log Pose commerciale, ma funziona."],
+ ["Carta nautica aggiornata","Navigazione","d6","Standard","Astuzia + Navigazione",9,10,"Pergamena di qualità, inchiostro, strumenti di misura","+d6 al prossimo tiro di Navigazione sulla rotta disegnata. Uso singolo.","Copiabile: 4 ore + Astuzia + Navigazione soglia 7."],
+ ["Carta nautica dettagliata","Navigazione","d8","Avanzata","Astuzia + Navigazione",12,18,"Pergamena pregiata, inchiostri multipli, strumenti di triangolazione","+d8 ai tiri di Navigazione (correnti, profondità, riferimenti).","Riutilizzabile per 3 traversate sulla stessa rotta."],
+ ["Eternal Pose artigianale","Navigazione","d10","Esperta","Astuzia + Meccanica",15,40,"Minerale magnetico raro, vetro di precisione, oro/argento","+d10 ai tiri di Navigazione verso l'isola impostata. Niente calibrazione.","Punta sempre a una sola isola fissa. Minerale trovato narrativamente."],
+ ["Binocolo semplice","Vedetta","d4","Base","Astuzia + Meccanica",7,6,"Legno, vetro, cuoio","+d4 ai tiri della Vedetta. Raddoppia il raggio visivo base.","Fragile: se la nave subisce danni gravi, tiro d6 — con 1 si rompe."],
+ ["Binocolo rinforzato","Vedetta","d6","Standard","Astuzia + Meccanica",9,12,"Vetro ottico, metallo, cuoio imbottito, viti di precisione","+d6 ai tiri della Vedetta. Resistente ai danni della nave.","Anche per puntamento a lunga distanza (+d4 ai tiri a lungo raggio)."],
+ ["Telescopio da torre","Vedetta","d8","Avanzata","Astuzia + Meccanica",12,24,"Lenti ottiche di qualità, ottone, treppiede","+d8 ai tiri della Vedetta. Avvistamento triplicato.","Fisso sulla torre, non trasportabile. Se distrutto, 8 ore per ricostruirlo."],
+ ["Strumento di triangolazione","Vedetta","d6","Standard","Astuzia + Meccanica",10,14,"Metallo di precisione, vetro, scala graduata, filo a piombo","+d6 ai tiri per determinare distanza e posizione di un oggetto.","Usato col binocolo: somma i dadi se entrambi applicabili."],
+ ["Lanterna segnaletica","Vedetta","d4","Base","Astuzia + Meccanica",7,8,"Vetro colorato, metallo, olio, specchio riflettente","+d4 ai tiri di comunicazione visiva a distanza. Segnala alleati o soccorsi.","Chi conosce il codice invia messaggi complessi (Astuzia soglia 8)."],
+ ["Kit pesca avanzato","Sopravvivenza","d4","Base","Astuzia + Artigianato",6,6,"Legno, corda, ami, piombi, galleggianti","+d4 ai tiri per procurarsi cibo in mare. -10% consumo provviste.","Efficace solo con fauna marina. Inutile nel Calm Belt."],
+ ["Trappola per volatili","Sopravvivenza","d4","Base","Astuzia + Artigianato",7,8,"Corda, legno leggero, esca","+d4 ai tiri per catturare uccelli marini. Fonte di cibo alternativa.","Serve vicinanza a isole o vento favorevole (uccelli migratori)."],
+ ["Filtro acqua artigianale","Sopravvivenza","d6","Standard","Astuzia + Medicina",9,12,"Carbone, sabbia, tessuto, contenitori","+d6 ai tiri per resistere a malattie da acqua contaminata. Purifica la pioggia.","Riduce il rischio di epidemie a bordo."],
+ ["Zattera di emergenza","Sopravvivenza","d8","Avanzata","Astuzia + Carpenteria",10,16,"Legno stagionato, corde, tessuto impermeabile, barilotti vuoti","In caso di affondamento: +d8 ai tiri di sopravvivenza/fuga.","Occupa 2 unità di stiva. Materiali non riutilizzabili per altro."],
+ ["Kit segnalamento marino","Sopravvivenza","d6","Standard","Astuzia + Artigianato",8,10,"Polvere luminescente, canna, vetro, fili di ottone","+d6 ai tiri per attirare soccorsi o comunicare la posizione.","Uso singolo (3 razzi). Visibili fino a 30 km di notte."],
+ ["Kit medico base","Medico","d4","Base","Astuzia + Medicina",8,8,"Erbe medicali base, alcool, bende, ago, filo","+d4 ai tiri di Medicina. Cura base di ferite fisiche.","Si esaurisce dopo 3 utilizzi. Rifornimento in porto: 500 Berry."],
+ ["Kit medico avanzato","Medico","d6","Standard","Astuzia + Medicina",11,16,"Strumenti chirurgici, bende sterili, antibiotici, anestetico","+d6 ai tiri di Medicina. Permette operazioni chirurgiche di campo.","Riutilizzabile. Rifornimento ogni 5 utilizzi: 3.000 Berry."],
+ ["Antidoto universale (kit)","Medico","d6","Avanzata","Astuzia + Medicina",13,20,"Estratti di piante rare, solventi, fiale di vetro, cera","+d6 ai tiri contro veleni e malattie. Cura automatica veleni soglia ≤ 10.","Produce 3 dosi monouso. Piante trovate narrativamente."],
+ ["Bende rinforzate (scorta)","Medico","d4","Base","Astuzia + Medicina",7,6,"Cotone, resina naturale, erbe antisettiche","+d4 ai tiri per stabilizzare a 0 PV. +1d4 PV extra al riposo lungo.","Scorta per 6 utilizzi. Non richiede tiro per la stabilizzazione base."],
+ ["Vaporizzatore termale","Medico","d6","Standard","Astuzia + Medicina",11,18,"Metallo, tubo di rame, erbe termali, serbatoio d'acqua","+d6 ai tiri di recupero ST. Un uso per riposo: +2 ST a un bersaglio.","Richiede acqua dolce. Anche come bagno terapeutico (narrativo)."],
+ ["Chiavi e attrezzi da lavoro","Ingegneria","d4","Base","Astuzia + Carpenteria",7,8,"Ferro, legno duro, viti, bulloni, lima","+d4 ai tiri di riparazione nave. Strumenti base per l'Ingegnere.","Si consumano: dopo 5 riparazioni gravi tiro d6, con 1 vanno sostituiti."],
+ ["Kit riparazione avanzato","Ingegneria","d6","Standard","Astuzia + Carpenteria",11,20,"Attrezzi in acciaio, tavole di ricambio, corda nautica, catrame","+d6 ai tiri di riparazione nave. Riduce le ore necessarie del 20%.","Permette riparazioni in tempesta senza soglia aumentata."],
+ ["Officina portatile","Ingegneria","d8","Esperta","Astuzia + Meccanica",14,36,"Metallo pesante, mantice, fornace, incudine, martelli","+d8 a TUTTI i tiri di crafting e riparazione. Lavorazione del metallo a bordo.","Occupa 3 slot di stiva. Carbone: 2.000 Berry/traversata."],
+ ["Pompa di sentina migliorata","Ingegneria","d6","Standard","Astuzia + Meccanica",10,14,"Metallo, valvole, pistoni, tubi di rame, guarnizioni","+d6 ai tiri per fermare l'ingresso d'acqua. Pompaggio triplicato.","In Critica elimina automaticamente la perdita PS progressiva."],
+ ["Barometro artigianale","Clima","d4","Base","Astuzia + Meccanica",8,10,"Vetro, mercurio (o alcool), metallo, scale graduate","+d4 ai tiri per prevedere il clima. Anticipa le tempeste di 2 ore.","Non funziona coi fenomeni soprannaturali del Grand Line."],
+ ["Stazione meteorologica","Clima","d8","Avanzata","Astuzia + Meccanica",13,28,"Barometro, anemometro, igrometro, metallo fine","+d8 ai tiri vs fenomeni marini. Prevede tempeste con 6 ore d'anticipo.","Parz. efficace anche nel Grand Line (riduce la soglia di 2)."],
+ ["Aquilone atmosferico","Clima","d6","Standard","Astuzia + Meccanica",10,16,"Tessuto leggero, corda, telaio in bambù, vernice impermeabile","+d6 ai tiri di Navigazione col vento. In bonaccia: movimento minimo (Vele d4).","Può fungere da esca visiva per confondere i nemici."],
+ ["Tenda impermeabile da coperta","Clima","d4","Base","Astuzia + Artigianato",7,8,"Tessuto cerato, corde, picchetti, ganci da nave","+d4 ai tiri per lavorare in coperta durante il maltempo.","Rende possibile la riparazione notturna senza malus di soglia."],
+ ["Tamburo di segnalazione","Comunicazione","d4","Base","Astuzia + Artigianato",7,8,"Legno cavo, pelle tesa, bacchette, corde di tensione","+d4 ai tiri di comunicazione tra navi fino a 500 m. Coordina le manovre.","Semplice ed efficace anche in mare aperto."],
+ ["Sistema di bandiere (set completo)","Comunicazione","d6","Standard","Astuzia + Navigazione",9,12,"Tessuto colorato, aste metalliche, filo resistente, carrucole","+d6 ai tiri di comunicazione visiva. Codice internazionale (tutti i Mari).","Serve che un membro conosca il codice (Navigazione d6+)."],
+ ["Lumacofono","Comunicazione","d8","Avanzata","Astuzia + Meccanica",13,16,"Lumaca, altoparlanti, microfono","Permette di parlare con i compagni a distanza.","Richiede che anche l'altra parte possieda un lumacofono."],
+ ["Megafono artigianale","Comunicazione","d4","Base","Astuzia + Artigianato",6,6,"Metallo o cuoio rigido, rinforzi interni","+d4 ai tiri di Intimidazione e Comunicazione ravvicinata (fino a 200 m).","Utile anche per coordinare l'equipaggio PNG in combattimento."]
+];
+/* Strumenti dell'Archeologo */
+const ARCHEO=[
+ ["Kit da scavo","Archeologia","d4","Base","Astuzia + Artigianato",7,6,"Cuoio, attrezzi in ferro, setacci","+d4 ai tiri di Archeologia sul campo (scavi, esami di siti e rovine).","Pennelli, scalpelli, spazzole: il mestiere in una borsa.",3000],
+ ["Calchi da iscrizione (kit)","Archeologia","d4","Base","Astuzia + Artigianato",8,2,"Gesso, carta oleata, cera","Copia fedelmente un'iscrizione per studiarla a bordo con calma: permette di RIPROVARE la decifrazione. 3 usi.","Consumabile: si ricarica con gesso e cera.",1500],
+ ["Taccuino delle rovine","Archeologia","d4","Base","Astuzia + Artigianato",7,4,"Carta di qualit\u00e0, cuoio, inchiostro","+d4 ai tiri di Archeologia su siti, lingue o temi GI\u00c0 studiati in passato.","La memoria scritta dell'Archeologo: vale solo se tenuto aggiornato.",2500],
+ ["Lente del filologo","Archeologia","d6","Standard","Astuzia + Meccanica",10,12,"Vetro ottico, ottone, cuoio","+d6 ai tiri per decifrare iscrizioni e testi: ingrandisce e rivela incisioni consunte.","Lo strumento simbolo dello studioso.",12000],
+ ["Compendio delle leggende","Archeologia","d8","Avanzata","\u2014 (non si crafta: si trova o si compra)",0,0,"\u2014","+d8 ai tiri per riconoscere miti, simboli, reliquie e leggende.","Un volume raro: biblioteche, collezionisti, aste. Ogni copia \u00e8 diversa.",40000],
+];
+/* Strumenti del Musicista (il Bardo) */
+const MUSICA=[
+ ["Strumento da taverna","Musica","d4","Base","Astuzia + Artigianato",8,8,"Legno, corde, colla","Strumento onesto per suonare le Canzoni; non \u00e8 un'arma. Qualit\u00e0 base.","Chitarra, flauto o tamburo onesto: l'inizio di ogni musicista.",4000],
+ ["Strumento di liuteria","Musica","d6","Standard","Astuzia + Carpenteria",10,16,"Legno pregiato, corde fini, vernici","Strumento di liuteria, personale e ben accordato. Qualit\u00e0 pregiata.","Uno strumento personale, ben accordato: la voce del musicista.",14000],
+ ["Strumento del maestro","Musica","d8","Avanzata","\u2014 (non si crafta: si trova o si compra)",0,0,"\u2014","Capolavoro con una storia: esibizioni memorabili. Qualit\u00e0 da maestro.","Un capolavoro con una storia: aste, eredit\u00e0, doni di un grande musicista.",45000],
+];
+const PREPARATI=[
+ ["Tonico ricostituente","Preparati del Medico","d4","Base","Astuzia + Medicina",7,3,"Erbe medicinali, alcool puro","Bevuto (azione): recupera 1d4+1 PV.","Tonico — il pronto soccorso in bottiglia.",1000],
+ ["Tonico del chirurgo","Preparati del Medico","d6","Standard","Astuzia + Medicina",10,5,"Erbe medicinali, erbe rare, miele","Bevuto (azione): recupera 1d6+2 PV.","Tonico.",4000],
+ ["Siero di vita","Preparati del Medico","d8","Avanzata","Astuzia + Medicina",12,10,"Erbe rare, estratto di pianta abissale","Bevuto o iniettato: recupera 2d6+2 PV.","Tonico — roba da grandi ospedali.",12000],
+ ["Iniezione d'emergenza","Preparati del Medico","d6","Standard","Astuzia + Medicina",11,6,"Erbe rare, alcool, traccia di veleno di creatura","Come reazione: un alleato a 0 PV si rialza con 1d4 PV.","Tonico — una sola per persona per scontro.",6000],
+ ["Sali energetici","Preparati del Medico","d4","Base","Astuzia + Medicina",7,2,"Sali minerali, miele","Recupera +2 ST.","Ricostituente.",1000],
+ ["Decotto del marinaio","Preparati del Medico","d6","Standard","Astuzia + Medicina",9,4,"Erbe medicinali, erbe rare","Recupera +3 ST e rimuove la stanchezza della giornata.","Ricostituente.",3500],
+ ["Elisir di vigore","Preparati del Medico","d8","Avanzata","Astuzia + Medicina",13,12,"Funghi medicinali, estratto di pianta abissale","Riporta la Stamina al massimo.","Ricostituente — nessun contraccolpo, solo costoso.",15000],
+ ["Antidoto comune","Preparati del Medico","d4","Base","Astuzia + Medicina",8,3,"Erbe medicinali, alcool puro","Cura la condizione Avvelenato (veleni fino a soglia 8).","Rimedio.",1500],
+ ["Antidoto del Grand Line","Preparati del Medico","d8","Avanzata","Astuzia + Medicina",13,10,"Veleno di creatura, erbe rare","Cura qualsiasi veleno non leggendario.","Rimedio — il kit Antidoto universale ne produce 3 dosi.",10000],
+ ["Coagulante rapido","Preparati del Medico","d4","Base","Astuzia + Medicina",7,2,"Erbe medicinali, propoli","Ferma la condizione Sanguinante all'istante.","Rimedio.",1200],
+ ["Collirio di menta","Preparati del Medico","d4","Base","Astuzia + Medicina",7,2,"Erbe medicinali","Rimuove la condizione Accecato.","Rimedio.",800],
+ ["Sali di risveglio","Preparati del Medico","d6","Standard","Astuzia + Medicina",9,3,"Sali minerali, funghi medicinali","Rimuove Stordito; sveglia chi \u00e8 sedato o svenuto.","Rimedio.",2500],
+ ["Febbrifugo","Preparati del Medico","d6","Standard","Astuzia + Medicina",10,5,"Erbe rare, miele","Cura le malattie comuni (soglia \u226410); +1 dado per resistere alle epidemie.","Rimedio.",3000],
+ ["Pillole di guaran\u00e0","Preparati del Medico","d4","Base","Astuzia + Medicina",8,3,"Erbe medicinali, miele","+1 dado bonus (d4) alla prossima prova.","Stimolante — nessun contraccolpo.",1500],
+ ["Soluzione lucidit\u00e0","Preparati del Medico","d6","Standard","Astuzia + Medicina",10,5,"Funghi medicinali, alcool puro","Per la scena: +1 dado (d4) ai tiri di Astuzia e Osservazione.","Stimolante — al 2\u00b0 uso nello stesso giorno: emicrania, \u22121 dado a tutto per un'ora.",4000],
+ ["Iniezione d'adrenalina","Preparati del Medico","d6","Standard","Astuzia + Medicina",11,6,"Erbe rare, traccia di veleno di creatura","Per la scena: +1 dado (d4) ai tiri di Forza e immunit\u00e0 a Stordito.","Stimolante — CONTRACCOLPO: a fine scena Stordito 1 turno e \u22121 ST.",5000],
+ ["Stimolante da battaglia","Preparati del Medico","d8","Avanzata","Astuzia + Medicina",13,12,"Veleno di creatura, estratto di pianta abissale","Per la scena: il Dado Danno sale di 1 gradino.","Stimolante — CONTRACCOLPO: a fine scena 1d6 PV (il corpo paga il conto).",14000],
+ ["Anestetico locale","Preparati del Medico","d4","Base","Astuzia + Medicina",8,3,"Erbe medicinali, alcool puro","Annulla il dolore: permette la chirurgia da campo; chi lo riceve ignora i malus da ferite per 1 ora.","Sedativo.",1200],
+ ["Calmante","Preparati del Medico","d4","Base","Astuzia + Medicina",7,2,"Erbe medicinali, miele","Placa panico e furia; +1 dado per resistere alla paura.","Sedativo.",1000],
+ ["Sedativo del cacciatore","Preparati del Medico","d8","Avanzata","Astuzia + Medicina",12,8,"Veleno di creatura, funghi medicinali","Su dardo o ago: il bersaglio tira Forza vs 10 o crolla addormentato (in combattimento: Stordito 1 turno).","Sedativo.",8000],
+ ["La Palla Tonante","Preparati del Medico","d10","Esperta","Astuzia + Medicina",15,24,"Erba leggendaria, ricerca narrativa","Preparato unico progettato col Capitano (stile Rumble Ball): un effetto potente per 3 turni.","Leggendario — contraccolpo serio a fine effetto, deciso in fase di progetto. Non in vendita.",0],
+];
+const TOSSICO=[
+ ["Kit da estrazione veleni","Tossicologo","d6","Standard","Astuzia + Medicina",10,8,"Fiale di vetro, lame fini, guanti spessi, alambicco da campo","Estrai e conservi veleni da creature e piante. +d6 alle estrazioni.","Lo strumento base del Tossicologo. Col talento Cacciatore di Veleni: Vantaggio.",9000],
+ ["Laboratorio tossicologico","Tossicologo","d8","Avanzata","Astuzia + Medicina",13,24,"Banco da veleni, distillatore, vetreria, reagenti, ventola d'estrazione","+d8 a estrazioni, antidoti e sedativi. Il banco completo, a bordo.","Occupa 2 slot di stiva. Il regno del Tossicologo.",36000],
+ ["Veleno paralizzante","Tossicologo","d6","Standard","Astuzia + Medicina",11,6,"Veleno di creatura, erbe rare, solvente","Su lama o dardo: il bersaglio tira Forza vs Soglia o resta paralizzato (in combattimento: Stordito 1 turno).","Veleno. Con Sedativi Efficaci, la Soglia per resistere sale.",6000],
+ ["Veleno necrotico","Tossicologo","d8","Avanzata","Astuzia + Medicina",13,8,"Veleno di creatura abissale, acidi blandi, erbe rare","Su lama o dardo: il bersaglio perde 1d4 PV all'inizio di ogni suo turno finché non si cura.","Veleno crudele ed efficace: lascia il segno.",9500],
+ ["Gas soporifero","Tossicologo","d8","Avanzata","Astuzia + Medicina",12,8,"Funghi sedativi, solvente volatile, contenitore a pressione","Lanciato: tutti in una zona tirano Forza vs Soglia o crollano addormentati.","Sedativo ad area — occhio agli amici nel raggio.",8500],
+ ["Antidoto maestro","Tossicologo","d10","Esperta","Astuzia + Medicina",15,12,"Veleno di creatura, erbe leggendarie, ricerca narrativa","Cura qualsiasi veleno, anche leggendario. Una dose.","Rimedio supremo. Con Maestro Antidoti la Soglia di preparazione è dimezzata.",18000],
+ ["Tossina debilitante","Tossicologo","d6","Standard","Astuzia + Medicina",11,6,"Veleno di creatura, erbe amare, alcool","Su lama o dardo: per la scena il bersaglio ha −1 dado a tutti i tiri (intossicato).","Veleno. Indebolisce senza uccidere.",6500],
+];
+const CHIMICO=[
+ ["Distilleria portatile","Chimico","d8","Avanzata","Astuzia + Medicina",13,24,"Alambicco, fornelletto, vetreria, reagenti base, serpentina di raffreddamento","Distilli reagenti e preparati a bordo. +d8 alla produzione chimica.","Occupa 2 slot di stiva. La piccola industria del Chimico.",36000],
+ ["Bomba incendiaria","Chimico","d6","Standard","Astuzia + Medicina",10,5,"Olio infiammabile, zolfo, contenitore di vetro, miccia","Lanciata: danno da fuoco in una piccola zona; incendia bersagli e copertura.","Reagente reattivo. Tienila lontana dalla polvere da sparo.",4000],
+ ["Fiala acida","Chimico","d6","Standard","Astuzia + Medicina",10,5,"Acidi distillati, sali corrosivi, vetro spesso","Lanciata o versata: corrode armature, serrature e strutture; ignora parte della robustezza.","Reagente reattivo. Ottima contro porte, sbarre e scafi.",4500],
+ ["Bomba fumogena","Chimico","d4","Base","Astuzia + Medicina",8,4,"Polveri fumogene, contenitore, miccia corta","Lanciata: cortina di fumo — copertura per nascondersi, fuggire o coprire la ciurma.","Reagente reattivo (utility). Più fumo che danno.",2500],
+ ["Carica esplosiva","Chimico","d8","Avanzata","Astuzia + Medicina",13,8,"Polvere esplosiva raffinata, innesco, involucro metallico","Piazzata o lanciata: danno grande a strutture, porte e navi (demolizione).","Reagente reattivo. Con il talento Demolitore: devastante.",9000],
+ ["Granata accecante","Chimico","d6","Standard","Astuzia + Medicina",10,5,"Polvere lampo, magnesio, contenitore, miccia","Lanciata: lampo e boato; chi è nella zona tira per non restare Accecato e Stordito 1 turno.","Reagente reattivo. Apri lo scontro o copri una ritirata.",5000],
+];
+function mkItem(d,i,pfx){return{id:pfx+i+"_"+Date.now(),nome:d[0],cat:d[1],dado:d[2],man:d[3],prova:d[4],soglia:d[5],ore:d[6],mat:d[7],eff:d[8],note:d[9],prezzo:String(d[10]!=null?d[10]:(PRICE_BY_MAN[d[3]]||0)),img:""};}
+function defItems(){return DEFAULTS.concat(PREPARATI).concat(TOSSICO).concat(CHIMICO).concat(ARCHEO).concat(MUSICA).map((d,i)=>mkItem(d,i,"i"));}
+function prepItems(){return PREPARATI.map((d,i)=>mkItem(d,i,"p"));}
+function toxItems(){return TOSSICO.map((d,i)=>mkItem(d,i,"t"));}
+function chemItems(){return CHIMICO.map((d,i)=>mkItem(d,i,"c"));}
+function archItems(){return ARCHEO.map((d,i)=>mkItem(d,i,"a"));}
+function musItems(){return MUSICA.map((d,i)=>mkItem(d,i,"m"));}
+
+let items=[]; const KEY="glc_portale_v1";
+const $=s=>document.querySelector(s);
+function el(t,p,kids){const e=document.createElement(t);if(p)for(const k in p){if(k==="class")e.className=p[k];else if(k==="html")e.innerHTML=p[k];else if(k==="text")e.textContent=p[k];else if(k.slice(0,2)==="on")e[k.toLowerCase()]=p[k];else e.setAttribute(k,p[k]);}if(kids!=null)(Array.isArray(kids)?kids:[kids]).forEach(c=>{if(c==null)return;e.appendChild(typeof c==="string"?document.createTextNode(c):c);});return e;}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(items));}catch(e){try{const lite=items.map(it=>{const c=Object.assign({},it);delete c.img;return c;});localStorage.setItem(KEY,JSON.stringify(lite));}catch(e2){}}}
+function load(){try{const s=localStorage.getItem(KEY);if(s){items=JSON.parse(s);let dirty=false;if(!items.some(it=>it.cat==="Preparati del Medico")){items=items.concat(prepItems());dirty=true;}if(!items.some(it=>it.cat==="Archeologia")){items=items.concat(archItems());dirty=true;}if(!items.some(it=>it.cat==="Tossicologo")){items=items.concat(toxItems());dirty=true;}if(!items.some(it=>it.cat==="Chimico")){items=items.concat(chemItems());dirty=true;}if(!items.some(it=>it.cat==="Musica")){items=items.concat(musItems());dirty=true;}if(dirty)save();return;}}catch(e){}items=defItems();}
+function fmt(n){n=parseInt(n||"0")||0;return n.toLocaleString("it-IT");}
+
+let imgTarget=null;
+function resizeImg(file,cb){const rd=new FileReader();rd.onload=()=>{const im=new Image();im.onload=()=>{const max=440;let w=im.width,h=im.height;const sc=Math.min(1,max/Math.max(w,h));const cw=Math.round(w*sc),ch=Math.round(h*sc);const cv=document.createElement("canvas");cv.width=cw;cv.height=ch;cv.getContext("2d").drawImage(im,0,0,cw,ch);try{cb(cv.toDataURL("image/jpeg",0.82));}catch(e){cb(rd.result);}};im.src=rd.result;};rd.readAsDataURL(file);}
+
+function seamless(tag,val,oninput,cls,attrs){const e=el(tag,Object.assign({class:"f"+(cls?" "+cls:"")},attrs||{}));if(tag==="textarea"){e.value=val||"";}else if(tag==="select"){(attrs&&attrs._opts||[]).forEach(o=>e.appendChild(el("option",{value:o,text:o})));e.value=val||"";}else{e.value=val||"";}e.oninput=()=>{oninput(e.value);};if(tag==="select")e.onchange=()=>oninput(e.value);return e;}
+
+function buildCard(it){
+ const card=el("div",{class:"item","data-id":it.id});
+ card.appendChild(el("button",{class:"kill",text:"✕",title:"Rimuovi",onclick:()=>{if(confirm("Rimuovere \u201C"+(it.nome||"oggetto")+"\u201D?")){items=items.filter(x=>x!==it);card.remove();save();tally();}}}));
+ // immagine
+ const box=el("div",{class:"imgbox",title:"Clicca o trascina un'immagine"});
+ const img=el("img",{alt:""});if(it.img)img.src=it.img;else img.style.display="none";
+ const ph=el("span",{class:"ph",text:"＋ immagine"});if(it.img)ph.style.display="none";
+ box.appendChild(img);box.appendChild(ph);
+ box.onclick=()=>{imgTarget={it,img,ph};$("#imgFile").click();};
+ ["dragenter","dragover"].forEach(ev=>box.addEventListener(ev,e=>{e.preventDefault();box.classList.add("drag");}));
+ ["dragleave","drop"].forEach(ev=>box.addEventListener(ev,e=>{e.preventDefault();box.classList.remove("drag");}));
+ box.addEventListener("drop",e=>{const f=e.dataTransfer&&e.dataTransfer.files[0];if(f&&f.type.indexOf("image/")===0)resizeImg(f,d=>{it.img=d;img.src=d;img.style.display="block";ph.style.display="none";save();});});
+ card.appendChild(box);
+ // tags
+ const tags=el("div",{class:"tags"});
+ const catSel=seamless("select",it.cat,v=>{it.cat=v;save();tally();card.setAttribute("data-cat",v);},"tag",{_opts:CATS,style:"border-radius:10px;"});
+ const manSel=seamless("select",it.man,v=>{it.man=v;save();},"tag man",{_opts:MANS,style:"border-radius:10px;"});
+ const dadoSel=seamless("select",it.dado,v=>{it.dado=v;save();},"tag bonus",{_opts:DICE.map(d=>"+"+d),style:"border-radius:10px;"});
+ dadoSel.value="+"+it.dado;dadoSel.onchange=()=>{it.dado=dadoSel.value.replace("+","");save();};
+ tags.appendChild(catSel);tags.appendChild(manSel);tags.appendChild(dadoSel);
+ card.appendChild(tags);
+ // nome
+ card.appendChild(seamless("input",it.nome,v=>{it.nome=v;save();card.setAttribute("data-nome",(v||"").toLowerCase());},"nome",{type:"text",placeholder:"Nome oggetto"}));
+ // prezzo
+ const priceInput=seamless("input",fmt(it.prezzo),v=>{},"price",{type:"text",inputmode:"numeric"});
+ priceInput.value=fmt(it.prezzo);
+ priceInput.onfocus=()=>{priceInput.value=(it.prezzo||"0");};
+ priceInput.oninput=()=>{it.prezzo=priceInput.value.replace(/[^0-9]/g,"");save();tally();};
+ priceInput.onblur=()=>{priceInput.value=fmt(it.prezzo);};
+ card.appendChild(el("div",{class:"priceline"},[el("span",{class:"sym",text:"฿"}),priceInput,el("span",{class:"ber",text:"BERRY"})]));
+ // effetto
+ card.appendChild(seamless("textarea",it.eff,v=>{it.eff=v;save();},"eff",{placeholder:"A cosa serve / effetto…"}));
+ // come costruirlo
+ const det=el("details",{class:"build"});
+ det.appendChild(el("summary",{text:"Come costruirlo"}));
+ const grid=el("div",{class:"bgrid"});
+ const brow=(label,node,full)=>el("div",{class:"brow"+(full?" full":"")},[el("label",{text:label}),node]);
+ grid.appendChild(brow("Prova",seamless("input",it.prova,v=>{it.prova=v;save();},"",{type:"text"}),true));
+ grid.appendChild(brow("Soglia",seamless("input",String(it.soglia),v=>{it.soglia=v.replace(/[^0-9]/g,"");save();},"",{type:"text",inputmode:"numeric"})));
+ grid.appendChild(brow("Ore",seamless("input",String(it.ore),v=>{it.ore=v.replace(/[^0-9]/g,"");save();},"",{type:"text",inputmode:"numeric"})));
+ grid.appendChild(brow("Materiali",seamless("textarea",it.mat,v=>{it.mat=v;save();},""),true));
+ grid.appendChild(brow("Note speciali",seamless("textarea",it.note,v=>{it.note=v;save();},""),true));
+ det.appendChild(grid);
+ card.appendChild(det);
+ card.setAttribute("data-nome",(it.nome||"").toLowerCase());
+ card.setAttribute("data-cat",it.cat||"");
+ return card;
+}
+
+function render(){
+ const cat=$("#catalog");cat.innerHTML="";
+ items.forEach(it=>cat.appendChild(buildCard(it)));
+ applyFilter();tally();
+}
+function tally(){const tot=items.reduce((s,it)=>s+(parseInt(it.prezzo)||0),0);$("#tally").innerHTML="<b>"+items.length+"</b> oggetti · valore totale <b>฿ "+fmt(tot)+"</b>";}
+function applyFilter(){const q=($("#search").value||"").toLowerCase().trim();const cf=$("#catFilter").value;[...$("#catalog").children].forEach(c=>{const okq=!q||(c.getAttribute("data-nome")||"").indexOf(q)>=0;const okc=!cf||c.getAttribute("data-cat")===cf;c.style.display=(okq&&okc)?"":"none";});}
+function fillCatFilter(){const sel=$("#catFilter");sel.length=1;CATS.forEach(c=>sel.appendChild(el("option",{value:c,text:c})));}
+
+$("#imgFile").onchange=e=>{const f=e.target.files[0];if(f&&imgTarget){resizeImg(f,d=>{imgTarget.it.img=d;imgTarget.img.src=d;imgTarget.img.style.display="block";imgTarget.ph.style.display="none";save();});}e.target.value="";};
+$("#add").onclick=()=>{const it={id:"i"+Date.now(),nome:"Nuovo oggetto",cat:"Varie",dado:"d4",man:"Base",prova:"Astuzia + Artigianato",soglia:"7",ore:"6",mat:"",eff:"",note:"",prezzo:"0",img:""};items.unshift(it);const card=buildCard(it);$("#catalog").insertBefore(card,$("#catalog").firstChild);save();tally();if(card.scrollIntoView)card.scrollIntoView({behavior:"smooth",block:"center"});const n=card.querySelector(".nome");if(n){n.focus();n.select();}};
+$("#search").oninput=applyFilter;$("#catFilter").onchange=applyFilter;
+$("#export").onclick=()=>{const blob=new Blob([JSON.stringify(items,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="listino_oggetti.json";a.click();URL.revokeObjectURL(a.href);};
+$("#importBtn").onclick=()=>$("#importFile").click();
+$("#importFile").onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(Array.isArray(d)){items=d;save();render();}else alert("Formato non valido.");}catch(err){alert("File non valido.");}};rd.readAsText(f);};
+$("#reset").onclick=()=>{if(confirm("Ripristinare il listino originale del manuale? Le modifiche andranno perse.")){items=defItems();save();render();}};
+
+load();fillCatFilter();render();
+
+/* ===== CUCINA ===== */
+const PIATTI=[
+ ["Arrosto del Capitano","Carne",12,"Carne rossa pregiata, erbe, sale marino","2d8+4","+4","2d6+2","+3","1d6","+1","0","0"],
+ ["Stufato di battaglia","Carne",10,"Carne di selvaggina, patate, cipolle, brodo","2d6+2","+3","1d8+2","+2","1d4","+1","0","0"],
+ ["Costolette alla brace","Carne",10,"Costolette, spezie esotiche, miele","1d8+4","+3","1d6+2","+2","1d4","0","0","0"],
+ ["Spiedini misti","Carne",8,"Carne mista, verdure grigliate, salsa","1d6+2","+2","1d6","+1","1d4","0","0","0"],
+ ["Carne secca da traversata","Carne",6,"Carne salata e stagionata, razioni secche","1d4+1","+1","1d4","+1","1d4","0","0","0"],
+ ["Zuppa di mare imperiale","Pesce",12,"Pesce spada, gamberi giganti, alghe rare","2d8+4","+4","2d6+2","+3","1d6+1","+1","0","0"],
+ ["Sashimi del New World","Pesce",10,"Pesce abissale raro, wasabi, salsa di soia","2d6+3","+3","1d8+2","+2","1d6","+1","0","0"],
+ ["Fritto di calamaro gigante","Pesce",10,"Calamaro del Grand Line, farina, spezie","1d8+2","+3","1d6+1","+2","1d4","+1","0","0"],
+ ["Carpaccio di pesce volante","Pesce",8,"Pesce volante fresco, limone, sale","1d6+2","+2","1d6","+2","1d4","+1","0","0"],
+ ["Pesce alla griglia","Pesce",8,"Pesce comune, erbe, olio","1d6+1","+1","1d4+1","+1","1d4","0","0","0"],
+ ["Curry di verdure","Verdura",10,"Spezie del Sud, verdure di radice, cocco","1d6+1","+3","1d6","+2","1d4","+1","0","0"],
+ ["Vellutata di funghi marini","Verdura",10,"Funghi sottomarini, panna, noce moscata","1d8+1","+2","1d6+1","+1","1d4","0","0","0"],
+ ["Minestrone del Grandline","Verdura",8,"Verdure miste di stagione, legumi, erbe","1d6+2","+2","1d4+2","+2","1d4","+1","0","0"],
+ ["Insalata esotica","Verdura",6,"Foglie rare, fiori commestibili, semi","1d4+1","+2","1d4","+1","1d4","0","0","0"],
+ ["Macedonia tropicale","Frutta",8,"Frutta tropicale mista, menta, sciroppo","1d4+2","+3","1d4+1","+2","1d4","+1","0","+1"],
+ ["Succo energetico","Frutta",8,"Frutta rara, miele, erbe toniche","1d4","+4","1d4","+3","0","+2","0","+1"],
+ ["Marmellata artigianale","Frutta",6,"Frutta di stagione, zucchero di canna","1d4+1","+1","1d4","+1","0","+1","0","0"],
+ ["Torta del Capitano","Dolci",10,"Farina pregiata, uova, zucchero raro, crema","1d6+2","+4","1d4+2","+3","1d4","+2","0","+1"],
+ ["Budino del Grand Line","Dolci",10,"Crema, uova, caramello, frutto esotico","1d6+1","+3","1d4+2","+2","1d4","+1","0","0"],
+ ["Pasticcini alla marmellata","Dolci",8,"Pasta frolla, marmellata artigianale","1d4+2","+2","1d4+1","+1","1d4","+1","0","0"],
+ ["Biscotti da traversata","Dolci",6,"Farina, zucchero, burro, vaniglia","1d4+1","+2","1d4","+1","0","+1","0","0"],
+ ["Zuppa del Guerriero","Brodo",10,"Ossa di carne, verdure radice, spezie forti","2d6+2","+3","1d8+2","+2","1d6","+1","1d4","0"],
+ ["Ramen del porto","Brodo",10,"Noodles, brodo di carne, uova, cipollotto","1d8+3","+3","1d6+2","+2","1d4+1","+1","1d4","0"],
+ ["Brodo di ossa lunghe","Brodo",8,"Ossa di selvaggina, aglio, cipolla, erbe","1d8+2","+2","1d6+1","+2","1d4","+1","0","0"],
+ ["Brodo veloce da razioni","Brodo",6,"Razioni secche, acqua, sale, spezie base","1d4+1","+1","1d4","+1","1d4","0","0","0"]
+];
+const INGR_CAT=[
+ ["Carne","Comune in porto, rara in mare aperto","2.000 ฿ / sett.","Nessun modificatore"],
+ ["Pesce","Abbondante in mare — si può pescare","Gratis se si pesca","Fresco: +1 dado bonus"],
+ ["Verdura","Comune in porto, deperibile in mare","1.000 ฿ / sett.","Nessun modificatore"],
+ ["Frutta","Varia per isola — alcune rare","1.500 ฿ / sett.","Tropicale fresca: +1 ST all'esito"],
+ ["Dolci","Ingredienti base sempre disponibili","1.500 ฿ / sett.","Nessun modificatore"],
+ ["Brodo","Ossa e razioni sempre disponibili","500 ฿ / sett.","Nessun modificatore"],
+ ["Esotico","Solo isole specifiche o Grand Line","10.000+ ฿ / unità","+1 dado bonus, bonus aumentati"]
+];
+const INGR_NOTE=[
+ ["Carne di Bananawani","Carne","Raro","+1d6 PV extra a qualsiasi esito","Alabasta, isole calde"],
+ ["Carne di Sea King","Carne","Non comune","+1d4 PV e +1 ST a qualsiasi esito","Grand Line, pesca fortunata"],
+ ["Carne di Laboon","Carne","Leggendario","+2d8 PV e +4 ST — solo al Critico","Gigantesco, quasi impossibile"],
+ ["Pesce Volante del Nord","Pesce","Non comune","+1 dado bonus se fresco","Oceani freddi, Drum Island"],
+ ["Calamaro del Profondo","Pesce","Raro","+1d4 ST extra a Critico/Successo","Abissi, difficile da pescare"],
+ ["Alga Poneglyph","Verdura","Leggendario","Bonus del Critico raddoppiato","Isole storiche, molto rara"],
+ ["Fungo marino luminoso","Verdura","Raro","+2 ST a qualsiasi esito","Caverne sottomarine"],
+ ["Frutto Knock Cola","Frutta","Non comune","+1d6 ST (nessun recupero PV)","Dressrosa e dintorni"]
+];
+const DCATS=["Carne","Pesce","Verdura","Frutta","Dolci","Brodo"];
+function dval(v){return(!v||v==="0"||v==="+0")?"—":v;}
+function buildDish(p){
+ const c=el("div",{class:"dish","data-nome":(p[0]||"").toLowerCase(),"data-cat":p[1]});
+ c.appendChild(el("div",{class:"dhead"},[el("span",{class:"dnome",text:p[0]}),el("span",{class:"soglia",html:"Soglia "+p[2]+"<small>Spirito + Cucina</small>"})]));
+ c.appendChild(el("span",{class:"dcat",text:p[1]}));
+ c.appendChild(el("div",{class:"ingr",html:"<b>Ingredienti</b>"+p[3]}));
+ const t=el("table",{class:"outcomes"});
+ t.appendChild(el("tr",null,[el("th",{text:"Esito"}),el("th",{text:"PV"}),el("th",{text:"ST"})]));
+ [["🌟 Critico",p[4],p[5]],["✅ Successo",p[6],p[7]],["🟡 Stentato",p[8],p[9]],["❌ Fallimento",p[10],p[11]]].forEach(r=>{t.appendChild(el("tr",null,[el("td",{class:"lab",text:r[0]}),el("td",{class:"pv",text:dval(r[1])}),el("td",{class:"st",text:dval(r[2])})]));});
+ c.appendChild(t);
+ return c;
+}
+function renderCucina(){
+ const g=$("#dishes");g.innerHTML="";PIATTI.forEach(p=>g.appendChild(buildDish(p)));
+ const ic=$("#ingrCat");ic.innerHTML="";INGR_CAT.forEach(r=>ic.appendChild(el("tr",null,[el("td",{class:"nm",text:r[0]}),el("td",{html:r[1]+"<br><span class='rare'>"+r[2]+"</span>"}),el("td",{text:r[3]})])));
+ const inn=$("#ingrNote");inn.innerHTML="";INGR_NOTE.forEach(r=>inn.appendChild(el("tr",null,[el("td",null,[el("span",{class:"nm",text:r[0]}),el("br"),el("span",{class:"rare",text:r[1]+" · "+r[2]})]),el("td",null,[document.createTextNode(r[3]),el("br"),el("span",{class:"rare",text:r[4]})])])));
+ const sel=$("#dishCat");if(sel.length<=1)DCATS.forEach(c=>sel.appendChild(el("option",{value:c,text:c})));
+ filterDishes();
+}
+function filterDishes(){const q=($("#dishSearch").value||"").toLowerCase().trim();const cf=$("#dishCat").value;[...$("#dishes").children].forEach(c=>{const okq=!q||(c.getAttribute("data-nome")||"").indexOf(q)>=0;const okc=!cf||c.getAttribute("data-cat")===cf;c.style.display=(okq&&okc)?"":"none";});}
+$("#dishSearch").oninput=filterDishes;$("#dishCat").onchange=filterDishes;
+
+/* ===== TABS ===== */
+let cucinaReady=false;
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
+ document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+ b.classList.add("active");
+ const tt=b.getAttribute("data-tab");
+ $("#tab-oggetti").hidden=(tt!=="oggetti");
+ $("#tab-cucina").hidden=(tt!=="cucina");
+ if(tt==="cucina"&&!cucinaReady){renderCucina();cucinaReady=true;}
+ window.scrollTo({top:0,behavior:"smooth"});
+});
+</script>
+</body>
+</html>

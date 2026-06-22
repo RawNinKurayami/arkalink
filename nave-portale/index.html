@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Grand Line Chronicles — Portale della Nave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Pirata+One&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+:root{--ink:#2b1d12;--ink-soft:#5a4633;--red:#8c1c13;--red-br:#b71c1c;--gold:#b8860b;--gold-2:#c8a24b;--paper:#f3e3c3;--paper-2:#ecd9b2;--line:#cdb487;--sea:#2f5b7a;--shadow:rgba(60,40,15,.35);--ok:#3f6b3f;--warn:#9c7a12;--bad:#8c1c13;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;}
+body{font-family:'EB Garamond',Georgia,serif;color:var(--ink);font-size:17px;line-height:1.5;background-color:#e7d2a6;background-image:radial-gradient(ellipse at 20% 0%,#f6e8c9 0,rgba(246,232,201,0) 55%),radial-gradient(ellipse at 100% 100%,#e3cb9c 0,rgba(227,203,156,0) 60%),radial-gradient(circle at 50% 40%,#f1e0bd 0,#e2c896 100%);min-height:100vh;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.wrap{max-width:1080px;margin:0 auto;padding:18px 16px 80px;}
+header.top{text-align:center;position:relative;padding:6px 0 2px;}
+header.top .wheel{font-size:34px;color:var(--red);line-height:1;}
+header.top h1{font-family:'Pirata One',cursive;font-size:clamp(30px,6vw,52px);color:var(--red);margin:0;text-shadow:1px 1px 0 rgba(0,0,0,.12);}
+header.top .sub{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.24em;text-transform:uppercase;font-size:11px;color:var(--ink-soft);margin-top:2px;}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0 4px;}
+.btn{font-family:'Cinzel',serif;font-weight:700;font-size:12px;letter-spacing:.04em;border:1px solid var(--red);background:var(--red);color:#fff;padding:8px 13px;border-radius:2px;cursor:pointer;transition:.15s;}
+.btn:hover{background:var(--red-br);}.btn:focus-visible{outline:3px solid var(--gold-2);outline-offset:2px;}
+.btn.gold{border-color:var(--gold);background:var(--gold);}.btn.gold:hover{background:var(--gold-2);}
+.btn.ghost{background:transparent;color:var(--red);}.btn.ghost:hover{background:rgba(140,28,19,.08);}
+.btn.sm{font-size:11px;padding:5px 9px;}
+.saved{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;color:var(--ink-soft);align-self:center;}
+/* tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin:12px 0 16px;border-bottom:2px solid var(--gold);padding-bottom:0;}
+.tab{font-family:'Cinzel',serif;font-weight:700;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line);border-bottom:none;background:rgba(255,255,255,.35);color:var(--ink-soft);padding:9px 14px;border-radius:4px 4px 0 0;cursor:pointer;margin-bottom:-2px;}
+.tab[aria-selected="true"]{background:linear-gradient(var(--paper),var(--paper-2));color:var(--red);border-color:var(--gold);border-bottom:2px solid var(--paper-2);}
+.tab:focus-visible{outline:2px solid var(--gold-2);}
+section.panel{display:none;}
+section.panel.active{display:block;animation:fade .2s ease;}
+@keyframes fade{from{opacity:.4}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){section.panel.active{animation:none}}
+/* cards */
+.card{background:linear-gradient(var(--paper),var(--paper-2));border:2px solid #6b4f2a;box-shadow:inset 0 0 0 1px var(--gold-2),0 6px 16px var(--shadow);border-radius:3px;padding:14px 16px;margin-bottom:16px;}
+.card h2{font-family:'Cinzel',serif;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin:0 0 10px;border-bottom:1px solid var(--line);padding-bottom:6px;display:flex;align-items:center;gap:7px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+@media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr;}}
+label.fld{display:block;}
+label.fld .lab{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2px;display:block;}
+input.txt,select.txt,textarea.txt{width:100%;font-family:'EB Garamond',serif;font-size:16px;color:var(--ink);background:rgba(255,255,255,.65);border:1px solid var(--line);border-radius:2px;padding:7px 9px;}
+input.txt:focus,select.txt:focus,textarea.txt:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 2px rgba(140,28,19,.15);background:#fff;}
+textarea.txt{resize:vertical;min-height:60px;line-height:1.45;}
+/* stat dice steppers */
+.stat{display:flex;align-items:center;justify-content:space-between;gap:8px;background:rgba(255,255,255,.4);border:1px solid var(--line);border-radius:3px;padding:9px 11px;}
+.stat .info{flex:1;}
+.stat .name{font-family:'Cinzel',serif;font-weight:700;font-size:13px;color:var(--red);text-transform:uppercase;letter-spacing:.05em;}
+.stat .desc{font-size:12.5px;color:var(--ink-soft);}
+.stepper{display:flex;align-items:center;gap:6px;}
+.stepper button{width:26px;height:26px;border:1px solid var(--gold);background:rgba(255,255,255,.6);color:var(--red);font-weight:700;border-radius:50%;cursor:pointer;font-size:15px;line-height:1;}
+.stepper button:hover{background:var(--gold-2);color:#fff;}
+.die{font-family:'Cinzel',serif;font-weight:900;font-size:17px;color:#fff;background:radial-gradient(circle at 35% 30%,#a83227,#6e1410);min-width:42px;text-align:center;padding:5px 4px;border-radius:5px;border:1px solid var(--gold-2);box-shadow:0 2px 4px var(--shadow);}
+.derived{font-family:'Cinzel',serif;font-size:11px;color:var(--ink-soft);margin-top:3px;}
+.derived b{color:var(--red);}
+/* PS gauge */
+.gauge{margin-top:4px;}
+.gauge .track{height:22px;background:#d8c49a;border:1px solid #6b4f2a;border-radius:11px;overflow:hidden;position:relative;}
+.gauge .fill{height:100%;transition:width .25s,background .25s;border-radius:11px 0 0 11px;}
+.gauge .pslabel{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:12px;color:#2b1d12;text-shadow:0 1px 0 rgba(255,255,255,.4);}
+.cond{display:inline-block;font-family:'Cinzel',serif;font-weight:700;font-size:12px;letter-spacing:.08em;padding:3px 10px;border-radius:11px;color:#fff;margin-top:6px;}
+.psctrl{display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap;}
+.psctrl input{width:64px;}
+/* result box */
+.result{margin-top:10px;background:#fff8ea;border:1px dashed var(--gold);border-radius:3px;padding:8px 11px;min-height:20px;font-size:14.5px;}
+.result .roll{margin:3px 0;}
+.result .roll .tot{font-family:'Cinzel',serif;font-weight:900;color:var(--red);}
+.tag{display:inline-block;font-family:'Cinzel',serif;font-weight:700;font-size:11px;padding:1px 7px;border-radius:9px;color:#fff;}
+.man-btns{display:flex;flex-wrap:wrap;gap:8px;}
+.man-btns .btn{flex:0 0 auto;}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.muted{color:var(--ink-soft);font-size:13px;}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:rgba(255,255,255,.5);border-radius:14px;padding:4px 10px;font-size:13px;cursor:pointer;}
+.chip.broken{background:#fbe3e0;border-color:var(--red);color:var(--red);text-decoration:line-through;}
+.mod{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;border:1px solid var(--line);background:rgba(255,255,255,.45);border-radius:3px;padding:8px 11px;margin-bottom:7px;}
+.mod .mname{font-family:'Cinzel',serif;font-weight:700;color:var(--red);font-size:13px;}
+.mod .meff{font-size:13px;color:var(--ink);}
+.mod .x{border:none;background:none;color:var(--red);cursor:pointer;font-size:15px;}
+.slotbar{font-family:'Cinzel',serif;font-size:13px;color:var(--ink-soft);margin-bottom:8px;}
+.slotbar b{color:var(--red);font-size:16px;}
+.crewrow{display:grid;grid-template-columns:1.1fr 1.4fr 0.9fr;gap:8px;align-items:center;margin-bottom:7px;}
+@media(max-width:640px){.crewrow{grid-template-columns:1fr;}}
+.crewrow .ruolo{font-family:'Cinzel',serif;font-weight:700;font-size:12.5px;color:var(--red);}
+.crewrow .att{font-size:11px;color:var(--ink-soft);}
+.note-foot{text-align:center;font-family:'Cinzel',serif;font-size:12px;color:var(--ink-soft);letter-spacing:.06em;margin-top:8px;}
+.help{font-size:13.5px;color:var(--ink-soft);background:#fff8ea;border-left:4px solid var(--gold);border-radius:2px;padding:8px 11px;margin-bottom:12px;}
+@media print{.toolbar,.tabs,.man-btns,.psctrl,.stepper button,.btn{display:none!important;}section.panel{display:block!important;}body{background:#fff;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="wheel">☸</div>
+    <h1>Portale della Nave</h1>
+    <div class="sub">Grand Line Chronicles · plancia di comando</div>
+  </header>
+  <div class="toolbar">
+    <button class="btn gold sm" id="presetBtn">⚓ Nave di partenza</button>
+    <button class="btn sm" onclick="window.print()">🖨 Stampa</button>
+    <button class="btn ghost sm" id="exportBtn">⬇ Esporta</button>
+    <button class="btn ghost sm" id="importBtn">⬆ Importa</button>
+    <button class="btn ghost sm" id="resetBtn">↺ Azzera</button>
+    <span class="saved" id="saved">salvato</span>
+    <input type="file" id="importFile" accept="application/json" style="display:none;" />
+  </div>
+  <div class="tabs" role="tablist" id="tabs"></div>
+
+  <section class="panel" data-tab="Plancia" id="p-plancia"></section>
+  <section class="panel" data-tab="Equipaggio" id="p-equipaggio"></section>
+  <section class="panel" data-tab="Battaglia" id="p-battaglia"></section>
+  <section class="panel" data-tab="Navigazione" id="p-navigazione"></section>
+  <section class="panel" data-tab="Cantiere" id="p-cantiere"></section>
+  <section class="panel" data-tab="Diario" id="p-diario"></section>
+
+  <div class="note-foot">La nave non è solo un mezzo: è casa, fortezza e compagna di viaggio. ⚓</div>
+</div>
+
+<script>
+"use strict";
+const KEY="glc_nave_v1";
+const DICE_SHIP=["d4","d6","d8","d10","d12"];
+const DICE_ATTR=["—","d4","d6","d8","d10","d12","d20"];
+const PS_BY_DIE={d4:20,d6:30,d8:40,d10:50,d12:60};
+const SLOT_BY_DIE={d4:1,d6:2,d8:3,d10:5,d12:7};
+const STATIONS=[
+ {key:"capitano",ruolo:"Capitano",att:"Spirito",use:"bonus a un alleato"},
+ {key:"timoniere",ruolo:"Timoniere",att:"Astuzia",use:"Vele · Navigazione"},
+ {key:"cannoniere",ruolo:"Cannoniere",att:"Tecnica",use:"Artiglieria"},
+ {key:"vedetta",ruolo:"Vedetta",att:"Astuzia",use:"anti-sorpresa"},
+ {key:"ingegnere",ruolo:"Ingegnere",att:"Astuzia",use:"Riparazioni"},
+ {key:"combattente",ruolo:"Combattente di bordo",att:"Forza/Tecnica",use:"abbordaggio"},
+];
+const CATALOG=[
+ {nome:"Cannoni gemelli",slot:1,eff:"Una cannonata extra per scena."},
+ {nome:"Sperone d'acciaio",slot:1,eff:"Speronamento: +1 gradino di danno."},
+ {nome:"Batteria pesante",slot:2,eff:"Cannonate: +1 gradino di danno, 1 volta per scena."},
+ {nome:"Arpioni d'abbordaggio",slot:1,eff:"+1 dado in abbordaggio; trattieni la nave nemica."},
+ {nome:"Compartimenti stagni",slot:1,eff:"La nave resiste oltre lo 0: affonda solo a −10 PS."},
+ {nome:"Scafo corazzato",slot:2,eff:"Riduci di 2 i danni subiti dalle cannonate."},
+ {nome:"Rete antiabbordaggio",slot:1,eff:"I nemici hanno +2 soglia per abbordarti."},
+ {nome:"Chiglia veloce",slot:1,eff:"Le evasioni nemiche hanno +1 soglia; +iniziativa."},
+ {nome:"Coup de Burst (vele a scoppio)",slot:2,eff:"1×/scena: un balzo o una fuga automatica."},
+ {nome:"Timone gemello",slot:1,eff:"Manovra Evasiva: +1 dado."},
+ {nome:"Stiva ampliata",slot:1,eff:"+cargo e provviste trasportabili."},
+ {nome:"Officina di bordo",slot:2,eff:"Riparazioni: −25% ore e +1 dado."},
+ {nome:"Polena vivente",slot:1,eff:"1×/avventura la nave resiste a un colpo fatale (resta a 1 PS)."},
+ {nome:"Cabina del navigatore",slot:1,eff:"+1 dado ai tiri di Navigazione."},
+];
+const MATERIALS=[
+ {id:"legname",nome:"Legname comune",rar:"Comune",soglia:4,costo:500,note:"Tavole e travi da carpenteria"},
+ {id:"corda",nome:"Corda e tela",rar:"Comune",soglia:4,costo:400,note:"Per vele, sartie e legature"},
+ {id:"catrame",nome:"Catrame e pece",rar:"Comune",soglia:4,costo:300,note:"Sigilla e impermeabilizza"},
+ {id:"ferramenta",nome:"Ferramenta",rar:"Comune",soglia:4,costo:600,note:"Chiodi, staffe, cardini"},
+ {id:"stagionato",nome:"Legno stagionato",rar:"Non comune",soglia:8,costo:2000,note:"Per alberi, timoni e strutture portanti"},
+ {id:"tela_r",nome:"Tela rinforzata",rar:"Non comune",soglia:8,costo:1500,note:"Vele di qualità"},
+ {id:"meccanica",nome:"Componenti meccanici",rar:"Non comune",soglia:8,costo:2500,note:"Ingranaggi, perni, carrucole di precisione"},
+ {id:"metallo",nome:"Metallo navale",rar:"Raro",soglia:12,costo:6000,note:"Bronzo e acciaio per cannoni e rinforzi"},
+ {id:"quercia",nome:"Quercia del Grand Line",rar:"Raro",soglia:12,costo:8000,note:"Legno pregiato da scafo"},
+ {id:"adam",nome:"Adam Wood",rar:"Leggendario",soglia:18,costo:0,note:"Solo narrativo: il legno delle navi leggendarie"},
+];
+const MAT_NAME=Object.fromEntries(MATERIALS.map(m=>[m.id,m.nome]));
+function matStr(req){return req.map(([id,q])=>q+"\u00d7 "+MAT_NAME[id]).join(", ");}
+const UPG_MATS={
+ scafo:{d6:[["legname",3],["catrame",1]],d8:[["stagionato",2],["catrame",1]],d10:[["quercia",2],["catrame",2]],d12:[["adam",1],["quercia",2]]},
+ vele:{d6:[["corda",3]],d8:[["tela_r",2],["corda",1]],d10:[["tela_r",3],["stagionato",1]],d12:[["adam",1],["tela_r",3]]},
+ artiglieria:{d6:[["ferramenta",2],["legname",1]],d8:[["metallo",1],["meccanica",1]],d10:[["metallo",2],["meccanica",2]],d12:[["adam",1],["metallo",3]]},
+ struttura:{d6:[["legname",2],["ferramenta",1]],d8:[["stagionato",2],["ferramenta",2]],d10:[["quercia",1],["stagionato",2],["meccanica",1]],d12:[["adam",1],["quercia",2],["meccanica",2]]},
+};
+const REPAIRS=[
+ {t:"Condizione: Danneggiata",ore:16,s:8,mat:[["legname",2],["catrame",1]],ok:"Rimuovi la condizione (+4: +10 PS).",ko:"Peggiora a Grave, −5 PS."},
+ {t:"Condizione: Grave",ore:32,s:10,mat:[["legname",3],["stagionato",1],["catrame",2]],ok:"Torna a Danneggiata (+4: +8 PS).",ko:"Torna Critica + un modulo a caso si rompe."},
+ {t:"Condizione: Critica",ore:48,s:12,mat:[["stagionato",3],["ferramenta",2],["catrame",2]],ok:"Torna a Grave.",ko:"Perdi altri 1d6 PS + evento del Capitano."},
+ {t:"Scafo: danno lieve (1–10 PS)",ore:8,s:7,mat:[["legname",1],["catrame",1]],ok:"Recuperi i PS persi (+4: +2).",ko:"Nessun recupero."},
+ {t:"Modulo: Albero maestro",ore:24,s:10,mat:[["stagionato",2],["corda",2]],ok:"Ripristinato: Vele a dado pieno.",ko:"Crollo: −2 dadi Vele fino al porto."},
+ {t:"Modulo: Timone",ore:16,s:9,mat:[["stagionato",1],["meccanica",1]],ok:"Ripristinato: manovre normali.",ko:"Si rompe: deriva, niente evasiva."},
+ {t:"Modulo: Batteria cannoni",ore:20,s:10,mat:[["metallo",1],["meccanica",1]],ok:"Ripristinata: Artiglieria a dado pieno.",ko:"Esplosione: 1d6 PS alla nave."},
+ {t:"Modulo: Stiva",ore:12,s:8,mat:[["legname",2],["ferramenta",1]],ok:"Ripristinata: nessuna perdita cargo.",ko:"Stiva inutilizzabile, cargo perso."},
+ {t:"Modulo: Sala macchine/remi",ore:20,s:9,mat:[["meccanica",2],["metallo",1]],ok:"Ripristinata: movimento normale.",ko:"Deriva totale fino al porto."},
+ {t:"Modulo: Scafo sotto la linea",ore:32,s:12,mat:[["quercia",2],["catrame",2]],ok:"Ripristinato: PS massimi a pieno.",ko:"Falla grave: −15 PS max."},
+];
+const DESTRUCT=[
+ {key:"albero",nome:"Albero maestro",eff:"Vele −1 dado; velocità dimezzata."},
+ {key:"timone",nome:"Timone",eff:"Niente Manovra Evasiva."},
+ {key:"batteria",nome:"Batteria cannoni",eff:"Artiglieria −1 dado."},
+ {key:"stiva",nome:"Stiva",eff:"Cargo danneggiato o perso."},
+ {key:"macchine",nome:"Sala macchine",eff:"Impossibile muoversi attivamente."},
+ {key:"scafo",nome:"Scafo sotto la linea",eff:"−10 PS massimi permanenti."},
+];
+const PNG_DIM={
+ "Scheletro (3–5)":{dado:"d4",tiri:"1 tiro/turno",costo:"5.000 Berry/mese"},
+ "Ridotto (6–10)":{dado:"d6",tiri:"1 tiro/turno",costo:"15.000 Berry/mese"},
+ "Completo (11–20)":{dado:"d6",tiri:"2 tiri/turno",costo:"35.000 Berry/mese"},
+ "Esperto (21+)":{dado:"d8",tiri:"2 tiri/turno",costo:"80.000 Berry/mese"},
+};
+
+function blank(){return{nome:"",tipo:"",polena:"",legno:"",
+ stats:{scafo:"d6",vele:"d6",artiglieria:"d6",struttura:"d6"},
+ psCur:30,psMaxMod:0,
+ crew:{capitano:{nome:"",attr:"—"},timoniere:{nome:"",attr:"—"},cannoniere:{nome:"",attr:"—"},vedetta:{nome:"",attr:"—"},ingegnere:{nome:"",attr:"—"},combattente:{nome:"",attr:"—"}},
+ carpenteria:"d6",
+ moduli:[],
+ distrutti:{albero:false,timone:false,batteria:false,stiva:false,macchine:false,scafo:false},
+ png:{dim:"Ridotto (6–10)",lealta:5},
+ magazzino:{},
+ berry:0,cargo:"",note:"",log:[]};}
+let S=blank();
+const $=s=>document.querySelector(s);
+function el(t,p,k){const e=document.createElement(t);if(p)for(const x in p){if(x==="class")e.className=p[x];else if(x==="html")e.innerHTML=p[x];else if(x==="text")e.textContent=p[x];else if(x.slice(0,2)==="on")e[x.toLowerCase()]=p[x];else e.setAttribute(x,p[x]);}if(k!=null)(Array.isArray(k)?k:[k]).forEach(c=>{if(c==null)return;e.appendChild(typeof c==="string"?document.createTextNode(c):c);});return e;}
+let saveT;function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}const sv=$("#saved");if(sv){sv.textContent="salvato ✓";clearTimeout(saveT);saveT=setTimeout(()=>sv.textContent="salvato",1200);}}
+function load(){try{const s=localStorage.getItem(KEY);if(s)S=Object.assign(blank(),JSON.parse(s));}catch(e){}}
+
+function psMax(){return Math.max(1,(PS_BY_DIE[S.stats.scafo]||30)+(S.psMaxMod||0));}
+function slotsTot(){return SLOT_BY_DIE[S.stats.struttura]||2;}
+function slotsUsed(){return S.moduli.reduce((a,m)=>a+(m.slot||1),0);}
+function condition(){const pct=S.psCur/psMax()*100;if(S.psCur<=0)return["AFFONDATA","#3a3a3a"];if(pct>75)return["INTEGRA","#3f6b3f"];if(pct>50)return["DANNEGGIATA","#9c7a12"];if(pct>25)return["GRAVE","#c2691b"];return["CRITICA","#8c1c13"];}
+function esitoMargine(m){if(m>=4)return["Successo pieno","#9c7a12"];if(m>=1)return["Successo","#3f6b3f"];if(m===0)return["Stentato","#8a6a1e"];if(m>=-3)return["Fallimento parziale","#c2691b"];return["Fallimento grave","#8c1c13"];}
+
+/* ---------- TABS ---------- */
+const TABS=["Plancia","Equipaggio","Battaglia","Navigazione","Cantiere","Diario"];
+function buildTabs(){const t=$("#tabs");TABS.forEach((name,i)=>{const b=el("button",{class:"tab",role:"tab","aria-selected":i===0?"true":"false",text:name,onClick:()=>selectTab(name)});t.appendChild(b);});}
+function selectTab(name){[...$("#tabs").children].forEach(b=>b.setAttribute("aria-selected",b.textContent===name?"true":"false"));document.querySelectorAll("section.panel").forEach(p=>p.classList.toggle("active",p.dataset.tab===name));window.scrollTo({top:0,behavior:"smooth"});}
+
+/* ---------- helpers ---------- */
+function field(lab,key,obj,type){const inp=el(type==="area"?"textarea":"input",{class:"txt",value:obj[key]||""});if(type&&type!=="area")inp.type=type;inp.oninput=()=>{obj[key]=type==="number"?(parseInt(inp.value)||0):inp.value;save();};return el("label",{class:"fld"},[el("span",{class:"lab",text:lab}),inp]);}
+function selField(lab,key,obj,opts,onchange){const sel=el("select",{class:"txt"});opts.forEach(o=>sel.appendChild(el("option",{value:o,text:o})));sel.value=obj[key];sel.onchange=()=>{obj[key]=sel.value;save();if(onchange)onchange();};return el("label",{class:"fld"},[el("span",{class:"lab",text:lab}),sel]);}
+function poolFor(shipDie,crewKey){const pool=[shipDie];const a=S.crew[crewKey]&&S.crew[crewKey].attr;if(a&&a!=="—")pool.push(a);return pool;}
+function poolLabel(shipDie,statName,crewKey,attName){const c=S.crew[crewKey]||{};const who=c.nome?(" di "+c.nome):"";const att=(c.attr&&c.attr!=="—")?(c.attr+" ("+attName+who+")"):"⚠ nessuno alla postazione";return "<b>"+shipDie+"</b> ("+statName+") + <b>"+att+"</b>";}
+function evalRow(label,sogliaGetter,onEsito){const wrap=el("div",{class:"stat",style:"align-items:center"});
+ const info=el("div",{class:"info"});wrap.appendChild(info);
+ const inp=el("input",{class:"txt",type:"number",placeholder:"totale"});inp.style.width="84px";
+ const out=el("span",{class:"tag",style:"background:#9a9a9a",text:"—"});
+ const upd=()=>{const t=parseInt(inp.value);if(isNaN(t)){out.textContent="—";out.style.background="#9a9a9a";return;}const s=sogliaGetter();const m=t-s;const[es,col]=esitoMargine(m);out.textContent=(m>=0?"+":"")+m+" · "+es;out.style.background=col;if(onEsito)onEsito(m,t);};
+ inp.oninput=upd;
+ wrap.appendChild(el("div",{class:"stepper",style:"gap:8px"},[inp,out]));
+ return {wrap,info,upd};}
+
+/* ---------- PLANCIA ---------- */
+function renderPlancia(){const p=$("#p-plancia");p.innerHTML="";
+ const id=el("div",{class:"card"},[el("h2",{html:"🚢 Identità"}),
+   el("div",{class:"grid2"},[field("Nome della nave","nome",S),field("Tipo","tipo",S),field("Polena (figurehead)","polena",S),field("Legno","legno",S)])]);
+ p.appendChild(id);
+ // statistiche
+ const sc=el("div",{class:"card"});sc.appendChild(el("h2",{html:"📊 Statistiche <span class='muted' style='font-weight:400;text-transform:none;letter-spacing:0'>— salgono solo col cantiere</span>"}));
+ const statDefs=[["scafo","Scafo","Resistenza → Punti Struttura"],["vele","Vele","Velocità, manovre, iniziativa"],["artiglieria","Artiglieria","Potenza dei cannoni"],["struttura","Struttura","Slot per gli upgrade"]];
+ statDefs.forEach(([k,nm,desc])=>{
+   const dieEl=el("span",{class:"die",text:S.stats[k]});
+   const der=el("div",{class:"derived"});
+   const upd=()=>{dieEl.textContent=S.stats[k];if(k==="scafo")der.innerHTML="PS massimi: <b>"+psMax()+"</b>";else if(k==="struttura")der.innerHTML="Slot: <b>"+slotsTot()+"</b> (usati "+slotsUsed()+")";else der.textContent="";updatePS();renderCantiere();};
+   const step=dir=>{const i=DICE_SHIP.indexOf(S.stats[k]);const ni=Math.min(DICE_SHIP.length-1,Math.max(0,i+dir));S.stats[k]=DICE_SHIP[ni];if(k==="scafo"&&S.psCur>psMax())S.psCur=psMax();save();upd();};
+   if(k==="scafo")der.innerHTML="PS massimi: <b>"+psMax()+"</b>";if(k==="struttura")der.innerHTML="Slot: <b>"+slotsTot()+"</b> (usati "+slotsUsed()+")";
+   sc.appendChild(el("div",{class:"stat"},[el("div",{class:"info"},[el("div",{class:"name",text:nm}),el("div",{class:"desc",text:desc}),der]),el("div",{class:"stepper"},[el("button",{text:"−","aria-label":"diminuisci",onClick:()=>step(-1)}),dieEl,el("button",{text:"+","aria-label":"aumenta",onClick:()=>step(1)})])]));
+ });
+ sc.appendChild(el("div",{class:"derived",style:"margin-top:8px",html:"Riferimento — PS Scafo: d6=30 · d8=40 · d10=50 · d12=60 · &nbsp; Slot Struttura: d6=2 · d8=3 · d10=5 · d12=7"}));
+ p.appendChild(sc);
+ // PS gauge
+ const g=el("div",{class:"card"});g.appendChild(el("h2",{html:"⚙ Punti Struttura & Condizione"}));
+ const track=el("div",{class:"track"});const fill=el("div",{class:"fill"});const psl=el("div",{class:"pslabel"});track.appendChild(fill);track.appendChild(psl);
+ const condEl=el("span",{class:"cond"});
+ const dmg=el("input",{class:"txt",type:"number",value:"1"});dmg.style.width="64px";
+ const applyD=v=>{S.psCur=Math.max(0,Math.min(psMax(),S.psCur+v));save();updatePS();};
+ const ctrl=el("div",{class:"psctrl"},[
+   el("button",{class:"btn sm",text:"− danno",onClick:()=>applyD(-(parseInt(dmg.value)||0))}),
+   dmg,
+   el("button",{class:"btn gold sm",text:"+ ripara",onClick:()=>applyD(parseInt(dmg.value)||0)}),
+   el("span",{class:"muted",text:"PS attuali:"}),
+   (()=>{const i=el("input",{class:"txt",type:"number",value:S.psCur});i.style.width="70px";i.oninput=()=>{S.psCur=Math.max(0,parseInt(i.value)||0);save();updatePS();};g._psInput=i;return i;})(),
+ ]);
+ g.appendChild(el("div",{class:"gauge"},[track]));g.appendChild(condEl);g.appendChild(ctrl);
+ g._fill=fill;g._psl=psl;g._cond=condEl;
+ p.appendChild(g);
+ window._gauge=g;updatePS();
+}
+function updatePS(){const g=window._gauge;if(!g)return;const mx=psMax();const pct=Math.max(0,Math.min(100,S.psCur/mx*100));const[cn,col]=condition();g._fill.style.width=pct+"%";g._fill.style.background=col;g._psl.textContent=S.psCur+" / "+mx+" PS";g._cond.textContent="Condizione: "+cn;g._cond.style.background=col;if(g._psInput&&document.activeElement!==g._psInput)g._psInput.value=S.psCur;
+ // refresh scafo derived if present
+}
+
+/* ---------- EQUIPAGGIO ---------- */
+function renderEquipaggio(){const p=$("#p-equipaggio");p.innerHTML="";
+ const c=el("div",{class:"card"});c.appendChild(el("h2",{html:"👥 Postazioni"}));
+ c.appendChild(el("div",{class:"help",text:"Ogni manovra usa il dado della nave + l'Attributo di chi è alla postazione. Assegna i compagni e il loro dado."}));
+ STATIONS.forEach(st=>{
+   const nameInp=el("input",{class:"txt",value:S.crew[st.key].nome,placeholder:"Nome del compagno"});nameInp.oninput=()=>{S.crew[st.key].nome=nameInp.value;save();};
+   const sel=el("select",{class:"txt"});DICE_ATTR.forEach(o=>sel.appendChild(el("option",{value:o,text:o==="—"?"— nessun dado —":o})));sel.value=S.crew[st.key].attr;sel.onchange=()=>{S.crew[st.key].attr=sel.value;save();};
+   c.appendChild(el("div",{class:"crewrow"},[
+     el("div",{},[el("div",{class:"ruolo",text:st.ruolo}),el("div",{class:"att",text:st.att+" · "+st.use})]),
+     nameInp,sel]));
+ });
+ p.appendChild(c);
+ // PNG
+ const png=el("div",{class:"card"});png.appendChild(el("h2",{html:"🪝 Equipaggio PNG"}));
+ const info=el("div",{class:"derived"});
+ const updPng=()=>{const d=PNG_DIM[S.png.dim];info.innerHTML="Dado <b>"+d.dado+"</b> · "+d.tiri+" · "+d.costo;};
+ png.appendChild(selField("Dimensione","dim",S.png,Object.keys(PNG_DIM),()=>updPng()));
+ png.appendChild(info);updPng();
+ const ld=el("span",{class:"die",text:S.png.lealta,style:"background:radial-gradient(circle at 35% 30%,#c8a24b,#8a6a1e)"});
+ const stepL=dir=>{S.png.lealta=Math.max(0,Math.min(10,S.png.lealta+dir));ld.textContent=S.png.lealta;save();};
+ png.appendChild(el("div",{class:"stat",style:"margin-top:10px"},[el("div",{class:"info"},[el("div",{class:"name",text:"Lealtà"}),el("div",{class:"desc",text:"Cresce con paga puntuale, vittorie e cibo del Cuoco; cala con sconfitte e stipendi saltati."})]),el("div",{class:"stepper"},[el("button",{text:"−",onClick:()=>stepL(-1)}),ld,el("button",{text:"+",onClick:()=>stepL(1)})])]));
+ p.appendChild(png);
+}
+
+/* ---------- BATTAGLIA ---------- */
+function renderBattaglia(){const p=$("#p-battaglia");p.innerHTML="";
+ const c=el("div",{class:"card"});c.appendChild(el("h2",{html:"⚔ Manovre — 1 per turno"}));
+ c.appendChild(el("div",{class:"help",text:"I dadi li tirano i giocatori. Qui sotto, per ogni manovra, vedi COSA tirare e contro quale soglia: inserisci il totale ottenuto e leggi subito margine ed esito."}));
+ // distanza
+ let dist=12;const distSel=el("select",{class:"txt"});[["Vicina (≤50 m) · soglia 8",8],["Media (50–500 m) · soglia 12",12],["Lontana (>500 m) · soglia 14",14]].forEach(([t,v])=>distSel.appendChild(el("option",{value:v,text:t})));distSel.value=12;distSel.style.maxWidth="300px";
+ const sogInp=el("input",{class:"txt",type:"number",value:8});sogInp.style.width="70px";
+ c.appendChild(el("div",{class:"row",style:"margin-bottom:10px"},[el("span",{class:"muted",text:"Distanza (cannonate):"}),distSel,el("span",{class:"muted",text:"Soglia (altre manovre):"}),sogInp]));
+ const rows=[];
+ const addRow=(nome,statKey,statName,crewKey,attName,sogliaGetter,extra)=>{
+   const r=evalRow(nome,sogliaGetter);
+   const upd=()=>{r.info.innerHTML="<div class='name'>"+nome+"</div><div class='desc'>Tira: "+poolLabel(S.stats[statKey],statName,crewKey,attName)+" · soglia <b>"+sogliaGetter()+"</b>"+(extra?("<br>"+extra):"")+"</div>";r.upd();};
+   rows.push(upd);upd();c.appendChild(r.wrap);};
+ addRow("Cannonate","artiglieria","Artiglieria","cannoniere","Tecnica",()=>dist,"Se colpisci: il nemico perde PS pari al tiro del dado Artiglieria ("+S.stats.artiglieria+").");
+ addRow("Manovra Evasiva","vele","Vele","timoniere","Astuzia",()=>parseInt(sogInp.value)||8,"Se riesci: la prossima cannonata nemica contro di te ha soglia +4.");
+ addRow("Speronamento","scafo","Scafo","capitano","Forza",()=>parseInt(sogInp.value)||8,"Se vinci: danno = tiro del dado Scafo ("+S.stats.scafo+"). La tua nave perde comunque 1d4 PS.");
+ addRow("Fuga","vele","Vele","timoniere","Astuzia",()=>parseInt(sogInp.value)||8,"Se perdi: il nemico ha una cannonata d'opportunità.");
+ addRow("Riparazione d'emergenza","struttura","Struttura","ingegnere","Astuzia",()=>parseInt(sogInp.value)||8,"Se riesci: recupera PS al volo (applicali dalla Plancia).");
+ distSel.onchange=()=>{dist=parseInt(distSel.value);rows.forEach(f=>f());};
+ sogInp.oninput=()=>rows.forEach(f=>f());
+ p.appendChild(c);
+ // moduli distruttibili
+ const md=el("div",{class:"card"});md.appendChild(el("h2",{html:"💥 Moduli distruttibili — in Critica"}));
+ md.appendChild(el("div",{class:"help",text:"Quando la nave è Critica, a ogni turno un giocatore tira 1d6: tocca il modulo col numero uscito per segnarlo distrutto (ritocca per ripararlo)."}));
+ const chips=el("div",{class:"row",style:"margin-bottom:8px"});
+ const renderChips=()=>{chips.innerHTML="";DESTRUCT.forEach((d,i)=>{const ch=el("span",{class:"chip"+(S.distrutti[d.key]?" broken":""),title:d.eff,text:(i+1)+" · "+d.nome,onClick:()=>{toggleDestruct(d.key);renderChips();}});chips.appendChild(ch);});};
+ md.appendChild(chips);renderChips();
+ const leg=el("div",{class:"muted"});leg.innerHTML=DESTRUCT.map((d,i)=>"<b>"+(i+1)+"</b> "+d.nome+": "+d.eff).join("<br>");
+ md.appendChild(leg);
+ p.appendChild(md);
+}
+function toggleDestruct(key){const was=S.distrutti[key];S.distrutti[key]=!was;if(key==="scafo"){S.psMaxMod+=(!was?-10:10);if(S.psCur>psMax())S.psCur=psMax();updatePS();renderPlancia&&document.querySelector("#p-plancia").children.length&&renderPlancia();}save();}
+
+/* ---------- NAVIGAZIONE ---------- */
+function renderNavigazione(){const p=$("#p-navigazione");p.innerHTML="";
+ const c=el("div",{class:"card"});c.appendChild(el("h2",{html:"🧭 Navigazione"}));
+ c.appendChild(el("div",{class:"help",text:"Il Timoniere tira al tavolo. Inserisci il totale e leggi l'esito della traversata."}));
+ const pool=el("div",{class:"derived",style:"margin-bottom:8px"});
+ const updPool=()=>{pool.innerHTML="Tira: "+poolLabel(S.stats.vele,"Vele","timoniere","Astuzia")+" (+ eventuali strumenti: Log Pose, carte, barometro)";};
+ updPool();c.appendChild(pool);
+ const outcome=t=>{if(t>=20)return["Perfetta — corrente favorevole, PS intatti","#3f6b3f"];if(t>=14)return["Riuscita — nessun incidente","#3f6b3f"];if(t>=8)return["Faticosa — un incontro o complicazione minore","#9c7a12"];if(t>=4)return["Difficile — 1d6 PS di danno (falli tirare) e ritardo","#c2691b"];return["Disastrosa — evento maggiore del Capitano","#8c1c13"];};
+ const inp=el("input",{class:"txt",type:"number",placeholder:"totale del tiro"});inp.style.width="130px";
+ const out=el("span",{class:"tag",style:"background:#9a9a9a",text:"—"});
+ inp.oninput=()=>{const t=parseInt(inp.value);if(isNaN(t)){out.textContent="—";out.style.background="#9a9a9a";return;}const[txt,col]=outcome(t);out.textContent=txt;out.style.background=col;};
+ c.appendChild(el("div",{class:"row"},[inp,out]));
+ // applicatore danno
+ const dmg=el("input",{class:"txt",type:"number",placeholder:"PS"});dmg.style.width="70px";
+ c.appendChild(el("div",{class:"row",style:"margin-top:12px"},[el("span",{class:"muted",text:"Danno da traversata (se Difficile, il giocatore tira 1d6):"}),dmg,el("button",{class:"btn sm",text:"− applica ai PS",onClick:()=>{const v=parseInt(dmg.value)||0;if(v>0){S.psCur=Math.max(0,S.psCur-v);save();updatePS();dmg.value="";}}})]));
+ c.appendChild(el("div",{class:"muted",style:"margin-top:10px",text:"Riferimento esiti: 20+ Perfetta · 14–19 Riuscita · 8–13 Faticosa · 4–7 Difficile · 1–3 Disastrosa."}));
+ p.appendChild(c);
+}
+
+/* ---------- CANTIERE ---------- */
+function renderCantiere(){const p=$("#p-cantiere");if(!p)return;p.innerHTML="";
+ // spiegazione
+ const ex=el("div",{class:"card"});ex.appendChild(el("h2",{html:"🛠 Cantiere — due tipi di miglioria"}));
+ ex.appendChild(el("div",{class:"help",html:"<b>Tipo A — Potenziare un dado:</b> rendi migliore una statistica (Scafo/Vele/Artiglieria/Struttura). Tiro di cantiere qui sotto, sale di 1 gradino, tetto d12. Non usa slot.<br><b>Tipo B — Installare un modulo:</b> aggiungi un equipaggiamento con un effetto. Occupa uno slot (gli slot dipendono dal dado Struttura)."}));
+ p.appendChild(ex);
+ // Tipo A — potenziamento
+ const up=el("div",{class:"card"});up.appendChild(el("h2",{html:"⬆ Potenziare un dado (Tipo A)"}));
+ up.appendChild(el("div",{class:"help",html:"Due strade — <b>Cantiere esterno:</b> paghi solo Berry (e non pochi), nessun tiro: premi direttamente «Applica +1», è garantito. <b>Fai da te:</b> la ciurma tira Astuzia + Carpenteria, tu inserisci il totale qui sotto e leggi l'esito. Lo stesso vale per riparazioni e moduli: al cantiere paghi e salti il tiro."}));
+ const carpSel=el("select",{class:"txt"});["d4","d6","d8","d10","d12","d20"].forEach(o=>carpSel.appendChild(el("option",{value:o,text:o})));carpSel.value=S.carpenteria;carpSel.onchange=()=>{S.carpenteria=carpSel.value;save();renderCantiere();};
+ const targetSoglia=cur=>{const i=DICE_SHIP.indexOf(cur);const next=DICE_SHIP[i+1];const soglie={d6:8,d8:10,d10:12,d12:14};return next?[next,soglie[next]]:[null,null];};
+ const carpPool=()=>{const ia=S.crew.ingegnere.attr;const a=(ia&&ia!=="—")?("<b>"+ia+"</b> (Astuzia"+(S.crew.ingegnere.nome?" di "+S.crew.ingegnere.nome:"")+")"):"⚠ nessun Ingegnere";return a+" + <b>"+S.carpenteria+"</b> (Carpenteria)";};
+ const haveMats=req=>req.every(([id,q])=>(S.magazzino[id]||0)>=q);
+ const matLine=req=>{const ok=haveMats(req);return "Materiali: "+matStr(req)+" "+(ok?"<span style='color:#3f6b3f;font-weight:700'>✓ in magazzino</span>":"<span style='color:#8c1c13;font-weight:700'>✗ mancanti</span>");};
+ const consume=req=>{req.forEach(([id,q])=>{S.magazzino[id]=Math.max(0,(S.magazzino[id]||0)-q);});save();};
+ [["scafo","Scafo"],["vele","Vele"],["artiglieria","Artiglieria"],["struttura","Struttura"]].forEach(([k,nm])=>{
+   const[next,sog]=targetSoglia(S.stats[k]);
+   if(!next){up.appendChild(el("div",{class:"stat"},[el("div",{class:"info"},[el("div",{class:"name",text:nm}),el("div",{class:"desc",text:"Attuale "+S.stats[k]+" — già al massimo (d12)"})])]));return;}
+   const r=evalRow(nm,()=>sog);
+   const req=(UPG_MATS[k]&&UPG_MATS[k][next])||[];
+   r.info.innerHTML="<div class='name'>"+nm+" → "+next+"</div><div class='desc'>Fai da te — tira: "+carpPool()+" · soglia <b>"+sog+"</b><br>"+matLine(req)+"</div>";
+   const apply=el("button",{class:"btn gold sm",text:"Applica +1",onClick:()=>{const i=DICE_SHIP.indexOf(S.stats[k]);if(i<DICE_SHIP.length-1){S.stats[k]=DICE_SHIP[i+1];if(S.psCur>psMax())S.psCur=psMax();save();renderPlancia();renderCantiere();updatePS();}}});
+   const useMats=el("button",{class:"btn ghost sm",text:"− usa materiali",title:"Scala dal magazzino i materiali richiesti",onClick:()=>{consume(req);renderCantiere();}});
+   r.wrap.querySelector(".stepper").appendChild(useMats);
+   r.wrap.querySelector(".stepper").appendChild(apply);
+   up.appendChild(r.wrap);
+ });
+ up.appendChild(el("div",{class:"row",style:"margin-top:8px"},[el("span",{class:"muted",text:"Dado Carpenteria dell'Ingegnere:"}),(()=>{carpSel.style.maxWidth="90px";return carpSel;})()]));
+ p.appendChild(up);
+ // Tipo B — moduli
+ const mod=el("div",{class:"card"});mod.appendChild(el("h2",{html:"🧩 Moduli installati (Tipo B)"}));
+ const used=slotsUsed(),tot=slotsTot();
+ mod.appendChild(el("div",{class:"slotbar",html:"Slot: <b>"+used+"</b> / "+tot+" usati · "+Math.max(0,tot-used)+" liberi"}));
+ const list=el("div");
+ S.moduli.forEach((m,idx)=>{list.appendChild(el("div",{class:"mod"},[el("div",{},[el("div",{class:"mname",text:m.nome+" · "+m.slot+" slot"}),el("div",{class:"meff",text:m.eff})]),el("button",{class:"x",title:"rimuovi",text:"✕",onClick:()=>{S.moduli.splice(idx,1);save();renderCantiere();}})]));});
+ if(S.moduli.length===0)list.appendChild(el("div",{class:"muted",text:"Nessun modulo installato."}));
+ mod.appendChild(list);
+ const cat=el("select",{class:"txt"});cat.appendChild(el("option",{value:"",text:"— scegli un modulo dal catalogo —"}));CATALOG.forEach((m,i)=>cat.appendChild(el("option",{value:i,text:m.nome+" ("+m.slot+" slot)"})));
+ const addBtn=el("button",{class:"btn",text:"+ Installa",onClick:()=>{if(cat.value===""){return;}const m=CATALOG[parseInt(cat.value)];if(slotsUsed()+m.slot>slotsTot()){alert("Slot insufficienti: ne servono "+m.slot+", liberi "+(slotsTot()-slotsUsed())+". Potenzia la Struttura al cantiere.");return;}S.moduli.push({nome:m.nome,slot:m.slot,eff:m.eff});save();renderCantiere();}});
+ mod.appendChild(el("div",{class:"row",style:"margin-top:10px"},[cat,addBtn]));
+ // custom
+ const cn=el("input",{class:"txt",placeholder:"Modulo personalizzato"});const cs=el("input",{class:"txt",type:"number",value:1});cs.style.width="60px";const ce=el("input",{class:"txt",placeholder:"effetto"});
+ mod.appendChild(el("div",{class:"row",style:"margin-top:8px"},[cn,cs,ce,el("button",{class:"btn ghost sm",text:"+ Aggiungi",onClick:()=>{if(!cn.value)return;const slot=parseInt(cs.value)||1;if(slotsUsed()+slot>slotsTot()){alert("Slot insufficienti.");return;}S.moduli.push({nome:cn.value,slot,eff:ce.value});save();renderCantiere();}})]));
+ p.appendChild(mod);
+ // Riparazioni
+ const rip=el("div",{class:"card"});rip.appendChild(el("h2",{html:"🔨 Riparazioni"}));
+ rip.appendChild(el("div",{class:"help",text:"Scegli cosa riparare: vedi ore, soglia e cosa tirare. L'Ingegnere tira al tavolo; inserisci il totale e leggi l'esito. In porto puoi pagare un cantiere: niente tiro, applichi direttamente il risultato."}));
+ const rsel=el("select",{class:"txt"});REPAIRS.forEach((r,i)=>rsel.appendChild(el("option",{value:i,text:r.t})));
+ const detail=el("div",{class:"derived",style:"margin:8px 0"});
+ const outEl=el("div",{class:"result",html:"<span class='muted'>Inserisci il totale del tiro per vedere l'esito.</span>"});
+ const inp=el("input",{class:"txt",type:"number",placeholder:"totale"});inp.style.width="90px";
+ const ipool=()=>{const ia=S.crew.ingegnere.attr;const a=(ia&&ia!=="—")?("<b>"+ia+"</b> (Astuzia"+(S.crew.ingegnere.nome?" di "+S.crew.ingegnere.nome:"")+")"):"⚠ nessun Ingegnere";return a+" + <b>"+S.carpenteria+"</b> (Carpenteria)";};
+ const updDetail=()=>{const r=REPAIRS[parseInt(rsel.value)];detail.innerHTML="<b>"+r.t+"</b> — "+r.ore+" ore · soglia <b>"+r.s+"</b><br>Tira: "+ipool()+"<br>"+matLine(r.mat||[]);evalOut();};
+ const useRepMats=el("button",{class:"btn ghost sm",text:"− usa materiali",title:"Scala dal magazzino i materiali della riparazione scelta",onClick:()=>{const r=REPAIRS[parseInt(rsel.value)];consume(r.mat||[]);renderCantiere();}});
+ const evalOut=()=>{const r=REPAIRS[parseInt(rsel.value)];const t=parseInt(inp.value);if(isNaN(t)){outEl.innerHTML="<span class='muted'>Inserisci il totale del tiro per vedere l'esito.</span>";return;}const m=t-r.s;const[es,col]=esitoMargine(m);outEl.innerHTML="Margine "+(m>=0?"+":"")+m+" <span class='tag' style='background:"+col+"'>"+es+"</span><br>"+(m>=0?"✔ "+r.ok:"✘ "+(m<=-4?r.ko:"Ore perse: si può riprovare."));};
+ rsel.onchange=updDetail; inp.oninput=evalOut;
+ rip.appendChild(rsel); rip.appendChild(detail);
+ rip.appendChild(el("div",{class:"row"},[el("span",{class:"muted",text:"Totale del tiro:"}),inp,useRepMats]));
+ rip.appendChild(outEl);
+ updDetail();
+ p.appendChild(rip);
+ // Magazzino materiali
+ const mag=el("div",{class:"card"});mag.appendChild(el("h2",{html:"🧺 Magazzino materiali"}));
+ mag.appendChild(el("div",{class:"help",text:"Segna qui i materiali in stiva. In porto si comprano in Berry; in giro si trovano col Reperimento (tiro vs soglia di rarità). Sopra, ogni lavoro mostra ✓ se hai tutto."}));
+ MATERIALS.forEach(m=>{
+   const qty=el("span",{class:"die",text:String(S.magazzino[m.id]||0),style:"background:radial-gradient(circle at 35% 30%,#c8a24b,#8a6a1e)"});
+   const step=d=>{S.magazzino[m.id]=Math.max(0,(S.magazzino[m.id]||0)+d);qty.textContent=S.magazzino[m.id];save();};
+   mag.appendChild(el("div",{class:"stat"},[
+     el("div",{class:"info"},[el("div",{class:"name",text:m.nome}),el("div",{class:"desc",html:m.rar+" (reperimento soglia "+m.soglia+") · "+(m.costo?("in porto ~"+m.costo.toLocaleString("it-IT")+" ฿/unità"):"non in vendita — narrativo")+" · "+m.note})]),
+     el("div",{class:"stepper"},[el("button",{text:"−","aria-label":"meno",onClick:()=>step(-1)}),qty,el("button",{text:"+","aria-label":"più",onClick:()=>step(1)})])
+   ]));
+ });
+ p.appendChild(mag);
+}
+
+/* ---------- DIARIO ---------- */
+function renderDiario(){const p=$("#p-diario");p.innerHTML="";
+ const c=el("div",{class:"card"});c.appendChild(el("h2",{html:"📒 Diario di bordo"}));
+ c.appendChild(el("div",{class:"grid2"},[field("Tesoro (Berry)","berry",S,"number"),field("Cargo / provviste","cargo",S)]));
+ const note=el("textarea",{class:"txt",placeholder:"Note di bordo, rotta, obiettivi, debiti, alleati…"});note.value=S.note;note.style.minHeight="160px";note.oninput=()=>{S.note=note.value;save();};
+ c.appendChild(el("label",{class:"fld",style:"margin-top:10px"},[el("span",{class:"lab",text:"Note"}),note]));
+ p.appendChild(c);
+}
+
+/* ---------- toolbar ---------- */
+function renderAll(){renderPlancia();renderEquipaggio();renderBattaglia();renderNavigazione();renderCantiere();renderDiario();}
+$("#presetBtn").onclick=()=>{if(!confirm("Imposta una nave di partenza tipica? (una statistica a d8 a scelta, le altre a d6). Sovrascrive le statistiche attuali."))return;S.stats={scafo:"d8",vele:"d6",artiglieria:"d6",struttura:"d6"};S.psCur=psMax();save();renderAll();selectTab("Plancia");};
+$("#exportBtn").onclick=()=>{const b=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=(S.nome||"nave")+".json";a.click();URL.revokeObjectURL(a.href);};
+$("#importBtn").onclick=()=>$("#importFile").click();
+$("#importFile").onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{S=Object.assign(blank(),JSON.parse(rd.result));save();renderAll();}catch(err){alert("File non valido.");}};rd.readAsText(f);};
+$("#resetBtn").onclick=()=>{if(confirm("Azzerare tutta la scheda della nave?")){S=blank();save();renderAll();selectTab("Plancia");}};
+
+load();buildTabs();renderAll();selectTab("Plancia");
+</script>
+</body>
+</html>

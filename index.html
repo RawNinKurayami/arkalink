@@ -1,68 +1,366 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Arkalink</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grand Line Chronicles — Registro di Bordo</title>
+<meta name="description" content="Il porto della tua ciurma: crea il personaggio, arma la nave, rifornisci la cambusa e siedi alla plancia del Capitano. Sistema «Will of D.».">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Marcellus+SC&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --abyss:#0a1920;        /* mare abissale di notte */
+    --abyss-2:#112c35;      /* mare un gradino più chiaro */
+    --abyss-line:#1f4450;   /* linee di profondità */
+    --vellum:#ecdcb6;       /* carta nautica invecchiata */
+    --vellum-2:#e3d0a4;
+    --ink:#34271a;          /* inchiostro seppia */
+    --ink-soft:#5e4c34;
+    --gold:#c9a24a;         /* oro su carta */
+    --gold-bright:#ecca77;
+    --seal:#9a241a;         /* ceralacca / WANTED */
+    --foam:#a8c6bd;         /* schiuma, testo tenue sul mare */
+    --foam-dim:#6f968c;     /* schiuma scura, etichette tenui */
+    --shadow:rgba(0,0,0,.45);
+    --rule:rgba(201,162,74,.32);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    background:
+      radial-gradient(120% 90% at 50% -10%, #14323d 0%, var(--abyss) 55%, #060f14 100%);
+    color:var(--vellum);
+    min-height:100vh;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* grana sottile su tutto */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  /* linee di latitudine tenui sul fondo */
+  body::after{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+    background-image:repeating-linear-gradient(0deg,transparent 0 78px,rgba(31,68,80,.18) 78px 79px);
+    mask-image:radial-gradient(120% 120% at 50% 30%, #000 30%, transparent 78%);
+    -webkit-mask-image:radial-gradient(120% 120% at 50% 30%, #000 30%, transparent 78%);
+  }
+  .wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- top bar ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:22px 0 0}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand .mark{width:30px;height:30px;flex:0 0 auto}
+  .brand .name{font-family:'Marcellus SC',serif;letter-spacing:.22em;font-size:13px;color:var(--gold-bright);text-transform:uppercase}
+  .crew-access{
+    font-family:'Marcellus SC',serif;letter-spacing:.14em;text-transform:uppercase;font-size:11px;
+    color:var(--foam-dim);border:1px solid var(--rule);border-radius:999px;padding:8px 15px;
+    display:inline-flex;align-items:center;gap:7px;cursor:default;
+  }
+  .crew-access svg{width:12px;height:12px;opacity:.8}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;text-align:center;padding:84px 0 56px}
+  .compass{
+    position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
+    width:min(560px,108vw);height:min(560px,108vw);z-index:0;opacity:.20;
+    mask-image:radial-gradient(circle,#000 38%,transparent 72%);
+    -webkit-mask-image:radial-gradient(circle,#000 38%,transparent 72%);
+    animation:rose-in 1.6s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .compass .needle{transform-origin:300px 300px;animation:needle 2.4s cubic-bezier(.16,1,.3,1) both .3s}
+  @keyframes rose-in{from{opacity:0;transform:translate(-50%,-50%) rotate(-9deg) scale(.96)}to{opacity:.20;transform:translate(-50%,-50%) rotate(0) scale(1)}}
+  @keyframes needle{0%{transform:rotate(-54deg)}70%{transform:rotate(6deg)}100%{transform:rotate(0)}}
+  .hero-inner{position:relative;z-index:1}
+  .eyebrow{
+    font-family:'Marcellus SC',serif;letter-spacing:.34em;text-transform:uppercase;font-size:12px;
+    color:var(--gold);margin-bottom:20px;animation:rise .7s ease both .1s;
+  }
+  .eyebrow .dot{color:var(--seal);margin:0 .5em}
+  h1.title{
+    font-family:'Cinzel Decorative',serif;font-weight:900;line-height:.98;
+    font-size:clamp(2.7rem,9vw,5.6rem);letter-spacing:.01em;
+    background:linear-gradient(176deg,var(--gold-bright),var(--gold) 55%,#9c7a2f);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 2px 30px rgba(0,0,0,.35);
+    animation:rise .9s ease both .18s;
+  }
+  h1.title .line{display:block}
+  .tagline{
+    max-width:600px;margin:26px auto 0;font-size:clamp(1.05rem,2.4vw,1.32rem);
+    color:var(--foam);font-style:italic;font-weight:400;animation:rise .9s ease both .28s;
+  }
+  .cta-row{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:rise .9s ease both .38s}
+  .btn{
+    font-family:'Marcellus SC',serif;letter-spacing:.12em;text-transform:uppercase;font-size:13px;
+    padding:14px 28px;border-radius:3px;cursor:pointer;border:1px solid var(--gold);
+    transition:transform .18s ease, box-shadow .25s ease, background .25s ease, color .2s ease;
+    display:inline-flex;align-items:center;gap:9px;
+  }
+  .btn-primary{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#23170a;box-shadow:0 8px 26px rgba(201,162,74,.22)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(201,162,74,.34)}
+  .btn-ghost{background:transparent;color:var(--gold-bright)}
+  .btn-ghost:hover{background:rgba(201,162,74,.1);transform:translateY(-2px)}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ---------- divider a corda ---------- */
+  .rope{display:flex;align-items:center;justify-content:center;gap:18px;margin:8px 0 4px;opacity:.85}
+  .rope .ln{height:1px;width:min(220px,32vw);background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .rope svg{width:30px;height:30px;color:var(--gold)}
+
+  /* ---------- griglia strumenti ---------- */
+  .stations{padding:30px 0 10px}
+  .stations-head{text-align:center;margin-bottom:30px}
+  .stations-head .k{font-family:'Marcellus SC',serif;letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:var(--gold)}
+  .stations-head h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.5rem,4vw,2.1rem);color:var(--vellum);margin-top:6px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+
+  .card{
+    position:relative;display:flex;gap:18px;align-items:flex-start;
+    background:linear-gradient(168deg,var(--vellum),var(--vellum-2));
+    border:1px solid #cdb487;border-radius:6px;padding:22px 22px 20px;
+    color:var(--ink);overflow:hidden;
+    box-shadow:0 14px 30px var(--shadow), inset 0 1px 0 rgba(255,255,255,.4);
+    transition:transform .2s ease, box-shadow .28s ease, border-color .2s ease;
+  }
+  .card::before{ /* alone d'oro al bordo, nascosto */
+    content:"";position:absolute;inset:0;border-radius:6px;pointer-events:none;
+    box-shadow:inset 0 0 0 1px transparent;transition:box-shadow .28s ease;
+  }
+  .card:not(.sealed):hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(0,0,0,.5);border-color:var(--gold)}
+  .card:not(.sealed):hover::before{box-shadow:inset 0 0 0 1px var(--gold-bright)}
+  .card:not(.sealed):hover .seal{opacity:1;transform:rotate(-8deg) scale(1)}
+  .card .ico{flex:0 0 auto;width:52px;height:52px;color:#6a4f22}
+  .card .body{min-width:0}
+  .card h3{font-family:'Marcellus SC',serif;letter-spacing:.04em;font-size:1.18rem;color:#2a1f12;line-height:1.1}
+  .card p{font-size:1.02rem;color:var(--ink-soft);margin-top:7px}
+  .card .go{margin-top:13px;display:inline-flex;align-items:center;gap:7px;font-family:'Marcellus SC',serif;letter-spacing:.1em;text-transform:uppercase;font-size:11px;color:#7a1410}
+  .card .go svg{width:13px;height:13px;transition:transform .2s ease}
+  .card:not(.sealed):hover .go svg{transform:translateX(4px)}
+  .card .seal{ /* timbro di ceralacca al passaggio */
+    position:absolute;right:14px;top:14px;width:40px;height:40px;opacity:0;transform:rotate(-8deg) scale(.7);
+    transition:opacity .25s ease, transform .3s cubic-bezier(.2,1.4,.3,1);pointer-events:none;
+  }
+  .card.sealed{filter:saturate(.82);cursor:default}
+  .card.sealed .perma-seal{position:absolute;right:16px;top:16px;width:46px;height:46px}
+  .card.sealed h3{color:#5a4a35}
+  .card.sealed .go{color:#8a6a3a}
+
+  .focus-target:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px;border-radius:6px}
+
+  /* ---------- footer ---------- */
+  footer{margin-top:64px;padding:34px 0 46px;border-top:1px solid var(--rule);text-align:center}
+  footer .fmark{width:26px;height:26px;color:var(--gold);opacity:.8;margin-bottom:12px}
+  footer .fname{font-family:'Marcellus SC',serif;letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:var(--gold)}
+  footer .fnote{color:var(--foam-dim);font-size:.95rem;margin-top:8px;font-style:italic}
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto!important}
+    .compass{opacity:.20}
+  }
+</style>
 </head>
-
 <body>
+<div class="wrap">
 
-  <div id="topbar">
-    <a href="#Home">
-      <img src="img/logo.png" alt="Logo Arkalink" class="logo">
-    </a>
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold-bright)">
+        <circle cx="24" cy="24" r="21"/><circle cx="24" cy="24" r="3" fill="currentColor"/>
+        <path d="M24 3v9M24 36v9M3 24h9M36 24h9" stroke-width="1.6"/>
+        <path d="M24 6 L27 24 L24 42 L21 24 Z" fill="currentColor" opacity=".85" stroke="none"/>
+      </svg>
+      <span class="name">Grand Line Chronicles</span>
+    </div>
+    <span class="crew-access" title="L'accesso della ciurma arriverà nelle prossime tappe.">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+      Accesso ciurma · presto
+    </span>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- SIGNATURE: rosa dei venti -->
+    <svg class="compass" viewBox="0 0 600 600" fill="none" aria-hidden="true">
+      <g stroke="var(--gold)" stroke-width="1.2">
+        <circle cx="300" cy="300" r="232" opacity=".5"/>
+        <circle cx="300" cy="300" r="210"/>
+        <circle cx="300" cy="300" r="150" opacity=".4"/>
+        <g opacity=".55">
+          <!-- tacche -->
+          <g id="ticks"></g>
+        </g>
+      </g>
+      <!-- stella a 8 punte -->
+      <g fill="var(--gold)" opacity=".9">
+        <path d="M300 70 L317 283 L300 300 L283 283 Z"/>
+        <path d="M530 300 L317 317 L300 300 L317 283 Z" opacity=".75"/>
+        <path d="M300 530 L283 317 L300 300 L317 317 Z" opacity=".6"/>
+        <path d="M70 300 L283 283 L300 300 L283 317 Z" opacity=".75"/>
+      </g>
+      <g fill="var(--gold-bright)" opacity=".7">
+        <path d="M455 145 L312 288 L300 300 L322 270 Z"/>
+        <path d="M455 455 L312 312 L300 300 L330 322 Z" opacity=".7"/>
+        <path d="M145 455 L288 312 L300 300 L270 330 Z" opacity=".7"/>
+        <path d="M145 145 L288 288 L300 300 L270 278 Z" opacity=".85"/>
+      </g>
+      <g class="needle">
+        <path d="M300 110 L312 300 L300 300 L288 300 Z" fill="var(--seal)"/>
+        <path d="M300 490 L312 300 L300 300 L288 300 Z" fill="#caa24a" opacity=".5"/>
+      </g>
+      <text x="300" y="56" text-anchor="middle" fill="var(--gold-bright)" font-family="Marcellus SC, serif" font-size="30">N</text>
+      <text x="556" y="312" text-anchor="middle" fill="var(--gold)" font-family="Marcellus SC, serif" font-size="24">E</text>
+      <text x="300" y="572" text-anchor="middle" fill="var(--gold)" font-family="Marcellus SC, serif" font-size="24">S</text>
+      <text x="44" y="312" text-anchor="middle" fill="var(--gold)" font-family="Marcellus SC, serif" font-size="24">O</text>
+    </svg>
+
+    <div class="hero-inner">
+      <p class="eyebrow">Registro di Bordo <span class="dot">✦</span> Sistema «Will of D.»</p>
+      <h1 class="title"><span class="line">Grand Line</span><span class="line">Chronicles</span></h1>
+      <p class="tagline">Il porto della tua ciurma. Crea il personaggio, arma la nave, rifornisci la cambusa e siedi alla plancia del Capitano — tutto da un'unica rotta.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary focus-target" href="#strumenti">Scegli la rotta
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </a>
+        <a class="btn btn-ghost focus-target" href="#manuale">Vedi il manuale</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="rope" aria-hidden="true">
+    <span class="ln"></span>
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 24c0-6 4-10 10-10s10 4 10 10-4 10-10 10-10-4-10-10Z"/><path d="M24 14c6 0 10 4 10 10M24 34c-6 0-10-4-10-10" stroke-width="3" stroke-linecap="round"/></svg>
+    <span class="ln"></span>
   </div>
 
-<section id="Home">
-  <div class="hero">
-    <img src="img/badge.png" alt="Arkalink Banner" class="hero-img">
+  <!-- STRUMENTI -->
+  <main id="strumenti" class="stations">
+    <div class="stations-head">
+      <div class="k">Gli strumenti di bordo</div>
+      <h2>Scegli dove salpare</h2>
+    </div>
+
+    <div class="grid">
+
+      <!-- 1 · PIRATA -->
+      <a class="card focus-target" href="crea-il-tuo-pirata/index.html">
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 50 L44 20"/><path d="M44 20l6-6 4 4-6 6z"/><path d="M14 50l-4 4M10 46l8 8"/><circle cx="22" cy="42" r="3"/>
+          <path d="M40 44c0 5-4 9-9 9M52 32c0 5-4 9-9 9" opacity=".5"/>
+        </svg>
+        <div class="body">
+          <h3>Crea il tuo Pirata</h3>
+          <p>Costruisci e fai crescere il personaggio: Attributi, Talenti, Tecniche e Haki.</p>
+          <span class="go">Apri la scheda
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+        <svg class="seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="var(--seal)"/><circle cx="24" cy="24" r="15" fill="none" stroke="#d8b08c" stroke-width="1" opacity=".5"/><path d="M24 14l3 7 7 .6-5 4.6 1.6 7-6.6-3.8-6.6 3.8 1.6-7-5-4.6 7-.6z" fill="#e9c79a" opacity=".85"/></svg>
+      </a>
+
+      <!-- 2 · NAVE -->
+      <a class="card focus-target" href="nave-portale/index.html">
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 40h44l-6 11H16z"/><path d="M32 40V12"/><path d="M32 14c8 1 14 5 16 10-6 1-12 1-16-1z"/><path d="M32 20c-7 1-11 4-13 8 5 1 9 1 13-1z"/><path d="M32 8v4"/>
+        </svg>
+        <div class="body">
+          <h3>La Nave</h3>
+          <p>Arma e ripara il vascello: ponti, cannoni, rotta e manovre della ciurma.</p>
+          <span class="go">Sali a bordo
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+        <svg class="seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="var(--seal)"/><circle cx="24" cy="24" r="15" fill="none" stroke="#d8b08c" stroke-width="1" opacity=".5"/><path d="M24 14l3 7 7 .6-5 4.6 1.6 7-6.6-3.8-6.6 3.8 1.6-7-5-4.6 7-.6z" fill="#e9c79a" opacity=".85"/></svg>
+      </a>
+
+      <!-- 3 · OFFICINA -->
+      <a class="card focus-target" href="portale-officina-cambusa/index.html">
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 26h22l-3 8H15z"/><path d="M18 34l-2 12M28 34l2 12M14 46h18"/><path d="M40 20c5 0 9 3 9 8s-4 8-9 8h-3" opacity=".9"/><path d="M44 36v8M40 44h8"/>
+        </svg>
+        <div class="body">
+          <h3>Officina &amp; Cambusa</h3>
+          <p>Forgia equipaggiamento, prepara veleni e cucina le razioni di bordo.</p>
+          <span class="go">Entra in stiva
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+        <svg class="seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="var(--seal)"/><circle cx="24" cy="24" r="15" fill="none" stroke="#d8b08c" stroke-width="1" opacity=".5"/><path d="M24 14l3 7 7 .6-5 4.6 1.6 7-6.6-3.8-6.6 3.8 1.6-7-5-4.6 7-.6z" fill="#e9c79a" opacity=".85"/></svg>
+      </a>
+
+      <!-- 4 · PLANCIA -->
+      <a class="card focus-target" href="plancia-master/index.html">
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 12c-9 0-16 6-16 15 0 5 3 8 3 11v4h26v-4c0-3 3-6 3-11 0-9-7-15-16-15z"/><circle cx="25" cy="30" r="3.2" fill="currentColor"/><circle cx="39" cy="30" r="3.2" fill="currentColor"/><path d="M28 44v4M32 44v5M36 44v4"/>
+        </svg>
+        <div class="body">
+          <h3>Plancia del Master</h3>
+          <p>Apri il bestiario e traccia gli scontri, dalla parte del Capitano.</p>
+          <span class="go">Prendi il timone
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+        <svg class="seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="var(--seal)"/><circle cx="24" cy="24" r="15" fill="none" stroke="#d8b08c" stroke-width="1" opacity=".5"/><path d="M24 14l3 7 7 .6-5 4.6 1.6 7-6.6-3.8-6.6 3.8 1.6-7-5-4.6 7-.6z" fill="#e9c79a" opacity=".85"/></svg>
+      </a>
+
+    </div>
+
+    <!-- MANUALE (sigillato) -->
+    <div id="manuale" class="grid" style="margin-top:20px">
+      <div class="card sealed" style="grid-column:1 / -1">
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 12h26a4 4 0 0 1 4 4v36H20a4 4 0 0 1-4-4z"/><path d="M16 44a4 4 0 0 1 4-4h26"/><path d="M24 20h14M24 26h14"/>
+        </svg>
+        <div class="body">
+          <h3>Il Manuale</h3>
+          <p>Le regole complete del sistema «Will of D.»: dadi, Haki, Tecniche, razze e Frutti. Ancora sotto sigillo — verrà aperto qui appena pronto.</p>
+          <span class="go">Sigillato · in arrivo</span>
+        </div>
+        <svg class="perma-seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="var(--seal)"/><circle cx="24" cy="24" r="15" fill="none" stroke="#d8b08c" stroke-width="1.2" opacity=".55"/><path d="M19 22v-3a5 5 0 0 1 10 0v3" fill="none" stroke="#e9c79a" stroke-width="2"/><rect x="17" y="22" width="14" height="10" rx="1.5" fill="#e9c79a" opacity=".9"/></svg>
+      </div>
+    </div>
+  </main>
+
+  <div class="rope" aria-hidden="true" style="margin-top:46px">
+    <span class="ln"></span>
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 24c0-6 4-10 10-10s10 4 10 10-4 10-10 10-10-4-10-10Z"/><path d="M24 14c6 0 10 4 10 10M24 34c-6 0-10-4-10-10" stroke-width="3" stroke-linecap="round"/></svg>
+    <span class="ln"></span>
   </div>
-</section>
 
-<nav class="navbox">
-  <ul class="navlist">
-    <li><a href="#Evocatori">Evocatori</a></li>
-    <li><a href="#Spiriti">Spiriti</a></li>
-    <li><a href="#GDR">GDR</a></li>
-    <li><a href="#Card Game">Card Game</a></li>
-    <li><a href="#Mondo">Mondo</a></li>
-  </ul>
-</nav>
+  <footer>
+    <svg class="fmark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="24" cy="24" r="20"/><path d="M24 6 L27 24 L24 42 L21 24 Z" fill="currentColor" stroke="none"/><path d="M6 24h36" opacity=".4"/></svg>
+    <div class="fname">Grand Line Chronicles</div>
+    <div class="fnote">Un gioco di ruolo della ciurma Black Savanna · opera amatoriale ispirata a One Piece.</div>
+  </footer>
 
-<section class="box-novità">
-  <h2>ULTIME NOVITÀ DI ARKALINK</h2>
-  
-  <div class="news-cards">
-    <a href="#novità1" class="card">
-      <div class="card-img" style="background-image: url('img/novita1.jpg');"></div>
-      <h3>Nuova Lore</h3>
-    </a>
+</div>
 
-    <a href="#novità2" class="card">
-      <div class="card-img" style="background-image: url('img/novita2.jpg');"></div>
-      <h3>Trailer in Arrivo</h3>
-    </a>
-
-    <a href="#novità3" class="card">
-      <div class="card-img" style="background-image: url('img/novita3.jpg');"></div>
-      <h3>Update Layout</h3>
-    </a>
-  </div>
-</section>
-
-<section class="Benvenuto">
-  <h2>Benvenuto nel mondo di Arkalink!</h2>
-  <p>
-    Un luogo dove umani ed entità archetipiche si fondono per affrontare insieme un’avventura fatta di duelli, indagini, esorcismi… e molto altro.
-    I nostri Evocatori sono pronti ad ascendere.
-    Gli Spiriti attendono solo di essere guidati verso la Trascendenza.
-    <strong>Cosa stai aspettando?</strong> Costruisci il tuo Arkalink.
-  </p>
-</section>
-
+<script>
+  // tacche del quadrante (decorazione della rosa dei venti)
+  (function(){
+    var g=document.getElementById('ticks');
+    if(!g) return;
+    var ns='http://www.w3.org/2000/svg';
+    for(var i=0;i<72;i++){
+      var a=i*5*Math.PI/180;
+      var long=(i%9===0);
+      var r1=long?188:198, r2=210;
+      var x1=300+r1*Math.sin(a), y1=300-r1*Math.cos(a);
+      var x2=300+r2*Math.sin(a), y2=300-r2*Math.cos(a);
+      var l=document.createElementNS(ns,'line');
+      l.setAttribute('x1',x1.toFixed(1));l.setAttribute('y1',y1.toFixed(1));
+      l.setAttribute('x2',x2.toFixed(1));l.setAttribute('y2',y2.toFixed(1));
+      l.setAttribute('stroke','var(--gold)');l.setAttribute('stroke-width',long?'1.6':'0.8');
+      g.appendChild(l);
+    }
+  })();
+</script>
 </body>
 </html>
-
-
-  

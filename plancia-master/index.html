@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Grand Line Chronicles — Plancia del Master</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Pirata+One&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+:root{--ink:#2b1d12;--ink-soft:#5a4633;--red:#8c1c13;--red-br:#b71c1c;--gold:#b8860b;--gold-2:#c8a24b;--paper:#f3e3c3;--paper-2:#ecd9b2;--line:#cdb487;--shadow:rgba(60,40,15,.35);--ok:#3f6b3f;--warn:#9c7a12;--bad:#8c1c13;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;}
+body{font-family:'EB Garamond',Georgia,serif;color:var(--ink);font-size:17px;line-height:1.5;background-color:#e7d2a6;background-image:radial-gradient(ellipse at 20% 0%,#f6e8c9 0,rgba(246,232,201,0) 55%),radial-gradient(ellipse at 100% 100%,#e3cb9c 0,rgba(227,203,156,0) 60%),radial-gradient(circle at 50% 40%,#f1e0bd 0,#e2c896 100%);min-height:100vh;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.wrap{max-width:1140px;margin:0 auto;padding:20px 16px 80px;}
+header.top{text-align:center;padding:6px 0 2px;}
+header.top .skull{font-size:34px;color:var(--red);line-height:1;}
+header.top h1{font-family:'Pirata One',cursive;font-size:clamp(32px,6vw,54px);color:var(--red);margin:0;text-shadow:1px 1px 0 rgba(0,0,0,.12);}
+header.top .sub{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.24em;text-transform:uppercase;font-size:11px;color:var(--ink-soft);margin-top:2px;}
+.rule{height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:12px auto 16px;max-width:620px;}
+.tabs{display:flex;justify-content:center;gap:8px;margin:2px 0 18px;flex-wrap:wrap;}
+.tab{font-family:'Cinzel',serif;font-weight:700;font-size:14px;letter-spacing:.07em;border:2px solid #6b4f2a;background:linear-gradient(var(--paper),var(--paper-2));color:var(--ink-soft);padding:9px 20px;border-radius:3px;cursor:pointer;box-shadow:inset 0 0 0 1px var(--gold-2);transition:.15s;}
+.tab:hover{color:var(--red);}
+.tab.active{color:#fff;background:var(--red);border-color:var(--red);box-shadow:inset 0 0 0 1px var(--gold-2),0 5px 14px var(--shadow);}
+.tabpane[hidden]{display:none;}
+.toolbar{display:flex;flex-wrap:wrap;gap:9px;align-items:center;justify-content:center;margin-bottom:10px;}
+.toolbar input[type=text],.toolbar select{font-family:'EB Garamond',serif;font-size:15px;color:var(--ink);background:rgba(255,255,255,.62);border:1px solid var(--line);border-radius:2px;padding:7px 10px;}
+.toolbar input[type=text]{min-width:180px;}
+.btn{font-family:'Cinzel',serif;font-weight:700;font-size:12px;letter-spacing:.04em;border:1px solid var(--red);background:var(--red);color:#fff;padding:8px 14px;border-radius:2px;cursor:pointer;transition:.15s;}
+.btn:hover{background:var(--red-br);}
+.btn.gold{border-color:var(--gold);background:var(--gold);}.btn.gold:hover{background:var(--gold-2);}
+.btn.ghost{background:transparent;color:var(--red);}.btn.ghost:hover{background:rgba(140,28,19,.08);}
+.btn.sm{font-size:11px;padding:5px 10px;}
+.tally{text-align:center;font-family:'Cinzel',serif;font-size:13px;color:var(--ink-soft);letter-spacing:.04em;margin:4px 0 16px;}
+.tally b{color:var(--red);}
+/* ===== BESTIARIO ===== */
+.beasts{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px;}
+.beast{position:relative;background:linear-gradient(var(--paper),var(--paper-2));border:2px solid #6b4f2a;box-shadow:inset 0 0 0 1px var(--gold-2),0 8px 20px var(--shadow);border-radius:3px;padding:13px 14px 12px;display:flex;flex-direction:column;}
+.beast .kill{position:absolute;top:6px;right:8px;border:none;background:rgba(255,255,255,.6);color:var(--red);cursor:pointer;font-size:13px;border-radius:50%;width:24px;height:24px;line-height:1;z-index:4;}
+.beast .kill:hover{background:var(--red);color:#fff;}
+.beast .bhead{display:flex;align-items:baseline;justify-content:space-between;gap:8px;border-bottom:1px dashed var(--line);padding-bottom:6px;margin-right:22px;}
+.bnome{font-family:'Pirata One',cursive;color:#7a1410;font-size:22px;line-height:1.05;flex:1;}
+.btags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+.f{border:1px solid transparent;background:transparent;font-family:inherit;font-size:inherit;color:inherit;padding:2px 4px;border-radius:2px;}
+.f:hover{background:rgba(255,255,255,.45);border-color:var(--line);}
+.f:focus{outline:none;background:#fff;border-color:var(--red);box-shadow:0 0 0 1px var(--red);}
+textarea.f{resize:vertical;min-height:30px;width:100%;line-height:1.4;}
+select.f{cursor:pointer;font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;border:1px solid var(--line);background:rgba(255,255,255,.4);color:var(--ink-soft);padding:2px 7px;border-radius:10px;}
+select.f.thr{border-color:var(--red);color:var(--red);font-weight:700;}
+input.bnome-in{font-family:'Pirata One',cursive;color:#7a1410;font-size:22px;line-height:1.05;width:100%;}
+.statline{display:flex;gap:6px;margin-top:9px;}
+.stat{flex:1;text-align:center;border:1px solid var(--line);background:rgba(255,255,255,.45);border-radius:4px;padding:5px 3px;}
+.stat .k{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);display:block;}
+.stat .v{font-family:'Cinzel',serif;font-weight:900;font-size:19px;color:var(--red);}
+.stat .v input{font-family:'Cinzel',serif;font-weight:900;font-size:19px;color:var(--red);width:46px;text-align:center;}
+.stat.def .v,.stat.def .v input{color:#3a2a16;}
+.sec-h{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin:10px 0 3px;border-top:1px dashed var(--line);padding-top:7px;}
+.atk{display:grid;grid-template-columns:1.1fr 1.2fr 0.5fr auto;gap:4px;align-items:center;margin-bottom:3px;font-size:13px;}
+.atk input{font-size:13px;}
+.atk .x{border:none;background:none;color:var(--red);cursor:pointer;font-size:13px;padding:0 2px;}
+.atk-head{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);}
+.miniadd{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.06em;color:var(--red);background:none;border:1px dashed var(--line);border-radius:3px;padding:3px 8px;cursor:pointer;margin-top:3px;}
+.miniadd:hover{background:rgba(140,28,19,.06);}
+.fieldlab{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;display:block;}
+.tofight{margin-top:11px;display:flex;gap:7px;align-items:center;border-top:1px dashed var(--line);padding-top:9px;}
+.tofight input{width:48px;font-family:'Cinzel',serif;text-align:center;border:1px solid var(--line);border-radius:3px;padding:4px;}
+/* ===== SCONTRO ===== */
+.fightbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;background:linear-gradient(var(--paper),var(--paper-2));border:2px solid #6b4f2a;box-shadow:inset 0 0 0 1px var(--gold-2);border-radius:4px;padding:10px 12px;margin-bottom:14px;}
+.roundbox{font-family:'Cinzel',serif;font-weight:900;color:var(--red);font-size:15px;display:flex;align-items:center;gap:6px;}
+.roundbox button{width:24px;height:24px;border:1px solid var(--gold);background:rgba(255,255,255,.6);color:var(--red);border-radius:50%;cursor:pointer;font-weight:700;}
+.addfrombar{display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+.addfrombar select,.addfrombar input{font-family:'EB Garamond',serif;font-size:14px;border:1px solid var(--line);border-radius:2px;padding:6px 8px;background:rgba(255,255,255,.62);}
+.combatants{display:flex;flex-direction:column;gap:9px;}
+.cbt{display:grid;grid-template-columns:42px 1.4fr 1.7fr auto;gap:10px;align-items:center;background:linear-gradient(var(--paper),var(--paper-2));border:2px solid #6b4f2a;box-shadow:inset 0 0 0 1px var(--gold-2);border-radius:4px;padding:9px 11px;}
+.cbt.turn{border-color:var(--red);box-shadow:inset 0 0 0 1px var(--gold-2),0 0 0 2px rgba(140,28,19,.35);}
+.cbt.dead{opacity:.5;filter:grayscale(.4);}
+.ini{display:flex;flex-direction:column;align-items:center;}
+.ini input{width:38px;font-family:'Cinzel',serif;font-weight:900;font-size:18px;color:var(--red);text-align:center;border:1px solid var(--line);border-radius:4px;background:rgba(255,255,255,.6);}
+.ini .k{font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);}
+.cname{font-family:'Pirata One',cursive;color:#7a1410;font-size:20px;line-height:1.05;}
+.cname input{font-family:'Pirata One',cursive;color:#7a1410;font-size:20px;width:100%;border:1px solid transparent;background:transparent;border-radius:2px;}
+.cname input:hover{background:rgba(255,255,255,.4);border-color:var(--line);}
+.cname input:focus{outline:none;background:#fff;border-color:var(--red);}
+.cmeta{font-family:'Cinzel',serif;font-size:10px;color:var(--ink-soft);letter-spacing:.04em;margin-top:1px;}
+.defbadge{font-family:'Cinzel',serif;font-weight:900;color:#3a2a16;background:rgba(255,255,255,.5);border:1px solid var(--line);border-radius:4px;padding:1px 7px;font-size:12px;}
+.qm{font-family:'Cinzel',serif;font-size:9px;font-weight:700;color:#fff;background:var(--red);border-radius:8px;padding:1px 7px;letter-spacing:.05em;margin-left:6px;}
+.vitals{display:flex;flex-direction:column;gap:5px;}
+.bar{height:18px;background:#d8c49a;border:1px solid #6b4f2a;border-radius:9px;overflow:hidden;position:relative;}
+.bar .fill{height:100%;transition:width .2s,background .2s;}
+.bar .lab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:11px;color:#2b1d12;}
+.vrow{display:flex;align-items:center;gap:6px;}
+.vrow .tag{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.06em;color:var(--ink-soft);width:24px;}
+.vrow input.amt{width:42px;text-align:center;border:1px solid var(--line);border-radius:3px;padding:3px;font-size:13px;}
+.vrow button{border:1px solid var(--gold);background:rgba(255,255,255,.6);color:var(--red);border-radius:3px;cursor:pointer;font-family:'Cinzel',serif;font-weight:700;font-size:11px;padding:3px 7px;}
+.vrow button.heal{border-color:var(--ok);color:var(--ok);}
+.vrow .stmini{font-size:12px;color:var(--warn);font-family:'Cinzel',serif;}
+.vrow .stmini input{width:34px;text-align:center;border:1px solid var(--line);border-radius:3px;padding:2px;font-size:12px;}
+.conds{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;}
+.cond{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line);background:rgba(255,255,255,.4);color:var(--ink-soft);padding:2px 7px;border-radius:10px;cursor:pointer;user-select:none;}
+.cond.on{background:var(--red);color:#fff;border-color:var(--red);}
+.crm{display:flex;align-items:center;}
+.crm button{border:none;background:rgba(255,255,255,.5);color:var(--red);cursor:pointer;font-size:14px;border-radius:50%;width:26px;height:26px;}
+.crm button:hover{background:var(--red);color:#fff;}
+.emptyfight{text-align:center;color:var(--ink-soft);font-style:italic;padding:26px;border:2px dashed var(--line);border-radius:6px;}
+.ref{margin-top:18px;background:#fff8ea;border-left:4px solid var(--gold);border-radius:2px;padding:10px 13px;font-size:13.5px;color:var(--ink-soft);line-height:1.55;}
+.ref b{color:var(--red);}
+footer.foot{text-align:center;margin-top:26px;font-size:12px;color:var(--ink-soft);font-family:'Cinzel',serif;letter-spacing:.06em;}
+@media print{.toolbar,.tabs,.fightbar,.tofight,.kill,.btn,.miniadd{display:none!important;}body{background:#fff;}.beasts{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:620px){.cbt{grid-template-columns:1fr;}.atk{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="skull">&#9760;</div>
+    <h1>Plancia del Master</h1>
+    <div class="sub">Grand Line Chronicles · Bestiario &amp; Scontro</div>
+  </header>
+  <div class="rule"></div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="bestiario">&#9760; Bestiario</button>
+    <button class="tab" data-tab="scontro">&#9876; Scontro</button>
+  </nav>
+
+  <section id="tab-bestiario" class="tabpane">
+    <div class="toolbar">
+      <input type="text" id="search" placeholder="🔍 Cerca un avversario…" />
+      <select id="fType"><option value="">Tutti i tipi</option></select>
+      <select id="fThreat"><option value="">Ogni minaccia</option></select>
+      <button class="btn" id="add">+ Nuovo avversario</button>
+      <button class="btn gold" onclick="window.print()">🖨 Stampa</button>
+      <button class="btn ghost" id="export">⬇ .json</button>
+      <button class="btn ghost" id="importBtn">⬆ Importa</button>
+      <button class="btn ghost" id="reset">↺ Ripristina</button>
+      <input type="file" id="importFile" accept="application/json" style="display:none;" />
+    </div>
+    <div class="tally" id="tally"></div>
+    <div class="beasts" id="beasts"></div>
+  </section>
+
+  <section id="tab-scontro" class="tabpane" hidden>
+    <div class="fightbar">
+      <span class="roundbox"><button id="rMinus" title="Round −">−</button>Round <span id="roundN">1</span><button id="rPlus" title="Round +">+</button></span>
+      <button class="btn sm" id="nextTurn">▶ Prossimo turno</button>
+      <button class="btn sm ghost" id="sortIni">↕ Ordina iniziativa</button>
+      <button class="btn sm ghost" id="rollIni">🎲 Iniziativa a tutti</button>
+      <span class="addfrombar">
+        <select id="addSel"><option value="">+ dal Bestiario…</option></select>
+        <input type="number" id="addCount" value="1" min="1" max="12" title="quanti" style="width:54px;" />
+        <button class="btn sm" id="addToFight">Aggiungi</button>
+      </span>
+      <button class="btn sm ghost" id="addPC">+ Personaggio</button>
+      <button class="btn sm ghost" id="clearFight">🗑 Svuota</button>
+    </div>
+    <div class="combatants" id="combatants"></div>
+    <div class="ref" id="ref"></div>
+  </section>
+
+  <footer class="foot">Grand Line Chronicles ⚓ Il mare è grande, e non tutti gli incontri sono amici.</footer>
+</div>
+
+<script>
+"use strict";
+const TIPI=["Marine","Pirata","Bestia","Re del Mare","PNG","Boss"];
+const MINACCE=["Gregario","Soldato","Ufficiale","Élite","Vice-Ammiraglio","Ammiraglio","Leggenda"];
+const CONDS=["Stordito","Sanguinante","Avvelenato","Accecato","Sbilanciato","Paralizzato","Addormentato","Potenziato"];
+const KEY_B="glc_bestiario_v1", KEY_F="glc_scontro_v1";
+
+const DEFAULT_BEAST=[
+ {nome:"Recluta della Marine",tipo:"Marine",minaccia:"Gregario",pv:5,st:4,difesa:8,atk:[["Sciabola / fucile","2d6","d6","attaccano in gruppo"]],abil:"Combattono in massa, spesso 3–5 insieme. Riempitivo di ogni base o nave.",haki:"",deb:"Un solo colpo pulito li mette a terra; si arrendono se il comandante cade.",note:""},
+ {nome:"Soldato Scelto",tipo:"Marine",minaccia:"Soldato",pv:10,st:5,difesa:9,atk:[["Sciabola addestrata","2d6+1","d6",""]],abil:"Più disciplinato del gregario: tiene la formazione.",haki:"",deb:"",note:""},
+ {nome:"Caposquadra (Sergente)",tipo:"Marine",minaccia:"Ufficiale",pv:16,st:6,difesa:10,atk:[["Arma d'ordinanza","Forza d8 + arma d6","d8",""]],abil:"Coordina i soldati: i Gregari entro vista hanno +1 dado per colpire finché lui è in piedi.",haki:"",deb:"Abbatterlo spegne il bonus dei soldati.",note:""},
+ {nome:"Tenente Brick",tipo:"Marine",minaccia:"Élite",pv:30,st:8,difesa:12,atk:[["Pugno di Ferro","Forza d10 + Pugno d8","d8","Striker — sul +4 sfonda (Stordito 1 turno)"]],abil:"Stile Striker. Firma (+4): il colpo sfonda, bersaglio Stordito.",haki:"Armamento d8 (3 PIP)",deb:"Arrogante: sottovaluta i bersagli 'deboli'.",note:"Esempio da Sale Amaro. Difesa 12 è un muro senza Haki."},
+ {nome:"Comandante Sett",tipo:"Marine",minaccia:"Élite",pv:22,st:8,difesa:11,atk:[["Sciabola pesante","Forza d8 + sciabola d8","d8","Striker"]],abil:"Stile Striker. Firma (+4): sfonda (Stordito).",haki:"",deb:"",note:"Élite da abbordaggio."},
+ {nome:"Vice-Ammiraglio",tipo:"Marine",minaccia:"Vice-Ammiraglio",pv:45,st:12,difesa:14,atk:[["Tecnica marziale","Tecnica d10 + Tecnica d10","d10","sceglie la Firma del suo Stile"]],abil:"Combattente completo, una Tecnica devastante a scena; spesso un Frutto o un'arte di Haki.",haki:"Armamento d10 (4 PIP) · Osservazione d8",deb:"",note:"Boss di metà arco: servono Haki e gioco di squadra."},
+ {nome:"Ammiraglio",tipo:"Boss",minaccia:"Leggenda",pv:80,st:16,difesa:18,atk:[["Potere assoluto","Tecnica d12 + d12","d12","effetto di scena enorme (Logia / forza immensa)"]],abil:"Forza da catastrofe naturale: Frutto Logia o potere paragonabile. Domina lo scontro.",haki:"Armamento d12 · Osservazione d10 · Re",deb:"Quasi imbattibile in scontro diretto: astuzia, fuga o alleati.",note:"Boss di fine saga. Da usare con parsimonia."},
+ {nome:"Pirata Gregario",tipo:"Pirata",minaccia:"Gregario",pv:5,st:4,difesa:8,atk:[["Arma di fortuna","2d6","d6",""]],abil:"Ciurmaglia rivale, in massa.",haki:"",deb:"Cade al primo colpo pulito; fugge se il capitano cade.",note:""},
+ {nome:"Pirata Veterano",tipo:"Pirata",minaccia:"Ufficiale",pv:14,st:6,difesa:10,atk:[["Lama o pistola","Forza d8 + arma d6","d8",""]],abil:"Un osso più duro: ha visto un mare o due.",haki:"",deb:"",note:""},
+ {nome:"Capitano Pirata Rivale",tipo:"Pirata",minaccia:"Élite",pv:28,st:10,difesa:12,atk:[["Colpo da capitano","Forza/Tecnica d10 + d8","d8","ha uno Stile e una Firma (concordali)"]],abil:"Uno Stile a scelta + la sua Firma; a volte un Frutto minore. Ha una taglia.",haki:"Armamento d6 (a discrezione)",deb:"Orgoglio: accetta la sfida del Capitano avversario.",note:"Rivale ricorrente perfetto."},
+ {nome:"Bestia d'Isola",tipo:"Bestia",minaccia:"Soldato",pv:18,st:0,difesa:9,atk:[["Morso e artigli","Forza d8","d8","feroce"]],abil:"Predatore selvaggio: attacca a vista, non ragiona.",haki:"",deb:"Si può sviare, intimidire o intrappolare.",note:""},
+ {nome:"Re del Mare giovane",tipo:"Re del Mare",minaccia:"Élite",pv:40,st:0,difesa:11,atk:[["Morso colossale","Forza d10","d10","+1 gradino di Danno per la stazza"]],abil:"Mostro marino: la stazza alza il Dado Danno di un gradino quando conta.",haki:"",deb:"Goffo e lento fuori dall'acqua; vulnerabile agli occhi.",note:"Minaccia ambientale in mare aperto."},
+ {nome:"Re del Mare colossale",tipo:"Re del Mare",minaccia:"Vice-Ammiraglio",pv:90,st:0,difesa:13,atk:[["Fauci abissali","Forza d12","d12","può ingoiare una scialuppa"],["Colpo di coda","Forza d10","d10","ad area, sbilancia"]],abil:"Leviatano: due attacchi, uno ad area.",haki:"",deb:"Bersaglio enorme e prevedibile; occhi e branchie sono punti deboli.",note:"Boss ambientale: spesso si fugge, non si batte."},
+ {nome:"Cittadino / PNG",tipo:"PNG",minaccia:"Gregario",pv:8,st:0,difesa:6,atk:[["Niente di che","2d4","d4","non è un combattente"]],abil:"Abitante comune: mercante, marinaio, informatore.",haki:"",deb:"",note:"Per popolare il mondo, non per combattere."}
+];
+
+let best=[], fight={round:1,turn:0,list:[]};
+const $=s=>document.querySelector(s);
+function el(t,p,kids){const e=document.createElement(t);if(p)for(const k in p){if(k==="class")e.className=p[k];else if(k==="html")e.innerHTML=p[k];else if(k==="text")e.textContent=p[k];else if(k.slice(0,2)==="on")e[k.toLowerCase()]=p[k];else e.setAttribute(k,p[k]);}if(kids!=null)(Array.isArray(kids)?kids:[kids]).forEach(c=>{if(c==null)return;e.appendChild(typeof c==="string"?document.createTextNode(c):c);});return e;}
+function uid(){return "x"+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36);}
+function clone(o){return JSON.parse(JSON.stringify(o));}
+
+function saveB(){try{localStorage.setItem(KEY_B,JSON.stringify(best));}catch(e){}}
+function saveF(){try{localStorage.setItem(KEY_F,JSON.stringify(fight));}catch(e){}}
+function loadB(){try{const s=localStorage.getItem(KEY_B);if(s){best=JSON.parse(s);return;}}catch(e){}best=clone(DEFAULT_BEAST);}
+function loadF(){try{const s=localStorage.getItem(KEY_F);if(s)fight=Object.assign({round:1,turn:0,list:[]},JSON.parse(s));}catch(e){}}
+
+/* ---- campi editabili ---- */
+function inpf(val,on,attrs){const e=el("input",Object.assign({class:"f",type:"text"},attrs||{}));e.value=val==null?"":val;e.oninput=()=>on(e.value);return e;}
+function numf(val,on,w){const e=el("input",{class:"f",inputmode:"numeric",style:"width:"+(w||46)+"px;text-align:center;"});e.value=val==null?"":val;e.oninput=()=>on(e.value.replace(/[^0-9]/g,""));return e;}
+function taf(val,on){const e=el("textarea",{class:"f"});e.value=val||"";e.oninput=()=>on(e.value);return e;}
+function self(val,opts,on,cls){const e=el("select",{class:"f"+(cls?" "+cls:"")});opts.forEach(o=>e.appendChild(el("option",{value:o,text:o})));e.value=val;e.onchange=()=>on(e.value);return e;}
+
+/* ===== BESTIARIO ===== */
+function buildBeast(b){
+ const card=el("div",{class:"beast"});
+ card.appendChild(el("button",{class:"kill",text:"✕",title:"Rimuovi",onclick:()=>{if(confirm("Rimuovere "+(b.nome||"questo avversario")+"?")){best=best.filter(x=>x!==b);card.remove();saveB();tally();fillAddSel();}}}));
+ const head=el("div",{class:"bhead"});
+ head.appendChild(inpf(b.nome,v=>{b.nome=v;saveB();fillAddSel();},{class:"f bnome-in",placeholder:"Nome avversario"}));
+ head.appendChild(self(b.minaccia,MINACCE,v=>{b.minaccia=v;saveB();card.setAttribute("data-thr",v);},"thr"));
+ card.appendChild(head);
+ const tags=el("div",{class:"btags"});
+ tags.appendChild(self(b.tipo,TIPI,v=>{b.tipo=v;saveB();card.setAttribute("data-tipo",v);}));
+ card.appendChild(tags);
+ // statline
+ const stat=(k,v,on,cls)=>el("div",{class:"stat"+(cls?" "+cls:"")},[el("span",{class:"k",text:k}),el("span",{class:"v"},[numf(v,on)])]);
+ card.appendChild(el("div",{class:"statline"},[
+   stat("PV",b.pv,v=>{b.pv=v;saveB();}),
+   stat("Stamina",b.st,v=>{b.st=v;saveB();}),
+   stat("Difesa",b.difesa,v=>{b.difesa=v;saveB();},"def")
+ ]));
+ // attacchi
+ card.appendChild(el("div",{class:"sec-h",text:"Attacchi"}));
+ card.appendChild(el("div",{class:"atk atk-head"},[el("span",{text:"Nome"}),el("span",{text:"Colpisce (tira)"}),el("span",{text:"Danno"}),el("span",{})]));
+ const atkWrap=el("div");
+ const drawAtk=()=>{atkWrap.innerHTML="";(b.atk||[]).forEach((a,i)=>{
+   const row=el("div",{class:"atk"});
+   row.appendChild(inpf(a[0],v=>{a[0]=v;saveB();},{placeholder:"nome"}));
+   row.appendChild(inpf(a[1],v=>{a[1]=v;saveB();},{placeholder:"es. Forza d8 + arma d6"}));
+   row.appendChild(inpf(a[2],v=>{a[2]=v;saveB();},{placeholder:"d6"}));
+   row.appendChild(el("button",{class:"x",text:"✕",title:"togli",onclick:()=>{b.atk.splice(i,1);saveB();drawAtk();}}));
+   atkWrap.appendChild(row);
+   if(a[3]||a[3]===""){const nrow=el("div",{class:"atk",style:"grid-template-columns:1fr;margin-top:-1px;margin-bottom:5px;"});nrow.appendChild(inpf(a[3],v=>{a[3]=v;saveB();},{placeholder:"nota / effetto (opzionale)",style:"font-style:italic;font-size:12px;"}));atkWrap.appendChild(nrow);}
+ });};
+ drawAtk();
+ card.appendChild(atkWrap);
+ card.appendChild(el("button",{class:"miniadd",text:"+ attacco",onclick:()=>{b.atk=b.atk||[];b.atk.push(["Nuovo attacco","Forza d6","d6",""]);saveB();drawAtk();}}));
+ // testo
+ const txt=(lab,key)=>{card.appendChild(el("label",{class:"fieldlab",text:lab}));card.appendChild(taf(b[key],v=>{b[key]=v;saveB();}));};
+ txt("Abilità & Tecniche","abil");
+ txt("Haki","haki");
+ txt("Debolezze","deb");
+ txt("Note / Taglia","note");
+ // aggiungi allo scontro
+ const cnt=el("input",{type:"number",value:"1",min:"1",max:"12"});
+ card.appendChild(el("div",{class:"tofight"},[el("button",{class:"btn sm",text:"⚔ Aggiungi allo Scontro",onclick:()=>{addToFight(b,parseInt(cnt.value)||1);flash(card);}}),cnt,el("span",{class:"k",style:"font-family:'Cinzel',serif;font-size:9px;letter-spacing:.08em;color:var(--ink-soft);",text:"copie"})]));
+ card.setAttribute("data-tipo",b.tipo||"");card.setAttribute("data-thr",b.minaccia||"");card.setAttribute("data-nome",(b.nome||"").toLowerCase());
+ return card;
+}
+function flash(card){card.style.boxShadow="inset 0 0 0 2px var(--ok),0 8px 20px var(--shadow)";setTimeout(()=>card.style.boxShadow="",450);}
+function renderBeast(){const g=$("#beasts");g.innerHTML="";best.forEach(b=>g.appendChild(buildBeast(b)));applyFilter();tally();}
+function tally(){$("#tally").innerHTML="<b>"+best.length+"</b> avversari nel bestiario";}
+function applyFilter(){const q=($("#search").value||"").toLowerCase().trim();const ft=$("#fType").value;const fh=$("#fThreat").value;[...$("#beasts").children].forEach(c=>{const okq=!q||(c.getAttribute("data-nome")||"").indexOf(q)>=0;const okt=!ft||c.getAttribute("data-tipo")===ft;const okh=!fh||c.getAttribute("data-thr")===fh;c.style.display=(okq&&okt&&okh)?"":"none";});}
+function fillSelects(){const t=$("#fType");TIPI.forEach(x=>t.appendChild(el("option",{value:x,text:x})));const h=$("#fThreat");MINACCE.forEach(x=>h.appendChild(el("option",{value:x,text:x})));}
+function fillAddSel(){const s=$("#addSel");const cur=s.value;s.innerHTML="";s.appendChild(el("option",{value:"",text:"+ dal Bestiario…"}));best.forEach((b,i)=>s.appendChild(el("option",{value:String(i),text:b.nome+" ("+b.minaccia+")"})));s.value=cur;}
+
+$("#add").onclick=()=>{const b={nome:"Nuovo avversario",tipo:"Marine",minaccia:"Soldato",pv:10,st:5,difesa:9,atk:[["Attacco","Forza d6","d6",""]],abil:"",haki:"",deb:"",note:""};best.unshift(b);const card=buildBeast(b);$("#beasts").insertBefore(card,$("#beasts").firstChild);saveB();tally();fillAddSel();const n=card.querySelector(".bnome-in");if(n){n.focus();n.select();}};
+$("#search").oninput=applyFilter;$("#fType").onchange=applyFilter;$("#fThreat").onchange=applyFilter;
+$("#export").onclick=()=>{const blob=new Blob([JSON.stringify(best,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="bestiario.json";a.click();URL.revokeObjectURL(a.href);};
+$("#importBtn").onclick=()=>$("#importFile").click();
+$("#importFile").onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(Array.isArray(d)){best=d;saveB();renderBeast();fillAddSel();}else alert("Formato non valido.");}catch(err){alert("File non valido.");}};rd.readAsText(f);};
+$("#reset").onclick=()=>{if(confirm("Ripristinare il bestiario di partenza? Le modifiche andranno perse.")){best=clone(DEFAULT_BEAST);saveB();renderBeast();fillAddSel();}};
+
+/* ===== SCONTRO ===== */
+function pvMax(c){return Math.max(1,parseInt(c.pvMax)||1);}
+function condListFor(c){return Array.isArray(c.cond)?c.cond:[];}
+function addToFight(b,count){count=Math.max(1,count||1);const base=fight.list.filter(c=>c.base===b.nome).length;for(let k=0;k<count;k++){fight.list.push({id:uid(),base:b.nome,nome:(count>1||base>0)?(b.nome+" "+(base+k+1)):b.nome,ini:0,pvMax:parseInt(b.pv)||1,pvCur:parseInt(b.pv)||1,stMax:parseInt(b.st)||0,stCur:parseInt(b.st)||0,difesa:b.difesa||"—",cond:[],note:""});}saveF();renderFight();}
+function addPC(){const nome=prompt("Nome del personaggio / alleato:");if(!nome)return;const pv=parseInt(prompt("PV massimi?","18"))||10;const dif=prompt("Difesa Passiva?","10")||"10";fight.list.push({id:uid(),base:"__pc",nome:nome,ini:0,pvMax:pv,pvCur:pv,stMax:0,stCur:0,difesa:dif,cond:[],note:"giocatore"});saveF();renderFight();}
+function rmCbt(c){fight.list=fight.list.filter(x=>x!==c);if(fight.turn>=fight.list.length)fight.turn=0;saveF();renderFight();}
+function dmg(c,delta){c.pvCur=Math.max(0,Math.min(pvMax(c),(parseInt(c.pvCur)||0)+delta));saveF();renderFight();}
+function toggleCond(c,name){const L=condListFor(c);const i=L.indexOf(name);if(i>=0)L.splice(i,1);else L.push(name);c.cond=L;saveF();renderFight();}
+function sortIni(){fight.list.sort((a,b)=>(parseInt(b.ini)||0)-(parseInt(a.ini)||0));fight.turn=0;saveF();renderFight();}
+function rollIni(){fight.list.forEach(c=>c.ini=1+Math.floor(Math.random()*20));sortIni();}
+function nextTurn(){if(!fight.list.length)return;fight.turn++;if(fight.turn>=fight.list.length){fight.turn=0;fight.round=(parseInt(fight.round)||1)+1;}saveF();renderFight();}
+
+function combatantRow(c,idx){
+ const pct=Math.max(0,Math.min(100,(parseInt(c.pvCur)||0)/pvMax(c)*100));
+ const col=pct>50?"#3f6b3f":(pct>25?"#9c7a12":"#8c1c13");
+ const dead=(parseInt(c.pvCur)||0)<=0;
+ const qm=!dead && pct<=25;
+ const row=el("div",{class:"cbt"+(idx===fight.turn?" turn":"")+(dead?" dead":"")});
+ // iniziativa
+ const iniIn=el("input",{type:"text",inputmode:"numeric",value:(c.ini!=null?c.ini:"")});iniIn.oninput=()=>{c.ini=iniIn.value.replace(/[^0-9]/g,"");saveF();};
+ row.appendChild(el("div",{class:"ini"},[el("span",{class:"k",text:"INI"}),iniIn]));
+ // nome + meta
+ const nameIn=el("input",{type:"text",value:c.nome||""});nameIn.oninput=()=>{c.nome=nameIn.value;saveF();};
+ const meta=el("div",{class:"cmeta"},[el("span",{class:"defbadge",text:"Difesa "+(c.difesa||"—")}),qm?el("span",{class:"qm",text:"QUASI MORTO +2 dadi"}):(dead?el("span",{class:"qm",text:"A TERRA"}):null),c.note?el("span",{text:"  "+c.note}):null]);
+ row.appendChild(el("div",{},[el("div",{class:"cname"},[nameIn]),meta]));
+ // vitali
+ const vit=el("div",{class:"vitals"});
+ const bar=el("div",{class:"bar"},[el("div",{class:"fill",style:"width:"+pct+"%;background:"+col+";"}),el("div",{class:"lab",text:(parseInt(c.pvCur)||0)+" / "+pvMax(c)+" PV"})]);
+ vit.appendChild(bar);
+ const amt=el("input",{class:"amt",type:"text",inputmode:"numeric",value:"1"});
+ const stMini=(parseInt(c.stMax)||0)>0?el("span",{class:"stmini"},[document.createTextNode("ST "),(()=>{const i=el("input",{type:"text",inputmode:"numeric"});i.value=c.stCur!=null?c.stCur:0;i.oninput=()=>{c.stCur=i.value.replace(/[^0-9]/g,"");saveF();};return i;})(),document.createTextNode("/"+(c.stMax||0))]):null;
+ vit.appendChild(el("div",{class:"vrow"},[
+   el("span",{class:"tag",text:"PV"}),
+   el("button",{text:"−",title:"danno",onclick:()=>dmg(c,-(parseInt(amt.value)||0))}),amt,el("button",{class:"heal",text:"+",title:"cura",onclick:()=>dmg(c,(parseInt(amt.value)||0))}),
+   stMini
+ ]));
+ const conds=el("div",{class:"conds"});CONDS.forEach(name=>{conds.appendChild(el("span",{class:"cond"+(condListFor(c).indexOf(name)>=0?" on":""),text:name,onclick:()=>toggleCond(c,name)}));});
+ vit.appendChild(conds);
+ row.appendChild(vit);
+ row.appendChild(el("div",{class:"crm"},[el("button",{text:"✕",title:"rimuovi",onclick:()=>rmCbt(c)})]));
+ return row;
+}
+function renderFight(){
+ $("#roundN").textContent=fight.round||1;
+ const w=$("#combatants");w.innerHTML="";
+ if(!fight.list.length){w.appendChild(el("div",{class:"emptyfight",html:"Nessun combattente. Aggiungine dal <b>Bestiario</b> (tasto ⚔ su una scheda, oppure il menu qui sopra), o aggiungi un <b>Personaggio</b>."}));return;}
+ fight.list.forEach((c,i)=>w.appendChild(combatantRow(c,i)));
+}
+function renderRef(){$("#ref").innerHTML="<b>Soglie / Difese:</b> 4 banale · 8 normale · 12 esperto · 16 Vice-Amm. · 20 Amm. &nbsp;|&nbsp; <b>Margine:</b> +4 colpo pulito (scatta la Firma) · +1/+3 colpisce · 0 la Difesa tiene · sotto manca. &nbsp;|&nbsp; <b>Difesa Passiva</b> = il numero del dado difensivo (Tecnica schiva / Forza incassa). &nbsp;|&nbsp; <b>Quasi Morto</b> a ≤25% PV: il bersaglio tira <b>+2 dadi</b>. &nbsp;|&nbsp; Iniziativa = Tecnica + Astuzia.";}
+
+$("#rMinus").onclick=()=>{fight.round=Math.max(1,(parseInt(fight.round)||1)-1);saveF();renderFight();};
+$("#rPlus").onclick=()=>{fight.round=(parseInt(fight.round)||1)+1;saveF();renderFight();};
+$("#nextTurn").onclick=nextTurn;
+$("#sortIni").onclick=sortIni;
+$("#rollIni").onclick=rollIni;
+$("#addToFight").onclick=()=>{const v=$("#addSel").value;if(v==="")return;addToFight(best[parseInt(v)],parseInt($("#addCount").value)||1);};
+$("#addPC").onclick=addPC;
+$("#clearFight").onclick=()=>{if(confirm("Svuotare lo scontro?")){fight={round:1,turn:0,list:[]};saveF();renderFight();}};
+
+/* ===== TABS ===== */
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
+ document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+ b.classList.add("active");
+ const tt=b.getAttribute("data-tab");
+ $("#tab-bestiario").hidden=(tt!=="bestiario");
+ $("#tab-scontro").hidden=(tt!=="scontro");
+ window.scrollTo({top:0,behavior:"smooth"});
+});
+
+loadB();loadF();fillSelects();fillAddSel();renderBeast();renderFight();renderRef();
+</script>
+</body>
+</html>
