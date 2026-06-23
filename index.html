@@ -179,10 +179,7 @@
       </svg>
       <span class="name">Grand Line Chronicles</span>
     </div>
-    <span class="crew-access" title="L'accesso della ciurma arriverà nelle prossime tappe.">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
-      Accesso ciurma · presto
-    </span>
+    <span id="glc-login-slot"></span>
   </header>
 
   <!-- HERO -->
@@ -362,5 +359,8 @@
     }
   })();
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>window.GLC={gate:false};</script>
+<script src="/glc-auth.js"></script>
 </body>
 </html>
