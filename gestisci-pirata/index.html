@@ -23,7 +23,7 @@ header.top .sub{font-family:'Marcellus SC',serif;font-weight:400;letter-spacing:
 .rule{height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:10px auto 22px;max-width:640px;}
 .layout{display:grid;grid-template-columns:1fr 392px;gap:26px;align-items:start;}
 @media(max-width:960px){.layout{grid-template-columns:1fr;}}
-.frame{background:linear-gradient(168deg,var(--paper),var(--paper-2));border:1px solid var(--line);box-shadow:0 16px 40px var(--shadow);padding:22px 24px;border-radius:8px;}
+.frame{background:linear-gradient(168deg,var(--paper),var(--paper-2));border:1px solid var(--line);box-shadow:0 16px 40px var(--shadow);padding:22px 24px;border-radius:8px;color:var(--ink);}
 /* bordo strappato (filtro SVG) */
 .torn{filter:drop-shadow(0 12px 26px var(--shadow));}
 .frame.torn{box-shadow:none;outline:none;border:2px solid #6b4f2a;}
@@ -136,7 +136,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--red);box
 .actions .btn{flex:1;text-align:center;padding:9px 8px;font-size:12px;}
 .actions .btn.gold{border-color:var(--gold);background:var(--gold);}.actions .btn.gold:hover{background:var(--gold-soft);}
 footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a8c6bd;font-family:'Marcellus SC',serif;letter-spacing:.12em;}
-@media print{body{background:#fff;}body::before{display:none;}.wrap{max-width:none;padding:0;}header.top,.modes,.rule,.form-panel,.stepper,.actions,footer.foot{display:none!important;}.layout{display:block;}.sheet-col{position:static;}.torn{filter:none;}.poster,.dossier{page-break-inside:avoid;}}
+@media print{@page{size:A4;margin:12mm;}html,body{background:#fff!important;}body::before,body::after{display:none!important;}.wrap{display:none!important;}#glc-bar,#glc-overlay,.glc-bar,.glc-overlay{display:none!important;}#print-sheet{display:block!important;}}
 /* DOSSIER come vera character sheet */
 .dossier{padding:0;overflow:hidden;}
 .ds-banner{background:linear-gradient(#7a1414,#5e0f0f);color:#f6e8c9;text-align:center;padding:11px 8px 9px;border-bottom:3px solid var(--gold);position:relative;}
@@ -193,6 +193,50 @@ footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a8c6bd;font-
 .tbcost{font-family:'Cinzel',serif;font-weight:700;color:#7a1410;font-size:15px;margin:9px 0 2px;text-align:right;}
 
 .ds-list.talenti .li-n i{color:#8a6a1e;font-style:italic;}
+
+/* ===== Scheda stampabile (stile D&D) ===== */
+#print-sheet{display:none;}
+#print-sheet .ps-page{font-family:'Cormorant Garamond','EB Garamond',serif;color:#2b1d12;font-size:11pt;line-height:1.34;}
+#print-sheet .ps-head{display:flex;gap:12px;align-items:stretch;border:2px solid #6b4f2a;border-radius:4px;padding:10px 12px;background:linear-gradient(160deg,#f6ead0,#ecd9b2);}
+#print-sheet .ps-portrait{width:84px;height:84px;flex:none;border:2px solid #3a2a16;background:#e7d6b0;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#9a241a;font-size:30px;border-radius:3px;}
+#print-sheet .ps-portrait img{width:100%;height:100%;object-fit:cover;}
+#print-sheet .ps-id{flex:1;min-width:0;}
+#print-sheet .ps-kick{font-family:'Marcellus SC',serif;font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:#8a6a3a;}
+#print-sheet .ps-name{font-family:'Cinzel Decorative','Cinzel',serif;font-weight:900;font-size:21pt;line-height:1.05;color:#2a1f12;}
+#print-sheet .ps-sub{font-family:'Cinzel',serif;font-weight:700;font-size:10.5pt;color:#7a1410;margin-top:1px;}
+#print-sheet .ps-amb{font-style:italic;color:#5a4633;margin-top:3px;font-size:10.5pt;}
+#print-sheet .ps-bounty{flex:none;width:122px;border-left:2px dashed #b08d4a;padding-left:10px;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+#print-sheet .ps-bk{font-family:'Rye',serif;font-size:13pt;color:#3a2a16;line-height:1;}
+#print-sheet .ps-bv{font-family:'Cinzel',serif;font-weight:900;font-size:13.5pt;color:#3a2a16;margin-top:2px;}
+#print-sheet .ps-bl{font-family:'Cinzel',serif;font-size:7.5pt;letter-spacing:.08em;text-transform:uppercase;color:#7a1410;margin-top:1px;}
+#print-sheet .ps-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:8px;}
+#print-sheet .ps-stat{border:1px solid #b08d4a;border-radius:3px;text-align:center;padding:5px 2px;background:#fbf3df;}
+#print-sheet .ps-stat .k{font-size:7pt;letter-spacing:.05em;text-transform:uppercase;color:#7a6240;}
+#print-sheet .ps-stat .v{font-family:'Cinzel',serif;font-weight:900;font-size:12.5pt;color:#7a1410;}
+#print-sheet .ps-attrs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px;}
+#print-sheet .ps-attr{border:2px solid #6b4f2a;border-radius:4px;text-align:center;padding:7px 2px;background:linear-gradient(160deg,#f6ead0,#ecd9b2);}
+#print-sheet .ps-attr .an{font-family:'Cinzel',serif;font-weight:700;font-size:9pt;letter-spacing:.04em;color:#5a4633;text-transform:uppercase;}
+#print-sheet .ps-attr .ad{font-family:'Cinzel Decorative','Cinzel',serif;font-weight:900;font-size:24pt;color:#9a241a;line-height:1.05;}
+#print-sheet .ps-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px;align-items:start;}
+#print-sheet .ps-col{min-width:0;}
+#print-sheet .ps-sec{margin-bottom:9px;break-inside:avoid;}
+#print-sheet .ps-h{font-family:'Cinzel',serif;font-weight:900;font-size:10pt;letter-spacing:.12em;text-transform:uppercase;color:#9a241a;border-bottom:2px solid #c8a24b;padding-bottom:2px;margin-bottom:5px;}
+#print-sheet .ps-tab{width:100%;border-collapse:collapse;}
+#print-sheet .ps-tab td{padding:2px 2px;border-bottom:1px dotted #cbb88a;vertical-align:top;}
+#print-sheet .ps-tab .sk{font-size:10pt;}
+#print-sheet .ps-tab .sk.off{color:#9a8a6e;}
+#print-sheet .ps-tab .sk .role{font-family:'Cinzel',serif;font-size:6.5pt;letter-spacing:.05em;text-transform:uppercase;color:#7a1410;border:1px solid #c8a24b;border-radius:6px;padding:0 4px;margin-left:5px;}
+#print-sheet .ps-tab .sd{width:44px;text-align:center;font-family:'Cinzel',serif;font-weight:700;color:#7a1410;}
+#print-sheet .ps-tab .sp{width:62px;text-align:right;font-size:7.5pt;color:#7a6240;}
+#print-sheet .ps-item{font-size:10pt;padding:3px 0;border-bottom:1px dotted #cbb88a;}
+#print-sheet .ps-item .die{font-family:'Cinzel',serif;font-weight:700;color:#7a1410;}
+#print-sheet .ps-tech{padding:4px 0;border-bottom:1px dotted #cbb88a;break-inside:avoid;}
+#print-sheet .ps-tech .tt{font-size:10.5pt;}
+#print-sheet .ps-tech .tg{font-family:'Cinzel',serif;font-size:8pt;color:#7a1410;font-weight:700;}
+#print-sheet .ps-d{font-size:9.5pt;color:#3a2a16;margin-top:1px;}
+#print-sheet .ps-d2{font-size:8.5pt;color:#7a6240;font-style:italic;margin-top:2px;}
+#print-sheet .ps-notes{margin-top:6px;border:1px solid #b08d4a;border-radius:3px;padding:8px 10px;background:#fbf3df;}
+#print-sheet .ps-foot{text-align:center;font-family:'Marcellus SC',serif;font-size:7.5pt;letter-spacing:.16em;text-transform:uppercase;color:#8a6a3a;margin-top:10px;}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -287,7 +331,7 @@ footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a8c6bd;font-
       </div>
 
       <div class="actions">
-        <button class="btn gold" onclick="window.print()">🖨 Stampa</button>
+        <button class="btn gold" id="printSheet">🖨 Stampa scheda</button>
         <button class="btn" id="export">⬇ .json</button>
         <button class="btn ghost" id="importBtn">⬆ Importa</button>
         <button class="btn ghost" id="reset">↺ Reset</button>
@@ -298,6 +342,8 @@ footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a8c6bd;font-
   </div>
   <footer class="foot">Grand Line Chronicles ⚓ La forza non si accumula — si guadagna.</footer>
 </div>
+
+<div id="print-sheet" aria-hidden="true"></div>
 
 <script>
 "use strict";
@@ -802,6 +848,67 @@ function render(){
  if(pg.frutto.has){$("#s-frutto-sec").style.display="block";$("#s-frutto").innerHTML='<b>'+(pg.frutto.nome||"Frutto senza nome")+'</b>'+(pg.frutto.tipo?' <span class="muted">('+pg.frutto.tipo+')</span>':'')+(pg.frutto.desc?'<br>'+pg.frutto.desc:'');}else $("#s-frutto-sec").style.display="none";
 }
 
+function escp(s){return String(s==null?"":s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});}
+function hakiUnlocked(h){var prog=HAKI_PROG[h.name];if(!prog)return [];var out=[];prog.rows.forEach(function(row){var u=(prog.axis==="pip")?((parseInt(h.pip)||0)>=row.k):(DICE.indexOf(h.die)>=DICE.indexOf(row.k));if(u)out.push(row);});return out;}
+function buildPrintSheet(){
+  var host=document.getElementById("print-sheet"); if(!host) return;
+  var r=race();
+  var bountyN=(pg.bounty&&pg.bounty!=="0")?Number(pg.bounty):0;
+  var pv=(pg.pvMax!=null?pg.pvMax:(r?r.pv:"\u2014")), pvc=(pg.pvCur!=null?pg.pvCur:pv);
+  var st=(pg.stMax!=null?pg.stMax:6), stc=(pg.stCur!=null?pg.stCur:st);
+  var hakiPip=pg.haki.reduce(function(a,h){return a+(parseInt(h.pip)||0);},0);
+  var ro=roleObj();
+  var h="";
+  h+='<div class="ps-page">';
+  h+='<div class="ps-head">';
+  h+='<div class="ps-portrait">'+(pg.photo?'<img src="'+pg.photo+'" alt="">':'<span>\u2693</span>')+'</div>';
+  h+='<div class="ps-id"><div class="ps-kick">Grand Line Chronicles \u00b7 Scheda del Pirata</div>';
+  h+='<div class="ps-name">'+escp(pg.nome||"Pirata Senza Nome")+'</div>';
+  h+='<div class="ps-sub">'+escp((r?r.name:"Razza ignota")+" \u00b7 "+roleLabel())+'</div>';
+  if(pg.amb)h+='<div class="ps-amb">\u201c'+escp(pg.amb)+'\u201d</div>';
+  h+='</div>';
+  h+='<div class="ps-bounty"><div class="ps-bk">Wanted</div><div class="ps-bv">\u0e3f '+(bountyN?bountyN.toLocaleString("it-IT"):"0")+'</div><div class="ps-bl">'+escp(bountyN?bountyLevel(bountyN):"Sconosciuto")+'</div></div>';
+  h+='</div>';
+  h+='<div class="ps-strip">';
+  h+='<div class="ps-stat"><div class="k">Punti Vita</div><div class="v">'+pvc+' / '+pv+'</div></div>';
+  h+='<div class="ps-stat"><div class="k">Stamina</div><div class="v">'+stc+' / '+st+'</div></div>';
+  h+='<div class="ps-stat"><div class="k">Dado Vita</div><div class="v">'+(r?r.hp:"\u2014")+'</div></div>';
+  h+='<div class="ps-stat"><div class="k">Haki PIP</div><div class="v">'+hakiPip+'</div></div>';
+  h+='<div class="ps-stat"><div class="k">Legami</div><div class="v">'+(pg.legami||0)+'</div></div>';
+  h+='<div class="ps-stat"><div class="k">Ore/giorno</div><div class="v">'+(pg.ore!=null?pg.ore:16)+'</div></div>';
+  h+='</div>';
+  h+='<div class="ps-attrs">';
+  ATTRS.forEach(function(a){h+='<div class="ps-attr"><div class="an">'+a+'</div><div class="ad">'+(pg.attr[a]||"\u2014")+'</div></div>';});
+  h+='</div>';
+  h+='<div class="ps-cols"><div class="ps-col">';
+  h+='<div class="ps-sec"><div class="ps-h">Abilit\u00e0</div><table class="ps-tab">';
+  Object.keys(SKILLS).forEach(function(name){
+    var isRole=ro&&ro.skill===name;
+    var die=isRole?pg.roleSkillDie:(pg.skills[name]||"");
+    var paInfo="";
+    if(die){var sg=paSoglia(die);var pa=pg.pa[name]||0;if(sg!=null)paInfo=pa+'/'+sg+' PA';}
+    h+='<tr><td class="sk'+(die?'':' off')+'">'+escp(name)+(isRole?' <span class="role">Ruolo</span>':'')+'</td><td class="sd">'+(die||'\u2014')+'</td><td class="sp">'+paInfo+'</td></tr>';
+  });
+  h+='</table></div>';
+  if(pg.armi&&pg.armi.length){h+='<div class="ps-sec"><div class="ps-h">Equipaggiamento</div>';pg.armi.forEach(function(a){h+='<div class="ps-item"><b>'+escp(a.nome||"arma")+'</b> <span class="die">'+escp(a.die||"")+'</span>'+((a.attr||a.note)?'<div class="ps-d">'+escp([a.attr,a.note].filter(Boolean).join(" \u00b7 "))+'</div>':'')+'</div>';});h+='</div>';}
+  if(Array.isArray(pg.talents)&&pg.talents.length){h+='<div class="ps-sec"><div class="ps-h">Talenti</div>';pg.talents.forEach(function(k){var parts=k.split(" \u00b7 ");var nm=parts[parts.length-1];var sty=parts.length>=2?parts[1]:"";var showS=sty&&sty!==parts[0];h+='<div class="ps-item">\u2726 '+escp(nm)+(showS?' <span class="ps-d2">('+escp(sty)+')</span>':'')+'</div>';});h+='</div>';}
+  h+='</div><div class="ps-col">';
+  h+='<div class="ps-sec"><div class="ps-h">Tecniche</div>';
+  if(r)h+='<div class="ps-tech"><div class="tt"><b>'+escp(r.tech)+'</b> <span class="tg">razziale \u00b7 '+escp(pg.racialDie||"d6")+'</span></div><div class="ps-d">'+escp(r.techDesc)+'</div></div>';
+  if(pg.t1&&pg.t1.nome)h+='<div class="ps-tech"><div class="tt"><b>'+escp(pg.t1.nome)+'</b> <span class="tg">'+escp([pg.t1.attr,pg.t1.die].filter(Boolean).join(" \u00b7 "))+'</span></div>'+(pg.t1.desc?'<div class="ps-d">'+escp(pg.t1.desc)+'</div>':'')+'</div>';
+  if(pg.t2&&pg.t2.nome)h+='<div class="ps-tech"><div class="tt"><b>'+escp(pg.t2.nome)+'</b> <span class="tg">'+escp([pg.t2.attr,pg.t2.die].filter(Boolean).join(" \u00b7 "))+'</span></div>'+(pg.t2.desc?'<div class="ps-d">'+escp(pg.t2.desc)+'</div>':'')+'</div>';
+  (pg.extraTech||[]).forEach(function(t){if(!t.nome&&!(t.eff&&t.eff.length))return;h+='<div class="ps-tech"><div class="tt"><b>'+escp(t.nome||"(senza nome)")+'</b> <span class="tg">'+escp([t.attr,t.die].filter(Boolean).join(" \u00b7 "))+' \u00b7 '+escp(tecCostLabel(t))+'</span></div><div class="ps-d">'+escp(tecSummary(t)||t.desc||"")+'</div></div>';});
+  if(!r&&!(pg.t1&&pg.t1.nome)&&!(pg.t2&&pg.t2.nome)&&!(pg.extraTech&&pg.extraTech.length))h+='<div class="ps-d">Nessuna tecnica.</div>';
+  h+='</div>';
+  if(pg.haki&&pg.haki.length){h+='<div class="ps-sec"><div class="ps-h">Haki</div>';pg.haki.forEach(function(hk){var unl=hakiUnlocked(hk);var liv=unl.length?unl[unl.length-1].liv:"";h+='<div class="ps-tech"><div class="tt"><b>'+escp(hk.name)+'</b> <span class="tg">'+escp((hk.die||"")+(liv?(" \u00b7 "+liv):"")+(hk.pip?(" \u00b7 "+hk.pip+" PIP"):""))+'</span></div>';unl.forEach(function(row){h+='<div class="ps-d"><b>'+escp(row.liv)+':</b> '+escp(row.pass)+(row.act?(' <i>Attiva: '+escp(row.act)+(row.cost?(" ("+row.cost+" PIP)"):"")+'</i>'):'')+'</div>';});h+='</div>';});h+='</div>';}
+  if(pg.frutto&&pg.frutto.has){h+='<div class="ps-sec"><div class="ps-h">Frutto del Diavolo</div><div class="ps-tech"><div class="tt"><b>'+escp(pg.frutto.nome||"Frutto senza nome")+'</b>'+(pg.frutto.tipo?' <span class="tg">'+escp(pg.frutto.tipo)+'</span>':'')+'</div>'+(pg.frutto.desc?'<div class="ps-d">'+escp(pg.frutto.desc)+'</div>':'')+'<div class="ps-d2">Debolezze: mare \u00b7 Pietra di Mare \u00b7 Haki</div></div></div>';}
+  h+='</div></div>';
+  if(pg.bg||pg.note){h+='<div class="ps-sec ps-notes">';if(pg.bg)h+='<div class="ps-h">Background</div><div class="ps-d">'+escp(pg.bg)+'</div>';if(pg.note)h+='<div class="ps-h" style="margin-top:8px">Note</div><div class="ps-d">'+escp(pg.note)+'</div>';h+='</div>';}
+  h+='<div class="ps-foot">Grand Line Chronicles \u00b7 Sistema \u00abWill of D.\u00bb</div>';
+  h+='</div>';
+  host.innerHTML=h;
+}
+$("#printSheet").onclick=function(){buildPrintSheet();window.print();};
 $("#export").onclick=()=>{const blob=new Blob([JSON.stringify(pg,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=(pg.nome?pg.nome.replace(/[^a-z0-9]+/gi,"_"):"pirata")+".json";a.click();URL.revokeObjectURL(a.href);};
 $("#importBtn").onclick=()=>$("#importFile").click();
 $("#importFile").onchange=e=>{const file=e.target.files[0];if(!file)return;const rd=new FileReader();rd.onload=()=>{try{const c=migrateChar(JSON.parse(rd.result));const id=newId();CT.chars[CT.activeId]=pg;CT.chars[id]=c;CT.order.push(id);CT.activeId=id;pg=c;save();bindInputs();renderCrewBar();if(mode==="gest")renderManage();else goto(0);render();}catch(err){alert("File non valido.");}};rd.readAsText(file);e.target.value="";};
