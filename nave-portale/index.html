@@ -6,34 +6,34 @@
 <title>Grand Line Chronicles — Portale della Nave</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Pirata+One&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Marcellus+SC&family=Cinzel:wght@500;700;900&display=swap" rel="stylesheet" />
 <style>
-:root{--ink:#2b1d12;--ink-soft:#5a4633;--red:#8c1c13;--red-br:#b71c1c;--gold:#b8860b;--gold-2:#c8a24b;--paper:#f3e3c3;--paper-2:#ecd9b2;--line:#cdb487;--sea:#2f5b7a;--shadow:rgba(60,40,15,.35);--ok:#3f6b3f;--warn:#9c7a12;--bad:#8c1c13;}
+:root{--ink:#34271a;--ink-soft:#5e4c34;--red:#9a241a;--red-br:#b71c1c;--gold:#c9a24a;--gold-2:#ecca77;--paper:#ecdcb6;--paper-2:#e3d0a4;--line:#cdb487;--sea:#2f5b7a;--shadow:rgba(0,0,0,.40);--ok:#3f6b3f;--warn:#9c7a12;--bad:#9a241a;}
 *{box-sizing:border-box;}html,body{margin:0;padding:0;}
-body{font-family:'EB Garamond',Georgia,serif;color:var(--ink);font-size:17px;line-height:1.5;background-color:#e7d2a6;background-image:radial-gradient(ellipse at 20% 0%,#f6e8c9 0,rgba(246,232,201,0) 55%),radial-gradient(ellipse at 100% 100%,#e3cb9c 0,rgba(227,203,156,0) 60%),radial-gradient(circle at 50% 40%,#f1e0bd 0,#e2c896 100%);min-height:100vh;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body{font-family:'Cormorant Garamond',Georgia,serif;color:#ecdcb6;font-size:18px;line-height:1.5;background:radial-gradient(120% 80% at 50% -10%, #15333f 0%, #0a1920 55%, #060f14 100%) fixed;min-height:100vh;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
 .wrap{max-width:1080px;margin:0 auto;padding:18px 16px 80px;}
 header.top{text-align:center;position:relative;padding:6px 0 2px;}
-header.top .wheel{font-size:34px;color:var(--red);line-height:1;}
-header.top h1{font-family:'Pirata One',cursive;font-size:clamp(30px,6vw,52px);color:var(--red);margin:0;text-shadow:1px 1px 0 rgba(0,0,0,.12);}
-header.top .sub{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.24em;text-transform:uppercase;font-size:11px;color:var(--ink-soft);margin-top:2px;}
+header.top .wheel{font-size:34px;color:var(--gold);line-height:1;}
+header.top h1{font-family:'Cinzel Decorative',serif;font-weight:900;font-size:clamp(28px,6vw,48px);color:#ecdcb6;margin:0;text-shadow:0 2px 16px rgba(0,0,0,.45);}
+header.top .sub{font-family:'Marcellus SC',serif;font-weight:400;letter-spacing:.24em;text-transform:uppercase;font-size:11px;color:#a8c6bd;margin-top:4px;}
 .toolbar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0 4px;}
 .btn{font-family:'Cinzel',serif;font-weight:700;font-size:12px;letter-spacing:.04em;border:1px solid var(--red);background:var(--red);color:#fff;padding:8px 13px;border-radius:2px;cursor:pointer;transition:.15s;}
 .btn:hover{background:var(--red-br);}.btn:focus-visible{outline:3px solid var(--gold-2);outline-offset:2px;}
 .btn.gold{border-color:var(--gold);background:var(--gold);}.btn.gold:hover{background:var(--gold-2);}
-.btn.ghost{background:transparent;color:var(--red);}.btn.ghost:hover{background:rgba(140,28,19,.08);}
+.btn.ghost{background:transparent;color:var(--gold-2);border-color:rgba(201,162,74,.5);}.btn.ghost:hover{background:rgba(201,162,74,.12);}
 .btn.sm{font-size:11px;padding:5px 9px;}
-.saved{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;color:var(--ink-soft);align-self:center;}
+.saved{font-family:'Marcellus SC',serif;font-size:10px;letter-spacing:.1em;color:#a8c6bd;align-self:center;}
 /* tabs */
 .tabs{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin:12px 0 16px;border-bottom:2px solid var(--gold);padding-bottom:0;}
-.tab{font-family:'Cinzel',serif;font-weight:700;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line);border-bottom:none;background:rgba(255,255,255,.35);color:var(--ink-soft);padding:9px 14px;border-radius:4px 4px 0 0;cursor:pointer;margin-bottom:-2px;}
-.tab[aria-selected="true"]{background:linear-gradient(var(--paper),var(--paper-2));color:var(--red);border-color:var(--gold);border-bottom:2px solid var(--paper-2);}
+.tab{font-family:'Marcellus SC',serif;font-weight:400;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(201,162,74,.35);border-bottom:none;background:rgba(236,220,182,.06);color:#a8c6bd;padding:9px 14px;border-radius:6px 6px 0 0;cursor:pointer;margin-bottom:-2px;}
+.tab[aria-selected="true"]{background:linear-gradient(168deg,var(--paper),var(--paper-2));color:var(--red);border-color:var(--gold);border-bottom:2px solid var(--paper-2);}
 .tab:focus-visible{outline:2px solid var(--gold-2);}
 section.panel{display:none;}
 section.panel.active{display:block;animation:fade .2s ease;}
 @keyframes fade{from{opacity:.4}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){section.panel.active{animation:none}}
 /* cards */
-.card{background:linear-gradient(var(--paper),var(--paper-2));border:2px solid #6b4f2a;box-shadow:inset 0 0 0 1px var(--gold-2),0 6px 16px var(--shadow);border-radius:3px;padding:14px 16px;margin-bottom:16px;}
+.card{background:linear-gradient(168deg,var(--paper),var(--paper-2));border:1px solid var(--line);box-shadow:0 16px 40px var(--shadow);border-radius:8px;padding:16px 18px;margin-bottom:16px;color:var(--ink);}
 .card h2{font-family:'Cinzel',serif;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin:0 0 10px;border-bottom:1px solid var(--line);padding-bottom:6px;display:flex;align-items:center;gap:7px;}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
@@ -83,10 +83,18 @@ textarea.txt{resize:vertical;min-height:60px;line-height:1.45;}
 @media(max-width:640px){.crewrow{grid-template-columns:1fr;}}
 .crewrow .ruolo{font-family:'Cinzel',serif;font-weight:700;font-size:12.5px;color:var(--red);}
 .crewrow .att{font-size:11px;color:var(--ink-soft);}
-.note-foot{text-align:center;font-family:'Cinzel',serif;font-size:12px;color:var(--ink-soft);letter-spacing:.06em;margin-top:8px;}
+.note-foot{text-align:center;font-family:'Marcellus SC',serif;font-size:12px;color:#a8c6bd;letter-spacing:.1em;margin-top:14px;}
 .help{font-size:13.5px;color:var(--ink-soft);background:#fff8ea;border-left:4px solid var(--gold);border-radius:2px;padding:8px 11px;margin-bottom:12px;}
-@media print{.toolbar,.tabs,.man-btns,.psctrl,.stepper button,.btn{display:none!important;}section.panel{display:block!important;}body{background:#fff;}}
+@media print{.toolbar,.tabs,.shipsbar,.man-btns,.psctrl,.stepper button,.btn,#glc-bar,#glc-overlay,.glc-bar,.glc-overlay{display:none!important;}section.panel{display:block!important;}body{background:#fff!important;color:#2b1d12;}}
+.shipsbar{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px;margin:4px 0 0;}
+.shipsbar .sb-label{font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.85;}
+.shipsbar .sb-sel{width:auto;min-width:150px;max-width:250px;padding:6px 10px;}
+.shipsbar .sb-link{font-size:12px;text-decoration:none;border-bottom:1px solid transparent;opacity:.9;}
+.shipsbar .sb-link:hover{border-bottom-color:currentColor;}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>window.GLC={saveKey:"glc_nave_v1",gate:true,profileUrl:"/profilo/"};</script>
+<script src="/glc-auth.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -95,6 +103,7 @@ textarea.txt{resize:vertical;min-height:60px;line-height:1.45;}
     <h1>Portale della Nave</h1>
     <div class="sub">Grand Line Chronicles · plancia di comando</div>
   </header>
+  <div class="shipsbar"><span class="sb-label">⚓ Le tue navi</span><select id="ship-sel" class="sb-sel" aria-label="Nave attiva"></select><button id="ship-new" class="btn ghost sm" type="button">+ Nuova</button><button id="ship-del" class="btn ghost sm" type="button" title="Elimina nave">🗑️</button><a class="sb-link" href="/profilo/">Le mie navi ↗</a></div>
   <div class="toolbar">
     <button class="btn gold sm" id="presetBtn">⚓ Nave di partenza</button>
     <button class="btn sm" onclick="window.print()">🖨 Stampa</button>
@@ -102,6 +111,7 @@ textarea.txt{resize:vertical;min-height:60px;line-height:1.45;}
     <button class="btn ghost sm" id="importBtn">⬆ Importa</button>
     <button class="btn ghost sm" id="resetBtn">↺ Azzera</button>
     <span class="saved" id="saved">salvato</span>
+    <span id="glc-login-slot"></span>
     <input type="file" id="importFile" accept="application/json" style="display:none;" />
   </div>
   <div class="tabs" role="tablist" id="tabs"></div>
@@ -205,10 +215,18 @@ function blank(){return{nome:"",tipo:"",polena:"",legno:"",
  magazzino:{},
  berry:0,cargo:"",note:"",log:[]};}
 let S=blank();
+function newId(){return "n_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+function shipLabel(s){return (s&&s.nome&&s.nome.trim())?s.nome.trim():"Nave senza nome";}
+var NT={v:1,activeId:"",order:[],ships:{}};
+function readNT(){var o=null;try{o=JSON.parse(localStorage.getItem(KEY)||"null");}catch(e){}
+ if(o&&o.ships&&typeof o.ships==="object"){o.order=Array.isArray(o.order)?o.order.filter(function(id){return o.ships[id];}):[];for(var id in o.ships)if(o.order.indexOf(id)<0)o.order.push(id);if(!o.ships[o.activeId])o.activeId=o.order[0]||"";return o;}
+ if(o){var nid=newId();var sh={};sh[nid]=Object.assign(blank(),o);return {v:1,activeId:nid,order:[nid],ships:sh};}
+ return {v:1,activeId:"",order:[],ships:{}};}
+function writeNT(){try{localStorage.setItem(KEY,JSON.stringify(NT));}catch(e){}}
 const $=s=>document.querySelector(s);
 function el(t,p,k){const e=document.createElement(t);if(p)for(const x in p){if(x==="class")e.className=p[x];else if(x==="html")e.innerHTML=p[x];else if(x==="text")e.textContent=p[x];else if(x.slice(0,2)==="on")e[x.toLowerCase()]=p[x];else e.setAttribute(x,p[x]);}if(k!=null)(Array.isArray(k)?k:[k]).forEach(c=>{if(c==null)return;e.appendChild(typeof c==="string"?document.createTextNode(c):c);});return e;}
-let saveT;function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}const sv=$("#saved");if(sv){sv.textContent="salvato ✓";clearTimeout(saveT);saveT=setTimeout(()=>sv.textContent="salvato",1200);}}
-function load(){try{const s=localStorage.getItem(KEY);if(s)S=Object.assign(blank(),JSON.parse(s));}catch(e){}}
+let saveT;function save(){if(NT.activeId)NT.ships[NT.activeId]=S;writeNT();const sv=$("#saved");if(sv){sv.textContent="salvato ✓";clearTimeout(saveT);saveT=setTimeout(()=>sv.textContent="salvato",1200);}}
+function load(){NT=readNT();var q=new URLSearchParams(location.search).get("n");if(q&&NT.ships[q])NT.activeId=q;if(!NT.activeId){var id=newId();NT.ships[id]=blank();NT.order.push(id);NT.activeId=id;writeNT();}S=Object.assign(blank(),NT.ships[NT.activeId]||{});}
 
 function psMax(){return Math.max(1,(PS_BY_DIE[S.stats.scafo]||30)+(S.psMaxMod||0));}
 function slotsTot(){return SLOT_BY_DIE[S.stats.struttura]||2;}
@@ -225,7 +243,7 @@ function selectTab(name){[...$("#tabs").children].forEach(b=>b.setAttribute("ari
 function field(lab,key,obj,type){const inp=el(type==="area"?"textarea":"input",{class:"txt",value:obj[key]||""});if(type&&type!=="area")inp.type=type;inp.oninput=()=>{obj[key]=type==="number"?(parseInt(inp.value)||0):inp.value;save();};return el("label",{class:"fld"},[el("span",{class:"lab",text:lab}),inp]);}
 function selField(lab,key,obj,opts,onchange){const sel=el("select",{class:"txt"});opts.forEach(o=>sel.appendChild(el("option",{value:o,text:o})));sel.value=obj[key];sel.onchange=()=>{obj[key]=sel.value;save();if(onchange)onchange();};return el("label",{class:"fld"},[el("span",{class:"lab",text:lab}),sel]);}
 function poolFor(shipDie,crewKey){const pool=[shipDie];const a=S.crew[crewKey]&&S.crew[crewKey].attr;if(a&&a!=="—")pool.push(a);return pool;}
-function poolLabel(shipDie,statName,crewKey,attName){const c=S.crew[crewKey]||{};const who=c.nome?(" di "+c.nome):"";const att=(c.attr&&c.attr!=="—")?(c.attr+" ("+attName+who+")"):"⚠ nessuno alla postazione";return "<b>"+shipDie+"</b> ("+statName+") + <b>"+att+"</b>";}
+function poolLabel(shipDie,statName,crewKey,attName){const c=S.crew[crewKey]||{};const nm=(c.nome&&c.nome.trim())?c.nome.trim():"";const hasDie=c.attr&&c.attr!=="—";var att;if(hasDie){att=c.attr+" ("+attName+(nm?(" di "+nm):"")+")";}else if(nm){att="— ("+nm+" · assegna un dado in Equipaggio)";}else{att="⚠ nessuno alla postazione";}return "<b>"+shipDie+"</b> ("+statName+") + <b>"+att+"</b>";}
 function evalRow(label,sogliaGetter,onEsito){const wrap=el("div",{class:"stat",style:"align-items:center"});
  const info=el("div",{class:"info"});wrap.appendChild(info);
  const inp=el("input",{class:"txt",type:"number",placeholder:"totale"});inp.style.width="84px";
@@ -362,7 +380,7 @@ function renderCantiere(){const p=$("#p-cantiere");if(!p)return;p.innerHTML="";
  up.appendChild(el("div",{class:"help",html:"Due strade — <b>Cantiere esterno:</b> paghi solo Berry (e non pochi), nessun tiro: premi direttamente «Applica +1», è garantito. <b>Fai da te:</b> la ciurma tira Astuzia + Carpenteria, tu inserisci il totale qui sotto e leggi l'esito. Lo stesso vale per riparazioni e moduli: al cantiere paghi e salti il tiro."}));
  const carpSel=el("select",{class:"txt"});["d4","d6","d8","d10","d12","d20"].forEach(o=>carpSel.appendChild(el("option",{value:o,text:o})));carpSel.value=S.carpenteria;carpSel.onchange=()=>{S.carpenteria=carpSel.value;save();renderCantiere();};
  const targetSoglia=cur=>{const i=DICE_SHIP.indexOf(cur);const next=DICE_SHIP[i+1];const soglie={d6:8,d8:10,d10:12,d12:14};return next?[next,soglie[next]]:[null,null];};
- const carpPool=()=>{const ia=S.crew.ingegnere.attr;const a=(ia&&ia!=="—")?("<b>"+ia+"</b> (Astuzia"+(S.crew.ingegnere.nome?" di "+S.crew.ingegnere.nome:"")+")"):"⚠ nessun Ingegnere";return a+" + <b>"+S.carpenteria+"</b> (Carpenteria)";};
+ const carpPool=()=>{var ig=S.crew.ingegnere||{};var inm=(ig.nome&&ig.nome.trim())?ig.nome.trim():"";var ia=ig.attr;var a=(ia&&ia!=="—")?("<b>"+ia+"</b> (Astuzia"+(inm?" di "+inm:"")+")"):(inm?("— ("+inm+" · assegna un dado)"):"⚠ nessun Ingegnere");return a+" + <b>"+S.carpenteria+"</b> (Carpenteria)";};
  const haveMats=req=>req.every(([id,q])=>(S.magazzino[id]||0)>=q);
  const matLine=req=>{const ok=haveMats(req);return "Materiali: "+matStr(req)+" "+(ok?"<span style='color:#3f6b3f;font-weight:700'>✓ in magazzino</span>":"<span style='color:#8c1c13;font-weight:700'>✗ mancanti</span>");};
  const consume=req=>{req.forEach(([id,q])=>{S.magazzino[id]=Math.max(0,(S.magazzino[id]||0)-q);});save();};
@@ -402,7 +420,7 @@ function renderCantiere(){const p=$("#p-cantiere");if(!p)return;p.innerHTML="";
  const detail=el("div",{class:"derived",style:"margin:8px 0"});
  const outEl=el("div",{class:"result",html:"<span class='muted'>Inserisci il totale del tiro per vedere l'esito.</span>"});
  const inp=el("input",{class:"txt",type:"number",placeholder:"totale"});inp.style.width="90px";
- const ipool=()=>{const ia=S.crew.ingegnere.attr;const a=(ia&&ia!=="—")?("<b>"+ia+"</b> (Astuzia"+(S.crew.ingegnere.nome?" di "+S.crew.ingegnere.nome:"")+")"):"⚠ nessun Ingegnere";return a+" + <b>"+S.carpenteria+"</b> (Carpenteria)";};
+ const ipool=()=>{var ig=S.crew.ingegnere||{};var inm=(ig.nome&&ig.nome.trim())?ig.nome.trim():"";var ia=ig.attr;var a=(ia&&ia!=="—")?("<b>"+ia+"</b> (Astuzia"+(inm?" di "+inm:"")+")"):(inm?("— ("+inm+" · assegna un dado)"):"⚠ nessun Ingegnere");return a+" + <b>"+S.carpenteria+"</b> (Carpenteria)";};
  const updDetail=()=>{const r=REPAIRS[parseInt(rsel.value)];detail.innerHTML="<b>"+r.t+"</b> — "+r.ore+" ore · soglia <b>"+r.s+"</b><br>Tira: "+ipool()+"<br>"+matLine(r.mat||[]);evalOut();};
  const useRepMats=el("button",{class:"btn ghost sm",text:"− usa materiali",title:"Scala dal magazzino i materiali della riparazione scelta",onClick:()=>{const r=REPAIRS[parseInt(rsel.value)];consume(r.mat||[]);renderCantiere();}});
  const evalOut=()=>{const r=REPAIRS[parseInt(rsel.value)];const t=parseInt(inp.value);if(isNaN(t)){outEl.innerHTML="<span class='muted'>Inserisci il totale del tiro per vedere l'esito.</span>";return;}const m=t-r.s;const[es,col]=esitoMargine(m);outEl.innerHTML="Margine "+(m>=0?"+":"")+m+" <span class='tag' style='background:"+col+"'>"+es+"</span><br>"+(m>=0?"✔ "+r.ok:"✘ "+(m<=-4?r.ko:"Ore perse: si può riprovare."));};
@@ -440,10 +458,14 @@ function renderAll(){renderPlancia();renderEquipaggio();renderBattaglia();render
 $("#presetBtn").onclick=()=>{if(!confirm("Imposta una nave di partenza tipica? (una statistica a d8 a scelta, le altre a d6). Sovrascrive le statistiche attuali."))return;S.stats={scafo:"d8",vele:"d6",artiglieria:"d6",struttura:"d6"};S.psCur=psMax();save();renderAll();selectTab("Plancia");};
 $("#exportBtn").onclick=()=>{const b=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=(S.nome||"nave")+".json";a.click();URL.revokeObjectURL(a.href);};
 $("#importBtn").onclick=()=>$("#importFile").click();
-$("#importFile").onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{S=Object.assign(blank(),JSON.parse(rd.result));save();renderAll();}catch(err){alert("File non valido.");}};rd.readAsText(f);};
+$("#importFile").onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{S=Object.assign(blank(),JSON.parse(rd.result));save();renderShipsBar();renderAll();}catch(err){alert("File non valido.");}};rd.readAsText(f);};
 $("#resetBtn").onclick=()=>{if(confirm("Azzerare tutta la scheda della nave?")){S=blank();save();renderAll();selectTab("Plancia");}};
 
-load();buildTabs();renderAll();selectTab("Plancia");
+function renderShipsBar(){var sel=$("#ship-sel");if(!sel)return;sel.innerHTML="";NT.order.forEach(function(id){var o=document.createElement("option");o.value=id;o.textContent=shipLabel(NT.ships[id]);if(id===NT.activeId)o.selected=true;sel.appendChild(o);});var del=$("#ship-del");if(del)del.disabled=NT.order.length<=1;}
+function switchShip(id){if(!NT.ships[id])return;save();NT.activeId=id;S=Object.assign(blank(),NT.ships[id]);writeNT();renderShipsBar();renderAll();selectTab("Plancia");}
+function newShip(){save();var id=newId();NT.ships[id]=blank();NT.order.push(id);NT.activeId=id;S=NT.ships[id];writeNT();renderShipsBar();renderAll();selectTab("Plancia");}
+function delShip(){if(NT.order.length<=1){alert("Devi avere almeno una nave.");return;}if(!confirm("Eliminare \u00ab"+shipLabel(S)+"\u00bb? Non \u00e8 reversibile."))return;var id=NT.activeId;delete NT.ships[id];NT.order=NT.order.filter(function(x){return x!==id;});NT.activeId=NT.order[0]||"";S=Object.assign(blank(),NT.ships[NT.activeId]||{});writeNT();renderShipsBar();renderAll();selectTab("Plancia");}
+load();buildTabs();renderShipsBar();renderAll();selectTab("Plancia");$("#ship-sel").onchange=function(e){switchShip(e.target.value);};$("#ship-new").onclick=newShip;$("#ship-del").onclick=delShip;
 </script>
 </body>
 </html>

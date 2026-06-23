@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>window.GLC={saveKey:["glc_pirata_v4","glc_profile_v1"],gate:true};</script>
+<script>window.GLC={saveKey:["glc_pirata_v4","glc_nave_v1","glc_profile_v1"],gate:true};</script>
 <script src="/glc-auth.js"></script>
 <style>
 :root{
@@ -147,6 +147,12 @@ a{color:inherit;}
     </div>
     <div class="grid" id="chars"></div>
 
+    <div class="sec-head" style="margin-top:34px">
+      <h2>Le tue navi</h2>
+      <button class="btn-gold" id="new-ship" type="button">+ Nuova nave</button>
+    </div>
+    <div class="grid" id="ships"></div>
+
     <div class="foot"><a href="/">◀ Torna al porto</a></div>
   </div>
 
@@ -177,6 +183,18 @@ a{color:inherit;}
   function writeCT(ct){ try{localStorage.setItem(KEY,JSON.stringify(ct));}catch(e){} }
   function readProfile(){ try{return JSON.parse(localStorage.getItem(PKEY)||"{}")||{};}catch(e){return {};} }
   function writeProfile(p){ try{localStorage.setItem(PKEY,JSON.stringify(p));}catch(e){} }
+  var NKEY="glc_nave_v1";
+  function newNId(){return "n_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+  function shipLabel(s){return (s&&s.nome&&s.nome.trim())?s.nome.trim():"Nave senza nome";}
+  function shipSub(s){var b=[];if(s.tipo)b.push(s.tipo);if(s.legno)b.push(s.legno);return b.join("  ·  ")||"Nave da completare";}
+  function readNT(){var o=null;try{o=JSON.parse(localStorage.getItem(NKEY)||"null");}catch(e){}
+    if(o&&o.ships&&typeof o.ships==="object"){o.order=Array.isArray(o.order)?o.order.filter(function(id){return o.ships[id];}):[];for(var id in o.ships)if(o.order.indexOf(id)<0)o.order.push(id);if(!o.ships[o.activeId])o.activeId=o.order[0]||"";return o;}
+    if(o){var nid=newNId();var sh={};sh[nid]=o;return {v:1,activeId:nid,order:[nid],ships:sh};}
+    return {v:1,activeId:"",order:[],ships:{}};}
+  function writeNT(nt){try{localStorage.setItem(NKEY,JSON.stringify(nt));}catch(e){}}
+  function openShip(id){var nt=readNT();if(nt.ships[id]){nt.activeId=id;writeNT(nt);}location.href="/nave-portale/?n="+encodeURIComponent(id);}
+  function newShip(){var nt=readNT();var id=newNId();nt.ships[id]={};nt.order.push(id);nt.activeId=id;writeNT(nt);location.href="/nave-portale/?n="+encodeURIComponent(id);}
+  function delShip(id){var nt=readNT();if(!nt.ships[id])return;if(!confirm("Eliminare «"+shipLabel(nt.ships[id])+"» dalle tue navi? Non è reversibile."))return;delete nt.ships[id];nt.order=nt.order.filter(function(x){return x!==id;});if(nt.activeId===id)nt.activeId=nt.order[0]||"";writeNT(nt);renderShips();}
 
   function openChar(id){ var ct=readCT(); if(ct.chars[id]){ ct.activeId=id; writeCT(ct); } location.href="/gestisci-pirata/?c="+encodeURIComponent(id); }
   function newChar(){ location.href="/crea-il-tuo-pirata/"; }
@@ -199,6 +217,30 @@ a{color:inherit;}
   function makeNewCard(){
     var b=document.createElement("button"); b.className="ch-new"; b.type="button";
     b.innerHTML='<span class="plus">+</span><span>Nuovo personaggio</span>'; b.onclick=newChar; return b;
+  }
+  function makeShipCard(id,s){
+    var card=document.createElement("div"); card.className="ch-card";
+    var av=document.createElement("div"); av.className="ch-av"; av.textContent="⛵";
+    card.appendChild(av);
+    var body=document.createElement("div"); body.className="ch-body";
+    var h=document.createElement("div"); h.className="ch-name"; h.textContent=shipLabel(s); body.appendChild(h);
+    var sub=document.createElement("div"); sub.className="ch-sub"; sub.textContent=shipSub(s); body.appendChild(sub);
+    var acts=document.createElement("div"); acts.className="ch-acts";
+    var op=document.createElement("button"); op.className="ch-btn open"; op.type="button"; op.textContent="Apri"; op.onclick=function(){openShip(id);};
+    var dl=document.createElement("button"); dl.className="ch-btn del"; dl.type="button"; dl.textContent="Elimina"; dl.onclick=function(){delShip(id);};
+    acts.appendChild(op); acts.appendChild(dl); body.appendChild(acts);
+    card.appendChild(body); return card;
+  }
+  function makeNewShipCard(){
+    var b=document.createElement("button"); b.className="ch-new"; b.type="button";
+    b.innerHTML='<span class="plus">+</span><span>Nuova nave</span>'; b.onclick=newShip; return b;
+  }
+  function renderShips(){
+    var nt=readNT(); var grid=document.getElementById("ships"); if(!grid) return;
+    grid.innerHTML="";
+    if(!nt.order.length){ var en=document.createElement("div"); en.className="empty-note"; en.textContent="Non hai ancora navi. Creane una con il riquadro qui sotto."; grid.appendChild(en); }
+    nt.order.forEach(function(id){ grid.appendChild(makeShipCard(id, nt.ships[id])); });
+    grid.appendChild(makeNewShipCard());
   }
   function renderChars(){
     var ct=readCT(); var grid=document.getElementById("chars"); if(!grid) return;
@@ -242,7 +284,7 @@ a{color:inherit;}
     renderAvatar(); renderName();
     var n=readCT().order.length;
     var ps=document.getElementById("pstats"); if(ps) ps.textContent = n===0 ? "La tua ciurma è ancora vuota" : (n+(n===1?" personaggio":" personaggi")+" nella tua ciurma");
-    renderChars();
+    renderChars(); renderShips();
   }
 
   document.addEventListener("DOMContentLoaded", function(){
@@ -251,6 +293,7 @@ a{color:inherit;}
     if(e) e.addEventListener("click", startEdit);
     if(inp){ inp.addEventListener("blur", endEdit); inp.addEventListener("keydown", function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); inp.blur(); } }); }
     var nb=document.getElementById("new-btn"); if(nb) nb.onclick=newChar;
+    var nsb=document.getElementById("new-ship"); if(nsb) nsb.onclick=newShip;
     var av=document.getElementById("avatar"), cam=document.getElementById("avatar-cam"), af=document.getElementById("avatar-file");
     function pickAvatar(){ if(af) af.click(); }
     if(av) av.addEventListener("click", pickAvatar);

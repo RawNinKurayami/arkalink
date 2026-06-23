@@ -850,6 +850,20 @@ function render(){
 
 function escp(s){return String(s==null?"":s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});}
 function hakiUnlocked(h){var prog=HAKI_PROG[h.name];if(!prog)return [];var out=[];prog.rows.forEach(function(row){var u=(prog.axis==="pip")?((parseInt(h.pip)||0)>=row.k):(DICE.indexOf(h.die)>=DICE.indexOf(row.k));if(u)out.push(row);});return out;}
+function talentInfo(key){
+  var parts=String(key).split(" · ");
+  var name=parts.slice(2).join(" · ")||parts[parts.length-1];
+  var branch="",desc="",tag="";
+  if(parts[0]==="Frutto"){
+    var FT=FRUIT_TALENTS[parts[1]]; branch=parts[1];
+    var list=FT?(FT.talenti||[]).concat([FRUIT_RISVEGLIO]):[];
+    for(var i=0;i<list.length;i++){if(list[i].n===name){desc=list[i].d;tag=(list[i].t==="ultimate")?"Risveglio":(list[i].t==="avanzato"?"Avanzato":"");break;}}
+  } else {
+    var T=TALENTS[parts[0]];
+    if(T){var sty=T.styles[parts[1]];if(sty){branch=T.multi?parts[1]:"";(sty.talenti||[]).forEach(function(tl){if(tl.n===name){desc=tl.d;tag=(tl.t==="ultimate")?"Ultimate":(tl.t==="gradini"?"a gradini":"");}});}}
+  }
+  return {name:name,branch:branch,desc:desc,tag:tag};
+}
 function buildPrintSheet(){
   var host=document.getElementById("print-sheet"); if(!host) return;
   var r=race();
@@ -891,7 +905,7 @@ function buildPrintSheet(){
   });
   h+='</table></div>';
   if(pg.armi&&pg.armi.length){h+='<div class="ps-sec"><div class="ps-h">Equipaggiamento</div>';pg.armi.forEach(function(a){h+='<div class="ps-item"><b>'+escp(a.nome||"arma")+'</b> <span class="die">'+escp(a.die||"")+'</span>'+((a.attr||a.note)?'<div class="ps-d">'+escp([a.attr,a.note].filter(Boolean).join(" \u00b7 "))+'</div>':'')+'</div>';});h+='</div>';}
-  if(Array.isArray(pg.talents)&&pg.talents.length){h+='<div class="ps-sec"><div class="ps-h">Talenti</div>';pg.talents.forEach(function(k){var parts=k.split(" \u00b7 ");var nm=parts[parts.length-1];var sty=parts.length>=2?parts[1]:"";var showS=sty&&sty!==parts[0];h+='<div class="ps-item">\u2726 '+escp(nm)+(showS?' <span class="ps-d2">('+escp(sty)+')</span>':'')+'</div>';});h+='</div>';}
+  if(Array.isArray(pg.talents)&&pg.talents.length){h+='<div class="ps-sec"><div class="ps-h">Talenti</div>';pg.talents.forEach(function(k){var ti=talentInfo(k);h+='<div class="ps-tech"><div class="tt">\u2726 <b>'+escp(ti.name)+'</b>'+(ti.branch?' <span class="ps-d2">('+escp(ti.branch)+')</span>':'')+(ti.tag?' <span class="ps-d2">'+escp(ti.tag)+'</span>':'')+'</div>'+(ti.desc?'<div class="ps-d">'+escp(ti.desc)+'</div>':'')+'</div>';});h+='</div>';}
   h+='</div><div class="ps-col">';
   h+='<div class="ps-sec"><div class="ps-h">Tecniche</div>';
   if(r)h+='<div class="ps-tech"><div class="tt"><b>'+escp(r.tech)+'</b> <span class="tg">razziale \u00b7 '+escp(pg.racialDie||"d6")+'</span></div><div class="ps-d">'+escp(r.techDesc)+'</div></div>';
