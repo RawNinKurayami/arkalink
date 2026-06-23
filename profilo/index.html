@@ -52,14 +52,23 @@ a{color:inherit;}
 .uname input:focus{outline:2px solid var(--gold); outline-offset:1px;}
 .uname .hint{font-size:.95rem; color:var(--ink-soft);}
 
-.profile-head{display:flex; gap:20px; align-items:center; flex-wrap:wrap;}
-.avatar{width:104px; height:104px; flex:none; border-radius:50%; overflow:hidden; cursor:pointer; background:#fffaf0; border:2px solid var(--gold); box-shadow:0 6px 18px rgba(0,0,0,.3); display:flex; align-items:center; justify-content:center; color:var(--seal); font-family:'Cinzel Decorative',serif; font-size:2rem; position:relative;}
+.phead{display:flex; gap:22px; align-items:center; flex-wrap:wrap;}
+.avatar-wrap{position:relative; flex:none;}
+.avatar{width:120px; height:120px; border-radius:50%; overflow:hidden; cursor:pointer; background:radial-gradient(circle at 50% 35%, #fff8ec, #efdcb4); border:3px solid var(--gold); box-shadow:0 8px 22px rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; color:var(--seal); font-family:'Cinzel Decorative',serif; font-size:2.4rem;}
 .avatar img{width:100%; height:100%; object-fit:cover; display:block;}
-.avatar .cam{position:absolute; left:0; right:0; bottom:0; background:rgba(42,31,18,.72); color:var(--vellum); font-family:'Marcellus SC',serif; font-size:8px; letter-spacing:.08em; text-transform:uppercase; text-align:center; padding:3px 0;}
-.phead-body{flex:1; min-width:200px;}
-.phead-body .kick{font-family:'Marcellus SC',serif; letter-spacing:.26em; text-transform:uppercase; font-size:11px; color:var(--gold);}
-.uname-big{width:100%; font-family:'Cinzel Decorative',serif; font-weight:700; font-size:clamp(1.5rem,4vw,2.1rem); color:#2a1f12; background:transparent; border:none; border-bottom:1px dashed #b9a06f; padding:4px 2px; margin:5px 0 6px;}
-.uname-big:focus{outline:none; border-bottom-color:var(--seal);}
+.avatar .ph-ico{width:48%; height:48%; color:#b9a06f;}
+.avatar-cam{position:absolute; right:0; bottom:4px; width:36px; height:36px; border-radius:50%; border:2px solid var(--vellum); background:linear-gradient(180deg,var(--gold-bright),var(--gold)); color:#23170a; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 3px 10px rgba(0,0,0,.4); padding:0;}
+.avatar-cam svg{width:18px; height:18px;}
+.avatar-cam:hover{filter:brightness(1.07);}
+.phead-main{flex:1; min-width:210px;}
+.phead-main .kick{font-family:'Marcellus SC',serif; letter-spacing:.26em; text-transform:uppercase; font-size:11px; color:var(--gold);}
+.pname-row{display:flex; align-items:center; gap:10px; margin:5px 0 4px;}
+.pname{font-family:'Cinzel Decorative',serif; font-weight:700; font-size:clamp(1.6rem,4.5vw,2.3rem); color:#2a1f12; line-height:1.12; word-break:break-word; cursor:text;}
+.pname.empty{color:#9a8a6e; font-style:italic; font-weight:400;}
+.pname-edit{flex:none; width:30px; height:30px; border-radius:50%; border:1px solid var(--line); background:#fffaf0; color:var(--seal); cursor:pointer; font-size:13px; line-height:1; display:flex; align-items:center; justify-content:center;}
+.pname-edit:hover{border-color:var(--gold); background:#fff;}
+.pname-input{width:100%; max-width:380px; font-family:'Cinzel Decorative',serif; font-weight:700; font-size:clamp(1.4rem,4vw,2rem); color:#2a1f12; background:#fffaf0; border:1px solid #b9a06f; border-radius:6px; padding:6px 12px; margin:2px 0 4px;}
+.pname-input:focus{outline:2px solid var(--gold); outline-offset:1px;}
 .pstats{font-size:1.02rem; color:var(--ink-soft);}
 .empty-note{grid-column:1/-1; text-align:center; color:var(--foam); font-style:italic; padding:4px 0 2px;}
 .sec-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:6px 2px 14px; flex-wrap:wrap;}
@@ -113,12 +122,21 @@ a{color:inherit;}
   </div>
 
   <div class="wrap">
-    <div class="panel profile-head">
-      <div class="avatar" id="avatar" title="Cambia immagine"></div>
-      <input id="avatar-file" type="file" accept="image/*" style="display:none">
-      <div class="phead-body">
+    <div class="panel phead">
+      <div class="avatar-wrap">
+        <div class="avatar" id="avatar" title="Cambia immagine"></div>
+        <button class="avatar-cam" id="avatar-cam" type="button" title="Cambia immagine" aria-label="Cambia immagine">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.5"/></svg>
+        </button>
+        <input id="avatar-file" type="file" accept="image/*" style="display:none">
+      </div>
+      <div class="phead-main">
         <div class="kick">Il tuo profilo</div>
-        <input id="username-in" class="uname-big" type="text" placeholder="Il tuo nome di capitano" maxlength="40" autocomplete="off">
+        <div class="pname-row">
+          <span class="pname" id="pname">—</span>
+          <button class="pname-edit" id="pname-edit" type="button" title="Modifica nome" aria-label="Modifica nome">✎</button>
+        </div>
+        <input id="username-in" class="pname-input" type="text" placeholder="Il tuo nome di capitano" maxlength="40" autocomplete="off" style="display:none">
         <div class="pstats" id="pstats">—</div>
       </div>
     </div>
@@ -191,8 +209,23 @@ a{color:inherit;}
   }
   function renderAvatar(){
     var a=document.getElementById("avatar"); if(!a) return; var p=readProfile();
-    if(p.avatar){ a.innerHTML='<img src="'+p.avatar+'" alt=""><span class="cam">Cambia</span>'; }
-    else { var init=((p.username||"").trim().charAt(0)||"").toUpperCase(); a.innerHTML='<span>'+(init?esc(init):"⚓")+'</span><span class="cam">Foto</span>'; }
+    if(p.avatar){ a.innerHTML='<img src="'+p.avatar+'" alt="">'; }
+    else { var init=((p.username||"").trim().charAt(0)||"").toUpperCase();
+      a.innerHTML = init ? '<span>'+esc(init)+'</span>' : '<svg class="ph-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-9 2.2-9 6v2h18v-2c0-3.8-4.6-6-9-6Z"/></svg>'; }
+  }
+  function renderName(){
+    var d=document.getElementById("pname"); if(!d) return; var u=(readProfile().username||"").trim();
+    if(u){ d.textContent=u; d.classList.remove("empty"); } else { d.textContent="Aggiungi il tuo nome"; d.classList.add("empty"); }
+  }
+  function startEdit(){
+    var d=document.getElementById("pname"), e=document.getElementById("pname-edit"), inp=document.getElementById("username-in");
+    if(!inp) return; inp.value=(readProfile().username||"");
+    if(d) d.style.display="none"; if(e) e.style.display="none"; inp.style.display="block"; inp.focus(); inp.select();
+  }
+  function endEdit(){
+    var d=document.getElementById("pname"), e=document.getElementById("pname-edit"), inp=document.getElementById("username-in");
+    if(!inp) return; var p=readProfile(); p.username=(inp.value||"").trim(); writeProfile(p);
+    inp.style.display="none"; if(d) d.style.display=""; if(e) e.style.display=""; renderName(); renderAvatar();
   }
   function handleAvatar(file){
     if(!file||!file.type||file.type.indexOf("image/")!==0)return;
@@ -206,20 +239,23 @@ a{color:inherit;}
     rd.readAsDataURL(file);
   }
   function renderAll(){
-    var ui=document.getElementById("username-in");
-    if(ui && document.activeElement!==ui){ ui.value=(readProfile().username)||""; }
-    renderAvatar();
+    renderAvatar(); renderName();
     var n=readCT().order.length;
     var ps=document.getElementById("pstats"); if(ps) ps.textContent = n===0 ? "La tua ciurma è ancora vuota" : (n+(n===1?" personaggio":" personaggi")+" nella tua ciurma");
     renderChars();
   }
 
   document.addEventListener("DOMContentLoaded", function(){
-    var ui=document.getElementById("username-in");
-    if(ui) ui.addEventListener("input", function(){ var p=readProfile(); p.username=ui.value; writeProfile(p); if(!p.avatar) renderAvatar(); });
+    var d=document.getElementById("pname"), e=document.getElementById("pname-edit"), inp=document.getElementById("username-in");
+    if(d) d.addEventListener("click", startEdit);
+    if(e) e.addEventListener("click", startEdit);
+    if(inp){ inp.addEventListener("blur", endEdit); inp.addEventListener("keydown", function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); inp.blur(); } }); }
     var nb=document.getElementById("new-btn"); if(nb) nb.onclick=newChar;
-    var av=document.getElementById("avatar"), af=document.getElementById("avatar-file");
-    if(av&&af){ av.addEventListener("click",function(){af.click();}); af.addEventListener("change",function(e){ if(e.target.files[0]) handleAvatar(e.target.files[0]); }); }
+    var av=document.getElementById("avatar"), cam=document.getElementById("avatar-cam"), af=document.getElementById("avatar-file");
+    function pickAvatar(){ if(af) af.click(); }
+    if(av) av.addEventListener("click", pickAvatar);
+    if(cam) cam.addEventListener("click", function(ev){ ev.stopPropagation(); pickAvatar(); });
+    if(af) af.addEventListener("change", function(ev){ if(ev.target.files[0]) handleAvatar(ev.target.files[0]); });
     renderAll();
     if(window.__glcSB && window.__glcSB.auth && window.__glcSB.auth.onAuthStateChange){
       window.__glcSB.auth.onAuthStateChange(function(){ setTimeout(renderAll,300); });
