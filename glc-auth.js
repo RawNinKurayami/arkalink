@@ -10,6 +10,7 @@
   var SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFuenhnbHF3bXFic3RocHFueGhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxNDU2MDAsImV4cCI6MjA5NzcyMTYwMH0.aCPTlWmNapvU17ZwedkkhNztMG4PuskpZx3D9EfunIU";
   var SAVE_KEYS = CFG.saveKey ? (Array.isArray(CFG.saveKey) ? CFG.saveKey.slice() : [CFG.saveKey]) : [];
   var GATE = !!CFG.gate;
+  var PROFILE_URL = CFG.profileUrl || "";
   var REDIRECT = location.origin + location.pathname;
 
   if(!window.supabase){ console.error("[GLC] supabase-js non caricato"); return; }
@@ -49,6 +50,7 @@
     ".glc-slot{display:inline-flex;align-items:center;gap:9px}"+
     ".glc-slot .glc-accedi,.glc-bar-out .glc-accedi{font-family:'Marcellus SC',serif;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:#23170a;background:linear-gradient(180deg,#ecca77,#c9a24a);border:none;border-radius:999px;padding:9px 18px;cursor:pointer}"+
     ".glc-slot .glc-who,.glc-bar-in .glc-who{font-family:'Cormorant Garamond',serif;font-size:.96rem;color:#a8c6bd}.glc-slot .glc-who b,.glc-bar-in .glc-who b{color:#ecca77;font-weight:600}"+
+    ".glc-slot .glc-prof,.glc-bar-in .glc-prof{font-family:'Marcellus SC',serif;letter-spacing:.1em;text-transform:uppercase;font-size:10px;color:#ecca77;text-decoration:none;border:1px solid rgba(201,162,74,.55);border-radius:999px;padding:6px 12px}.glc-slot .glc-prof:hover,.glc-bar-in .glc-prof:hover{background:rgba(201,162,74,.15)}"+
     ".glc-slot .glc-out,.glc-bar-in .glc-out{border:1px solid rgba(201,162,74,.55);background:transparent;color:#ecca77;border-radius:999px;padding:6px 13px;font-family:'Marcellus SC',serif;letter-spacing:.1em;text-transform:uppercase;font-size:10px;cursor:pointer}"+
     /* barra fissa (strumenti, quando loggato) */
     "#glc-bar{position:fixed;top:10px;right:12px;z-index:9000;display:flex;align-items:center;gap:10px;background:rgba(10,25,32,.85);border:1px solid rgba(201,162,74,.4);border-radius:999px;padding:6px 8px 6px 14px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}"+
@@ -81,23 +83,23 @@
   }
   async function cloudSaveAll(){ for(var i=0;i<SAVE_KEYS.length;i++){ await cloudSaveKey(SAVE_KEYS[i]); } }
   async function cloudPull(){
-    var flagKey = "glc_synced_" + currentUser.id + "_" + SAVE_KEYS.join(",");
-    var synced = sessionStorage.getItem(flagKey) === "1";
     try{
       var res = await sb.from("saves").select("key,data").in("key", SAVE_KEYS);
       if(res.error) throw res.error;
       var byKey = {}; (res.data||[]).forEach(function(r){ byKey[r.key] = r.data; });
-      var changed = false;
+      var reload = false;
       for(var i=0;i<SAVE_KEYS.length;i++){
         var k = SAVE_KEYS[i];
+        var flag = "glc_synced_" + currentUser.id + "_" + k;
+        var synced = sessionStorage.getItem(flag) === "1";
         if(byKey[k] != null){
-          if(!synced){ _setItem(k, JSON.stringify(byKey[k])); changed = true; }
+          if(!synced){ _setItem(k, JSON.stringify(byKey[k])); reload = true; }
         } else if(localStorage.getItem(k) != null){
           await cloudSaveKey(k);
         }
+        sessionStorage.setItem(flag, "1");
       }
-      sessionStorage.setItem(flagKey, "1");
-      if(changed && !synced){ location.reload(); return true; }
+      if(reload){ location.reload(); return true; }
     }catch(e){ console.error("[GLC] cloudPull", e); flash("Sync non riuscita: uso i dati locali", true); }
     return false;
   }
@@ -159,7 +161,7 @@
     if(currentUser){
       if(!host){ host = document.createElement("div"); host.id = "glc-bar"; document.body.appendChild(host); }
       host.className = slot ? "glc-slot in" : "glc-bar-in";
-      host.innerHTML = '<span class="glc-who">Ciurma: <b>' + escapeHtml(currentUser.email || "—") + '</b></span><button class="glc-out" id="glc-out">Esci</button>';
+      host.innerHTML = '<span class="glc-who">Ciurma: <b>' + escapeHtml(currentUser.email || "—") + '</b></span>' + (PROFILE_URL ? '<a class="glc-prof" href="' + PROFILE_URL + '">Profilo</a>' : '') + '<button class="glc-out" id="glc-out">Esci</button>';
       document.getElementById("glc-out").onclick = logout;
     } else {
       if(!slot){ var b = document.getElementById("glc-bar"); if(b) b.innerHTML = ""; return; } // strumenti: niente barra (copre l'overlay)
@@ -172,7 +174,7 @@
     try{ await cloudSaveAll(); }catch(e){}
     var uid = currentUser ? currentUser.id : "";
     try{ await sb.auth.signOut(); }catch(e){}
-    sessionStorage.removeItem("glc_synced_" + uid + "_" + SAVE_KEYS.join(","));
+    SAVE_KEYS.forEach(function(k){ sessionStorage.removeItem("glc_synced_" + uid + "_" + k); });
     SAVE_KEYS.forEach(function(k){ localStorage.removeItem(k); });
     location.reload();
   }

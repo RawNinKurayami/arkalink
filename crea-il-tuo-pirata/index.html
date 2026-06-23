@@ -1,294 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Grand Line Chronicles — Scheda del Pirata</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Pirata+One&family=Rye&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-<style>
-:root{--ink:#2b1d12;--ink-soft:#5a4633;--red:#8c1c13;--red-bright:#b71c1c;--gold:#b8860b;--gold-soft:#c8a24b;--paper:#f3e3c3;--paper-2:#ecd9b2;--line:#cdb487;--shadow:rgba(60,40,15,.35);}
-*{box-sizing:border-box;}html,body{margin:0;padding:0;}
-body{font-family:'EB Garamond',Georgia,serif;color:var(--ink);font-size:18px;line-height:1.5;background-color:#e7d2a6;background-image:radial-gradient(ellipse at 20% 0%,#f6e8c9 0%,rgba(246,232,201,0) 55%),radial-gradient(ellipse at 100% 100%,#e3cb9c 0%,rgba(227,203,156,0) 60%),radial-gradient(circle at 50% 40%,#f1e0bd 0%,#e2c896 100%);min-height:100vh;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.06;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
-.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:26px 20px 70px;}
-header.top{text-align:center;padding:14px 0 6px;}
-header.top .anchor{font-size:40px;color:var(--red);line-height:1;}
-header.top h1{font-family:'Pirata One',cursive;font-size:clamp(38px,6vw,64px);color:var(--red);margin:.05em 0 0;text-shadow:1px 1px 0 rgba(0,0,0,.12);}
-header.top .sub{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.28em;text-transform:uppercase;font-size:13px;color:var(--ink-soft);margin-top:2px;}
-.modes{display:flex;justify-content:center;gap:10px;margin:14px 0 6px;}
-.modes button{font-family:'Cinzel',serif;font-weight:700;font-size:13px;letter-spacing:.06em;border:1px solid var(--gold);background:rgba(255,255,255,.4);color:var(--ink-soft);padding:9px 18px;border-radius:2px;cursor:pointer;transition:.15s;}
-.modes button.on{background:var(--red);color:#fff;border-color:var(--red);}
-.rule{height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:10px auto 22px;max-width:640px;}
-.layout{display:grid;grid-template-columns:1fr 392px;gap:26px;align-items:start;}
-@media(max-width:960px){.layout{grid-template-columns:1fr;}}
-.frame{background:linear-gradient(var(--paper),var(--paper-2));border:2px solid var(--gold);outline:1px solid var(--gold-soft);outline-offset:4px;box-shadow:0 10px 30px var(--shadow);padding:22px 24px;border-radius:3px;}
-/* bordo strappato (filtro SVG) */
-.torn{filter:drop-shadow(0 12px 26px var(--shadow));}
-.frame.torn{box-shadow:none;outline:none;border:2px solid #6b4f2a;}
-.stepper{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
-.stepper button{font-family:'Cinzel',serif;font-size:12px;font-weight:600;border:1px solid var(--line);background:rgba(255,255,255,.35);color:var(--ink-soft);padding:6px 9px;border-radius:2px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:.15s;}
-.stepper button .n{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--line);color:#fff;font-size:11px;font-weight:700;}
-.stepper button:hover{border-color:var(--gold);}.stepper button.active{background:var(--red);color:#fff;border-color:var(--red);}
-.stepper button.active .n{background:#fff;color:var(--red);}.stepper button.done .n{background:var(--gold);}
-.step{display:none;animation:fade .25s ease;}.step.active{display:block;}
-@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
-.step h2,.mblock h3{font-family:'Cinzel',serif;font-weight:900;color:var(--red);}
-.step h2{font-size:24px;margin:0 0 2px;}
-.step .kicker{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);}
-.step p.lead{margin:.4em 0 1em;color:var(--ink-soft);}
-label.fld{display:block;margin:12px 0 4px;font-weight:600;font-family:'Cinzel',serif;font-size:13px;letter-spacing:.04em;}
-input[type=text],textarea,select,input.num{width:100%;font-family:'EB Garamond',serif;font-size:17px;color:var(--ink);background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:2px;padding:9px 11px;}
-input.num{width:84px;text-align:center;}
-textarea{resize:vertical;min-height:64px;}
-input:focus,textarea:focus,select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 2px rgba(140,28,19,.15);}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:8px;}
-.card{border:1px solid var(--line);background:rgba(255,255,255,.4);border-radius:2px;padding:9px 11px;cursor:pointer;transition:.15s;}
-.card:hover{border-color:var(--gold);background:rgba(255,255,255,.65);}
-.card.sel{border-color:var(--red);background:#fff;box-shadow:inset 0 0 0 1px var(--red);}
-.card .t{font-family:'Cinzel',serif;font-weight:700;font-size:15px;}.card .d{font-size:13px;color:var(--ink-soft);}
-.infobox{border-left:5px solid var(--gold);background:rgba(255,255,255,.4);padding:10px 14px;margin-top:12px;border-radius:2px;font-size:15px;}
-.infobox.red{border-left-color:var(--red);background:rgba(140,28,19,.06);}
-.attrgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px;}
-.attrrow{border:1px solid var(--line);border-radius:2px;padding:10px 12px;background:rgba(255,255,255,.4);}
-.attrrow .name{font-family:'Cinzel',serif;font-weight:700;}.attrrow .die{font-family:'Cinzel',serif;font-weight:900;color:var(--red);font-size:22px;}
-.attrrow.locked{background:rgba(184,134,11,.12);}
-.skillrow{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding:7px 2px;}
-.skillrow .sn{font-weight:600;}.skillrow .sd{font-size:13px;color:var(--ink-soft);}
-.skillrow.role{background:rgba(184,134,11,.12);border-radius:2px;padding:8px;}
-.pick{display:flex;gap:4px;}
-.pick button{font-family:'Cinzel',serif;font-size:12px;border:1px solid var(--line);background:rgba(255,255,255,.5);padding:4px 9px;border-radius:2px;cursor:pointer;color:var(--ink-soft);}
-.pick button.on{background:var(--red);color:#fff;border-color:var(--red);}
-.counter{font-family:'Cinzel',serif;font-size:13px;font-weight:600;margin:8px 0;}.counter b{color:var(--red);}
-.tech{border:1px dashed var(--line);border-radius:2px;padding:12px;margin-top:10px;background:rgba(255,255,255,.35);}
-.row2{display:grid;grid-template-columns:2fr 1fr;gap:10px;}
-@media(max-width:520px){.row2{grid-template-columns:1fr;}.attrgrid{grid-template-columns:1fr;}}
-.nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px;}
-.btn{font-family:'Cinzel',serif;font-weight:700;font-size:14px;letter-spacing:.05em;border:1px solid var(--red);background:var(--red);color:#fff;padding:10px 20px;border-radius:2px;cursor:pointer;transition:.15s;}
-.btn:hover{background:var(--red-bright);}.btn.ghost{background:transparent;color:var(--red);}.btn.ghost:hover{background:rgba(140,28,19,.08);}
-.btn.sm{padding:5px 12px;font-size:12px;}.btn:disabled{opacity:.4;cursor:not-allowed;}
-.mblock{margin-bottom:20px;}
-.mblock h3{font-size:18px;letter-spacing:.06em;border-bottom:2px solid var(--gold-soft);padding-bottom:4px;margin:0 0 10px;}
-.mrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 0;}
-.mrow .lab{font-weight:600;}.mrow .sub{font-size:13px;color:var(--ink-soft);}
-.swrap{border-bottom:1px dashed var(--line);padding-bottom:4px;margin-bottom:2px;}
-.step2{display:inline-flex;align-items:center;gap:6px;}
-.step2 button{width:26px;height:26px;border:1px solid var(--line);background:rgba(255,255,255,.6);border-radius:50%;cursor:pointer;font-weight:700;color:var(--red);line-height:1;font-size:16px;}
-.step2 button:hover{border-color:var(--red);}
-.step2 b{font-family:'Cinzel',serif;color:var(--red);min-width:62px;white-space:nowrap;text-align:center;font-size:16px;}
-.parow{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-soft);padding:0 0 7px 4px;flex-wrap:wrap;}
-.pabtn{border:1px solid var(--line);background:rgba(255,255,255,.6);border-radius:3px;cursor:pointer;font-size:11px;padding:2px 7px;color:var(--red);font-family:'Cinzel',serif;}
-.pabtn:hover{border-color:var(--red);}
-.panum{font-family:'Cinzel',serif;color:var(--ink);min-width:22px;text-align:center;font-weight:700;}
-.palevel{border:1px solid var(--gold);background:var(--gold);color:#fff;border-radius:3px;cursor:pointer;font-size:11px;padding:2px 9px;font-family:'Cinzel',serif;font-weight:700;animation:pulse 1.4s infinite;}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(184,134,11,.5);}50%{box-shadow:0 0 0 5px rgba(184,134,11,0);}}
-.iconbtn{border:none;background:transparent;color:var(--red);cursor:pointer;font-size:13px;padding:2px 6px;font-family:'Cinzel',serif;}
-.addrow{display:flex;gap:8px;margin-top:10px;align-items:center;}.addrow select{flex:1;}
-.vit{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
-.vit .vc{border:1px solid var(--line);border-radius:2px;padding:8px 10px;background:rgba(255,255,255,.4);}
-.vit .vc label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:4px;}
-.vit .vc .two{display:flex;align-items:center;gap:6px;}
-/* MANIFESTO */
-.sheet-col{position:sticky;top:18px;}
-.poster{position:relative;background:radial-gradient(ellipse at 30% 18%,rgba(120,80,30,.10),transparent 40%),radial-gradient(ellipse at 78% 82%,rgba(120,80,30,.14),transparent 45%),linear-gradient(160deg,#f6ead0,#e7cfa1 70%,#dcc08c);border:1px solid #2b1d12;box-shadow:inset 0 0 60px rgba(120,80,30,.18),inset 0 0 0 7px #ead7af,inset 0 0 0 8px #6b4f2a;padding:24px 22px 18px;color:#3a2a16;}
-.poster::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background:radial-gradient(circle at 12% 88%,rgba(90,60,20,.18) 0 8px,transparent 9px),radial-gradient(circle at 90% 12%,rgba(90,60,20,.12) 0 14px,transparent 15px),radial-gradient(circle at 85% 60%,rgba(90,60,20,.08) 0 22px,transparent 23px);}
-.tape{position:absolute;width:74px;height:24px;background:rgba(214,196,150,.55);box-shadow:0 1px 3px rgba(0,0,0,.2);border:1px solid rgba(150,120,70,.35);z-index:3;}
-.tape.tl{top:-9px;left:-12px;transform:rotate(-34deg);}.tape.tr{top:-9px;right:-12px;transform:rotate(34deg);}
-.wanted{font-family:'Rye',serif;text-align:center;font-size:46px;line-height:.9;letter-spacing:2px;color:#3a2a16;text-shadow:0 1px 0 rgba(255,255,255,.4),1px 2px 2px rgba(0,0,0,.2);position:relative;z-index:2;}
-.wanted-sub{text-align:center;font-family:'Cinzel',serif;font-weight:700;letter-spacing:.3em;font-size:11px;margin-top:2px;color:#5a4020;position:relative;z-index:2;}
-.portrait{position:relative;z-index:2;margin:12px auto 8px;width:100%;aspect-ratio:4/3.4;border:7px solid #3a2a16;outline:2px solid #ead7af;outline-offset:-9px;background:#cdb78d url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><g fill='none' stroke='%237a5a2e' stroke-width='3' opacity='.5'><circle cx='60' cy='44' r='20'/><path d='M26 104c0-20 15-30 34-30s34 10 34 30'/></g></svg>") center 60%/72px no-repeat;display:flex;align-items:flex-end;justify-content:center;cursor:pointer;overflow:hidden;transition:.15s;}
-.portrait:hover{outline-color:var(--gold-soft);}.portrait.drag{box-shadow:inset 0 0 0 3px var(--red);}
-.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.32) contrast(1.05) brightness(1.02);}
-.portrait .ph{position:relative;z-index:1;margin-bottom:10px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.12em;color:#6b4f2a;background:rgba(240,228,200,.75);padding:4px 10px;border-radius:2px;}
-.pname{font-family:'Pirata One',cursive;text-align:center;font-size:clamp(26px,3.4vw,34px);color:#7a1410;line-height:1.05;margin:6px 4px 2px;word-break:break-word;position:relative;z-index:2;text-shadow:0 1px 0 rgba(255,255,255,.35);}
-.deadalive{text-align:center;font-family:'Cinzel',serif;font-weight:900;letter-spacing:.18em;font-size:13px;color:#3a2a16;position:relative;z-index:2;}
-.deadalive::before,.deadalive::after{content:"\2726";color:var(--gold);margin:0 8px;font-size:11px;}
-.bounty{display:flex;align-items:baseline;justify-content:center;gap:6px;margin:8px 0 0;position:relative;z-index:2;}
-.bounty .sym{font-family:'Cinzel',serif;font-weight:900;font-size:26px;color:#3a2a16;}
-.bounty input{font-family:'Cinzel',serif;font-weight:900;font-size:30px;text-align:center;color:#3a2a16;background:transparent;border:none;border-bottom:1px dashed transparent;width:64%;padding:0;}
-.bounty input:hover{border-bottom-color:#b08a4a;}.bounty input:focus{outline:none;border-bottom-color:var(--red);box-shadow:none;}
-.berries{text-align:center;font-family:'Cinzel',serif;font-weight:700;letter-spacing:.3em;font-size:11px;color:#5a4020;margin-top:-2px;position:relative;z-index:2;}
-.crime{text-align:center;font-size:14px;color:#4a3320;margin-top:10px;position:relative;z-index:2;border-top:1px dashed #b08a4a;padding-top:8px;}
-.crime .role{font-family:'Cinzel',serif;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px;}
-.crime .amb{font-style:italic;display:block;margin-top:2px;}
-.marine{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;position:relative;z-index:2;}
-.marine .seal{width:30px;height:30px;border:2px solid #2f4a6b;border-radius:50%;display:grid;place-items:center;color:#2f4a6b;font-size:13px;transform:rotate(-12deg);opacity:.85;}
-.marine .lbl{font-family:'Cinzel',serif;font-weight:900;letter-spacing:.3em;font-size:12px;color:#2f4a6b;}
-/* DOSSIER */
-.dossier{margin-top:18px;background:linear-gradient(var(--paper),var(--paper-2));border:2px solid #6b4f2a;padding:20px 22px;color:var(--ink);}
-.dossier .dh{text-align:center;font-family:'Cinzel',serif;font-weight:900;color:var(--red);font-size:15px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 4px;}
-.dossier .dh-sub{text-align:center;font-size:12px;font-style:italic;color:var(--ink-soft);border-bottom:3px double var(--line);padding-bottom:10px;margin-bottom:6px;}
-.sec{margin-top:14px;}
-.sec h4{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin:0 0 6px;border-bottom:1px solid var(--line);padding-bottom:3px;display:flex;align-items:center;gap:6px;}
-.sec h4::before{content:"\2693";color:var(--gold);font-size:12px;}
-.sec .line{font-size:14px;display:flex;justify-content:space-between;gap:8px;padding:1px 0;}.sec .line .v{font-family:'Cinzel',serif;font-weight:700;}
-.sec ul{margin:2px 0;padding-left:2px;font-size:14px;list-style:none;}
-.sec ul li{display:flex;justify-content:space-between;gap:8px;padding:2px 0;border-bottom:1px dotted rgba(120,90,50,.25);}
-.sec ul li .d{font-family:'Cinzel',serif;font-weight:700;color:var(--red);white-space:nowrap;}
-.sec ul li .pa{font-size:11px;color:var(--ink-soft);font-style:italic;}
-.muted{color:var(--ink-soft);font-style:italic;}
-.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;text-align:center;margin-top:4px;}
-.statgrid div{border:1px solid var(--line);border-radius:2px;padding:6px 2px;background:rgba(255,255,255,.45);}
-.statgrid .k{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
-.statgrid .v{font-family:'Cinzel',serif;font-weight:900;font-size:15px;color:var(--red);line-height:1.15;}
-.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
-.actions .btn{flex:1;text-align:center;padding:9px 8px;font-size:12px;}
-.actions .btn.gold{border-color:var(--gold);background:var(--gold);}.actions .btn.gold:hover{background:var(--gold-soft);}
-footer.foot{text-align:center;margin-top:26px;font-size:13px;color:var(--ink-soft);font-family:'Cinzel',serif;letter-spacing:.08em;}
-@media print{body{background:#fff;}body::before{display:none;}.wrap{max-width:none;padding:0;}header.top,.modes,.rule,.form-panel,.stepper,.actions,footer.foot{display:none!important;}.layout{display:block;}.sheet-col{position:static;}.torn{filter:none;}.poster,.dossier{page-break-inside:avoid;}}
-/* DOSSIER come vera character sheet */
-.dossier{padding:0;overflow:hidden;}
-.ds-banner{background:linear-gradient(#7a1414,#5e0f0f);color:#f6e8c9;text-align:center;padding:11px 8px 9px;border-bottom:3px solid var(--gold);position:relative;}
-.ds-banner::before{content:"";position:absolute;inset:4px;border:1px solid rgba(246,232,201,.35);pointer-events:none;}
-.ds-banner-t{font-family:'Pirata One',cursive;font-size:25px;letter-spacing:.03em;text-shadow:1px 1px 0 rgba(0,0,0,.3);}
-.ds-banner-t::before,.ds-banner-t::after{content:"\2693";color:var(--gold-soft);margin:0 10px;font-size:15px;vertical-align:2px;}
-.ds-pad{padding:14px 18px 18px;}
-.ds-sub{text-align:center;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.06em;font-style:italic;color:var(--ink-soft);margin-bottom:8px;}
-.ds-attrs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
-.plaque{border:2px solid #6b4f2a;border-radius:5px;background:radial-gradient(circle at 50% 32%,#fff7e3,#ecd8af);box-shadow:inset 0 0 0 1px var(--gold-soft);text-align:center;padding:7px 4px 5px;}
-.plaque .pn{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);}
-.plaque .pd{font-family:'Cinzel',serif;font-weight:900;font-size:25px;line-height:1.12;color:var(--red);white-space:nowrap;}
-.plaque .pl{font-family:'Cinzel',serif;font-size:10px;color:var(--ink-soft);letter-spacing:.04em;}
-.ds-combat{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
-.vbox{border:2px solid #6b4f2a;border-radius:5px;background:rgba(255,255,255,.55);text-align:center;padding:8px 4px;box-shadow:inset 0 0 0 1px var(--gold-soft);}
-.vbox .vk{display:block;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2px;}
-.vbox .vv{font-family:'Cinzel',serif;font-weight:900;font-size:22px;color:var(--red);}
-.ds-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px;}
-.mbox{border:1px solid var(--line);border-radius:3px;background:rgba(255,255,255,.4);text-align:center;padding:5px 2px;}
-.mbox.wide{grid-column:1 / -1;}
-.mbox .mk{display:block;font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);}
-.mbox .mv{font-family:'Cinzel',serif;font-weight:700;font-size:13px;color:var(--red);}
-.ds-sec{margin-top:16px;}
-.ds-h{font-family:'Cinzel',serif;font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--red);display:flex;align-items:center;gap:9px;margin-bottom:4px;}
-.ds-h::before,.ds-h::after{content:"";flex:1;height:0;border-top:2px solid var(--gold-soft);opacity:.7;}
-.ds-list .li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:5px 1px;border-bottom:1px dotted rgba(120,90,50,.3);font-size:14px;}
-.ds-list .li:last-child{border-bottom:none;}
-.ds-list .li-n i{font-style:italic;color:var(--ink-soft);font-size:12px;}
-.ds-list .li-n i.pa{color:#9a7b3a;}
-.dbadge{font-family:'Cinzel',serif;font-weight:700;font-size:12px;color:var(--red);background:#fbeed0;border:1.5px solid var(--gold);border-radius:11px;padding:2px 10px;white-space:nowrap;box-shadow:0 1px 1px rgba(0,0,0,.12);}
-.ds-frutto{font-size:14px;background:rgba(140,28,19,.06);border-left:4px solid var(--red);padding:8px 11px;border-radius:2px;}
-.talpanel{border:1px solid #cdb487;border-radius:6px;padding:9px 11px;margin-top:9px;background:rgba(255,255,255,.4);}
-.talhead{font-weight:700;font-size:13.5px;color:#8c1c13;margin-bottom:4px;letter-spacing:.03em;}
-.taltratto{font-size:12.5px;color:#5a4633;margin:3px 0;line-height:1.4;}
-.talrow{display:flex;gap:9px;align-items:flex-start;font-size:13px;line-height:1.45;padding:6px 0;border-top:1px dashed rgba(205,180,135,.55);cursor:pointer;}
-.talrow input[type=checkbox]{width:auto;margin:3px 0 0;flex:0 0 auto;}
-.talname{flex:1;}
-.ttag{display:inline-block;font-size:9px;letter-spacing:.05em;text-transform:uppercase;background:#ecd9b2;border:1px solid #cdb487;border-radius:8px;padding:1px 6px;color:#8a6a1e;white-space:nowrap;}
-.ttag.ult{background:#8c1c13;color:#fff;border-color:#8c1c13;}
-.tbuilder{border:1px dashed var(--gold);background:#fff8ea;border-radius:6px;padding:11px 13px;margin:10px 0 14px;}
-.tbhead{font-family:'Cinzel',serif;font-weight:700;color:var(--red);font-size:13px;letter-spacing:.06em;margin-bottom:8px;text-transform:uppercase;}
-.tbgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;}
-.tbgrid select,.tbuilder select,.tbuilder textarea,.tbuilder input{width:100%;}
-.tbinfo{font-size:13px;color:var(--ink-soft);margin:9px 0 4px;}
-.tbinfo b{color:var(--red);}
-.tbfam{border:1px solid var(--line);border-radius:3px;margin:4px 0;background:rgba(255,255,255,.5);}
-.tbfam>summary{cursor:pointer;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);padding:6px 9px;list-style:none;}
-.tbfam>summary::-webkit-details-marker{display:none;}
-.tbfam>summary::before{content:"▸  ";}
-.tbfam[open]>summary::before{content:"▾  ";}
-.tbrow{display:flex;gap:8px;align-items:flex-start;padding:5px 9px;font-size:13px;line-height:1.4;border-top:1px solid rgba(205,180,135,.4);}
-.tbrow.off{opacity:.42;}
-.tbrow input[type=checkbox]{width:auto;margin:3px 0 0;flex:0 0 auto;}
-.tbcost{font-family:'Cinzel',serif;font-weight:700;color:#7a1410;font-size:15px;margin:9px 0 2px;text-align:right;}
-
-.ds-list.talenti .li-n i{color:#8a6a1e;font-style:italic;}
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crea un nuovo pirata · Grand Line Chronicles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>window.GLC={saveKey:"glc_pirata_v4",gate:true};</script>
+<script>window.GLC={saveKey:"glc_pirata_v4",gate:true,profileUrl:"/profilo/"};</script>
 <script src="/glc-auth.js"></script>
+<style>
+:root{
+  --abyss:#0a1920; --vellum:#ecdcb6; --vellum-2:#e3d0a4; --ink:#34271a; --ink-soft:#5e4c34;
+  --gold:#c9a24a; --gold-bright:#ecca77; --seal:#9a241a; --foam:#a8c6bd; --line:#cdb487;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; min-height:100vh; color:var(--vellum);
+  font-family:'Cormorant Garamond',Georgia,serif; font-size:19px; line-height:1.55;
+  background:radial-gradient(120% 80% at 50% -10%, #15333f 0%, #0a1920 55%, #060f14 100%) fixed;
+}
+a{color:inherit;}
+.topbar{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px clamp(16px,4vw,40px); border-bottom:1px solid rgba(201,162,74,.22);}
+.brand{display:flex; align-items:center; gap:9px; text-decoration:none;}
+.brand .anc{color:var(--gold); font-size:20px;}
+.brand .nm{font-family:'Marcellus SC',serif; letter-spacing:.16em; text-transform:uppercase; font-size:12px; color:var(--foam);}
+.wrap{max-width:780px; margin:0 auto; padding:clamp(20px,4vw,40px) clamp(16px,4vw,36px) 70px;}
+.hero{text-align:center; margin-bottom:18px;}
+.hero .kick{font-family:'Marcellus SC',serif; letter-spacing:.28em; text-transform:uppercase; font-size:11px; color:var(--gold);}
+.hero h1{font-family:'Cinzel Decorative',serif; font-weight:900; font-size:clamp(26px,5.5vw,44px); color:var(--vellum); margin:.12em 0 0; text-shadow:0 2px 16px rgba(0,0,0,.4);}
+
+.stepper{display:flex; flex-wrap:wrap; justify-content:center; gap:7px; margin:18px 0 22px;}
+.stepper button{display:flex; align-items:center; gap:7px; font-family:'Marcellus SC',serif; font-size:11px; letter-spacing:.04em; color:var(--foam); background:rgba(236,220,182,.05); border:1px solid rgba(201,162,74,.3); border-radius:999px; padding:7px 12px; cursor:pointer; transition:.15s;}
+.stepper button .n{display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:50%; background:rgba(201,162,74,.25); color:var(--vellum); font-size:11px;}
+.stepper button:hover{border-color:var(--gold);}
+.stepper button.active{background:linear-gradient(180deg,var(--gold-bright),var(--gold)); color:#23170a; border-color:var(--gold);}
+.stepper button.active .n{background:#23170a; color:var(--gold-bright);}
+.stepper button.done .n{background:var(--gold); color:#23170a;}
+
+.panel{background:linear-gradient(168deg, rgba(236,220,182,.98), rgba(227,208,164,.98)); color:var(--ink); border:1px solid var(--line); border-radius:9px; box-shadow:0 16px 44px rgba(0,0,0,.45); padding:clamp(20px,4vw,30px);}
+.kicker{font-family:'Marcellus SC',serif; font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:var(--gold);}
+.panel h2{font-family:'Cinzel Decorative',serif; font-weight:700; font-size:clamp(22px,4vw,30px); color:#2a1f12; margin:.15em 0 .1em;}
+.explain{background:rgba(154,36,26,.06); border-left:4px solid var(--gold); border-radius:4px; padding:12px 16px; margin:14px 0 18px; color:var(--ink-soft); font-size:1.02rem;}
+.explain b{color:var(--ink);}
+label.fld{display:block; font-family:'Marcellus SC',serif; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); margin:14px 0 5px;}
+input[type=text], textarea, select{width:100%; font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--ink); background:#fffaf0; border:1px solid #b9a06f; border-radius:5px; padding:10px 13px;}
+input[type=text]:focus, textarea:focus, select:focus{outline:2px solid var(--gold); outline-offset:1px;}
+textarea{min-height:80px; resize:vertical;}
+.row2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+@media(max-width:560px){ .row2{grid-template-columns:1fr;} }
+
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:10px; margin-top:6px;}
+.card{background:#fffaf0; border:1px solid var(--line); border-radius:6px; padding:12px 13px; cursor:pointer; transition:.12s;}
+.card:hover{border-color:var(--gold);}
+.card.sel{border-color:var(--seal); box-shadow:inset 0 0 0 1.5px var(--seal); background:#fff;}
+.card .t{font-family:'Cinzel Decorative',serif; font-weight:700; font-size:1.02rem; color:#2a1f12;}
+.card .d{font-size:.92rem; color:var(--ink-soft); margin-top:3px;}
+.infobox{background:rgba(201,162,74,.12); border:1px solid rgba(201,162,74,.4); border-radius:5px; padding:11px 14px; margin-top:14px; font-size:1rem; color:var(--ink);}
+.infobox.red{background:rgba(154,36,26,.08); border-color:rgba(154,36,26,.35);}
+
+.attrgrid{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;}
+.attrrow{display:flex; align-items:center; justify-content:space-between; background:#fffaf0; border:1px solid var(--line); border-radius:6px; padding:11px 14px;}
+.attrrow.locked{background:#f3e7cc;}
+.attrrow .name{font-weight:600;} .attrrow .sd{font-size:.82rem; color:var(--ink-soft);}
+.attrrow .die{font-family:'Marcellus SC',serif; font-size:1.05rem; color:var(--seal);}
+
+.counter{font-family:'Marcellus SC',serif; font-size:12px; letter-spacing:.06em; color:var(--ink-soft); margin:10px 0;}
+.skillrow{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 0; border-bottom:1px dashed rgba(154,36,26,.18);}
+.skillrow.role{background:rgba(201,162,74,.12); border-radius:5px; padding:9px 12px; border-bottom:none;}
+.skillrow .sn{font-weight:600;} .skillrow .sd{font-size:.85rem; color:var(--ink-soft);}
+.pick{display:flex; gap:5px; flex:none;}
+.pick button{font-family:'Marcellus SC',serif; font-size:11px; border:1px solid var(--line); background:#fffaf0; color:var(--ink-soft); padding:6px 11px; border-radius:5px; cursor:pointer;}
+.pick button.on{background:var(--seal); color:#fff; border-color:var(--seal);}
+
+.portrait{width:120px; height:120px; border-radius:8px; border:2px dashed #b9a06f; background:#fffaf0; display:flex; align-items:center; justify-content:center; color:var(--ink-soft); cursor:pointer; overflow:hidden; font-size:.85rem; text-align:center; padding:6px;}
+.portrait img{width:100%; height:100%; object-fit:cover;}
+
+.sumgrid{display:grid; grid-template-columns:1fr 1fr; gap:10px 18px; margin-top:14px;}
+@media(max-width:560px){ .sumgrid{grid-template-columns:1fr;} }
+.sumrow{display:flex; justify-content:space-between; gap:12px; padding:7px 0; border-bottom:1px dotted rgba(154,36,26,.2);}
+.sumrow .k{font-family:'Marcellus SC',serif; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);}
+.sumrow .v{font-weight:600; text-align:right; color:#2a1f12;}
+
+.nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:22px;}
+.btn{font-family:'Marcellus SC',serif; letter-spacing:.1em; text-transform:uppercase; font-size:12px; border:none; border-radius:999px; padding:13px 26px; cursor:pointer; transition:transform .15s; text-decoration:none; display:inline-block;}
+.btn:hover{transform:translateY(-1px);}
+.btn.gold{color:#23170a; background:linear-gradient(180deg,var(--gold-bright),var(--gold));}
+.btn.ghost{color:var(--vellum); background:transparent; border:1px solid rgba(201,162,74,.5);}
+.btn.big{font-size:14px; padding:15px 34px;}
+.btn:disabled{opacity:.4; cursor:default; transform:none;}
+
+.done-card{text-align:center;}
+.done-card .seal{font-size:46px; color:var(--gold);}
+.done-card h2{margin-top:6px;}
+.done-actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+</style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <div class="anchor">⚓</div>
-    <h1>Scheda del Pirata</h1>
-    <div class="sub">Grand Line Chronicles · Sistema Will of D.</div>
-    <div class="modes"><button id="mode-crea" class="on">🧭 Creazione guidata</button><button id="mode-gest">📖 Gestione &amp; Avanzamento</button></div>
-  </header>
-  <div class="rule"></div>
-
-  <div class="layout">
-    <section class="frame form-panel">
-      <div id="crea-wrap">
-      <nav class="stepper" id="stepper"></nav>
-      <div class="step" data-step="0"><div class="kicker">Passo 1</div><h2>Concetto &amp; Ambizione</h2>
-        <p class="lead">Chi è il tuo pirata e qual è il sogno che lo spinge sul mare?</p>
-        <label class="fld">Nome</label><input type="text" id="f-nome" placeholder="Es. Bram &laquo;Mano di Ferro&raquo;" />
-        <label class="fld">Background</label><textarea id="f-bg"></textarea>
-        <label class="fld">Ambizione</label><input type="text" id="f-amb" placeholder="&laquo;Costruirò la nave più veloce del Grand Line&raquo;" />
-        <div class="infobox">L’Ambizione è narrativa: nessun bonus automatico. Le ricompense le decide il Capitano.</div></div>
-      <div class="step" data-step="1"><div class="kicker">Passo 2</div><h2>Razza</h2><p class="lead">Bonus attributo, Tecnica razziale, PV e Dado Vita.</p><div class="cards" id="race-cards"></div><div id="race-info"></div></div>
-      <div class="step" data-step="2"><div class="kicker">Passo 3</div><h2>Attributi</h2><p class="lead">2 d4 + 1 d6 li scegli tu. Il dado della razza occupa il quarto attributo.</p><div id="attr-area"></div></div>
-      <div class="step" data-step="3"><div class="kicker">Passo 4</div><h2>Ruolo</h2><p class="lead">Sblocca la sua Skill peculiare a d8.</p><div class="cards" id="role-cards"></div><div id="role-info"></div></div>
-      <div class="step" data-step="4"><div class="kicker">Passo 5</div><h2>Skill</h2><p class="lead">Scegli <b>2 a d6</b> e <b>2 a d4</b>. La Skill del Ruolo è già a d8.</p><div class="counter" id="skill-counter"></div><div id="skill-list"></div></div>
-      <div class="step" data-step="5"><div class="kicker">Passo 6</div><h2>Tecniche</h2><p class="lead">Tecnica razziale già inclusa. Fino a 2 custom (d4). Altre se ne aggiungono in Gestione.</p><div id="racetech-info"></div>
-        <div class="tech"><label class="fld">Tecnica custom 1 — Nome</label><input type="text" id="t1-nome" placeholder="Es. Stile delle Tre Lame — Oni Giri" /><div class="row2"><div><label class="fld">Descrizione</label><textarea id="t1-desc"></textarea></div><div><label class="fld">Attributo</label><select id="t1-attr"><option value="">—</option><option>Forza</option><option>Tecnica</option><option>Spirito</option><option>Astuzia</option></select></div></div></div>
-        <div class="tech"><label class="fld">Tecnica custom 2 — Nome</label><input type="text" id="t2-nome" placeholder="(opzionale)" /><div class="row2"><div><label class="fld">Descrizione</label><textarea id="t2-desc"></textarea></div><div><label class="fld">Attributo</label><select id="t2-attr"><option value="">—</option><option>Forza</option><option>Tecnica</option><option>Spirito</option><option>Astuzia</option></select></div></div></div></div>
-      <div class="step" data-step="6"><div class="kicker">Passo 7</div><h2>Frutto del Diavolo</h2><p class="lead">Opzionale e deciso dal Capitano. Libertà creativa, in cambio di tre debolezze.</p>
-        <label class="fld"><input type="checkbox" id="f-frutto" style="width:auto;margin-right:8px;" />Il mio pirata ha un Frutto del Diavolo</label>
-        <div id="frutto-fields" style="display:none;"><label class="fld">Nome del Frutto</label><input type="text" id="fr-nome" /><div class="row2"><div><label class="fld">Descrizione</label><textarea id="fr-desc"></textarea></div><div><label class="fld">Tipo</label><select id="fr-tipo"><option value="">—</option><option>Paramecia</option><option>Logia</option><option>Zoan</option></select></div></div><div class="infobox red"><b>Tre debolezze:</b> il mare, l’agalmatolite (Pietra di Mare), l’Haki.</div></div></div>
-      <div class="step" data-step="7"><div class="kicker">Passo 8</div><h2>Statistiche finali</h2><p class="lead">Gli ultimi valori si ricavano da soli. La scheda è pronta!</p>
-        <div class="infobox">PV dalla razza · ST 6 · Haki nessuno · Legami 0 · Taglia 0 · 16 ore.</div>
-        <div class="infobox">Aggiungi una <b>foto</b>, poi passa a <b>Gestione &amp; Avanzamento</b> per Armi, Punti Abilità e crescita arco dopo arco. ⚓</div></div>
-      <div class="nav"><button class="btn ghost" id="prev">◀ Indietro</button><button class="btn" id="next">Avanti ▶</button></div>
-      </div>
-      <div id="manage" style="display:none;"></div>
-    </section>
-
-    <aside class="sheet-col">
-      <div class="poster torn" id="poster">
-        <span class="tape tl"></span><span class="tape tr"></span>
-        <div class="wanted">WANTED</div><div class="wanted-sub">RICERCATO DALLA MARINE</div>
-        <div class="portrait" id="portrait" title="Clicca o trascina una foto"><img id="photo" alt="" style="display:none;" /><span class="ph" id="ph-hint">＋ Aggiungi foto</span></div>
-        <div class="pname" id="s-nome">Pirata Senza Nome</div><div class="deadalive">DEAD OR ALIVE</div>
-        <div class="bounty"><span class="sym">฿</span><input id="bounty-in" inputmode="numeric" value="0" /></div><div class="berries">BERRIES</div>
-        <div class="crime"><span class="role" id="s-role">— ruolo —</span><span class="amb" id="s-amb"></span></div>
-        <div class="marine"><span class="seal">★</span><span class="lbl">MARINE</span></div>
-      </div>
-
-      <div class="dossier torn">
-        <div class="ds-banner"><span class="ds-banner-t">Dossier del Pirata</span></div>
-        <div class="ds-pad">
-          <div class="ds-sub" id="s-razza-line">—</div>
-          <div class="ds-attrs" id="s-attr"></div>
-          <div class="ds-combat">
-            <div class="vbox"><span class="vk">Punti Vita</span><span class="vv" id="s-pv">—</span></div>
-            <div class="vbox"><span class="vk">Stamina</span><span class="vv" id="s-st">6/6</span></div>
-          </div>
-          <div class="ds-mini">
-            <div class="mbox"><span class="mk">Dado Vita</span><span class="mv" id="s-hp">—</span></div>
-            <div class="mbox"><span class="mk">Haki pip</span><span class="mv" id="s-haki-n">0</span></div>
-            <div class="mbox"><span class="mk">Legami</span><span class="mv" id="s-leg">0</span></div>
-            <div class="mbox"><span class="mk">Ore</span><span class="mv" id="s-ore">16</span></div>
-            <div class="mbox wide"><span class="mk">Taglia</span><span class="mv" id="s-taglia">฿ 0</span></div>
-          </div>
-          <div class="ds-sec" id="s-armi-sec" style="display:none;"><div class="ds-h">Armi</div><div class="ds-list" id="s-armi"></div></div>
-          <div class="ds-sec"><div class="ds-h">Skill</div><div class="ds-list" id="s-skill"></div></div>
-          <div class="ds-sec"><div class="ds-h">Tecniche</div><div class="ds-list" id="s-tech"></div></div>
-          <div class="ds-sec" id="s-talenti-sec" style="display:none;"><div class="ds-h">Talenti &amp; Stile</div><div class="ds-list talenti" id="s-talenti"></div></div>
-          <div class="ds-sec" id="s-haki-sec" style="display:none;"><div class="ds-h">Haki</div><div class="ds-list" id="s-haki"></div></div>
-          <div class="ds-sec" id="s-frutto-sec" style="display:none;"><div class="ds-h">Frutto del Diavolo</div><div id="s-frutto" class="ds-frutto"></div></div>
-        </div>
-      </div>
-
-      <div class="actions">
-        <button class="btn gold" onclick="window.print()">🖨 Stampa</button>
-        <button class="btn" id="export">⬇ .json</button>
-        <button class="btn ghost" id="importBtn">⬆ Importa</button>
-        <button class="btn ghost" id="reset">↺ Reset</button>
-        <input type="file" id="importFile" accept="application/json" style="display:none;" />
-        <input type="file" id="photoFile" accept="image/*" style="display:none;" />
-      </div>
-    </aside>
+  <div class="topbar">
+    <a class="brand" href="/"><span class="anc">⚓</span><span class="nm">Grand Line Chronicles</span></a>
+    <span id="glc-login-slot"></span>
   </div>
-  <footer class="foot">Grand Line Chronicles ⚓ La forza non si accumula — si guadagna.</footer>
-</div>
+
+  <div class="wrap">
+    <div class="hero">
+      <div class="kick">Registro di bordo</div>
+      <h1>Crea un nuovo pirata</h1>
+    </div>
+    <nav class="stepper" id="stepper"></nav>
+    <div class="panel" id="panel"></div>
+    <div class="nav" id="nav">
+      <button class="btn ghost" id="prev">◀ Indietro</button>
+      <button class="btn gold" id="next">Avanti ▶</button>
+    </div>
+  </div>
 
 <script>
+(function(){
 "use strict";
-const RACES=[
+var ATTRS=["Forza","Tecnica","Spirito","Astuzia"];
+var DICE_LADDER="d4 › d6 › d8 › d10 › d12 › d20";
+var RACES=[
  {id:"umano",name:"Umano",attr:"choice",die:"d8",pv:14,hp:"d6",tech:"Volontà Incrollabile",techDesc:"A ≤25% PV si aggiunge a qualsiasi tiro. Non costa ST.",sv:"Nessuno"},
  {id:"uomopesce",name:"Uomo Pesce / Tritone",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Dominio degli Abissi",techDesc:"In acqua si aggiunge a ogni tiro fisico. Respiro subacqueo infinito.",sv:"+2 soglia fisica a terra arida"},
  {id:"gigante",name:"Gigante",attr:"Forza",die:"d10",pv:22,hp:"d10",tech:"Scala Colossale",techDesc:"Quando la stazza conta si aggiunge al tiro. Ogni colpo a segno: Dado Danno +1 gradino.",sv:"No navi/edifici standard"},
@@ -298,493 +131,285 @@ const RACES=[
  {id:"lungagamba",name:"Lungagamba",attr:"Forza",die:"d8",pv:14,hp:"d6",tech:"Calcio Colossale",techDesc:"Bonus su calci e movimenti verticali. 1×/combat salti fuori portata senza tiro.",sv:"Nessuno"},
  {id:"cyborg",name:"Cyborg",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Corpo Meccanico",techDesc:"Bonus a resistenza danni e potenziamenti meccanici (definiti dal Capitano).",sv:"Curabile solo da un meccanico"}
 ];
-const TALENTS={
-"Combattente":{multi:true,skill:"Atletica",styles:{
- "Striker":{ico:"\u{1F44A}",tratto:"A mani nude nessun Grado ti frena (usi il pieno dell'Attributo); prese e atterramenti facili.",firma:"Il colpo sfonda \u2014 il bersaglio \u00e8 Stordito/sbilanciato per 1 turno.",talenti:[
-  {n:"Raffica",t:"gradini",d:"spendendo Stamina compi attacchi extra nel turno, di qualsiasi tipo (1 ST ciascuno). Base 1 \u00b7 Migliorato 2 \u00b7 Maestria 3."},
-  {n:"Campo di Battaglia",d:"quando un nemico ti manca con un attacco, al suo prossimo turno attacca in Svantaggio."},
-  {n:"Passo Fulmineo",d:"1\u00d7/turno, come movimento, uno scatto lungo per raggiungere un nemico senza provocare reazioni."},
-  {n:"Smash Hit",t:"ultimate",d:"se va a segno, danno raddoppiato e sfonda il bersaglio (Stordito) anche senza il +4."}]},
- "Swordsman":{ico:"\u2694\ufe0f",tratto:"Maestro della difesa attiva; le lame di Grado alto sbloccano i loro effetti.",firma:"Doppio fendente \u2014 tiri il Dado Danno una volta in pi\u00f9 e sommi.",talenti:[
-  {n:"Pi\u00f9 Spade",t:"gradini",d:"aggiungi spade all'arsenale (max 2). Base: una seconda lama \u00b7 Maestria: nello stesso turno attacchi con ciascuna arma (attacco extra, 1 ST)."},
-  {n:"Parata e Contraccolpo",t:"gradini",d:"scatta solo parando con la difesa attiva. Base: contraccolpo col dado Grado \u00b7 Migliorato: Dado Tecnica \u00b7 Maestria: Dado Tecnica doppio."},
-  {n:"Postura Imperturbabile",d:"la tua guardia non si rompe \u2014 non puoi essere Stordito n\u00e9 sbilanciato."},
-  {n:"Asura",t:"ultimate",d:"il dado dell'Attributo Tecnica conta doppio nel tiro per colpire; il Danno cresce col margine \u2014 +0/+3: 2 dadi \u00b7 +4/+7: 3 \u00b7 +8/+11: 4 \u00b7 +12+: 5 Dadi Danno."}]},
- "Sniper":{ico:"\u{1F3AF}",tratto:"Colpisci a distanza, fuori dalla mischia, e spesso agisci per primo.",firma:"Il tuo prossimo colpo contro lo stesso bersaglio conta la sua Difesa Passiva ridotta di 2.",talenti:[
-  {n:"Tiro Lungo",t:"gradini",d:"la gittata cresce. Base: oltre il raggio dei nemici comuni \u00b7 Migliorato: chi \u00e8 in mischia non ti raggiunge finch\u00e9 resti appostato \u00b7 Maestria: gittata estrema, da nave a nave, con linea di vista."},
-  {n:"Tiro dall'Ombra",d:"se sei nascosto con Furtivit\u00e0 e non visto, il tiro a distanza ha Vantaggio (tiri due volte, tieni il meglio)."},
-  {n:"Occhio del Falco",d:"quando fai un colpo pulito, il \u22122 alla Difesa della Firma vale per chiunque attacchi quel bersaglio, fino alla fine del tuo prossimo turno."},
-  {n:"Tempesta di Piombo",t:"ultimate",d:"nello stesso turno due attacchi extra \u2014 3 colpi a distanza (3 tiri per colpire; per ogni colpo a segno, un tiro di Danno)."}]},
- "Special":{ico:"\u2699\ufe0f",tratto:"Arsenale unico \u2014 cyborg o inventore con armi non convenzionali, concordate col Capitano.",firma:"Scateni l'effetto del tuo modulo (esplosione, stato, scarica).",talenti:[
-  {n:"Arsenale Modulare",t:"gradini",d:"un set di moduli concordati; ne usi uno come Tecnica e li cambi liberamente. Base 2 \u00b7 Migliorato 3 \u00b7 Maestria 4."},
-  {n:"Bombardamento ad Area",d:"quando scatta la Firma, l'effetto investe un'intera zona \u2014 tutti i nemici raggruppati. L'unico vero AoE tra gli Stili."},
-  {n:"Congegno Tattico",d:"come azione piazzi un congegno in una zona (torretta, mina, rete, barriera) che resta attivo qualche turno e agisce da solo."},
-  {n:"Pieno Regime",t:"ultimate",d:"scateni tutto l'arsenale in un turno \u2014 un tiro per colpire e un tiro di Danno per ciascun modulo che possiedi."}]}
-}},
-"Dottore":{multi:true,skill:"Medicina",styles:{
- "Infermeria":{ico:"\u{1FA7A}",tratto:"La corsia: cure e recupero oltre il primo soccorso.",talenti:[
-  {n:"Erbe Curative",d:"cercando ingredienti medici, aggiungi il dado Medicina al Reperimento (Astuzia + Esplorazione + Medicina)."},
-  {n:"Specialista in Rianimazione",d:"stabilizzando un compagno a 0 PV gli ridai anche 1d4 PV e torna cosciente."},
-  {n:"Recupero Esperto",d:"con un tiro di Medicina riuscito ridai a un compagno 1d6 ST oltre alle cure."},
-  {n:"Cure Costanti",d:"puoi curare da campo la stessa persona due volte per scontro invece di una."}]},
- "Tossicologo":{ico:"\u2620",tratto:"Il laboratorio di veleni e antidoti.",talenti:[
-  {n:"Cacciatore di Veleni",d:"Vantaggio a qualsiasi estrazione di veleno."},
-  {n:"Sedativi Efficaci",d:"i tuoi sedativi sono pi\u00f9 potenti: bersaglio a soglia pi\u00f9 alta per resistere."},
-  {n:"Maestro Antidoti",d:"dimezzi la Soglia per creare l'antidoto a qualsiasi veleno."},
-  {n:"Immunit\u00e0 Acquisita",d:"immune ai veleni, identifichi una tossina al gusto, maneggi sostanze letali senza rischio."}]},
- "Chimico":{ico:"\u2697",tratto:"La distilleria \u2014 la piccola industria.",talenti:[
-  {n:"Reagenti Reattivi",d:"produci la famiglia riservata: incendiari, acidi, fumogeni, esplosivi."},
-  {n:"Distillatore Efficiente",d:"meno ore per preparato, e ne distilli due nello stesso blocco di lavoro."},
-  {n:"Improvvisazione",d:"sostituisci un ingrediente mancante con uno di ripiego (soglia un po' pi\u00f9 alta)."},
-  {n:"Su Commissione",d:"i tuoi preparati valgono di pi\u00f9 al mercato e li produci in lotti."}]}
-}},
-"Cuoco":{skill:"Cucina",styles:{"Cuoco":{ico:"\u{1F373}",tratto:"Il cuore e il motore della ciurma; i piatti ambiziosi (Soglia 10-12) riescono solo a lui. Apice: il Critico (+4) \u2014 capolavoro + Bonus di categoria.",talenti:[
-  {n:"Dispensa del Cuoco",d:"cercando o pescando ingredienti, aggiungi il dado Cucina al tiro."},
-  {n:"Cuoco da Battaglia",d:"il Bonus di categoria scatta gi\u00e0 su un Successo, non solo sul Critico."},
-  {n:"Mai a Stomaco Vuoto",d:"i tuoi piatti non falliscono mai del tutto: rendono come lo Stentato."},
-  {n:"Specialit\u00e0",d:"un piatto del Catalogo come cavallo di battaglia: lo cucini a Soglia ridotta di 2."}]}}},
-"Navigatore":{skill:"Navigazione",styles:{"Navigatore":{ico:"\u{1F9ED}",tratto:"Trasforma il mare da nemico a strada; il suo lavoro regala dadi bonus alla traversata. Apice: Rotta perfetta (+4) \u2014 +d6 alla traversata e pericolo anticipato.",talenti:[
-  {n:"Mano al Timone",d:"quando sei tu al timone, aggiungi il dado Navigazione alla traversata (Vele + Astuzia + Navigazione)."},
-  {n:"Rotta Maestra",d:"tracciando la rotta anticipi sempre un pericolo del percorso, anche senza Critico."},
-  {n:"Occhio del Cielo",d:"prevedi il clima con Vantaggio; un pericolo previsto perde sempre i denti per la ciurma."},
-  {n:"Cartografo",d:"le tue carte nautiche valgono come dettagliate (+d8, riutilizzabili) e si vendono a peso d'oro nei porti."}]}}},
-"Ingegnere":{multi:true,note:"La Skill del Ruolo parte a d8 e dipende dallo Stile.",styles:{
- "Carpentiere":{ico:"\u{1FA9A}",skill:"Carpenteria",tratto:"Domina legno e scafo \u2014 tiene la nave a galla e la fa crescere; in battaglia la sua postazione \u00e8 la riparazione.",talenti:[
-  {n:"Riparazione d'Emergenza",d:"in battaglia navale ripari lo scafo come tua azione: un tiro riuscito rid\u00e0 subito PS alla nave."},
-  {n:"Cantiere Viaggiante",d:"ripari e potenzi la nave in mare aperto, senza porto, e in met\u00e0 tempo."},
-  {n:"Boscaiolo",d:"cercando legname e materiali da costruzione, aggiungi il dado Carpenteria al Reperimento."},
-  {n:"Maestro dei Moduli",d:"la tua nave monta uno slot modulo in pi\u00f9 del normale."}]},
- "Meccanico":{ico:"\u2699",skill:"Meccanica",tratto:"Tiene vive le macchine \u2014 ripara e fa girare congegni, cannoni e motori.",talenti:[
-  {n:"Pronto Intervento",d:"rimetti in funzione un congegno/cannone/macchina guasto al volo, anche in mezzo all'azione."},
-  {n:"Mani nell'Olio",d:"con l'Officina ripari in met\u00e0 tempo e i tuoi attrezzi non si consumano."},
-  {n:"Macchinista",d:"i macchinari che gestisci in battaglia navale rendono di pi\u00f9: aggiungi il dado Meccanica al loro tiro."},
-  {n:"Smontatore",d:"recuperando pezzi meccanici da macchine, relitti o cyborg, aggiungi il dado Meccanica al tiro."}]},
- "Inventore":{ico:"\u{1F527}",skill:"Meccanica",tratto:"Costruisce ci\u00f2 che prima non esisteva \u2014 gadget, armi e moduli usciti dalla sua testa.",talenti:[
-  {n:"Inventiva",d:"quando crafti, un Riuscito (+1/+3) conta gi\u00e0 come Capolavoro per scegliere il vantaggio (met\u00e0 ore / materiali / rifinitura)."},
-  {n:"Munizioni Speciali",d:"sei il maestro dei consumabili da combattimento (proiettili speciali, bombe, dardi): li crafti a soglia ridotta."},
-  {n:"Improvvisatore",d:"sostituisci un materiale mancante (soglia +2 invece di non poterlo fare): non resti mai senza."},
-  {n:"Smanettone",d:"i tuoi oggetti non sono mai fragili: un esito Stentato conta come Riuscito."}]}
-}},
-"Archeologo":{skill:"Archeologia",styles:{"Archeologo":{ico:"\u{1F4DC}",tratto:"La memoria della ciurma; trasforma le pietre in avventure. Apice: +4 \u2014 traduzione piena col dettaglio nascosto, o la trappola individuata prima di attivarla.",talenti:[
-  {n:"Maestro del Calco",d:"decifri a bordo, da un calco, con Vantaggio; e i tuoi calchi non si consumano."},
-  {n:"Occhio delle Rovine",d:"esaminando un sito individui trappole e passaggi nascosti gi\u00e0 su un successo, non solo col +4."},
-  {n:"Antiquario",d:"identifichi reperti e smascheri i falsi con un dado bonus, e svelandone la storia ne aumenti il valore."},
-  {n:"Studioso",d:"produci trattati e mappe storiche pi\u00f9 in fretta; una tua mappa storica vale come carta nautica dettagliata (+d8) per il Navigatore."}]}}},
-"Musicista":{skill:"Arte",styles:{"Musicista":{ico:"\u{1F3B5}",tratto:"Il moltiplicatore della ciurma \u2014 l'unico che rid\u00e0 Stamina in battaglia, spezza la paura, potenzia tutti. Per menare usa il suo Stile di Combattimento (lo strumento non \u00e8 un'arma). Canzoni = Spirito + Tecnica.",talenti:[
-  {n:"Direttore",d:"mantieni due Canzoni sostenute insieme, non una sola."},
-  {n:"Musica Incrollabile",d:"la tua musica non si ferma se sei Stordito o a terra."},
-  {n:"Fiato Lungo",d:"le tue Canzoni costano 1 Stamina in meno (minimo 1)."},
-  {n:"Anima dell'Intrattenitore",d:"fuori dal combattimento le tue esibizioni (Spirito + Arte) hanno Vantaggio."},
-  {n:"Canzone dell'Anima",t:"ultimate",d:"la tua melodia-firma (Inno della Ciurma \u00b7 Canto che Riporta l'Anima \u00b7 Sinfonia del Riposo, concordata col Capitano). Attivazione: Ambizione + permesso del Capitano."}]}}},
-"Capitano":{skill:"Comunicazione",styles:{"Capitano":{ico:"\u{1F451}",tratto:"Il Capitano non ha Talenti di Stile: la sua forza \u00e8 l'Ambizione, i Legami e il comando della ciurma.",talenti:[]}}}
-};
-function firstStyle(rn){const T=TALENTS[rn];if(!T||!T.styles)return "";return T.multi?Object.keys(T.styles)[0]:"";}
-function roleSkillOf(rn,st){const T=TALENTS[rn];if(!T)return null;if(T.skill)return T.skill;const ks=Object.keys(T.styles||{});const sx=(T.styles&&T.styles[st])||(T.styles&&T.styles[ks[0]]);return (sx&&sx.skill)||null;}
-function roleLabel(){if(!pg.role)return "\u2014 ruolo \u2014";const T=TALENTS[pg.role];let s=pg.role+((T&&T.multi&&pg.style)?(" \u00b7 "+pg.style):"");if(pg.role2&&TALENTS[pg.role2]){const T2=TALENTS[pg.role2];s+=" + "+pg.role2+((T2.multi&&pg.style2)?(" \u00b7 "+pg.style2):"");}return s;}
-const ROLES=Object.keys(TALENTS).map(n=>({name:n,skill:TALENTS[n].skill||"varia"}));
-const FRUIT_TALENTS={
- "Paramecia":{ico:"🩸",tratto:"Alteri corpo, materia o ambiente con un potere unico (concordato col Capitano).",firma:"Sul colpo pulito il potere lascia un effetto extra a tema (terreno, stato, zona).",talenti:[
-  {n:"Potere Versatile",d:"sblocchi un uso nuovo del potere (a distanza, su te stesso, difensivo…): apre una famiglia di mosse nuove."},
-  {n:"Controllo Fine",d:"fuori dal combattimento: +1 dado a manipolazione, attraversamento, protezione, furtività."},
-  {n:"Estensione",t:"avanzato",d:"potenzi la scala delle mosse: più gittata, un bersaglio in più, o un'area più ampia."},
-  {n:"Forma di Combattimento",t:"avanzato",d:"incanali il potere in una modalità per la scena: bonus costante a tema, mantenuta a Stamina."}]},
- "Logia":{ico:"🔥",tratto:"Diventi e controlli un elemento; colpisci con esso, anche a distanza.",firma:"Scateni l'elemento su un'intera zona.",talenti:[
-  {n:"Intangibilità",d:"gli attacchi senza Haki né Pietra di Mare ti attraversano (mancano o dimezzano)."},
-  {n:"Corpo Elementale",d:"ti muovi come l'elemento: +1 dado a fuga, mobilità e a sfuggire alla cattura."},
-  {n:"Dominio dell'Elemento",t:"avanzato",d:"controlli l'elemento nell'ambiente: terreno, copertura, alimentarlo o spegnerlo, usare le fonti presenti."},
-  {n:"Reintegrazione",t:"avanzato",d:"quando vieni colpito (anche con Haki) l'elemento si riforma: dimezzi il danno o ti rialzi più in fretta."}]},
- "Zoan":{ico:"🐾",tratto:"Ti trasformi in animale e in forma ibrida; pura spinta fisica.",firma:"In forma ibrida il colpo travolge (Stordito) o aggiunge un Dado Danno.",talenti:[
-  {n:"Forma Ibrida",d:"per la scena +1 dado ai tiri fisici (Forza/Atletica) e al Danno in mischia."},
-  {n:"Istinto Animale",d:"esplorazione: +1 dado a Osservazione, Sopravvivenza e inseguimento; superi terreni proibitivi."},
-  {n:"Resistenza Bestiale",t:"avanzato",d:"la forma incassa: +PV o riduci il danno subito, e recuperi più in fretta."},
-  {n:"Zoan Mitologico / Ancestrale",t:"avanzato",d:"il tuo è un Frutto raro: un potere speciale concordato (elemento, stazza colossale, abilità unica)."}]}
-};
-const FRUIT_RISVEGLIO={n:"Risveglio",t:"ultimate",d:"per la scena il potere sale di livello, effetto enorme concordato: Paramecia plasma l'ambiente, Logia quasi inarrestabile, Zoan alla forma definitiva. Richiede 3 Talenti del Frutto + permesso del Capitano (Ambizione)."};
-const SKILLS={"Artigianato":"Oggetti e attrezzi","Medicina":"Ferite, veleni","Navigazione":"Rotte, traversate","Cucina":"Pasti, recupero","Furtività":"Non visti, scasso","Atletica":"Corsa, lotta","Archeologia":"Storia, Poneglyph","Acrobazia":"Equilibrio, evasione","Arte":"Musica, falsi","Osservazione":"Pericoli, indizi","Meccanica":"Macchinari, cannoni","Carpenteria":"La nave","Esplorazione":"Isole","Comunicazione":"Convincere, trattare","Natura":"Piante, clima","Sopravvivenza":"Cibo, riparo"};
-const TEC_FONTI=["Stile","Arma","Frutto"];
-const TEC_FORME=["Singolo","Raffica","Area","Potenziamento","Indebolimento","Modalità","Utility"];
-const TEC_DADI=["d4","d6","d8","d10","d12","d20","d20+"];
-const TEC_RANK={d4:1,d6:2,d8:3,d10:4,d12:5,d20:6,"d20+":7};
-const TEC_SLOT={d4:1,d6:1,d8:2,d10:2,d12:3,d20:4,"d20+":5};
-const TEC_DUR=[["Un turno",0,0,""],["Mantieni (+1/turno)",0,1,""],["3 turni",2,0,""],["Tutta la scena",0,0,"d20+"]];
-const TEC_FAMS=["Danno","Controllo","Spostamento","Difesa","Potenziamento","Area","Zona Persistente","Speciali di Fonte","Concatenati","Devastanti","Utility"];
-const TEC_EFF=[
-["Danno","+1 Dado Danno","un dado in più al danno","d8",1,""],
-["Danno","Perforante","ignora armatura e robustezza","d8",1,""],
-["Danno","Colpo Pesante","il danno non scende sotto metà del dado","d10",1,""],
-["Danno","Doppio Colpo","due tiri di Dado Danno sullo stesso bersaglio","d10",1,""],
-["Danno","Esecuzione","+1 Dado Danno contro chi è Quasi Morto","d12",1,""],
-["Danno","Colpo Annientante","danno raddoppiato, una volta per scena","d20",2,""],
-["Controllo","Sfondamento","Stordito per 1 turno","d8",1,""],
-["Controllo","Lacerazione","Sanguinante","d6",1,""],
-["Controllo","Veleno","Avvelenato","d6",1,""],
-["Controllo","Accecante","Accecato","d8",1,""],
-["Controllo","Sbilancio","Sbilanciato (perde la reazione)","d6",1,""],
-["Controllo","Frattura","−1 dado a un Attributo per la scena","d10",1,""],
-["Controllo","Presa","Immobilizzato finché lo tieni","d8",1,""],
-["Controllo","Terrore","indietreggia e salta la reazione","d10",1,""],
-["Controllo","Paralisi","Paralizzato 1 turno (Salvezza)","d12",2,""],
-["Controllo","Sopore","Addormentato (Salvezza)","d12",2,""],
-["Controllo","Spezza-Tecnica","annulla una tecnica nemica in carica","d12",2,""],
-["Spostamento","Proiezione","spingi via il bersaglio","d6",0,""],
-["Spostamento","Schianto","lo sbatti contro qualcosa: +1 Dado Danno","d8",1,""],
-["Spostamento","Attrazione","lo trascini verso di te","d8",1,""],
-["Spostamento","Scatto","ti muovi prima o dopo il colpo, gratis","d6",1,""],
-["Spostamento","Balzo","raggiungi una posizione alta o lontana","d6",1,""],
-["Spostamento","Inseguire","segui chi fugge e colpisci","d8",1,""],
-["Difesa","Guardia","+2 Difesa fino al tuo prossimo turno","d6",1,""],
-["Difesa","Contrattacco","chi ti colpisce subisce danno di ritorno","d10",1,""],
-["Difesa","Barriera","copertura per te e gli alleati vicini","d8",1,""],
-["Difesa","Scudo d'Alleato","sposti su di te il colpo a un compagno","d8",1,""],
-["Difesa","Parata","annulla un colpo in arrivo (reazione)","d10",2,""],
-["Difesa","Riflesso","una volta per scena schivi in automatico","d12",2,""],
-["Potenziamento","Carica","+1 dado a una linea di tiri per la scena","d6",1,""],
-["Potenziamento","Furia","+1 gradino al Dado Danno per la scena","d8",1,""],
-["Potenziamento","Roccia","+2 Difesa per la scena","d8",1,""],
-["Potenziamento","Fermezza","immunità a uno stato per la scena","d10",1,""],
-["Potenziamento","Secondo Vento","recuperi un po' di PV o ST","d10",2,""],
-["Potenziamento","Sblocco","la tua prossima Tecnica costa metà ST","d10",1,""],
-["Potenziamento","Grido di Guerra","il buff vale per la ciurma vicina","d12",2,""],
-["Potenziamento","Oltre il Limite","per 1 turno il dado sale di 1 oltre il tetto","d20",3,""],
-["Area","Onda","più nemici in linea o cono","d8",0,"area"],
-["Area","Esplosione","tutti in un raggio","d10",0,"area"],
-["Area","Terreno Alterato","lasci fuoco/ghiaccio/veleno nella zona","d10",1,"area"],
-["Area","Spazzata","Sbilanciato a tutti i colpiti","d8",1,"area"],
-["Area","Devastazione","danno extra a strutture e navi","d10",1,"area"],
-["Area","Occhio del Ciclone","scegli chi NON colpire (risparmi gli alleati)","d12",1,"area"],
-["Zona Persistente","Campo Ardente","Dado Danno a chi è dentro, a inizio turno","d10",2,"area"],
-["Zona Persistente","Pantano","terreno difficile: niente carica, movimento dimezzato","d8",1,"area"],
-["Zona Persistente","Cortina","blocca la vista; chi è dentro mira fuori come Accecato","d8",1,"area"],
-["Zona Persistente","Muro","una parete con PS propri: blocca o ferisce chi la forza","d10",2,"area"],
-["Zona Persistente","Prigione","chi è dentro è trattenuto: esce con una Salvezza","d12",2,"area"],
-["Zona Persistente","Aura","zona amica: recupera PV/ST o +1 dado agli alleati","d12",2,"area"],
-["Zona Persistente","Campo di Spine","chi si muove dentro subisce danno e rischia Sbilanciato","d10",1,"area"],
-["Speciali di Fonte","Gittata","porti un colpo da mischia a distanza","d6",1,"frutto"],
-["Speciali di Fonte","Elementale","il colpo brucia, gela, folgora… (Logia)","d8",1,"frutto"],
-["Speciali di Fonte","Mutaforma","cambi raggio e forma del colpo (Paramecia)","d8",1,"frutto"],
-["Speciali di Fonte","Forma Bestiale","stazza Zoan: +1 Dado Danno e Spinta","d8",1,"frutto"],
-["Speciali di Fonte","Trapasso","attraversi e colpisci più bersagli in fila","d10",2,""],
-["Speciali di Fonte","Moltiplicazione","più arti, copie o proiettili colpiscono","d10",2,"frutto"],
-["Speciali di Fonte","Rigenera-Colpo","ti riformi e recuperi un po' dopo il colpo (Logia)","d12",2,"frutto"],
-["Concatenati","Rimbalzo","salta a un secondo bersaglio vicino (danno ridotto)","d10",1,""],
-["Concatenati","Catena","fino a 3 bersagli in fila, danno calante","d12",2,""],
-["Concatenati","Marchio Esplosivo","segni ora, lo fai detonare quando vuoi (Area)","d10",2,""],
-["Concatenati","Vincolo","leghi il bersaglio: se si allontana, subisce danno","d8",1,""],
-["Concatenati","Colpo Ritardato","scatta a inizio prossimo turno: non si può parare","d10",1,""],
-["Concatenati","Risonanza","ogni tuo colpo sullo stesso bersaglio accumula +1 danno","d12",2,""],
-["Devastanti","+2 Dado Danno","dadi in più per i colpi grossi","d10",2,""],
-["Devastanti","+3 Dado Danno","ancora di più","d12",3,""],
-["Devastanti","Carica (devastante)","salti un turno → raddoppi i Dadi Danno","d10",2,""],
-["Devastanti","Sovraccarico","tiri il doppio dei Dadi Danno, ma subisci 1d6 PV","d12",2,""],
-["Devastanti","Detonazione","un colpo enorme che diventa anche Area","d10",3,""],
-["Devastanti","Tutto o Niente","manchi = niente; colpo pulito = danno triplo","d12",2,""],
-["Devastanti","Colpo Finale","una volta per scontro, chiude la scena","d20+",5,""],
-["Utility","Diversivo","attiri l'attenzione, copri la ciurma","d4",0,""],
-["Utility","Silenzioso","la tecnica non fa rumore","d6",0,""],
-["Utility","Aggancio","rampino: ti tiri verso un punto","d6",1,""],
-["Utility","Disarmo","togli l'arma al bersaglio","d8",1,""],
-["Utility","Rottura","distruggi oggetto, copertura, porta, catena","d8",1,""],
-["Utility","Marchio","chi lo colpisce dopo di te ha +1 dado","d8",1,""],
-["Utility","Apertura","crei un varco: il prossimo alleato ha Vantaggio","d10",1,""]
+var ROLES=[
+ {name:"Combattente",multi:true,styles:[["Striker","Atletica"],["Swordsman","Atletica"],["Sniper","Atletica"],["Special","Atletica"]],desc:"Il muscolo della ciurma. Lo Stile decide come combatti."},
+ {name:"Dottore",multi:true,styles:[["Infermeria","Medicina"],["Tossicologo","Medicina"],["Chimico","Medicina"]],desc:"Tiene in piedi la ciurma: cure, veleni o chimica."},
+ {name:"Cuoco",multi:false,skill:"Cucina",desc:"Nutre e rinvigorisce l'equipaggio; piatti che ridanno energie."},
+ {name:"Navigatore",multi:false,skill:"Navigazione",desc:"Trasforma il mare da nemico a strada."},
+ {name:"Ingegnere",multi:true,styles:[["Carpentiere","Carpenteria"],["Meccanico","Meccanica"],["Inventore","Meccanica"]],desc:"Costruisce e ripara: la nave, le macchine, le invenzioni."},
+ {name:"Archeologo",multi:false,skill:"Archeologia",desc:"La memoria della ciurma; legge Poneglyph e rovine."},
+ {name:"Musicista",multi:false,skill:"Arte",desc:"Il moltiplicatore: ridà Stamina e spezza la paura."},
+ {name:"Capitano",multi:false,skill:"Comunicazione",desc:"La sua forza è l'Ambizione, i Legami e il comando."}
 ];
-function tecEffObj(nm){return TEC_EFF.find(e=>e[1]===nm);}
-function tecCost(t){let st=0,pt=0;(t.eff||[]).forEach(nm=>{const e=tecEffObj(nm);if(e)st+=e[4];});if(t.forma==="Area")st+=2;const d=TEC_DUR.find(x=>x[0]===t.durata);if(d){st+=d[1];pt+=d[2];}st=Math.max(1,st);if(t.forma==="Modalità")pt+=1;return{st:st,pt:pt};}
-function tecCostLabel(t){const c=tecCost(t);return c.st+" ST"+(c.pt?(" +"+c.pt+"/turno"):"");}
-function tecSummary(t){const a=[];if(t.fonte)a.push(t.fonte==="Frutto"&&t.fruitType?("Frutto "+t.fruitType):t.fonte);if(t.forma)a.push(t.forma);if(t.die)a.push(t.die);if(t.durata&&t.forma==="Area"&&t.durata!=="Un turno")a.push(t.durata);let s=a.join(" · ");if(t.eff&&t.eff.length)s+=" — "+t.eff.join(", ");return s;}
-let TBUILD={nome:"",attr:"",fonte:"Stile",forma:"Singolo",die:"d6",durata:"Un turno",eff:[],desc:"",_open:[],_id:null,fruitType:""};
-function tbReset(){TBUILD={nome:"",attr:"",fonte:"Stile",forma:"Singolo",die:"d6",durata:"Un turno",eff:[],desc:"",_open:[],_id:null,fruitType:""};}
-function renderTecBuilder(onAdd){
- const box=el("div",{class:"tbuilder"});
- box.appendChild(el("div",{class:"tbhead",text:"🔧 Costruttore di Tecniche"}));
- box.appendChild(field("Nome della tecnica",TBUILD.nome,v=>{TBUILD.nome=v;}));
- const mkSel=(lab,opts,getv,setv)=>{const w=el("div",{});w.appendChild(el("label",{class:"fld",text:lab}));const sl=el("select",{});opts.forEach(o=>sl.appendChild(el("option",{value:o,text:o})));sl.value=getv();sl.onchange=()=>{setv(sl.value);refresh();};w.appendChild(sl);return w;};
- const grid=el("div",{class:"tbgrid"});
- grid.appendChild(mkSel("Attributo",["","Forza","Tecnica","Spirito","Astuzia"],()=>TBUILD.attr,v=>TBUILD.attr=v));
- grid.appendChild(mkSel("Fonte",TEC_FONTI,()=>TBUILD.fonte,v=>TBUILD.fonte=v));
- const formaHost=el("div");grid.appendChild(formaHost);
- grid.appendChild(mkSel("Dado (= Dado Danno)",TEC_DADI,()=>TBUILD.die,v=>TBUILD.die=v));
- box.appendChild(grid);
- const fruitHost=el("div");box.appendChild(fruitHost);const durHost=el("div");box.appendChild(durHost);
- const info=el("div",{class:"tbinfo"});box.appendChild(info);
- const effHost=el("div",{class:"tbeff"});box.appendChild(effHost);
- const costEl=el("div",{class:"tbcost"});box.appendChild(costEl);
- const dw=el("div",{});dw.appendChild(el("label",{class:"fld",text:"Descrizione / colore (facoltativo)"}));const dta=el("textarea",{});dta.value=TBUILD.desc||"";dta.oninput=()=>{TBUILD.desc=dta.value;};dw.appendChild(dta);box.appendChild(dw);
- const btns=el("div",{class:"addrow"});
- btns.appendChild(el("button",{class:"btn sm",text:"+ Aggiungi alla Scheda",onclick:()=>{if(!(TBUILD.nome||"").trim()){alert("Dai un nome alla tecnica.");return;}const t={id:(TBUILD._id||("tec"+Date.now().toString(36)+Math.floor(Math.random()*1000))),nome:TBUILD.nome.trim(),attr:TBUILD.attr,die:TBUILD.die,fonte:TBUILD.fonte,fruitType:(TBUILD.fonte==="Frutto"?(TBUILD.fruitType||""):""),forma:TBUILD.forma,durata:(TBUILD.forma==="Area"?TBUILD.durata:""),eff:TBUILD.eff.slice(),desc:TBUILD.desc||""};onAdd(t);}}));
- btns.appendChild(el("button",{class:"iconbtn",text:"Svuota",onclick:()=>{tbReset();refresh();}}));
- box.appendChild(btns);
- function refresh(){
-  const rank=TEC_RANK[TBUILD.die]||1;const slot=TEC_SLOT[TBUILD.die]||1;
-  fruitHost.innerHTML="";let ftype=null;if(TBUILD.fonte==="Frutto"){if(!TBUILD.fruitType)TBUILD.fruitType=((typeof pg!=="undefined"&&pg.frutto&&["Paramecia","Logia","Zoan"].indexOf(pg.frutto.tipo)>=0)?pg.frutto.tipo:"Paramecia");ftype=TBUILD.fruitType;const tw=el("div",{});tw.appendChild(el("label",{class:"fld",text:"Tipo di Frutto"}));const tsl=el("select",{});["Paramecia","Logia","Zoan"].forEach(o=>tsl.appendChild(el("option",{value:o,text:o})));tsl.value=ftype;tsl.onchange=()=>{TBUILD.fruitType=tsl.value;refresh();};tw.appendChild(tsl);fruitHost.appendChild(tw);}const fz=(TBUILD.fonte==="Frutto"&&ftype==="Zoan");const forme=TEC_FORME.filter(f=>!(f==="Area"&&fz));if(TBUILD.forma==="Area"&&fz)TBUILD.forma="Singolo";formaHost.innerHTML="";const fw=el("div",{});fw.appendChild(el("label",{class:"fld",text:"Forma"}));const fsl=el("select",{});forme.forEach(o=>fsl.appendChild(el("option",{value:o,text:o})));fsl.value=TBUILD.forma;fsl.onchange=()=>{TBUILD.forma=fsl.value;refresh();};fw.appendChild(fsl);formaHost.appendChild(fw);if(fz)formaHost.appendChild(el("div",{class:"sub",style:"color:#8c1c13;font-size:11px;margin-top:2px",text:"Uno Zoan non fa tecniche ad Area — usa Singolo, Raffica o le Speciali di Fonte."}));
-  TBUILD.eff=(TBUILD.eff||[]).filter(nm=>{const e=tecEffObj(nm);if(!e)return false;const okD=(TEC_RANK[e[3]]||1)<=rank;const okR=(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area"));return okD&&okR;});
-  if(TBUILD.eff.length>slot)TBUILD.eff=TBUILD.eff.slice(0,slot);
-  durHost.innerHTML="";
-  if(TBUILD.forma==="Area"){const w=el("div",{});w.appendChild(el("label",{class:"fld",text:"Durata della Zona"}));const sl=el("select",{});TEC_DUR.forEach(d=>sl.appendChild(el("option",{value:d[0],text:d[0]+(d[3]?(" — richiede "+d[3]):"")})));sl.value=TBUILD.durata;sl.onchange=()=>{TBUILD.durata=sl.value;refresh();};w.appendChild(sl);durHost.appendChild(w);}
-  info.innerHTML="Effetti: <b>"+TBUILD.eff.length+" / "+slot+"</b> · sblocchi fino a <b>"+TBUILD.die+"</b>"+(TBUILD.forma==="Area"?" · Area +2 ST (bersagli a metà danno · stati = Salvezza)":"")+(TBUILD.forma==="Modalità"?" · Modalità +1/turno":"");
-  effHost.innerHTML="";
-  TEC_FAMS.forEach(fam=>{
-   const det=el("details",{class:"tbfam"});if(TBUILD._open.indexOf(fam)>=0)det.open=true;det.ontoggle=()=>{const ix=TBUILD._open.indexOf(fam);if(det.open){if(ix<0)TBUILD._open.push(fam);}else if(ix>=0)TBUILD._open.splice(ix,1);};
-   det.appendChild(el("summary",{text:fam}));
-   TEC_EFF.filter(e=>e[0]===fam).forEach(e=>{
-    const nm=e[1];const sel=TBUILD.eff.indexOf(nm)>=0;
-    const okD=(TEC_RANK[e[3]]||1)<=rank;
-    const okR=(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area"));
-    const full=TBUILD.eff.length>=slot&&!sel;const dis=!okD||!okR||full;
-    let hint="";if(!okD)hint=" <i style='color:#8c1c13'>(da "+e[3]+")</i>";else if(!okR)hint=(e[5]==="frutto"?" <i style='color:#8c1c13'>(richiede Frutto)</i>":" <i style='color:#8c1c13'>(richiede Forma Area)</i>");else if(full)hint=" <i style='color:#8c1c13'>(slot pieni)</i>";
-    const cbx=el("input",{type:"checkbox"});cbx.checked=sel;cbx.disabled=dis;
-    cbx.onchange=()=>{const ix=TBUILD.eff.indexOf(nm);if(cbx.checked){if(ix<0)TBUILD.eff.push(nm);}else if(ix>=0)TBUILD.eff.splice(ix,1);refresh();};
-    det.appendChild(el("label",{class:"tbrow"+(dis?" off":"")},[cbx,el("span",{class:"talname",html:"<b>"+nm+"</b> <span class='ttag'>"+e[3]+" · "+e[4]+" ST</span> — "+e[2]+hint})]));
-   });
-   effHost.appendChild(det);
-  });
-  costEl.innerHTML="Costo: <b>"+tecCostLabel(TBUILD)+"</b>";
- }
- refresh();
- return box;
-}
-const ATTRS=["Forza","Tecnica","Spirito","Astuzia"];
-const STEPS=["Concetto","Razza","Attributi","Ruolo","Skill","Tecniche","Frutto","Statistiche"];
-const DICE=["d4","d6","d8","d10","d12","d20","d20+d4","d20+d6","d20+d8","d20+d10","d20+d12","d20+d20"];
-const HAKI_NAMES=["Haki dell'Armamento","Haki dell'Osservazione","Haki del Re"];
-const HAKI_PROG={
-"Haki dell'Armamento":{axis:"die",rows:[
-{k:"d6",liv:"Competente",pass:"Ogni turno puoi pagare 1 ST per mantenere l'Haki attivo (le abilità potenziate con l'Haki non costano PIP).",act:null,cost:null},
-{k:"d8",liv:"Esperto",pass:"Ignori le difese non-Haki dei PNG Minori (PV ≤ 8).",act:"Armatura totale: tutti i danni che subisci sono dimezzati (arr. per eccesso).",cost:1},
-{k:"d10",liv:"Maestro",pass:"In difesa tiri due volte il dado Haki e tieni il risultato più alto.",act:"Esplosione Haki: a fine attacco liberi un'onda che colpisce tutti i nemici in area (metà danno).",cost:1},
-{k:"d12",liv:"Leggenda",pass:"L'Haki resta attivo senza pagare ST per 3 tuoi turni.",act:"Spezza Volontà: l'attacco spezza la difesa dell'avversario per 1 suo turno (Pool difesa dimezzato).",cost:2},
-{k:"d20",liv:"Mitico",pass:"Il nemico tira 2 dadi in difesa e tiene il peggiore.",act:"Ryou: l'Armamento penetra dall'interno — danni interni doppi (×2), ignora la difesa.",cost:3}
-]},
-"Haki dell'Osservazione":{axis:"die",rows:[
-{k:"d6",liv:"Competente",pass:"Ogni turno puoi pagare 1 ST per mantenere l'Haki attivo (le abilità potenziate con l'Haki non costano PIP).",act:null,cost:null},
-{k:"d8",liv:"Esperto",pass:"Vista a 360°: non puoi essere sorpreso; gli attacchi alle spalle perdono il bonus sorpresa.",act:"Anticipo: aggiungi 2 dadi Osservazione come bonus a un tiro di evasione o contrattacco.",cost:1},
-{k:"d10",liv:"Maestro",pass:"Lettura del campo: conosci posizione e PV approssimativi di tutti i nemici nella scena.",act:"Guida nakama: per 1 turno trasferisci il tuo dado Osservazione come bonus a tutti i compagni in vista.",cost:1},
-{k:"d12",liv:"Leggenda",pass:"Visione futura: 1×/sessione, chiedi al GM cosa accadrà al prossimo inizio scena.",act:"Previsione breve: per 1 turno il nemico non può colpirti con attacchi fisici normali (solo Haki o area).",cost:2},
-{k:"d20",liv:"Mitico",pass:"Osservazione universale: percepisci ogni essere vivente sull'isola; nessuno può nascondersi o imboscarti.",act:"Previsione futura: per 2 turni i tuoi attacchi ignorano la difesa e in difesa schivi in automatico ogni colpo.",cost:3}
-]},
-"Haki del Re":{axis:"pip",max:3,rows:[
-{k:1,liv:"Risveglio",pass:"Stordimento di massa: stordisce automaticamente tutti i PNG minori (PV ≤ 15) nella scena, senza tiro.",act:null,cost:null},
-{k:2,liv:"Dominio",pass:"Aura intimidatoria: −2 ai tiri di tutti i nemici con Spirito < d8 finché restano nella scena.",act:"Grido dell'Imperatore: un nemico (anche boss) perde la sua prossima azione (1×/combattimento).",cost:1},
-{k:3,liv:"Assoluto",pass:"Dominio del campo: a inizio combattimento dimezzi i PV di tutti i PNG minori (arr. per difetto), istantaneo.",act:"Haki del Re Ryou: rivesti un attacco fisico — ignora ogni protezione e tiri due volte tenendo il più alto.",cost:2}
-]}
-};
-function hakiPanel(h){
- const prog=HAKI_PROG[h.name];if(!prog)return null;
- const order=["d6","d8","d10","d12","d20"];
- const box=el("div",{class:"talpanel"});
- let head=h.name;
- if(prog.axis==="die"){const ci=order.indexOf(h.die);head+=(ci>=0?(" · "+prog.rows[ci].liv+" ("+h.die+") · PIP "+(ci+1)+"/5"):" · sotto il livello base (d6)");}
- else head+=" · sale con i PIP (max "+prog.max+")";
- box.appendChild(el("div",{class:"talhead",text:head}));
- const ci=(prog.axis==="die")?order.indexOf(h.die):-1;
- prog.rows.forEach((r,i)=>{
-  const die=(prog.axis==="die");
-  const on=die&&i<=ci;
-  const tag=die?r.k:(r.k+" PIP");
-  let html="<b>"+r.liv+"</b> <span class='ttag'>"+tag+"</span><br>🔒 "+r.pass;
-  if(r.act)html+="<br><span style='color:#8a6a1e'>⚡ "+r.act+"</span> <span class='ttag'>"+r.cost+" PIP</span>";
-  const row=el("div",{class:"talrow"+(on?" on":"")},[el("span",{class:"talname",html:html})]);
-  if(die&&!on)row.style.opacity=".4";
-  box.appendChild(row);
- });
- return box;
-}
+var SKILLS={"Artigianato":"Oggetti e attrezzi","Medicina":"Ferite, veleni","Navigazione":"Rotte, traversate","Cucina":"Pasti, recupero","Furtività":"Non visti, scasso","Atletica":"Corsa, lotta","Archeologia":"Storia, Poneglyph","Acrobazia":"Equilibrio, evasione","Arte":"Musica, falsi","Osservazione":"Pericoli, indizi","Meccanica":"Macchinari, cannoni","Carpenteria":"La nave","Esplorazione":"Isole","Comunicazione":"Convincere, trattare","Natura":"Piante, clima","Sopravvivenza":"Cibo, riparo"};
+var STEPS=["Concetto","Razza","Attributi","Ruolo","Skill","Tecniche","Frutto","Salva"];
 
-const PA_THRESH={d4:10,d6:25,d8:60,d10:150,d12:400};
-const BOUNTY_LV=[[0,"Sconosciuto"],[10000000,"Pirata Emergente"],[80000000,"Pericoloso"],[200000000,"Famigerato"],[500000000,"Temibile"],[1000000000,"Leggendario"]];
-
-const blank=()=>({nome:"",bg:"",amb:"",race:null,umanoAttr:"Forza",d6attr:"",role:null,style:"",role2:null,style2:"",talents:[],
+function blank(){return {nome:"",bg:"",amb:"",race:null,umanoAttr:"Forza",d6attr:"",role:null,style:"",role2:null,style2:"",talents:[],
  attr:{Forza:"",Tecnica:"",Spirito:"",Astuzia:""},
  skills:{}, roleSkillDie:"d8", pa:{}, paThresh:{d4:10,d6:25,d8:60,d10:150,d12:400},
  t1:{nome:"",desc:"",attr:"",die:"d4"}, t2:{nome:"",desc:"",attr:"",die:"d4"}, racialDie:"d6", extraTech:[],
  armi:[], haki:[], frutto:{has:false,nome:"",tipo:"",desc:""},
- photo:"", bounty:"0", pvMax:null,pvCur:null,stMax:6,stCur:6,legami:0,ore:16,note:""});
-let pg=blank(); let step=0; let mode="crea"; const KEY="glc_pirata_v4";
+ photo:"", bounty:"0", pvMax:null,pvCur:null,stMax:6,stCur:6,legami:0,ore:16,note:""};}
+var D=blank(); var step=0; var KEY="glc_pirata_v4";
 
-const $=s=>document.querySelector(s);
-const race=()=>RACES.find(r=>r.id===pg.race)||null;
-const roleObj=()=>{if(!pg.role||!TALENTS[pg.role])return null;return {name:pg.role,skill:roleSkillOf(pg.role,pg.style)};};
-const racialAttr=()=>{const r=race();if(!r)return null;return r.attr==="choice"?pg.umanoAttr:r.attr;};
-function stepDie(d,dir){let i=DICE.indexOf(d);if(i<0)i=0;i=Math.max(0,Math.min(DICE.length-1,i+dir));return DICE[i];}
-function paSoglia(d){const t=(pg.paThresh&&pg.paThresh[d]!=null&&pg.paThresh[d]!=="")?pg.paThresh[d]:PA_THRESH[d];return(t!=null&&t!=="")?(parseInt(t)||0):null;}
-function bountyLevel(n){let lv=BOUNTY_LV[0][1];for(const[t,l]of BOUNTY_LV){if(n>=t)lv=l;}return lv;}
-function el(t,p,kids){const e=document.createElement(t);if(p)for(const k in p){if(k==="class")e.className=p[k];else if(k==="html")e.innerHTML=p[k];else if(k==="text")e.textContent=p[k];else if(k.slice(0,2)==="on")e[k.toLowerCase()]=p[k];else e.setAttribute(k,p[k]);}if(kids!=null)(Array.isArray(kids)?kids:[kids]).forEach(c=>{if(c==null)return;e.appendChild(typeof c==="string"?document.createTextNode(c):c);});return e;}
+var $=function(s){return document.querySelector(s);};
+function el(t,p,kids){var e=document.createElement(t);if(p)for(var k in p){if(k==="class")e.className=p[k];else if(k==="html")e.innerHTML=p[k];else if(k==="text")e.textContent=p[k];else if(k.slice(0,2)==="on")e[k.toLowerCase()]=p[k];else e.setAttribute(k,p[k]);}if(kids!=null)(Array.isArray(kids)?kids:[kids]).forEach(function(c){if(c==null)return;e.appendChild(typeof c==="string"?document.createTextNode(c):c);});return e;}
+function newId(){return "c_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+function race(){for(var i=0;i<RACES.length;i++)if(RACES[i].id===D.race)return RACES[i];return null;}
+function racialAttr(){var r=race();if(!r)return null;return r.attr==="choice"?D.umanoAttr:r.attr;}
+function computeAttr(){var r=race();if(!r)return;var ra=racialAttr();ATTRS.forEach(function(a){if(a===ra)D.attr[a]=r.die;else if(a===D.d6attr)D.attr[a]="d6";else if(D.d6attr)D.attr[a]="d4";else D.attr[a]="";});}
+function afterRaceChange(){var r=race();computeAttr();if(r&&D.pvMax==null){D.pvMax=r.pv;D.pvCur=r.pv;}}
+function roleDef(){for(var i=0;i<ROLES.length;i++)if(ROLES[i].name===D.role)return ROLES[i];return null;}
+function roleSkill(){var r=roleDef();if(!r)return null;if(!r.multi)return r.skill;var st=null;for(var i=0;i<r.styles.length;i++)if(r.styles[i][0]===D.style)st=r.styles[i];if(!st)st=r.styles[0];return st?st[1]:null;}
 
-function save(){try{localStorage.setItem(KEY,JSON.stringify(pg));}catch(e){try{const c=Object.assign({},pg);delete c.photo;localStorage.setItem(KEY,JSON.stringify(c));}catch(e2){}}}
-function load(){try{const s=localStorage.getItem(KEY);if(s)pg=Object.assign(blank(),JSON.parse(s));}catch(e){}if(pg&&pg.role){const MAP={"Medico":"Dottore","Carpentiere / Ingegnere":"Ingegnere","Cecchino / Vedetta":"Combattente","Cannoniere":"Combattente"};if(MAP[pg.role])pg.role=MAP[pg.role];if(TALENTS[pg.role]&&TALENTS[pg.role].multi&&!pg.style)pg.style=firstStyle(pg.role);}if(!Array.isArray(pg.talents))pg.talents=[];}
-function computeAttr(){const r=race();if(!r)return;const ra=racialAttr();ATTRS.forEach(a=>{if(a===ra)pg.attr[a]=r.die;else if(a===pg.d6attr)pg.attr[a]="d6";else if(pg.d6attr)pg.attr[a]="d4";else pg.attr[a]="";});}
-function afterRaceChange(){const r=race();computeAttr();if(r&&pg.pvMax==null){pg.pvMax=r.pv;pg.pvCur=r.pv;}}
+function readCT(){var o=null;try{o=JSON.parse(localStorage.getItem(KEY)||"null");}catch(e){}
+ if(o&&o.chars&&typeof o.chars==="object"){o.order=Array.isArray(o.order)?o.order.filter(function(id){return o.chars[id];}):[];for(var id in o.chars)if(o.order.indexOf(id)<0)o.order.push(id);if(!o.chars[o.activeId])o.activeId=o.order[0]||"";return o;}
+ if(o){var nid=newId();var ch={};ch[nid]=o;return {v:2,activeId:nid,order:[nid],chars:ch};}
+ return {v:2,activeId:"",order:[],chars:{}};}
+function writeCT(ct){try{localStorage.setItem(KEY,JSON.stringify(ct));}catch(e){alert("Spazio insufficiente per salvare (forse una foto troppo grande).");}}
 
-function setMode(m){mode=m;$("#mode-crea").classList.toggle("on",m==="crea");$("#mode-gest").classList.toggle("on",m==="gest");$("#crea-wrap").style.display=m==="crea"?"block":"none";$("#manage").style.display=m==="gest"?"block":"none";if(m==="gest")renderManage();else goto(step);}
-$("#mode-crea").onclick=()=>setMode("crea");$("#mode-gest").onclick=()=>setMode("gest");
+function buildStepper(){var n=$("#stepper");n.innerHTML="";STEPS.forEach(function(name,i){n.appendChild(el("button",{onclick:function(){goto(i);},html:'<span class="n">'+(i+1)+'</span>'+name}));});}
+function refreshStepper(){var ch=$("#stepper").children;for(var i=0;i<ch.length;i++){ch[i].classList.toggle("active",i===step);ch[i].classList.toggle("done",i<step);}}
+function goto(i){step=Math.max(0,Math.min(STEPS.length-1,i));refreshStepper();RENDER[step]();$("#prev").disabled=step===0;$("#next").style.visibility=step===STEPS.length-1?"hidden":"visible";window.scrollTo({top:0,behavior:"smooth"});}
 
-function buildStepper(){const elx=$("#stepper");elx.innerHTML="";STEPS.forEach((name,i)=>elx.appendChild(el("button",{onclick:()=>goto(i),html:'<span class="n">'+(i+1)+'</span>'+name})));}
-function refreshStepper(){[...$("#stepper").children].forEach((b,i)=>{b.classList.toggle("active",i===step);b.classList.toggle("done",i<step);});}
-function goto(i){step=Math.max(0,Math.min(STEPS.length-1,i));document.querySelectorAll(".step").forEach(s=>s.classList.toggle("active",+s.dataset.step===step));$("#prev").disabled=step===0;$("#next").style.visibility=step===STEPS.length-1?"hidden":"visible";refreshStepper();if(step===1)renderRaces();if(step===2)renderAttr();if(step===3)renderRoles();if(step===4)renderSkills();if(step===5)renderRaceTech();window.scrollTo({top:0,behavior:"smooth"});}
+var RENDER=[rConcept,rRace,rAttr,rRole,rSkill,rTech,rFruit,rFinal];
 
-function renderRaces(){const c=$("#race-cards");c.innerHTML="";RACES.forEach(r=>c.appendChild(el("div",{class:"card"+(pg.race===r.id?" sel":""),html:'<div class="t">'+r.name+'</div><div class="d">'+(r.attr==="choice"?"Attr. a scelta":r.attr)+' '+r.die+' · PV '+r.pv+'</div>',onclick:()=>{pg.race=r.id;afterRaceChange();renderRaces();renderRaceInfo();render();}})));renderRaceInfo();}
-function renderRaceInfo(){const r=race();const elx=$("#race-info");if(!r){elx.innerHTML="";return;}let umano="";if(r.attr==="choice")umano='<label class="fld">Attributo razziale</label><select id="umano-sel">'+ATTRS.map(a=>'<option'+(pg.umanoAttr===a?' selected':'')+'>'+a+'</option>').join('')+'</select>';elx.innerHTML='<div class="infobox"><b>'+r.tech+' (d6):</b> '+r.techDesc+'<br><b>Bonus:</b> '+(r.attr==="choice"?"a scelta":r.attr)+' '+r.die+' · <b>PV:</b> '+r.pv+' · <b>Dado Vita:</b> '+r.hp+' · <b>Svant.:</b> '+r.sv+'</div>'+umano;const sel=$("#umano-sel");if(sel)sel.onchange=e=>{pg.umanoAttr=e.target.value;computeAttr();render();};}
-function renderAttr(){const elx=$("#attr-area");const r=race();if(!r){elx.innerHTML='<div class="infobox red">Scegli prima una razza (Passo 2).</div>';return;}const ra=racialAttr();const others=ATTRS.filter(a=>a!==ra);if(!others.includes(pg.d6attr))pg.d6attr="";elx.innerHTML='<div class="infobox"><b>'+ra+'</b> riceve <b>'+r.die+'</b>. Scegli quale degli altri prende il <b>d6</b> (gli altri due d4).</div><label class="fld">Attributo con il d6</label><select id="d6-sel"><option value="">— scegli —</option>'+others.map(a=>'<option'+(pg.d6attr===a?' selected':'')+'>'+a+'</option>').join('')+'</select><div class="attrgrid" id="attr-disp"></div>';$("#d6-sel").onchange=e=>{pg.d6attr=e.target.value;computeAttr();renderAttr();render();};const disp=$("#attr-disp");ATTRS.forEach(a=>disp.appendChild(el("div",{class:"attrrow"+(a===ra?" locked":""),html:'<div class="name">'+a+(a===ra?' <span class="sd">(razza)</span>':'')+'</div><div class="die">'+(pg.attr[a]||"—")+'</div>'})));}
-function renderRoles(){const c=$("#role-cards");c.innerHTML="";ROLES.forEach(r=>{const sk=(r.skill==="varia")?"varia per Stile":(r.skill+" (d8)");c.appendChild(el("div",{class:"card"+(pg.role===r.name?" sel":""),html:'<div class="t">'+r.name+'</div><div class="d">Skill: '+sk+'</div>',onclick:()=>{pg.role=r.name;pg.style=firstStyle(r.name);const sko=roleObj()&&roleObj().skill;if(sko&&pg.skills[sko])delete pg.skills[sko];renderRoles();render();}}));});const ro=roleObj();let info="";if(ro){const T=TALENTS[pg.role];info='<div class="infobox">Come <b>'+pg.role+'</b> ottieni <b>'+ro.skill+'</b> a <b>d8</b>.';if(T&&T.multi){info+='<br><label class="fld" style="margin-top:6px;">Stile</label><select id="style-sel">'+Object.keys(T.styles).map(function(st){return '<option'+(pg.style===st?" selected":"")+'>'+st+'</option>';}).join("")+'</select>';}info+="</div>";}$("#role-info").innerHTML=info;const ssl=$("#style-sel");if(ssl)ssl.onchange=function(e){pg.style=e.target.value;renderRoles();render();};}
-function countDie(v){return Object.values(pg.skills).filter(x=>x===v).length;}
-function renderSkills(){const ro=roleObj();const rs=ro?ro.skill:null;const list=$("#skill-list");list.innerHTML="";if(rs)list.appendChild(el("div",{class:"skillrow role",html:'<div><span class="sn">'+rs+'</span> <span class="sd">— '+(SKILLS[rs]||"")+'</span></div><div class="pick"><button class="on" disabled>d8 (Ruolo)</button></div>'}));Object.keys(SKILLS).forEach(name=>{if(name===rs)return;const cur=pg.skills[name]||"";const row=el("div",{class:"skillrow",html:'<div><span class="sn">'+name+'</span> <span class="sd">— '+SKILLS[name]+'</span></div>'});const pick=el("div",{class:"pick"});["0","d4","d6"].forEach(v=>{const b=el("button",{text:v,onclick:()=>setSkill(name,v)});if(cur===v||(v==="0"&&!cur))b.classList.add("on");pick.appendChild(b);});row.appendChild(pick);list.appendChild(row);});updateSkillCounter();}
-function setSkill(name,v){if(v==="0"){delete pg.skills[name];}else{const others=Object.entries(pg.skills).filter(([k])=>k!==name).filter(([,x])=>x===v).length;if(others>=2){const e=$("#skill-counter");e.style.color="#b71c1c";setTimeout(()=>e.style.color="",400);return;}pg.skills[name]=v;}renderSkills();render();}
-function updateSkillCounter(){const c6=countDie("d6"),c4=countDie("d4");$("#skill-counter").innerHTML='Selezionate — d6: <b>'+c6+'/2</b> · d4: <b>'+c4+'/2</b>'+((c6===2&&c4===2)?' ✅':'');}
-function renderRaceTech(){const r=race();$("#racetech-info").innerHTML=r?'<div class="infobox"><b>Tecnica razziale:</b> '+r.tech+' (d6) — '+r.techDesc+'</div>':'<div class="infobox red">Scegli prima una razza.</div>';}
-
-function bindInputs(){
- [["f-nome","nome"],["f-bg","bg"],["f-amb","amb"]].forEach(([id,k])=>{const e=$("#"+id);e.value=pg[k];e.oninput=()=>{pg[k]=e.value;render();};});
- [["t1-nome","t1","nome"],["t1-desc","t1","desc"],["t2-nome","t2","nome"],["t2-desc","t2","desc"]].forEach(([id,o,k])=>{const e=$("#"+id);e.value=pg[o][k];e.oninput=()=>{pg[o][k]=e.value;render();};});
- [["t1-attr","t1"],["t2-attr","t2"]].forEach(([id,o])=>{const e=$("#"+id);e.value=pg[o].attr;e.onchange=()=>{pg[o].attr=e.value;render();};});
- $("#f-frutto").checked=pg.frutto.has;$("#frutto-fields").style.display=pg.frutto.has?"block":"none";
- $("#f-frutto").onchange=e=>{pg.frutto.has=e.target.checked;$("#frutto-fields").style.display=e.target.checked?"block":"none";render();};
- [["fr-nome","nome"],["fr-desc","desc"]].forEach(([id,k])=>{const e=$("#"+id);e.value=pg.frutto[k];e.oninput=()=>{pg.frutto[k]=e.value;render();};});
- const ft=$("#fr-tipo");ft.value=pg.frutto.tipo;ft.onchange=()=>{pg.frutto.tipo=ft.value;render();};
- const bi=$("#bounty-in");bi.value=pg.bounty||"0";bi.oninput=()=>{pg.bounty=bi.value.replace(/[^0-9]/g,"");bi.value=pg.bounty;render();};
-}
-function handleFile(file){if(!file||!file.type||file.type.indexOf("image/")!==0)return;const rd=new FileReader();rd.onload=()=>{const img=new Image();img.onload=()=>{const max=560;let w=img.width,h=img.height;const sc=Math.min(1,max/Math.max(w,h));const cw=Math.round(w*sc),ch=Math.round(h*sc);const cv=document.createElement("canvas");cv.width=cw;cv.height=ch;cv.getContext("2d").drawImage(img,0,0,cw,ch);try{pg.photo=cv.toDataURL("image/jpeg",0.82);}catch(e){pg.photo=rd.result;}render();};img.src=rd.result;};rd.readAsDataURL(file);}
-function bindPhoto(){const p=$("#portrait"),f=$("#photoFile");p.onclick=()=>f.click();f.onchange=e=>{if(e.target.files[0])handleFile(e.target.files[0]);};["dragenter","dragover"].forEach(ev=>p.addEventListener(ev,e=>{e.preventDefault();p.classList.add("drag");}));["dragleave","drop"].forEach(ev=>p.addEventListener(ev,e=>{e.preventDefault();p.classList.remove("drag");}));p.addEventListener("drop",e=>{const f2=e.dataTransfer&&e.dataTransfer.files[0];if(f2)handleFile(f2);});}
-
-/* ===== GESTIONE ===== */
-function stepper(die,onCh){return el("span",{class:"step2"},[el("button",{text:"−",onclick:()=>onCh(stepDie(die,-1))}),el("b",{text:die||"—"}),el("button",{text:"+",onclick:()=>onCh(stepDie(die,1))})]);}
-function mutate(fn){fn();renderManage();render();}
-function allTech(){const r=race();const list=[];if(r)list.push({k:"racial",name:r.tech,attr:"—",die:pg.racialDie,fixed:true});if(pg.t1.nome)list.push({k:"t1",name:pg.t1.nome,attr:pg.t1.attr,die:pg.t1.die});if(pg.t2.nome)list.push({k:"t2",name:pg.t2.nome,attr:pg.t2.attr,die:pg.t2.die});pg.extraTech.forEach((t,i)=>list.push({k:"x"+i,name:t.nome,attr:t.attr,die:t.die,idx:i,obj:t}));return list;}
-function setTechDie(t,nd){if(t.k==="racial")pg.racialDie=nd;else if(t.k==="t1")pg.t1.die=nd;else if(t.k==="t2")pg.t2.die=nd;else if(typeof t.idx==="number")pg.extraTech[t.idx].die=nd;}
-function removeTech(t){if(t.k==="t1")pg.t1={nome:"",desc:"",attr:"",die:"d4"};else if(t.k==="t2")pg.t2={nome:"",desc:"",attr:"",die:"d4"};else if(typeof t.idx==="number")pg.extraTech.splice(t.idx,1);}
-function intOrNull(v){if(v===""||v==null)return null;const n=parseInt(v);return isNaN(n)?null:n;}
-function field(label,val,onCh){const w=el("div",{});w.appendChild(el("label",{class:"fld",text:label}));const i=el("input",{type:"text"});i.value=val||"";i.oninput=()=>onCh(i.value);w.appendChild(i);return w;}
-function numInput(val,onCh){const i=el("input",{class:"num",inputmode:"numeric"});i.value=val==null?"":val;i.oninput=()=>onCh(i.value);return i;}
-function numSmall(val,onCh){const i=el("input",{class:"num",inputmode:"numeric",style:"width:58px;"});i.value=val==null?"":val;i.oninput=()=>onCh(i.value);return i;}
-function vcell(label,kids){return el("div",{class:"vc"},[el("label",{text:label}),el("div",{class:"two"},kids)]);}
-function attrSelect(val,onCh){const s=el("select",{},[el("option",{value:"",text:"— attributo —"})].concat(ATTRS.map(a=>el("option",{value:a,text:a}))));s.value=val||"";s.onchange=()=>onCh(s.value);return s;}
-
-function paRow(key,getDie,setDie){
- const n=pg.pa[key]||0,die=getDie(),sg=paSoglia(die);
- const kids=[el("span",{class:"sub",text:"P.A."}),
-  el("button",{class:"pabtn",text:"−",onclick:()=>mutate(()=>{pg.pa[key]=Math.max(0,(pg.pa[key]||0)-1);})}),
-  el("b",{class:"panum",text:String(n)}),
-  el("button",{class:"pabtn",text:"+1",onclick:()=>mutate(()=>{pg.pa[key]=(pg.pa[key]||0)+1;})}),
-  el("button",{class:"pabtn",text:"+2",onclick:()=>mutate(()=>{pg.pa[key]=(pg.pa[key]||0)+2;})}),
-  el("span",{class:"sub",text:"/ "+(sg!=null?sg:"max")})];
- if(sg!=null&&n>=sg)kids.push(el("button",{class:"palevel",text:"↑ sali a "+stepDie(die,1),onclick:()=>mutate(()=>{setDie(stepDie(die,1));pg.pa[key]=(pg.pa[key]||0)-sg;})}));
- return el("div",{class:"parow"},kids);
+function rConcept(){
+  var p=$("#panel");p.innerHTML="";
+  p.appendChild(el("div",{class:"kicker",text:"Passo 1 di 8"}));
+  p.appendChild(el("h2",{text:"Chi è il tuo pirata?"}));
+  p.appendChild(el("div",{class:"explain",html:"Costruiamo il pirata un pezzo alla volta: a ogni passo ti spiego cosa stai scegliendo. Si parte da chi è.<br><b>Nome</b> e <b>Background</b> sono narrativi. L'<b>Ambizione</b> è il sogno che lo spinge: non dà bonus automatici, ma guida la storia e le ricompense decise dal Capitano."}));
+  p.appendChild(el("label",{class:"fld",text:"Nome"}));
+  var nome=el("input",{type:"text",placeholder:"Es. Bram «Mano di Ferro»"});nome.value=D.nome;nome.oninput=function(){D.nome=nome.value;};p.appendChild(nome);
+  p.appendChild(el("label",{class:"fld",text:"Background (chi era prima del mare?)"}));
+  var bg=el("textarea",{});bg.value=D.bg;bg.oninput=function(){D.bg=bg.value;};p.appendChild(bg);
+  p.appendChild(el("label",{class:"fld",text:"Ambizione (il suo sogno)"}));
+  var amb=el("input",{type:"text",placeholder:"«Costruirò la nave più veloce del Grand Line»"});amb.value=D.amb;amb.oninput=function(){D.amb=amb.value;};p.appendChild(amb);
 }
 
-function renderManage(){
- const m=$("#manage");m.innerHTML="";
- // Identità
- const b1=el("div",{class:"mblock"},[el("h3",{text:"Identità & Taglia"})]);
- b1.appendChild(field("Nome",pg.nome,v=>{pg.nome=v;render();}));
- b1.appendChild(field("Ambizione",pg.amb,v=>{pg.amb=v;render();}));
- const bgw=el("div",{});bgw.appendChild(el("label",{class:"fld",text:"Background"}));const bgt=el("textarea",{});bgt.value=pg.bg;bgt.oninput=()=>{pg.bg=bgt.value;save();};bgw.appendChild(bgt);b1.appendChild(bgw);
- b1.appendChild(el("div",{class:"mrow"},[el("span",{class:"lab",text:"Taglia (Berry)"}),numInput(pg.bounty,v=>{pg.bounty=(v||"0").replace(/[^0-9]/g,"");render();})]));
- m.appendChild(b1);
- // Attributi
- const b2=el("div",{class:"mblock"},[el("h3",{text:"Attributi"})]);
- ATTRS.forEach(a=>b2.appendChild(el("div",{class:"mrow"},[el("span",{class:"lab",text:a}),stepper(pg.attr[a],nd=>mutate(()=>pg.attr[a]=nd))])));
- m.appendChild(b2);
- // Skill (con P.A.)
- const b3=el("div",{class:"mblock"},[el("h3",{text:"Skill & Punti Abilità"})]);
- {const thr=el("div",{class:"swrap",style:"margin-bottom:12px"});thr.appendChild(el("div",{class:"sub",style:"margin-bottom:4px",html:"<b>Soglie P.A.</b> — P.A. necessari per salire di dado (valgono per Skill e Tecniche)"}));const tg=el("div",{style:"display:flex;flex-wrap:wrap;gap:8px"});[["d4","d4→d6"],["d6","d6→d8"],["d8","d8→d10"],["d10","d10→d12"],["d12","d12→d20"]].forEach(([dk,lab])=>{const cur=(pg.paThresh&&pg.paThresh[dk]!=null)?pg.paThresh[dk]:PA_THRESH[dk];const w=el("div",{style:"text-align:center"});w.appendChild(el("label",{class:"fld",style:"font-size:9px;margin:0",text:lab}));const inp=el("input",{class:"num",inputmode:"numeric",style:"width:62px"});inp.value=cur;inp.oninput=()=>{if(!pg.paThresh)pg.paThresh=Object.assign({},PA_THRESH);pg.paThresh[dk]=inp.value.replace(/[^0-9]/g,"");save();};inp.onblur=()=>mutate();w.appendChild(inp);tg.appendChild(w);});thr.appendChild(tg);b3.appendChild(thr);}
- const ro=roleObj();
- if(ro){const w=el("div",{class:"swrap"});w.appendChild(el("div",{class:"mrow"},[el("span",{},[el("span",{class:"lab",text:ro.skill}),el("span",{class:"sub",text:" (Ruolo)"})]),stepper(pg.roleSkillDie,nd=>mutate(()=>pg.roleSkillDie=nd))]));w.appendChild(paRow(ro.skill,()=>pg.roleSkillDie,nd=>pg.roleSkillDie=nd));b3.appendChild(w);}
- Object.keys(pg.skills).sort().forEach(name=>{const w=el("div",{class:"swrap"});w.appendChild(el("div",{class:"mrow"},[el("span",{class:"lab",text:name}),el("span",{},[stepper(pg.skills[name],nd=>mutate(()=>pg.skills[name]=nd)),el("button",{class:"iconbtn",text:"✕",title:"Rimuovi",onclick:()=>mutate(()=>{delete pg.skills[name];delete pg.pa[name];})})])]));w.appendChild(paRow(name,()=>pg.skills[name],nd=>pg.skills[name]=nd));b3.appendChild(w);});
- const avail=Object.keys(SKILLS).filter(s=>!(ro&&s===ro.skill)&&!(s in pg.skills));
- if(avail.length){const sel=el("select",{},[el("option",{value:"",text:"+ aggiungi skill (a d4)…"})].concat(avail.map(s=>el("option",{value:s,text:s}))));sel.onchange=()=>{if(sel.value)mutate(()=>pg.skills[sel.value]="d4");};b3.appendChild(el("div",{class:"addrow"},[sel]));}
- m.appendChild(b3);
- /* Ruoli & Talenti */
- const bT=el("div",{class:"mblock"},[el("h3",{text:"Ruoli & Talenti"})]);
- bT.appendChild(el("div",{class:"sub",html:"Un Talento a ogni Upgrade, da uno Stile a tua scelta. Gli <b>Avanzati</b> chiedono 2 Talenti dello stesso Stile; le <b>Ultimate</b> si attivano col permesso del Capitano/GM, legate alla tua Ambizione."}));
- const roleNames=Object.keys(TALENTS);
- const r1sel=el("select",{},[el("option",{value:"",text:"\u2014 scegli \u2014"})].concat(roleNames.map(n=>el("option",{value:n,text:n}))));r1sel.value=pg.role||"";r1sel.onchange=()=>mutate(()=>{pg.role=r1sel.value||null;pg.style=pg.role?firstStyle(pg.role):"";});
- bT.appendChild(el("div",{class:"mrow"},[el("span",{class:"lab",html:"Ruolo 1 <span class='sub'>(d\u00e0 il d8)</span>"}),r1sel]));
- if(pg.role&&TALENTS[pg.role]&&TALENTS[pg.role].multi){const s1=el("select",{},Object.keys(TALENTS[pg.role].styles).map(st=>el("option",{value:st,text:st})));s1.value=pg.style||firstStyle(pg.role);s1.onchange=()=>mutate(()=>pg.style=s1.value);bT.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",text:"Stile"}),s1]));}
- const r2sel=el("select",{},[el("option",{value:"",text:"\u2014 nessuno \u2014"})].concat(roleNames.map(n=>el("option",{value:n,text:n}))));r2sel.value=pg.role2||"";r2sel.onchange=()=>mutate(()=>{pg.role2=r2sel.value||null;pg.style2=pg.role2?firstStyle(pg.role2):"";});
- bT.appendChild(el("div",{class:"mrow"},[el("span",{class:"lab",text:"Ruolo 2 (solo Talenti)"}),r2sel]));
- if(pg.role2&&TALENTS[pg.role2]&&TALENTS[pg.role2].multi){const s2=el("select",{},Object.keys(TALENTS[pg.role2].styles).map(st=>el("option",{value:st,text:st})));s2.value=pg.style2||firstStyle(pg.role2);s2.onchange=()=>mutate(()=>pg.style2=s2.value);bT.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",text:"Stile"}),s2]));}
- if(pg.role2)bT.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"\u21c4 Scambia (d8 all'altro ruolo)",onclick:()=>mutate(()=>{const rr=pg.role,sst=pg.style;pg.role=pg.role2;pg.style=pg.style2;pg.role2=rr;pg.style2=sst;})})]));
- const talPanel=(rn,stv)=>{const T=TALENTS[rn];if(!T)return;const ks=Object.keys(T.styles);const useSt=T.multi?(stv||ks[0]):ks[0];const sty=T.styles[useSt];const keyStyle=T.multi?useSt:rn;const panel=el("div",{class:"talpanel"});panel.appendChild(el("div",{class:"talhead",text:(sty.ico?sty.ico+" ":"")+rn+(T.multi?(" \u00b7 "+useSt):"")}));if(sty.tratto)panel.appendChild(el("div",{class:"taltratto",html:"<b>Tratto:</b> "+sty.tratto}));if(sty.firma)panel.appendChild(el("div",{class:"taltratto",html:"<b>Firma (+4):</b> "+sty.firma}));(sty.talenti||[]).forEach(tl=>{const key=rn+" \u00b7 "+keyStyle+" \u00b7 "+tl.n;const has=pg.talents.indexOf(key)>=0;const cb=el("input",{type:"checkbox"});cb.checked=has;cb.onchange=()=>mutate(()=>{const ix=pg.talents.indexOf(key);if(cb.checked){if(ix<0)pg.talents.push(key);}else if(ix>=0)pg.talents.splice(ix,1);});const tag=tl.t==="ultimate"?" <span class='ttag ult'>Ultimate</span>":(tl.t==="gradini"?" <span class='ttag'>a gradini</span>":"");panel.appendChild(el("label",{class:"talrow"+(has?" on":"")},[cb,el("span",{class:"talname",html:"<b>"+tl.n+"</b>"+tag+" \u2014 "+tl.d})]));});if((sty.talenti||[]).length===0)panel.appendChild(el("div",{class:"taltratto",text:"(Nessun Talento di Stile.)"}));bT.appendChild(panel);};
- if(pg.role)talPanel(pg.role,pg.style);
- if(pg.role2)talPanel(pg.role2,pg.style2);
- bT.appendChild(el("div",{class:"sub",style:"margin-top:8px",html:"Talenti acquisiti: <b>"+(pg.talents?pg.talents.length:0)+"</b>"}));
- m.appendChild(bT);
- // Armi
- const b7=el("div",{class:"mblock"},[el("h3",{text:"Armi"})]);
- pg.armi.forEach((a,i)=>{const card=el("div",{class:"tech"});card.appendChild(field("Nome arma",a.nome,v=>{a.nome=v;render();}));card.appendChild(el("label",{class:"fld",text:"Attributo · Dado"}));card.appendChild(el("div",{class:"mrow"},[attrSelect(a.attr,v=>{a.attr=v;render();}),el("span",{},[stepper(a.die,nd=>mutate(()=>a.die=nd)),el("button",{class:"iconbtn",text:"✕",onclick:()=>mutate(()=>pg.armi.splice(i,1))})])]));card.appendChild(field("Note",a.note,v=>{a.note=v;render();}));b7.appendChild(card);});
- b7.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Aggiungi arma",onclick:()=>mutate(()=>pg.armi.push({nome:"Nuova arma",attr:"",die:"d6",note:""}))})]));
- m.appendChild(b7);
- // Tecniche
- const b4=el("div",{class:"mblock"},[el("h3",{text:"Tecniche"}),el("div",{class:"sub",html:"Danno = stesso dado della Tecnica."})]);
- allTech().filter(t=>typeof t.idx!=="number").forEach(t=>{const w=el("div",{class:"swrap"});const right=el("span",{},[stepper(t.die,nd=>mutate(()=>setTechDie(t,nd)))]);if(!t.fixed)right.appendChild(el("button",{class:"iconbtn",text:"✕",onclick:()=>mutate(()=>removeTech(t))}));w.appendChild(el("div",{class:"mrow"},[el("span",{},[el("span",{class:"lab",text:t.name||"(senza nome)"}),el("span",{class:"sub",text:" "+(t.fixed?"(razziale)":(t.attr?("· "+t.attr):""))})]),right]));w.appendChild(paRow("tec:"+t.k,()=>t.die,nd=>setTechDie(t,nd)));b4.appendChild(w);});
- b4.appendChild(renderTecBuilder(t=>mutate(()=>{pg.extraTech.push(t);tbReset();})));
- pg.extraTech.forEach((t,i)=>{const ed=el("div",{class:"tech"});ed.appendChild(field("Nome tecnica",t.nome,v=>{t.nome=v;render();}));ed.appendChild(el("div",{class:"sub",style:"margin:3px 0 6px",html:(tecSummary(t)||"<i>tecnica libera</i>")+" · <b style='color:#7a1410'>"+tecCostLabel(t)+"</b>"}));ed.appendChild(el("label",{class:"fld",text:"Attributo · Dado (= Dado Danno)"}));ed.appendChild(el("div",{class:"mrow"},[attrSelect(t.attr,v=>{t.attr=v;render();}),stepper(t.die,nd=>mutate(()=>t.die=nd))]));ed.appendChild(el("label",{class:"fld",text:"Descrizione / Effetti"}));const tx=el("textarea",{});tx.value=t.desc||"";tx.oninput=()=>{t.desc=tx.value;save();};ed.appendChild(tx);if(!t.id)t.id="tec"+Date.now().toString(36)+Math.floor(Math.random()*1000);ed.appendChild(paRow("tec:"+t.id,()=>t.die,nd=>t.die=nd));ed.appendChild(el("div",{class:"addrow"},[el("button",{class:"iconbtn",text:"✎ Modifica nel costruttore",onclick:()=>mutate(()=>{TBUILD={nome:t.nome,attr:t.attr,fonte:t.fonte||"Stile",forma:t.forma||"Singolo",die:t.die||"d6",durata:t.durata||"Un turno",eff:(t.eff||[]).slice(),desc:t.desc||"",_open:[],_id:t.id||null,fruitType:t.fruitType||""};pg.extraTech.splice(i,1);})}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>mutate(()=>pg.extraTech.splice(i,1))})]));b4.appendChild(ed);});
- m.appendChild(b4);
- // Haki
- const b5=el("div",{class:"mblock"},[el("h3",{text:"Haki"})]);
- pg.haki.forEach((h,i)=>{const sel=el("select",{},HAKI_NAMES.map(n=>el("option",{value:n,text:n})));sel.value=h.name;sel.onchange=()=>mutate(()=>h.name=sel.value);b5.appendChild(el("div",{class:"mrow"},[sel,el("span",{},[el("span",{class:"sub",text:"pip "}),numSmall(h.pip,v=>{h.pip=parseInt(v||"0")||0;render();}),stepper(h.die,nd=>mutate(()=>h.die=nd)),el("button",{class:"iconbtn",text:"✕",onclick:()=>mutate(()=>pg.haki.splice(i,1))})])]));const hp=hakiPanel(h);if(hp)b5.appendChild(hp);});
- b5.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Aggiungi Haki",onclick:()=>mutate(()=>pg.haki.push({name:HAKI_NAMES[0],die:"d6",pip:1}))})]));
- m.appendChild(b5);
- // Frutto
- const b8=el("div",{class:"mblock"},[el("h3",{text:"Frutto del Diavolo"})]);
- const chk=el("label",{class:"fld"});const cb=el("input",{type:"checkbox",style:"width:auto;margin-right:8px;"});cb.checked=pg.frutto.has;cb.onchange=()=>mutate(()=>pg.frutto.has=cb.checked);chk.appendChild(cb);chk.appendChild(document.createTextNode("Possiede un Frutto"));b8.appendChild(chk);
- if(pg.frutto.has){b8.appendChild(field("Nome Frutto",pg.frutto.nome,v=>{pg.frutto.nome=v;render();}));b8.appendChild(el("label",{class:"fld",text:"Tipo"}));const ts=el("select",{},[el("option",{value:"",text:"— scegli il tipo —"})].concat(["Paramecia","Logia","Zoan"].map(x=>el("option",{value:x,text:x}))));ts.value=pg.frutto.tipo;ts.onchange=()=>mutate(()=>pg.frutto.tipo=ts.value);b8.appendChild(ts);b8.appendChild(field("Descrizione",pg.frutto.desc,v=>{pg.frutto.desc=v;render();}));const FT=FRUIT_TALENTS[pg.frutto.tipo];if(FT){b8.appendChild(el("div",{class:"sub",style:"margin-top:9px",html:"Talenti del Frutto — uno per Upgrade, dal ramo <b>"+pg.frutto.tipo+"</b>. Gli Avanzati chiedono 2 Talenti del Frutto; il Risveglio chiede il permesso del Capitano, legato all\u0027Ambizione."}));const fp=el("div",{class:"talpanel"});fp.appendChild(el("div",{class:"talhead",text:(FT.ico?FT.ico+" ":"")+"Frutto del Diavolo · "+pg.frutto.tipo}));if(FT.tratto)fp.appendChild(el("div",{class:"taltratto",html:"<b>Tratto:</b> "+FT.tratto}));if(FT.firma)fp.appendChild(el("div",{class:"taltratto",html:"<b>Firma (+4):</b> "+FT.firma}));FT.talenti.concat([FRUIT_RISVEGLIO]).forEach(tl=>{const key="Frutto · "+pg.frutto.tipo+" · "+tl.n;const has=pg.talents.indexOf(key)>=0;const cbx=el("input",{type:"checkbox"});cbx.checked=has;cbx.onchange=()=>mutate(()=>{const ix=pg.talents.indexOf(key);if(cbx.checked){if(ix<0)pg.talents.push(key);}else if(ix>=0)pg.talents.splice(ix,1);});const tag=tl.t==="ultimate"?" <span class=\u0027ttag ult\u0027>Risveglio</span>":(tl.t==="avanzato"?" <span class=\u0027ttag\u0027>Avanzato</span>":"");fp.appendChild(el("label",{class:"talrow"+(has?" on":"")},[cbx,el("span",{class:"talname",html:"<b>"+tl.n+"</b>"+tag+" — "+tl.d})]));});b8.appendChild(fp);}else{b8.appendChild(el("div",{class:"sub",style:"margin-top:6px",text:"Scegli il tipo per vedere i Talenti del Frutto."}));}}
- m.appendChild(b8);
- // Vitali
- const b6=el("div",{class:"mblock"},[el("h3",{text:"Vitali"})]);
- const vit=el("div",{class:"vit"});
- vit.appendChild(vcell("PV attuali / max",[numSmall(pg.pvCur,v=>{pg.pvCur=intOrNull(v);render();}),el("span",{text:"/"}),numSmall(pg.pvMax,v=>{pg.pvMax=intOrNull(v);render();})]));
- vit.appendChild(vcell("Stamina att. / max",[numSmall(pg.stCur,v=>{pg.stCur=intOrNull(v);render();}),el("span",{text:"/"}),numSmall(pg.stMax,v=>{pg.stMax=intOrNull(v);render();})]));
- vit.appendChild(vcell("Legami Nakama (pip)",[numSmall(pg.legami,v=>{pg.legami=parseInt(v||"0")||0;render();})]));
- vit.appendChild(vcell("Ore giornaliere",[numSmall(pg.ore,v=>{pg.ore=parseInt(v||"0")||0;render();})]));
- b6.appendChild(vit);
- b6.appendChild(el("label",{class:"fld",text:"Note / Zaino"}));const ta=el("textarea",{});ta.value=pg.note;ta.oninput=()=>{pg.note=ta.value;save();};b6.appendChild(ta);
- m.appendChild(b6);
- const r=race();if(r&&pg.pvMax==null){pg.pvMax=r.pv;pg.pvCur=r.pv;}
- save();
+function rRace(){
+  var p=$("#panel");p.innerHTML="";
+  p.appendChild(el("div",{class:"kicker",text:"Passo 2 di 8"}));
+  p.appendChild(el("h2",{text:"Razza"}));
+  p.appendChild(el("div",{class:"explain",html:"La Razza dà un <b>bonus a un Attributo</b>, una <b>Tecnica razziale gratuita</b>, i <b>Punti Vita</b> di partenza e il <b>Dado Vita</b> (quanto recuperi riposando). Alcune razze hanno anche uno svantaggio: scegli con cura."}));
+  var c=el("div",{class:"cards"});
+  RACES.forEach(function(r){
+    c.appendChild(el("div",{class:"card"+(D.race===r.id?" sel":""),onclick:function(){D.race=r.id;afterRaceChange();rRace();},
+      html:'<div class="t">'+r.name+'</div><div class="d">'+(r.attr==="choice"?"Attr. a scelta":r.attr)+' '+r.die+' · PV '+r.pv+' · Vita '+r.hp+'</div>'}));
+  });
+  p.appendChild(c);
+  var r=race();
+  if(r){
+    p.appendChild(el("div",{class:"infobox",html:'<b>'+r.tech+' (Tecnica razziale):</b> '+r.techDesc+'<br><b>Svantaggio:</b> '+r.sv}));
+    if(r.attr==="choice"){
+      p.appendChild(el("label",{class:"fld",text:"Attributo potenziato dalla razza"}));
+      var sel=el("select",{},ATTRS.map(function(a){return el("option",{value:a,text:a});}));
+      sel.value=D.umanoAttr;sel.onchange=function(){D.umanoAttr=sel.value;computeAttr();};
+      p.appendChild(sel);
+    }
+  }
 }
 
-/* ===== RENDER ===== */
-function render(){
- save();
- $("#s-nome").textContent=pg.nome||"Pirata Senza Nome";
- $("#s-role").textContent=roleLabel();
- $("#s-amb").textContent=pg.amb?'“'+pg.amb+'”':"";
- const bi=$("#bounty-in");if(bi&&document.activeElement!==bi)bi.value=pg.bounty||"0";
- const r=race();
- $("#s-razza-line").textContent=(r?r.name:"Razza ignota")+" · "+((pg.bounty&&pg.bounty!=="0")?bountyLevel(Number(pg.bounty)):"Sconosciuto");
- $("#s-hp").textContent=r?r.hp:"—";
- $("#s-pv").textContent=(pg.pvCur!=null||pg.pvMax!=null)?((pg.pvCur!=null?pg.pvCur:"—")+"/"+(pg.pvMax!=null?pg.pvMax:"—")):(r?r.pv:"—");
- $("#s-st").textContent=(pg.stCur!=null?pg.stCur:6)+"/"+(pg.stMax!=null?pg.stMax:6);
- $("#s-ore").textContent=pg.ore!=null?pg.ore:16;
- $("#s-leg").textContent=pg.legami||0;
- $("#s-haki-n").textContent=pg.haki.reduce((s,h)=>s+(parseInt(h.pip)||0),0);
- $("#s-taglia").textContent="฿ "+((pg.bounty&&pg.bounty!=="0")?Number(pg.bounty).toLocaleString("it-IT"):"0");
- const img=$("#photo"),hint=$("#ph-hint");if(pg.photo){img.src=pg.photo;img.style.display="block";hint.style.display="none";}else{img.removeAttribute("src");img.style.display="none";hint.style.display="block";}
- const badge=(nameHtml,die)=>el("div",{class:"li"},[el("span",{class:"li-n",html:nameHtml}),el("span",{class:"dbadge",text:die})]);
- // attributi (plaques)
- const sa=$("#s-attr");sa.innerHTML="";ATTRS.forEach(a=>sa.appendChild(el("div",{class:"plaque",html:'<div class="pn">'+a.slice(0,3)+'</div><div class="pd">'+(pg.attr[a]||"—")+'</div><div class="pl">'+a+'</div>'})));
- // armi
- const ar=$("#s-armi");ar.innerHTML="";if(pg.armi.length){$("#s-armi-sec").style.display="block";pg.armi.forEach(a=>ar.appendChild(badge((a.nome||"arma")+((a.attr||a.note)?' <i>'+[a.attr,a.note].filter(Boolean).join(" · ")+'</i>':''),a.die)));}else $("#s-armi-sec").style.display="none";
- // skill
- const ss=$("#s-skill");ss.innerHTML="";const ro=roleObj();
- const addSkillLi=(name,die,roleTag)=>{const sg=paSoglia(die);const pa=pg.pa[name]||0;const tag=(roleTag?' <i>(Ruolo)</i>':'')+(sg!=null?' <i class="pa">'+pa+'/'+sg+' PA</i>':'');ss.appendChild(badge(name+tag,die));};
- if(ro)addSkillLi(ro.skill,pg.roleSkillDie,true);
- Object.entries(pg.skills).sort((a,b)=>DICE.indexOf(b[1])-DICE.indexOf(a[1])).forEach(([n,d])=>addSkillLi(n,d,false));
- if(!ro&&Object.keys(pg.skills).length===0)ss.innerHTML='<div class="muted" style="font-size:13px;">nessuna ancora</div>';
- // tecniche
- const st=$("#s-tech");st.innerHTML="";allTech().forEach(t=>{let lab=(t.name||"(senza nome)")+(t.fixed?' <i>(razziale)</i>':(t.attr?' <i>('+t.attr+')</i>':''));if(t.obj&&((t.obj.eff&&t.obj.eff.length)||t.obj.forma))lab+=" <b style='color:#7a1410'>· "+tecCostLabel(t.obj)+"</b>";st.appendChild(badge(lab,t.die));});if(allTech().length===0)st.innerHTML='<div class="muted" style="font-size:13px;">nessuna ancora</div>';
- const stl=$("#s-talenti");if(stl){stl.innerHTML="";const tlist=Array.isArray(pg.talents)?pg.talents:[];if(tlist.length){$("#s-talenti-sec").style.display="block";tlist.forEach(k=>{const parts=k.split(" · ");const nm=parts[parts.length-1];const styl=parts.length>=2?parts[1]:"";const showSty=styl&&styl!==parts[0];stl.appendChild(el("div",{class:"li"},[el("span",{class:"li-n",html:nm+(showSty?(' <i>('+styl+')</i>'):'')}),el("span",{class:"dbadge",text:"✦"})]));});}else $("#s-talenti-sec").style.display="none";}
- // haki
- const sh=$("#s-haki");sh.innerHTML="";if(pg.haki.length){$("#s-haki-sec").style.display="block";pg.haki.forEach(h=>sh.appendChild(badge(h.name+' <i>'+(h.pip||0)+' pip</i>',h.die)));}else $("#s-haki-sec").style.display="none";
- // frutto
- if(pg.frutto.has){$("#s-frutto-sec").style.display="block";$("#s-frutto").innerHTML='<b>'+(pg.frutto.nome||"Frutto senza nome")+'</b>'+(pg.frutto.tipo?' <span class="muted">('+pg.frutto.tipo+')</span>':'')+(pg.frutto.desc?'<br>'+pg.frutto.desc:'');}else $("#s-frutto-sec").style.display="none";
+function rAttr(){
+  var p=$("#panel");p.innerHTML="";
+  p.appendChild(el("div",{class:"kicker",text:"Passo 3 di 8"}));
+  p.appendChild(el("h2",{text:"Attributi"}));
+  p.appendChild(el("div",{class:"explain",html:"Tutto si gioca con i <b>dadi a gradini</b>: "+DICE_LADDER+". Più alto è il dado, più sei bravo.<br>Hai 4 Attributi. La tua Razza assegna il suo dado a uno di essi. Degli altri tre scegli quale prende il <b>d6</b> (buono): gli ultimi due restano a <b>d4</b>."}));
+  var r=race();
+  if(!r){p.appendChild(el("div",{class:"infobox red",text:"Scegli prima una razza (Passo 2)."}));return;}
+  var ra=racialAttr();
+  var others=ATTRS.filter(function(a){return a!==ra;});
+  if(others.indexOf(D.d6attr)<0)D.d6attr="";
+  p.appendChild(el("div",{class:"infobox",html:'<b>'+ra+'</b> riceve <b>'+r.die+'</b> dalla razza.'}));
+  p.appendChild(el("label",{class:"fld",text:"Attributo con il d6"}));
+  var sel=el("select",{},[el("option",{value:"",text:"— scegli —"})].concat(others.map(function(a){return el("option",{value:a,text:a});})));
+  sel.value=D.d6attr;sel.onchange=function(){D.d6attr=sel.value;computeAttr();rAttr();};
+  p.appendChild(sel);
+  var g=el("div",{class:"attrgrid"});
+  ATTRS.forEach(function(a){
+    g.appendChild(el("div",{class:"attrrow"+(a===ra?" locked":""),html:'<div class="name">'+a+(a===ra?' <span class="sd">(razza)</span>':'')+'</div><div class="die">'+(D.attr[a]||"—")+'</div>'}));
+  });
+  p.appendChild(g);
 }
 
-$("#export").onclick=()=>{const blob=new Blob([JSON.stringify(pg,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=(pg.nome?pg.nome.replace(/[^a-z0-9]+/gi,"_"):"pirata")+".json";a.click();URL.revokeObjectURL(a.href);};
-$("#importBtn").onclick=()=>$("#importFile").click();
-$("#importFile").onchange=e=>{const file=e.target.files[0];if(!file)return;const rd=new FileReader();rd.onload=()=>{try{pg=Object.assign(blank(),JSON.parse(rd.result));bindInputs();if(mode==="gest")renderManage();else goto(0);render();}catch(err){alert("File non valido.");}};rd.readAsText(file);};
-$("#reset").onclick=()=>{if(confirm("Cancellare tutto e ricominciare?")){pg=blank();try{localStorage.removeItem(KEY);}catch(e){}bindInputs();setMode("crea");goto(0);render();}};
-$("#prev").onclick=()=>goto(step-1);$("#next").onclick=()=>goto(step+1);
-load();buildStepper();bindInputs();bindPhoto();goto(0);render();
+function rRole(){
+  var p=$("#panel");p.innerHTML="";
+  p.appendChild(el("div",{class:"kicker",text:"Passo 4 di 8"}));
+  p.appendChild(el("h2",{text:"Ruolo"}));
+  p.appendChild(el("div",{class:"explain",html:"Il Ruolo è il mestiere del pirata e gli dà una <b>Skill peculiare già a d8</b>. Alcuni Ruoli (Combattente, Dottore, Ingegnere) hanno più <b>Stili</b>: lo Stile definisce come combatti o lavori."}));
+  var c=el("div",{class:"cards"});
+  ROLES.forEach(function(r){
+    var sk=r.multi?"Stili: "+r.styles.map(function(s){return s[0];}).join(", "):"Skill: "+r.skill+" (d8)";
+    c.appendChild(el("div",{class:"card"+(D.role===r.name?" sel":""),onclick:function(){D.role=r.name;D.style=r.multi?r.styles[0][0]:"";rRole();},
+      html:'<div class="t">'+r.name+'</div><div class="d">'+sk+'</div>'}));
+  });
+  p.appendChild(c);
+  var rd=roleDef();
+  if(rd){
+    p.appendChild(el("div",{class:"infobox",html:'<b>'+rd.name+'</b> — '+rd.desc}));
+    if(rd.multi){
+      p.appendChild(el("label",{class:"fld",text:"Stile"}));
+      var sel=el("select",{},rd.styles.map(function(s){return el("option",{value:s[0],text:s[0]+"  (Skill: "+s[1]+")"});}));
+      sel.value=D.style;sel.onchange=function(){D.style=sel.value;rRole();};
+      p.appendChild(sel);
+    }
+    p.appendChild(el("div",{class:"infobox",html:'Skill del Ruolo: <b>'+roleSkill()+'</b> a <b>d8</b> (già assegnata).'}));
+  }
+}
+
+function countDie(v){var n=0;for(var k in D.skills)if(D.skills[k]===v)n++;return n;}
+function flashCounter(){var c=$("#skill-counter");if(!c)return;c.style.color="#b71c1c";setTimeout(function(){c.style.color="";},400);}
+function setSkill(name,v){
+  if(v==="0"){delete D.skills[name];}
+  else{var others=0;for(var k in D.skills){if(k!==name&&D.skills[k]===v)others++;}if(others>=2){flashCounter();return;}D.skills[name]=v;}
+  rSkill();
+}
+function rSkill(){
+  var p=$("#panel");p.innerHTML="";
+  p.appendChild(el("div",{class:"kicker",text:"Passo 5 di 8"}));
+  p.appendChild(el("h2",{text:"Skill"}));
+  p.appendChild(el("div",{class:"explain",html:"Le Skill sono ciò che sai fare. In gioco tiri <b>Attributo + Skill</b> contro una Soglia. La Skill del tuo Ruolo è già a d8.<br>Ora scegline altre: <b>2 a d6</b> e <b>2 a d4</b>."}));
+  var rs=roleSkill();
+  if(!D.role){p.appendChild(el("div",{class:"infobox red",text:"Scegli prima un ruolo (Passo 4)."}));return;}
+  p.appendChild(el("div",{class:"counter",id:"skill-counter",html:'Selezionate — d6: <b>'+countDie("d6")+'/2</b> · d4: <b>'+countDie("d4")+'/2</b>'+((countDie("d6")===2&&countDie("d4")===2)?' ✅':'')}));
+  if(rs)p.appendChild(el("div",{class:"skillrow role",html:'<div><span class="sn">'+rs+'</span> <span class="sd">— '+(SKILLS[rs]||"")+'</span></div><div class="pick"><button class="on" disabled>d8 · Ruolo</button></div>'}));
+  Object.keys(SKILLS).forEach(function(name){
+    if(name===rs)return;
+    var cur=D.skills[name]||"";
+    var row=el("div",{class:"skillrow",html:'<div><span class="sn">'+name+'</span> <span class="sd">— '+SKILLS[name]+'</span></div>'});
+    var pick=el("div",{class:"pick"});
+    ["0","d4","d6"].forEach(function(v){
+      var b=el("button",{text:v==="0"?"—":v,onclick:function(){setSkill(name,v);}});
+      if(cur===v||(v==="0"&&!cur))b.classList.add("on");
+      pick.appendChild(b);
+    });
+    row.appendChild(pick);p.appendChild(row);
+  });
+}
+
+function rTech(){
+  var p=$("#panel");p.innerHTML="";
+  p.appendChild(el("div",{class:"kicker",text:"Passo 6 di 8"}));
+  p.appendChild(el("h2",{text:"Tecniche"}));
+  p.appendChild(el("div",{class:"explain",html:"Le Tecniche sono le mosse speciali: tiri <b>Attributo + un Dado</b> (che è anche il Dado Danno) e aggiungi effetti, spendendo Stamina. La Tecnica razziale è già inclusa. Qui puoi creare fino a <b>2 tecniche tue</b>; altre, e il costruttore avanzato con tutti gli effetti, sono nella <b>Gestione</b>."}));
+  var r=race();
+  if(r)p.appendChild(el("div",{class:"infobox",html:'<b>Tecnica razziale:</b> '+r.tech+' (d6) — '+r.techDesc}));
+  [["t1","Tecnica 1"],["t2","Tecnica 2 (opzionale)"]].forEach(function(pair){
+    var key=pair[0],lab=pair[1];var T=D[key];
+    p.appendChild(el("label",{class:"fld",text:lab+" — Nome"}));
+    var nm=el("input",{type:"text",placeholder:key==="t1"?"Es. Tre Lame — Oni Giri":"(opzionale)"});nm.value=T.nome;nm.oninput=function(){T.nome=nm.value;};p.appendChild(nm);
+    var grid=el("div",{class:"row2"});
+    var left=el("div",{});left.appendChild(el("label",{class:"fld",text:"Descrizione"}));var ds=el("textarea",{});ds.value=T.desc;ds.oninput=function(){T.desc=ds.value;};left.appendChild(ds);
+    var right=el("div",{});
+    right.appendChild(el("label",{class:"fld",text:"Attributo"}));
+    var as=el("select",{},[el("option",{value:"",text:"—"})].concat(ATTRS.map(function(a){return el("option",{value:a,text:a});})));as.value=T.attr;as.onchange=function(){T.attr=as.value;};right.appendChild(as);
+    right.appendChild(el("label",{class:"fld",text:"Dado (= Dado Danno)"}));
+    var dd=el("select",{},["d4","d6","d8","d10","d12"].map(function(x){return el("option",{value:x,text:x});}));dd.value=T.die||"d4";dd.onchange=function(){T.die=dd.value;};right.appendChild(dd);
+    grid.appendChild(left);grid.appendChild(right);p.appendChild(grid);
+  });
+}
+
+function rFruit(){
+  var p=$("#panel");p.innerHTML="";
+  p.appendChild(el("div",{class:"kicker",text:"Passo 7 di 8"}));
+  p.appendChild(el("h2",{text:"Frutto del Diavolo"}));
+  p.appendChild(el("div",{class:"explain",html:"Un Frutto del Diavolo è <b>opzionale</b> e lo decide il Capitano. Dà poteri unici in cambio di <b>tre debolezze</b>: il mare, l'agalmatolite (Pietra di Mare) e l'Haki. Se non ne hai uno, salta pure questo passo."}));
+  var lab=el("label",{class:"fld",style:"display:flex;align-items:center;gap:9px;text-transform:none;letter-spacing:0;font-size:1.05rem;"});
+  var cb=el("input",{type:"checkbox",style:"width:auto;"});cb.checked=D.frutto.has;
+  cb.onchange=function(){D.frutto.has=cb.checked;rFruit();};
+  lab.appendChild(cb);lab.appendChild(document.createTextNode("Il mio pirata ha un Frutto del Diavolo"));
+  p.appendChild(lab);
+  if(D.frutto.has){
+    p.appendChild(el("label",{class:"fld",text:"Nome del Frutto"}));
+    var nm=el("input",{type:"text",placeholder:"Es. Gomu Gomu no Mi"});nm.value=D.frutto.nome;nm.oninput=function(){D.frutto.nome=nm.value;};p.appendChild(nm);
+    var grid=el("div",{class:"row2"});
+    var left=el("div",{});left.appendChild(el("label",{class:"fld",text:"Descrizione / Potere"}));var ds=el("textarea",{});ds.value=D.frutto.desc;ds.oninput=function(){D.frutto.desc=ds.value;};left.appendChild(ds);
+    var right=el("div",{});right.appendChild(el("label",{class:"fld",text:"Tipo"}));
+    var ts=el("select",{},[el("option",{value:"",text:"—"}),el("option",{text:"Paramecia"}),el("option",{text:"Logia"}),el("option",{text:"Zoan"})]);ts.value=D.frutto.tipo;ts.onchange=function(){D.frutto.tipo=ts.value;};right.appendChild(ts);
+    grid.appendChild(left);grid.appendChild(right);p.appendChild(grid);
+    p.appendChild(el("div",{class:"infobox red",html:"<b>Tre debolezze:</b> il mare ti toglie le forze, la Pietra di Mare annulla i poteri, l'Haki ti colpisce comunque."}));
+  }
+}
+
+function handleFile(file){
+  if(!file||!file.type||file.type.indexOf("image/")!==0)return;
+  var rd=new FileReader();
+  rd.onload=function(){var img=new Image();img.onload=function(){
+    var max=560,w=img.width,h=img.height,sc=Math.min(1,max/Math.max(w,h));
+    var cw=Math.round(w*sc),ch=Math.round(h*sc);var cv=document.createElement("canvas");cv.width=cw;cv.height=ch;
+    cv.getContext("2d").drawImage(img,0,0,cw,ch);
+    try{D.photo=cv.toDataURL("image/jpeg",0.82);}catch(e){D.photo=rd.result;}
+    rFinal();
+  };img.src=rd.result;};
+  rd.readAsDataURL(file);
+}
+
+function rFinal(){
+  var p=$("#panel");p.className="panel";p.innerHTML="";
+  p.appendChild(el("div",{class:"kicker",text:"Passo 8 di 8"}));
+  p.appendChild(el("h2",{text:"Riepilogo & Salvataggio"}));
+  p.appendChild(el("div",{class:"explain",html:"Ecco il tuo pirata. Le ultime statistiche si ricavano da sole: <b>PV</b> dalla Razza, <b>Stamina 6</b>, <b>nessun Haki</b> all'inizio (si sblocca crescendo), <b>Legami 0</b>, <b>Taglia 0</b>. Aggiungi una foto se vuoi, poi salvalo nella tua lista."}));
+
+  var top=el("div",{style:"display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:6px;"});
+  var port=el("div",{class:"portrait"});
+  if(D.photo){port.appendChild(el("img",{src:D.photo,alt:""}));}else{port.textContent="Tocca per aggiungere una foto";}
+  var file=el("input",{type:"file",accept:"image/*",style:"display:none;"});
+  port.onclick=function(){file.click();};
+  file.onchange=function(e){if(e.target.files[0])handleFile(e.target.files[0]);};
+  top.appendChild(port);top.appendChild(file);
+  var name=el("div",{});
+  name.appendChild(el("div",{style:"font-family:'Cinzel Decorative',serif;font-weight:700;font-size:1.5rem;color:#2a1f12;",text:D.nome||"Pirata Senza Nome"}));
+  name.appendChild(el("div",{style:"color:var(--ink-soft);",text:D.amb?("“"+D.amb+"”"):"—"}));
+  top.appendChild(name);
+  p.appendChild(top);
+
+  var r=race();
+  var attrStr=ATTRS.map(function(a){return a.slice(0,3)+" "+(D.attr[a]||"—");}).join(" · ");
+  var skillStr=Object.keys(D.skills).map(function(k){return k+" "+D.skills[k];}).join(", ")||"—";
+  var roleStr=D.role?(D.role+(D.style?(" · "+D.style):"")):"—";
+  var techs=[];if(r)techs.push(r.tech+" (raz.)");if(D.t1.nome)techs.push(D.t1.nome);if(D.t2.nome)techs.push(D.t2.nome);
+  var rows=[
+    ["Razza", r?r.name:"—"],
+    ["Punti Vita", r?(r.pv+" · Vita "+r.hp):"—"],
+    ["Attributi", attrStr],
+    ["Ruolo", roleStr],
+    ["Skill", (roleSkill()?roleSkill()+" d8 · ":"")+skillStr],
+    ["Tecniche", techs.join(", ")||"—"],
+    ["Frutto", D.frutto.has?((D.frutto.nome||"(senza nome)")+(D.frutto.tipo?(" · "+D.frutto.tipo):"")):"Nessuno"]
+  ];
+  var g=el("div",{class:"sumgrid"});
+  rows.forEach(function(rw){g.appendChild(el("div",{class:"sumrow",html:'<span class="k">'+rw[0]+'</span><span class="v">'+esc(rw[1])+'</span>'}));});
+  p.appendChild(g);
+
+  var save=el("button",{class:"btn gold big",style:"margin-top:22px;width:100%;",text:"⚓ Salva nella tua lista"});
+  save.onclick=saveToList;
+  p.appendChild(save);
+}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+
+function saveToList(){
+  if(!D.nome||!D.nome.trim()){alert("Dai un nome al tuo pirata prima di salvare.");goto(0);return;}
+  if(!D.race){alert("Scegli una razza prima di salvare.");goto(1);return;}
+  var ct=readCT();var id=newId();ct.chars[id]=D;ct.order.push(id);ct.activeId=id;writeCT(ct);
+  showDone(id);
+}
+function showDone(id){
+  $("#stepper").style.display="none";$("#nav").style.display="none";
+  var p=$("#panel");p.className="panel done-card";p.innerHTML="";
+  p.appendChild(el("div",{class:"seal",text:"⚓"}));
+  p.appendChild(el("h2",{text:"«"+(D.nome||"Pirata")+"» è nella tua lista!"}));
+  p.appendChild(el("div",{style:"color:var(--ink-soft);margin-top:4px;",text:"Salvato nel cloud. Lo ritrovi nel tuo profilo e puoi continuare a svilupparlo nella gestione."}));
+  var acts=el("div",{class:"done-actions"});
+  acts.appendChild(el("a",{class:"btn gold",href:"/gestisci-pirata/?c="+encodeURIComponent(id),text:"Gestisci questo pirata"}));
+  acts.appendChild(el("a",{class:"btn ghost",href:"/profilo/",text:"Vai al mio profilo"}));
+  p.appendChild(acts);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+$("#prev").onclick=function(){goto(step-1);};
+$("#next").onclick=function(){goto(step+1);};
+buildStepper();goto(0);
+})();
 </script>
 </body>
 </html>

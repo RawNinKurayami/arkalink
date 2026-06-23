@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Il tuo profilo · Grand Line Chronicles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>window.GLC={saveKey:["glc_pirata_v4","glc_profile_v1"],gate:true};</script>
+<script src="/glc-auth.js"></script>
+<style>
+:root{
+  --abyss:#0a1920; --abyss-2:#0e2530; --vellum:#ecdcb6; --vellum-2:#e3d0a4;
+  --ink:#34271a; --ink-soft:#5e4c34; --gold:#c9a24a; --gold-bright:#ecca77;
+  --seal:#9a241a; --foam:#a8c6bd; --line:#cdb487;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; min-height:100vh; color:var(--vellum);
+  font-family:'Cormorant Garamond',Georgia,serif; font-size:19px; line-height:1.5;
+  background:
+    radial-gradient(120% 80% at 50% -10%, #15333f 0%, #0a1920 55%, #060f14 100%) fixed;
+}
+a{color:inherit;}
+.topbar{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:14px clamp(16px,4vw,40px); border-bottom:1px solid rgba(201,162,74,.22);
+}
+.brand{display:flex; align-items:center; gap:9px; text-decoration:none;}
+.brand .anc{color:var(--gold); font-size:20px;}
+.brand .nm{font-family:'Marcellus SC',serif; letter-spacing:.16em; text-transform:uppercase; font-size:12px; color:var(--foam);}
+.wrap{max-width:1000px; margin:0 auto; padding:clamp(22px,5vw,48px) clamp(16px,4vw,40px) 60px;}
+.hero{text-align:center; margin-bottom:30px;}
+.hero .compass{width:54px; height:54px; color:var(--gold); opacity:.9;}
+.hero .kick{font-family:'Marcellus SC',serif; letter-spacing:.28em; text-transform:uppercase; font-size:12px; color:var(--gold); margin-top:6px;}
+.hero h1{font-family:'Cinzel Decorative',serif; font-weight:900; font-size:clamp(30px,6vw,52px); color:var(--vellum); margin:.1em 0 0; text-shadow:0 2px 18px rgba(0,0,0,.4);}
+.hero p{color:var(--foam); margin:.4em auto 0; max-width:540px;}
+
+.panel{
+  background:linear-gradient(168deg, rgba(236,220,182,.97), rgba(227,208,164,.97));
+  color:var(--ink); border:1px solid var(--line); border-radius:8px;
+  box-shadow:0 16px 40px rgba(0,0,0,.4); padding:22px 24px; margin-bottom:28px;
+}
+.panel .ttl{font-family:'Marcellus SC',serif; letter-spacing:.12em; text-transform:uppercase; font-size:12px; color:var(--ink-soft);}
+.uname{display:flex; gap:12px; align-items:center; margin-top:10px; flex-wrap:wrap;}
+.uname input{
+  flex:1; min-width:200px; font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--ink);
+  background:#fffaf0; border:1px solid #b9a06f; border-radius:5px; padding:11px 14px;
+}
+.uname input:focus{outline:2px solid var(--gold); outline-offset:1px;}
+.uname .hint{font-size:.95rem; color:var(--ink-soft);}
+
+.sec-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:6px 2px 14px; flex-wrap:wrap;}
+.sec-head h2{font-family:'Cinzel Decorative',serif; font-weight:700; font-size:clamp(20px,4vw,28px); color:var(--vellum); margin:0;}
+.btn-gold{
+  font-family:'Marcellus SC',serif; letter-spacing:.12em; text-transform:uppercase; font-size:12px;
+  color:#23170a; background:linear-gradient(180deg,var(--gold-bright),var(--gold)); border:none;
+  border-radius:999px; padding:11px 20px; cursor:pointer; transition:transform .15s;
+}
+.btn-gold:hover{transform:translateY(-1px);}
+
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px;}
+.ch-card{
+  display:flex; gap:14px; align-items:flex-start;
+  background:linear-gradient(168deg, rgba(236,220,182,.97), rgba(227,208,164,.97));
+  color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:16px; box-shadow:0 10px 26px rgba(0,0,0,.35);
+}
+.ch-av{
+  width:62px; height:62px; flex:none; border-radius:6px; overflow:hidden;
+  display:flex; align-items:center; justify-content:center; font-size:30px; color:var(--seal);
+  background:#fffaf0; border:1px solid #cdb487;
+}
+.ch-av img{width:100%; height:100%; object-fit:cover; display:block;}
+.ch-body{flex:1; min-width:0;}
+.ch-name{font-family:'Cinzel Decorative',serif; font-weight:700; font-size:1.2rem; color:#2a1f12; line-height:1.15; word-break:break-word;}
+.ch-sub{font-size:.98rem; color:var(--ink-soft); margin-top:3px; min-height:1.2em;}
+.ch-acts{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;}
+.ch-btn{font-family:'Marcellus SC',serif; letter-spacing:.06em; text-transform:uppercase; font-size:11px; border-radius:5px; padding:8px 13px; cursor:pointer; border:1px solid;}
+.ch-btn.open{color:#23170a; background:linear-gradient(180deg,var(--gold-bright),var(--gold)); border-color:var(--gold);}
+.ch-btn.open:hover{filter:brightness(1.05);}
+.ch-btn.del{color:var(--seal); background:transparent; border-color:rgba(154,36,26,.5);}
+.ch-btn.del:hover{background:rgba(154,36,26,.08);}
+.ch-new{
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+  min-height:118px; border:1.5px dashed rgba(201,162,74,.5); border-radius:8px;
+  background:rgba(236,220,182,.06); color:var(--foam); cursor:pointer;
+  font-family:'Marcellus SC',serif; letter-spacing:.1em; text-transform:uppercase; font-size:12px; transition:.15s;
+}
+.ch-new:hover{border-color:var(--gold); color:var(--gold-bright); background:rgba(201,162,74,.08);}
+.ch-new .plus{font-size:30px; line-height:1; color:var(--gold);}
+.foot{text-align:center; margin-top:34px;}
+.foot a{font-family:'Marcellus SC',serif; letter-spacing:.1em; text-transform:uppercase; font-size:12px; color:var(--foam); text-decoration:none; border-bottom:1px solid transparent;}
+.foot a:hover{border-bottom-color:var(--gold);}
+@media(max-width:560px){ body{font-size:18px;} .ch-card{flex-direction:row;} }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="brand" href="/"><span class="anc">⚓</span><span class="nm">Grand Line Chronicles</span></a>
+    <span id="glc-login-slot"></span>
+  </div>
+
+  <div class="wrap">
+    <div class="hero">
+      <svg class="compass" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6">
+        <circle cx="32" cy="32" r="27"/><circle cx="32" cy="32" r="21" opacity=".5"/>
+        <path d="M32 9 L37 32 L32 55 L27 32 Z" fill="currentColor" stroke="none"/>
+        <path d="M9 32 L32 27 L55 32 L32 37 Z" fill="currentColor" stroke="none" opacity=".55"/>
+        <circle cx="32" cy="32" r="2.4" fill="currentColor" stroke="none"/>
+      </svg>
+      <div class="kick">Registro di bordo</div>
+      <h1>Il tuo profilo</h1>
+      <p>Il tuo nome di capitano e l'equipaggio dei personaggi che hai creato. Apri una scheda per modificarla: le carte qui restano sempre aggiornate.</p>
+    </div>
+
+    <div class="panel">
+      <div class="ttl">Nome del capitano</div>
+      <div class="uname">
+        <input id="username-in" type="text" placeholder="Es. Capitan Simone" maxlength="40" autocomplete="off">
+        <span class="hint">Visibile solo a te · si salva da solo</span>
+      </div>
+    </div>
+
+    <div class="sec-head">
+      <h2>Il tuo equipaggio</h2>
+      <button class="btn-gold" id="new-btn" type="button">+ Nuovo personaggio</button>
+    </div>
+    <div class="grid" id="chars"></div>
+
+    <div class="foot"><a href="/">◀ Torna al porto</a></div>
+  </div>
+
+<script>
+(function(){
+  "use strict";
+  var KEY="glc_pirata_v4", PKEY="glc_profile_v1";
+  var RACE_NAMES={umano:"Umano",uomopesce:"Uomo Pesce / Tritone",gigante:"Gigante",mink:"Mink",lunarian:"Lunarian",longbraccio:"Longbraccio",lungagamba:"Lungagamba",cyborg:"Cyborg"};
+  var BLV=[[0,"Sconosciuto"],[10000000,"Pirata Emergente"],[80000000,"Pericoloso"],[200000000,"Famigerato"],[500000000,"Temibile"],[1000000000,"Leggendario"]];
+
+  function newId(){return "c_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function label(c){return (c&&c.nome&&c.nome.trim())?c.nome.trim():"Senza nome";}
+  function bountyLabel(n){var lv=BLV[0][1];for(var i=0;i<BLV.length;i++){if(n>=BLV[i][0])lv=BLV[i][1];}return lv;}
+  function subtitle(c){var b=[];if(c.race&&RACE_NAMES[c.race])b.push(RACE_NAMES[c.race]);if(c.role)b.push(c.role);var n=Number(c.bounty||0);if(n>0)b.push(bountyLabel(n));return b.join("  ·  ")||"Scheda da completare";}
+
+  function readCT(){
+    var o=null; try{o=JSON.parse(localStorage.getItem(KEY)||"null");}catch(e){}
+    if(o && o.chars && typeof o.chars==="object"){
+      o.order=Array.isArray(o.order)?o.order.filter(function(id){return o.chars[id];}):[];
+      for(var id in o.chars){ if(o.order.indexOf(id)<0) o.order.push(id); }
+      if(!o.chars[o.activeId]) o.activeId=o.order[0]||"";
+      return o;
+    }
+    if(o){ var nid=newId(); var ch={}; ch[nid]=o; return {v:2,activeId:nid,order:[nid],chars:ch}; }
+    return {v:2,activeId:"",order:[],chars:{}};
+  }
+  function writeCT(ct){ try{localStorage.setItem(KEY,JSON.stringify(ct));}catch(e){} }
+  function readProfile(){ try{return JSON.parse(localStorage.getItem(PKEY)||"{}")||{};}catch(e){return {};} }
+  function writeProfile(p){ try{localStorage.setItem(PKEY,JSON.stringify(p));}catch(e){} }
+
+  function openChar(id){ var ct=readCT(); if(ct.chars[id]){ ct.activeId=id; writeCT(ct); } location.href="/gestisci-pirata/?c="+encodeURIComponent(id); }
+  function newChar(){ location.href="/crea-il-tuo-pirata/"; }
+  function delChar(id){ var ct=readCT(); if(!ct.chars[id])return; if(!confirm("Eliminare «"+label(ct.chars[id])+"» dall'equipaggio? Non è reversibile."))return; delete ct.chars[id]; ct.order=ct.order.filter(function(x){return x!==id;}); if(ct.activeId===id) ct.activeId=ct.order[0]||""; writeCT(ct); renderChars(); }
+
+  function makeCard(id,c){
+    var card=document.createElement("div"); card.className="ch-card";
+    var av=document.createElement("div"); av.className="ch-av";
+    if(c.photo){ var img=document.createElement("img"); img.src=c.photo; img.alt=""; av.appendChild(img); } else { av.textContent="⚓"; }
+    card.appendChild(av);
+    var body=document.createElement("div"); body.className="ch-body";
+    var h=document.createElement("div"); h.className="ch-name"; h.textContent=label(c); body.appendChild(h);
+    var sub=document.createElement("div"); sub.className="ch-sub"; sub.textContent=subtitle(c); body.appendChild(sub);
+    var acts=document.createElement("div"); acts.className="ch-acts";
+    var op=document.createElement("button"); op.className="ch-btn open"; op.type="button"; op.textContent="Apri scheda"; op.onclick=function(){openChar(id);};
+    var dl=document.createElement("button"); dl.className="ch-btn del"; dl.type="button"; dl.textContent="Elimina"; dl.onclick=function(){delChar(id);};
+    acts.appendChild(op); acts.appendChild(dl); body.appendChild(acts);
+    card.appendChild(body); return card;
+  }
+  function makeNewCard(){
+    var b=document.createElement("button"); b.className="ch-new"; b.type="button";
+    b.innerHTML='<span class="plus">+</span><span>Nuovo personaggio</span>'; b.onclick=newChar; return b;
+  }
+  function renderChars(){
+    var ct=readCT(); var grid=document.getElementById("chars"); if(!grid) return;
+    grid.innerHTML="";
+    ct.order.forEach(function(id){ grid.appendChild(makeCard(id, ct.chars[id])); });
+    grid.appendChild(makeNewCard());
+  }
+  function renderAll(){
+    var ui=document.getElementById("username-in");
+    if(ui && document.activeElement!==ui){ ui.value=(readProfile().username)||""; }
+    renderChars();
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    var ui=document.getElementById("username-in");
+    if(ui) ui.addEventListener("input", function(){ var p=readProfile(); p.username=ui.value; writeProfile(p); });
+    var nb=document.getElementById("new-btn"); if(nb) nb.onclick=newChar;
+    renderAll();
+    if(window.__glcSB && window.__glcSB.auth && window.__glcSB.auth.onAuthStateChange){
+      window.__glcSB.auth.onAuthStateChange(function(){ setTimeout(renderAll,300); });
+    }
+    setTimeout(renderAll,700); setTimeout(renderAll,1700);
+  });
+})();
+</script>
+</body>
+</html>
