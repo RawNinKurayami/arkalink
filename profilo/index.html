@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>window.GLC={saveKey:["glc_pirata_v4","glc_nave_v1","glc_profile_v1"],gate:true};</script>
+<script>window.GLC={saveKey:["glc_pirata_v4","glc_nave_v1","glc_profile_v1","glc_sessioni_v1"],gate:true};</script>
 <script src="/glc-auth.js"></script>
 <style>
 :root{
@@ -153,6 +153,12 @@ a{color:inherit;}
     </div>
     <div class="grid" id="ships"></div>
 
+    <div class="sec-head" style="margin-top:34px">
+      <h2>Le tue sessioni</h2>
+      <button class="btn-gold" id="new-session" type="button">+ Nuova sessione</button>
+    </div>
+    <div class="grid" id="sessions"></div>
+
     <div class="foot"><a href="/">◀ Torna al porto</a></div>
   </div>
 
@@ -249,6 +255,56 @@ a{color:inherit;}
     ct.order.forEach(function(id){ grid.appendChild(makeCard(id, ct.chars[id])); });
     grid.appendChild(makeNewCard());
   }
+  var SKEY="glc_sessioni_v1";
+  function newSId(){return "s_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+  function readST(){
+    var o=null; try{o=JSON.parse(localStorage.getItem(SKEY)||"null");}catch(e){}
+    if(o && o.sessions && typeof o.sessions==="object"){
+      o.order=Array.isArray(o.order)?o.order.filter(function(id){return o.sessions[id];}):[];
+      for(var id in o.sessions){ if(o.order.indexOf(id)<0) o.order.push(id); }
+      if(!o.sessions[o.activeId]) o.activeId=o.order[0]||"";
+      return o;
+    }
+    return {v:1,activeId:"",order:[],sessions:{}};
+  }
+  function writeST(st){ try{localStorage.setItem(SKEY,JSON.stringify(st));}catch(e){} }
+  function sessLabel(s){return (s&&s.nome&&s.nome.trim())?s.nome.trim():"Sessione senza nome";}
+  function sessSub(s){
+    var ct=readCT(), nt=readNT(), b=[];
+    if(s&&s.persId&&ct.chars[s.persId]) b.push(label(ct.chars[s.persId]));
+    if(s&&s.shipId&&nt.ships[s.shipId]) b.push(shipLabel(nt.ships[s.shipId]));
+    var n=(s&&Array.isArray(s.diary))?s.diary.length:0;
+    var voci=n>0?(n+(n===1?" voce":" voci")):"diario vuoto";
+    var base=b.join("  \u00b7  ");
+    return base ? (base+"  \u00b7  "+voci) : ("Da collegare  \u00b7  "+voci);
+  }
+  function openSession(id){var st=readST();if(st.sessions[id]){st.activeId=id;writeST(st);}location.href="/sessioni/?s="+encodeURIComponent(id);}
+  function newSession(){var st=readST();var id=newSId();st.sessions[id]={nome:"",persId:"",shipId:"",diary:[]};st.order.push(id);st.activeId=id;writeST(st);location.href="/sessioni/?s="+encodeURIComponent(id);}
+  function delSession(id){var st=readST();if(!st.sessions[id])return;if(!confirm("Eliminare \u00ab"+sessLabel(st.sessions[id])+"\u00bb dalle tue sessioni? Non \u00e8 reversibile."))return;delete st.sessions[id];st.order=st.order.filter(function(x){return x!==id;});if(st.activeId===id)st.activeId=st.order[0]||"";writeST(st);renderSessions();}
+  function makeSessionCard(id,s){
+    var card=document.createElement("div"); card.className="ch-card";
+    var av=document.createElement("div"); av.className="ch-av"; av.textContent="\ud83d\udcdc";
+    card.appendChild(av);
+    var body=document.createElement("div"); body.className="ch-body";
+    var h=document.createElement("div"); h.className="ch-name"; h.textContent=sessLabel(s); body.appendChild(h);
+    var sub=document.createElement("div"); sub.className="ch-sub"; sub.textContent=sessSub(s); body.appendChild(sub);
+    var acts=document.createElement("div"); acts.className="ch-acts";
+    var op=document.createElement("button"); op.className="ch-btn open"; op.type="button"; op.textContent="Apri"; op.onclick=function(){openSession(id);};
+    var dl=document.createElement("button"); dl.className="ch-btn del"; dl.type="button"; dl.textContent="Elimina"; dl.onclick=function(){delSession(id);};
+    acts.appendChild(op); acts.appendChild(dl); body.appendChild(acts);
+    card.appendChild(body); return card;
+  }
+  function makeNewSessionCard(){
+    var b=document.createElement("button"); b.className="ch-new"; b.type="button";
+    b.innerHTML='<span class="plus">+</span><span>Nuova sessione</span>'; b.onclick=newSession; return b;
+  }
+  function renderSessions(){
+    var st=readST(); var grid=document.getElementById("sessions"); if(!grid) return;
+    grid.innerHTML="";
+    if(!st.order.length){ var en=document.createElement("div"); en.className="empty-note"; en.textContent="Non hai ancora sessioni. Creane una con il riquadro qui sotto."; grid.appendChild(en); }
+    st.order.forEach(function(id){ grid.appendChild(makeSessionCard(id, st.sessions[id])); });
+    grid.appendChild(makeNewSessionCard());
+  }
   function renderAvatar(){
     var a=document.getElementById("avatar"); if(!a) return; var p=readProfile();
     if(p.avatar){ a.innerHTML='<img src="'+p.avatar+'" alt="">'; }
@@ -284,7 +340,7 @@ a{color:inherit;}
     renderAvatar(); renderName();
     var n=readCT().order.length;
     var ps=document.getElementById("pstats"); if(ps) ps.textContent = n===0 ? "La tua ciurma è ancora vuota" : (n+(n===1?" personaggio":" personaggi")+" nella tua ciurma");
-    renderChars(); renderShips();
+    renderChars(); renderShips(); renderSessions();
   }
 
   document.addEventListener("DOMContentLoaded", function(){
@@ -294,6 +350,7 @@ a{color:inherit;}
     if(inp){ inp.addEventListener("blur", endEdit); inp.addEventListener("keydown", function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); inp.blur(); } }); }
     var nb=document.getElementById("new-btn"); if(nb) nb.onclick=newChar;
     var nsb=document.getElementById("new-ship"); if(nsb) nsb.onclick=newShip;
+    var nss=document.getElementById("new-session"); if(nss) nss.onclick=newSession;
     var av=document.getElementById("avatar"), cam=document.getElementById("avatar-cam"), af=document.getElementById("avatar-file");
     function pickAvatar(){ if(af) af.click(); }
     if(av) av.addEventListener("click", pickAvatar);
