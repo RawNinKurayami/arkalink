@@ -40,6 +40,9 @@ a{color:inherit;}
 .hint{color:var(--foam); font-size:15px; margin:0 2px 16px;}
 
 .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px;}
+.filterbar{display:flex; gap:10px; margin:0 2px 14px; flex-wrap:wrap;}
+.filterbar input.txt{flex:1; min-width:200px; margin-bottom:0;}
+.filterbar select.txt{flex:0 0 auto; min-width:210px; margin-bottom:0;}
 .item{background:linear-gradient(180deg,#f4e8c8,#ecdcb6); color:var(--ink); border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 12px 28px rgba(0,0,0,.3);}
 .item .pic{height:140px; background:#e6d4a6 center/cover no-repeat; display:grid; place-items:center; color:#b69a5c; font-size:40px; border-bottom:1px solid var(--line);}
 .item .ib{padding:12px 13px 14px; display:flex; flex-direction:column; gap:6px; flex:1;}
@@ -140,6 +143,8 @@ var INGR_NOTE=[{"nome": "Carne di Bananawani", "cat": "Carne", "rarita": "Raro",
 var INGR_CAT_REF=[{"nome": "Carne", "disp": "Comune in porto, rara in mare aperto", "costo": "2.000 ฿ / sett.", "bonus": "Nessun modificatore"}, {"nome": "Pesce", "disp": "Abbondante in mare — si può pescare", "costo": "Gratis se si pesca", "bonus": "Fresco: +1 dado bonus"}, {"nome": "Verdura", "disp": "Comune in porto, deperibile in mare", "costo": "1.000 ฿ / sett.", "bonus": "Nessun modificatore"}, {"nome": "Frutta", "disp": "Varia per isola — alcune rare", "costo": "1.500 ฿ / sett.", "bonus": "Tropicale fresca: +1 ST all'esito"}, {"nome": "Dolci", "disp": "Ingredienti base sempre disponibili", "costo": "1.500 ฿ / sett.", "bonus": "Nessun modificatore"}, {"nome": "Brodo", "disp": "Ossa e razioni sempre disponibili", "costo": "500 ฿ / sett.", "bonus": "Nessun modificatore"}, {"nome": "Esotico", "disp": "Solo isole specifiche o Grand Line", "costo": "10.000+ ฿ / unità", "bonus": "+1 dado bonus, bonus aumentati"}];
 var sb=window.__glcSB||null;
 var isAdmin=false, myEmail="";
+var CAT_ROWS=[]; var OFF_FILTER={text:"",cat:""};
+var DISH_ROWS=[]; var DISH_FILTER={text:"",cat:""};
 
 /* ---- sessioni (per "aggiungi al diario") ---- */
 var SKEY="glc_sessioni_v1";
@@ -230,6 +235,12 @@ async function renderOfficina(){
 
   p.appendChild(el("div",{class:"sec-head"},[el("h2",{text:"Catalogo ufficiale"})]));
   p.appendChild(el("p",{class:"hint",text:isAdmin?"Sei l'amministratore: puoi creare, modificare ed eliminare gli oggetti ufficiali (con immagine). Tutti i giocatori li vedranno.":"Oggetti ufficiali creati dal Capitano. Puoi aggiungerli al diario di una tua sessione."}));
+  var fbar=el("div",{class:"filterbar"});
+  var fsearch=el("input",{class:"txt",id:"cat-search",placeholder:"Cerca per nome o effetto\u2026"}); fsearch.value=OFF_FILTER.text||"";
+  fsearch.oninput=function(){ OFF_FILTER.text=fsearch.value.toLowerCase(); renderCatGrid(); };
+  var fcat=el("select",{class:"txt",id:"cat-cat"}); fcat.appendChild(el("option",{value:"",text:"Tutte le categorie"}));
+  fcat.onchange=function(){ OFF_FILTER.cat=fcat.value; renderCatGrid(); };
+  fbar.appendChild(fsearch); fbar.appendChild(fcat); p.appendChild(fbar);
   var grid=el("div",{class:"grid",id:"catgrid"});
   grid.appendChild(el("div",{class:"empty-note",text:"Carico il catalogo…"}));
   p.appendChild(grid);
@@ -316,13 +327,29 @@ function renderMine(grid){
 async function loadCatalog(){
   var grid=$("#catgrid"); if(!grid) return;
   var r=await fetchCatalog("oggetto");
-  grid.innerHTML="";
-  if(r.error){
-    grid.appendChild(el("div",{class:"empty-note",html:"Catalogo non disponibile. Se sei l'admin, verifica il setup SQL della tabella <b>catalogo</b> su Supabase.<br><span class='note'>Dettaglio: "+esc(r.error)+"</span>"}));
-    return;
+  if(r.error){ grid.innerHTML=""; grid.appendChild(el("div",{class:"empty-note",html:"Catalogo non disponibile. Se sei l'admin, verifica il setup SQL della tabella <b>catalogo</b> su Supabase.<br><span class='note'>Dettaglio: "+esc(r.error)+"</span>"})); CAT_ROWS=[]; return; }
+  CAT_ROWS=r.rows||[];
+  var sel=$("#cat-cat");
+  if(sel){
+    var cats=[]; CAT_ROWS.forEach(function(o){var c=(o.dati&&o.dati.categoria)||""; if(c&&cats.indexOf(c)<0)cats.push(c);}); cats.sort();
+    sel.innerHTML=""; sel.appendChild(el("option",{value:"",text:"Tutte le categorie ("+CAT_ROWS.length+")"}));
+    cats.forEach(function(c){ var nn=CAT_ROWS.filter(function(o){return ((o.dati&&o.dati.categoria)||"")===c;}).length; sel.appendChild(el("option",{value:c,text:c+" ("+nn+")"})); });
+    sel.value=OFF_FILTER.cat||"";
   }
-  if(!r.rows.length){ grid.appendChild(el("div",{class:"empty-note",text:isAdmin?"Catalogo vuoto. Aggiungi il primo oggetto qui sotto.":"Il Capitano non ha ancora pubblicato oggetti."})); return; }
-  r.rows.forEach(function(o){
+  renderCatGrid();
+}
+function renderCatGrid(){
+  var grid=$("#catgrid"); if(!grid) return;
+  grid.innerHTML="";
+  if(!CAT_ROWS.length){ grid.appendChild(el("div",{class:"empty-note",text:isAdmin?"Catalogo vuoto. Aggiungi il primo oggetto o importa dal manuale.":"Il Capitano non ha ancora pubblicato oggetti."})); return; }
+  var t=(OFF_FILTER.text||"").trim(), c=OFF_FILTER.cat||"";
+  var rows=CAT_ROWS.filter(function(o){
+    if(c){ if(((o.dati&&o.dati.categoria)||"")!==c) return false; }
+    if(t){ if((((o.nome||"")+" "+(o.descrizione||"")).toLowerCase()).indexOf(t)<0) return false; }
+    return true;
+  });
+  if(!rows.length){ grid.appendChild(el("div",{class:"empty-note",text:"Nessun oggetto trovato con questi filtri."})); return; }
+  rows.forEach(function(o){
     grid.appendChild(itemCard(o,{admin:isAdmin,
       onEdit:function(x){ window.__startEdit&&window.__startEdit(x); },
       onDelete:async function(x){ if(!confirm("Eliminare «"+(x.nome||"")+"» dal catalogo ufficiale? Lo perderanno tutti i giocatori."))return; var res=await deleteOfficial(x.id); if(res.error){alert("Errore: "+res.error.message);return;} flash("Eliminato ✓"); loadCatalog(); }
@@ -366,10 +393,25 @@ async function seedDishes(){
 async function loadDishes(){
   var grid=document.getElementById("dishgrid"); if(!grid) return;
   var r=await fetchCatalog("piatto");
+  if(r.error){grid.innerHTML="";grid.appendChild(el("div",{class:"empty-note",html:"Catalogo piatti non disponibile.<br><span class='note'>"+esc(r.error)+"</span>"}));DISH_ROWS=[];return;}
+  DISH_ROWS=r.rows||[];
+  var sel=document.getElementById("dish-cat");
+  if(sel){
+    var cats=[]; DISH_ROWS.forEach(function(o){var c=(o.dati&&o.dati.categoria)||""; if(c&&cats.indexOf(c)<0)cats.push(c);}); cats.sort();
+    sel.innerHTML=""; sel.appendChild(el("option",{value:"",text:"Tutte le categorie ("+DISH_ROWS.length+")"}));
+    cats.forEach(function(c){ var nn=DISH_ROWS.filter(function(o){return ((o.dati&&o.dati.categoria)||"")===c;}).length; sel.appendChild(el("option",{value:c,text:c+" ("+nn+")"})); });
+    sel.value=DISH_FILTER.cat||"";
+  }
+  renderDishGrid();
+}
+function renderDishGrid(){
+  var grid=document.getElementById("dishgrid"); if(!grid) return;
   grid.innerHTML="";
-  if(r.error){grid.appendChild(el("div",{class:"empty-note",html:"Catalogo piatti non disponibile.<br><span class='note'>"+esc(r.error)+"</span>"}));return;}
-  if(!r.rows.length){grid.appendChild(el("div",{class:"empty-note",text:isAdmin?"Nessun piatto ufficiale. Importa dal manuale o aggiungine.":"Il Capitano non ha ancora pubblicato piatti."}));return;}
-  r.rows.forEach(function(o){grid.appendChild(itemCard(o,{admin:isAdmin,icon:"\ud83c\udf72",diaryKind:"piatto",
+  if(!DISH_ROWS.length){grid.appendChild(el("div",{class:"empty-note",text:isAdmin?"Nessun piatto ufficiale. Importa dal manuale o aggiungine.":"Il Capitano non ha ancora pubblicato piatti."}));return;}
+  var t=(DISH_FILTER.text||"").trim(), c=DISH_FILTER.cat||"";
+  var rows=DISH_ROWS.filter(function(o){ if(c){if(((o.dati&&o.dati.categoria)||"")!==c)return false;} if(t){if((((o.nome||"")+" "+(o.descrizione||"")).toLowerCase()).indexOf(t)<0)return false;} return true; });
+  if(!rows.length){grid.appendChild(el("div",{class:"empty-note",text:"Nessun piatto trovato con questi filtri."}));return;}
+  rows.forEach(function(o){grid.appendChild(itemCard(o,{admin:isAdmin,icon:"\ud83c\udf72",diaryKind:"piatto",
     onEdit:function(x){window.__startEditDish&&window.__startEditDish(x);},
     onDelete:async function(x){if(!confirm("Eliminare \u00ab"+(x.nome||"")+"\u00bb dal catalogo piatti? Lo perderanno tutti."))return;var res=await deleteOfficial(x.id);if(res.error){alert("Errore: "+res.error.message);return;}flash("Eliminato \u2713");loadDishes();}
   }));});
@@ -384,6 +426,12 @@ function renderCambusa(){
   var p=document.getElementById("p-cambusa"); p.innerHTML="";
   p.appendChild(el("div",{class:"sec-head"},[el("h2",{text:"Piatti ufficiali"})]));
   p.appendChild(el("p",{class:"hint",text:isAdmin?"Crea, modifica ed elimina i piatti ufficiali (con immagine). Li vedono tutti.":"Piatti ufficiali del Capitano. Aggiungili al diario di una tua sessione."}));
+  var dfbar=el("div",{class:"filterbar"});
+  var dsearch=el("input",{class:"txt",id:"dish-search",placeholder:"Cerca un piatto…"}); dsearch.value=DISH_FILTER.text||"";
+  dsearch.oninput=function(){ DISH_FILTER.text=dsearch.value.toLowerCase(); renderDishGrid(); };
+  var dcat=el("select",{class:"txt",id:"dish-cat"}); dcat.appendChild(el("option",{value:"",text:"Tutte le categorie"}));
+  dcat.onchange=function(){ DISH_FILTER.cat=dcat.value; renderDishGrid(); };
+  dfbar.appendChild(dsearch); dfbar.appendChild(dcat); p.appendChild(dfbar);
   var dgrid=el("div",{class:"grid",id:"dishgrid"}); dgrid.appendChild(el("div",{class:"empty-note",text:"Carico i piatti\u2026"})); p.appendChild(dgrid);
   if(isAdmin){
     p.appendChild(el("div",{class:"formcard",style:"display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap"},[

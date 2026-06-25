@@ -209,7 +209,7 @@ footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a8c6bd;font-
 #print-sheet .ps-bk{font-family:'Rye',serif;font-size:13pt;color:#3a2a16;line-height:1;}
 #print-sheet .ps-bv{font-family:'Cinzel',serif;font-weight:900;font-size:13.5pt;color:#3a2a16;margin-top:2px;}
 #print-sheet .ps-bl{font-family:'Cinzel',serif;font-size:7.5pt;letter-spacing:.08em;text-transform:uppercase;color:#7a1410;margin-top:1px;}
-#print-sheet .ps-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:8px;}
+#print-sheet .ps-strip{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:8px;}
 #print-sheet .ps-stat{border:1px solid #b08d4a;border-radius:3px;text-align:center;padding:5px 2px;background:#fbf3df;}
 #print-sheet .ps-stat .k{font-size:7pt;letter-spacing:.05em;text-transform:uppercase;color:#7a6240;}
 #print-sheet .ps-stat .v{font-family:'Cinzel',serif;font-weight:900;font-size:12.5pt;color:#7a1410;}
@@ -235,7 +235,7 @@ footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a8c6bd;font-
 #print-sheet .ps-tech .tg{font-family:'Cinzel',serif;font-size:8pt;color:#7a1410;font-weight:700;}
 #print-sheet .ps-d{font-size:9.5pt;color:#3a2a16;margin-top:1px;}
 #print-sheet .ps-d2{font-size:8.5pt;color:#7a6240;font-style:italic;margin-top:2px;}
-#print-sheet .ps-notes{margin-top:6px;border:1px solid #b08d4a;border-radius:3px;padding:8px 10px;background:#fbf3df;}
+#print-sheet .ps-notes{margin-top:6px;border:1px solid #b08d4a;border-radius:3px;padding:8px 10px;background:#fbf3df;}#print-sheet .ps-bg{margin-top:8px;border:1px solid #b08d4a;border-radius:3px;padding:7px 10px;background:#fbf3df;font-size:10.5pt;}#print-sheet .ps-bg .ps-bgk{font-family:'Cinzel',serif;font-weight:700;color:#8c1c13;text-transform:uppercase;letter-spacing:.05em;font-size:9pt;margin-right:6px;}#print-sheet .ps-eff{font-size:10pt;color:#3a2a16;margin:2px 0 0;}#print-sheet .ps-page2{page-break-before:always;}#print-sheet .ps-blankhead{font-family:'Cinzel',serif;font-weight:700;color:#2b1d12;font-size:13pt;border-bottom:2px solid #8c1c13;padding-bottom:4px;margin-bottom:6px;}#print-sheet .ps-blank{margin-top:12px;border:1px solid #b08d4a;border-radius:3px;padding:10px 12px;background:#fbf3df;}#print-sheet .ps-bh{font-family:'Cinzel',serif;font-weight:700;color:#8c1c13;text-transform:uppercase;letter-spacing:.06em;font-size:10pt;margin-bottom:8px;}#print-sheet .ps-lines{min-height:240px;background-image:repeating-linear-gradient(transparent,transparent 27px,#d8c39a 27px,#d8c39a 28px);}#print-sheet .ps-lines.tall{min-height:360px;}
 #print-sheet .ps-foot{text-align:center;font-family:'Marcellus SC',serif;font-size:7.5pt;letter-spacing:.16em;text-transform:uppercase;color:#8a6a3a;margin-top:10px;}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
@@ -318,6 +318,7 @@ footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a8c6bd;font-
             <div class="mbox"><span class="mk">Dado Vita</span><span class="mv" id="s-hp">—</span></div>
             <div class="mbox"><span class="mk">Haki pip</span><span class="mv" id="s-haki-n">0</span></div>
             <div class="mbox"><span class="mk">Legami</span><span class="mv" id="s-leg">0</span></div>
+            <div class="mbox"><span class="mk">Upgrade</span><span class="mv" id="s-upg">—</span></div>
             <div class="mbox"><span class="mk">Ore</span><span class="mv" id="s-ore">16</span></div>
             <div class="mbox wide"><span class="mk">Taglia</span><span class="mv" id="s-taglia">฿ 0</span></div>
           </div>
@@ -358,23 +359,23 @@ const RACES=[
  {id:"cyborg",name:"Cyborg",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Corpo Meccanico",techDesc:"Bonus a resistenza danni e potenziamenti meccanici (definiti dal Capitano).",sv:"Curabile solo da un meccanico"}
 ];
 const TALENTS={
-"Combattente":{multi:true,skill:"Atletica",styles:{
- "Striker":{ico:"\u{1F44A}",tratto:"A mani nude nessun Grado ti frena (usi il pieno dell'Attributo); prese e atterramenti facili.",firma:"Il colpo sfonda \u2014 il bersaglio \u00e8 Stordito/sbilanciato per 1 turno.",talenti:[
+"Combattente":{multi:true,styles:{
+ "Striker":{skillChoice:["Atletica","Acrobazia"],ico:"\u{1F44A}",tratto:"A mani nude nessun Grado ti frena (usi il pieno dell'Attributo); prese e atterramenti facili.",firma:"Il colpo sfonda \u2014 il bersaglio \u00e8 Stordito/sbilanciato per 1 turno.",talenti:[
   {n:"Raffica",t:"gradini",d:"spendendo Stamina compi attacchi extra nel turno, di qualsiasi tipo (1 ST ciascuno). Base 1 \u00b7 Migliorato 2 \u00b7 Maestria 3."},
   {n:"Campo di Battaglia",d:"quando un nemico ti manca con un attacco, al suo prossimo turno attacca in Svantaggio."},
   {n:"Passo Fulmineo",d:"1\u00d7/turno, come movimento, uno scatto lungo per raggiungere un nemico senza provocare reazioni."},
   {n:"Smash Hit",t:"ultimate",d:"se va a segno, danno raddoppiato e sfonda il bersaglio (Stordito) anche senza il +4."}]},
- "Swordsman":{ico:"\u2694\ufe0f",tratto:"Maestro della difesa attiva; le lame di Grado alto sbloccano i loro effetti.",firma:"Doppio fendente \u2014 tiri il Dado Danno una volta in pi\u00f9 e sommi.",talenti:[
+ "Swordsman":{skill:"Atletica",ico:"\u2694\ufe0f",tratto:"Maestro della difesa attiva; le lame di Grado alto sbloccano i loro effetti.",firma:"Doppio fendente \u2014 tiri il Dado Danno una volta in pi\u00f9 e sommi.",talenti:[
   {n:"Pi\u00f9 Spade",t:"gradini",d:"aggiungi spade all'arsenale (max 2). Base: una seconda lama \u00b7 Maestria: nello stesso turno attacchi con ciascuna arma (attacco extra, 1 ST)."},
   {n:"Parata e Contraccolpo",t:"gradini",d:"scatta solo parando con la difesa attiva. Base: contraccolpo col dado Grado \u00b7 Migliorato: Dado Tecnica \u00b7 Maestria: Dado Tecnica doppio."},
   {n:"Postura Imperturbabile",d:"la tua guardia non si rompe \u2014 non puoi essere Stordito n\u00e9 sbilanciato."},
   {n:"Asura",t:"ultimate",d:"il dado dell'Attributo Tecnica conta doppio nel tiro per colpire; il Danno cresce col margine \u2014 +0/+3: 2 dadi \u00b7 +4/+7: 3 \u00b7 +8/+11: 4 \u00b7 +12+: 5 Dadi Danno."}]},
- "Sniper":{ico:"\u{1F3AF}",tratto:"Colpisci a distanza, fuori dalla mischia, e spesso agisci per primo.",firma:"Il tuo prossimo colpo contro lo stesso bersaglio conta la sua Difesa Passiva ridotta di 2.",talenti:[
+ "Sniper":{skill:"Osservazione",ico:"\u{1F3AF}",tratto:"Colpisci a distanza, fuori dalla mischia, e spesso agisci per primo.",firma:"Il tuo prossimo colpo contro lo stesso bersaglio conta la sua Difesa Passiva ridotta di 2.",talenti:[
   {n:"Tiro Lungo",t:"gradini",d:"la gittata cresce. Base: oltre il raggio dei nemici comuni \u00b7 Migliorato: chi \u00e8 in mischia non ti raggiunge finch\u00e9 resti appostato \u00b7 Maestria: gittata estrema, da nave a nave, con linea di vista."},
   {n:"Tiro dall'Ombra",d:"se sei nascosto con Furtivit\u00e0 e non visto, il tiro a distanza ha Vantaggio (tiri due volte, tieni il meglio)."},
   {n:"Occhio del Falco",d:"quando fai un colpo pulito, il \u22122 alla Difesa della Firma vale per chiunque attacchi quel bersaglio, fino alla fine del tuo prossimo turno."},
   {n:"Tempesta di Piombo",t:"ultimate",d:"nello stesso turno due attacchi extra \u2014 3 colpi a distanza (3 tiri per colpire; per ogni colpo a segno, un tiro di Danno)."}]},
- "Special":{ico:"\u2699\ufe0f",tratto:"Arsenale unico \u2014 cyborg o inventore con armi non convenzionali, concordate col Capitano.",firma:"Scateni l'effetto del tuo modulo (esplosione, stato, scarica).",talenti:[
+ "Special":{skillChoice:"any",ico:"\u2699\ufe0f",tratto:"Arsenale unico \u2014 cyborg o inventore con armi non convenzionali, concordate col Capitano.",firma:"Scateni l'effetto del tuo modulo (esplosione, stato, scarica).",talenti:[
   {n:"Arsenale Modulare",t:"gradini",d:"un set di moduli concordati; ne usi uno come Tecnica e li cambi liberamente. Base 2 \u00b7 Migliorato 3 \u00b7 Maestria 4."},
   {n:"Bombardamento ad Area",d:"quando scatta la Firma, l'effetto investe un'intera zona \u2014 tutti i nemici raggruppati. L'unico vero AoE tra gli Stili."},
   {n:"Congegno Tattico",d:"come azione piazzi un congegno in una zona (torretta, mina, rete, barriera) che resta attivo qualche turno e agisce da solo."},
@@ -438,7 +439,7 @@ const TALENTS={
 "Capitano":{skill:"Comunicazione",styles:{"Capitano":{ico:"\u{1F451}",tratto:"Il Capitano non ha Talenti di Stile: la sua forza \u00e8 l'Ambizione, i Legami e il comando della ciurma.",talenti:[]}}}
 };
 function firstStyle(rn){const T=TALENTS[rn];if(!T||!T.styles)return "";return T.multi?Object.keys(T.styles)[0]:"";}
-function roleSkillOf(rn,st){const T=TALENTS[rn];if(!T)return null;if(T.skill)return T.skill;const ks=Object.keys(T.styles||{});const sx=(T.styles&&T.styles[st])||(T.styles&&T.styles[ks[0]]);return (sx&&sx.skill)||null;}
+function roleSkillOf(rn,st,choice){const T=TALENTS[rn];if(!T)return null;const ks=Object.keys(T.styles||{});const sx=(T.styles&&T.styles[st])||(T.styles&&T.styles[ks[0]]);if(sx){if(sx.skill)return sx.skill;if(sx.skillChoice){if(sx.skillChoice==="any")return (choice&&SKILLS[choice])?choice:"";if(Array.isArray(sx.skillChoice)){if(choice&&sx.skillChoice.indexOf(choice)>=0)return choice;return sx.skillChoice[0];}}}if(T.skill)return T.skill;return null;}
 function roleLabel(){if(!pg.role)return "\u2014 ruolo \u2014";const T=TALENTS[pg.role];let s=pg.role+((T&&T.multi&&pg.style)?(" \u00b7 "+pg.style):"");if(pg.role2&&TALENTS[pg.role2]){const T2=TALENTS[pg.role2];s+=" + "+pg.role2+((T2.multi&&pg.style2)?(" \u00b7 "+pg.style2):"");}return s;}
 const ROLES=Object.keys(TALENTS).map(n=>({name:n,skill:TALENTS[n].skill||"varia"}));
 const FRUIT_TALENTS={
@@ -656,7 +657,7 @@ const blank=()=>({nome:"",bg:"",amb:"",race:null,umanoAttr:"Forza",d6attr:"",rol
  skills:{}, roleSkillDie:"d8", pa:{}, paThresh:{d4:10,d6:25,d8:60,d10:150,d12:400},
  t1:{nome:"",desc:"",attr:"",die:"d4"}, t2:{nome:"",desc:"",attr:"",die:"d4"}, racialDie:"d6", extraTech:[],
  armi:[], haki:[], frutto:{has:false,nome:"",tipo:"",desc:""},
- photo:"", bounty:"0", pvMax:null,pvCur:null,stMax:6,stCur:6,legami:0,ore:16,note:""});
+ photo:"", bounty:"0", pvMax:null,pvCur:null,stMax:6,stCur:6,legami:0,bonds:[],upgrade:"",roleSkillChoice:"",ore:16,note:""});
 let pg=blank(); let step=0; let mode="crea"; const KEY="glc_pirata_v4";
 let CT={v:2,activeId:"",order:[],chars:{}};
 function newId(){return "c_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
@@ -664,7 +665,10 @@ function charLabel(c){return (c&&c.nome&&c.nome.trim())?c.nome.trim():"Senza nom
 
 const $=s=>document.querySelector(s);
 const race=()=>RACES.find(r=>r.id===pg.race)||null;
-const roleObj=()=>{if(!pg.role||!TALENTS[pg.role])return null;return {name:pg.role,skill:roleSkillOf(pg.role,pg.style)};};
+const roleObj=()=>{if(!pg.role||!TALENTS[pg.role])return null;return {name:pg.role,skill:roleSkillOf(pg.role,pg.style,pg.roleSkillChoice)};};
+function legamiTotal(){var b=(pg.bonds||[]);var s=0;b.forEach(function(x){s+=parseInt(x.pip)||0;});if(!b.length&&pg.legami)return parseInt(pg.legami)||0;return s;}
+function styleSpec(){if(!pg.role||!TALENTS[pg.role])return null;var T=TALENTS[pg.role];return (T.styles&&T.styles[pg.style])||null;}
+function defaultSkillChoice(){var st=styleSpec();if(st&&st.skillChoice&&Array.isArray(st.skillChoice))return st.skillChoice[0];return "";}
 const racialAttr=()=>{const r=race();if(!r)return null;return r.attr==="choice"?pg.umanoAttr:r.attr;};
 function stepDie(d,dir){let i=DICE.indexOf(d);if(i<0)i=0;i=Math.max(0,Math.min(DICE.length-1,i+dir));return DICE[i];}
 function paSoglia(d){const t=(pg.paThresh&&pg.paThresh[d]!=null&&pg.paThresh[d]!=="")?pg.paThresh[d]:PA_THRESH[d];return(t!=null&&t!=="")?(parseInt(t)||0):null;}
@@ -693,7 +697,7 @@ function goto(i){step=Math.max(0,Math.min(STEPS.length-1,i));document.querySelec
 function renderRaces(){const c=$("#race-cards");c.innerHTML="";RACES.forEach(r=>c.appendChild(el("div",{class:"card"+(pg.race===r.id?" sel":""),html:'<div class="t">'+r.name+'</div><div class="d">'+(r.attr==="choice"?"Attr. a scelta":r.attr)+' '+r.die+' · PV '+r.pv+'</div>',onclick:()=>{pg.race=r.id;afterRaceChange();renderRaces();renderRaceInfo();render();}})));renderRaceInfo();}
 function renderRaceInfo(){const r=race();const elx=$("#race-info");if(!r){elx.innerHTML="";return;}let umano="";if(r.attr==="choice")umano='<label class="fld">Attributo razziale</label><select id="umano-sel">'+ATTRS.map(a=>'<option'+(pg.umanoAttr===a?' selected':'')+'>'+a+'</option>').join('')+'</select>';elx.innerHTML='<div class="infobox"><b>'+r.tech+' (d6):</b> '+r.techDesc+'<br><b>Bonus:</b> '+(r.attr==="choice"?"a scelta":r.attr)+' '+r.die+' · <b>PV:</b> '+r.pv+' · <b>Dado Vita:</b> '+r.hp+' · <b>Svant.:</b> '+r.sv+'</div>'+umano;const sel=$("#umano-sel");if(sel)sel.onchange=e=>{pg.umanoAttr=e.target.value;computeAttr();render();};}
 function renderAttr(){const elx=$("#attr-area");const r=race();if(!r){elx.innerHTML='<div class="infobox red">Scegli prima una razza (Passo 2).</div>';return;}const ra=racialAttr();const others=ATTRS.filter(a=>a!==ra);if(!others.includes(pg.d6attr))pg.d6attr="";elx.innerHTML='<div class="infobox"><b>'+ra+'</b> riceve <b>'+r.die+'</b>. Scegli quale degli altri prende il <b>d6</b> (gli altri due d4).</div><label class="fld">Attributo con il d6</label><select id="d6-sel"><option value="">— scegli —</option>'+others.map(a=>'<option'+(pg.d6attr===a?' selected':'')+'>'+a+'</option>').join('')+'</select><div class="attrgrid" id="attr-disp"></div>';$("#d6-sel").onchange=e=>{pg.d6attr=e.target.value;computeAttr();renderAttr();render();};const disp=$("#attr-disp");ATTRS.forEach(a=>disp.appendChild(el("div",{class:"attrrow"+(a===ra?" locked":""),html:'<div class="name">'+a+(a===ra?' <span class="sd">(razza)</span>':'')+'</div><div class="die">'+(pg.attr[a]||"—")+'</div>'})));}
-function renderRoles(){const c=$("#role-cards");c.innerHTML="";ROLES.forEach(r=>{const sk=(r.skill==="varia")?"varia per Stile":(r.skill+" (d8)");c.appendChild(el("div",{class:"card"+(pg.role===r.name?" sel":""),html:'<div class="t">'+r.name+'</div><div class="d">Skill: '+sk+'</div>',onclick:()=>{pg.role=r.name;pg.style=firstStyle(r.name);const sko=roleObj()&&roleObj().skill;if(sko&&pg.skills[sko])delete pg.skills[sko];renderRoles();render();}}));});const ro=roleObj();let info="";if(ro){const T=TALENTS[pg.role];info='<div class="infobox">Come <b>'+pg.role+'</b> ottieni <b>'+ro.skill+'</b> a <b>d8</b>.';if(T&&T.multi){info+='<br><label class="fld" style="margin-top:6px;">Stile</label><select id="style-sel">'+Object.keys(T.styles).map(function(st){return '<option'+(pg.style===st?" selected":"")+'>'+st+'</option>';}).join("")+'</select>';}info+="</div>";}$("#role-info").innerHTML=info;const ssl=$("#style-sel");if(ssl)ssl.onchange=function(e){pg.style=e.target.value;renderRoles();render();};}
+function renderRoles(){const c=$("#role-cards");c.innerHTML="";ROLES.forEach(r=>{const sk=(r.skill==="varia")?"varia per Stile":(r.skill+" (d8)");c.appendChild(el("div",{class:"card"+(pg.role===r.name?" sel":""),html:'<div class="t">'+r.name+'</div><div class="d">Skill: '+sk+'</div>',onclick:()=>{pg.role=r.name;pg.style=firstStyle(r.name);pg.roleSkillChoice=defaultSkillChoice();const sko=roleObj()&&roleObj().skill;if(sko&&pg.skills[sko])delete pg.skills[sko];renderRoles();render();}}));});const ro=roleObj();let info="";if(ro){const T=TALENTS[pg.role];var stSpec=(T.styles&&T.styles[pg.style])||null;var skTxt=ro.skill?('<b>'+ro.skill+'</b> a <b>d8</b>'):'una <b>Skill a tua scelta</b> (selezionala qui sotto) a <b>d8</b>';info='<div class="infobox">Come <b>'+pg.role+'</b> ottieni '+skTxt+'.';if(T&&T.multi){info+='<br><label class="fld" style="margin-top:6px;">Stile</label><select id="style-sel">'+Object.keys(T.styles).map(function(st){return '<option'+(pg.style===st?" selected":"")+'>'+st+'</option>';}).join("")+'</select>';}if(stSpec&&stSpec.skillChoice){var opts=(stSpec.skillChoice==="any")?Object.keys(SKILLS):stSpec.skillChoice;var head=(stSpec.skillChoice==="any")?'<option value="">\u2014 scegli una Skill \u2014</option>':'';info+='<br><label class="fld" style="margin-top:6px;">Skill di Ruolo</label><select id="rsk-sel">'+head+opts.map(function(sk){return '<option'+(pg.roleSkillChoice===sk?" selected":"")+'>'+sk+'</option>';}).join("")+'</select>';}info+="</div>";}$("#role-info").innerHTML=info;const ssl=$("#style-sel");if(ssl)ssl.onchange=function(e){pg.style=e.target.value;pg.roleSkillChoice=defaultSkillChoice();renderRoles();render();};const rks=$("#rsk-sel");if(rks)rks.onchange=function(e){pg.roleSkillChoice=e.target.value;renderRoles();render();};}
 function countDie(v){return Object.values(pg.skills).filter(x=>x===v).length;}
 function renderSkills(){const ro=roleObj();const rs=ro?ro.skill:null;const list=$("#skill-list");list.innerHTML="";if(rs)list.appendChild(el("div",{class:"skillrow role",html:'<div><span class="sn">'+rs+'</span> <span class="sd">— '+(SKILLS[rs]||"")+'</span></div><div class="pick"><button class="on" disabled>d8 (Ruolo)</button></div>'}));Object.keys(SKILLS).forEach(name=>{if(name===rs)return;const cur=pg.skills[name]||"";const row=el("div",{class:"skillrow",html:'<div><span class="sn">'+name+'</span> <span class="sd">— '+SKILLS[name]+'</span></div>'});const pick=el("div",{class:"pick"});["0","d4","d6"].forEach(v=>{const b=el("button",{text:v,onclick:()=>setSkill(name,v)});if(cur===v||(v==="0"&&!cur))b.classList.add("on");pick.appendChild(b);});row.appendChild(pick);list.appendChild(row);});updateSkillCounter();}
 function setSkill(name,v){if(v==="0"){delete pg.skills[name];}else{const others=Object.entries(pg.skills).filter(([k])=>k!==name).filter(([,x])=>x===v).length;if(others>=2){const e=$("#skill-counter");e.style.color="#b71c1c";setTimeout(()=>e.style.color="",400);return;}pg.skills[name]=v;}renderSkills();render();}
@@ -802,9 +806,27 @@ function renderManage(){
  const vit=el("div",{class:"vit"});
  vit.appendChild(vcell("PV attuali / max",[numSmall(pg.pvCur,v=>{pg.pvCur=intOrNull(v);render();}),el("span",{text:"/"}),numSmall(pg.pvMax,v=>{pg.pvMax=intOrNull(v);render();})]));
  vit.appendChild(vcell("Stamina att. / max",[numSmall(pg.stCur,v=>{pg.stCur=intOrNull(v);render();}),el("span",{text:"/"}),numSmall(pg.stMax,v=>{pg.stMax=intOrNull(v);render();})]));
- vit.appendChild(vcell("Legami Nakama (pip)",[numSmall(pg.legami,v=>{pg.legami=parseInt(v||"0")||0;render();})]));
+ vit.appendChild(vcell("Upgrade (livello)",[(function(){var i=el("input",{type:"text"});i.value=pg.upgrade||"";i.setAttribute("placeholder","\u2014");i.style.maxWidth="90px";i.oninput=function(){pg.upgrade=i.value;var su=$("#s-upg");if(su)su.textContent=(i.value!=="")?i.value:"\u2014";save();};return i;})()]));
  vit.appendChild(vcell("Ore giornaliere",[numSmall(pg.ore,v=>{pg.ore=parseInt(v||"0")||0;render();})]));
  b6.appendChild(vit);
+ b6.appendChild(el("label",{class:"fld",text:"Legami Nakama (aggiungi un compagno e il suo pip)"}));
+ var bondsWrap=el("div",{class:"bonds"});
+ function renderBonds(){
+  bondsWrap.innerHTML="";
+  if(!Array.isArray(pg.bonds))pg.bonds=[];
+  pg.bonds.forEach(function(bd,i){
+   var row=el("div",{class:"mrow",style:"gap:8px;margin-bottom:6px"});
+   var nm=el("input",{type:"text"});nm.value=bd.nome||"";nm.setAttribute("placeholder","Nome del compagno");nm.oninput=function(){pg.bonds[i].nome=nm.value;save();};
+   var pip=el("input",{type:"text"});pip.value=(bd.pip!=null&&bd.pip!=="")?String(bd.pip):"";pip.setAttribute("placeholder","pip");pip.style.maxWidth="64px";pip.oninput=function(){pg.bonds[i].pip=parseInt(pip.value||"0")||0;var sl=$("#s-leg");if(sl)sl.textContent=legamiTotal();save();};
+   var del=el("button",{class:"iconbtn",text:"\u2715",onclick:function(){pg.bonds.splice(i,1);save();renderBonds();var sl=$("#s-leg");if(sl)sl.textContent=legamiTotal();}});
+   row.appendChild(nm);row.appendChild(el("span",{class:"sub",text:"pip"}));row.appendChild(pip);row.appendChild(del);
+   bondsWrap.appendChild(row);
+  });
+  if(!pg.bonds.length)bondsWrap.appendChild(el("div",{class:"sub",text:"Nessun legame. Aggiungine uno qui sotto."}));
+ }
+ b6.appendChild(bondsWrap);
+ b6.appendChild(el("button",{class:"btn sm ghost",text:"+ Aggiungi legame",onclick:function(){if(!Array.isArray(pg.bonds))pg.bonds=[];pg.bonds.push({nome:"",pip:0});save();renderBonds();}}));
+ renderBonds();
  b6.appendChild(el("label",{class:"fld",text:"Note / Zaino"}));const ta=el("textarea",{});ta.value=pg.note;ta.oninput=()=>{pg.note=ta.value;save();};b6.appendChild(ta);
  m.appendChild(b6);
  const r=race();if(r&&pg.pvMax==null){pg.pvMax=r.pv;pg.pvCur=r.pv;}
@@ -824,7 +846,7 @@ function render(){
  $("#s-pv").textContent=(pg.pvCur!=null||pg.pvMax!=null)?((pg.pvCur!=null?pg.pvCur:"—")+"/"+(pg.pvMax!=null?pg.pvMax:"—")):(r?r.pv:"—");
  $("#s-st").textContent=(pg.stCur!=null?pg.stCur:6)+"/"+(pg.stMax!=null?pg.stMax:6);
  $("#s-ore").textContent=pg.ore!=null?pg.ore:16;
- $("#s-leg").textContent=pg.legami||0;
+ $("#s-leg").textContent=legamiTotal();var su=$("#s-upg");if(su)su.textContent=(pg.upgrade!=null&&pg.upgrade!=="")?pg.upgrade:"\u2014";
  $("#s-haki-n").textContent=pg.haki.reduce((s,h)=>s+(parseInt(h.pip)||0),0);
  $("#s-taglia").textContent="฿ "+((pg.bounty&&pg.bounty!=="0")?Number(pg.bounty).toLocaleString("it-IT"):"0");
  const img=$("#photo"),hint=$("#ph-hint");if(pg.photo){img.src=pg.photo;img.style.display="block";hint.style.display="none";}else{img.removeAttribute("src");img.style.display="none";hint.style.display="block";}
@@ -864,6 +886,7 @@ function talentInfo(key){
   }
   return {name:name,branch:branch,desc:desc,tag:tag};
 }
+function psTecEff(t){if(!t.eff||!t.eff.length)return "";return '<div class="ps-eff">'+t.eff.map(function(nm){var e=tecEffObj(nm);return e?('<b>'+escp(nm)+':</b> '+escp(e[2])):escp(nm);}).join('<br>')+'</div>';}
 function buildPrintSheet(){
   var host=document.getElementById("print-sheet"); if(!host) return;
   var r=race();
@@ -883,12 +906,14 @@ function buildPrintSheet(){
   h+='</div>';
   h+='<div class="ps-bounty"><div class="ps-bk">Wanted</div><div class="ps-bv">\u0e3f '+(bountyN?bountyN.toLocaleString("it-IT"):"0")+'</div><div class="ps-bl">'+escp(bountyN?bountyLevel(bountyN):"Sconosciuto")+'</div></div>';
   h+='</div>';
+  if(pg.bg)h+='<div class="ps-bg"><span class="ps-bgk">Background</span> '+escp(pg.bg)+'</div>';
   h+='<div class="ps-strip">';
   h+='<div class="ps-stat"><div class="k">Punti Vita</div><div class="v">'+pvc+' / '+pv+'</div></div>';
   h+='<div class="ps-stat"><div class="k">Stamina</div><div class="v">'+stc+' / '+st+'</div></div>';
   h+='<div class="ps-stat"><div class="k">Dado Vita</div><div class="v">'+(r?r.hp:"\u2014")+'</div></div>';
   h+='<div class="ps-stat"><div class="k">Haki PIP</div><div class="v">'+hakiPip+'</div></div>';
-  h+='<div class="ps-stat"><div class="k">Legami</div><div class="v">'+(pg.legami||0)+'</div></div>';
+  h+='<div class="ps-stat"><div class="k">Legami</div><div class="v">'+legamiTotal()+'</div></div>';
+  h+='<div class="ps-stat"><div class="k">Upgrade</div><div class="v">'+((pg.upgrade!=null&&pg.upgrade!=="")?escp(String(pg.upgrade)):"—")+'</div></div>';
   h+='<div class="ps-stat"><div class="k">Ore/giorno</div><div class="v">'+(pg.ore!=null?pg.ore:16)+'</div></div>';
   h+='</div>';
   h+='<div class="ps-attrs">';
@@ -906,20 +931,22 @@ function buildPrintSheet(){
   h+='</table></div>';
   if(pg.armi&&pg.armi.length){h+='<div class="ps-sec"><div class="ps-h">Equipaggiamento</div>';pg.armi.forEach(function(a){h+='<div class="ps-item"><b>'+escp(a.nome||"arma")+'</b> <span class="die">'+escp(a.die||"")+'</span>'+((a.attr||a.note)?'<div class="ps-d">'+escp([a.attr,a.note].filter(Boolean).join(" \u00b7 "))+'</div>':'')+'</div>';});h+='</div>';}
   if(Array.isArray(pg.talents)&&pg.talents.length){h+='<div class="ps-sec"><div class="ps-h">Talenti</div>';pg.talents.forEach(function(k){var ti=talentInfo(k);h+='<div class="ps-tech"><div class="tt">\u2726 <b>'+escp(ti.name)+'</b>'+(ti.branch?' <span class="ps-d2">('+escp(ti.branch)+')</span>':'')+(ti.tag?' <span class="ps-d2">'+escp(ti.tag)+'</span>':'')+'</div>'+(ti.desc?'<div class="ps-d">'+escp(ti.desc)+'</div>':'')+'</div>';});h+='</div>';}
+  if(Array.isArray(pg.bonds)){var bb=pg.bonds.filter(function(b){return (b.nome&&b.nome.trim())||b.pip;});if(bb.length){h+='<div class="ps-sec"><div class="ps-h">Legami Nakama</div><table class="ps-tab">';bb.forEach(function(b){h+='<tr><td class="sk">'+escp(b.nome||"—")+'</td><td class="sd">'+(b.pip||0)+' pip</td></tr>';});h+='</table></div>';}}
   h+='</div><div class="ps-col">';
   h+='<div class="ps-sec"><div class="ps-h">Tecniche</div>';
   if(r)h+='<div class="ps-tech"><div class="tt"><b>'+escp(r.tech)+'</b> <span class="tg">razziale \u00b7 '+escp(pg.racialDie||"d6")+'</span></div><div class="ps-d">'+escp(r.techDesc)+'</div></div>';
   if(pg.t1&&pg.t1.nome)h+='<div class="ps-tech"><div class="tt"><b>'+escp(pg.t1.nome)+'</b> <span class="tg">'+escp([pg.t1.attr,pg.t1.die].filter(Boolean).join(" \u00b7 "))+'</span></div>'+(pg.t1.desc?'<div class="ps-d">'+escp(pg.t1.desc)+'</div>':'')+'</div>';
   if(pg.t2&&pg.t2.nome)h+='<div class="ps-tech"><div class="tt"><b>'+escp(pg.t2.nome)+'</b> <span class="tg">'+escp([pg.t2.attr,pg.t2.die].filter(Boolean).join(" \u00b7 "))+'</span></div>'+(pg.t2.desc?'<div class="ps-d">'+escp(pg.t2.desc)+'</div>':'')+'</div>';
-  (pg.extraTech||[]).forEach(function(t){if(!t.nome&&!(t.eff&&t.eff.length))return;h+='<div class="ps-tech"><div class="tt"><b>'+escp(t.nome||"(senza nome)")+'</b> <span class="tg">'+escp([t.attr,t.die].filter(Boolean).join(" \u00b7 "))+' \u00b7 '+escp(tecCostLabel(t))+'</span></div><div class="ps-d">'+escp(tecSummary(t)||t.desc||"")+'</div></div>';});
+  (pg.extraTech||[]).forEach(function(t){if(!t.nome&&!(t.eff&&t.eff.length))return;var meta=[t.fonte,t.forma,t.die].filter(Boolean).join(" · ")+" · "+tecCostLabel(t);h+='<div class="ps-tech"><div class="tt"><b>'+escp(t.nome||"(senza nome)")+'</b> <span class="tg">'+escp(meta)+'</span></div>'+psTecEff(t)+(t.desc?'<div class="ps-d">'+escp(t.desc)+'</div>':'')+'</div>';});
   if(!r&&!(pg.t1&&pg.t1.nome)&&!(pg.t2&&pg.t2.nome)&&!(pg.extraTech&&pg.extraTech.length))h+='<div class="ps-d">Nessuna tecnica.</div>';
   h+='</div>';
   if(pg.haki&&pg.haki.length){h+='<div class="ps-sec"><div class="ps-h">Haki</div>';pg.haki.forEach(function(hk){var unl=hakiUnlocked(hk);var liv=unl.length?unl[unl.length-1].liv:"";h+='<div class="ps-tech"><div class="tt"><b>'+escp(hk.name)+'</b> <span class="tg">'+escp((hk.die||"")+(liv?(" \u00b7 "+liv):"")+(hk.pip?(" \u00b7 "+hk.pip+" PIP"):""))+'</span></div>';unl.forEach(function(row){h+='<div class="ps-d"><b>'+escp(row.liv)+':</b> '+escp(row.pass)+(row.act?(' <i>Attiva: '+escp(row.act)+(row.cost?(" ("+row.cost+" PIP)"):"")+'</i>'):'')+'</div>';});h+='</div>';});h+='</div>';}
   if(pg.frutto&&pg.frutto.has){h+='<div class="ps-sec"><div class="ps-h">Frutto del Diavolo</div><div class="ps-tech"><div class="tt"><b>'+escp(pg.frutto.nome||"Frutto senza nome")+'</b>'+(pg.frutto.tipo?' <span class="tg">'+escp(pg.frutto.tipo)+'</span>':'')+'</div>'+(pg.frutto.desc?'<div class="ps-d">'+escp(pg.frutto.desc)+'</div>':'')+'<div class="ps-d2">Debolezze: mare \u00b7 Pietra di Mare \u00b7 Haki</div></div></div>';}
   h+='</div></div>';
-  if(pg.bg||pg.note){h+='<div class="ps-sec ps-notes">';if(pg.bg)h+='<div class="ps-h">Background</div><div class="ps-d">'+escp(pg.bg)+'</div>';if(pg.note)h+='<div class="ps-h" style="margin-top:8px">Note</div><div class="ps-d">'+escp(pg.note)+'</div>';h+='</div>';}
+  if(pg.note){h+='<div class="ps-sec ps-notes"><div class="ps-h">Note</div><div class="ps-d">'+escp(pg.note)+'</div></div>';}
   h+='<div class="ps-foot">Grand Line Chronicles \u00b7 Sistema \u00abWill of D.\u00bb</div>';
   h+='</div>';
+  h+='<div class="ps-page ps-page2"><div class="ps-blankhead">'+escp(pg.nome||"Pirata")+' · Inventario & Note</div>';h+='<div class="ps-blank"><div class="ps-bh">Inventario</div><div class="ps-lines"></div></div>';h+='<div class="ps-blank"><div class="ps-bh">Note</div><div class="ps-lines tall"></div></div>';h+='<div class="ps-foot">Grand Line Chronicles · Sistema «Will of D.»</div></div>';
   host.innerHTML=h;
 }
 $("#printSheet").onclick=function(){buildPrintSheet();window.print();};
