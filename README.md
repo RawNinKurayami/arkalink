@@ -1,2 +1,2 @@
 # Grand Line Chronicles
-Officina & Cambusa con filtri (ricerca + categoria).
+Plancia del Master: tema home + login, intro, bestiario con attributi, scontro con aggiunta libera e iniziativa scrivibile.
