@@ -1,2 +1,2 @@
 # Grand Line Chronicles
-Nuovo: mappa interattiva delle isole (modulo glc-map.js) in Sessioni e Campagne. Rimosso Jolly Roger.
+Barra login: username (fallback email) + miniatura avatar. Diario: tolto il placeholder. Mappa isole in Sessioni e Campagne.

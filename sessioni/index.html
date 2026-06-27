@@ -168,7 +168,7 @@ function buildNotebook(s){
   var card=el("div",{class:"card notebook"});
   card.appendChild(el("h2",{html:"\ud83d\udcd6 Diario di bordo"}));
   card.appendChild(el("div",{class:"help",text:"Il tuo quaderno: scrivi a piacere, pagina dopo pagina. Si salva da solo."}));
-  var ta=el("textarea",{class:"nbpage",placeholder:"Caro diario di bordo\u2026"});
+  var ta=el("textarea",{class:"nbpage",placeholder:""});
   ta.value=page.t||"";
   ta.oninput=function(){
     if(nbTimer)clearTimeout(nbTimer); var val=ta.value;

@@ -52,6 +52,10 @@
     ".glc-slot .glc-who,.glc-bar-in .glc-who{font-family:'Cormorant Garamond',serif;font-size:.96rem;color:#a8c6bd}.glc-slot .glc-who b,.glc-bar-in .glc-who b{color:#ecca77;font-weight:600}"+
     ".glc-slot .glc-prof,.glc-bar-in .glc-prof{font-family:'Marcellus SC',serif;letter-spacing:.1em;text-transform:uppercase;font-size:10px;color:#ecca77;text-decoration:none;border:1px solid rgba(201,162,74,.55);border-radius:999px;padding:6px 12px}.glc-slot .glc-prof:hover,.glc-bar-in .glc-prof:hover{background:rgba(201,162,74,.15)}"+
     ".glc-slot .glc-out,.glc-bar-in .glc-out{border:1px solid rgba(201,162,74,.55);background:transparent;color:#ecca77;border-radius:999px;padding:6px 13px;font-family:'Marcellus SC',serif;letter-spacing:.1em;text-transform:uppercase;font-size:10px;cursor:pointer}"+
+    ".glc-slot .glc-who,.glc-bar-in .glc-who{display:inline-flex;align-items:center;gap:8px}"+
+    ".glc-ava{width:26px;height:26px;border-radius:50%;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,#fff8ec,#efdcb4);border:1.5px solid rgba(201,162,74,.7);flex:none}"+
+    ".glc-ava img{width:100%;height:100%;object-fit:cover;display:block}"+
+    ".glc-ava svg{width:15px;height:15px;color:#9a7a3e}"+
     /* barra fissa (strumenti, quando loggato) */
     "#glc-bar{position:fixed;top:10px;right:12px;z-index:9000;display:flex;align-items:center;gap:10px;background:rgba(10,25,32,.85);border:1px solid rgba(201,162,74,.4);border-radius:999px;padding:6px 8px 6px 14px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}"+
     "#glc-flash{position:fixed;bottom:16px;left:50%;transform:translateX(-50%) translateY(20px);z-index:9500;background:rgba(10,25,32,.93);color:#ecdcb6;border:1px solid rgba(201,162,74,.45);border-radius:6px;padding:9px 16px;font-family:'Cormorant Garamond',serif;font-size:.96rem;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none}"+
@@ -154,6 +158,31 @@
     }catch(e){ msg.textContent = "Non riuscito: " + (e.message || e); btn.disabled = false; btn.textContent = "Invia il link d'accesso"; }
   }
 
+  /* ---------------- avatar + username nella barra ---------------- */
+  function avatarHTML(av){
+    if(av){ return '<span class="glc-ava"><img src="' + av + '" alt=""></span>'; }
+    return '<span class="glc-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg></span>';
+  }
+  async function enrichControl(){
+    if(!currentUser) return;
+    var uname = "", avatar = "";
+    try{ var lp = JSON.parse(localStorage.getItem("glc_profile_v1") || "{}") || {}; avatar = lp.avatar || ""; uname = (lp.username || "").trim(); }catch(e){}
+    try{ var pr = await sb.from("profiles").select("username").eq("user_id", currentUser.id).maybeSingle(); if(pr && pr.data && pr.data.username) uname = pr.data.username; }catch(e){}
+    if(!avatar || !uname){
+      try{
+        var sv = await sb.from("saves").select("data").eq("user_id", currentUser.id).eq("key", "glc_profile_v1").maybeSingle();
+        if(sv && sv.data && sv.data.data){
+          if(!avatar && sv.data.data.avatar) avatar = sv.data.data.avatar;
+          if(!uname && sv.data.data.username) uname = (sv.data.data.username || "").trim();
+        }
+      }catch(e){}
+    }
+    var nm = document.querySelector("#glc-login-slot .glc-name") || document.querySelector("#glc-bar .glc-name");
+    if(nm) nm.textContent = uname ? ("@" + uname) : (currentUser.email || "\u2014");
+    var av = document.querySelector("#glc-login-slot .glc-ava") || document.querySelector("#glc-bar .glc-ava");
+    if(av && avatar){ av.innerHTML = '<img src="' + avatar + '" alt="">'; }
+  }
+
   /* ---------------- controllo accesso (slot home o barra fissa) ---------------- */
   function renderControl(){
     var slot = document.getElementById("glc-login-slot");
@@ -161,8 +190,12 @@
     if(currentUser){
       if(!host){ host = document.createElement("div"); host.id = "glc-bar"; document.body.appendChild(host); }
       host.className = slot ? "glc-slot in" : "glc-bar-in";
-      host.innerHTML = '<span class="glc-who">Ciurma: <b>' + escapeHtml(currentUser.email || "—") + '</b></span>' + (PROFILE_URL ? '<a class="glc-prof" href="' + PROFILE_URL + '">Profilo</a>' : '') + '<button class="glc-out" id="glc-out">Esci</button>';
+      var prof0 = {}; try{ prof0 = JSON.parse(localStorage.getItem("glc_profile_v1") || "{}") || {}; }catch(e){}
+      var uname0 = (prof0.username || "").trim();
+      var nameStr = uname0 ? ("@" + uname0) : (currentUser.email || "\u2014");
+      host.innerHTML = '<span class="glc-who">' + avatarHTML(prof0.avatar) + '<b class="glc-name">' + escapeHtml(nameStr) + '</b></span>' + (PROFILE_URL ? '<a class="glc-prof" href="' + PROFILE_URL + '">Profilo</a>' : '') + '<button class="glc-out" id="glc-out">Esci</button>';
       document.getElementById("glc-out").onclick = logout;
+      enrichControl();
     } else {
       if(!slot){ var b = document.getElementById("glc-bar"); if(b) b.innerHTML = ""; return; } // strumenti: niente barra (copre l'overlay)
       host.className = "glc-slot out";
