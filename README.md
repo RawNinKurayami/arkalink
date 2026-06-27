@@ -1,2 +1,2 @@
 # Grand Line Chronicles
-Manuale: correzioni (Haki/PIP, Stamina senza Haki, Stili spostati nei Mestieri, rimossa appendice Tabelle, P.A. esempi, ecc.).
+Nuovo: mappa interattiva delle isole (modulo glc-map.js) in Sessioni e Campagne. Rimosso Jolly Roger.

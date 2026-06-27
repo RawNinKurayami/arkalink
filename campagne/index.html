@@ -10,6 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>window.GLC={saveKey:["glc_pirata_v4","glc_campagne_v1"],gate:true,profileUrl:"/profilo/"};</script>
 <script src="/glc-auth.js"></script>
+<script src="/glc-map.js"></script>
 <style>
 :root{--abyss:#0a1920;--vellum:#ecdcb6;--paper:#f4ead0;--ink:#33261a;--ink-soft:#5e4c34;--gold:#c9a24a;--gold2:#ecca77;--seal:#9a241a;--foam:#a8c6bd;--line:#cdb487;}
 *{box-sizing:border-box;}
@@ -59,6 +60,10 @@ input.in:focus,select.in:focus{outline:2px solid var(--gold);outline-offset:1px;
 .mrow .gmtag{font-family:'Marcellus SC',serif;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:#8c1c13;}
 .sep{height:1px;background:var(--line);margin:14px 0;opacity:.6;}
 .empty{color:var(--foam);font-style:italic;border:1px dashed rgba(201,162,74,.4);border-radius:12px;padding:18px;text-align:center;}
+.helm-inline{display:flex;flex-direction:column;align-items:center;gap:10px;padding:30px;color:var(--foam);}
+.helm-sm{width:62px;height:62px;animation:helmspin 3.2s linear infinite;}
+.helm-inline span{font-family:'Marcellus SC',serif;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--gold2);}
+@keyframes helmspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 .readbox{background:#fffaf0;border:1px solid #d8c7a0;border-radius:9px;padding:10px 12px;white-space:pre-wrap;color:var(--ink);}
 textarea.in{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ink);background:#fffaf0;border:1px solid #b9a06f;border-radius:7px;padding:10px 12px;}
 .nextdate{background:#1c3a44;color:var(--gold2);border:1px solid var(--gold);border-radius:9px;padding:7px 12px;display:inline-block;margin-bottom:8px;}
@@ -114,7 +119,7 @@ label.fld{display:block;font-family:'Marcellus SC',serif;letter-spacing:.05em;te
   </div>
 
   <h2 class="sec">Le tue campagne</h2>
-  <div id="campaigns"><div class="empty">Caricamento…</div></div>
+  <div id="campaigns"><div class="helm-inline"><svg class="helm-sm" viewBox="0 0 100 100" fill="none" stroke="#c9a24a" stroke-width="4"><circle cx="50" cy="50" r="11" fill="#c9a24a" stroke="none"/><circle cx="50" cy="50" r="26"/><g stroke-linecap="round"><line x1="50" y1="50" x2="50" y2="12"/><line x1="50" y1="50" x2="50" y2="88"/><line x1="50" y1="50" x2="12" y2="50"/><line x1="50" y1="50" x2="88" y2="50"/><line x1="50" y1="50" x2="23" y2="23"/><line x1="50" y1="50" x2="77" y2="77"/><line x1="50" y1="50" x2="77" y2="23"/><line x1="50" y1="50" x2="23" y2="77"/></g><g fill="#c9a24a" stroke="none"><circle cx="50" cy="9" r="5"/><circle cx="50" cy="91" r="5"/><circle cx="9" cy="50" r="5"/><circle cx="91" cy="50" r="5"/><circle cx="20" cy="20" r="5"/><circle cx="80" cy="80" r="5"/><circle cx="80" cy="20" r="5"/><circle cx="20" cy="80" r="5"/></g></svg><span>Si salpa…</span></div></div>
 
   <div id="detailWrap"></div>
 </div>
@@ -252,6 +257,14 @@ async function renderDetail(c){
     p.appendChild(lgB);
     p.appendChild(el("div",{class:"row",style:"margin-top:6px"},[el("button",{class:"btn sm",text:"+ Aggiungi alla cronaca",onClick:function(){if(!lgB.value.trim()&&!lgT.value.trim())return;INFO.log.push({id:uid(),date:lgD.value||todayStr(),titolo:(lgT.value||"").trim(),corpo:lgB.value});persistInfo(c,INFO,null,null,true);}})]));
   }
+
+  // Mappa delle isole
+  p.appendChild(el("div",{class:"sep"}));
+  p.appendChild(el("label",{class:"fld",text:"Mappa delle isole"}));
+  INFO.map=Array.isArray(INFO.map)?INFO.map:[];
+  var mapBox=el("div");
+  p.appendChild(mapBox);
+  if(window.GLCMap){ GLCMap.mount(mapBox,{islands:INFO.map,readOnly:!isGM,onChange:function(islands){ INFO.map=islands; persistInfo(c,INFO,null,null,false); }}); }
 
   // codice (visibile al GM; un giocatore può comunque vederlo per condividerlo)
   p.appendChild(el("div",{class:"sep"}));

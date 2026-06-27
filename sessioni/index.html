@@ -10,6 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>window.GLC={saveKey:["glc_sessioni_v1","glc_pirata_v4","glc_nave_v1","glc_profile_v1"],gate:true,profileUrl:"/profilo/"};</script>
 <script src="/glc-auth.js"></script>
+<script src="/glc-map.js"></script>
 <style>
 :root{
   --abyss:#0a1920; --abyss-2:#0e2530; --vellum:#ecdcb6; --vellum-2:#e3d0a4;
@@ -265,6 +266,16 @@ function render(){
 
   /* --- Diario di bordo (quaderno) --- */
   app.appendChild(buildNotebook(s));
+
+  /* --- Mappa delle isole --- */
+  if(!Array.isArray(s.map)) s.map=[];
+  var mapCard=el("div",{class:"card"});
+  mapCard.appendChild(el("h2",{html:"\ud83d\uddfa\ufe0f Mappa delle isole"}));
+  mapCard.appendChild(el("div",{class:"help",text:"Segna le isole che la ciurma scopre: scegli un tipo, premi \u00ab+ Aggiungi isola\u00bb e tocca la mappa. Dai nome e note; trascina un segnaposto per spostarlo."}));
+  var mapBox=el("div");
+  mapCard.appendChild(mapBox);
+  app.appendChild(mapCard);
+  if(window.GLCMap){ GLCMap.mount(mapBox,{islands:s.map,readOnly:false,onChange:function(islands){ var st2=readST(); var ss=st2.sessions[SID]; if(!ss)return; ss.map=islands; st2.activeId=SID; writeST(st2); }}); }
 
   /* --- Diario --- */
   var dCard=el("div",{class:"card diary"});
