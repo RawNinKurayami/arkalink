@@ -1,2 +1,2 @@
 # Grand Line Chronicles
-Manuale: rimossa la sezione introduttiva "Prima di salpare".
+Tappa 1 social: username pubblico nel Profilo (tabella profiles). Esegui prima glc-sql-tappa1-profiles.sql in Supabase.

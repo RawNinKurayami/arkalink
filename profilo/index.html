@@ -51,6 +51,11 @@ a{color:inherit;}
 }
 .uname input:focus{outline:2px solid var(--gold); outline-offset:1px;}
 .uname .hint{font-size:.95rem; color:var(--ink-soft);}
+.uname .at{font-family:'Cinzel Decorative',serif; font-weight:700; font-size:1.4rem; color:var(--ink-soft);}
+.panel .kick{font-family:'Marcellus SC',serif; letter-spacing:.22em; text-transform:uppercase; font-size:11px; color:var(--gold); margin-bottom:6px;}
+.hint{font-size:.95rem; color:var(--ink-soft); margin-top:8px;}
+.hint.ok{color:#2f6f4f;}
+.hint.err{color:#9a241a;}
 
 .phead{display:flex; gap:22px; align-items:center; flex-wrap:wrap;}
 .avatar-wrap{position:relative; flex:none;}
@@ -139,6 +144,16 @@ a{color:inherit;}
         <input id="username-in" class="pname-input" type="text" placeholder="Il tuo nome di capitano" maxlength="40" autocomplete="off" style="display:none">
         <div class="pstats" id="pstats">—</div>
       </div>
+    </div>
+
+    <div class="panel" id="uname-panel">
+      <div class="kick">Nome pubblico · per i Nakama</div>
+      <div class="uname">
+        <span class="at">@</span>
+        <input id="pub-username" type="text" placeholder="es. iena_nera" maxlength="20" autocomplete="off" spellcheck="false">
+        <button class="btn-gold" id="pub-save" type="button">Salva</button>
+      </div>
+      <div class="hint" id="uname-hint">Scegli un username unico (3–20 caratteri: lettere, numeri, underscore). Con questo gli altri pirati potranno trovarti e aggiungerti come nakama.</div>
     </div>
 
     <div class="sec-head">
@@ -356,12 +371,47 @@ a{color:inherit;}
     if(av) av.addEventListener("click", pickAvatar);
     if(cam) cam.addEventListener("click", function(ev){ ev.stopPropagation(); pickAvatar(); });
     if(af) af.addEventListener("change", function(ev){ if(ev.target.files[0]) handleAvatar(ev.target.files[0]); });
+    var saveBtn=document.getElementById("pub-save"), unameIn=document.getElementById("pub-username");
+    if(saveBtn) saveBtn.addEventListener("click", saveUsername);
+    if(unameIn) unameIn.addEventListener("keydown", function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); saveUsername(); } });
+    loadUsername();
     renderAll();
     if(window.__glcSB && window.__glcSB.auth && window.__glcSB.auth.onAuthStateChange){
-      window.__glcSB.auth.onAuthStateChange(function(){ setTimeout(renderAll,300); });
+      window.__glcSB.auth.onAuthStateChange(function(){ setTimeout(renderAll,300); setTimeout(loadUsername,400); });
     }
     setTimeout(renderAll,700); setTimeout(renderAll,1700);
+    setTimeout(loadUsername,900);
   });
+
+  async function glcGetUser(){ try{ var r=await window.__glcSB.auth.getUser(); return (r&&r.data)?r.data.user:null; }catch(e){ return null; } }
+  async function loadUsername(){
+    var i=document.getElementById("pub-username"); if(!i || !window.__glcSB) return;
+    var u=await glcGetUser(); if(!u) return;
+    try{
+      var r=await window.__glcSB.from("profiles").select("username").eq("user_id",u.id).maybeSingle();
+      if(r && r.data && r.data.username && document.activeElement!==i){ i.value=r.data.username; }
+    }catch(e){}
+  }
+  async function saveUsername(){
+    var i=document.getElementById("pub-username"), h=document.getElementById("uname-hint");
+    if(!i||!h) return;
+    var v=(i.value||"").trim();
+    if(!/^[A-Za-z0-9_]{3,20}$/.test(v)){ h.className="hint err"; h.textContent="Formato non valido: 3\u201320 caratteri, solo lettere, numeri e underscore."; return; }
+    if(!window.__glcSB){ h.className="hint err"; h.textContent="Servizio non disponibile. Ricarica la pagina."; return; }
+    var u=await glcGetUser(); if(!u){ h.className="hint err"; h.textContent="Devi accedere per salvare l\u0027username."; return; }
+    h.className="hint"; h.textContent="Salvataggio\u2026";
+    try{
+      var r=await window.__glcSB.from("profiles").upsert({ user_id:u.id, username:v, updated_at:new Date().toISOString() }, { onConflict:"user_id" }).select();
+      if(r && r.error){
+        var code=r.error.code||"", msg=r.error.message||"";
+        if(code==="23505" || /duplicate|unique/i.test(msg)){ h.textContent="Questo username \u00e8 gi\u00e0 preso da un altro pirata. Provane un altro."; }
+        else if(/check|username_format/i.test(msg)){ h.textContent="Formato non valido: 3\u201320 caratteri, solo lettere, numeri e underscore."; }
+        else { h.textContent="Errore nel salvataggio: "+(msg||"riprova."); }
+        h.className="hint err"; return;
+      }
+      h.className="hint ok"; h.textContent="Username salvato \u2713 \u2014 ora gli altri ti trovano come @"+v;
+    }catch(e){ h.className="hint err"; h.textContent="Errore di rete. Riprova."; }
+  }
 })();
 </script>
 </body>
