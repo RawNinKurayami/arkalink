@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campagne · Grand Line Chronicles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>window.GLC={saveKey:["glc_pirata_v4","glc_campagne_v1"],gate:true,profileUrl:"/profilo/"};</script>
+<script src="/glc-auth.js"></script>
+<style>
+:root{--abyss:#0a1920;--vellum:#ecdcb6;--paper:#f4ead0;--ink:#33261a;--ink-soft:#5e4c34;--gold:#c9a24a;--gold2:#ecca77;--seal:#9a241a;--foam:#a8c6bd;--line:#cdb487;}
+*{box-sizing:border-box;}
+body{margin:0;min-height:100vh;color:var(--vellum);font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;line-height:1.55;background:radial-gradient(120% 80% at 50% -10%,#15333f 0%,#0a1920 55%,#060f14 100%) fixed;}
+a{color:inherit;}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px clamp(16px,4vw,40px);border-bottom:1px solid rgba(201,162,74,.22);}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.brand .anc{color:var(--gold);font-size:20px;}
+.brand .nm{font-family:'Marcellus SC',serif;letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--foam);}
+.wrap{max-width:1040px;margin:0 auto;padding:clamp(18px,4vw,36px) clamp(14px,3.5vw,32px) 80px;}
+.back{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--foam);font-family:'Marcellus SC',serif;letter-spacing:.1em;font-size:13px;text-transform:uppercase;margin-bottom:12px;}
+.back:hover{color:var(--gold2);}
+.hero{text-align:center;margin-bottom:22px;}
+.hero .kick{font-family:'Marcellus SC',serif;letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:var(--gold);}
+.hero h1{font-family:'Cinzel Decorative',serif;font-weight:900;font-size:clamp(26px,5.2vw,42px);margin:.1em 0 0;}
+.hero p{color:var(--foam);max-width:640px;margin:8px auto 0;}
+.panel{background:linear-gradient(180deg,var(--paper),#efe2c4);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:0 12px 30px rgba(0,0,0,.3);margin-bottom:18px;}
+.kick2{font-family:'Marcellus SC',serif;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:#8a6a1c;margin-bottom:10px;}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:640px){.actions{grid-template-columns:1fr;}}
+.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center;}
+input.in,select.in{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ink);background:#fffaf0;border:1px solid #b9a06f;border-radius:7px;padding:10px 12px;flex:1;min-width:140px;}
+input.in:focus,select.in:focus{outline:2px solid var(--gold);outline-offset:1px;}
+.btn{font-family:'Marcellus SC',serif;letter-spacing:.05em;border-radius:9px;padding:10px 16px;border:1px solid var(--gold);background:linear-gradient(180deg,#e7be63,#c9a24a);color:#2b1f0d;cursor:pointer;font-size:13px;white-space:nowrap;}
+.btn:hover{filter:brightness(1.05);}
+.btn.ghost{background:transparent;color:#5a3f1c;}
+.btn.sm{padding:7px 11px;font-size:12px;}
+.btn.danger{background:#f1d9d4;border-color:#d9a99f;color:#8c1c13;}
+.hint{font-size:.95rem;color:var(--ink-soft);margin-top:8px;}
+.hint.ok{color:#2f6f4f;}.hint.err{color:#9a241a;}
+.clist{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;}
+.ccard{background:#fffaf0;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:12px;padding:14px;cursor:pointer;transition:transform .15s,box-shadow .15s;}
+.ccard:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,.22);}
+.ccard.gm{border-left-color:var(--seal);}
+.ccard.sel{outline:2px solid var(--gold);}
+.ccard h3{font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:#4a371d;margin:0 0 4px;}
+.badge{font-family:'Marcellus SC',serif;font-size:10px;letter-spacing:.05em;text-transform:uppercase;padding:2px 9px;border-radius:999px;}
+.badge.gm{background:#f1d9d4;color:#8c1c13;border:1px solid #d9a99f;}
+.badge.pl{background:#d8ead9;color:#2f6f4f;border:1px solid #a9c9b2;}
+.ccard .meta{font-size:.95rem;color:var(--ink-soft);margin-top:6px;}
+.codebox{display:inline-flex;align-items:center;gap:10px;background:#1c3a44;color:var(--gold2);border:1px dashed var(--gold);border-radius:10px;padding:8px 14px;font-family:'Marcellus SC',serif;letter-spacing:.22em;font-size:1.2rem;}
+.roster{display:flex;flex-direction:column;gap:9px;margin-top:10px;}
+.mrow{display:flex;align-items:center;gap:10px;background:#fffaf0;border:1px solid #d8c7a0;border-radius:9px;padding:9px 12px;}
+.mrow .who{flex:1;min-width:0;}
+.mrow .who .u{font-weight:600;color:#4a371d;}
+.mrow .who .c{font-size:.92rem;color:var(--ink-soft);}
+.mrow .gmtag{font-family:'Marcellus SC',serif;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:#8c1c13;}
+.sep{height:1px;background:var(--line);margin:14px 0;opacity:.6;}
+.empty{color:var(--foam);font-style:italic;border:1px dashed rgba(201,162,74,.4);border-radius:12px;padding:18px;text-align:center;}
+h2.sec{font-family:'Cinzel Decorative',serif;color:var(--vellum);font-size:1.5rem;margin:26px 0 12px;}
+.detail h3.dt{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:#4a371d;margin:0;}
+.muted{color:var(--ink-soft);font-size:.95rem;}
+label.fld{display:block;font-family:'Marcellus SC',serif;letter-spacing:.05em;text-transform:uppercase;font-size:10px;color:var(--ink-soft);margin:10px 0 4px;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="/"><span class="anc">⚓</span><span class="nm">Grand Line Chronicles</span></a>
+  <span id="glc-login-slot"></span>
+</div>
+
+<div class="wrap">
+  <a class="back" href="/profilo/">‹ Torna al profilo</a>
+  <div class="hero">
+    <div class="kick">Lo spazio della ciurma</div>
+    <h1>Le tue Campagne</h1>
+    <p>Crea una campagna e diventane il <b>Game Master</b>, oppure unisciti a quella di un nakama con un codice. Ogni pirata porta la propria scheda; le info della sessione le tiene il GM.</p>
+  </div>
+
+  <div class="actions">
+    <div class="panel">
+      <div class="kick2">⚓ Crea una campagna</div>
+      <div class="row">
+        <input class="in" id="newName" type="text" placeholder="Nome della campagna (es. La Rotta di Black Savanna)" maxlength="60">
+        <button class="btn" id="createBtn" type="button">Crea</button>
+      </div>
+      <div class="hint" id="createMsg">Ne diventi il Game Master: potrai invitare i nakama e condividere un codice d'accesso.</div>
+    </div>
+    <div class="panel">
+      <div class="kick2">🏴‍☠️ Unisciti con un codice</div>
+      <div class="row">
+        <input class="in" id="joinCode" type="text" placeholder="Codice (es. 7KQ4M9)" maxlength="6" style="text-transform:uppercase;letter-spacing:.2em">
+        <button class="btn" id="joinBtn" type="button">Entra</button>
+      </div>
+      <label class="fld" for="joinChar">La tua scheda in questa campagna (facoltativa)</label>
+      <div class="row"><select class="in" id="joinChar"><option value="">— scegli un personaggio —</option></select></div>
+      <div class="hint" id="joinMsg">Chiedi il codice al Game Master della ciurma.</div>
+    </div>
+  </div>
+
+  <h2 class="sec">Le tue campagne</h2>
+  <div id="campaigns"><div class="empty">Caricamento…</div></div>
+
+  <div id="detailWrap"></div>
+</div>
+
+<script>
+function el(t,a,kids){var e=document.createElement(t);a=a||{};for(var k in a){if(k==="text")e.textContent=a[k];else if(k==="html")e.innerHTML=a[k];else if(k.slice(0,2)==="on")e[k.toLowerCase()]=a[k];else e.setAttribute(k,a[k]);}(kids||[]).forEach(function(c){if(c)e.appendChild(typeof c==="string"?document.createTextNode(c):c);});return e;}
+function $(s){return document.querySelector(s);}
+function SB(){return window.__glcSB;}
+async function ME(){try{var r=await SB().auth.getUser();return (r&&r.data)?r.data.user:null;}catch(e){return null;}}
+function genCode(){var c="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",s="";for(var i=0;i<6;i++)s+=c[Math.floor(Math.random()*c.length)];return s;}
+function msg(id,t,kind){var m=$("#"+id);if(!m)return;m.className="hint"+(kind?(" "+kind):"");m.textContent=t||"";}
+
+var CAMPS=[], SELECTED=null;
+
+function myChars(){
+  try{var o=JSON.parse(localStorage.getItem("glc_pirata_v4")||"null");if(o&&o.chars){return Object.keys(o.chars).map(function(k){return o.chars[k]&&o.chars[k].nome;}).filter(Boolean);}}catch(e){}
+  return [];
+}
+function fillCharSelect(sel){
+  if(!sel)return;var chars=myChars();var cur=sel.value;
+  sel.innerHTML="";sel.appendChild(el("option",{value:"",text:"— scegli un personaggio —"}));
+  chars.forEach(function(n){sel.appendChild(el("option",{value:n,text:n}));});
+  if(cur)sel.value=cur;
+}
+async function namesFor(ids){
+  var out={};ids=ids.filter(Boolean);if(!ids.length)return out;
+  try{var r=await SB().from("profiles").select("user_id,username").in("user_id",ids);(r.data||[]).forEach(function(p){out[p.user_id]=p.username;});}catch(e){}
+  return out;
+}
+
+async function loadCampaigns(){
+  var me=await ME();var box=$("#campaigns");if(!me||!box)return;
+  try{
+    var gmR=await SB().from("campaigns").select("*").eq("gm",me.id);
+    var memR=await SB().from("campaign_members").select("campaign_id").eq("user_id",me.id);
+    var memIds=(memR.data||[]).map(function(x){return x.campaign_id;});
+    var memCamps=[];
+    if(memIds.length){var c2=await SB().from("campaigns").select("*").in("id",memIds);memCamps=c2.data||[];}
+    var map={};(gmR.data||[]).forEach(function(c){c._role="gm";map[c.id]=c;});
+    memCamps.forEach(function(c){if(!map[c.id]){c._role="pl";map[c.id]=c;}});
+    CAMPS=Object.keys(map).map(function(k){return map[k];});
+    renderCampaigns();
+    if(SELECTED){var still=CAMPS.filter(function(c){return c.id===SELECTED;})[0];if(still)renderDetail(still);else{SELECTED=null;$("#detailWrap").innerHTML="";}}
+  }catch(e){box.innerHTML='<div class="empty">Errore nel caricamento.</div>';}
+}
+function renderCampaigns(){
+  var box=$("#campaigns");box.innerHTML="";
+  if(!CAMPS.length){box.appendChild(el("div",{class:"empty",html:"Non sei ancora in nessuna campagna. Creane una o entra con un codice."}));return;}
+  var grid=el("div",{class:"clist"});
+  CAMPS.forEach(function(c){
+    var card=el("div",{class:"ccard "+(c._role==="gm"?"gm":"")+(SELECTED===c.id?" sel":""),onClick:function(){SELECTED=c.id;renderDetail(c);renderCampaigns();window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});}});
+    card.appendChild(el("h3",{text:c.name}));
+    card.appendChild(el("span",{class:"badge "+(c._role==="gm"?"gm":"pl"),text:c._role==="gm"?"Game Master":"Giocatore"}));
+    card.appendChild(el("div",{class:"meta",text:"Apri per i dettagli ›"}));
+    grid.appendChild(card);
+  });
+  box.appendChild(grid);
+}
+
+async function renderDetail(c){
+  var me=await ME();var wrap=$("#detailWrap");if(!wrap)return;
+  var isGM=(c.gm===me.id);
+  wrap.innerHTML="";
+  var p=el("div",{class:"panel detail"});
+  p.appendChild(el("div",{class:"row"},[el("h3",{class:"dt",text:c.name}),el("span",{class:"badge "+(isGM?"gm":"pl"),text:isGM?"Sei il Game Master":"Sei un Giocatore",style:"margin-left:8px"})]));
+
+  // membri
+  var memR=await SB().from("campaign_members").select("*").eq("campaign_id",c.id);
+  var members=memR.data||[];
+  var ids=members.map(function(m){return m.user_id;});ids.push(c.gm);
+  var names=await namesFor(ids);
+
+  // codice (visibile al GM; un giocatore può comunque vederlo per condividerlo)
+  p.appendChild(el("div",{class:"sep"}));
+  p.appendChild(el("label",{class:"fld",text:"Codice d'accesso"}));
+  var codeRow=el("div",{class:"row"},[el("span",{class:"codebox",id:"codeShow",text:c.join_code})]);
+  if(isGM){codeRow.appendChild(el("button",{class:"btn sm ghost",text:"Rigenera",onClick:function(){regenCode(c);}}));}
+  codeRow.appendChild(el("button",{class:"btn sm ghost",text:"Copia",onClick:function(){navigator.clipboard&&navigator.clipboard.writeText(c.join_code);}}));
+  p.appendChild(codeRow);
+
+  // roster
+  p.appendChild(el("div",{class:"sep"}));
+  p.appendChild(el("label",{class:"fld",text:"Ciurma ("+members.length+" giocatori + GM)"}));
+  var roster=el("div",{class:"roster"});
+  // GM riga
+  roster.appendChild(el("div",{class:"mrow"},[
+    el("div",{class:"who"},[el("div",{class:"u",text:"@"+(names[c.gm]||"game master")}),el("div",{class:"c",text:"Narratore della campagna"})]),
+    el("span",{class:"gmtag",text:"Game Master"})
+  ]));
+  if(!members.length){roster.appendChild(el("div",{class:"empty",html:"Ancora nessun giocatore. Condividi il codice o invita un nakama."}));}
+  members.forEach(function(m){
+    var who=el("div",{class:"who"},[el("div",{class:"u",text:"@"+(names[m.user_id]||"pirata")}),el("div",{class:"c",text:m.char_name?("Scheda: "+m.char_name):"Nessuna scheda collegata"})]);
+    var row=el("div",{class:"mrow"},[who]);
+    if(isGM && m.user_id!==me.id){row.appendChild(el("button",{class:"btn sm danger",text:"Rimuovi",onClick:function(){removeMember(c,m.user_id);}}));}
+    roster.appendChild(row);
+  });
+  p.appendChild(roster);
+
+  // azioni GM: invita nakama
+  if(isGM){
+    p.appendChild(el("div",{class:"sep"}));
+    p.appendChild(el("label",{class:"fld",text:"Invita un nakama"}));
+    var invSel=el("select",{class:"in",id:"invSel"},[el("option",{value:"",text:"— carico i nakama… —"})]);
+    var invRow=el("div",{class:"row"},[invSel,el("button",{class:"btn sm",text:"Invita",onClick:function(){inviteNakama(c);}})]);
+    p.appendChild(invRow);
+    p.appendChild(el("div",{class:"hint",id:"invMsg"}));
+    fillNakamaSelect(c, members.map(function(m){return m.user_id;}));
+    // elimina campagna
+    p.appendChild(el("div",{class:"sep"}));
+    p.appendChild(el("button",{class:"btn sm danger",text:"Elimina la campagna",onClick:function(){deleteCampaign(c);}}));
+  } else {
+    // azioni giocatore: collega scheda + esci
+    p.appendChild(el("div",{class:"sep"}));
+    p.appendChild(el("label",{class:"fld",text:"La tua scheda in questa campagna"}));
+    var mine=members.filter(function(m){return m.user_id===me.id;})[0];
+    var sel=el("select",{class:"in",id:"mineChar"});
+    var setRow=el("div",{class:"row"},[sel,el("button",{class:"btn sm",text:"Salva scheda",onClick:function(){setMyChar(c);}})]);
+    p.appendChild(setRow);fillCharSelect(sel);if(mine&&mine.char_name)sel.value=mine.char_name;
+    p.appendChild(el("div",{class:"hint",id:"mineMsg"}));
+    p.appendChild(el("div",{class:"sep"}));
+    p.appendChild(el("button",{class:"btn sm danger",text:"Esci dalla campagna",onClick:function(){leaveCampaign(c);}}));
+  }
+  wrap.appendChild(p);
+}
+
+async function fillNakamaSelect(c, memberIds){
+  var sel=$("#invSel");if(!sel)return;var me=await ME();
+  try{
+    var r=await SB().from("nakama").select("*").eq("status","accepted");
+    var rows=r.data||[];
+    var ids=rows.map(function(x){return x.requester===me.id?x.addressee:x.requester;});
+    ids=ids.filter(function(id){return memberIds.indexOf(id)<0 && id!==c.gm;});
+    var names=await namesFor(ids);
+    sel.innerHTML="";
+    if(!ids.length){sel.appendChild(el("option",{value:"",text:"Nessun nakama da invitare"}));return;}
+    sel.appendChild(el("option",{value:"",text:"— scegli un nakama —"}));
+    ids.forEach(function(id){sel.appendChild(el("option",{value:id,text:"@"+(names[id]||"pirata")}));});
+  }catch(e){sel.innerHTML="";sel.appendChild(el("option",{value:"",text:"Errore"}));}
+}
+
+// ---- azioni ----
+async function createCampaign(){
+  var inp=$("#newName");var name=(inp.value||"").trim();
+  if(!name){msg("createMsg","Dai un nome alla campagna.","err");return;}
+  var me=await ME();if(!me){msg("createMsg","Devi accedere.","err");return;}
+  msg("createMsg","Creazione…");
+  for(var attempt=0;attempt<3;attempt++){
+    var code=genCode();
+    var r=await SB().from("campaigns").insert({gm:me.id,name:name,join_code:code}).select().single();
+    if(!r.error){msg("createMsg","Campagna creata ✓","ok");inp.value="";SELECTED=r.data.id;await loadCampaigns();var c=CAMPS.filter(function(x){return x.id===SELECTED;})[0];if(c)renderDetail(c);return;}
+    if((r.error.code||"")!=="23505"){msg("createMsg","Errore: "+(r.error.message||"riprova."),"err");return;}
+  }
+  msg("createMsg","Non riesco a generare un codice unico, riprova.","err");
+}
+async function joinByCode(){
+  var code=($("#joinCode").value||"").trim().toUpperCase();var ch=($("#joinChar").value||"").trim();
+  if(code.length<4){msg("joinMsg","Inserisci il codice della campagna.","err");return;}
+  var me=await ME();if(!me){msg("joinMsg","Devi accedere.","err");return;}
+  msg("joinMsg","Entro…");
+  try{
+    var r=await SB().rpc("join_campaign",{p_code:code,p_char:ch||null});
+    if(r.error){
+      if(/CODE_NOT_FOUND/.test(r.error.message||"")){msg("joinMsg","Codice non valido: nessuna campagna trovata.","err");}
+      else{msg("joinMsg","Errore: "+(r.error.message||"riprova."),"err");}
+      return;
+    }
+    msg("joinMsg","Sei entrato nella campagna ✓","ok");$("#joinCode").value="";SELECTED=r.data;await loadCampaigns();
+    var c=CAMPS.filter(function(x){return x.id===SELECTED;})[0];if(c)renderDetail(c);
+  }catch(e){msg("joinMsg","Errore di rete.","err");}
+}
+async function regenCode(c){
+  for(var attempt=0;attempt<3;attempt++){
+    var code=genCode();
+    var r=await SB().from("campaigns").update({join_code:code}).eq("id",c.id).select().single();
+    if(!r.error){c.join_code=code;var sh=$("#codeShow");if(sh)sh.textContent=code;return;}
+    if((r.error.code||"")!=="23505")return;
+  }
+}
+async function inviteNakama(c){
+  var sel=$("#invSel");var id=sel?sel.value:"";if(!id){msg("invMsg","Scegli un nakama.","err");return;}
+  msg("invMsg","Invito…");
+  try{
+    var r=await SB().rpc("gm_add_nakama",{p_campaign:c.id,p_member:id});
+    if(r.error){msg("invMsg","Errore: "+(r.error.message||"riprova."),"err");return;}
+    msg("invMsg","Nakama aggiunto alla ciurma ✓","ok");renderDetail(c);
+  }catch(e){msg("invMsg","Errore di rete.","err");}
+}
+async function removeMember(c,uid){
+  if(!confirm("Rimuovere questo giocatore dalla campagna?"))return;
+  try{var r=await SB().from("campaign_members").delete().eq("campaign_id",c.id).eq("user_id",uid);if(!r.error)renderDetail(c);}catch(e){}
+}
+async function setMyChar(c){
+  var sel=$("#mineChar");var ch=sel?sel.value:"";var me=await ME();
+  try{var r=await SB().from("campaign_members").update({char_name:ch||null}).eq("campaign_id",c.id).eq("user_id",me.id);if(!r.error){msg("mineMsg","Scheda aggiornata ✓","ok");renderDetail(c);}else msg("mineMsg","Errore nel salvataggio.","err");}catch(e){msg("mineMsg","Errore di rete.","err");}
+}
+async function leaveCampaign(c){
+  if(!confirm("Vuoi uscire da «"+c.name+"»?"))return;var me=await ME();
+  try{var r=await SB().from("campaign_members").delete().eq("campaign_id",c.id).eq("user_id",me.id);if(!r.error){SELECTED=null;$("#detailWrap").innerHTML="";loadCampaigns();}}catch(e){}
+}
+async function deleteCampaign(c){
+  if(!confirm("Eliminare definitivamente «"+c.name+"»? Tutti i membri perderanno l'accesso."))return;
+  try{var r=await SB().from("campaigns").delete().eq("id",c.id);if(!r.error){SELECTED=null;$("#detailWrap").innerHTML="";loadCampaigns();}}catch(e){}
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+  fillCharSelect($("#joinChar"));
+  var cb=$("#createBtn");if(cb)cb.onclick=createCampaign;
+  var jb=$("#joinBtn");if(jb)jb.onclick=joinByCode;
+  var nn=$("#newName");if(nn)nn.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();createCampaign();}});
+  var jc=$("#joinCode");if(jc)jc.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();joinByCode();}});
+  loadCampaigns();
+  if(SB()&&SB().auth&&SB().auth.onAuthStateChange){SB().auth.onAuthStateChange(function(){setTimeout(function(){fillCharSelect($("#joinChar"));loadCampaigns();},400);});}
+  setTimeout(loadCampaigns,1000);
+});
+</script>
+</body>
+</html>
