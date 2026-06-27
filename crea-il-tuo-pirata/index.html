@@ -132,7 +132,7 @@ var RACES=[
  {id:"cyborg",name:"Cyborg",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Corpo Meccanico",techDesc:"Bonus a resistenza danni e potenziamenti meccanici (definiti dal Capitano).",sv:"Curabile solo da un meccanico"}
 ];
 var ROLES=[
- {name:"Combattente",multi:true,styles:[["Striker","Atletica"],["Swordsman","Atletica"],["Sniper","Atletica"],["Special","Atletica"]],desc:"Il muscolo della ciurma. Lo Stile decide come combatti."},
+ {name:"Combattente",multi:true,styles:[["Striker",["Atletica","Acrobazia"]],["Swordsman","Atletica"],["Sniper","Osservazione"],["Special","any"]],desc:"Il muscolo della ciurma. Lo Stile decide come combatti."},
  {name:"Dottore",multi:true,styles:[["Infermeria","Medicina"],["Tossicologo","Medicina"],["Chimico","Medicina"]],desc:"Tiene in piedi la ciurma: cure, veleni o chimica."},
  {name:"Cuoco",multi:false,skill:"Cucina",desc:"Nutre e rinvigorisce l'equipaggio; piatti che ridanno energie."},
  {name:"Navigatore",multi:false,skill:"Navigazione",desc:"Trasforma il mare da nemico a strada."},
@@ -146,7 +146,7 @@ var STEPS=["Concetto","Razza","Attributi","Ruolo","Skill","Tecniche","Frutto","S
 
 function blank(){return {nome:"",bg:"",amb:"",race:null,umanoAttr:"Forza",d6attr:"",role:null,style:"",role2:null,style2:"",talents:[],
  attr:{Forza:"",Tecnica:"",Spirito:"",Astuzia:""},
- skills:{}, roleSkillDie:"d8", pa:{}, paThresh:{d4:10,d6:25,d8:60,d10:150,d12:400},
+ skills:{}, roleSkillChoice:"", roleSkillDie:"d8", pa:{}, paThresh:{d4:10,d6:25,d8:60,d10:150,d12:400},
  t1:{nome:"",desc:"",attr:"",die:"d4"}, t2:{nome:"",desc:"",attr:"",die:"d4"}, racialDie:"d6", extraTech:[],
  armi:[], haki:[], frutto:{has:false,nome:"",tipo:"",desc:""},
  photo:"", bounty:"0", pvMax:null,pvCur:null,stMax:6,stCur:6,legami:0,ore:16,note:""};}
@@ -160,7 +160,9 @@ function racialAttr(){var r=race();if(!r)return null;return r.attr==="choice"?D.
 function computeAttr(){var r=race();if(!r)return;var ra=racialAttr();ATTRS.forEach(function(a){if(a===ra)D.attr[a]=r.die;else if(a===D.d6attr)D.attr[a]="d6";else if(D.d6attr)D.attr[a]="d4";else D.attr[a]="";});}
 function afterRaceChange(){var r=race();computeAttr();if(r&&D.pvMax==null){D.pvMax=r.pv;D.pvCur=r.pv;}}
 function roleDef(){for(var i=0;i<ROLES.length;i++)if(ROLES[i].name===D.role)return ROLES[i];return null;}
-function roleSkill(){var r=roleDef();if(!r)return null;if(!r.multi)return r.skill;var st=null;for(var i=0;i<r.styles.length;i++)if(r.styles[i][0]===D.style)st=r.styles[i];if(!st)st=r.styles[0];return st?st[1]:null;}
+function styleEntry(){var r=roleDef();if(!r||!r.multi)return null;for(var i=0;i<r.styles.length;i++)if(r.styles[i][0]===D.style)return r.styles[i];return r.styles[0]||null;}
+function roleSkill(){var r=roleDef();if(!r)return null;if(!r.multi)return r.skill;var st=styleEntry();if(!st)return null;var sk=st[1];if(Array.isArray(sk))return (D.roleSkillChoice&&sk.indexOf(D.roleSkillChoice)>=0)?D.roleSkillChoice:sk[0];if(sk==="any")return (D.roleSkillChoice&&SKILLS[D.roleSkillChoice])?D.roleSkillChoice:"";return sk;}
+function defaultRoleSkillChoice(){var st=styleEntry();if(!st)return "";var sk=st[1];if(Array.isArray(sk))return sk[0];return "";}
 
 function readCT(){var o=null;try{o=JSON.parse(localStorage.getItem(KEY)||"null");}catch(e){}
  if(o&&o.chars&&typeof o.chars==="object"){o.order=Array.isArray(o.order)?o.order.filter(function(id){return o.chars[id];}):[];for(var id in o.chars)if(o.order.indexOf(id)<0)o.order.push(id);if(!o.chars[o.activeId])o.activeId=o.order[0]||"";return o;}
@@ -240,7 +242,7 @@ function rRole(){
   var c=el("div",{class:"cards"});
   ROLES.forEach(function(r){
     var sk=r.multi?"Stili: "+r.styles.map(function(s){return s[0];}).join(", "):"Skill: "+r.skill+" (d8)";
-    c.appendChild(el("div",{class:"card"+(D.role===r.name?" sel":""),onclick:function(){D.role=r.name;D.style=r.multi?r.styles[0][0]:"";rRole();},
+    c.appendChild(el("div",{class:"card"+(D.role===r.name?" sel":""),onclick:function(){D.role=r.name;D.style=r.multi?r.styles[0][0]:"";D.roleSkillChoice=defaultRoleSkillChoice();rRole();},
       html:'<div class="t">'+r.name+'</div><div class="d">'+sk+'</div>'}));
   });
   p.appendChild(c);
@@ -249,11 +251,21 @@ function rRole(){
     p.appendChild(el("div",{class:"infobox",html:'<b>'+rd.name+'</b> — '+rd.desc}));
     if(rd.multi){
       p.appendChild(el("label",{class:"fld",text:"Stile"}));
-      var sel=el("select",{},rd.styles.map(function(s){return el("option",{value:s[0],text:s[0]+"  (Skill: "+s[1]+")"});}));
-      sel.value=D.style;sel.onchange=function(){D.style=sel.value;rRole();};
+      var sel=el("select",{},rd.styles.map(function(s){var skl=(Array.isArray(s[1])||s[1]==="any")?"a scelta":s[1];return el("option",{value:s[0],text:s[0]+"  (Skill: "+skl+")"});}));
+      sel.value=D.style;sel.onchange=function(){D.style=sel.value;D.roleSkillChoice=defaultRoleSkillChoice();rRole();};
       p.appendChild(sel);
+      var se=styleEntry();var skl=se?se[1]:null;
+      if(Array.isArray(skl)||skl==="any"){
+        p.appendChild(el("label",{class:"fld",text:"Skill di Ruolo (a scelta)"}));
+        var opts=Array.isArray(skl)?skl:Object.keys(SKILLS);
+        var head=(skl==="any")?[el("option",{value:"",text:"— scegli una Skill —"})]:[];
+        var ssel=el("select",{},head.concat(opts.map(function(sk){return el("option",{value:sk,text:sk});})));
+        ssel.value=D.roleSkillChoice||"";ssel.onchange=function(){D.roleSkillChoice=ssel.value;rRole();};
+        p.appendChild(ssel);
+      }
     }
-    p.appendChild(el("div",{class:"infobox",html:'Skill del Ruolo: <b>'+roleSkill()+'</b> a <b>d8</b> (già assegnata).'}));
+    var rsk=roleSkill();
+    p.appendChild(el("div",{class:"infobox",html:rsk?('Skill del Ruolo: <b>'+rsk+'</b> a <b>d8</b> (già assegnata).'):'Scegli la <b>Skill di Ruolo</b> qui sopra: entrerà a <b>d8</b>.'}));
   }
 }
 
@@ -273,6 +285,7 @@ function rSkill(){
   if(!D.role){p.appendChild(el("div",{class:"infobox red",text:"Scegli prima un ruolo (Passo 4)."}));return;}
   p.appendChild(el("div",{class:"counter",id:"skill-counter",html:'Selezionate — d6: <b>'+countDie("d6")+'/2</b> · d4: <b>'+countDie("d4")+'/2</b>'+((countDie("d6")===2&&countDie("d4")===2)?' ✅':'')}));
   if(rs)p.appendChild(el("div",{class:"skillrow role",html:'<div><span class="sn">'+rs+'</span> <span class="sd">— '+(SKILLS[rs]||"")+'</span></div><div class="pick"><button class="on" disabled>d8 · Ruolo</button></div>'}));
+  else p.appendChild(el("div",{class:"infobox red",html:"Torna al <b>Ruolo</b> (Passo 4) e scegli la <b>Skill di Ruolo</b> dello Stile Special: poi entrerà a d8."}));
   Object.keys(SKILLS).forEach(function(name){
     if(name===rs)return;
     var cur=D.skills[name]||"";

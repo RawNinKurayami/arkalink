@@ -1,2 +1,2 @@
 # Grand Line Chronicles
-Plancia del Master: tema home + login, intro, bestiario con attributi, scontro con aggiunta libera e iniziativa scrivibile.
+Manuale: rimossa la sezione introduttiva "Prima di salpare".

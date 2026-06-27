@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manuale · Grand Line Chronicles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Marcellus+SC&display=swap" rel="stylesheet">
+<style>
+:root{--abyss:#0a1920;--abyss2:#0d2129;--vellum:#ecdcb6;--paper:#f4ead0;--paper2:#efe2c4;--ink:#33261a;--ink2:#5e4c34;--gold:#c9a24a;--gold2:#ecca77;--seal:#9a241a;--foam:#a8c6bd;--line:#cdb487;--line2:#d8c7a0;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;color:var(--vellum);background:radial-gradient(120% 80% at 50% -10%,#15333f 0%,#0a1920 55%,#060f14 100%) fixed;font-family:'Cormorant Garamond',Georgia,serif;font-size:18.5px;line-height:1.62;}
+a{color:inherit;}
+/* topbar */
+.topbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px clamp(14px,4vw,34px);background:rgba(8,18,24,.86);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,162,74,.25);}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.brand .anc{color:var(--gold);font-size:20px;}
+.brand .nm{font-family:'Marcellus SC',serif;letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--foam);}
+.tnav{display:flex;gap:8px;align-items:center;}
+.tnav a,.tnav button{font-family:'Marcellus SC',serif;letter-spacing:.06em;text-transform:uppercase;font-size:11px;text-decoration:none;color:var(--vellum);border:1px solid rgba(201,162,74,.4);border-radius:999px;padding:7px 13px;background:transparent;cursor:pointer;}
+.tnav a.gold{background:linear-gradient(180deg,#e7be63,#c9a24a);color:#2b1f0d;border-color:var(--gold);}
+.menubtn{display:none;}
+/* layout */
+.layout{display:grid;grid-template-columns:298px 1fr;gap:0;max-width:1280px;margin:0 auto;}
+/* sidebar / TOC */
+.toc{position:sticky;top:57px;align-self:start;height:calc(100vh - 57px);overflow-y:auto;padding:18px 14px 50px 18px;border-right:1px solid rgba(201,162,74,.18);}
+.toc .search{width:100%;font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--ink);background:#fffdf6;border:1px solid var(--line);border-radius:9px;padding:9px 12px;margin-bottom:12px;}
+.toc .search:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,74,.18);}
+.toc .part{font-family:'Marcellus SC',serif;letter-spacing:.14em;text-transform:uppercase;font-size:10.5px;color:var(--gold);margin:16px 0 6px;padding-left:4px;}
+.toc a{display:block;text-decoration:none;color:var(--vellum);font-size:15.5px;padding:5px 9px;border-radius:7px;border-left:2px solid transparent;opacity:.86;}
+.toc a:hover{background:rgba(201,162,74,.10);opacity:1;}
+.toc a.sub{padding-left:20px;font-size:14px;opacity:.72;}
+.toc a.active{background:rgba(201,162,74,.16);border-left-color:var(--gold);color:var(--gold2);opacity:1;}
+.toc .nores{color:var(--foam);font-style:italic;font-size:14px;padding:8px;}
+/* book */
+.book{padding:clamp(20px,4vw,54px) clamp(16px,4vw,60px) 120px;max-width:860px;}
+.hero{text-align:center;padding:24px 0 8px;border-bottom:1px solid rgba(201,162,74,.22);margin-bottom:30px;}
+.hero .anc{font-size:34px;color:var(--gold);}
+.hero .kick{font-family:'Marcellus SC',serif;letter-spacing:.3em;text-transform:uppercase;font-size:12px;color:var(--foam);margin-top:8px;}
+.hero h1{font-family:'Cinzel Decorative',serif;font-weight:900;font-size:clamp(30px,6vw,52px);margin:.1em 0 0;color:var(--vellum);}
+.hero .sub{font-style:italic;color:var(--foam);font-size:19px;margin-top:6px;}
+section.ch{background:linear-gradient(180deg,var(--paper),var(--paper2));color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:clamp(20px,3.4vw,40px);margin:0 0 26px;box-shadow:0 16px 40px rgba(0,0,0,.32);}
+section.ch h2{font-family:'Cinzel Decorative',serif;font-weight:900;font-size:clamp(23px,3.6vw,33px);color:#5a3f1c;margin:0 0 4px;line-height:1.12;}
+section.ch .chkick{font-family:'Marcellus SC',serif;letter-spacing:.2em;text-transform:uppercase;font-size:11px;color:var(--seal);margin-bottom:12px;}
+section.ch h3{font-family:'Cinzel Decorative',serif;font-weight:700;font-size:clamp(18px,2.6vw,23px);color:#6a4a1c;margin:26px 0 8px;border-top:1px solid var(--line2);padding-top:18px;}
+section.ch h4{font-family:'Marcellus SC',serif;letter-spacing:.04em;font-size:16px;color:#5a3f1c;margin:18px 0 4px;}
+section.ch p{margin:10px 0;}
+section.ch .lead{font-style:italic;font-size:20px;color:#4a371d;border-left:3px solid var(--gold);padding-left:14px;margin:6px 0 16px;}
+section.ch ul,section.ch ol{margin:10px 0;padding-left:22px;}
+section.ch li{margin:5px 0;}
+section.ch b,section.ch strong{color:#4a371d;}
+section.ch em{color:#5a3f1c;}
+/* narrator quote */
+.say{font-style:italic;color:#5a432a;background:rgba(201,162,74,.10);border:1px solid var(--line2);border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:14px 18px;margin:16px 0;font-size:18.5px;}
+/* register boxes */
+.box{border-radius:12px;padding:14px 16px 15px;margin:16px 0;border:1px solid var(--line);}
+.box .bt{font-family:'Marcellus SC',serif;letter-spacing:.1em;text-transform:uppercase;font-size:11px;margin-bottom:7px;display:flex;align-items:center;gap:7px;}
+.box.pro{background:rgba(201,162,74,.13);border-color:rgba(201,162,74,.5);}
+.box.pro .bt{color:#7a5a14;}
+.box.gm{background:rgba(154,36,26,.075);border-color:rgba(154,36,26,.34);}
+.box.gm .bt{color:var(--seal);}
+.box.ex{background:rgba(47,111,79,.08);border-color:rgba(47,111,79,.32);}
+.box.ex .bt{color:#2f6f4f;}
+.box p:first-of-type{margin-top:0;}.box p:last-child{margin-bottom:0;}
+/* tables */
+.tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:16px;background:#fffdf6;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.tbl th{background:#e7d4a6;color:#4a371d;font-family:'Marcellus SC',serif;letter-spacing:.03em;font-size:12.5px;text-transform:uppercase;text-align:left;padding:9px 11px;}
+.tbl td{padding:8px 11px;border-top:1px solid var(--line2);vertical-align:top;}
+.tbl tr:nth-child(even) td{background:rgba(201,162,74,.06);}
+.tbl td b{color:#5a3f1c;}
+.scrollx{overflow-x:auto;}
+/* tool deep-link */
+.tool{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:linear-gradient(180deg,#16333d,#0e242c);color:var(--vellum);border:1px solid rgba(201,162,74,.45);border-radius:12px;padding:13px 16px;margin:16px 0;}
+.tool .ti{font-family:'Marcellus SC',serif;letter-spacing:.05em;font-size:13px;color:var(--gold2);}
+.tool .td{font-size:15px;color:var(--foam);flex:1;min-width:160px;}
+.tool a{font-family:'Marcellus SC',serif;letter-spacing:.05em;font-size:12px;text-transform:uppercase;text-decoration:none;background:linear-gradient(180deg,#e7be63,#c9a24a);color:#2b1f0d;border-radius:9px;padding:9px 15px;white-space:nowrap;}
+/* small caps note */
+.divider{text-align:center;color:var(--gold);letter-spacing:.5em;margin:8px 0 2px;font-size:13px;}
+.backtop{display:inline-block;margin-top:8px;font-family:'Marcellus SC',serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);text-decoration:none;border-bottom:1px dotted var(--ink2);}
+.wip{font-family:'Marcellus SC',serif;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#8a6a1c;background:rgba(201,162,74,.16);border:1px solid rgba(201,162,74,.4);border-radius:999px;padding:2px 9px;margin-left:8px;vertical-align:middle;}
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr;}
+  .menubtn{display:inline-block;}
+  .toc{position:fixed;left:0;top:57px;width:84vw;max-width:340px;height:calc(100vh - 57px);background:#0b1c23;z-index:38;transform:translateX(-103%);transition:transform .22s;border-right:1px solid rgba(201,162,74,.3);box-shadow:14px 0 40px rgba(0,0,0,.5);}
+  .toc.open{transform:translateX(0);}
+  .scrim{display:none;position:fixed;inset:57px 0 0;background:rgba(0,0,0,.45);z-index:37;}
+  .scrim.show{display:block;}
+}
+@media print{
+  body{background:#fff;color:#000;font-size:11pt;}
+  .topbar,.toc,.scrim,.tool a,.backtop{display:none!important;}
+  .layout{display:block;max-width:none;}
+  .book{max-width:none;padding:0;}
+  section.ch{box-shadow:none;border:1px solid #ccc;border-radius:0;background:#fff;page-break-inside:avoid;margin-bottom:14px;}
+  .say,.box,.tool{break-inside:avoid;}
+  .hero h1{color:#000;}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="/"><span class="anc">⚓</span><span class="nm">Grand Line Chronicles</span></a>
+  <div class="tnav">
+    <button class="menubtn" id="menubtn">☰ Indice</button>
+    <a href="#" onclick="window.print();return false;">⎙ Stampa</a>
+    <a class="gold" href="/">Apri l'app</a>
+  </div>
+</div>
+<div class="scrim" id="scrim"></div>
+
+<div class="layout">
+  <aside class="toc" id="toc">
+    <input class="search" id="search" placeholder="Cerca nel manuale…" autocomplete="off">
+    <nav id="nav">
+      <div class="part">Parte I · Salpare</div>
+      <a href="#ch1">1 · Introduzione</a>
+      <a href="#ch2">2 · Creazione del Personaggio</a>
+      <a class="sub" href="#ch2-ambizione">L'Ambizione</a>
+      <a class="sub" href="#ch2-razza">La Razza</a>
+      <a class="sub" href="#ch2-attributi">Gli Attributi</a>
+      <a class="sub" href="#ch2-ruolo">Il Ruolo</a>
+      <a class="sub" href="#ch2-skill">Le Skill</a>
+      <a class="sub" href="#ch2-tecniche">Le Tecniche</a>
+      <a class="sub" href="#ch2-frutto">Il Frutto del Diavolo</a>
+      <a class="sub" href="#ch2-stamina">La Stamina</a>
+      <div class="part">Parte II · Le regole</div>
+      <a href="#ch3">3 · Il Sistema Will of D.</a>
+      <a href="#ch4">4 · Il Combattimento</a>
+      <a href="#ch5">5 · Gli Stili di Combattimento</a>
+      <a href="#ch6">6 · L'Haki</a>
+      <a href="#ch7">7 · I Frutti del Diavolo</a>
+      <div class="part">Parte III · I Ruoli a bordo</div>
+      <a href="#ch8">8 · Mestieri della ciurma</a>
+      <div class="part">Parte IV · La ciurma e il mare</div>
+      <a href="#ch9">9 · La Nave</a>
+      <a href="#ch10">10 · Cucina &amp; Cambusa</a>
+      <a href="#ch11">11 · Officina &amp; Crafting</a>
+      <div class="part">Parte V · Crescere</div>
+      <a href="#ch12">12 · Avanzamento &amp; Upgrade</a>
+      <div class="part">Parte VI · Il Game Master</div>
+      <a href="#ch13">13 · Guida del Game Master</a>
+      <a href="#ch14">14 · Il Bestiario</a>
+      <div class="part">Appendici</div>
+      <a href="#app-tecniche">Libreria delle Tecniche</a>
+      <a href="#app-tabelle">Tabelle riassuntive</a>
+    </nav>
+  </aside>
+
+  <main class="book">
+    <div class="hero" id="top">
+      <div class="anc">⚓</div>
+      <div class="kick">Manuale di gioco</div>
+      <h1>Grand Line Chronicles</h1>
+      <div class="sub">Una chiacchierata tra pirati su come si va per la Rotta Maggiore</div>
+    </div>
+
+    <!-- ============================ CAP 1 ============================ -->
+    <section class="ch" id="ch1">
+      <div class="chkick">Parte I · Capitolo 1</div>
+      <h2>Introduzione</h2>
+      <div class="say">Siediti, mozzo. Spingi via quel boccale vuoto e fanne portare un altro, perché la storia è lunga e la tua è appena cominciata. Ti hanno detto che vuoi prendere il mare. Bene. Allora c'è qualcuno, da queste parti, che è tornato abbastanza volte da poterti raccontare com'è fatto davvero — e quel qualcuno, stasera, sono io. Apri le orecchie.</div>
+
+      <h3 id="ch1-richiamo">Il richiamo della Grand Line</h3>
+      <p>C'è un mare, nel mezzo del mondo, dove le bussole perdono la testa, le isole se ne infischiano di ogni legge di natura e ogni singola onda può spingerti verso un tesoro o verso una tomba. Lo chiamano la <b>Grand Line</b>. E là in fondo, oltre l'ultimo orizzonte che nessuna mappa osa disegnare, si racconta che aspetti il bottino più grande mai esistito: il <b>One Piece</b>.</p>
+      <p>Ma non lasciare che ti confonda le idee, mozzo: quel tesoro è l'orizzonte di questo mondo, non il senso del tuo viaggio. Là fuori non si salpa per <em>arrivare</em> da qualche parte. Si salpa per <b>vivere</b> — per le isole assurde che vedrai, per la ciurma che ti guarderà le spalle, e per quel <b>sogno</b> tutto tuo che ti tiene sveglio la notte. Di questo parla il nostro gioco. Non di vincere. Di salpare.</p>
+
+      <h3 id="ch1-cose">Cos'è Grand Line Chronicles</h3>
+      <p><em>Grand Line Chronicles</em> è un gioco di ruolo da tavolo — roba fatta da appassionati, per appassionati — ambientato nel mondo di One Piece. Tu e i tuoi compagni siete una ciurma di pirati, e ognuno dà vita al <b>proprio</b> pirata: il suo carattere, il suo modo di menare le mani o di tenere il timone, il sogno che lo tiene in piedi. Uno di voi, però, non impugna una spada: veste i panni del <b>Game Master</b> — il narratore, l'arbitro, la voce del mondo. È lui a dar fiato a ogni isola e a ogni abitante, ai Marine sulla banchina e ai mostri sotto la chiglia, ed è lui che tiene il timone delle regole. <em>(È la sua, questa voce da taverna che ti sta parlando.)</em></p>
+      <p>E badaci bene: il <b>Capitano</b> non è il Game Master. Il Capitano è un <b>ruolo della ciurma</b> — uno dei pirati, quello al comando — un personaggio in carne e ossa come tutti gli altri. Comandare la nave è un mestiere; narrare il mare è un altro paio di maniche.</p>
+      <p>Non c'è un tabellone. Non c'è un finale già scritto. C'è una <b>storia che costruite insieme</b>, parlando: voi dichiarate cosa tentano i vostri pirati, il Game Master racconta cosa succede, e avanti così, botta e risposta. E quando l'esito è in bilico, parlano i <b>dadi</b>. Tutto il resto lo decide l'immaginazione.</p>
+      <div class="box gm"><div class="bt">☠ Voce del Game Master</div><p>Il tuo mestiere non è sconfiggere la ciurma: è darle un mondo degno delle sue imprese. Tu poni le domande — <em>"E adesso che fate?"</em> — e tieni pronto il mare a rispondere. Quando hai un dubbio, non frenare la storia: decidi in fretta, tira avanti, e aggiusta la rotta dopo.</p></div>
+
+      <h3 id="ch1-spirito">Lo spirito del gioco</h3>
+      <p>One Piece non è soltanto fendenti e cannonate. È <b>libertà</b>. È <b>amicizia</b>. È la <b>meraviglia</b> di un'isola che non avresti mai immaginato, e la testardaggine di rincorrere un sogno impossibile ridendo in faccia al mondo intero.</p>
+      <p>I vostri pirati esploreranno isole assurde, si divideranno l'ultimo tozzo di pane in mezzo a una tempesta, suoneranno una canzone, cucineranno un banchetto, affronteranno la Marina e i Re del Mare — e diventeranno più grandi non perché hanno accumulato numeri su una scheda, ma perché <b>la storia li avrà cambiati</b>. A questo tavolo un <b>cuoco vale quanto uno spadaccino</b>: una rotta tracciata con maestria conta quanto un colpo a segno, e una bugia detta al momento giusto può salvare la ciurma più di mille pallottole. Trova il tuo genere di pirata, e il mare troverà un posto per te.</p>
+
+      <h3 id="ch1-comefunziona">Come funziona, in due righe</h3>
+      <p>Ogni cosa che il tuo pirata sa fare è un <b>dado</b>: si parte dal d4 — quello del pivello che impugna la spada al contrario — e si sale fino al d20, la stoffa delle leggende. Quando agisci, prendi il dado di un <b>Attributo</b> e quello di una <b>Skill</b> (o di una <b>Tecnica</b>), li lanci, e sommi. Confronti il totale con la difficoltà del momento: più sei in gamba, più grossi i tuoi dadi, più in alto arrivi.</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — La regola d'oro dei dadi</div><p><b>Attributo + Skill (o Tecnica) ≥ Soglia.</b> Più sei bravo, più grande è il dado.<br><b>Soglie:</b> 4 banale · 8 pane quotidiano · 12 roba da gente in gamba · 16 da Vice-Ammiraglio · 20 da Ammiraglio · 25+ leggenda.</p></div>
+      <p>Crescere vuol dire due cose. I tuoi dadi <b>salgono di gradino</b> man mano che ti alleni e sopravvivi; e ai grandi giri di boa della storia guadagni un <b>Upgrade</b> — il marchio di quanta strada hai fatto, che tempra il pirata e gli sblocca nuovi assi nella manica. Niente punti da grattare per "livellare": solo un pirata che diventa, un'impresa dopo l'altra, la leggenda che sogna di essere.</p>
+
+      <h3 id="ch1-pilastri">I tre pilastri e la Regola d'Oro</h3>
+      <ul>
+        <li><b>Avventura epica.</b> Ogni isola è un mondo a sé; ogni arco esce dalla ciurma diversa da come c'è entrata.</li>
+        <li><b>Crescita che conta.</b> I pirati diventano grandi attraverso ciò che vivono, non accumulando punti come avari.</li>
+        <li><b>Azione da romanzo.</b> Il sistema premia la scena spettacolare, non il conto della serva.</li>
+      </ul>
+      <div class="box pro"><div class="bt">⚓ La Regola d'Oro</div><p><b>La storia viene sempre prima della regola.</b> Questo manuale è una bussola, non una gabbia: se una regola si mette tra la tua ciurma e una scena memorabile, è la scena ad avere ragione — sempre.</p></div>
+
+      <h3 id="ch1-serve">Cosa serve per salpare</h3>
+      <ul>
+        <li>Un <b>set di dadi poliedrici</b>: d4, d6, d8, d10, d12 e il sovrano, il d20.</li>
+        <li>Una <b>Scheda del Pirata</b> per ciascun giocatore e una <b>Scheda della Nave</b> per la ciurma.</li>
+        <li>Le <b>guide di riferimento</b> — Razze, Tecniche, Cucina, Riparazioni, Crafting.</li>
+        <li>Un <b>Game Master</b> con la voglia di costruire un mondo, e una <b>ciurma</b> con la voglia di mandarlo a soqquadro.</li>
+      </ul>
+      <div class="tool"><span class="ti">Strumento</span><span class="td">Schede e guide non devi tenerle su carta sparsa: la ciurma le ha a portata di mano nell'app — personaggi, nave, sessioni, cambusa, officina e la plancia degli scontri.</span><a href="/">Apri l'app</a></div>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ CAP 2 ============================ -->
+    <section class="ch" id="ch2">
+      <div class="chkick">Parte I · Capitolo 2</div>
+      <h2>Creazione del Personaggio</h2>
+      <div class="say">Allora vuoi davvero un nome su questo mare. Prima di mollare gli ormeggi dobbiamo capire chi diavolo sei. Non si nasce leggenda — si parte pivelli, con un sogno in tasca e poco altro. Ti tiro su un pirata pezzo per pezzo. Carta e penna pronte — o lascia che i conti li faccia il mozzo digitale.</div>
+      <p>Un pirata si costruisce a strati, e ogni strato risponde a una domanda: <b>Qual è il tuo sogno?</b> (Ambizione) · <b>Da dove vieni?</b> (Razza) · <b>Di che pasta sei fatto?</b> (Attributi) · <b>Come combatti e che mestiere fai?</b> (Ruolo) · <b>Cosa sai fare?</b> (Skill) · <b>Quali colpi tiri fuori?</b> (Tecniche e, se il mare vuole, un Frutto). Seguili in quest'ordine e non ti perderai.</p>
+      <div class="tool"><span class="ti">Strumento</span><span class="td">La creazione guidata fa scorrere con te tutti questi passi e compila la scheda.</span><a href="/crea-il-tuo-pirata/">Crea il tuo pirata</a></div>
+      <div class="box pro"><div class="bt">⚓ Promemoria — La scala dei dadi</div>
+        <div class="scrollx"><table class="tbl"><tr><th>Dado</th><th>Grado</th><th>Cosa vuol dire</th></tr>
+        <tr><td><b>d4</b></td><td>Base</td><td>Inesperto — impugni la spada al contrario</td></tr>
+        <tr><td><b>d6</b></td><td>Competente</td><td>Affidabile, sai il fatto tuo</td></tr>
+        <tr><td><b>d8</b></td><td>Esperto</td><td>Preciso, pochi reggono il confronto</td></tr>
+        <tr><td><b>d10</b></td><td>Maestro</td><td>Tra i migliori in circolazione</td></tr>
+        <tr><td><b>d12</b></td><td>Leggenda</td><td>Un nome che fa tremare il Grand Line</td></tr>
+        <tr><td><b>d20</b></td><td>Mitico</td><td>Roba da Imperatore</td></tr></table></div>
+      </div>
+
+      <h3 id="ch2-ambizione">1 · Il sogno — l'Ambizione</h3>
+      <p>Si parte da qui, perché senza un sogno non si salpa: si galleggia e basta. La tua <b>Ambizione</b> è la ragione per cui affronti questo mare assassino. La scrivi tu, come una <b>frase in prima persona</b> — un grido, non una descrizione: <em>"Disegnerò la mappa dell'intero mondo"</em>, <em>"Diventerò il più grande spadaccino mai esistito"</em>.</p>
+      <p>L'Ambizione è roba di pancia, non di numeri: non regala bonus automatici. Ma quando la ciurma compie un'impresa che incarna <em>davvero</em> il tuo sogno, il Game Master può ricompensarti come crede — è il <b>Regalo del Capitano</b>. Vivi all'altezza del tuo sogno, e il mare ti restituirà il favore.</p>
+      <div class="box gm"><div class="bt">☠ Voce del Game Master</div><p>Le Ambizioni del tavolo sono la tua mappa per gli archi narrativi. Quando vuoi mettere in difficoltà un giocatore nel modo giusto, mettigli davanti il suo sogno e chiedigli quanto è disposto a pagare per inseguirlo.</p></div>
+
+      <h3 id="ch2-razza">2 · Il sangue — la Razza</h3>
+      <p>La <b>Razza</b> fissa quattro cose: l'<b>Attributo</b> in cui il tuo sangue ti rende forte, una <b>Tecnica razziale gratuita</b> (entra a d6), i <b>Punti Vita</b> con cui parti, e il <b>Dado Vita</b> — il dado che tiri per rimetterti in sesto.</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — Le otto Razze</div>
+        <div class="scrollx"><table class="tbl"><tr><th>Razza</th><th>Bonus</th><th>Dado</th><th>PV</th><th>D. Vita</th><th>Tecnica razziale</th><th>Svantaggio</th></tr>
+        <tr><td>Umano</td><td>A scelta</td><td>d8</td><td>14</td><td>d6</td><td>Volontà Incrollabile</td><td>Nessuno</td></tr>
+        <tr><td>Uomo Pesce / Tritone</td><td>Forza</td><td>d8</td><td>16</td><td>d8</td><td>Dominio degli Abissi</td><td>+2 soglia a terra arida</td></tr>
+        <tr><td>Gigante</td><td>Forza</td><td>d10</td><td>22</td><td>d10</td><td>Scala Colossale</td><td>Non entra in navi/edifici comuni</td></tr>
+        <tr><td>Mink</td><td>Tecnica</td><td>d8</td><td>14</td><td>d6</td><td>Electro + Sulong</td><td>Esausto dopo il Sulong</td></tr>
+        <tr><td>Lunarian</td><td>Spirito</td><td>d8</td><td>16</td><td>d8</td><td>Fiamma Immortale</td><td>Taglia automatica da 50M</td></tr>
+        <tr><td>Longbraccio</td><td>Tecnica</td><td>d8</td><td>12</td><td>d6</td><td>Portata Estesa</td><td>Nessuno</td></tr>
+        <tr><td>Lungagamba</td><td>Forza</td><td>d8</td><td>14</td><td>d6</td><td>Calcio Colossale</td><td>Nessuno</td></tr>
+        <tr><td>Cyborg</td><td>Forza</td><td>d8</td><td>16</td><td>d8</td><td>Corpo Meccanico</td><td>Si cura solo da un meccanico</td></tr></table></div>
+      </div>
+      <p>E queste sono le <b>Tecniche razziali</b> — il dono del tuo sangue, gratis, a d6:</p>
+      <ul>
+        <li><b>Umano — Volontà Incrollabile.</b> Quando i PV scendono al 25% o meno, si aggiunge da sola a ogni tiro. Non costa Stamina e non puoi spegnerla.</li>
+        <li><b>Uomo Pesce / Tritone — Dominio degli Abissi.</b> In acqua si aggiunge a ogni tiro fisico; respiro infinito; immune alla maledizione del mare. A terra asciutta paghi pegno (+2 soglia).</li>
+        <li><b>Gigante — Scala Colossale.</b> Quando la stazza conta, si aggiunge al tiro. E ogni attacco a segno fa salire di un gradino il tuo Dado Danno.</li>
+        <li><b>Mink — Electro &amp; Sulong.</b> <em>Electro</em>: paralisi temporanea (1 ST). <em>Sulong</em>: sotto la luna piena tutti gli attributi +1 dado per una scena, poi crolli.</li>
+        <li><b>Lunarian — Fiamma Immortale.</b> Fiamma accesa: +1 dado per incassare. Spenta: dado bonus per schivare. Alternare è gratis, 1×/turno.</li>
+        <li><b>Longbraccio — Portata Estesa.</b> Colpisci in mischia da distanza insolita. Chi prova ad avvicinarsi ha +2 alla soglia.</li>
+        <li><b>Lungagamba — Calcio Colossale.</b> Dado bonus su calci e movimenti verticali. 1×/combattimento salti fuori portata senza tiro.</li>
+        <li><b>Cyborg — Corpo Meccanico.</b> Si aggiunge a incassare danni e ai potenziamenti meccanici. Lo rimette in sesto un meccanico, non un medico.</li>
+      </ul>
+      <div class="box gm"><div class="bt">☠ Voce del Game Master</div><p>Lo Svantaggio non è una punizione: è un gancio narrativo. Il Gigante che non entra nella locanda, l'Uomo Pesce a disagio nel deserto, il Lunarian con la taglia da 50 milioni dalla nascita — sono storie che aspettano di succedere.</p></div>
+
+      <h3 id="ch2-attributi">3 · La stoffa — gli Attributi</h3>
+      <div class="box pro"><div class="bt">⚓ Promemoria — I quattro Attributi</div>
+        <div class="scrollx"><table class="tbl"><tr><th>Attributo</th><th>Cos'è</th><th>Lo usi per…</th></tr>
+        <tr><td><b>Forza</b></td><td>Potenza, muscoli, tempra</td><td>Colpire di mischia, sollevare, incassare</td></tr>
+        <tr><td><b>Tecnica</b></td><td>Precisione, velocità, armi</td><td>Colpi tecnici, Frutto, schivare</td></tr>
+        <tr><td><b>Spirito</b></td><td>Volontà, Haki, nervi saldi</td><td>Haki, tiri sociali d'impatto, resistere alla paura</td></tr>
+        <tr><td><b>Astuzia</b></td><td>Ingegno, rotte, inganno</td><td>Trappole, navigare, truffare, pianificare</td></tr></table></div>
+      </div>
+      <p><b>Come si distribuiscono al varo.</b> Hai in mano <b>due d4 e un d6</b> da spalmare su <b>tre</b> attributi. Il <b>quarto</b> — quello in cui la tua Razza ti rende forte — prende il <b>dado razziale</b> (d8, o d10 per il Gigante), che si prende il posto del secondo d6. L'<b>Umano</b> sceglie lui dove piazzare il proprio d8. E una regola di ferro: <b>al varo nessun altro attributo parte da d8</b>. Quella potenza te la guadagni vivendo.</p>
+      <div class="box ex"><div class="bt">⚔ Esempio</div><p>Tre pivelli pronti a salpare:<br>— un <b>Uomo Pesce</b>: Forza <b>d8</b> (razziale), poi d6 Astuzia, d4 Tecnica, d4 Spirito.<br>— un <b>Gigante</b>: Forza <b>d10</b> (razziale), poi d6 Spirito, d4 Tecnica, d4 Astuzia.<br>— un <b>Umano</b> col cervello: Astuzia <b>d8</b>, poi d6 Tecnica, d4 Forza, d4 Spirito.</p></div>
+
+      <h3 id="ch2-ruolo">4 · Il tuo Ruolo</h3>
+      <p>Ogni pirata ha un <b>Ruolo</b>: il suo posto a bordo, ciò che sa fare meglio di chiunque altro. Ti regala una <b>Skill di Ruolo già affilata a d8</b>.</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — Gli otto Ruoli</div>
+        <div class="scrollx"><table class="tbl"><tr><th>Ruolo</th><th>Skill di Ruolo (d8)</th><th>Stili</th></tr>
+        <tr><td><b>Combattente</b></td><td>dipende dallo Stile</td><td>Striker · Swordsman · Sniper · Special</td></tr>
+        <tr><td><b>Dottore</b></td><td>Medicina</td><td>Infermeria · Tossicologo · Chimico</td></tr>
+        <tr><td><b>Cuoco</b></td><td>Cucina</td><td>—</td></tr>
+        <tr><td><b>Navigatore</b></td><td>Navigazione</td><td>—</td></tr>
+        <tr><td><b>Ingegnere</b></td><td>Carpenteria o Meccanica</td><td>Carpentiere · Meccanico · Inventore</td></tr>
+        <tr><td><b>Archeologo</b></td><td>Archeologia</td><td>—</td></tr>
+        <tr><td><b>Musicista</b></td><td>Arte</td><td>—</td></tr>
+        <tr><td><b>Capitano</b></td><td>Comunicazione</td><td>—</td></tr></table></div>
+        <p style="margin-top:8px;font-size:14.5px">La <b>Vedetta</b> non è un Ruolo a sé: chi sta in coffa usa la skill <b>Osservazione</b>.</p>
+      </div>
+      <p>Due note: il <b>Musicista</b> è il moltiplicatore della ciurma — ridà Stamina, spezza la paura, potenzia gli altri (le sue canzoni sono <b>Spirito + Tecnica</b>); per combattere usa anche lui uno <b>Stile</b> (lo strumento non è un'arma). Il <b>Capitano</b> non ha talenti di Stile: la sua forza è l'<b>Ambizione</b>, i <b>Legami</b> e il <b>comando</b>.</p>
+      <h4>Il Combattente e i suoi Stili</h4>
+      <p>Il Combattente vive per lo scontro, e il suo <b>Stile</b> dice con cosa e come mena le mani. Ogni Stile porta una <b>Firma</b>: un colpo speciale che scatta quando metti a segno un <b>colpo pulito</b> (margine di <b>+4</b>). L'Attributo su cui costruisci lo Stile è <b>libero</b>, e da ciascuno Stile arriva la tua <b>Skill di Ruolo a d8</b>.</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — I quattro Stili del Combattente</div>
+        <div class="scrollx"><table class="tbl"><tr><th>Stile</th><th>Come combatte</th><th>Firma (+4)</th><th>Skill a d8</th></tr>
+        <tr><td><b>Striker</b></td><td>Mani nude (nessun Grado d'arma ti frena: usi il pieno dell'Attributo)</td><td>Il colpo <b>sfonda</b> — bersaglio Stordito 1 turno</td><td>Atletica <em>o</em> Acrobazia</td></tr>
+        <tr><td><b>Swordsman</b></td><td>Lame, maestro della difesa attiva</td><td><b>Doppio fendente</b> — tiri il Dado Danno una volta in più</td><td>Atletica</td></tr>
+        <tr><td><b>Sniper</b></td><td>A distanza, spesso agisce per primo</td><td>Il prossimo colpo sullo stesso bersaglio conta la sua <b>Difesa Passiva −2</b></td><td>Osservazione</td></tr>
+        <tr><td><b>Special</b></td><td>Arsenale unico — cyborg, gadget (col GM)</td><td><b>Scateni l'effetto</b> del tuo modulo</td><td>a tua scelta</td></tr></table></div>
+      </div>
+      <h4>Uno o due Ruoli — e la Skill a d8</h4>
+      <p>Un pirata può puntare tutto su <b>un solo Ruolo</b> o portarne <b>due</b>. Due Ruoli è come <b>multiclassare</b>: più versatile ma più diluito; chi resta su uno solo va più in profondità. Regola che conta: <b>la Skill di Ruolo a d8 te la dà un solo Ruolo — scegli tu quale.</b> Il secondo Ruolo è tuo per il suo Stile, le sue Tecniche, i suoi talenti e il suo posto a bordo, ma il <b>d8 è uno solo</b>.</p>
+      <div class="box ex"><div class="bt">⚔ Esempio</div><p>Garrett è <b>Combattente (Swordsman)</b> e <b>Cuoco</b>. Decide che la lama viene prima: prende il <b>d8 in Atletica</b> dallo Swordsman. Resta un gran cuoco — ha le Tecniche da cucina e la Cucina tra le Skill — ma quel d8 lo ha messo nel ferro, non ai fornelli.</p></div>
+
+      <h3 id="ch2-skill">5 · Cosa sai fare — le Skill</h3>
+      <p>Le <b>Skill</b> sono le sedici discipline che un pirata impara col sudore. <b>Sono sedici, né una di più.</b></p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — Le 16 Skill</div>
+        <div class="scrollx"><table class="tbl"><tr><th>Skill</th><th>A cosa serve</th><th>Skill</th><th>A cosa serve</th></tr>
+        <tr><td>Artigianato</td><td>Oggetti e attrezzi</td><td>Osservazione</td><td>Pericoli, indizi, intenzioni</td></tr>
+        <tr><td>Medicina</td><td>Ferite, veleni, stabilizzare</td><td>Meccanica</td><td>Macchinari, cannoni, congegni</td></tr>
+        <tr><td>Navigazione</td><td>Log Pose, rotte, correnti</td><td>Carpenteria</td><td>Costruire/riparare la nave</td></tr>
+        <tr><td>Cucina</td><td>Pasti che recuperano PV e ST</td><td>Esplorazione</td><td>Orientarsi su un'isola</td></tr>
+        <tr><td>Furtività</td><td>Non visti, scassinare</td><td>Comunicazione</td><td>Convincere, comandare, intimidire</td></tr>
+        <tr><td>Atletica</td><td>Correre, arrampicarsi, lottare</td><td>Natura</td><td>Animali, piante, clima</td></tr>
+        <tr><td>Archeologia</td><td>Storia, lingue, Poneglyph</td><td>Sopravvivenza</td><td>Cibo, acqua, riparo</td></tr>
+        <tr><td>Acrobazia</td><td>Equilibrio, capriole, evasione</td><td>Arte</td><td>Musica, disegno, falsi</td></tr></table></div>
+      </div>
+      <p><b>Le Skill al varo.</b> Scegli <b>liberamente quattro</b> Skill: <b>due a d6</b> e <b>due a d4</b>. A queste si somma la <b>Skill di Ruolo a d8</b>. <b>Tutte le altre restano a 0.</b></p>
+      <p><b>Le Skill a 0 si accendono vivendo.</b> La <b>prima volta</b> che usi o alleni una Skill a 0 in modo significativo, con l'ok del Game Master, si accende a <b>d4</b> — come nasce una Tecnica custom. Da lì sale coi <b>Punti Abilità</b>.</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — Skill ≠ Tecnica</div><p>Una <b>Skill</b> è una <em>disciplina</em> (Cucina, Medicina…): si allena nel tempo. Una <b>Tecnica</b> è una <em>mossa</em> o un <em>potere</em>: un asso nella manica, non una materia da studiare.</p></div>
+
+      <h3 id="ch2-tecniche">6 · I tuoi colpi — le Tecniche</h3>
+      <p>Le <b>Tecniche</b> sono i colpi e i poteri del tuo pirata. Ogni Tecnica ha <b>due valori che salgono insieme, alla pari</b>: il <b>dado Tecnica</b>, che tiri (con l'Attributo) per <b>colpire</b> contro la difesa; e il <b>Dado Danno</b>, che dice <b>quanto fa male</b> ed è <b>sempre lo stesso dado</b>. Una Tecnica a d8 colpisce con un d8 e ferisce con un d8.</p>
+      <p>Esistono <b>quattro tipi</b>: <b>Razziale</b> (il dono del sangue, gratis, a d6) · <b>Custom</b> (fino a due, le inventi tu, a d4, col benestare del GM) · <b>del Frutto</b> (se ne hai uno, a d4) · <b>dell'Haki</b> (le arti della volontà, capitolo a parte).</p>
+      <p><b>Una custom dev'essere specifica.</b> Non <em>"sono bravo a combattere"</em>, ma <em>"Stile delle Tre Lame — Oni Giri"</em>. <b>Quanto costano:</b> una Tecnica usata liscia <b>non costa nulla</b>; quando la <b>potenzi</b> paghi <b>Stamina</b> — 1 ST per un potenziamento standard, 2 ST per uno avanzato (Danno ×2).</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — Niente "attacco base" generico</div><p>Non esistono skill come "Combattimento" o "Intimidazione". Si mena: con una <b>Tecnica</b> → <em>Attributo + Tecnica</em>; con un <b>colpo base d'arma</b> → <em>Attributo + dado del Grado dell'arma</em>; a <b>mani nude</b> → <em>Attributo + Tecnica</em>; <b>disarmato senza Tecnica adatta</b> → solo l'<b>Attributo</b> (Danno d4). Fuori dal combattimento, per intimidire usi la <b>Comunicazione</b>.</p></div>
+
+      <h3 id="ch2-frutto">7 · Il Frutto del Diavolo</h3>
+      <p>Un Frutto <b>non ti rende più forte degli altri</b>: i numeri restano quelli di una Tecnica normale. Ti dà <b>libertà creativa</b> — una forma unica per i tuoi colpi. Averlo o no <b>lo decide il Game Master</b>.</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — I tre tipi di Frutto</div>
+        <div class="scrollx"><table class="tbl"><tr><th>Tipo</th><th>Cosa fa</th><th>Esempi</th></tr>
+        <tr><td><b>Paramecia</b></td><td>Trasforma il corpo o ciò che ti circonda</td><td>Gomu Gomu, Bara Bara</td></tr>
+        <tr><td><b>Logia</b></td><td>Ti trasforma in un elemento naturale</td><td>Mera Mera, Hie Hie</td></tr>
+        <tr><td><b>Zoan</b></td><td>Ti trasforma in un animale</td><td>Hito Hito, Tori Tori</td></tr></table></div>
+      </div>
+      <p>Entra come una <b>Tecnica a d4</b> e cresce coi Punti Abilità. <b>Nessuno slot speciale</b>: i poteri del Frutto stanno sulla scheda insieme alle altre Tecniche. Usi base gratuiti, avanzati 1–2 ST.</p>
+      <p>E il prezzo del potere — le <b>tre debolezze</b>:</p>
+      <ul>
+        <li><b>Il mare.</b> Non sai più nuotare e ti spegni in acqua salata.</li>
+        <li><b>L'agalmatolite (Pietra di Mare).</b> Annulla i poteri e prosciuga le forze al contatto: manette, gabbie, proiettili.</li>
+        <li><b>L'Haki.</b> L'Armamento ti colpisce <em>attraverso</em> il potere — ed è l'unico modo di toccare un Logia.</li>
+      </ul>
+
+      <h3 id="ch2-stamina">8 · Il fiato in corpo — la Stamina</h3>
+      <p>I PV dicono quanto reggi prima di cadere (te li dà la Razza). La <b>Stamina (ST)</b> è il <b>fiato</b>: il carburante per spingere il corpo oltre il limite.</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — A cosa serve la Stamina</div>
+        <div class="scrollx"><table class="tbl"><tr><th>Azione</th><th>Costo ST</th></tr>
+        <tr><td>Attivare l'Haki (senza mantenerlo)</td><td>1 ST</td></tr>
+        <tr><td>Mantenere l'Haki attivo (per turno)</td><td>1 ST</td></tr>
+        <tr><td>Tecnica speciale standard</td><td>1 ST</td></tr>
+        <tr><td>Tecnica speciale avanzata (Danno ×2)</td><td>2 ST</td></tr>
+        <tr><td>Effetto Haki a scelta</td><td>il costo in <b>PIP</b> indicato</td></tr></table></div>
+      </div>
+      <p>La <b>Stamina massima parte da 6</b> e sale di <b>+1</b> a ogni avanzamento concesso dal Game Master. Chi brucia tutto il fiato nel primo scambio si ritrova a tirare pugni stanchi quando conta.</p>
+      <div class="box ex"><div class="bt">⚔ La tua scheda è pronta</div><p>Da una pagina bianca è uscito un pirata: un <b>sogno</b>, una <b>Razza</b> (PV, Dado Vita, Tecnica razziale d6), <b>quattro Attributi</b> (razziale d8/d10, un d6, due d4), uno <b>Stile</b> (ed eventuale secondo Ruolo), <b>cinque Skill</b> (una d8, due d6, due d4), le <b>Tecniche</b> (razziale + fino a due custom + eventuale Frutto) e <b>6 di Stamina</b>. Non sei una leggenda. Non ancora.</p></div>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ CAP 3 ============================ -->
+    <section class="ch" id="ch3">
+      <div class="chkick">Parte II · Capitolo 3</div>
+      <h2>Il Sistema Will of D.</h2>
+      <div class="say">Tutto, su questo mare, si decide in un pugno di dadi. Lascia che ti spieghi come — è più semplice di quanto sembri, e in cinque minuti tiri come un veterano.</div>
+      <p>Quando il tuo pirata tenta qualcosa il cui esito è in dubbio — sfondare una porta, leggere una rotta, mentire a un Marine — prendi <b>il dado di un Attributo</b> e <b>il dado di una Skill</b> (o di una Tecnica), li tiri insieme e <b>sommi</b>. Quel totale lo confronti con una <b>Soglia</b> che il Game Master ha in mente: pari o sopra, ce l'hai fatta; sotto, no.</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — Il tiro base</div><p><b>Attributo + Skill (o Tecnica) ≥ Soglia.</b><br>Soglie: <b>4</b> banale · <b>8</b> normale · <b>12</b> esperto · <b>16</b> Vice-Ammiraglio · <b>20</b> Ammiraglio · <b>25+</b> leggenda.</p></div>
+      <p>Non tiri per ogni sciocchezza: se non c'è rischio né conflitto, l'azione riesce e basta. I dadi escono solo quando <b>fallire è possibile e interessante</b>.</p>
+
+      <h3 id="ch3-margine">Il margine: quanto bene è andata</h3>
+      <p>Spesso non conta solo "sì o no", ma <b>di quanto</b> hai superato la Soglia — il <b>margine</b>. Un pelo sopra è una riuscita risicata; stracciarla è un trionfo. In combattimento il margine ha un peso preciso (lo vedi nel prossimo capitolo), ma vale ovunque: più alto il margine, più ricca la riuscita che il Game Master ti concede.</p>
+      <div class="box gm"><div class="bt">☠ Voce del Game Master</div><p>Usa il margine per dosare il <em>colore</em>. Soglia presa di misura? Riesci, ma a un prezzo o con una complicazione. Soglia sbriciolata? Concedi qualcosa in più — un dettaglio, un vantaggio, una scena memorabile. È così che i numeri diventano storia.</p></div>
+
+      <h3 id="ch3-bonus">Dadi bonus e malus</h3>
+      <p>Il mondo non è mai neutro. Una posizione di vantaggio, un buon piano, l'aiuto di un compagno o un effetto attivo possono darti <b>dadi bonus</b> da sommare; condizioni avverse, ferite o terreno ostile fanno <b>salire la Soglia</b> o sottrarre dadi. Tante Tecniche razziali e arti dell'Haki funzionano così: "si aggiunge al tiro".</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — Quasi Morto</div><p>Un pirata ridotto al <b>25% dei PV o meno</b> è <b>Quasi Morto</b>: la disperazione lo accende e tira <b>+2 dadi</b> finché resta in quello stato. La fine è spesso il momento più pericoloso di un pirata.</p></div>
+
+      <h3 id="ch3-crescita">Crescere: i dadi salgono</h3>
+      <p>Allenare ciò che fai lo rende più grande. Skill e Tecniche salgono di gradino — d4→d6→d8 e oltre — spendendo <b>Punti Abilità</b> (P.A.), che accumuli usandole nella storia. Le soglie esatte e l'avanzamento per Upgrade li trovi nel <a href="#ch12">Capitolo 12</a>.</p>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ CAP 4 ============================ -->
+    <section class="ch" id="ch4">
+      <div class="chkick">Parte II · Capitolo 4</div>
+      <h2>Il Combattimento</h2>
+      <div class="say">Prima o poi il ferro fischia. Quando succede, non perdere la testa: anche la rissa più caotica segue poche, solide regole. Eccole.</div>
+
+      <h3 id="ch4-iniziativa">Chi va per primo — l'Iniziativa</h3>
+      <p>All'inizio di uno scontro ogni combattente tira l'<b>Iniziativa</b>: <b>Tecnica + Astuzia</b>. Si agisce dal totale più alto al più basso, round dopo round.</p>
+      <div class="tool"><span class="ti">Strumento</span><span class="td">La Plancia del Master tiene l'ordine d'iniziativa, i PV, la Stamina e gli stati di tutto il tavolo — e puoi scrivere a mano i tiri usciti.</span><a href="/plancia-master/">Plancia del Master</a></div>
+
+      <h3 id="ch4-colpire">Colpire e difendersi</h3>
+      <p>Per colpire tiri <b>Attributo + Tecnica</b> (o + il Grado dell'arma per un colpo base). Il bersaglio non tira: oppone la sua <b>Difesa Passiva</b>, cioè il <b>numero</b> stampato sul suo dado difensivo (un d8 in difesa = Difesa 8). Se il tuo tiro <b>raggiunge o supera</b> quel numero, vai a segno.</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — Attacco vs Difesa</div>
+        <div class="scrollx"><table class="tbl"><tr><th>Margine del colpo</th><th>Cosa succede</th></tr>
+        <tr><td><b>+4 o più</b></td><td><b>Colpo pulito</b>: vai a segno e scatta la <b>Firma</b> del tuo Stile</td></tr>
+        <tr><td>da +1 a +3</td><td>Colpisci: tira il <b>Dado Danno</b></td></tr>
+        <tr><td>pareggio (0)</td><td>La Difesa tiene: niente danno</td></tr>
+        <tr><td>sotto</td><td>Manchi</td></tr></table></div>
+        <p style="margin-top:8px"><b>Difesa Passiva = il numero del dado difensivo.</b></p>
+      </div>
+
+      <h3 id="ch4-danno">Il Dado Danno</h3>
+      <p>Andato a segno, tiri il <b>Dado Danno</b> della Tecnica (lo stesso gradino della Tecnica) e sottrai quel valore dai PV del bersaglio. Niente "danno = margine": il danno è un dado a parte, che cresce con la Tecnica. Quando i PV arrivano a <b>0</b> il combattente va <b>a Terra</b> — fuori dallo scontro, alla mercé di chi resta in piedi.</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — Potenziare un colpo</div><p>Una Tecnica liscia <b>non costa nulla</b>. Spendendo Stamina la spingi oltre: <b>1 ST</b> per un potenziamento <b>standard</b>; <b>2 ST</b> per uno <b>avanzato</b> che <b>raddoppia il Dado Danno</b>.</p></div>
+      <div class="box ex"><div class="bt">⚔ Esempio</div><p>Thorne (Swordsman, Tecnica d8) attacca un soldato con Difesa 9. Tira Forza d8 + Tecnica d8 = <b>14</b>: margine +5, <b>colpo pulito</b>. Scatta la Firma "doppio fendente": tira il Dado Danno (d8) <b>due volte</b> e somma. Il soldato barcolla.</p></div>
+
+      <h3 id="ch4-stati">Stati e situazioni</h3>
+      <p>Le Firme e molte Tecniche impongono <b>stati</b>: <b>Stordito</b> (salta o subisce penalità), <b>Sbilanciato</b>, <b>Sanguinante</b>, <b>Avvelenato</b>, <b>Accecato</b>, <b>Paralizzato</b>, e così via. Sono il sale del combattimento: aprono varchi, costringono a scelte, ribaltano lo scontro. Il Game Master decide durata ed effetto preciso quando non è già scritto nella Tecnica.</p>
+      <div class="box gm"><div class="bt">☠ Voce del Game Master</div><p>Premia l'inventiva, non solo i numeri. Chi usa l'ambiente — un lampadario, una vela, un barile di polvere — merita un dado bonus o uno stato gratis. Il combattimento di One Piece è acrobatico e teatrale: fai in modo che il tavolo lo senta.</p></div>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ CAP 5 ============================ -->
+    <section class="ch" id="ch5">
+      <div class="chkick">Parte II · Capitolo 5</div>
+      <h2>Gli Stili di Combattimento</h2>
+      <div class="say">Tutti meniamo le mani — ma non tutti allo stesso modo. Il tuo Stile è la tua firma sul campo: come ti muovi, cosa impugni, e il colpo che nessuno dimentica.</div>
+      <p>Lo <b>Stile</b> appartiene al Ruolo del <b>Combattente</b> e definisce arma e modo di combattere. Porta una <b>Firma</b> che scatta sul <b>colpo pulito (+4)</b> e ti assegna la <b>Skill di Ruolo a d8</b>. L'Attributo su cui lo costruisci è libero. Man mano che cresci, ogni Stile sblocca <b>Talenti</b> dedicati (uno per Upgrade; vedi <a href="#ch12">Cap. 12</a>).</p>
+
+      <h4>Striker — il corpo è l'arma</h4>
+      <p>A mani nude, nessun Grado d'arma ti frena: usi il <b>pieno dell'Attributo</b>, e prese e atterramenti sono pane tuo. <b>Firma (+4):</b> il colpo <b>sfonda</b> — il bersaglio è Stordito/sbilanciato per 1 turno. <b>Skill a d8:</b> Atletica <em>o</em> Acrobazia.</p>
+      <h4>Swordsman — la via della lama</h4>
+      <p>Maestro della <b>difesa attiva</b>; le lame di Grado alto sbloccano i loro effetti. <b>Firma (+4):</b> <b>doppio fendente</b> — tiri il Dado Danno una volta in più e sommi. <b>Skill a d8:</b> Atletica.</p>
+      <h4>Sniper — colpire da lontano</h4>
+      <p>Colpisci fuori dalla mischia e spesso agisci per primo. <b>Firma (+4):</b> il tuo prossimo colpo sullo stesso bersaglio conta la sua <b>Difesa Passiva ridotta di 2</b>. <b>Skill a d8:</b> Osservazione.</p>
+      <h4>Special — l'arsenale unico</h4>
+      <p>Cyborg, inventori, armi non convenzionali concordate col Game Master. <b>Firma (+4):</b> scateni l'<b>effetto del tuo modulo</b> (esplosione, stato, scarica). <b>Skill a d8:</b> a tua scelta.</p>
+      <div class="tool"><span class="ti">Strumento</span><span class="td">Nella gestione del personaggio scegli lo Stile e sblocchi i suoi Talenti arco dopo arco.</span><a href="/gestisci-pirata/">Gestisci pirata</a></div>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ CAP 6 ============================ -->
+    <section class="ch" id="ch6">
+      <div class="chkick">Parte II · Capitolo 6</div>
+      <h2>L'Haki</h2>
+      <div class="say">C'è una forza che non si vede e non si compra: è la volontà fatta potere. La chiamano Haki. Pochi la padroneggiano davvero — e quei pochi cambiano il corso di una battaglia con uno sguardo.</div>
+      <p>L'Haki è una <b>Tecnica speciale</b> mossa dallo <b>Spirito</b>. <b>Attivarlo</b> costa <b>1 ST</b>; <b>mantenerlo</b> attivo costa <b>1 ST per turno</b>. I suoi effetti più potenti si pagano in <b>PIP</b> (i punti-volontà indicati riga per riga). Esistono tre Colori, e ciascuno cresce per gradini come una Tecnica.</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — I tre Colori</div><p><b>Armamento</b> — l'aura che indurisce e colpisce <em>attraverso</em> i poteri (unico modo di toccare un Logia). <b>Osservazione</b> — il sesto senso che prevede e percepisce. <b>Re (Haoshoku)</b> — il dono raro del comando, che piega le volontà più deboli. Cresce a PIP (max 3).</p></div>
+
+      <h3 id="ch6-arm">Haki dell'Armamento</h3>
+      <div class="scrollx"><table class="tbl"><tr><th>Liv.</th><th>Passivo</th><th>Attivo</th><th>PIP</th></tr>
+      <tr><td><b>d6</b> Competente</td><td>Paghi 1 ST/turno per mantenerlo (le abilità potenziate con l'Haki non costano PIP)</td><td>—</td><td>—</td></tr>
+      <tr><td><b>d8</b> Esperto</td><td>Ignori le difese non-Haki dei PNG minori (PV ≤ 8)</td><td>Armatura totale: dimezzi i danni subiti (arr. per eccesso)</td><td>1</td></tr>
+      <tr><td><b>d10</b> Maestro</td><td>In difesa tiri due volte il dado Haki, tieni il più alto</td><td>Esplosione: a fine attacco, onda ad area (metà danno) su tutti i nemici</td><td>1</td></tr>
+      <tr><td><b>d12</b> Leggenda</td><td>Resta attivo senza pagare ST per 3 turni</td><td>Spezza Volontà: la difesa del bersaglio è dimezzata per 1 suo turno</td><td>2</td></tr>
+      <tr><td><b>d20</b> Mitico</td><td>Il nemico tira 2 dadi in difesa e tiene il peggiore</td><td>Ryou: danni interni doppi (×2), ignora la difesa</td><td>3</td></tr></table></div>
+
+      <h3 id="ch6-oss">Haki dell'Osservazione</h3>
+      <div class="scrollx"><table class="tbl"><tr><th>Liv.</th><th>Passivo</th><th>Attivo</th><th>PIP</th></tr>
+      <tr><td><b>d6</b> Competente</td><td>Paghi 1 ST/turno per mantenerlo</td><td>—</td><td>—</td></tr>
+      <tr><td><b>d8</b> Esperto</td><td>Vista a 360°: non puoi essere sorpreso</td><td>Anticipo: +2 dadi Osservazione a un'evasione o contrattacco</td><td>1</td></tr>
+      <tr><td><b>d10</b> Maestro</td><td>Lettura del campo: posizione e PV approssimativi di tutti i nemici</td><td>Guida nakama: per 1 turno trasferisci il tuo dado Osservazione a tutti i compagni in vista</td><td>1</td></tr>
+      <tr><td><b>d12</b> Leggenda</td><td>Visione futura: 1×/sessione chiedi al GM cosa accadrà a inizio scena</td><td>Previsione breve: per 1 turno il nemico non può colpirti con attacchi fisici normali</td><td>2</td></tr>
+      <tr><td><b>d20</b> Mitico</td><td>Osservazione universale: percepisci ogni essere sull'isola</td><td>Previsione futura: per 2 turni ignori la difesa e schivi ogni colpo in automatico</td><td>3</td></tr></table></div>
+
+      <h3 id="ch6-re">Haki del Re</h3>
+      <p>Il Colore più raro: non si allena, si <b>possiede</b>. Cresce a <b>PIP</b> (max 3).</p>
+      <div class="scrollx"><table class="tbl"><tr><th>PIP</th><th>Passivo</th><th>Attivo</th><th>Costo</th></tr>
+      <tr><td><b>1</b> Risveglio</td><td>Stordimento di massa: stordisce tutti i PNG minori (PV ≤ 15) nella scena, senza tiro</td><td>—</td><td>—</td></tr>
+      <tr><td><b>2</b> Dominio</td><td>Aura intimidatoria: −2 ai tiri dei nemici con Spirito &lt; d8</td><td>Grido dell'Imperatore: un nemico (anche boss) perde la prossima azione (1×/combattimento)</td><td>1</td></tr>
+      <tr><td><b>3</b> Assoluto</td><td>A inizio combattimento dimezzi i PV di tutti i PNG minori (arr. per difetto)</td><td>Re Ryou: rivesti un attacco fisico — ignora ogni protezione e tiri due volte tenendo il più alto</td><td>2</td></tr></table></div>
+      <div class="tool"><span class="ti">Strumento</span><span class="td">La scheda di gestione tiene il conto dei tuoi Colori, dei dadi e dei PIP disponibili.</span><a href="/gestisci-pirata/">Gestisci pirata</a></div>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ CAP 7 ============================ -->
+    <section class="ch" id="ch7">
+      <div class="chkick">Parte II · Capitolo 7</div>
+      <h2>I Frutti del Diavolo</h2>
+      <div class="say">Un boccone, e il mare ti volta le spalle per sempre — ma in cambio ti regala un potere che sfida ogni legge. Ne vale la pena? Lo deciderai tu.</div>
+      <p>Le regole base del Frutto le hai già viste nella <a href="#ch2-frutto">Creazione</a>: tre tipi (<b>Paramecia</b>, <b>Logia</b>, <b>Zoan</b>), entra come Tecnica a <b>d4</b>, vive sulla scheda con le altre Tecniche, e porta le <b>tre debolezze</b> (mare, Pietra di Mare, Haki dell'Armamento). Qui aggiungiamo cosa succede quando un Frutto <b>cresce</b>.</p>
+      <h4>I Talenti del Frutto</h4>
+      <p>Come gli Stili, ogni tipo di Frutto ha un suo <b>ramo di Talenti</b>: ne sblocchi <b>uno per Upgrade</b> dal ramo del tuo tipo. I Talenti <b>Avanzati</b> chiedono <b>2 Talenti del Frutto</b> già presi; il <b>Risveglio</b> — la vetta del potere — si attiva solo col <b>permesso del Game Master</b>, ed è legato alla tua <b>Ambizione</b>.</p>
+      <div class="box gm"><div class="bt">☠ Voce del Game Master</div><p>Il Frutto è libertà creativa, non una scorciatoia ai numeri. Premia gli usi <em>fantasiosi</em> del potere — è lì che un Paramecia diventa memorabile — ma tieni la mano ferma sul Risveglio: deve sapere di evento, non di routine.</p></div>
+      <div class="tool"><span class="ti">Strumento</span><span class="td">Registra Frutto, tipo e Talenti (incluso il Risveglio) nella gestione del personaggio.</span><a href="/gestisci-pirata/">Gestisci pirata</a></div>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ CAP 8 ============================ -->
+    <section class="ch" id="ch8">
+      <div class="chkick">Parte III · Capitolo 8</div>
+      <h2>Mestieri della ciurma</h2>
+      <div class="say">Una nave non va avanti coi soli pugni. Serve chi cucina, chi cura, chi legge le stelle, chi tiene insieme il legno. Ecco i mestieri che fanno una ciurma.</div>
+      <p>Questi sono gli stessi <b>Ruoli</b> della Creazione, visti dal lato del <b>mestiere</b>. Ogni Ruolo dà la sua <b>Skill di Ruolo a d8</b> e, dove ha Stili, declina ciò che sa fare.</p>
+      <h4>Cuoco — Cucina</h4>
+      <p>Il cuore e il motore della ciurma: i piatti ambiziosi (Soglia 10–12) riescono solo a lui. <b>Apice (+4):</b> il Critico — capolavoro con Bonus di categoria. <em>(→ <a href="#ch10">Cucina &amp; Cambusa</a>)</em></p>
+      <h4>Dottore — Medicina</h4>
+      <p>Tiene in piedi l'equipaggio. Tre Stili: <b>Infermeria</b> (cure e recupero), <b>Tossicologo</b> (veleni e antidoti), <b>Chimico</b> (la piccola industria della distilleria).</p>
+      <h4>Navigatore — Navigazione</h4>
+      <p>Trasforma il mare da nemico a strada; il suo lavoro regala dadi bonus alla traversata. <b>Apice (+4):</b> rotta perfetta — +d6 alla traversata e pericolo anticipato. <em>(→ <a href="#ch9">La Nave</a>)</em></p>
+      <h4>Ingegnere — Carpenteria / Meccanica</h4>
+      <p>Costruisce e ripara. Tre Stili: <b>Carpentiere</b> (legno e scafo, Carpenteria), <b>Meccanico</b> (macchine e cannoni, Meccanica), <b>Inventore</b> (gadget e moduli, Meccanica). <em>(→ <a href="#ch11">Officina</a>)</em></p>
+      <h4>Archeologo — Archeologia</h4>
+      <p>La memoria della ciurma; trasforma le pietre in avventure. <b>Apice (+4):</b> traduzione piena col dettaglio nascosto, o la trappola individuata prima di scattare.</p>
+      <h4>Musicista — Arte</h4>
+      <p>Il moltiplicatore: l'unico che <b>ridà Stamina</b> in battaglia, spezza la paura, potenzia tutti. Le canzoni sono <b>Spirito + Tecnica</b>; per menare usa il suo Stile (lo strumento non è un'arma).</p>
+      <h4>Capitano — Comunicazione</h4>
+      <p>Non ha Talenti di Stile: la sua forza è l'<b>Ambizione</b>, i <b>Legami</b> e il <b>comando</b> della ciurma.</p>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ CAP 9 ============================ -->
+    <section class="ch" id="ch9">
+      <div class="chkick">Parte IV · Capitolo 9</div>
+      <h2>La Nave</h2>
+      <div class="say">La tua nave non è un mezzo: è un membro della ciurma. Ha un nome, un carattere, e cicatrici da raccontare. Trattala bene e ti porterà fino in capo al mondo.</div>
+      <p>La Nave è il cuore mobile della campagna. Il suo portale raccoglie tre fronti: <b>Battaglia</b> (cosa tira la ciurma alle postazioni, contro quali soglie), <b>Navigazione</b> (traversate e pericoli, retti dalla Navigazione del navigatore) e <b>Cantiere</b> (riparazioni e potenziamenti, retti dalla Carpenteria dell'ingegnere). I <b>Punti Struttura</b> della nave si gestiscono come i PV di un pirata.</p>
+      <div class="box gm"><div class="bt">☠ Voce del Game Master</div><p>Dai alla nave delle <em>poste in gioco</em> proprie: un albero che cede in tempesta, una falla durante l'abbordaggio. Le scene di nave coinvolgono <b>tutta</b> la ciurma in una volta — sfruttalo.</p></div>
+      <div class="tool"><span class="ti">Strumento</span><span class="td">Il Portale Nave tiene scheda, Punti Struttura e le tre aree con tutte le spiegazioni.</span><a href="/nave-portale/">Portale Nave</a></div>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ CAP 10 ============================ -->
+    <section class="ch" id="ch10">
+      <div class="chkick">Parte IV · Capitolo 10</div>
+      <h2>Cucina &amp; Cambusa</h2>
+      <div class="say">Un equipaggio marcia sullo stomaco. Un buon piatto rimette in sesto le ossa e l'umore meglio di mille discorsi — e in mezzo a una traversata, vale oro.</div>
+      <p>Cucinare è una prova di <b>Cucina</b> contro una <b>Soglia</b> legata all'ambizione del piatto. L'<b>esito</b> decide quanto recupera chi mangia — PV e/o Stamina — su una scala da <b>Fallimento</b> a <b>Stentato</b>, <b>Successo</b> e <b>Critico</b>. I piatti più ambiziosi (Soglia 10–12) riescono davvero solo al <b>Cuoco</b>.</p>
+      <div class="tool"><span class="ti">Strumento</span><span class="td">La Cambusa raccoglie il ricettario ufficiale, i tuoi piatti e un creatore di piatti per ingredienti; ogni piatto si aggiunge al diario di sessione.</span><a href="/portale-officina-cambusa/">Officina &amp; Cambusa</a></div>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ CAP 11 ============================ -->
+    <section class="ch" id="ch11">
+      <div class="chkick">Parte IV · Capitolo 11</div>
+      <h2>Officina &amp; Crafting</h2>
+      <div class="say">Quello che ti serve e non trovi, te lo costruisci. Una bomba fumogena, un arto meccanico, una lente speciale: l'officina di bordo è dove le idee diventano ferro.</div>
+      <p>Costruire e riparare oggetti è una prova di <b>Artigianato</b> o <b>Meccanica</b> (a seconda dell'oggetto), con una <b>Soglia</b>, un <b>tempo</b> (ore di lavoro) e gli <b>ingredienti/materiali</b> richiesti. L'esito determina qualità e riuscita. È il terreno dell'<b>Ingegnere</b>, ma chiunque abbia la skill può tentare.</p>
+      <div class="tool"><span class="ti">Strumento</span><span class="td">L'Officina raccoglie il catalogo ufficiale degli oggetti, i tuoi progetti e le schede di crafting, con ricerca e filtri.</span><a href="/portale-officina-cambusa/">Officina &amp; Cambusa</a></div>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ CAP 12 ============================ -->
+    <section class="ch" id="ch12">
+      <div class="chkick">Parte V · Capitolo 12</div>
+      <h2>Avanzamento &amp; Upgrade</h2>
+      <div class="say">Nessuno resta lo stesso, su questo mare. Ogni battaglia, ogni isola, ogni cicatrice ti tempra. Ecco come un pivello diventa, col tempo, una leggenda.</div>
+      <p>Si cresce su due binari, che lavorano insieme.</p>
+      <h3 id="ch12-pa">I Punti Abilità (P.A.)</h3>
+      <p>Usare una Skill o una Tecnica nella storia accumula <b>Punti Abilità</b> su di essa. Raggiunta una soglia, quella Skill/Tecnica <b>sale di un gradino</b> di dado. Le soglie valgono <b>sia per le Skill sia per le Tecniche</b>.</p>
+      <div class="box pro"><div class="bt">⚓ Promemoria — Soglie P.A. (per salire di dado)</div>
+        <div class="scrollx"><table class="tbl"><tr><th>Passaggio</th><th>d4→d6</th><th>d6→d8</th><th>d8→d10</th><th>d10→d12</th><th>d12→d20</th></tr>
+        <tr><td>P.A. necessari</td><td><b>10</b></td><td><b>25</b></td><td><b>60</b></td><td><b>150</b></td><td><b>400</b></td></tr></table></div>
+      </div>
+      <h3 id="ch12-upgrade">L'Upgrade</h3>
+      <p>Ai grandi giri di boa della storia — la fine di un arco, una prova che ti segna — il Game Master concede un <b>Upgrade</b>: il tuo <b>livello</b> di pirata. Ogni Upgrade porta con sé tre cose:</p>
+      <ul>
+        <li><b>+1 Stamina massima.</b></li>
+        <li><b>Più Punti Vita</b>, tirando il tuo <b>Dado Vita</b> di razza (la crescita dei PV è legata al sangue, non a una formula uguale per tutti).</li>
+        <li><b>Un Talento</b> a scelta — da uno Stile, da un Frutto o da un'arte — secondo le regole del ramo.</li>
+      </ul>
+      <div class="box pro"><div class="bt">⚓ Promemoria — Talenti</div><p>Un Talento per Upgrade. Gli <b>Avanzati</b> chiedono <b>2 Talenti dello stesso ramo</b> già presi. Le <b>Ultimate / il Risveglio</b> si attivano col <b>permesso del Game Master</b>, legate alla tua <b>Ambizione</b>.</p></div>
+      <div class="tool"><span class="ti">Strumento</span><span class="td">La gestione del personaggio tiene i Punti Abilità, l'Upgrade e i Talenti, arco dopo arco.</span><a href="/gestisci-pirata/">Gestisci pirata</a></div>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ CAP 13 ============================ -->
+    <section class="ch" id="ch13">
+      <div class="chkick">Parte VI · Capitolo 13</div>
+      <h2>Guida del Game Master</h2>
+      <div class="say">Tu sei il mare, mozzo — anzi, da adesso ti chiamo Capitano del tavolo. Hai in mano le isole, i nemici, le tempeste. Ti lascio qualche dritta che vale più di mille regole.</div>
+      <ul>
+        <li><b>Chiedi e ascolta.</b> "E adesso che fate?" è la tua frase più potente. Lascia che la ciurma riempia il mondo con le sue scelte.</li>
+        <li><b>Tira solo quando conta.</b> Niente dadi senza rischio o conflitto. Se l'azione non può fallire in modo interessante, riesce e basta.</li>
+        <li><b>Soglie con la pancia.</b> 8 è il pane quotidiano; alza a 12/16 quando la sfida lo merita. Usa il margine per il colore.</li>
+        <li><b>Le Ambizioni sono la tua bussola.</b> Costruisci archi attorno ai sogni dei personaggi: è lì che il tavolo si accende.</li>
+        <li><b>Premia l'inventiva.</b> Un dado bonus o uno stato gratis a chi usa l'ambiente vale più di qualsiasi punizione.</li>
+        <li><b>La storia prima della regola.</b> Sempre. Se una regola spegne una bella scena, la scena ha ragione.</li>
+      </ul>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ CAP 14 ============================ -->
+    <section class="ch" id="ch14">
+      <div class="chkick">Parte VI · Capitolo 14</div>
+      <h2>Il Bestiario</h2>
+      <div class="say">Il mare è pieno di cose che vogliono mangiarti, derubarti o appenderti a un pennone. Conoscerle è metà del lavoro per restare vivo.</div>
+      <p>Ogni avversario si legge come un pirata in miniatura: <b>Attributi</b> (Forza/Tecnica/Spirito/Astuzia), <b>PV</b>, <b>Stamina</b>, <b>Difesa Passiva</b>, uno o più <b>attacchi</b> (con dado per colpire e Dado Danno), eventuali <b>abilità</b>, <b>Haki</b> e una <b>debolezza</b> da sfruttare. La <b>minaccia</b> va dal Gregario (cade al primo colpo pulito) fino all'Ammiraglio (catastrofe ambulante).</p>
+      <div class="box gm"><div class="bt">☠ Voce del Game Master</div><p>I Gregari servono a far brillare la ciurma: usali a gruppi e falli cadere d'effetto. Tieni i nemici d'élite per i momenti che contano, e dai a ognuno una <b>debolezza</b> che premi chi osserva e ragiona.</p></div>
+      <div class="tool"><span class="ti">Strumento</span><span class="td">La Plancia del Master ha un bestiario pronto (con attributi) e uno scontro in cui aggiungere nemici e PG e gestire iniziativa, PV e stati.</span><a href="/plancia-master/">Plancia del Master</a></div>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <!-- ============================ APPENDICI ============================ -->
+    <section class="ch" id="app-tecniche">
+      <div class="chkick">Appendice</div>
+      <h2>Libreria delle Tecniche</h2>
+      <div class="say">Ogni grande pirata ha i suoi colpi, con un nome che la gente impara a temere. Ecco come si leggono e si costruiscono.</div>
+      <p>Una Tecnica si annota con: <b>nome</b> (specifico ed evocativo), <b>Attributo</b> con cui la tiri, <b>dado</b> (che è anche il Dado Danno), <b>tipo</b> (Custom, Razziale, Frutto, Haki) ed eventuale <b>potenziamento</b> in Stamina. Ricorda: il dado per colpire e il Dado Danno <b>crescono insieme</b>; una Tecnica liscia non costa nulla, una potenziata costa 1–2 ST.</p>
+      <div class="box ex"><div class="bt">⚔ Modello</div><p><b>"Stile delle Tre Lame — Oni Giri"</b> · Attributo: Forza · Dado: d8 (Danno d8) · Tipo: Custom · Potenziamento (1 ST): colpisci due bersagli adiacenti.</p></div>
+      <p>Mano a mano che la campagna procede, questa libreria raccoglierà le Tecniche d'esempio per Stile, Razza e Frutto, da usare come spunto o di peso.</p>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+
+    <section class="ch" id="app-tabelle">
+      <div class="chkick">Appendice</div>
+      <h2>Tabelle riassuntive</h2>
+      <div class="box pro"><div class="bt">⚓ Soglie di difficoltà</div><p><b>4</b> banale · <b>8</b> normale · <b>12</b> esperto · <b>16</b> Vice-Ammiraglio · <b>20</b> Ammiraglio · <b>25+</b> leggenda.</p></div>
+      <div class="box pro"><div class="bt">⚓ Margine del colpo</div><p><b>+4</b> colpo pulito (scatta la Firma) · <b>+1/+3</b> colpisci (tira il Dado Danno) · <b>0</b> la Difesa tiene · <b>sotto</b> manchi. Difesa Passiva = numero del dado difensivo. Quasi Morto (≤25% PV) = <b>+2 dadi</b>.</p></div>
+      <div class="box pro"><div class="bt">⚓ Costi di Stamina</div><p>Attivare Haki 1 · Mantenere Haki 1/turno · Tecnica standard 1 · Tecnica avanzata 2 (Danno ×2) · Effetto Haki = PIP indicati.</p></div>
+      <div class="box pro"><div class="bt">⚓ Soglie P.A.</div><p>d4→d6: <b>10</b> · d6→d8: <b>25</b> · d8→d10: <b>60</b> · d10→d12: <b>150</b> · d12→d20: <b>400</b>.</p></div>
+      <div class="box pro"><div class="bt">⚓ Iniziativa &amp; Stamina iniziale</div><p>Iniziativa = <b>Tecnica + Astuzia</b>. Stamina massima parte da <b>6</b>, +1 per Upgrade. PV crescono tirando il <b>Dado Vita</b> di razza.</p></div>
+      <div class="divider">⚓ ⚓ ⚓</div>
+      <p style="text-align:center;font-style:italic;color:#5a3f1c">E con questo, mozzo, sai abbastanza per non affogare al primo porto. Il resto te lo insegnerà il mare. Buona rotta.</p>
+      <a class="backtop" href="#top">↑ Torna su</a>
+    </section>
+  </main>
+</div>
+
+<script>
+(function(){
+  var toc=document.getElementById("toc"), scrim=document.getElementById("scrim");
+  function closeMenu(){toc.classList.remove("open");scrim.classList.remove("show");}
+  document.getElementById("menubtn").onclick=function(){toc.classList.toggle("open");scrim.classList.toggle("show");};
+  scrim.onclick=closeMenu;
+  // close menu on link tap (mobile)
+  var links=[].slice.call(document.querySelectorAll("#nav a"));
+  links.forEach(function(a){a.addEventListener("click",function(){if(window.innerWidth<=900)closeMenu();});});
+
+  // scroll-spy: highlight current section
+  var sections=[].slice.call(document.querySelectorAll("section.ch, .hero"));
+  var byId={};links.forEach(function(a){var id=a.getAttribute("href").slice(1);byId[id]=a;});
+  function onScroll(){
+    var top=window.scrollY+120, cur=null;
+    sections.forEach(function(s){if(s.offsetTop<=top)cur=s.id;});
+    links.forEach(function(a){a.classList.remove("active");});
+    if(cur&&byId[cur])byId[cur].classList.add("active");
+  }
+  window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+  // search: filter TOC entries
+  var search=document.getElementById("search"), nav=document.getElementById("nav");
+  var parts=[].slice.call(nav.querySelectorAll(".part"));
+  var nores=document.createElement("div");nores.className="nores";nores.textContent="Nessuna voce trovata.";nores.style.display="none";nav.appendChild(nores);
+  search.addEventListener("input",function(){
+    var q=search.value.trim().toLowerCase();var any=false;
+    links.forEach(function(a){
+      var hit=!q||a.textContent.toLowerCase().indexOf(q)>=0;
+      a.style.display=hit?"":"none";if(hit)any=true;
+    });
+    parts.forEach(function(p){p.style.display=q?"none":"";});
+    nores.style.display=any?"none":"";
+  });
+})();
+</script>
+</body>
+</html>
