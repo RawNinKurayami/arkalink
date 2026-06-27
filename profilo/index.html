@@ -56,6 +56,20 @@ a{color:inherit;}
 .hint{font-size:.95rem; color:var(--ink-soft); margin-top:8px;}
 .hint.ok{color:#2f6f4f;}
 .hint.err{color:#9a241a;}
+.nakama-panel{padding:18px 20px;}
+.nk-search{display:flex; gap:10px; flex-wrap:wrap;}
+.nk-search input{flex:1; min-width:200px; font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--ink); background:#fffaf0; border:1px solid #b9a06f; border-radius:5px; padding:10px 14px;}
+.nk-search input:focus{outline:2px solid var(--gold); outline-offset:1px;}
+.nk-lists{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:16px;}
+.nk-block h3{font-family:'Marcellus SC',serif; letter-spacing:.06em; font-size:13px; text-transform:uppercase; color:var(--ink-soft); margin:0 0 8px;}
+.nk-list{display:flex; flex-direction:column; gap:8px;}
+.nk-row{display:flex; align-items:center; gap:8px; background:#fffaf0; border:1px solid #d8c7a0; border-radius:8px; padding:8px 10px;}
+.nk-row .nm{flex:1; font-weight:600; color:var(--ink); min-width:0; overflow:hidden; text-overflow:ellipsis;}
+.nk-row button{font-family:'Marcellus SC',serif; font-size:11px; letter-spacing:.04em; border-radius:7px; padding:6px 10px; cursor:pointer; border:1px solid #b9a06f; background:#f0e2c4; color:#5a3f1c;}
+.nk-row button.acc{background:linear-gradient(180deg,#e7be63,#c9a24a); border-color:var(--gold); color:#2b1f0d;}
+.nk-row button.dec{background:#f1d9d4; border-color:#d9a99f; color:#8c1c13;}
+.nk-results-box{margin-top:10px; display:flex; flex-direction:column; gap:8px;}
+.nk-empty{color:var(--ink-soft); font-style:italic; font-size:.95rem;}
 
 .phead{display:flex; gap:22px; align-items:center; flex-wrap:wrap;}
 .avatar-wrap{position:relative; flex:none;}
@@ -173,6 +187,23 @@ a{color:inherit;}
       <button class="btn-gold" id="new-session" type="button">+ Nuova sessione</button>
     </div>
     <div class="grid" id="sessions"></div>
+
+    <div class="sec-head" style="margin-top:34px">
+      <h2>I tuoi Nakama</h2>
+    </div>
+    <div class="panel nakama-panel">
+      <div class="nk-search">
+        <input id="nk-q" type="text" placeholder="Cerca un pirata per @username" maxlength="20" autocomplete="off" spellcheck="false">
+        <button class="btn-gold" id="nk-find" type="button">Cerca</button>
+      </div>
+      <div class="hint" id="nk-msg"></div>
+      <div id="nk-results" class="nk-results-box"></div>
+      <div class="nk-lists">
+        <div class="nk-block"><h3>Richieste ricevute</h3><div id="nk-incoming" class="nk-list"></div></div>
+        <div class="nk-block"><h3>Richieste inviate</h3><div id="nk-outgoing" class="nk-list"></div></div>
+        <div class="nk-block"><h3>La tua ciurma di nakama</h3><div id="nk-friends" class="nk-list"></div></div>
+      </div>
+    </div>
 
     <div class="foot"><a href="/">◀ Torna al porto</a></div>
   </div>
@@ -374,13 +405,16 @@ a{color:inherit;}
     var saveBtn=document.getElementById("pub-save"), unameIn=document.getElementById("pub-username");
     if(saveBtn) saveBtn.addEventListener("click", saveUsername);
     if(unameIn) unameIn.addEventListener("keydown", function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); saveUsername(); } });
-    loadUsername();
+    var nkFindBtn=document.getElementById("nk-find"), nkQ=document.getElementById("nk-q");
+    if(nkFindBtn) nkFindBtn.addEventListener("click", nkFind);
+    if(nkQ) nkQ.addEventListener("keydown", function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); nkFind(); } });
+    loadUsername(); nkLoad();
     renderAll();
     if(window.__glcSB && window.__glcSB.auth && window.__glcSB.auth.onAuthStateChange){
-      window.__glcSB.auth.onAuthStateChange(function(){ setTimeout(renderAll,300); setTimeout(loadUsername,400); });
+      window.__glcSB.auth.onAuthStateChange(function(){ setTimeout(renderAll,300); setTimeout(loadUsername,400); setTimeout(nkLoad,500); });
     }
     setTimeout(renderAll,700); setTimeout(renderAll,1700);
-    setTimeout(loadUsername,900);
+    setTimeout(loadUsername,900); setTimeout(nkLoad,1000);
   });
 
   async function glcGetUser(){ try{ var r=await window.__glcSB.auth.getUser(); return (r&&r.data)?r.data.user:null; }catch(e){ return null; } }
@@ -412,6 +446,85 @@ a{color:inherit;}
       h.className="hint ok"; h.textContent="Username salvato \u2713 \u2014 ora gli altri ti trovano come @"+v;
     }catch(e){ h.className="hint err"; h.textContent="Errore di rete. Riprova."; }
   }
+
+  // ---------------- Nakama (amicizie) ----------------
+  function nkEl(tag,cls,txt){ var e=document.createElement(tag); if(cls)e.className=cls; if(txt!=null)e.textContent=txt; return e; }
+  function nkMsg(t,kind){ var m=document.getElementById("nk-msg"); if(!m)return; m.className="hint"+(kind?(" "+kind):""); m.textContent=t||""; }
+  async function nkFind(){
+    var qi=document.getElementById("nk-q"); if(!qi) return;
+    var q=(qi.value||"").trim(); var box=document.getElementById("nk-results"); if(box)box.innerHTML="";
+    if(q.length<2){ nkMsg("Scrivi almeno 2 caratteri.","err"); return; }
+    var sb=window.__glcSB, u=await glcGetUser(); if(!sb||!u){ nkMsg("Devi accedere.","err"); return; }
+    nkMsg("Cerco\u2026");
+    try{
+      var r=await sb.from("profiles").select("user_id,username").ilike("username","%"+q+"%").limit(8);
+      if(r.error){ nkMsg("Errore nella ricerca.","err"); return; }
+      var rows=(r.data||[]).filter(function(p){ return p.user_id!==u.id; });
+      if(!rows.length){ nkMsg("Nessun pirata trovato con questo nome.",""); return; }
+      nkMsg("");
+      rows.forEach(function(p){
+        var row=nkEl("div","nk-row"); row.appendChild(nkEl("span","nm","@"+p.username));
+        var b=nkEl("button","acc","+ Aggiungi"); b.onclick=function(){ nkSend(p.user_id,p.username); }; row.appendChild(b);
+        box.appendChild(row);
+      });
+    }catch(e){ nkMsg("Errore di rete.","err"); }
+  }
+  async function nkSend(otherId,otherName){
+    var sb=window.__glcSB, u=await glcGetUser(); if(!sb||!u) return;
+    try{
+      var ex=await sb.from("nakama").select("*").or("and(requester.eq."+u.id+",addressee.eq."+otherId+"),and(requester.eq."+otherId+",addressee.eq."+u.id+")");
+      var rows=(ex&&ex.data)?ex.data:[];
+      if(rows.some(function(x){return x.status==="accepted";})){ nkMsg("Siete gi\u00e0 nakama con @"+otherName+".","ok"); return; }
+      if(rows.some(function(x){return x.requester===u.id && x.status==="pending";})){ nkMsg("Hai gi\u00e0 una richiesta in attesa per @"+otherName+".",""); return; }
+      var theirs=rows.filter(function(x){return x.requester===otherId && x.status==="pending";})[0];
+      if(theirs){
+        var up=await sb.from("nakama").update({status:"accepted"}).eq("id",theirs.id);
+        if(up.error){ nkMsg("Errore nell\u0027accettare la richiesta.","err"); return; }
+        nkMsg("@"+otherName+" ti aveva gi\u00e0 cercato: ora siete nakama!","ok"); nkLoad(); return;
+      }
+      var ins=await sb.from("nakama").insert({requester:u.id,addressee:otherId,status:"pending"});
+      if(ins.error){
+        if((ins.error.code||"")==="23505"){ nkMsg("Richiesta gi\u00e0 presente.",""); }
+        else { nkMsg("Errore: "+(ins.error.message||"riprova."),"err"); }
+        return;
+      }
+      nkMsg("Richiesta inviata a @"+otherName+".","ok");
+      var box=document.getElementById("nk-results"); if(box)box.innerHTML=""; var qi=document.getElementById("nk-q"); if(qi)qi.value="";
+      nkLoad();
+    }catch(e){ nkMsg("Errore di rete.","err"); }
+  }
+  async function nkLoad(){
+    var sb=window.__glcSB, u=await glcGetUser();
+    var inc=document.getElementById("nk-incoming"), out=document.getElementById("nk-outgoing"), fr=document.getElementById("nk-friends");
+    if(!sb||!u||!inc||!out||!fr) return;
+    try{
+      var r=await sb.from("nakama").select("*"); var rows=(r&&r.data)?r.data:[];
+      var ids={}; rows.forEach(function(x){ ids[x.requester]=1; ids[x.addressee]=1; });
+      var idList=Object.keys(ids).filter(function(k){ return k!==u.id; });
+      var names={};
+      if(idList.length){ var pr=await sb.from("profiles").select("user_id,username").in("user_id",idList); (pr.data||[]).forEach(function(p){ names[p.user_id]=p.username; }); }
+      function nameOf(id){ return "@"+(names[id]||"pirata"); }
+      inc.innerHTML=""; out.innerHTML=""; fr.innerHTML="";
+      var incoming=rows.filter(function(x){ return x.addressee===u.id && x.status==="pending"; });
+      var outgoing=rows.filter(function(x){ return x.requester===u.id && x.status==="pending"; });
+      var friends=rows.filter(function(x){ return x.status==="accepted"; });
+      if(!incoming.length) inc.appendChild(nkEl("div","nk-empty","Nessuna richiesta."));
+      incoming.forEach(function(x){ var row=nkEl("div","nk-row"); row.appendChild(nkEl("span","nm",nameOf(x.requester)));
+        var a=nkEl("button","acc","Accetta"); a.onclick=function(){ nkAccept(x.id); };
+        var d=nkEl("button","dec","Rifiuta"); d.onclick=function(){ nkRemove(x.id); };
+        row.appendChild(a); row.appendChild(d); inc.appendChild(row); });
+      if(!outgoing.length) out.appendChild(nkEl("div","nk-empty","Nessuna richiesta."));
+      outgoing.forEach(function(x){ var row=nkEl("div","nk-row"); row.appendChild(nkEl("span","nm",nameOf(x.addressee)));
+        var c=nkEl("button","dec","Annulla"); c.onclick=function(){ nkRemove(x.id); };
+        row.appendChild(c); out.appendChild(row); });
+      if(!friends.length) fr.appendChild(nkEl("div","nk-empty","Ancora nessun nakama."));
+      friends.forEach(function(x){ var other=(x.requester===u.id)?x.addressee:x.requester; var row=nkEl("div","nk-row"); row.appendChild(nkEl("span","nm",nameOf(other)));
+        var d=nkEl("button","dec","Rimuovi"); d.onclick=function(){ nkRemove(x.id); };
+        row.appendChild(d); fr.appendChild(row); });
+    }catch(e){}
+  }
+  async function nkAccept(id){ var sb=window.__glcSB; try{ var r=await sb.from("nakama").update({status:"accepted"}).eq("id",id); if(!r.error){ nkMsg("Ora siete nakama!","ok"); nkLoad(); } else { nkMsg("Errore nell\u0027accettare.","err"); } }catch(e){} }
+  async function nkRemove(id){ var sb=window.__glcSB; try{ var r=await sb.from("nakama").delete().eq("id",id); if(!r.error){ nkLoad(); } }catch(e){} }
 })();
 </script>
 </body>

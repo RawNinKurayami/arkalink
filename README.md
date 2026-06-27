@@ -1,2 +1,2 @@
 # Grand Line Chronicles
-Tappa 1 social: username pubblico nel Profilo (tabella profiles). Esegui prima glc-sql-tappa1-profiles.sql in Supabase.
+Tappa 2 social: Nakama nel Profilo (tabella nakama). Esegui glc-sql-tappa2-nakama.sql dopo la Tappa 1.
