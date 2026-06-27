@@ -59,6 +59,19 @@ input.in:focus,select.in:focus{outline:2px solid var(--gold);outline-offset:1px;
 .mrow .gmtag{font-family:'Marcellus SC',serif;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:#8c1c13;}
 .sep{height:1px;background:var(--line);margin:14px 0;opacity:.6;}
 .empty{color:var(--foam);font-style:italic;border:1px dashed rgba(201,162,74,.4);border-radius:12px;padding:18px;text-align:center;}
+.readbox{background:#fffaf0;border:1px solid #d8c7a0;border-radius:9px;padding:10px 12px;white-space:pre-wrap;color:var(--ink);}
+textarea.in{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ink);background:#fffaf0;border:1px solid #b9a06f;border-radius:7px;padding:10px 12px;}
+.nextdate{background:#1c3a44;color:var(--gold2);border:1px solid var(--gold);border-radius:9px;padding:7px 12px;display:inline-block;margin-bottom:8px;}
+.evlist,.loglist{display:flex;flex-direction:column;gap:7px;margin-top:6px;}
+.evrow{display:flex;align-items:center;gap:10px;background:#fffaf0;border:1px solid #d8c7a0;border-radius:8px;padding:7px 11px;}
+.evdate{font-family:'Marcellus SC',serif;font-size:12px;color:#8c1c13;flex:0 0 auto;}
+.evtit{flex:1;color:var(--ink);min-width:0;}
+.logcard{background:#fffaf0;border:1px solid #d8c7a0;border-left:4px solid var(--gold);border-radius:9px;padding:10px 12px;}
+.loghead{display:flex;align-items:center;gap:10px;margin-bottom:4px;}
+.logdate{font-family:'Marcellus SC',serif;font-size:11px;color:#8c1c13;}
+.logtit{font-family:'Cinzel Decorative',serif;font-size:1.05rem;color:#4a371d;flex:1;}
+.logbody{white-space:pre-wrap;color:var(--ink-soft);}
+.empty2{color:var(--ink-soft);font-style:italic;font-size:.95rem;}
 h2.sec{font-family:'Cinzel Decorative',serif;color:var(--vellum);font-size:1.5rem;margin:26px 0 12px;}
 .detail h3.dt{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:#4a371d;margin:0;}
 .muted{color:var(--ink-soft);font-size:.95rem;}
@@ -131,6 +144,12 @@ async function namesFor(ids){
   try{var r=await SB().from("profiles").select("user_id,username").in("user_id",ids);(r.data||[]).forEach(function(p){out[p.user_id]=p.username;});}catch(e){}
   return out;
 }
+function uid(){return "x"+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36);}
+function todayStr(){var d=new Date();var m=("0"+(d.getMonth()+1)).slice(-2);var day=("0"+d.getDate()).slice(-2);return d.getFullYear()+"-"+m+"-"+day;}
+function fmtDate(x){if(!x)return "";var p=(""+x).split("-");if(p.length!==3)return x;return p[2]+"/"+p[1]+"/"+p[0];}
+async function loadInfo(cid){try{var r=await SB().from("campaign_info").select("data").eq("campaign_id",cid).maybeSingle();return (r&&r.data&&r.data.data)?r.data.data:{};}catch(e){return {};}}
+async function saveInfo(cid,data){try{var r=await SB().from("campaign_info").upsert({campaign_id:cid,data:data,updated_at:new Date().toISOString()},{onConflict:"campaign_id"}).select();return !(r&&r.error);}catch(e){return false;}}
+async function persistInfo(c,info,msgId,okText,rerender){var ok=await saveInfo(c.id,info);if(msgId){var m=document.getElementById(msgId);if(m){m.className="hint"+(ok?" ok":" err");m.textContent=ok?(okText||"Salvato \u2713"):"Errore nel salvataggio.";}}if(rerender&&ok)renderDetail(c);}
 
 async function loadCampaigns(){
   var me=await ME();var box=$("#campaigns");if(!me||!box)return;
@@ -163,7 +182,7 @@ function renderCampaigns(){
 
 async function renderDetail(c){
   var me=await ME();var wrap=$("#detailWrap");if(!wrap)return;
-  var isGM=(c.gm===me.id);
+  var isGM=!!(me&&c.gm===me.id);
   wrap.innerHTML="";
   var p=el("div",{class:"panel detail"});
   p.appendChild(el("div",{class:"row"},[el("h3",{class:"dt",text:c.name}),el("span",{class:"badge "+(isGM?"gm":"pl"),text:isGM?"Sei il Game Master":"Sei un Giocatore",style:"margin-left:8px"})]));
@@ -173,6 +192,66 @@ async function renderDetail(c){
   var members=memR.data||[];
   var ids=members.map(function(m){return m.user_id;});ids.push(c.gm);
   var names=await namesFor(ids);
+
+  // ---- contenuti condivisi della campagna ----
+  var INFO=await loadInfo(c.id);
+  INFO.events=Array.isArray(INFO.events)?INFO.events:[];
+  INFO.log=Array.isArray(INFO.log)?INFO.log:[];
+
+  // Informazioni
+  p.appendChild(el("div",{class:"sep"}));
+  p.appendChild(el("label",{class:"fld",text:"Informazioni della campagna"}));
+  if(isGM){
+    var infoTa=el("textarea",{class:"in",rows:"4",style:"width:100%;resize:vertical;min-height:80px",placeholder:"Note, regole della casa, premesse, avvisi per la ciurma\u2026"});
+    infoTa.value=INFO.info||"";
+    p.appendChild(infoTa);
+    p.appendChild(el("div",{class:"row",style:"margin-top:8px"},[el("button",{class:"btn sm",text:"Salva informazioni",onClick:function(){INFO.info=infoTa.value;persistInfo(c,INFO,"ci-info-msg","Informazioni salvate \u2713",false);}}),el("span",{class:"hint",id:"ci-info-msg"})]));
+  } else {
+    p.appendChild(el("div",{class:"readbox",text:INFO.info?INFO.info:"Il Game Master non ha ancora scritto informazioni."}));
+  }
+
+  // Prossime sessioni & eventi
+  p.appendChild(el("div",{class:"sep"}));
+  p.appendChild(el("label",{class:"fld",text:"Prossime sessioni & eventi"}));
+  var evs=INFO.events.slice().filter(function(e){return e&&e.date;}).sort(function(a,b){return a.date<b.date?-1:1;});
+  var fut=evs.filter(function(e){return e.date>=todayStr();});
+  if(fut.length){p.appendChild(el("div",{class:"nextdate",html:"Prossima: <b>"+fmtDate(fut[0].date)+"</b>"+(fut[0].titolo?(" \u2014 "+fut[0].titolo):"")}));}
+  var evList=el("div",{class:"evlist"});
+  if(!evs.length){evList.appendChild(el("div",{class:"empty2",text:"Nessun evento in programma."}));}
+  evs.forEach(function(e){
+    var row=el("div",{class:"evrow"},[el("span",{class:"evdate",text:fmtDate(e.date)}),el("span",{class:"evtit",text:(e.titolo||"Sessione")+(e.nota?(" \u00b7 "+e.nota):"")})]);
+    if(isGM){row.appendChild(el("button",{class:"btn sm danger",text:"\u2715",onClick:function(){INFO.events=INFO.events.filter(function(x){return x!==e;});persistInfo(c,INFO,null,null,true);}}));}
+    evList.appendChild(row);
+  });
+  p.appendChild(evList);
+  if(isGM){
+    var evD=el("input",{class:"in",type:"date",style:"flex:0 0 150px"});
+    var evT=el("input",{class:"in",type:"text",placeholder:"Titolo (es. Sessione 4)"});
+    var evN=el("input",{class:"in",type:"text",placeholder:"Nota (facoltativa)"});
+    p.appendChild(el("div",{class:"row",style:"margin-top:8px"},[evD,evT]));
+    p.appendChild(el("div",{class:"row",style:"margin-top:6px"},[evN,el("button",{class:"btn sm",text:"+ Aggiungi evento",onClick:function(){if(!evD.value)return;INFO.events.push({id:uid(),date:evD.value,titolo:(evT.value||"").trim(),nota:(evN.value||"").trim()});persistInfo(c,INFO,null,null,true);}})]));
+  }
+
+  // Registro delle sessioni
+  p.appendChild(el("div",{class:"sep"}));
+  p.appendChild(el("label",{class:"fld",text:"Registro delle sessioni \u2014 cosa \u00e8 successo"}));
+  var logList=el("div",{class:"loglist"});
+  var logs=INFO.log.slice().sort(function(a,b){return (a.date||"")>(b.date||"")?-1:1;});
+  if(!logs.length){logList.appendChild(el("div",{class:"empty2",text:"Ancora nessuna cronaca."}));}
+  logs.forEach(function(en){
+    var head=el("div",{class:"loghead"},[el("span",{class:"logdate",text:en.date?fmtDate(en.date):""}),el("span",{class:"logtit",text:en.titolo||"Sessione"})]);
+    if(isGM){head.appendChild(el("button",{class:"btn sm danger",text:"\u2715",onClick:function(){INFO.log=INFO.log.filter(function(x){return x!==en;});persistInfo(c,INFO,null,null,true);}}));}
+    logList.appendChild(el("div",{class:"logcard"},[head,el("div",{class:"logbody",text:en.corpo||""})]));
+  });
+  p.appendChild(logList);
+  if(isGM){
+    var lgD=el("input",{class:"in",type:"date",style:"flex:0 0 150px"});
+    var lgT=el("input",{class:"in",type:"text",placeholder:"Titolo della sessione"});
+    var lgB=el("textarea",{class:"in",rows:"3",style:"width:100%;resize:vertical;min-height:64px",placeholder:"Cosa \u00e8 successo in questa sessione\u2026"});
+    p.appendChild(el("div",{class:"row",style:"margin-top:8px"},[lgD,lgT]));
+    p.appendChild(lgB);
+    p.appendChild(el("div",{class:"row",style:"margin-top:6px"},[el("button",{class:"btn sm",text:"+ Aggiungi alla cronaca",onClick:function(){if(!lgB.value.trim()&&!lgT.value.trim())return;INFO.log.push({id:uid(),date:lgD.value||todayStr(),titolo:(lgT.value||"").trim(),corpo:lgB.value});persistInfo(c,INFO,null,null,true);}})]));
+  }
 
   // codice (visibile al GM; un giocatore può comunque vederlo per condividerlo)
   p.appendChild(el("div",{class:"sep"}));

@@ -1,2 +1,2 @@
 # Grand Line Chronicles
-Rimossi i nomi della campagna dagli esempi/placeholder (manuale, campagne, profilo).
+Tappa 4: pagina campagna con Informazioni, Eventi/Date e Registro sessioni. Esegui glc-sql-tappa4-contenuti.sql (dopo Tappa 3).
