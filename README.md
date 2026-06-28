@@ -1,2 +1,2 @@
 # Grand Line Chronicles
-Home: retroilluminazione del titolo resa super tenue.
+Home desktop: riquadri in colonna piu lunghi (max-width 900px).
