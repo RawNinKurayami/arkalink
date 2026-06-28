@@ -1,2 +1,2 @@
 # Grand Line Chronicles
-Sfondo animato (bollicine) condiviso via glc-auth.js + nel manuale. Rispetta prefers-reduced-motion. Non presente nella scheda stampabile.
+Bollicine di sfondo piu visibili (anelli, 3 dimensioni). Aggiorna glc-auth.js e fai hard-refresh.
