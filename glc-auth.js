@@ -253,3 +253,21 @@
   if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
   else start();
 })();
+
+/* ---------- sfondo animato condiviso: bollicine che salgono ---------- */
+(function(){
+  function injectBG(){
+    if(!document.body || document.querySelector(".glc-bg")) return;
+    if(!document.getElementById("glc-bg-css")){
+      var css=".glc-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;"
+        +"background-image:radial-gradient(circle, rgba(201,162,74,.07) 0 2px, transparent 3px),radial-gradient(circle, rgba(168,198,189,.055) 0 1.5px, transparent 2.5px);"
+        +"background-size:150px 150px,96px 96px}"
+        +"@media (prefers-reduced-motion: no-preference){.glc-bg{animation:glcRise 32s linear infinite}}"
+        +"@keyframes glcRise{from{background-position:0 0,0 0}to{background-position:0 -600px,0 -480px}}";
+      var st=document.createElement("style");st.id="glc-bg-css";st.textContent=css;document.head.appendChild(st);
+    }
+    var d=document.createElement("div");d.className="glc-bg";d.setAttribute("aria-hidden","true");
+    document.body.insertBefore(d, document.body.firstChild);
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",injectBG); else injectBG();
+})();

@@ -333,6 +333,7 @@ footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a8c6bd;font-
 
       <div class="actions">
         <button class="btn gold" id="printSheet">🖨 Stampa scheda</button>
+        <button class="btn" id="printIllus">🗺️ Scheda illustrata (PDF)</button>
         <button class="btn" id="export">⬇ .json</button>
         <button class="btn ghost" id="importBtn">⬆ Importa</button>
         <button class="btn ghost" id="reset">↺ Reset</button>
@@ -950,6 +951,7 @@ function buildPrintSheet(){
   host.innerHTML=h;
 }
 $("#printSheet").onclick=function(){buildPrintSheet();window.print();};
+$("#printIllus").onclick=function(){try{save();}catch(e){}window.open("/scheda-stampabile/?c="+encodeURIComponent(CT.activeId),"_blank");};
 $("#export").onclick=()=>{const blob=new Blob([JSON.stringify(pg,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=(pg.nome?pg.nome.replace(/[^a-z0-9]+/gi,"_"):"pirata")+".json";a.click();URL.revokeObjectURL(a.href);};
 $("#importBtn").onclick=()=>$("#importFile").click();
 $("#importFile").onchange=e=>{const file=e.target.files[0];if(!file)return;const rd=new FileReader();rd.onload=()=>{try{const c=migrateChar(JSON.parse(rd.result));const id=newId();CT.chars[CT.activeId]=pg;CT.chars[id]=c;CT.order.push(id);CT.activeId=id;pg=c;save();bindInputs();renderCrewBar();if(mode==="gest")renderManage();else goto(0);render();}catch(err){alert("File non valido.");}};rd.readAsText(file);e.target.value="";};

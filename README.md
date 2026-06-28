@@ -1,2 +1,2 @@
 # Grand Line Chronicles
-Barra login: username (fallback email) + miniatura avatar. Diario: tolto il placeholder. Mappa isole in Sessioni e Campagne.
+Sfondo animato (bollicine) condiviso via glc-auth.js + nel manuale. Rispetta prefers-reduced-motion. Non presente nella scheda stampabile.
