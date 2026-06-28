@@ -265,3 +265,24 @@
   }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",injectBG); else injectBG();
 })();
+
+
+/* ---------- PWA: manifest, icone e service worker (pagine con login) ---------- */
+(function(){
+  function injectPWA(){
+    try{
+      var head=document.head||document.getElementsByTagName("head")[0];
+      if(head && !document.querySelector('link[rel="manifest"]')){
+        function add(tag,attrs){ var e=document.createElement(tag); for(var k in attrs){ e.setAttribute(k,attrs[k]); } head.appendChild(e); }
+        add("link",{rel:"manifest",href:"/manifest.webmanifest"});
+        add("meta",{name:"theme-color",content:"#0a1920"});
+        add("link",{rel:"apple-touch-icon",href:"/icons/apple-touch-icon-180.png"});
+        add("meta",{name:"apple-mobile-web-app-capable",content:"yes"});
+        add("meta",{name:"apple-mobile-web-app-status-bar-style",content:"black-translucent"});
+        add("meta",{name:"apple-mobile-web-app-title",content:"GLC"});
+      }
+      if("serviceWorker" in navigator){ navigator.serviceWorker.register("/sw.js").catch(function(){}); }
+    }catch(e){}
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",injectPWA); else injectPWA();
+})();
