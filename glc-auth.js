@@ -256,7 +256,7 @@
 
 /* ---------- sfondo animato condiviso: bollicine che salgono ---------- */
 (function(){
-  var CSS=".glc-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(circle, transparent 0 3px, rgba(168,198,189,.16) 3.3px 4px, transparent 4.6px),radial-gradient(circle, transparent 0 1.8px, rgba(201,162,74,.26) 2.1px 2.7px, transparent 3.1px),radial-gradient(circle, rgba(168,198,189,.18) 0 1.2px, transparent 1.9px);background-size:120px 120px,96px 96px,64px 64px;background-position:0 0,30px 50px,18px 24px}@media (prefers-reduced-motion: no-preference){.glc-bg{animation:glcRise 30s linear infinite}}@keyframes glcRise{from{background-position:0 0,30px 50px,18px 24px}to{background-position:0 -960px,30px -910px,18px -936px}}";
+  var CSS=".glc-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(circle, transparent 0 1.9px, rgba(201,162,74,.15) 2.2px 2.8px, transparent 3.2px),radial-gradient(circle, rgba(168,198,189,.10) 0 1.1px, transparent 1.8px);background-size:150px 150px,100px 100px;background-position:0 0,40px 30px}@media (prefers-reduced-motion: no-preference){.glc-bg{animation:glcRise 34s linear infinite}}@keyframes glcRise{from{background-position:0 0,40px 30px}to{background-position:0 -900px,40px -870px}}";
   function injectBG(){
     if(!document.body || document.querySelector(".glc-bg")) return;
     if(!document.getElementById("glc-bg-css")){ var st=document.createElement("style");st.id="glc-bg-css";st.textContent=CSS;document.head.appendChild(st); }
