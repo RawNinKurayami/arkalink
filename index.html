@@ -73,12 +73,22 @@
     position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);
     width:100vw;height:100%;z-index:0;
     will-change:transform;
-    /* scrim a sinistra per il testo + dissolvenza nel nero della pagina, sopra l'illustrazione */
+    background:url("/img/hero_main.jpg") center 32% / cover no-repeat;
+    animation:scene-in 2.4s ease both, scene-zoom 45s ease-in-out infinite alternate;
+  }
+  /* video d'apertura: sopra l'illustrazione, dissolve al termine */
+  .scene-video{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;object-position:center 32%;z-index:1;
+    transition:opacity 1.4s ease;
+  }
+  .scene-video.done{opacity:0;}
+  /* scrim per la leggibilità: sopra video E immagine */
+  .scene::after{
+    content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
     background:
       linear-gradient(90deg, rgba(4,5,8,.88) 0%, rgba(4,5,8,.55) 34%, rgba(4,5,8,.08) 62%, rgba(4,5,8,.22) 100%),
-      linear-gradient(180deg, rgba(6,6,7,.6) 0%, rgba(6,6,7,0) 24%, rgba(6,6,7,0) 58%, #060607 97%),
-      url("/img/hero_main.jpg") center 32% / cover no-repeat;
-    animation:scene-in 2.4s ease both, scene-zoom 45s ease-in-out infinite alternate;
+      linear-gradient(180deg, rgba(6,6,7,.6) 0%, rgba(6,6,7,0) 24%, rgba(6,6,7,0) 58%, #060607 97%);
   }
   @keyframes scene-in{from{opacity:0}}
   @keyframes scene-zoom{from{transform:translateX(-50%) scale(1)}to{transform:translateX(-50%) scale(1.045)}}
@@ -181,15 +191,19 @@
     .card{padding:22px 20px;gap:16px}
     .card .ico{width:38px;height:38px}
     .hero{padding:120px 0 90px}
-    .scene{ /* su schermi stretti: velo scuro uniforme e ritaglio spostato */
+    .scene{ /* su schermi stretti: ritaglio spostato */
+      background:url("/img/hero_main.jpg") 42% 30% / cover no-repeat;
+    }
+    .scene-video{object-position:42% 30%;}
+    .scene::after{ /* velo scuro uniforme */
       background:
         linear-gradient(180deg, rgba(6,6,7,.65) 0%, rgba(6,6,7,.2) 30%, rgba(6,6,7,.2) 55%, #060607 96%),
-        linear-gradient(rgba(4,5,8,.42), rgba(4,5,8,.42)),
-        url("/img/hero_main.jpg") 42% 30% / cover no-repeat;
+        linear-gradient(rgba(4,5,8,.42), rgba(4,5,8,.42));
     }
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;scroll-behavior:auto!important}
+    .scene-video{display:none}
   }
 </style>
 <link rel="manifest" href="/manifest.webmanifest">
@@ -218,7 +232,7 @@
   <!-- HERO -->
   <section class="hero">
     <!-- SIGNATURE: l'alba sulla Rotta Maggiore (img/hero_main.jpg) -->
-    <div class="scene" aria-hidden="true"></div>
+    <div class="scene" aria-hidden="true"><video class="scene-video" src="/img/glc.mp4" autoplay muted playsinline preload="auto"></video></div>
 
     <div class="hero-inner">
       <p class="eyebrow">Registro di Bordo <span class="dot">✦</span> Sistema «Will of D.»</p>
@@ -358,6 +372,18 @@
 
 </div>
 
+<script>
+  // video d'apertura della home: al termine resta l'illustrazione
+  (function(){
+    var v=document.querySelector('.scene-video');
+    if(!v) return;
+    function end(){ v.classList.add('done'); }
+    v.addEventListener('ended', end);
+    v.addEventListener('error', end);
+    if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches){ try{v.pause();}catch(e){} end(); return; }
+    var p=v.play(); if(p && p.catch) p.catch(end);
+  })();
+</script>
 <script>
   // tacche del quadrante (decorazione della rosa dei venti)
   (function(){
