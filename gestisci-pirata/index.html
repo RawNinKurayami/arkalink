@@ -469,7 +469,7 @@ const TEC_DADI=["d4","d6","d8","d10","d12","d20","d20+"];
 const TEC_RANK={d4:1,d6:2,d8:3,d10:4,d12:5,d20:6,"d20+":7};
 const TEC_SLOT={d4:1,d6:1,d8:2,d10:2,d12:3,d20:4,"d20+":5};
 const TEC_DUR=[["Un turno",0,0,""],["Mantieni (+1/turno)",0,1,""],["3 turni",2,0,""],["Tutta la scena",0,0,"d20+"]];
-const TEC_FAMS=["Danno","Controllo","Spostamento","Difesa","Potenziamento","Area","Zona Persistente","Speciali di Fonte","Concatenati","Devastanti","Utility"];
+const TEC_FAMS=["Danno","Controllo","Spostamento","Difesa","Potenziamento","Melodie del Musicista","Area","Zona Persistente","Speciali di Fonte","Concatenati","Devastanti","Utility"];
 const TEC_EFF=[
 ["Danno","+1 Dado Danno","un dado in più al danno","d8",1,""],
 ["Danno","Perforante","ignora armatura e robustezza","d8",1,""],
@@ -508,6 +508,16 @@ const TEC_EFF=[
 ["Potenziamento","Sblocco","la tua prossima Tecnica costa metà ST","d10",1,""],
 ["Potenziamento","Grido di Guerra","il buff vale per la ciurma vicina","d12",2,""],
 ["Potenziamento","Oltre il Limite","per 1 turno il dado sale di 1 oltre il tetto","d20",3,""],
+["Melodie del Musicista","Ballata Ristoratrice","un alleato che ti sente recupera un po' di ST","d6",1,"musicista"],
+["Melodie del Musicista","Inno di Coraggio","+1 dado al prossimo tiro di un alleato","d6",1,"musicista"],
+["Melodie del Musicista","Controcanto","spezzi paura e malie: annulli Terrore, Sopore o charme sugli alleati","d8",1,"musicista"],
+["Melodie del Musicista","Requiem Beffardo","i nemici che ti sentono hanno −1 dado al prossimo tiro","d8",1,"musicista"],
+["Melodie del Musicista","Crescendo","la prossima Tecnica di un alleato costa metà ST","d10",1,"musicista"],
+["Melodie del Musicista","Ritmo Incalzante","un alleato agisce subito dopo di te in questo round","d10",2,"musicista"],
+["Melodie del Musicista","Ninnananna","Addormentato a chi ti ascolta (Salvezza) — nessun danno","d10",2,"musicista"],
+["Melodie del Musicista","Marcia della Ciurma","la melodia vale per tutta la ciurma che ti sente","d10",2,"musicista"],
+["Melodie del Musicista","Sinfonia del Secondo Vento","la ciurma vicina recupera un po' di PV o ST","d12",3,"musicista"],
+["Melodie del Musicista","Assolo Leggendario","una volta per scena: tutta la ciurma +1 gradino al Dado Danno per il round","d20",3,"musicista"],
 ["Area","Onda","più nemici in linea o cono","d8",0,"area"],
 ["Area","Esplosione","tutti in un raggio","d10",0,"area"],
 ["Area","Terreno Alterato","lasci fuoco/ghiaccio/veleno nella zona","d10",1,"area"],
@@ -550,6 +560,7 @@ const TEC_EFF=[
 ["Utility","Apertura","crei un varco: il prossimo alleato ha Vantaggio","d10",1,""]
 ];
 function tecEffObj(nm){return TEC_EFF.find(e=>e[1]===nm);}
+function isMusicista(){try{return !!(pg&&(pg.role==="Musicista"||pg.role2==="Musicista"));}catch(e){return false;}}
 function tecCost(t){let st=0,pt=0;(t.eff||[]).forEach(nm=>{const e=tecEffObj(nm);if(e)st+=e[4];});if(t.forma==="Area")st+=2;const d=TEC_DUR.find(x=>x[0]===t.durata);if(d){st+=d[1];pt+=d[2];}st=Math.max(1,st);if(t.forma==="Modalità")pt+=1;return{st:st,pt:pt};}
 function tecCostLabel(t){const c=tecCost(t);return c.st+" ST"+(c.pt?(" +"+c.pt+"/turno"):"");}
 function tecSummary(t){const a=[];if(t.fonte)a.push(t.fonte==="Frutto"&&t.fruitType?("Frutto "+t.fruitType):t.fonte);if(t.forma)a.push(t.forma);if(t.die)a.push(t.die);if(t.durata&&t.forma==="Area"&&t.durata!=="Un turno")a.push(t.durata);let s=a.join(" · ");if(t.eff&&t.eff.length)s+=" — "+t.eff.join(", ");return s;}
@@ -578,21 +589,24 @@ function renderTecBuilder(onAdd){
  function refresh(){
   const rank=TEC_RANK[TBUILD.die]||1;const slot=TEC_SLOT[TBUILD.die]||1;
   fruitHost.innerHTML="";let ftype=null;if(TBUILD.fonte==="Frutto"){if(!TBUILD.fruitType)TBUILD.fruitType=((typeof pg!=="undefined"&&pg.frutto&&["Paramecia","Logia","Zoan"].indexOf(pg.frutto.tipo)>=0)?pg.frutto.tipo:"Paramecia");ftype=TBUILD.fruitType;const tw=el("div",{});tw.appendChild(el("label",{class:"fld",text:"Tipo di Frutto"}));const tsl=el("select",{});["Paramecia","Logia","Zoan"].forEach(o=>tsl.appendChild(el("option",{value:o,text:o})));tsl.value=ftype;tsl.onchange=()=>{TBUILD.fruitType=tsl.value;refresh();};tw.appendChild(tsl);fruitHost.appendChild(tw);}const fz=(TBUILD.fonte==="Frutto"&&ftype==="Zoan");const forme=TEC_FORME.filter(f=>!(f==="Area"&&fz));if(TBUILD.forma==="Area"&&fz)TBUILD.forma="Singolo";formaHost.innerHTML="";const fw=el("div",{});fw.appendChild(el("label",{class:"fld",text:"Forma"}));const fsl=el("select",{});forme.forEach(o=>fsl.appendChild(el("option",{value:o,text:o})));fsl.value=TBUILD.forma;fsl.onchange=()=>{TBUILD.forma=fsl.value;refresh();};fw.appendChild(fsl);formaHost.appendChild(fw);if(fz)formaHost.appendChild(el("div",{class:"sub",style:"color:#8c1c13;font-size:11px;margin-top:2px",text:"Uno Zoan non fa tecniche ad Area — usa Singolo, Raffica o le Speciali di Fonte."}));
-  TBUILD.eff=(TBUILD.eff||[]).filter(nm=>{const e=tecEffObj(nm);if(!e)return false;const okD=(TEC_RANK[e[3]]||1)<=rank;const okR=(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area"));return okD&&okR;});
+  TBUILD.eff=(TBUILD.eff||[]).filter(nm=>{const e=tecEffObj(nm);if(!e)return false;const okD=(TEC_RANK[e[3]]||1)<=rank;const okR=(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area")||(e[5]==="musicista"&&isMusicista()));const okM=isMusicista()?(e[0]!=="Danno"&&e[0]!=="Devastanti"):(e[5]!=="musicista");return okD&&okR&&okM;});
   if(TBUILD.eff.length>slot)TBUILD.eff=TBUILD.eff.slice(0,slot);
   durHost.innerHTML="";
   if(TBUILD.forma==="Area"){const w=el("div",{});w.appendChild(el("label",{class:"fld",text:"Durata della Zona"}));const sl=el("select",{});TEC_DUR.forEach(d=>sl.appendChild(el("option",{value:d[0],text:d[0]+(d[3]?(" — richiede "+d[3]):"")})));sl.value=TBUILD.durata;sl.onchange=()=>{TBUILD.durata=sl.value;refresh();};w.appendChild(sl);durHost.appendChild(w);}
   info.innerHTML="Effetti: <b>"+TBUILD.eff.length+" / "+slot+"</b> · sblocchi fino a <b>"+TBUILD.die+"</b>"+(TBUILD.forma==="Area"?" · Area +2 ST (bersagli a metà danno · stati = Salvezza)":"")+(TBUILD.forma==="Modalità"?" · Modalità +1/turno":"");
   effHost.innerHTML="";
+  if(isMusicista()){effHost.appendChild(el("div",{class:"sub",style:"color:#d9c193;font-size:12px;margin:2px 0 6px",html:"\u{1F3B5} Il Musicista non compone tecniche offensive (niente <b>Danno</b> e <b>Devastanti</b>): il suo repertorio sono le <b>Melodie</b> \u2014 canzoni che ridanno Stamina e moltiplicano la ciurma."}));}
   TEC_FAMS.forEach(fam=>{
+   if(fam==="Melodie del Musicista"&&!isMusicista())return;
+   if(isMusicista()&&(fam==="Danno"||fam==="Devastanti"))return;
    const det=el("details",{class:"tbfam"});if(TBUILD._open.indexOf(fam)>=0)det.open=true;det.ontoggle=()=>{const ix=TBUILD._open.indexOf(fam);if(det.open){if(ix<0)TBUILD._open.push(fam);}else if(ix>=0)TBUILD._open.splice(ix,1);};
    det.appendChild(el("summary",{text:fam}));
    TEC_EFF.filter(e=>e[0]===fam).forEach(e=>{
     const nm=e[1];const sel=TBUILD.eff.indexOf(nm)>=0;
     const okD=(TEC_RANK[e[3]]||1)<=rank;
-    const okR=(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area"));
+    const okR=(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area")||(e[5]==="musicista"&&isMusicista()));
     const full=TBUILD.eff.length>=slot&&!sel;const dis=!okD||!okR||full;
-    let hint="";if(!okD)hint=" <i style='color:#8c1c13'>(da "+e[3]+")</i>";else if(!okR)hint=(e[5]==="frutto"?" <i style='color:#8c1c13'>(richiede Frutto)</i>":" <i style='color:#8c1c13'>(richiede Forma Area)</i>");else if(full)hint=" <i style='color:#8c1c13'>(slot pieni)</i>";
+    let hint="";if(!okD)hint=" <i style='color:#8c1c13'>(da "+e[3]+")</i>";else if(!okR)hint=(e[5]==="frutto"?" <i style='color:#8c1c13'>(richiede Frutto)</i>":(e[5]==="musicista"?" <i style='color:#8c1c13'>(solo Musicista)</i>":" <i style='color:#8c1c13'>(richiede Forma Area)</i>"));else if(full)hint=" <i style='color:#8c1c13'>(slot pieni)</i>";
     const cbx=el("input",{type:"checkbox"});cbx.checked=sel;cbx.disabled=dis;
     cbx.onchange=()=>{const ix=TBUILD.eff.indexOf(nm);if(cbx.checked){if(ix<0)TBUILD.eff.push(nm);}else if(ix>=0)TBUILD.eff.splice(ix,1);refresh();};
     det.appendChild(el("label",{class:"tbrow"+(dis?" off":"")},[cbx,el("span",{class:"talname",html:"<b>"+nm+"</b> <span class='ttag'>"+e[3]+" · "+e[4]+" ST</span> — "+e[2]+hint})]));
