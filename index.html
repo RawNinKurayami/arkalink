@@ -7,177 +7,193 @@
 <meta name="description" content="Il porto della tua ciurma: crea il personaggio, arma la nave, rifornisci la cambusa e siedi alla plancia del Capitano. Sistema «Will of D.».">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Marcellus+SC&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/glc-theme.css">
 <style>
   :root{
-    --abyss:#0a1920;        /* mare abissale di notte */
-    --abyss-2:#112c35;      /* mare un gradino più chiaro */
-    --abyss-line:#1f4450;   /* linee di profondità */
-    --vellum:#ecdcb6;       /* carta nautica invecchiata */
-    --vellum-2:#e3d0a4;
-    --ink:#34271a;          /* inchiostro seppia */
-    --ink-soft:#5e4c34;
-    --gold:#c9a24a;         /* oro su carta */
-    --gold-bright:#ecca77;
-    --seal:#9a241a;         /* ceralacca / WANTED */
-    --foam:#a8c6bd;         /* schiuma, testo tenue sul mare */
-    --foam-dim:#6f968c;     /* schiuma scura, etichette tenui */
-    --shadow:rgba(0,0,0,.45);
-    --rule:rgba(201,162,74,.32);
+    /* — palette «golden hour sul mare nero» — */
+    --black:#060607;          /* fondo, quasi nero caldo */
+    --coal:#0b0b0d;
+    --panel:#121014;          /* superfici */
+    --ivory:#f2e9d8;          /* testo principale */
+    --champagne:#e9d6ae;
+    --amber:#f0a441;          /* accento, sole */
+    --amber-2:#ffd394;
+    --rust:#c96f2a;
+    --muted:#a89c89;          /* testo secondario, caldo */
+    --muted-2:#6e6557;
+    --line:rgba(240,164,65,.16);
+    --line-soft:rgba(242,233,216,.12);
+    --shadow:rgba(0,0,0,.6);
+    /* alias storici usati dagli SVG inline */
+    --gold:var(--amber); --gold-bright:var(--amber-2); --seal:var(--rust);
+    --vellum:var(--ivory); --foam:var(--muted); --foam-dim:var(--muted-2);
+    --abyss:var(--black); --rule:var(--line);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
+  /* vignettatura cinematografica leggera */
+  html::before{
+    content:"";position:fixed;inset:0;z-index:3;pointer-events:none;
+    background:radial-gradient(135% 110% at 50% 42%, transparent 55%, rgba(2,2,3,.5) 100%);
+  }
   body{
-    font-family:'Cormorant Garamond',Georgia,serif;
+    font-family:'Inter',system-ui,sans-serif;
     background:
-      radial-gradient(120% 90% at 50% -10%, #14323d 0%, var(--abyss) 55%, #060f14 100%);
-    color:var(--vellum);
+      radial-gradient(90% 50% at 50% 118%, rgba(201,111,42,.10), transparent 70%),
+      var(--black);
+    color:var(--ivory);
     min-height:100vh;
-    line-height:1.55;
+    line-height:1.65;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  /* grana sottile su tutto */
+  /* grana da pellicola, sottile */
   body::before{
-    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+    content:"";position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  /* linee di latitudine tenui sul fondo */
-  body::after{
-    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
-    background-image:repeating-linear-gradient(0deg,transparent 0 78px,rgba(31,68,80,.18) 78px 79px);
-    mask-image:radial-gradient(120% 120% at 50% 30%, #000 30%, transparent 78%);
-    -webkit-mask-image:radial-gradient(120% 120% at 50% 30%, #000 30%, transparent 78%);
   }
   .wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 24px}
   a{color:inherit;text-decoration:none}
 
-  /* ---------- top bar ---------- */
-  .topbar{display:flex;align-items:center;justify-content:space-between;padding:22px 0 0}
-  .brand{display:flex;align-items:center;gap:11px}
-  .brand .mark{width:30px;height:30px;flex:0 0 auto}
-  .brand .name{font-family:'Marcellus SC',serif;letter-spacing:.22em;font-size:13px;color:var(--gold-bright);text-transform:uppercase}
-  .crew-access{
-    font-family:'Marcellus SC',serif;letter-spacing:.14em;text-transform:uppercase;font-size:11px;
-    color:var(--foam-dim);border:1px solid var(--rule);border-radius:999px;padding:8px 15px;
-    display:inline-flex;align-items:center;gap:7px;cursor:default;
-  }
-  .crew-access svg{width:12px;height:12px;opacity:.8}
+  /* ---------- top bar, sospesa sopra la scena ---------- */
+  .topbar{position:absolute;top:0;left:24px;right:24px;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:24px 0 0}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .mark{width:22px;height:22px;flex:0 0 auto}
+  .brand .name{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:.42em;font-size:11px;color:var(--ivory);text-transform:uppercase}
+  /* riveste il controllo di login iniettato da glc-auth.js (solo aspetto) */
+  .glc-slot .glc-accedi{font-family:'Inter',sans-serif!important;font-weight:600!important;font-size:12px!important;letter-spacing:.04em!important;color:#1b1206!important;background:linear-gradient(180deg,var(--amber-2),var(--amber))!important;border-radius:999px!important;padding:10px 22px!important}
+  .glc-slot .glc-prof,.glc-slot .glc-out{font-family:'Inter',sans-serif!important;letter-spacing:.08em!important;border-color:var(--line-soft)!important;color:var(--champagne)!important;border-radius:999px!important}
+  .glc-slot .glc-who{font-family:'Inter',sans-serif!important;color:var(--muted)!important}
+  .glc-slot .glc-who b{color:var(--champagne)!important}
 
-  /* ---------- hero ---------- */
-  .hero{position:relative;text-align:center;padding:84px 0 56px}
-  .compass{
-    position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
-    width:min(560px,108vw);height:min(560px,108vw);z-index:0;opacity:.20;
-    mask-image:radial-gradient(circle,#000 38%,transparent 72%);
-    -webkit-mask-image:radial-gradient(circle,#000 38%,transparent 72%);
-    animation:rose-in 1.6s cubic-bezier(.2,.7,.2,1) both;
+  /* ---------- hero: alba in tempesta ---------- */
+  .hero{position:relative;display:flex;align-items:center;min-height:min(94vh,960px);padding:140px 0 110px}
+  .scene{
+    position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);
+    width:100vw;height:100%;z-index:0;
+    will-change:transform;
+    /* scrim a sinistra per il testo + dissolvenza nel nero della pagina, sopra l'illustrazione */
+    background:
+      linear-gradient(90deg, rgba(4,5,8,.88) 0%, rgba(4,5,8,.55) 34%, rgba(4,5,8,.08) 62%, rgba(4,5,8,.22) 100%),
+      linear-gradient(180deg, rgba(6,6,7,.6) 0%, rgba(6,6,7,0) 24%, rgba(6,6,7,0) 58%, #060607 97%),
+      url("/img/hero_main.jpg") center 32% / cover no-repeat;
+    animation:scene-in 2.4s ease both, scene-zoom 45s ease-in-out infinite alternate;
   }
-  .compass .needle{transform-origin:300px 300px;animation:needle 2.4s cubic-bezier(.16,1,.3,1) both .3s}
-  @keyframes rose-in{from{opacity:0;transform:translate(-50%,-50%) rotate(-9deg) scale(.96)}to{opacity:.20;transform:translate(-50%,-50%) rotate(0) scale(1)}}
-  @keyframes needle{0%{transform:rotate(-54deg)}70%{transform:rotate(6deg)}100%{transform:rotate(0)}}
-  .hero-inner{position:relative;z-index:1}
+  @keyframes scene-in{from{opacity:0}}
+  @keyframes scene-zoom{from{transform:translateX(-50%) scale(1)}to{transform:translateX(-50%) scale(1.045)}}
+  .hero-inner{position:relative;z-index:1;max-width:640px;text-align:left}
   .eyebrow{
-    font-family:'Marcellus SC',serif;letter-spacing:.34em;text-transform:uppercase;font-size:12px;
-    color:var(--gold);margin-bottom:20px;animation:rise .7s ease both .1s;
+    font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.5em;text-transform:uppercase;font-size:11px;
+    color:var(--amber);margin-bottom:24px;animation:track-in 1.4s cubic-bezier(.16,1,.3,1) both .2s;
   }
-  .eyebrow .dot{color:var(--seal);margin:0 .5em}
+  .eyebrow .dot{color:var(--amber-2);margin:0 .55em}
+  @keyframes track-in{from{opacity:0;letter-spacing:.85em}}
   h1.title{
-    position:relative;z-index:0;
-    font-family:'Cinzel Decorative',serif;font-weight:900;line-height:.98;
-    font-size:clamp(2.7rem,9vw,5.6rem);letter-spacing:.01em;
-    background:linear-gradient(176deg,var(--gold-bright),var(--gold) 55%,#9c7a2f);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    text-shadow:0 0 14px rgba(236,202,119,.16),0 2px 30px rgba(0,0,0,.35);
-    animation:rise .9s ease both .18s;
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.04;
+    font-size:clamp(2.8rem,7.5vw,5rem);letter-spacing:.015em;text-transform:uppercase;
+    color:var(--ivory);text-shadow:0 2px 34px rgba(0,0,0,.6),0 1px 6px rgba(0,0,0,.4);
   }
-  h1.title::before{
-    content:"";position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);
-    width:106%;height:160%;z-index:-1;pointer-events:none;border-radius:50%;
-    background:radial-gradient(ellipse at center, rgba(201,162,74,.11), rgba(201,162,74,.04) 45%, transparent 72%);
-    filter:blur(20px);
-  }
-  @media (prefers-reduced-motion: no-preference){
-    h1.title::before{animation:titleGlow 4.5s ease-in-out infinite alternate}
-  }
-  @keyframes titleGlow{from{opacity:.38;transform:translate(-50%,-50%) scale(.98)}to{opacity:.68;transform:translate(-50%,-50%) scale(1.02)}}
-  h1.title .line{display:block}
+  h1.title .line{display:block;animation:title-in 1.5s cubic-bezier(.16,1,.3,1) both .35s}
+  h1.title .line+.line{animation-delay:.55s;color:var(--champagne)}
+  @keyframes title-in{from{opacity:0;transform:translateY(26px);filter:blur(8px)}}
   .tagline{
-    max-width:600px;margin:26px auto 0;font-size:clamp(1.05rem,2.4vw,1.32rem);
-    color:var(--foam);font-style:italic;font-weight:400;animation:rise .9s ease both .28s;
+    max-width:46ch;margin:24px 0 0;font-size:clamp(.98rem,1.6vw,1.05rem);
+    color:var(--muted);font-weight:400;line-height:1.75;animation:rise 1.3s ease both .85s;
   }
-  .cta-row{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:rise .9s ease both .38s}
+  .cta-row{margin-top:36px;display:flex;gap:12px;justify-content:flex-start;flex-wrap:wrap;animation:rise 1.3s ease both 1.05s}
   .btn{
-    font-family:'Marcellus SC',serif;letter-spacing:.12em;text-transform:uppercase;font-size:13px;
-    padding:14px 28px;border-radius:3px;cursor:pointer;border:1px solid var(--gold);
-    transition:transform .18s ease, box-shadow .25s ease, background .25s ease, color .2s ease;
+    font-family:'Inter',sans-serif;font-weight:500;font-size:.87rem;letter-spacing:.02em;
+    padding:13px 26px;border-radius:999px;cursor:pointer;
+    border:1px solid var(--line-soft);color:var(--ivory);
+    background:rgba(20,18,16,.55);
+    transition:background .25s ease, border-color .25s ease, transform .18s ease;
     display:inline-flex;align-items:center;gap:9px;
   }
-  .btn-primary{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#23170a;box-shadow:0 8px 26px rgba(201,162,74,.22)}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(201,162,74,.34)}
-  .btn-ghost{background:transparent;color:var(--gold-bright)}
-  .btn-ghost:hover{background:rgba(201,162,74,.1);transform:translateY(-2px)}
-  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  .btn:hover{background:rgba(242,233,216,.15);border-color:rgba(242,233,216,.3);transform:translateY(-1px)}
+  .btn-primary{background:rgba(240,164,65,.16);border-color:rgba(240,164,65,.38);color:#ffe9c4}
+  .btn-primary:hover{background:rgba(240,164,65,.27);border-color:rgba(240,164,65,.55)}
+  .btn-ghost{background:rgba(242,233,216,.05)}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}}
 
-  /* ---------- divider a corda ---------- */
-  .rope{display:flex;align-items:center;justify-content:center;gap:18px;margin:8px 0 4px;opacity:.85}
-  .rope .ln{height:1px;width:min(220px,32vw);background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-  .rope svg{width:30px;height:30px;color:var(--gold)}
+  /* ---------- divider ---------- */
+  .rope{display:flex;align-items:center;justify-content:center;gap:16px;margin:34px 0 6px;opacity:.9}
+  .rope .ln{height:1px;width:min(220px,30vw);background:linear-gradient(90deg,transparent,var(--line))}
+  .rope .ln:last-child{transform:scaleX(-1)}
+  .rope svg{width:11px;height:11px;color:var(--amber);opacity:.9}
 
   /* ---------- griglia strumenti ---------- */
-  .stations{padding:30px 0 10px}
-  .stations-head{text-align:center;margin-bottom:30px}
-  .stations-head .k{font-family:'Marcellus SC',serif;letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:var(--gold)}
-  .stations-head h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.5rem,4vw,2.1rem);color:var(--vellum);margin-top:6px}
-  .grid{display:grid;grid-template-columns:1fr;gap:16px;max-width:900px;margin-left:auto;margin-right:auto}
+  .stations{padding:40px 0 10px;counter-reset:station}
+  .stations-head{max-width:900px;margin:0 auto 34px;text-align:left}
+  .stations-head .k{font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.5em;text-transform:uppercase;font-size:10.5px;color:var(--amber)}
+  .stations-head h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.9rem,4.5vw,2.6rem);color:var(--ivory);margin-top:10px;line-height:1.1}
+  .grid{display:grid;grid-template-columns:1fr;gap:12px;max-width:900px;margin-left:auto;margin-right:auto}
   @media(max-width:720px){.grid{grid-template-columns:1fr}}
 
   .card{
-    position:relative;display:flex;gap:18px;align-items:flex-start;
-    background:linear-gradient(168deg,var(--vellum),var(--vellum-2));
-    border:1px solid #cdb487;border-radius:6px;padding:22px 22px 20px;
-    color:var(--ink);overflow:hidden;
-    box-shadow:0 14px 30px var(--shadow), inset 0 1px 0 rgba(255,255,255,.4);
-    transition:transform .2s ease, box-shadow .28s ease, border-color .2s ease;
+    position:relative;display:flex;gap:22px;align-items:flex-start;
+    counter-increment:station;
+    background:linear-gradient(180deg,rgba(242,233,216,.035),rgba(242,233,216,.015));
+    border:1px solid var(--line-soft);border-radius:14px;padding:26px 28px;
+    color:var(--ivory);overflow:hidden;
+    transition:transform .2s ease, border-color .25s ease, background .3s ease;
   }
-  .card::before{ /* alone d'oro al bordo, nascosto */
-    content:"";position:absolute;inset:0;border-radius:6px;pointer-events:none;
-    box-shadow:inset 0 0 0 1px transparent;transition:box-shadow .28s ease;
+  .grid .card{animation:card-in 1s cubic-bezier(.16,1,.3,1) both}
+  .grid .card:nth-child(1){animation-delay:.05s}
+  .grid .card:nth-child(2){animation-delay:.12s}
+  .grid .card:nth-child(3){animation-delay:.19s}
+  .grid .card:nth-child(4){animation-delay:.26s}
+  .grid .card:nth-child(5){animation-delay:.33s}
+  @keyframes card-in{from{opacity:0;transform:translateY(22px)}}
+  .card::before{ /* alone caldo dall'alto, si accende al passaggio */
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
+    background:radial-gradient(60% 110px at 18% 0%, rgba(240,164,65,.12), transparent 70%);
+    transition:opacity .3s ease;
   }
-  .card:not(.sealed):hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(0,0,0,.5);border-color:var(--gold)}
-  .card:not(.sealed):hover::before{box-shadow:inset 0 0 0 1px var(--gold-bright)}
-  .card:not(.sealed):hover .seal{opacity:1;transform:rotate(-8deg) scale(1)}
-  .card .ico{flex:0 0 auto;width:52px;height:52px;color:#6a4f22}
+  .card:not(.sealed):hover{transform:translateY(-3px);border-color:rgba(240,164,65,.4);background:linear-gradient(180deg,rgba(240,164,65,.06),rgba(242,233,216,.02))}
+  .card:not(.sealed):hover::before{opacity:1}
+  .card .ico{flex:0 0 auto;width:44px;height:44px;color:var(--amber);opacity:.85;margin-top:4px}
   .card .body{min-width:0}
-  .card h3{font-family:'Marcellus SC',serif;letter-spacing:.04em;font-size:1.18rem;color:#2a1f12;line-height:1.1}
-  .card p{font-size:1.02rem;color:var(--ink-soft);margin-top:7px}
-  .card .go{margin-top:13px;display:inline-flex;align-items:center;gap:7px;font-family:'Marcellus SC',serif;letter-spacing:.1em;text-transform:uppercase;font-size:11px;color:#7a1410}
-  .card .go svg{width:13px;height:13px;transition:transform .2s ease}
-  .card:not(.sealed):hover .go svg{transform:translateX(4px)}
-  .card .seal{ /* timbro di ceralacca al passaggio */
-    position:absolute;right:14px;top:14px;width:40px;height:40px;opacity:0;transform:rotate(-8deg) scale(.7);
-    transition:opacity .25s ease, transform .3s cubic-bezier(.2,1.4,.3,1);pointer-events:none;
+  .card .body::before{ /* numerazione da capitolo */
+    content:counter(station,decimal-leading-zero);display:block;
+    font-family:'Inter',sans-serif;font-weight:500;font-size:10px;letter-spacing:.45em;
+    color:var(--amber);opacity:.9;margin-bottom:9px;
   }
-  .card.sealed{filter:saturate(.82);cursor:default}
-  .card.sealed .perma-seal{position:absolute;right:16px;top:16px;width:46px;height:46px}
-  .card.sealed h3{color:#5a4a35}
-  .card.sealed .go{color:#8a6a3a}
+  .card h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;text-transform:uppercase;letter-spacing:.045em;font-size:1.32rem;color:var(--ivory);line-height:1.1}
+  .card p{font-size:.93rem;color:var(--muted);margin-top:8px;line-height:1.7}
+  .card .go{margin-top:15px;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-weight:600;letter-spacing:.3em;text-transform:uppercase;font-size:10.5px;color:var(--amber)}
+  .card .go svg{width:13px;height:13px;transition:transform .2s ease}
+  .card:not(.sealed):hover .go svg{transform:translateX(5px)}
+  .card .seal,.card.sealed .perma-seal{display:none}
+  .card.sealed{filter:saturate(.8);cursor:default}
+  .card.sealed h3{color:var(--muted)}
+  .card.sealed .go{color:var(--muted-2)}
 
-  .focus-target:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px;border-radius:6px}
+  .focus-target:focus-visible{outline:2px solid var(--amber-2);outline-offset:3px;border-radius:14px}
 
   /* ---------- footer ---------- */
-  footer{margin-top:64px;padding:34px 0 46px;border-top:1px solid var(--rule);text-align:center}
-  footer .fmark{width:26px;height:26px;color:var(--gold);opacity:.8;margin-bottom:12px}
-  footer .fname{font-family:'Marcellus SC',serif;letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:var(--gold)}
-  footer .fnote{color:var(--foam-dim);font-size:.95rem;margin-top:8px;font-style:italic}
+  footer{margin-top:76px;padding:38px 0 50px;border-top:1px solid var(--line-soft);text-align:center}
+  footer .fmark{width:20px;height:20px;color:var(--amber);opacity:.95;margin-bottom:14px}
+  footer .fname{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:.45em;text-transform:uppercase;font-size:10.5px;color:var(--champagne)}
+  footer .fnote{color:var(--muted-2);font-size:.9rem;margin-top:8px}
 
+  @media(max-width:720px){
+    .card{padding:22px 20px;gap:16px}
+    .card .ico{width:38px;height:38px}
+    .hero{padding:120px 0 90px}
+    .scene{ /* su schermi stretti: velo scuro uniforme e ritaglio spostato */
+      background:
+        linear-gradient(180deg, rgba(6,6,7,.65) 0%, rgba(6,6,7,.2) 30%, rgba(6,6,7,.2) 55%, #060607 96%),
+        linear-gradient(rgba(4,5,8,.42), rgba(4,5,8,.42)),
+        url("/img/hero_main.jpg") 42% 30% / cover no-repeat;
+    }
+  }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;scroll-behavior:auto!important}
-    .compass{opacity:.20}
   }
 </style>
 <link rel="manifest" href="/manifest.webmanifest">
-<meta name="theme-color" content="#0a1920">
+<meta name="theme-color" content="#060607">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -191,10 +207,8 @@
   <!-- TOP BAR -->
   <header class="topbar">
     <div class="brand">
-      <svg class="mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold-bright)">
-        <circle cx="24" cy="24" r="21"/><circle cx="24" cy="24" r="3" fill="currentColor"/>
-        <path d="M24 3v9M24 36v9M3 24h9M36 24h9" stroke-width="1.6"/>
-        <path d="M24 6 L27 24 L24 42 L21 24 Z" fill="currentColor" opacity=".85" stroke="none"/>
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="13" stroke="var(--amber)" stroke-width="8"/>
       </svg>
       <span class="name">Grand Line Chronicles</span>
     </div>
@@ -203,39 +217,8 @@
 
   <!-- HERO -->
   <section class="hero">
-    <!-- SIGNATURE: rosa dei venti -->
-    <svg class="compass" viewBox="0 0 600 600" fill="none" aria-hidden="true">
-      <g stroke="var(--gold)" stroke-width="1.2">
-        <circle cx="300" cy="300" r="232" opacity=".5"/>
-        <circle cx="300" cy="300" r="210"/>
-        <circle cx="300" cy="300" r="150" opacity=".4"/>
-        <g opacity=".55">
-          <!-- tacche -->
-          <g id="ticks"></g>
-        </g>
-      </g>
-      <!-- stella a 8 punte -->
-      <g fill="var(--gold)" opacity=".9">
-        <path d="M300 70 L317 283 L300 300 L283 283 Z"/>
-        <path d="M530 300 L317 317 L300 300 L317 283 Z" opacity=".75"/>
-        <path d="M300 530 L283 317 L300 300 L317 317 Z" opacity=".6"/>
-        <path d="M70 300 L283 283 L300 300 L283 317 Z" opacity=".75"/>
-      </g>
-      <g fill="var(--gold-bright)" opacity=".7">
-        <path d="M455 145 L312 288 L300 300 L322 270 Z"/>
-        <path d="M455 455 L312 312 L300 300 L330 322 Z" opacity=".7"/>
-        <path d="M145 455 L288 312 L300 300 L270 330 Z" opacity=".7"/>
-        <path d="M145 145 L288 288 L300 300 L270 278 Z" opacity=".85"/>
-      </g>
-      <g class="needle">
-        <path d="M300 110 L312 300 L300 300 L288 300 Z" fill="var(--seal)"/>
-        <path d="M300 490 L312 300 L300 300 L288 300 Z" fill="#caa24a" opacity=".5"/>
-      </g>
-      <text x="300" y="56" text-anchor="middle" fill="var(--gold-bright)" font-family="Marcellus SC, serif" font-size="30">N</text>
-      <text x="556" y="312" text-anchor="middle" fill="var(--gold)" font-family="Marcellus SC, serif" font-size="24">E</text>
-      <text x="300" y="572" text-anchor="middle" fill="var(--gold)" font-family="Marcellus SC, serif" font-size="24">S</text>
-      <text x="44" y="312" text-anchor="middle" fill="var(--gold)" font-family="Marcellus SC, serif" font-size="24">O</text>
-    </svg>
+    <!-- SIGNATURE: l'alba sulla Rotta Maggiore (img/hero_main.jpg) -->
+    <div class="scene" aria-hidden="true"></div>
 
     <div class="hero-inner">
       <p class="eyebrow">Registro di Bordo <span class="dot">✦</span> Sistema «Will of D.»</p>
@@ -252,7 +235,7 @@
 
   <div class="rope" aria-hidden="true">
     <span class="ln"></span>
-    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 24c0-6 4-10 10-10s10 4 10 10-4 10-10 10-10-4-10-10Z"/><path d="M24 14c6 0 10 4 10 10M24 34c-6 0-10-4-10-10" stroke-width="3" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2.5"/></svg>
     <span class="ln"></span>
   </div>
 
@@ -363,12 +346,12 @@
 
   <div class="rope" aria-hidden="true" style="margin-top:46px">
     <span class="ln"></span>
-    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 24c0-6 4-10 10-10s10 4 10 10-4 10-10 10-10-4-10-10Z"/><path d="M24 14c6 0 10 4 10 10M24 34c-6 0-10-4-10-10" stroke-width="3" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2.5"/></svg>
     <span class="ln"></span>
   </div>
 
   <footer>
-    <svg class="fmark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="24" cy="24" r="20"/><path d="M24 6 L27 24 L24 42 L21 24 Z" fill="currentColor" stroke="none"/><path d="M6 24h36" opacity=".4"/></svg>
+    <svg class="fmark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="13" stroke="currentColor" stroke-width="8"/></svg>
     <div class="fname">Grand Line Chronicles</div>
     <div class="fnote">Un gioco di ruolo amatoriale ispirato a One Piece.</div>
   </footer>

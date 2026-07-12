@@ -11,37 +11,38 @@
   if (window.GLCMap) return;
 
   var CSS = ""
-  + ".glcmap-wrap{--c-paper:#f4ead0;--c-ink:#33261a;--c-soft:#5e4c34;--c-gold:#c9a24a;--c-line:#cdb487;--c-seal:#9a241a;font-family:'Cormorant Garamond',Georgia,serif;}"
+  + ".glcmap-wrap{--c-paper:#14121a;--c-ink:#f1ece0;--c-soft:#a69a86;--c-gold:#f0a441;--c-line:rgba(240,164,65,.25);--c-seal:#e23131;font-family:'Inter',system-ui,sans-serif;}"
   + ".glcmap-toolbar{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:10px;}"
-  + ".glcmap-chip{font-family:'Marcellus SC',serif;font-size:11.5px;letter-spacing:.03em;border:1px solid #b9a06f;background:#fffaf0;color:#5a3f1c;border-radius:999px;padding:6px 11px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}"
-  + ".glcmap-chip.on{background:linear-gradient(180deg,#e7be63,#c9a24a);border-color:var(--c-gold);color:#2b1f0d;}"
+  + ".glcmap-chip{font-family:'Inter',sans-serif;font-weight:500;font-size:11.5px;letter-spacing:.03em;border:1px solid rgba(240,164,65,.3);background:rgba(242,233,216,.05);color:#e9d6ae;border-radius:999px;padding:6px 11px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}"
+  + ".glcmap-chip.on{background:linear-gradient(180deg,#ffd394,#f0a441);border-color:var(--c-gold);color:#1b1206;}"
   + ".glcmap-chip svg{width:14px;height:14px;}"
-  + ".glcmap-add{font-family:'Marcellus SC',serif;font-size:12px;letter-spacing:.04em;border:1px solid var(--c-gold);background:linear-gradient(180deg,#e7be63,#c9a24a);color:#2b1f0d;border-radius:9px;padding:7px 13px;cursor:pointer;}"
-  + ".glcmap-add.arm{background:#fffaf0;color:#8c1c13;border-color:#d9a99f;}"
-  + ".glcmap-hint{font-size:.92rem;color:#a8c6bd;font-style:italic;margin-left:auto;}"
-  + ".glcmap-canvas{position:relative;width:100%;aspect-ratio:25/16;border-radius:12px;overflow:hidden;border:1px solid var(--c-line);box-shadow:0 12px 28px rgba(0,0,0,.3);user-select:none;}"
+  + ".glcmap-add{font-family:'Inter',sans-serif;font-weight:600;font-size:12px;letter-spacing:.04em;border:1px solid var(--c-gold);background:linear-gradient(180deg,#ffd394,#f0a441);color:#1b1206;border-radius:9px;padding:7px 13px;cursor:pointer;}"
+  + ".glcmap-add.arm{background:rgba(226,49,49,.12);color:#ff8a7e;border-color:rgba(226,49,49,.5);}"
+  + ".glcmap-hint{font-size:.88rem;color:var(--c-soft);font-style:italic;margin-left:auto;}"
+  + ".glcmap-canvas{position:relative;width:100%;aspect-ratio:25/16;min-height:260px;max-height:82vh;resize:vertical;border-radius:12px;overflow:hidden;border:1px solid var(--c-line);box-shadow:0 12px 28px rgba(0,0,0,.45);user-select:none;}"
+  + ".glcmap-canvas::after{content:'\\2921';position:absolute;right:5px;bottom:2px;color:rgba(240,164,65,.6);font-size:13px;pointer-events:none;}"
   + ".glcmap-canvas.arm{cursor:crosshair;}"
   + ".glcmap-bg{position:absolute;inset:0;width:100%;height:100%;}"
   + ".glcmap-overlay{position:absolute;inset:0;}"
   + ".glcmap-marker{position:absolute;transform:translate(-50%,-100%);cursor:pointer;display:flex;flex-direction:column;align-items:center;touch-action:none;}"
-  + ".glcmap-pin{width:30px;height:30px;border-radius:50% 50% 50% 0;background:var(--mc,#c9a24a);transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 8px rgba(0,0,0,.4);border:2px solid #fffaf0;}"
-  + ".glcmap-pin svg{width:15px;height:15px;transform:rotate(45deg);color:#2b1f0d;}"
-  + ".glcmap-lbl{margin-top:3px;font-family:'Marcellus SC',serif;font-size:11px;letter-spacing:.02em;color:#2b1f0d;background:rgba(244,234,208,.92);border:1px solid var(--c-line);border-radius:6px;padding:1px 7px;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;box-shadow:0 2px 5px rgba(0,0,0,.3);}"
-  + ".glcmap-empty{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:rgba(236,220,182,.7);font-style:italic;text-align:center;font-size:.95rem;pointer-events:none;padding:0 20px;}"
-  + ".glcmap-modal{position:fixed;inset:0;background:rgba(6,14,18,.6);display:flex;align-items:center;justify-content:center;z-index:9000;padding:18px;}"
-  + ".glcmap-card{background:linear-gradient(180deg,#f4ead0,#efe2c4);color:var(--c-ink);border:1px solid var(--c-line);border-radius:14px;padding:18px;width:100%;max-width:380px;box-shadow:0 18px 50px rgba(0,0,0,.5);}"
-  + ".glcmap-card h4{font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:#4a371d;margin:0 0 10px;}"
-  + ".glcmap-card label{font-family:'Marcellus SC',serif;letter-spacing:.06em;text-transform:uppercase;font-size:10px;color:var(--c-soft);display:block;margin:10px 0 4px;}"
-  + ".glcmap-in{width:100%;font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--c-ink);background:#fffaf0;border:1px solid #b9a06f;border-radius:8px;padding:9px 11px;}"
+  + ".glcmap-pin{width:30px;height:30px;border-radius:50% 50% 50% 0;background:var(--mc,#f0a441);transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 8px rgba(0,0,0,.5);border:2px solid #0c0a10;}"
+  + ".glcmap-pin svg{width:15px;height:15px;transform:rotate(45deg);color:#0c0a10;}"
+  + ".glcmap-lbl{margin-top:3px;font-family:'Inter',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.02em;color:#f2e9d8;background:rgba(10,9,13,.85);border:1px solid var(--c-line);border-radius:6px;padding:1px 7px;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;box-shadow:0 2px 5px rgba(0,0,0,.4);}"
+  + ".glcmap-empty{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:rgba(242,233,216,.55);font-style:italic;text-align:center;font-size:.92rem;pointer-events:none;padding:0 20px;}"
+  + ".glcmap-modal{position:fixed;inset:0;background:rgba(3,3,5,.72);display:flex;align-items:center;justify-content:center;z-index:9000;padding:18px;}"
+  + ".glcmap-card{background:linear-gradient(180deg,#16131c,#0e0c12);color:var(--c-ink);border:1px solid var(--c-line);border-radius:16px;padding:18px;width:100%;max-width:380px;box-shadow:0 18px 50px rgba(0,0,0,.6);}"
+  + ".glcmap-card h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:1.25rem;color:#f2e9d8;margin:0 0 10px;}"
+  + ".glcmap-card label{font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:10px;color:var(--c-soft);display:block;margin:10px 0 4px;}"
+  + ".glcmap-in{width:100%;font-family:'Inter',sans-serif;font-size:.95rem;color:var(--c-ink);background:rgba(242,233,216,.06);border:1px solid rgba(240,164,65,.28);border-radius:8px;padding:9px 11px;}"
   + "textarea.glcmap-in{resize:vertical;min-height:70px;}"
   + ".glcmap-in:focus{outline:2px solid var(--c-gold);outline-offset:1px;}"
-  + ".glcmap-read{white-space:pre-wrap;background:#fffaf0;border:1px solid var(--c-line);border-radius:8px;padding:9px 11px;color:var(--c-soft);}"
+  + ".glcmap-read{white-space:pre-wrap;background:rgba(242,233,216,.05);border:1px solid var(--c-line);border-radius:8px;padding:9px 11px;color:#e9d6ae;}"
   + ".glcmap-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}"
-  + ".glcmap-btn{font-family:'Marcellus SC',serif;font-size:12px;letter-spacing:.04em;border-radius:9px;padding:9px 14px;cursor:pointer;border:1px solid var(--c-gold);background:linear-gradient(180deg,#e7be63,#c9a24a);color:#2b1f0d;}"
-  + ".glcmap-btn.ghost{background:transparent;color:#5a3f1c;}"
-  + ".glcmap-btn.danger{background:#f1d9d4;border-color:#d9a99f;color:#8c1c13;}"
+  + ".glcmap-btn{font-family:'Inter',sans-serif;font-weight:600;font-size:12px;letter-spacing:.04em;border-radius:9px;padding:9px 14px;cursor:pointer;border:1px solid var(--c-gold);background:linear-gradient(180deg,#ffd394,#f0a441);color:#1b1206;text-decoration:none;display:inline-flex;align-items:center;}"
+  + ".glcmap-btn.ghost{background:transparent;color:#ffd394;border-color:rgba(240,164,65,.35);}"
+  + ".glcmap-btn.danger{background:rgba(226,49,49,.1);border-color:rgba(226,49,49,.45);color:#ff8a7e;}"
   + ".glcmap-btn.spacer{margin-left:auto;}"
-  + ".glcmap-typetag{font-family:'Marcellus SC',serif;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--c-soft);margin-bottom:8px;}";
+  + ".glcmap-typetag{font-family:'Inter',sans-serif;font-weight:500;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-gold);margin-bottom:8px;}";
 
   function injectCSS(){
     if (document.getElementById("glcmap-css")) return;
@@ -75,23 +76,23 @@
     for (var x=50;x<1000;x+=50) grid+='<line x1="'+x+'" y1="0" x2="'+x+'" y2="640"/>';
     for (var y=50;y<640;y+=50) grid+='<line x1="0" y1="'+y+'" x2="1000" y2="'+y+'"/>';
     var rose='<g transform="translate(892,548)">'
-      + '<circle r="42" fill="none" stroke="rgba(201,162,74,.35)" stroke-width="1.5"/>'
-      + '<circle r="30" fill="none" stroke="rgba(201,162,74,.25)" stroke-width="1"/>'
-      + '<path d="M0,-40 L7,0 L0,40 L-7,0 Z" fill="rgba(201,162,74,.45)"/>'
-      + '<path d="M-40,0 L0,7 L40,0 L0,-7 Z" fill="rgba(201,162,74,.30)"/>'
-      + '<path d="M0,-40 L4,-4 L0,0 L-4,-4 Z" fill="rgba(236,202,119,.8)"/>'
-      + '<text x="0" y="-46" text-anchor="middle" font-family="Marcellus SC,serif" font-size="13" fill="rgba(236,202,119,.85)">N</text>'
+      + '<circle r="42" fill="none" stroke="rgba(240,164,65,.35)" stroke-width="1.5"/>'
+      + '<circle r="30" fill="none" stroke="rgba(240,164,65,.25)" stroke-width="1"/>'
+      + '<path d="M0,-40 L7,0 L0,40 L-7,0 Z" fill="rgba(240,164,65,.45)"/>'
+      + '<path d="M-40,0 L0,7 L40,0 L0,-7 Z" fill="rgba(240,164,65,.30)"/>'
+      + '<path d="M0,-40 L4,-4 L0,0 L-4,-4 Z" fill="rgba(255,211,148,.8)"/>'
+      + '<text x="0" y="-46" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" fill="rgba(255,211,148,.85)">N</text>'
       + '</g>';
     return '<svg class="glcmap-bg" viewBox="0 0 1000 640" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">'
       + '<defs><radialGradient id="glcsea" cx="48%" cy="38%" r="85%">'
       + '<stop offset="0%" stop-color="#17404b"/><stop offset="58%" stop-color="#0f2c35"/><stop offset="100%" stop-color="#0a2027"/>'
       + '</radialGradient></defs>'
       + '<rect width="1000" height="640" fill="url(#glcsea)"/>'
-      + '<g stroke="rgba(201,162,74,.10)" stroke-width="1">'+grid+'</g>'
-      + '<path d="M120,150 Q300,120 360,240 T620,300" fill="none" stroke="rgba(201,162,74,.20)" stroke-width="2" stroke-dasharray="5 9"/>'
-      + '<path d="M40,40 q12,-6 24,0 M40,40 q-12,6 -24,0" fill="none" stroke="rgba(168,198,189,.18)" stroke-width="2"/>'
+      + '<g stroke="rgba(240,164,65,.10)" stroke-width="1">'+grid+'</g>'
+      + '<path d="M120,150 Q300,120 360,240 T620,300" fill="none" stroke="rgba(240,164,65,.20)" stroke-width="2" stroke-dasharray="5 9"/>'
+      + '<path d="M40,40 q12,-6 24,0 M40,40 q-12,6 -24,0" fill="none" stroke="rgba(166,154,134,.18)" stroke-width="2"/>'
       + rose
-      + '<rect x="5" y="5" width="990" height="630" fill="none" stroke="rgba(201,162,74,.4)" stroke-width="3"/>'
+      + '<rect x="5" y="5" width="990" height="630" fill="none" stroke="rgba(240,164,65,.4)" stroke-width="3"/>'
       + '</svg>';
   }
 
@@ -236,7 +237,14 @@
         cancel.onclick = function(){ if (isNew && !isl.nome && !ta.value.trim()) { /* lascia comunque il segnaposto */ } closeModal(); };
         var save = el("button", "glcmap-btn"); save.type = "button"; save.textContent = "Salva";
         save.onclick = function(){ isl.nome = nm.value.trim(); isl.type = sel.value; isl.note = ta.value; renderMarkers(); emit(); closeModal(); };
-        acts.appendChild(del); acts.appendChild(cancel); acts.appendChild(save);
+        acts.appendChild(del);
+        if (opts.islandUrl){
+          var open = el("a", "glcmap-btn ghost"); open.textContent = "Scheda isola \u2197";
+          open.href = opts.islandUrl(isl);
+          open.onclick = function(){ isl.nome = nm.value.trim(); isl.type = sel.value; isl.note = ta.value; emit(); };
+          acts.appendChild(open);
+        }
+        acts.appendChild(cancel); acts.appendChild(save);
         card.appendChild(acts);
         setTimeout(function(){ nm.focus(); }, 30);
       });
@@ -250,6 +258,11 @@
         if (isl.note){ var r = el("div", "glcmap-read"); r.textContent = isl.note; card.appendChild(r); }
         else { var p = el("div", "glcmap-read"); p.textContent = "Nessuna nota."; card.appendChild(p); }
         var acts = el("div", "glcmap-acts");
+        if (opts.islandUrl){
+          var open = el("a", "glcmap-btn ghost"); open.textContent = "Scheda isola \u2197";
+          open.href = opts.islandUrl(isl);
+          acts.appendChild(open);
+        }
         var close = el("button", "glcmap-btn spacer"); close.type = "button"; close.textContent = "Chiudi"; close.onclick = closeModal;
         acts.appendChild(close); card.appendChild(acts);
       });

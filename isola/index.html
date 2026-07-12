@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scheda isola · Grand Line Chronicles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/glc-theme.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>window.GLC={saveKey:["glc_sessioni_v1"],gate:true,profileUrl:"/profilo/"};</script>
+<script src="/glc-auth.js"></script>
+<style>
+:root{
+  --ink:#f1ece0; --ink-soft:#a69a86; --gold:#f0a441; --gold-bright:#ffd394;
+  --seal:#e23131; --line:rgba(240,164,65,.22);
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; min-height:100vh; color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif; font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(90% 40% at 50% 100%, rgba(201,111,42,.07), transparent 70%),
+    #060607;
+}
+a{color:inherit;}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px clamp(16px,4vw,40px);border-bottom:1px solid var(--line);}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.brand .anc{color:var(--gold);font-size:18px;}
+.brand .nm{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:.34em;text-transform:uppercase;font-size:11px;color:var(--ink);}
+.wrap{max-width:860px;margin:0 auto;padding:clamp(22px,5vw,44px) clamp(16px,4vw,40px) 60px;}
+.back{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--ink-soft);text-decoration:none;}
+.back:hover{color:var(--gold-bright);}
+.head{margin:18px 0 20px;}
+.kick{font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.4em;text-transform:uppercase;font-size:10.5px;color:var(--gold);}
+.iname{width:100%;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(26px,5.5vw,42px);color:var(--ink);background:transparent;border:none;border-bottom:1px dashed transparent;padding:2px 0;margin-top:4px;line-height:1.15;}
+.iname:not([readonly]):hover,.iname:focus{border-bottom-color:rgba(240,164,65,.4);outline:none;}
+.typerow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px;}
+.typerow select{font-family:'Inter',sans-serif;font-size:13px;color:var(--ink);background:rgba(242,233,216,.06);border:1px solid rgba(240,164,65,.28);border-radius:8px;padding:6px 10px;}
+.status{font-size:.85rem;color:var(--ink-soft);margin-left:auto;}
+.status.ok{color:#7fc796;}
+.status.err{color:#ff6b5e;}
+.card{background:linear-gradient(180deg, rgba(242,233,216,.045), rgba(242,233,216,.02));border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:18px;}
+.card h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:16px;color:var(--gold-bright);margin:0 0 10px;}
+.card .help{background:rgba(240,164,65,.07);border:1px solid rgba(240,164,65,.3);border-radius:12px;padding:10px 12px;color:#d9c193;font-size:14px;margin:0 0 12px;}
+textarea.short{width:100%;min-height:64px;resize:vertical;font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);background:rgba(242,233,216,.06);border:1px solid rgba(240,164,65,.28);border-radius:10px;padding:10px 12px;outline:none;}
+textarea.short:focus{outline:2px solid var(--gold);outline-offset:1px;}
+/* dossier: pagina di quaderno, carta vera sul tavolo scuro */
+.dossier{width:100%;min-height:460px;resize:vertical;border:1px solid var(--line);border-radius:12px;padding:14px 18px 18px;color:#3a2c18;font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:30px;outline:none;background-color:#fbf3da;background-image:repeating-linear-gradient(#fbf3da 0px,#fbf3da 22px,#d9c79a 22px,#d9c79a 23px,#fbf3da 23px,#fbf3da 30px);background-position:0 14px;background-attachment:local;}
+.dossier[readonly]{opacity:.92;}
+.pager{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 10px;}
+.pager button{font-family:'Inter',sans-serif;font-weight:600;font-size:12px;letter-spacing:.04em;border:1px solid rgba(240,164,65,.3);background:rgba(242,233,216,.05);color:#ffd394;border-radius:999px;padding:7px 13px;cursor:pointer;}
+.pager button:hover{background:rgba(240,164,65,.12);}
+.pager button:disabled{opacity:.35;cursor:default;}
+.pager .lab{font-size:.85rem;color:var(--ink-soft);letter-spacing:.06em;}
+.pager .del{border-color:rgba(226,49,49,.4);color:#ff8a7e;margin-left:auto;}
+.pager .del:hover{background:rgba(226,49,49,.1);}
+.notfound{background:linear-gradient(180deg, rgba(242,233,216,.045), rgba(242,233,216,.02));border:1px solid var(--line);border-radius:16px;padding:26px;text-align:center;color:var(--ink);}
+.notfound a{color:var(--gold-bright);}
+@media(max-width:560px){body{font-size:15px;}}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="brand" href="/"><span class="anc">⚓</span><span class="nm">Grand Line Chronicles</span></a>
+    <span id="glc-login-slot"></span>
+  </div>
+
+  <div class="wrap">
+    <a class="back" id="back" href="/profilo/">‹ Torna indietro</a>
+
+    <div id="notfound" class="notfound" style="display:none;margin-top:18px;">
+      Questa isola non esiste (o è stata eliminata).<br><br>
+      <a id="nf-back" href="/profilo/">↩ Torna indietro</a>
+    </div>
+
+    <div id="content" style="display:none;">
+      <div class="head">
+        <div class="kick" id="ctx">Scheda isola</div>
+        <input class="iname" id="iname" type="text" placeholder="Isola senza nome" maxlength="60" autocomplete="off">
+        <div class="typerow">
+          <select id="itype" aria-label="Tipo di luogo">
+            <option value="isola">Isola</option>
+            <option value="citta">Porto/Città</option>
+            <option value="pericolo">Pericolo</option>
+            <option value="tesoro">Tesoro</option>
+            <option value="ancora">Ancoraggio</option>
+          </select>
+          <span class="status" id="status"></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>🧭 Nota breve — appare sulla mappa</h2>
+        <textarea class="short" id="inote" placeholder="Due righe di riassunto: cosa c'è qui, chi comanda, cosa è successo…"></textarea>
+      </div>
+
+      <div class="card">
+        <h2>📜 Dossier dell'isola</h2>
+        <div class="help">Qui c'è spazio per tutto: PNG incontrati, indizi, segreti, bottini, mappe dei dungeon, conti in sospeso. Si salva da solo mentre scrivi — e puoi sfogliare più pagine.</div>
+        <div class="pager">
+          <button id="pg-prev" type="button" aria-label="Pagina precedente">‹</button>
+          <span class="lab" id="pg-lab">Pagina 1 di 1</span>
+          <button id="pg-next" type="button" aria-label="Pagina successiva">›</button>
+          <button id="pg-add" type="button">+ Nuova pagina</button>
+          <button id="pg-del" class="del" type="button" title="Elimina questa pagina">🗑</button>
+        </div>
+        <textarea class="dossier" id="idossier" placeholder="Scrivi tutto quello che la ciurma scopre su quest'isola…"></textarea>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function(){
+  "use strict";
+  var qs=new URLSearchParams(location.search);
+  var SID=qs.get("s")||"", CID=qs.get("c")||"", IID=qs.get("i")||"";
+  var SKEY="glc_sessioni_v1";
+  var isCamp=!!CID, readOnly=false, island=null, saveTimer=null;
+  var pages=[""], pi=0;
+
+  var $=function(id){return document.getElementById(id);};
+  function setStatus(t,k){var s=$("status");if(!s)return;s.className="status"+(k?(" "+k):"");s.textContent=t||"";}
+  function show(found){$("notfound").style.display=found?"none":"block";$("content").style.display=found?"block":"none";}
+
+  /* ---------- sessioni: localStorage (sincronizzato nel cloud da glc-auth) ---------- */
+  function readST(){try{return JSON.parse(localStorage.getItem(SKEY)||"null");}catch(e){return null;}}
+  function sessionSave(){
+    var st=readST(); if(!st||!st.sessions||!st.sessions[SID]) return false;
+    var map=st.sessions[SID].map||[];
+    for(var k=0;k<map.length;k++){ if(map[k].id===IID){ map[k]=island; break; } }
+    st.sessions[SID].map=map;
+    try{localStorage.setItem(SKEY,JSON.stringify(st));}catch(e){return false;}
+    return true;
+  }
+  function sessionLoad(){
+    var st=readST(); if(!st||!st.sessions||!st.sessions[SID]) return null;
+    var map=st.sessions[SID].map||[];
+    for(var k=0;k<map.length;k++){ if(map[k].id===IID) return map[k]; }
+    return null;
+  }
+
+  /* ---------- campagne: Supabase (campaign_info), scrive solo il GM ---------- */
+  function SB(){return window.__glcSB;}
+  async function ME(){try{var r=await SB().auth.getUser();return (r&&r.data)?r.data.user:null;}catch(e){return null;}}
+  var campInfo=null;
+  async function campLoad(){
+    if(!SB()) return null;
+    try{
+      var me=await ME(); if(!me) return null;
+      var cR=await SB().from("campaigns").select("id,gm,nome").eq("id",CID).maybeSingle();
+      var camp=(cR&&cR.data)?cR.data:null; if(!camp) return null;
+      readOnly = camp.gm!==me.id;
+      if(camp.nome) $("ctx").textContent="Scheda isola · Campagna «"+camp.nome+"»";
+      var r=await SB().from("campaign_info").select("data").eq("campaign_id",CID).maybeSingle();
+      campInfo=(r&&r.data&&r.data.data)?r.data.data:{};
+      var map=campInfo.map||[];
+      for(var k=0;k<map.length;k++){ if(map[k].id===IID) return map[k]; }
+      return null;
+    }catch(e){ return null; }
+  }
+  async function campSave(){
+    if(!SB()||!campInfo) return false;
+    var map=campInfo.map||[];
+    for(var k=0;k<map.length;k++){ if(map[k].id===IID){ map[k]=island; break; } }
+    campInfo.map=map;
+    try{
+      var r=await SB().from("campaign_info").upsert({campaign_id:CID,data:campInfo,updated_at:new Date().toISOString()},{onConflict:"campaign_id"}).select();
+      return !(r&&r.error);
+    }catch(e){ return false; }
+  }
+
+  function scheduleSave(){
+    if(readOnly) return;
+    setStatus("Salvataggio…");
+    clearTimeout(saveTimer);
+    saveTimer=setTimeout(async function(){
+      island.nome=$("iname").value.trim();
+      island.type=$("itype").value;
+      island.note=$("inote").value;
+      pages[pi]=$("idossier").value;
+      island.pages=pages.slice();
+      island.dossier=pages[0]||"";
+      var ok = isCamp ? await campSave() : sessionSave();
+      setStatus(ok?"Salvato ✓":"Errore nel salvataggio", ok?"ok":"err");
+    }, 700);
+  }
+
+  function renderPage(){
+    $("idossier").value=pages[pi]||"";
+    $("pg-lab").textContent="Pagina "+(pi+1)+" di "+pages.length;
+    $("pg-prev").disabled=(pi===0);
+    $("pg-next").disabled=(pi>=pages.length-1);
+    $("pg-del").disabled=(pages.length<=1);
+  }
+  function commitPage(){ pages[pi]=$("idossier").value; }
+  function bindPager(){
+    $("pg-prev").addEventListener("click",function(){ if(pi>0){ commitPage(); pi--; renderPage(); } });
+    $("pg-next").addEventListener("click",function(){ if(pi<pages.length-1){ commitPage(); pi++; renderPage(); } });
+    $("pg-add").addEventListener("click",function(){ if(readOnly)return; commitPage(); pages.push(""); pi=pages.length-1; renderPage(); scheduleSave(); $("idossier").focus(); });
+    $("pg-del").addEventListener("click",function(){
+      if(readOnly||pages.length<=1)return;
+      if((pages[pi]||"").trim() && !confirm("Eliminare questa pagina del dossier? Non è reversibile."))return;
+      pages.splice(pi,1); if(pi>=pages.length)pi=pages.length-1; renderPage(); scheduleSave();
+    });
+  }
+  function render(){
+    show(true);
+    $("iname").value=island.nome||"";
+    $("itype").value=island.type||"isola";
+    $("inote").value=island.note||"";
+    pages=(island.pages&&island.pages.length)?island.pages.slice():(island.dossier?[island.dossier]:[""]);
+    pi=0; renderPage();
+    bindPager();
+    if(readOnly){
+      $("iname").setAttribute("readonly","");
+      $("itype").disabled=true;
+      $("inote").setAttribute("readonly","");
+      $("idossier").setAttribute("readonly","");
+      $("pg-add").style.display="none";
+      $("pg-del").style.display="none";
+      setStatus("Sola lettura — la scheda la aggiorna il Game Master.");
+    } else {
+      ["iname","inote","idossier"].forEach(function(id){ $(id).addEventListener("input",scheduleSave); });
+      $("itype").addEventListener("change",scheduleSave);
+    }
+  }
+
+  var backUrl = isCamp ? "/campagne/" : (SID ? "/sessioni/?s="+encodeURIComponent(SID) : "/profilo/");
+  $("back").href=backUrl; $("nf-back").href=backUrl;
+  if(!isCamp) $("ctx").textContent="Scheda isola · Diario di sessione";
+
+  async function boot(){
+    if(!IID || (!SID && !CID)){ show(false); return; }
+    if(isCamp){
+      // aspetta che glc-auth abbia inizializzato supabase
+      var tries=0;
+      (function wait(){
+        if(SB()){ campLoad().then(function(isl){ if(isl){ island=isl; render(); } else show(false); }); }
+        else if(++tries<40){ setTimeout(wait,150); }
+        else show(false);
+      })();
+    } else {
+      island=sessionLoad();
+      if(island) render(); else show(false);
+      // dopo la sync cloud i dati possono arrivare più tardi: riprova una volta
+      if(!island) setTimeout(function(){ var i2=sessionLoad(); if(i2){ island=i2; render(); } }, 1200);
+    }
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",boot); else boot();
+})();
+</script>
+</body>
+</html>
