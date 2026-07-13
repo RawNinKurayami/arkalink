@@ -276,7 +276,7 @@ function render(){
   var mapBox=el("div");
   mapCard.appendChild(mapBox);
   app.appendChild(mapCard);
-  if(window.GLCMap){ GLCMap.mount(mapBox,{islands:s.map,readOnly:false,islandUrl:function(isl){return "/isola/?s="+encodeURIComponent(SID)+"&i="+encodeURIComponent(isl.id);},onChange:function(islands){ var st2=readST(); var ss=st2.sessions[SID]; if(!ss)return; ss.map=islands; st2.activeId=SID; writeST(st2); }}); }
+  if(window.GLCMap){ GLCMap.mount(mapBox,{islands:s.map,land:s.mapLand||[],readOnly:false,islandUrl:function(isl){return "/isola/?s="+encodeURIComponent(SID)+"&i="+encodeURIComponent(isl.id);},onChange:function(islands){ var st2=readST(); var ss=st2.sessions[SID]; if(!ss)return; ss.map=islands; st2.activeId=SID; writeST(st2); },onLand:function(strokes){ var st2=readST(); var ss=st2.sessions[SID]; if(!ss)return; ss.mapLand=strokes; st2.activeId=SID; writeST(st2); }}); }
 
   /* --- Diario --- */
   var dCard=el("div",{class:"card diary"});

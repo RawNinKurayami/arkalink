@@ -265,7 +265,7 @@ async function renderDetail(c){
   INFO.map=Array.isArray(INFO.map)?INFO.map:[];
   var mapBox=el("div");
   p.appendChild(mapBox);
-  if(window.GLCMap){ GLCMap.mount(mapBox,{islands:INFO.map,readOnly:!isGM,islandUrl:function(isl){return "/isola/?c="+encodeURIComponent(c.id)+"&i="+encodeURIComponent(isl.id);},onChange:function(islands){ INFO.map=islands; persistInfo(c,INFO,null,null,false); }}); }
+  if(window.GLCMap){ GLCMap.mount(mapBox,{islands:INFO.map,land:INFO.mapLand||[],readOnly:!isGM,islandUrl:function(isl){return "/isola/?c="+encodeURIComponent(c.id)+"&i="+encodeURIComponent(isl.id);},onChange:function(islands){ INFO.map=islands; persistInfo(c,INFO,null,null,false); },onLand:function(strokes){ INFO.mapLand=strokes; persistInfo(c,INFO,null,null,false); }}); }
 
   // codice (visibile al GM; un giocatore può comunque vederlo per condividerlo)
   p.appendChild(el("div",{class:"sep"}));
