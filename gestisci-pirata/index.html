@@ -365,11 +365,13 @@ const TALENTS={
  "Striker":{skillChoice:["Atletica","Acrobazia"],ico:"\u{1F44A}",tratto:"A mani nude nessun Grado ti frena (usi il pieno dell'Attributo); prese e atterramenti facili.",firma:"Il colpo sfonda \u2014 il bersaglio \u00e8 Stordito/sbilanciato per 1 turno.",talenti:[
   {n:"Raffica",t:"gradini",d:"spendendo Stamina compi attacchi extra nel turno, di qualsiasi tipo (1 ST ciascuno). Base 1 \u00b7 Migliorato 2 \u00b7 Maestria 3."},
   {n:"Campo di Battaglia",d:"quando un nemico ti manca con un attacco, al suo prossimo turno attacca in Svantaggio."},
+  {n:"Contraccolpo",d:"maestro della difesa attiva: ogni volta che la tua tecnica di Contrattacco supera l’attacco nemico, infliggi danni pari alla tecnica usata."},
   {n:"Passo Fulmineo",d:"1\u00d7/turno, come movimento, uno scatto lungo per raggiungere un nemico senza provocare reazioni."},
   {n:"Smash Hit",t:"ultimate",d:"se va a segno, danno raddoppiato e sfonda il bersaglio (Stordito) anche senza il +4."}]},
  "Swordsman":{skill:"Atletica",ico:"\u2694\ufe0f",tratto:"Maestro della difesa attiva; le lame di Grado alto sbloccano i loro effetti.",firma:"Doppio fendente \u2014 tiri il Dado Danno una volta in pi\u00f9 e sommi.",talenti:[
   {n:"Pi\u00f9 Spade",t:"gradini",d:"aggiungi spade all'arsenale (max 2). Base: una seconda lama \u00b7 Maestria: nello stesso turno attacchi con ciascuna arma (attacco extra, 1 ST)."},
   {n:"Parata e Contraccolpo",t:"gradini",d:"scatta solo parando con la difesa attiva. Base: contraccolpo col dado Grado \u00b7 Migliorato: Dado Tecnica \u00b7 Maestria: Dado Tecnica doppio."},
+  {n:"Contraccolpo",d:"maestro della difesa attiva: ogni volta che la tua tecnica di Contrattacco supera l’attacco nemico, infliggi danni pari alla tecnica usata."},
   {n:"Postura Imperturbabile",d:"la tua guardia non si rompe \u2014 non puoi essere Stordito n\u00e9 sbilanciato."},
   {n:"Asura",t:"ultimate",d:"il dado dell'Attributo Tecnica conta doppio nel tiro per colpire; il Danno cresce col margine \u2014 +0/+3: 2 dadi \u00b7 +4/+7: 3 \u00b7 +8/+11: 4 \u00b7 +12+: 5 Dadi Danno."}]},
  "Sniper":{skill:"Osservazione",ico:"\u{1F3AF}",tratto:"Colpisci a distanza, fuori dalla mischia, e spesso agisci per primo.",firma:"Il tuo prossimo colpo contro lo stesso bersaglio conta la sua Difesa Passiva ridotta di 2.",talenti:[
@@ -436,7 +438,7 @@ const TALENTS={
   {n:"Musica Incrollabile",d:"la tua musica non si ferma se sei Stordito o a terra."},
   {n:"Fiato Lungo",d:"le tue Canzoni costano 1 Stamina in meno (minimo 1)."},
   {n:"Anima dell'Intrattenitore",d:"fuori dal combattimento le tue esibizioni (Spirito + Arte) hanno Vantaggio."},
-  {n:"Canzone dell'Anima",t:"ultimate",d:"la tua melodia-firma (Inno della Ciurma \u00b7 Canto che Riporta l'Anima \u00b7 Sinfonia del Riposo, concordata col Capitano). Attivazione: Ambizione + permesso del Capitano."}]}}},
+  {n:"Canzone dell'Anima",t:"ultimate",d:"melodia-firma (d20): tutta la ciurma recupera met\u00e0 Stamina. Attivazione: Ambizione + permesso del Capitano."}]}}},
 "Capitano":{skill:"Comunicazione",styles:{"Capitano":{ico:"\u{1F451}",tratto:"Il Capitano non ha Talenti di Stile: la sua forza \u00e8 l'Ambizione, i Legami e il comando della ciurma.",talenti:[]}}}
 };
 function firstStyle(rn){const T=TALENTS[rn];if(!T||!T.styles)return "";return T.multi?Object.keys(T.styles)[0]:"";}
@@ -463,17 +465,22 @@ const FRUIT_TALENTS={
 const FRUIT_RISVEGLIO={n:"Risveglio",t:"ultimate",d:"per la scena il potere sale di livello, effetto enorme concordato: Paramecia plasma l'ambiente, Logia quasi inarrestabile, Zoan alla forma definitiva. Richiede 3 Talenti del Frutto + permesso del Capitano (Ambizione)."};
 const SKILLS={"Artigianato":"Oggetti e attrezzi","Medicina":"Ferite, veleni","Navigazione":"Rotte, traversate","Cucina":"Pasti, recupero","Furtività":"Non visti, scasso","Atletica":"Corsa, lotta","Archeologia":"Storia, Poneglyph","Acrobazia":"Equilibrio, evasione","Arte":"Musica, falsi","Osservazione":"Pericoli, indizi","Meccanica":"Macchinari, cannoni","Carpenteria":"La nave","Esplorazione":"Isole","Comunicazione":"Convincere, trattare","Natura":"Piante, clima","Sopravvivenza":"Cibo, riparo"};
 const TEC_FONTI=["Stile","Arma","Frutto"];
-const TEC_FORME=["Singolo","Raffica","Area","Spostamento","Difesa","Potenziamento","Indebolimento","Modalità","Utility"];
+const TEC_FORME=["Singolo","Area","Spostamento","Difesa","Potenziamento","Canzone","Indebolimento"];
 const TEC_DADI=["d4","d6","d8","d10","d12","d20","d20+"];
 const TEC_RANK={d4:1,d6:2,d8:3,d10:4,d12:5,d20:6,"d20+":7};
 const TEC_SLOT={d4:1,d6:1,d8:2,d10:2,d12:3,d20:4,"d20+":5};
 const TEC_DUR=[["Un turno",0,0,""],["Mantieni (+1/turno)",0,1,""],["3 turni",2,0,""],["Tutta la scena",0,0,"d20+"]];
-const TEC_FAMS=["Danno","Controllo","Spostamento","Difesa","Potenziamento","Melodie del Musicista","Area","Zona Persistente","Speciali di Fonte","Concatenati","Devastanti"];
+const TEC_FAMS=["Danno","Controllo","Spostamento","Difesa","Potenziamento","Melodie del Musicista","Area","Zona Persistente","Speciali di Fonte","Concatenati"];
 const TEC_EFF=[
 ["Danno","+1d6 Dado Danno","un d6 in più al danno","d8",1,""],
+["Danno","+1d8 Dado Danno","un d8 in più al danno","d10",2,""],
+["Danno","+1d10 Dado Danno","un d10 in più al danno","d12",3,""],
 ["Danno","Colpo Pesante","il danno non scende sotto metà del dado","d10",2,""],
 ["Danno","Esecuzione","+1 Dado Danno contro chi è Quasi Morto","d12",1,""],
+["Danno","Carica","salti un turno: se non vieni colpito, al tuo prossimo turno raddoppi i Dadi Danno","d10",2,""],
+["Danno","Sovraccarico","tiri il doppio dei Dadi Danno, ma subisci 1d10 PV","d12",3,""],
 ["Danno","Colpo Annientante","danno raddoppiato, una volta per scena","d20",4,""],
+["Danno","Tutto o Niente","manchi = niente e non puoi difenderti dal prossimo attacco; colpo pulito = danno triplo","d12",10,""],
 ["Controllo","Sfondamento","Stordito per 1 turno","d8",1,""],
 ["Controllo","Lacerazione","Sanguinante","d6",1,""],
 ["Controllo","Veleno","Avvelenato","d6",1,""],
@@ -482,50 +489,46 @@ const TEC_EFF=[
 ["Controllo","Presa","Immobilizzato finché lo tieni: ogni turno tiri Forza contro la Forza del nemico","d8",1,""],
 ["Controllo","Paralisi","Paralizzato 1 turno (Salvezza)","d12",2,""],
 ["Controllo","Sopore","Addormentato (Salvezza)","d12",2,""],
-["Spostamento","Proiezione","spingi via il bersaglio","d6",0,"spost"],
-["Spostamento","Schianto","lo sbatti contro qualcosa: aggiungi 1d8 di danno","d8",3,"spost"],
+["Spostamento","Proiezione","spingi via il bersaglio","d6",0,""],
 ["Spostamento","Attrazione","lo trascini verso di te — solo armi/oggetti in grado di afferrare","d8",1,"spost"],
 ["Spostamento","Scatto","ti muovi prima o dopo il colpo","d6",1,"spost"],
 ["Spostamento","Balzo","raggiungi una posizione alta o lontana","d6",1,"spost"],
 ["Spostamento","Inseguire","segui chi fugge e colpisci","d8",2,"spost"],
 ["Difesa","Guardia","difesa passiva: +2 Difesa fino al tuo prossimo turno","d6",1,"difesa"],
-["Difesa","Contrattacco","difesa attiva: usi una tua tecnica d'attacco come reazione bonus contro il colpo avversario — solo Singolo vs Singolo","d10",1,"difesa"],
+["Difesa","Contrattacco","difesa attiva: quando ti attaccano rispondi come reazione con una tua tecnica d'attacco (qualsiasi stile e forma); se supera l'attacco nemico, ti difendi","d10",1,"difesa"],
 ["Difesa","Barriera","copertura per te e gli alleati vicini","d8",1,"difesa"],
 ["Difesa","Scudo d'Alleato","sposti su di te il colpo a un compagno","d8",1,"difesa"],
 ["Difesa","Parata","solo con arma: tiri Attributo (Forza o Tecnica, secondo l'arma) + dado dell'arma per parare il colpo","d10",2,"difesa"],
 ["Potenziamento","Furia","+1 gradino al Dado Danno: finché è attiva spendi 1 ST a turno","d8",1,"potenz"],
 ["Potenziamento","Concentrazione","salti un turno: la tua prossima Tecnica costa metà ST","d10",2,"potenz"],
 ["Potenziamento","Oltre il Limite","per 1 turno il dado sale di 1 oltre il tetto","d20",3,"potenz"],
+["Melodie del Musicista","Motivetto di Vigore","un alleato a portata recupera 1d4 ST","d6",2,"musicista"],
+["Melodie del Musicista","Marcia di Guerra","Sostenuta (2 ST/turno): finché suoni, un alleato scelto ha +1d4 agli attacchi","d6",2,"musicista"],
 ["Melodie del Musicista","Controcanto","spezzi paura e malie: annulli Terrore, Sopore o charme sugli alleati","d8",1,"musicista"],
 ["Melodie del Musicista","Requiem Beffardo","il nemico ha Svantaggio al suo prossimo tiro","d8",3,"musicista"],
 ["Melodie del Musicista","Crescendo","la prossima Tecnica di un alleato costa metà ST","d10",3,"musicista"],
 ["Melodie del Musicista","Ninnananna","Addormentato a chi ti ascolta (Salvezza) — nessun danno","d10",2,"musicista"],
-["Melodie del Musicista","Marcia della Ciurma","la melodia vale per tutta la ciurma che ti sente","d10",2,"musicista"],
-["Melodie del Musicista","Assolo Leggendario","una volta per scena: tutta la ciurma +1 gradino al Dado Danno per il round","d20",5,"musicista"],
+["Melodie del Musicista","Assolo Travolgente","gli alleati in ascolto recuperano 1d6 ST e hanno +1d6 al tiro per colpire","d10",4,"musicista"],
+["Melodie del Musicista","Inno della Ciurma","tutta la ciurma duplica un dado a scelta","d12",5,"musicista"],
+["Melodie del Musicista","Canzone dell'Anima","Ultimate · melodia firma: tutta la ciurma recupera metà Stamina","d20",6,"musicista"],
 ["Area","Onda","più nemici in linea o cono","d8",0,"area"],
 ["Area","Esplosione","tutti in un raggio","d10",0,"area"],
-["Area","Terreno Alterato","lasci fuoco/ghiaccio/veleno nella zona","d10",1,"area"],
 ["Area","Spazzata","Sbilanciato a tutti i colpiti","d8",1,"area"],
 ["Area","Devastazione","danno extra a strutture e navi","d12",3,"area"],
 ["Area","Occhio del Ciclone","scegli chi NON colpire (risparmi gli alleati)","d12",1,"area"],
-["Zona Persistente","Campo Ardente","Dado Danno a chi è dentro, a inizio turno","d10",2,"area"],
+["Zona Persistente","Terreno Alterato","zona (raggio 10 m): 1d6 danni a chi è dentro, a inizio turno","d8",2,"area"],
+["Zona Persistente","Terreno Alterato Lv2","zona (raggio 15 m): 2d6 danni a inizio turno","d10",3,"area"],
+["Zona Persistente","Terreno Alterato Lv3","zona (raggio 20 m): 3d6 danni a inizio turno","d12",4,"area"],
 ["Zona Persistente","Pantano","terreno difficile: niente carica, movimento dimezzato","d8",1,"area"],
 ["Zona Persistente","Cortina","blocca la vista; chi è dentro mira fuori come Accecato","d8",1,"area"],
-["Zona Persistente","Muro","una parete con PS propri: blocca o ferisce chi la forza","d10",2,"area"],
 ["Zona Persistente","Prigione","chi è dentro è trattenuto: esce con una Salvezza","d12",2,"area"],
 ["Speciali di Fonte","Gittata","porti un colpo da mischia a distanza","d6",1,"frutto"],
 ["Speciali di Fonte","Elementale","il colpo brucia, gela, folgora… (Logia)","d8",1,"frutto"],
 ["Speciali di Fonte","Mutaforma","cambi raggio e forma del colpo (Paramecia)","d8",2,"frutto"],
 ["Speciali di Fonte","Forma Bestiale","stazza Zoan: +1 Dado Danno e Spinta","d8",1,"frutto"],
-["Speciali di Fonte","Moltiplicazione","più arti, copie o proiettili: spendi 2 ST in più per ogni colpo moltiplicato","d10",2,"frutto"],
 ["Concatenati","Catena","fino a 3 bersagli in fila: tiri per colpire tutti e 3, un solo tiro di danno — pieno al primo, metà al secondo, metà della metà al terzo","d12",3,""],
-["Concatenati","Marchio Esplosivo","segni ora, lo fai detonare quando vuoi (Area)","d10",2,"special"],
-["Devastanti","+1d8 Dado Danno","un d8 in più al danno","d10",3,""],
-["Devastanti","+1d10 Dado Danno","un d10 in più al danno","d12",5,""],
-["Devastanti","Carica (devastante)","salti un turno: se non vieni colpito, al tuo prossimo turno raddoppi i Dadi Danno","d10",2,""],
-["Devastanti","Sovraccarico","tiri il doppio dei Dadi Danno, ma subisci 1d6 PV","d12",3,""],
-["Devastanti","Tutto o Niente","manchi = niente e non puoi difenderti dal prossimo attacco; colpo pulito = danno triplo","d12",4,""],
-["Devastanti","Colpo Finale","una volta per scontro, chiude la scena","d20+",5,""]
+["Concatenati","Schianto","lo sbatti contro qualcosa o un altro nemico: aggiungi 1d8 di danno","d8",3,""],
+["Concatenati","Marchio Esplosivo","segni ora, lo fai detonare quando vuoi (Area)","d10",2,"special"]
 ];
 function tecEffObj(nm){return TEC_EFF.find(e=>e[1]===nm);}
 function isMusicista(){try{return !!(pg&&(pg.role==="Musicista"||pg.role2==="Musicista"));}catch(e){return false;}}
@@ -535,9 +538,9 @@ function effVeto(e){ // regole trasversali: restituisce il motivo del blocco, o 
   const fam=e[0];
   if(TBUILD.forma==="Difesa"&&fam!=="Difesa")return "Forma Difesa: solo effetti Difesa";
   if(TBUILD.forma==="Spostamento"&&fam!=="Spostamento")return "Forma Spostamento: solo effetti Spostamento";
-  if(e[1]==="Contrattacco"&&TBUILD.fonte!=="Arma")return "Contrattacco: solo con arma";
+  if(TBUILD.forma==="Canzone"&&fam!=="Melodie del Musicista")return "Forma Canzone: solo Melodie";
   if(TBUILD.fonte==="Arma"){
-    const okFam=(fam==="Danno"||fam==="Concatenati"||fam==="Devastanti");
+    const okFam=(fam==="Danno"||fam==="Concatenati");
     const okCtrl=(fam==="Controllo"&&["Sfondamento","Lacerazione","Veleno","Sbilancio"].indexOf(e[1])>=0);
     const okDif=(fam==="Difesa"&&TBUILD.forma==="Difesa");
     if(!(okFam||okCtrl||okDif))return "non disponibile con Fonte Arma";
@@ -559,7 +562,7 @@ function renderTecBuilder(onAdd){
  grid.appendChild(mkSel("Attributo",["","Forza","Tecnica","Spirito","Astuzia"],()=>TBUILD.attr,v=>TBUILD.attr=v));
  (function(){var w=el("div",{});w.appendChild(el("label",{class:"fld",text:"Fonte"}));var sl=el("select",{});var hasArmi=(typeof pg!=="undefined"&&pg.armi&&pg.armi.length>0),hasFrutto=(typeof pg!=="undefined"&&pg.frutto&&pg.frutto.has);TEC_FONTI.forEach(function(o){var opt=el("option",{value:o});opt.textContent=o;if(o==="Arma"&&!hasArmi){opt.disabled=true;opt.textContent="Arma (nessuna in scheda)";}if(o==="Frutto"&&!hasFrutto){opt.disabled=true;opt.textContent="Frutto (nessuno in scheda)";}sl.appendChild(opt);});if((TBUILD.fonte==="Arma"&&!hasArmi)||(TBUILD.fonte==="Frutto"&&!hasFrutto))TBUILD.fonte="Stile";sl.value=TBUILD.fonte;sl.onchange=function(){TBUILD.fonte=sl.value;refresh();};w.appendChild(sl);grid.appendChild(w);})();
  const formaHost=el("div");grid.appendChild(formaHost);
- grid.appendChild(mkSel("Dado (= Dado Danno)",TEC_DADI,()=>TBUILD.die,v=>TBUILD.die=v));
+ const dieHost=el("div");grid.appendChild(dieHost);
  box.appendChild(grid);
  const weaponHost=el("div");box.appendChild(weaponHost);const fruitHost=el("div");box.appendChild(fruitHost);const durHost=el("div");box.appendChild(durHost);
  const info=el("div",{class:"tbinfo"});box.appendChild(info);
@@ -567,36 +570,42 @@ function renderTecBuilder(onAdd){
  const costEl=el("div",{class:"tbcost"});box.appendChild(costEl);
  const dw=el("div",{});dw.appendChild(el("label",{class:"fld",text:"Descrizione / colore (facoltativo)"}));const dta=el("textarea",{});dta.value=TBUILD.desc||"";dta.oninput=()=>{TBUILD.desc=dta.value;};dw.appendChild(dta);box.appendChild(dw);
  const btns=el("div",{class:"addrow"});
- btns.appendChild(el("button",{class:"btn sm",text:"+ Aggiungi alla Scheda",onclick:()=>{if(!(TBUILD.nome||"").trim()){alert("Dai un nome alla tecnica.");return;}const t={id:(TBUILD._id||("tec"+Date.now().toString(36)+Math.floor(Math.random()*1000))),nome:TBUILD.nome.trim(),attr:TBUILD.attr,die:TBUILD.die,fonte:TBUILD.fonte,fruitType:(TBUILD.fonte==="Frutto"?(TBUILD.fruitType||""):""),weapon:(TBUILD.fonte==="Arma"?(TBUILD.weaponName||""):""),forma:TBUILD.forma,durata:(TBUILD.forma==="Area"?TBUILD.durata:""),eff:TBUILD.eff.slice(),desc:TBUILD.desc||""};onAdd(t);}}));
+ btns.appendChild(el("button",{class:"btn sm",text:"+ Aggiungi alla Scheda",onclick:()=>{if(!(TBUILD.nome||"").trim()){alert("Dai un nome alla tecnica.");return;}if(!TBUILD.attr){alert("Scegli l’Attributo di riferimento: il dado della tecnica non può superarlo.");return;}const t={id:(TBUILD._id||("tec"+Date.now().toString(36)+Math.floor(Math.random()*1000))),nome:TBUILD.nome.trim(),attr:TBUILD.attr,die:TBUILD.die,fonte:TBUILD.fonte,fruitType:(TBUILD.fonte==="Frutto"?(TBUILD.fruitType||""):""),weapon:(TBUILD.fonte==="Arma"?(TBUILD.weaponName||""):""),forma:TBUILD.forma,durata:(TBUILD.forma==="Area"?TBUILD.durata:""),eff:TBUILD.eff.slice(),desc:TBUILD.desc||""};onAdd(t);}}));
  btns.appendChild(el("button",{class:"iconbtn",text:"Svuota",onclick:()=>{tbReset();refresh();}}));
  box.appendChild(btns);
  function refresh(){
+  if(TBUILD.forma==="Canzone"&&!isMusicista())TBUILD.forma="Singolo";
+  var _attrDie=(TBUILD.attr&&pg.attr&&pg.attr[TBUILD.attr])?pg.attr[TBUILD.attr]:"";
+  var _cap=_attrDie?(TEC_RANK[_attrDie]||1):0;
+  var _dieOpts=_cap?TEC_DADI.filter(function(d){return d!=="d20+"&&(TEC_RANK[d]||1)<=_cap;}):[];
+  if(_dieOpts.length&&_dieOpts.indexOf(TBUILD.die)<0)TBUILD.die=_dieOpts[_dieOpts.length-1];
   const rank=TEC_RANK[TBUILD.die]||1;const slot=TEC_SLOT[TBUILD.die]||1;
   var hasArmi=(typeof pg!=="undefined"&&pg.armi&&pg.armi.length>0),hasFrutto=(typeof pg!=="undefined"&&pg.frutto&&pg.frutto.has);
   if(TBUILD.fonte==="Arma"&&!hasArmi)TBUILD.fonte="Stile";
   if(TBUILD.fonte==="Frutto"&&!hasFrutto)TBUILD.fonte="Stile";
   weaponHost.innerHTML="";
   if(TBUILD.fonte==="Arma"&&hasArmi){var _names=pg.armi.map(function(a){return (a.nome&&a.nome.trim())?a.nome.trim():"Arma senza nome";});if(_names.indexOf(TBUILD.weaponName)<0)TBUILD.weaponName=_names[0];var ww=el("div",{});ww.appendChild(el("label",{class:"fld",text:"Arma impugnata"}));var wsl=el("select",{});pg.armi.forEach(function(a){var nn=(a.nome&&a.nome.trim())?a.nome.trim():"Arma senza nome";wsl.appendChild(el("option",{value:nn,text:nn+(a.die?(" · "+a.die):"")+(a.attr?(" · "+a.attr):"")}));});wsl.value=TBUILD.weaponName;wsl.onchange=function(){TBUILD.weaponName=wsl.value;refresh();};ww.appendChild(wsl);weaponHost.appendChild(ww);}
-  fruitHost.innerHTML="";let ftype=null;if(TBUILD.fonte==="Frutto"){if(!TBUILD.fruitType)TBUILD.fruitType=((typeof pg!=="undefined"&&pg.frutto&&["Paramecia","Logia","Zoan"].indexOf(pg.frutto.tipo)>=0)?pg.frutto.tipo:"Paramecia");ftype=TBUILD.fruitType;const tw=el("div",{});tw.appendChild(el("label",{class:"fld",text:"Tipo di Frutto"}));const tsl=el("select",{});["Paramecia","Logia","Zoan"].forEach(o=>tsl.appendChild(el("option",{value:o,text:o})));tsl.value=ftype;tsl.onchange=()=>{TBUILD.fruitType=tsl.value;refresh();};tw.appendChild(tsl);fruitHost.appendChild(tw);}const fz=(TBUILD.fonte==="Frutto"&&ftype==="Zoan");const forme=TEC_FORME.filter(f=>!(f==="Area"&&fz));if(TBUILD.forma==="Area"&&fz)TBUILD.forma="Singolo";formaHost.innerHTML="";const fw=el("div",{});fw.appendChild(el("label",{class:"fld",text:"Forma"}));const fsl=el("select",{});forme.forEach(o=>fsl.appendChild(el("option",{value:o,text:o})));fsl.value=TBUILD.forma;fsl.onchange=()=>{TBUILD.forma=fsl.value;refresh();};fw.appendChild(fsl);formaHost.appendChild(fw);if(fz)formaHost.appendChild(el("div",{class:"sub",style:"color:#8c1c13;font-size:11px;margin-top:2px",text:"Uno Zoan non fa tecniche ad Area — usa Singolo, Raffica o le Speciali di Fonte."}));
-  TBUILD.eff=(TBUILD.eff||[]).filter(nm=>{const e=tecEffObj(nm);if(!e)return false;const okD=(TEC_RANK[e[3]]||1)<=rank;const okR=(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area")||(e[5]==="musicista"&&isMusicista())||(e[5]==="difesa"&&TBUILD.forma==="Difesa")||(e[5]==="potenz"&&TBUILD.forma==="Potenziamento")||(e[5]==="special"&&isCombSpecial())||(e[5]==="spost"&&TBUILD.forma==="Spostamento"));return okD&&okR&&!effVeto(e);});
+  fruitHost.innerHTML="";let ftype=null;if(TBUILD.fonte==="Frutto"){if(!TBUILD.fruitType)TBUILD.fruitType=((typeof pg!=="undefined"&&pg.frutto&&["Paramecia","Logia","Zoan"].indexOf(pg.frutto.tipo)>=0)?pg.frutto.tipo:"Paramecia");ftype=TBUILD.fruitType;const tw=el("div",{});tw.appendChild(el("label",{class:"fld",text:"Tipo di Frutto"}));const tsl=el("select",{});["Paramecia","Logia","Zoan"].forEach(o=>tsl.appendChild(el("option",{value:o,text:o})));tsl.value=ftype;tsl.onchange=()=>{TBUILD.fruitType=tsl.value;refresh();};tw.appendChild(tsl);fruitHost.appendChild(tw);}const fz=(TBUILD.fonte==="Frutto"&&ftype==="Zoan");const forme=TEC_FORME.filter(f=>!(f==="Area"&&fz)&&!(f==="Canzone"&&!isMusicista()));if(TBUILD.forma==="Area"&&fz)TBUILD.forma="Singolo";if(forme.indexOf(TBUILD.forma)<0)TBUILD.forma="Singolo";formaHost.innerHTML="";const fw=el("div",{});fw.appendChild(el("label",{class:"fld",text:"Forma"}));const fsl=el("select",{});forme.forEach(o=>fsl.appendChild(el("option",{value:o,text:o})));fsl.value=TBUILD.forma;fsl.onchange=()=>{TBUILD.forma=fsl.value;refresh();};fw.appendChild(fsl);formaHost.appendChild(fw);dieHost.innerHTML="";var _dw=el("div",{});_dw.appendChild(el("label",{class:"fld",text:"Dado (= Dado Danno)"}));var _dsl=el("select",{});if(!_dieOpts.length){var _od=el("option",{value:""});_od.textContent=TBUILD.attr?"—":"scegli prima l’Attributo";_od.disabled=true;_dsl.appendChild(_od);}_dieOpts.forEach(function(d){_dsl.appendChild(el("option",{value:d,text:d}));});_dsl.value=TBUILD.die;_dsl.disabled=!_dieOpts.length;_dsl.onchange=function(){TBUILD.die=_dsl.value;refresh();};_dw.appendChild(_dsl);if(TBUILD.attr&&_attrDie)_dw.appendChild(el("div",{class:"sub",style:"font-size:10.5px;margin-top:2px",html:"Max <b>"+_attrDie+"</b> (Attributo "+TBUILD.attr+")"}));dieHost.appendChild(_dw);if(fz)formaHost.appendChild(el("div",{class:"sub",style:"color:#8c1c13;font-size:11px;margin-top:2px",text:"Uno Zoan non fa tecniche ad Area — usa Singolo o le Speciali di Fonte."}));
+  TBUILD.eff=(TBUILD.eff||[]).filter(nm=>{const e=tecEffObj(nm);if(!e)return false;const okD=(TEC_RANK[e[3]]||1)<=rank;const okR=(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area")||(e[5]==="musicista"&&isMusicista()&&TBUILD.forma==="Canzone")||(e[5]==="difesa"&&TBUILD.forma==="Difesa")||(e[5]==="potenz"&&TBUILD.forma==="Potenziamento")||(e[5]==="special"&&isCombSpecial())||(e[5]==="spost"&&TBUILD.forma==="Spostamento"));return okD&&okR&&!effVeto(e);});
   {const seen={};TBUILD.eff=TBUILD.eff.filter(nm=>{const f=famOf(nm);if(seen[f])return false;seen[f]=1;return true;});} // 1 effetto per gruppo
   if(TBUILD.eff.length>slot)TBUILD.eff=TBUILD.eff.slice(0,slot);
   durHost.innerHTML="";
   if(TBUILD.forma==="Area"){const w=el("div",{});w.appendChild(el("label",{class:"fld",text:"Durata della Zona"}));const sl=el("select",{});TEC_DUR.forEach(d=>sl.appendChild(el("option",{value:d[0],text:d[0]+(d[3]?(" — richiede "+d[3]):"")})));sl.value=TBUILD.durata;sl.onchange=()=>{TBUILD.durata=sl.value;refresh();};w.appendChild(sl);durHost.appendChild(w);}
-  info.innerHTML="Effetti: <b>"+TBUILD.eff.length+" / "+slot+"</b> · max 1 per gruppo · sblocchi fino a <b>"+TBUILD.die+"</b>"+(TBUILD.forma==="Area"?" · Area +2 ST (bersagli a metà danno · stati = Salvezza)":"")+(TBUILD.forma==="Modalità"?" · Modalità +1/turno":"");
+  info.innerHTML="Effetti: <b>"+TBUILD.eff.length+" / "+slot+"</b> · max 1 per gruppo · sblocchi fino a <b>"+TBUILD.die+"</b>"+(TBUILD.forma==="Area"?" · Area +2 ST (bersagli a metà danno · stati = Salvezza)":"");
   effHost.innerHTML="";
   TEC_FAMS.forEach(fam=>{
-   if(fam==="Melodie del Musicista"&&!isMusicista())return;
+   if(fam==="Melodie del Musicista"&&!(isMusicista()&&TBUILD.forma==="Canzone"))return;
+   if(TBUILD.forma==="Canzone"&&fam!=="Melodie del Musicista")return;
    const det=el("details",{class:"tbfam"});if(TBUILD._open.indexOf(fam)>=0)det.open=true;det.ontoggle=()=>{const ix=TBUILD._open.indexOf(fam);if(det.open){if(ix<0)TBUILD._open.push(fam);}else if(ix>=0)TBUILD._open.splice(ix,1);};
    det.appendChild(el("summary",{text:fam}));
    TEC_EFF.filter(e=>e[0]===fam).forEach(e=>{
     const nm=e[1];const sel=TBUILD.eff.indexOf(nm)>=0;
     const okD=(TEC_RANK[e[3]]||1)<=rank;
-    const okR=(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area")||(e[5]==="musicista"&&isMusicista())||(e[5]==="difesa"&&TBUILD.forma==="Difesa")||(e[5]==="potenz"&&TBUILD.forma==="Potenziamento")||(e[5]==="special"&&isCombSpecial())||(e[5]==="spost"&&TBUILD.forma==="Spostamento"));
+    const okR=(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area")||(e[5]==="musicista"&&isMusicista()&&TBUILD.forma==="Canzone")||(e[5]==="difesa"&&TBUILD.forma==="Difesa")||(e[5]==="potenz"&&TBUILD.forma==="Potenziamento")||(e[5]==="special"&&isCombSpecial())||(e[5]==="spost"&&TBUILD.forma==="Spostamento"));
     const veto=effVeto(e);
     const famTaken=!sel&&TBUILD.eff.some(x=>x!==nm&&famOf(x)===fam);
     const full=TBUILD.eff.length>=slot&&!sel;const dis=!okD||!okR||!!veto||famTaken||full;
-    const GATE_HINT={frutto:"richiede Frutto",area:"richiede Forma Area",musicista:"solo Musicista",difesa:"richiede Forma Difesa",potenz:"richiede Forma Potenziamento",special:"solo Combattente \u00b7 Special",spost:"richiede Forma Spostamento"};
+    const GATE_HINT={frutto:"richiede Frutto",area:"richiede Forma Area",musicista:"Musicista + Forma Canzone",difesa:"richiede Forma Difesa",potenz:"richiede Forma Potenziamento",special:"solo Combattente \u00b7 Special",spost:"richiede Forma Spostamento"};
     let hint="";if(!okD)hint=" <i style='color:#c96f5e'>(da "+e[3]+")</i>";else if(!okR)hint=" <i style='color:#c96f5e'>("+(GATE_HINT[e[5]]||"non disponibile")+")</i>";else if(veto)hint=" <i style='color:#c96f5e'>("+veto+")</i>";else if(famTaken)hint=" <i style='color:#c96f5e'>(1 per gruppo)</i>";else if(full)hint=" <i style='color:#c96f5e'>(slot pieni)</i>";
     const cbx=el("input",{type:"checkbox"});cbx.checked=sel;cbx.disabled=dis;
     cbx.onchange=()=>{const ix=TBUILD.eff.indexOf(nm);if(cbx.checked){if(ix<0)TBUILD.eff.push(nm);}else if(ix>=0)TBUILD.eff.splice(ix,1);refresh();};

@@ -305,7 +305,7 @@ function rTech(){
   var p=$("#panel");p.innerHTML="";
   p.appendChild(el("div",{class:"kicker",text:"Passo 6 di 8"}));
   p.appendChild(el("h2",{text:"Tecniche"}));
-  p.appendChild(el("div",{class:"explain",html:"Le Tecniche sono le mosse speciali: tiri <b>Attributo + un Dado</b> (che è anche il Dado Danno) e aggiungi effetti, spendendo Stamina. La Tecnica razziale è già inclusa. Qui puoi creare fino a <b>2 tecniche tue</b>; altre, e il costruttore avanzato con tutti gli effetti, sono nella <b>Gestione</b>."}));
+  p.appendChild(el("div",{class:"explain",html:"Le Tecniche sono le mosse speciali: tiri <b>Attributo + un Dado</b> (che è anche il Dado Danno) e aggiungi effetti, spendendo Stamina. La Tecnica razziale è già inclusa. Qui puoi creare fino a <b>2 tecniche tue</b>; a <b>d4</b> fisso (sono colpi gratuiti); potenziarle e costruirne di nuove col costruttore avanzato è compito della <b>Gestione</b>."}));
   var r=race();
   if(r)p.appendChild(el("div",{class:"infobox",html:'<b>Tecnica razziale:</b> '+r.tech+' (d6) — '+r.techDesc}));
   [["t1","Tecnica 1"],["t2","Tecnica 2 (opzionale)"]].forEach(function(pair){
@@ -317,8 +317,9 @@ function rTech(){
     var right=el("div",{});
     right.appendChild(el("label",{class:"fld",text:"Attributo"}));
     var as=el("select",{},[el("option",{value:"",text:"—"})].concat(ATTRS.map(function(a){return el("option",{value:a,text:a});})));as.value=T.attr;as.onchange=function(){T.attr=as.value;};right.appendChild(as);
+    T.die="d4";
     right.appendChild(el("label",{class:"fld",text:"Dado (= Dado Danno)"}));
-    var dd=el("select",{},["d4","d6","d8","d10","d12"].map(function(x){return el("option",{value:x,text:x});}));dd.value=T.die||"d4";dd.onchange=function(){T.die=dd.value;};right.appendChild(dd);
+    right.appendChild(el("div",{class:"infobox",style:"margin-top:0",html:"Livello fisso <b>d4</b> — in creazione le tecniche sono colpi gratuiti, non ancora costruiti. Le potenzi e ne aggiungi di nuove nella <b>Gestione</b>."}));
     grid.appendChild(left);grid.appendChild(right);p.appendChild(grid);
   });
 }
