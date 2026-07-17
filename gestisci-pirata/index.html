@@ -547,6 +547,8 @@ function tecEffObj(nm){return TEC_EFF.find(e=>e[1]===nm);}
 function isMusicista(){try{return !!(pg&&(pg.role==="Musicista"||pg.role2==="Musicista"));}catch(e){return false;}}
 function isCombSpecial(){try{return !!(pg&&((pg.role==="Combattente"&&pg.style==="Special")||(pg.role2==="Combattente"&&pg.style2==="Special")));}catch(e){return false;}}
 function famOf(nm){const e=tecEffObj(nm);return e?e[0]:"";}
+function combStyles(){var s=[];try{if(pg.role==="Combattente"&&pg.style)s.push(pg.style);if(pg.role2==="Combattente"&&pg.style2)s.push(pg.style2);}catch(e){}return s;}
+function weaponTypes(){var st=combStyles();var all=[["Contundente",(st.indexOf("Striker")>=0||st.indexOf("Special")>=0)],["Lama",(st.indexOf("Swordsman")>=0)],["A distanza",(st.indexOf("Sniper")>=0||st.indexOf("Special")>=0)],["Special",true]];return all.filter(x=>x[1]).map(x=>x[0]);}
 function effVeto(e){ // regole trasversali: restituisce il motivo del blocco, o ""
   const fam=e[0];
   if(TBUILD.forma==="Difesa"&&fam!=="Difesa")return "Forma Difesa: solo effetti Difesa";
@@ -685,7 +687,7 @@ const blank=()=>({nome:"",bg:"",amb:"",race:null,umanoAttr:"Forza",d6attr:"",rol
  attr:{Forza:"",Tecnica:"",Spirito:"",Astuzia:""},
  skills:{}, roleSkillDie:"d8", pa:{}, paThresh:{d4:10,d6:25,d8:60,d10:150,d12:400},
  t1:{nome:"",desc:"",attr:"",die:"d4"}, t2:{nome:"",desc:"",attr:"",die:"d4"}, racialDie:"d6", extraTech:[],
- armi:[], haki:[], frutto:{has:false,nome:"",tipo:"",desc:""},
+ armi:[], strumenti:[], moduli:[], haki:[], frutto:{has:false,nome:"",tipo:"",desc:""},
  photo:"", bounty:"0", pvMax:null,pvCur:null,stMax:6,stCur:6,legami:0,bonds:[],upgrade:"",roleSkillChoice:"",ore:16,note:""});
 let pg=blank(); let step=0; let mode="crea"; const KEY="glc_pirata_v4";
 let CT={v:2,activeId:"",order:[],chars:{}};
@@ -811,9 +813,25 @@ function renderManage(){
  m.appendChild(bT);
  // Armi
  const b7=el("div",{class:"mblock"},[el("h3",{text:"Armi"})]);
- pg.armi.forEach((a,i)=>{const card=el("div",{class:"tech"});card.appendChild(field("Nome arma",a.nome,v=>{a.nome=v;render();}));card.appendChild(el("label",{class:"fld",text:"Attributo · Dado"}));card.appendChild(el("div",{class:"mrow"},[attrSelect(a.attr,v=>{a.attr=v;render();}),el("span",{},[stepper(a.die,nd=>mutate(()=>a.die=nd)),el("button",{class:"iconbtn",text:"✕",onclick:()=>mutate(()=>pg.armi.splice(i,1))})])]));card.appendChild(field("Note / effetti speciali",a.note,v=>{a.note=v;render();}));b7.appendChild(card);});
- b7.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Aggiungi arma",onclick:()=>mutate(()=>pg.armi.push({nome:"Nuova arma",attr:"",die:"d6",note:""}))})]));
+ pg.armi.forEach((a,i)=>{const card=el("div",{class:"tech"});card.appendChild(field("Nome arma",a.nome,v=>{a.nome=v;render();}));var _wt=weaponTypes();if(!a.tipo||_wt.indexOf(a.tipo)<0)a.tipo=_wt[_wt.length-1];card.appendChild(el("label",{class:"fld",text:"Tipo di arma"}));var _tsel=el("select",{},_wt.map(x=>el("option",{value:x,text:x})));_tsel.value=a.tipo;_tsel.onchange=()=>mutate(()=>a.tipo=_tsel.value);card.appendChild(_tsel);card.appendChild(el("label",{class:"fld",text:"Attributo · Dado"}));card.appendChild(el("div",{class:"mrow"},[attrSelect(a.attr,v=>{a.attr=v;render();}),el("span",{},[stepper(a.die,nd=>mutate(()=>a.die=nd)),el("button",{class:"iconbtn",text:"✕",onclick:()=>mutate(()=>pg.armi.splice(i,1))})])]));card.appendChild(field("Note / effetti speciali",a.note,v=>{a.note=v;render();}));b7.appendChild(card);});
+ b7.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Aggiungi arma",onclick:()=>mutate(()=>pg.armi.push({nome:"Nuova arma",attr:"",die:"d6",note:"",tipo:"Special"}))})]));
  m.appendChild(b7);
+ // Strumenti (solo Musicista)
+ if(isMusicista()){
+  const bS=el("div",{class:"mblock"},[el("h3",{text:"Strumenti"}),el("div",{class:"sub",html:"Lo strumento del Musicista tira sempre <b>Spirito</b> + il suo dado."})]);
+  (pg.strumenti||[]).forEach((a,i)=>{const card=el("div",{class:"tech"});card.appendChild(field("Nome strumento",a.nome,v=>{a.nome=v;render();}));card.appendChild(el("label",{class:"fld",text:"Spirito · Dado"}));card.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",text:"Spirito (fisso)"}),el("span",{},[stepper(a.die,nd=>mutate(()=>a.die=nd)),el("button",{class:"iconbtn",text:"✕",onclick:()=>mutate(()=>pg.strumenti.splice(i,1))})])]));card.appendChild(field("Note / effetti speciali",a.note,v=>{a.note=v;render();}));bS.appendChild(card);});
+  bS.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Aggiungi strumento",onclick:()=>mutate(()=>{if(!pg.strumenti)pg.strumenti=[];pg.strumenti.push({nome:"Nuovo strumento",die:"d6",note:""});})})]));
+  m.appendChild(bS);
+ }
+ // Moduli Cyborg (solo Cyborg Combattente · Special)
+ if(pg.race==="cyborg"&&isCombSpecial()){
+  const _N={d6:1,d8:2,d10:3,d12:4,d20:5}[pg.racialDie]||1;const _used=(pg.moduli||[]).length;
+  const bM=el("div",{class:"mblock"},[el("h3",{text:"Moduli Cyborg"}),el("div",{class:"sub",html:"Corpo Meccanico <b>"+pg.racialDie+"</b> → <b>"+_N+"</b> modul"+(_N>1?"i":"o")+" · usati <b>"+_used+"</b>. Effetti concordati col GM."})]);
+  (pg.moduli||[]).forEach((mo,i)=>{const card=el("div",{class:"tech"});card.appendChild(field("Nome modulo",mo.nome,v=>{mo.nome=v;render();}));card.appendChild(field("Descrizione / note",mo.desc,v=>{mo.desc=v;render();}));card.appendChild(field("Effetti",mo.eff,v=>{mo.eff=v;render();}));card.appendChild(el("div",{class:"addrow"},[el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>mutate(()=>pg.moduli.splice(i,1))})]));bM.appendChild(card);});
+  if(_used<_N)bM.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Aggiungi modulo",onclick:()=>mutate(()=>{if(!pg.moduli)pg.moduli=[];pg.moduli.push({nome:"Nuovo modulo",desc:"",eff:""});})})]));
+  else bM.appendChild(el("div",{class:"sub",style:"color:#c96f5e",text:"Hai raggiunto il massimo di moduli per il tuo Corpo Meccanico ("+pg.racialDie+")."}));
+  m.appendChild(bM);
+ }
  // Tecniche
  const b4=el("div",{class:"mblock"},[el("h3",{text:"Tecniche"}),el("div",{class:"sub",html:"Danno = stesso dado della Tecnica."})]);
  allTech().filter(t=>typeof t.idx!=="number").forEach(t=>{const w=el("div",{class:"swrap"});const right=el("span",{},[stepper(t.die,nd=>mutate(()=>setTechDie(t,nd)))]);if(!t.fixed)right.appendChild(el("button",{class:"iconbtn",text:"✕",onclick:()=>mutate(()=>removeTech(t))}));w.appendChild(el("div",{class:"mrow"},[el("span",{},[el("span",{class:"lab",text:t.name||"(senza nome)"}),el("span",{class:"sub",text:" "+(t.fixed?"(razziale)":(t.attr?("· "+t.attr):""))})]),right]));if(t.fixed){w.appendChild(el("div",{class:"sub",style:"margin:3px 0 2px;font-size:12px;color:#d9c193;line-height:1.5",html:racialEffect(pg.race,t.die)}));}w.appendChild(paRow("tec:"+t.k,()=>t.die,nd=>setTechDie(t,nd)));b4.appendChild(w);});
