@@ -564,7 +564,7 @@ function effVeto(e){ // regole trasversali: restituisce il motivo del blocco, o 
   if(fam==="Zona Persistente"&&!(TBUILD.fonte==="Frutto"||isCombSpecial()))return "solo Fonte Frutto o Combattente · Special";
   return "";
 }
-function tecCost(t){let st=0,pt=0;(t.eff||[]).forEach(nm=>{const e=tecEffObj(nm);if(e)st+=e[4];});if(t.forma==="Area")st+=2;const d=TEC_DUR.find(x=>x[0]===t.durata);if(d){st+=d[1];pt+=d[2];}st=Math.max(1,st);if(t.forma==="Modalità")pt+=1;return{st:st,pt:pt};}
+function tecCost(t){let st=0,pt=0;(t.eff||[]).forEach(nm=>{const e=tecEffObj(nm);if(e)st+=e[4];});if(t.forma==="Area")st+=2;const d=TEC_DUR.find(x=>x[0]===t.durata);if(d){st+=d[1];pt+=d[2];}st=Math.max(1,st);return{st:st,pt:pt};}
 function tecCostLabel(t){const c=tecCost(t);return c.st+" ST"+(c.pt?(" +"+c.pt+"/turno"):"");}
 function tecSummary(t){const a=[];if(t.fonte)a.push(t.fonte==="Frutto"&&t.fruitType?("Frutto "+t.fruitType):(t.fonte==="Arma"&&t.weapon?("Arma \u00ab"+t.weapon+"\u00bb"):t.fonte));if(t.forma)a.push(t.forma);if(t.die)a.push(t.die);if(t.durata&&t.forma==="Area"&&t.durata!=="Un turno")a.push(t.durata);let s=a.join(" · ");if(t.eff&&t.eff.length)s+=" — "+t.eff.join(", ");return s;}
 let TBUILD={nome:"",attr:"",fonte:"Stile",forma:"Singolo",die:"d6",durata:"Un turno",eff:[],desc:"",_open:[],_id:null,fruitType:"",weaponName:""};
