@@ -454,6 +454,7 @@ const RACE_EFF={
  tontatta:function(d){return "Nelle prove di <b>Furtività</b> o <b>Mobilità</b> aggiungi <b>"+d+"</b>. Il primo attacco nemico contro di te è in Svantaggio. — <i>Svantaggio: +3 difficoltà per liberarti da una presa; niente armi/oggetti di taglia normale o grande.</i>";}
 };
 function racialEffect(id,die){var f=RACE_EFF[id];return f?f(die):"";}
+function difesaPassiva(){var ra=racialAttr();var d=ra&&pg.attr?pg.attr[ra]:"";if(!d)return null;var n=parseInt(String(d).slice(1),10);return n?n+1:null;}
 function firstStyle(rn){const T=TALENTS[rn];if(!T||!T.styles)return "";return T.multi?Object.keys(T.styles)[0]:"";}
 function roleSkillOf(rn,st,choice){const T=TALENTS[rn];if(!T)return null;const ks=Object.keys(T.styles||{});const sx=(T.styles&&T.styles[st])||(T.styles&&T.styles[ks[0]]);if(sx){if(sx.skill)return sx.skill;if(sx.skillChoice){if(sx.skillChoice==="any")return (choice&&SKILLS[choice])?choice:"";if(Array.isArray(sx.skillChoice)){if(choice&&sx.skillChoice.indexOf(choice)>=0)return choice;return sx.skillChoice[0];}}}if(T.skill)return T.skill;return null;}
 function roleLabel(){if(!pg.role)return "\u2014 ruolo \u2014";const T=TALENTS[pg.role];let s=pg.role+((T&&T.multi&&pg.style)?(" \u00b7 "+pg.style):"");if(pg.role2&&TALENTS[pg.role2]){const T2=TALENTS[pg.role2];s+=" + "+pg.role2+((T2.multi&&pg.style2)?(" \u00b7 "+pg.style2):"");}return s;}
@@ -853,6 +854,7 @@ function renderManage(){
  const vit=el("div",{class:"vit"});
  vit.appendChild(vcell("PV attuali / max",[numSmall(pg.pvCur,v=>{pg.pvCur=intOrNull(v);render();}),el("span",{text:"/"}),numSmall(pg.pvMax,v=>{pg.pvMax=intOrNull(v);render();})]));
  vit.appendChild(vcell("Stamina att. / max",[numSmall(pg.stCur,v=>{pg.stCur=intOrNull(v);render();}),el("span",{text:"/"}),numSmall(pg.stMax,v=>{pg.stMax=intOrNull(v);render();})]));
+ {var _dp=difesaPassiva();vit.appendChild(vcell("Difesa Passiva",[el("span",{class:"lab",style:"font-size:1.2rem;color:#ffd394",text:(_dp!=null?String(_dp):"—")}),el("span",{class:"sub",text:" "+(racialAttr()?("("+racialAttr()+" +1)"):"scegli razza")})]));}
  vit.appendChild(vcell("Upgrade (livello)",[(function(){var i=el("input",{type:"text"});i.value=pg.upgrade||"";i.setAttribute("placeholder","\u2014");i.style.maxWidth="90px";i.oninput=function(){pg.upgrade=i.value;var su=$("#s-upg");if(su)su.textContent=(i.value!=="")?i.value:"\u2014";save();};return i;})()]));
  vit.appendChild(vcell("Ore giornaliere",[numSmall(pg.ore,v=>{pg.ore=parseInt(v||"0")||0;render();})]));
  b6.appendChild(vit);
