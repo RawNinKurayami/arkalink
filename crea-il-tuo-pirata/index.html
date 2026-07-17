@@ -124,13 +124,14 @@ var ATTRS=["Forza","Tecnica","Spirito","Astuzia"];
 var DICE_LADDER="d4 › d6 › d8 › d10 › d12 › d20";
 var RACES=[
  {id:"umano",name:"Umano",attr:"choice",die:"d8",pv:14,hp:"d6",tech:"Volontà Incrollabile",techDesc:"A ≤25% PV si aggiunge a qualsiasi tiro. Non costa ST.",sv:"Nessuno"},
- {id:"uomopesce",name:"Uomo Pesce / Tritone",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Dominio degli Abissi",techDesc:"In acqua si aggiunge a ogni tiro fisico. Respiro subacqueo infinito.",sv:"+2 soglia fisica a terra arida"},
+ {id:"uomopesce",name:"Uomo Pesce / Tritone",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Dominio degli Abissi",techDesc:"In acqua si aggiunge a ogni tiro fisico. Respiro subacqueo infinito.",sv:"Svantaggio a ogni tiro su terra arida"},
  {id:"gigante",name:"Gigante",attr:"Forza",die:"d10",pv:22,hp:"d10",tech:"Scala Colossale",techDesc:"Quando la stazza conta si aggiunge al tiro. Ogni colpo a segno: Dado Danno +1 gradino.",sv:"No navi/edifici standard"},
  {id:"mink",name:"Mink",attr:"Tecnica",die:"d8",pv:14,hp:"d6",tech:"Electro + Sulong",techDesc:"Electro: paralisi (1 ST). Sulong: attributi +1 dado per una scena, poi esaurimento.",sv:"Esaurimento post-Sulong"},
  {id:"lunarian",name:"Lunarian",attr:"Spirito",die:"d8",pv:16,hp:"d8",tech:"Fiamma Immortale",techDesc:"Fiamma ON: +1 dado resistenza. OFF: bonus evasione. Alternare 1×/turno gratis.",sv:"Taglia automatica 50M"},
  {id:"longbraccio",name:"Longbraccio",attr:"Tecnica",die:"d8",pv:12,hp:"d6",tech:"Portata Estesa",techDesc:"Mischia a distanza insolita. Chi ti attacca ravvicinato ha +2 soglia.",sv:"Nessuno"},
  {id:"lungagamba",name:"Lungagamba",attr:"Forza",die:"d8",pv:14,hp:"d6",tech:"Calcio Colossale",techDesc:"Bonus su calci e movimenti verticali. 1×/combat salti fuori portata senza tiro.",sv:"Nessuno"},
- {id:"cyborg",name:"Cyborg",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Corpo Meccanico",techDesc:"Bonus a resistenza danni e potenziamenti meccanici (definiti dal Capitano).",sv:"Curabile solo da un meccanico"}
+ {id:"cyborg",name:"Cyborg",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Corpo Meccanico",techDesc:"Installa moduli meccanici nel corpo (1 a d6 fino a 5 a d20).",sv:"Curabile solo da un meccanico"},
+ {id:"tontatta",name:"Tontatta",attr:"choice2",die:"d8",pv:12,hp:"d6",tech:"Piccolo Guerriero",techDesc:"Aggiungi il Dado razziale alle prove di Furtività o Mobilità; il primo attacco nemico contro di te arriva in Svantaggio.",sv:"Presa: +3 difficoltà per liberarti · niente armi/oggetti di taglia normale o grande"}
 ];
 var ROLES=[
  {name:"Combattente",multi:true,styles:[["Striker",["Atletica","Acrobazia"]],["Swordsman","Atletica"],["Sniper","Osservazione"],["Special","any"]],desc:"Il muscolo della ciurma. Lo Stile decide come combatti."},
@@ -157,7 +158,7 @@ var $=function(s){return document.querySelector(s);};
 function el(t,p,kids){var e=document.createElement(t);if(p)for(var k in p){if(k==="class")e.className=p[k];else if(k==="html")e.innerHTML=p[k];else if(k==="text")e.textContent=p[k];else if(k.slice(0,2)==="on")e[k.toLowerCase()]=p[k];else e.setAttribute(k,p[k]);}if(kids!=null)(Array.isArray(kids)?kids:[kids]).forEach(function(c){if(c==null)return;e.appendChild(typeof c==="string"?document.createTextNode(c):c);});return e;}
 function newId(){return "c_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
 function race(){for(var i=0;i<RACES.length;i++)if(RACES[i].id===D.race)return RACES[i];return null;}
-function racialAttr(){var r=race();if(!r)return null;return r.attr==="choice"?D.umanoAttr:r.attr;}
+function racialAttr(){var r=race();if(!r)return null;if(r.attr==="choice2")return (D.umanoAttr==="Forza"||D.umanoAttr==="Tecnica")?D.umanoAttr:"Forza";return r.attr==="choice"?D.umanoAttr:r.attr;}
 function computeAttr(){var r=race();if(!r)return;var ra=racialAttr();ATTRS.forEach(function(a){if(a===ra)D.attr[a]=r.die;else if(a===D.d6attr)D.attr[a]="d6";else if(D.d6attr)D.attr[a]="d4";else D.attr[a]="";});}
 function afterRaceChange(){var r=race();computeAttr();if(r&&D.pvMax==null){D.pvMax=r.pv;D.pvCur=r.pv;}}
 function roleDef(){for(var i=0;i<ROLES.length;i++)if(ROLES[i].name===D.role)return ROLES[i];return null;}
@@ -198,16 +199,18 @@ function rRace(){
   var c=el("div",{class:"cards"});
   RACES.forEach(function(r){
     c.appendChild(el("div",{class:"card"+(D.race===r.id?" sel":""),onclick:function(){D.race=r.id;afterRaceChange();rRace();},
-      html:'<div class="t">'+r.name+'</div><div class="d">'+(r.attr==="choice"?"Attr. a scelta":r.attr)+' '+r.die+' · PV '+r.pv+' · Vita '+r.hp+'</div>'}));
+      html:'<div class="t">'+r.name+'</div><div class="d">'+(r.attr==="choice"?"Attr. a scelta":(r.attr==="choice2"?"Forza/Tecnica":r.attr))+' '+r.die+' · PV '+r.pv+' · Vita '+r.hp+'</div>'}));
   });
   p.appendChild(c);
   var r=race();
   if(r){
     p.appendChild(el("div",{class:"infobox",html:'<b>'+r.tech+' (Tecnica razziale):</b> '+r.techDesc+'<br><b>Svantaggio:</b> '+r.sv}));
-    if(r.attr==="choice"){
+    if(r.attr==="choice"||r.attr==="choice2"){
+      var opts=(r.attr==="choice2")?["Forza","Tecnica"]:ATTRS;
+      if(r.attr==="choice2"&&D.umanoAttr!=="Forza"&&D.umanoAttr!=="Tecnica"){D.umanoAttr="Forza";computeAttr();}
       p.appendChild(el("label",{class:"fld",text:"Attributo potenziato dalla razza"}));
-      var sel=el("select",{},ATTRS.map(function(a){return el("option",{value:a,text:a});}));
-      sel.value=D.umanoAttr;sel.onchange=function(){D.umanoAttr=sel.value;computeAttr();};
+      var sel=el("select",{},opts.map(function(a){return el("option",{value:a,text:a});}));
+      sel.value=D.umanoAttr;sel.onchange=function(){D.umanoAttr=sel.value;computeAttr();goto(step);};
       p.appendChild(sel);
     }
   }
