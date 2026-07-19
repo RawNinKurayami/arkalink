@@ -25,9 +25,7 @@
   + ".glcmap-hint{font-size:.85rem;color:var(--c-soft);font-style:italic;margin-left:auto;}"
   + ".glcmap-range{display:inline-flex;align-items:center;gap:6px;color:var(--c-soft);font-size:11px;}"
   + ".glcmap-range input{accent-color:#f0a441;width:90px;}"
-  + ".glcmap-swatch{width:20px;height:20px;border-radius:50%;border:2px solid rgba(242,233,216,.25);cursor:pointer;padding:0;flex:none;}"
-  + ".glcmap-swatch.on{border-color:#ffd394;box-shadow:0 0 0 2px rgba(255,211,148,.35);}"
-  + ".glcmap-canvas{position:relative;width:100%;aspect-ratio:25/16;min-height:260px;max-height:82vh;resize:vertical;border-radius:12px;overflow:hidden;border:1px solid var(--c-line);box-shadow:0 12px 28px rgba(0,0,0,.45);user-select:none;background:#05070c;touch-action:none;}"
+  + ".glcmap-canvas{position:relative;width:100%;aspect-ratio:25/16;min-height:260px;max-height:82vh;resize:vertical;border-radius:12px;overflow:hidden;border:1px solid var(--c-line);box-shadow:0 12px 28px rgba(0,0,0,.45);user-select:none;background:#241708;touch-action:none;}"
   + ".glcmap-canvas::after{content:'\\2921';position:absolute;right:5px;bottom:2px;color:rgba(240,164,65,.6);font-size:13px;pointer-events:none;}"
   + ".glcmap-cv{position:absolute;inset:0;width:100%;height:100%;display:block;}"
   + ".glcmap-canvas.nav{cursor:grab;}.glcmap-canvas.nav.drag{cursor:grabbing;}"
@@ -36,10 +34,10 @@
   + ".glcmap-canvas.route{cursor:crosshair;}"
   + ".glcmap-overlay{position:absolute;inset:0;pointer-events:none;}"
   + ".glcmap-marker{position:absolute;transform:translate(-50%,-100%);cursor:pointer;display:flex;flex-direction:column;align-items:center;touch-action:none;pointer-events:auto;}"
-  + ".glcmap-pin{width:30px;height:30px;border-radius:50% 50% 50% 0;background:var(--mc,#f0a441);transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 8px rgba(0,0,0,.5);border:2px solid #0c0a10;}"
+  + ".glcmap-pin{width:30px;height:30px;border-radius:50% 50% 50% 0;background:var(--mc,#f0a441);transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 8px rgba(0,0,0,.5);border:2px solid #f4e6be;}"
   + ".glcmap-pin svg{width:15px;height:15px;transform:rotate(45deg);color:#0c0a10;}"
-  + ".glcmap-lbl{margin-top:3px;font-family:'Inter',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.02em;color:#f2e9d8;background:rgba(10,9,13,.85);border:1px solid var(--c-line);border-radius:6px;padding:1px 7px;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;box-shadow:0 2px 5px rgba(0,0,0,.4);}"
-  + ".glcmap-empty{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);color:rgba(242,233,216,.55);font-style:italic;text-align:center;font-size:.85rem;pointer-events:none;padding:0 20px;white-space:nowrap;}"
+  + ".glcmap-lbl{margin-top:3px;font-family:'Inter',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.02em;color:#3a2a16;background:rgba(244,230,190,.95);border:1px solid rgba(107,79,42,.55);border-radius:6px;padding:1px 7px;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;box-shadow:0 2px 5px rgba(0,0,0,.35);}"
+  + ".glcmap-empty{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);color:#e8d5a8;background:rgba(36,23,8,.75);border-radius:8px;font-style:italic;text-align:center;font-size:.85rem;pointer-events:none;padding:3px 12px;white-space:nowrap;}"
   + ".glcmap-modal{position:fixed;inset:0;background:rgba(3,3,5,.72);display:flex;align-items:center;justify-content:center;z-index:9000;padding:18px;}"
   + ".glcmap-card{background:linear-gradient(180deg,#16131c,#0e0c12);color:var(--c-ink);border:1px solid var(--c-line);border-radius:16px;padding:18px;width:100%;max-width:380px;box-shadow:0 18px 50px rgba(0,0,0,.6);}"
   + ".glcmap-card h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:1.25rem;color:#f2e9d8;margin:0 0 10px;}"
@@ -84,14 +82,7 @@
     { key:"lago",     label:"Lago",          color:"#4e7ca8", icon:IC.lago },
     { key:"montagna", label:"Montagna",      color:"#8a8578", icon:IC.montagna }
   ];
-  /* colori del pennello per le terre */
-  var LAND_COLORS=[
-    { c:"#4c7a5d", label:"Prateria" },
-    { c:"#c8a76b", label:"Sabbia" },
-    { c:"#8a8578", label:"Roccia" },
-    { c:"#dfe5e8", label:"Neve" },
-    { c:"#a3402e", label:"Terre rosse" }
-  ];
+
   function typeOf(k){ for (var i=0;i<TYPES.length;i++) if (TYPES[i].key===k) return TYPES[i]; return TYPES[0]; }
   function uid(){ return "isl"+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36); }
   function esc(t){ return (t||"").replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
@@ -113,7 +104,7 @@
       mode: "nav",              // nav | add | draw | erase | route
       addType: "isola",
       brush: 22,                // pennello in px a schermo
-      color: LAND_COLORS[0].c,  // colore del pennello
+      placing: null,            // isola in attesa di essere ricollocata («Sposta»)
       view: { lon: 20, lat: 15, zoom: 1 }
     };
     function emit(){ if (opts.onChange) opts.onChange(st.islands.slice()); }
@@ -181,7 +172,7 @@
     function drawGraticule(){
       var step = st.view.zoom>8 ? 2 : (st.view.zoom>3 ? 5 : 15);
       var samp = step/3;
-      ctx.strokeStyle="rgba(240,164,65,.13)"; ctx.lineWidth=1;
+      ctx.strokeStyle="rgba(96,66,34,.18)"; ctx.lineWidth=1;
       var lon0=Math.round(st.view.lon/step)*step, lat0=Math.round(st.view.lat/step)*step;
       var span = st.view.zoom>3 ? Math.max(20, 200/st.view.zoom) : 180;
       var pts, lo, la;
@@ -192,28 +183,17 @@
         pts=[]; for (lo=lon0-span; lo<=lon0+span; lo+=samp) pts.push([lo,la]); polyline(ctx,pts);
       }
       // equatore e "Linea Rossa" appena più marcati
-      ctx.strokeStyle="rgba(240,164,65,.26)"; ctx.lineWidth=1.2;
+      ctx.strokeStyle="rgba(96,66,34,.34)"; ctx.lineWidth=1.2;
       pts=[]; for (lo=lon0-span;lo<=lon0+span;lo+=samp) pts.push([lo,0]); polyline(ctx,pts);
-      ctx.strokeStyle="rgba(226,49,49,.26)";
+      ctx.strokeStyle="rgba(154,36,49,.35)";
       pts=[]; for (la=-85;la<=85;la+=samp) pts.push([0,la]); polyline(ctx,pts);
     }
 
     function drawLand(){
+      // stile carta nautica: costa a inchiostro bruno con alone, interno di carta chiara
       lctx.clearRect(0,0,W,H);
-      for (var s=0;s<st.strokes.length;s++){
-        var stk=st.strokes[s];
-        if (stk.t) continue; // le rotte si disegnano sopra, a parte
-        var col=stk.c||"#4c7a5d";
-        var wpx=Math.max(2, (stk.r||1)*D2R*radius()*2);
-        lctx.globalCompositeOperation = stk.e ? "destination-out" : "source-over";
-        lctx.strokeStyle=col; lctx.fillStyle=col;
-        lctx.lineWidth=wpx; lctx.lineCap="round"; lctx.lineJoin="round";
-        var pts=stk.pts||[];
-        if (pts.length===1){
-          var p1=project(pts[0][0],pts[0][1]);
-          if (p1.v){ lctx.beginPath(); lctx.arc(p1.x,p1.y,wpx/2,0,2*Math.PI); lctx.fill(); }
-          continue;
-        }
+      var INK="#6b4a26", HALO="rgba(107,74,38,.28)", PAPER="#f2e5bd";
+      function tracePath(pts){
         var pen=false;
         lctx.beginPath();
         for (var i=0;i<pts.length;i++){
@@ -221,13 +201,40 @@
           if (p.v){ if(pen) lctx.lineTo(p.x,p.y); else { lctx.moveTo(p.x,p.y); pen=true; } }
           else pen=false;
         }
-        if (stk.f){ lctx.closePath(); lctx.fill(); }
-        lctx.stroke();
       }
-      // velo "battigia" sopra la terra disegnata
-      lctx.globalCompositeOperation="source-atop";
-      lctx.fillStyle="rgba(233,214,174,.14)"; lctx.fillRect(0,0,W,H);
-      lctx.globalCompositeOperation="source-over";
+      for (var s=0;s<st.strokes.length;s++){
+        var stk=st.strokes[s];
+        if (stk.t) continue; // le rotte si disegnano sopra, a parte
+        var ink=Math.max(2, Math.min(4, radius()*0.004+1.6));            // linea di costa
+        var halo=ink*3.2;                                                 // alone esterno
+        var pts=stk.pts||[];
+        lctx.lineCap="round"; lctx.lineJoin="round";
+        if (stk.e){ // gomma
+          lctx.globalCompositeOperation="destination-out";
+          lctx.strokeStyle="#000"; lctx.lineWidth=Math.max(4,(stk.r||1)*D2R*radius()*2);
+          if (pts.length===1){ var pe1=project(pts[0][0],pts[0][1]); if(pe1.v){ lctx.beginPath(); lctx.arc(pe1.x,pe1.y,lctx.lineWidth/2,0,2*Math.PI); lctx.fill(); } }
+          else { tracePath(pts); lctx.stroke(); }
+          lctx.globalCompositeOperation="source-over";
+          continue;
+        }
+        if (pts.length===1){
+          var p1=project(pts[0][0],pts[0][1]);
+          if (p1.v){
+            lctx.beginPath(); lctx.arc(p1.x,p1.y,halo/2,0,2*Math.PI); lctx.fillStyle=HALO; lctx.fill();
+            lctx.beginPath(); lctx.arc(p1.x,p1.y,Math.max(3,ink*1.6),0,2*Math.PI); lctx.fillStyle=PAPER; lctx.fill();
+            lctx.beginPath(); lctx.arc(p1.x,p1.y,Math.max(3,ink*1.6),0,2*Math.PI); lctx.strokeStyle=INK; lctx.lineWidth=ink; lctx.stroke();
+          }
+          continue;
+        }
+        // alone di costa
+        tracePath(pts); if (stk.f) lctx.closePath();
+        lctx.strokeStyle=HALO; lctx.lineWidth=halo; lctx.stroke();
+        // interno di carta (solo contorni chiusi)
+        if (stk.f){ tracePath(pts); lctx.closePath(); lctx.fillStyle=PAPER; lctx.fill(); }
+        // linea di costa
+        tracePath(pts); if (stk.f) lctx.closePath();
+        lctx.strokeStyle=INK; lctx.lineWidth=ink; lctx.stroke();
+      }
     }
 
     function drawRoutes(){
@@ -240,7 +247,7 @@
       for (var s=0;s<st.strokes.length;s++){
         var stk=st.strokes[s];
         if (!stk.t) continue;
-        ctx.strokeStyle=stk.c||"#ffd394";
+        ctx.strokeStyle="#9a2431";
         polyline(ctx, stk.pts||[]);
       }
       ctx.setLineDash([]); ctx.restore();
@@ -248,22 +255,24 @@
     function render(){
       if (!W || !H) return;
       ctx.clearRect(0,0,W,H);
-      ctx.fillStyle="#05070c"; ctx.fillRect(0,0,W,H);      // cielo
+      ctx.fillStyle="#241708"; ctx.fillRect(0,0,W,H);      // tavolo di legno scuro
       var R=radius();
       ctx.save(); spherePath(ctx); ctx.clip();
       var g=ctx.createRadialGradient(W/2-R*.25,H/2-R*.3,R*.1, W/2,H/2,R);
-      g.addColorStop(0,"#13203a"); g.addColorStop(.6,"#0a0e1c"); g.addColorStop(1,"#060810");
-      ctx.fillStyle=g; spherePath(ctx); ctx.fill();          // mare
+      g.addColorStop(0,"#f0dfb2"); g.addColorStop(.6,"#e6cf9c"); g.addColorStop(1,"#d3b782");
+      ctx.fillStyle=g; spherePath(ctx); ctx.fill();          // mare di pergamena
       drawGraticule();
       drawLand();
       ctx.drawImage(land,0,0,W,H);                           // terre
       drawRoutes();
       ctx.restore();
-      ctx.strokeStyle="rgba(240,164,65,.4)"; ctx.lineWidth=1.5; spherePath(ctx); ctx.stroke(); // lembo
+      ctx.strokeStyle="#6b4f2a"; ctx.lineWidth=2; spherePath(ctx); ctx.stroke(); // lembo a inchiostro
       placeMarkers();
-      empty.textContent = st.islands.length ? "" :
-        (st.readOnly ? "Nessuna isola segnata. Trascina per ruotare il mondo, rotella per lo zoom."
-                     : "Trascina per ruotare · rotella per lo zoom · disegna terre e rotte · piazza i segnalini");
+      empty.textContent = st.placing
+        ? ("Tocca il punto del mondo dove spostare \u00ab"+(st.placing.nome||"il segnalino")+"\u00bb\u2026")
+        : (st.islands.length ? "" :
+          (st.readOnly ? "Nessuna isola segnata. Trascina per ruotare il mondo, due dita o rotella per lo zoom."
+                       : "Un dito ruota \u00b7 due dita (o rotella) zoomano \u00b7 disegna coste e rotte \u00b7 piazza i segnalini"));
     }
 
     /* ---------------- marker HTML ---------------- */
@@ -285,52 +294,67 @@
       var m=el("div","glcmap-marker"); markerEls[isl.id]=m;
       m.innerHTML='<div class="glcmap-pin" style="--mc:'+t.color+'">'+t.icon+'</div>'
                 + (isl.nome ? '<div class="glcmap-lbl">'+esc(isl.nome)+'</div>' : '');
-      if (st.readOnly){ m.addEventListener("click", function(){ openView(isl); }); return m; }
-      m.addEventListener("pointerdown", function(e){
-        e.preventDefault(); e.stopPropagation();
-        var moved=false;
-        try{ m.setPointerCapture(e.pointerId); }catch(_){ }
-        function move(ev){
-          moved=true;
-          var r=box.getBoundingClientRect();
-          var ll=invert(ev.clientX-r.left, ev.clientY-r.top);
-          if(!ll) return;
-          var xy=llToXY(ll.lon,ll.lat); isl.x=xy.x; isl.y=xy.y;
-          placeMarkers();
-        }
-        function up(){
-          m.removeEventListener("pointermove",move); m.removeEventListener("pointerup",up);
-          if(moved) emit(); else openEditor(isl,false);
-        }
-        m.addEventListener("pointermove",move); m.addEventListener("pointerup",up);
+      m.addEventListener("click", function(e){
+        e.stopPropagation();
+        if (justDragged || st.placing) return;
+        if (st.readOnly){ openView(isl); return; }
+        if (st.mode!=="nav") return; // mentre disegni o piazzi, i segnalini non si aprono
+        openEditor(isl,false);
       });
       return m;
     }
 
-    /* ---------------- interazione: ruota, zoom, disegna ---------------- */
-    var drag=null; // {kind:'nav'|'draw', last:{x,y}, moved, stroke}
+    /* ---------------- interazione: un dito ruota, due dita zoomano, click piazza ---------------- */
+    var drag=null;          // {kind:'nav'|'draw', last:{x,y}, moved, stroke}
+    var pointers=new Map(); // dita/pulsanti attivi
+    var pinch=null;         // {d, mx, my}
+    var justDragged=false, jdTimer=null;
+    function markDragged(){ justDragged=true; clearTimeout(jdTimer); jdTimer=setTimeout(function(){ justDragged=false; }, 280); }
+
     box.addEventListener("pointerdown", function(e){
-      if (e.target.closest(".glcmap-marker")) return;
       var r=box.getBoundingClientRect(), px=e.clientX-r.left, py=e.clientY-r.top;
-      if (!st.readOnly && (st.mode==="draw"||st.mode==="erase"||st.mode==="route")){
+      pointers.set(e.pointerId,{x:px,y:py});
+      try{ box.setPointerCapture(e.pointerId); }catch(_){ }
+      if (pointers.size===2){
+        // secondo dito: pinch per zoom+pan; un eventuale tratto in corso si chiude lì
+        if (drag && drag.kind==="draw") emitLand();
+        drag=null; box.classList.remove("drag");
+        var ps=[...pointers.values()];
+        pinch={ d:Math.hypot(ps[0].x-ps[1].x, ps[0].y-ps[1].y), mx:(ps[0].x+ps[1].x)/2, my:(ps[0].y+ps[1].y)/2 };
+        return;
+      }
+      if (pointers.size>2) return;
+      if (!st.readOnly && !st.placing && (st.mode==="draw"||st.mode==="erase"||st.mode==="route")){
         var ll=invert(px,py); if(!ll) return;
         var rdeg=(st.brush/radius())*R2D;
         var stroke = st.mode==="route"
-          ? {t:1, c:"#ffd394", pts:[[+ll.lon.toFixed(2),+ll.lat.toFixed(2)]]}
-          : {r:+rdeg.toFixed(3), c:(st.mode==="erase"?undefined:st.color), e:(st.mode==="erase"?1:0), pts:[[+ll.lon.toFixed(2),+ll.lat.toFixed(2)]]};
+          ? {t:1, pts:[[+ll.lon.toFixed(2),+ll.lat.toFixed(2)]]}
+          : {r:+rdeg.toFixed(3), e:(st.mode==="erase"?1:0), pts:[[+ll.lon.toFixed(2),+ll.lat.toFixed(2)]]};
         drag={kind:"draw", stroke:stroke};
         st.strokes.push(drag.stroke);
-        try{ box.setPointerCapture(e.pointerId); }catch(_){ }
         render();
         return;
       }
       drag={kind:"nav", last:{x:px,y:py}, moved:false};
       box.classList.add("drag");
-      try{ box.setPointerCapture(e.pointerId); }catch(_){ }
     });
     box.addEventListener("pointermove", function(e){
-      if(!drag) return;
+      if (!pointers.has(e.pointerId)) return;
       var r=box.getBoundingClientRect(), px=e.clientX-r.left, py=e.clientY-r.top;
+      pointers.set(e.pointerId,{x:px,y:py});
+      if (pinch && pointers.size>=2){
+        var ps=[...pointers.values()];
+        var d2=Math.hypot(ps[0].x-ps[1].x, ps[0].y-ps[1].y);
+        var mx=(ps[0].x+ps[1].x)/2, my=(ps[0].y+ps[1].y)/2;
+        if (pinch.d>4) st.view.zoom=Math.max(.6,Math.min(60,st.view.zoom*(d2/pinch.d)));
+        var R=radius();
+        st.view.lon=wrapLon(st.view.lon-(mx-pinch.mx)/R*R2D);
+        st.view.lat=clampLat(st.view.lat+(my-pinch.my)/R*R2D);
+        pinch={d:d2,mx:mx,my:my};
+        markDragged(); render();
+        return;
+      }
+      if(!drag) return;
       if (drag.kind==="draw"){
         var ll=invert(px,py); if(!ll) return;
         var pts=drag.stroke.pts, lastp=pts[pts.length-1];
@@ -340,22 +364,26 @@
         return;
       }
       var dx=px-drag.last.x, dy=py-drag.last.y;
-      if (Math.abs(dx)+Math.abs(dy)>3) drag.moved=true;
-      var R=radius();
-      st.view.lon = wrapLon(st.view.lon - dx/R*R2D);
-      st.view.lat = clampLat(st.view.lat + dy/R*R2D);
+      if (Math.abs(dx)+Math.abs(dy)>3){ drag.moved=true; markDragged(); }
+      var R2=radius();
+      st.view.lon = wrapLon(st.view.lon - dx/R2*R2D);
+      st.view.lat = clampLat(st.view.lat + dy/R2*R2D);
       drag.last={x:px,y:py};
       render();
     });
-    box.addEventListener("pointerup", function(e){
+    function endPointer(e){
+      pointers.delete(e.pointerId);
+      if (pinch && pointers.size<2) pinch=null;
+      if (pointers.size>0) return;
       if(!drag) return;
       var wasNav=(drag.kind==="nav"), moved=drag.moved, wasDraw=(drag.kind==="draw");
       var d=drag;
       box.classList.remove("drag");
       drag=null;
+      if (moved) markDragged();
       if (wasDraw){
         var stk=d.stroke, pts=stk.pts||[];
-        // contorno chiuso -> si riempie da solo
+        // contorno chiuso -> l'isola si riempie da sola
         if (!stk.t && !stk.e && pts.length>=3){
           var p0=project(pts[0][0],pts[0][1]), p9=project(pts[pts.length-1][0],pts[pts.length-1][1]);
           var dd=Math.hypot(p0.x-p9.x, p0.y-p9.y);
@@ -364,7 +392,17 @@
         render(); emitLand(); renderToolbar();
         return;
       }
+      // ricollocazione da «Sposta»: il prossimo tocco secco piazza il segnalino
+      if (wasNav && !moved && st.placing){
+        var r0=box.getBoundingClientRect();
+        var ll0=invert(e.clientX-r0.left, e.clientY-r0.top);
+        if (ll0){ var xy0=llToXY(ll0.lon,ll0.lat); st.placing.x=xy0.x; st.placing.y=xy0.y; }
+        st.placing=null;
+        placeMarkers(); render(); emit();
+        return;
+      }
       if (wasNav && !moved && !st.readOnly && st.mode==="add"){
+        if (e.target && e.target.closest && e.target.closest(".glcmap-marker")) return;
         var r=box.getBoundingClientRect();
         var ll=invert(e.clientX-r.left, e.clientY-r.top); if(!ll) return;
         var xy=llToXY(ll.lon,ll.lat);
@@ -374,7 +412,9 @@
         buildMarkers(); render(); emit();
         openEditor(isl,true);
       }
-    });
+    }
+    box.addEventListener("pointerup", endPointer);
+    box.addEventListener("pointercancel", endPointer);
     box.addEventListener("wheel", function(e){
       e.preventDefault();
       var f=Math.exp(-e.deltaY*0.0012);
@@ -387,7 +427,7 @@
     function chip(txt, on, fn, title){
       var c=el("button","glcmap-chip"+(on?" on":"")); c.type="button"; c.innerHTML=txt; c.onclick=fn; if(title)c.title=title; return c;
     }
-    function setMode(m){ st.mode=m; box.className="glcmap-canvas "+m; renderToolbar(); }
+    function setMode(m){ st.mode=m; st.placing=null; box.className="glcmap-canvas "+m; renderToolbar(); render(); }
     function renderToolbar(){
       bar1.innerHTML=""; bar2.innerHTML="";
       var zOut=chip("−",false,function(){ st.view.zoom=Math.max(.6,st.view.zoom/1.5); render(); },"Riduci zoom");
@@ -416,21 +456,13 @@
         hint.textContent="Scegli il tipo e tocca il mondo per piazzare il segnalino…";
         bar2.appendChild(hint);
       } else if (st.mode==="draw"||st.mode==="erase"){
-        if (st.mode==="draw"){
-          LAND_COLORS.forEach(function(cc){
-            var b=el("button","glcmap-swatch"+(st.color===cc.c?" on":"")); b.type="button"; b.title=cc.label;
-            b.style.background=cc.c;
-            b.onclick=function(){ st.color=cc.c; renderToolbar(); };
-            bar2.appendChild(b);
-          });
-        }
         var rng=el("span","glcmap-range");
         rng.appendChild(document.createTextNode("Pennello "));
         var inp=document.createElement("input"); inp.type="range"; inp.min="6"; inp.max="70"; inp.value=st.brush;
         inp.oninput=function(){ st.brush=+inp.value; };
         rng.appendChild(inp);
         bar2.appendChild(rng);
-        hint.textContent = st.mode==="draw" ? "Traccia la costa: se chiudi il contorno, si riempie da solo…" : "Trascina per cancellare terre e riempimenti…";
+        hint.textContent = st.mode==="draw" ? "Traccia la costa a inchiostro: chiudi il contorno e l\u2019isola si riempie da sola…" : "Trascina per cancellare le coste disegnate…";
         bar2.appendChild(hint);
       } else if (st.mode==="route"){
         hint.style.marginLeft="0";
@@ -473,6 +505,9 @@
           open.onclick=function(){ isl.nome=nm.value.trim(); isl.type=sel.value; isl.note=ta.value; emit(); };
           acts.appendChild(open);
         }
+        var mv=el("button","glcmap-btn ghost"); mv.type="button"; mv.textContent="\u{1F4CD} Sposta";
+        mv.onclick=function(){ isl.nome=nm.value.trim(); isl.type=sel.value; isl.note=ta.value; emit(); closeModal(); st.mode="nav"; st.placing=isl; box.className="glcmap-canvas add"; renderToolbar(); render(); };
+        acts.appendChild(mv);
         var cancel=el("button","glcmap-btn ghost spacer"); cancel.type="button"; cancel.textContent="Chiudi"; cancel.onclick=closeModal;
         var save=el("button","glcmap-btn"); save.type="button"; save.textContent="Salva";
         save.onclick=function(){ isl.nome=nm.value.trim(); isl.type=sel.value; isl.note=ta.value; buildMarkers(); render(); emit(); closeModal(); };
@@ -515,7 +550,7 @@
         if (islands) st.islands=islands.slice();
         if (readOnly!=null) st.readOnly=!!readOnly;
         if (landStrokes) st.strokes=landStrokes.slice();
-        st.mode="nav"; box.className="glcmap-canvas nav";
+        st.mode="nav"; st.placing=null; box.className="glcmap-canvas nav";
         renderToolbar(); buildMarkers(); render();
       },
       getIslands: function(){ return st.islands.slice(); },
