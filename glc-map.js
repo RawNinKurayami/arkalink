@@ -294,13 +294,7 @@
       var m=el("div","glcmap-marker"); markerEls[isl.id]=m;
       m.innerHTML='<div class="glcmap-pin" style="--mc:'+t.color+'">'+t.icon+'</div>'
                 + (isl.nome ? '<div class="glcmap-lbl">'+esc(isl.nome)+'</div>' : '');
-      m.addEventListener("click", function(e){
-        e.stopPropagation();
-        if (justDragged || st.placing) return;
-        if (st.readOnly){ openView(isl); return; }
-        if (st.mode!=="nav") return; // mentre disegni o piazzi, i segnalini non si aprono
-        openEditor(isl,false);
-      });
+      m.dataset.glcIsl=isl.id;
       return m;
     }
 
@@ -335,7 +329,8 @@
         render();
         return;
       }
-      drag={kind:"nav", last:{x:px,y:py}, moved:false};
+      var mEl=(e.target&&e.target.closest)?e.target.closest(".glcmap-marker"):null;
+      drag={kind:"nav", last:{x:px,y:py}, moved:false, markerId:(mEl?mEl.dataset.glcIsl:null)};
       box.classList.add("drag");
     });
     box.addEventListener("pointermove", function(e){
@@ -400,6 +395,16 @@
         st.placing=null;
         placeMarkers(); render(); emit();
         return;
+      }
+      // tap secco su un segnalino: apri la sua scheda
+      if (wasNav && !moved && d.markerId){
+        var tapped=null;
+        for (var ti=0;ti<st.islands.length;ti++){ if(st.islands[ti].id===d.markerId){ tapped=st.islands[ti]; break; } }
+        if (tapped){
+          if (st.readOnly){ openView(tapped); return; }
+          if (st.mode==="nav"){ openEditor(tapped,false); return; }
+          return; // nelle modalità di disegno i segnalini non si aprono
+        }
       }
       if (wasNav && !moved && !st.readOnly && st.mode==="add"){
         if (e.target && e.target.closest && e.target.closest(".glcmap-marker")) return;
