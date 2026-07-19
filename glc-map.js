@@ -25,12 +25,15 @@
   + ".glcmap-hint{font-size:.85rem;color:var(--c-soft);font-style:italic;margin-left:auto;}"
   + ".glcmap-range{display:inline-flex;align-items:center;gap:6px;color:var(--c-soft);font-size:11px;}"
   + ".glcmap-range input{accent-color:#f0a441;width:90px;}"
+  + ".glcmap-swatch{width:20px;height:20px;border-radius:50%;border:2px solid rgba(242,233,216,.25);cursor:pointer;padding:0;flex:none;}"
+  + ".glcmap-swatch.on{border-color:#ffd394;box-shadow:0 0 0 2px rgba(255,211,148,.35);}"
   + ".glcmap-canvas{position:relative;width:100%;aspect-ratio:25/16;min-height:260px;max-height:82vh;resize:vertical;border-radius:12px;overflow:hidden;border:1px solid var(--c-line);box-shadow:0 12px 28px rgba(0,0,0,.45);user-select:none;background:#05070c;touch-action:none;}"
   + ".glcmap-canvas::after{content:'\\2921';position:absolute;right:5px;bottom:2px;color:rgba(240,164,65,.6);font-size:13px;pointer-events:none;}"
   + ".glcmap-cv{position:absolute;inset:0;width:100%;height:100%;display:block;}"
   + ".glcmap-canvas.nav{cursor:grab;}.glcmap-canvas.nav.drag{cursor:grabbing;}"
   + ".glcmap-canvas.add{cursor:crosshair;}"
   + ".glcmap-canvas.draw,.glcmap-canvas.erase{cursor:cell;}"
+  + ".glcmap-canvas.route{cursor:crosshair;}"
   + ".glcmap-overlay{position:absolute;inset:0;pointer-events:none;}"
   + ".glcmap-marker{position:absolute;transform:translate(-50%,-100%);cursor:pointer;display:flex;flex-direction:column;align-items:center;touch-action:none;pointer-events:auto;}"
   + ".glcmap-pin{width:30px;height:30px;border-radius:50% 50% 50% 0;background:var(--mc,#f0a441);transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 8px rgba(0,0,0,.5);border:2px solid #0c0a10;}"
@@ -64,14 +67,30 @@
     citta:  '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 21V9l5-3 5 3v2h6v10H4zm12-8v8h4v-8h-4z"/></svg>',
     pericolo:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 6l6.5 11h-13L12 8zm-1 4h2v3h-2zm0 4h2v2h-2z"/></svg>',
     tesoro: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 8h18v11H3zM3 8l2-3h14l2 3M11 12h2v2h-2z"/></svg>',
-    ancora: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2.2 2.2 0 100 4.4A2.2 2.2 0 0012 2zm-1 6h2v9.2c2-.4 3.5-1.7 4-3.6l1.8.5C18 17.4 15.5 19.4 12 19.7V8zm1 11.7C8.5 19.4 6 17.4 5.2 14.6L7 14.1c.5 1.9 2 3.2 4 3.6V8h1v11.7z"/></svg>'
+    ancora: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2.2 2.2 0 100 4.4A2.2 2.2 0 0012 2zm-1 6h2v9.2c2-.4 3.5-1.7 4-3.6l1.8.5C18 17.4 15.5 19.4 12 19.7V8zm1 11.7C8.5 19.4 6 17.4 5.2 14.6L7 14.1c.5 1.9 2 3.2 4 3.6V8h1v11.7z"/></svg>',
+    bosco:  '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l5 7h-3.2l4.2 6.5H14V20h-4v-4.5H6L10.2 9H7z"/></svg>',
+    foresta:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 4l3.6 5.4H9.4L12.4 14H9v4H7v-4H3.6l3-4.6H4.4z"/><path d="M16.5 7l3 4.6h-1.8l2.5 4H17.5V19h-2v-3.4h-2.7l2.5-4h-1.8z" opacity=".85"/></svg>',
+    lago:   '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c3.8 4.6 6.5 7.6 6.5 11a6.5 6.5 0 0 1-13 0C5.5 10.6 8.2 7.6 12 3z"/></svg>',
+    montagna:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 20L9 7l3.2 5.4L14.5 9 22 20z"/></svg>'
   };
   var TYPES = [
     { key:"isola",    label:"Isola",         color:"#5e8d6e", icon:IC.isola },
     { key:"citta",    label:"Porto/Città", color:"#c9a24a", icon:IC.citta },
     { key:"pericolo", label:"Pericolo",      color:"#b0432f", icon:IC.pericolo },
     { key:"tesoro",   label:"Tesoro",        color:"#d8a72e", icon:IC.tesoro },
-    { key:"ancora",   label:"Ancoraggio",    color:"#5f86a0", icon:IC.ancora }
+    { key:"ancora",   label:"Ancoraggio",    color:"#5f86a0", icon:IC.ancora },
+    { key:"bosco",    label:"Bosco",         color:"#5e8d4e", icon:IC.bosco },
+    { key:"foresta",  label:"Foresta",       color:"#3e6b40", icon:IC.foresta },
+    { key:"lago",     label:"Lago",          color:"#4e7ca8", icon:IC.lago },
+    { key:"montagna", label:"Montagna",      color:"#8a8578", icon:IC.montagna }
+  ];
+  /* colori del pennello per le terre */
+  var LAND_COLORS=[
+    { c:"#4c7a5d", label:"Prateria" },
+    { c:"#c8a76b", label:"Sabbia" },
+    { c:"#8a8578", label:"Roccia" },
+    { c:"#dfe5e8", label:"Neve" },
+    { c:"#a3402e", label:"Terre rosse" }
   ];
   function typeOf(k){ for (var i=0;i<TYPES.length;i++) if (TYPES[i].key===k) return TYPES[i]; return TYPES[0]; }
   function uid(){ return "isl"+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36); }
@@ -91,9 +110,10 @@
       islands: (opts.islands || []).slice(),
       strokes: (opts.land || []).slice(),
       readOnly: !!opts.readOnly,
-      mode: "nav",              // nav | add | draw | erase
+      mode: "nav",              // nav | add | draw | erase | route
       addType: "isola",
       brush: 22,                // pennello in px a schermo
+      color: LAND_COLORS[0].c,  // colore del pennello
       view: { lon: 20, lat: 15, zoom: 1 }
     };
     function emit(){ if (opts.onChange) opts.onChange(st.islands.slice()); }
@@ -182,9 +202,11 @@
       lctx.clearRect(0,0,W,H);
       for (var s=0;s<st.strokes.length;s++){
         var stk=st.strokes[s];
+        if (stk.t) continue; // le rotte si disegnano sopra, a parte
+        var col=stk.c||"#4c7a5d";
         var wpx=Math.max(2, (stk.r||1)*D2R*radius()*2);
         lctx.globalCompositeOperation = stk.e ? "destination-out" : "source-over";
-        lctx.strokeStyle="#4c7a5d"; lctx.fillStyle="#4c7a5d";
+        lctx.strokeStyle=col; lctx.fillStyle=col;
         lctx.lineWidth=wpx; lctx.lineCap="round"; lctx.lineJoin="round";
         var pts=stk.pts||[];
         if (pts.length===1){
@@ -199,6 +221,7 @@
           if (p.v){ if(pen) lctx.lineTo(p.x,p.y); else { lctx.moveTo(p.x,p.y); pen=true; } }
           else pen=false;
         }
+        if (stk.f){ lctx.closePath(); lctx.fill(); }
         lctx.stroke();
       }
       // velo "battigia" sopra la terra disegnata
@@ -207,6 +230,21 @@
       lctx.globalCompositeOperation="source-over";
     }
 
+    function drawRoutes(){
+      var lw=Math.max(1.3, Math.min(5, 1.1+st.view.zoom*0.55));
+      var dash=Math.max(6, 4+st.view.zoom*1.6);
+      ctx.save();
+      ctx.globalAlpha=Math.min(1, .5+st.view.zoom*.12); // più visibili zoomando
+      ctx.lineWidth=lw; ctx.lineCap="round";
+      ctx.setLineDash([dash, dash*.75]);
+      for (var s=0;s<st.strokes.length;s++){
+        var stk=st.strokes[s];
+        if (!stk.t) continue;
+        ctx.strokeStyle=stk.c||"#ffd394";
+        polyline(ctx, stk.pts||[]);
+      }
+      ctx.setLineDash([]); ctx.restore();
+    }
     function render(){
       if (!W || !H) return;
       ctx.clearRect(0,0,W,H);
@@ -219,12 +257,13 @@
       drawGraticule();
       drawLand();
       ctx.drawImage(land,0,0,W,H);                           // terre
+      drawRoutes();
       ctx.restore();
       ctx.strokeStyle="rgba(240,164,65,.4)"; ctx.lineWidth=1.5; spherePath(ctx); ctx.stroke(); // lembo
       placeMarkers();
       empty.textContent = st.islands.length ? "" :
         (st.readOnly ? "Nessuna isola segnata. Trascina per ruotare il mondo, rotella per lo zoom."
-                     : "Trascina per ruotare · rotella per lo zoom · disegna le terre · segna le isole");
+                     : "Trascina per ruotare · rotella per lo zoom · disegna terre e rotte · piazza i segnalini");
     }
 
     /* ---------------- marker HTML ---------------- */
@@ -273,10 +312,13 @@
     box.addEventListener("pointerdown", function(e){
       if (e.target.closest(".glcmap-marker")) return;
       var r=box.getBoundingClientRect(), px=e.clientX-r.left, py=e.clientY-r.top;
-      if (!st.readOnly && (st.mode==="draw"||st.mode==="erase")){
+      if (!st.readOnly && (st.mode==="draw"||st.mode==="erase"||st.mode==="route")){
         var ll=invert(px,py); if(!ll) return;
         var rdeg=(st.brush/radius())*R2D;
-        drag={kind:"draw", stroke:{r:+rdeg.toFixed(3), e:(st.mode==="erase"?1:0), pts:[[+ll.lon.toFixed(2),+ll.lat.toFixed(2)]]}};
+        var stroke = st.mode==="route"
+          ? {t:1, c:"#ffd394", pts:[[+ll.lon.toFixed(2),+ll.lat.toFixed(2)]]}
+          : {r:+rdeg.toFixed(3), c:(st.mode==="erase"?undefined:st.color), e:(st.mode==="erase"?1:0), pts:[[+ll.lon.toFixed(2),+ll.lat.toFixed(2)]]};
+        drag={kind:"draw", stroke:stroke};
         st.strokes.push(drag.stroke);
         try{ box.setPointerCapture(e.pointerId); }catch(_){ }
         render();
@@ -308,9 +350,20 @@
     box.addEventListener("pointerup", function(e){
       if(!drag) return;
       var wasNav=(drag.kind==="nav"), moved=drag.moved, wasDraw=(drag.kind==="draw");
+      var d=drag;
       box.classList.remove("drag");
       drag=null;
-      if (wasDraw){ emitLand(); return; }
+      if (wasDraw){
+        var stk=d.stroke, pts=stk.pts||[];
+        // contorno chiuso -> si riempie da solo
+        if (!stk.t && !stk.e && pts.length>=3){
+          var p0=project(pts[0][0],pts[0][1]), p9=project(pts[pts.length-1][0],pts[pts.length-1][1]);
+          var dd=Math.hypot(p0.x-p9.x, p0.y-p9.y);
+          if (dd < Math.max(st.brush*2.2, 26)){ stk.f=1; }
+        }
+        render(); emitLand(); renderToolbar();
+        return;
+      }
       if (wasNav && !moved && !st.readOnly && st.mode==="add"){
         var r=box.getBoundingClientRect();
         var ll=invert(e.clientX-r.left, e.clientY-r.top); if(!ll) return;
@@ -348,8 +401,9 @@
         return;
       }
       bar1.appendChild(chip("🖐 Naviga", st.mode==="nav", function(){ setMode("nav"); }));
-      bar1.appendChild(chip("📍 Segna isola", st.mode==="add", function(){ setMode(st.mode==="add"?"nav":"add"); }));
+      bar1.appendChild(chip("📍 Segnalino", st.mode==="add", function(){ setMode(st.mode==="add"?"nav":"add"); }));
       bar1.appendChild(chip("✏️ Disegna terra", st.mode==="draw", function(){ setMode(st.mode==="draw"?"nav":"draw"); }));
+      bar1.appendChild(chip("🧭 Rotta", st.mode==="route", function(){ setMode(st.mode==="route"?"nav":"route"); }));
       bar1.appendChild(chip("⌫ Gomma", st.mode==="erase", function(){ setMode(st.mode==="erase"?"nav":"erase"); }));
       var undo=chip("↶",false,function(){ st.strokes.pop(); render(); emitLand(); renderToolbar(); },"Annulla ultimo tratto");
       undo.disabled=!st.strokes.length; bar1.appendChild(undo);
@@ -359,16 +413,28 @@
           var c=chip('<span style="color:'+t.color+'">'+t.icon+"</span>"+t.label, st.addType===t.key, function(){ st.addType=t.key; renderToolbar(); });
           bar2.appendChild(c);
         });
-        hint.textContent="Tocca il mondo per segnare un luogo…";
+        hint.textContent="Scegli il tipo e tocca il mondo per piazzare il segnalino…";
         bar2.appendChild(hint);
       } else if (st.mode==="draw"||st.mode==="erase"){
+        if (st.mode==="draw"){
+          LAND_COLORS.forEach(function(cc){
+            var b=el("button","glcmap-swatch"+(st.color===cc.c?" on":"")); b.type="button"; b.title=cc.label;
+            b.style.background=cc.c;
+            b.onclick=function(){ st.color=cc.c; renderToolbar(); };
+            bar2.appendChild(b);
+          });
+        }
         var rng=el("span","glcmap-range");
         rng.appendChild(document.createTextNode("Pennello "));
         var inp=document.createElement("input"); inp.type="range"; inp.min="6"; inp.max="70"; inp.value=st.brush;
         inp.oninput=function(){ st.brush=+inp.value; };
         rng.appendChild(inp);
         bar2.appendChild(rng);
-        hint.textContent = st.mode==="draw" ? "Trascina sul mondo per far emergere la terra…" : "Trascina per cancellare la terra…";
+        hint.textContent = st.mode==="draw" ? "Traccia la costa: se chiudi il contorno, si riempie da solo…" : "Trascina per cancellare terre e riempimenti…";
+        bar2.appendChild(hint);
+      } else if (st.mode==="route"){
+        hint.style.marginLeft="0";
+        hint.textContent="Traccia la rotta: linea tratteggiata, più nitida quando zoomi. Si annulla con ↶.";
         bar2.appendChild(hint);
       }
     }
