@@ -257,7 +257,8 @@ async function renderOfficina(){
   if(isAdmin){
     var f_nome=el("input",{class:"txt",placeholder:"Nome dell'oggetto"});
     var f_desc=el("textarea",{class:"txt",placeholder:"Effetto / descrizione"});
-    var f_img="";
+    var f_cat=el("input",{class:"txt",placeholder:"Categoria (es. Preparati del medico)"});
+    var f_img=""; var editingDati=null;
     var prev=el("div",{class:"imgprev",text:"⚙"});
     var file=el("input",{type:"file",accept:"image/*"});
     file.onchange=function(){ resizeImg(file.files[0],function(d){ f_img=d; if(d){prev.style.backgroundImage="url('"+d+"')";prev.textContent="";} }); };
@@ -266,11 +267,13 @@ async function renderOfficina(){
     var saveBtn=el("button",{class:"btn",text:"Salva nel catalogo",onClick:async function(){
       var nome=f_nome.value.trim(); if(!nome){f_nome.focus();return;}
       saveBtn.disabled=true; saveBtn.textContent="Salvataggio…";
-      var row={id:editingId||newId("o_"),tipo:"oggetto",nome:nome,descrizione:f_desc.value.trim(),dati:{},img:f_img||"",updated_at:new Date().toISOString()};
+      var baseDati=editingDati?Object.assign({},editingDati):{}; // non perdere categoria, dado, soglia, ingredienti…
+      var catV=f_cat.value.trim(); if(catV)baseDati.categoria=catV; else delete baseDati.categoria;
+      var row={id:editingId||newId("o_"),tipo:"oggetto",nome:nome,descrizione:f_desc.value.trim(),dati:baseDati,img:f_img||"",updated_at:new Date().toISOString()};
       var res=await saveOfficial(row);
       saveBtn.disabled=false; saveBtn.textContent=editingId?"Aggiorna":"Salva nel catalogo";
       if(res.error){ alert("Errore nel salvataggio: "+res.error.message+"\n\nVerifica di aver eseguito il setup SQL della tabella «catalogo» e di essere loggato con l'email admin."); return; }
-      f_nome.value=""; f_desc.value=""; f_img=""; prev.style.backgroundImage=""; prev.textContent="⚙"; editingId=null; formTitle.textContent="Aggiungi un oggetto ufficiale"; saveBtn.textContent="Salva nel catalogo";
+      f_nome.value=""; f_desc.value=""; f_cat.value=""; f_img=""; prev.style.backgroundImage=""; prev.textContent="⚙"; editingId=null; editingDati=null; formTitle.textContent="Aggiungi un oggetto ufficiale"; saveBtn.textContent="Salva nel catalogo";
       flash("Catalogo aggiornato ✓");
       loadCatalog();
     }});
@@ -278,12 +281,13 @@ async function renderOfficina(){
       formTitle,
       el("label",{class:"lab",text:"Nome"}), f_nome,
       el("label",{class:"lab",text:"Effetto / descrizione"}), f_desc,
+      el("label",{class:"lab",text:"Categoria"}), f_cat,
       el("label",{class:"lab",text:"Immagine"}),
       el("div",{class:"imgrow"},[prev,file]),
       el("div",{},[saveBtn])
     ]);
     p.appendChild(form);
-    window.__startEdit=function(o){ editingId=o.id; f_nome.value=o.nome||""; f_desc.value=o.descrizione||""; f_img=o.img||""; if(o.img){prev.style.backgroundImage="url('"+o.img+"')";prev.textContent="";}else{prev.style.backgroundImage="";prev.textContent="⚙";} formTitle.textContent="Modifica oggetto ufficiale"; saveBtn.textContent="Aggiorna"; form.scrollIntoView({behavior:"smooth"}); };
+    window.__startEdit=function(o){ editingId=o.id; editingDati=(o.dati&&typeof o.dati==="object")?JSON.parse(JSON.stringify(o.dati)):{}; f_nome.value=o.nome||""; f_desc.value=o.descrizione||""; f_cat.value=(o.dati&&o.dati.categoria)||""; f_img=o.img||""; if(o.img){prev.style.backgroundImage="url('"+o.img+"')";prev.textContent="";}else{prev.style.backgroundImage="";prev.textContent="⚙";} formTitle.textContent="Modifica oggetto ufficiale"; saveBtn.textContent="Aggiorna"; form.scrollIntoView({behavior:"smooth"}); };
   }
 
   p.appendChild(el("div",{class:"sec-head",style:"margin-top:30px"},[el("h2",{text:"I miei oggetti"})]));
@@ -363,7 +367,9 @@ async function seedCatalog(){
   if(!isAdmin||!sb) return;
   if(!confirm("Importare/aggiornare i "+SEED_OGGETTI.length+" oggetti del manuale nel catalogo ufficiale?\n\nGli oggetti con lo stesso nome vengono aggiornati, non duplicati.")) return;
   var btn=$("#seedBtn"); if(btn){btn.disabled=true; btn.textContent="Importazione\u2026";}
-  var rows=SEED_OGGETTI.map(function(o){ return {id:o.id,tipo:"oggetto",nome:o.nome,descrizione:o.descrizione,dati:o.dati,img:o.img||"",updated_at:new Date().toISOString()}; });
+  var byId={}; (CAT_ROWS||[]).forEach(function(o){ byId[o.id]=o; });
+  var rows=SEED_OGGETTI.map(function(o){ var ex=byId[o.id]; // il reimport aggiorna i dati ma non tocca le immagini caricate
+    return {id:o.id,tipo:"oggetto",nome:o.nome,descrizione:o.descrizione,dati:o.dati,img:(ex&&ex.img)?ex.img:(o.img||""),updated_at:new Date().toISOString()}; });
   var ok=0, err=null;
   for(var i=0;i<rows.length;i+=50){
     var chunk=rows.slice(i,i+50);
@@ -441,21 +447,24 @@ function renderCambusa(){
     ]));
     var d_nome=el("input",{class:"txt",placeholder:"Nome del piatto"});
     var d_desc=el("textarea",{class:"txt",placeholder:"Esiti / descrizione"});
-    var d_img=""; var d_prev=el("div",{class:"imgprev",text:"\ud83c\udf72"}); var d_file=el("input",{type:"file",accept:"image/*"});
+    var d_cat=el("input",{class:"txt",placeholder:"Categoria (es. Carne, Dolci\u2026)"});
+    var d_img=""; var d_dati=null; var d_prev=el("div",{class:"imgprev",text:"\ud83c\udf72"}); var d_file=el("input",{type:"file",accept:"image/*"});
     d_file.onchange=function(){resizeImg(d_file.files[0],function(x){d_img=x;if(x){d_prev.style.backgroundImage="url('"+x+"')";d_prev.textContent="";}});};
     var d_edit=null; var d_title=el("h3",{text:"Aggiungi un piatto ufficiale"});
     var d_save=el("button",{class:"btn",text:"Salva nel catalogo",onClick:async function(){
       var nome=d_nome.value.trim(); if(!nome){d_nome.focus();return;}
       d_save.disabled=true;d_save.textContent="Salvataggio\u2026";
-      var row={id:d_edit||newId("p_"),tipo:"piatto",nome:nome,descrizione:d_desc.value.trim(),dati:{},img:d_img||"",updated_at:new Date().toISOString()};
+      var dBase=d_dati?Object.assign({},d_dati):{}; // non perdere la categoria e gli altri dati
+      var dCatV=d_cat.value.trim(); if(dCatV)dBase.categoria=dCatV; else delete dBase.categoria;
+      var row={id:d_edit||newId("p_"),tipo:"piatto",nome:nome,descrizione:d_desc.value.trim(),dati:dBase,img:d_img||"",updated_at:new Date().toISOString()};
       var res=await saveOfficial(row); d_save.disabled=false; d_save.textContent=d_edit?"Aggiorna":"Salva nel catalogo";
       if(res.error){alert("Errore: "+res.error.message);return;}
-      d_nome.value="";d_desc.value="";d_img="";d_prev.style.backgroundImage="";d_prev.textContent="\ud83c\udf72";d_edit=null;d_title.textContent="Aggiungi un piatto ufficiale";d_save.textContent="Salva nel catalogo";
+      d_nome.value="";d_desc.value="";d_cat.value="";d_img="";d_dati=null;d_prev.style.backgroundImage="";d_prev.textContent="\ud83c\udf72";d_edit=null;d_title.textContent="Aggiungi un piatto ufficiale";d_save.textContent="Salva nel catalogo";
       flash("Catalogo aggiornato \u2713"); loadDishes();
     }});
-    var dform=el("div",{class:"formcard"},[d_title,el("label",{class:"lab",text:"Nome"}),d_nome,el("label",{class:"lab",text:"Esiti / descrizione"}),d_desc,el("label",{class:"lab",text:"Immagine"}),el("div",{class:"imgrow"},[d_prev,d_file]),el("div",{},[d_save])]);
+    var dform=el("div",{class:"formcard"},[d_title,el("label",{class:"lab",text:"Nome"}),d_nome,el("label",{class:"lab",text:"Esiti / descrizione"}),d_desc,el("label",{class:"lab",text:"Categoria"}),d_cat,el("label",{class:"lab",text:"Immagine"}),el("div",{class:"imgrow"},[d_prev,d_file]),el("div",{},[d_save])]);
     p.appendChild(dform);
-    window.__startEditDish=function(o){d_edit=o.id;d_nome.value=o.nome||"";d_desc.value=o.descrizione||"";d_img=o.img||"";if(o.img){d_prev.style.backgroundImage="url('"+o.img+"')";d_prev.textContent="";}else{d_prev.style.backgroundImage="";d_prev.textContent="\ud83c\udf72";}d_title.textContent="Modifica piatto ufficiale";d_save.textContent="Aggiorna";dform.scrollIntoView({behavior:"smooth"});};
+    window.__startEditDish=function(o){d_edit=o.id;d_dati=(o.dati&&typeof o.dati==="object")?JSON.parse(JSON.stringify(o.dati)):{};d_nome.value=o.nome||"";d_desc.value=o.descrizione||"";d_cat.value=(o.dati&&o.dati.categoria)||"";d_img=o.img||"";if(o.img){d_prev.style.backgroundImage="url('"+o.img+"')";d_prev.textContent="";}else{d_prev.style.backgroundImage="";d_prev.textContent="\ud83c\udf72";}d_title.textContent="Modifica piatto ufficiale";d_save.textContent="Aggiorna";dform.scrollIntoView({behavior:"smooth"});};
   }
   p.appendChild(el("div",{class:"sec-head",style:"margin-top:30px"},[el("h2",{text:"Crea il tuo piatto"})]));
   p.appendChild(el("p",{class:"hint",text:"Scegli un nome e gli ingredienti: ognuno aggiunge il suo bonus. Il piatto finisce tra i tuoi e si pu\u00f2 inserire nel diario."}));
