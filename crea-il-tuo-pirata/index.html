@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
+<link rel="stylesheet" href="/glc-ui.css">
+<script src="/glc-ui.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>window.GLC={saveKey:"glc_pirata_v4",gate:true,profileUrl:"/profilo/"};</script>
 <script src="/glc-auth.js"></script>
@@ -27,7 +29,7 @@ a{color:inherit;}
 .brand{display:flex; align-items:center; gap:9px; text-decoration:none;}
 .brand .anc{color:var(--gold); font-size:20px;}
 .brand .nm{font-family:'Inter',sans-serif; letter-spacing:.16em; text-transform:uppercase; font-size:12px; color:var(--foam);}
-.wrap{max-width:780px; margin:0 auto; padding:clamp(20px,4vw,40px) clamp(16px,4vw,36px) 70px;}
+.wrap{max-width:1180px; margin:0 auto; padding:clamp(20px,4vw,40px) clamp(16px,4vw,36px) 70px;}
 .hero{text-align:center; margin-bottom:18px;}
 .hero .kick{font-family:'Inter',sans-serif; letter-spacing:.28em; text-transform:uppercase; font-size:11px; color:var(--gold);}
 .hero h1{font-family:'Cormorant Garamond',Georgia,serif; font-weight:900; font-size:clamp(26px,5.5vw,44px); color:var(--vellum); margin:.12em 0 0; text-shadow:0 2px 16px rgba(0,0,0,.4);}
@@ -96,6 +98,47 @@ textarea{min-height:80px; resize:vertical;}
 .done-card .seal{font-size:46px; color:var(--gold);}
 .done-card h2{margin-top:6px;}
 .done-actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+/* ===== character creation UI ===== */
+.clay{display:grid; grid-template-columns:300px minmax(0,1fr); gap:18px; align-items:start;}
+@media(max-width:900px){ .clay{grid-template-columns:1fr;} .preview{position:static;} }
+.preview{position:sticky; top:14px; border:1px solid var(--line); border-radius:14px; background:rgba(242,233,216,.035); padding:14px;}
+.pv-port{width:100%; aspect-ratio:4/5; border-radius:10px; border:2px solid rgba(240,164,65,.4); background:radial-gradient(circle at 50% 30%,rgba(240,164,65,.12),rgba(10,8,12,.9)); display:flex; align-items:center; justify-content:center; color:var(--ink-soft); font-size:.9rem; text-align:center; cursor:pointer; overflow:hidden; position:relative;}
+.pv-port img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+.pv-name{font-family:'Cormorant Garamond',serif; font-weight:700; font-size:24px; letter-spacing:.04em; text-transform:uppercase; line-height:1; margin-top:12px;}
+.pv-amb{font-style:italic; color:var(--gold-bright); font-size:14px; margin-top:3px;}
+.pv-k{font-family:'Inter',sans-serif; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); margin:12px 0 5px;}
+.pv-attrs{display:grid; grid-template-columns:repeat(4,1fr); gap:4px;}
+.pv-attr{text-align:center;} .pv-attr .an{font-family:'Inter',sans-serif; font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); margin-top:2px;}
+.pv-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:5px;}
+.pv-stat{border:1px solid var(--line); border-radius:8px; padding:6px 4px; text-align:center;}
+.pv-stat .k{font-family:'Inter',sans-serif; font-size:8.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);}
+.pv-stat .v{font-family:'Inter',sans-serif; font-weight:700; font-size:15px; color:#ffd394;}
+.pv-list{font-size:.9rem; line-height:1.45;} .pv-list b{color:#ffd394; font-family:'Inter',sans-serif; font-size:.8rem;}
+.pv-empty{color:var(--ink-soft); font-style:italic; font-size:.88rem;}
+.gh-pills{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;}
+.pill{font-family:'Inter',sans-serif; font-size:11px; letter-spacing:.05em; border:1px solid var(--line); border-radius:999px; padding:3px 10px; color:var(--ink-soft); background:rgba(242,233,216,.05); display:inline-flex; align-items:center; gap:4px;}
+.pill.gold{border-color:var(--gold); color:#ffd394; background:rgba(240,164,65,.1);}
+.card{display:flex; gap:10px; align-items:flex-start;}
+.card .ci{flex:none; display:flex; color:#ffd394;}
+.card .cb{min-width:0;}
+.card.sel{border-color:var(--gold); box-shadow:0 0 0 1.5px var(--gold), 0 0 16px rgba(240,164,65,.3); background:rgba(240,164,65,.1);}
+.card.big{align-items:center;}
+.cards.three{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
+.attrpick{display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; margin-top:14px;}
+.attrcard{border:1px solid var(--line); border-radius:10px; padding:12px 10px; text-align:center; background:rgba(242,233,216,.05); cursor:pointer; transition:.12s;}
+.attrcard:hover{border-color:var(--gold);}
+.attrcard.locked{cursor:default; background:rgba(240,164,65,.08); border-color:rgba(240,164,65,.5);}
+.attrcard.sel{border-color:var(--gold); box-shadow:0 0 14px rgba(240,164,65,.3);}
+.attrcard .an{font-weight:700; margin-top:6px;} .attrcard .as{font-family:'Inter',sans-serif; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft);}
+.techslot{border:1px solid var(--line); border-radius:10px; padding:12px 14px; background:rgba(242,233,216,.05); display:grid; grid-template-columns:auto 1fr; gap:6px 14px; align-items:start; margin-top:12px;}
+.techslot .ts-i{grid-row:span 4; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px; color:var(--ink-soft); font-size:.75rem;}
+.techslot label.fld{margin:4px 0 3px;}
+.togglecard{display:flex; align-items:center; gap:12px; border:1px solid var(--line); border-radius:10px; padding:12px 14px; cursor:pointer; margin-top:10px; background:rgba(242,233,216,.05);}
+.togglecard.on{border-color:var(--gold); background:rgba(240,164,65,.1);}
+.togglecard .tg{width:44px; height:24px; border-radius:999px; background:rgba(242,233,216,.15); position:relative; flex:none;}
+.togglecard .tg::after{content:""; position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:#a69a86; transition:.15s;}
+.togglecard.on .tg{background:var(--gold);} .togglecard.on .tg::after{left:23px; background:#1b1206;}
+.rolecard .ci svg{width:34px; height:34px;}
 </style>
 </head>
 <body>
@@ -110,10 +153,15 @@ textarea{min-height:80px; resize:vertical;}
       <h1>Crea un nuovo pirata</h1>
     </div>
     <nav class="stepper" id="stepper"></nav>
-    <div class="panel" id="panel"></div>
-    <div class="nav" id="nav">
-      <button class="btn ghost" id="prev">◀ Indietro</button>
-      <button class="btn gold" id="next">Avanti ▶</button>
+    <div class="clay">
+      <aside class="preview" id="preview"></aside>
+      <div>
+        <div class="panel" id="panel"></div>
+        <div class="nav" id="nav">
+          <button class="btn ghost" id="prev">◀ Indietro</button>
+          <button class="btn gold" id="next">Avanti ▶</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -178,7 +226,28 @@ function buildStepper(){var n=$("#stepper");n.innerHTML="";STEPS.forEach(functio
 function refreshStepper(){var ch=$("#stepper").children;for(var i=0;i<ch.length;i++){ch[i].classList.toggle("active",i===step);ch[i].classList.toggle("done",i<step);}}
 function goto(i){step=Math.max(0,Math.min(STEPS.length-1,i));refreshStepper();RENDER[step]();$("#prev").disabled=step===0;$("#next").style.visibility=step===STEPS.length-1?"hidden":"visible";window.scrollTo({top:0,behavior:"smooth"});}
 
-var RENDER=[rConcept,rRace,rAttr,rRole,rSkill,rTech,rFruit,rFinal];
+var RENDER=[rConcept,rRace,rAttr,rRole,rSkill,rTech,rFruit,rFinal].map(function(f){return function(){f();renderPreview();};});
+function ROLE_ICON(name,style){var r=roleDef();var st=style||"";return STYLE_ICON[st]||STYLE_ICON[name]||"star";}
+function renderPreview(){
+  var p=$("#preview");if(!p)return;p.innerHTML="";
+  var r=race();
+  var port=el("div",{class:"pv-port"});if(D.photo){var im=el("img",{src:D.photo,alt:""});im.style.cssText=photoStyle(D.photoPos);port.appendChild(im);}else port.textContent="Tocca per aggiungere una foto";
+  var file=el("input",{type:"file",accept:"image/*",style:"display:none;"});port.onclick=function(){file.click();};file.onchange=function(e){if(e.target.files[0])handleFile(e.target.files[0]);};
+  p.appendChild(port);p.appendChild(file);
+  p.appendChild(el("div",{class:"pv-name",text:D.nome||"Pirata Senza Nome"}));
+  if(D.amb)p.appendChild(el("div",{class:"pv-amb",text:"“"+D.amb+"”"}));
+  var pills=el("div",{class:"gh-pills"});if(r)pills.appendChild(el("span",{class:"pill",text:r.name}));if(D.role)pills.appendChild(el("span",{class:"pill gold",html:svgIcon(ROLE_ICON(D.role,D.style),12)+" "+D.role+(D.style?(" · "+D.style):"")}));if(D.frutto.has)pills.appendChild(el("span",{class:"pill",html:imgIcon("frutto",13)+" "+(D.frutto.nome||"Frutto")+" "+(D.frutto.die||"d4")}));p.appendChild(pills);
+  p.appendChild(el("div",{class:"pv-k",text:"Attributi"}));
+  var ag=el("div",{class:"pv-attrs"});ATTRS.forEach(function(a){ag.appendChild(el("div",{class:"pv-attr",html:dieIcon(D.attr[a]||"",36)+'<div class="an">'+a.slice(0,3)+'</div>'}));});p.appendChild(ag);
+  p.appendChild(el("div",{class:"pv-k",text:"Vitali"}));
+  var st=el("div",{class:"pv-stats"});[["PV",r?String(r.pv):"—"],["Stamina","6"],["Movim.",r?((RACE_MOVE[r.id]||[10])[0]+" m"):"—"]].forEach(function(x){st.appendChild(el("div",{class:"pv-stat",html:'<div class="k">'+x[0]+'</div><div class="v">'+x[1]+'</div>'}));});p.appendChild(st);
+  p.appendChild(el("div",{class:"pv-k",text:"Skill"}));
+  var rs=roleSkill();var sk=[];if(rs)sk.push("<b>d8</b> "+rs);Object.keys(D.skills).forEach(function(k){sk.push("<b>"+D.skills[k]+"</b> "+k);});
+  p.appendChild(sk.length?el("div",{class:"pv-list",html:sk.join("<br>")}):el("div",{class:"pv-empty",text:"Nessuna Skill ancora."}));
+  p.appendChild(el("div",{class:"pv-k",text:"Tecniche"}));
+  var tc=[];if(r)tc.push("<b>"+(D.racialDie||"d6")+"</b> "+r.tech);if(D.t1.nome)tc.push("<b>d4</b> "+D.t1.nome);if(D.t2.nome)tc.push("<b>d4</b> "+D.t2.nome);
+  p.appendChild(tc.length?el("div",{class:"pv-list",html:tc.join("<br>")}):el("div",{class:"pv-empty",text:"Scegli prima una razza."}));
+}
 
 function rConcept(){
   var p=$("#panel");p.innerHTML="";
@@ -186,11 +255,11 @@ function rConcept(){
   p.appendChild(el("h2",{text:"Chi è il tuo pirata?"}));
   p.appendChild(el("div",{class:"explain",html:"Costruiamo il pirata un pezzo alla volta: a ogni passo ti spiego cosa stai scegliendo. Si parte da chi è.<br><b>Nome</b> e <b>Background</b> sono narrativi. L'<b>Ambizione</b> è il sogno che lo spinge: non dà bonus automatici, ma guida la storia e le ricompense decise dal Capitano."}));
   p.appendChild(el("label",{class:"fld",text:"Nome"}));
-  var nome=el("input",{type:"text",placeholder:"Es. Bram «Mano di Ferro»"});nome.value=D.nome;nome.oninput=function(){D.nome=nome.value;};p.appendChild(nome);
+  var nome=el("input",{type:"text",placeholder:"Es. Bram «Mano di Ferro»"});nome.value=D.nome;nome.oninput=function(){D.nome=nome.value;renderPreview();};p.appendChild(nome);
   p.appendChild(el("label",{class:"fld",text:"Background (chi era prima del mare?)"}));
   var bg=el("textarea",{});bg.value=D.bg;bg.oninput=function(){D.bg=bg.value;};p.appendChild(bg);
   p.appendChild(el("label",{class:"fld",text:"Ambizione (il suo sogno)"}));
-  var amb=el("input",{type:"text",placeholder:"«Costruirò la nave più veloce del Grand Line»"});amb.value=D.amb;amb.oninput=function(){D.amb=amb.value;};p.appendChild(amb);
+  var amb=el("input",{type:"text",placeholder:"«Costruirò la nave più veloce del Grand Line»"});amb.value=D.amb;amb.oninput=function(){D.amb=amb.value;renderPreview();};p.appendChild(amb);
 }
 
 function rRace(){
@@ -200,8 +269,8 @@ function rRace(){
   p.appendChild(el("div",{class:"explain",html:"La Razza dà un <b>bonus a un Attributo</b>, una <b>Tecnica razziale gratuita</b>, i <b>Punti Vita</b> di partenza e il <b>Dado Vita</b> (quanto recuperi riposando). Alcune razze hanno anche uno svantaggio: scegli con cura."}));
   var c=el("div",{class:"cards"});
   RACES.forEach(function(r){
-    c.appendChild(el("div",{class:"card"+(D.race===r.id?" sel":""),onclick:function(){D.race=r.id;afterRaceChange();rRace();},
-      html:'<div class="t">'+r.name+'</div><div class="d">'+(r.attr==="choice"?"Attr. a scelta":(r.attr==="choice2"?"Forza/Tecnica":r.attr))+' '+r.die+' · PV '+r.pv+' · Vita '+r.hp+'</div>'}));
+    c.appendChild(el("div",{class:"card big"+(D.race===r.id?" sel":""),onclick:function(){D.race=r.id;afterRaceChange();RENDER[1]();},
+      html:'<div class="ci">'+dieIcon(r.die,40)+'</div><div class="cb"><div class="t">'+r.name+'</div><div class="d">'+(r.attr==="choice"?"Attributo a scelta":(r.attr==="choice2"?"Forza o Tecnica":r.attr))+' · PV '+r.pv+' · Vita '+r.hp+' · '+(RACE_MOVE[r.id]||[10])[0]+' m</div></div>'}));
   });
   p.appendChild(c);
   var r=race();
@@ -212,7 +281,7 @@ function rRace(){
       if(r.attr==="choice2"&&D.umanoAttr!=="Forza"&&D.umanoAttr!=="Tecnica"){D.umanoAttr="Forza";computeAttr();}
       p.appendChild(el("label",{class:"fld",text:"Attributo potenziato dalla razza"}));
       var sel=el("select",{},opts.map(function(a){return el("option",{value:a,text:a});}));
-      sel.value=D.umanoAttr;sel.onchange=function(){D.umanoAttr=sel.value;computeAttr();goto(step);};
+      sel.value=D.umanoAttr;sel.onchange=function(){D.umanoAttr=sel.value;computeAttr();RENDER[1]();};
       p.appendChild(sel);
     }
   }
@@ -222,34 +291,35 @@ function rAttr(){
   var p=$("#panel");p.innerHTML="";
   p.appendChild(el("div",{class:"kicker",text:"Passo 3 di 8"}));
   p.appendChild(el("h2",{text:"Attributi"}));
-  p.appendChild(el("div",{class:"explain",html:"Tutto si gioca con i <b>dadi a gradini</b>: "+DICE_LADDER+". Più alto è il dado, più sei bravo.<br>Hai 4 Attributi. La tua Razza assegna il suo dado a uno di essi. Degli altri tre scegli quale prende il <b>d6</b> (buono): gli ultimi due restano a <b>d4</b>."}));
+  p.appendChild(el("div",{class:"explain",html:"Tutto si gioca con i <b>dadi a gradini</b>: "+DICE_LADDER+". Più alto è il dado, più sei bravo.<br>La tua Razza assegna il suo dado a un Attributo. Degli altri tre, <b>tocca quello che prende il d6</b>: gli ultimi due restano a d4."}));
   var r=race();
   if(!r){p.appendChild(el("div",{class:"infobox red",text:"Scegli prima una razza (Passo 2)."}));return;}
   var ra=racialAttr();
   var others=ATTRS.filter(function(a){return a!==ra;});
   if(others.indexOf(D.d6attr)<0)D.d6attr="";
-  p.appendChild(el("div",{class:"infobox",html:'<b>'+ra+'</b> riceve <b>'+r.die+'</b> dalla razza.'}));
-  p.appendChild(el("label",{class:"fld",text:"Attributo con il d6"}));
-  var sel=el("select",{},[el("option",{value:"",text:"— scegli —"})].concat(others.map(function(a){return el("option",{value:a,text:a});})));
-  sel.value=D.d6attr;sel.onchange=function(){D.d6attr=sel.value;computeAttr();rAttr();};
-  p.appendChild(sel);
-  var g=el("div",{class:"attrgrid"});
+  var g=el("div",{class:"attrpick"});
   ATTRS.forEach(function(a){
-    g.appendChild(el("div",{class:"attrrow"+(a===ra?" locked":""),html:'<div class="name">'+a+(a===ra?' <span class="sd">(razza)</span>':'')+'</div><div class="die">'+(D.attr[a]||"—")+'</div>'}));
+    var locked=(a===ra), sel=(a===D.d6attr);
+    var c=el("div",{class:"attrcard"+(locked?" locked":"")+(sel?" sel":""),html:dieIcon(D.attr[a]||(locked?r.die:"d4"),52)+'<div class="an">'+a+'</div><div class="as">'+(locked?"dado della razza":(sel?"il tuo d6":"d4 · tocca per il d6"))+'</div>'});
+    if(!locked)c.onclick=function(){D.d6attr=a;computeAttr();RENDER[2]();};
+    g.appendChild(c);
   });
   p.appendChild(g);
+  if(!D.d6attr)p.appendChild(el("div",{class:"infobox",html:"Tocca l'Attributo che vuoi a <b>d6</b>."}));
 }
 
 function rRole(){
   var p=$("#panel");p.innerHTML="";
   p.appendChild(el("div",{class:"kicker",text:"Passo 4 di 8"}));
-  p.appendChild(el("h2",{text:"Ruolo"}));
-  p.appendChild(el("div",{class:"explain",html:"Il Ruolo è il mestiere del pirata e gli dà una <b>Skill peculiare già a d8</b>. Alcuni Ruoli (Combattente, Dottore, Ingegnere) hanno più <b>Stili</b>: lo Stile definisce come combatti o lavori."}));
-  var c=el("div",{class:"cards"});
+  p.appendChild(el("h2",{text:"Classe"}));
+  p.appendChild(el("div",{class:"explain",html:"Il Ruolo è la classe del tuo pirata e gli dà una <b>Skill di Ruolo già a d8</b>. Alcune classi (Combattente, Dottore, Ingegnere) hanno più <b>Stili</b>: lo Stile dice come combatti o lavori."}));
+  var c=el("div",{class:"cards three"});
   ROLES.forEach(function(r){
-    var sk=r.multi?"Stili: "+r.styles.map(function(s){return s[0];}).join(", "):"Skill: "+r.skill+" (d8)";
-    c.appendChild(el("div",{class:"card"+(D.role===r.name?" sel":""),onclick:function(){D.role=r.name;D.style=r.multi?r.styles[0][0]:"";D.roleSkillChoice=defaultRoleSkillChoice();rRole();},
-      html:'<div class="t">'+r.name+'</div><div class="d">'+sk+'</div>'}));
+    var ico=r.multi?(STYLE_ICON[r.styles[0][0]]||"star"):(STYLE_ICON[r.name]||"star");
+    if(D.role===r.name&&D.style)ico=STYLE_ICON[D.style]||ico;
+    var sk=r.multi?("Stili: "+r.styles.map(function(s){return s[0];}).join(", ")):("Skill: "+r.skill);
+    c.appendChild(el("div",{class:"card rolecard"+(D.role===r.name?" sel":""),onclick:function(){D.role=r.name;D.style=r.multi?r.styles[0][0]:"";D.roleSkillChoice=defaultRoleSkillChoice();RENDER[3]();},
+      html:'<div class="ci">'+svgIcon(ico,34)+'</div><div class="cb"><div class="t">'+r.name+'</div><div class="d">'+sk+'</div></div>'}));
   });
   p.appendChild(c);
   var rd=roleDef();
@@ -257,21 +327,21 @@ function rRole(){
     p.appendChild(el("div",{class:"infobox",html:'<b>'+rd.name+'</b> — '+rd.desc}));
     if(rd.multi){
       p.appendChild(el("label",{class:"fld",text:"Stile"}));
-      var sel=el("select",{},rd.styles.map(function(s){var skl=(Array.isArray(s[1])||s[1]==="any")?"a scelta":s[1];return el("option",{value:s[0],text:s[0]+"  (Skill: "+skl+")"});}));
-      sel.value=D.style;sel.onchange=function(){D.style=sel.value;D.roleSkillChoice=defaultRoleSkillChoice();rRole();};
-      p.appendChild(sel);
+      var sg=el("div",{class:"cards three"});
+      rd.styles.forEach(function(s){var skl=(Array.isArray(s[1])||s[1]==="any")?"Skill a scelta":("Skill: "+s[1]);sg.appendChild(el("div",{class:"card"+(D.style===s[0]?" sel":""),onclick:function(){D.style=s[0];D.roleSkillChoice=defaultRoleSkillChoice();RENDER[3]();},html:'<div class="ci">'+svgIcon(STYLE_ICON[s[0]]||"star",30)+'</div><div class="cb"><div class="t">'+s[0]+'</div><div class="d">'+skl+'</div></div>'}));});
+      p.appendChild(sg);
       var se=styleEntry();var skl=se?se[1]:null;
       if(Array.isArray(skl)||skl==="any"){
         p.appendChild(el("label",{class:"fld",text:"Skill di Ruolo (a scelta)"}));
         var opts=Array.isArray(skl)?skl:Object.keys(SKILLS);
         var head=(skl==="any")?[el("option",{value:"",text:"— scegli una Skill —"})]:[];
         var ssel=el("select",{},head.concat(opts.map(function(sk){return el("option",{value:sk,text:sk});})));
-        ssel.value=D.roleSkillChoice||"";ssel.onchange=function(){D.roleSkillChoice=ssel.value;rRole();};
+        ssel.value=D.roleSkillChoice||"";ssel.onchange=function(){D.roleSkillChoice=ssel.value;RENDER[3]();};
         p.appendChild(ssel);
       }
     }
     var rsk=roleSkill();
-    p.appendChild(el("div",{class:"infobox",html:rsk?('Skill del Ruolo: <b>'+rsk+'</b> a <b>d8</b> (già assegnata).'):'Scegli la <b>Skill di Ruolo</b> qui sopra: entrerà a <b>d8</b>.'}));
+    p.appendChild(el("div",{class:"infobox",html:rsk?('Skill di Ruolo: <b>'+rsk+'</b> a <b>d8</b> (già assegnata).'):'Scegli la <b>Skill di Ruolo</b> qui sopra: entrerà a <b>d8</b>.'}));
   }
 }
 
@@ -280,7 +350,7 @@ function flashCounter(){var c=$("#skill-counter");if(!c)return;c.style.color="#b
 function setSkill(name,v){
   if(v==="0"){delete D.skills[name];}
   else{var others=0;for(var k in D.skills){if(k!==name&&D.skills[k]===v)others++;}if(others>=2){flashCounter();return;}D.skills[name]=v;}
-  rSkill();
+  RENDER[4]();
 }
 function rSkill(){
   var p=$("#panel");p.innerHTML="";
@@ -313,20 +383,20 @@ function rTech(){
   p.appendChild(el("div",{class:"explain",html:"Le Tecniche sono le mosse speciali: tiri <b>Attributo + un Dado</b> (che è anche il Dado Danno) e aggiungi effetti, spendendo Stamina. La Tecnica razziale è già inclusa. Qui puoi creare fino a <b>2 tecniche tue</b>; a <b>d4</b> fisso (sono colpi gratuiti); potenziarle e costruirne di nuove col costruttore avanzato è compito della <b>Gestione</b>."}));
   var r=race();
   if(r)p.appendChild(el("div",{class:"infobox",html:'<b>Tecnica razziale:</b> '+r.tech+' (d6) — '+r.techDesc}));
+  if(r)p.appendChild(el("div",{class:"techslot"},[el("div",{class:"ts-i",html:dieIcon(D.racialDie||"d6",46)+"razziale"}),el("div",{},[el("div",{style:"font-weight:700",text:r.tech}),el("div",{class:"pv-empty",text:r.techDesc})])]));
   [["t1","Tecnica 1"],["t2","Tecnica 2 (opzionale)"]].forEach(function(pair){
-    var key=pair[0],lab=pair[1];var T=D[key];
-    p.appendChild(el("label",{class:"fld",text:lab+" — Nome"}));
-    var nm=el("input",{type:"text",placeholder:key==="t1"?"Es. Tre Lame — Oni Giri":"(opzionale)"});nm.value=T.nome;nm.oninput=function(){T.nome=nm.value;};p.appendChild(nm);
+    var key=pair[0],lab=pair[1];var T=D[key];T.die="d4";
+    var box=el("div",{class:"techslot"});box.appendChild(el("div",{class:"ts-i",html:dieIcon("d4",46)+"d4 fisso"}));
+    var body=el("div",{});
+    body.appendChild(el("label",{class:"fld",text:lab+" — Nome"}));
+    var nm=el("input",{type:"text",placeholder:key==="t1"?"Es. Tre Lame — Oni Giri":"(opzionale)"});nm.value=T.nome;nm.oninput=function(){T.nome=nm.value;renderPreview();};body.appendChild(nm);
     var grid=el("div",{class:"row2"});
     var left=el("div",{});left.appendChild(el("label",{class:"fld",text:"Descrizione"}));var ds=el("textarea",{});ds.value=T.desc;ds.oninput=function(){T.desc=ds.value;};left.appendChild(ds);
-    var right=el("div",{});
-    right.appendChild(el("label",{class:"fld",text:"Attributo"}));
+    var right=el("div",{});right.appendChild(el("label",{class:"fld",text:"Attributo"}));
     var as=el("select",{},[el("option",{value:"",text:"—"})].concat(ATTRS.map(function(a){return el("option",{value:a,text:a});})));as.value=T.attr;as.onchange=function(){T.attr=as.value;};right.appendChild(as);
-    T.die="d4";
-    right.appendChild(el("label",{class:"fld",text:"Dado (= Dado Danno)"}));
-    right.appendChild(el("div",{class:"infobox",style:"margin-top:0",html:"Livello fisso <b>d4</b> — in creazione le tecniche sono colpi gratuiti, non ancora costruiti. Le potenzi e ne aggiungi di nuove nella <b>Gestione</b>."}));
-    grid.appendChild(left);grid.appendChild(right);p.appendChild(grid);
+    grid.appendChild(left);grid.appendChild(right);body.appendChild(grid);box.appendChild(body);p.appendChild(box);
   });
+  p.appendChild(el("div",{class:"infobox",html:"In creazione le tecniche sono colpi gratuiti a <b>d4</b>. Le potenzi e ne costruisci di nuove nella <b>Gestione</b>."}));
 }
 
 function rFruit(){
@@ -334,20 +404,17 @@ function rFruit(){
   p.appendChild(el("div",{class:"kicker",text:"Passo 7 di 8"}));
   p.appendChild(el("h2",{text:"Frutto del Diavolo"}));
   p.appendChild(el("div",{class:"explain",html:"Un Frutto del Diavolo è <b>opzionale</b> e lo decide il Capitano. Dà poteri unici in cambio di <b>tre debolezze</b>: il mare, l'agalmatolite (Pietra di Mare) e l'Haki. Se non ne hai uno, salta pure questo passo."}));
-  var lab=el("label",{class:"fld",style:"display:flex;align-items:center;gap:9px;text-transform:none;letter-spacing:0;font-size:1.05rem;"});
-  var cb=el("input",{type:"checkbox",style:"width:auto;"});cb.checked=D.frutto.has;
-  cb.onchange=function(){D.frutto.has=cb.checked;rFruit();};
-  lab.appendChild(cb);lab.appendChild(document.createTextNode("Il mio pirata ha un Frutto del Diavolo"));
-  p.appendChild(lab);
+  var tgl=el("div",{class:"togglecard"+(D.frutto.has?" on":"")},[el("span",{html:imgIcon("frutto",34)}),el("div",{style:"flex:1"},[el("div",{style:"font-weight:700",text:"Il mio pirata ha mangiato un Frutto del Diavolo"}),el("div",{class:"pv-empty",text:D.frutto.has?"Sì: scegli tipo e nome qui sotto.":"No, per ora."})]),el("span",{class:"tg"})]);
+  tgl.onclick=function(){D.frutto.has=!D.frutto.has;RENDER[6]();};p.appendChild(tgl);
   if(D.frutto.has){
     p.appendChild(el("label",{class:"fld",text:"Nome del Frutto"}));
-    var nm=el("input",{type:"text",placeholder:"Es. Gomu Gomu no Mi"});nm.value=D.frutto.nome;nm.oninput=function(){D.frutto.nome=nm.value;};p.appendChild(nm);
+    var nm=el("input",{type:"text",placeholder:"Es. Gomu Gomu no Mi"});nm.value=D.frutto.nome;nm.oninput=function(){D.frutto.nome=nm.value;renderPreview();};p.appendChild(nm);
     var grid=el("div",{class:"row2"});
     var left=el("div",{});left.appendChild(el("label",{class:"fld",text:"Descrizione / Potere"}));var ds=el("textarea",{});ds.value=D.frutto.desc;ds.oninput=function(){D.frutto.desc=ds.value;};left.appendChild(ds);
     var right=el("div",{});right.appendChild(el("label",{class:"fld",text:"Tipo"}));
-    var ts=el("select",{},[el("option",{value:"",text:"—"}),el("option",{text:"Paramecia"}),el("option",{text:"Logia"}),el("option",{text:"Zoan"})]);ts.value=D.frutto.tipo;ts.onchange=function(){D.frutto.tipo=ts.value;};right.appendChild(ts);
+    var tg=el("div",{class:"cards three"});[["Paramecia","Trasforma il corpo o ciò che ti circonda"],["Logia","Diventi un elemento"],["Zoan","Ti trasformi in un animale"]].forEach(function(x){tg.appendChild(el("div",{class:"card"+(D.frutto.tipo===x[0]?" sel":""),onclick:function(){D.frutto.tipo=x[0];RENDER[6]();},html:'<div class="ci">'+svgIcon(STYLE_ICON[x[0]],28)+'</div><div class="cb"><div class="t">'+x[0]+'</div><div class="d">'+x[1]+'</div></div>'}));});right.appendChild(tg);
     right.appendChild(el("label",{class:"fld",text:"Dado del Frutto"}));
-    var fd=el("select",{},["d4","d6","d8","d10","d12","d20"].map(function(x){return el("option",{value:x,text:x});}));fd.value=D.frutto.die||"d4";fd.onchange=function(){D.frutto.die=fd.value;};right.appendChild(fd);
+    var fd=el("select",{},["d4","d6","d8","d10","d12","d20"].map(function(x){return el("option",{value:x,text:x});}));fd.value=D.frutto.die||"d4";fd.onchange=function(){D.frutto.die=fd.value;renderPreview();};right.appendChild(fd);
     right.appendChild(el("div",{class:"explain",style:"margin-top:6px;font-size:.9rem",html:"Misura quanto <b>padroneggi</b> il potere. Parte da <b>d4</b>: <b>lo alza il Game Master, non i P.A.</b>"}));
     grid.appendChild(left);grid.appendChild(right);p.appendChild(grid);
     p.appendChild(el("div",{class:"infobox red",html:"<b>Tre debolezze:</b> il mare ti toglie le forze, la Pietra di Mare annulla i poteri, l'Haki ti colpisce comunque."}));
@@ -362,7 +429,7 @@ function handleFile(file){
     var cw=Math.round(w*sc),ch=Math.round(h*sc);var cv=document.createElement("canvas");cv.width=cw;cv.height=ch;
     cv.getContext("2d").drawImage(img,0,0,cw,ch);
     try{D.photo=cv.toDataURL("image/jpeg",0.86);}catch(e){D.photo=rd.result;}
-    rFinal();
+    RENDER[step]();
   };img.src=rd.result;};
   rd.readAsDataURL(file);
 }
@@ -371,20 +438,9 @@ function rFinal(){
   var p=$("#panel");p.className="panel";p.innerHTML="";
   p.appendChild(el("div",{class:"kicker",text:"Passo 8 di 8"}));
   p.appendChild(el("h2",{text:"Riepilogo & Salvataggio"}));
-  p.appendChild(el("div",{class:"explain",html:"Ecco il tuo pirata. Le ultime statistiche si ricavano da sole: <b>PV</b> dalla Razza, <b>Stamina 6</b>, <b>nessun Haki</b> all'inizio (si sblocca crescendo), <b>Legami 0</b>, <b>Taglia 0</b>. Aggiungi una foto se vuoi, poi salvalo nella tua lista."}));
+  p.appendChild(el("div",{class:"explain",html:"Ecco il tuo pirata. Le ultime statistiche si ricavano da sole: <b>PV</b> dalla Razza, <b>Stamina 6</b>, <b>nessun Haki</b> all'inizio (si sblocca crescendo), <b>Legami 0</b>, <b>Taglia 0</b>. Controlla l'anteprima, poi salvalo nella tua lista."}));
 
-  var top=el("div",{style:"display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:6px;"});
-  var port=el("div",{class:"portrait"});
-  if(D.photo){port.appendChild(el("img",{src:D.photo,alt:""}));}else{port.textContent="Tocca per aggiungere una foto";}
-  var file=el("input",{type:"file",accept:"image/*",style:"display:none;"});
-  port.onclick=function(){file.click();};
-  file.onchange=function(e){if(e.target.files[0])handleFile(e.target.files[0]);};
-  top.appendChild(port);top.appendChild(file);
-  var name=el("div",{});
-  name.appendChild(el("div",{style:"font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.5rem;color:#f2e9d8;",text:D.nome||"Pirata Senza Nome"}));
-  name.appendChild(el("div",{style:"color:var(--ink-soft);",text:D.amb?("“"+D.amb+"”"):"—"}));
-  top.appendChild(name);
-  p.appendChild(top);
+  p.appendChild(el("div",{class:"infobox",html:"La <b>foto</b> si carica toccando il ritratto nell'anteprima a sinistra; potrai inquadrarla e zoomarla nella Gestione."}));
 
   var r=race();
   var attrStr=ATTRS.map(function(a){return a.slice(0,3)+" "+(D.attr[a]||"—");}).join(" · ");
@@ -418,7 +474,7 @@ function saveToList(){
   showDone(id);
 }
 function showDone(id){
-  $("#stepper").style.display="none";$("#nav").style.display="none";
+  $("#stepper").style.display="none";$("#nav").style.display="none";var pv=$("#preview");if(pv)pv.style.display="none";document.querySelector(".clay").style.gridTemplateColumns="1fr";
   var p=$("#panel");p.className="panel done-card";p.innerHTML="";
   p.appendChild(el("div",{class:"seal",text:"⚓"}));
   p.appendChild(el("h2",{text:"«"+(D.nome||"Pirata")+"» è nella tua lista!"}));
