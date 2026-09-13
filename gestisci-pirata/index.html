@@ -109,6 +109,79 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--red);box
 .medsub{font-family:'Inter',sans-serif;font-size:10px;color:var(--ink-soft);margin-top:2px;letter-spacing:.03em;}
 .medal.off .medsub{font-style:italic;}
 .medempty{font-size:13px;color:var(--ink-soft);font-style:italic;padding:6px 0 8px;}
+
+/* ===== Character UI (Gestione) ===== */
+body.mode-gest .layout{grid-template-columns:1fr 300px;}
+body.mode-gest .sheet-col .ds-pad{display:none;}
+.ghead{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--line);}
+.gh-name{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:30px;letter-spacing:.04em;text-transform:uppercase;line-height:1;}
+.gh-amb{font-style:italic;color:var(--gold-soft);font-size:16px;margin-top:4px;}
+.gh-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;}
+.pill{font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--ink-soft);background:rgba(242,233,216,.05);}
+.pill.gold{border-color:var(--gold);color:#ffd394;background:rgba(240,164,65,.1);}
+.gh-r{display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+.gh-bounty{font-family:'Inter',sans-serif;font-weight:700;font-size:15px;color:var(--ink);letter-spacing:.04em;}
+.gbtn{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.06em;border:1px solid rgba(240,164,65,.5);background:rgba(242,233,216,.06);color:#ffd394;padding:8px 14px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:.15s;}
+.gbtn:hover{border-color:var(--gold-soft);background:rgba(240,164,65,.14);}
+.gbtn.sm{padding:5px 11px;font-size:11px;}
+.gbtn.gold{background:linear-gradient(180deg,#ffd394,#f0a441);color:#1b1206;border-color:var(--gold);font-weight:700;box-shadow:0 0 14px rgba(240,164,65,.35);}
+.vstrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px;margin:14px 0 16px;}
+.vcard{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:rgba(242,233,216,.05);}
+.vcard .vk{font-family:'Inter',sans-serif;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px;}
+.vcard .vv{display:flex;align-items:center;gap:4px;font-family:'Inter',sans-serif;font-size:19px;color:#ffd394;}
+.vcard .vv b{font-weight:700;}.vcard .vv small{font-size:10.5px;color:var(--ink-soft);}
+.vcard.edit .vv input.num{width:46px;padding:3px 4px;font-size:15px;text-align:center;}
+.vsep{color:var(--ink-soft);}
+.gtabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:2px solid rgba(240,164,65,.25);margin-bottom:14px;}
+.gtab{font-family:'Inter',sans-serif;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;background:transparent;border:none;border-bottom:3px solid transparent;color:var(--ink-soft);padding:10px 14px;cursor:pointer;margin-bottom:-2px;}
+.gtab:hover{color:var(--ink);}.gtab.on{color:#ffd394;border-bottom-color:var(--gold);}
+.gsec{margin-bottom:22px;}
+.gsec-h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;}
+.gsec-h h3,.gsec-h h4{margin:0;font-size:18px;letter-spacing:.06em;}
+.gsec-h h4{font-size:15px;}
+.gcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;}
+.gcard{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:rgba(242,233,216,.05);min-width:0;}
+.gcard.click{cursor:pointer;transition:.15s;}.gcard.click:hover{border-color:var(--gold);background:rgba(240,164,65,.08);}
+.gcard.add{border-style:dashed;cursor:pointer;color:var(--ink-soft);align-items:center;}.gcard.add:hover{border-color:var(--gold-soft);color:#ffd394;}
+.gc-ico{flex:none;width:46px;height:46px;display:flex;align-items:center;justify-content:center;}
+.gc-em{font-size:26px;line-height:1;}
+.gc-body{min-width:0;}
+.gc-n{font-weight:700;font-size:15px;line-height:1.15;}
+.gc-m{font-family:'Inter',sans-serif;font-size:11.5px;color:var(--ink-soft);margin-top:3px;line-height:1.35;}.gc-m b{color:#ffd394;}
+.gc-d{font-size:13px;color:var(--ink-soft);margin-top:4px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.classrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;}
+.classcard{display:flex;gap:14px;border:1px solid var(--gold);border-radius:12px;padding:12px 14px;background:linear-gradient(135deg,rgba(240,164,65,.12),rgba(240,164,65,.03));cursor:pointer;transition:.15s;}
+.classcard:hover{box-shadow:0 0 16px rgba(240,164,65,.3);}
+.cc-ico{flex:none;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;background:radial-gradient(circle at 50% 38%,#1e2f42,#0a0f16 72%);border:2px solid #f0a441;}
+.cc-k{font-family:'Inter',sans-serif;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);}
+.cc-n{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:21px;letter-spacing:.03em;line-height:1.1;}
+.cc-s{font-family:'Inter',sans-serif;font-size:11.5px;color:var(--ink-soft);margin:2px 0 6px;}.cc-s b{color:#ffd394;}
+.cc-t{font-size:12.5px;color:var(--ink-soft);line-height:1.4;margin-top:3px;}.cc-t b{color:var(--gold-soft);font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-right:4px;}
+.classgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px;margin:6px 0 10px;}
+.classopt{border:1px solid var(--line);border-radius:10px;padding:12px 10px;text-align:center;cursor:pointer;background:rgba(242,233,216,.04);transition:.15s;}
+.classopt:hover{border-color:var(--gold-soft);}.classopt.sel{border-color:var(--gold);background:rgba(240,164,65,.12);box-shadow:0 0 12px rgba(240,164,65,.25);}
+.co-ico{font-size:30px;line-height:1;margin-bottom:6px;}
+.co-n{font-weight:700;font-size:15px;}.co-s{font-family:'Inter',sans-serif;font-size:10.5px;color:var(--ink-soft);margin-top:3px;}
+.medgrid.pick .medal{cursor:pointer;}.medal.off.pick{cursor:pointer;}
+.medal{cursor:pointer;transition:.15s;}.medal:hover .medring{box-shadow:0 0 0 2px #2a1c08,0 0 22px rgba(240,164,65,.6);}
+.gbg{white-space:pre-wrap;color:var(--ink-soft);line-height:1.5;margin:0;}
+/* modali */
+body.has-modal{overflow:hidden;}
+.gmodal{position:fixed;inset:0;z-index:80;background:rgba(4,3,6,.78);display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:none;}
+.gmbox{width:min(560px,100%);max-height:92vh;display:flex;flex-direction:column;background:#15121a;border:1px solid var(--gold);border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 0 1px rgba(240,164,65,.15);}
+.gmodal.wide .gmbox{width:min(880px,100%);}
+.gmhead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);}
+.gmtitle{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;letter-spacing:.04em;}
+.gmclose{border:1px solid var(--line);background:transparent;color:var(--ink-soft);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;}
+.gmclose:hover{border-color:var(--red);color:var(--red);}
+.gmbody{padding:14px 18px 18px;overflow:auto;}
+.gmbody .tbuilder{margin:0;}
+.tdetail{text-align:center;}
+.medring.big{width:96px;height:96px;font-size:44px;margin:4px auto 10px;}
+.tdsub{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.06em;color:var(--ink-soft);margin:4px 0;}
+.tddesc{font-size:15px;line-height:1.5;text-align:left;margin:12px 0 6px;}
+.tdetail .addrow{justify-content:center;}
+@media(max-width:640px){.gh-r{align-items:flex-start;}.gmbody{padding:12px;}}
 .parow{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-soft);padding:0 0 7px 4px;flex-wrap:wrap;}
 .pabtn{border:1px solid var(--line);background:rgba(242,233,216,.1);border-radius:3px;cursor:pointer;font-size:11px;padding:2px 7px;color:var(--red);font-family:'Inter',sans-serif;}
 .pabtn:hover{border-color:var(--red);}
@@ -992,7 +1065,7 @@ function load(){let raw=null;try{raw=localStorage.getItem(KEY);}catch(e){}let ob
 function computeAttr(){const r=race();if(!r)return;const ra=racialAttr();ATTRS.forEach(a=>{if(a===ra)pg.attr[a]=r.die;else if(a===pg.d6attr)pg.attr[a]="d6";else if(pg.d6attr)pg.attr[a]="d4";else pg.attr[a]="";});}
 function afterRaceChange(){const r=race();computeAttr();if(r&&pg.pvMax==null){pg.pvMax=r.pv;pg.pvCur=r.pv;}}
 
-function setMode(m){mode=m;$("#mode-crea").classList.toggle("on",m==="crea");$("#mode-gest").classList.toggle("on",m==="gest");$("#crea-wrap").style.display=m==="crea"?"block":"none";$("#manage").style.display=m==="gest"?"block":"none";if(m==="gest")renderManage();else goto(step);}
+function setMode(m){mode=m;document.body.classList.toggle("mode-gest",m==="gest");$("#mode-crea").classList.toggle("on",m==="crea");$("#mode-gest").classList.toggle("on",m==="gest");$("#crea-wrap").style.display=m==="crea"?"block":"none";$("#manage").style.display=m==="gest"?"block":"none";if(m==="gest")renderManage();else goto(step);}
 $("#mode-crea").onclick=()=>setMode("crea");$("#mode-gest").onclick=()=>setMode("gest");
 /* ===== EQUIPAGGIO (più personaggi) ===== */
 function renderCrewBar(){const sel=$("#crew-sel");if(!sel)return;sel.innerHTML="";CT.order.forEach(id=>{const o=document.createElement("option");o.value=id;o.textContent=charLabel(CT.chars[id]);if(id===CT.activeId)o.selected=true;sel.appendChild(o);});const del=$("#crew-del");if(del)del.disabled=CT.order.length<=1;}
@@ -1080,164 +1153,140 @@ function progRow(die,name,subText,controls,paEl,extra){
  return row;
 }
 
+/* ===== MODALI ===== */
+let MODAL=null;
+function closeModal(){if(MODAL){MODAL.remove();MODAL=null;document.body.classList.remove("has-modal");}}
+function openModal(title,build,opts){closeModal();opts=opts||{};const ov=el("div",{class:"gmodal"+(opts.wide?" wide":"")});const box=el("div",{class:"gmbox"});const head=el("div",{class:"gmhead"},[el("div",{class:"gmtitle",html:title}),el("button",{class:"gmclose",text:"✕",title:"Chiudi",onclick:closeModal})]);const body=el("div",{class:"gmbody"});box.appendChild(head);box.appendChild(body);ov.appendChild(box);ov.onclick=e=>{if(e.target===ov)closeModal();};document.body.appendChild(ov);document.body.classList.add("has-modal");MODAL=ov;MODAL._build=build;MODAL._body=body;refreshModal();return ov;}
+function refreshModal(){if(!MODAL||!MODAL._build)return;const b=MODAL._body;const y=b.scrollTop;b.innerHTML="";const c=MODAL._build();if(c)b.appendChild(c);b.scrollTop=y;}
+/* mutate dentro una modale: salva, ridisegna la pagina e la modale */
+function mutateM(fn){if(fn)fn();renderManage();render();refreshModal();}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
+
+function roleSkillDieOf(rn,stv){const sk=roleSkillOf(rn,stv,pg.roleSkillChoice);if(rn===pg.role)return pg.roleSkillDie||"d8";return (sk&&pg.skills[sk])||"";}
+function roleIco(rn,stv){const T=TALENTS[rn];if(!T)return "✦";const ks=Object.keys(T.styles);const sty=T.styles[T.multi?(stv||ks[0]):ks[0]];return (sty&&sty.ico)||"✦";}
+function roleStyleSpec(rn,stv){const T=TALENTS[rn];if(!T)return null;const ks=Object.keys(T.styles);return T.styles[T.multi?(stv||ks[0]):ks[0]]||null;}
+/* Talenti: acquisiti e sbloccabili, con descrizione. */
+function talentPools(){const got=[],open=[],locked=[];
+ const scan=(rn,stv)=>{const T=TALENTS[rn];if(!T)return;const ks=Object.keys(T.styles);const useSt=T.multi?(stv||ks[0]):ks[0];const sty=T.styles[useSt];const keyStyle=T.multi?useSt:rn;const cur=dieRank(roleSkillDieOf(rn,stv));const skName=roleSkillOf(rn,stv,pg.roleSkillChoice)||"Skill di Ruolo";const taken=n=>pg.talents.indexOf(rn+" · "+keyStyle+" · "+n)>=0;
+  (sty.talenti||[]).forEach(tl=>{const key=rn+" · "+keyStyle+" · "+tl.n;const tier=tl.tier||"d8";const o={key:key,name:tl.n,desc:tl.d,glyph:talentGlyph(tl.n,sty.ico),branch:(T.multi?useSt:rn),tier:tier,tierLabel:skName+" "+tier+" · "+TIER_LABEL[tier],ult:tl.t==="ultimate",req:tl.req||"",reqOk:!tl.req||taken(tl.req),src:"role"};
+   if(taken(tl.n))got.push(o);else if(cur>=dieRank(tier))open.push(o);else locked.push(o);});};
+ if(pg.role)scan(pg.role,pg.style);if(pg.role2)scan(pg.role2,pg.style2);
+ if(pg.frutto&&pg.frutto.has&&FRUIT_TALENTS[pg.frutto.tipo]){const FT=FRUIT_TALENTS[pg.frutto.tipo];const fcur=dieRank(pg.frutto.die||"d4");const ftaken=n=>pg.talents.indexOf("Frutto · "+pg.frutto.tipo+" · "+n)>=0;
+  (FT.talenti||[]).forEach(tl=>{const key="Frutto · "+pg.frutto.tipo+" · "+tl.n;const tier=tl.tier||"d4";const ft=FRUIT_TIERS.find(x=>x[0]===tier)||FRUIT_TIERS[0];const o={key:key,name:tl.n,desc:tl.d,glyph:talentGlyph(tl.n,FT.ico),branch:"Frutto "+pg.frutto.tipo,tier:tier,tierLabel:"Dado del Frutto "+ft[2]+" · "+ft[1],ult:tl.t==="ultimate",req:tl.req||"",reqOk:!tl.req||ftaken(tl.req),src:"fruit"};
+   if(ftaken(tl.n))got.push(o);else if(fcur>=dieRank(tier))open.push(o);else locked.push(o);});}
+ return {got:got,open:open,locked:locked};}
+function talentDetailModal(o,taken){openModal((o.ult?"⭐ ":"✦ ")+o.name,()=>{const w=el("div",{class:"tdetail"});w.appendChild(el("div",{class:"medring big",text:o.glyph}));w.appendChild(el("div",{class:"tdsub",text:o.branch+" · "+(o.ult?(o.src==="fruit"?"Risveglio":"Ultimate"):o.tierLabel)}));if(o.req)w.appendChild(el("div",{class:"tdsub",html:"Richiede: <b>"+o.req+"</b>"+(o.reqOk?"":" <i>(non ancora preso)</i>")}));w.appendChild(el("p",{class:"tddesc",text:o.desc}));const row=el("div",{class:"addrow"});if(taken)row.appendChild(el("button",{class:"btn sm ghost",text:"Rimuovi talento",onclick:()=>{mutateM(()=>{const ix=pg.talents.indexOf(o.key);if(ix>=0)pg.talents.splice(ix,1);});closeModal();}}));else if(o.reqOk)row.appendChild(el("button",{class:"btn sm gold",text:"✦ Prendi questo talento",onclick:()=>{mutateM(()=>{if(pg.talents.indexOf(o.key)<0)pg.talents.push(o.key);});closeModal();}}));w.appendChild(row);return w;});}
+function unlockTalentsModal(){openModal("✦ Sblocca un talento",()=>{const P=talentPools();const w=el("div",{});w.appendChild(el("div",{class:"sub",html:"Un Talento a ogni Upgrade. Qui vedi solo ciò che il tuo dado ha già aperto; il resto si sblocca salendo con la Skill di Ruolo o col Dado del Frutto. Talenti presi: <b>"+pg.talents.length+"</b>"}));
+ if(!P.open.length)w.appendChild(el("div",{class:"medempty",text:pg.role?"Niente da sbloccare per ora: sali con la Skill di Ruolo (o col Dado del Frutto).":"Scegli prima una classe."}));
+ const groups={};P.open.forEach(o=>{(groups[o.branch+"|"+o.tierLabel]=groups[o.branch+"|"+o.tierLabel]||[]).push(o);});
+ Object.keys(groups).forEach(k=>{const [br,tl]=k.split("|");w.appendChild(el("div",{class:"talfascia",html:br+" — "+tl}));const g=el("div",{class:"medgrid pick"});groups[k].forEach(o=>{const md=medal(o.glyph,o.name,o.ult?"Ultimate":(o.req?("richiede "+o.req):""),!o.reqOk);md.onclick=()=>talentDetailModal(o,false);g.appendChild(md);});w.appendChild(g);});
+ if(P.locked.length){const det=el("details",{class:"tbfam"});det.appendChild(el("summary",{text:"🔒 Ancora bloccati ("+P.locked.length+")"}));const lg={};P.locked.forEach(o=>{(lg[o.branch+"|"+o.tierLabel]=lg[o.branch+"|"+o.tierLabel]||[]).push(o);});Object.keys(lg).forEach(k=>{const [br,tl]=k.split("|");det.appendChild(el("div",{class:"talfascia locked",html:"🔒 "+br+" — "+tl}));const g=el("div",{class:"medgrid pick"});lg[k].forEach(o=>{const md=medal(o.glyph,o.name,o.ult?"Ultimate":"",true);md.onclick=()=>talentDetailModal(o,false);g.appendChild(md);});det.appendChild(g);});w.appendChild(det);}
+ return w;},{wide:true});}
+/* Classe: scelta da videogioco */
+function classCard(rn,stv,slot){const T=TALENTS[rn];const sty=roleStyleSpec(rn,stv);const sk=roleSkillOf(rn,stv,pg.roleSkillChoice);const die=roleSkillDieOf(rn,stv);const c=el("div",{class:"classcard"});c.appendChild(el("div",{class:"cc-ico",text:roleIco(rn,stv)}));const b=el("div",{class:"cc-body"});b.appendChild(el("div",{class:"cc-k",text:slot===1?"Classe":"Seconda classe · solo Talenti"}));b.appendChild(el("div",{class:"cc-n",text:rn+((T&&T.multi&&stv)?(" · "+stv):"")}));b.appendChild(el("div",{class:"cc-s",html:(sk?("Skill di Ruolo <b>"+sk+"</b>"+(die?(" "+die):"")):"Skill di Ruolo da scegliere")}));if(sty&&sty.tratto)b.appendChild(el("div",{class:"cc-t",html:"<b>Tratto</b> "+sty.tratto}));if(sty&&sty.firma)b.appendChild(el("div",{class:"cc-t",html:"<b>Firma (+4)</b> "+sty.firma}));c.appendChild(b);c.onclick=()=>classPickerModal(slot);return c;}
+function classPickerModal(slot){openModal(slot===1?"⚔️ Scegli la classe":"✦ Seconda classe (solo Talenti)",()=>{const w=el("div",{});const cur=slot===1?pg.role:pg.role2;const curSt=slot===1?pg.style:pg.style2;
+ const g=el("div",{class:"classgrid"});if(slot===2){const none=el("div",{class:"classopt"+(!cur?" sel":"")},[el("div",{class:"co-ico",text:"—"}),el("div",{class:"co-n",text:"Nessuna"}),el("div",{class:"co-s",text:"solo la classe principale"})]);none.onclick=()=>mutateM(()=>{pg.role2=null;pg.style2="";});g.appendChild(none);}
+ Object.keys(TALENTS).forEach(rn=>{const T=TALENTS[rn];const o=el("div",{class:"classopt"+(cur===rn?" sel":"")},[el("div",{class:"co-ico",text:roleIco(rn,cur===rn?curSt:"")}),el("div",{class:"co-n",text:rn}),el("div",{class:"co-s",text:T.skill?("Skill: "+T.skill):(T.multi?"Skill per Stile":"")})]);o.onclick=()=>mutateM(()=>{if(slot===1){pg.role=rn;pg.style=firstStyle(rn);pg.roleSkillChoice=defaultSkillChoice();}else{pg.role2=rn;pg.style2=firstStyle(rn);}});g.appendChild(o);});
+ w.appendChild(g);
+ const rn=slot===1?pg.role:pg.role2;
+ if(rn&&TALENTS[rn]&&TALENTS[rn].multi){w.appendChild(el("div",{class:"talfascia",text:"Stile di "+rn}));const sg=el("div",{class:"classgrid"});Object.keys(TALENTS[rn].styles).forEach(st=>{const sty=TALENTS[rn].styles[st];const on=(slot===1?pg.style:pg.style2)===st;const o=el("div",{class:"classopt"+(on?" sel":"")},[el("div",{class:"co-ico",text:sty.ico||"✦"}),el("div",{class:"co-n",text:st}),el("div",{class:"co-s",text:(sty.tratto||"").split(" — ")[0]})]);o.onclick=()=>mutateM(()=>{if(slot===1){pg.style=st;pg.roleSkillChoice=defaultSkillChoice();}else pg.style2=st;});sg.appendChild(o);});w.appendChild(sg);}
+ if(slot===1&&rn){const spec=roleStyleSpec(rn,pg.style);if(spec&&spec.skillChoice){const opts=(spec.skillChoice==="any")?Object.keys(SKILLS):spec.skillChoice;w.appendChild(el("label",{class:"fld",text:"Skill di Ruolo"}));const sl=el("select",{},[el("option",{value:"",text:"— scegli —"})].concat(opts.map(s=>el("option",{value:s,text:s}))));sl.value=pg.roleSkillChoice||"";sl.onchange=()=>mutateM(()=>{pg.roleSkillChoice=sl.value;});w.appendChild(sl);}}
+ if(slot===2&&pg.role2)w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm ghost",text:"⇄ Scambia con la classe principale (il d8 passa all'altra)",onclick:()=>mutateM(()=>{const rr=pg.role,sst=pg.style;pg.role=pg.role2;pg.style=pg.style2;pg.role2=rr;pg.style2=sst;})})]));
+ const cur2=slot===1?pg.role:pg.role2;if(cur2){const sty=roleStyleSpec(cur2,slot===1?pg.style:pg.style2);if(sty){w.appendChild(el("div",{class:"cc-t",style:"margin-top:10px",html:"<b>Tratto</b> "+(sty.tratto||"")}));if(sty.firma)w.appendChild(el("div",{class:"cc-t",html:"<b>Firma (+4)</b> "+sty.firma}));}}
+ return w;},{wide:true});}
+/* Identità */
+function identityModal(){openModal("✎ Identità del pirata",()=>{const w=el("div",{});w.appendChild(field("Nome",pg.nome,v=>{pg.nome=v;save();}));w.appendChild(field("Ambizione (il sogno)",pg.amb,v=>{pg.amb=v;save();}));w.appendChild(el("label",{class:"fld",text:"Background"}));const bgt=el("textarea",{});bgt.value=pg.bg||"";bgt.oninput=()=>{pg.bg=bgt.value;save();};w.appendChild(bgt);const g=el("div",{class:"row2"});const c1=el("div",{});c1.appendChild(el("label",{class:"fld",text:"Taglia (Berry)"}));c1.appendChild(numInput(pg.bounty,v=>{pg.bounty=(v||"0").replace(/[^0-9]/g,"");save();}));const c2=el("div",{});c2.appendChild(el("label",{class:"fld",text:"Upgrade (livello)"}));const up=el("input",{type:"text"});up.value=pg.upgrade||"";up.oninput=()=>{pg.upgrade=up.value;save();};c2.appendChild(up);g.appendChild(c1);g.appendChild(c2);w.appendChild(g);w.appendChild(el("label",{class:"fld",text:"Ore giornaliere di lavoro"}));w.appendChild(numSmall(pg.ore,v=>{pg.ore=parseInt(v||"0")||0;save();}));w.appendChild(el("div",{class:"sub",style:"margin-top:8px",text:"La foto si cambia e si inquadra dal poster WANTED a destra."}));w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}})]));return w;});}
+/* Card generiche: icona dado + titolo + riga meta, cliccabile */
+function gcard(die,title,meta,desc,onClick,ico){const c=el("div",{class:"gcard"});c.appendChild(el("div",{class:"gc-ico",html:die?dieIcon(die,46):('<span class="gc-em">'+(ico||"✦")+'</span>')}));const b=el("div",{class:"gc-body"});b.appendChild(el("div",{class:"gc-n",text:title||"(senza nome)"}));if(meta)b.appendChild(el("div",{class:"gc-m",html:meta}));if(desc)b.appendChild(el("div",{class:"gc-d",text:desc}));c.appendChild(b);if(onClick){c.classList.add("click");c.onclick=onClick;}return c;}
+function addCard(text,onClick){const c=el("div",{class:"gcard add",html:'<div class="gc-ico"><span class="gc-em">+</span></div><div class="gc-body"><div class="gc-n">'+text+'</div></div>'});c.onclick=onClick;return c;}
+/* Modali di modifica */
+function weaponModal(i){openModal("⚔️ Arma",()=>{const a=pg.armi[i];if(!a)return el("div");const w=el("div",{});w.appendChild(field("Nome arma",a.nome,v=>{a.nome=v;save();}));const _wt=weaponTypes();if(!a.tipo||_wt.indexOf(a.tipo)<0)a.tipo=_wt[_wt.length-1];w.appendChild(el("label",{class:"fld",text:"Tipo di arma"}));const ts=el("select",{},_wt.map(x=>el("option",{value:x,text:x})));ts.value=a.tipo;ts.onchange=()=>{a.tipo=ts.value;save();};w.appendChild(ts);w.appendChild(el("label",{class:"fld",text:"Attributo · Dado"}));w.appendChild(el("div",{class:"mrow"},[attrSelect(a.attr,v=>{a.attr=v;save();}),stepper(a.die,nd=>mutateM(()=>a.die=nd))]));w.appendChild(field("Note / effetti speciali",a.note,v=>{a.note=v;save();}));w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare quest'arma?")){closeModal();mutate(()=>pg.armi.splice(i,1));}}})]));return w;});}
+function instrumentModal(i){openModal("🎵 Strumento",()=>{const a=pg.strumenti[i];if(!a)return el("div");const w=el("div",{});w.appendChild(field("Nome strumento",a.nome,v=>{a.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Spirito · Dado"}));w.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",text:"Spirito (fisso)"}),stepper(a.die,nd=>mutateM(()=>a.die=nd))]));w.appendChild(field("Note / effetti speciali",a.note,v=>{a.note=v;save();}));w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{closeModal();mutate(()=>pg.strumenti.splice(i,1));}})]));return w;});}
+function moduleModal(i){openModal("⚙️ Modulo",()=>{const mo=pg.moduli[i];if(!mo)return el("div");const w=el("div",{});w.appendChild(field("Nome modulo",mo.nome,v=>{mo.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Dado (colpire e Dado Danno)"}));w.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",text:"si usa come Tecnica"}),stepper(mo.die||"d6",nd=>mutateM(()=>mo.die=nd))]));w.appendChild(field("Effetti",mo.eff,v=>{mo.eff=v;save();}));w.appendChild(field("Descrizione / note",mo.desc,v=>{mo.desc=v;save();}));w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{closeModal();mutate(()=>pg.moduli.splice(i,1));}})]));return w;});}
+function techModal(t){openModal("✦ "+(t.name||"Tecnica"),()=>{const w=el("div",{});const obj=t.k==="t1"?pg.t1:(t.k==="t2"?pg.t2:null);if(t.fixed){w.appendChild(el("div",{class:"tdsub",text:"Tecnica razziale · "+t.die}));w.appendChild(el("div",{class:"tddesc",html:racialEffect(pg.race,t.die)}));}else if(obj){w.appendChild(field("Nome",obj.nome,v=>{obj.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Attributo · Dado"}));w.appendChild(el("div",{class:"mrow"},[attrSelect(obj.attr,v=>{obj.attr=v;save();}),stepper(obj.die,nd=>mutateM(()=>obj.die=nd))]));w.appendChild(el("label",{class:"fld",text:"Descrizione / Effetti"}));const tx=el("textarea",{});tx.value=obj.desc||"";tx.oninput=()=>{obj.desc=tx.value;save();};w.appendChild(tx);}
+ w.appendChild(el("label",{class:"fld",text:"Progressione"}));w.appendChild(paRowM("tec:"+t.k,()=>(t.fixed?pg.racialDie:(obj?obj.die:t.die)),nd=>setTechDie(t,nd)));
+ const row=el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}})]);if(!t.fixed)row.appendChild(el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare questa tecnica?")){closeModal();mutate(()=>removeTech(t));}}}));w.appendChild(row);return w;});}
+function extraTechModal(i){openModal("✦ "+(pg.extraTech[i]&&pg.extraTech[i].nome||"Tecnica"),()=>{const t=pg.extraTech[i];if(!t)return el("div");const w=el("div",{});w.appendChild(field("Nome tecnica",t.nome,v=>{t.nome=v;save();}));w.appendChild(el("div",{class:"tdsub",html:(tecSummary(t)||"<i>tecnica libera</i>")+" · <b>"+tecCostLabel(t)+"</b>"}));if(t.eff&&t.eff.length){const ul=el("div",{class:"tddesc"});t.eff.forEach(nm=>{const e=tecEffObj(nm);ul.appendChild(el("div",{html:"<b>"+nm+"</b>"+(e?(" — "+e[2]):"")}));});w.appendChild(ul);}
+ w.appendChild(el("label",{class:"fld",text:"Attributo · Dado (= Dado Danno)"}));w.appendChild(el("div",{class:"mrow"},[attrSelect(t.attr,v=>{t.attr=v;save();}),stepper(t.die,nd=>mutateM(()=>t.die=nd))]));w.appendChild(el("label",{class:"fld",text:"Descrizione / colore"}));const tx=el("textarea",{});tx.value=t.desc||"";tx.oninput=()=>{t.desc=tx.value;save();};w.appendChild(tx);if(!t.id)t.id="tec"+Date.now().toString(36)+Math.floor(Math.random()*1000);w.appendChild(el("label",{class:"fld",text:"Progressione"}));w.appendChild(paRowM("tec:"+t.id,()=>t.die,nd=>t.die=nd));
+ w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✎ Modifica nel costruttore",onclick:()=>{TBUILD={nome:t.nome,attr:t.attr,fonte:t.fonte||"Stile",forma:t.forma||"Singolo",die:t.die||"d6",durata:t.durata||"Un turno",eff:(t.eff||[]).slice(),desc:t.desc||"",_open:[],_id:t.id||null,fruitType:t.fruitType||"",weaponName:t.weapon||""};pg.extraTech.splice(i,1);save();builderModal();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare questa tecnica?")){closeModal();mutate(()=>pg.extraTech.splice(i,1));}}})]));return w;});}
+function builderModal(){openModal("🔧 Costruttore di Tecniche",()=>renderTecBuilder(t=>{closeModal();mutate(()=>{pg.extraTech.push(t);tbReset();});}),{wide:true});}
+/* paRow usato dentro le modali: dopo ogni tocco ridisegna anche la modale */
+function paRowM(key,getDie,setDie){const r=paRow(key,getDie,setDie);r.querySelectorAll("button").forEach(b=>{const f=b.onclick;if(f)b.onclick=()=>{f();refreshModal();};});return r;}
+function hakiModal(i){openModal("⭐ Haki",()=>{const h=pg.haki[i];if(!h)return el("div");const w=el("div",{});w.appendChild(el("label",{class:"fld",text:"Tipo"}));const sel=el("select",{},HAKI_NAMES.map(n=>el("option",{value:n,text:n})));sel.value=h.name;sel.onchange=()=>mutateM(()=>h.name=sel.value);w.appendChild(sel);w.appendChild(el("label",{class:"fld",text:"PIP · Dado"}));w.appendChild(el("div",{class:"mrow"},[el("span",{},[el("span",{class:"sub",text:"pip "}),numSmall(h.pip,v=>{h.pip=parseInt(v||"0")||0;save();refreshModal();})]),stepper(h.die,nd=>mutateM(()=>h.die=nd))]));const hp=hakiPanel(h);if(hp)w.appendChild(hp);w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{closeModal();mutate(()=>pg.haki.splice(i,1));}})]));return w;});}
+function fruitModal(){openModal("🍈 Frutto del Diavolo",()=>{const w=el("div",{});const f=pg.frutto;w.appendChild(field("Nome del Frutto",f.nome,v=>{f.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Tipo"}));const ts=el("select",{},[el("option",{value:"",text:"— scegli il tipo —"})].concat(["Paramecia","Logia","Zoan"].map(x=>el("option",{value:x,text:x}))));ts.value=f.tipo;ts.onchange=()=>mutateM(()=>f.tipo=ts.value);w.appendChild(ts);w.appendChild(el("label",{class:"fld",text:"Dado del Frutto"}));const fds=el("select",{},["d4","d6","d8","d10","d12","d20"].map(x=>el("option",{value:x,text:x+" · "+({d4:"Appena ingoiato",d6:"Ci hai preso la mano",d8:"Controllo",d10:"Padronanza",d12:"Maestria",d20:"Vetta"}[x])})));fds.value=f.die||"d4";fds.onchange=()=>mutateM(()=>f.die=fds.value);w.appendChild(fds);w.appendChild(el("div",{class:"sub",style:"margin-top:3px",html:"Misura quanto <b>padroneggi</b> il potere. <b>Lo alza il Game Master, non i P.A.</b> Le Tecniche di fonte Frutto non possono superarlo."}));w.appendChild(field("Descrizione / potere",f.desc,v=>{f.desc=v;save();}));w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Rimuovi il Frutto",onclick:()=>{if(confirm("Il pirata non ha più il Frutto?")){closeModal();mutate(()=>pg.frutto.has=false);}}})]));return w;});}
+function skillPickerModal(){openModal("✦ Aggiungi una Skill (parte a d4)",()=>{const ro=roleObj();const avail=Object.keys(SKILLS).filter(s=>!(ro&&s===ro.skill)&&!(s in pg.skills));const g=el("div",{class:"classgrid"});avail.forEach(s=>{const o=el("div",{class:"classopt"},[el("div",{class:"co-n",text:s}),el("div",{class:"co-s",text:SKILLS[s]})]);o.onclick=()=>{closeModal();mutate(()=>pg.skills[s]="d4");};g.appendChild(o);});return g;},{wide:true});}
+function thresholdsModal(){openModal("⚙ Soglie P.A.",()=>{const w=el("div",{});w.appendChild(el("div",{class:"sub",html:"P.A. necessari per salire di dado: valgono per Attributi, Skill e Tecniche. Sono esempi: il GM può cambiarli."}));const tg=el("div",{style:"display:flex;flex-wrap:wrap;gap:10px;margin-top:8px"});[["d4","d4→d6"],["d6","d6→d8"],["d8","d8→d10"],["d10","d10→d12"],["d12","d12→d20"]].forEach(([dk,lab])=>{const cur=(pg.paThresh&&pg.paThresh[dk]!=null)?pg.paThresh[dk]:PA_THRESH[dk];const c=el("div",{style:"text-align:center"});c.appendChild(el("label",{class:"fld",style:"font-size:10px;margin:0",text:lab}));const inp=el("input",{class:"num",inputmode:"numeric",style:"width:70px"});inp.value=cur;inp.oninput=()=>{if(!pg.paThresh)pg.paThresh=Object.assign({},PA_THRESH);pg.paThresh[dk]=inp.value.replace(/[^0-9]/g,"");save();};c.appendChild(inp);tg.appendChild(c);});w.appendChild(tg);w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}})]));return w;});}
+
+/* ===== GESTIONE: la character UI ===== */
+let GTAB="pg";
 function renderManage(){
  const m=$("#manage");m.innerHTML="";
- {const rr=race();m.appendChild(el("div",{class:"mhead"},[el("div",{},[el("div",{class:"mh-name",text:pg.nome||"Pirata Senza Nome"}),el("div",{class:"mh-sub",text:[rr?rr.name:"",roleLabel()].filter(x=>x&&x!=="— ruolo —").join(" · ")||"La tua prossima leggenda"})]),el("div",{class:"mh-upg",html:"Upgrade <b>"+((pg.upgrade!=null&&pg.upgrade!=="")?String(pg.upgrade).padStart(2,"0"):"—")+"</b>"})]));}
- // Identità
- const b1=el("div",{class:"mblock"},[el("h3",{text:"Identità & Taglia"})]);
- b1.appendChild(field("Nome",pg.nome,v=>{pg.nome=v;render();}));
- b1.appendChild(field("Ambizione",pg.amb,v=>{pg.amb=v;render();}));
- const bgw=el("div",{});bgw.appendChild(el("label",{class:"fld",text:"Background"}));const bgt=el("textarea",{});bgt.value=pg.bg;bgt.oninput=()=>{pg.bg=bgt.value;save();};bgw.appendChild(bgt);b1.appendChild(bgw);
- b1.appendChild(el("div",{class:"mrow"},[el("span",{class:"lab",text:"Taglia (Berry)"}),numInput(pg.bounty,v=>{pg.bounty=(v||"0").replace(/[^0-9]/g,"");render();})]));
- m.appendChild(b1);
- // Attributi
- const b2=el("div",{class:"mblock"},[el("h3",{text:"Attributi"}),el("div",{class:"sub",html:"Anche gli Attributi salgono spendendoci i <b>P.A.</b> ricevuti agli Upgrade."})]);
- ATTRS.forEach(a=>{const ra=racialAttr();b2.appendChild(progRow(pg.attr[a],a,(a===ra?"razziale":""),miniStepper(pg.attr[a],nd=>mutate(()=>pg.attr[a]=nd)),paRow("attr:"+a,()=>pg.attr[a],nd=>pg.attr[a]=nd)));});
- m.appendChild(b2);
- // Skill (con P.A.)
- const b3=el("div",{class:"mblock"},[el("h3",{text:"Skill & Punti Abilità"})]);
- {const thr=el("div",{class:"swrap",style:"margin-bottom:12px"});thr.appendChild(el("div",{class:"sub",style:"margin-bottom:4px",html:"<b>Soglie P.A.</b> — P.A. necessari per salire di dado (valgono per Skill e Tecniche)"}));const tg=el("div",{style:"display:flex;flex-wrap:wrap;gap:8px"});[["d4","d4→d6"],["d6","d6→d8"],["d8","d8→d10"],["d10","d10→d12"],["d12","d12→d20"]].forEach(([dk,lab])=>{const cur=(pg.paThresh&&pg.paThresh[dk]!=null)?pg.paThresh[dk]:PA_THRESH[dk];const w=el("div",{style:"text-align:center"});w.appendChild(el("label",{class:"fld",style:"font-size:9px;margin:0",text:lab}));const inp=el("input",{class:"num",inputmode:"numeric",style:"width:62px"});inp.value=cur;inp.oninput=()=>{if(!pg.paThresh)pg.paThresh=Object.assign({},PA_THRESH);pg.paThresh[dk]=inp.value.replace(/[^0-9]/g,"");save();};inp.onblur=()=>mutate();w.appendChild(inp);tg.appendChild(w);});thr.appendChild(tg);b3.appendChild(thr);}
- const ro=roleObj();
- if(ro&&ro.skill){b3.appendChild(progRow(pg.roleSkillDie,ro.skill,"Skill di Ruolo",miniStepper(pg.roleSkillDie,nd=>mutate(()=>pg.roleSkillDie=nd)),paRow(ro.skill,()=>pg.roleSkillDie,nd=>pg.roleSkillDie=nd)));}
- Object.keys(pg.skills).sort().forEach(name=>{const ctr=el("span",{class:"step2 mini"},[miniStepper(pg.skills[name],nd=>mutate(()=>pg.skills[name]=nd)),el("button",{class:"iconbtn",text:"✕",title:"Rimuovi",onclick:()=>mutate(()=>{delete pg.skills[name];delete pg.pa[name];})})]);b3.appendChild(progRow(pg.skills[name],name,SKILLS[name]||"",ctr,paRow(name,()=>pg.skills[name],nd=>pg.skills[name]=nd)));});
- const avail=Object.keys(SKILLS).filter(s=>!(ro&&s===ro.skill)&&!(s in pg.skills));
- if(avail.length){const sel=el("select",{},[el("option",{value:"",text:"+ aggiungi skill (a d4)…"})].concat(avail.map(s=>el("option",{value:s,text:s}))));sel.onchange=()=>{if(sel.value)mutate(()=>pg.skills[sel.value]="d4");};b3.appendChild(el("div",{class:"addrow"},[sel]));}
- m.appendChild(b3);
- /* Ruoli & Talenti */
- const bT=el("div",{class:"mblock"},[el("h3",{text:"Ruoli & Talenti"})]);
- bT.appendChild(el("div",{class:"sub",html:"Un Talento a ogni Upgrade. Quali puoi prendere dipende dal <b>dado della tua Skill di Ruolo</b>: d8 Mozzo · d10 Pirata · d12 Veterano · d20 Leggenda. Le <b>Ultimate</b> si attivano col permesso del Capitano/GM, legate alla tua Ambizione."}));
- const roleNames=Object.keys(TALENTS);
- const r1sel=el("select",{},[el("option",{value:"",text:"\u2014 scegli \u2014"})].concat(roleNames.map(n=>el("option",{value:n,text:n}))));r1sel.value=pg.role||"";r1sel.onchange=()=>mutate(()=>{pg.role=r1sel.value||null;pg.style=pg.role?firstStyle(pg.role):"";});
- bT.appendChild(el("div",{class:"mrow"},[el("span",{class:"lab",html:"Ruolo 1 <span class='sub'>(d\u00e0 il d8)</span>"}),r1sel]));
- if(pg.role&&TALENTS[pg.role]&&TALENTS[pg.role].multi){const s1=el("select",{},Object.keys(TALENTS[pg.role].styles).map(st=>el("option",{value:st,text:st})));s1.value=pg.style||firstStyle(pg.role);s1.onchange=()=>mutate(()=>pg.style=s1.value);bT.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",text:"Stile"}),s1]));}
- const r2sel=el("select",{},[el("option",{value:"",text:"\u2014 nessuno \u2014"})].concat(roleNames.map(n=>el("option",{value:n,text:n}))));r2sel.value=pg.role2||"";r2sel.onchange=()=>mutate(()=>{pg.role2=r2sel.value||null;pg.style2=pg.role2?firstStyle(pg.role2):"";});
- bT.appendChild(el("div",{class:"mrow"},[el("span",{class:"lab",text:"Ruolo 2 (solo Talenti)"}),r2sel]));
- if(pg.role2&&TALENTS[pg.role2]&&TALENTS[pg.role2].multi){const s2=el("select",{},Object.keys(TALENTS[pg.role2].styles).map(st=>el("option",{value:st,text:st})));s2.value=pg.style2||firstStyle(pg.role2);s2.onchange=()=>mutate(()=>pg.style2=s2.value);bT.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",text:"Stile"}),s2]));}
- if(pg.role2)bT.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"\u21c4 Scambia (d8 all'altro ruolo)",onclick:()=>mutate(()=>{const rr=pg.role,sst=pg.style;pg.role=pg.role2;pg.style=pg.style2;pg.role2=rr;pg.style2=sst;})})]));
- const roleSkillDieOf=(rn,stv)=>{const sk=roleSkillOf(rn,stv,pg.roleSkillChoice);if(rn===pg.role)return pg.roleSkillDie||"d8";return (sk&&pg.skills[sk])||"";};
- const talPanel=(rn,stv)=>{const T=TALENTS[rn];if(!T)return;const ks=Object.keys(T.styles);const useSt=T.multi?(stv||ks[0]):ks[0];const sty=T.styles[useSt];const keyStyle=T.multi?useSt:rn;
-  const skName=roleSkillOf(rn,stv,pg.roleSkillChoice)||"Skill di Ruolo";const curDie=roleSkillDieOf(rn,stv);const cur=dieRank(curDie);
-  const panel=el("div",{class:"talpanel"});
-  panel.appendChild(el("div",{class:"talhead",text:(sty.ico?sty.ico+" ":"")+rn+(T.multi?(" · "+useSt):"")}));
-  if(sty.tratto)panel.appendChild(el("div",{class:"taltratto",html:"<b>Tratto:</b> "+sty.tratto}));
-  if(sty.firma)panel.appendChild(el("div",{class:"taltratto",html:"<b>Firma (+4):</b> "+sty.firma}));
-  panel.appendChild(el("div",{class:"taltratto",html:"Le fasce si aprono col dado di <b>"+skName+"</b>"+(curDie?(" — ora a <b>"+curDie+"</b>"):" — <i>non ancora allenata</i>")+"."}));
-  const taken=n=>pg.talents.indexOf(rn+" · "+keyStyle+" · "+n)>=0;
-  TIERS.forEach(function(tier){
-   const rows=(sty.talenti||[]).filter(function(tl){return (tl.tier||"d8")===tier;});
-   if(!rows.length)return;
-   const open=cur>=dieRank(tier);
-   panel.appendChild(el("div",{class:"talfascia"+(open?"":" locked"),html:(open?"":"🔒 ")+skName+" <b>"+tier+"</b> · "+TIER_LABEL[tier]}));
-   rows.forEach(function(tl){
-    const key=rn+" · "+keyStyle+" · "+tl.n;const has=pg.talents.indexOf(key)>=0;
-    const reqOk=!tl.req||taken(tl.req);
-    const can=has||(open&&reqOk);
-    const cb=el("input",{type:"checkbox"});cb.checked=has;if(!can)cb.disabled=true;
-    cb.onchange=()=>mutate(()=>{const ix=pg.talents.indexOf(key);if(cb.checked){if(ix<0)pg.talents.push(key);}else if(ix>=0)pg.talents.splice(ix,1);});
-    const tag=tl.t==="ultimate"?" <span class='ttag ult'>Ultimate</span>":"";
-    const req=tl.req?" <span class='ttag'"+(reqOk?"":" style='opacity:.85'")+">richiede "+tl.req+"</span>":"";
-    panel.appendChild(el("label",{class:"talrow"+(has?" on":"")+(can?"":" off")},[cb,el("span",{class:"talname",html:"<b>"+tl.n+"</b>"+tag+req+" — "+tl.d})]));
-   });
-  });
-  if((sty.talenti||[]).length===0)panel.appendChild(el("div",{class:"taltratto",text:"(Nessun Talento di Stile.)"}));
-  bT.appendChild(panel);};
- /* Medaglioni: acquisiti e prossimi sbloccabili */
- {const got=[],nextUp=[];
-  const scanRole=(rn,stv)=>{const T=TALENTS[rn];if(!T)return;const ks=Object.keys(T.styles);const useSt=T.multi?(stv||ks[0]):ks[0];const sty=T.styles[useSt];const keyStyle=T.multi?useSt:rn;const cur=dieRank(roleSkillDieOf(rn,stv));const taken=n=>pg.talents.indexOf(rn+" · "+keyStyle+" · "+n)>=0;
-   (sty.talenti||[]).forEach(tl=>{const sub=(T.multi?useSt:rn)+" · "+(tl.t==="ultimate"?"Ultimate":tl.tier);if(taken(tl.n))got.push([talentGlyph(tl.n,sty.ico),tl.n,sub]);else if(cur>=dieRank(tl.tier||"d8")&&(!tl.req||taken(tl.req)))nextUp.push([talentGlyph(tl.n,sty.ico),tl.n,sub]);});};
-  if(pg.role)scanRole(pg.role,pg.style);if(pg.role2)scanRole(pg.role2,pg.style2);
-  if(pg.frutto&&pg.frutto.has&&FRUIT_TALENTS[pg.frutto.tipo]){const FT=FRUIT_TALENTS[pg.frutto.tipo];const fcur=dieRank(pg.frutto.die||"d4");const ftaken=n=>pg.talents.indexOf("Frutto · "+pg.frutto.tipo+" · "+n)>=0;(FT.talenti||[]).forEach(tl=>{const sub="Frutto "+pg.frutto.tipo+" · "+(tl.t==="ultimate"?"Risveglio":tl.tier);if(ftaken(tl.n))got.push([talentGlyph(tl.n,FT.ico),tl.n,sub]);else if(fcur>=dieRank(tl.tier||"d4")&&(!tl.req||ftaken(tl.req)))nextUp.push([talentGlyph(tl.n,FT.ico),tl.n,sub]);});}
-  const boxA=el("div",{class:"medbox"},[el("h4",{text:"Talenti acquisiti"})]);const boxB=el("div",{class:"medbox"},[el("h4",{text:"Da acquisire"})]);
-  if(got.length){const g=el("div",{class:"medgrid"});got.forEach(x=>g.appendChild(medal(x[0],x[1],x[2],false)));boxA.appendChild(g);}else boxA.appendChild(el("div",{class:"medempty",text:"Nessun talento ancora: spunta il primo qui sotto."}));
-  if(nextUp.length){const g=el("div",{class:"medgrid"});nextUp.slice(0,8).forEach(x=>g.appendChild(medal(x[0],x[1],"al prossimo Upgrade",true)));boxB.appendChild(g);if(nextUp.length>8)boxB.appendChild(el("div",{class:"medempty",text:"…e altri "+(nextUp.length-8)+" già sbloccati dal tuo dado."}));}else boxB.appendChild(el("div",{class:"medempty",text:(pg.role?"Niente di nuovo finché non sale la Skill di Ruolo (o il Dado del Frutto).":"Scegli un Ruolo per vedere i talenti.")}));
-  bT.appendChild(el("div",{class:"medcols"},[boxA,boxB]));}
- if(pg.role)talPanel(pg.role,pg.style);
- if(pg.role2)talPanel(pg.role2,pg.style2);
- bT.appendChild(el("div",{class:"sub",style:"margin-top:8px",html:"Talenti acquisiti: <b>"+(pg.talents?pg.talents.length:0)+"</b>"}));
- m.appendChild(bT);
- // Armi
- const b7=el("div",{class:"mblock"},[el("h3",{text:"Armi"})]);
- pg.armi.forEach((a,i)=>{const card=el("div",{class:"tech"});card.appendChild(field("Nome arma",a.nome,v=>{a.nome=v;render();}));var _wt=weaponTypes();if(!a.tipo||_wt.indexOf(a.tipo)<0)a.tipo=_wt[_wt.length-1];card.appendChild(el("label",{class:"fld",text:"Tipo di arma"}));var _tsel=el("select",{},_wt.map(x=>el("option",{value:x,text:x})));_tsel.value=a.tipo;_tsel.onchange=()=>mutate(()=>a.tipo=_tsel.value);card.appendChild(_tsel);card.appendChild(el("label",{class:"fld",text:"Attributo · Dado"}));card.appendChild(el("div",{class:"mrow"},[attrSelect(a.attr,v=>{a.attr=v;render();}),el("span",{},[stepper(a.die,nd=>mutate(()=>a.die=nd)),el("button",{class:"iconbtn",text:"✕",onclick:()=>mutate(()=>pg.armi.splice(i,1))})])]));card.appendChild(field("Note / effetti speciali",a.note,v=>{a.note=v;render();}));b7.appendChild(card);});
- b7.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Aggiungi arma",onclick:()=>mutate(()=>pg.armi.push({nome:"Nuova arma",attr:"",die:"d6",note:"",tipo:"Special"}))})]));
- m.appendChild(b7);
- // Strumenti (solo Musicista)
- if(isMusicista()){
-  const bS=el("div",{class:"mblock"},[el("h3",{text:"Strumenti"}),el("div",{class:"sub",html:"Lo strumento del Musicista tira sempre <b>Spirito</b> + il suo dado."})]);
-  (pg.strumenti||[]).forEach((a,i)=>{const card=el("div",{class:"tech"});card.appendChild(field("Nome strumento",a.nome,v=>{a.nome=v;render();}));card.appendChild(el("label",{class:"fld",text:"Spirito · Dado"}));card.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",text:"Spirito (fisso)"}),el("span",{},[stepper(a.die,nd=>mutate(()=>a.die=nd)),el("button",{class:"iconbtn",text:"✕",onclick:()=>mutate(()=>pg.strumenti.splice(i,1))})])]));card.appendChild(field("Note / effetti speciali",a.note,v=>{a.note=v;render();}));bS.appendChild(card);});
-  bS.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Aggiungi strumento",onclick:()=>mutate(()=>{if(!pg.strumenti)pg.strumenti=[];pg.strumenti.push({nome:"Nuovo strumento",die:"d6",note:""});})})]));
-  m.appendChild(bS);
- }
- // Moduli & Arsenale (Cyborg di qualsiasi Ruolo, oppure Combattente · Special)
- if(pg.race==="cyborg"||isCombSpecial()){
-  const _S=moduliSlots();const _N=_S.n;const _used=(pg.moduli||[]).length;
-  if(_N>0){
-   const _sub=(_S.src==="talento")
-     ?("Arsenale Modulare (<b>"+_S.grado+"</b>) → <b>"+_N+"</b> modul"+(_N>1?"i":"o"))
-     :("Corpo Meccanico <b>"+pg.racialDie+"</b> → <b>"+_N+"</b> modul"+(_N>1?"i":"o"));
-   const bM=el("div",{class:"mblock"},[el("h3",{text:"Moduli & Arsenale"}),el("div",{class:"sub",html:_sub+" · usati <b>"+_used+"</b>. Ogni modulo si usa come Tecnica: il suo Dado serve sia a colpire sia come Dado Danno. Effetti concordati col GM."})]);
-   (pg.moduli||[]).forEach((mo,i)=>{const card=el("div",{class:"tech"});
-    card.appendChild(el("label",{class:"fld",text:"Nome modulo · Dado"}));
-    const nin=el("input",{type:"text",value:mo.nome||""});nin.oninput=()=>{mo.nome=nin.value;save();};
-    card.appendChild(el("div",{class:"mrow"},[nin,stepper(mo.die||"d6",nd=>mutate(()=>mo.die=nd))]));
-    card.appendChild(field("Effetti",mo.eff,v=>{mo.eff=v;render();}));
-    card.appendChild(field("Descrizione / note",mo.desc,v=>{mo.desc=v;render();}));
-    card.appendChild(el("div",{class:"addrow"},[el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>mutate(()=>pg.moduli.splice(i,1))})]));bM.appendChild(card);});
-   if(_used<_N)bM.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Aggiungi modulo",onclick:()=>mutate(()=>{if(!pg.moduli)pg.moduli=[];pg.moduli.push({nome:"Nuovo modulo",die:"d6",eff:"",desc:""});})})]));
-   else bM.appendChild(el("div",{class:"sub",style:"color:#c96f5e",text:"Hai raggiunto il massimo di moduli ("+_N+")."}));
-   m.appendChild(bM);
-  }
- }
- // Tecniche
- const b4=el("div",{class:"mblock"},[el("h3",{text:"Tecniche"}),el("div",{class:"sub",html:"Danno = stesso dado della Tecnica."})]);
- allTech().filter(t=>typeof t.idx!=="number").forEach(t=>{const ctr=el("span",{class:"step2 mini"},[miniStepper(t.die,nd=>mutate(()=>setTechDie(t,nd)))]);if(!t.fixed)ctr.appendChild(el("button",{class:"iconbtn",text:"✕",onclick:()=>mutate(()=>removeTech(t))}));const extra=t.fixed?el("div",{class:"sub",style:"margin:2px 0 0;font-size:12px;color:#d9c193;line-height:1.5",html:racialEffect(pg.race,t.die)}):null;b4.appendChild(progRow(t.die,t.name||"(senza nome)",(t.fixed?"Tecnica razziale":(t.attr||"")),ctr,paRow("tec:"+t.k,()=>t.die,nd=>setTechDie(t,nd)),extra));});
- b4.appendChild(renderTecBuilder(t=>mutate(()=>{pg.extraTech.push(t);tbReset();})));
- pg.extraTech.forEach((t,i)=>{const ed=el("div",{class:"tech"});ed.appendChild(field("Nome tecnica",t.nome,v=>{t.nome=v;render();}));ed.appendChild(el("div",{class:"sub",style:"margin:3px 0 6px",html:(tecSummary(t)||"<i>tecnica libera</i>")+" · <b style='color:#7a1410'>"+tecCostLabel(t)+"</b>"}));ed.appendChild(el("label",{class:"fld",text:"Attributo · Dado (= Dado Danno)"}));ed.appendChild(el("div",{class:"mrow"},[attrSelect(t.attr,v=>{t.attr=v;render();}),stepper(t.die,nd=>mutate(()=>t.die=nd))]));ed.appendChild(el("label",{class:"fld",text:"Descrizione / Effetti"}));const tx=el("textarea",{});tx.value=t.desc||"";tx.oninput=()=>{t.desc=tx.value;save();};ed.appendChild(tx);if(!t.id)t.id="tec"+Date.now().toString(36)+Math.floor(Math.random()*1000);ed.appendChild(paRow("tec:"+t.id,()=>t.die,nd=>t.die=nd));ed.appendChild(el("div",{class:"addrow"},[el("button",{class:"iconbtn",text:"✎ Modifica nel costruttore",onclick:()=>mutate(()=>{TBUILD={nome:t.nome,attr:t.attr,fonte:t.fonte||"Stile",forma:t.forma||"Singolo",die:t.die||"d6",durata:t.durata||"Un turno",eff:(t.eff||[]).slice(),desc:t.desc||"",_open:[],_id:t.id||null,fruitType:t.fruitType||""};pg.extraTech.splice(i,1);})}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>mutate(()=>pg.extraTech.splice(i,1))})]));b4.appendChild(ed);});
- m.appendChild(b4);
- // Haki
- const b5=el("div",{class:"mblock"},[el("h3",{text:"Haki"})]);
- pg.haki.forEach((h,i)=>{const sel=el("select",{},HAKI_NAMES.map(n=>el("option",{value:n,text:n})));sel.value=h.name;sel.onchange=()=>mutate(()=>h.name=sel.value);b5.appendChild(el("div",{class:"mrow"},[sel,el("span",{},[el("span",{class:"sub",text:"pip "}),numSmall(h.pip,v=>{h.pip=parseInt(v||"0")||0;render();}),stepper(h.die,nd=>mutate(()=>h.die=nd)),el("button",{class:"iconbtn",text:"✕",onclick:()=>mutate(()=>pg.haki.splice(i,1))})])]));const hp=hakiPanel(h);if(hp)b5.appendChild(hp);});
- b5.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Aggiungi Haki",onclick:()=>mutate(()=>pg.haki.push({name:HAKI_NAMES[0],die:"d6",pip:1}))})]));
- m.appendChild(b5);
- // Frutto
- const b8=el("div",{class:"mblock"},[el("h3",{text:"Frutto del Diavolo"})]);
- const chk=el("label",{class:"fld"});const cb=el("input",{type:"checkbox",style:"width:auto;margin-right:8px;"});cb.checked=pg.frutto.has;cb.onchange=()=>mutate(()=>pg.frutto.has=cb.checked);chk.appendChild(cb);chk.appendChild(document.createTextNode("Possiede un Frutto"));b8.appendChild(chk);
- if(pg.frutto.has){b8.appendChild(field("Nome Frutto",pg.frutto.nome,v=>{pg.frutto.nome=v;render();}));b8.appendChild(el("label",{class:"fld",text:"Tipo"}));const ts=el("select",{},[el("option",{value:"",text:"— scegli il tipo —"})].concat(["Paramecia","Logia","Zoan"].map(x=>el("option",{value:x,text:x}))));ts.value=pg.frutto.tipo;ts.onchange=()=>mutate(()=>pg.frutto.tipo=ts.value);b8.appendChild(ts);
-  b8.appendChild(el("label",{class:"fld",text:"Dado del Frutto"}));const fds=el("select",{},["d4","d6","d8","d10","d12","d20"].map(x=>el("option",{value:x,text:x+" · "+({d4:"Appena ingoiato",d6:"Ci hai preso la mano",d8:"Controllo",d10:"Padronanza",d12:"Maestria",d20:"Vetta"}[x])})));fds.value=pg.frutto.die||"d4";fds.onchange=()=>mutate(()=>pg.frutto.die=fds.value);b8.appendChild(fds);
-  b8.appendChild(el("div",{class:"sub",style:"margin-top:3px",html:"Misura quanto <b>padroneggi</b> il potere, non quanto è forte. <b>Lo alza il Game Master, non i P.A.</b> Le Tecniche di fonte Frutto non possono superarlo."}));
-  b8.appendChild(field("Descrizione",pg.frutto.desc,v=>{pg.frutto.desc=v;render();}));const FT=FRUIT_TALENTS[pg.frutto.tipo];if(FT){const fdie=pg.frutto.die||"d4";const fcur=dieRank(fdie);b8.appendChild(el("div",{class:"sub",style:"margin-top:9px",html:"Talenti del Frutto — uno per Upgrade, dal ramo <b>"+pg.frutto.tipo+"</b>. Le fasce si aprono col <b>Dado del Frutto</b> (ora <b>"+fdie+"</b>). Il Risveglio richiede d20, l'Ambizione e il permesso del GM."}));const fp=el("div",{class:"talpanel"});fp.appendChild(el("div",{class:"talhead",text:(FT.ico?FT.ico+" ":"")+"Frutto del Diavolo · "+pg.frutto.tipo}));if(FT.tratto)fp.appendChild(el("div",{class:"taltratto",html:"<b>Tratto:</b> "+FT.tratto}));if(FT.firma)fp.appendChild(el("div",{class:"taltratto",html:"<b>Firma (+4):</b> "+FT.firma}));const ftaken=n=>pg.talents.indexOf("Frutto · "+pg.frutto.tipo+" · "+n)>=0;FRUIT_TIERS.forEach(function(tier){const rows=(FT.talenti||[]).filter(tl=>(tl.tier||"d4")===tier[0]);if(!rows.length)return;const open=fcur>=dieRank(tier[0]);fp.appendChild(el("div",{class:"talfascia"+(open?"":" locked"),html:(open?"":"🔒 ")+"Dado del Frutto <b>"+tier[2]+"</b> · "+tier[1]}));rows.forEach(tl=>{const key="Frutto · "+pg.frutto.tipo+" · "+tl.n;const has=pg.talents.indexOf(key)>=0;const reqOk=!tl.req||ftaken(tl.req);const can=has||(open&&reqOk);const cbx=el("input",{type:"checkbox"});cbx.checked=has;if(!can)cbx.disabled=true;cbx.onchange=()=>mutate(()=>{const ix=pg.talents.indexOf(key);if(cbx.checked){if(ix<0)pg.talents.push(key);}else if(ix>=0)pg.talents.splice(ix,1);});const tag=tl.t==="ultimate"?" <span class='ttag ult'>Risveglio</span>":"";const req=tl.req?" <span class='ttag'>richiede "+tl.req+"</span>":"";fp.appendChild(el("label",{class:"talrow"+(has?" on":"")+(can?"":" off")},[cbx,el("span",{class:"talname",html:"<b>"+tl.n+"</b>"+tag+req+" — "+tl.d})]));});});b8.appendChild(fp);}else{b8.appendChild(el("div",{class:"sub",style:"margin-top:6px",text:"Scegli il tipo per vedere i Talenti del Frutto."}));}}
- m.appendChild(b8);
- // Vitali
- const b6=el("div",{class:"mblock"},[el("h3",{text:"Vitali"})]);
- const vit=el("div",{class:"vit"});
- vit.appendChild(vcell("PV attuali / max",[numSmall(pg.pvCur,v=>{pg.pvCur=intOrNull(v);render();}),el("span",{text:"/"}),numSmall(pg.pvMax,v=>{pg.pvMax=intOrNull(v);render();})]));
- vit.appendChild(vcell("Stamina att. / max",[numSmall(pg.stCur,v=>{pg.stCur=intOrNull(v);render();}),el("span",{text:"/"}),numSmall(pg.stMax,v=>{pg.stMax=intOrNull(v);render();})]));
- {var _dp=difesaPassiva();vit.appendChild(vcell("Difesa Passiva",[el("span",{class:"lab",style:"font-size:1.2rem;color:#ffd394",text:(_dp!=null?String(_dp):"—")}),el("span",{class:"sub",text:" "+(racialAttr()?("("+racialAttr()+" +1)"):"scegli razza")})]));}
- vit.appendChild(vcell("Upgrade (livello)",[(function(){var i=el("input",{type:"text"});i.value=pg.upgrade||"";i.setAttribute("placeholder","\u2014");i.style.maxWidth="90px";i.oninput=function(){pg.upgrade=i.value;var su=$("#s-upg");if(su)su.textContent=(i.value!=="")?i.value:"\u2014";save();};return i;})()]));
- {const rr=race();vit.appendChild(vcell("Movimento · Corsa",[el("span",{class:"lab",style:"font-size:1.05rem;color:#ffd394",text:rr?(raceMove(rr.id).m+" m · "+raceMove(rr.id).run+" m"):"—"}),el("span",{class:"sub",text:rr&&raceMove(rr.id).note?(" ("+raceMove(rr.id).note+")"):""})]));}
- vit.appendChild(vcell("Ore giornaliere",[numSmall(pg.ore,v=>{pg.ore=parseInt(v||"0")||0;render();})]));
- b6.appendChild(vit);
- b6.appendChild(el("div",{class:"sub",style:"margin-top:8px",html:"A ogni Upgrade il GM assegna dei <b>P.A.</b> che spendi dove vuoi — Attributi, Skill, Tecniche — oltre a Dado Vita, +1 Stamina e un Talento. Segna i punti nelle righe P.A. qui sotto e nelle sezioni Attributi e Skill."}));
- b6.appendChild(el("label",{class:"fld",text:"Legami Nakama (aggiungi un compagno e il suo pip)"}));
- var bondsWrap=el("div",{class:"bonds"});
- function renderBonds(){
-  bondsWrap.innerHTML="";
-  if(!Array.isArray(pg.bonds))pg.bonds=[];
-  pg.bonds.forEach(function(bd,i){
-   var row=el("div",{class:"mrow",style:"gap:8px;margin-bottom:6px"});
-   var nm=el("input",{type:"text"});nm.value=bd.nome||"";nm.setAttribute("placeholder","Nome del compagno");nm.oninput=function(){pg.bonds[i].nome=nm.value;save();};
-   var pip=el("input",{type:"text"});pip.value=(bd.pip!=null&&bd.pip!=="")?String(bd.pip):"";pip.setAttribute("placeholder","pip");pip.style.maxWidth="64px";pip.oninput=function(){pg.bonds[i].pip=parseInt(pip.value||"0")||0;var sl=$("#s-leg");if(sl)sl.textContent=legamiTotal();save();};
-   var del=el("button",{class:"iconbtn",text:"\u2715",onclick:function(){pg.bonds.splice(i,1);save();renderBonds();var sl=$("#s-leg");if(sl)sl.textContent=legamiTotal();}});
-   row.appendChild(nm);row.appendChild(el("span",{class:"sub",text:"pip"}));row.appendChild(pip);row.appendChild(del);
-   bondsWrap.appendChild(row);
-  });
-  if(!pg.bonds.length)bondsWrap.appendChild(el("div",{class:"sub",text:"Nessun legame. Aggiungine uno qui sotto."}));
- }
- b6.appendChild(bondsWrap);
- b6.appendChild(el("button",{class:"btn sm ghost",text:"+ Aggiungi legame",onclick:function(){if(!Array.isArray(pg.bonds))pg.bonds=[];pg.bonds.push({nome:"",pip:0});save();renderBonds();}}));
- renderBonds();
- b6.appendChild(el("label",{class:"fld",text:"Note / Zaino"}));const ta=el("textarea",{});ta.value=pg.note;ta.oninput=()=>{pg.note=ta.value;save();};b6.appendChild(ta);
- m.appendChild(b6);
  const r=race();if(r&&pg.pvMax==null){pg.pvMax=r.pv;pg.pvCur=r.pv;}
+ const ro=roleObj();const P=talentPools();
+ /* --- testata --- */
+ const head=el("div",{class:"ghead"});
+ const hl=el("div",{class:"gh-l"});
+ hl.appendChild(el("div",{class:"gh-name",text:pg.nome||"Pirata Senza Nome"}));
+ if(pg.amb)hl.appendChild(el("div",{class:"gh-amb",text:"“"+pg.amb+"”"}));
+ const pills=el("div",{class:"gh-pills"});if(r)pills.appendChild(el("span",{class:"pill",text:r.name}));if(pg.role)pills.appendChild(el("span",{class:"pill gold",text:roleIco(pg.role,pg.style)+" "+pg.role+((TALENTS[pg.role]&&TALENTS[pg.role].multi&&pg.style)?(" · "+pg.style):"")}));if(pg.role2)pills.appendChild(el("span",{class:"pill",text:roleIco(pg.role2,pg.style2)+" "+pg.role2+((TALENTS[pg.role2]&&TALENTS[pg.role2].multi&&pg.style2)?(" · "+pg.style2):"")}));if(pg.frutto&&pg.frutto.has)pills.appendChild(el("span",{class:"pill",text:"🍈 "+(pg.frutto.nome||"Frutto")+" "+(pg.frutto.die||"d4")}));hl.appendChild(pills);
+ head.appendChild(hl);
+ const hr=el("div",{class:"gh-r"});hr.appendChild(el("div",{class:"mh-upg",html:"Upgrade <b>"+((pg.upgrade!=null&&pg.upgrade!=="")?String(pg.upgrade).padStart(2,"0"):"—")+"</b>"}));const bn=(pg.bounty&&pg.bounty!=="0")?Number(pg.bounty):0;hr.appendChild(el("div",{class:"gh-bounty",html:"฿ "+(bn?bn.toLocaleString("it-IT"):"0")}));hr.appendChild(el("button",{class:"gbtn",text:"✎ Modifica identità",onclick:identityModal}));head.appendChild(hr);
+ m.appendChild(head);
+ /* --- vitali --- */
+ const vs=el("div",{class:"vstrip"});
+ const vcard=(k,inner,cls)=>el("div",{class:"vcard"+(cls?" "+cls:"")},[el("div",{class:"vk",text:k}),el("div",{class:"vv"},inner)]);
+ vs.appendChild(vcard("Punti Vita",[numSmall(pg.pvCur,v=>{pg.pvCur=intOrNull(v);save();render();}),el("span",{class:"vsep",text:"/"}),numSmall(pg.pvMax,v=>{pg.pvMax=intOrNull(v);save();render();})],"edit"));
+ vs.appendChild(vcard("Stamina",[numSmall(pg.stCur,v=>{pg.stCur=intOrNull(v);save();render();}),el("span",{class:"vsep",text:"/"}),numSmall(pg.stMax,v=>{pg.stMax=intOrNull(v);save();render();})],"edit"));
+ {const dp=difesaPassiva();vs.appendChild(vcard("Difesa Passiva",[el("b",{text:dp!=null?String(dp):"—"})]));}
+ vs.appendChild(vcard("Movimento",[el("b",{text:r?(raceMove(r.id).m+" m"):"—"}),el("small",{text:r?(" corsa "+raceMove(r.id).run):""})]));
+ vs.appendChild(vcard("Dado Vita",[el("b",{text:r?r.hp:"—"})]));
+ vs.appendChild(vcard("Legami",[el("b",{text:String(legamiTotal())})]));
+ m.appendChild(vs);
+ /* --- schede --- */
+ const tabs=[["pg","⚔️ Personaggio"],["tal","✦ Talenti"+(P.open.length?(" · "+P.open.length):"")],["ars","🏹 Arsenale"],["pow","⭐ Poteri"],["crew","⚓ Ciurma"]];
+ const tb=el("div",{class:"gtabs"});tabs.forEach(([k,lab])=>{tb.appendChild(el("button",{class:"gtab"+(GTAB===k?" on":""),text:lab,onclick:()=>{GTAB=k;renderManage();}}));});m.appendChild(tb);
+ const pane=el("div",{class:"gpane"});m.appendChild(pane);
+ const sec=(title,kids,right)=>{const s=el("section",{class:"gsec"});const h=el("div",{class:"gsec-h"},[el("h3",{text:title})]);if(right)h.appendChild(right);s.appendChild(h);(kids||[]).forEach(k=>{if(k)s.appendChild(k);});return s;};
+ if(GTAB==="pg"){
+  const attrs=[];ATTRS.forEach(a=>{attrs.push(progRow(pg.attr[a],a,(a===racialAttr()?"razziale":""),miniStepper(pg.attr[a],nd=>mutate(()=>pg.attr[a]=nd)),paRow("attr:"+a,()=>pg.attr[a],nd=>pg.attr[a]=nd)));});
+  pane.appendChild(sec("Attributi",attrs,el("button",{class:"gbtn sm",text:"⚙ Soglie P.A.",onclick:thresholdsModal})));
+  const sk=[];if(ro&&ro.skill)sk.push(progRow(pg.roleSkillDie,ro.skill,"Skill di Ruolo",miniStepper(pg.roleSkillDie,nd=>mutate(()=>pg.roleSkillDie=nd)),paRow(ro.skill,()=>pg.roleSkillDie,nd=>pg.roleSkillDie=nd)));
+  Object.keys(pg.skills).sort().forEach(name=>{const ctr=el("span",{class:"step2 mini"},[miniStepper(pg.skills[name],nd=>mutate(()=>pg.skills[name]=nd)),el("button",{class:"iconbtn",text:"✕",title:"Rimuovi",onclick:()=>mutate(()=>{delete pg.skills[name];delete pg.pa[name];})})]);sk.push(progRow(pg.skills[name],name,SKILLS[name]||"",ctr,paRow(name,()=>pg.skills[name],nd=>pg.skills[name]=nd)));});
+  if(!sk.length)sk.push(el("div",{class:"medempty",text:"Nessuna Skill allenata oltre a quella di Ruolo."}));
+  pane.appendChild(sec("Skill",sk,el("button",{class:"gbtn sm",text:"+ Skill",onclick:skillPickerModal})));
+ }
+ if(GTAB==="tal"){
+  const cls=el("div",{class:"classrow"});if(pg.role)cls.appendChild(classCard(pg.role,pg.style,1));else cls.appendChild(addCard("Scegli la classe",()=>classPickerModal(1)));if(pg.role2)cls.appendChild(classCard(pg.role2,pg.style2,2));else if(pg.role)cls.appendChild(addCard("Seconda classe (solo Talenti)",()=>classPickerModal(2)));
+  pane.appendChild(sec("Classe",[cls]));
+  const g=el("div",{class:"medgrid"});P.got.forEach(o=>{const md=medal(o.glyph,o.name,o.branch+" · "+(o.ult?(o.src==="fruit"?"Risveglio":"Ultimate"):o.tier),false);md.onclick=()=>talentDetailModal(o,true);g.appendChild(md);});
+  const kids=[P.got.length?g:el("div",{class:"medempty",text:"Nessun talento ancora. Ne prendi uno a ogni Upgrade."})];
+  const unlockBtn=el("button",{class:"gbtn"+(P.open.length?" gold":""),text:P.open.length?("✦ Sblocca talento · "+P.open.length+" disponibili"):"✦ Sblocca talento",onclick:unlockTalentsModal});
+  pane.appendChild(sec("Talenti acquisiti · "+P.got.length,kids,unlockBtn));
+ }
+ if(GTAB==="ars"){
+  const tec=[];allTech().filter(t=>typeof t.idx!=="number").forEach(t=>{const desc=t.fixed?"":(t.k==="t1"?(pg.t1.desc||""):(pg.t2.desc||""));tec.push(gcard(t.die,t.name,(t.fixed?"Tecnica razziale":(t.attr||"—"))+" · "+(pg.pa["tec:"+t.k]||0)+"/"+(paSoglia(t.die)!=null?paSoglia(t.die):"max")+" P.A.",desc,()=>techModal(t)));});
+  pg.extraTech.forEach((t,i)=>{if(!t.id)t.id="tec"+Date.now().toString(36)+Math.floor(Math.random()*1000);tec.push(gcard(t.die,t.nome,(tecSummary(t)||"tecnica libera")+" · <b>"+tecCostLabel(t)+"</b>",t.desc||"",()=>extraTechModal(i)));});
+  tec.push(addCard("Nuova tecnica · costruttore",builderModal));
+  pane.appendChild(sec("Tecniche",[el("div",{class:"gcards"},tec)]));
+  const ar=[];pg.armi.forEach((a,i)=>ar.push(gcard(a.die,a.nome||"Arma",[a.tipo,a.attr].filter(Boolean).join(" · "),a.note||"",()=>weaponModal(i))));ar.push(addCard("Aggiungi arma",()=>{mutate(()=>pg.armi.push({nome:"Nuova arma",attr:"",die:"d6",note:"",tipo:"Special"}));weaponModal(pg.armi.length-1);}));
+  pane.appendChild(sec("Armi",[el("div",{class:"gcards"},ar)]));
+  if(isMusicista()){const st=[];(pg.strumenti||[]).forEach((a,i)=>st.push(gcard(a.die,a.nome||"Strumento","Spirito + dado",a.note||"",()=>instrumentModal(i))));st.push(addCard("Aggiungi strumento",()=>{mutate(()=>{if(!pg.strumenti)pg.strumenti=[];pg.strumenti.push({nome:"Nuovo strumento",die:"d6",note:""});});instrumentModal(pg.strumenti.length-1);}));pane.appendChild(sec("Strumenti",[el("div",{class:"gcards"},st)]));}
+  if(pg.race==="cyborg"||isCombSpecial()){const S=moduliSlots();if(S.n>0){const md=[];(pg.moduli||[]).forEach((mo,i)=>md.push(gcard(mo.die||"d6",mo.nome||"Modulo",mo.eff||"",mo.desc||"",()=>moduleModal(i))));if((pg.moduli||[]).length<S.n)md.push(addCard("Aggiungi modulo",()=>{mutate(()=>{if(!pg.moduli)pg.moduli=[];pg.moduli.push({nome:"Nuovo modulo",die:"d6",eff:"",desc:""});});moduleModal(pg.moduli.length-1);}));pane.appendChild(sec("Moduli & Arsenale · "+(pg.moduli||[]).length+"/"+S.n+" slot",[el("div",{class:"sub",style:"margin:-4px 0 8px",html:(S.src==="talento"?("Arsenale Modulare <b>"+S.grado+"</b>"):("Corpo Meccanico <b>"+pg.racialDie+"</b>"))+" · ogni modulo si usa come Tecnica."}),el("div",{class:"gcards"},md)]));}}
+ }
+ if(GTAB==="pow"){
+  const hk=[];pg.haki.forEach((h,i)=>{const unl=hakiUnlocked(h);const liv=unl.length?unl[unl.length-1].liv:"";hk.push(gcard(h.die,h.name,(h.pip||0)+" PIP"+(liv?(" · "+liv):""),unl.length?unl[unl.length-1].pass:"Nessun livello ancora sbloccato.",()=>hakiModal(i)));});hk.push(addCard("Risveglia un Haki",()=>{mutate(()=>pg.haki.push({name:HAKI_NAMES[0],die:"d6",pip:1}));hakiModal(pg.haki.length-1);}));
+  pane.appendChild(sec("Haki",[el("div",{class:"gcards"},hk)]));
+  if(pg.frutto&&pg.frutto.has){const f=pg.frutto;const fc=gcard(f.die||"d4",f.nome||"Frutto senza nome",(f.tipo||"tipo da scegliere")+" · Dado del Frutto <b>"+(f.die||"d4")+"</b>",f.desc||"",fruitModal,"🍈");const fg=el("div",{class:"medgrid"});const fgot=P.got.filter(o=>o.src==="fruit");fgot.forEach(o=>{const md=medal(o.glyph,o.name,o.ult?"Risveglio":o.tier,false);md.onclick=()=>talentDetailModal(o,true);fg.appendChild(md);});const fopen=P.open.filter(o=>o.src==="fruit").length;pane.appendChild(sec("Frutto del Diavolo",[fc,el("div",{class:"gsec-h",style:"margin-top:10px"},[el("h4",{text:"Talenti del Frutto · "+fgot.length}),el("button",{class:"gbtn sm"+(fopen?" gold":""),text:fopen?("✦ Sblocca · "+fopen):"✦ Sblocca",onclick:unlockTalentsModal})]),fgot.length?fg:el("div",{class:"medempty",text:"Nessun talento del Frutto ancora."})]));}
+  else pane.appendChild(sec("Frutto del Diavolo",[el("div",{class:"gcards"},[addCard("Il pirata ha mangiato un Frutto",()=>{mutate(()=>{pg.frutto.has=true;if(!pg.frutto.die)pg.frutto.die="d4";});fruitModal();})])]));
+ }
+ if(GTAB==="crew"){
+  const bw=el("div",{});function renderBonds(){bw.innerHTML="";if(!Array.isArray(pg.bonds))pg.bonds=[];pg.bonds.forEach((bd,i)=>{const row=el("div",{class:"mrow",style:"gap:8px;margin-bottom:6px"});const nm=el("input",{type:"text"});nm.value=bd.nome||"";nm.setAttribute("placeholder","Nome del compagno");nm.oninput=()=>{pg.bonds[i].nome=nm.value;save();};const pip=el("input",{type:"text"});pip.value=(bd.pip!=null&&bd.pip!=="")?String(bd.pip):"";pip.setAttribute("placeholder","pip");pip.style.maxWidth="64px";pip.oninput=()=>{pg.bonds[i].pip=parseInt(pip.value||"0")||0;save();const sl=$("#s-leg");if(sl)sl.textContent=legamiTotal();};const del=el("button",{class:"iconbtn",text:"✕",onclick:()=>{pg.bonds.splice(i,1);save();renderBonds();render();}});row.appendChild(nm);row.appendChild(el("span",{class:"sub",text:"pip"}));row.appendChild(pip);row.appendChild(del);bw.appendChild(row);});if(!pg.bonds.length)bw.appendChild(el("div",{class:"medempty",text:"Nessun legame ancora."}));}
+  renderBonds();
+  pane.appendChild(sec("Legami Nakama · "+legamiTotal()+" pip",[bw],el("button",{class:"gbtn sm",text:"+ Legame",onclick:()=>{if(!Array.isArray(pg.bonds))pg.bonds=[];pg.bonds.push({nome:"",pip:0});save();renderBonds();}})));
+  const ta=el("textarea",{});ta.value=pg.note||"";ta.oninput=()=>{pg.note=ta.value;save();};
+  pane.appendChild(sec("Note / Zaino",[ta]));
+  if(pg.bg)pane.appendChild(sec("Background",[el("p",{class:"gbg",text:pg.bg})],el("button",{class:"gbtn sm",text:"✎",onclick:identityModal})));
+ }
  save();
 }
 
