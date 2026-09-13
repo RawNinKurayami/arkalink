@@ -134,7 +134,14 @@ body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#3
       <span style="font-family:'Marcellus SC',serif;font-size:9px;letter-spacing:1px;color:var(--accent,#9a241a)">Dado Vita</span>
       <div id="f-dadovita" class="cell-fl" style="font-size:9px;width:15px;height:15px;border:1.4px solid #33261a"></div>
      </div>
-     <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:8.5px;color:#6b5a44">della razza · ST parte da 6, +1 per ogni Upgrade</span>
+     <div style="display:flex;align-items:center;gap:5px;margin-left:6px">
+      <span style="font-family:'Marcellus SC',serif;font-size:9px;letter-spacing:1px;color:var(--accent,#9a241a)">Difesa Passiva</span>
+      <div id="f-difesa" class="cell-fl" style="font-size:9px;width:17px;height:15px;border:1.4px solid #33261a"></div>
+     </div>
+     <div style="display:flex;align-items:center;gap:5px;margin-left:6px">
+      <span style="font-family:'Marcellus SC',serif;font-size:9px;letter-spacing:1px;color:var(--accent,#9a241a)">Movimento</span>
+      <div id="f-move" class="cell-fl" style="font-size:9px;min-width:26px;height:15px;padding:0 3px;border:1.4px solid #33261a"></div>
+     </div>
     </div>
    </div>
    <!-- HAKI -->
@@ -232,7 +239,7 @@ body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#3
     <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><span style="font-size:8px;letter-spacing:1px;color:#7a4a1e;text-transform:uppercase;width:44px">Nome</span><div id="f-frutto-nome" class="fl" style="font-size:9px;flex:1;height:6mm;border-bottom:1.3px solid #33261a"></div></div>
     <div style="font-size:8px;letter-spacing:1px;color:#7a4a1e;text-transform:uppercase;margin-bottom:2px">Effetto</div>
     <div id="f-frutto-eff" class="fl" style="font-size:9px;height:6mm;border-bottom:1.3px solid #9a8a6a"></div>
-    <div style="height:6mm;border-bottom:1.3px solid #9a8a6a;margin-bottom:5px"></div>
+    <div style="display:flex;align-items:center;gap:6px;height:6mm;margin-bottom:5px"><span style="font-size:8px;letter-spacing:1px;color:#7a4a1e;text-transform:uppercase">Dado del Frutto</span><div id="f-frutto-die" class="cell-fl" style="font-size:9px;width:20px;height:15px;border:1.4px solid #33261a"></div><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:8px;color:#6b5a44">lo alza il Game Master, non i P.A.</span></div>
     <div style="font-family:'Marcellus SC',serif;font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent,#9a241a);margin-bottom:3px">Le 3 Debolezze</div>
     <div style="display:flex;gap:14px">
      <div style="display:flex;align-items:center;gap:4px"><div style="width:7px;height:7px;background:var(--accent,#9a241a);border-radius:50%"></div><span style="font-family:'Cormorant Garamond',serif;font-size:10px">Mare</span></div>
@@ -312,8 +319,13 @@ body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#3
     lunarian:{name:'Lunarian',hp:'d8',pv:16,tech:'Fiamma Immortale',techDesc:'Fiamma accesa: +1 dado in resistenza; spenta: bonus evasione. Si alterna 1x/turno.'},
     longbraccio:{name:'Longbraccio',hp:'d6',pv:12,tech:'Portata Estesa',techDesc:'Colpisci in mischia da distanza insolita; chi ti attacca ravvicinato ha +2 alla soglia.'},
     lungagamba:{name:'Lungagamba',hp:'d6',pv:14,tech:'Calcio Colossale',techDesc:'Bonus su calci e salti; 1x/combat salti fuori portata senza tiro.'},
-    cyborg:{name:'Cyborg',hp:'d8',pv:16,tech:'Corpo Meccanico',techDesc:'Bonus alla resistenza ai danni e potenziamenti meccanici (col Game Master).'}
+    cyborg:{name:'Cyborg',hp:'d8',pv:16,tech:'Corpo Meccanico',techDesc:'Installa moduli meccanici nel corpo (1 a d6 fino a 5 a d20).'},
+    tontatta:{name:'Tontatta',hp:'d6',pv:12,tech:'Piccolo Guerriero',techDesc:'Aggiungi il Dado razziale alle prove di Furtivit\u00e0 o Mobilit\u00e0; il primo attacco nemico contro di te arriva in Svantaggio.'}
   };
+  var MOVE={umano:10,cyborg:10,lunarian:10,longbraccio:10,uomopesce:10,tontatta:8,gigante:14,mink:14,lungagamba:16};
+  var RACE_ATTR={umano:'choice',uomopesce:'Forza',gigante:'Forza',mink:'Tecnica',lunarian:'Spirito',longbraccio:'Tecnica',lungagamba:'Forza',cyborg:'Forza',tontatta:'choice2'};
+  function difesaPassiva(pg){var ra=RACE_ATTR[pg.race];if(!ra)return null;if(ra==='choice')ra=pg.umanoAttr||'Forza';if(ra==='choice2')ra=(pg.umanoAttr==='Tecnica')?'Tecnica':'Forza';var d=pg.attr&&pg.attr[ra];var n=d?parseInt(String(d).slice(1),10):0;return n?n+1:null;}
+  function esc(t){return String(t==null?'':t).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
   var MULTI={Combattente:1,Dottore:1,Ingegnere:1};
   var ATTR3={Forza:'For',Tecnica:'Tec',Spirito:'Spi',Astuzia:'Ast'};
   function roleSkill(role,style,choice){
@@ -357,6 +369,9 @@ body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#3
     ['Forza','Tecnica','Spirito','Astuzia'].forEach(function(a){ circleDie('A|'+a,(pg.attr&&pg.attr[a])||''); });
     var pvMax=(pg.pvMax!=null?pg.pvMax:(r.pv!=null?r.pv:'')); var pvCur=(pg.pvCur!=null?pg.pvCur:pvMax);
     setText('f-pvcur',pvCur); setText('f-pvmax',pvMax); setText('f-stcur',(pg.stCur!=null?pg.stCur:6)); setText('f-stmax',(pg.stMax!=null?pg.stMax:6)); setText('f-dadovita',r.hp||'');
+    var P=(window.__glcPrint&&window.__glcPrint.charId===(new URLSearchParams(location.search).get('c')||window.__glcPrint.charId))?window.__glcPrint:null;
+    var dp=(P&&P.difesa!=null)?P.difesa:difesaPassiva(pg); setText('f-difesa',dp!=null?dp:'');
+    var mv=MOVE[pg.race]; setText('f-move',mv?(mv+' m'):'');
     (pg.haki||[]).forEach(function(h){ var nm=h.name||''; var key=nm.indexOf('Armamento')>=0?'arm':(nm.indexOf('Osservazione')>=0?'obs':(nm.indexOf('Re')>=0?'re':null)); if(!key) return; var max=(key==='re')?3:5; var n=Math.max(0,Math.min(max,parseInt(h.pip)||0)); for(var i=0;i<n;i++){ var p=qd('.pip[data-haki="'+key+'"][data-idx="'+i+'"]'); if(p) p.classList.add('on'); } });
     var rs=roleSkill(pg.role,pg.style,pg.roleSkillChoice);
     if(rs){ circleDie('S|'+rs,pg.roleSkillDie||'d8'); var dot=qd('.roledot[data-skill="'+rs+'"]'); if(dot) dot.classList.add('on'); }
@@ -367,8 +382,12 @@ body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#3
     if(pg.t1&&pg.t1.nome) techs.push(techRow(pg.t1));
     if(pg.t2&&pg.t2.nome) techs.push(techRow(pg.t2));
     (pg.extraTech||[]).forEach(function(t){ if(t&&t.nome) techs.push(techRow(t)); });
-    techs.slice(0,9).forEach(function(t,i){ setT(i,'nome',t.nome); setT(i,'attr',t.attr); setT(i,'dado',t.die); setT(i,'tipo',t.tipo); setT(i,'eff',t.eff); });
-    if(pg.frutto&&pg.frutto.has){ var f=qd('.frtipo[data-tipo="'+(pg.frutto.tipo||'')+'"]'); if(f) f.classList.add('on'); setText('f-frutto-nome',pg.frutto.nome||''); setText('f-frutto-eff',pg.frutto.desc||''); }
+    var costOf={}; if(P) (P.tecniche||[]).forEach(function(t){ costOf[t.nome]=t.cost; });
+    (pg.armi||[]).forEach(function(a){ if(a&&a.nome) techs.push({nome:a.nome,attr:(ATTR3[a.attr]||a.attr||'\u2014'),die:a.die||'',tipo:'Arma'+(a.tipo?(' \u00b7 '+a.tipo):''),eff:a.note||''}); });
+    (pg.strumenti||[]).forEach(function(a){ if(a&&a.nome) techs.push({nome:a.nome,attr:'Spi',die:a.die||'',tipo:'Strumento',eff:a.note||''}); });
+    techs.slice(0,9).forEach(function(t,i){ setT(i,'nome',t.nome); setT(i,'attr',t.attr); setT(i,'dado',t.die); setT(i,'tipo',t.tipo); setT(i,'eff',t.eff); setT(i,'st',costOf[t.nome]||''); });
+    if(pg.frutto&&pg.frutto.has){ var f=qd('.frtipo[data-tipo="'+(pg.frutto.tipo||'')+'"]'); if(f) f.classList.add('on'); setText('f-frutto-nome',pg.frutto.nome||''); setText('f-frutto-eff',pg.frutto.desc||''); setText('f-frutto-die',pg.frutto.die||'d4'); }
+    buildPage3(pg,P,techs.length>9?techs.slice(9):[]);
     var bonds=(pg.bonds||[]).filter(function(x){return (x.nome&&x.nome.trim())||x.pip;});
     bonds.slice(0,6).forEach(function(x,i){ setB(i,'nome',x.nome||''); setB(i,'pip',(x.pip!=null&&x.pip!=='')?x.pip:''); });
     var tot=bonds.reduce(function(s,x){return s+(parseInt(x.pip)||0);},0); if(!bonds.length&&pg.legami) tot=parseInt(pg.legami)||0; setText('f-bond-total',tot||'');
@@ -377,7 +396,34 @@ body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#3
     var who=$id('who'); if(who) who.textContent='Scheda di '+(pg.nome&&pg.nome.trim()?pg.nome.trim():'Senza nome');
     var bl=$id('blanklink'); if(bl) bl.style.display='';
   }
-  document.addEventListener('DOMContentLoaded',function(){ var pg=getChar(); if(pg) fill(pg); });
+  /* Facciata 3 — generata solo se c'è qualcosa da scrivere: talenti, arsenale, Haki, tecniche per esteso, P.A. Usa il pacchetto salvato da «Gestisci pirata» (window.__glcPrint); senza, si arrangia con i dati grezzi. */
+  function buildPage3(pg,P,extraTechs){
+    var secs=[];
+    function sec(title,inner){ if(inner) secs.push('<div style="break-inside:avoid;margin-bottom:5mm"><div style="display:flex;align-items:center;gap:8px;margin-bottom:3px"><div style="font-family:\'Marcellus SC\',serif;text-transform:uppercase;letter-spacing:3px;font-size:11px">'+title+'</div><div style="flex:1;border-top:2px double var(--gold,#c9a24a)"></div></div>'+inner+'</div>'); }
+    var row=function(t,meta,d,d2){ return '<div style="padding:3px 0;border-bottom:1px dotted #b3a07a;break-inside:avoid"><div style="font-size:11px"><b>'+esc(t)+'</b>'+(meta?' <span style="font-family:\'Marcellus SC\',serif;font-size:7.5px;letter-spacing:1px;color:var(--accent,#9a241a)">'+esc(meta)+'</span>':'')+'</div>'+(d?'<div style="font-size:9.5px;line-height:1.4;color:#33261a">'+esc(d)+'</div>':'')+(d2?'<div style="font-size:9px;line-height:1.35;color:#6b5a44;font-style:italic">'+esc(d2)+'</div>':'')+'</div>'; };
+    var tal=P?P.talenti:(pg.talents||[]).map(function(k){var p=String(k).split(' \u00b7 ');return {name:p[p.length-1],branch:p.length>2?p[1]:'',tag:'',desc:''};});
+    if(tal&&tal.length) sec('Talenti',tal.map(function(t){return row(t.name,[t.branch,t.tag].filter(Boolean).join(' \u00b7 '),t.desc);}).join(''));
+    if(extraTechs.length) sec('Tecniche / Armi (segue)',extraTechs.map(function(t){return row(t.nome,[t.tipo,t.attr,t.die].filter(Boolean).join(' \u00b7 '),t.eff);}).join(''));
+    var tec=P?P.tecniche:[];
+    if(tec.length) sec('Tecniche costruite — effetti per esteso',tec.map(function(t){var meta=[t.fonte,t.forma,t.attr,t.die,t.durata&&t.durata!=='Un turno'?t.durata:'',t.cost].filter(Boolean).join(' \u00b7 ')+(t.soglia!=null?(' \u00b7 '+t.pa+'/'+t.soglia+' PA'):'');var eff=(t.eff||[]).map(function(e){return e.n+(e.d?(': '+e.d):'');}).join(' \u00b7 ');return row(t.nome||'(senza nome)',meta,eff,t.desc);}).join(''));
+    var mods=P?P.moduli:(pg.moduli||[]);
+    if(mods.length) sec('Moduli & Arsenale'+(P&&P.moduliSlots?(' \u00b7 '+mods.length+'/'+P.moduliSlots+' slot'):''),mods.map(function(m){return row(m.nome||'modulo',(m.die||'d6')+' \u00b7 si usa come Tecnica',m.eff,m.desc);}).join(''));
+    var str=P?P.strumenti:(pg.strumenti||[]);
+    if(str.length) sec('Strumenti (Spirito + dado)',str.map(function(a){return row(a.nome||'strumento',a.die||'',a.note);}).join(''));
+    var armi=P?P.armi:(pg.armi||[]);
+    if(armi.length) sec('Armi — dettaglio',armi.map(function(a){return row(a.nome||'arma',[a.tipo,a.attr,a.die].filter(Boolean).join(' \u00b7 '),a.note);}).join(''));
+    var hk=P?P.haki:[];
+    if(hk.length) sec('Haki — livelli sbloccati',hk.map(function(h){var inner=(h.rows||[]).map(function(x){return '<div style="font-size:9.5px;line-height:1.4"><b>'+esc(x.liv)+':</b> '+esc(x.pass)+(x.act?(' <i>Attiva: '+esc(x.act)+(x.cost?(' ('+esc(x.cost)+' PIP)'):'')+'</i>'):'')+'</div>';}).join('');return '<div style="padding:3px 0;border-bottom:1px dotted #b3a07a;break-inside:avoid"><div style="font-size:11px"><b>'+esc(h.name)+'</b> <span style="font-family:\'Marcellus SC\',serif;font-size:7.5px;letter-spacing:1px;color:var(--accent,#9a241a)">'+esc([h.die,h.liv,h.pip?(h.pip+' PIP'):''].filter(Boolean).join(' \u00b7 '))+'</span></div>'+(inner||'<div style="font-size:9px;color:#6b5a44;font-style:italic">Nessun livello ancora sbloccato.</div>')+'</div>';}).join(''));
+    if(P&&P.pa){ var cells=[].concat(P.pa.attr.filter(function(x){return x.die;}).map(function(x){return {n:x.name,k:'Attributo',die:x.die,pa:x.pa,sg:x.soglia};}),P.pa.skills.map(function(x){return {n:x.name,k:x.role?'Skill di Ruolo':'Skill',die:x.die,pa:x.pa,sg:x.soglia};}));
+      if(cells.length) sec('Punti Abilità — dove sei arrivato','<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px 10px">'+cells.map(function(c){return '<div style="display:flex;justify-content:space-between;gap:6px;font-size:9.5px;border-bottom:1px dotted #b3a07a;padding:2px 0"><span><b>'+esc(c.n)+'</b> <span style="color:#6b5a44;font-size:8px">'+esc(c.k)+'</span></span><span>'+esc(c.die)+' \u00b7 '+(c.sg!=null?(c.pa+'/'+c.sg):'max')+'</span></div>';}).join('')+'</div>'); }
+    if(!secs.length) return;
+    var wrap=qd('.page').parentNode;
+    var pg3=document.createElement('div'); pg3.className='page'; pg3.setAttribute('data-screen-label','Facciata 3 — Talenti & Arsenale'); pg3.style.height='auto'; pg3.style.minHeight='297mm'; pg3.style.overflow='visible';
+    pg3.innerHTML='<div style="padding:14mm;display:flex;flex-direction:column;gap:2mm"><div style="display:flex;align-items:center;gap:11px;margin-bottom:3mm"><span style="font-family:\'Marcellus SC\',serif;letter-spacing:4px;text-transform:uppercase;font-size:10px;color:#6b5a44">Grand Line Chronicles</span><div style="flex:1;border-top:2px double var(--gold,#c9a24a)"></div><span style="font-family:\'Cinzel Decorative\',serif;font-size:12px;letter-spacing:2px;color:var(--accent,#9a241a)">'+esc(pg.nome||'Pirata')+' \u00b7 Talenti & Arsenale</span></div>'+secs.join('')+'</div>';
+    var last=wrap.querySelector('.page:last-of-type'); if(last) last.style.breakAfter='page';
+    wrap.appendChild(pg3);
+  }
+  document.addEventListener('DOMContentLoaded',function(){ try{ var raw=localStorage.getItem('glc_print_v1'); if(raw) window.__glcPrint=JSON.parse(raw); }catch(e){} var pg=getChar(); if(pg) fill(pg); });
 })();
 </script>
 </body>

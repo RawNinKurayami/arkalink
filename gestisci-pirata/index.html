@@ -1239,7 +1239,8 @@ function buildPrintSheet(){
   h+='<div class="ps-strip">';
   h+='<div class="ps-stat"><div class="k">Punti Vita</div><div class="v">'+pvc+' / '+pv+'</div></div>';
   h+='<div class="ps-stat"><div class="k">Stamina</div><div class="v">'+stc+' / '+st+'</div></div>';
-  if(r)h+='<div class="ps-stat"><div class="k">Movimento</div><div class="v">'+raceMove(r.id).m+' m</div></div>';
+  {var _dp=difesaPassiva();h+='<div class="ps-stat"><div class="k">Difesa Passiva</div><div class="v">'+(_dp!=null?_dp:"\u2014")+'</div></div>';}
+  if(r)h+='<div class="ps-stat"><div class="k">Movimento</div><div class="v">'+raceMove(r.id).m+' m <small>· corsa '+raceMove(r.id).run+'</small></div></div>';
   h+='<div class="ps-stat"><div class="k">Dado Vita</div><div class="v">'+(r?r.hp:"\u2014")+'</div></div>';
   h+='<div class="ps-stat"><div class="k">Haki PIP</div><div class="v">'+hakiPip+'</div></div>';
   h+='<div class="ps-stat"><div class="k">Legami</div><div class="v">'+legamiTotal()+'</div></div>';
@@ -1247,7 +1248,7 @@ function buildPrintSheet(){
   h+='<div class="ps-stat"><div class="k">Ore/giorno</div><div class="v">'+(pg.ore!=null?pg.ore:16)+'</div></div>';
   h+='</div>';
   h+='<div class="ps-attrs">';
-  ATTRS.forEach(function(a){h+='<div class="ps-attr"><div class="an">'+a+'</div><div class="ad">'+(pg.attr[a]||"\u2014")+'</div></div>';});
+  ATTRS.forEach(function(a){var _pa=pg.pa["attr:"+a]||0,_sg=pg.attr[a]?paSoglia(pg.attr[a]):null;h+='<div class="ps-attr"><div class="an">'+a+'</div><div class="ad">'+(pg.attr[a]||"\u2014")+'</div>'+((_sg!=null&&(_pa||true))?'<div class="ps-d2">'+_pa+'/'+_sg+' PA</div>':'')+'</div>';});
   h+='</div>';
   h+='<div class="ps-cols"><div class="ps-col">';
   h+='<div class="ps-sec"><div class="ps-h">Abilit\u00e0</div><table class="ps-tab">';
@@ -1259,7 +1260,8 @@ function buildPrintSheet(){
     h+='<tr><td class="sk'+(die?'':' off')+'">'+escp(name)+(isRole?' <span class="role">Ruolo</span>':'')+'</td><td class="sd">'+(die||'\u2014')+'</td><td class="sp">'+paInfo+'</td></tr>';
   });
   h+='</table></div>';
-  if(pg.armi&&pg.armi.length){h+='<div class="ps-sec"><div class="ps-h">Equipaggiamento</div>';pg.armi.forEach(function(a){h+='<div class="ps-item"><b>'+escp(a.nome||"arma")+'</b> <span class="die">'+escp(a.die||"")+'</span>'+((a.attr||a.note)?'<div class="ps-d">'+escp([a.attr,a.note].filter(Boolean).join(" \u00b7 "))+'</div>':'')+'</div>';});h+='</div>';}
+  if(pg.armi&&pg.armi.length){h+='<div class="ps-sec"><div class="ps-h">Equipaggiamento</div>';pg.armi.forEach(function(a){h+='<div class="ps-item"><b>'+escp(a.nome||"arma")+'</b> <span class="die">'+escp([a.tipo,a.die].filter(Boolean).join(" \u00b7 "))+'</span>'+((a.attr||a.note)?'<div class="ps-d">'+escp([a.attr,a.note].filter(Boolean).join(" \u00b7 "))+'</div>':'')+'</div>';});h+='</div>';}
+  if(pg.strumenti&&pg.strumenti.length){h+='<div class="ps-sec"><div class="ps-h">Strumenti</div>';pg.strumenti.forEach(function(a){h+='<div class="ps-item"><b>'+escp(a.nome||"strumento")+'</b> <span class="die">'+escp(["Spirito",a.die].filter(Boolean).join(" \u00b7 "))+'</span>'+(a.note?'<div class="ps-d">'+escp(a.note)+'</div>':'')+'</div>';});h+='</div>';}
   if(pg.moduli&&pg.moduli.length){h+='<div class="ps-sec"><div class="ps-h">Moduli & Arsenale</div>';pg.moduli.forEach(function(mo){h+='<div class="ps-tech"><div class="tt"><b>'+escp(mo.nome||"modulo")+'</b> <span class="tg">'+escp(mo.die||"d6")+'</span></div>'+(mo.eff?'<div class="ps-d">'+escp(mo.eff)+'</div>':'')+(mo.desc?'<div class="ps-d2">'+escp(mo.desc)+'</div>':'')+'</div>';});h+='</div>';}
   if(Array.isArray(pg.talents)&&pg.talents.length){h+='<div class="ps-sec"><div class="ps-h">Talenti</div>';pg.talents.forEach(function(k){var ti=talentInfo(k);h+='<div class="ps-tech"><div class="tt">\u2726 <b>'+escp(ti.name)+'</b>'+(ti.branch?' <span class="ps-d2">('+escp(ti.branch)+')</span>':'')+(ti.tag?' <span class="ps-d2">'+escp(ti.tag)+'</span>':'')+'</div>'+(ti.desc?'<div class="ps-d">'+escp(ti.desc)+'</div>':'')+'</div>';});h+='</div>';}
   if(Array.isArray(pg.bonds)){var bb=pg.bonds.filter(function(b){return (b.nome&&b.nome.trim())||b.pip;});if(bb.length){h+='<div class="ps-sec"><div class="ps-h">Legami Nakama</div><table class="ps-tab">';bb.forEach(function(b){h+='<tr><td class="sk">'+escp(b.nome||"—")+'</td><td class="sd">'+(b.pip||0)+' pip</td></tr>';});h+='</table></div>';}}
@@ -1268,7 +1270,7 @@ function buildPrintSheet(){
   if(r)h+='<div class="ps-tech"><div class="tt"><b>'+escp(r.tech)+'</b> <span class="tg">razziale \u00b7 '+escp(pg.racialDie||"d6")+'</span></div><div class="ps-d">'+escp(r.techDesc)+'</div></div>';
   if(pg.t1&&pg.t1.nome)h+='<div class="ps-tech"><div class="tt"><b>'+escp(pg.t1.nome)+'</b> <span class="tg">'+escp([pg.t1.attr,pg.t1.die].filter(Boolean).join(" \u00b7 "))+'</span></div>'+(pg.t1.desc?'<div class="ps-d">'+escp(pg.t1.desc)+'</div>':'')+'</div>';
   if(pg.t2&&pg.t2.nome)h+='<div class="ps-tech"><div class="tt"><b>'+escp(pg.t2.nome)+'</b> <span class="tg">'+escp([pg.t2.attr,pg.t2.die].filter(Boolean).join(" \u00b7 "))+'</span></div>'+(pg.t2.desc?'<div class="ps-d">'+escp(pg.t2.desc)+'</div>':'')+'</div>';
-  (pg.extraTech||[]).forEach(function(t){if(!t.nome&&!(t.eff&&t.eff.length))return;var meta=[t.fonte,t.forma,t.die].filter(Boolean).join(" · ")+" · "+tecCostLabel(t);h+='<div class="ps-tech"><div class="tt"><b>'+escp(t.nome||"(senza nome)")+'</b> <span class="tg">'+escp(meta)+'</span></div>'+psTecEff(t)+(t.desc?'<div class="ps-d">'+escp(t.desc)+'</div>':'')+'</div>';});
+  (pg.extraTech||[]).forEach(function(t){if(!t.nome&&!(t.eff&&t.eff.length))return;var _fo=(t.fonte==="Frutto"&&t.fruitType)?("Frutto "+t.fruitType):((t.fonte==="Arma"&&t.weapon)?("Arma \u00ab"+t.weapon+"\u00bb"):t.fonte);var _pa=t.id?(pg.pa["tec:"+t.id]||0):0,_sg=t.die?paSoglia(t.die):null;var meta=[_fo,t.forma,t.attr,t.die].filter(Boolean).join(" · ")+" · "+tecCostLabel(t)+(_sg!=null?(" · "+_pa+"/"+_sg+" PA"):"");h+='<div class="ps-tech"><div class="tt"><b>'+escp(t.nome||"(senza nome)")+'</b> <span class="tg">'+escp(meta)+'</span></div>'+psTecEff(t)+(t.desc?'<div class="ps-d">'+escp(t.desc)+'</div>':'')+'</div>';});
   if(!r&&!(pg.t1&&pg.t1.nome)&&!(pg.t2&&pg.t2.nome)&&!(pg.extraTech&&pg.extraTech.length))h+='<div class="ps-d">Nessuna tecnica.</div>';
   h+='</div>';
   if(pg.haki&&pg.haki.length){h+='<div class="ps-sec"><div class="ps-h">Haki</div>';pg.haki.forEach(function(hk){var unl=hakiUnlocked(hk);var liv=unl.length?unl[unl.length-1].liv:"";h+='<div class="ps-tech"><div class="tt"><b>'+escp(hk.name)+'</b> <span class="tg">'+escp((hk.die||"")+(liv?(" \u00b7 "+liv):"")+(hk.pip?(" \u00b7 "+hk.pip+" PIP"):""))+'</span></div>';unl.forEach(function(row){h+='<div class="ps-d"><b>'+escp(row.liv)+':</b> '+escp(row.pass)+(row.act?(' <i>Attiva: '+escp(row.act)+(row.cost?(" ("+row.cost+" PIP)"):"")+'</i>'):'')+'</div>';});h+='</div>';});h+='</div>';}
@@ -1281,7 +1283,22 @@ function buildPrintSheet(){
   host.innerHTML=h;
 }
 $("#printSheet").onclick=function(){buildPrintSheet();window.print();};
-$("#printIllus").onclick=function(){try{save();}catch(e){}window.open("/scheda-stampabile/?c="+encodeURIComponent(CT.activeId),"_blank");};
+/* Pacchetto di stampa: tutto ciò che la Scheda illustrata non sa calcolare da sola (descrizioni dei talenti, livelli Haki, costi delle Tecniche, P.A.). */
+function printPayload(){
+  var r=race(),ro=roleObj();
+  var out={v:1,charId:CT.activeId,ts:Date.now(),nome:pg.nome||"",difesa:difesaPassiva(),move:r?raceMove(r.id):null,fruttoDie:(pg.frutto&&pg.frutto.has)?(pg.frutto.die||"d4"):"",
+    talenti:(pg.talents||[]).map(function(k){var ti=talentInfo(k);return {name:ti.name,branch:ti.branch||"",tag:ti.tag||"",desc:ti.desc||""};}),
+    moduli:(pg.moduli||[]).map(function(m){return {nome:m.nome||"",die:m.die||"d6",eff:m.eff||"",desc:m.desc||""};}),
+    moduliSlots:(pg.race==="cyborg"||isCombSpecial())?moduliSlots().n:0,
+    strumenti:(pg.strumenti||[]).map(function(a){return {nome:a.nome||"",die:a.die||"",note:a.note||""};}),
+    armi:(pg.armi||[]).map(function(a){return {nome:a.nome||"",tipo:a.tipo||"",attr:a.attr||"",die:a.die||"",note:a.note||""};}),
+    haki:(pg.haki||[]).map(function(hk){var unl=hakiUnlocked(hk);return {name:hk.name,die:hk.die||"",pip:parseInt(hk.pip)||0,liv:unl.length?unl[unl.length-1].liv:"",rows:unl.map(function(x){return {liv:x.liv,pass:x.pass||"",act:x.act||"",cost:x.cost||""};})};}),
+    tecniche:(pg.extraTech||[]).filter(function(t){return t.nome||(t.eff&&t.eff.length);}).map(function(t){var fo=(t.fonte==="Frutto"&&t.fruitType)?("Frutto "+t.fruitType):((t.fonte==="Arma"&&t.weapon)?("Arma \u00ab"+t.weapon+"\u00bb"):(t.fonte||""));return {nome:t.nome||"",fonte:fo,forma:t.forma||"",attr:t.attr||"",die:t.die||"",durata:t.durata||"",cost:tecCostLabel(t),eff:(t.eff||[]).map(function(nm){var e=tecEffObj(nm);return {n:nm,d:e?e[2]:""};}),desc:t.desc||"",pa:t.id?(pg.pa["tec:"+t.id]||0):0,soglia:t.die?paSoglia(t.die):null};}),
+    pa:{attr:ATTRS.map(function(a){return {name:a,die:pg.attr[a]||"",pa:pg.pa["attr:"+a]||0,soglia:pg.attr[a]?paSoglia(pg.attr[a]):null};}),
+        skills:Object.keys(SKILLS).map(function(n){var isRole=ro&&ro.skill===n;var die=isRole?pg.roleSkillDie:(pg.skills[n]||"");return {name:n,die:die,role:!!isRole,pa:pg.pa[n]||0,soglia:die?paSoglia(die):null};}).filter(function(x){return x.die;})}};
+  return out;
+}
+$("#printIllus").onclick=function(){try{save();localStorage.setItem("glc_print_v1",JSON.stringify(printPayload()));}catch(e){}window.open("/scheda-stampabile/?c="+encodeURIComponent(CT.activeId),"_blank");};
 $("#export").onclick=()=>{const blob=new Blob([JSON.stringify(pg,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=(pg.nome?pg.nome.replace(/[^a-z0-9]+/gi,"_"):"pirata")+".json";a.click();URL.revokeObjectURL(a.href);};
 $("#importBtn").onclick=()=>$("#importFile").click();
 $("#importFile").onchange=e=>{const file=e.target.files[0];if(!file)return;const rd=new FileReader();rd.onload=()=>{try{const c=migrateChar(JSON.parse(rd.result));const id=newId();CT.chars[CT.activeId]=pg;CT.chars[id]=c;CT.order.push(id);CT.activeId=id;pg=c;save();bindInputs();renderCrewBar();if(mode==="gest")renderManage();else goto(0);render();}catch(err){alert("File non valido.");}};rd.readAsText(file);e.target.value="";};
