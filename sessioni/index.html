@@ -101,6 +101,7 @@ textarea.txt{min-height:74px; resize:vertical;}
 </div>
 
 <script>
+function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null?pos.y:50),z=(pos.z!=null?pos.z:1);return "object-position:"+x+"% "+y+"%;transform:scale("+z+");transform-origin:"+x+"% "+y+"%;";}
 function el(t,a,kids){var e=document.createElement(t);a=a||{};for(var k in a){if(k==="text")e.textContent=a[k];else if(k==="html")e.innerHTML=a[k];else if(k==="onClick")e.onclick=a[k];else if(k==="onInput")e.oninput=a[k];else if(k==="onChange")e.onchange=a[k];else e.setAttribute(k,a[k]);}(kids||[]).forEach(function(c){if(c)e.appendChild(c);});return e;}
 function $(s){return document.querySelector(s);}
 function qp(k){return new URLSearchParams(location.search).get(k);}
@@ -237,7 +238,7 @@ function render(){
   if(s.persId && ct.chars[s.persId]){
     var c=ct.chars[s.persId];
     var av=el("div",{class:"av"});
-    if(c.photo){ av.appendChild(el("img",{src:c.photo,alt:""})); } else { av.textContent="⚓"; }
+    if(c.photo){ var pim=el("img",{src:c.photo,alt:""}); pim.style.cssText=photoStyle(c.photoPos); av.style.overflow="hidden"; av.appendChild(pim); } else { av.textContent="⚓"; }
     cCard.appendChild(el("div",{class:"linked"},[av,el("div",{},[el("div",{class:"nm",text:charName(c)}),el("div",{class:"sb",text:charSub(c)||"Scheda da completare"})])]));
   } else if(!ct.order.length){
     cCard.appendChild(el("div",{class:"linked muted",html:"Crea prima un personaggio dal <a href='/crea-il-tuo-pirata/' style='color:#7a4;font-weight:700'>profilo</a>."}));

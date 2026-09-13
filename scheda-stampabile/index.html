@@ -325,6 +325,7 @@ body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#3
   var MOVE={umano:10,cyborg:10,lunarian:10,longbraccio:10,uomopesce:10,tontatta:8,gigante:14,mink:14,lungagamba:16};
   var RACE_ATTR={umano:'choice',uomopesce:'Forza',gigante:'Forza',mink:'Tecnica',lunarian:'Spirito',longbraccio:'Tecnica',lungagamba:'Forza',cyborg:'Forza',tontatta:'choice2'};
   function difesaPassiva(pg){var ra=RACE_ATTR[pg.race];if(!ra)return null;if(ra==='choice')ra=pg.umanoAttr||'Forza';if(ra==='choice2')ra=(pg.umanoAttr==='Tecnica')?'Tecnica':'Forza';var d=pg.attr&&pg.attr[ra];var n=d?parseInt(String(d).slice(1),10):0;return n?n+1:null;}
+  function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null?pos.y:50),z=(pos.z!=null?pos.z:1);return "object-position:"+x+"% "+y+"%;transform:scale("+z+");transform-origin:"+x+"% "+y+"%;";}
   function esc(t){return String(t==null?'':t).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
   var MULTI={Combattente:1,Dottore:1,Ingegnere:1};
   var ATTR3={Forza:'For',Tecnica:'Tec',Spirito:'Spi',Astuzia:'Ast'};
@@ -392,7 +393,7 @@ body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#3
     bonds.slice(0,6).forEach(function(x,i){ setB(i,'nome',x.nome||''); setB(i,'pip',(x.pip!=null&&x.pip!=='')?x.pip:''); });
     var tot=bonds.reduce(function(s,x){return s+(parseInt(x.pip)||0);},0); if(!bonds.length&&pg.legami) tot=parseInt(pg.legami)||0; setText('f-bond-total',tot||'');
     fillBox('storyBox',pg.bg||''); fillBox('noteBox',pg.note||'');
-    if(pg.photo){ var pt=$id('f-portrait'); if(pt) pt.innerHTML='<img src="'+pg.photo+'" alt="" style="width:100%;height:100%;object-fit:cover">'; }
+    if(pg.photo){ var pt=$id('f-portrait'); if(pt){ pt.style.overflow='hidden'; pt.innerHTML='<img src="'+pg.photo+'" alt="" style="width:100%;height:100%;object-fit:cover;'+photoStyle(pg.photoPos)+'">'; } }
     var who=$id('who'); if(who) who.textContent='Scheda di '+(pg.nome&&pg.nome.trim()?pg.nome.trim():'Senza nome');
     var bl=$id('blanklink'); if(bl) bl.style.display='';
   }

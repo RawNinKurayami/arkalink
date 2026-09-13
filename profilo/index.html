@@ -270,6 +270,7 @@ body:has(#glc-login-slot.in) .avatar{border-color:#d8452e; animation:haki-aura 5
   </div>
 
 <script>
+function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null?pos.y:50),z=(pos.z!=null?pos.z:1);return "object-position:"+x+"% "+y+"%;transform:scale("+z+");transform-origin:"+x+"% "+y+"%;";}
 (function(){
   "use strict";
   var KEY="glc_pirata_v4", PKEY="glc_profile_v1";
@@ -317,7 +318,7 @@ body:has(#glc-login-slot.in) .avatar{border-color:#d8452e; animation:haki-aura 5
   function makeCard(id,c){
     var card=document.createElement("div"); card.className="ch-card";
     var av=document.createElement("div"); av.className="ch-av";
-    if(c.photo){ var img=document.createElement("img"); img.src=c.photo; img.alt=""; av.appendChild(img); } else { av.textContent="⚓"; }
+    if(c.photo){ var img=document.createElement("img"); img.src=c.photo; img.alt=""; img.style.cssText=photoStyle(c.photoPos); av.style.overflow="hidden"; av.appendChild(img); } else { av.textContent="⚓"; }
     card.appendChild(av);
     var body=document.createElement("div"); body.className="ch-body";
     var h=document.createElement("div"); h.className="ch-name"; h.textContent=label(c); body.appendChild(h);

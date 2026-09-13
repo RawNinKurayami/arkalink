@@ -100,6 +100,8 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--red);box
 .wanted-sub{text-align:center;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:.3em;font-size:11px;margin-top:2px;color:#5a4020;position:relative;z-index:2;}
 .portrait{position:relative;z-index:2;margin:12px auto 8px;width:100%;aspect-ratio:4/3.4;border:7px solid #3a2a16;outline:2px solid #ead7af;outline-offset:-9px;background:#cdb78d url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><g fill='none' stroke='%237a5a2e' stroke-width='3' opacity='.5'><circle cx='60' cy='44' r='20'/><path d='M26 104c0-20 15-30 34-30s34 10 34 30'/></g></svg>") center 60%/72px no-repeat;display:flex;align-items:flex-end;justify-content:center;cursor:pointer;overflow:hidden;transition:.15s;}
 .portrait:hover{outline-color:var(--gold-soft);}.portrait.drag{box-shadow:inset 0 0 0 3px var(--red);}
+.portrait.adj{cursor:grab;outline-color:var(--gold);}.portrait.adj:active{cursor:grabbing;}.portrait.adj img{filter:none;}
+.pbar{position:relative;z-index:2;display:none;justify-content:center;gap:6px;flex-wrap:wrap;margin:-2px 0 8px;}.pbar.show{display:flex;}.pbar button{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;padding:4px 9px;border-radius:999px;border:1px solid rgba(240,164,65,.45);background:rgba(20,16,10,.55);color:#ffd394;cursor:pointer;}.pbar button.on{background:var(--gold);color:#1b1206;border-color:var(--gold);}.pbar input[type=range]{width:90px;accent-color:var(--gold);}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.32) contrast(1.05) brightness(1.02);}
 .portrait .ph{position:relative;z-index:1;margin-bottom:10px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.12em;color:#6b4f2a;background:rgba(240,228,200,.75);padding:4px 10px;border-radius:2px;}
 .pname{font-family:'Pirata One',cursive;text-align:center;font-size:clamp(26px,3.4vw,34px);color:#7a1410;line-height:1.05;margin:6px 4px 2px;word-break:break-word;position:relative;z-index:2;text-shadow:0 1px 0 rgba(255,255,255,.35);}
@@ -302,7 +304,8 @@ footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a69a86;font-
       <div class="poster torn" id="poster">
         <span class="tape tl"></span><span class="tape tr"></span>
         <div class="wanted">WANTED</div><div class="wanted-sub">RICERCATO DALLA MARINE</div>
-        <div class="portrait" id="portrait" title="Clicca o trascina una foto"><img id="photo" alt="" style="display:none;" /><span class="ph" id="ph-hint">＋ Aggiungi foto</span></div>
+        <div class="portrait" id="portrait" title="Clicca o trascina una foto"><img id="photo" alt="" style="display:none;" draggable="false" /><span class="ph" id="ph-hint">＋ Aggiungi foto</span></div>
+        <div class="pbar" id="pbar"><button type="button" id="pb-adj" title="Trascina la foto per inquadrarla">✥ Regola</button><input type="range" id="pb-zoom" min="1" max="3" step="0.05" value="1" title="Zoom" style="display:none" /><button type="button" id="pb-reset" style="display:none">↺ Centra</button><button type="button" id="pb-change" style="display:none">Cambia foto</button></div>
         <div class="pname" id="s-nome">Pirata Senza Nome</div><div class="deadalive">DEAD OR ALIVE</div>
         <div class="bounty"><span class="sym">฿</span><input id="bounty-in" inputmode="numeric" value="0" /></div><div class="berries">BERRIES</div>
         <div class="crime"><span class="role" id="s-role">— ruolo —</span><span class="amb" id="s-amb"></span></div>
@@ -617,6 +620,8 @@ const RACE_EFF={
  longbraccio:function(d){var t={d6:"la portata dei tuoi attacchi con le braccia è maggiore",d8:"il nemico supera una salvezza di Forza o subisce Trascinamento/Proiezione",d10:"colpisci fino a 2 nemici vicini (salvezza Forza o Trascinamento/Proiezione)",d12:"colpisci fino a 3 nemici (salvezza Forza o Trascinamento/Proiezione)",d20:"colpisci fino a 4 nemici (salvezza Forza o Trascinamento/Proiezione)"};return "Portata Estesa: "+(t[d]||t.d6)+". — <i>Svantaggio: nessuno.</i>";},
  tontatta:function(d){return "Nelle prove di <b>Furtività</b> o <b>Mobilità</b> aggiungi <b>"+d+"</b>. Il primo attacco nemico contro di te è in Svantaggio. — <i>Svantaggio: +3 difficoltà per liberarti da una presa; niente armi/oggetti di taglia normale o grande.</i>";}
 };
+/* Inquadratura della foto: punto focale in % e zoom, usati ovunque la foto compare. */
+function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null?pos.y:50),z=(pos.z!=null?pos.z:1);return "object-position:"+x+"% "+y+"%;transform:scale("+z+");transform-origin:"+x+"% "+y+"%;";}
 function racialEffect(id,die){var f=RACE_EFF[id];return f?f(die):"";}
 function difesaPassiva(){var ra=racialAttr();var d=ra&&pg.attr?pg.attr[ra]:"";if(!d)return null;var n=parseInt(String(d).slice(1),10);return n?n+1:null;}
 function firstStyle(rn){const T=TALENTS[rn];if(!T||!T.styles)return "";return T.multi?Object.keys(T.styles)[0]:"";}
@@ -917,7 +922,7 @@ const blank=()=>({nome:"",bg:"",amb:"",race:null,umanoAttr:"Forza",d6attr:"",rol
  skills:{}, roleSkillDie:"d8", pa:{}, paThresh:{d4:10,d6:25,d8:60,d10:150,d12:400},
  t1:{nome:"",desc:"",attr:"",die:"d4"}, t2:{nome:"",desc:"",attr:"",die:"d4"}, racialDie:"d6", extraTech:[],
  armi:[], strumenti:[], moduli:[], haki:[], frutto:{has:false,nome:"",tipo:"",desc:"",die:"d4"},
- photo:"", bounty:"0", pvMax:null,pvCur:null,stMax:6,stCur:6,legami:0,bonds:[],upgrade:"",roleSkillChoice:"",ore:16,note:""});
+ photo:"", photoPos:{x:50,y:50,z:1}, bounty:"0", pvMax:null,pvCur:null,stMax:6,stCur:6,legami:0,bonds:[],upgrade:"",roleSkillChoice:"",ore:16,note:""});
 let pg=blank(); let step=0; let mode="crea"; const KEY="glc_pirata_v4";
 let CT={v:2,activeId:"",order:[],chars:{}};
 function newId(){return "c_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
@@ -938,6 +943,7 @@ function el(t,p,kids){const e=document.createElement(t);if(p)for(const k in p){i
 function migrateChar(c){c=Object.assign(blank(),c||{});if(c.role){const MAP={"Medico":"Dottore","Carpentiere / Ingegnere":"Ingegnere","Cecchino / Vedetta":"Combattente","Cannoniere":"Combattente"};if(MAP[c.role])c.role=MAP[c.role];if(TALENTS[c.role]&&TALENTS[c.role].multi&&!c.style)c.style=firstStyle(c.role);}if(!Array.isArray(c.talents))c.talents=[];
  if(Array.isArray(c.moduli))c.moduli.forEach(function(mo){if(mo&&!mo.die)mo.die="d6";});
  if(c.frutto&&!c.frutto.die)c.frutto.die="d4";
+ if(!c.photoPos||typeof c.photoPos!=="object")c.photoPos={x:50,y:50,z:1};
  c.talents=c.talents.map(function(k){var p=String(k).split(" · ");var n=p[p.length-1];if(TAL_RENAME[n]){p[p.length-1]=TAL_RENAME[n];return p.join(" · ");}return k;});
  return c;}
 function save(){CT.chars[CT.activeId]=pg;try{localStorage.setItem(KEY,JSON.stringify(CT));}catch(e){try{const slim=JSON.parse(JSON.stringify(CT));for(const id in slim.chars)delete slim.chars[id].photo;localStorage.setItem(KEY,JSON.stringify(slim));}catch(e2){}}}
@@ -979,8 +985,21 @@ function bindInputs(){
  const fdie=$("#fr-die");if(fdie){fdie.value=pg.frutto.die||"d4";fdie.onchange=()=>{pg.frutto.die=fdie.value;render();};}
  const bi=$("#bounty-in");bi.value=pg.bounty||"0";bi.oninput=()=>{pg.bounty=bi.value.replace(/[^0-9]/g,"");bi.value=pg.bounty;render();};
 }
-function handleFile(file){if(!file||!file.type||file.type.indexOf("image/")!==0)return;const rd=new FileReader();rd.onload=()=>{const img=new Image();img.onload=()=>{const max=560;let w=img.width,h=img.height;const sc=Math.min(1,max/Math.max(w,h));const cw=Math.round(w*sc),ch=Math.round(h*sc);const cv=document.createElement("canvas");cv.width=cw;cv.height=ch;cv.getContext("2d").drawImage(img,0,0,cw,ch);try{pg.photo=cv.toDataURL("image/jpeg",0.82);}catch(e){pg.photo=rd.result;}render();};img.src=rd.result;};rd.readAsDataURL(file);}
-function bindPhoto(){const p=$("#portrait"),f=$("#photoFile");p.onclick=()=>f.click();f.onchange=e=>{if(e.target.files[0])handleFile(e.target.files[0]);};["dragenter","dragover"].forEach(ev=>p.addEventListener(ev,e=>{e.preventDefault();p.classList.add("drag");}));["dragleave","drop"].forEach(ev=>p.addEventListener(ev,e=>{e.preventDefault();p.classList.remove("drag");}));p.addEventListener("drop",e=>{const f2=e.dataTransfer&&e.dataTransfer.files[0];if(f2)handleFile(f2);});}
+function handleFile(file){if(!file||!file.type||file.type.indexOf("image/")!==0)return;const rd=new FileReader();rd.onload=()=>{const img=new Image();img.onload=()=>{const max=560;let w=img.width,h=img.height;const sc=Math.min(1,max/Math.max(w,h));const cw=Math.round(w*sc),ch=Math.round(h*sc);const cv=document.createElement("canvas");cv.width=cw;cv.height=ch;cv.getContext("2d").drawImage(img,0,0,cw,ch);try{pg.photo=cv.toDataURL("image/jpeg",0.82);}catch(e){pg.photo=rd.result;}pg.photoPos={x:50,y:50,z:1};render();};img.src=rd.result;};rd.readAsDataURL(file);}
+let PADJ=false;
+function setAdjust(on){PADJ=on;const p=$("#portrait");p.classList.toggle("adj",on);$("#pb-adj").classList.toggle("on",on);["pb-zoom","pb-reset","pb-change"].forEach(id=>{$("#"+id).style.display=on?"":"none";});p.title=on?"Trascina per inquadrare · rotella per lo zoom":"Clicca o trascina una foto";}
+function bindPhotoAdjust(){const p=$("#portrait"),img=$("#photo");
+ $("#pb-adj").onclick=()=>setAdjust(!PADJ);
+ $("#pb-change").onclick=()=>$("#photoFile").click();
+ $("#pb-reset").onclick=()=>{pg.photoPos={x:50,y:50,z:1};save();render();};
+ $("#pb-zoom").oninput=e=>{if(!pg.photoPos)pg.photoPos={x:50,y:50,z:1};pg.photoPos.z=parseFloat(e.target.value)||1;save();img.style.cssText="display:block;"+photoStyle(pg.photoPos);};
+ let drag=null;
+ p.addEventListener("pointerdown",e=>{if(!PADJ||!pg.photo)return;e.preventDefault();drag={x:e.clientX,y:e.clientY,px:pg.photoPos.x,py:pg.photoPos.y};try{p.setPointerCapture(e.pointerId);}catch(err){}});
+ p.addEventListener("pointermove",e=>{if(!drag)return;const r=p.getBoundingClientRect();const z=pg.photoPos.z||1;const nx=Math.max(0,Math.min(100,drag.px-(e.clientX-drag.x)/r.width*100/z));const ny=Math.max(0,Math.min(100,drag.py-(e.clientY-drag.y)/r.height*100/z));pg.photoPos.x=Math.round(nx*10)/10;pg.photoPos.y=Math.round(ny*10)/10;img.style.cssText="display:block;"+photoStyle(pg.photoPos);});
+ const end=()=>{if(drag){drag=null;save();}};p.addEventListener("pointerup",end);p.addEventListener("pointercancel",end);
+ p.addEventListener("wheel",e=>{if(!PADJ||!pg.photo)return;e.preventDefault();const z=Math.max(1,Math.min(3,(pg.photoPos.z||1)-Math.sign(e.deltaY)*0.1));pg.photoPos.z=Math.round(z*100)/100;$("#pb-zoom").value=pg.photoPos.z;save();img.style.cssText="display:block;"+photoStyle(pg.photoPos);},{passive:false});
+}
+function bindPhoto(){const p=$("#portrait"),f=$("#photoFile");p.onclick=()=>{if(!PADJ)f.click();};bindPhotoAdjust();f.onchange=e=>{if(e.target.files[0])handleFile(e.target.files[0]);};["dragenter","dragover"].forEach(ev=>p.addEventListener(ev,e=>{e.preventDefault();p.classList.add("drag");}));["dragleave","drop"].forEach(ev=>p.addEventListener(ev,e=>{e.preventDefault();p.classList.remove("drag");}));p.addEventListener("drop",e=>{const f2=e.dataTransfer&&e.dataTransfer.files[0];if(f2)handleFile(f2);});}
 
 /* ===== GESTIONE ===== */
 function stepper(die,onCh){return el("span",{class:"step2"},[el("button",{text:"−",onclick:()=>onCh(stepDie(die,-1))}),el("b",{text:die||"—"}),el("button",{text:"+",onclick:()=>onCh(stepDie(die,1))})]);}
@@ -1173,7 +1192,8 @@ function render(){
  $("#s-leg").textContent=legamiTotal();var su=$("#s-upg");if(su)su.textContent=(pg.upgrade!=null&&pg.upgrade!=="")?pg.upgrade:"\u2014";
  $("#s-haki-n").textContent=pg.haki.reduce((s,h)=>s+(parseInt(h.pip)||0),0);
  $("#s-taglia").textContent="฿ "+((pg.bounty&&pg.bounty!=="0")?Number(pg.bounty).toLocaleString("it-IT"):"0");
- const img=$("#photo"),hint=$("#ph-hint");if(pg.photo){img.src=pg.photo;img.style.display="block";hint.style.display="none";}else{img.removeAttribute("src");img.style.display="none";hint.style.display="block";}
+ const img=$("#photo"),hint=$("#ph-hint");if(pg.photo){if(img.getAttribute("src")!==pg.photo)img.src=pg.photo;img.style.cssText="display:block;"+photoStyle(pg.photoPos);hint.style.display="none";}else{img.removeAttribute("src");img.style.display="none";hint.style.display="block";}
+ {const pb=$("#pbar");if(pb){pb.classList.toggle("show",!!pg.photo);const zr=$("#pb-zoom");if(zr&&document.activeElement!==zr)zr.value=(pg.photoPos&&pg.photoPos.z)||1;}}
  const badge=(nameHtml,die)=>el("div",{class:"li"},[el("span",{class:"li-n",html:nameHtml}),el("span",{class:"dbadge",text:die})]);
  // attributi (plaques)
  const sa=$("#s-attr");sa.innerHTML="";ATTRS.forEach(a=>sa.appendChild(el("div",{class:"plaque",html:'<div class="pn">'+a.slice(0,3)+'</div><div class="pd">'+(pg.attr[a]||"—")+'</div><div class="pl">'+a+'</div>'})));
@@ -1224,7 +1244,7 @@ function buildPrintSheet(){
   var h="";
   h+='<div class="ps-page">';
   h+='<div class="ps-head">';
-  h+='<div class="ps-portrait">'+(pg.photo?'<img src="'+pg.photo+'" alt="">':'<span>\u2693</span>')+'</div>';
+  h+='<div class="ps-portrait">'+(pg.photo?'<img src="'+pg.photo+'" alt="" style="'+photoStyle(pg.photoPos)+'">':'<span>\u2693</span>')+'</div>';
   h+='<div class="ps-id"><div class="ps-kick">Grand Line Chronicles \u00b7 Scheda del Pirata</div>';
   h+='<div class="ps-name">'+escp(pg.nome||"Pirata Senza Nome")+'</div>';
   h+='<div class="ps-sub">'+escp((r?r.name:"Razza ignota")+" \u00b7 "+roleLabel())+'</div>';
