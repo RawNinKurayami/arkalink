@@ -133,6 +133,8 @@ var RACES=[
  {id:"cyborg",name:"Cyborg",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Corpo Meccanico",techDesc:"Installa moduli meccanici nel corpo (1 a d6 fino a 5 a d20).",sv:"Curabile solo da un meccanico"},
  {id:"tontatta",name:"Tontatta",attr:"choice2",die:"d8",pv:12,hp:"d6",tech:"Piccolo Guerriero",techDesc:"Aggiungi il Dado razziale alle prove di Furtività o Mobilità; il primo attacco nemico contro di te arriva in Svantaggio.",sv:"Presa: +3 difficoltà per liberarti · niente armi/oggetti di taglia normale o grande"}
 ];
+var RACE_MOVE={umano:[10,""],cyborg:[10,""],lunarian:[10,""],longbraccio:[10,""],uomopesce:[10,"20 m in acqua"],tontatta:[8,""],gigante:[14,""],mink:[14,"16 m in Sulong"],lungagamba:[16,""]};
+function moveLabel(id){var m=RACE_MOVE[id]||[10,""];return m[0]+" m"+(m[1]?(" · "+m[1]):"")+" · correndo "+(m[0]*2)+" m";}
 var ROLES=[
  {name:"Combattente",multi:true,styles:[["Striker",["Atletica","Acrobazia"]],["Swordsman","Atletica"],["Sniper","Osservazione"],["Special","any"]],desc:"Il muscolo della ciurma. Lo Stile decide come combatti."},
  {name:"Dottore",multi:true,styles:[["Infermeria","Medicina"],["Tossicologo","Medicina"],["Chimico","Medicina"]],desc:"Tiene in piedi la ciurma: cure, veleni o chimica."},
@@ -150,7 +152,7 @@ function blank(){return {nome:"",bg:"",amb:"",race:null,umanoAttr:"Forza",d6attr
  attr:{Forza:"",Tecnica:"",Spirito:"",Astuzia:""},
  skills:{}, roleSkillChoice:"", roleSkillDie:"d8", pa:{}, paThresh:{d4:10,d6:25,d8:60,d10:150,d12:400},
  t1:{nome:"",desc:"",attr:"",die:"d4"}, t2:{nome:"",desc:"",attr:"",die:"d4"}, racialDie:"d6", extraTech:[],
- armi:[], haki:[], frutto:{has:false,nome:"",tipo:"",desc:""},
+ armi:[], haki:[], frutto:{has:false,nome:"",tipo:"",desc:"",die:"d4"},
  photo:"", bounty:"0", pvMax:null,pvCur:null,stMax:6,stCur:6,legami:0,ore:16,note:""};}
 var D=blank(); var step=0; var KEY="glc_pirata_v4";
 
@@ -204,7 +206,7 @@ function rRace(){
   p.appendChild(c);
   var r=race();
   if(r){
-    p.appendChild(el("div",{class:"infobox",html:'<b>'+r.tech+' (Tecnica razziale):</b> '+r.techDesc+'<br><b>Svantaggio:</b> '+r.sv}));
+    p.appendChild(el("div",{class:"infobox",html:'<b>'+r.tech+' (Tecnica razziale):</b> '+r.techDesc+'<br><b>Movimento:</b> '+moveLabel(r.id)+'<br><b>Svantaggio:</b> '+r.sv}));
     if(r.attr==="choice"||r.attr==="choice2"){
       var opts=(r.attr==="choice2")?["Forza","Tecnica"]:ATTRS;
       if(r.attr==="choice2"&&D.umanoAttr!=="Forza"&&D.umanoAttr!=="Tecnica"){D.umanoAttr="Forza";computeAttr();}
@@ -344,6 +346,9 @@ function rFruit(){
     var left=el("div",{});left.appendChild(el("label",{class:"fld",text:"Descrizione / Potere"}));var ds=el("textarea",{});ds.value=D.frutto.desc;ds.oninput=function(){D.frutto.desc=ds.value;};left.appendChild(ds);
     var right=el("div",{});right.appendChild(el("label",{class:"fld",text:"Tipo"}));
     var ts=el("select",{},[el("option",{value:"",text:"—"}),el("option",{text:"Paramecia"}),el("option",{text:"Logia"}),el("option",{text:"Zoan"})]);ts.value=D.frutto.tipo;ts.onchange=function(){D.frutto.tipo=ts.value;};right.appendChild(ts);
+    right.appendChild(el("label",{class:"fld",text:"Dado del Frutto"}));
+    var fd=el("select",{},["d4","d6","d8","d10","d12","d20"].map(function(x){return el("option",{value:x,text:x});}));fd.value=D.frutto.die||"d4";fd.onchange=function(){D.frutto.die=fd.value;};right.appendChild(fd);
+    right.appendChild(el("div",{class:"explain",style:"margin-top:6px;font-size:.9rem",html:"Misura quanto <b>padroneggi</b> il potere. Parte da <b>d4</b>: <b>lo alza il Game Master, non i P.A.</b>"}));
     grid.appendChild(left);grid.appendChild(right);p.appendChild(grid);
     p.appendChild(el("div",{class:"infobox red",html:"<b>Tre debolezze:</b> il mare ti toglie le forze, la Pietra di Mare annulla i poteri, l'Haki ti colpisce comunque."}));
   }
@@ -389,11 +394,12 @@ function rFinal(){
   var rows=[
     ["Razza", r?r.name:"—"],
     ["Punti Vita", r?(r.pv+" · Vita "+r.hp):"—"],
+    ["Movimento", r?moveLabel(r.id):"—"],
     ["Attributi", attrStr],
     ["Ruolo", roleStr],
     ["Skill", (roleSkill()?roleSkill()+" d8 · ":"")+skillStr],
     ["Tecniche", techs.join(", ")||"—"],
-    ["Frutto", D.frutto.has?((D.frutto.nome||"(senza nome)")+(D.frutto.tipo?(" · "+D.frutto.tipo):"")):"Nessuno"]
+    ["Frutto", D.frutto.has?((D.frutto.nome||"(senza nome)")+(D.frutto.tipo?(" · "+D.frutto.tipo):"")+" · Dado "+(D.frutto.die||"d4")):"Nessuno"]
   ];
   var g=el("div",{class:"sumgrid"});
   rows.forEach(function(rw){g.appendChild(el("div",{class:"sumrow",html:'<span class="k">'+rw[0]+'</span><span class="v">'+esc(rw[1])+'</span>'}));});
