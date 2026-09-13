@@ -385,7 +385,7 @@ body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#3
     (pg.extraTech||[]).forEach(function(t){ if(t&&t.nome) techs.push(techRow(t)); });
     var costOf={}; if(P) (P.tecniche||[]).forEach(function(t){ costOf[t.nome]=t.cost; });
     (pg.armi||[]).forEach(function(a){ if(a&&a.nome) techs.push({nome:a.nome,attr:(ATTR3[a.attr]||a.attr||'\u2014'),die:a.die||'',tipo:'Arma'+(a.tipo?(' \u00b7 '+a.tipo):''),eff:a.note||''}); });
-    (pg.strumenti||[]).forEach(function(a){ if(a&&a.nome) techs.push({nome:a.nome,attr:'Spi',die:a.die||'',tipo:'Strumento',eff:a.note||''}); });
+    (pg.strumenti||[]).forEach(function(a){ if(a&&a.nome) techs.push({nome:a.nome,attr:'\u2014',die:a.die||'',tipo:'Strumento \u00b7 '+(a.tipo||'Corde'),eff:a.note||''}); });
     techs.slice(0,9).forEach(function(t,i){ setT(i,'nome',t.nome); setT(i,'attr',t.attr); setT(i,'dado',t.die); setT(i,'tipo',t.tipo); setT(i,'eff',t.eff); setT(i,'st',costOf[t.nome]||''); });
     if(pg.frutto&&pg.frutto.has){ var f=qd('.frtipo[data-tipo="'+(pg.frutto.tipo||'')+'"]'); if(f) f.classList.add('on'); setText('f-frutto-nome',pg.frutto.nome||''); setText('f-frutto-eff',pg.frutto.desc||''); setText('f-frutto-die',pg.frutto.die||'d4'); }
     buildPage3(pg,P,techs.length>9?techs.slice(9):[]);
@@ -410,7 +410,7 @@ body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#3
     var mods=P?P.moduli:(pg.moduli||[]);
     if(mods.length) sec('Moduli & Arsenale'+(P&&P.moduliSlots?(' \u00b7 '+mods.length+'/'+P.moduliSlots+' slot'):''),mods.map(function(m){return row(m.nome||'modulo',(m.die||'d6')+' \u00b7 si usa come Tecnica',m.eff,m.desc);}).join(''));
     var str=P?P.strumenti:(pg.strumenti||[]);
-    if(str.length) sec('Strumenti (Spirito + dado)',str.map(function(a){return row(a.nome||'strumento',a.die||'',a.note);}).join(''));
+    if(str.length) sec('Strumenti del Musicista',str.map(function(a){return row(a.nome||'strumento',[a.tipo||'Corde',(a.die||'')+(a.grado?(' '+a.grado):''),(a.soglia?('Salvezza '+a.soglia):''),(a.over?'usato come d4':'')].filter(Boolean).join(' \u00b7 '),a.note);}).join(''));
     var armi=P?P.armi:(pg.armi||[]);
     if(armi.length) sec('Armi — dettaglio',armi.map(function(a){return row(a.nome||'arma',[a.tipo,a.attr,a.die].filter(Boolean).join(' \u00b7 '),a.note);}).join(''));
     var inv=P?(P.inventario||[]):(pg.inventario||[]);

@@ -777,7 +777,7 @@ const TALENTS={
   {n:"Memoria del Mondo",tier:"d12",d:"su qualunque luogo, rovina, isola o reperto di cui la ciurma senta parlare tu sai qualcosa: nessun tiro, il GM ti dà un frammento vero, anche scomodo."},
   {n:"Custode del Sapere",tier:"d12",d:"quello che scopri non lo perdi più: archivi, calchi e copie sono al sicuro e replicati altrove. Se la biblioteca di bordo brucia, la ciurma continua a godere dei tuoi studi."},
   {n:"La Voce delle Pietre",tier:"d20",t:"ultimate",d:"1 volta per avventura. Fuori dal combattimento: da un'iscrizione o un reperto ricavi un'informazione che sposta l'arco narrativo, concreta e utilizzabile. Dentro una rovina: per una scena i meccanismi del luogo obbediscono a te. Richiede l'Ambizione dell'Archeologo e il permesso del GM."}]}}},
-"Musicista":{skill:"Arte",styles:{"Musicista":{ico:"🎵",tratto:"Il Moltiplicatore della Ciurma — l'unico che ridà Stamina in battaglia, spezza la paura e potenzia tutti. Per menare usa il suo Stile di Combattimento: lo strumento non è un'arma. Canzoni = Spirito + Tecnica.",firma:"La nota che arriva all'anima — su una Canzone riuscita con margine +4 l'effetto vale doppio, oppure raggiunge tutta la ciurma invece dei soli bersagli previsti. Scegli tu, al momento.",talenti:[
+"Musicista":{skill:"Arte",styles:{"Musicista":{ico:"🎵",tratto:"Il Moltiplicatore della Ciurma — l'unico che ridà Stamina in battaglia, spezza la paura e potenzia tutti. Per menare usa il suo Stile di Combattimento: lo strumento non è un'arma.",firma:"La nota che arriva all'anima — su un tiro di Arte con margine +4, fuori dal combattimento, la tua esibizione non intrattiene, conquista: chi ascolta ti concede qualcosa che non aveva intenzione di darti — un favore, un'informazione, un passaggio, il silenzio su quello che ha visto. Le Canzoni in battaglia non si tirano e non falliscono, quindi la Firma vive fuori dallo scontro.",talenti:[
   {n:"Musica Incrollabile",tier:"d8",d:"la tua musica non si ferma se sei Stordito o a terra."},
   {n:"Anima dell'Intrattenitore",tier:"d8",d:"fuori dal combattimento le tue esibizioni (Spirito + Arte) hanno Vantaggio."},
   {n:"Contrappunto — Base",tier:"d8",d:"mantenere una Canzone non ti impedisce di agire: suoni e fai il tuo turno normalmente."},
@@ -959,7 +959,7 @@ const TEC_RANK={d4:1,d6:2,d8:3,d10:4,d12:5,d20:6,"d20+":7};
 const TEC_SLOT={d4:1,d6:1,d8:2,d10:2,d12:3,d20:4,"d20+":5};
 const TEC_DUR=[["Un turno",0,0,""],["Mantieni (+1/turno)",0,1,""],["3 turni",2,0,""],["Tutta la scena",0,0,"d20+"]];
 const TEC_FAMS=["Danno","Controllo","Spostamento","Difesa","Potenziamento","Melodie del Musicista","Area","Zona Persistente","Concatenati"];
-/* [famiglia, nome, effetto, dado minimo, costo ST, requisito, sottogruppo]
+/* [famiglia, nome, effetto, dado minimo, costo ST, requisito, sottogruppo, mantenimento ST/turno]
    sottogruppo "sagoma": non occupa slot, se ne sceglie una sola · "gittata": una sola, occupa slot */
 const TEC_EFF=[
 ["Danno","+1d6 Dado Danno","un d6 in più al danno","d8",1,""],
@@ -997,15 +997,18 @@ const TEC_EFF=[
 ["Potenziamento","Mira","+1 gradino al dado delle tue Tecniche per il tiro per colpire · per la scena","d8",2,"potenz"],
 ["Potenziamento","Tempra","+2 Difesa Passiva · in cambio −1 gradino al Dado Danno · per la scena","d10",2,"potenz"],
 ["Potenziamento","Oltre il Limite","il dado sale di 1 oltre il tetto (da d20) · 3 turni","d20",3,"potenz"],
-["Melodie del Musicista","Motivetto di Vigore","un alleato a portata recupera 1d4 ST","d6",2,"musicista"],
-["Melodie del Musicista","Marcia di Guerra","Sostenuta (2 ST/turno): finché suoni, un alleato scelto ha +1d4 agli attacchi","d6",2,"musicista"],
+["Melodie del Musicista","Motivetto di Vigore","un alleato recupera 1d6 ST","d6",1,"musicista"],
+["Melodie del Musicista","Richiamo","ogni nemico entro 20 m che ti sente deve attaccare te in questo turno, o tira in Svantaggio contro chiunque altro (Salvezza)","d6",1,"musicista"],
+["Melodie del Musicista","Marcia di Guerra","Sostenuta: finché suoni, un alleato scelto ha +1d4 agli attacchi","d6",2,"musicista","",1],
 ["Melodie del Musicista","Controcanto","spezzi paura e malie: annulli Terrore, Sopore o charme sugli alleati","d8",1,"musicista"],
-["Melodie del Musicista","Requiem Beffardo","il nemico ha Svantaggio al suo prossimo tiro","d8",3,"musicista"],
-["Melodie del Musicista","Crescendo","la prossima Tecnica di un alleato costa metà ST","d10",3,"musicista"],
-["Melodie del Musicista","Ninnananna","Addormentato a chi ti ascolta (Salvezza) — nessun danno","d10",2,"musicista"],
+["Melodie del Musicista","Requiem Beffardo","il nemico ha Svantaggio al suo prossimo tiro (Salvezza)","d8",1,"musicista"],
+["Melodie del Musicista","Tempo","un alleato sposta la sua Iniziativa subito dopo la tua, per il resto dello scontro","d8",2,"musicista"],
+["Melodie del Musicista","Crescendo","la prossima Tecnica di un alleato costa 2 ST in meno (minimo 1)","d10",2,"musicista"],
+["Melodie del Musicista","Ninnananna","Addormentato ai nemici entro 20 m che ti sentono (Salvezza) — nessun danno","d10",4,"musicista"],
 ["Melodie del Musicista","Assolo Travolgente","gli alleati in ascolto recuperano 1d6 ST e hanno +1d6 al tiro per colpire","d10",4,"musicista"],
-["Melodie del Musicista","Inno della Ciurma","tutta la ciurma duplica un dado a scelta","d12",5,"musicista"],
-["Melodie del Musicista","Canzone dell'Anima","Ultimate · melodia firma: tutta la ciurma recupera l'intera Stamina","d20",6,"musicista"],
+["Melodie del Musicista","Inno della Ciurma","per la scena, ogni compagno sceglie un proprio dado e lo tira due volte tenendo il migliore","d12",5,"musicista"],
+["Melodie del Musicista","Canto di Bordo","in battaglia navale, per la scena ogni compagno a una postazione aggiunge +1 dado al tiro della sua postazione","d12",4,"musicista"],
+["Melodie del Musicista","Canzone dell'Anima","Ultimate — tutta la ciurma recupera l'intera Stamina","d20",6,"musicista"],
 ["Area","Soffio","cono di 5 m","d6",0,"area","sagoma"],
 ["Area","Onda","cono di 10 m","d8",1,"area","sagoma"],
 ["Area","Marea","cono di 20 m","d12",3,"area","sagoma"],
@@ -1072,7 +1075,7 @@ function effVeto(e){ // regole trasversali: restituisce il motivo del blocco, o 
   }
   return "";
 }
-function tecCost(t){let st=0,pt=0;(t.eff||[]).forEach(nm=>{const e=tecEffObj(nm);if(e)st+=e[4];});const d=TEC_DUR.find(x=>x[0]===t.durata);if(d){st+=d[1];pt+=d[2];}st=Math.max(1,st);return{st:st,pt:pt};}
+function tecCost(t){let st=0,pt=0;(t.eff||[]).forEach(nm=>{const e=tecEffObj(nm);if(e){st+=e[4];if(e[7])pt+=e[7];}});const d=TEC_DUR.find(x=>x[0]===t.durata);if(d){st+=d[1];pt+=d[2];}st=Math.max(1,st);return{st:st,pt:pt};}
 function tecCostLabel(t){const c=tecCost(t);return c.st+" ST"+(c.pt?(" +"+c.pt+"/turno"):"");}
 function tecSummary(t){const a=[];if(t.fonte)a.push(t.fonte==="Frutto"&&t.fruitType?("Frutto "+t.fruitType):(t.fonte==="Arma"&&t.weapon?("Arma \u00ab"+t.weapon+"\u00bb"):t.fonte));if(t.forma)a.push(t.forma);if(t.die)a.push(t.die);if(t.durata&&t.forma==="Area"&&t.durata!=="Un turno")a.push(t.durata);let s=a.join(" · ");if(t.eff&&t.eff.length)s+=" — "+t.eff.join(", ");return s;}
 let TBUILD={nome:"",attr:"",fonte:"Stile",forma:"Singolo",die:"d6",durata:"Un turno",eff:[],desc:"",_open:[],_id:null,fruitType:"",weaponName:""};
@@ -1115,7 +1118,7 @@ function renderTecBuilder(onAdd){
   while(slotUsed(TBUILD.eff)>slot){for(let k=TBUILD.eff.length-1;k>=0;k--){if(!isSagoma(TBUILD.eff[k])){TBUILD.eff.splice(k,1);break;}}}
   durHost.innerHTML="";
   if(TBUILD.forma==="Area"){const w=el("div",{});w.appendChild(el("label",{class:"fld",text:"Durata della Zona"}));const sl=el("select",{});TEC_DUR.forEach(d=>sl.appendChild(el("option",{value:d[0],text:d[0]+(d[3]?(" — richiede "+d[3]):"")})));sl.value=TBUILD.durata;sl.onchange=()=>{TBUILD.durata=sl.value;refresh();};w.appendChild(sl);durHost.appendChild(w);}
-  info.innerHTML="Effetti: <b>"+slotUsed(TBUILD.eff)+" / "+slot+"</b> · max 1 per gruppo · sblocchi fino a <b>"+TBUILD.die+"</b>"+(TBUILD.forma==="Area"?" · Area: scegli <b>una sagoma</b> (non occupa slot; il costo è la sua misura) e al massimo una Gittata · bersagli a metà danno · stati = Salvezza":"");
+  info.innerHTML=(TBUILD.forma==="Canzone"?"<b>Le Canzoni non si tirano.</b> Una sola Melodia per Canzone · sugli alleati l'effetto è automatico · i nemici tirano la Salvezza contro il Grado del tuo strumento · costo: la Stamina della Melodia più la tua azione.<br>":"")+"Effetti: <b>"+slotUsed(TBUILD.eff)+" / "+slot+"</b> · max 1 per gruppo · sblocchi fino a <b>"+TBUILD.die+"</b>"+(TBUILD.forma==="Area"?" · Area: scegli <b>una sagoma</b> (non occupa slot; il costo è la sua misura) e al massimo una Gittata · bersagli a metà danno · stati = Salvezza":"");
   effHost.innerHTML="";
   TEC_FAMS.forEach(fam=>{
    if(fam==="Melodie del Musicista"&&!(isMusicista()&&TBUILD.forma==="Canzone"))return;
@@ -1134,7 +1137,7 @@ function renderTecBuilder(onAdd){
     let hint="";if(!okD)hint=" <i style='color:#c96f5e'>(da "+e[3]+")</i>";else if(!okR)hint=" <i style='color:#c96f5e'>("+(GATE_HINT[e[5]]||"non disponibile")+")</i>";else if(veto)hint=" <i style='color:#c96f5e'>("+veto+")</i>";else if(famTaken)hint=" <i style='color:#c96f5e'>("+(e[6]==="sagoma"?"una sola sagoma":(e[6]==="gittata"?"una sola gittata":"1 per gruppo"))+")</i>";else if(full)hint=" <i style='color:#c96f5e'>(slot pieni)</i>";
     const cbx=el("input",{type:"checkbox"});cbx.checked=sel;cbx.disabled=dis;
     cbx.onchange=()=>{const ix=TBUILD.eff.indexOf(nm);if(cbx.checked){if(ix<0)TBUILD.eff.push(nm);}else if(ix>=0)TBUILD.eff.splice(ix,1);refresh();};
-    det.appendChild(el("label",{class:"tbrow"+(dis?" off":"")},[cbx,el("span",{class:"talname",html:"<b>"+nm+"</b> <span class='ttag'>"+e[3]+" · "+e[4]+" ST"+(e[6]==="sagoma"?" · sagoma":"")+"</span> — "+e[2]+hint})]));
+    det.appendChild(el("label",{class:"tbrow"+(dis?" off":"")},[cbx,el("span",{class:"talname",html:"<b>"+nm+"</b> <span class='ttag'>"+e[3]+" · "+e[4]+" ST"+(e[7]?(" · "+e[7]+"/turno"):"")+(e[6]==="sagoma"?" · sagoma":"")+"</span> — "+e[2]+hint})]));
    });
    effHost.appendChild(det);
   });
@@ -1223,6 +1226,7 @@ function migrateChar(c){c=Object.assign(blank(),c||{});if(c.role){const MAP={"Me
  if(!c.photoPos||typeof c.photoPos!=="object")c.photoPos={x:50,y:50,z:1};
  if(Array.isArray(c.haki))c.haki.forEach(function(h){if(h&&h.die)h.pip=hakiPip(h.die);});
  if(Array.isArray(c.bonds))c.bonds.forEach(function(b){if(b&&!b.die){var n=parseInt(b.pip)||0;b.die=n<=0?"d4":(["d4","d4","d6","d8","d10","d12"][n]||"d20");}});
+ if(Array.isArray(c.strumenti))c.strumenti.forEach(function(a){if(a&&!a.tipo)a.tipo="Corde";});
  if(!Array.isArray(c.inventario))c.inventario=[];
  c.inventario.forEach(function(it){if(it&&it.ico&&INV_MIGRATE[it.ico])it.ico=INV_MIGRATE[it.ico];});
  c.talents=c.talents.map(function(k){var p=String(k).split(" · ");var n=p[p.length-1];if(TAL_RENAME[n]){p[p.length-1]=TAL_RENAME[n];return p.join(" · ");}return k;});
@@ -1373,7 +1377,39 @@ function gcard(die,title,meta,desc,onClick,ico){const c=el("div",{class:"gcard"}
 function addCard(text,onClick){const c=el("div",{class:"gcard add",html:'<div class="gc-ico"><span class="gc-em">'+svgIcon("plus",26)+'</span></div><div class="gc-body"><div class="gc-n">'+text+'</div></div>'});c.onclick=onClick;return c;}
 /* Modali di modifica */
 function weaponModal(i){openModal("⚔️ Arma",()=>{const a=pg.armi[i];if(!a)return el("div");const w=el("div",{});w.appendChild(field("Nome arma",a.nome,v=>{a.nome=v;save();}));const _wt=weaponTypes();if(a.tipo==="Special")a.tipo="Speciale";if(!a.tipo||_wt.indexOf(a.tipo)<0)a.tipo=_wt[_wt.length-1];w.appendChild(el("label",{class:"fld",text:"Tipo di arma"}));const ts=el("select",{},_wt.map(x=>el("option",{value:x,text:x})));ts.value=a.tipo;ts.onchange=()=>{a.tipo=ts.value;save();};w.appendChild(ts);w.appendChild(el("label",{class:"fld",text:"Attributo · Dado"}));w.appendChild(el("div",{class:"mrow"},[attrSelect(a.attr,v=>{a.attr=v;save();}),stepper(a.die,nd=>mutateM(()=>a.die=nd))]));w.appendChild(field("Note / effetti speciali",a.note,v=>{a.note=v;save();}));w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare quest'arma?")){closeModal();mutate(()=>pg.armi.splice(i,1));}}})]));return w;});}
-function instrumentModal(i){openModal("🎵 Strumento",()=>{const a=pg.strumenti[i];if(!a)return el("div");const w=el("div",{});w.appendChild(field("Nome strumento",a.nome,v=>{a.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Spirito · Dado"}));w.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",text:"Spirito (fisso)"}),stepper(a.die,nd=>mutateM(()=>a.die=nd))]));w.appendChild(field("Note / effetti speciali",a.note,v=>{a.note=v;save();}));w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{closeModal();mutate(()=>pg.strumenti.splice(i,1));}})]));return w;});}
+/* ===== STRUMENTI DEL MUSICISTA ===== */
+const INSTR_GRADI={d4:"Base",d6:"Competente",d8:"Esperto",d10:"Maestro",d12:"Leggenda",d20:"Mitico"};
+const INSTR_TIPI={Corde:"le Melodie rivolte a un solo bersaglio costano 1 ST in meno (minimo 1)",Fiati:"la portata delle tue Canzoni passa da 20 a 40 metri",Percussioni:"le Melodie che prendono tutta la ciurma costano 1 ST in meno",Mantice:"il mantenimento delle Sostenute è gratuito per i primi 2 turni",Voce:"non puoi essere disarmato, e nessuno capisce che stai usando una Tecnica finché non fa effetto"};
+const INSTR_ICON={Corde:"music",Fiati:"wind",Percussioni:"burst",Mantice:"bag",Voce:"eye"};
+const INSTR_ESEMPI=[
+ ["Corde","Chitarra del molo","d6","Legno scadente, corde sostituite mille volte. Nessun effetto speciale, ma non ti abbandona."],
+ ["Corde","Liuto d'ebano","d8","Ogni volta che una tua Melodia rimette in forze un compagno, quel compagno recupera +1 ST."],
+ ["Corde","Sei Corde del Naufrago","d12","Quando suoni per un compagno con cui hai un Legame Nakama, la Melodia costa 0 ST. Una volta per scontro."],
+ ["Fiati","Flauto d'osso","d6","Ricavato da qualcosa che è meglio non chiedere. Suona pulito, e si sente da lontano."],
+ ["Fiati","Corno da nebbia","d8","In battaglia navale le tue Canzoni raggiungono l'intera nave, e anche quella accanto se siete accostati."],
+ ["Fiati","Tromba dell'Alba","d12","Una volta per scena, la tua Canzone ignora la Salvezza: chi ti sente, la subisce."],
+ ["Percussioni","Tamburo di bordo","d6","Quello che detta il tempo ai remi. Vecchio quanto la nave."],
+ ["Percussioni","Coppia di Tamburi da Guerra","d8","Le tue Melodie Sostenute rivolte a più bersagli si estendono anche a chi entra nella portata dopo che hai cominciato."],
+ ["Percussioni","Taiko del Vecchio Mare","d12","Quando suoni una Melodia che prende tutta la ciurma, un compagno a scelta ne riceve l'effetto doppio."],
+ ["Mantice","Organetto da taverna","d6","Due tasti non funzionano. Nessuno se n'è mai accorto."],
+ ["Mantice","Fisarmonica del Vecchio","d8","Puoi tenere una Melodia Sostenuta mentre sei incosciente, finché qualcuno non ti toglie lo strumento di mano."],
+ ["Mantice","Mantice delle Maree","d10","Le tue Sostenute non costano mai mantenimento. In compenso puoi tenerne una sola alla volta, e lo strumento scotta finché suona."],
+ ["Voce","Voce Educata","d6","Richiede Arte d6. Hai studiato. Le tue Canzoni funzionano anche senza parole — un motivo fischiato, un mormorio: nessuno può accusarti di aver detto niente."],
+ ["Voce","Ugola di Sirena","d12","Chi ti sente cantare per la prima volta in una scena deve superare la Salvezza anche solo per smettere di ascoltarti."],
+ ["Voce","Il Canto di Joy","d20","Mitico. Se ne racconta uno solo, e non si sa se sia mai esistito. Chi lo sente non dimentica: la tua Canzone resta addosso a chi l'ha ascoltata anche dopo la fine della scena, e il Game Master decide per quanto."]
+];
+function arteDie(){const ro=roleObj();if(ro&&ro.skill==="Arte")return pg.roleSkillDie||"d8";return pg.skills.Arte||"d4";}
+/* Il Grado non può superare l'Arte: oltre, lo strumento si usa come un d4. La Salvezza contro le Canzoni ha Soglia = Grado effettivo. */
+function instrEff(a){const g=a.die||"d4";const arte=arteDie();const over=dieRank(g)>dieRank(arte);const eff=over?"d4":g;return {grado:g,eff:eff,over:over,arte:arte,soglia:parseInt(String(eff).slice(1),10)||4};}
+function instrMeta(a){const x=instrEff(a);return (a.tipo||"Corde")+" · "+(x.over?("<b>"+x.grado+"</b> usato come d4 (Arte "+x.arte+")"):("<b>"+x.grado+"</b> "+(INSTR_GRADI[x.grado]||"")))+" · Salvezza "+x.soglia;}
+function instrumentModal(i){openModal("🎼 Strumento",()=>{const a=pg.strumenti[i];if(!a)return el("div");if(!a.tipo)a.tipo="Corde";const x=instrEff(a);const w=el("div",{});
+ w.appendChild(field("Nome strumento",a.nome,v=>{a.nome=v;save();}));
+ w.appendChild(el("label",{class:"fld",text:"Tipo · come amplifica"}));const tg=el("div",{class:"classgrid"});Object.keys(INSTR_TIPI).forEach(t=>{const o=el("div",{class:"classopt"+(a.tipo===t?" sel":"")},[el("div",{class:"co-ico",html:svgIcon(INSTR_ICON[t],26)}),el("div",{class:"co-n",text:t}),el("div",{class:"co-s",text:INSTR_TIPI[t]})]);o.onclick=()=>mutateM(()=>a.tipo=t);tg.appendChild(o);});w.appendChild(tg);
+ w.appendChild(el("label",{class:"fld",text:"Grado"}));w.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",html:"<b style='color:#ffd394'>"+(INSTR_GRADI[x.grado]||"")+"</b> · la Salvezza contro le tue Canzoni ha Soglia <b style='color:#ffd394'>"+x.soglia+"</b>"}),stepper(a.die||"d4",nd=>mutateM(()=>a.die=nd))]));
+ if(x.over)w.appendChild(el("div",{class:"sub",style:"color:#e0a36b;margin-top:4px",html:"Il Grado non può superare la tua <b>Arte ("+x.arte+")</b>: finché non ci arrivi, questo strumento lo suoni come un <b>d4</b>."}));
+ w.appendChild(field("Effetto speciale (uno solo, lo concede il GM)",a.note,v=>{a.note=v;save();}));
+ const det=el("details",{class:"tbfam",style:"margin-top:10px"});det.appendChild(el("summary",{text:"Esempi dal manuale · tocca per usarne uno"}));const eg=el("div",{class:"gcards"});INSTR_ESEMPI.forEach(ex=>{const c=el("div",{class:"gcard click"},[el("div",{class:"gc-ico",html:dieIcon(ex[2],40)}),el("div",{class:"gc-body"},[el("div",{class:"gc-n",text:ex[1]}),el("div",{class:"gc-m",text:ex[0]+" · "+ex[2]+" "+(INSTR_GRADI[ex[2]]||"")}),el("div",{class:"gc-d",text:ex[3]})])]);c.onclick=()=>mutateM(()=>{a.nome=ex[1];a.tipo=ex[0];a.die=ex[2];a.note=ex[3];});eg.appendChild(c);});det.appendChild(eg);w.appendChild(det);
+ w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{closeModal();mutate(()=>pg.strumenti.splice(i,1));}})]));return w;});}
 function moduleModal(i){openModal("⚙️ Modulo",()=>{const mo=pg.moduli[i];if(!mo)return el("div");const w=el("div",{});w.appendChild(field("Nome modulo",mo.nome,v=>{mo.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Dado (colpire e Dado Danno)"}));w.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",text:"si usa come Tecnica"}),stepper(mo.die||"d6",nd=>mutateM(()=>mo.die=nd))]));w.appendChild(field("Effetti",mo.eff,v=>{mo.eff=v;save();}));w.appendChild(field("Descrizione / note",mo.desc,v=>{mo.desc=v;save();}));w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{closeModal();mutate(()=>pg.moduli.splice(i,1));}})]));return w;});}
 function techModal(t){openModal("✦ "+(t.name||"Tecnica"),()=>{const w=el("div",{});const obj=t.k==="t1"?pg.t1:(t.k==="t2"?pg.t2:null);if(t.fixed){w.appendChild(el("div",{class:"tdsub",text:"Tecnica razziale · "+t.die}));w.appendChild(el("div",{class:"tddesc",html:racialEffect(pg.race,t.die)}));}else if(obj){w.appendChild(field("Nome",obj.nome,v=>{obj.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Attributo · Dado"}));w.appendChild(el("div",{class:"mrow"},[attrSelect(obj.attr,v=>{obj.attr=v;save();}),stepper(obj.die,nd=>mutateM(()=>obj.die=nd))]));w.appendChild(el("label",{class:"fld",text:"Descrizione / Effetti"}));const tx=el("textarea",{});tx.value=obj.desc||"";tx.oninput=()=>{obj.desc=tx.value;save();};w.appendChild(tx);}
  w.appendChild(el("label",{class:"fld",text:"Progressione"}));w.appendChild(paRowM("tec:"+t.k,()=>(t.fixed?pg.racialDie:(obj?obj.die:t.die)),nd=>setTechDie(t,nd)));
@@ -1435,7 +1471,7 @@ function renderManage(){
  const eq=el("div",{class:"slots"},[el("div",{class:"slots-h",text:"Equipaggiamento"})]);
  pg.armi.forEach((a,i)=>eq.appendChild(slotTile(a.die,a.nome||"Arma",[a.tipo,a.attr].filter(Boolean).join(" · "),()=>weaponModal(i))));
  eq.appendChild(slotAdd("Arma",()=>{mutate(()=>pg.armi.push({nome:"Nuova arma",attr:"",die:"d6",note:"",tipo:"Lama"}));flyIn(dieIcon("d6",120),()=>{const l=document.querySelectorAll(".slots:not(.right) .slot.click");return l[pg.armi.length-1];});setTimeout(()=>weaponModal(pg.armi.length-1),950);}));
- if(isMusicista()){(pg.strumenti||[]).forEach((a,i)=>eq.appendChild(slotTile(a.die,a.nome||"Strumento","Spirito · strumento",()=>instrumentModal(i))));eq.appendChild(slotAdd("Strumento",()=>{mutate(()=>{if(!pg.strumenti)pg.strumenti=[];pg.strumenti.push({nome:"Nuovo strumento",die:"d6",note:""});});flyIn(dieIcon("d6",120),()=>byText(".slots .slot-n","Nuovo strumento"));setTimeout(()=>instrumentModal(pg.strumenti.length-1),950);}));}
+ if(isMusicista()){eq.appendChild(el("div",{class:"slots-h",text:"Strumenti"}));eq.appendChild(slotTile("d4","La tua voce","Voce · <b>d4</b> Base · sempre con te",null));(pg.strumenti||[]).forEach((a,i)=>eq.appendChild(slotTile(instrEff(a).grado,a.nome||"Strumento",instrMeta(a),()=>instrumentModal(i))));eq.appendChild(slotAdd("Strumento",()=>{mutate(()=>{if(!pg.strumenti)pg.strumenti=[];pg.strumenti.push({nome:"Nuovo strumento",tipo:"Corde",die:"d6",note:""});});flyIn(dieIcon("d6",120),()=>byText(".slots .slot-n","Nuovo strumento"));setTimeout(()=>instrumentModal(pg.strumenti.length-1),950);}));}
  if(pg.race==="cyborg"||isCombSpecial()){const S=moduliSlots();if(S.n>0){eq.appendChild(el("div",{class:"slots-h",html:"Moduli · "+(pg.moduli||[]).length+"/"+S.n}));(pg.moduli||[]).forEach((mo,i)=>eq.appendChild(slotTile(mo.die||"d6",mo.nome||"Modulo",mo.eff||"modulo",()=>moduleModal(i))));if((pg.moduli||[]).length<S.n)eq.appendChild(slotAdd("Modulo",()=>{mutate(()=>{if(!pg.moduli)pg.moduli=[];pg.moduli.push({nome:"Nuovo modulo",die:"d6",eff:"",desc:""});});flyIn(dieIcon("d6",120),()=>byText(".slots .slot-n","Nuovo modulo"));setTimeout(()=>moduleModal(pg.moduli.length-1),950);}));}}
  {eq.appendChild(el("div",{class:"slots-h",text:"Haki"}));pg.haki.forEach((h,i)=>{const unl=hakiUnlocked(h);const liv=unl.length?unl[unl.length-1].liv:"";eq.appendChild(slotTile(null,h.name.replace("Haki ",""),"<b>"+(h.die||"—")+"</b> · "+(h.pip||0)+" PIP"+(liv?(" · "+liv):""),()=>hakiModal(i),"img:"+(IMG_ICON[h.name]||"haki-armamento")));});const hakiFree=HAKI_NAMES.filter(n=>!pg.haki.some(h=>h.name===n));if(hakiFree.length)eq.appendChild(slotAdd("Risveglia Haki",()=>{const nm=hakiFree[0];mutate(()=>pg.haki.push({name:nm,die:"d6",pip:hakiPip("d6")}));flyIn(imgIcon(IMG_ICON[nm],120),()=>byText(".slots .slot-n",nm.replace("Haki ","")));setTimeout(()=>hakiModal(pg.haki.length-1),950);}));}
  mid.appendChild(eq);
@@ -1569,7 +1605,7 @@ function buildPrintSheet(){
   });
   h+='</table></div>';
   if(pg.armi&&pg.armi.length){h+='<div class="ps-sec"><div class="ps-h">Equipaggiamento</div>';pg.armi.forEach(function(a){h+='<div class="ps-item"><b>'+escp(a.nome||"arma")+'</b> <span class="die">'+escp([a.tipo,a.die].filter(Boolean).join(" \u00b7 "))+'</span>'+((a.attr||a.note)?'<div class="ps-d">'+escp([a.attr,a.note].filter(Boolean).join(" \u00b7 "))+'</div>':'')+'</div>';});h+='</div>';}
-  if(pg.strumenti&&pg.strumenti.length){h+='<div class="ps-sec"><div class="ps-h">Strumenti</div>';pg.strumenti.forEach(function(a){h+='<div class="ps-item"><b>'+escp(a.nome||"strumento")+'</b> <span class="die">'+escp(["Spirito",a.die].filter(Boolean).join(" \u00b7 "))+'</span>'+(a.note?'<div class="ps-d">'+escp(a.note)+'</div>':'')+'</div>';});h+='</div>';}
+  if(pg.strumenti&&pg.strumenti.length){h+='<div class="ps-sec"><div class="ps-h">Strumenti</div>';pg.strumenti.forEach(function(a){var x=instrEff(a);h+='<div class="ps-item"><b>'+escp(a.nome||"strumento")+'</b> <span class="die">'+escp([a.tipo||"Corde",x.grado+(INSTR_GRADI[x.grado]?(" "+INSTR_GRADI[x.grado]):""),"Salvezza "+x.soglia].join(" \u00b7 "))+'</span>'+(x.over?'<div class="ps-d2">usato come d4 finché l\'Arte non arriva a '+escp(x.grado)+'</div>':'')+(a.note?'<div class="ps-d">'+escp(a.note)+'</div>':'')+'</div>';});h+='</div>';}
   if(pg.moduli&&pg.moduli.length){h+='<div class="ps-sec"><div class="ps-h">Moduli & Arsenale</div>';pg.moduli.forEach(function(mo){h+='<div class="ps-tech"><div class="tt"><b>'+escp(mo.nome||"modulo")+'</b> <span class="tg">'+escp(mo.die||"d6")+'</span></div>'+(mo.eff?'<div class="ps-d">'+escp(mo.eff)+'</div>':'')+(mo.desc?'<div class="ps-d2">'+escp(mo.desc)+'</div>':'')+'</div>';});h+='</div>';}
   if(Array.isArray(pg.talents)&&pg.talents.length){h+='<div class="ps-sec"><div class="ps-h">Talenti</div>';pg.talents.forEach(function(k){var ti=talentInfo(k);h+='<div class="ps-tech"><div class="tt">\u2726 <b>'+escp(ti.name)+'</b>'+(ti.branch?' <span class="ps-d2">('+escp(ti.branch)+')</span>':'')+(ti.tag?' <span class="ps-d2">'+escp(ti.tag)+'</span>':'')+'</div>'+(ti.desc?'<div class="ps-d">'+escp(ti.desc)+'</div>':'')+'</div>';});h+='</div>';}
   if(Array.isArray(pg.bonds)){var bb=pg.bonds.filter(function(b){return (b.nome&&b.nome.trim())||b.die;});if(bb.length){h+='<div class="ps-sec"><div class="ps-h">Legami Nakama</div><table class="ps-tab">';bb.forEach(function(b){h+='<tr><td class="sk">'+escp(b.nome||"—")+'</td><td class="sd">'+escp(b.die||"d4")+'</td></tr>';});h+='</table></div>';}}
@@ -1598,7 +1634,7 @@ function printPayload(){
     talenti:(pg.talents||[]).map(function(k){var ti=talentInfo(k);return {name:ti.name,branch:ti.branch||"",tag:ti.tag||"",desc:ti.desc||""};}),
     moduli:(pg.moduli||[]).map(function(m){return {nome:m.nome||"",die:m.die||"d6",eff:m.eff||"",desc:m.desc||""};}),
     moduliSlots:(pg.race==="cyborg"||isCombSpecial())?moduliSlots().n:0,
-    strumenti:(pg.strumenti||[]).map(function(a){return {nome:a.nome||"",die:a.die||"",note:a.note||""};}),
+    strumenti:(pg.strumenti||[]).map(function(a){var x=instrEff(a);return {nome:a.nome||"",die:a.die||"",tipo:a.tipo||"Corde",grado:INSTR_GRADI[x.grado]||"",soglia:x.soglia,over:x.over,note:a.note||""};}),
     armi:(pg.armi||[]).map(function(a){return {nome:a.nome||"",tipo:a.tipo||"",attr:a.attr||"",die:a.die||"",note:a.note||""};}),
     inventario:(pg.inventario||[]).map(function(it){return {nome:it.nome||"",qta:(parseInt(it.qta)||0),note:it.note||"",ico:it.ico||""};}),
     haki:(pg.haki||[]).map(function(hk){var unl=hakiUnlocked(hk);return {name:hk.name,die:hk.die||"",pip:parseInt(hk.pip)||0,liv:unl.length?unl[unl.length-1].liv:"",rows:unl.map(function(x){return {liv:x.liv,pass:x.pass||"",act:x.act||"",cost:x.cost||""};})};}),
