@@ -100,7 +100,6 @@ textarea{min-height:80px; resize:vertical;}
 .done-actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
 /* ===== character creation UI ===== */
 .clay{display:grid; grid-template-columns:300px minmax(0,1fr); gap:18px; align-items:start;}
-@media(max-width:900px){ .clay{grid-template-columns:1fr;} .preview{position:static;} }
 .preview{position:sticky; top:14px; border:1px solid var(--line); border-radius:14px; background:rgba(242,233,216,.035); padding:14px;}
 .pv-port{width:100%; aspect-ratio:4/5; border-radius:10px; border:2px solid rgba(240,164,65,.4); background:radial-gradient(circle at 50% 30%,rgba(240,164,65,.12),rgba(10,8,12,.9)); display:flex; align-items:center; justify-content:center; color:var(--ink-soft); font-size:.9rem; text-align:center; cursor:pointer; overflow:hidden; position:relative;}
 .pv-port img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
@@ -139,6 +138,17 @@ textarea{min-height:80px; resize:vertical;}
 .togglecard .tg::after{content:""; position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:#a69a86; transition:.15s;}
 .togglecard.on .tg{background:var(--gold);} .togglecard.on .tg::after{left:23px; background:#1b1206;}
 .rolecard .ci svg{width:34px; height:34px;}
+/* mobile: l'anteprima non resta appiccicata e diventa una scheda compatta (va DOPO le regole base) */
+@media(max-width:900px){
+  .clay{grid-template-columns:1fr;}
+  .preview{position:static; display:grid; grid-template-columns:96px minmax(0,1fr); gap:4px 14px; align-items:start; padding:12px;}
+  .pv-port{grid-row:1 / span 3; width:96px; font-size:.7rem;}
+  .pv-name{margin-top:0; font-size:20px;}
+  .pv-amb{font-size:13px;}
+  .preview .gh-pills{margin-top:4px;}
+  .preview .pv-k, .preview .pv-attrs, .preview .pv-stats, .preview .pv-list, .preview .pv-empty{grid-column:1 / -1;}
+  .preview .pv-more{display:none;}
+}
 </style>
 </head>
 <body>
@@ -241,12 +251,12 @@ function renderPreview(){
   var ag=el("div",{class:"pv-attrs"});ATTRS.forEach(function(a){ag.appendChild(el("div",{class:"pv-attr",html:dieIcon(D.attr[a]||"",36)+'<div class="an">'+a.slice(0,3)+'</div>'}));});p.appendChild(ag);
   p.appendChild(el("div",{class:"pv-k",text:"Vitali"}));
   var st=el("div",{class:"pv-stats"});[["PV",r?String(r.pv):"—"],["Stamina","6"],["Movim.",r?((RACE_MOVE[r.id]||[10])[0]+" m"):"—"]].forEach(function(x){st.appendChild(el("div",{class:"pv-stat",html:'<div class="k">'+x[0]+'</div><div class="v">'+x[1]+'</div>'}));});p.appendChild(st);
-  p.appendChild(el("div",{class:"pv-k",text:"Skill"}));
+  p.appendChild(el("div",{class:"pv-k pv-more",text:"Skill"}));
   var rs=roleSkill();var sk=[];if(rs)sk.push("<b>d8</b> "+rs);Object.keys(D.skills).forEach(function(k){sk.push("<b>"+D.skills[k]+"</b> "+k);});
-  p.appendChild(sk.length?el("div",{class:"pv-list",html:sk.join("<br>")}):el("div",{class:"pv-empty",text:"Nessuna Skill ancora."}));
-  p.appendChild(el("div",{class:"pv-k",text:"Tecniche"}));
+  p.appendChild(sk.length?el("div",{class:"pv-list pv-more",html:sk.join("<br>")}):el("div",{class:"pv-empty pv-more",text:"Nessuna Skill ancora."}));
+  p.appendChild(el("div",{class:"pv-k pv-more",text:"Tecniche"}));
   var tc=[];if(r)tc.push("<b>"+(D.racialDie||"d6")+"</b> "+r.tech);if(D.t1.nome)tc.push("<b>d4</b> "+D.t1.nome);if(D.t2.nome)tc.push("<b>d4</b> "+D.t2.nome);
-  p.appendChild(tc.length?el("div",{class:"pv-list",html:tc.join("<br>")}):el("div",{class:"pv-empty",text:"Scegli prima una razza."}));
+  p.appendChild(tc.length?el("div",{class:"pv-list pv-more",html:tc.join("<br>")}):el("div",{class:"pv-empty pv-more",text:"Scegli prima una razza."}));
 }
 
 function rConcept(){
