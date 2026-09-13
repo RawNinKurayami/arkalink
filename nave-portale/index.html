@@ -124,6 +124,7 @@ textarea.txt{resize:vertical;min-height:60px;line-height:1.45;}
 .stage{position:relative;min-height:520px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:radial-gradient(ellipse at 50% 20%,rgba(61,106,143,.25),transparent 60%),linear-gradient(180deg,#0e0b13,#0a1220);padding:14px;display:flex;flex-direction:column;gap:10px;}
 .stage.ship::before{content:"";position:absolute;left:0;right:0;bottom:0;height:45%;background:repeating-linear-gradient(180deg,rgba(61,106,143,.10) 0 2px,transparent 2px 14px);mask-image:linear-gradient(180deg,transparent,rgba(0,0,0,.6));-webkit-mask-image:linear-gradient(180deg,transparent,rgba(0,0,0,.6));pointer-events:none;}
 .stage>*{position:relative;}
+.stagenote{font-family:'Inter',sans-serif;font-size:11.5px;color:var(--ink-soft);margin:2px 0 4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}.stagenote b{color:#ffd394;}.stagenote svg{color:#ffd394;flex:none;}
 .slots-h{font-family:'Inter',sans-serif;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:6px 0 2px;}
 .stations{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;}
 .mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;}
@@ -358,23 +359,19 @@ function renderShip(){
  const C=mkEl("div",{class:"stage ship"});g3.appendChild(C);
  C.appendChild(mkEl("div",{class:"slots-h",text:"Postazioni"}));
  const pg=mkEl("div",{class:"stations"});STATIONS.forEach(st=>{const c=S.crew[st.key]||{};const has=(c.nome&&c.nome.trim())||(c.attr&&c.attr!=="—");pg.appendChild(slotTile((c.attr&&c.attr!=="—")?dieIcon(c.attr,34):'<span class="gc-em">'+svgIcon(STATION_ICON[st.key]||"star",22)+'</span>',st.ruolo,has?((c.nome&&c.nome.trim())||"—")+(c.attr&&c.attr!=="—"?"":" · <i>senza dado</i>"):"<i>postazione vuota</i>",()=>crewModal(st.key),has?"":"empty"));});C.appendChild(pg);
+ C.appendChild(mkEl("div",{class:"stagenote",html:svgIcon("compass",14)+" Traversata: il Timoniere tira "+poolLabel(S.stats.vele,"Vele","timoniere","Astuzia")+" (+ strumenti: Log Pose, carte, barometro)."}));
  const modsH=mkEl("div",{class:"slots-h",html:"Moduli · "+slotsUsed()+"/"+slotsTot()+" slot"});C.appendChild(modsH);
  const mods=mkEl("div",{class:"mods"});S.moduli.forEach((m,i)=>mods.appendChild(slotTile('<span class="gc-em">'+svgIcon("gear",22)+'</span>',m.nome,m.slot+" slot · "+(m.eff||""),()=>moduleModal(i))));if(slotsUsed()<slotsTot())mods.appendChild(slotAdd("Installa modulo",catalogModal));C.appendChild(mods);
  C.appendChild(mkEl("div",{class:"slots-h",html:"Danni · in Critica un d6 decide cosa si rompe"}));
  const chips=mkEl("div",{class:"row"});DESTRUCT.forEach((d,i)=>{chips.appendChild(mkEl("span",{class:"chip"+(S.distrutti[d.key]?" broken":""),title:d.eff,text:(i+1)+" · "+d.nome,onclick:()=>{toggleDestruct(d.key);renderShip();}}));});C.appendChild(chips);
  /* ---- destra ---- */
  const R=mkEl("div",{class:"rpanel"});g3.appendChild(R);
- const rt=mkEl("div",{class:"gtabs"});["Battaglia","Navigazione","Cantiere","Diario"].forEach(k=>rt.appendChild(mkEl("button",{class:"gtab"+(RTAB===k?" on":""),text:k,onclick:()=>{RTAB=k;renderShip();}})));R.appendChild(rt);
+ const rt=mkEl("div",{class:"gtabs"});["Battaglia","Cantiere","Diario"].forEach(k=>rt.appendChild(mkEl("button",{class:"gtab"+(RTAB===k?" on":""),text:k,onclick:()=>{RTAB=k;renderShip();}})));R.appendChild(rt);
  if(RTAB==="Battaglia"){
   R.appendChild(mkEl("div",{class:"sub",style:"margin-bottom:10px",html:"<b>Una manovra per turno.</b> Soglie indicative: cannonate vicino 8 · medio 12 · lontano 14; altre manovre di norma 8."}));
   const statKeyOf={Artiglieria:"artiglieria",Vele:"vele",Scafo:"scafo",Struttura:"struttura"};
   const man=[["Cannonate","Artiglieria","cannoniere","Tecnica","target","Se colpisci: il nemico perde PS pari al tiro del dado Artiglieria ("+S.stats.artiglieria+")."],["Manovra Evasiva","Vele","timoniere","Astuzia","wind","Se riesci: la prossima cannonata nemica contro di te ha soglia +4."],["Speronamento","Scafo","capitano","Forza","boat","Se vinci: danno = tiro del dado Scafo ("+S.stats.scafo+"). La tua nave perde comunque 1d4 PS."],["Fuga","Vele","timoniere","Astuzia","arrow","Se perdi: il nemico ha una cannonata d'opportunità."],["Riparazione d'emergenza","Struttura","ingegnere","Astuzia","hammer","Se riesci: recupera PS al volo (segnali a sinistra con + e −)."]];
   const g=mkEl("div",{class:"gcards one"});man.forEach(m=>g.appendChild(gcard('<span class="gc-em">'+svgIcon(m[4],26)+'</span>',m[0],"Tira: "+poolLabel(S.stats[statKeyOf[m[1]]],m[1],m[2],m[3]),"<b>Esito:</b> "+m[5])));R.appendChild(sec("Manovre",[g]));
- }
- if(RTAB==="Navigazione"){
-  R.appendChild(mkEl("div",{class:"sub",style:"margin-bottom:10px",html:"Per attraversare un tratto di mare il Timoniere tira: "+poolLabel(S.stats.vele,"Vele","timoniere","Astuzia")+" (+ strumenti: Log Pose, carte, barometro)."}));
-  const esiti=[["20+","Perfetta","corrente favorevole, PS intatti","#3f6b3f"],["14–19","Riuscita","nessun incidente","#3f6b3f"],["8–13","Faticosa","un incontro o complicazione minore","#9c7a12"],["4–7","Difficile","1d6 PS di danno e ritardo","#c2691b"],["1–3","Disastrosa","evento maggiore del Capitano","#8c1c13"]];
-  const g=mkEl("div",{class:"gcards one"});esiti.forEach(e=>g.appendChild(gcard('<span class="tag" style="background:'+e[3]+'">'+e[0]+'</span>',e[1],"",e[2])));R.appendChild(sec("Traversata",[g]));
  }
  if(RTAB==="Cantiere"){
   const up=mkEl("div",{class:"gcards one"});STAT_DEFS.forEach(([k,nm])=>{const[next,sog]=targetSoglia(S.stats[k]);if(!next){up.appendChild(gcard(dieIcon(S.stats[k],40),nm,"già al massimo (d12)",""));return;}const req=(UPG_MATS[k]&&UPG_MATS[k][next])||[];up.appendChild(gcard(dieIcon(next,40),nm+" → "+next,"Soglia <b>"+sog+"</b> · Tira: "+carpPoolStr(),matLine(req)));});
