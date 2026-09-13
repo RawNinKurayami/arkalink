@@ -789,10 +789,6 @@ function effVeto(e){ // regole trasversali: restituisce il motivo del blocco, o 
     const okZona=(fam==="Zona Persistente");
     if(!(okFam||okCtrl||okDif||okZona))return "non disponibile con Fonte Arma";
   }
-  if(fam==="Zona Persistente"){ // serve una fonte che lasci qualcosa dietro di sé
-    if(TBUILD.fonte==="Frutto"&&TBUILD.fruitType==="Zoan")return "uno Zoan non lascia niente sul terreno (salvo Mitologici, col GM)";
-    if(TBUILD.fonte==="Stile"&&!isCombSpecial())return "serve Fonte Frutto, oppure Arma che consuma un preparato o un congegno";
-  }
   return "";
 }
 function tecCost(t){let st=0,pt=0;(t.eff||[]).forEach(nm=>{const e=tecEffObj(nm);if(e)st+=e[4];});const d=TEC_DUR.find(x=>x[0]===t.durata);if(d){st+=d[1];pt+=d[2];}st=Math.max(1,st);return{st:st,pt:pt};}
@@ -845,6 +841,7 @@ function renderTecBuilder(onAdd){
    if(TBUILD.forma==="Canzone"&&fam!=="Melodie del Musicista")return;
    const det=el("details",{class:"tbfam"});if(TBUILD._open.indexOf(fam)>=0)det.open=true;det.ontoggle=()=>{const ix=TBUILD._open.indexOf(fam);if(det.open){if(ix<0)TBUILD._open.push(fam);}else if(ix>=0)TBUILD._open.splice(ix,1);};
    det.appendChild(el("summary",{text:fam}));
+   if(fam==="Zona Persistente")det.appendChild(el("div",{class:"sub",style:"font-size:11px;margin:2px 0 4px;line-height:1.45",html:"Con la <b>Forma Area</b>: la sagoma decide quanto è grande la zona. Chi può lasciarne una lo decide la finzione, col GM: un Logia sempre; un Paramecia se crea o altera materia; uno Zoan di norma no; un'arma solo se consuma un preparato o un congegno."}));
    TEC_EFF.filter(e=>e[0]===fam).forEach(e=>{
     const nm=e[1];const sel=TBUILD.eff.indexOf(nm)>=0;
     const okD=(TEC_RANK[e[3]]||1)<=rank;
