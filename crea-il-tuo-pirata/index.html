@@ -149,6 +149,10 @@ textarea{min-height:80px; resize:vertical;}
   .preview .pv-k, .preview .pv-attrs, .preview .pv-stats, .preview .pv-list, .preview .pv-empty{grid-column:1 / -1;}
   .preview .pv-more{display:none;}
 }
+
+/* Emblemi illustrati */
+.icimg.emblem{object-fit:contain;filter:drop-shadow(0 3px 8px rgba(0,0,0,.55));}
+.gh-pills .pill .icimg.emblem{vertical-align:middle;margin:-5px 2px -4px -4px;}
 </style>
 </head>
 <body>
@@ -246,7 +250,7 @@ function renderPreview(){
   p.appendChild(port);p.appendChild(file);
   p.appendChild(el("div",{class:"pv-name",text:D.nome||"Pirata Senza Nome"}));
   if(D.amb)p.appendChild(el("div",{class:"pv-amb",text:"“"+D.amb+"”"}));
-  var pills=el("div",{class:"gh-pills"});if(r)pills.appendChild(el("span",{class:"pill",text:r.name}));if(D.role)pills.appendChild(el("span",{class:"pill gold",html:svgIcon(ROLE_ICON(D.role,D.style),12)+" "+D.role+(D.style?(" · "+D.style):"")}));if(D.frutto.has)pills.appendChild(el("span",{class:"pill",html:imgIcon("frutto",13)+" "+(D.frutto.nome||"Frutto")+" "+(D.frutto.die||"d4")}));p.appendChild(pills);
+  var pills=el("div",{class:"gh-pills"});if(r)pills.appendChild(el("span",{class:"pill",html:(RACE_IMG[r.id]?emblem(RACE_IMG[r.id],22)+" ":"")+r.name}));if(D.role)pills.appendChild(el("span",{class:"pill gold",html:(roleImgKey(D.role,D.style)?emblem(roleImgKey(D.role,D.style),22):svgIcon(ROLE_ICON(D.role,D.style),12))+" "+D.role+(D.style?(" · "+D.style):"")}));if(D.frutto.has)pills.appendChild(el("span",{class:"pill",html:imgIcon("frutto",13)+" "+(D.frutto.nome||"Frutto")+" "+(D.frutto.die||"d4")}));p.appendChild(pills);
   p.appendChild(el("div",{class:"pv-k",text:"Attributi"}));
   var ag=el("div",{class:"pv-attrs"});ATTRS.forEach(function(a){ag.appendChild(el("div",{class:"pv-attr",html:dieIcon(D.attr[a]||"",36)+'<div class="an">'+a.slice(0,3)+'</div>'}));});p.appendChild(ag);
   p.appendChild(el("div",{class:"pv-k",text:"Vitali"}));
@@ -280,7 +284,7 @@ function rRace(){
   var c=el("div",{class:"cards"});
   RACES.forEach(function(r){
     c.appendChild(el("div",{class:"card big"+(D.race===r.id?" sel":""),onclick:function(){D.race=r.id;afterRaceChange();RENDER[1]();},
-      html:'<div class="ci">'+dieIcon(r.die,40)+'</div><div class="cb"><div class="t">'+r.name+'</div><div class="d">'+(r.attr==="choice"?"Attributo a scelta":(r.attr==="choice2"?"Forza o Tecnica":r.attr))+' · PV '+r.pv+' · Vita '+r.hp+' · '+(RACE_MOVE[r.id]||[10])[0]+' m</div></div>'}));
+      html:'<div class="ci">'+(RACE_IMG[r.id]?emblem(RACE_IMG[r.id],58):dieIcon(r.die,40))+'</div><div class="cb"><div class="t">'+r.name+'</div><div class="d">'+(r.attr==="choice"?"Attributo a scelta":(r.attr==="choice2"?"Forza o Tecnica":r.attr))+' · Dado '+r.die+' · PV '+r.pv+' · Vita '+r.hp+' · '+(RACE_MOVE[r.id]||[10])[0]+' m</div></div>'}));
   });
   p.appendChild(c);
   var r=race();
@@ -332,7 +336,7 @@ function rRole(){
     if(D.role===r.name&&D.style)ico=STYLE_ICON[D.style]||ico;
     var sk=r.multi?("Stili: "+r.styles.map(function(s){return s[0];}).join(", ")):("Skill: "+r.skill);
     c.appendChild(el("div",{class:"card rolecard"+(D.role===r.name?" sel":""),onclick:function(){D.role=r.name;D.style=r.multi?r.styles[0][0]:"";D.roleSkillChoice=defaultRoleSkillChoice();RENDER[3]();},
-      html:'<div class="ci">'+svgIcon(ico,34)+'</div><div class="cb"><div class="t">'+r.name+'</div><div class="d">'+sk+'</div></div>'}));
+      html:'<div class="ci">'+(ROLE_IMG[r.name]?emblem(ROLE_IMG[r.name],58):svgIcon(ico,34))+'</div><div class="cb"><div class="t">'+r.name+'</div><div class="d">'+sk+'</div></div>'}));
   });
   p.appendChild(c);
   var rd=roleDef();
@@ -341,7 +345,7 @@ function rRole(){
     if(rd.multi){
       p.appendChild(el("label",{class:"fld",text:"Stile"}));
       var sg=el("div",{class:"cards three"});
-      rd.styles.forEach(function(s){var skl=(Array.isArray(s[1])||s[1]==="any")?"Skill a scelta":("Skill: "+s[1]);sg.appendChild(el("div",{class:"card"+(D.style===s[0]?" sel":""),onclick:function(){D.style=s[0];D.roleSkillChoice=defaultRoleSkillChoice();RENDER[3]();},html:'<div class="ci">'+svgIcon(STYLE_ICON[s[0]]||"star",30)+'</div><div class="cb"><div class="t">'+s[0]+'</div><div class="d">'+skl+'</div></div>'}));});
+      rd.styles.forEach(function(s){var skl=(Array.isArray(s[1])||s[1]==="any")?"Skill a scelta":("Skill: "+s[1]);sg.appendChild(el("div",{class:"card"+(D.style===s[0]?" sel":""),onclick:function(){D.style=s[0];D.roleSkillChoice=defaultRoleSkillChoice();RENDER[3]();},html:'<div class="ci">'+(roleImgKey(D.role,s[0])?emblem(roleImgKey(D.role,s[0]),50):svgIcon(STYLE_ICON[s[0]]||"star",30))+'</div><div class="cb"><div class="t">'+s[0]+'</div><div class="d">'+skl+'</div></div>'}));});
       p.appendChild(sg);
       var se=styleEntry();var skl=se?se[1]:null;
       if(Array.isArray(skl)||skl==="any"){

@@ -61,6 +61,14 @@ const BOND_DICE=["d4","d6","d8","d10","d12","d20"];
 function hakiPip(die){return ({d4:0,d6:1,d8:2,d10:3,d12:4,d20:5})[String(die||"").replace(/\+.*/,"")]||(String(die||"").indexOf("d20")===0?5:0);}
 function bondStep(d,dir){let i=BOND_DICE.indexOf(d);if(i<0)i=0;return BOND_DICE[Math.max(0,Math.min(BOND_DICE.length-1,i+dir))];}
 function imgIcon(name,size){size=size||24;return '<img class="icimg" src="/img/icons/'+name+'.png" width="'+size+'" height="'+size+'" alt="" draggable="false">';}
+/* Emblemi illustrati di Razze, Ruoli e Stili (originali in img/icone-originali).
+   Dove non c'è un disegno proprio — gli Stili del Dottore e dell'Ingegnere —
+   vale quello del Ruolo. */
+const RACE_IMG={umano:"razza-umano",uomopesce:"razza-uomopesce",gigante:"razza-gigante",mink:"razza-mink",lunarian:"razza-lunarian",longbraccio:"razza-longbraccio",lungagamba:"razza-lungagamba",cyborg:"razza-cyborg",tontatta:"razza-tontatta"};
+const ROLE_IMG={Combattente:"ruolo-combattente",Dottore:"ruolo-dottore",Ingegnere:"ruolo-ingegnere",Musicista:"ruolo-musicista",Navigatore:"ruolo-navigatore",Archeologo:"ruolo-archeologo",Cuoco:"ruolo-cuoco",Capitano:"ruolo-capitano"};
+const STYLE_IMG={Striker:"stile-striker",Crusher:"stile-crusher",Swordsman:"stile-swordsman",Sniper:"stile-sniper",Special:"stile-special"};
+function roleImgKey(rn,st){return (st&&STYLE_IMG[st])||ROLE_IMG[rn]||"";}
+function emblem(key,size){return key?imgIcon(key,size).replace('class="icimg"','class="icimg emblem"'):"";}
 function hakiIcon(h,size){return imgIcon(IMG_ICON[h&&h.name]||"haki-armamento",size);}
 const STYLE_ICON={Striker:"fist",Crusher:"hammer",Swordsman:"sword",Sniper:"target",Special:"gear",Infermeria:"medkit",Tossicologo:"poison",Chimico:"flask",Cuoco:"pot",Navigatore:"compass",Carpentiere:"anchor",Meccanico:"gear",Inventore:"wrench",Archeologo:"scroll",Musicista:"music",Capitano:"crown",Paramecia:"orb",Logia:"flame",Zoan:"paw"};
 const INV_ICONS=["box","bag","coin","key","map","scroll","book","potion","bottle","food","bandage","medkit","bomb","arrow","sword","shield","rope","hammer","gear","candle","shell","gem","compass","boat"];
