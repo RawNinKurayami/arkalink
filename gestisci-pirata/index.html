@@ -1442,7 +1442,7 @@ function renderTecBuilder(onAdd){
    if(!(TBUILD.nome||"").trim()){alert("Dai un nome alla tecnica.");return;}
    if(!TBUILD.attr){alert("Scegli l’Attributo di riferimento: il dado della tecnica non può superarlo.");return;}
    if(TBUILD.forma==="Area"&&!(TBUILD.eff||[]).some(isSagoma)){alert("Una Tecnica ad Area ha bisogno di una sagoma: scegli un cono, una linea o un cerchio nella famiglia Area.");return;}
-   const t={id:(TBUILD._id||("tec"+Date.now().toString(36)+Math.floor(Math.random()*1000))),nome:TBUILD.nome.trim(),attr:TBUILD.attr,die:TBUILD.die,fonte:TBUILD.fonte,stile:(TBUILD.fonte==="Stile"?(TBUILD.stile||""):""),fruitType:(TBUILD.fonte==="Frutto"?(TBUILD.fruitType||""):""),weapon:"",arma:(TBUILD.fonte==="Frutto"?"":(TBUILD.arma||"")),modulo:(TBUILD.fonte==="Stile"?(TBUILD.modulo||""):""),forma:TBUILD.forma,durata:(TBUILD.forma==="Area"?TBUILD.durata:""),eff:TBUILD.eff.slice(),desc:TBUILD.desc||""};
+   const t={id:(TBUILD._id||("tec"+Date.now().toString(36)+Math.floor(Math.random()*1000))),nome:TBUILD.nome.trim(),attr:TBUILD.attr,die:TBUILD.die,fonte:TBUILD.fonte,stile:(TBUILD.fonte==="Stile"?(TBUILD.stile||""):""),fruitType:(TBUILD.fonte==="Frutto"?(TBUILD.fruitType||""):""),weapon:"",arma:(TBUILD.fonte==="Stile"?(TBUILD.arma||""):""),modulo:(TBUILD.fonte==="Stile"&&!TBUILD.arma?(TBUILD.modulo||""):""),forma:TBUILD.forma,durata:(TBUILD.forma==="Area"?TBUILD.durata:""),eff:TBUILD.eff.slice(),desc:TBUILD.desc||""};
    onAdd(t);}});
  acts.appendChild(saveBtn);
  bar.appendChild(acts);inn.appendChild(bar);
@@ -1499,21 +1499,7 @@ function renderTecBuilder(onAdd){
     why:(o==="Stile")?SB:FB})),TBUILD.fonte,v=>{TBUILD.fonte=v;refresh();}));
   if(TBUILD.fonte==="Stile"&&SB&&!(TBUILD.forma==="Canzone"&&musica))fonteHost.appendChild(el("div",{class:"compat "+(soloCanzone?"wait":"ko"),html:SB+(soloCanzone?"<br>Ti resta la <b>Forma Canzone</b>: le Melodie le costruisci in quanto Musicista.":"")}));
   if(TBUILD.fonte==="Frutto"&&FB)fonteHost.appendChild(el("div",{class:"compat ko",html:FB}));
-  /* arma impugnata: un collegamento facoltativo, mai una fonte. */
   weaponHost.innerHTML="";
-  if(hasArmi&&TBUILD.fonte!=="Frutto"){
-   const wname=a=>((a.nome&&a.nome.trim())?a.nome.trim():"Arma senza nome");
-   if(TBUILD.arma&&!pg.armi.some(a=>a.id===TBUILD.arma))TBUILD.arma="";
-   weaponHost.appendChild(smbChips("Arma impugnata (facoltativa)",[{v:"",l:"Nessuna"}].concat(pg.armi.map(a=>({v:a.id,l:wname(a),sub:a.grado?("Grado "+a.grado):"",ico:svgIcon(WEAPON_ICO[a.tipo]||"sword",19)}))),TBUILD.arma||"",v=>{TBUILD.arma=v;refresh();}));
-   const _wa=pg.armi.filter(a=>a.id===TBUILD.arma)[0]||null;
-   if(_wa){
-    const c=weaponCompat(_wa);
-    let h="<b>"+((_wa.nome||"").trim()||"Arma senza nome")+"</b> · "+_wa.tipo+" · Grado "+_wa.grado+" "+gradeLabel(_wa.grado)+"<br>"+c.msg;
-    if(_wa.eff)h+="<br><b>"+(_wa.eff.nome||"Effetto")+"</b>"+(_wa.eff.cat?(" · "+_wa.eff.cat):"")+(_wa.eff.desc?(" — "+_wa.eff.desc):"");
-    h+="<br><i>Promemoria: il Signature Move Builder non applica da solo l'effetto dell'arma.</i>";
-    weaponHost.appendChild(el("div",{class:"compat "+c.s,html:h}));
-   }
-  } else TBUILD.arma="";
   /* frutto */
   fruitHost.innerHTML="";let ftype=null;
   if(TBUILD.fonte==="Frutto"){
@@ -1542,13 +1528,34 @@ function renderTecBuilder(onAdd){
   if(TBUILD.fonte==="Stile"&&_styles.length>1&&!(soloCanzone||TBUILD.forma==="Canzone")){
    stileHost.appendChild(smbChips("Stile della Tecnica",_styles.map(x=>({v:x,l:x,ico:svgIcon(STYLE_ICON[x]||"star",19),sub:styleReady(x)?"":"senza strumento"})),TBUILD.stile,v=>{TBUILD.stile=v;refresh();}));
   }
-  /* modulo associato */
+  /* Con cosa la esegui: un'arma OPPURE un modulo, mai tutti e due.
+     È un promemoria, non uno sconto: il costo non cambia da qui. */
   modHost.innerHTML="";
-  const mods=(TBUILD.fonte==="Stile")?(pg.moduli||[]):[];
-  if(mods.length){
-   if(TBUILD.modulo&&!mods.some(m=>m.id===TBUILD.modulo))TBUILD.modulo="";
-   modHost.appendChild(smbChips("Modulo associato (facoltativo)",[{v:"",l:"Nessuno"}].concat(mods.map(m=>({v:m.id,l:(m.nome||"Modulo"),sub:(m.stato==="danneggiato")?"danneggiato":(pg.moduloAttivo===m.id?"attivo":"inattivo"),ico:svgIcon("gear",19)}))),TBUILD.modulo||"",v=>{TBUILD.modulo=v;refresh();}));
-   const mo=mods.filter(m=>m.id===TBUILD.modulo)[0];
+  const _armi=(TBUILD.fonte==="Stile")?(pg.armi||[]):[];
+  const _mods=(TBUILD.fonte==="Stile")?(pg.moduli||[]):[];
+  if(TBUILD.arma&&!_armi.some(a=>a.id===TBUILD.arma))TBUILD.arma="";
+  if(TBUILD.modulo&&!_mods.some(m=>m.id===TBUILD.modulo))TBUILD.modulo="";
+  if(TBUILD.arma&&TBUILD.modulo)TBUILD.modulo="";
+  if(_armi.length||_mods.length){
+   const wname=a=>((a.nome&&a.nome.trim())?a.nome.trim():"Arma senza nome");
+   const opts=[{v:"",l:"Niente"}]
+    .concat(_armi.map(a=>({v:"a:"+a.id,l:wname(a),sub:a.grado?("Grado "+a.grado):"",ico:svgIcon(WEAPON_ICO[a.tipo]||"sword",19)})))
+    .concat(_mods.map(m=>({v:"m:"+m.id,l:(m.nome||"Modulo"),sub:(m.stato==="danneggiato")?"danneggiato":(pg.moduloAttivo===m.id?"attivo":"inattivo"),ico:svgIcon("gear",19)})));
+   const cur=TBUILD.arma?("a:"+TBUILD.arma):(TBUILD.modulo?("m:"+TBUILD.modulo):"");
+   modHost.appendChild(smbChips("Con cosa la esegui (facoltativo)",opts,cur,v=>{
+    TBUILD.arma=(v.indexOf("a:")===0)?v.slice(2):"";
+    TBUILD.modulo=(v.indexOf("m:")===0)?v.slice(2):"";
+    refresh();}));
+   modHost.appendChild(el("div",{class:"smb-note",text:"Un'arma o un modulo, non tutti e due: una Tecnica si esegue con una cosa sola."}));
+   const _wa=_armi.filter(a=>a.id===TBUILD.arma)[0];
+   if(_wa){
+    const c=weaponCompat(_wa);
+    let h="<b>"+((_wa.nome||"").trim()||"Arma senza nome")+"</b> · "+_wa.tipo+" · Grado "+_wa.grado+" "+gradeLabel(_wa.grado)+"<br>"+c.msg;
+    if(_wa.eff)h+="<br><b>"+(_wa.eff.nome||"Effetto")+"</b>"+(_wa.eff.cat?(" · "+_wa.eff.cat):"")+(_wa.eff.desc?(" — "+_wa.eff.desc):"");
+    h+="<br><i>Promemoria: il Signature Move Builder non applica da solo l'effetto dell'arma.</i>";
+    modHost.appendChild(el("div",{class:"compat "+c.s,html:h}));
+   }
+   const mo=_mods.filter(m=>m.id===TBUILD.modulo)[0];
    if(mo){
     const att=pg.moduloAttivo===mo.id,dmg=mo.stato==="danneggiato";
     const cls=dmg?"ko":(att?"ok":"wait");
@@ -1560,7 +1567,7 @@ function renderTecBuilder(onAdd){
     h+="<br><i>Costo ST e slot restano quelli calcolati qui: lo sconto del modulo si applica al tavolo, secondo il suo testo. L'effetto va comunque selezionato fra quelli della Tecnica.</i>";
     modHost.appendChild(el("div",{class:"compat "+cls,html:h}));
    }
-  } else TBUILD.modulo="";
+  } else {TBUILD.arma="";TBUILD.modulo="";}
   /* durata della zona */
   durHost.innerHTML="";
   if(TBUILD.forma==="Area")durHost.appendChild(smbChips("Durata della Zona",TEC_DUR.map(d=>({v:d[0],l:d[0],sub:d[3]?("richiede "+d[3]):""})),TBUILD.durata,v=>{TBUILD.durata=v;refresh();}));
@@ -1737,6 +1744,7 @@ function migrateChar(c){c=Object.assign(blank(),c||{});if(c.role){const MAP={"Me
  if(c.roleSkillChoice2==null)c.roleSkillChoice2="";
  /* La Fonte Arma non esiste più: un'arma esegue le Tecniche, non le genera.
     Le Tecniche salvate diventano di Stile e conservano l'arma come collegamento. */
+ if(Array.isArray(c.extraTech))c.extraTech.forEach(function(t){if(t&&t.arma&&t.modulo)t.modulo="";});
  if(Array.isArray(c.extraTech)){var _wi=0;c.extraTech.forEach(function(t){
   if(!t||t.fonte!=="Arma")return;
   t.fonte="Stile";
@@ -2060,6 +2068,16 @@ function puoiPortare(a){
  }
  return !!set[a.tipo];
 }
+/* Le modalità dell'asta consentite dagli Stili posseduti. */
+function astaModi(){
+ const set=armiConsentite();if(!set)return ["Tagliente","Contundente"];
+ const m=[];if(set["Lama"])m.push("Tagliente");if(set["Contundente"])m.push("Contundente");return m;
+}
+/* I Tipi d'arma che questo personaggio può portare, nell'ordine dell'Arsenale. */
+function tipiConsentiti(){
+ const set=armiConsentite();if(!set)return WEAPON_TYPES.slice();
+ return WEAPON_TYPES.filter(t=>(t==="Ad asta")?astaModi().length>0:!!set[t]);
+}
 function armiConsentiteLabel(){
  const set=armiConsentite();if(!set)return "";
  const l=Object.keys(set);
@@ -2193,11 +2211,14 @@ function weaponModal(i,step){
   if(WWIZ.step===1){
    w.appendChild(plate("01","Identità"));
    w.appendChild(field("Nome dell'arma",a.nome,v=>{a.nome=v;save();}));
-   w.appendChild(el("label",{class:"fld",text:"Tipo"}));
-   w.appendChild(optCards(WEAPON_TYPES.map(t=>({v:t,l:t,i:WEAPON_ICO[t]})),a.tipo,t=>mutateM(()=>{a.tipo=t;if(t!=="Ad asta")a.asta="";})));
+   {const ok=tipiConsentiti();const tipi=ok.slice();if(tipi.indexOf(a.tipo)<0)tipi.push(a.tipo);
+    w.appendChild(el("label",{class:"fld",text:"Tipo"}));
+    w.appendChild(optCards(tipi.map(t=>({v:t,l:t,i:WEAPON_ICO[t],s:(ok.indexOf(t)<0)?"non del tuo Stile":""})),a.tipo,t=>mutateM(()=>{a.tipo=t;if(t!=="Ad asta")a.asta="";else if(astaModi().indexOf(a.asta)<0)a.asta=astaModi()[0]||"";})));
+    if(ok.length<WEAPON_TYPES.length)w.appendChild(el("div",{class:"hintbox",html:"Compaiono solo i Tipi che il tuo Stile impugna: <b>"+armiConsentiteLabel()+"</b>. Le armi da lancio sono di tutti."}));}
    if(a.tipo==="Ad asta"){
+    const modi=astaModi();const mm=modi.slice();if(a.asta&&mm.indexOf(a.asta)<0)mm.push(a.asta);
     w.appendChild(el("label",{class:"fld",text:"Modalità dell'asta"}));
-    w.appendChild(optCards([{v:"Tagliente",l:"Tagliente",s:"Swordsman"},{v:"Contundente",l:"Contundente",s:"Crusher"}],a.asta,v=>mutateM(()=>a.asta=v),"two"));
+    w.appendChild(optCards(mm.map(m=>({v:m,l:m,s:(m==="Tagliente")?"Swordsman":"Crusher"})),a.asta,v=>mutateM(()=>a.asta=v),"two"));
    }
    w.appendChild(el("label",{class:"fld",text:"Grado"}));
    w.appendChild(optCards(WEAPON_GRADI.map(g=>({v:g[0],l:g[0],s:g[1]})),a.grado,g=>mutateM(()=>{a.grado=g;a.die=g;})));
@@ -2267,17 +2288,17 @@ function weaponModal(i,step){
 function arsenaleModal(){
  openModal("⚔️ Arsenale · armi d4",function(){
   const w=el("div",{});
-  {const lab=armiConsentiteLabel();if(lab)w.appendChild(el("div",{class:"compat wait",html:"Il tuo Stile porta: <b>"+lab+"</b>. Le armi da lancio sono di tutti; con due Ruoli da Combattente valgono entrambi gli Stili."}));}
+  {const lab=armiConsentiteLabel();if(lab)w.appendChild(el("div",{class:"compat ok",html:"Qui trovi solo le armi che il tuo Stile impugna: <b>"+lab+"</b>. Le armi da lancio sono di tutti; con due Ruoli da Combattente valgono entrambi gli Stili."}));}
   w.appendChild(el("div",{class:"hintbox",html:"Le <b>24 armi d4 approvate</b>. Tutte Grado <b>d4 · Base</b>, origine GLC, nessun effetto speciale. Attributo e alcune portate restano «da definire»: li scegliete al tavolo. Puoi anche partire da un foglio bianco."}));
-  w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Arma personalizzata",onclick:()=>{const a=normWeapon({nome:"Nuova arma",tipo:"Lama",grado:"d4",attr:"",portata:"",asta:"",note:"",eff:null});closeModal();mutate(()=>pg.armi.push(a));flyIn(svgIcon("sword",120),()=>byText(".slots .slot-n","Nuova arma"));setTimeout(()=>weaponModal(pg.armi.length-1),700);}})]));
+  w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Arma personalizzata",onclick:()=>{const _t=tipiConsentiti()[0]||"Lama";const a=normWeapon({nome:"Nuova arma",tipo:_t,grado:"d4",attr:"",portata:"",asta:(_t==="Ad asta"?(astaModi()[0]||""):""),note:"",eff:null});closeModal();mutate(()=>pg.armi.push(a));flyIn(svgIcon("sword",120),()=>byText(".slots .slot-n","Nuova arma"));setTimeout(()=>weaponModal(pg.armi.length-1),700);}})]));
   let last="";
   const list=el("div",{class:"catlist"});
-  ARSENALE_D4.forEach(r=>{
+  const tipiOk=tipiConsentiti();
+  ARSENALE_D4.filter(r=>tipiOk.indexOf(r[1])>=0).forEach(r=>{
    if(r[1]!==last){last=r[1];const need=WEAPON_STILE[r[1]]||"";const have=need&&combStyles().indexOf(need)>=0;
-    list.appendChild(el("div",{class:"slots-h",html:r[1]+" · "+(r[1]==="Ad asta"?"Stile secondo la modalità (tagliente → Swordsman · contundente → Crusher)":("Stile "+need+(have?" <span class='pill good'>lo hai</span>":"")))}));}
+    list.appendChild(el("div",{class:"slots-h",html:r[1]+" · "+(r[1]==="Ad asta"?("modalità: "+astaModi().join(" o ").toLowerCase()):("Stile "+need+(have?" <span class='pill good'>lo hai</span>":"")))}));}
    const card=el("div",{class:"catcard"});
-   const porta=puoiPortare({tipo:r[1],asta:""});
-   card.appendChild(el("div",{class:"cn",html:r[0]+(porta?"":' <span class="pill warn">il tuo Stile non la porta</span>')}));
+   card.appendChild(el("div",{class:"cn",text:r[0]}));
    card.appendChild(el("div",{class:"cm",text:"d4 · Base · "+(r[2]||"portata da definire")+" · nessun effetto"}));
    card.onclick=()=>{const a=normWeapon({nome:r[0],tipo:r[1],grado:"d4",attr:"",portata:r[2],asta:"",note:"",eff:null});closeModal();mutate(()=>pg.armi.push(a));flyIn(svgIcon(WEAPON_ICO[r[1]]||"sword",120),()=>byText(".slots .slot-n",r[0]));setTimeout(()=>weaponModal(pg.armi.length-1),700);};
    list.appendChild(card);
