@@ -98,6 +98,21 @@ section.ch em{color:#ffd394;}
   .say,.box,.tool{break-inside:avoid;}
   .hero h1{color:#000;}
 }
+
+/* ===== Manuale bloccato (revisione regole) ===== */
+#manlock{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(120% 80% at 50% 0%,#12100f 0%,#060607 60%,#050506 100%);}
+#manlock .mlbox{max-width:640px;width:100%;text-align:center;border:1px solid rgba(240,164,65,.34);border-radius:18px;padding:clamp(22px,5vw,40px);background:linear-gradient(180deg,rgba(33,26,28,.94),rgba(16,14,16,.96));box-shadow:0 30px 80px rgba(0,0,0,.6);}
+#manlock .mlico{color:var(--gold);margin-bottom:10px;}
+#manlock h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,5vw,38px);margin:.1em 0 .25em;color:var(--gold2);}
+#manlock .mlk{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--foam);}
+#manlock p{font-size:15.5px;line-height:1.6;color:var(--ink2);margin:.6em 0;}
+#manlock .mlrow{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px;}
+#manlock a.mlb,#manlock button.mlb{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--vellum);background:transparent;border:1px solid rgba(240,164,65,.4);border-radius:999px;padding:11px 18px;cursor:pointer;}
+#manlock a.mlb.gold{background:linear-gradient(180deg,#ffd394,#f0a441);color:#1b1206;border-color:var(--gold);}
+body.manlocked{overflow:hidden;}
+body.manlocked .layout,body.manlocked .topbar,body.manlocked .scrim{filter:blur(3px);pointer-events:none;}
+.lockpill{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#e7b06a;border:1px solid rgba(240,164,65,.42);border-radius:999px;padding:4px 9px;}
+@media print{#manlock{display:none;}body.manlocked{overflow:visible;}body.manlocked .layout,body.manlocked .topbar{filter:none;}}
 </style>
 <style id="glc-bg-css">.glc-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(circle, transparent 0 1.9px, rgba(201,162,74,.15) 2.2px 2.8px, transparent 3.2px),radial-gradient(circle, rgba(168,198,189,.10) 0 1.1px, transparent 1.8px);background-size:150px 150px,100px 100px;background-position:0 0,40px 30px}@media (prefers-reduced-motion: no-preference){.glc-bg{animation:glcRise 34s linear infinite}}@keyframes glcRise{from{background-position:0 0,40px 30px}to{background-position:0 -900px,40px -870px}}</style>
 <link rel="manifest" href="/manifest.webmanifest">
@@ -111,9 +126,25 @@ section.ch em{color:#ffd394;}
 </head>
 <body>
 <div class="glc-bg" aria-hidden="true"></div>
+<div id="manlock" hidden>
+  <div class="mlbox">
+    <div class="mlico"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/><circle cx="12" cy="15.5" r="1.3"/><path d="M12 16.8v2"/></svg></div>
+    <div class="mlk">Grand Line Chronicles</div>
+    <h2>Il Manuale è bloccato</h2>
+    <p>Revisione delle regole in corso: Stili del Combattente, Arsenale delle armi e Moduli Cyborg stanno cambiando. Finché la revisione non è approvata il Manuale resta chiuso, per non lasciare in giro pagine superate.</p>
+    <p>Le regole aggiornate vivono intanto nella <b>scheda del personaggio</b>: talenti, costruttore di Tecniche, armi e moduli sono già allineati.</p>
+    <div class="mlrow">
+      <a class="mlb gold" href="/gestisci-pirata/">Vai alla scheda</a>
+      <a class="mlb" href="/">Torna al porto</a>
+      <button class="mlb" id="mlgm" type="button">Sono il GM · apri comunque</button>
+    </div>
+  </div>
+</div>
+
 <div class="topbar">
   <a class="brand" href="/"><span class="anc">⚓</span><span class="nm">Grand Line Chronicles</span></a>
   <div class="tnav">
+    <span class="lockpill" title="Manuale in revisione">⚿ Bloccato</span>
     <button class="menubtn" id="menubtn">☰ Indice</button>
     <a href="#" onclick="window.print();return false;">⎙ Stampa</a>
     <a class="gold" href="/">Apri l'app</a>
@@ -1401,6 +1432,22 @@ section.ch em{color:#ffd394;}
     parts.forEach(function(p){p.style.display=q?"none":"";});
     nores.style.display=any?"none":"";
   });
+})();
+</script>
+
+<script>
+/* Manuale bloccato: gate mostrato finché la revisione delle regole non è approvata.
+   Il GM può aprirlo comunque; la scelta resta in questa scheda del browser. */
+(function(){
+ var MAN_LOCKED=true, K="glc_manuale_sbloccato";
+ var box=document.getElementById("manlock");
+ if(!MAN_LOCKED||!box)return;
+ var open=false;try{open=sessionStorage.getItem(K)==="1";}catch(e){}
+ if(location.search.indexOf("sbloccato")>=0){open=true;try{sessionStorage.setItem(K,"1");}catch(e){}}
+ if(open)return;
+ box.hidden=false;document.body.classList.add("manlocked");
+ var b=document.getElementById("mlgm");
+ if(b)b.onclick=function(){try{sessionStorage.setItem(K,"1");}catch(e){}box.hidden=true;document.body.classList.remove("manlocked");};
 })();
 </script>
 </body>

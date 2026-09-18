@@ -384,7 +384,7 @@ body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#3
     if(pg.t2&&pg.t2.nome) techs.push(techRow(pg.t2));
     (pg.extraTech||[]).forEach(function(t){ if(t&&t.nome) techs.push(techRow(t)); });
     var costOf={}; if(P) (P.tecniche||[]).forEach(function(t){ costOf[t.nome]=t.cost; });
-    (pg.armi||[]).forEach(function(a){ if(a&&a.nome) techs.push({nome:a.nome,attr:(ATTR3[a.attr]||a.attr||'\u2014'),die:a.die||'',tipo:'Arma'+(a.tipo?(' \u00b7 '+a.tipo):''),eff:a.note||''}); });
+    (pg.armi||[]).forEach(function(a){ if(a&&a.nome) techs.push({nome:a.nome,attr:(ATTR3[a.attr]||a.attr||'\u2014'),die:a.grado||a.die||'',tipo:'Arma'+(a.tipo?(' \u00b7 '+a.tipo):''),eff:(a.eff&&a.eff.nome)?((a.eff.nome)+(a.eff.cat?(' \u00b7 '+a.eff.cat):'')):(a.note||'')}); });
     (pg.strumenti||[]).forEach(function(a){ if(a&&a.nome) techs.push({nome:a.nome,attr:'\u2014',die:a.die||'',tipo:'Strumento \u00b7 '+(a.tipo||'Corde'),eff:a.note||''}); });
     techs.slice(0,9).forEach(function(t,i){ setT(i,'nome',t.nome); setT(i,'attr',t.attr); setT(i,'dado',t.die); setT(i,'tipo',t.tipo); setT(i,'eff',t.eff); setT(i,'st',costOf[t.nome]||''); });
     if(pg.frutto&&pg.frutto.has){ var f=qd('.frtipo[data-tipo="'+(pg.frutto.tipo||'')+'"]'); if(f) f.classList.add('on'); setText('f-frutto-nome',pg.frutto.nome||''); setText('f-frutto-eff',pg.frutto.desc||''); setText('f-frutto-die',pg.frutto.die||'d4'); }
@@ -408,11 +408,11 @@ body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#3
     var tec=P?P.tecniche:[];
     if(tec.length) sec('Tecniche costruite — effetti per esteso',tec.map(function(t){var meta=[t.fonte,t.forma,t.attr,t.die,t.durata&&t.durata!=='Un turno'?t.durata:'',t.cost].filter(Boolean).join(' \u00b7 ')+(t.soglia!=null?(' \u00b7 '+t.pa+'/'+t.soglia+' PA'):'');var eff=(t.eff||[]).map(function(e){return e.n+(e.d?(': '+e.d):'');}).join(' \u00b7 ');return row(t.nome||'(senza nome)',meta,eff,t.desc);}).join(''));
     var mods=P?P.moduli:(pg.moduli||[]);
-    if(mods.length) sec('Moduli & Arsenale'+(P&&P.moduliSlots?(' \u00b7 '+mods.length+'/'+P.moduliSlots+' slot'):''),mods.map(function(m){return row(m.nome||'modulo',(m.die||'d6')+' \u00b7 si usa come Tecnica',m.eff,m.desc);}).join(''));
+    if(mods.length) sec('Corpo Meccanico \u00b7 Moduli'+(P&&P.moduliSlots?(' \u00b7 '+mods.length+'/'+P.moduliSlots+' slot'):''),mods.map(function(m){var meta=[(m.attivo?'ATTIVO':(m.stato==='danneggiato'?'DANNEGGIATO':'inattivo')),m.tipo,(m.req?('requisito '+m.req):''),(m.grado?('Grado '+m.grado):''),m.fuel].filter(Boolean).join(' \u00b7 ');var d=[m.funzione,(m.effCat?((m.effCat+(m.effTgt?(' \u00b7 '+m.effTgt):''))+(m.eff?(' \u2014 '+m.eff):'')):(m.eff||''))].filter(Boolean).join(' \u2014 ');return row(m.nome||'modulo',meta,d,m.desc);}).join(''));
     var str=P?P.strumenti:(pg.strumenti||[]);
     if(str.length) sec('Strumenti del Musicista',str.map(function(a){return row(a.nome||'strumento',[a.tipo||'Corde',(a.die||'')+(a.grado?(' '+a.grado):''),(a.soglia?('Salvezza '+a.soglia):''),(a.over?'usato come d4':'')].filter(Boolean).join(' \u00b7 '),a.note);}).join(''));
     var armi=P?P.armi:(pg.armi||[]);
-    if(armi.length) sec('Armi — dettaglio',armi.map(function(a){return row(a.nome||'arma',[a.tipo,a.attr,a.die].filter(Boolean).join(' \u00b7 '),a.note);}).join(''));
+    if(armi.length) sec('Arsenale \u2014 dettaglio',armi.map(function(a){var meta=[a.tipo,a.attr,(a.grado?('Grado '+a.grado+(a.gradoLabel?(' '+a.gradoLabel):'')):a.die),a.portata,(a.stile?('Stile '+a.stile+(a.stileOk?' \u2713':' \u2717')):''),(a.gmOk?'approvata dal GM':'')].filter(Boolean).join(' \u00b7 ');var d=a.effNome?((a.effNome+(a.effCat?(' \u00b7 '+a.effCat):'')+(a.effFreq?(' \u00b7 '+a.effFreq):'')+(a.effPrezzo?(' \u00b7 prezzo: '+a.effPrezzo):''))+(a.effDesc?(' \u2014 '+a.effDesc):'')):'Nessun effetto speciale';return row(a.nome||'arma',meta,d,a.note);}).join(''));
     var inv=P?(P.inventario||[]):(pg.inventario||[]);
     if(inv.length) sec('Zaino / Inventario','<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px 12px">'+inv.map(function(it){return '<div style="display:flex;justify-content:space-between;gap:6px;font-size:10px;border-bottom:1px dotted #b3a07a;padding:2px 0"><span>'+esc(it.nome||'oggetto')+(it.note?(' <i style="color:#6b5a44">— '+esc(it.note)+'</i>'):'')+'</span><span>'+((parseInt(it.qta)||0)!==1?('×'+(parseInt(it.qta)||0)):'')+'</span></div>';}).join('')+'</div>');
     var hk=P?P.haki:[];

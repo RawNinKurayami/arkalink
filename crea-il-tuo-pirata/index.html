@@ -194,7 +194,7 @@ var RACES=[
 var RACE_MOVE={umano:[10,""],cyborg:[10,""],lunarian:[10,""],longbraccio:[10,""],uomopesce:[10,"20 m in acqua"],tontatta:[8,""],gigante:[14,""],mink:[14,"16 m in Sulong"],lungagamba:[16,""]};
 function moveLabel(id){var m=RACE_MOVE[id]||[10,""];return m[0]+" m"+(m[1]?(" · "+m[1]):"")+" · correndo "+(m[0]*2)+" m";}
 var ROLES=[
- {name:"Combattente",multi:true,styles:[["Striker",["Atletica","Acrobazia"]],["Swordsman","Atletica"],["Sniper","Osservazione"],["Special","any"]],desc:"Il muscolo della ciurma. Lo Stile decide come combatti."},
+ {name:"Combattente",multi:true,styles:[["Striker",["Atletica","Acrobazia"]],["Crusher","Atletica"],["Swordsman","Atletica"],["Sniper","Osservazione"],["Special","any"]],desc:"Il muscolo della ciurma. Lo Stile decide come combatti."},
  {name:"Dottore",multi:true,styles:[["Infermeria","Medicina"],["Tossicologo","Medicina"],["Chimico","Medicina"]],desc:"Tiene in piedi la ciurma: cure, veleni o chimica."},
  {name:"Cuoco",multi:false,skill:"Cucina",desc:"Nutre e rinvigorisce l'equipaggio; piatti che ridanno energie."},
  {name:"Navigatore",multi:false,skill:"Navigazione",desc:"Trasforma il mare da nemico a strada."},
@@ -210,7 +210,7 @@ function blank(){return {nome:"",bg:"",amb:"",race:null,umanoAttr:"Forza",d6attr
  attr:{Forza:"",Tecnica:"",Spirito:"",Astuzia:""},
  skills:{}, roleSkillChoice:"", roleSkillDie:"d8", pa:{}, paThresh:{d4:10,d6:25,d8:60,d10:150,d12:400},
  t1:{nome:"",desc:"",attr:"",die:"d4"}, t2:{nome:"",desc:"",attr:"",die:"d4"}, racialDie:"d6", extraTech:[],
- armi:[], haki:[], frutto:{has:false,nome:"",tipo:"",desc:"",die:"d4"},
+ armi:[], moduli:[], moduloAttivo:"", haki:[], frutto:{has:false,nome:"",tipo:"",desc:"",die:"d4"},
  photo:"", photoPos:{x:50,y:50,z:1}, bounty:"0", pvMax:null,pvCur:null,stMax:6,stCur:6,legami:0,ore:16,note:""};}
 var D=blank(); var step=0; var KEY="glc_pirata_v4";
 
@@ -286,6 +286,9 @@ function rRace(){
   var r=race();
   if(r){
     p.appendChild(el("div",{class:"infobox",html:'<b>'+r.tech+' (Tecnica razziale):</b> '+r.techDesc+'<br><b>Movimento:</b> '+moveLabel(r.id)+'<br><b>Svantaggio:</b> '+r.sv}));
+    if(r.id==="cyborg"){
+      p.appendChild(el("div",{class:"infobox",html:'<b>Corpo Meccanico \u00b7 slot dei moduli.</b> Il dado razziale decide quanti impianti puoi portare: d6 = 1 \u00b7 <b>d8 = 2</b> \u00b7 d10 = 3 \u00b7 d12 = 4 \u00b7 d20 = 5. Se prendi anche <b>Arsenale Modulare</b> (Combattente \u00b7 Special) gli slot si sommano, fino a 9.<br>Alla creazione ricevi <b>due moduli completi</b>, senza costi: li scegli dall\'Officina nella gestione del pirata, dal catalogo o come progetto concordato col GM. Gli slot che sbloccherai dopo arrivano vuoti: il modulo va procurato, costruito e installato.'}));
+    }
     if(r.attr==="choice"||r.attr==="choice2"){
       var opts=(r.attr==="choice2")?["Forza","Tecnica"]:ATTRS;
       if(r.attr==="choice2"&&D.umanoAttr!=="Forza"&&D.umanoAttr!=="Tecnica"){D.umanoAttr="Forza";computeAttr();}
