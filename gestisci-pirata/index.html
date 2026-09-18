@@ -540,6 +540,8 @@ footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a69a86;font-
 .chipp.off{opacity:.38;cursor:not-allowed;}
 .chipp.off:hover{border-color:var(--line);color:var(--ink);}
 .chipp .sm{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.75;}
+.chipp .ci{display:inline-flex;align-items:center;margin:-3px 1px -3px -3px;}
+.chipp .ci .dieic{width:26px;height:26px;}
 .chipp:focus-visible{outline:2px solid #9fd0ff;outline-offset:2px;}
 .smb-note{font-size:11.5px;line-height:1.5;color:var(--ink-soft);border-left:1px solid rgba(240,164,65,.45);padding-left:9px;margin:8px 0 2px;}
 .smb-note b{color:var(--gold-soft);}
@@ -659,7 +661,7 @@ footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a69a86;font-
  .smb-head{padding:13px 14px 10px;}
  .smb-head .hrule{left:14px;right:14px;}
  .smb-body{padding:10px 14px 4px;}
- .smb-idg{grid-template-columns:minmax(0,1fr);gap:0;}
+ .smb-idg{grid-template-columns:minmax(0,1fr);gap:8px 0;}
  .smb-t{flex-wrap:wrap;}
  .smb-t .c{white-space:normal;flex-basis:100%;margin-top:2px;}
  .smb-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px;}
@@ -1317,8 +1319,8 @@ function tecCost(t){let st=0,pt=0;(t.eff||[]).forEach(nm=>{const e=tecEffObj(nm)
 function tecCostLabel(t){const c=tecCost(t);return c.st+" ST"+(c.pt?(" +"+c.pt+"/turno"):"");}
 function tecSummary(t){const a=[];if(t.fonte)a.push(t.fonte==="Frutto"&&t.fruitType?("Frutto "+t.fruitType):(t.fonte==="Arma"&&t.weapon?("Arma \u00ab"+t.weapon+"\u00bb"):t.fonte));if(t.forma)a.push(t.forma);if(t.die)a.push(t.die);if(t.durata&&t.forma==="Area"&&t.durata!=="Un turno")a.push(t.durata);let s=a.join(" · ");if(t.eff&&t.eff.length)s+=" — "+t.eff.join(", ");return s;}
 const FAM_SHORT={"Melodie del Musicista":"Melodie","Zona Persistente":"Zona pers.","Potenziamento":"Potenz.","Concatenati":"Concat.","Spostamento":"Spost."};
-let TBUILD={nome:"",attr:"",fonte:"Stile",forma:"Singolo",die:"d6",durata:"Un turno",eff:[],desc:"",_open:[],_fam:"",_id:null,fruitType:"",weaponName:"",modulo:""};
-function tbReset(){TBUILD={nome:"",attr:"",fonte:"Stile",forma:"Singolo",die:"d6",durata:"Un turno",eff:[],desc:"",_open:[],_fam:"",_id:null,fruitType:"",weaponName:"",modulo:""};}
+let TBUILD={nome:"",attr:"",fonte:"Stile",forma:"Singolo",die:"d6",durata:"Un turno",eff:[],desc:"",_open:[],_fam:"",_id:null,fruitType:"",weaponName:"",arma:"",modulo:""};
+function tbReset(){TBUILD={nome:"",attr:"",fonte:"Stile",forma:"Singolo",die:"d6",durata:"Un turno",eff:[],desc:"",_open:[],_fam:"",_id:null,fruitType:"",weaponName:"",arma:"",modulo:""};}
 /* ==========================================================================
    SIGNATURE MOVE BUILDER
    Documento di specifica: «esclusivamente estetico». Regole, filtri, slot,
@@ -1370,6 +1372,7 @@ function smbChips(label,opts,cur,onPick){
  opts.forEach(o=>{
   const on=(o.v===cur),off=!!o.off;
   const c=el("div",{class:"chipp"+(on?" on":"")+(off?" off":""),role:"radio","aria-checked":on?"true":"false","aria-disabled":off?"true":"false",tabindex:off?"-1":"0"});
+  if(o.ico)c.appendChild(el("span",{class:"ci",html:o.ico}));
   c.appendChild(el("span",{text:o.l}));
   if(o.sub)c.appendChild(el("span",{class:"sm",text:o.sub}));
   if(o.why)c.setAttribute("title",o.why);
@@ -1385,7 +1388,7 @@ function renderTecBuilder(onAdd){
  /* ---- testata ---- */
  const head=el("div",{class:"smb-head"});
  head.appendChild(el("div",{class:"hmark",html:SMB_MARK}));
- head.appendChild(el("div",{class:"htxt"},[el("h2",{text:"Signature Move Builder"}),el("div",{class:"hsub",text:"Costruttore di Tecniche · Grand Line Chronicles"})]));
+ head.appendChild(el("div",{class:"htxt"},[el("h2",{text:"Signature Move Builder"}),el("div",{class:"hsub",text:"Grand Line Chronicles"})]));
  head.appendChild(el("button",{class:"smb-x",text:"✕",title:"Chiudi","aria-label":"Chiudi",onclick:closeModal}));
  head.appendChild(el("div",{class:"hrule"}));
  inn.appendChild(head);
@@ -1415,6 +1418,7 @@ function renderTecBuilder(onAdd){
  const wm=el("div",{class:"smb-wm"});stage.appendChild(wm);
  const famNote=el("div");stage.appendChild(famNote);
  const grid=el("div",{class:"smb-grid"});stage.appendChild(grid);
+ const gridNote=el("div");stage.appendChild(gridNote);
  const aside=el("div",{class:"smb-aside"});main.appendChild(aside);
  const plaque=el("div",{class:"plaque"});aside.appendChild(plaque);
  const plaqueIn=el("div",{class:"plaque-in"});plaque.appendChild(plaqueIn);
@@ -1433,7 +1437,7 @@ function renderTecBuilder(onAdd){
    if(!(TBUILD.nome||"").trim()){alert("Dai un nome alla tecnica.");return;}
    if(!TBUILD.attr){alert("Scegli l’Attributo di riferimento: il dado della tecnica non può superarlo.");return;}
    if(TBUILD.forma==="Area"&&!(TBUILD.eff||[]).some(isSagoma)){alert("Una Tecnica ad Area ha bisogno di una sagoma: scegli un cono, una linea o un cerchio nella famiglia Area.");return;}
-   const t={id:(TBUILD._id||("tec"+Date.now().toString(36)+Math.floor(Math.random()*1000))),nome:TBUILD.nome.trim(),attr:TBUILD.attr,die:TBUILD.die,fonte:TBUILD.fonte,fruitType:(TBUILD.fonte==="Frutto"?(TBUILD.fruitType||""):""),weapon:(TBUILD.fonte==="Arma"?(TBUILD.weaponName||""):""),modulo:(TBUILD.fonte==="Stile"?(TBUILD.modulo||""):""),forma:TBUILD.forma,durata:(TBUILD.forma==="Area"?TBUILD.durata:""),eff:TBUILD.eff.slice(),desc:TBUILD.desc||""};
+   const t={id:(TBUILD._id||("tec"+Date.now().toString(36)+Math.floor(Math.random()*1000))),nome:TBUILD.nome.trim(),attr:TBUILD.attr,die:TBUILD.die,fonte:TBUILD.fonte,fruitType:(TBUILD.fonte==="Frutto"?(TBUILD.fruitType||""):""),weapon:(TBUILD.fonte==="Arma"?(TBUILD.weaponName||""):""),arma:(TBUILD.fonte!=="Arma"?(TBUILD.arma||""):""),modulo:(TBUILD.fonte==="Stile"?(TBUILD.modulo||""):""),forma:TBUILD.forma,durata:(TBUILD.forma==="Area"?TBUILD.durata:""),eff:TBUILD.eff.slice(),desc:TBUILD.desc||""};
    onAdd(t);}}));
  bar.appendChild(acts);inn.appendChild(bar);
 
@@ -1450,6 +1454,7 @@ function renderTecBuilder(onAdd){
   if(TBUILD.die)meta.push(TBUILD.die);
   if(TBUILD.attr)meta.push(TBUILD.attr);
   if(TBUILD.forma==="Area"&&TBUILD.durata&&TBUILD.durata!=="Un turno")meta.push(TBUILD.durata);
+  if(TBUILD.fonte!=="Arma"&&TBUILD.arma){const wa=(pg.armi||[]).filter(x=>x.id===TBUILD.arma)[0];if(wa)meta.push("arma « "+((wa.nome||"").trim()||"senza nome")+" »");}
   if(TBUILD.fonte==="Stile"&&TBUILD.modulo){const mo=(pg.moduli||[]).filter(x=>x.id===TBUILD.modulo)[0];if(mo)meta.push("modulo « "+(mo.nome||"senza nome")+" »");}
   plaqueIn.appendChild(el("div",{class:"pm",text:meta.join(" · ")}));
   plaqueIn.appendChild(el("div",{class:"pdiv"}));
@@ -1473,22 +1478,36 @@ function renderTecBuilder(onAdd){
   if(TBUILD.fonte==="Frutto"&&!hasFrutto)TBUILD.fonte="Stile";
   /* attributo */
   attrHost.innerHTML="";
-  attrHost.appendChild(smbChips("Attributo",ATTRS.map(a=>({v:a,l:a,sub:(pg.attr&&pg.attr[a])||""})),TBUILD.attr,v=>{TBUILD.attr=(TBUILD.attr===v)?"":v;refresh();}));
+  attrHost.appendChild(smbChips("Attributo",ATTRS.map(a=>({v:a,l:a,ico:dieIcon((pg.attr&&pg.attr[a])||"",26)})),TBUILD.attr,v=>{TBUILD.attr=(TBUILD.attr===v)?"":v;refresh();}));
   /* fonte */
   fonteHost.innerHTML="";
   fonteHost.appendChild(smbChips("Fonte",TEC_FONTI.map(o=>({v:o,l:o,
     off:(o==="Arma"&&!hasArmi)||(o==="Frutto"&&!hasFrutto),
     why:(o==="Arma"&&!hasArmi)?"Nessun'arma in scheda":((o==="Frutto"&&!hasFrutto)?"Nessun Frutto in scheda":"")})),TBUILD.fonte,v=>{TBUILD.fonte=v;refresh();}));
-  /* arma impugnata */
+  /* arma impugnata: con Fonte Arma è la fonte stessa, altrimenti è un
+     collegamento facoltativo — un promemoria, non uno sconto automatico. */
   weaponHost.innerHTML="";
-  if(TBUILD.fonte==="Arma"&&hasArmi){
-   var _names=pg.armi.map(function(a){return (a.nome&&a.nome.trim())?a.nome.trim():"Arma senza nome";});
-   if(_names.indexOf(TBUILD.weaponName)<0)TBUILD.weaponName=_names[0];
-   weaponHost.appendChild(smbChips("Arma impugnata",pg.armi.map(function(a){var nn=(a.nome&&a.nome.trim())?a.nome.trim():"Arma senza nome";return {v:nn,l:nn,sub:a.grado?("Grado "+a.grado):""};}),TBUILD.weaponName,v=>{TBUILD.weaponName=v;refresh();}));
-   var _wa=pg.armi.filter(function(a){return ((a.nome&&a.nome.trim())||"Arma senza nome")===TBUILD.weaponName;})[0];
-   if(_wa){var c=weaponCompat(_wa);
-    weaponHost.appendChild(el("div",{class:"compat "+c.s,html:c.msg+(_wa.eff?("<br><b>"+(_wa.eff.nome||"Effetto")+"</b>"+(_wa.eff.cat?(" · "+_wa.eff.cat):"")+(_wa.eff.desc?(" — "+_wa.eff.desc):"")+"<br><i>Promemoria: il costruttore non applica da solo l'effetto dell'arma.</i>"):"")}));}
-  }
+  if(hasArmi){
+   const wname=a=>((a.nome&&a.nome.trim())?a.nome.trim():"Arma senza nome");
+   let _wa=null;
+   if(TBUILD.fonte==="Arma"){
+    const _names=pg.armi.map(wname);
+    if(_names.indexOf(TBUILD.weaponName)<0)TBUILD.weaponName=_names[0];
+    weaponHost.appendChild(smbChips("Arma impugnata",pg.armi.map(a=>({v:wname(a),l:wname(a),sub:a.grado?("Grado "+a.grado):""})),TBUILD.weaponName,v=>{TBUILD.weaponName=v;refresh();}));
+    _wa=pg.armi.filter(a=>wname(a)===TBUILD.weaponName)[0]||null;
+   } else {
+    if(TBUILD.arma&&!pg.armi.some(a=>a.id===TBUILD.arma))TBUILD.arma="";
+    weaponHost.appendChild(smbChips("Arma impugnata (facoltativa)",[{v:"",l:"Nessuna"}].concat(pg.armi.map(a=>({v:a.id,l:wname(a),sub:a.grado?("Grado "+a.grado):""}))),TBUILD.arma||"",v=>{TBUILD.arma=v;refresh();}));
+    _wa=pg.armi.filter(a=>a.id===TBUILD.arma)[0]||null;
+   }
+   if(_wa){
+    const c=weaponCompat(_wa);
+    let h="<b>"+((_wa.nome||"").trim()||"Arma senza nome")+"</b> · "+_wa.tipo+" · Grado "+_wa.grado+" "+gradeLabel(_wa.grado)+"<br>"+c.msg;
+    if(_wa.eff)h+="<br><b>"+(_wa.eff.nome||"Effetto")+"</b>"+(_wa.eff.cat?(" · "+_wa.eff.cat):"")+(_wa.eff.desc?(" — "+_wa.eff.desc):"");
+    h+="<br><i>Promemoria: il Signature Move Builder non applica da solo l'effetto dell'arma.</i>";
+    weaponHost.appendChild(el("div",{class:"compat "+c.s,html:h}));
+   }
+  } else TBUILD.arma="";
   /* frutto */
   fruitHost.innerHTML="";let ftype=null;
   if(TBUILD.fonte==="Frutto"){
@@ -1547,11 +1566,18 @@ function renderTecBuilder(onAdd){
   info.innerHTML=(TBUILD.forma==="Canzone"?"<b>Le Canzoni non si tirano.</b> Una sola Melodia per Canzone · sugli alleati l'effetto è automatico · i nemici tirano la Salvezza contro il Grado del tuo strumento · costo: la Stamina della Melodia più la tua azione."
     :(TBUILD.forma==="Area"?"<b>Area.</b> Scegli una sagoma — non occupa slot, il costo è la sua misura — e al massimo una Gittata. I bersagli subiscono metà danno, gli stati passano dalla Salvezza."
     :"Un effetto per gruppo. Il dado decide quanti slot hai e fin dove arrivi."));
+  /* In lista ci va solo ciò che puoi prendere adesso: gli effetti ancora
+     chiusi — dado troppo basso, Fonte o Forma sbagliate — non si mostrano.
+     Di quelli che aspettano solo un dado più alto resta il conto, in coda. */
+  const okDie=e=>(TEC_RANK[e[3]]||1)<=rank;
+  const okReq=e=>(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area")||(e[5]==="musicista"&&isMusicista()&&TBUILD.forma==="Canzone")||(e[5]==="difesa"&&TBUILD.forma==="Difesa")||(e[5]==="potenz"&&TBUILD.forma==="Potenziamento")||(e[5]==="special"&&isCombSpecial())||(e[5]==="spost"&&TBUILD.forma==="Spostamento"));
+  const effOpen=e=>okDie(e)&&okReq(e)&&!effVeto(e);
+  const effSoon=e=>!okDie(e)&&okReq(e)&&!effVeto(e);
   /* rastrelliera delle famiglie */
   const fams=TEC_FAMS.filter(fam=>{
    if(fam==="Melodie del Musicista"&&!(isMusicista()&&TBUILD.forma==="Canzone"))return false;
    if(TBUILD.forma==="Canzone"&&fam!=="Melodie del Musicista")return false;
-   return true;});
+   return TEC_EFF.some(e=>e[0]===fam&&effOpen(e));});
   if(fams.indexOf(TBUILD._fam)<0)TBUILD._fam=fams[0]||"";
   rail.innerHTML="";
   fams.forEach(fam=>{
@@ -1572,20 +1598,13 @@ function renderTecBuilder(onAdd){
   if(TBUILD._fam==="Potenziamento")famNote.appendChild(el("div",{class:"smb-note",text:"Il Potenziamento non ha il limite di uno per famiglia: gli slot del dado sono l'unico tetto."}));
   /* carte della famiglia scelta */
   grid.innerHTML="";
-  const GATE_HINT={frutto:"richiede Frutto",area:"richiede Forma Area",musicista:"Musicista + Forma Canzone",difesa:"richiede Forma Difesa",potenz:"richiede Forma Potenziamento",special:"solo Combattente · Special",spost:"richiede Forma Spostamento"};
-  TEC_EFF.filter(e=>e[0]===TBUILD._fam).forEach((e,idx)=>{
+  TEC_EFF.filter(e=>e[0]===TBUILD._fam&&effOpen(e)).forEach((e,idx)=>{
    const nm=e[1];const sel=TBUILD.eff.indexOf(nm)>=0;
-   const okD=(TEC_RANK[e[3]]||1)<=rank;
-   const okR=(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area")||(e[5]==="musicista"&&isMusicista()&&TBUILD.forma==="Canzone")||(e[5]==="difesa"&&TBUILD.forma==="Difesa")||(e[5]==="potenz"&&TBUILD.forma==="Potenziamento")||(e[5]==="special"&&isCombSpecial())||(e[5]==="spost"&&TBUILD.forma==="Spostamento"));
-   const veto=effVeto(e);
    const famTaken=!sel&&TBUILD.eff.some(x=>x!==nm&&grpOf(x)===grpOf(nm));
    const full=!isSagoma(nm)&&slotUsed(TBUILD.eff)>=slot&&!sel;
-   const dis=!okD||!okR||!!veto||famTaken||full;
+   const dis=famTaken||full;
    let why="";
-   if(!okD)why="Richiede "+e[3];
-   else if(!okR)why=GATE_HINT[e[5]]||"non disponibile";
-   else if(veto)why=veto;
-   else if(famTaken)why=(e[6]==="sagoma")?"una sola sagoma":((e[6]==="gittata")?"una sola gittata":(TBUILD.forma==="Canzone"?"una sola Melodia per Canzone":"1 per gruppo"));
+   if(famTaken)why=(e[6]==="sagoma")?"una sola sagoma":((e[6]==="gittata")?"una sola gittata":(TBUILD.forma==="Canzone"?"una sola Melodia per Canzone":"1 per gruppo"));
    else if(full)why="slot pieni";
    const card=el("div",{class:"mcard"+(sel?" sel":"")+(dis?" off":""),tabindex:dis&&!sel?"-1":"0",role:"button","aria-pressed":sel?"true":"false","aria-label":nm+" · "+e[3]+" · "+e[4]+" ST"+(why?(" · "+why):"")});
    card.style.animationDelay=Math.min(idx,10)*22+"ms";
@@ -1613,6 +1632,10 @@ function renderTecBuilder(onAdd){
    }
    grid.appendChild(card);
   });
+  gridNote.innerHTML="";
+  if(!fams.length)gridNote.appendChild(el("div",{class:"smb-note",text:"Con queste scelte non c'è ancora niente da prendere: alza il dado, o cambia Fonte e Forma."}));
+  else{const soon=TEC_EFF.filter(e=>e[0]===TBUILD._fam&&effSoon(e)).length;
+   if(soon)gridNote.appendChild(el("div",{class:"smb-note",html:"Altr"+(soon===1?"o <b>1</b> effetto di questa famiglia si apre":"i <b>"+soon+"</b> effetti di questa famiglia si aprono")+" con un dado più alto."}));}
   sigil();
  }
  refresh();
@@ -1891,12 +1914,17 @@ function tecLinkBox(t){
  const w=el("div",{});
  if(t.fonte==="Arma"&&t.weapon){
   const a=(pg.armi||[]).filter(x=>((x.nome&&x.nome.trim())||"Arma senza nome")===t.weapon)[0];
-  if(!a)w.appendChild(el("div",{class:"compat ko",html:"Collegamento non più valido: l'arma <b>"+t.weapon+"</b> non è più in scheda. La Tecnica resta salvata: riaprila nel costruttore per scegliere un'altra arma."}));
+  if(!a)w.appendChild(el("div",{class:"compat ko",html:"Collegamento non più valido: l'arma <b>"+t.weapon+"</b> non è più in scheda. La Tecnica resta salvata: riaprila nel Signature Move Builder per scegliere un'altra arma."}));
   else{const c=weaponCompat(a);w.appendChild(el("div",{class:"compat "+c.s,html:"Arma <b>"+t.weapon+"</b> · Grado "+a.grado+" "+gradeLabel(a.grado)+"<br>"+c.msg}));}
+ }
+ if(t.arma){
+  const wa=(pg.armi||[]).filter(x=>x.id===t.arma)[0];
+  if(!wa)w.appendChild(el("div",{class:"compat ko",html:"Collegamento non più valido: l'arma collegata non è più in scheda. La Tecnica resta salvata: riaprila nel Signature Move Builder per collegarne un'altra."}));
+  else{const c=weaponCompat(wa);w.appendChild(el("div",{class:"compat "+c.s,html:"Arma impugnata <b>"+((wa.nome||"").trim()||"senza nome")+"</b> · Grado "+wa.grado+" "+gradeLabel(wa.grado)+"<br>"+c.msg}));}
  }
  if(t.modulo){
   const mo=(pg.moduli||[]).filter(x=>x.id===t.modulo)[0];
-  if(!mo)w.appendChild(el("div",{class:"compat ko",html:"Collegamento non più valido: il modulo non è più installato. La Tecnica resta salvata: riaprila nel costruttore per collegarne un altro."}));
+  if(!mo)w.appendChild(el("div",{class:"compat ko",html:"Collegamento non più valido: il modulo non è più installato. La Tecnica resta salvata: riaprila nel Signature Move Builder per collegarne un altro."}));
   else{const att=pg.moduloAttivo===mo.id,dmg=mo.stato==="danneggiato";
    w.appendChild(el("div",{class:"compat "+(dmg?"ko":(att?"ok":"wait")),html:"Modulo <b>"+(mo.nome||"senza nome")+"</b> · "+(dmg?"danneggiato: la Tecnica non è utilizzabile finché non lo ripari.":(att?"attivo: la Tecnica è utilizzabile.":"inattivo: per usarla devi attivare il modulo."))}));}
  }
@@ -1905,7 +1933,7 @@ function tecLinkBox(t){
 function extraTechModal(i){openModal("✦ "+(pg.extraTech[i]&&pg.extraTech[i].nome||"Tecnica"),()=>{const t=pg.extraTech[i];if(!t)return el("div");const w=el("div",{});w.appendChild(field("Nome tecnica",t.nome,v=>{t.nome=v;save();}));w.appendChild(el("div",{class:"tdsub",html:(tecSummary(t)||"<i>tecnica libera</i>")+" · <b>"+tecCostLabel(t)+"</b>"}));if(t.eff&&t.eff.length){const ul=el("div",{class:"tddesc"});t.eff.forEach(nm=>{const e=tecEffObj(nm);ul.appendChild(el("div",{html:"<b>"+nm+"</b>"+(e?(" — "+e[2]):"")}));});w.appendChild(ul);}
  w.appendChild(tecLinkBox(t));
  w.appendChild(el("label",{class:"fld",text:"Attributo · Dado (= Dado Danno)"}));w.appendChild(el("div",{class:"mrow"},[attrSelect(t.attr,v=>{t.attr=v;save();}),stepper(t.die,nd=>mutateM(()=>t.die=nd))]));w.appendChild(el("label",{class:"fld",text:"Descrizione / colore"}));const tx=el("textarea",{});tx.value=t.desc||"";tx.oninput=()=>{t.desc=tx.value;save();};w.appendChild(tx);if(!t.id)t.id="tec"+Date.now().toString(36)+Math.floor(Math.random()*1000);w.appendChild(el("label",{class:"fld",text:"Progressione"}));w.appendChild(paRowM("tec:"+t.id,()=>t.die,nd=>t.die=nd));
- w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✎ Modifica nel costruttore",onclick:()=>{TBUILD={nome:t.nome,attr:t.attr,fonte:t.fonte||"Stile",forma:t.forma||"Singolo",die:t.die||"d6",durata:t.durata||"Un turno",eff:(t.eff||[]).slice(),desc:t.desc||"",_open:[],_fam:"",_id:t.id||null,fruitType:t.fruitType||"",weaponName:t.weapon||"",modulo:t.modulo||""};pg.extraTech.splice(i,1);save();builderModal();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare questa tecnica?")){closeModal();mutate(()=>pg.extraTech.splice(i,1));}}})]));return w;});}
+ w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✎ Modifica nel Signature Move Builder",onclick:()=>{TBUILD={nome:t.nome,attr:t.attr,fonte:t.fonte||"Stile",forma:t.forma||"Singolo",die:t.die||"d6",durata:t.durata||"Un turno",eff:(t.eff||[]).slice(),desc:t.desc||"",_open:[],_fam:"",_id:t.id||null,fruitType:t.fruitType||"",weaponName:t.weapon||"",arma:t.arma||"",modulo:t.modulo||""};pg.extraTech.splice(i,1);save();builderModal();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare questa tecnica?")){closeModal();mutate(()=>pg.extraTech.splice(i,1));}}})]));return w;});}
 function builderModal(){openModal("Signature Move Builder",()=>renderTecBuilder(t=>{closeModal();mutate(()=>{pg.extraTech.push(t);tbReset();});flyIn(dieIcon(t.die,120),()=>byText(".slots.right .slot-n",t.nome));}),{xwide:true,bare:true});}
 /* paRow usato dentro le modali: dopo ogni tocco ridisegna anche la modale */
 function paRowM(key,getDie,setDie){const r=paRow(key,getDie,setDie);r.querySelectorAll("button").forEach(b=>{const f=b.onclick;if(f)b.onclick=()=>{f();refreshModal();};});return r;}
@@ -1989,6 +2017,12 @@ function normWeapon(a){
 }
 function normWeapons(){(pg.armi||[]).forEach(normWeapon);}
 function weaponEffEmpty(){return {nome:"",cat:"",desc:"",freq:"Sempre",prezzo:"Nessuno",prezzoDett:""};}
+/* Tecniche collegate all'arma: quelle con Fonte Arma che la citano per nome e
+   quelle che la impugnano come collegamento facoltativo. */
+function weaponTecniche(a){
+ const nn=((a.nome||"").trim())||"Arma senza nome";
+ return (pg.extraTech||[]).filter(t=>(t.fonte==="Arma"&&t.weapon===nn)||(t.arma&&t.arma===a.id));
+}
 function weaponMeta(a){
  normWeapon(a);var c=weaponCompat(a);
  var s=a.tipo+" · <b>"+a.grado+"</b> "+gradeLabel(a.grado);
@@ -2090,6 +2124,14 @@ function weaponModal(i,step){
    if(a.tipo==="Ad asta"&&!a.asta)miss.push("la modalità dell'asta");
    if(a.eff&&!a.eff.cat)miss.push("la categoria dell'effetto");
    if(miss.length)w.appendChild(el("div",{class:"compat wait",html:"Manca ancora "+miss.join(", ")+". L'arma resta salvata così com'è: puoi completarla quando lo decidete al tavolo."}));
+   {const tecs=weaponTecniche(a);
+    w.appendChild(el("div",{class:"slots-h",text:"Tecniche collegate"}));
+    if(tecs.length)tecs.forEach(t=>{
+     const bad=(c.s==="ok")?"Effetto utilizzabile":((c.s==="ko")?"Stile non compatibile":"Stile da determinare");
+     const bc=(c.s==="ok")?"good":((c.s==="ko")?"warn":"");
+     w.appendChild(el("div",{class:"slot"},[el("div",{class:"slot-i",html:dieIcon(t.die,30)}),el("div",{class:"slot-b"},[el("div",{class:"slot-n",text:t.nome||"(senza nome)"}),el("div",{class:"slot-m",html:[t.fonte,t.forma].filter(Boolean).join(" · ")+' · <span class="pill '+bc+'">'+bad+"</span>"})])]));
+    });
+    else w.appendChild(el("div",{class:"sub",text:"Nessuna: nel Signature Move Builder puoi impugnare quest'arma in una Tecnica, con Fonte Arma o come collegamento facoltativo."}));}
    w.appendChild(el("div",{class:"mrow"},[el("span",{class:"lab",text:"Approvata dal GM"}),el("span",{class:"pill click"+(a.gmOk?" good":""),text:a.gmOk?"Approvata":"Da approvare",onclick:()=>mutateM(()=>a.gmOk=!a.gmOk)})]));
    w.appendChild(el("div",{class:"hintbox",text:"La spunta è un'annotazione della scheda, non una certificazione: vale l'accordo al tavolo."}));
   }
@@ -2261,7 +2303,7 @@ function moduleSheetModal(i){
    var bc=(mo.stato==="danneggiato")?"warn":(att?"good":"");
    w.appendChild(el("div",{class:"slot click"},[el("div",{class:"slot-i",html:dieIcon(t.die,30)}),el("div",{class:"slot-b"},[el("div",{class:"slot-n",text:t.nome}),el("div",{class:"slot-m",html:[t.fonte,t.forma].filter(Boolean).join(" · ")+' · <span class="pill '+bc+'">'+bad+"</span>"})])]));
   });
-  else w.appendChild(el("div",{class:"sub",text:"Nessuna: nel costruttore, con Fonte Stile, puoi collegare una Tecnica a questo modulo."}));
+  else w.appendChild(el("div",{class:"sub",text:"Nessuna: nel Signature Move Builder puoi collegare una Tecnica a questo modulo."}));
   if(mo.note)w.appendChild(el("div",{class:"hintbox",text:mo.note}));
   const row1=el("div",{class:"addrow"});
   if(mo.stato==="integro")row1.appendChild(el("button",{class:"btn sm"+(att?"":" gold"),text:att?"È il modulo attivo":"Attiva",onclick:()=>{if(att)return;mutateM(()=>{pg.moduloAttivo=mo.id;});}}));
@@ -2315,7 +2357,7 @@ function moduleModal(i,step){
     if(E.cat)w.appendChild(el("div",{class:"hintbox",text:EFF_CAT_HINT[E.cat]}));
     if(E.cat==="Sconto"||E.cat==="Sblocco"){
      const opts=[""].concat(TEC_EFF.map(e=>e[1]));
-     w.appendChild(selField("Effetto del costruttore interessato",opts,E.tgt,v=>mutateM(()=>E.tgt=v)));
+     w.appendChild(selField("Effetto del Signature Move Builder",opts,E.tgt,v=>mutateM(()=>E.tgt=v)));
      if(E.tgt){const e=tecEffObj(E.tgt);if(e)w.appendChild(el("div",{class:"hintbox",html:"<b>"+e[1]+"</b> ("+e[0]+") — da <b>"+e[3]+"</b>, "+e[4]+" ST"+(e[7]?(" +"+e[7]+"/turno"):"")+". "+e[2]}));}
     }
     w.appendChild(taField(E.cat==="Sconto"?"Cosa viene ridotto, esattamente":"Cosa concede, esattamente",E.testo,v=>{E.testo=v;save();},E.cat==="Sconto"?"Es.: «Attrazione non occupa slot nelle Tecniche eseguite con questo modulo» — lo slot, non la Stamina.":""));
@@ -2574,7 +2616,7 @@ function printPayload(){
     armi:(pg.armi||[]).map(function(a){normWeapon(a);var c=weaponCompat(a);return {nome:a.nome||"",tipo:a.tipo+(a.asta?(" \u00b7 "+a.asta.toLowerCase()):""),attr:a.attr||"",die:a.grado||"",grado:a.grado||"",gradoLabel:gradeLabel(a.grado),portata:a.portata||"",stile:c.need||"",stileOk:(c.s==="ok"),effNome:(a.eff&&a.eff.nome)||"",effCat:(a.eff&&a.eff.cat)||"",effDesc:(a.eff&&a.eff.desc)||"",effFreq:(a.eff&&a.eff.freq)||"",effPrezzo:(a.eff&&a.eff.prezzo&&a.eff.prezzo!=="Nessuno")?(a.eff.prezzo+(a.eff.prezzoDett?(" "+a.eff.prezzoDett):"")):"",gmOk:!!a.gmOk,note:a.note||""};}),
     inventario:(pg.inventario||[]).map(function(it){return {nome:it.nome||"",qta:(parseInt(it.qta)||0),note:it.note||"",ico:it.ico||""};}),
     haki:(pg.haki||[]).map(function(hk){var unl=hakiUnlocked(hk);return {name:hk.name,die:hk.die||"",pip:parseInt(hk.pip)||0,liv:unl.length?unl[unl.length-1].liv:"",rows:unl.map(function(x){return {liv:x.liv,pass:x.pass||"",act:x.act||"",cost:x.cost||""};})};}),
-    tecniche:(pg.extraTech||[]).filter(function(t){return t.nome||(t.eff&&t.eff.length);}).map(function(t){var fo=(t.fonte==="Frutto"&&t.fruitType)?("Frutto "+t.fruitType):((t.fonte==="Arma"&&t.weapon)?("Arma \u00ab"+t.weapon+"\u00bb"):(t.fonte||""));if(t.modulo){var _m=(pg.moduli||[]).filter(function(x){return x.id===t.modulo;})[0];if(_m)fo+=" \u00b7 modulo \u00ab"+(_m.nome||"senza nome")+"\u00bb";}return {nome:t.nome||"",fonte:fo,forma:t.forma||"",attr:t.attr||"",die:t.die||"",durata:t.durata||"",cost:tecCostLabel(t),eff:(t.eff||[]).map(function(nm){var e=tecEffObj(nm);return {n:nm,d:e?e[2]:""};}),desc:t.desc||"",pa:t.id?(pg.pa["tec:"+t.id]||0):0,soglia:t.die?paSoglia(t.die):null};}),
+    tecniche:(pg.extraTech||[]).filter(function(t){return t.nome||(t.eff&&t.eff.length);}).map(function(t){var fo=(t.fonte==="Frutto"&&t.fruitType)?("Frutto "+t.fruitType):((t.fonte==="Arma"&&t.weapon)?("Arma \u00ab"+t.weapon+"\u00bb"):(t.fonte||""));if(t.arma){var _a=(pg.armi||[]).filter(function(x){return x.id===t.arma;})[0];if(_a)fo+=" \u00b7 arma \u00ab"+((_a.nome||"").trim()||"senza nome")+"\u00bb";}if(t.modulo){var _m=(pg.moduli||[]).filter(function(x){return x.id===t.modulo;})[0];if(_m)fo+=" \u00b7 modulo \u00ab"+(_m.nome||"senza nome")+"\u00bb";}return {nome:t.nome||"",fonte:fo,forma:t.forma||"",attr:t.attr||"",die:t.die||"",durata:t.durata||"",cost:tecCostLabel(t),eff:(t.eff||[]).map(function(nm){var e=tecEffObj(nm);return {n:nm,d:e?e[2]:""};}),desc:t.desc||"",pa:t.id?(pg.pa["tec:"+t.id]||0):0,soglia:t.die?paSoglia(t.die):null};}),
     pa:{attr:ATTRS.map(function(a){return {name:a,die:pg.attr[a]||"",pa:pg.pa["attr:"+a]||0,soglia:pg.attr[a]?paSoglia(pg.attr[a]):null};}),
         skills:Object.keys(SKILLS).map(function(n){var isRole=ro&&ro.skill===n;var die=isRole?pg.roleSkillDie:(pg.skills[n]||"");return {name:n,die:die,role:!!isRole,pa:pg.pa[n]||0,soglia:die?paSoglia(die):null};}).filter(function(x){return x.die;})}};
   return out;
