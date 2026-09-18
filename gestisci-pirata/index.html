@@ -647,7 +647,7 @@ const RACES=[
  {id:"lunarian",name:"Lunarian",attr:"Spirito",die:"d8",pv:16,hp:"d8",tech:"Fiamma Immortale",techDesc:"Fiamma ON: +1 dado resistenza. OFF: bonus evasione. Alternare 1×/turno gratis.",sv:"Taglia automatica 50M"},
  {id:"longbraccio",name:"Longbraccio",attr:"Tecnica",die:"d8",pv:12,hp:"d6",tech:"Portata Estesa",techDesc:"Mischia a distanza insolita. Chi ti attacca ravvicinato ha +2 soglia.",sv:"Nessuno"},
  {id:"lungagamba",name:"Lungagamba",attr:"Forza",die:"d8",pv:14,hp:"d6",tech:"Calcio Colossale",techDesc:"Bonus su calci e movimenti verticali. 1×/combat salti fuori portata senza tiro.",sv:"Nessuno"},
- {id:"cyborg",name:"Cyborg",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Corpo Meccanico",techDesc:"Installa moduli meccanici nel corpo (1 a d6 fino a 5 a d20).",sv:"Curabile solo da un meccanico"},
+ {id:"cyborg",name:"Cyborg",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Corpo Meccanico",techDesc:"Installa moduli meccanici nel corpo: 1 slot a d6, 2 a d8, 3 a d10, 4 a d12, 5 a d20. Con Arsenale Modulare gli slot si sommano, fino a 9.",sv:"Curabile solo da un meccanico"},
  {id:"tontatta",name:"Tontatta",attr:"choice2",die:"d8",pv:12,hp:"d6",tech:"Piccolo Guerriero",techDesc:"Aggiungi il Dado razziale alle prove di Furtività o Mobilità; il primo attacco nemico contro di te arriva in Svantaggio.",sv:"Presa: +3 difficoltà per liberarti · niente armi/oggetti di taglia normale o grande"}
 ];
 const TALENTS={
@@ -1631,7 +1631,25 @@ function instrumentModal(i){openModal("🎼 Strumento",()=>{const a=pg.strumenti
 function techModal(t){openModal("✦ "+(t.name||"Tecnica"),()=>{const w=el("div",{});const obj=t.k==="t1"?pg.t1:(t.k==="t2"?pg.t2:null);if(t.fixed){w.appendChild(el("div",{class:"tdsub",text:"Tecnica razziale · "+t.die}));w.appendChild(el("div",{class:"tddesc",html:racialEffect(pg.race,t.die)}));}else if(obj){w.appendChild(field("Nome",obj.nome,v=>{obj.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Attributo · Dado"}));w.appendChild(el("div",{class:"mrow"},[attrSelect(obj.attr,v=>{obj.attr=v;save();}),stepper(obj.die,nd=>mutateM(()=>obj.die=nd))]));w.appendChild(el("label",{class:"fld",text:"Descrizione / Effetti"}));const tx=el("textarea",{});tx.value=obj.desc||"";tx.oninput=()=>{obj.desc=tx.value;save();};w.appendChild(tx);}
  w.appendChild(el("label",{class:"fld",text:"Progressione"}));w.appendChild(paRowM("tec:"+t.k,()=>(t.fixed?pg.racialDie:(obj?obj.die:t.die)),nd=>setTechDie(t,nd)));
  const row=el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}})]);if(!t.fixed)row.appendChild(el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare questa tecnica?")){closeModal();mutate(()=>removeTech(t));}}}));w.appendChild(row);return w;});}
+/* Collegamenti della Tecnica a un'arma o a un modulo: se il riferimento non
+   esiste più la Tecnica resta in scheda, con il collegamento segnalato. */
+function tecLinkBox(t){
+ const w=el("div",{});
+ if(t.fonte==="Arma"&&t.weapon){
+  const a=(pg.armi||[]).filter(x=>((x.nome&&x.nome.trim())||"Arma senza nome")===t.weapon)[0];
+  if(!a)w.appendChild(el("div",{class:"compat ko",html:"Collegamento non più valido: l'arma <b>"+t.weapon+"</b> non è più in scheda. La Tecnica resta salvata: riaprila nel costruttore per scegliere un'altra arma."}));
+  else{const c=weaponCompat(a);w.appendChild(el("div",{class:"compat "+c.s,html:"Arma <b>"+t.weapon+"</b> · Grado "+a.grado+" "+gradeLabel(a.grado)+"<br>"+c.msg}));}
+ }
+ if(t.modulo){
+  const mo=(pg.moduli||[]).filter(x=>x.id===t.modulo)[0];
+  if(!mo)w.appendChild(el("div",{class:"compat ko",html:"Collegamento non più valido: il modulo non è più installato. La Tecnica resta salvata: riaprila nel costruttore per collegarne un altro."}));
+  else{const att=pg.moduloAttivo===mo.id,dmg=mo.stato==="danneggiato";
+   w.appendChild(el("div",{class:"compat "+(dmg?"ko":(att?"ok":"wait")),html:"Modulo <b>"+(mo.nome||"senza nome")+"</b> · "+(dmg?"danneggiato: la Tecnica non è utilizzabile finché non lo ripari.":(att?"attivo: la Tecnica è utilizzabile.":"inattivo: per usarla devi attivare il modulo."))}));}
+ }
+ return w;
+}
 function extraTechModal(i){openModal("✦ "+(pg.extraTech[i]&&pg.extraTech[i].nome||"Tecnica"),()=>{const t=pg.extraTech[i];if(!t)return el("div");const w=el("div",{});w.appendChild(field("Nome tecnica",t.nome,v=>{t.nome=v;save();}));w.appendChild(el("div",{class:"tdsub",html:(tecSummary(t)||"<i>tecnica libera</i>")+" · <b>"+tecCostLabel(t)+"</b>"}));if(t.eff&&t.eff.length){const ul=el("div",{class:"tddesc"});t.eff.forEach(nm=>{const e=tecEffObj(nm);ul.appendChild(el("div",{html:"<b>"+nm+"</b>"+(e?(" — "+e[2]):"")}));});w.appendChild(ul);}
+ w.appendChild(tecLinkBox(t));
  w.appendChild(el("label",{class:"fld",text:"Attributo · Dado (= Dado Danno)"}));w.appendChild(el("div",{class:"mrow"},[attrSelect(t.attr,v=>{t.attr=v;save();}),stepper(t.die,nd=>mutateM(()=>t.die=nd))]));w.appendChild(el("label",{class:"fld",text:"Descrizione / colore"}));const tx=el("textarea",{});tx.value=t.desc||"";tx.oninput=()=>{t.desc=tx.value;save();};w.appendChild(tx);if(!t.id)t.id="tec"+Date.now().toString(36)+Math.floor(Math.random()*1000);w.appendChild(el("label",{class:"fld",text:"Progressione"}));w.appendChild(paRowM("tec:"+t.id,()=>t.die,nd=>t.die=nd));
  w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✎ Modifica nel costruttore",onclick:()=>{TBUILD={nome:t.nome,attr:t.attr,fonte:t.fonte||"Stile",forma:t.forma||"Singolo",die:t.die||"d6",durata:t.durata||"Un turno",eff:(t.eff||[]).slice(),desc:t.desc||"",_open:[],_fam:"",_id:t.id||null,fruitType:t.fruitType||"",weaponName:t.weapon||"",modulo:t.modulo||""};pg.extraTech.splice(i,1);save();builderModal();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare questa tecnica?")){closeModal();mutate(()=>pg.extraTech.splice(i,1));}}})]));return w;});}
 function builderModal(){openModal("🔧 Costruttore di Tecniche <span style=\"font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#a69a86;font-family:Inter,sans-serif\">· Forgia</span>",()=>renderTecBuilder(t=>{closeModal();mutate(()=>{pg.extraTech.push(t);tbReset();});flyIn(dieIcon(t.die,120),()=>byText(".slots.right .slot-n",t.nome));}),{wide:true});}
