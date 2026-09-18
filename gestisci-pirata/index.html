@@ -540,8 +540,10 @@ footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a69a86;font-
 .chipp.off{opacity:.38;cursor:not-allowed;}
 .chipp.off:hover{border-color:var(--line);color:var(--ink);}
 .chipp .sm{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.75;}
-.chipp .ci{display:inline-flex;align-items:center;margin:-3px 1px -3px -3px;}
+.chipp .ci{display:inline-flex;align-items:center;color:inherit;margin:-3px 2px -3px -2px;}
 .chipp .ci .dieic{width:26px;height:26px;}
+.chipp .ci .ic{width:19px;height:19px;opacity:.9;}
+.chipp.on .ci .ic{opacity:1;}
 .chipp:focus-visible{outline:2px solid #9fd0ff;outline-offset:2px;}
 .smb-note{font-size:11.5px;line-height:1.5;color:var(--ink-soft);border-left:1px solid rgba(240,164,65,.45);padding-left:9px;margin:8px 0 2px;}
 .smb-note b{color:var(--gold-soft);}
@@ -1054,7 +1056,7 @@ const TALENTS={
   {n:"All'Arrembaggio!",tier:"d20",t:"ultimate",d:"1×/scena, 5 ST: ogni alleato che ti vede o ti sente agisce immediatamente, fuori dal proprio turno — movimento e azione. Poi il combattimento riprende normale. Richiede l'Ambizione del Capitano e il permesso del GM."}]}}}
 };
 /* Talenti "a gradini" divisi in tre voci: le schede salvate col vecchio nome puntano al gradino Base. */
-const TAL_RENAME={"Estensione":"Portata Naturale","Raffica":"Raffica — Base","Più Spade":"Più Spade — Base","Tiro Lungo":"Tiro Lungo — Base","Arsenale Modulare":"Arsenale Modulare — Base"};
+const TAL_RENAME={"Estensione":"Portata Naturale","Intangibilità":"Sentire l'Elemento","Raffica":"Raffica — Base","Più Spade":"Più Spade — Base","Tiro Lungo":"Tiro Lungo — Base","Arsenale Modulare":"Arsenale Modulare — Base"};
 const TIER_LABEL={d8:"Mozzo",d10:"Pirata",d12:"Veterano",d20:"Leggenda"};
 const TIERS=["d8","d10","d12","d20"];
 /* Movimento per turno in metri (correndo raddoppia). Vedi Manuale, "Distanze e Velocità". */
@@ -1173,8 +1175,8 @@ const FRUIT_TALENTS={
   {n:"Potere Istintivo",tier:"d12",d:"il potere risponde prima che tu ci pensi: 1×/scena usi una mossa del Frutto senza spendere l'azione — anche fuori dal tuo turno."},
   {n:"Seconda Natura",tier:"d12",req:"Potere Versatile",d:"il tuo potere rivela un secondo volto: una famiglia di applicazioni completamente diversa dalla prima, concordata col GM. Non è più potente — è un'altra cosa, e nessuno se l'aspetta."},
   {n:"Risveglio",tier:"d20",t:"ultimate",d:"vetta del potere: per la scena il potere sale di livello, con effetto enorme concordato — il Paramecia plasma l'ambiente attorno a sé. Richiede Dado del Frutto a d20, Ambizione e permesso del GM."}]},
- "Logia":{ico:"🔥",tratto:"L'Elemento — diventi e controlli un elemento; colpisci con esso, anche a distanza. La natura dell'elemento è gratuita: i tuoi colpi bruciano, gelano, folgorano o corrodono perché tu sei fatto di quella cosa — non costa Stamina, non occupa slot, vale sempre.",firma:"L'elemento dilaga — sul colpo pulito (+4) scateni l'elemento su un'intera zona.",talenti:[
-  {n:"Intangibilità",tier:"d4",d:"gli attacchi senza Haki né Pietra di Mare ti attraversano: mancano del tutto o dimezzano i danni."},
+ "Logia":{ico:"🔥",tratto:"L'Elemento — diventi e controlli un elemento; colpisci con esso, anche a distanza. La natura dell'elemento è gratuita: i tuoi colpi bruciano, gelano, folgorano o corrodono perché tu sei fatto di quella cosa — non costa Stamina, non occupa slot, vale sempre. E sei intangibile: gli attacchi senza Haki né Pietra di Mare ti attraversano — mancano del tutto o dimezzano i danni. Non è un traguardo da raggiungere: è quello che sei dal primo giorno.",firma:"L'elemento dilaga — sul colpo pulito (+4) scateni l'elemento su un'intera zona.",talenti:[
+  {n:"Sentire l'Elemento",tier:"d4",d:"percepisci tutto ciò che tocca il tuo elemento, anche senza vederlo: dentro la tua nebbia, la tua fiamma, la tua corrente sai chi c'è, dove si muove e quanti sono — al buio, dietro un angolo, sott'acqua. Non è vista: è sapere che qualcuno ti sta camminando dentro."},
   {n:"Corpo Elementale",tier:"d4",d:"ti muovi come l'elemento: +1 dado a fuga, mobilità e a sfuggire alla cattura."},
   {n:"Sempre in Forma",tier:"d4",d:"l'intangibilità non richiede più che tu ci pensi: funziona anche quando sei colto di sorpresa, addormentato o privo di sensi."},
   {n:"Nutrirsi dell'Elemento",tier:"d4",d:"vicino a una fonte viva del tuo elemento — un incendio, una tempesta, un ghiacciaio, una fucina — recuperi 1d6 Stamina all'inizio di ogni scena."},
@@ -1341,6 +1343,9 @@ const FAM_GLYPH={
  "Zona Persistente":'<circle cx="12" cy="12" r="8" stroke-dasharray="2.6 3.4"/><circle cx="12" cy="12" r="1.5"/>',
  "Concatenati":'<circle cx="9.2" cy="12" r="4.8"/><circle cx="14.8" cy="12" r="4.8"/>'};
 const EFF_ICON={}; /* riservato alle icone definitive, una per effetto */
+/* Fonte, Forma, armi e moduli usano le icone già in uso nel resto del sito. */
+const FONTE_ICO={"Stile":"fist","Arma":"sword","Frutto":"fruit"};
+const FORMA_ICO={"Singolo":"target","Area":"waves","Difesa":"shield","Spostamento":"wind","Potenziamento":"aura","Canzone":"music"};
 function glyph(fam,size,w){var d=FAM_GLYPH[fam]||FAM_GLYPH["Danno"];size=size||22;
  return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="'+(w||1.6)+'" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+d+'</svg>';}
 function effGlyph(nm,fam,size){return EFF_ICON[nm]||glyph(fam,size||26,1.5);}
@@ -1481,7 +1486,7 @@ function renderTecBuilder(onAdd){
   attrHost.appendChild(smbChips("Attributo",ATTRS.map(a=>({v:a,l:a,ico:dieIcon((pg.attr&&pg.attr[a])||"",26)})),TBUILD.attr,v=>{TBUILD.attr=(TBUILD.attr===v)?"":v;refresh();}));
   /* fonte */
   fonteHost.innerHTML="";
-  fonteHost.appendChild(smbChips("Fonte",TEC_FONTI.map(o=>({v:o,l:o,
+  fonteHost.appendChild(smbChips("Fonte",TEC_FONTI.map(o=>({v:o,l:o,ico:svgIcon(FONTE_ICO[o]||"star",19),
     off:(o==="Arma"&&!hasArmi)||(o==="Frutto"&&!hasFrutto),
     why:(o==="Arma"&&!hasArmi)?"Nessun'arma in scheda":((o==="Frutto"&&!hasFrutto)?"Nessun Frutto in scheda":"")})),TBUILD.fonte,v=>{TBUILD.fonte=v;refresh();}));
   /* arma impugnata: con Fonte Arma è la fonte stessa, altrimenti è un
@@ -1493,11 +1498,11 @@ function renderTecBuilder(onAdd){
    if(TBUILD.fonte==="Arma"){
     const _names=pg.armi.map(wname);
     if(_names.indexOf(TBUILD.weaponName)<0)TBUILD.weaponName=_names[0];
-    weaponHost.appendChild(smbChips("Arma impugnata",pg.armi.map(a=>({v:wname(a),l:wname(a),sub:a.grado?("Grado "+a.grado):""})),TBUILD.weaponName,v=>{TBUILD.weaponName=v;refresh();}));
+    weaponHost.appendChild(smbChips("Arma impugnata",pg.armi.map(a=>({v:wname(a),l:wname(a),sub:a.grado?("Grado "+a.grado):"",ico:svgIcon(WEAPON_ICO[a.tipo]||"sword",19)})),TBUILD.weaponName,v=>{TBUILD.weaponName=v;refresh();}));
     _wa=pg.armi.filter(a=>wname(a)===TBUILD.weaponName)[0]||null;
    } else {
     if(TBUILD.arma&&!pg.armi.some(a=>a.id===TBUILD.arma))TBUILD.arma="";
-    weaponHost.appendChild(smbChips("Arma impugnata (facoltativa)",[{v:"",l:"Nessuna"}].concat(pg.armi.map(a=>({v:a.id,l:wname(a),sub:a.grado?("Grado "+a.grado):""}))),TBUILD.arma||"",v=>{TBUILD.arma=v;refresh();}));
+    weaponHost.appendChild(smbChips("Arma impugnata (facoltativa)",[{v:"",l:"Nessuna"}].concat(pg.armi.map(a=>({v:a.id,l:wname(a),sub:a.grado?("Grado "+a.grado):"",ico:svgIcon(WEAPON_ICO[a.tipo]||"sword",19)}))),TBUILD.arma||"",v=>{TBUILD.arma=v;refresh();}));
     _wa=pg.armi.filter(a=>a.id===TBUILD.arma)[0]||null;
    }
    if(_wa){
@@ -1513,14 +1518,14 @@ function renderTecBuilder(onAdd){
   if(TBUILD.fonte==="Frutto"){
    if(!TBUILD.fruitType)TBUILD.fruitType=((typeof pg!=="undefined"&&pg.frutto&&["Paramecia","Logia","Zoan"].indexOf(pg.frutto.tipo)>=0)?pg.frutto.tipo:"Paramecia");
    ftype=TBUILD.fruitType;
-   fruitHost.appendChild(smbChips("Tipo di Frutto",["Paramecia","Logia","Zoan"].map(o=>({v:o,l:o})),ftype,v=>{TBUILD.fruitType=v;refresh();}));
+   fruitHost.appendChild(smbChips("Tipo di Frutto",["Paramecia","Logia","Zoan"].map(o=>({v:o,l:o,ico:svgIcon(STYLE_ICON[o]||"orb",19)})),ftype,v=>{TBUILD.fruitType=v;refresh();}));
   }
   const fz=(TBUILD.fonte==="Frutto"&&ftype==="Zoan");
   const forme=TEC_FORME.filter(f=>!(f==="Area"&&fz)&&!(f==="Canzone"&&!isMusicista()));
   if(TBUILD.forma==="Area"&&fz)TBUILD.forma="Singolo";
   if(forme.indexOf(TBUILD.forma)<0)TBUILD.forma="Singolo";
   formaHost.innerHTML="";
-  formaHost.appendChild(smbChips("Forma",forme.map(o=>({v:o,l:o})),TBUILD.forma,v=>{TBUILD.forma=v;refresh();}));
+  formaHost.appendChild(smbChips("Forma",forme.map(o=>({v:o,l:o,ico:svgIcon(FORMA_ICO[o]||"star",19)})),TBUILD.forma,v=>{TBUILD.forma=v;refresh();}));
   if(fz)formaHost.appendChild(el("div",{class:"smb-note",text:"Uno Zoan non fa tecniche ad Area: la sua forza è fisica, usa Singolo o Spostamento."}));
   /* dado */
   dieHost.innerHTML="";
@@ -1535,7 +1540,7 @@ function renderTecBuilder(onAdd){
   const mods=(TBUILD.fonte==="Stile")?(pg.moduli||[]):[];
   if(mods.length){
    if(TBUILD.modulo&&!mods.some(m=>m.id===TBUILD.modulo))TBUILD.modulo="";
-   modHost.appendChild(smbChips("Modulo associato (facoltativo)",[{v:"",l:"Nessuno"}].concat(mods.map(m=>({v:m.id,l:(m.nome||"Modulo"),sub:(m.stato==="danneggiato")?"danneggiato":(pg.moduloAttivo===m.id?"attivo":"inattivo")}))),TBUILD.modulo||"",v=>{TBUILD.modulo=v;refresh();}));
+   modHost.appendChild(smbChips("Modulo associato (facoltativo)",[{v:"",l:"Nessuno"}].concat(mods.map(m=>({v:m.id,l:(m.nome||"Modulo"),sub:(m.stato==="danneggiato")?"danneggiato":(pg.moduloAttivo===m.id?"attivo":"inattivo"),ico:svgIcon("gear",19)}))),TBUILD.modulo||"",v=>{TBUILD.modulo=v;refresh();}));
    const mo=mods.filter(m=>m.id===TBUILD.modulo)[0];
    if(mo){
     const att=pg.moduloAttivo===mo.id,dmg=mo.stato==="danneggiato";
@@ -1696,7 +1701,7 @@ const blank=()=>({nome:"",bg:"",amb:"",race:null,umanoAttr:"Forza",d6attr:"",rol
  skills:{}, roleSkillDie:"d8", pa:{}, paThresh:{d4:10,d6:25,d8:60,d10:150,d12:400},
  t1:{nome:"",desc:"",attr:"",die:"d4"}, t2:{nome:"",desc:"",attr:"",die:"d4"}, racialDie:"d6", extraTech:[],
  armi:[], strumenti:[], moduli:[], moduloAttivo:"", haki:[], frutto:{has:false,nome:"",tipo:"",desc:"",die:"d4"},
- photo:"", photoPos:{x:50,y:50,z:1}, inventario:[], bounty:"0", pvMax:null,pvCur:null,stMax:6,stCur:6,legami:0,bonds:[],upgrade:"",roleSkillChoice:"",ore:16,note:""});
+ photo:"", photoPos:{x:50,y:50,z:1}, inventario:[], bounty:"0", pvMax:null,pvCur:null,stMax:6,stCur:6,legami:0,bonds:[],upgrade:"",roleSkillChoice:"",roleSkillChoice2:"",ore:16,note:""});
 let pg=blank(); let step=0; let mode="crea"; const KEY="glc_pirata_v4";
 let CT={v:2,activeId:"",order:[],chars:{}};
 function newId(){return "c_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
@@ -1718,6 +1723,7 @@ function el(t,p,kids){const e=document.createElement(t);if(p)for(const k in p){i
 function migrateChar(c){c=Object.assign(blank(),c||{});if(c.role){const MAP={"Medico":"Dottore","Carpentiere / Ingegnere":"Ingegnere","Cecchino / Vedetta":"Combattente","Cannoniere":"Combattente"};if(MAP[c.role])c.role=MAP[c.role];if(TALENTS[c.role]&&TALENTS[c.role].multi&&!c.style)c.style=firstStyle(c.role);}if(!Array.isArray(c.talents))c.talents=[];
  if(Array.isArray(c.moduli))c.moduli.forEach(function(mo){if(mo&&!mo.die)mo.die="d6";});
  if(c.moduloAttivo==null)c.moduloAttivo="";
+ if(c.roleSkillChoice2==null)c.roleSkillChoice2="";
  if(c.frutto&&!c.frutto.die)c.frutto.die="d4";
  if(!c.photoPos||typeof c.photoPos!=="object")c.photoPos={x:50,y:50,z:1};
  if(Array.isArray(c.haki))c.haki.forEach(function(h){if(h&&h.die)h.pip=hakiPip(h.die);});
@@ -1834,15 +1840,33 @@ function refreshModal(){if(!MODAL||!MODAL._build)return;const b=MODAL._body;cons
 function mutateM(fn){if(fn)fn();renderManage();render();refreshModal();}
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
 
-function roleSkillDieOf(rn,stv){const sk=roleSkillOf(rn,stv,pg.roleSkillChoice);if(rn===pg.role)return pg.roleSkillDie||"d8";return (sk&&pg.skills[sk])||"";}
+/* Il dado di una Skill, ovunque sia registrata: la Skill di Ruolo scelta vive
+   in pg.roleSkillDie, tutte le altre in pg.skills. */
+function skillDie(name){
+ if(!name)return "";
+ const ro=roleObj();
+ if(ro&&ro.skill===name)return pg.roleSkillDie||"d8";
+ return pg.skills[name]||"";
+}
+/* I Talenti di un Ruolo si aprono con la Skill di QUEL Ruolo. Con due Ruoli la
+   Skill di Ruolo a d8 è una sola, ma l'altro albero si apre lo stesso se quella
+   Skill è allenata fra le Skill — o se i due Ruoli condividono la stessa Skill. */
+function roleChoice(slot){return (slot===2)?(pg.roleSkillChoice2||""):(pg.roleSkillChoice||"");}
+function roleSkillDieOf(rn,stv,slot){
+ slot=slot||1;
+ const sk=roleSkillOf(rn,stv,roleChoice(slot));
+ const d=skillDie(sk);
+ if(!d&&slot===1&&(!sk||sk===(roleObj()||{}).skill))return pg.roleSkillDie||"d8";
+ return d;
+}
 function roleIco(rn,stv){const T=TALENTS[rn];if(!T)return "star";const ks=Object.keys(T.styles);const st=T.multi?(stv||ks[0]):rn;return STYLE_ICON[st]||STYLE_ICON[rn]||"star";}
 function roleStyleSpec(rn,stv){const T=TALENTS[rn];if(!T)return null;const ks=Object.keys(T.styles);return T.styles[T.multi?(stv||ks[0]):ks[0]]||null;}
 /* Talenti: acquisiti e sbloccabili, con descrizione. */
 function talentPools(){const got=[],open=[],locked=[];
- const scan=(rn,stv)=>{const T=TALENTS[rn];if(!T)return;const ks=Object.keys(T.styles);const useSt=T.multi?(stv||ks[0]):ks[0];const sty=T.styles[useSt];const keyStyle=T.multi?useSt:rn;const cur=dieRank(roleSkillDieOf(rn,stv));const skName=roleSkillOf(rn,stv,pg.roleSkillChoice)||"Skill di Ruolo";const taken=n=>pg.talents.indexOf(rn+" · "+keyStyle+" · "+n)>=0;
+ const scan=(rn,stv,slot)=>{const T=TALENTS[rn];if(!T)return;const ks=Object.keys(T.styles);const useSt=T.multi?(stv||ks[0]):ks[0];const sty=T.styles[useSt];const keyStyle=T.multi?useSt:rn;const cur=dieRank(roleSkillDieOf(rn,stv,slot));const skName=roleSkillOf(rn,stv,roleChoice(slot))||"Skill di Ruolo";const taken=n=>pg.talents.indexOf(rn+" · "+keyStyle+" · "+n)>=0;
   (sty.talenti||[]).forEach(tl=>{const key=rn+" · "+keyStyle+" · "+tl.n;const tier=tl.tier||"d8";const o={key:key,name:tl.n,desc:tl.d,glyph:talentGlyph(tl.n,STYLE_ICON[T.multi?useSt:rn]||"star"),branch:(T.multi?useSt:rn),tier:tier,tierLabel:skName+" "+tier+" · "+TIER_LABEL[tier],ult:tl.t==="ultimate",req:tl.req||"",reqOk:!tl.req||taken(tl.req),src:"role"};
    if(taken(tl.n))got.push(o);else if(cur>=dieRank(tier))open.push(o);else locked.push(o);});};
- if(pg.role)scan(pg.role,pg.style);if(pg.role2)scan(pg.role2,pg.style2);
+ if(pg.role)scan(pg.role,pg.style,1);if(pg.role2)scan(pg.role2,pg.style2,2);
  if(pg.frutto&&pg.frutto.has&&FRUIT_TALENTS[pg.frutto.tipo]){const FT=FRUIT_TALENTS[pg.frutto.tipo];const fcur=dieRank(pg.frutto.die||"d4");const ftaken=n=>pg.talents.indexOf("Frutto · "+pg.frutto.tipo+" · "+n)>=0;
   (FT.talenti||[]).forEach(tl=>{const key="Frutto · "+pg.frutto.tipo+" · "+tl.n;const tier=tl.tier||"d4";const ft=FRUIT_TIERS.find(x=>x[0]===tier)||FRUIT_TIERS[0];const o={key:key,name:tl.n,desc:tl.d,glyph:talentGlyph(tl.n,STYLE_ICON[pg.frutto.tipo]||"orb"),branch:"Frutto "+pg.frutto.tipo,tier:tier,tierLabel:"Dado del Frutto "+ft[2]+" · "+ft[1],ult:tl.t==="ultimate",req:tl.req||"",reqOk:!tl.req||ftaken(tl.req),src:"fruit"};
    if(ftaken(tl.n))got.push(o);else if(fcur>=dieRank(tier))open.push(o);else locked.push(o);});}
@@ -1855,14 +1879,16 @@ function unlockTalentsModal(){openModal("✦ Sblocca un talento",()=>{const P=ta
  if(P.locked.length){const det=el("details",{class:"tbfam"});det.appendChild(el("summary",{text:"🔒 Ancora bloccati ("+P.locked.length+")"}));const lg={};P.locked.forEach(o=>{(lg[o.branch+"|"+o.tierLabel]=lg[o.branch+"|"+o.tierLabel]||[]).push(o);});Object.keys(lg).forEach(k=>{const [br,tl]=k.split("|");det.appendChild(el("div",{class:"talfascia locked",html:"🔒 "+br+" — "+tl}));const g=el("div",{class:"medgrid pick"});lg[k].forEach(o=>{const md=medal(o.glyph,o.name,o.ult?"Ultimate":"",true);md.onclick=()=>talentDetailModal(o,false);g.appendChild(md);});det.appendChild(g);});w.appendChild(det);}
  return w;},{wide:true});}
 /* Classe: scelta da videogioco */
-function classCard(rn,stv,slot){const T=TALENTS[rn];const sty=roleStyleSpec(rn,stv);const sk=roleSkillOf(rn,stv,pg.roleSkillChoice);const die=roleSkillDieOf(rn,stv);const c=el("div",{class:"classcard"});c.appendChild(el("div",{class:"cc-ico",html:svgIcon(roleIco(rn,stv),28)}));const b=el("div",{class:"cc-body"});b.appendChild(el("div",{class:"cc-k",text:slot===1?"Classe":"Seconda classe · solo Talenti"}));b.appendChild(el("div",{class:"cc-n",text:rn+((T&&T.multi&&stv)?(" · "+stv):"")}));b.appendChild(el("div",{class:"cc-s",html:(sk?("Skill di Ruolo <b>"+sk+"</b>"+(die?(" "+die):"")):"Skill di Ruolo da scegliere")}));if(sty&&sty.tratto)b.appendChild(el("div",{class:"cc-t",html:"<b>Tratto</b> "+sty.tratto}));if(sty&&sty.firma)b.appendChild(el("div",{class:"cc-t",html:"<b>Firma (+4)</b> "+sty.firma}));c.appendChild(b);c.onclick=()=>classPickerModal(slot);return c;}
+function classCard(rn,stv,slot){const T=TALENTS[rn];const sty=roleStyleSpec(rn,stv);const sk=roleSkillOf(rn,stv,roleChoice(slot));const die=roleSkillDieOf(rn,stv,slot);const c=el("div",{class:"classcard"});c.appendChild(el("div",{class:"cc-ico",html:svgIcon(roleIco(rn,stv),28)}));const b=el("div",{class:"cc-body"});b.appendChild(el("div",{class:"cc-k",text:slot===1?"Classe":"Seconda classe · solo Talenti"}));b.appendChild(el("div",{class:"cc-n",text:rn+((T&&T.multi&&stv)?(" · "+stv):"")}));b.appendChild(el("div",{class:"cc-s",html:(sk?("Skill di Ruolo <b>"+sk+"</b>"+(die?(" "+die):"")):"Skill di Ruolo da scegliere")}));if(sty&&sty.tratto)b.appendChild(el("div",{class:"cc-t",html:"<b>Tratto</b> "+sty.tratto}));if(sty&&sty.firma)b.appendChild(el("div",{class:"cc-t",html:"<b>Firma (+4)</b> "+sty.firma}));c.appendChild(b);c.onclick=()=>classPickerModal(slot);return c;}
 function classPickerModal(slot){openModal(slot===1?"⚔️ Scegli la classe":"✦ Seconda classe (solo Talenti)",()=>{const w=el("div",{});const cur=slot===1?pg.role:pg.role2;const curSt=slot===1?pg.style:pg.style2;
  const g=el("div",{class:"classgrid"});if(slot===2){const none=el("div",{class:"classopt"+(!cur?" sel":"")},[el("div",{class:"co-ico",html:"&mdash;"}),el("div",{class:"co-n",text:"Nessuna"}),el("div",{class:"co-s",text:"solo la classe principale"})]);none.onclick=()=>mutateM(()=>{pg.role2=null;pg.style2="";});g.appendChild(none);}
  Object.keys(TALENTS).forEach(rn=>{const T=TALENTS[rn];const o=el("div",{class:"classopt"+(cur===rn?" sel":"")},[el("div",{class:"co-ico",html:svgIcon(roleIco(rn,cur===rn?curSt:""),30)}),el("div",{class:"co-n",text:rn}),el("div",{class:"co-s",text:T.skill?("Skill: "+T.skill):(T.multi?"Skill per Stile":"")})]);o.onclick=()=>mutateM(()=>{if(slot===1){pg.role=rn;pg.style=firstStyle(rn);pg.roleSkillChoice=defaultSkillChoice();}else{pg.role2=rn;pg.style2=firstStyle(rn);}});g.appendChild(o);});
  w.appendChild(g);
  const rn=slot===1?pg.role:pg.role2;
  if(rn&&TALENTS[rn]&&TALENTS[rn].multi){w.appendChild(el("div",{class:"talfascia",text:"Stile di "+rn}));const sg=el("div",{class:"classgrid"});Object.keys(TALENTS[rn].styles).forEach(st=>{const sty=TALENTS[rn].styles[st];const on=(slot===1?pg.style:pg.style2)===st;const o=el("div",{class:"classopt"+(on?" sel":"")},[el("div",{class:"co-ico",html:svgIcon(STYLE_ICON[st]||"star",30)}),el("div",{class:"co-n",text:st}),el("div",{class:"co-s",text:(sty.tratto||"").split(" — ")[0]})]);o.onclick=()=>mutateM(()=>{if(slot===1){pg.style=st;pg.roleSkillChoice=defaultSkillChoice();}else pg.style2=st;});sg.appendChild(o);});w.appendChild(sg);}
- if(slot===1&&rn){const spec=roleStyleSpec(rn,pg.style);if(spec&&spec.skillChoice){const opts=(spec.skillChoice==="any")?Object.keys(SKILLS):spec.skillChoice;w.appendChild(el("label",{class:"fld",text:"Skill di Ruolo"}));const sl=el("select",{},[el("option",{value:"",text:"— scegli —"})].concat(opts.map(s=>el("option",{value:s,text:s}))));sl.value=pg.roleSkillChoice||"";sl.onchange=()=>mutateM(()=>{pg.roleSkillChoice=sl.value;});w.appendChild(sl);}}
+ if(rn){const spec=roleStyleSpec(rn,slot===1?pg.style:pg.style2);if(spec&&spec.skillChoice){const opts=(spec.skillChoice==="any")?Object.keys(SKILLS):spec.skillChoice;w.appendChild(el("label",{class:"fld",text:slot===1?"Skill di Ruolo":"Skill di questa classe"}));const sl=el("select",{},[el("option",{value:"",text:"— scegli —"})].concat(opts.map(s=>el("option",{value:s,text:s}))));sl.value=roleChoice(slot);sl.onchange=()=>mutateM(()=>{if(slot===1)pg.roleSkillChoice=sl.value;else pg.roleSkillChoice2=sl.value;});w.appendChild(sl);}
+  if(slot===2){const sk2=roleSkillOf(rn,pg.style2,roleChoice(2));const d2=roleSkillDieOf(rn,pg.style2,2);
+   w.appendChild(el("div",{class:"compat "+(d2?"ok":"wait"),html:d2?("I Talenti di questa classe si aprono con <b>"+sk2+" "+d2+"</b>."):("La Skill di Ruolo a d8 ne resta una sola. I Talenti di questa classe si aprono con <b>"+(sk2||"la sua Skill")+"</b>: allenala fra le Skill e l\'albero si apre da lì.")}));}}
  if(slot===2&&pg.role2)w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm ghost",text:"⇄ Scambia con la classe principale (il d8 passa all'altra)",onclick:()=>mutateM(()=>{const rr=pg.role,sst=pg.style;pg.role=pg.role2;pg.style=pg.style2;pg.role2=rr;pg.style2=sst;})})]));
  const cur2=slot===1?pg.role:pg.role2;if(cur2){const sty=roleStyleSpec(cur2,slot===1?pg.style:pg.style2);if(sty){w.appendChild(el("div",{class:"cc-t",style:"margin-top:10px",html:"<b>Tratto</b> "+(sty.tratto||"")}));if(sty.firma)w.appendChild(el("div",{class:"cc-t",html:"<b>Firma (+4)</b> "+sty.firma}));}}
  return w;},{wide:true});}
