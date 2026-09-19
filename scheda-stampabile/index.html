@@ -16,6 +16,9 @@ body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#3
 .page:last-child{break-after:auto}
 @media screen{.page{margin:16px auto;box-shadow:0 6px 30px rgba(0,0,0,.35)}}
 @media print{body{background:#fff}}
+
+/* Foglio A4: più largo dello schermo per natura, resta scorrevole. */
+html,body{overflow-x:visible;}
 </style>
 <style>
 .noprint-bar{position:sticky;top:0;z-index:20;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px;background:#0a1920}

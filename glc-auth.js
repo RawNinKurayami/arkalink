@@ -52,7 +52,12 @@
     ".glc-slot .glc-who,.glc-bar-in .glc-who{font-family:'Cormorant Garamond',serif;font-size:.96rem;color:#a8c6bd}.glc-slot .glc-who b,.glc-bar-in .glc-who b{color:#ecca77;font-weight:600}"+
     ".glc-slot .glc-prof,.glc-bar-in .glc-prof{font-family:'Marcellus SC',serif;letter-spacing:.1em;text-transform:uppercase;font-size:10px;color:#ecca77;text-decoration:none;border:1px solid rgba(201,162,74,.55);border-radius:999px;padding:6px 12px}.glc-slot .glc-prof:hover,.glc-bar-in .glc-prof:hover{background:rgba(201,162,74,.15)}"+
     ".glc-slot .glc-out,.glc-bar-in .glc-out{border:1px solid rgba(201,162,74,.55);background:transparent;color:#ecca77;border-radius:999px;padding:6px 13px;font-family:'Marcellus SC',serif;letter-spacing:.1em;text-transform:uppercase;font-size:10px;cursor:pointer}"+
-    ".glc-slot .glc-who,.glc-bar-in .glc-who{display:inline-flex;align-items:center;gap:8px}"+
+    ".glc-slot .glc-who,.glc-bar-in .glc-who{display:inline-flex;align-items:center;gap:8px;min-width:0}"+
+    /* il nome non deve mai allargare la pagina: si tronca, e sul telefono resta
+       solo l'avatar (il nome completo è nel tooltip) */
+    ".glc-slot{min-width:0;max-width:100%}.glc-slot .glc-name,.glc-bar-in .glc-name{display:inline-block;max-width:16em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle}"+
+    "@media(max-width:640px){.glc-slot .glc-name,.glc-bar-in .glc-name{display:none}.glc-slot,.glc-bar-in{gap:6px}"+
+    ".glc-slot .glc-prof,.glc-bar-in .glc-prof,.glc-slot .glc-out,.glc-bar-in .glc-out{padding:5px 9px}#glc-bar{right:8px;top:8px;gap:6px;padding:5px 6px 5px 8px}}"+
     ".glc-ava{width:26px;height:26px;border-radius:50%;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,#fff8ec,#efdcb4);border:1.5px solid rgba(201,162,74,.7);flex:none}"+
     ".glc-ava img{width:100%;height:100%;object-fit:cover;display:block}"+
     ".glc-ava svg{width:15px;height:15px;color:#9a7a3e}"+
@@ -178,7 +183,7 @@
       }catch(e){}
     }
     var nm = document.querySelector("#glc-login-slot .glc-name") || document.querySelector("#glc-bar .glc-name");
-    if(nm) nm.textContent = uname ? ("@" + uname) : (currentUser.email || "\u2014");
+    if(nm){ nm.textContent = uname ? ("@" + uname) : (currentUser.email || "\u2014"); if(nm.parentNode) nm.parentNode.title = nm.textContent; }
     var av = document.querySelector("#glc-login-slot .glc-ava") || document.querySelector("#glc-bar .glc-ava");
     if(av && avatar){ av.innerHTML = '<img src="' + avatar + '" alt="">'; }
   }
@@ -193,7 +198,7 @@
       var prof0 = {}; try{ prof0 = JSON.parse(localStorage.getItem("glc_profile_v1") || "{}") || {}; }catch(e){}
       var uname0 = (prof0.username || "").trim();
       var nameStr = uname0 ? ("@" + uname0) : (currentUser.email || "\u2014");
-      host.innerHTML = '<span class="glc-who">' + avatarHTML(prof0.avatar) + '<b class="glc-name">' + escapeHtml(nameStr) + '</b></span>' + (PROFILE_URL ? '<a class="glc-prof" href="' + PROFILE_URL + '">Profilo</a>' : '') + '<button class="glc-out" id="glc-out">Esci</button>';
+      host.innerHTML = '<span class="glc-who" title="' + escapeHtml(nameStr) + '">' + avatarHTML(prof0.avatar) + '<b class="glc-name">' + escapeHtml(nameStr) + '</b></span>' + (PROFILE_URL ? '<a class="glc-prof" href="' + PROFILE_URL + '">Profilo</a>' : '') + '<button class="glc-out" id="glc-out">Esci</button>';
       document.getElementById("glc-out").onclick = logout;
       enrichControl();
     } else {
