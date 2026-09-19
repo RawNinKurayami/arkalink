@@ -818,71 +818,71 @@ const RACES=[
  {id:"lunarian",name:"Lunarian",attr:"Spirito",die:"d8",pv:16,hp:"d8",tech:"Fiamma Immortale",techDesc:"Fiamma ON: +1 dado resistenza. OFF: bonus evasione. Alternare 1×/turno gratis.",sv:"Taglia automatica 50M"},
  {id:"longbraccio",name:"Longbraccio",attr:"Tecnica",die:"d8",pv:12,hp:"d6",tech:"Portata Estesa",techDesc:"Mischia a distanza insolita. Chi ti attacca ravvicinato ha +2 soglia.",sv:"Nessuno"},
  {id:"lungagamba",name:"Lungagamba",attr:"Forza",die:"d8",pv:14,hp:"d6",tech:"Calcio Colossale",techDesc:"Bonus su calci e movimenti verticali. 1×/combat salti fuori portata senza tiro.",sv:"Nessuno"},
- {id:"cyborg",name:"Cyborg",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Corpo Meccanico",techDesc:"Installa moduli meccanici nel corpo: 1 slot a d6, 2 a d8, 3 a d10, 4 a d12, 5 a d20. Con Arsenale Modulare gli slot si sommano, fino a 9.",sv:"Curabile solo da un meccanico"},
+ {id:"cyborg",name:"Cyborg",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Corpo Meccanico",techDesc:"Installa moduli meccanici nel corpo: 1 slot a d6, 2 a d8, 3 a d10, 4 a d12, 5 a d20.",sv:"Curabile solo da un meccanico"},
  {id:"tontatta",name:"Tontatta",attr:"choice2",die:"d8",pv:12,hp:"d6",tech:"Piccolo Guerriero",techDesc:"Aggiungi il Dado razziale alle prove di Furtività o Mobilità; il primo attacco nemico contro di te arriva in Svantaggio.",sv:"Presa: +3 difficoltà per liberarti · niente armi/oggetti di taglia normale o grande"}
 ];
 const TALENTS={
 "Combattente":{multi:true,styles:{
 "Striker":{ico:"👊",skillChoice:["Atletica", "Acrobazia"],tratto:"Mani Nude — combatti esclusivamente a mani nude: nessun'arma dell'Arsenale è compatibile con lo Striker, tirapugni e armi improvvisate compresi. In cambio nessun Grado ti frena: usi il pieno dell'Attributo, e prese e atterramenti ti riescono facili.",firma:"Il colpo sfonda — sul +4 il bersaglio è Stordito / Sbilanciato per 1 turno.",talenti:[
-  {n:"Raffica — Base",tier:"d8",d:"spendendo Stamina compi attacchi extra nel turno, di qualsiasi tipo (1 ST ciascuno). 1 attacco extra."},
-  {n:"Passo Fulmineo",tier:"d8",d:"1×/turno, come movimento, uno scatto lungo per raggiungere un nemico senza provocare reazioni."},
-  {n:"Presa di Ferro",tier:"d8",d:"quando afferri un nemico della tua stazza o inferiore resta trattenuto finché non supera una prova di Forza contro la tua; finché lo tieni non può allontanarsi e attacca in Svantaggio."},
-  {n:"Incassare",tier:"d8",d:"1×/scontro, quando subisci danni li riduci di un dado e resti in piedi comunque."},
-  {n:"Raffica — Migliorato",tier:"d10",req:"Raffica — Base",d:"2 attacchi extra."},
-  {n:"Campo di Battaglia",tier:"d10",d:"quando un nemico ti manca con un attacco, al suo prossimo turno attacca in Svantaggio."},
-  {n:"Slancio",tier:"d10",d:"se prima di colpire ti sei mosso di almeno 5 metri in linea verso il bersaglio, il colpo infligge +1 dado di danno."},
-  {n:"Guardia Rotta",tier:"d10",d:"quando vai a segno il bersaglio ha la Difesa Passiva ridotta di 2 fino alla fine del tuo prossimo turno — per te e per chiunque altro lo attacchi."},
-  {n:"Raffica — Maestria",tier:"d12",req:"Raffica — Migliorato",d:"3 attacchi extra."},
-  {n:"Contraccolpo",tier:"d12",d:"maestro della difesa attiva: ogni volta che la tua tecnica di Contrattacco supera l'attacco nemico, infliggi danni pari alla tecnica usata."},
-  {n:"Proiezione",tier:"d12",req:"Presa di Ferro",d:"un nemico che stai trattenendo puoi scagliarlo: vola fino a 5 metri e atterra Sbilanciato. Se lo lanci addosso a un altro nemico, entrambi subiscono danno e cadono."},
-  {n:"Pugni che Rompono",tier:"d12",d:"le tue mani valgono come un'arma pesante contro ciò che non è carne — porte, murate, casseforti, corazze — e contro bersagli corazzati ignori la riduzione dei danni."},
-  {n:"Secondo Fiato",tier:"d12",d:"quando scendi sotto metà PV recuperi 1d6 Stamina immediatamente. 1×/scontro."},
-  {n:"Smash Hit",tier:"d20",t:"ultimate",d:"se va a segno: danno raddoppiato e sfonda il bersaglio (Stordito) anche senza il +4."}]},
+  {n:"Raffica — Base",tier:"d8",d:"1×/turno, dopo un tuo attacco a mani nude puoi spendere 1 ST per effettuare 1 attacco base aggiuntivo a mani nude."},
+  {n:"Passo Fulmineo",tier:"d8",d:"1×/turno, durante il Movimento puoi effettuare uno scatto verso un nemico senza provocare reazioni causate dallo spostamento."},
+  {n:"Presa di Ferro",tier:"d8",d:"quando afferri un nemico della tua stazza o inferiore resta Trattenuto finché non supera una prova di Forza contro la tua. Finché lo trattieni non può allontanarsi."},
+  {n:"Guardia del Combattente",tier:"d8",d:"1×/scontro, quando un attacco ti colpisce puoi ignorare un effetto secondario provocato dal colpo, come Stordito, Sbilanciato o Spinta. Il danno lo subisci normalmente."},
+  {n:"Raffica — Migliorato",tier:"d10",req:"Raffica — Base",d:"puoi effettuare fino a 2 attacchi base extra a mani nude per turno, spendendo 1 ST per ciascun attacco extra."},
+  {n:"Pressione Costante",tier:"d10",d:"1×/turno, se colpisci lo stesso bersaglio almeno due volte nel tuo turno, fino all'inizio del tuo prossimo turno quel bersaglio non può effettuare Reazioni contro di te."},
+  {n:"Slancio",tier:"d10",d:"se prima di colpire ti sei mosso di almeno 5 metri in linea verso il bersaglio, quando il colpo va a segno puoi spingerlo di 3 metri."},
+  {n:"Guardia Rotta",tier:"d10",d:"1×/turno, se colpisci lo stesso bersaglio almeno due volte nello stesso turno, il prossimo attacco effettuato contro di lui prima dell'inizio del tuo prossimo turno ha Vantaggio."},
+  {n:"Raffica — Maestria",tier:"d12",req:"Raffica — Migliorato",d:"fino a 3 attacchi base extra a mani nude per turno, spendendo 1 ST per ciascun attacco extra."},
+  {n:"Contraccolpo",tier:"d12",d:"quando una Tecnica con Contrattacco supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata."},
+  {n:"Proiezione",tier:"d12",req:"Presa di Ferro",d:"puoi scagliare fino a 5 metri un nemico trattenuto: cade Sbilanciato. Se colpisce un altro nemico, anche quello cade Sbilanciato ed entrambi subiscono 1 Dado Danno."},
+  {n:"Pugni che Rompono",tier:"d12",d:"i colpi a mani nude infliggono danno pieno contro porte, muri, strutture e oggetti."},
+  {n:"Secondo Fiato",tier:"d12",d:"1×/scontro, quando scendi sotto metà PV recuperi 1d6 ST."},
+  {n:"Smash Hit",tier:"d20",t:"ultimate",d:"1×/scontro, 5 ST, solo col permesso del GM. Funziona interamente con le sue regole: non applica Tecniche, Talenti, Firma dello Stile o effetti dell'arma, salvo ciò che è scritto qui. Per colpire: Attributo + Atletica per lo Striker, Attributo + Grado dell'arma per gli Stili armati; Dado Danno: Atletica per lo Striker, Grado dell'arma per gli altri. — una combo totale contro un singolo bersaglio: 4 tiri per colpire consecutivi contro lo stesso bersaglio, ognuno con Attributo + Atletica e Vantaggio. Per ogni colpo a segno accumuli Dadi Danno di Atletica — 1 colpo: 1 Dado Danno · 2 colpi: 2 Dadi · 3 colpi: 4 Dadi + Stordito · 4 colpi: 6 Dadi + Stordito. Il danno si tira una sola volta, alla fine: non sono quattro attacchi normali ma una combo sola, risolta in quattro tiri. Con Atletica d20, la sequenza completa vale 6d20."}]},
 "Crusher":{ico:"🔨",skill:"Atletica",tratto:"Il Peso del Ferro — sai sfruttare l'inerzia delle armi contundenti: mazze, martelli, clave, tirapugni e aste usate d'impatto. Le armi contundenti di Grado alto sbloccano i loro effetti speciali nelle tue mani.",firma:"Impatto Devastante — su un colpo pulito (+4) con un'arma contundente il bersaglio viene spinto di 3 metri.",nota:"Le Tecniche dello Stile Crusher si attivano solo mentre impugni e utilizzi un'arma contundente compatibile: mai a mani nude, mai con un'arma non compatibile.",talenti:[
-  {n:"Colpo Pesante — Base",tier:"d8",d:"quando attacchi con un'arma contundente puoi spendere 2 ST per aggiungere +1 Dado Danno. La tua Difesa Passiva scende di 1 dal momento in cui dichiari il talento fino all'inizio del tuo prossimo turno, anche se l'attacco manca."},
-  {n:"Piedi Piantati",tier:"d8",d:"finché non ti muovi volontariamente non puoi essere Sbilanciato né spinto da un nemico della tua stazza o inferiore."},
-  {n:"Colpo di Rimbalzo",tier:"d8",d:"1×/turno, quando un nemico ti manca con un attacco in mischia puoi spendere 1 ST per colpirlo con un attacco base come reazione."},
-  {n:"Demolitore",tier:"d8",d:"i tuoi colpi con armi contundenti infliggono danno pieno contro porte, muri e strutture, senza riduzioni dovute alla loro durezza."},
-  {n:"Colpo Pesante — Migliorato",tier:"d10",req:"Colpo Pesante — Base",d:"il bonus diventa +2 Dadi Danno, il costo 3 ST e la penalità alla Difesa Passiva −2, dalla dichiarazione fino all'inizio del tuo prossimo turno anche se manchi. Sostituisce la versione Base: non si sommano."},
-  {n:"Onda d'Urto",tier:"d10",d:"spendendo 2 ST quando colpisci con un'arma contundente, anche un secondo nemico entro 3 metri dal bersaglio subisce 1 Dado Danno."},
-  {n:"Rompiguardia",tier:"d10",d:"quando colpisci un nemico con un'arma contundente la sua Difesa Passiva si riduce di 2 fino alla fine del tuo prossimo turno."},
-  {n:"Contrappeso",tier:"d10",d:"quando un nemico tenta di spingerti o Sbilanciarti e tu resisti, puoi spingerlo di 3 metri nella direzione opposta."},
-  {n:"Colpo Pesante — Maestria",tier:"d12",req:"Colpo Pesante — Migliorato",d:"il bonus diventa +3 Dadi Danno, il costo 4 ST e la penalità alla Difesa Passiva −3, dalla dichiarazione fino all'inizio del tuo prossimo turno anche se manchi. Sostituisce le versioni precedenti: non si sommano."},
-  {n:"Impatto a Catena",tier:"d12",req:"Onda d'Urto",d:"Onda d'Urto può colpire fino a tre nemici aggiuntivi entro 3 metri dal bersaglio principale, anziché uno. Il costo resta 2 ST."},
-  {n:"Frantumare",tier:"d12",d:"contro bersagli corazzati ignori la riduzione dei danni quando utilizzi un'arma contundente."},
-  {n:"Baricentro Assoluto",tier:"d12",req:"Piedi Piantati",d:"non puoi essere spinto né Sbilanciato, indipendentemente dalla stazza dell'avversario, finché resti cosciente e mantieni il contatto con il terreno."},
-  {n:"Colpo di Intercettazione",tier:"d12",d:"come reazione, quando un nemico entra nella tua portata in mischia puoi effettuare un attacco base con un'arma contundente. 1×/turno."},
-  {n:"Cataclisma",tier:"d20",t:"ultimate",d:"1×/scontro, spendi 5 ST e sferri un colpo con un'arma contundente: se va a segno infliggi danno raddoppiato, il bersaglio è spinto di 5 metri e cade Sbilanciato. Se termina lo spostamento contro una struttura, quella subisce lo stesso danno."}]},
+  {n:"Colpo Pesante — Base",tier:"d8",d:"1×/turno, quando attacchi con un'arma contundente puoi spendere 2 ST per aggiungere +1 Dado Danno. Dalla dichiarazione fino all'inizio del tuo prossimo turno la tua Difesa Passiva scende di 3, anche se l'attacco manca."},
+  {n:"Piedi Piantati",tier:"d8",d:"finché non ti muovi volontariamente, i tentativi di Spingerti o Sbilanciarti vengono effettuati in Svantaggio."},
+  {n:"Colpo di Rimbalzo",tier:"d8",d:"1×/turno, quando un nemico ti manca con un attacco in mischia puoi spendere 1 ST e usare la Reazione per effettuare un attacco base con un'arma contundente."},
+  {n:"Demolitore",tier:"d8",d:"i tuoi colpi con armi contundenti infliggono danno pieno contro porte, muri, strutture e oggetti, ignorando le riduzioni dovute alla semplice durezza."},
+  {n:"Colpo Pesante — Migliorato",tier:"d10",req:"Colpo Pesante — Base",d:"1×/turno, quando attacchi con un'arma contundente puoi spendere 2 ST: l'attacco infligge +1 Dado Danno, viene effettuato con Vantaggio e riduce la tua Difesa Passiva di 3 dalla dichiarazione fino all'inizio del tuo prossimo turno, anche se manchi. Sostituisce la versione Base."},
+  {n:"Onda d'Urto",tier:"d10",d:"quando colpisci con un'arma contundente puoi spendere 2 ST: scegli un secondo nemico entro 3 metri dal bersaglio, che viene spinto di 3 metri."},
+  {n:"Rompiguardia",tier:"d10",d:"1×/turno, quando colpisci un nemico con un'arma contundente, la sua prossima Parata o Difesa Attiva prima della fine del suo prossimo turno viene effettuata in Svantaggio."},
+  {n:"Contrappeso",tier:"d10",d:"1×/turno, quando resisti con successo a un tentativo di Spingerti o Sbilanciarti, puoi usare la Reazione per spingere di 3 metri chi ci ha provato."},
+  {n:"Colpo Pesante — Maestria",tier:"d12",req:"Colpo Pesante — Migliorato",d:"1×/turno, 2 ST: il tiro ha Vantaggio, infligge +2 Dadi Danno e, se colpisci, il bersaglio cade Sbilanciato. La tua Difesa Passiva scende di 5 fino al tuo prossimo turno. Sostituisce le versioni precedenti."},
+  {n:"Impatto a Catena",tier:"d12",req:"Onda d'Urto",d:"Onda d'Urto può coinvolgere fino a 3 nemici aggiuntivi entro 3 metri dal bersaglio principale, spingendoli di 3 metri."},
+  {n:"Contraccolpo",tier:"d12",d:"quando una Tecnica con Contrattacco supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata."},
+  {n:"Baricentro Assoluto",tier:"d12",req:"Piedi Piantati",d:"finché resti cosciente, a contatto col terreno e non ti muovi volontariamente, non puoi essere Spinto né Sbilanciato da effetti fisici."},
+  {n:"Colpo di Intercettazione",tier:"d12",d:"1×/turno, quando un nemico entra nella tua portata puoi usare la Reazione per effettuare un attacco base con un'arma contundente."},
+  {n:"Cataclisma",tier:"d20",t:"ultimate",d:"1×/scontro, 5 ST, solo col permesso del GM. Funziona interamente con le sue regole: non applica Tecniche, Talenti, Firma dello Stile o effetti dell'arma, salvo ciò che è scritto qui. Per colpire: Attributo + Atletica per lo Striker, Attributo + Grado dell'arma per gli Stili armati; Dado Danno: Atletica per lo Striker, Grado dell'arma per gli altri. — primo tiro, Impatto: un attacco contro un singolo bersaglio con Attributo + Grado dell'arma; se colpisci infliggi 4 Dadi Arma. Secondo tiro, Onda d'Urto: un nuovo tiro Attributo + Grado dell'arma, confrontato con la Difesa Passiva di tutti i bersagli entro 5 metri dal punto d'impatto, bersaglio principale compreso — chi è colpito subisce 2 Dadi Arma, viene spinto di 5 metri e cade Sbilanciato. Il bersaglio principale può subire fino a 6 Dadi Arma. L'area viene devastata: muri, porte, pavimenti, coperture e strutture ne subiscono le conseguenze secondo la situazione."}]},
 "Swordsman":{ico:"⚔️",skill:"Atletica",tratto:"La Guardia — maestro della difesa attiva; le lame di Grado alto sbloccano i loro effetti solo nelle sue mani.",firma:"Doppio fendente — sul +4 tiri il Dado Danno una volta in più e sommi.",talenti:[
-  {n:"Più Spade — Base",tier:"d8",d:"aggiungi spade all'arsenale (max 2): impugni una seconda lama."},
-  {n:"Postura Imperturbabile",tier:"d8",d:"la tua guardia non si rompe: non puoi essere Stordito né Sbilanciato."},
-  {n:"Parata Perfetta",tier:"d8",d:"come reazione, quando un attacco in mischia sta per colpirti lo annulli del tutto — non danni ridotti, proprio niente. 1×/scontro."},
-  {n:"Taglio Netto",tier:"d8",d:"quando un tuo colpo porta un nemico sotto metà PV, quello subisce anche 1 dado di danno aggiuntivo: la lama entra dove la guardia ha ceduto."},
-  {n:"Più Spade — Migliorato",tier:"d10",req:"Più Spade — Base",d:"con due lame pari e dispari puoi mantenere la difesa attiva anche nel turno in cui attacchi: una lama colpisce, l'altra resta alta."},
-  {n:"Distanza di Lama",tier:"d10",d:"la tua portata è una zona, non un punto: un nemico che entra nella tua portata in mischia ti concede un attacco di reazione, prima ancora che arrivi a colpirti."},
-  {n:"Fendente d'Aria",tier:"d10",d:"spendendo 1 ST in più, una tua Tecnica da mischia raggiunge un bersaglio fino a 10 metri: l'aria stessa porta il colpo."},
-  {n:"Affilatura",tier:"d10",d:"+1 dado di danno con qualsiasi spada, e contro bersagli corazzati ignori la riduzione dei danni. Basta una serata con la pietra e l'olio dopo ogni scontro."},
-  {n:"Più Spade — Maestria",tier:"d12",req:"Più Spade — Migliorato",d:"nello stesso turno attacchi con ciascuna arma (attacco extra, 1 ST)."},
-  {n:"Contraccolpo",tier:"d12",d:"ogni volta che la tua tecnica di Contrattacco supera l'attacco nemico, infliggi danni pari alla tecnica usata."},
-  {n:"Sguainata Fulminea",tier:"d12",d:"se entri in uno scontro con la lama ancora nel fodero, il tuo primo attacco arriva prima di qualunque altra cosa: agisci per primo qualunque sia l'Iniziativa, e quel colpo infligge +2 dadi di danno."},
-  {n:"Riposta",tier:"d12",req:"Contraccolpo",d:"dopo un Contrattacco riuscito puoi attaccare immediatamente con la stessa arma, senza spendere l'azione. Parare e colpire sono lo stesso gesto."},
-  {n:"Lama Indistruttibile",tier:"d12",d:"la tua spada non si spezza, non si scheggia e non si piega: puoi parare qualunque cosa — armi di Grado superiore, colpi rivestiti d'Haki, corpi di pietra o d'acciaio — e nessuno ti disarma contro la tua volontà."},
-  {n:"Asura",tier:"d20",t:"ultimate",d:"il dado dell'Attributo Tecnica conta doppio nel tiro per colpire; il Danno cresce col margine — +0/+3: 2 dadi · +4/+7: 3 · +8/+11: 4 · +12+: 5 Dadi Danno."}]},
+  {n:"Più Spade — Base",tier:"d8",d:"puoi portare con te fino a 2 spade invece della normale singola arma concessa dallo Stile. A d8 combatti comunque con una sola spada alla volta: le due lame insieme arrivano con Più Spade · Migliorato."},
+  {n:"Postura Imperturbabile",tier:"d8",d:"1×/turno, quando staresti per diventare Stordito o Sbilanciato puoi spendere 1 ST per ignorare quello stato."},
+  {n:"Parata Perfetta",tier:"d8",d:"1×/scontro, quando fallisci una Parata puoi ripetere immediatamente il tiro. Devi accettare il secondo risultato."},
+  {n:"Taglio Netto",tier:"d8",d:"1×/turno, quando un tuo colpo con una lama porta un bersaglio sotto metà dei suoi PV massimi, il bersaglio diventa Sanguinante."},
+  {n:"Più Spade — Migliorato",tier:"d10",req:"Più Spade — Base",d:"1×/turno, dopo aver effettuato un attacco con una delle tue spade puoi effettuare un attacco base extra gratuito con la seconda lama."},
+  {n:"Distanza di Lama",tier:"d10",d:"1×/turno, quando un nemico entra nella tua portata in mischia puoi spendere 1 ST e usare la Reazione per effettuare contro di lui un attacco base con una spada, prima che completi il movimento."},
+  {n:"Fendente d'Aria",tier:"d10",d:"spendendo 1 ST aggiuntiva, una tua Tecnica Swordsman da mischia può raggiungere un bersaglio fino a 10 metri. Il danno finale viene dimezzato, arrotondato per eccesso."},
+  {n:"Affilatura",tier:"d10",d:"1×/turno, prima di effettuare un attacco con una spada puoi spendere 1 ST: per quel singolo attacco considera la Difesa Passiva del bersaglio ridotta di 2. Non modifica la Difesa in modo permanente e non influenza gli attacchi degli alleati."},
+  {n:"Più Spade — Maestria",tier:"d12",req:"Più Spade — Migliorato",d:"1×/turno, l'attacco extra con la seconda lama può essere una Tecnica Swordsman invece di un attacco base."},
+  {n:"Contraccolpo",tier:"d12",d:"quando una Tecnica con Contrattacco supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata."},
+  {n:"Sguainata Fulminea",tier:"d12",d:"1×/scontro, se inizi con la lama nel fodero puoi spendere 2 ST per effettuare il primo attacco prima della normale Iniziativa, con Vantaggio."},
+  {n:"Riposta",tier:"d12",req:"Contraccolpo",d:"dopo un Contrattacco riuscito puoi spendere 1 ST per effettuare subito un attacco base con la stessa spada."},
+  {n:"Lama Indistruttibile",tier:"d12",d:"la lama non può essere normalmente spezzata o danneggiata, e può Parare anche armi di Grado superiore."},
+  {n:"Asura",tier:"d20",t:"ultimate",d:"1×/scontro, 5 ST, solo col permesso del GM. Funziona interamente con le sue regole: non applica Tecniche, Talenti, Firma dello Stile o effetti dell'arma, salvo ciò che è scritto qui. Per colpire: Attributo + Atletica per lo Striker, Attributo + Grado dell'arma per gli Stili armati; Dado Danno: Atletica per lo Striker, Grado dell'arma per gli altri. — un unico colpo in concentrazione assoluta: un solo tiro per colpire con Tecnica + Tecnica + Grado dell'arma — il dado dell'Attributo si tira due volte e si somma. Il danno dipende dal margine sulla Difesa Passiva: +0/+3: 3 Dadi Arma · +4/+7: 4 · +8/+11: 5 · +12 o più: 6. Con una katana d12: 2d20 + d12 per colpire e, al massimo, 6d12 di danno. Non applica anche la Firma Doppio Fendente: il danno crescente è già Asura."}]},
 "Sniper":{ico:"🎯",skill:"Osservazione",tratto:"La Distanza — colpisci a distanza, fuori dalla mischia, e spesso agisci per primo.",firma:"Il punto scoperto — sul +4 il tuo prossimo colpo contro lo stesso bersaglio conta la sua Difesa Passiva ridotta di 2.",talenti:[
-  {n:"Tiro Lungo — Base",tier:"d8",d:"la gittata cresce: spari oltre il raggio dei nemici comuni."},
-  {n:"Ricarica Rapida",tier:"d8",d:"ricaricare non ti costa l'azione, una volta per turno. Le armi a più colpi, nelle tue mani, rendono quello che promettono."},
-  {n:"Occhio Fermo",tier:"d8",d:"la copertura non ti ferma: ignori la copertura parziale del bersaglio, e la copertura totale vale per te come parziale."},
-  {n:"Appostamento",tier:"d8",d:"se passi un turno intero fermo a prendere la mira, il colpo successivo infligge +1 dado di danno."},
-  {n:"Tiro Lungo — Migliorato",tier:"d10",req:"Tiro Lungo — Base",d:"chi è in mischia non ti raggiunge finché resti appostato."},
-  {n:"Tiro dall'Ombra",tier:"d10",d:"se sei nascosto con Furtività e non visto, il tiro a distanza ha Vantaggio: tiri due volte e tieni il meglio."},
-  {n:"Colpo Mirato",tier:"d10",d:"invece del danno colpisci una cosa precisa: l'arma che impugna (la perde), una gamba (Velocità dimezzata), una corda, un chiavistello, una lanterna. Il tiro è contro la Difesa Passiva +2."},
-  {n:"Tiro di Copertura",tier:"d10",d:"spendi 1 ST e tieni sotto tiro una zona entro la tua gittata: il primo nemico che ci si muove allo scoperto subisce il tuo attacco di reazione."},
-  {n:"Tiro Lungo — Maestria",tier:"d12",req:"Tiro Lungo — Migliorato",d:"gittata estrema: da nave a nave, ovunque arrivi la linea di vista."},
-  {n:"Occhio del Falco",tier:"d12",d:"quando fai un colpo pulito il −2 alla Difesa della Firma vale per chiunque attacchi quel bersaglio, fino alla fine del tuo prossimo turno."},
-  {n:"Colpo Anticipato",tier:"d12",d:"come reazione, quando un nemico che stai osservando dichiara la sua azione tu spari prima: se il colpo va a segno, quel nemico compie l'azione dichiarata in Svantaggio."},
-  {n:"Colpo Impossibile",tier:"d12",d:"spendendo 2 ST il colpo arriva dove non dovrebbe: rimbalza su una lastra, passa per una feritoia, gira attorno a un angolo. Puoi colpire un bersaglio in copertura totale o fuori dalla linea di vista, se esiste un percorso plausibile."},
-  {n:"Respiro Trattenuto",tier:"d12",d:"1×/scontro, spendi 2 ST: il prossimo tiro per colpire conta come colpo pulito (+4) — quindi scatta la Firma."},
-  {n:"Tempesta di Piombo",tier:"d20",t:"ultimate",d:"nello stesso turno due attacchi extra: 3 colpi a distanza (3 tiri per colpire; per ogni colpo a segno, un tiro di Danno)."}]},
+  {n:"Tiro Lungo — Base",tier:"d8",d:"aumenti di una fascia la gittata utile delle armi a distanza compatibili."},
+  {n:"Ricarica Rapida",tier:"d8",d:"1×/turno, ricaricare un'arma non richiede la tua Azione."},
+  {n:"Occhio Fermo",tier:"d8",d:"ignori la copertura parziale del bersaglio. La copertura totale continua a impedirti normalmente di colpire."},
+  {n:"Appostamento",tier:"d8",d:"se trascorri un'Azione intera senza muoverti per prendere la mira su un bersaglio, il tuo prossimo attacco a distanza contro di lui ha Vantaggio. Il beneficio termina se attacchi, se ti muovi o se subisci danno prima di attaccare."},
+  {n:"Tiro Lungo — Migliorato",tier:"d10",req:"Tiro Lungo — Base",d:"la gittata utile delle tue armi a distanza aumenta di un'ulteriore fascia."},
+  {n:"Tiro dall'Ombra",tier:"d10",d:"se sei Nascosto e non visto, il primo attacco a distanza effettuato prima di rivelare la tua posizione ha Vantaggio."},
+  {n:"Colpo Mirato",tier:"d10",d:"invece di infliggere danno puoi mirare a qualcosa di specifico — un'arma impugnata, una gamba, una corda, un chiavistello o un altro bersaglio plausibile. Il tiro è contro la Difesa Passiva +2: se riesce, applica l'effetto appropriato invece del danno."},
+  {n:"Tiro di Copertura",tier:"d10",d:"come Azione spendi 1 ST e scegli una zona entro la tua gittata: fino all'inizio del tuo prossimo turno, il primo nemico che si muove allo scoperto in quella zona può essere bersagliato con un attacco a distanza come Reazione."},
+  {n:"Tiro Lungo — Maestria",tier:"d12",req:"Tiro Lungo — Migliorato",d:"puoi attaccare a gittata estrema, fin dove esiste una linea di vista plausibile."},
+  {n:"Occhio del Falco",tier:"d12",d:"su colpo pulito (+4), il −2 alla Difesa Passiva della Firma vale per chiunque attacchi quel bersaglio, fino alla fine del tuo prossimo turno."},
+  {n:"Colpo Anticipato",tier:"d12",d:"1×/turno, quando un nemico che stai osservando dichiara un'Azione puoi attaccarlo come Reazione prima che la completi. Se colpisci, quell'Azione avviene in Svantaggio."},
+  {n:"Colpo Impossibile",tier:"d12",d:"spendi 2 ST per tentare traiettorie anomale — rimbalzi, feritoie, angoli — o bersagli fuori dalla linea di vista diretta, se esiste un percorso plausibile."},
+  {n:"Respiro Trattenuto",tier:"d12",d:"1×/scontro, 2 ST: se il prossimo attacco va a segno conta automaticamente come colpo pulito (+4)."},
+  {n:"Tempesta di Piombo",tier:"d20",t:"ultimate",d:"1×/scontro, 5 ST, solo col permesso del GM. Funziona interamente con le sue regole: non applica Tecniche, Talenti, Firma dello Stile o effetti dell'arma, salvo ciò che è scritto qui. Per colpire: Attributo + Atletica per lo Striker, Attributo + Grado dell'arma per gli Stili armati; Dado Danno: Atletica per lo Striker, Grado dell'arma per gli altri. — scegli un singolo bersaglio ed effettui 3 tiri per colpire separati, ognuno con Attributo + Grado dell'arma: ogni colpo riuscito infligge 2 Dadi Arma (fino a 6). Munizioni fulminee: prima di ciascun colpo puoi cambiare il tipo di proiettile con qualsiasi munizione compatibile che possiedi, senza Azione né ST aggiuntiva, e i suoi effetti si applicano normalmente. Ogni colpo ha precisione chirurgica: puoi dichiarare un punto specifico del bersaglio senza rinunciare ai 2 Dadi Danno."}]},
 "Special":{ico:"⚙️",skillChoice:"any",tratto:"Arsenale Unico — cyborg o inventore con armi non convenzionali, concordate col Capitano. Nessun altro combatte con quello con cui combatte lui.",firma:"Il modulo si scatena — sul +4 scateni l'effetto del tuo modulo: esplosione, stato, scarica.",talenti:[
   {n:"Arsenale Modulare — Base",tier:"d8",d:"un set di moduli concordati: ne usi uno come Tecnica e li cambi liberamente. 2 moduli."},
   {n:"Cambio Rapido",tier:"d8",d:"cambiare modulo non ti costa l'azione: lo fai una volta per turno, anche in mezzo a una sequenza di colpi."},
@@ -1069,7 +1069,7 @@ const TALENTS={
   {n:"All'Arrembaggio!",tier:"d20",t:"ultimate",d:"1×/scena, 5 ST: ogni alleato che ti vede o ti sente agisce immediatamente, fuori dal proprio turno — movimento e azione. Poi il combattimento riprende normale. Richiede l'Ambizione del Capitano e il permesso del GM."}]}}}
 };
 /* Talenti "a gradini" divisi in tre voci: le schede salvate col vecchio nome puntano al gradino Base. */
-const TAL_RENAME={"Estensione":"Portata Naturale","Intangibilità":"Sentire l'Elemento","Raffica":"Raffica — Base","Più Spade":"Più Spade — Base","Tiro Lungo":"Tiro Lungo — Base","Arsenale Modulare":"Arsenale Modulare — Base"};
+const TAL_RENAME={"Incassare":"Guardia del Combattente","Campo di Battaglia":"Pressione Costante","Frantumare":"Contraccolpo","Estensione":"Portata Naturale","Intangibilità":"Sentire l'Elemento","Raffica":"Raffica — Base","Più Spade":"Più Spade — Base","Tiro Lungo":"Tiro Lungo — Base","Arsenale Modulare":"Arsenale Modulare — Base"};
 const TIER_LABEL={d8:"Mozzo",d10:"Pirata",d12:"Veterano",d20:"Leggenda"};
 const TIERS=["d8","d10","d12","d20"];
 /* Movimento per turno in metri (correndo raddoppia). Vedi Manuale, "Distanze e Velocità". */
@@ -1230,6 +1230,11 @@ const SKILLS={"Artigianato":"Oggetti e attrezzi","Medicina":"Ferite, veleni","Na
 /* Le Fonti sono due: Stile e Frutto. Un'arma non genera Tecniche, le esegue —
    i suoi effetti vivono nel costruttore d'arma, non qui. */
 const TEC_FONTI=["Stile","Frutto"];
+/* Whitelist ufficiale degli effetti per Stile (aggiornamento del 19/09/2026).
+   Con Fonte Stile si vede solo ciò che lo Stile della Tecnica può prendere;
+   con Fonte Frutto e con la Forma Canzone le whitelist non si applicano. */
+const STILE_WHITELIST={"Striker": ["+1d6 Dado Danno", "+1d8 Dado Danno", "+1d10 Dado Danno", "Esecuzione", "Carica", "Sovraccarico", "Colpo Annientante", "Tutto o Niente", "Sbilancio", "Presa", "Accecante", "Sfondamento", "Paralisi", "Proiezione", "Scatto", "Balzo", "Inseguire", "Strattone", "Guardia", "Scudo d'Alleato", "Contrattacco", "Slancio", "Furia", "Tempra", "Oltre il Limite", "Soffio", "Onda", "Marea", "Solco", "Lancia", "Scoppio", "Esplosione", "Occhio del Ciclone", "Aggancio", "Schianto", "Catena"], "Crusher": ["+1d6 Dado Danno", "+1d8 Dado Danno", "+1d10 Dado Danno", "Colpo Pesante", "Esecuzione", "Carica", "Sovraccarico", "Colpo Annientante", "Tutto o Niente", "Sbilancio", "Sfondamento", "Paralisi", "Proiezione", "Attrazione", "Scatto", "Balzo", "Inseguire", "Guardia", "Barriera", "Scudo d'Alleato", "Contrattacco", "Parata", "Slancio", "Furia", "Tempra", "Oltre il Limite", "Soffio", "Onda", "Marea", "Solco", "Lancia", "Squarcio", "Scoppio", "Esplosione", "Deflagrazione", "Cataclisma", "Terreno Alterato", "Terreno Alterato Lv2", "Terreno Alterato Lv3", "Pantano", "Cortina", "Prigione", "Aggancio", "Schianto", "Catena"], "Swordsman": ["+1d6 Dado Danno", "+1d8 Dado Danno", "+1d10 Dado Danno", "Esecuzione", "Carica", "Sovraccarico", "Colpo Annientante", "Tutto o Niente", "Sbilancio", "Lacerazione", "Accecante", "Paralisi", "Proiezione", "Scatto", "Balzo", "Inseguire", "Guardia", "Scudo d'Alleato", "Contrattacco", "Parata", "Slancio", "Mira", "Tempra", "Oltre il Limite", "Soffio", "Onda", "Marea", "Solco", "Lancia", "Squarcio", "Scoppio", "Esplosione", "Deflagrazione", "Occhio del Ciclone", "Aggancio", "Rimbalzo", "Catena"], "Sniper": ["+1d6 Dado Danno", "+1d8 Dado Danno", "+1d10 Dado Danno", "Esecuzione", "Carica", "Colpo Annientante", "Tutto o Niente", "Sbilancio", "Accecante", "Sfondamento", "Scatto", "Balzo", "Inseguire", "Guardia", "Contrattacco", "Slancio", "Mira", "Oltre il Limite", "Aggancio", "Rimbalzo", "Catena"]};
+
 const TEC_FORME=["Singolo","Area","Spostamento","Difesa","Potenziamento","Canzone"];
 const TEC_DADI=["d4","d6","d8","d10","d12","d20","d20+"];
 const TEC_RANK={d4:1,d6:2,d8:3,d10:4,d12:5,d20:6,"d20+":7};
@@ -1314,7 +1319,7 @@ const TEC_EFF=[
 ];
 function tecEffObj(nm){return TEC_EFF.find(e=>e[1]===nm);}
 function isMusicista(){try{return !!(pg&&(pg.role==="Musicista"||pg.role2==="Musicista"));}catch(e){return false;}}
-function isCombSpecial(){try{return !!(pg&&((pg.role==="Combattente"&&pg.style==="Special")||(pg.role2==="Combattente"&&pg.style2==="Special")));}catch(e){return false;}}
+function isCombSpecial(){try{return styleVisible("Special")&&!!(pg&&((pg.role==="Combattente"&&pg.style==="Special")||(pg.role2==="Combattente"&&pg.style2==="Special")));}catch(e){return false;}}
 function hasTalent(n){try{var t=(pg&&pg.talents)||[];for(var i=0;i<t.length;i++){var p=String(t[i]).split(" · ");if(p[p.length-1]===n)return true;}return false;}catch(e){return false;}}
 function dieRank(d){var k=DICE.indexOf(d);return k<0?-1:k;}
 function famOf(nm){const e=tecEffObj(nm);return e?e[0]:"";}
@@ -1322,7 +1327,14 @@ function grpOf(nm){const e=tecEffObj(nm);if(!e)return "";if(e[0]==="Potenziament
 function isSagoma(nm){const e=tecEffObj(nm);return !!(e&&e[6]==="sagoma");}
 function slotUsed(list){return (list||[]).filter(nm=>!isSagoma(nm)).length;}
 function fruitDieCap(){try{return (pg&&pg.frutto&&pg.frutto.has)?(pg.frutto.die||"d4"):"";}catch(e){return "";}}
-function combStyles(){var s=[];try{if(pg.role==="Combattente"&&pg.style)s.push(pg.style);if(pg.role2==="Combattente"&&pg.style2)s.push(pg.style2);}catch(e){}return s;}
+/* Stili tolti dal sito (aggiornamento ufficiale del 19/09/2026): i loro dati e
+   talenti restano qui nel codice per eventuali modifiche, ma non compaiono da
+   nessuna parte — né nelle scelte, né nei talenti, né nelle stampe. */
+const STILI_NASCOSTI=["Special"];
+function styleVisible(st){return STILI_NASCOSTI.indexOf(st)<0;}
+function talentKeyVisible(k){const p=String(k).split(" · ");return !(p.length>2&&STILI_NASCOSTI.indexOf(p[1])>=0);}
+function visibleTalents(){return (Array.isArray(pg.talents)?pg.talents:[]).filter(talentKeyVisible);}
+function combStyles(){var s=[];try{if(pg.role==="Combattente"&&pg.style&&styleVisible(pg.style))s.push(pg.style);if(pg.role2==="Combattente"&&pg.style2&&styleVisible(pg.style2))s.push(pg.style2);}catch(e){}return s;}
 const WEAPON_TYPES=["Lama","Contundente","Ad asta","A distanza","Da lancio","Speciale"];
 function weaponTypes(){return WEAPON_TYPES.slice();}
 function effVeto(e){ // regole trasversali: restituisce il motivo del blocco, o ""
@@ -1501,6 +1513,7 @@ function renderTecBuilder(onAdd){
   const _styles=combStyles();
   if(TBUILD.stile&&_styles.indexOf(TBUILD.stile)<0)TBUILD.stile="";
   if(!TBUILD.stile&&_styles.length)TBUILD.stile=_styles.filter(styleReady)[0]||_styles[0];
+  const WLS=(TBUILD.fonte==="Stile"&&TBUILD.stile&&STILE_WHITELIST[TBUILD.stile])?STILE_WHITELIST[TBUILD.stile]:null;
   const SB_ANY=stileBlock(),SB=stileBlock(TBUILD.stile),FB=fruttoBlock(),musica=isMusicista();
   const stileOff=!!SB_ANY&&!musica; /* il Musicista entra comunque: le Melodie sono sue */
   const soloCanzone=!!SB_ANY&&musica;
@@ -1528,6 +1541,8 @@ function renderTecBuilder(onAdd){
   const fz=(TBUILD.fonte==="Frutto"&&ftype==="Zoan");
   let forme=TEC_FORME.filter(f=>!(f==="Area"&&fz)&&!(f==="Canzone"&&!musica));
   if(TBUILD.fonte==="Stile"&&soloCanzone)forme=["Canzone"];
+  if(WLS){const has=g=>TEC_EFF.some(e=>WLS.indexOf(e[1])>=0&&(g==="sagoma"?e[6]==="sagoma":e[5]===g));
+   forme=forme.filter(f=>f==="Area"?has("sagoma"):(f==="Spostamento"?has("spost"):(f==="Difesa"?has("difesa"):(f==="Potenziamento"?has("potenz"):true))));}
   if(TBUILD.forma==="Area"&&fz)TBUILD.forma="Singolo";
   if(forme.indexOf(TBUILD.forma)<0)TBUILD.forma=forme[0]||"Singolo";
   formaHost.innerHTML="";
@@ -1594,7 +1609,9 @@ function renderTecBuilder(onAdd){
   if(combStyles().indexOf("Crusher")>=0)noteHost.appendChild(el("div",{class:"smb-note",html:"<b>Crusher.</b> Le Tecniche di questo Stile si attivano solo mentre impugni e utilizzi un'arma contundente compatibile: mai a mani nude, mai con un'arma di un altro tipo."}));
   if(combStyles().indexOf("Striker")>=0)noteHost.appendChild(el("div",{class:"smb-note",html:"<b>Striker.</b> Le Tecniche di questo Stile si usano esclusivamente a mani nude."}));
   /* pulizia della selezione: identica al motore precedente */
-  TBUILD.eff=(TBUILD.eff||[]).filter(nm=>{const e=tecEffObj(nm);if(!e)return false;const okD=(TEC_RANK[e[3]]||1)<=rank;const okR=(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area")||(e[5]==="musicista"&&isMusicista()&&TBUILD.forma==="Canzone")||(e[5]==="difesa"&&TBUILD.forma==="Difesa")||(e[5]==="potenz"&&TBUILD.forma==="Potenziamento")||(e[5]==="special"&&isCombSpecial())||(e[5]==="spost"&&TBUILD.forma==="Spostamento"));return okD&&okR&&!effVeto(e);});
+  const WL=(WLS&&TBUILD.forma!=="Canzone")?WLS:null;
+  const wlOk=nm=>!WL||WL.indexOf(nm)>=0;
+  TBUILD.eff=(TBUILD.eff||[]).filter(nm=>{const e=tecEffObj(nm);if(!e||!wlOk(nm))return false;const okD=(TEC_RANK[e[3]]||1)<=rank;const okR=(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area")||(e[5]==="musicista"&&isMusicista()&&TBUILD.forma==="Canzone")||(e[5]==="difesa"&&TBUILD.forma==="Difesa")||(e[5]==="potenz"&&TBUILD.forma==="Potenziamento")||(e[5]==="special"&&isCombSpecial())||(e[5]==="spost"&&TBUILD.forma==="Spostamento"));return okD&&okR&&!effVeto(e);});
   {const seen={};TBUILD.eff=TBUILD.eff.filter(nm=>{const f=grpOf(nm);if(seen[f])return false;seen[f]=1;return true;});}
   while(slotUsed(TBUILD.eff)>slot){for(let k=TBUILD.eff.length-1;k>=0;k--){if(!isSagoma(TBUILD.eff[k])){TBUILD.eff.splice(k,1);break;}}}
   /* contatore e nota della sezione */
@@ -1608,13 +1625,16 @@ function renderTecBuilder(onAdd){
      Di quelli che aspettano solo un dado più alto resta il conto, in coda. */
   const okDie=e=>(TEC_RANK[e[3]]||1)<=rank;
   const okReq=e=>(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area")||(e[5]==="musicista"&&isMusicista()&&TBUILD.forma==="Canzone")||(e[5]==="difesa"&&TBUILD.forma==="Difesa")||(e[5]==="potenz"&&TBUILD.forma==="Potenziamento")||(e[5]==="special"&&isCombSpecial())||(e[5]==="spost"&&TBUILD.forma==="Spostamento"));
-  const effOpen=e=>okDie(e)&&okReq(e)&&!effVeto(e);
-  const effSoon=e=>!okDie(e)&&okReq(e)&&!effVeto(e);
+  const effOpen=e=>wlOk(e[1])&&okDie(e)&&okReq(e)&&!effVeto(e);
+  /* «Ciò che non puoi scegliere non esiste visivamente»: restano gli effetti
+     scelti e quelli che puoi aggiungere adesso — niente spenti né lucchetti. */
+  const effShown=e=>{if(!effOpen(e))return false;const nm=e[1];if(TBUILD.eff.indexOf(nm)>=0)return true;
+   const famTaken=TBUILD.eff.some(x=>x!==nm&&grpOf(x)===grpOf(nm));const full=!isSagoma(nm)&&slotUsed(TBUILD.eff)>=slot;return !famTaken&&!full;};
   /* rastrelliera delle famiglie */
   const fams=TEC_FAMS.filter(fam=>{
    if(fam==="Melodie del Musicista"&&!(isMusicista()&&TBUILD.forma==="Canzone"))return false;
    if(TBUILD.forma==="Canzone"&&fam!=="Melodie del Musicista")return false;
-   return TEC_EFF.some(e=>e[0]===fam&&effOpen(e));});
+   return TEC_EFF.some(e=>e[0]===fam&&effShown(e));});
   if(fams.indexOf(TBUILD._fam)<0)TBUILD._fam=fams[0]||"";
   rail.innerHTML="";
   fams.forEach(fam=>{
@@ -1635,7 +1655,7 @@ function renderTecBuilder(onAdd){
   if(TBUILD._fam==="Potenziamento")famNote.appendChild(el("div",{class:"smb-note",text:"Il Potenziamento non ha il limite di uno per famiglia: gli slot del dado sono l'unico tetto."}));
   /* carte della famiglia scelta */
   grid.innerHTML="";
-  TEC_EFF.filter(e=>e[0]===TBUILD._fam&&effOpen(e)).forEach((e,idx)=>{
+  TEC_EFF.filter(e=>e[0]===TBUILD._fam&&effShown(e)).forEach((e,idx)=>{
    const nm=e[1];const sel=TBUILD.eff.indexOf(nm)>=0;
    const famTaken=!sel&&TBUILD.eff.some(x=>x!==nm&&grpOf(x)===grpOf(nm));
    const full=!isSagoma(nm)&&slotUsed(TBUILD.eff)>=slot&&!sel;
@@ -1674,9 +1694,7 @@ function renderTecBuilder(onAdd){
   saveBtn.className="smb-btn go"+(BLOCK?" off":"");
   saveBtn.title=BLOCK||"";
   gridNote.innerHTML="";
-  if(!fams.length)gridNote.appendChild(el("div",{class:"smb-note",text:"Con queste scelte non c'è ancora niente da prendere: alza il dado, o cambia Fonte e Forma."}));
-  else{const soon=TEC_EFF.filter(e=>e[0]===TBUILD._fam&&effSoon(e)).length;
-   if(soon)gridNote.appendChild(el("div",{class:"smb-note",html:"Altr"+(soon===1?"o <b>1</b> effetto di questa famiglia si apre":"i <b>"+soon+"</b> effetti di questa famiglia si aprono")+" con un dado più alto."}));}
+  if(!fams.length)gridNote.appendChild(el("div",{class:"smb-note",text:"Con queste scelte non c'è niente da prendere."}));
   sigil();
  }
  refresh();
@@ -1760,6 +1778,15 @@ function migrateChar(c){c=Object.assign(blank(),c||{});if(c.role){const MAP={"Me
  if(Array.isArray(c.moduli))c.moduli.forEach(function(mo){if(mo&&!mo.die)mo.die="d6";});
  if(c.moduloAttivo==null)c.moduloAttivo="";
  if(c.roleSkillChoice2==null)c.roleSkillChoice2="";
+ /* Uno Stile tolto dal sito non resta in scheda: si passa al primo Stile
+    visibile del Ruolo, e quello vecchio resta annotato nei dati. */
+ [["role","style"],["role2","style2"]].forEach(function(k){
+  var rn=c[k[0]],st=c[k[1]];
+  if(rn&&st&&STILI_NASCOSTI.indexOf(st)>=0&&TALENTS[rn]){
+   c[k[1]+"Nascosto"]=st;
+   c[k[1]]=Object.keys(TALENTS[rn].styles).filter(function(x){return STILI_NASCOSTI.indexOf(x)<0;})[0]||"";
+  }
+ });
  /* La Fonte Arma non esiste più: un'arma esegue le Tecniche, non le genera.
     Le Tecniche salvate diventano di Stile e conservano l'arma come collegamento. */
  if(Array.isArray(c.extraTech))c.extraTech.forEach(function(t){if(t&&t.arma&&t.modulo)t.modulo="";});
@@ -1910,7 +1937,7 @@ function roleIco(rn,stv){const T=TALENTS[rn];if(!T)return "star";const ks=Object
 function roleStyleSpec(rn,stv){const T=TALENTS[rn];if(!T)return null;const ks=Object.keys(T.styles);return T.styles[T.multi?(stv||ks[0]):ks[0]]||null;}
 /* Talenti: acquisiti e sbloccabili, con descrizione. */
 function talentPools(){const got=[],open=[],locked=[];
- const scan=(rn,stv,slot)=>{const T=TALENTS[rn];if(!T)return;const ks=Object.keys(T.styles);const useSt=T.multi?(stv||ks[0]):ks[0];const sty=T.styles[useSt];const keyStyle=T.multi?useSt:rn;const cur=dieRank(roleSkillDieOf(rn,stv,slot));const skName=roleSkillOf(rn,stv,roleChoice(slot))||"Skill di Ruolo";const taken=n=>pg.talents.indexOf(rn+" · "+keyStyle+" · "+n)>=0;
+ const scan=(rn,stv,slot)=>{const T=TALENTS[rn];if(!T)return;const ks=Object.keys(T.styles);const useSt=T.multi?(stv||ks[0]):ks[0];if(!styleVisible(useSt))return;const sty=T.styles[useSt];const keyStyle=T.multi?useSt:rn;const cur=dieRank(roleSkillDieOf(rn,stv,slot));const skName=roleSkillOf(rn,stv,roleChoice(slot))||"Skill di Ruolo";const taken=n=>pg.talents.indexOf(rn+" · "+keyStyle+" · "+n)>=0;
   (sty.talenti||[]).forEach(tl=>{const key=rn+" · "+keyStyle+" · "+tl.n;const tier=tl.tier||"d8";const o={key:key,name:tl.n,desc:tl.d,glyph:talentGlyph(tl.n,STYLE_ICON[T.multi?useSt:rn]||"star"),branch:(T.multi?useSt:rn),tier:tier,tierLabel:skName+" "+tier+" · "+TIER_LABEL[tier],ult:tl.t==="ultimate",req:tl.req||"",reqOk:!tl.req||taken(tl.req),src:"role"};
    if(taken(tl.n))got.push(o);else if(cur>=dieRank(tier))open.push(o);else locked.push(o);});};
  if(pg.role)scan(pg.role,pg.style,1);if(pg.role2)scan(pg.role2,pg.style2,2);
@@ -1932,7 +1959,7 @@ function classPickerModal(slot){openModal(slot===1?"⚔️ Scegli la classe":"�
  Object.keys(TALENTS).forEach(rn=>{const T=TALENTS[rn];const o=el("div",{class:"classopt"+(cur===rn?" sel":"")},[el("div",{class:"co-ico",html:ROLE_IMG[rn]?emblem(ROLE_IMG[rn],58):svgIcon(roleIco(rn,cur===rn?curSt:""),30)}),el("div",{class:"co-n",text:rn}),el("div",{class:"co-s",text:T.skill?("Skill: "+T.skill):(T.multi?"Skill per Stile":"")})]);o.onclick=()=>mutateM(()=>{if(slot===1){pg.role=rn;pg.style=firstStyle(rn);pg.roleSkillChoice=defaultSkillChoice();}else{pg.role2=rn;pg.style2=firstStyle(rn);}});g.appendChild(o);});
  w.appendChild(g);
  const rn=slot===1?pg.role:pg.role2;
- if(rn&&TALENTS[rn]&&TALENTS[rn].multi){w.appendChild(el("div",{class:"talfascia",text:"Stile di "+rn}));const sg=el("div",{class:"classgrid"});Object.keys(TALENTS[rn].styles).forEach(st=>{const sty=TALENTS[rn].styles[st];const on=(slot===1?pg.style:pg.style2)===st;const o=el("div",{class:"classopt"+(on?" sel":"")},[el("div",{class:"co-ico",html:roleImgKey(rn,st)?emblem(roleImgKey(rn,st),58):svgIcon(STYLE_ICON[st]||"star",30)}),el("div",{class:"co-n",text:st}),el("div",{class:"co-s",text:(sty.tratto||"").split(" — ")[0]})]);o.onclick=()=>mutateM(()=>{if(slot===1){pg.style=st;pg.roleSkillChoice=defaultSkillChoice();}else pg.style2=st;});sg.appendChild(o);});w.appendChild(sg);}
+ if(rn&&TALENTS[rn]&&TALENTS[rn].multi){w.appendChild(el("div",{class:"talfascia",text:"Stile di "+rn}));const sg=el("div",{class:"classgrid"});Object.keys(TALENTS[rn].styles).filter(styleVisible).forEach(st=>{const sty=TALENTS[rn].styles[st];const on=(slot===1?pg.style:pg.style2)===st;const o=el("div",{class:"classopt"+(on?" sel":"")},[el("div",{class:"co-ico",html:roleImgKey(rn,st)?emblem(roleImgKey(rn,st),58):svgIcon(STYLE_ICON[st]||"star",30)}),el("div",{class:"co-n",text:st}),el("div",{class:"co-s",text:(sty.tratto||"").split(" — ")[0]})]);o.onclick=()=>mutateM(()=>{if(slot===1){pg.style=st;pg.roleSkillChoice=defaultSkillChoice();}else pg.style2=st;});sg.appendChild(o);});w.appendChild(sg);}
  if(rn){const spec=roleStyleSpec(rn,slot===1?pg.style:pg.style2);if(spec&&spec.skillChoice){const opts=(spec.skillChoice==="any")?Object.keys(SKILLS):spec.skillChoice;w.appendChild(el("label",{class:"fld",text:slot===1?"Skill di Ruolo":"Skill di questa classe"}));const sl=el("select",{},[el("option",{value:"",text:"— scegli —"})].concat(opts.map(s=>el("option",{value:s,text:s}))));sl.value=roleChoice(slot);sl.onchange=()=>mutateM(()=>{if(slot===1)pg.roleSkillChoice=sl.value;else pg.roleSkillChoice2=sl.value;});w.appendChild(sl);}
   if(slot===2){const sk2=roleSkillOf(rn,pg.style2,roleChoice(2));const d2=roleSkillDieOf(rn,pg.style2,2);
    w.appendChild(el("div",{class:"compat "+(d2?"ok":"wait"),html:d2?("I Talenti di questa classe si aprono con <b>"+sk2+" "+d2+"</b>."):("La Skill di Ruolo a d8 ne resta una sola. I Talenti di questa classe si aprono con <b>"+(sk2||"la sua Skill")+"</b>: allenala fra le Skill e l\'albero si apre da lì.")}));}}
@@ -2106,6 +2133,77 @@ function puoiPortare(a){
  }
  return !!set[a.tipo];
 }
+/* ---- Una sola arma per Stile (aggiornamento ufficiale 19/09/2026) ----
+   Ogni Stile da Combattente dà UN posto nell'Arsenale, per un'arma del suo
+   tipo o da lancio (che è di tutti). Più Spade · Base dà allo Swordsman un
+   secondo posto, solo per una lama. Con due Stili, un posto per Stile. Chi non
+   ha Stili da Combattente non ha posti di Stile e non ha questo limite.
+   Le armi si assegnano ai posti col miglior abbinamento possibile. */
+function tipoOwnerVisible(t){const o=WEAPON_STILE[t];return !o||t==="Da lancio"||styleVisible(o);}
+/* Per ogni Stile, le configurazioni possibili dei suoi posti. Più Spade non
+   aggiunge un posto libero: permette due SPADE al posto dell'arma singola. */
+function styleSlotOptions(x){
+ const one=[{stile:x,tipi:(STILE_ARMI[x]||[]).concat(["Da lancio"])}];
+ if(x==="Swordsman"&&(hasTalent("Più Spade — Base")||hasTalent("Più Spade — Migliorato")||hasTalent("Più Spade — Maestria")))
+  return [one,[{stile:x,tipi:["Lama"],soloSpade:true},{stile:x,tipi:["Lama"],soloSpade:true,extra:"Più Spade"}]];
+ return [one];
+}
+function slotConfigs(){
+ const st=combStyles();if(!st.length)return null;
+ let acc=[[]];
+ st.forEach(x=>{const opts=styleSlotOptions(x);const nx=[];acc.forEach(a=>opts.forEach(o=>nx.push(a.concat(o))));acc=nx;});
+ return acc;
+}
+/* I posti «di riferimento» mostrati in scheda: la configurazione più ampia. */
+function weaponSlotsList(){const c=slotConfigs();if(!c)return null;return c.reduce((a,b)=>b.length>a.length?b:a,c[0]);}
+function fitsSlot(a,slot){
+ if(slot.soloSpade)return a.tipo==="Lama";
+ if(a.tipo==="Ad asta"){
+  if(a.asta==="Tagliente")return slot.tipi.indexOf("Lama")>=0;
+  if(a.asta==="Contundente")return slot.tipi.indexOf("Contundente")>=0;
+  return slot.tipi.indexOf("Lama")>=0||slot.tipi.indexOf("Contundente")>=0;
+ }
+ return slot.tipi.indexOf(a.tipo)>=0;
+}
+/* Abbinamento massimo armi→posti (percorsi aumentanti: pochi elementi). */
+function weaponMatch(list,slots){
+ const own=slots.map(()=>-1);
+ const tryW=(w,seen)=>{for(let j=0;j<slots.length;j++){if(seen[j]||!fitsSlot(list[w],slots[j]))continue;seen[j]=true;if(own[j]<0||tryW(own[j],seen)){own[j]=w;return true;}}return false;};
+ let n=0;for(let w=0;w<list.length;w++)if(tryW(w,slots.map(()=>false)))n++;
+ const placed={};own.forEach((w,j)=>{if(w>=0)placed[w]=j;});
+ return {n:n,placed:placed};
+}
+function bestMatch(list){
+ const cs=slotConfigs();if(!cs)return null;
+ let best=null;cs.forEach(sl=>{const m=weaponMatch(list,sl);if(!best||m.n>best.m.n||(m.n===best.m.n&&sl.length>best.slots.length))best={m:m,slots:sl};});
+ return best;
+}
+function arsenale(){
+ const list=pg.armi||[];const B=bestMatch(list);
+ if(!B)return {limit:false,cap:Infinity,n:list.length,over:[]};
+ const slots=weaponSlotsList();const m=B.m;
+ const over=list.map((a,i)=>i).filter(i=>!(i in m.placed));
+ return {limit:true,cap:slots.length,n:list.length,fit:m.n,over:over,slots:slots,placed:m.placed};
+}
+/* Si può aggiungere un'arma di questo tipo senza sforare i posti? */
+function canAddWeapon(tipo,asta){
+ if(!slotConfigs())return tipoOwnerVisible(tipo);
+ if(!tipoOwnerVisible(tipo))return false;
+ const list=(pg.armi||[]).slice();const base=bestMatch(list).m.n;
+ return base===list.length&&bestMatch(list.concat([{tipo:tipo,asta:asta||""}])).m.n>base;
+}
+/* Tipi ammessi per l'arma i-esima senza togliere il posto alle altre. */
+function tipiPerArma(i){
+ if(!slotConfigs())return WEAPON_TYPES.filter(tipoOwnerVisible);
+ const others=(pg.armi||[]).filter((x,k)=>k!==i);const base=bestMatch(others).m.n;
+ return WEAPON_TYPES.filter(t=>tipoOwnerVisible(t)&&(t==="Ad asta"?astaPerArma(i).length>0:bestMatch(others.concat([{tipo:t}])).m.n>base));
+}
+function astaPerArma(i){
+ if(!slotConfigs())return ["Tagliente","Contundente"];
+ const others=(pg.armi||[]).filter((x,k)=>k!==i);const base=bestMatch(others).m.n;
+ return ["Tagliente","Contundente"].filter(m=>bestMatch(others.concat([{tipo:"Ad asta",asta:m}])).m.n>base);
+}
+function tipiAggiungibili(){return WEAPON_TYPES.filter(t=>tipoOwnerVisible(t)&&(t==="Ad asta"?(canAddWeapon(t,"Tagliente")||canAddWeapon(t,"Contundente")):canAddWeapon(t,"")));}
 /* Le modalità dell'asta consentite dagli Stili posseduti. */
 function astaModi(){
  const set=armiConsentite();if(!set)return ["Tagliente","Contundente"];
@@ -2113,8 +2211,8 @@ function astaModi(){
 }
 /* I Tipi d'arma che questo personaggio può portare, nell'ordine dell'Arsenale. */
 function tipiConsentiti(){
- const set=armiConsentite();if(!set)return WEAPON_TYPES.slice();
- return WEAPON_TYPES.filter(t=>(t==="Ad asta")?astaModi().length>0:!!set[t]);
+ const set=armiConsentite();if(!set)return WEAPON_TYPES.filter(tipoOwnerVisible);
+ return WEAPON_TYPES.filter(t=>tipoOwnerVisible(t)&&((t==="Ad asta")?astaModi().length>0:!!set[t]));
 }
 function armiConsentiteLabel(){
  const set=armiConsentite();if(!set)return "";
@@ -2159,6 +2257,7 @@ function fruttoBlock(){
 const WEAPON_STILE={"Lama":"Swordsman","Contundente":"Crusher","A distanza":"Sniper","Da lancio":"Sniper","Speciale":"Special"};
 function weaponStyleReq(a){if(!a||!a.tipo)return "";if(a.tipo==="Ad asta")return a.asta==="Tagliente"?"Swordsman":(a.asta==="Contundente"?"Crusher":"");return WEAPON_STILE[a.tipo]||"";}
 function weaponCompat(a){
+ if(a&&!tipoOwnerVisible(a.tipo))return {s:"ko",need:"",msg:"Nessuno Stile impugna più le armi di questo tipo: ne usi il Grado, non l'effetto speciale."};
  if(!puoiPortare(a))return {s:"ko",need:weaponStyleReq(a),msg:"Il tuo Stile non porta armi di questo tipo. Puoi impugnare: <b>"+armiConsentiteLabel()+"</b> — le armi da lancio sono di tutti."};
  var need=weaponStyleReq(a);
  if(!need)return {s:"wait",need:"",msg:(a&&a.tipo==="Ad asta")?"Scegli la <b>modalità dell'asta</b> — tagliente o contundente — per sapere quale Stile serve.":"Scegli il <b>Tipo</b> per verificare lo Stile."};
@@ -2249,12 +2348,12 @@ function weaponModal(i,step){
   if(WWIZ.step===1){
    w.appendChild(plate("01","Identità"));
    w.appendChild(field("Nome dell'arma",a.nome,v=>{a.nome=v;save();}));
-   {const ok=tipiConsentiti();const tipi=ok.slice();if(tipi.indexOf(a.tipo)<0)tipi.push(a.tipo);
+   {const ok=tipiPerArma(WWIZ.i);const tipi=ok.slice();if(tipi.indexOf(a.tipo)<0)tipi.push(a.tipo);
     w.appendChild(el("label",{class:"fld",text:"Tipo"}));
-    w.appendChild(optCards(tipi.map(t=>({v:t,l:t,i:WEAPON_ICO[t],s:(ok.indexOf(t)<0)?"non del tuo Stile":""})),a.tipo,t=>mutateM(()=>{a.tipo=t;if(t!=="Ad asta")a.asta="";else if(astaModi().indexOf(a.asta)<0)a.asta=astaModi()[0]||"";})));
-    if(ok.length<WEAPON_TYPES.length)w.appendChild(el("div",{class:"hintbox",html:"Compaiono solo i Tipi che il tuo Stile impugna: <b>"+armiConsentiteLabel()+"</b>. Le armi da lancio sono di tutti."}));}
+    w.appendChild(optCards(tipi.map(t=>({v:t,l:t,i:WEAPON_ICO[t],s:(ok.indexOf(t)<0)?"fuori dai tuoi posti":""})),a.tipo,t=>mutateM(()=>{a.tipo=t;const mo=astaPerArma(WWIZ.i);if(t!=="Ad asta")a.asta="";else if(mo.indexOf(a.asta)<0)a.asta=mo[0]||"";})));
+    if(weaponSlotsList())w.appendChild(el("div",{class:"hintbox",html:"Ogni Stile porta una sola arma, del suo tipo o da lancio: qui compaiono i Tipi che trovano posto accanto alle altre armi dell'Arsenale."}));}
    if(a.tipo==="Ad asta"){
-    const modi=astaModi();const mm=modi.slice();if(a.asta&&mm.indexOf(a.asta)<0)mm.push(a.asta);
+    const modi=astaPerArma(WWIZ.i);const mm=modi.slice();if(a.asta&&mm.indexOf(a.asta)<0)mm.push(a.asta);
     w.appendChild(el("label",{class:"fld",text:"Modalità dell'asta"}));
     w.appendChild(optCards(mm.map(m=>({v:m,l:m,s:(m==="Tagliente")?"Swordsman":"Crusher"})),a.asta,v=>mutateM(()=>a.asta=v),"two"));
    }
@@ -2326,19 +2425,25 @@ function weaponModal(i,step){
 function arsenaleModal(){
  openModal("⚔️ Arsenale · armi d4",function(){
   const w=el("div",{});
-  {const lab=armiConsentiteLabel();if(lab)w.appendChild(el("div",{class:"compat ok",html:"Qui trovi solo le armi che il tuo Stile impugna: <b>"+lab+"</b>. Le armi da lancio sono di tutti; con due Ruoli da Combattente valgono entrambi gli Stili."}));}
-  w.appendChild(el("div",{class:"hintbox",html:"Le <b>24 armi d4 approvate</b>. Tutte Grado <b>d4 · Base</b>, origine GLC, nessun effetto speciale. Attributo e alcune portate restano «da definire»: li scegliete al tavolo. Puoi anche partire da un foglio bianco."}));
-  w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Arma personalizzata",onclick:()=>{const _t=tipiConsentiti()[0]||"Lama";const a=normWeapon({nome:"Nuova arma",tipo:_t,grado:"d4",attr:"",portata:"",asta:(_t==="Ad asta"?(astaModi()[0]||""):""),note:"",eff:null});closeModal();mutate(()=>pg.armi.push(a));flyIn(svgIcon("sword",120),()=>byText(".slots .slot-n","Nuova arma"));setTimeout(()=>weaponModal(pg.armi.length-1),700);}})]));
+  const A=arsenale();
+  const aggiungibili=tipiAggiungibili();
+  if(A.limit){
+   const posti=A.slots.map(x=>x.stile+(x.extra?(" · "+x.extra):"")).join(" · ");
+   w.appendChild(el("div",{class:"compat "+(aggiungibili.length?"ok":"ko"),html:"Ogni Stile porta <b>una sola arma</b>, del suo tipo o da lancio. I tuoi posti: <b>"+posti+"</b> — occupati <b>"+Math.min(A.n,A.cap)+" / "+A.cap+"</b>."+(aggiungibili.length?"":"<br>Arsenale pieno: per un'arma nuova devi prima lasciarne una.")}));
+  }
+  if(!aggiungibili.length)return w;
+  w.appendChild(el("div",{class:"hintbox",html:"Le armi d4 approvate che puoi aggiungere adesso. Tutte Grado <b>d4 · Base</b>, origine GLC, nessun effetto speciale. Attributo e alcune portate restano «da definire»: li scegliete al tavolo. Puoi anche partire da un foglio bianco."}));
+  w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Arma personalizzata",onclick:()=>{const _t=aggiungibili[0];const _as=(_t==="Ad asta")?(canAddWeapon(_t,"Tagliente")?"Tagliente":"Contundente"):"";const a=normWeapon({nome:"Nuova arma",tipo:_t,grado:"d4",attr:"",portata:"",asta:_as,note:"",eff:null});closeModal();mutate(()=>pg.armi.push(a));flyIn(svgIcon(WEAPON_ICO[_t]||"sword",120),()=>byText(".slots .slot-n","Nuova arma"));setTimeout(()=>weaponModal(pg.armi.length-1),700);}})]));
   let last="";
   const list=el("div",{class:"catlist"});
-  const tipiOk=tipiConsentiti();
-  ARSENALE_D4.filter(r=>tipiOk.indexOf(r[1])>=0).forEach(r=>{
+  ARSENALE_D4.filter(r=>aggiungibili.indexOf(r[1])>=0).forEach(r=>{
    if(r[1]!==last){last=r[1];const need=WEAPON_STILE[r[1]]||"";const have=need&&combStyles().indexOf(need)>=0;
-    list.appendChild(el("div",{class:"slots-h",html:r[1]+" · "+(r[1]==="Ad asta"?("modalità: "+astaModi().join(" o ").toLowerCase()):("Stile "+need+(have?" <span class='pill good'>lo hai</span>":"")))}));}
+    const modi=["Tagliente","Contundente"].filter(m=>canAddWeapon("Ad asta",m));
+    list.appendChild(el("div",{class:"slots-h",html:r[1]+" · "+(r[1]==="Ad asta"?("modalità: "+modi.join(" o ").toLowerCase()):(r[1]==="Da lancio"?"di tutti gli Stili":("Stile "+need+(have?" <span class='pill good'>lo hai</span>":""))))}));}
    const card=el("div",{class:"catcard"});
    card.appendChild(el("div",{class:"cn",text:r[0]}));
    card.appendChild(el("div",{class:"cm",text:"d4 · Base · "+(r[2]||"portata da definire")+" · nessun effetto"}));
-   card.onclick=()=>{const a=normWeapon({nome:r[0],tipo:r[1],grado:"d4",attr:"",portata:r[2],asta:"",note:"",eff:null});closeModal();mutate(()=>pg.armi.push(a));flyIn(svgIcon(WEAPON_ICO[r[1]]||"sword",120),()=>byText(".slots .slot-n",r[0]));setTimeout(()=>weaponModal(pg.armi.length-1),700);};
+   card.onclick=()=>{const _as=(r[1]==="Ad asta")?(canAddWeapon(r[1],"Tagliente")?"Tagliente":"Contundente"):"";const a=normWeapon({nome:r[0],tipo:r[1],grado:"d4",attr:"",portata:r[2],asta:_as,note:"",eff:null});closeModal();mutate(()=>pg.armi.push(a));flyIn(svgIcon(WEAPON_ICO[r[1]]||"sword",120),()=>byText(".slots .slot-n",r[0]));setTimeout(()=>weaponModal(pg.armi.length-1),700);};
    list.appendChild(card);
   });
   w.appendChild(list);
@@ -2622,8 +2727,11 @@ function renderManage(){
  const cls=el("div",{class:"stage-cls"});if(pg.role)cls.appendChild(classCard(pg.role,pg.style,1));else cls.appendChild(addCard("Scegli la classe",()=>classPickerModal(1)));if(pg.role2)cls.appendChild(classCard(pg.role2,pg.style2,2));else if(pg.role)cls.appendChild(addCard("Seconda classe",()=>classPickerModal(2)));C.appendChild(cls);
  const mid=el("div",{class:"stage-mid"});C.appendChild(mid);
  const eq=el("div",{class:"slots"},[el("div",{class:"slots-h",text:"Equipaggiamento"})]);
- pg.armi.forEach((a,i)=>eq.appendChild(slotTile(a.grado,a.nome||"Arma",weaponMeta(a),()=>weaponModal(i),WEAPON_ICO[a.tipo])));
- eq.appendChild(slotAdd("Arma · apri l'Arsenale",arsenaleModal));
+ {const A=arsenale();
+  if(A.limit)eq.appendChild(el("div",{class:"slots-h",text:"Armi · "+Math.min(A.n,A.cap)+"/"+A.cap}));
+  pg.armi.forEach((a,i)=>eq.appendChild(slotTile(a.grado,a.nome||"Arma",weaponMeta(a)+(A.over.indexOf(i)>=0?' · <span class="pill warn">oltre il limite</span>':""),()=>weaponModal(i),WEAPON_ICO[a.tipo])));
+  if(tipiAggiungibili().length)eq.appendChild(slotAdd("Arma · apri l'Arsenale",arsenaleModal));
+  else if(A.limit)eq.appendChild(el("div",{class:"slot add",title:"Ogni Stile porta una sola arma",onclick:arsenaleModal},[el("div",{class:"slot-i",html:'<span class="gc-em">'+svgIcon("lock",20)+"</span>"}),el("div",{class:"slot-b"},[el("div",{class:"slot-n",text:"Arsenale pieno"})])]));}
  if(isMusicista()){eq.appendChild(el("div",{class:"slots-h",text:"Strumenti"}));eq.appendChild(slotTile("d4","La tua voce","Voce · <b>d4</b> Base · sempre con te",null));(pg.strumenti||[]).forEach((a,i)=>eq.appendChild(slotTile(instrEff(a).grado,a.nome||"Strumento",instrMeta(a),()=>instrumentModal(i))));eq.appendChild(slotAdd("Strumento",()=>{mutate(()=>{if(!pg.strumenti)pg.strumenti=[];pg.strumenti.push({nome:"Nuovo strumento",tipo:"Corde",die:"d6",note:""});});flyIn(dieIcon("d6",120),()=>byText(".slots .slot-n","Nuovo strumento"));setTimeout(()=>instrumentModal(pg.strumenti.length-1),950);}));}
  if(moduliVisibili()){const S=moduliSlots();if(S.n>0){
   const used=(pg.moduli||[]).length;
@@ -2696,7 +2804,7 @@ function render(){
  if(!ro&&Object.keys(pg.skills).length===0)ss.innerHTML='<div class="muted" style="font-size:13px;">nessuna ancora</div>';
  // tecniche
  const st=$("#s-tech");st.innerHTML="";allTech().forEach(t=>{let lab=(t.name||"(senza nome)")+(t.fixed?' <i>(razziale)</i>':(t.attr?' <i>('+t.attr+')</i>':''));if(t.obj&&((t.obj.eff&&t.obj.eff.length)||t.obj.forma))lab+=" <b style='color:#7a1410'>· "+tecCostLabel(t.obj)+"</b>";st.appendChild(badge(lab,t.die));});if(allTech().length===0)st.innerHTML='<div class="muted" style="font-size:13px;">nessuna ancora</div>';
- const stl=$("#s-talenti");if(stl){stl.innerHTML="";const tlist=Array.isArray(pg.talents)?pg.talents:[];if(tlist.length){$("#s-talenti-sec").style.display="block";tlist.forEach(k=>{const parts=k.split(" · ");const nm=parts[parts.length-1];const styl=parts.length>=2?parts[1]:"";const showSty=styl&&styl!==parts[0];stl.appendChild(el("div",{class:"li"},[el("span",{class:"li-n",html:nm+(showSty?(' <i>('+styl+')</i>'):'')}),el("span",{class:"dbadge",text:"✦"})]));});}else $("#s-talenti-sec").style.display="none";}
+ const stl=$("#s-talenti");if(stl){stl.innerHTML="";const tlist=visibleTalents();if(tlist.length){$("#s-talenti-sec").style.display="block";tlist.forEach(k=>{const parts=k.split(" · ");const nm=parts[parts.length-1];const styl=parts.length>=2?parts[1]:"";const showSty=styl&&styl!==parts[0];stl.appendChild(el("div",{class:"li"},[el("span",{class:"li-n",html:nm+(showSty?(' <i>('+styl+')</i>'):'')}),el("span",{class:"dbadge",text:"✦"})]));});}else $("#s-talenti-sec").style.display="none";}
  // haki
  const sh=$("#s-haki");sh.innerHTML="";if(pg.haki.length){$("#s-haki-sec").style.display="block";pg.haki.forEach(h=>sh.appendChild(badge(h.name+' <i>'+(h.pip||0)+' pip</i>',h.die)));}else $("#s-haki-sec").style.display="none";
  // frutto
@@ -2767,7 +2875,7 @@ function buildPrintSheet(){
   if(pg.armi&&pg.armi.length){h+='<div class="ps-sec"><div class="ps-h">Equipaggiamento</div>';pg.armi.forEach(function(a){normWeapon(a);var c=weaponCompat(a);h+='<div class="ps-item"><b>'+escp(a.nome||"arma")+'</b> <span class="die">'+escp(a.tipo+(a.asta?(" "+a.asta.toLowerCase()):"")+" \u00b7 Grado "+a.grado+" "+gradeLabel(a.grado))+'</span><div class="ps-d">'+escp([a.attr||"attributo da definire",a.portata||"portata da definire","Stile "+(c.need||"da determinare")+(c.s==="ok"?" \u2713":(c.s==="ko"?" \u2717":""))].join(" \u00b7 "))+'</div>'+(a.eff?('<div class="ps-d2"><b>'+escp(a.eff.nome||"Effetto")+'</b> \u00b7 '+escp([a.eff.cat,a.eff.freq,(a.eff.prezzo&&a.eff.prezzo!=="Nessuno")?(a.eff.prezzo+(a.eff.prezzoDett?(" "+a.eff.prezzoDett):"")):""].filter(Boolean).join(" \u00b7 "))+(a.eff.desc?(" \u2014 "+escp(a.eff.desc)):"")+'</div>'):'')+(a.note?'<div class="ps-d2">'+escp(a.note)+'</div>':'')+'</div>';});h+='</div>';}
   if(pg.strumenti&&pg.strumenti.length){h+='<div class="ps-sec"><div class="ps-h">Strumenti</div>';pg.strumenti.forEach(function(a){var x=instrEff(a);h+='<div class="ps-item"><b>'+escp(a.nome||"strumento")+'</b> <span class="die">'+escp([a.tipo||"Corde",x.grado+(INSTR_GRADI[x.grado]?(" "+INSTR_GRADI[x.grado]):""),"Salvezza "+x.soglia].join(" \u00b7 "))+'</span>'+(x.over?'<div class="ps-d2">usato come d4 finché l\'Arte non arriva a '+escp(x.grado)+'</div>':'')+(a.note?'<div class="ps-d">'+escp(a.note)+'</div>':'')+'</div>';});h+='</div>';}
   if(pg.moduli&&pg.moduli.length){normModules();var _S=moduliSlots();h+='<div class="ps-sec"><div class="ps-h">Corpo Meccanico \u00b7 '+pg.moduli.length+'/'+_S.n+'</div>';pg.moduli.forEach(function(mo){var st=modStateLabel(mo);h+='<div class="ps-tech"><div class="tt"><b>'+escp(mo.nome||"modulo")+'</b> <span class="tg">'+escp(st.t+((mo.arma&&mo.grado)?(" \u00b7 "+mo.grado):""))+'</span></div><div class="ps-d">'+escp([(mo.tipo&&mo.tipo.length?mo.tipo.join(", "):""),"requisito "+mo.req,mo.funzione].filter(Boolean).join(" \u00b7 "))+'</div>'+((mo.eff&&(mo.eff.cat||mo.eff.testo))?('<div class="ps-d2"><b>'+escp(mo.eff.cat||"Effetto")+'</b>'+(mo.eff.tgt?(" \u00b7 "+escp(mo.eff.tgt)):"")+' \u2014 '+escp(mo.eff.testo||"")+'</div>'):'')+((mo.fuel&&mo.fuel.on)?('<div class="ps-d2">Cariche: '+escp((mo.fuel.tipo||"risorsa")+" "+(mo.fuel.cur||0)+"/"+(mo.fuel.max||"\u2014")+(mo.fuel.consumo?(" \u00b7 "+mo.fuel.consumo):""))+'</div>'):'')+'</div>';});h+='</div>';}
-  if(Array.isArray(pg.talents)&&pg.talents.length){h+='<div class="ps-sec"><div class="ps-h">Talenti</div>';pg.talents.forEach(function(k){var ti=talentInfo(k);h+='<div class="ps-tech"><div class="tt">\u2726 <b>'+escp(ti.name)+'</b>'+(ti.branch?' <span class="ps-d2">('+escp(ti.branch)+')</span>':'')+(ti.tag?' <span class="ps-d2">'+escp(ti.tag)+'</span>':'')+'</div>'+(ti.desc?'<div class="ps-d">'+escp(ti.desc)+'</div>':'')+'</div>';});h+='</div>';}
+  if(visibleTalents().length){h+='<div class="ps-sec"><div class="ps-h">Talenti</div>';visibleTalents().forEach(function(k){var ti=talentInfo(k);h+='<div class="ps-tech"><div class="tt">\u2726 <b>'+escp(ti.name)+'</b>'+(ti.branch?' <span class="ps-d2">('+escp(ti.branch)+')</span>':'')+(ti.tag?' <span class="ps-d2">'+escp(ti.tag)+'</span>':'')+'</div>'+(ti.desc?'<div class="ps-d">'+escp(ti.desc)+'</div>':'')+'</div>';});h+='</div>';}
   if(Array.isArray(pg.bonds)){var bb=pg.bonds.filter(function(b){return (b.nome&&b.nome.trim())||b.die;});if(bb.length){h+='<div class="ps-sec"><div class="ps-h">Legami Nakama</div><table class="ps-tab">';bb.forEach(function(b){h+='<tr><td class="sk">'+escp(b.nome||"—")+'</td><td class="sd">'+escp(b.die||"d4")+'</td></tr>';});h+='</table></div>';}}
   h+='</div><div class="ps-col">';
   h+='<div class="ps-sec"><div class="ps-h">Tecniche</div>';
@@ -2791,7 +2899,7 @@ $("#printSheet").onclick=function(){buildPrintSheet();window.print();};
 function printPayload(){
   var r=race(),ro=roleObj();
   normWeapons();normModules();var out={v:1,charId:CT.activeId,ts:Date.now(),nome:pg.nome||"",difesa:difesaPassiva(),move:r?raceMove(r.id):null,fruttoDie:(pg.frutto&&pg.frutto.has)?(pg.frutto.die||"d4"):"",
-    talenti:(pg.talents||[]).map(function(k){var ti=talentInfo(k);return {name:ti.name,branch:ti.branch||"",tag:ti.tag||"",desc:ti.desc||""};}),
+    talenti:visibleTalents().map(function(k){var ti=talentInfo(k);return {name:ti.name,branch:ti.branch||"",tag:ti.tag||"",desc:ti.desc||""};}),
     moduli:(pg.moduli||[]).map(function(m){return {nome:m.nome||"",stato:m.stato||"integro",attivo:(pg.moduloAttivo===m.id),tipo:(m.tipo||[]).join(", "),req:m.req||"",grado:(m.arma&&m.grado)?m.grado:"",funzione:m.funzione||"",effCat:(m.eff&&m.eff.cat)||"",effTgt:(m.eff&&m.eff.tgt)||"",eff:(m.eff&&m.eff.testo)||m.effLegacy||"",fuel:(m.fuel&&m.fuel.on)?((m.fuel.tipo||"cariche")+" "+(m.fuel.cur||0)+"/"+(m.fuel.max||"\u2014")):"",desc:m.note||""};}),
     moduliSlots:moduliVisibili()?moduliSlots().n:0,
     strumenti:(pg.strumenti||[]).map(function(a){var x=instrEff(a);return {nome:a.nome||"",die:a.die||"",tipo:a.tipo||"Corde",grado:INSTR_GRADI[x.grado]||"",soglia:x.soglia,over:x.over,note:a.note||""};}),
