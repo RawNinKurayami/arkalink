@@ -1522,6 +1522,7 @@ body.has-bld{overflow:hidden;}
 <script src="signature-builder.js?v=1"></script>
 <script src="equipment-builder.js?v=1"></script>
 <script src="dossiers.js?v=1"></script>
+<script src="/scheda-stampabile/special-moves-print.js?v=1"></script>
 <script>
 "use strict";
 const RACES=[
@@ -3914,6 +3915,7 @@ function printPayload(){
     tecniche:(pg.extraTech||[]).filter(function(t){return t.nome||(t.eff&&t.eff.length);}).map(function(t){var fo=(t.fonte==="Frutto"&&t.fruitType)?("Frutto "+t.fruitType):(t.stile?("Stile "+t.stile):(t.fonte||""));if(t.arma){var _a=(pg.armi||[]).filter(function(x){return x.id===t.arma;})[0];if(_a)fo+=" \u00b7 arma \u00ab"+((_a.nome||"").trim()||"senza nome")+"\u00bb";}if(t.modulo){var _m=(pg.moduli||[]).filter(function(x){return x.id===t.modulo;})[0];if(_m)fo+=" \u00b7 modulo \u00ab"+(_m.nome||"senza nome")+"\u00bb";}return {nome:t.nome||"",fonte:fo,forma:t.forma||"",attr:t.attr||"",die:t.die||"",durata:t.durata||"",cost:tecCostLabel(t),eff:(t.eff||[]).map(function(nm){var e=tecEffObj(nm);return {n:nm,d:e?e[2]:""};}),desc:t.desc||"",pa:t.id?(pg.pa["tec:"+t.id]||0):0,soglia:t.die?paSoglia(t.die):null};}),
     pa:{attr:ATTRS.map(function(a){return {name:a,die:pg.attr[a]||"",pa:pg.pa["attr:"+a]||0,soglia:pg.attr[a]?paSoglia(pg.attr[a]):null};}),
         skills:Object.keys(SKILLS).map(function(n){var isRole=ro&&ro.skill===n;var die=isRole?pg.roleSkillDie:(pg.skills[n]||"");return {name:n,die:die,role:!!isRole,pa:pg.pa[n]||0,soglia:die?paSoglia(die):null};}).filter(function(x){return x.die;})}};
+  if(window.GLCPrintMoves)out.specialMoves=GLCPrintMoves.snapshot(pg,CT.activeId);
   return out;
 }
 $("#printIllus").onclick=function(){try{save();localStorage.setItem("glc_print_v1",JSON.stringify(printPayload()));}catch(e){}window.open("/scheda-stampabile/?c="+encodeURIComponent(CT.activeId),"_blank");};
