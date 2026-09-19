@@ -59,13 +59,13 @@ define('Paramecia','Potere Versatile|Dono Passivo|Seconda Natura','passive','any
 define('Paramecia','Doppio Uso|Potere Istintivo','active','fruit');
 define('Paramecia','Ciò che Resta|Nessuno dei Miei|Marchio Duraturo|Portata Naturale|Senza Contraccolpo','passive','fruit');
 define('Paramecia','Forma di Combattimento','active','any',{gm:true});
-define('Paramecia','Risveglio','active','fruit',{gm:true});
+define('Paramecia','Risveglio','active','fruit',{gm:true,noCard:true});
 define('Logia','Sentire l’Elemento|Sentire l\'Elemento|Corpo Diffuso','passive','any');
 define('Logia','Corpo Elementale','passive','move');
 define('Logia','Sempre in Forma|Assorbire|Reintegrazione|Chi Ti Tocca','passive','defense');
 define('Logia','Elemento Onnipresente|Dominio dell’Elemento|Dominio dell\'Elemento|Fonte Inesauribile','passive','fruit');
 define('Logia','Forma Perduta','active','move');
-define('Logia','Risveglio','active','fruit');
+define('Logia','Risveglio','active','fruit',{noCard:true});
 define('Zoan','Forma Ibrida','active','physical');
 define('Zoan','Tre Forme','active','physical');
 define('Zoan','Artigli e Zanne|Stazza|Ferocia Crescente','passive','melee');
@@ -73,16 +73,17 @@ define('Zoan','Corsa Bestiale','passive','move');
 define('Zoan','Resistenza Bestiale','passive','defense');
 define('Zoan','Zoan Mitologico / Ancestrale','passive','fruit');
 define('Zoan','Istinto di Sopravvivenza|Trasformazione Istintiva','active','defense');
-define('Zoan','Risveglio','active','physical');
+define('Zoan','Risveglio','active','physical',{noCard:true});
 
 /* A talent that costs no ST is passive: only talents that spend Stamina take the active slot.
- * GM-priced talents keep their mode, since their cost is decided at the table. */
+ * GM-priced talents keep their mode, since their cost is decided at the table.
+ * Risveglio stays active but never enters a card (noCard). */
 function talentST(desc) {
  const n=String(desc||'').match(/(?:spend\w*\s+|\+|,\s*)(\d+)\s*(?:ST|Stamina)\b/i)||String(desc||'').match(/\b(\d+)\s+ST\b/);
  return n?+n[1]:0;
 }
 function talentMeta(meta, desc) {
- return meta&&meta.mode==='active'&&!meta.gm&&!talentST(desc)?{...meta,mode:'passive'}:meta;
+ return meta&&meta.mode==='active'&&!meta.gm&&!meta.noCard&&!talentST(desc)?{...meta,mode:'passive'}:meta;
 }
 
 function transaction(change, owner=CT.activeId) {
@@ -125,6 +126,7 @@ function sources() {
    const alias=t.smcAlias||t.n, meta=talentMeta(t.smc||META[branch+'|'+alias],t.d);
    const reqDef=tree.talenti.find(x=>x.n===t.req||x.smcAlias===t.req);
    const unlocked=dieRank(roleSkillDieOf(role,style,slot))>=dieRank(t.tier||'d8')&&(!t.req||owned(t.req)||(reqDef&&owned(reqDef.n)));
+   if(meta?.noCard)return;
    if(owned(t.n)||owned(alias))out.push({id:t.smcId,kind:'talent',name:t.n,alias,raw:t,meta,branch,unlocked,desc:t.d,icon:talentGlyph(t.n,STYLE_ICON[branch]||'star'),emblem:STYLE_IMG[branch]||ROLE_IMG[role],subtitle:branch+' · '+t.tier});
   });
  };
@@ -133,6 +135,7 @@ function sources() {
   out.push({id:'fruit:'+f.tipo,kind:'fruit',name:f.nome||f.tipo||'Frutto del Diavolo',raw:f,desc:f.desc||'',emblem:'frutto',subtitle:f.tipo+' · '+f.die});
   const tree=FRUIT_TALENTS[f.tipo];if(tree)tree.talenti.forEach(t=>{
    const alias=t.smcAlias||t.n,prefix='Frutto · '+f.tipo+' · ',owned=n=>list(pg.talents).includes(prefix+n);
+   if((t.smc||META[f.tipo+'|'+alias])?.noCard)return;
    if(owned(t.n)||owned(alias))out.push({id:t.smcId,kind:'talent',fruit:true,name:t.n,alias,raw:t,meta:talentMeta(t.smc||META[f.tipo+'|'+alias],t.d),branch:f.tipo,unlocked:dieRank(f.die)>=dieRank(t.tier||'d4')&&(!t.req||owned(t.req)),desc:t.d,icon:'fruit',emblem:'frutto',subtitle:f.tipo+' · '+t.tier});
   });
  }
@@ -238,11 +241,20 @@ function sourceCost(s) {
  }
  return c;
 }
+function noCardIds() {
+ const ids=new Set();
+ Object.entries(FRUIT_TALENTS).forEach(([tipo,tree])=>list(tree?.talenti).forEach(t=>{if((t.smc||META[tipo+'|'+(t.smcAlias||t.n)])?.noCard)ids.add(t.smcId);}));
+ return ids;
+}
 function normalizeMove(m={}) {
  if(!m||typeof m!=='object')m={};
  // Cards saved while a 0 ST talent was still active keep it, now among the passive ones.
  if(m.activeTalentId&&findSource(m.activeTalentId,sources())?.meta?.mode==='passive')
   m={...m,passiveTalentIds:[...list(m.passiveTalentIds),m.activeTalentId],activeTalentId:''};
+ // Talents that can never enter a card (Risveglio) are dropped from cards saved earlier.
+ const barred=noCardIds();
+ if(barred.has(m.activeTalentId)||list(m.passiveTalentIds).some(id=>barred.has(id)))
+  m={...m,activeTalentId:barred.has(m.activeTalentId)?'':m.activeTalentId,passiveTalentIds:list(m.passiveTalentIds).filter(id=>!barred.has(id))};
  return {id:m.id||uid(),name:String(m.name||''),baseTechId:m.baseTechId||'',activeTalentId:m.activeTalentId||'',
   passiveTalentIds:uniq(list(m.passiveTalentIds)),hakiSelections:list(m.hakiSelections).map(h=>({id:h.id,use:h.use||'offense',effects:uniq(list(h.effects))})),
   fruitSelections:uniq(list(m.fruitSelections)),weaponId:m.weaponId||'',moduleId:m.moduleId||'',
