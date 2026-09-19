@@ -24,7 +24,8 @@ define('Striker','Raffica — Base|Raffica — Migliorato|Raffica — Maestria',
 define('Striker','Passo Fulmineo','active','physical');
 define('Striker','Presa di Ferro','passive','grab');
 define('Striker','Guardia del Combattente','active','defense');
-define('Striker','Pressione Costante|Slancio|Guardia Rotta','active','unarmed');
+define('Striker','Pressione Costante','passive','unarmed');
+define('Striker','Slancio|Guardia Rotta','active','unarmed');
 define('Striker','Contraccolpo','passive','counter');
 define('Striker','Proiezione','active','grab');
 define('Striker','Pugni che Rompono','passive','unarmed');
@@ -74,6 +75,16 @@ define('Zoan','Zoan Mitologico / Ancestrale','passive','fruit');
 define('Zoan','Istinto di Sopravvivenza|Trasformazione Istintiva','active','defense');
 define('Zoan','Risveglio','active','physical');
 
+/* A talent that costs no ST is passive: only talents that spend Stamina take the active slot.
+ * GM-priced talents keep their mode, since their cost is decided at the table. */
+function talentST(desc) {
+ const n=String(desc||'').match(/(?:spend\w*\s+|\+|,\s*)(\d+)\s*(?:ST|Stamina)\b/i)||String(desc||'').match(/\b(\d+)\s+ST\b/);
+ return n?+n[1]:0;
+}
+function talentMeta(meta, desc) {
+ return meta&&meta.mode==='active'&&!meta.gm&&!talentST(desc)?{...meta,mode:'passive'}:meta;
+}
+
 function transaction(change, owner=CT.activeId) {
  if(owner!==CT.activeId || !CT.chars[owner]) throw Error('Il personaggio attivo è cambiato. Riapri la carta sul suo proprietario.');
  const next=copy(pg), state=copy(CT);change(next);state.chars[owner]=next;
@@ -111,7 +122,7 @@ function sources() {
   const tree=T.styles[branch];if(!tree)return;
   const prefix=role+' · '+(T.multi?branch:role)+' · ', owned=n=>list(pg.talents).includes(prefix+n);
   tree.talenti.forEach(t=>{
-   const alias=t.smcAlias||t.n, meta=t.smc||META[branch+'|'+alias];
+   const alias=t.smcAlias||t.n, meta=talentMeta(t.smc||META[branch+'|'+alias],t.d);
    const reqDef=tree.talenti.find(x=>x.n===t.req||x.smcAlias===t.req);
    const unlocked=dieRank(roleSkillDieOf(role,style,slot))>=dieRank(t.tier||'d8')&&(!t.req||owned(t.req)||(reqDef&&owned(reqDef.n)));
    if(owned(t.n)||owned(alias))out.push({id:t.smcId,kind:'talent',name:t.n,alias,raw:t,meta,branch,unlocked,desc:t.d,icon:talentGlyph(t.n,STYLE_ICON[branch]||'star'),emblem:STYLE_IMG[branch]||ROLE_IMG[role],subtitle:branch+' · '+t.tier});
@@ -122,7 +133,7 @@ function sources() {
   out.push({id:'fruit:'+f.tipo,kind:'fruit',name:f.nome||f.tipo||'Frutto del Diavolo',raw:f,desc:f.desc||'',emblem:'frutto',subtitle:f.tipo+' · '+f.die});
   const tree=FRUIT_TALENTS[f.tipo];if(tree)tree.talenti.forEach(t=>{
    const alias=t.smcAlias||t.n,prefix='Frutto · '+f.tipo+' · ',owned=n=>list(pg.talents).includes(prefix+n);
-   if(owned(t.n)||owned(alias))out.push({id:t.smcId,kind:'talent',fruit:true,name:t.n,alias,raw:t,meta:t.smc||META[f.tipo+'|'+alias],branch:f.tipo,unlocked:dieRank(f.die)>=dieRank(t.tier||'d4')&&(!t.req||owned(t.req)),desc:t.d,icon:'fruit',emblem:'frutto',subtitle:f.tipo+' · '+t.tier});
+   if(owned(t.n)||owned(alias))out.push({id:t.smcId,kind:'talent',fruit:true,name:t.n,alias,raw:t,meta:talentMeta(t.smc||META[f.tipo+'|'+alias],t.d),branch:f.tipo,unlocked:dieRank(f.die)>=dieRank(t.tier||'d4')&&(!t.req||owned(t.req)),desc:t.d,icon:'fruit',emblem:'frutto',subtitle:f.tipo+' · '+t.tier});
   });
  }
  list(pg.haki).forEach(h=>{if(h&&hakiUnlocked(h).length)out.push({id:'haki:'+(h.smcId||h.name)+':'+HAKI_NAMES.indexOf(h.name),kind:'haki',name:h.name,raw:h,desc:'',icon:h.name===HAKI_NAMES[0]?'fist':h.name===HAKI_NAMES[1]?'eye':'crown',subtitle:h.die});});
@@ -223,12 +234,15 @@ function sourceCost(s) {
  const c={st:0,pip:0,maintenanceST:0,maintenancePIP:0,resource:0};
  if(s.kind==='tech'&&s.techKind==='built'){const v=tecCost(s.raw);c.st=v.st;c.maintenanceST=v.pt;}
  if(s.kind==='talent'&&s.meta?.mode==='active'){
-  const n=s.desc.match(/(?:spend\w*\s+|\+|,\s*)(\d+)\s*(?:ST|Stamina)\b/i)||s.desc.match(/\b(\d+)\s+ST\b/);if(n)c.st=+n[1];
+  c.st=talentST(s.desc);
  }
  return c;
 }
 function normalizeMove(m={}) {
  if(!m||typeof m!=='object')m={};
+ // Cards saved while a 0 ST talent was still active keep it, now among the passive ones.
+ if(m.activeTalentId&&findSource(m.activeTalentId,sources())?.meta?.mode==='passive')
+  m={...m,passiveTalentIds:[...list(m.passiveTalentIds),m.activeTalentId],activeTalentId:''};
  return {id:m.id||uid(),name:String(m.name||''),baseTechId:m.baseTechId||'',activeTalentId:m.activeTalentId||'',
   passiveTalentIds:uniq(list(m.passiveTalentIds)),hakiSelections:list(m.hakiSelections).map(h=>({id:h.id,use:h.use||'offense',effects:uniq(list(h.effects))})),
   fruitSelections:uniq(list(m.fruitSelections)),weaponId:m.weaponId||'',moduleId:m.moduleId||'',

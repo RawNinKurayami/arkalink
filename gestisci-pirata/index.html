@@ -1518,7 +1518,7 @@ body.has-bld{overflow:hidden;}
 
 <div id="print-sheet" aria-hidden="true"></div>
 
-<script src="special-moves.js?v=1"></script>
+<script src="special-moves.js?v=2"></script>
 <script src="signature-builder.js?v=1"></script>
 <script src="equipment-builder.js?v=1"></script>
 <script src="dossiers.js?v=1"></script>
@@ -1966,7 +1966,7 @@ const TEC_EFF=[
 ["Danno","Esecuzione","+1 Dado Danno contro chi è Quasi Morto","d12",1,""],
 ["Danno","Carica","salti un turno: se non vieni colpito, al tuo prossimo turno raddoppi i Dadi Danno, tiri con Vantaggio e ignori la copertura","d10",2,""],
 ["Danno","Sovraccarico","tiri il doppio dei Dadi Danno, ma subisci 1d10 PV","d12",3,""],
-["Danno","Colpo Annientante","danno triplicato","d20",4,""],
+["Danno","Colpo Annientante","danno triplicato","d20",10,""],
 ["Danno","Tutto o Niente","manchi = niente, e non puoi difenderti dal prossimo attacco · colpo pulito = danno triplo","d12",7,""],
 ["Controllo","Sbilancio","Sbilanciato — perde la reazione","d6",1,""],
 ["Controllo","Lacerazione","Sanguinante","d6",1,""],
@@ -3560,7 +3560,7 @@ const MOD_CATALOGO=[
  {n:"Cannone a pressione",req:"d10",tipo:["Offensivo","Controllo"],arma:true,ico:"burst",fn:"Spara aria compressa.",cat:"Sconto",tgt:"Proiezione",eff:"Proiezione non occupa slot nelle Tecniche compatibili.",vinc:"Proiezione resta d6, 0 ST; la sagoma ad area non è inclusa."},
  {n:"Lanciafiamme ventrale",req:"d12",tipo:["Offensivo"],arma:true,ico:"flame",fn:"Proietta combustibile acceso.",cat:"Sconto",tgt:"Terreno Alterato",eff:"Terreno Alterato non occupa slot nelle Tecniche compatibili.",vinc:"Restano costo, durata della zona e la sostanza da preparare."},
  {n:"Emettitore a catena",req:"d12",tipo:["Offensivo"],arma:true,ico:"bolt",fn:"Distribuisce una scarica fra più bersagli.",cat:"Sconto",tgt:"Catena",eff:"Catena non occupa slot nelle Tecniche compatibili.",vinc:"Catena resta d12, 2 ST, tiri separati e danni decrescenti."},
- {n:"Reattore d'annientamento",req:"d20",tipo:["Offensivo"],arma:true,ico:"star",fn:"Concentra energia per un attacco eccezionale.",cat:"Sconto",tgt:"Colpo Annientante",eff:"Colpo Annientante non occupa slot nelle Tecniche compatibili.",vinc:"Colpo Annientante resta d20, 4 ST, e agisce solo tramite una Tecnica idonea."},
+ {n:"Reattore d'annientamento",req:"d20",tipo:["Offensivo"],arma:true,ico:"star",fn:"Concentra energia per un attacco eccezionale.",cat:"Sconto",tgt:"Colpo Annientante",eff:"Colpo Annientante non occupa slot nelle Tecniche compatibili.",vinc:"Colpo Annientante resta d20, 10 ST, e agisce solo tramite una Tecnica idonea."},
  {n:"Fari integrati",req:"d8",tipo:["Utilità"],arma:false,ico:"lamp",fn:"Illuminano l'ambiente.",cat:"Sconto",tgt:"Accecante",eff:"Accecante non occupa slot nelle Tecniche compatibili.",vinc:"Accecante resta d8, 1 ST, con tiro salvezza: la luce accesa non accieca da sola."},
  {n:"Vano attrezzi",req:"d8",tipo:["Utilità"],arma:false,ico:"box",fn:"Contiene utensili incorporati, sempre con te.",cat:"",tgt:"",eff:"",vinc:"Nessun effetto speciale approvato: il vantaggio «niente penalità senza strumenti» non è un effetto del costruttore. Da concordare col GM."}];
 function newModId(){return "mod"+Date.now().toString(36)+Math.floor(Math.random()*1000);}
