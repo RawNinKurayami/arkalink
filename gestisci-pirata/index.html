@@ -695,6 +695,102 @@ footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a69a86;font-
 .racemed:hover{transform:scale(1.06);}
 .racemed:focus-visible{outline:2px solid #9fd0ff;outline-offset:2px;}
 @media(max-width:640px){.racemed{width:52px;height:52px;left:6px;bottom:6px;}.racemed .icimg{width:52px;height:52px;}.cc-ico.img{width:56px;height:56px;}.cc-ico.img .icimg{width:56px;height:56px;}}
+/* ===== Talent Tree · vista dedicata ===== */
+body.has-ttree{overflow:hidden;}
+#ttree{position:fixed;inset:0;z-index:90;display:flex;flex-direction:column;color:var(--ink);
+ background:radial-gradient(110% 80% at 50% -10%,rgba(240,164,65,.07),transparent 60%),linear-gradient(180deg,#120f16,#0b090d);}
+#ttree::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;
+ background-image:repeating-linear-gradient(115deg,rgba(240,164,65,.045) 0 1px,transparent 1px 132px),repeating-linear-gradient(65deg,rgba(240,164,65,.03) 0 1px,transparent 1px 178px);}
+.tt-head{position:relative;z-index:2;display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid rgba(240,164,65,.22);background:rgba(14,11,17,.86);}
+.tt-back{flex:none;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);background:transparent;border:1px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer;}
+.tt-back:hover{color:var(--gold-soft);border-color:rgba(240,164,65,.55);}
+.tt-tabs{flex:1;min-width:0;display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin;}
+.tt-tab{flex:none;display:flex;align-items:center;gap:8px;padding:5px 12px 5px 6px;border-radius:12px;border:1px solid transparent;background:transparent;color:var(--ink-soft);cursor:pointer;text-align:left;}
+.tt-tab:hover{background:rgba(242,233,216,.04);}
+.tt-tab.on{border-color:rgba(240,164,65,.45);background:rgba(240,164,65,.08);color:var(--ink);}
+.tt-tn{display:flex;flex-direction:column;line-height:1.2;}
+.tt-tn b{font-family:'Cormorant Garamond',serif;font-size:17px;color:inherit;}
+.tt-tab.on .tt-tn b{color:var(--gold-soft);}
+.tt-tn small{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.06em;color:var(--ink-soft);}
+.tt-count{flex:none;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+.tt-count b{color:var(--gold-soft);}
+.tt-ws{position:relative;z-index:1;flex:1;overflow:auto;cursor:grab;scrollbar-width:thin;}
+.tt-ws.drag{cursor:grabbing;user-select:none;}
+.tt-wm{position:fixed;left:50%;top:55%;transform:translate(-50%,-50%);opacity:.05;pointer-events:none;filter:grayscale(.3);}
+.tt-zw{position:relative;margin:0 auto;}
+.tt-cv{position:absolute;left:0;top:0;transform-origin:0 0;}
+.tt-colline{position:absolute;width:0;border-left:1px dashed rgba(240,164,65,.12);}
+.tt-colline.ok{border-left-color:rgba(240,164,65,.26);}
+.tt-colh{position:absolute;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:1px;text-align:center;white-space:nowrap;
+ font-family:'Inter',sans-serif;padding:6px 12px;border-radius:10px;border:1px solid rgba(240,164,65,.16);background:rgba(20,16,24,.85);}
+.tt-colh b{font-size:15px;color:var(--ink-soft);letter-spacing:.04em;}
+.tt-colh span{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--ink-soft);}
+.tt-colh i{font-style:normal;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(166,154,134,.8);}
+.tt-colh.ok{border-color:rgba(240,164,65,.45);}
+.tt-colh.ok b,.tt-colh.ok span{color:var(--gold-soft);}
+.tt-colh.ok i{color:#8fcf9d;}
+.tt-svg{position:absolute;left:0;top:0;pointer-events:none;}
+.tt-ln{fill:none;stroke:rgba(166,154,134,.32);stroke-width:2;stroke-dasharray:5 6;}
+.tt-ln.lit{stroke:rgba(240,164,65,.6);stroke-dasharray:none;}
+.tt-ln.done{stroke:var(--gold);stroke-width:2.6;stroke-dasharray:none;}
+.tt-node{position:absolute;transform:translate(-50%,-38px);width:124px;display:flex;flex-direction:column;align-items:center;gap:7px;padding:4px;border:none;background:none;cursor:pointer;color:var(--ink);}
+.tt-node:focus-visible{outline:2px solid #9fd0ff;outline-offset:3px;border-radius:12px;}
+.tt-ring{position:relative;width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .16s,box-shadow .16s;
+ background:radial-gradient(70% 70% at 50% 30%,#2a2230,#15111a);border:2px solid rgba(166,154,134,.35);color:var(--ink-soft);box-shadow:inset 0 3px 10px rgba(0,0,0,.6);}
+.tt-node:hover .tt-ring{transform:scale(1.06);}
+.tt-node.ult{transform:translate(-50%,-50px);}
+.tt-node.ult .tt-ring{width:92px;height:92px;border-width:3px;}
+.tt-node.got .tt-ring{border-color:var(--gold);color:#1b1206;background:radial-gradient(70% 70% at 50% 30%,#ffd7a2,#d98f37);box-shadow:0 0 0 4px rgba(240,164,65,.16),0 6px 18px rgba(0,0,0,.5);}
+.tt-node.open .tt-ring{border-color:var(--gold);color:var(--gold-soft);box-shadow:0 0 0 4px rgba(240,164,65,.12),0 0 18px rgba(240,164,65,.28),inset 0 3px 10px rgba(0,0,0,.6);}
+.tt-node.locked .tt-ring{border-style:dashed;opacity:.62;}
+.tt-node.sel .tt-ring{outline:2px solid var(--gold-soft);outline-offset:5px;}
+.tt-node.flash .tt-ring{animation:ttFlash .8s ease;}
+@keyframes ttFlash{0%{transform:scale(1.35);box-shadow:0 0 40px rgba(255,211,148,.9);}100%{transform:none;}}
+.tt-badge{position:absolute;top:0;right:26px;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
+.tt-node.ult .tt-badge{right:14px;}
+.tt-node.got .tt-badge{background:#1b1206;color:var(--gold-soft);border:1px solid var(--gold);}
+.tt-node.locked .tt-badge{background:#1b171f;color:var(--ink-soft);border:1px solid rgba(166,154,134,.45);}
+.tt-node.open .tt-badge{display:none;}
+.tt-lbl{font-family:'Inter',sans-serif;font-size:11.5px;line-height:1.25;text-align:center;max-width:124px;color:var(--ink);}
+.tt-node.locked .tt-lbl{color:var(--ink-soft);}
+.tt-node.open .tt-lbl{color:var(--gold-soft);font-weight:600;}
+.tt-node.ult .tt-lbl{font-family:'Cormorant Garamond',serif;font-size:16px;}
+.tt-navc{position:absolute;z-index:3;left:18px;bottom:18px;display:flex;gap:6px;}
+.tt-navc button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:rgba(20,16,24,.9);color:var(--ink-soft);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.tt-navc button:hover{color:var(--gold-soft);border-color:rgba(240,164,65,.55);}
+.tt-leg{position:absolute;z-index:3;left:18px;bottom:66px;font-family:'Inter',sans-serif;font-size:10.5px;color:var(--ink-soft);display:flex;align-items:center;gap:6px;background:rgba(20,16,24,.8);border:1px solid var(--line);border-radius:999px;padding:5px 11px;}
+.tt-leg .k{width:14px;height:14px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:8px;margin-left:6px;}
+.tt-leg .k.got{background:linear-gradient(#ffd7a2,#d98f37);color:#1b1206;}
+.tt-leg .k.open{border:2px solid var(--gold);box-shadow:0 0 6px rgba(240,164,65,.5);}
+.tt-leg .k.locked{border:1px dashed rgba(166,154,134,.6);color:var(--ink-soft);}
+.tt-panel{position:absolute;z-index:4;right:18px;top:78px;bottom:18px;width:340px;overflow:auto;padding:18px 18px 16px;border-radius:14px;
+ border:1px solid rgba(240,164,65,.4);background:linear-gradient(180deg,rgba(33,26,30,.97),rgba(18,14,20,.97));box-shadow:0 20px 60px rgba(0,0,0,.6);}
+.tt-px{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink-soft);cursor:pointer;}
+.tt-px:hover{color:var(--red);border-color:var(--red);}
+.tt-pr{width:76px;height:76px;border-radius:50%;margin:4px auto 10px;display:flex;align-items:center;justify-content:center;border:2px solid rgba(166,154,134,.4);color:var(--ink-soft);background:radial-gradient(70% 70% at 50% 30%,#2a2230,#15111a);}
+.tt-pr.got{border-color:var(--gold);color:#1b1206;background:radial-gradient(70% 70% at 50% 30%,#ffd7a2,#d98f37);}
+.tt-pr.open{border-color:var(--gold);color:var(--gold-soft);}
+.tt-panel h3{margin:0;text-align:center;font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--gold-soft);}
+.tt-pm{text-align:center;font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;}
+.tt-pst{margin:10px auto 0;width:max-content;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;border-radius:999px;padding:3px 10px;border:1px solid var(--line);color:var(--ink-soft);}
+.tt-pst.got{border-color:var(--gold);color:var(--gold-soft);}
+.tt-pst.open{border-color:#5aa469;color:#8fcf9d;}
+.tt-preq{margin-top:12px;font-size:12.5px;color:var(--ink-soft);}
+.tt-preq b{color:var(--ink);}
+.tt-pd{font-size:14px;line-height:1.55;margin:10px 0;}
+.tt-why{font-size:12.5px;line-height:1.45;color:#e0a08f;border-left:2px solid rgba(226,49,49,.55);padding-left:9px;margin:8px 0;}
+.tt-pa{display:flex;gap:8px;justify-content:center;margin-top:12px;}
+.tt-empty{position:relative;z-index:2;margin:60px auto;max-width:420px;text-align:center;color:var(--ink-soft);}
+@media(max-width:760px){
+ .tt-head{flex-wrap:wrap;gap:8px;padding:10px 12px;}
+ .tt-tabs{order:3;flex-basis:100%;}
+ .tt-count{margin-left:auto;}
+ .tt-panel{left:0;right:0;top:auto;bottom:0;width:auto;max-height:58vh;border-radius:16px 16px 0 0;border-left:none;border-right:none;border-bottom:none;}
+ #ttree.with-panel .tt-navc,#ttree.with-panel .tt-leg{display:none;}
+ .tt-leg{bottom:62px;left:12px;}
+ .tt-navc{left:12px;bottom:12px;}
+}
+@media(prefers-reduced-motion:reduce){.tt-ring{transition:none!important;}.tt-node.flash .tt-ring{animation:none!important;}}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -1938,11 +2034,11 @@ function roleStyleSpec(rn,stv){const T=TALENTS[rn];if(!T)return null;const ks=Ob
 /* Talenti: acquisiti e sbloccabili, con descrizione. */
 function talentPools(){const got=[],open=[],locked=[];
  const scan=(rn,stv,slot)=>{const T=TALENTS[rn];if(!T)return;const ks=Object.keys(T.styles);const useSt=T.multi?(stv||ks[0]):ks[0];if(!styleVisible(useSt))return;const sty=T.styles[useSt];const keyStyle=T.multi?useSt:rn;const cur=dieRank(roleSkillDieOf(rn,stv,slot));const skName=roleSkillOf(rn,stv,roleChoice(slot))||"Skill di Ruolo";const taken=n=>pg.talents.indexOf(rn+" · "+keyStyle+" · "+n)>=0;
-  (sty.talenti||[]).forEach(tl=>{const key=rn+" · "+keyStyle+" · "+tl.n;const tier=tl.tier||"d8";const o={key:key,name:tl.n,desc:tl.d,glyph:talentGlyph(tl.n,STYLE_ICON[T.multi?useSt:rn]||"star"),branch:(T.multi?useSt:rn),tier:tier,tierLabel:skName+" "+tier+" · "+TIER_LABEL[tier],ult:tl.t==="ultimate",req:tl.req||"",reqOk:!tl.req||taken(tl.req),src:"role"};
+  (sty.talenti||[]).forEach(tl=>{const key=rn+" · "+keyStyle+" · "+tl.n;const tier=tl.tier||"d8";const o={cur:roleSkillDieOf(rn,stv,slot),skName:skName,key:key,name:tl.n,desc:tl.d,glyph:talentGlyph(tl.n,STYLE_ICON[T.multi?useSt:rn]||"star"),branch:(T.multi?useSt:rn),tier:tier,tierLabel:skName+" "+tier+" · "+TIER_LABEL[tier],ult:tl.t==="ultimate",req:tl.req||"",reqOk:!tl.req||taken(tl.req),src:"role"};
    if(taken(tl.n))got.push(o);else if(cur>=dieRank(tier))open.push(o);else locked.push(o);});};
  if(pg.role)scan(pg.role,pg.style,1);if(pg.role2)scan(pg.role2,pg.style2,2);
  if(pg.frutto&&pg.frutto.has&&FRUIT_TALENTS[pg.frutto.tipo]){const FT=FRUIT_TALENTS[pg.frutto.tipo];const fcur=dieRank(pg.frutto.die||"d4");const ftaken=n=>pg.talents.indexOf("Frutto · "+pg.frutto.tipo+" · "+n)>=0;
-  (FT.talenti||[]).forEach(tl=>{const key="Frutto · "+pg.frutto.tipo+" · "+tl.n;const tier=tl.tier||"d4";const ft=FRUIT_TIERS.find(x=>x[0]===tier)||FRUIT_TIERS[0];const o={key:key,name:tl.n,desc:tl.d,glyph:talentGlyph(tl.n,STYLE_ICON[pg.frutto.tipo]||"orb"),branch:"Frutto "+pg.frutto.tipo,tier:tier,tierLabel:"Dado del Frutto "+ft[2]+" · "+ft[1],ult:tl.t==="ultimate",req:tl.req||"",reqOk:!tl.req||ftaken(tl.req),src:"fruit"};
+  (FT.talenti||[]).forEach(tl=>{const key="Frutto · "+pg.frutto.tipo+" · "+tl.n;const tier=tl.tier||"d4";const ft=FRUIT_TIERS.find(x=>x[0]===tier)||FRUIT_TIERS[0];const o={cur:pg.frutto.die||"d4",skName:"Dado del Frutto",key:key,name:tl.n,desc:tl.d,glyph:talentGlyph(tl.n,STYLE_ICON[pg.frutto.tipo]||"orb"),branch:"Frutto "+pg.frutto.tipo,tier:tier,tierLabel:"Dado del Frutto "+ft[2]+" · "+ft[1],ult:tl.t==="ultimate",req:tl.req||"",reqOk:!tl.req||ftaken(tl.req),src:"fruit"};
    if(ftaken(tl.n))got.push(o);else if(fcur>=dieRank(tier))open.push(o);else locked.push(o);});}
  return {got:got,open:open,locked:locked};}
 function talentDetailModal(o,taken){openModal((o.ult?"⭐ ":"✦ ")+o.name,()=>{const w=el("div",{class:"tdetail"});w.appendChild(el("div",{class:"medring big",html:svgIcon(o.glyph,46)}));w.appendChild(el("div",{class:"tdsub",text:o.branch+" · "+(o.ult?(o.src==="fruit"?"Risveglio":"Ultimate"):o.tierLabel)}));if(o.req)w.appendChild(el("div",{class:"tdsub",html:"Richiede: <b>"+o.req+"</b>"+(o.reqOk?"":" <i>(non ancora preso)</i>")}));w.appendChild(el("p",{class:"tddesc",text:o.desc}));const row=el("div",{class:"addrow"});if(taken)row.appendChild(el("button",{class:"btn sm ghost",text:"Rimuovi talento",onclick:()=>{mutateM(()=>{const ix=pg.talents.indexOf(o.key);if(ix>=0)pg.talents.splice(ix,1);});closeModal();}}));else if(o.reqOk)row.appendChild(el("button",{class:"btn sm gold",text:"✦ Prendi questo talento",onclick:()=>{mutateM(()=>{if(pg.talents.indexOf(o.key)<0)pg.talents.push(o.key);});closeModal();flyIn('<div class="medring big" style="width:120px;height:120px;margin:0">'+svgIcon(o.glyph,58)+'</div>',()=>byText(".medal .medname",o.name));}}));w.appendChild(row);return w;});}
@@ -1952,6 +2048,172 @@ function unlockTalentsModal(){openModal("✦ Sblocca un talento",()=>{const P=ta
  Object.keys(groups).forEach(k=>{const [br,tl]=k.split("|");w.appendChild(el("div",{class:"talfascia",html:((STYLE_IMG[br]||ROLE_IMG[br])?emblem(STYLE_IMG[br]||ROLE_IMG[br],24)+" ":"")+br+" — "+tl}));const g=el("div",{class:"medgrid pick"});groups[k].forEach(o=>{const md=medal(o.glyph,o.name,o.ult?"Ultimate":(o.req?("richiede "+o.req):""),!o.reqOk);md.onclick=()=>talentDetailModal(o,false);g.appendChild(md);});w.appendChild(g);});
  if(P.locked.length){const det=el("details",{class:"tbfam"});det.appendChild(el("summary",{text:"🔒 Ancora bloccati ("+P.locked.length+")"}));const lg={};P.locked.forEach(o=>{(lg[o.branch+"|"+o.tierLabel]=lg[o.branch+"|"+o.tierLabel]||[]).push(o);});Object.keys(lg).forEach(k=>{const [br,tl]=k.split("|");det.appendChild(el("div",{class:"talfascia locked",html:"🔒 "+br+" — "+tl}));const g=el("div",{class:"medgrid pick"});lg[k].forEach(o=>{const md=medal(o.glyph,o.name,o.ult?"Ultimate":"",true);md.onclick=()=>talentDetailModal(o,false);g.appendChild(md);});det.appendChild(g);});w.appendChild(det);}
  return w;},{wide:true});}
+/* ==========================================================================
+   TALENT TREE · vista dedicata (guida UI v1.0)
+   Si apre solo dal punto Talenti della scheda e occupa lo schermo finché serve;
+   chiudendola si torna alla scheda com'era. È SOLO interfaccia: stati,
+   prerequisiti e sblocco vengono da talentPools() e dalla stessa logica di
+   prima (si prende un talento se il dado lo apre e il prerequisito è preso).
+   Le linee collegano soltanto prerequisiti reali; i talenti bloccati restano
+   visibili, perché l'albero serve anche a pianificare.
+   ========================================================================== */
+let TT={open:false,src:"",sel:"",zoom:1,flash:""};
+function ttSources(){
+ const P=talentPools();const all=P.got.map(o=>Object.assign({st:"got"},o))
+  .concat(P.open.map(o=>Object.assign({st:o.reqOk?"open":"locked",why:o.reqOk?"":("Serve prima «"+o.req+"».")},o)))
+  .concat(P.locked.map(o=>Object.assign({st:"locked",why:"Serve "+o.tierLabel.split(" · ")[0]+"."+(o.req&&!o.reqOk?(" E prima «"+o.req+"».") :"")},o)));
+ const by={},order=[];
+ all.forEach(o=>{if(!by[o.branch]){by[o.branch]=[];order.push(o.branch);}by[o.branch].push(o);});
+ return order.map(br=>{
+  const nodes=by[br];const fruit=nodes[0].src==="fruit";
+  /* ordine dei dati, non quello dei tre elenchi */
+  const keys=[];
+  if(fruit){(FRUIT_TALENTS[pg.frutto.tipo].talenti||[]).forEach(t=>keys.push(t.n));}
+  else{const rn=[pg.role,pg.role2].filter(r=>r&&TALENTS[r]&&(TALENTS[r].multi?TALENTS[r].styles[br]:r===br))[0];
+   const T=rn?TALENTS[rn]:null;const sty=T?(T.multi?T.styles[br]:T.styles[Object.keys(T.styles)[0]]):null;(sty&&sty.talenti||[]).forEach(t=>keys.push(t.n));}
+  nodes.sort((a,b)=>keys.indexOf(a.name)-keys.indexOf(b.name));
+  const got=nodes.filter(n=>n.st==="got").length,av=nodes.filter(n=>n.st==="open").length;
+  return {id:br,fruit:fruit,label:fruit?br:br,img:fruit?"frutto":(STYLE_IMG[br]||ROLE_IMG[br]||""),nodes:nodes,got:got,av:av,cur:nodes[0].cur||"",sk:nodes[0].skName||""};
+ });
+}
+/* Colonne per fascia, righe allineate ai prerequisiti: una catena Base →
+   Migliorato → Maestria corre dritta, i talenti liberi riempiono i posti. */
+function ttLayout(S){
+ const tiers=[];S.nodes.forEach(n=>{if(tiers.indexOf(n.tier)<0)tiers.push(n.tier);});
+ tiers.sort((a,b)=>dieRank(a)-dieRank(b));
+ const row={},col={};const byName={};S.nodes.forEach(n=>byName[n.name]=n);
+ let maxRows=0;
+ tiers.forEach((t,ci)=>{
+  const list=S.nodes.filter(n=>n.tier===t&&!n.ult);const used={};
+  list.forEach(n=>{const r=n.req&&byName[n.req];if(r&&col[r.name]!=null&&col[r.name]<ci&&row[r.name]!=null&&!used[row[r.name]]){row[n.name]=row[r.name];used[row[n.name]]=1;col[n.name]=ci;}});
+  const free=()=>{let k=0;while(used[k])k++;return k;};
+  list.filter(n=>row[n.name]==null&&!(n.req&&byName[n.req]&&byName[n.req].tier===t)).forEach(n=>{row[n.name]=free();used[row[n.name]]=1;col[n.name]=ci;});
+  list.filter(n=>row[n.name]==null).forEach(n=>{const r=byName[n.req];let k=(row[r.name]!=null?row[r.name]+1:0);while(used[k])k++;row[n.name]=k;used[k]=1;col[n.name]=ci;});
+  maxRows=Math.max(maxRows,Object.keys(used).length?Math.max.apply(null,Object.keys(used).map(Number))+1:0);
+ });
+ S.nodes.filter(n=>n.ult).forEach(n=>{col[n.name]=tiers.indexOf(n.tier);row[n.name]=(maxRows-1)/2;});
+ return {tiers:tiers,row:row,col:col,rows:Math.max(1,maxRows)};
+}
+function ttTierHead(S,t){
+ if(S.fruit){const f=FRUIT_TIERS.find(x=>x[0]===t)||FRUIT_TIERS[0];return {k:f[2],n:f[1],need:"Dado del Frutto "+f[2]};}
+ return {k:t,n:TIER_LABEL[t]||"",need:(S.sk||"Skill di Ruolo")+" "+t};
+}
+function ttReached(S,t){return S.cur&&dieRank(S.cur)>=dieRank(t);}
+function openTalentTree(src,key){
+ TT.open=true;TT.zoom=TT.zoom||1;
+ const srcs=ttSources();
+ TT.src=(src&&srcs.some(s=>s.id===src))?src:((srcs.find(s=>s.av)||srcs[0]||{}).id||"");
+ TT.sel=key||"";
+ let v=document.getElementById("ttree");
+ if(!v){v=el("div",{id:"ttree",role:"dialog","aria-modal":"true","aria-label":"Albero dei talenti"});document.body.appendChild(v);}
+ document.body.classList.add("has-ttree");
+ renderTalentTree(true);
+ document.addEventListener("keydown",ttKey);
+}
+function closeTalentTree(){
+ const v=document.getElementById("ttree");if(v)v.remove();
+ document.body.classList.remove("has-ttree");TT.open=false;TT.sel="";
+ document.removeEventListener("keydown",ttKey);
+ renderManage();render();
+}
+function ttKey(e){if(e.key==="Escape"){if(TT.sel){TT.sel="";renderTalentTree(false);}else closeTalentTree();}}
+function renderTalentTree(recenter){
+ const v=document.getElementById("ttree");if(!v)return;
+ const oldWs=v.querySelector(".tt-ws");const keep=oldWs?{l:oldWs.scrollLeft,t:oldWs.scrollTop}:null;
+ v.innerHTML="";
+ const srcs=ttSources();
+ const S=srcs.find(s=>s.id===TT.src)||srcs[0];
+ /* ---- testata: fonte e ritorno ---- */
+ const head=el("div",{class:"tt-head"});
+ head.appendChild(el("button",{class:"tt-back",text:"‹ Torna al pirata",onclick:closeTalentTree}));
+ const tabs=el("div",{class:"tt-tabs",role:"tablist"});
+ srcs.forEach(s=>{const on=S&&s.id===S.id;
+  const b=el("button",{class:"tt-tab"+(on?" on":""),role:"tab","aria-selected":on?"true":"false"});
+  if(s.img)b.appendChild(el("span",{class:"tt-ti",html:emblem(s.img,34)}));
+  b.appendChild(el("span",{class:"tt-tn"},[el("b",{text:s.label}),el("small",{text:(s.fruit?"Dado del Frutto ":((s.sk||"Skill")+" "))+(s.cur||"—")+(s.av?(" · "+s.av+" da prendere"):"")})]));
+  b.onclick=()=>{TT.src=s.id;TT.sel="";renderTalentTree(true);};tabs.appendChild(b);});
+ head.appendChild(tabs);
+ head.appendChild(el("div",{class:"tt-count",html:"Talenti presi <b>"+visibleTalents().length+"</b>"}));
+ v.appendChild(head);
+ if(!S){v.appendChild(el("div",{class:"tt-empty",text:"Scegli prima una classe: gli alberi dei talenti nascono dal Ruolo e dal Frutto."}));return;}
+ /* ---- area di lavoro ---- */
+ const L=ttLayout(S);
+ const CW=196,RH=132,PX=70,PY=96;
+ const W=PX*2+CW*(L.tiers.length-1)+80,H=PY+RH*(L.rows-1)+150;
+ const pos=n=>({x:PX+40+CW*L.col[n.name],y:PY+60+RH*L.row[n.name]});
+ const ws=el("div",{class:"tt-ws"});
+ if(S.img)ws.appendChild(el("div",{class:"tt-wm",html:emblem(S.img,420)}));
+ const zw=el("div",{class:"tt-zw",style:"width:"+(W*TT.zoom)+"px;height:"+(H*TT.zoom)+"px"});
+ const cv=el("div",{class:"tt-cv",style:"width:"+W+"px;height:"+H+"px;transform:scale("+TT.zoom+")"});
+ zw.appendChild(cv);ws.appendChild(zw);
+ /* colonne delle fasce */
+ L.tiers.forEach((t,i)=>{const h=ttTierHead(S,t);const ok=ttReached(S,t);
+  const x=PX+40+CW*i;
+  cv.appendChild(el("div",{class:"tt-colline"+(ok?" ok":""),style:"left:"+x+"px;top:"+(PY-10)+"px;height:"+(H-PY)+"px"}));
+  cv.appendChild(el("div",{class:"tt-colh"+(ok?" ok":""),style:"left:"+x+"px;top:18px",html:"<b>"+h.k+"</b><span>"+h.n+"</span><i>"+(ok?"aperta":("serve "+h.need))+"</i>"}));
+ });
+ /* collegamenti: solo prerequisiti veri */
+ const byName={};S.nodes.forEach(n=>byName[n.name]=n);
+ let paths="";
+ S.nodes.forEach(n=>{if(!n.req||!byName[n.req])return;const a=pos(byName[n.req]),b=pos(n);
+  const lit=byName[n.req].st==="got";const done=lit&&n.st==="got";
+  let d;if(L.col[n.name]===L.col[n.req])d="M"+a.x+" "+a.y+" L"+b.x+" "+b.y;
+  else{const mx=(a.x+b.x)/2;d="M"+a.x+" "+a.y+" C"+mx+" "+a.y+" "+mx+" "+b.y+" "+b.x+" "+b.y;}
+  paths+='<path d="'+d+'" class="tt-ln'+(done?" done":(lit?" lit":""))+'"/>';});
+ cv.appendChild(el("div",{class:"tt-svg",html:'<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" aria-hidden="true">'+paths+"</svg>"}));
+ /* nodi */
+ const STLAB={got:"Preso",open:"Disponibile",locked:"Bloccato"};
+ S.nodes.forEach(n=>{const p=pos(n);
+  const b=el("button",{class:"tt-node "+n.st+(n.ult?" ult":"")+(TT.sel===n.key?" sel":"")+(TT.flash===n.key?" flash":""),style:"left:"+p.x+"px;top:"+p.y+"px","aria-label":n.name+" · "+STLAB[n.st]+" · "+n.tier,"aria-pressed":TT.sel===n.key?"true":"false"});
+  b.appendChild(el("span",{class:"tt-ring",html:svgIcon(n.glyph,n.ult?38:28)}));
+  b.appendChild(el("span",{class:"tt-badge",html:n.st==="got"?"✓":(n.st==="locked"?svgIcon("lock",11):"")}));
+  b.appendChild(el("span",{class:"tt-lbl",text:n.name}));
+  b.onclick=e=>{e.stopPropagation();TT.sel=n.key;renderTalentTree(false);};
+  cv.appendChild(b);});
+ v.appendChild(ws);
+ /* comandi di navigazione */
+ const nav=el("div",{class:"tt-navc"});
+ nav.appendChild(el("button",{text:"−",title:"Rimpicciolisci","aria-label":"Rimpicciolisci",onclick:()=>{TT.zoom=Math.max(.6,Math.round((TT.zoom-.1)*10)/10);renderTalentTree(false);}}));
+ nav.appendChild(el("button",{text:"+",title:"Ingrandisci","aria-label":"Ingrandisci",onclick:()=>{TT.zoom=Math.min(1.4,Math.round((TT.zoom+.1)*10)/10);renderTalentTree(false);}}));
+ nav.appendChild(el("button",{html:svgIcon("target",16),title:"Torna al punto in cui sei","aria-label":"Ricentra",onclick:()=>{renderTalentTree(true);}}));
+ v.appendChild(nav);
+ /* legenda degli stati: non solo colore */
+ v.appendChild(el("div",{class:"tt-leg",html:'<span class="k got">✓</span>Preso <span class="k open"></span>Disponibile <span class="k locked">'+svgIcon("lock",9)+'</span>Bloccato'}));
+ /* pannello contestuale */
+ const sel=S.nodes.find(n=>n.key===TT.sel);
+ if(sel){
+  const pn=el("aside",{class:"tt-panel",role:"region","aria-label":"Dettaglio del talento"});
+  pn.appendChild(el("button",{class:"tt-px",text:"✕",title:"Chiudi il dettaglio","aria-label":"Chiudi il dettaglio",onclick:()=>{TT.sel="";renderTalentTree(false);}}));
+  pn.appendChild(el("div",{class:"tt-pr "+sel.st,html:svgIcon(sel.glyph,40)}));
+  pn.appendChild(el("h3",{text:sel.name}));
+  pn.appendChild(el("div",{class:"tt-pm",html:S.label+" · "+(sel.ult?(sel.src==="fruit"?"Risveglio":"Ultimate"):sel.tierLabel)}));
+  pn.appendChild(el("div",{class:"tt-pst "+sel.st,text:STLAB[sel.st]}));
+  if(sel.req)pn.appendChild(el("div",{class:"tt-preq",html:"Prerequisito: <b>"+sel.req+"</b>"+(sel.reqOk?" ✓":"")}));
+  pn.appendChild(el("p",{class:"tt-pd",text:sel.desc}));
+  if(sel.st==="locked"&&sel.why)pn.appendChild(el("div",{class:"tt-why",text:sel.why}));
+  const act=el("div",{class:"tt-pa"});
+  if(sel.st==="open")act.appendChild(el("button",{class:"btn sm gold",text:"✦ Prendi questo talento",onclick:()=>{
+   mutate(()=>{if(pg.talents.indexOf(sel.key)<0)pg.talents.push(sel.key);});
+   TT.flash=sel.key;renderTalentTree(false);setTimeout(()=>{TT.flash="";},900);}}));
+  if(sel.st==="got")act.appendChild(el("button",{class:"btn sm ghost",text:"Rimuovi talento",onclick:()=>{
+   mutate(()=>{const ix=pg.talents.indexOf(sel.key);if(ix>=0)pg.talents.splice(ix,1);});renderTalentTree(false);}}));
+  pn.appendChild(act);
+  v.appendChild(pn);v.classList.add("with-panel");
+ } else v.classList.remove("with-panel");
+ /* trascinamento per spostarsi nell'albero (il tocco usa lo scorrimento nativo) */
+ let drag=null;
+ ws.onpointerdown=e=>{if(e.pointerType==="touch"||e.target.closest(".tt-node"))return;drag={x:e.clientX,y:e.clientY,l:ws.scrollLeft,t:ws.scrollTop};ws.classList.add("drag");ws.setPointerCapture(e.pointerId);};
+ ws.onpointermove=e=>{if(!drag)return;ws.scrollLeft=drag.l-(e.clientX-drag.x);ws.scrollTop=drag.t-(e.clientY-drag.y);};
+ ws.onpointerup=ws.onpointercancel=()=>{drag=null;ws.classList.remove("drag");};
+ /* posizione: si resta dove si era, o si torna al punto in cui si è */
+ if(recenter||!keep){
+  const focus=S.nodes.find(n=>n.key===TT.sel)||S.nodes.find(n=>n.st==="open")||S.nodes.filter(n=>n.st==="got").pop()||S.nodes[0];
+  const p=pos(focus);
+  requestAnimationFrame(()=>{ws.scrollLeft=Math.max(0,p.x*TT.zoom-ws.clientWidth/2+(TT.sel?140:0));ws.scrollTop=Math.max(0,p.y*TT.zoom-ws.clientHeight/2);});
+  setTimeout(()=>{ws.scrollLeft=Math.max(0,p.x*TT.zoom-ws.clientWidth/2+(TT.sel?140:0));ws.scrollTop=Math.max(0,p.y*TT.zoom-ws.clientHeight/2);},30);
+ } else {ws.scrollLeft=keep.l;ws.scrollTop=keep.t;}
+}
+
 /* Classe: scelta da videogioco */
 function classCard(rn,stv,slot){const T=TALENTS[rn];const sty=roleStyleSpec(rn,stv);const sk=roleSkillOf(rn,stv,roleChoice(slot));const die=roleSkillDieOf(rn,stv,slot);const c=el("div",{class:"classcard"});{const k=roleImgKey(rn,stv);c.appendChild(el("div",{class:"cc-ico"+(k?" img":""),html:k?emblem(k,66):svgIcon(roleIco(rn,stv),28)}));}const b=el("div",{class:"cc-body"});b.appendChild(el("div",{class:"cc-k",text:slot===1?"Classe":"Seconda classe · solo Talenti"}));b.appendChild(el("div",{class:"cc-n",text:rn+((T&&T.multi&&stv)?(" · "+stv):"")}));b.appendChild(el("div",{class:"cc-s",html:(sk?("Skill di Ruolo <b>"+sk+"</b>"+(die?(" "+die):"")):"Skill di Ruolo da scegliere")}));if(sty&&sty.tratto)b.appendChild(el("div",{class:"cc-t",html:"<b>Tratto</b> "+sty.tratto}));if(sty&&sty.firma)b.appendChild(el("div",{class:"cc-t",html:"<b>Firma (+4)</b> "+sty.firma}));c.appendChild(b);c.onclick=()=>classPickerModal(slot);return c;}
 function classPickerModal(slot){openModal(slot===1?"⚔️ Scegli la classe":"✦ Seconda classe (solo Talenti)",()=>{const w=el("div",{});const cur=slot===1?pg.role:pg.role2;const curSt=slot===1?pg.style:pg.style2;
@@ -2751,7 +3013,7 @@ function renderManage(){
  {ab.appendChild(el("div",{class:"slots-h",text:"Frutto del Diavolo"}));if(pg.frutto&&pg.frutto.has){const f=pg.frutto;ab.appendChild(slotTile(null,f.nome||"Frutto senza nome",(f.tipo||"tipo da scegliere")+" · Dado <b>"+(f.die||"d4")+"</b>",fruitModal,"img:frutto"));}else ab.appendChild(slotAdd("Frutto del Diavolo",()=>{mutate(()=>{pg.frutto.has=true;if(!pg.frutto.die)pg.frutto.die="d4";});flyIn(imgIcon("frutto",120),()=>byText(".slots .slot-n","Frutto senza nome"));setTimeout(fruitModal,950);}));}
  {const n=invItems().length;ab.appendChild(el("div",{class:"slots-h",text:"Zaino"}));ab.appendChild(el("button",{class:"stage-bag",title:"Apri lo zaino · "+n+" oggett"+(n===1?"o":"i"),html:imgIcon("zaino",46)+(n?'<span class="bag-n">'+n+'</span>':'')+'<span class="bag-t">'+(n?(n+" oggett"+(n===1?"o":"i")):"Zaino vuoto")+'</span>',onclick:inventoryModal}));}
  mid.appendChild(ab);
- const strip=el("div",{class:"talstrip"});const sh=el("div",{class:"slots-h",html:"Talenti · "+P.got.length});strip.appendChild(sh);const row=el("div",{class:"talrow-s"});P.got.forEach(o=>{const md=medal(o.glyph,o.name,o.ult?(o.src==="fruit"?"Risveglio":"Ultimate"):o.tier,false);md.onclick=()=>talentDetailModal(o,true);row.appendChild(md);});if(!P.got.length)row.appendChild(el("div",{class:"medempty",text:"Nessun talento ancora."}));strip.appendChild(row);strip.appendChild(el("div",{class:"talstrip-b"},[el("button",{class:"gbtn"+(P.open.length?" gold":""),text:P.open.length?("✦ Sblocca talento · "+P.open.length):"✦ Sblocca talento",onclick:unlockTalentsModal})]));C.appendChild(strip);
+ const strip=el("div",{class:"talstrip"});const sh=el("div",{class:"slots-h",html:"Talenti · "+P.got.length});strip.appendChild(sh);const row=el("div",{class:"talrow-s"});P.got.forEach(o=>{const md=medal(o.glyph,o.name,o.ult?(o.src==="fruit"?"Risveglio":"Ultimate"):o.tier,false);md.onclick=()=>openTalentTree(o.branch,o.key);row.appendChild(md);});if(!P.got.length)row.appendChild(el("div",{class:"medempty",text:"Nessun talento ancora."}));strip.appendChild(row);strip.appendChild(el("div",{class:"talstrip-b"},[el("button",{class:"gbtn"+(P.open.length?" gold":""),text:P.open.length?("✦ Albero dei talenti · "+P.open.length+" da prendere"):"✦ Albero dei talenti",onclick:()=>openTalentTree()})]));C.appendChild(strip);
  /* ================= DESTRA: zaino / poteri / ciurma ================= */
  const R=el("div",{class:"rpanel"});g3.appendChild(R);
  const sec=(title,kids,right)=>{const s=el("section",{class:"gsec"});const h=el("div",{class:"gsec-h"},[el("h3",{text:title})]);if(right)h.appendChild(right);s.appendChild(h);(kids||[]).forEach(k=>{if(k)s.appendChild(k);});return s;};
