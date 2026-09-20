@@ -259,7 +259,7 @@ function normalizeMove(m={}) {
   passiveTalentIds:uniq(list(m.passiveTalentIds)),hakiSelections:list(m.hakiSelections).map(h=>({id:h.id,use:h.use||'offense',effects:uniq(list(h.effects))})),
   fruitSelections:uniq(list(m.fruitSelections)),weaponId:m.weaponId||'',moduleId:m.moduleId||'',
   talentUses:m.talentUses||{},conditions:m.conditions||{},sequence:uniq(list(m.sequence)),
-  presentation:{subtitle:'',quote:'',quoteZone:'bottom',variant:'dossier',zoom:1,x:50,y:50,...m.presentation},notes:String(m.notes||'')};
+  presentation:{subtitle:'',quote:'',quoteZone:'bottom',variant:'dossier',finish:'none',zoom:1,x:50,y:50,...m.presentation},notes:String(m.notes||'')};
 }
 function selectedIDs(m) {return uniq([m.baseTechId,m.activeTalentId,...list(m.passiveTalentIds),...list(m.fruitSelections),...list(m.hakiSelections).map(h=>h.id),m.weaponId,m.moduleId].filter(Boolean));}
 function resolve(input) {
@@ -769,8 +769,10 @@ function stepCard(work) {
  work.append(heading('Illustrazione','JPG, PNG o WebP. Il ritaglio riguarda solo la carta e lascia intatto il ritratto del personaggio.'),art);
  if(m.presentation.artId)work.append(button('Rimuovi dalla carta',()=>changeDraft(d=>delete d.presentation.artId),'smc-link'));
  const crop=node('div','smc-form-grid');[['zoom','Zoom',1,2.5,.05],['x','Fuoco orizzontale',0,100,1],['y','Fuoco verticale',0,100,1]].forEach(([k,label,min,max,step])=>crop.append(field(label,m.presentation[k],v=>changeDraft(d=>d.presentation[k]=+v,false),'range',{min,max,step})));work.append(crop);
- work.append(note('Le illustrazioni sono conservate su questo dispositivo. L’esportazione JSON mantiene la ricetta; su un altro dispositivo la carta usa lo stemma finché non ricarichi l’immagine.'));
+ work.append(note('L’illustrazione viaggia col salvataggio: la ritrovi sugli altri dispositivi con cui sei entrato. Se le immagini diventano troppe, le ultime restano solo qui e il sito te lo dice.'));
  work.append(selectField('Composizione',m.presentation.variant,[['dossier','Dossier · stemma e illustrazione'],['cinematic','Cinematica · immagine protagonista']],v=>changeDraft(d=>d.presentation.variant=v)));
+ work.append(selectField('Finitura della carta',m.presentation.finish||'none',[['none','Opaca · nessun riflesso'],['foil','Foil olografico'],['oro','Lamina d’oro'],['prisma','Prismatica'],['stelle','Pioggia di stelle']],v=>changeDraft(d=>d.presentation.finish=v)));
+ work.append(note('La finitura si vede muovendo la carta in «Guarda carta».'));
  work.append(selectField('Posizione della citazione',m.presentation.quoteZone,[['bottom','Sotto le statistiche'],['top','Nella parte alta dell’illustrazione']],v=>changeDraft(d=>d.presentation.quoteZone=v)));
  work.append(selectField('Stemma principale',m.presentation.emblemId||'',[['','Automatico · Tecnica'],...validEmblems(r).map(s=>[s.id,s.name])],v=>changeDraft(d=>d.presentation.emblemId=v)));
  work.append(button(UI.previewFull?'Mostra carta compatta':'Mostra carta completa',()=>{UI.previewFull=!UI.previewFull;renderPreview();},'smc-button'));

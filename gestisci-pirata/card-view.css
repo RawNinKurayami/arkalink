@@ -64,6 +64,7 @@
   perspective-origin: 50% 45%;
 }
 .cvw-card {
+  --sp: 3.5px;          /* mezzo spessore del cartoncino */
   position: relative;
   width: min(86vw, 380px, calc((100dvh - 190px) * .66));
   aspect-ratio: 2 / 3;
@@ -85,6 +86,7 @@
   inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transform: translateZ(var(--sp, 3px));
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid rgba(240, 164, 65, .45);
@@ -93,7 +95,91 @@
   display: flex;
   flex-direction: column;
 }
-.cvw-back { transform: rotateY(180deg); }
+.cvw-back { transform: rotateY(180deg) translateZ(var(--sp, 3px)); }
+
+/* --- spessore: quattro bordi sottili fanno il cartoncino --- */
+.cvw-edge {
+  position: absolute;
+  background: linear-gradient(90deg, #f7e3bc, #b9915a 28%, #6d5230 62%, #d9bd86);
+  box-shadow: 0 0 6px rgba(0, 0, 0, .45) inset;
+}
+.cvw-edge-l, .cvw-edge-r {
+  top: 0;
+  bottom: 0;
+  width: calc(var(--sp, 3px) * 2);
+}
+.cvw-edge-l { left: 0; transform: translateZ(calc(var(--sp, 3px) * -1)) rotateY(-90deg); transform-origin: left center; }
+.cvw-edge-r { right: 0; transform: translateZ(calc(var(--sp, 3px) * -1)) rotateY(90deg); transform-origin: right center; }
+.cvw-edge-t, .cvw-edge-b {
+  left: 0;
+  right: 0;
+  height: calc(var(--sp, 3px) * 2);
+  background: linear-gradient(180deg, #f7e3bc, #b9915a 30%, #6d5230 64%, #d9bd86);
+}
+.cvw-edge-t { top: 0; transform: translateZ(calc(var(--sp, 3px) * -1)) rotateX(90deg); transform-origin: center top; }
+.cvw-edge-b { bottom: 0; transform: translateZ(calc(var(--sp, 3px) * -1)) rotateX(-90deg); transform-origin: center bottom; }
+
+/* --- finiture: reagiscono a come la carta è girata --- */
+.cvw-fin {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.cvw-card[data-fin]:not([data-fin="none"]) .cvw-fin { opacity: 1; }
+
+/* il riflesso segue l'inclinazione: --gx e --gy arrivano dal trascinamento */
+.cvw-card[data-fin="foil"] .cvw-fin {
+  background:
+    linear-gradient(calc(var(--ang, 115) * 1deg),
+      rgba(255, 0, 128, .34), rgba(255, 214, 0, .3) 18%, rgba(0, 255, 183, .3) 34%,
+      rgba(0, 156, 255, .32) 52%, rgba(168, 0, 255, .3) 70%, rgba(255, 0, 128, .34) 88%),
+    radial-gradient(60% 45% at calc(var(--gx, 50) * 1%) calc(var(--gy, 40) * 1%), rgba(255, 255, 255, .55), transparent 70%);
+  background-size: 260% 260%, 100% 100%;
+  background-position: calc(var(--gx, 50) * 1%) calc(var(--gy, 50) * 1%), 0 0;
+  mix-blend-mode: color-dodge;
+}
+.cvw-card[data-fin="oro"] .cvw-fin {
+  background:
+    linear-gradient(calc(var(--ang, 115) * 1deg), rgba(120, 78, 20, .25), rgba(255, 221, 150, .62) 42%, rgba(255, 248, 224, .8) 50%, rgba(214, 160, 60, .5) 62%, rgba(90, 60, 18, .25)),
+    radial-gradient(52% 40% at calc(var(--gx, 50) * 1%) calc(var(--gy, 40) * 1%), rgba(255, 240, 200, .55), transparent 72%);
+  background-size: 220% 220%, 100% 100%;
+  background-position: calc(var(--gx, 50) * 1%) calc(var(--gy, 50) * 1%), 0 0;
+  mix-blend-mode: overlay;
+}
+.cvw-card[data-fin="prisma"] .cvw-fin {
+  background:
+    repeating-linear-gradient(calc(var(--ang, 115) * 1deg),
+      rgba(255, 255, 255, .3) 0 6px, rgba(0, 234, 255, .26) 6px 12px,
+      rgba(255, 0, 191, .24) 12px 18px, rgba(255, 238, 0, .24) 18px 24px, transparent 24px 40px),
+    radial-gradient(55% 42% at calc(var(--gx, 50) * 1%) calc(var(--gy, 40) * 1%), rgba(255, 255, 255, .5), transparent 70%);
+  background-size: 180% 180%, 100% 100%;
+  background-position: calc(var(--gx, 50) * 1%) calc(var(--gy, 50) * 1%), 0 0;
+  mix-blend-mode: color-dodge;
+}
+.cvw-card[data-fin="stelle"] .cvw-fin {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, .95) 0 1.1px, transparent 1.7px),
+    radial-gradient(circle at 70% 60%, rgba(255, 240, 200, .9) 0 1.3px, transparent 1.9px),
+    radial-gradient(circle at 45% 85%, rgba(200, 235, 255, .9) 0 1px, transparent 1.6px),
+    radial-gradient(60% 45% at calc(var(--gx, 50) * 1%) calc(var(--gy, 40) * 1%), rgba(255, 246, 214, .45), transparent 72%);
+  background-size: 46px 46px, 62px 62px, 38px 38px, 100% 100%;
+  background-position: calc(var(--gx, 50) * .6%) calc(var(--gy, 50) * .6%), calc(var(--gx, 50) * -.8%) calc(var(--gy, 50) * .9%), calc(var(--gx, 50) * .4%) calc(var(--gy, 50) * -.5%), 0 0;
+  mix-blend-mode: screen;
+}
+/* Un velo di luce sempre presente sulle carte con finitura: dà il «vetro». */
+.cvw-card[data-fin]:not([data-fin="none"]) .cvw-face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(calc(var(--ang, 115) * 1deg), transparent 40%, rgba(255, 255, 255, .16) 50%, transparent 60%);
+  background-size: 250% 250%;
+  background-position: calc(var(--gx, 50) * 1%) calc(var(--gy, 50) * 1%);
+}
 
 /* --- fronte: illustrazione, stemma, citazione, titolo --- */
 .cvw-art {

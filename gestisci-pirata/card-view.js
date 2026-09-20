@@ -32,6 +32,11 @@ function stemma(s, grande) {
  return el('span', { html: window.svgIcon ? svgIcon(s.icon || 'star', misura) : '' });
 }
 
+/* Lo spessore del cartoncino: quattro bordi che chiudono il volume. */
+function bordi(carta) {
+ ['l', 'r', 't', 'b'].forEach(lato => carta.append(nodo('div', 'cvw-edge cvw-edge-' + lato)));
+}
+
 function fronte(r, carta) {
  const m = r.move, p = m.presentation || {};
  const faccia = nodo('div', 'cvw-face cvw-front');
@@ -46,6 +51,7 @@ function fronte(r, carta) {
  }
  arte.append(nodo('div', 'cvw-veil'));
  faccia.append(arte);
+ faccia.append(nodo('div', 'cvw-fin'));
 
  const dentro = nodo('div', 'cvw-front-in');
  dentro.append(nodo('div', 'cvw-edition', null, [nodo('span', '', 'Grand Line Chronicles'), nodo('span', '', 'Special Move')]));
@@ -105,6 +111,7 @@ function retro(r, carta) {
  if (m.notes) { dentro.append(nodo('h4', '', 'Note')); dentro.append(nodo('div', 'cvw-line', null, [nodo('div', '', null, [nodo('p', '', m.notes)])])); }
  if (!dentro.querySelector('.cvw-line')) dentro.append(nodo('p', 'cvw-empty', 'Questa carta non ha ancora effetti da mostrare.'));
  faccia.append(dentro);
+ faccia.append(nodo('div', 'cvw-fin'));
  carta.append(faccia);
 }
 
@@ -112,7 +119,14 @@ function retro(r, carta) {
    completo resta un gesto deciso (pulsante, doppio tocco o trascinata ampia). */
 function manovra(carta, stato) {
  let giu = null;
- const posa = () => { carta.style.setProperty('--rx', stato.rx.toFixed(2) + 'deg'); carta.style.setProperty('--ry', (stato.ry + (stato.girata ? 180 : 0)).toFixed(2) + 'deg'); };
+ const posa = () => {
+  carta.style.setProperty('--rx', stato.rx.toFixed(2) + 'deg');
+  carta.style.setProperty('--ry', (stato.ry + (stato.girata ? 180 : 0)).toFixed(2) + 'deg');
+  /* La luce si sposta con l'inclinazione: è questo che fa «brillare» il foil. */
+  carta.style.setProperty('--gx', (50 + Math.max(-50, Math.min(50, stato.ry * 1.1))).toFixed(1));
+  carta.style.setProperty('--gy', (50 - Math.max(-50, Math.min(50, stato.rx * 1.2))).toFixed(1));
+  carta.style.setProperty('--ang', (115 + stato.ry * .9 - stato.rx * .6).toFixed(1));
+ };
  stato.posa = posa;
  stato.gira = () => { stato.girata = !stato.girata; stato.rx = 0; stato.ry = 0; posa(); };
  posa();
@@ -158,6 +172,7 @@ function chiudi() {
  if (!VISTA) return;
  const v = VISTA; VISTA = null;
  v.stato.stacca && v.stato.stacca();
+ v.stato.sensore && v.stato.sensore();
  document.removeEventListener('keydown', v.tasti, true);
  v.host.classList.remove('cvw-on');
  document.body.classList.remove('cvw-open');
@@ -170,11 +185,17 @@ function apri(mossa) {
  const dato = typeof mossa === 'string' ? trovaPerId(mossa) : mossa;
  if (!dato) return false;
  chiudi();
+ /* Se un'altra carta sta ancora sfumando, va tolta subito: due viste insieme
+    confonderebbero tastiera e trascinamento. */
+ document.querySelectorAll('#cvw').forEach(n => n.remove());
  const r = GLCMoves.resolve(dato);
  const tornaA = document.activeElement;
 
  const host = el('div', { id: 'cvw', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Carta: ' + (r.move.name || 'Special Move'), tabindex: '-1' });
  const carta = nodo('div', 'cvw-card');
+ const finiture = ['foil', 'oro', 'prisma', 'stelle'];
+ const scelta = (r.move.presentation || {}).finish;
+ carta.setAttribute('data-fin', finiture.includes(scelta) ? scelta : 'none');
  const stato = { rx: 0, ry: 0, girata: false };
 
  const barra = nodo('div', 'cvw-bar');
@@ -185,12 +206,36 @@ function apri(mossa) {
 
  fronte(r, carta);
  retro(r, carta);
+ bordi(carta);
  const tavolo = nodo('div', 'cvw-stage', null, [carta]);
 
  const giraBtn = el('button', { class: 'cvw-btn cvw-primary', type: 'button', text: 'Gira la carta ↻' });
  giraBtn.onclick = () => stato.gira();
+ const attrezzi = nodo('div', 'cvw-tools', null, [giraBtn]);
+ /* Sul telefono la carta può seguire l'inclinazione vera: si chiede il
+    permesso solo quando è il giocatore a volerlo. */
+ if (window.DeviceOrientationEvent && matchMedia('(pointer: coarse)').matches) {
+  const tiltBtn = el('button', { class: 'cvw-btn', type: 'button', text: 'Inclina col telefono' });
+  tiltBtn.onclick = async () => {
+   try {
+    const chiedi = DeviceOrientationEvent.requestPermission;
+    if (typeof chiedi === 'function') { const esito = await chiedi(); if (esito !== 'granted') { tiltBtn.textContent = 'Permesso negato'; return; } }
+    if (stato.sensore) { stato.sensore(); stato.sensore = null; tiltBtn.textContent = 'Inclina col telefono'; return; }
+    const ascolta = e => {
+     if (e.gamma == null && e.beta == null) return;
+     stato.ry = Math.max(-30, Math.min(30, (e.gamma || 0) * .7));
+     stato.rx = Math.max(-26, Math.min(26, ((e.beta || 0) - 45) * .5));
+     stato.posa();
+    };
+    window.addEventListener('deviceorientation', ascolta);
+    stato.sensore = () => window.removeEventListener('deviceorientation', ascolta);
+    tiltBtn.textContent = 'Ferma l’inclinazione';
+   } catch (err) { tiltBtn.textContent = 'Inclinazione non disponibile'; }
+  };
+  attrezzi.append(tiltBtn);
+ }
  const piede = nodo('div', '', null, [
-  nodo('div', 'cvw-tools', null, [giraBtn]),
+  attrezzi,
   nodo('p', 'cvw-hint', 'Trascina per inclinarla · tocca la carta o premi Spazio per girarla · Esc per chiudere')
  ]);
 
