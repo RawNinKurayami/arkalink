@@ -3294,6 +3294,8 @@ function isCombattente(){return pg.role==="Combattente"||pg.role2==="Combattente
 /* I tipi d'arma che questo personaggio può portare. null = nessuno Stile da
    combattimento, quindi nessun vincolo di Stile. */
 function armiConsentite(){
+ /* Senza un Ruolo da Combattente non si porta nessuna arma. */
+ if(!isCombattente())return {};
  const st=combStyles();if(!st.length)return null;
  const set={"Da lancio":1};
  st.forEach(x=>(STILE_ARMI[x]||[]).forEach(t=>set[t]=1));
@@ -3324,6 +3326,8 @@ function styleSlotOptions(x){
  return [one];
 }
 function slotConfigs(){
+ /* Nessun Ruolo da Combattente: nessun posto, quindi nessuna arma. */
+ if(!isCombattente())return [[]];
  const st=combStyles();if(!st.length)return null;
  let acc=[[]];
  st.forEach(x=>{const opts=styleSlotOptions(x);const nx=[];acc.forEach(a=>opts.forEach(o=>nx.push(a.concat(o))));acc=nx;});
@@ -3397,7 +3401,7 @@ function tipiConsentiti(){
 }
 function armiConsentiteLabel(){
  const set=armiConsentite();if(!set)return "";
- const l=Object.keys(set);
+ const l=Object.keys(set);if(!l.length)return "nessun tipo";
  if(l.indexOf("Lama")>=0)l.push("Ad asta tagliente");
  if(l.indexOf("Contundente")>=0)l.push("Ad asta contundente");
  return l.join(" · ");
@@ -3439,6 +3443,7 @@ const WEAPON_STILE={"Lama":"Swordsman","Contundente":"Crusher","A distanza":"Sni
 function weaponStyleReq(a){if(!a||!a.tipo)return "";if(a.tipo==="Ad asta")return a.asta==="Tagliente"?"Swordsman":(a.asta==="Contundente"?"Crusher":"");return WEAPON_STILE[a.tipo]||"";}
 function weaponCompat(a){
  if(a&&!tipoOwnerVisible(a.tipo))return {s:"ko",need:"",msg:"Nessuno Stile impugna più le armi di questo tipo: ne usi il Grado, non l'effetto speciale."};
+ if(!isCombattente())return {s:"ko",need:"",msg:"Solo un Ruolo da <b>Combattente</b> impugna armi: questo pirata non ne porta."};
  if(!puoiPortare(a))return {s:"ko",need:weaponStyleReq(a),msg:"Il tuo Stile non porta armi di questo tipo. Puoi impugnare: <b>"+armiConsentiteLabel()+"</b> — le armi da lancio sono di tutti."};
  var need=weaponStyleReq(a);
  if(!need)return {s:"wait",need:"",msg:(a&&a.tipo==="Ad asta")?"Scegli la <b>modalità dell'asta</b> — tagliente o contundente — per sapere quale Stile serve.":"Scegli il <b>Tipo</b> per verificare lo Stile."};
@@ -3524,6 +3529,10 @@ function arsenaleModal(){
   const w=el("div",{});
   const A=arsenale();
   const aggiungibili=tipiAggiungibili();
+  if(A.limit&&!A.cap){
+   w.appendChild(el("div",{class:"compat ko",html:"Le armi sono dei <b>Combattenti</b>. Con i Ruoli attuali questo pirata non ha posti nell'Arsenale: prendi un Ruolo da Combattente per impugnarne una."}));
+   return w;
+  }
   if(A.limit){
    const posti=A.slots.map(x=>x.stile+(x.extra?(" · "+x.extra):"")).join(" · ");
    w.appendChild(el("div",{class:"compat "+(aggiungibili.length?"ok":"ko"),html:"Ogni Stile porta <b>una sola arma</b>, del suo tipo o da lancio. I tuoi posti: <b>"+posti+"</b> — occupati <b>"+Math.min(A.n,A.cap)+" / "+A.cap+"</b>."+(aggiungibili.length?"":"<br>Arsenale pieno: per un'arma nuova devi prima lasciarne una.")}));
@@ -3739,6 +3748,7 @@ function renderManage(){
    /* un posto per Stile, e con Più Spade · Base il posto della seconda lama */
    eq.appendChild(el("div",{class:"slots-h",text:"Armi · "+Math.min(A.n,A.cap)+"/"+A.cap}));
    const canAdd=tipiAggiungibili().length>0;
+   if(!A.cap)eq.appendChild(el("div",{class:"slot add lockd",title:"Le armi sono dei Combattenti"},[el("div",{class:"slot-i",html:'<span class="gc-em">'+svgIcon("lock",20)+"</span>"}),el("div",{class:"slot-b"},[el("div",{class:"slot-n",text:"Nessuna arma"}),el("div",{class:"slot-m",text:"serve un Ruolo da Combattente"})])]));
    A.vis.forEach(v=>{
     if(v.arma>=0){eq.appendChild(wTile(v.arma));return;}
     const lab=v.extra?"seconda spada · Più Spade":(SLOT_LABEL[v.stile]||"arma");
