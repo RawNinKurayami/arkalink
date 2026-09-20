@@ -283,6 +283,11 @@ body.has-modal{overflow:hidden;}
 .gmbody .tbuilder{margin:0;}
 .tdetail{text-align:center;}
 .medring.big{width:96px;height:96px;font-size:44px;margin:4px auto 10px;}
+/* Le icone di Ruolo e Stile dentro le cornici dei Talenti. */
+.medring>img{width:74%;height:74%;object-fit:contain;}
+.tt-ring>img{width:62%;height:62%;object-fit:contain;}
+.tt-pr>img{width:66%;height:66%;object-fit:contain;}
+
 /* Le Ultimate portano la propria illustrazione: niente cornice sotto. */
 .medring.art,.tt-node .tt-ring.art,.tt-node.got .tt-ring.art,.tt-node.open .tt-ring.art,.tt-node.locked .tt-ring.art,.tt-pr.art,.tt-pr.got.art,.tt-pr.open.art{background:none;border:none;box-shadow:none;}
 .medring.art>img,.tt-ring.art>img,.tt-pr.art>img{width:100%;height:100%;object-fit:contain;}
@@ -1276,6 +1281,8 @@ body.has-bld{overflow:hidden;}
  #ttree .tt-ring::before {content:"";position:absolute;inset:4px;border:1px solid currentColor;border-radius:1px;opacity:.23;}
  #ttree .tt-ring::after {content:"";position:absolute;inset:-6px;border:1px solid currentColor;border-radius:2px;opacity:.16;transition:opacity .18s;}
  #ttree .tt-ring>svg {width:25px;height:25px;transform:rotate(-45deg);}
+ #ttree .tt-ring>img {width:25px;height:25px;transform:rotate(-45deg);}
+ #ttree .tt-node.ult .tt-ring>img {width:100%;height:100%;}
  #ttree .tt-node:hover .tt-ring {transform:rotate(45deg) scale(1.07);border-color:var(--tt-ivory);}
  #ttree .tt-node .tt-ring.art {transform:none;border:none;background:none;box-shadow:none;border-radius:50%;}
  #ttree .tt-node:hover .tt-ring.art {transform:scale(1.07);}
@@ -1894,7 +1901,16 @@ function roleImgKey(rn,st){return (st&&STYLE_IMG[st])||ROLE_IMG[rn]||"";}
 const ULT_IMG={Striker:"ultimate-striker",Crusher:"ultimate-crusher",Swordsman:"ultimate-swordsman",Sniper:"ultimate-sniper",Infermeria:"ultimate-medico",Tossicologo:"ultimate-tossicologo",Chimico:"ultimate-chimico",Cuoco:"ultimate-cuoco",Navigatore:"ultimate-navigatore",Carpentiere:"ultimate-carpentiere",Meccanico:"ultimate-meccanico",Inventore:"ultimate-inventore",Archeologo:"ultimate-archeologo",Musicista:"ultimate-musicista",Capitano:"ultimate-capitano"};
 function ultImg(branch){return ULT_IMG[branch]||"";}
 /* L'icona di un Talento: l'Ultimate ha la sua illustrazione, gli altri il glifo. */
-function talentArt(o,size){return (o&&o.ult&&ultImg(o.branch))?imgIcon(ultImg(o.branch),size):svgIcon((o&&o.glyph)||"star",size);}
+/* Il ramo di un Talento ha l'icona del suo Stile o Ruolo. */
+const BRANCH_IMG={Infermeria:"ruolo-dottore"};
+function branchImg(b){b=b||"";return STYLE_IMG[b]||ROLE_IMG[b]||BRANCH_IMG[b]||(b.indexOf("Frutto")===0?"frutto":"");}
+/* L'icona di un Talento: l'Ultimate ha la sua illustrazione, gli altri
+   portano l'icona del Ruolo o Stile di appartenenza. */
+function talentArt(o,size){
+ if(o&&o.ult&&ultImg(o.branch))return imgIcon(ultImg(o.branch),size);
+ const b=branchImg(o&&o.branch);
+ return b?imgIcon(b,size):svgIcon((o&&o.glyph)||"star",size);
+}
 function emblem(key,size){return key?imgIcon(key,size).replace('class="icimg"','class="icimg emblem"'):"";}
 function hakiIcon(h,size){return imgIcon(IMG_ICON[h&&h.name]||"haki-armamento",size);}
 const STYLE_ICON={Striker:"fist",Crusher:"hammer",Swordsman:"sword",Sniper:"target",Special:"gear",Infermeria:"medkit",Tossicologo:"poison",Chimico:"flask",Cuoco:"pot",Navigatore:"compass",Carpentiere:"anchor",Meccanico:"gear",Inventore:"wrench",Archeologo:"scroll",Musicista:"music",Capitano:"crown",Paramecia:"orb",Logia:"flame",Zoan:"paw"};
@@ -1903,7 +1919,7 @@ const INV_MIGRATE={"📦":"box","⚔️":"sword","🛡":"shield","🧪":"potion"
 /* Glifo per i medaglioni dei talenti: parole chiave del nome, altrimenti l'icona dello Stile. */
 const GLYPH_KW=[[/spad|lama|fendent|taglio|sguain|riposta|affilat/i,"sword"],[/parat|guardia|scudo|postura|barricat|fortific|protezione|incass|tempra/i,"shield"],[/tiro|colpo|mira|appost|cecchin|occhio del falco|ricarica/i,"target"],[/pugn|presa|raffica|proiezion|slancio|striker/i,"fist"],[/passo|corsa|scatto|fulmin|velocit|fuga|ritirata/i,"wind"],[/cur|chirurg|rianim|medic|diagnos|sala operat|intervento|erbe/i,"medkit"],[/velen|tossin|nube|dardo|dose|antidot|profilass|marea nera/i,"poison"],[/reagent|reazion|esplos|carica|innesco|miscela|polver|distill|officina mobile/i,"flask"],[/cucin|piatt|cuoco|banchett|ricett|bancone|stomaco|dispensa|servizio|secondo fuoco/i,"pot"],[/timon|rotta|fondale|tempesta|vento|cartograf|mai perduto|navig/i,"compass"],[/scafo|legno|nave|riparaz|cantiere|moduli|ponte|carpent|affonda/i,"anchor"],[/meccan|ingranagg|sabotag|batteria|macchin|regolazione|trappola|carne e metallo|pieno carico/i,"gear"],[/invent|prototip|brevett|arma su misura|sovraccar|ricalibr|colpo di genio|munizion|smanetton|improvvis/i,"wrench"],[/calco|rovin|scrittura|poneglyph|antiquar|studios|memoria|custode|meccanismi antichi|trappola antica|insegne|terreno conosciuto|voce delle pietre/i,"scroll"],[/music|canzon|canto|coro|contrappunt|requiem|marcia|ritmo|fiato|suonare|leggenda in musica|intratten/i,"music"],[/grido|ordine|comand|parlament|piano|ciurma|secondo in comando|arrembagg|nessuno resta|voce che arriva/i,"crown"],[/arsenal|modul|congegn|innesto|scarica|bombard|portata amplif|autoripar|doppio innesco|cambio rapido|pieno regime/i,"burst"],[/intangib|element|corpo diffuso|assorbire|riformarsi|forma perduta|fonte inesaur|chi ti tocca|nutrirsi/i,"flame"],[/forma ibrida|istinto|zanne|artigli|sensi|bestial|stazza|ferocia|zoan|richiamo|trasformazione/i,"paw"],[/risveglio/i,"star"],[/potere|dono|riflesso|doppio uso|ciò che resta|nessuno dei miei|marchio|portata naturale|forma di combat|contraccolpo|istintivo|seconda natura/i,"orb"]];
 function talentGlyph(name,fallback){for(var i=0;i<GLYPH_KW.length;i++)if(GLYPH_KW[i][0].test(name))return GLYPH_KW[i][1];return fallback||"star";}
-function medal(glyph,name,sub,off){const art=/^<img/.test(String(glyph));return el("div",{class:"medal"+(off?" off":""),title:name},[el("div",{class:"medring"+(art?" art":""),html:ICONS[glyph]?svgIcon(glyph,30):(glyph||"")}),el("div",{class:"medname",text:name}),el("div",{class:"medsub",text:sub||""})]);}
+function medal(glyph,name,sub,off){const art=/ultimate-/.test(String(glyph));return el("div",{class:"medal"+(off?" off":""),title:name},[el("div",{class:"medring"+(art?" art":""),html:ICONS[glyph]?svgIcon(glyph,30):(glyph||"")}),el("div",{class:"medname",text:name}),el("div",{class:"medsub",text:sub||""})]);}
 function racialEffect(id,die){var f=RACE_EFF[id];return f?f(die):"";}
 function difesaPassiva(){var ra=racialAttr();var d=ra&&pg.attr?pg.attr[ra]:"";if(!d)return null;var n=parseInt(String(d).slice(1),10);return n?n+1:null;}
 function firstStyle(rn){const T=TALENTS[rn];if(!T||!T.styles)return "";return T.multi?Object.keys(T.styles)[0]:"";}
@@ -3796,7 +3812,7 @@ function renderManage(){
  {ab.appendChild(el("div",{class:"slots-h",text:"Frutto del Diavolo"}));if(pg.frutto&&pg.frutto.has){const f=pg.frutto;ab.appendChild(slotTile(null,f.nome||"Frutto senza nome",(f.tipo||"tipo da scegliere")+" · Dado <b>"+(f.die||"d4")+"</b>",fruitModal,"img:frutto"));}else ab.appendChild(slotAdd("Frutto del Diavolo",()=>{mutate(()=>{pg.frutto.has=true;if(!pg.frutto.die)pg.frutto.die="d4";});flyIn(imgIcon("frutto",120),()=>byText(".slots .slot-n","Frutto senza nome"));setTimeout(fruitModal,950);}));}
  {const n=invItems().length;ab.appendChild(el("div",{class:"slots-h",text:"Zaino"}));ab.appendChild(el("button",{class:"stage-bag",title:"Apri lo zaino · "+n+" oggett"+(n===1?"o":"i"),html:imgIcon("zaino",46)+(n?'<span class="bag-n">'+n+'</span>':'')+'<span class="bag-t">'+(n?(n+" oggett"+(n===1?"o":"i")):"Zaino vuoto")+'</span>',onclick:inventoryModal}));}
  mid.appendChild(ab);
- const strip=el("div",{class:"talstrip"});const sh=el("div",{class:"slots-h",html:"Talenti · "+P.got.length});strip.appendChild(sh);const row=el("div",{class:"talrow-s"});P.got.forEach(o=>{const md=medal((o.ult&&ultImg(o.branch))?imgIcon(ultImg(o.branch),52):o.glyph,o.name,o.ult?(o.src==="fruit"?"Risveglio":"Ultimate"):o.tier,false);md.onclick=()=>openTalentTree(o.branch,o.key);row.appendChild(md);});if(!P.got.length)row.appendChild(el("div",{class:"medempty",text:"Nessun talento ancora."}));strip.appendChild(row);strip.appendChild(el("div",{class:"talstrip-b"},[el("button",{class:"gbtn"+(P.open.length?" gold":""),text:P.open.length?("✦ Albero dei talenti · "+P.open.length+" da prendere"):"✦ Albero dei talenti",onclick:()=>openTalentTree()})]));C.appendChild(strip);
+ const strip=el("div",{class:"talstrip"});const sh=el("div",{class:"slots-h",html:"Talenti · "+P.got.length});strip.appendChild(sh);const row=el("div",{class:"talrow-s"});P.got.forEach(o=>{const md=medal(talentArt(o,o.ult?52:34),o.name,o.ult?(o.src==="fruit"?"Risveglio":"Ultimate"):o.tier,false);md.onclick=()=>openTalentTree(o.branch,o.key);row.appendChild(md);});if(!P.got.length)row.appendChild(el("div",{class:"medempty",text:"Nessun talento ancora."}));strip.appendChild(row);strip.appendChild(el("div",{class:"talstrip-b"},[el("button",{class:"gbtn"+(P.open.length?" gold":""),text:P.open.length?("✦ Albero dei talenti · "+P.open.length+" da prendere"):"✦ Albero dei talenti",onclick:()=>openTalentTree()})]));C.appendChild(strip);
  if(window.GLCMoves)g3.appendChild(GLCMoves.shelf());
  /* ================= DESTRA: zaino / poteri / ciurma ================= */
  const R=el("div",{class:"rpanel"});g3.appendChild(R);

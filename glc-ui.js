@@ -71,7 +71,16 @@ function roleImgKey(rn,st){return (st&&STYLE_IMG[st])||ROLE_IMG[rn]||"";}
 const ULT_IMG={Striker:"ultimate-striker",Crusher:"ultimate-crusher",Swordsman:"ultimate-swordsman",Sniper:"ultimate-sniper",Infermeria:"ultimate-medico",Tossicologo:"ultimate-tossicologo",Chimico:"ultimate-chimico",Cuoco:"ultimate-cuoco",Navigatore:"ultimate-navigatore",Carpentiere:"ultimate-carpentiere",Meccanico:"ultimate-meccanico",Inventore:"ultimate-inventore",Archeologo:"ultimate-archeologo",Musicista:"ultimate-musicista",Capitano:"ultimate-capitano"};
 function ultImg(branch){return ULT_IMG[branch]||"";}
 /* L'icona di un Talento: l'Ultimate ha la sua illustrazione, gli altri il glifo. */
-function talentArt(o,size){return (o&&o.ult&&ultImg(o.branch))?imgIcon(ultImg(o.branch),size):svgIcon(o&&o.glyph||"star",size);}
+/* Il ramo di un Talento ha l'icona del suo Stile o Ruolo. */
+const BRANCH_IMG={Infermeria:"ruolo-dottore"};
+function branchImg(b){b=b||"";return STYLE_IMG[b]||ROLE_IMG[b]||BRANCH_IMG[b]||(b.indexOf("Frutto")===0?"frutto":"");}
+/* L'icona di un Talento: l'Ultimate ha la sua illustrazione, gli altri
+   portano l'icona del Ruolo o Stile di appartenenza. */
+function talentArt(o,size){
+ if(o&&o.ult&&ultImg(o.branch))return imgIcon(ultImg(o.branch),size);
+ const b=branchImg(o&&o.branch);
+ return b?imgIcon(b,size):svgIcon((o&&o.glyph)||"star",size);
+}
 function emblem(key,size){return key?imgIcon(key,size).replace('class="icimg"','class="icimg emblem"'):"";}
 function hakiIcon(h,size){return imgIcon(IMG_ICON[h&&h.name]||"haki-armamento",size);}
 const STYLE_ICON={Striker:"fist",Crusher:"hammer",Swordsman:"sword",Sniper:"target",Special:"gear",Infermeria:"medkit",Tossicologo:"poison",Chimico:"flask",Cuoco:"pot",Navigatore:"compass",Carpentiere:"anchor",Meccanico:"gear",Inventore:"wrench",Archeologo:"scroll",Musicista:"music",Capitano:"crown",Paramecia:"orb",Logia:"flame",Zoan:"paw"};
