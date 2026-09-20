@@ -67,6 +67,11 @@ const RACE_IMG={umano:"razza-umano",uomopesce:"razza-uomopesce",gigante:"razza-g
 const ROLE_IMG={Combattente:"ruolo-combattente",Dottore:"ruolo-dottore",Ingegnere:"ruolo-ingegnere",Musicista:"ruolo-musicista",Navigatore:"ruolo-navigatore",Archeologo:"ruolo-archeologo",Cuoco:"ruolo-cuoco",Capitano:"ruolo-capitano"};
 const STYLE_IMG={Striker:"stile-striker",Crusher:"stile-crusher",Swordsman:"stile-swordsman",Sniper:"stile-sniper",Special:"stile-special",Tossicologo:"stile-tossicologo",Chimico:"stile-chimico",Carpentiere:"stile-carpentiere",Meccanico:"stile-meccanico",Inventore:"stile-inventore"};
 function roleImgKey(rn,st){return (st&&STYLE_IMG[st])||ROLE_IMG[rn]||"";}
+/* Le icone delle Ultimate: una per ramo (Stile o Ruolo). Special non ne ha. */
+const ULT_IMG={Striker:"ultimate-striker",Crusher:"ultimate-crusher",Swordsman:"ultimate-swordsman",Sniper:"ultimate-sniper",Infermeria:"ultimate-medico",Tossicologo:"ultimate-tossicologo",Chimico:"ultimate-chimico",Cuoco:"ultimate-cuoco",Navigatore:"ultimate-navigatore",Carpentiere:"ultimate-carpentiere",Meccanico:"ultimate-meccanico",Inventore:"ultimate-inventore",Archeologo:"ultimate-archeologo",Musicista:"ultimate-musicista",Capitano:"ultimate-capitano"};
+function ultImg(branch){return ULT_IMG[branch]||"";}
+/* L'icona di un Talento: l'Ultimate ha la sua illustrazione, gli altri il glifo. */
+function talentArt(o,size){return (o&&o.ult&&ultImg(o.branch))?imgIcon(ultImg(o.branch),size):svgIcon(o&&o.glyph||"star",size);}
 function emblem(key,size){return key?imgIcon(key,size).replace('class="icimg"','class="icimg emblem"'):"";}
 function hakiIcon(h,size){return imgIcon(IMG_ICON[h&&h.name]||"haki-armamento",size);}
 const STYLE_ICON={Striker:"fist",Crusher:"hammer",Swordsman:"sword",Sniper:"target",Special:"gear",Infermeria:"medkit",Tossicologo:"poison",Chimico:"flask",Cuoco:"pot",Navigatore:"compass",Carpentiere:"anchor",Meccanico:"gear",Inventore:"wrench",Archeologo:"scroll",Musicista:"music",Capitano:"crown",Paramecia:"orb",Logia:"flame",Zoan:"paw"};
