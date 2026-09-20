@@ -1,0 +1,246 @@
+/* GLC — la scena della nave.
+   Stessa direzione visiva della gestione del pirata: superfici morbide, titoli
+   condensati, niente cornici. Solo presentazione: le regole, i tiri e i
+   collegamenti restano quelli di sempre. */
+@media screen {
+body.mode-nave .wrap{max-width:1680px;padding:22px 34px 54px;}
+body.mode-nave header.top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 0 20px;text-align:left;border-bottom:1px solid rgba(241,236,224,.08);}
+body.mode-nave header.top .anchor,body.mode-nave header.top>.sub,body.mode-nave .wrap>.rule{display:none;}
+body.mode-nave header.top h1{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:23px;font-weight:600;letter-spacing:.16em;line-height:1;text-transform:uppercase;margin:0;color:var(--ink);text-shadow:none;}
+body.mode-nave header.top .cb-label{display:none;}
+body.mode-nave header.top .cb-sel{font-family:'Manrope',sans-serif;font-size:12px;min-width:140px;max-width:210px;padding:9px 14px;background:rgba(241,236,224,.055);border:0;border-radius:999px;}
+body.mode-nave header.top .cb-btn{font-family:'Manrope',sans-serif;font-size:11px;letter-spacing:0;border:0;border-radius:999px;background:rgba(241,236,224,.045);padding:9px 12px;color:var(--ink);}
+body.mode-nave header.top .cb-btn:hover{background:rgba(241,236,224,.12);}
+body.mode-nave header.top .cb-link{font-family:'Manrope',sans-serif;font-size:11px;color:var(--ink-soft);margin-left:8px;border:0;}
+body.mode-nave .layout{margin-top:28px;}
+body.mode-nave #ship{--scene-ui:'Manrope','Inter',sans-serif;--scene-display:'Barlow Condensed','Arial Narrow',sans-serif;--scene-muted:rgba(241,236,224,.58);--scene-edge:rgba(241,236,224,.08);font-family:var(--scene-ui);min-width:0;}
+body.mode-nave #ship .gtop{align-items:center;gap:24px;margin:0 0 25px;padding:0;border:0;}
+body.mode-nave #ship .gt-l{flex:1 1 340px;min-width:0;}
+body.mode-nave #ship .scene-eyebrow{font:600 9px var(--scene-ui);letter-spacing:.2em;text-transform:uppercase;color:var(--scene-muted);margin:0 0 9px;}
+body.mode-nave #ship .gh-name{font-family:var(--scene-display);font-size:clamp(48px,5.4vw,84px);font-weight:600;letter-spacing:.035em;line-height:.94;text-transform:uppercase;overflow-wrap:anywhere;text-wrap:balance;color:var(--ink);}
+body.mode-nave #ship .gt-r{gap:8px;justify-content:flex-end;align-items:center;}
+body.mode-nave #ship .gh-bounty{font-family:var(--scene-display);font-size:30px;font-weight:500;letter-spacing:.04em;color:var(--ink);margin:0 14px 0 0;padding:0;}
+body.mode-nave #ship .gh-bounty::before{content:"TESORO";display:block;font:600 9px var(--scene-ui);letter-spacing:.19em;color:var(--scene-muted);margin-bottom:1px;}
+body.mode-nave #ship .gbtn{font-family:var(--scene-ui);font-size:11px;letter-spacing:.01em;border:1px solid var(--scene-edge);border-radius:999px;background:rgba(241,236,224,.045);color:var(--ink);box-shadow:none;padding:9px 14px;min-height:34px;}
+body.mode-nave #ship .gbtn:hover{background:rgba(241,236,224,.105);border-color:rgba(241,236,224,.18);box-shadow:none;}
+body.mode-nave #ship .gbtn.gold{background:var(--gold-soft);color:var(--paper);border-color:transparent;box-shadow:none;}
+body.mode-nave #ship .gbtn.sm{font-size:10px;min-height:28px;padding:5px 10px;}
+body.mode-nave #ship .g3{display:block;}
+body.mode-nave #ship .stage{display:flex;flex-direction:column;gap:0;min-width:0;min-height:0;padding:0;border:0;border-radius:0;background:radial-gradient(ellipse at 50% 30%,rgba(240,164,65,.055),transparent 57%);isolation:isolate;overflow:hidden;}
+body.mode-nave #ship .stage::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(6,6,7,.7),transparent 24%,transparent 76%,rgba(6,6,7,.7));pointer-events:none;}
+/* Una fascia di lettura, senza un pannello laterale dedicato. */
+ body.mode-nave #ship .scene-vitals{display:grid;grid-template-columns:minmax(180px,1fr) minmax(180px,1fr) minmax(330px,1.8fr);align-items:center;gap:32px;max-width:1160px;width:100%;margin:0 auto 28px;padding:16px 22px;border:0;border-radius:20px;background:rgba(241,236,224,.025);}
+body.mode-nave #ship .lbar{display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 12px;margin:0;}
+body.mode-nave #ship .lbar-k{grid-column:1;grid-row:1;font:600 10px var(--scene-ui);letter-spacing:.08em;color:var(--scene-muted);}
+body.mode-nave #ship .lbar-v{grid-column:2;grid-row:1;gap:2px;}
+body.mode-nave #ship .lbar-v input.num{width:40px!important;padding:0;border:0;border-radius:5px;background:none;font-family:var(--scene-display);font-size:20px;color:var(--scene-muted);line-height:1.2;}
+body.mode-nave #ship .lbar-v input.num:first-child{font-size:30px;font-weight:600;color:var(--ink);}
+body.mode-nave #ship .lbar-v .vsep{color:var(--scene-muted);font-size:12px;}
+body.mode-nave #ship .lbar-t{grid-column:1 / -1;grid-row:2;width:100%;height:4px;border:0;border-radius:10px;background:rgba(241,236,224,.09);}
+body.mode-nave #ship .lbar-f{border-radius:10px;box-shadow:none;}
+body.mode-nave #ship .lbar.pv .lbar-f{background:linear-gradient(90deg,var(--gold),var(--gold-soft));box-shadow:none;}
+body.mode-nave #ship .lbar.st .lbar-f{background:linear-gradient(90deg,rgba(241,236,224,.45),var(--ink));box-shadow:none;}
+body.mode-nave #ship .lmini{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:0;}
+body.mode-nave #ship .lm{border:0;border-radius:0;background:none;padding:0;text-align:center;}
+body.mode-nave #ship .lm-k{font:500 9px var(--scene-ui);letter-spacing:.08em;color:var(--scene-muted);}
+body.mode-nave #ship .lm-v{font-family:var(--scene-display);font-size:28px;font-weight:500;line-height:1;margin:5px 0 0;color:var(--ink);overflow-wrap:anywhere;}
+body.mode-nave #ship .stage-mid{display:grid;grid-template-columns:minmax(190px,230px) minmax(0,1fr) minmax(190px,230px);gap:28px;min-height:0;align-items:start;}
+body.mode-nave #ship .stage-mid>.slots{gap:8px;padding:10px 0 0;min-width:0;z-index:2;}
+body.mode-nave #ship .slots-h{font:600 10px var(--scene-ui);letter-spacing:.11em;text-transform:uppercase;color:var(--scene-muted);margin:22px 8px 4px;line-height:1.4;}
+body.mode-nave #ship .slots>.slots-h:first-child{margin-top:0;}
+/* Superfici tattili e morbide. I posti liberi non imitano card equipaggiate. */
+ body.mode-nave #ship .slot{position:relative;min-height:68px;padding:13px 14px;gap:12px;border:0;border-radius:18px;background:linear-gradient(135deg,rgba(241,236,224,.065),rgba(241,236,224,.023));box-shadow:inset 0 1px rgba(241,236,224,.045),0 8px 18px rgba(0,0,0,.12);}
+body.mode-nave #ship .slot-i{width:38px;height:38px;flex:none;}
+body.mode-nave #ship .slot-n{font:600 12px/1.4 var(--scene-ui);letter-spacing:0;white-space:normal;overflow-wrap:anywhere;color:var(--ink);}
+body.mode-nave #ship .slot-m{font:10px/1.55 var(--scene-ui);color:var(--scene-muted);white-space:normal;overflow-wrap:anywhere;margin-top:4px;}
+body.mode-nave #ship .slot-m b{font-weight:600;color:var(--ink);}
+body.mode-nave #ship .slot .pill{font:600 8px var(--scene-ui);letter-spacing:.03em;border:0;background:rgba(241,236,224,.08);color:var(--scene-muted);padding:3px 6px;}
+body.mode-nave #ship .slot .pill.warn{color:var(--gold-soft);}
+body.mode-nave #ship .slot.click:hover{background:rgba(241,236,224,.09);box-shadow:inset 0 1px rgba(241,236,224,.07),0 12px 20px rgba(0,0,0,.2);transform:translateY(-2px);}
+body.mode-nave #ship .slot.add{min-height:42px;padding:9px 12px;background:none;border:0;border-radius:14px;box-shadow:none;gap:10px;}
+body.mode-nave #ship .slot.add .slot-i{width:28px;height:28px;border-radius:50%;background:rgba(241,236,224,.06);color:var(--scene-muted);}
+body.mode-nave #ship .slot.add .slot-n{font-weight:500;font-size:11px;color:var(--scene-muted);}
+body.mode-nave #ship .slot.add:not(.lockd):hover{background:rgba(241,236,224,.045);color:var(--ink);border:0;box-shadow:none;}
+body.mode-nave #ship .stage-bag{border:0;border-radius:18px;min-height:72px;gap:12px;padding:12px 14px;background:rgba(241,236,224,.05);box-shadow:inset 0 1px rgba(241,236,224,.04);font:600 12px var(--scene-ui);color:var(--ink);}
+body.mode-nave #ship .stage-bag:hover{background:rgba(241,236,224,.09);border:0;box-shadow:none;transform:translateY(-2px);}
+body.mode-nave #ship .bag-n{background:var(--ink);color:var(--paper);border:0;}
+/* Un solo personaggio, senza una cornice da fotografia. */
+ body.mode-nave #ship .stage-fig{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:0;position:relative;isolation:isolate;padding:0;}
+body.mode-nave #ship .stage-fig::before{content:"";position:absolute;inset:4% 5% auto;height:62%;z-index:-1;border:0;border-radius:50%;background:radial-gradient(ellipse,rgba(240,164,65,.075),transparent 66%);pointer-events:none;}
+body.mode-nave #ship .stage-glow{position:absolute;top:48%;left:10%;width:80%;height:70px;z-index:-1;border:0;background:radial-gradient(ellipse,rgba(240,164,65,.13),transparent 67%);pointer-events:none;}
+body.mode-nave #ship .scene-race{font:500 22px var(--scene-display);letter-spacing:.15em;text-transform:uppercase;text-align:center;color:var(--ink);margin:3px 0 8px;}
+/* Quattro attributi all'interno della scena, con i controlli originali. */
+ body.mode-nave #ship .lpanel{width:100%;margin:26px 0 0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;}
+body.mode-nave #ship .lsec{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0;}
+body.mode-nave #ship .lsec-h{grid-column:1 / -1;gap:12px;margin:0 0 1px;}
+body.mode-nave #ship .lsec-h h3{font:500 22px var(--scene-display);letter-spacing:.09em;text-transform:uppercase;color:var(--ink);}
+body.mode-nave #ship .lsec-h .gbtn{font-size:9px;background:none;border:0;padding:3px 0;color:var(--scene-muted);}
+body.mode-nave #ship .lpanel .prow{min-width:0;display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:14px 0 0;border:0;border-top:1px solid var(--scene-edge);border-radius:0;background:none;}
+body.mode-nave #ship .lpanel .prl{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:center;gap:4px 8px;min-width:0;}
+body.mode-nave #ship .lpanel .prl>span:first-child{grid-column:1;grid-row:1 / 3;}
+body.mode-nave #ship .lpanel .dieic{width:44px;height:44px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3));}
+body.mode-nave #ship .lpanel .pgname{font:600 12px var(--scene-ui);letter-spacing:0;}
+body.mode-nave #ship .lpanel .pnext{font:9px/1.4 var(--scene-ui);color:var(--scene-muted);margin-top:3px;}
+body.mode-nave #ship .pnext b{color:var(--ink);font-weight:600;}
+body.mode-nave #ship .pnext i{color:var(--scene-muted);}
+body.mode-nave #ship .lpanel .prl>.step2{grid-column:2;grid-row:2;margin:2px 0 0;justify-self:start;}
+body.mode-nave #ship .step2.mini{gap:4px;}
+body.mode-nave #ship .step2.mini button{width:24px;height:24px;min-width:24px;font:500 12px var(--scene-ui);border:0;background:rgba(241,236,224,.07);color:var(--ink);border-radius:50%;box-shadow:none;}
+body.mode-nave #ship .step2.mini button:hover{border:0;background:rgba(241,236,224,.15);}
+body.mode-nave #ship .lpanel .prow-r{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:7px 4px;}
+body.mode-nave #ship .iconbtn{font-family:var(--scene-ui);color:var(--scene-muted);}
+body.mode-nave #ship .iconbtn:hover{color:var(--ink);}
+body.mode-nave #ship .rpanel{margin-top:32px;padding:24px 0 0;border:0;border-top:1px solid var(--scene-edge);border-radius:0;background:none;}
+body.mode-nave #ship .rpanel .gsec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 28px;margin:0;}
+body.mode-nave #ship .rpanel .gsec-h{grid-column:1 / -1;margin:0 0 6px;}
+body.mode-nave #ship .rpanel .prow{display:grid;grid-template-columns:minmax(0,1fr);min-width:0;gap:12px;padding:16px 0;border:0;border-bottom:1px solid var(--scene-edge);border-radius:0;background:none;}
+body.mode-nave #ship .rpanel .prl{gap:12px;}
+body.mode-nave #ship .rpanel .pgname{font:600 13px var(--scene-ui);letter-spacing:0;}
+body.mode-nave #ship .rpanel .pnext{font:11px/1.5 var(--scene-ui);color:var(--scene-muted);margin-top:4px;}
+body.mode-nave #ship .rpanel .prow-r{gap:6px;}
+body.mode-nave #ship input:focus{outline:1px solid rgba(255,211,148,.55);outline-offset:2px;box-shadow:none;border-color:transparent;}
+body.mode-nave #ship button:focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px;}
+body.mode-nave:has(#glc-bar.glc-bar-in) .wrap{padding-top:66px;}
+
+}
+@media screen and (min-width:1500px){
+body.mode-nave #ship .stage-mid{grid-template-columns:250px minmax(0,1fr) 250px;gap:38px;}
+body.mode-nave #ship .slot-n{font-size:13px;}
+body.mode-nave #ship .slot-m{font-size:11px;}
+
+}
+@media screen and (max-width:1180px){
+body.mode-nave .wrap{padding:20px 24px 44px;}
+body.mode-nave header.top{flex-wrap:wrap;gap:18px;}
+body.mode-nave #ship .stage-mid{grid-template-columns:195px minmax(0,1fr) 195px;gap:22px;}
+body.mode-nave #ship .scene-vitals{gap:24px;padding:16px 18px;grid-template-columns:minmax(155px,1fr) minmax(155px,1fr) minmax(280px,1.7fr);}
+body.mode-nave #ship .lpanel .lsec{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 20px;}
+body.mode-nave #ship .slot{padding:12px 11px;gap:9px;}
+body.mode-nave #ship .slot-n{font-size:11px;}
+body.mode-nave #ship .rpanel .gsec{grid-template-columns:repeat(2,minmax(0,1fr));}
+
+}
+@media screen and (max-width:980px){
+body.mode-nave #ship .scene-vitals{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px;max-width:680px;margin-bottom:24px;}
+body.mode-nave #ship .lmini{grid-column:1 / -1;gap:18px;margin-top:4px;}
+body.mode-nave #ship .stage-mid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 20px;}
+body.mode-nave #ship .stage-fig{grid-column:1 / -1;grid-row:1;max-width:640px;width:100%;justify-self:center;}
+body.mode-nave #ship .stage-mid>.slots{grid-column:1;grid-row:2;padding:0;}
+body.mode-nave #ship .stage-mid>.slots.right{grid-column:2;grid-row:2;}
+body.mode-nave #ship .lpanel .lsec{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;}
+body.mode-nave #ship .slot-n{font-size:12px;}
+body.mode-nave #ship .gh-bounty{font-size:28px;}
+
+}
+@media screen and (max-width:600px){
+body.mode-nave .wrap{padding:18px 16px 36px;}
+body.mode-nave header.top{padding-bottom:16px;gap:16px;}
+body.mode-nave header.top h1{font-size:22px;letter-spacing:.12em;}
+body.mode-nave header.top .cb-sel{flex:1;min-width:115px;max-width:none;}
+body.mode-nave header.top .cb-link{flex-basis:100%;margin:5px 0 0;font-size:10px;}
+body.mode-nave .layout{margin-top:22px;}
+body.mode-nave #ship .gtop{gap:20px;margin-bottom:22px;}
+body.mode-nave #ship .gt-l{flex-basis:100%;}
+body.mode-nave #ship .gh-name{font-size:55px;}
+body.mode-nave #ship .gt-r{justify-content:flex-start;gap:6px;width:100%;}
+body.mode-nave #ship .gh-bounty{flex:1 0 100%;margin:0 0 5px;font-size:27px;}
+body.mode-nave #ship .gt-r>.gbtn{flex:1;font-size:10px;padding:9px 10px;}
+body.mode-nave #ship .scene-vitals{gap:16px;padding:14px;border-radius:18px;}
+body.mode-nave #ship .lbar{gap:5px 6px;grid-template-columns:minmax(0,1fr);}
+body.mode-nave #ship .lbar-k{grid-column:1;grid-row:1;font-size:9px;}
+body.mode-nave #ship .lbar-v{grid-column:1;grid-row:2;justify-content:flex-start;}
+body.mode-nave #ship .lbar-t{grid-column:1;grid-row:3;}
+body.mode-nave #ship .lm-k{font-size:8px;letter-spacing:.03em;}
+body.mode-nave #ship .lm-v{font-size:25px;}
+body.mode-nave #ship .lmini{gap:8px;}
+body.mode-nave #ship .lpanel .lsec{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 22px;}
+body.mode-nave #ship .lpanel .prow{gap:12px;padding-top:16px;}
+body.mode-nave #ship .lpanel .prl{grid-template-columns:50px minmax(0,1fr);}
+body.mode-nave #ship .lpanel .dieic{width:50px;height:50px;}
+body.mode-nave #ship .step2.mini button{width:28px;height:28px;min-width:28px;}
+body.mode-nave #ship .stage-mid{gap:28px 14px;}
+body.mode-nave #ship .slots-h{font-size:9px;letter-spacing:.05em;margin-left:4px;}
+body.mode-nave #ship .slot{border-radius:15px;gap:8px;padding:12px 9px;}
+body.mode-nave #ship .slot-i{width:30px;height:30px;}
+body.mode-nave #ship .slot-i .dieic{width:30px;height:30px;}
+body.mode-nave #ship .slot-n{font-size:11px;}
+body.mode-nave #ship .slot-m{font-size:9px;}
+body.mode-nave #ship .stage-bag{flex-wrap:wrap;padding:12px;border-radius:15px;}
+body.mode-nave #ship .rpanel .gsec{grid-template-columns:minmax(0,1fr);}
+
+}
+@media screen and (max-width:360px){
+body.mode-nave .wrap{padding-left:12px;padding-right:12px;}
+body.mode-nave #ship .gh-name{font-size:48px;}
+body.mode-nave #ship .stage-mid{grid-template-columns:minmax(0,1fr);}
+body.mode-nave #ship .stage-mid>.slots.right{grid-column:1;grid-row:3;}
+body.mode-nave #ship .lpanel .lsec{gap:14px;}
+body.mode-nave #ship .lpanel .prl{grid-template-columns:42px minmax(0,1fr);gap:4px 6px;}
+body.mode-nave #ship .lpanel .dieic{width:42px;height:42px;}
+body.mode-nave #ship .slot-n{font-size:12px;}
+
+}
+@media (prefers-reduced-motion:reduce){
+body.mode-nave #ship,body.mode-nave #ship *,body.mode-nave #ship *::before,body.mode-nave #ship *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+body.mode-nave>.flyico{animation:none!important;transition:none!important;}
+
+}
+
+
+/* --- pezzi che esistono solo sulla nave --- */
+@media screen {
+ body.mode-nave #ship .stations{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;}
+ body.mode-nave #ship .mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;}
+ body.mode-nave #ship .matgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px;}
+ body.mode-nave #ship .mattile{border:0;border-radius:14px;background:rgba(241,236,224,.045);padding:11px 9px 9px;}
+ body.mode-nave #ship .mattile .mt-n{font:600 10px var(--scene-ui);letter-spacing:.07em;text-transform:uppercase;color:var(--scene-muted);}
+ body.mode-nave #ship .mattile .mt-q{font-family:var(--scene-display);font-size:24px;line-height:1;color:var(--ink);}
+ body.mode-nave #ship .chip{font:600 10px var(--scene-ui);letter-spacing:.08em;text-transform:uppercase;border:0;border-radius:999px;background:rgba(241,236,224,.05);color:var(--scene-muted);padding:8px 13px;cursor:pointer;}
+ body.mode-nave #ship .chip:hover{background:rgba(241,236,224,.1);color:var(--ink);}
+ body.mode-nave #ship .chip.broken{background:rgba(226,49,49,.16);color:#ffb3a7;text-decoration:line-through;}
+ body.mode-nave #ship .condizione{display:inline-flex;align-items:center;gap:7px;font:600 10px var(--scene-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--scene-muted);}
+ body.mode-nave #ship .condizione i{width:8px;height:8px;border-radius:50%;background:currentColor;}
+ body.mode-nave #ship .stagenote{font:400 12px var(--scene-ui);color:var(--scene-muted);line-height:1.5;margin:14px 8px 0;}
+ body.mode-nave #ship .row{display:flex;flex-wrap:wrap;gap:7px;}
+ body.mode-nave #ship .stat{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:8px 0;}
+ body.mode-nave #ship .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;}
+ body.mode-nave #ship .txt{font-family:var(--scene-ui);font-size:13px;color:var(--ink);background:rgba(241,236,224,.05);border:0;border-radius:12px;padding:10px 13px;width:100%;}
+ body.mode-nave #ship .txt:focus{outline:2px solid rgba(240,164,65,.45);}
+ body.mode-nave #ship textarea.txt{min-height:90px;resize:vertical;}
+ body.mode-nave .shipsbar{justify-content:flex-end;gap:8px;margin:0;font-family:'Manrope',sans-serif;}
+ body.mode-nave .shipsbar .sb-label{display:none;}
+ body.mode-nave .shipsbar .sb-sel{font-family:'Manrope',sans-serif;font-size:12px;min-width:150px;max-width:220px;padding:9px 14px;background:rgba(241,236,224,.055);border:0;border-radius:999px;color:var(--ink);}
+ body.mode-nave .shipsbar .sb-btn{font-family:'Manrope',sans-serif;font-size:11px;letter-spacing:0;border:0;border-radius:999px;background:rgba(241,236,224,.045);padding:9px 12px;color:var(--ink);cursor:pointer;}
+ body.mode-nave .shipsbar .sb-btn:hover{background:rgba(241,236,224,.12);}
+ body.mode-nave .shipsbar .sb-link{font-family:'Manrope',sans-serif;font-size:11px;color:var(--ink-soft);margin-left:8px;border:0;}
+ body.mode-nave .note-foot{font:400 12px var(--scene-ui);color:var(--scene-muted);text-align:center;margin-top:40px;}
+ /* La barra delle azioni resta nascosta dal foglio di base e riappare dentro
+    la finestra «Azioni»: non va toccata qui. */
+}
+
+/* --- colonna di destra: schede di manovra, cantiere e diario --- */
+@media screen {
+ body.mode-nave #ship .gtabs{border:0;gap:6px;margin:0 0 18px;}
+ body.mode-nave #ship .gtab{font:600 11px var(--scene-ui);letter-spacing:.06em;text-transform:uppercase;border:0;border-radius:999px;background:rgba(241,236,224,.045);color:var(--scene-muted);padding:9px 15px;}
+ body.mode-nave #ship .gtab:hover{background:rgba(241,236,224,.1);color:var(--ink);}
+ body.mode-nave #ship .gtab.on{background:linear-gradient(180deg,#ffd394,#f0a441);color:#1b1206;border:0;}
+ body.mode-nave #ship .gsec{margin-bottom:26px;}
+ body.mode-nave #ship .gsec-h{margin-bottom:10px;}
+ body.mode-nave #ship .gsec-h h3,body.mode-nave #ship .gsec-h h4{font-family:var(--scene-display);font-size:24px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);}
+ body.mode-nave #ship .gcards{gap:9px;}
+ body.mode-nave #ship .gcards.one{grid-template-columns:1fr;}
+ body.mode-nave #ship .gcard{border:0;border-radius:18px;background:rgba(241,236,224,.04);box-shadow:none;padding:13px 15px;gap:13px;align-items:center;}
+ body.mode-nave #ship .gcard.click:hover{background:rgba(241,236,224,.085);border:0;transform:translateY(-1px);}
+ body.mode-nave #ship .gcard.add{border:0;background:rgba(241,236,224,.025);}
+ body.mode-nave #ship .gc-ico{width:42px;height:42px;background:none;border:0;box-shadow:none;}
+ body.mode-nave #ship .gc-n{font-family:var(--scene-display);font-size:19px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;line-height:1.05;}
+ body.mode-nave #ship .gc-m{font:500 11.5px var(--scene-ui);color:var(--scene-muted);margin-top:3px;line-height:1.45;}
+ body.mode-nave #ship .gc-d{font:400 12px var(--scene-ui);color:rgba(241,236,224,.76);margin-top:5px;line-height:1.5;}
+ body.mode-nave #ship .sub{font:400 12px var(--scene-ui);color:var(--scene-muted);line-height:1.5;}
+}
+
+/* --- ultimi ritocchi della testata --- */
+@media screen {
+ body.mode-nave header.top .wheel{display:none;}
+ body.mode-nave #ship .gh-pills{align-items:center;}
+}

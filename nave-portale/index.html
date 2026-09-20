@@ -9,6 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/glc-theme.css">
 <link rel="stylesheet" href="/glc-ui.css">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="scena-nave.css?v=4">
 <script src="/glc-ui.js"></script>
 <style>
 :root{--ink:#f1ece0;--ink-soft:#a69a86;--red:#e23131;--red-br:#ff5240;--gold:#f0a441;--gold-2:#ffd394;--paper:#15121a;--paper-2:#1a1622;--line:rgba(240,164,65,.22);--sea:#3d6a8f;--shadow:rgba(0,0,0,.40);--ok:#7fc796;--warn:#e0b84e;--bad:#e23131;}
@@ -166,7 +168,7 @@ textarea.txt{resize:vertical;min-height:60px;line-height:1.45;}
 <script>window.GLC={saveKey:"glc_nave_v1",gate:true,profileUrl:"/profilo/"};</script>
 <script src="/glc-auth.js"></script>
 </head>
-<body>
+<body class="mode-nave">
   <div class="glc-topbar"><a class="glc-brand" href="/"><span class="glc-anc">⚓</span><span class="glc-bnm">Grand Line Chronicles</span></a><a class="glc-home" href="/">‹ Torna al porto</a></div>
 <div class="wrap">
   <header class="top">
@@ -342,13 +344,28 @@ function renderShip(){
  const [cn,col]=condition();
  /* testata */
  const top=mkEl("div",{class:"gtop"});
- const tl=mkEl("div",{class:"gt-l"});tl.appendChild(mkEl("div",{class:"gh-name",text:shipLabel(S)}));
- const pills=mkEl("div",{class:"gh-pills"});if(S.tipo)pills.appendChild(mkEl("span",{class:"pill",text:S.tipo}));if(S.polena)pills.appendChild(mkEl("span",{class:"pill",text:"Polena: "+S.polena}));if(S.legno)pills.appendChild(mkEl("span",{class:"pill",text:S.legno}));pills.appendChild(mkEl("span",{class:"pill cond",style:"border-color:"+col+";color:#fff;background:"+col,text:cn}));tl.appendChild(pills);top.appendChild(tl);
+ const tl=mkEl("div",{class:"gt-l"});
+ tl.appendChild(mkEl("p",{class:"scene-eyebrow",text:"Plancia di comando"}));
+ tl.appendChild(mkEl("div",{class:"gh-name",text:shipLabel(S)}));
+ const pills=mkEl("div",{class:"gh-pills"});if(S.tipo)pills.appendChild(mkEl("span",{class:"pill",text:S.tipo}));if(S.polena)pills.appendChild(mkEl("span",{class:"pill",text:"Polena: "+S.polena}));if(S.legno)pills.appendChild(mkEl("span",{class:"pill",text:S.legno}));pills.appendChild(mkEl("span",{class:"condizione",style:"color:"+col},[mkEl("i",{}),mkEl("span",{text:cn})]));tl.appendChild(pills);top.appendChild(tl);
  const tr=mkEl("div",{class:"gt-r"});tr.appendChild(mkEl("div",{class:"gh-bounty",html:"฿ "+(S.berry||0).toLocaleString("it-IT")}));tr.appendChild(mkEl("button",{class:"gbtn",text:"✎ Identità",onclick:identityModal}));tr.appendChild(mkEl("button",{class:"gbtn",text:"☰ Azioni",onclick:actionsModal}));top.appendChild(tr);
  root.appendChild(top);
+ /* I numeri che si guardano di continuo, in chiaro sotto la testata. */
+ {const mini=mkEl("div",{class:"lmini"});
+  const voce=(k,v)=>mini.appendChild(mkEl("div",{class:"lm"},[mkEl("div",{class:"lm-k",text:k}),mkEl("div",{class:"lm-v",html:v})]));
+  voce("Punti Struttura",(S.psCur||0)+" / "+psMax());
+  voce("Slot moduli",slotsUsed()+" / "+slotsTot());
+  const equipaggio=STATIONS.filter(st=>{const c=S.crew[st.key]||{};return (c.nome&&c.nome.trim())||(c.attr&&c.attr!=="\u2014");}).length;
+  voce("Postazioni",equipaggio+" / "+STATIONS.length);
+  const scorte=MATERIALS.reduce((n,m)=>n+(Number(S.magazzino[m.id])||0),0);
+  voce("Materiali in stiva",String(scorte));
+  root.appendChild(mini);}
  const g3=mkEl("div",{class:"g3"});root.appendChild(g3);
  /* ---- sinistra: scheda della nave ---- */
- const L=mkEl("div",{class:"lpanel"});g3.appendChild(L);
+ /* Nuovo ordine: prima il ponte con l'equipaggio, poi la scheda tecnica, in
+    fondo le manovre. La colonna unica è la stessa scelta della scheda del
+    pirata. */
+ const L=mkEl("div",{class:"lpanel"});
  {const mx=psMax();const pct=Math.max(0,Math.min(100,S.psCur/mx*100));const bar=mkEl("div",{class:"lbar pv"},[mkEl("div",{class:"lbar-k",text:"Punti Struttura"}),mkEl("div",{class:"lbar-t"},[mkEl("div",{class:"lbar-f",style:"width:"+pct+"%;background:"+col})]),mkEl("div",{class:"lbar-v"})]);const v=bar.querySelector(".lbar-v");const inp=mkEl("input",{class:"txt num",type:"number",value:S.psCur});inp.oninput=()=>{S.psCur=Math.max(0,Math.min(mx,parseInt(inp.value)||0));save();bar.querySelector(".lbar-f").style.width=Math.max(0,Math.min(100,S.psCur/mx*100))+"%";};v.appendChild(mkEl("button",{class:"pabtn",text:"−",onclick:()=>{S.psCur=Math.max(0,S.psCur-1);save();renderShip();}}));v.appendChild(inp);v.appendChild(mkEl("span",{class:"vsep",text:"/ "+mx}));v.appendChild(mkEl("button",{class:"pabtn",text:"+",onclick:()=>{S.psCur=Math.min(mx,S.psCur+1);save();renderShip();}}));L.appendChild(bar);L.appendChild(mkEl("div",{class:"condline",html:"Condizione: <b style='color:"+col+"'>"+cn+"</b> · integra >75% · danneggiata >50% · grave >25% · critica"}));}
  const ls=mkEl("div",{class:"lsec"});ls.appendChild(mkEl("div",{class:"lsec-h"},[mkEl("h3",{text:"Statistiche"}),mkEl("span",{class:"sub",text:"salgono al Cantiere"})]));
  STAT_DEFS.forEach(([k,nm,desc])=>{const die=S.stats[k];const der=k==="scafo"?("PS massimi <b>"+psMax()+"</b>"):(k==="struttura"?("Slot <b>"+slotsTot()+"</b> · usati "+slotsUsed()):"");const row=mkEl("div",{class:"prow"},[mkEl("div",{class:"prl"},[mkEl("span",{html:dieIcon(die,42)}),mkEl("div",{style:"min-width:0"},[mkEl("div",{class:"pgname",text:nm}),mkEl("div",{class:"pnext",html:desc+(der?(" · "+der):"")})]),mkEl("span",{class:"step2 mini"},[mkEl("button",{text:"−",onclick:()=>stepShip(k,-1)}),mkEl("button",{text:"+",onclick:()=>stepShip(k,1)})])])]);ls.appendChild(row);});
@@ -365,6 +382,7 @@ function renderShip(){
  C.appendChild(mkEl("div",{class:"slots-h",html:"Danni · in Critica un d6 decide cosa si rompe"}));
  const chips=mkEl("div",{class:"row"});DESTRUCT.forEach((d,i)=>{chips.appendChild(mkEl("span",{class:"chip"+(S.distrutti[d.key]?" broken":""),title:d.eff,text:(i+1)+" · "+d.nome,onclick:()=>{toggleDestruct(d.key);renderShip();}}));});C.appendChild(chips);
  /* ---- destra ---- */
+ g3.appendChild(L);
  const R=mkEl("div",{class:"rpanel"});g3.appendChild(R);
  const rt=mkEl("div",{class:"gtabs"});["Battaglia","Cantiere","Diario"].forEach(k=>rt.appendChild(mkEl("button",{class:"gtab"+(RTAB===k?" on":""),text:k,onclick:()=>{RTAB=k;renderShip();}})));R.appendChild(rt);
  if(RTAB==="Battaglia"){
