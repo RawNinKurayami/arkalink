@@ -139,7 +139,7 @@ function sources() {
    if(owned(t.n)||owned(alias))out.push({id:t.smcId,kind:'talent',fruit:true,name:t.n,alias,raw:t,meta:talentMeta(t.smc||META[f.tipo+'|'+alias],t.d),branch:f.tipo,unlocked:dieRank(f.die)>=dieRank(t.tier||'d4')&&(!t.req||owned(t.req)),desc:t.d,icon:'fruit',emblem:'frutto',subtitle:f.tipo+' · '+t.tier});
   });
  }
- list(pg.haki).forEach(h=>{if(h&&hakiUnlocked(h).length)out.push({id:'haki:'+(h.smcId||h.name)+':'+HAKI_NAMES.indexOf(h.name),kind:'haki',name:h.name,raw:h,desc:'',icon:h.name===HAKI_NAMES[0]?'fist':h.name===HAKI_NAMES[1]?'eye':'crown',subtitle:h.die});});
+ list(pg.haki).forEach(h=>{if(h&&hakiUnlocked(h).length)out.push({id:'haki:'+(h.smcId||h.name)+':'+HAKI_NAMES.indexOf(h.name),kind:'haki',name:h.name,raw:h,desc:'',icon:h.name===HAKI_NAMES[0]?'fist':h.name===HAKI_NAMES[1]?'eye':'crown',subtitle:hakiGrade(h)});});
  list(pg.armi).forEach(a=>out.push({id:'weapon:'+a.id,kind:'weapon',name:a.nome||'Arma senza nome',raw:a,icon:WEAPON_ICO[a.tipo]||'sword',desc:a.eff?.desc||'',subtitle:a.tipo+' · '+a.grado}));
  list(pg.moduli).forEach(m=>out.push({id:'module:'+m.id,kind:'module',name:m.nome||'Modulo senza nome',raw:m,icon:'gear',desc:[m.funzione,m.eff?.testo,m.eff?.cond,m.eff?.limiti,m.effLegacy].filter(Boolean).join('\n'),subtitle:modStateLabel(m).t||m.stato}));
  return out.filter((s,i,a)=>s.id&&a.findIndex(x=>x.id===s.id)===i);
@@ -189,7 +189,7 @@ function techniqueProblems(s) {
  return uniq(errors);
 }
 function hakiState(s) {
- const max=Math.min(hakiPip(s.raw.die),HAKI_PROG[s.name]?.max||5);
+ const max=hakiPipAxis(s.raw)?hakiPipOf(s.raw):Math.min(hakiPip(s.raw.die),HAKI_PROG[s.name]?.max||5);
  const v=pg.specialMoveSession?.haki?.[s.id]||{};
  return {active:v.active===true,pipRemaining:Math.max(0,Math.min(max,number(v.pipRemaining,max))),turns:Math.max(0,number(v.turns,0)),max};
 }

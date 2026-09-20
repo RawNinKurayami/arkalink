@@ -1518,7 +1518,7 @@ body.has-bld{overflow:hidden;}
 
 <div id="print-sheet" aria-hidden="true"></div>
 
-<script src="special-moves.js?v=3"></script>
+<script src="special-moves.js?v=4"></script>
 <script src="signature-builder.js?v=1"></script>
 <script src="equipment-builder.js?v=1"></script>
 <script src="dossiers.js?v=1"></script>
@@ -2637,23 +2637,31 @@ const HAKI_PROG={
 {k:3,liv:"Assoluto",pass:"Dominio del campo: a inizio combattimento dimezzi i PV di tutti i PNG minori (arr. per difetto), istantaneo.",act:"Haki del Re Ryou: rivesti un attacco fisico — ignora ogni protezione e tiri due volte tenendo il più alto.",cost:2}
 ]}
 };
+/* L'Haki del Re non ha dado: o lo hai o non lo hai, e sale a PIP (max 3). */
+function hakiPipAxis(h){return HAKI_PROG[h&&h.name]?.axis==="pip";}
+function hakiMaxPip(h){return HAKI_PROG[h&&h.name]?.max||5;}
+/* d20+d4, d20+d6 … restano livello Mitico: la base è sempre il d20. */
+function hakiBaseDie(die){return String(die||"").replace(/\+.*/,"");}
+function hakiPipOf(h){return hakiPipAxis(h)?Math.max(0,Math.min(hakiMaxPip(h),parseInt(h&&h.pip)||0)):hakiPip(h&&h.die);}
+function hakiLevel(h){const u=hakiUnlocked(h);return u.length?u[u.length-1].liv:"";}
+function hakiGrade(h){return hakiPipAxis(h)?(hakiPipOf(h)+" PIP"):(h&&h.die||"—");}
 function hakiPanel(h){
  const prog=HAKI_PROG[h.name];if(!prog)return null;
  const order=["d6","d8","d10","d12","d20"];
  const box=el("div",{class:"talpanel"});
  let head=h.name;
- if(prog.axis==="die"){const ci=order.indexOf(h.die);head+=(ci>=0?(" · "+prog.rows[ci].liv+" ("+h.die+") · PIP "+(ci+1)+"/5"):" · sotto il livello base (d6)");}
- else head+=" · sale con i PIP (max "+prog.max+")";
+ if(prog.axis==="die"){const ci=order.indexOf(hakiBaseDie(h.die));head+=(ci>=0?(" · "+prog.rows[ci].liv+" ("+h.die+") · PIP "+(ci+1)+"/5"):" · sotto il livello base (d6)");}
+ else head+=" · "+hakiPipOf(h)+" PIP su "+prog.max+(hakiLevel(h)?(" · "+hakiLevel(h)):"");
  box.appendChild(el("div",{class:"talhead",text:head}));
- const ci=(prog.axis==="die")?order.indexOf(h.die):-1;
+ const ci=(prog.axis==="die")?order.indexOf(hakiBaseDie(h.die)):-1;
  prog.rows.forEach((r,i)=>{
   const die=(prog.axis==="die");
-  const on=die&&i<=ci;
+  const on=die?i<=ci:hakiPipOf(h)>=r.k;
   const tag=die?r.k:(r.k+" PIP");
   let html="<b>"+r.liv+"</b> <span class='ttag'>"+tag+"</span><br>🔒 "+r.pass;
   if(r.act)html+="<br><span style='color:#8a6a1e'>⚡ "+r.act+"</span> <span class='ttag'>"+r.cost+" PIP</span>";
   const row=el("div",{class:"talrow"+(on?" on":"")},[el("span",{class:"talname",html:html})]);
-  if(die&&!on)row.style.opacity=".4";
+  if(!on)row.style.opacity=".4";
   box.appendChild(row);
  });
  return box;
@@ -2712,7 +2720,9 @@ function migrateChar(c){c=Object.assign(blank(),c||{});if(c.role){const MAP={"Me
  });}
  if(c.frutto&&!c.frutto.die)c.frutto.die="d4";
  if(!c.photoPos||typeof c.photoPos!=="object")c.photoPos={x:50,y:50,z:1};
- if(Array.isArray(c.haki))c.haki.forEach(function(h){if(h&&h.die)h.pip=hakiPip(h.die);});
+ if(Array.isArray(c.haki))c.haki.forEach(function(h){if(!h)return;
+  if(hakiPipAxis(h)){h.die="";h.pip=Math.max(1,Math.min(hakiMaxPip(h),parseInt(h.pip)||1));}
+  else if(h.die)h.pip=hakiPip(h.die);});
  if(Array.isArray(c.bonds))c.bonds.forEach(function(b){if(b&&!b.die){var n=parseInt(b.pip)||0;b.die=n<=0?"d4":(["d4","d4","d6","d8","d10","d12"][n]||"d20");}});
  if(Array.isArray(c.strumenti))c.strumenti.forEach(function(a){if(a&&!a.tipo)a.tipo="Corde";});
  if(!Array.isArray(c.inventario))c.inventario=[];
@@ -3224,7 +3234,10 @@ function extraTechModal(i){openModal("✦ "+(pg.extraTech[i]&&pg.extraTech[i].no
  w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✎ Modifica nel Signature Move Builder",onclick:()=>{TBUILD={nome:t.nome,attr:t.attr,fonte:t.fonte||"Stile",stile:t.stile||"",forma:t.forma||"Singolo",die:t.die||"d6",durata:t.durata||"Un turno",eff:(t.eff||[]).slice(),desc:t.desc||"",_open:[],_fam:"",_id:t.id||null,fruitType:t.fruitType||"",arma:t.arma||"",modulo:t.modulo||""};closeModal();builderModal();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare questa tecnica?")){closeModal();mutate(()=>pg.extraTech.splice(i,1));}}})]));if(window.GLCDetails)GLCDetails.prepare(w,"signature",t);return w;});}
 /* paRow usato dentro le modali: dopo ogni tocco ridisegna anche la modale */
 function paRowM(key,getDie,setDie){const r=paRow(key,getDie,setDie);r.querySelectorAll("button").forEach(b=>{const f=b.onclick;if(f)b.onclick=()=>{f();refreshModal();};});return r;}
-function hakiModal(i){openModal(hakiIcon(pg.haki[i],26)+" Haki",()=>{const h=pg.haki[i];if(!h)return el("div");const w=el("div",{});w.appendChild(el("label",{class:"fld",text:"Tipo"}));const sel=el("select",{},HAKI_NAMES.map(n=>{const o=el("option",{value:n,text:n});if(n!==h.name&&pg.haki.some(x=>x!==h&&x.name===n)){o.disabled=true;o.textContent=n+" (già risvegliato)";}return o;}));sel.value=h.name;sel.onchange=()=>mutateM(()=>h.name=sel.value);w.appendChild(sel);w.appendChild(el("label",{class:"fld",text:"Dado · PIP"}));w.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",html:"<b style='color:#ffd394;font-size:16px'>"+hakiPip(h.die)+"</b> PIP · seguono il dado: d6 = 1, d8 = 2, d10 = 3, d12 = 4, d20 = 5"}),stepper(h.die,nd=>mutateM(()=>{h.die=nd;h.pip=hakiPip(nd);}))]));const hp=hakiPanel(h);if(hp)w.appendChild(hp);w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{closeModal();mutate(()=>pg.haki.splice(i,1));}})]));return w;});}
+function hakiModal(i){openModal(hakiIcon(pg.haki[i],26)+" Haki",()=>{const h=pg.haki[i];if(!h)return el("div");const w=el("div",{});w.appendChild(el("label",{class:"fld",text:"Tipo"}));const sel=el("select",{},HAKI_NAMES.map(n=>{const o=el("option",{value:n,text:n});if(n!==h.name&&pg.haki.some(x=>x!==h&&x.name===n)){o.disabled=true;o.textContent=n+" (già risvegliato)";}return o;}));sel.value=h.name;sel.onchange=()=>mutateM(()=>{h.name=sel.value;if(hakiPipAxis(h)){h.die="";h.pip=Math.max(1,Math.min(hakiMaxPip(h),parseInt(h.pip)||1));}else if(!h.die){h.die="d6";h.pip=hakiPip("d6");}});w.appendChild(sel);if(hakiPipAxis(h)){const mx=hakiMaxPip(h);w.appendChild(el("label",{class:"fld",text:"PIP"}));
+ w.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",html:"<b style='color:#ffd394;font-size:16px'>"+hakiPipOf(h)+"</b> PIP su "+mx+" · niente dado: o lo hai o non lo hai. Ogni PIP apre il livello corrispondente."}),
+  el("span",{class:"step2"},[el("button",{text:"−",onclick:()=>mutateM(()=>{h.die="";h.pip=Math.max(1,hakiPipOf(h)-1);})}),el("b",{text:hakiPipOf(h)+" PIP"}),el("button",{text:"+",onclick:()=>mutateM(()=>{h.die="";h.pip=Math.min(mx,hakiPipOf(h)+1);})})])]));
+}else{w.appendChild(el("label",{class:"fld",text:"Dado · PIP"}));w.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",html:"<b style='color:#ffd394;font-size:16px'>"+hakiPip(h.die)+"</b> PIP · seguono il dado: d6 = 1, d8 = 2, d10 = 3, d12 = 4, d20 = 5"}),stepper(h.die,nd=>mutateM(()=>{h.die=nd;h.pip=hakiPip(nd);}))]));}const hp=hakiPanel(h);if(hp)w.appendChild(hp);w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{closeModal();mutate(()=>pg.haki.splice(i,1));}})]));return w;});}
 function fruitModal(){openModal(imgIcon("frutto",26)+" Frutto del Diavolo",()=>{const w=el("div",{});const f=pg.frutto;w.appendChild(field("Nome del Frutto",f.nome,v=>{f.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Tipo"}));const ts=el("select",{},[el("option",{value:"",text:"— scegli il tipo —"})].concat(["Paramecia","Logia","Zoan"].map(x=>el("option",{value:x,text:x}))));ts.value=f.tipo;ts.onchange=()=>mutateM(()=>f.tipo=ts.value);w.appendChild(ts);w.appendChild(el("label",{class:"fld",text:"Dado del Frutto"}));const fds=el("select",{},["d4","d6","d8","d10","d12","d20"].map(x=>el("option",{value:x,text:x+" · "+({d4:"Appena ingoiato",d6:"Ci hai preso la mano",d8:"Controllo",d10:"Padronanza",d12:"Maestria",d20:"Vetta"}[x])})));fds.value=f.die||"d4";fds.onchange=()=>mutateM(()=>f.die=fds.value);w.appendChild(fds);w.appendChild(el("div",{class:"sub",style:"margin-top:3px",html:"Misura quanto <b>padroneggi</b> il potere. <b>Lo alza il Game Master, non i P.A.</b> Le Tecniche di fonte Frutto non possono superarlo."}));w.appendChild(field("Descrizione / potere",f.desc,v=>{f.desc=v;save();}));w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Rimuovi il Frutto",onclick:()=>{if(confirm("Il pirata non ha più il Frutto?")){closeModal();mutate(()=>pg.frutto.has=false);}}})]));return w;});}
 function skillPickerModal(){openModal("✦ Aggiungi una Skill (parte a d4)",()=>{const ro=roleObj();const avail=Object.keys(SKILLS).filter(s=>!(ro&&s===ro.skill)&&!(s in pg.skills));const g=el("div",{class:"classgrid"});avail.forEach(s=>{const o=el("div",{class:"classopt"},[el("div",{class:"co-n",text:s}),el("div",{class:"co-s",text:SKILLS[s]})]);o.onclick=()=>{closeModal();mutate(()=>pg.skills[s]="d4");};g.appendChild(o);});return g;},{wide:true});}
 function thresholdsModal(){openModal("⚙ Soglie P.A.",()=>{const w=el("div",{});w.appendChild(el("div",{class:"sub",html:"Quanti <b>P.A.</b> servono per salire di un gradino. Valgono per Attributi, Skill e Tecniche. I valori di partenza sono esempi: il GM li adatta alla durata della campagna (soglie basse = crescita rapida)."}));w.appendChild(el("div",{class:"addrow",style:"margin-top:8px"},[el("button",{class:"gbtn sm",text:"↺ Valori del manuale (10 · 25 · 60 · 150 · 400)",onclick:()=>{pg.paThresh=Object.assign({},PA_THRESH);save();refreshModal();}})]));const tg=el("div",{style:"display:flex;flex-wrap:wrap;gap:10px;margin-top:8px"});[["d4","d4→d6"],["d6","d6→d8"],["d8","d8→d10"],["d10","d10→d12"],["d12","d12→d20"]].forEach(([dk,lab])=>{const cur=(pg.paThresh&&pg.paThresh[dk]!=null)?pg.paThresh[dk]:PA_THRESH[dk];const c=el("div",{style:"text-align:center"});c.appendChild(el("label",{class:"fld",style:"font-size:10px;margin:0",text:lab}));const inp=el("input",{class:"num",inputmode:"numeric",style:"width:70px"});inp.value=cur;inp.oninput=()=>{if(!pg.paThresh)pg.paThresh=Object.assign({},PA_THRESH);pg.paThresh[dk]=inp.value.replace(/[^0-9]/g,"");save();};c.appendChild(inp);tg.appendChild(c);});w.appendChild(tg);w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}})]));return w;});}
@@ -3745,7 +3758,7 @@ function renderManage(){
   if(used<S.n)eq.appendChild(slotAdd("Slot libero · Officina",officinaModal));
   else eq.appendChild(el("div",{class:"slot add",onclick:officinaModal},[el("div",{class:"slot-i",html:'<span class="gc-em">'+svgIcon("gear",20)+"</span>"}),el("div",{class:"slot-b"},[el("div",{class:"slot-n",text:"Officina"})])]));
  }}
- {eq.appendChild(el("div",{class:"slots-h",text:"Haki"}));pg.haki.forEach((h,i)=>{const unl=hakiUnlocked(h);const liv=unl.length?unl[unl.length-1].liv:"";eq.appendChild(slotTile(null,h.name.replace("Haki ",""),"<b>"+(h.die||"—")+"</b> · "+(h.pip||0)+" PIP"+(liv?(" · "+liv):""),()=>hakiModal(i),"img:"+(IMG_ICON[h.name]||"haki-armamento")));});const hakiFree=HAKI_NAMES.filter(n=>!pg.haki.some(h=>h.name===n));if(hakiFree.length)eq.appendChild(slotAdd("Risveglia Haki",()=>{const nm=hakiFree[0];mutate(()=>pg.haki.push({name:nm,die:"d6",pip:hakiPip("d6")}));flyIn(imgIcon(IMG_ICON[nm],120),()=>byText(".slots .slot-n",nm.replace("Haki ","")));setTimeout(()=>hakiModal(pg.haki.length-1),950);}));}
+ {eq.appendChild(el("div",{class:"slots-h",text:"Haki"}));pg.haki.forEach((h,i)=>{const liv=hakiLevel(h);eq.appendChild(slotTile(null,h.name.replace("Haki ",""),(hakiPipAxis(h)?("<b>"+hakiPipOf(h)+" PIP</b>"):("<b>"+(h.die||"—")+"</b> · "+hakiPipOf(h)+" PIP"))+(liv?(" · "+liv):""),()=>hakiModal(i),"img:"+(IMG_ICON[h.name]||"haki-armamento")));});const hakiFree=HAKI_NAMES.filter(n=>!pg.haki.some(h=>h.name===n));if(hakiFree.length)eq.appendChild(slotAdd("Risveglia Haki",()=>{const nm=hakiFree[0];mutate(()=>pg.haki.push(HAKI_PROG[nm]?.axis==="pip"?{name:nm,die:"",pip:1}:{name:nm,die:"d6",pip:hakiPip("d6")}));flyIn(imgIcon(IMG_ICON[nm],120),()=>byText(".slots .slot-n",nm.replace("Haki ","")));setTimeout(()=>hakiModal(pg.haki.length-1),950);}));}
  mid.appendChild(eq);
  mid.appendChild(el("div",{class:"stage-fig"},[el("div",{class:"stage-glow","aria-hidden":"true"}),pw,ambition,L]));
  
@@ -3791,7 +3804,7 @@ function render(){
  $("#s-st").textContent=(pg.stCur!=null?pg.stCur:6)+"/"+(pg.stMax!=null?pg.stMax:6);
  $("#s-ore").textContent=pg.ore!=null?pg.ore:16;
  $("#s-leg").textContent=legamiTotal();var su=$("#s-upg");if(su)su.textContent=(pg.upgrade!=null&&pg.upgrade!=="")?pg.upgrade:"\u2014";
- $("#s-haki-n").textContent=pg.haki.reduce((s,h)=>s+(parseInt(h.pip)||0),0);
+ $("#s-haki-n").textContent=pg.haki.reduce((s,h)=>s+hakiPipOf(h),0);
  $("#s-taglia").textContent="฿ "+((pg.bounty&&pg.bounty!=="0")?Number(pg.bounty).toLocaleString("it-IT"):"0");
  const img=$("#photo"),hint=$("#ph-hint");if(pg.photo){if(img.getAttribute("src")!==pg.photo)img.src=pg.photo;applyPhotoPos();hint.style.display="none";}else{img.removeAttribute("src");img.style.display="none";hint.style.display="block";}
  {const pb=$("#pbar");if(pb){pb.classList.toggle("show",!!pg.photo);const zr=$("#pb-zoom");if(zr&&document.activeElement!==zr)zr.value=(pg.photoPos&&pg.photoPos.z)||1;}}
@@ -3812,7 +3825,7 @@ function render(){
  const st=$("#s-tech");st.innerHTML="";allTech().forEach(t=>{let lab=(t.name||"(senza nome)")+(t.fixed?' <i>(razziale)</i>':(t.attr?' <i>('+t.attr+')</i>':''));if(t.obj&&((t.obj.eff&&t.obj.eff.length)||t.obj.forma))lab+=" <b style='color:#7a1410'>· "+tecCostLabel(t.obj)+"</b>";st.appendChild(badge(lab,t.die));});if(allTech().length===0)st.innerHTML='<div class="muted" style="font-size:13px;">nessuna ancora</div>';
  const stl=$("#s-talenti");if(stl){stl.innerHTML="";const tlist=visibleTalents();if(tlist.length){$("#s-talenti-sec").style.display="block";tlist.forEach(k=>{const parts=k.split(" · ");const nm=parts[parts.length-1];const styl=parts.length>=2?parts[1]:"";const showSty=styl&&styl!==parts[0];stl.appendChild(el("div",{class:"li"},[el("span",{class:"li-n",html:nm+(showSty?(' <i>('+styl+')</i>'):'')}),el("span",{class:"dbadge",text:"✦"})]));});}else $("#s-talenti-sec").style.display="none";}
  // haki
- const sh=$("#s-haki");sh.innerHTML="";if(pg.haki.length){$("#s-haki-sec").style.display="block";pg.haki.forEach(h=>sh.appendChild(badge(h.name+' <i>'+(h.pip||0)+' pip</i>',h.die)));}else $("#s-haki-sec").style.display="none";
+ const sh=$("#s-haki");sh.innerHTML="";if(pg.haki.length){$("#s-haki-sec").style.display="block";pg.haki.forEach(h=>sh.appendChild(badge(h.name+' <i>'+hakiPipOf(h)+' pip</i>',h.die)));}else $("#s-haki-sec").style.display="none";
  // frutto
  if(pg.frutto.has){$("#s-frutto-sec").style.display="block";$("#s-frutto").innerHTML='<b>'+(pg.frutto.nome||"Frutto senza nome")+'</b>'+(pg.frutto.tipo?' <span class="muted">('+pg.frutto.tipo+')</span>':'')+' <span class="dbadge">'+(pg.frutto.die||"d4")+'</span>'+(pg.frutto.desc?'<br>'+pg.frutto.desc:'');}else $("#s-frutto-sec").style.display="none";
 }
@@ -3840,7 +3853,7 @@ function buildPrintSheet(){
   var bountyN=(pg.bounty&&pg.bounty!=="0")?Number(pg.bounty):0;
   var pv=(pg.pvMax!=null?pg.pvMax:(r?r.pv:"\u2014")), pvc=(pg.pvCur!=null?pg.pvCur:pv);
   var st=(pg.stMax!=null?pg.stMax:6), stc=(pg.stCur!=null?pg.stCur:st);
-  var hakiPip=pg.haki.reduce(function(a,h){return a+(parseInt(h.pip)||0);},0);
+  var hakiPip=pg.haki.reduce(function(a,h){return a+hakiPipOf(h);},0);
   var ro=roleObj();
   var h="";
   h+='<div class="ps-page">';
@@ -3891,7 +3904,7 @@ function buildPrintSheet(){
   (pg.extraTech||[]).forEach(function(t){if(!t.nome&&!(t.eff&&t.eff.length))return;var _fo=(t.fonte==="Frutto"&&t.fruitType)?("Frutto "+t.fruitType):(t.stile?("Stile "+t.stile):(t.fonte||""));if(t.arma){var _wa2=(pg.armi||[]).filter(function(x){return x.id===t.arma;})[0];if(_wa2)_fo+=" \u00b7 arma \u00ab"+((_wa2.nome||"").trim()||"senza nome")+"\u00bb";}var _pa=t.id?(pg.pa["tec:"+t.id]||0):0,_sg=t.die?paSoglia(t.die):null;var meta=[_fo,t.forma,t.attr,t.die].filter(Boolean).join(" · ")+" · "+tecCostLabel(t)+(_sg!=null?(" · "+_pa+"/"+_sg+" PA"):"");h+='<div class="ps-tech"><div class="tt"><b>'+escp(t.nome||"(senza nome)")+'</b> <span class="tg">'+escp(meta)+'</span></div>'+psTecEff(t)+(t.desc?'<div class="ps-d">'+escp(t.desc)+'</div>':'')+'</div>';});
   if(!r&&!(pg.t1&&pg.t1.nome)&&!(pg.t2&&pg.t2.nome)&&!(pg.extraTech&&pg.extraTech.length))h+='<div class="ps-d">Nessuna tecnica.</div>';
   h+='</div>';
-  if(pg.haki&&pg.haki.length){h+='<div class="ps-sec"><div class="ps-h">Haki</div>';pg.haki.forEach(function(hk){var unl=hakiUnlocked(hk);var liv=unl.length?unl[unl.length-1].liv:"";h+='<div class="ps-tech"><div class="tt"><b>'+escp(hk.name)+'</b> <span class="tg">'+escp((hk.die||"")+(liv?(" \u00b7 "+liv):"")+(hk.pip?(" \u00b7 "+hk.pip+" PIP"):""))+'</span></div>';unl.forEach(function(row){h+='<div class="ps-d"><b>'+escp(row.liv)+':</b> '+escp(row.pass)+(row.act?(' <i>Attiva: '+escp(row.act)+(row.cost?(" ("+row.cost+" PIP)"):"")+'</i>'):'')+'</div>';});h+='</div>';});h+='</div>';}
+  if(pg.haki&&pg.haki.length){h+='<div class="ps-sec"><div class="ps-h">Haki</div>';pg.haki.forEach(function(hk){var unl=hakiUnlocked(hk);var liv=hakiLevel(hk);h+='<div class="ps-tech"><div class="tt"><b>'+escp(hk.name)+'</b> <span class="tg">'+escp((hk.die||"")+(liv?(" \u00b7 "+liv):"")+(hk.pip?(" \u00b7 "+hk.pip+" PIP"):""))+'</span></div>';unl.forEach(function(row){h+='<div class="ps-d"><b>'+escp(row.liv)+':</b> '+escp(row.pass)+(row.act?(' <i>Attiva: '+escp(row.act)+(row.cost?(" ("+row.cost+" PIP)"):"")+'</i>'):'')+'</div>';});h+='</div>';});h+='</div>';}
   if(pg.frutto&&pg.frutto.has){h+='<div class="ps-sec"><div class="ps-h">Frutto del Diavolo</div><div class="ps-tech"><div class="tt"><b>'+escp(pg.frutto.nome||"Frutto senza nome")+'</b>'+' <span class="tg">'+escp([pg.frutto.tipo,("Dado del Frutto "+(pg.frutto.die||"d4"))].filter(Boolean).join(" \u00b7 "))+'</span></div>'+(pg.frutto.desc?'<div class="ps-d">'+escp(pg.frutto.desc)+'</div>':'')+'<div class="ps-d2">Debolezze: mare \u00b7 Pietra di Mare \u00b7 Haki</div></div></div>';}
   h+='</div></div>';
   if(pg.note){h+='<div class="ps-sec ps-notes"><div class="ps-h">Note</div><div class="ps-d">'+escp(pg.note)+'</div></div>';}
@@ -3911,7 +3924,7 @@ function printPayload(){
     strumenti:(pg.strumenti||[]).map(function(a){var x=instrEff(a);return {nome:a.nome||"",die:a.die||"",tipo:a.tipo||"Corde",grado:INSTR_GRADI[x.grado]||"",soglia:x.soglia,over:x.over,note:a.note||""};}),
     armi:(pg.armi||[]).map(function(a){normWeapon(a);var c=weaponCompat(a);return {nome:a.nome||"",tipo:a.tipo+(a.asta?(" \u00b7 "+a.asta.toLowerCase()):""),attr:a.attr||"",die:a.grado||"",grado:a.grado||"",gradoLabel:gradeLabel(a.grado),portata:a.portata||"",stile:c.need||"",stileOk:(c.s==="ok"),effNome:(a.eff&&a.eff.nome)||"",effCat:(a.eff&&a.eff.cat)||"",effDesc:(a.eff&&a.eff.desc)||"",effFreq:(a.eff&&a.eff.freq)||"",effPrezzo:(a.eff&&a.eff.prezzo&&a.eff.prezzo!=="Nessuno")?(a.eff.prezzo+(a.eff.prezzoDett?(" "+a.eff.prezzoDett):"")):"",gmOk:!!a.gmOk,note:a.note||""};}),
     inventario:(pg.inventario||[]).map(function(it){return {nome:it.nome||"",qta:(parseInt(it.qta)||0),note:it.note||"",ico:it.ico||""};}),
-    haki:(pg.haki||[]).map(function(hk){var unl=hakiUnlocked(hk);return {name:hk.name,die:hk.die||"",pip:parseInt(hk.pip)||0,liv:unl.length?unl[unl.length-1].liv:"",rows:unl.map(function(x){return {liv:x.liv,pass:x.pass||"",act:x.act||"",cost:x.cost||""};})};}),
+    haki:(pg.haki||[]).map(function(hk){var unl=hakiUnlocked(hk);return {name:hk.name,die:hk.die||"",pip:hakiPipOf(hk),liv:hakiLevel(hk),rows:unl.map(function(x){return {liv:x.liv,pass:x.pass||"",act:x.act||"",cost:x.cost||""};})};}),
     tecniche:(pg.extraTech||[]).filter(function(t){return t.nome||(t.eff&&t.eff.length);}).map(function(t){var fo=(t.fonte==="Frutto"&&t.fruitType)?("Frutto "+t.fruitType):(t.stile?("Stile "+t.stile):(t.fonte||""));if(t.arma){var _a=(pg.armi||[]).filter(function(x){return x.id===t.arma;})[0];if(_a)fo+=" \u00b7 arma \u00ab"+((_a.nome||"").trim()||"senza nome")+"\u00bb";}if(t.modulo){var _m=(pg.moduli||[]).filter(function(x){return x.id===t.modulo;})[0];if(_m)fo+=" \u00b7 modulo \u00ab"+(_m.nome||"senza nome")+"\u00bb";}return {nome:t.nome||"",fonte:fo,forma:t.forma||"",attr:t.attr||"",die:t.die||"",durata:t.durata||"",cost:tecCostLabel(t),eff:(t.eff||[]).map(function(nm){var e=tecEffObj(nm);return {n:nm,d:e?e[2]:""};}),desc:t.desc||"",pa:t.id?(pg.pa["tec:"+t.id]||0):0,soglia:t.die?paSoglia(t.die):null};}),
     pa:{attr:ATTRS.map(function(a){return {name:a,die:pg.attr[a]||"",pa:pg.pa["attr:"+a]||0,soglia:pg.attr[a]?paSoglia(pg.attr[a]):null};}),
         skills:Object.keys(SKILLS).map(function(n){var isRole=ro&&ro.skill===n;var die=isRole?pg.roleSkillDie:(pg.skills[n]||"");return {name:n,die:die,role:!!isRole,pa:pg.pa[n]||0,soglia:die?paSoglia(die):null};}).filter(function(x){return x.die;})}};
