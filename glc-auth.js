@@ -251,7 +251,9 @@
     controllando = true;
     try{
       var st = await stampsCloud();
-      if(st === null){ await cloudPull(); return true; }   /* senza updated_at: lettura piena */
+      /* Senza updated_at non si può chiedere «è cambiato?»: si rilegge tutto,
+         ma di rado, perché la lettura piena pesa. */
+      if(st === null){ if(Date.now() - lastPull < 60000) return false; await cloudPull(); return true; }
       var daPrendere = SAVE_KEYS.filter(function(k){ return (st[k] || 0) > (cloudStamp[k] || 0); });
       if(!daPrendere.length) return false;
       var reload = false;
