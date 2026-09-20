@@ -385,12 +385,33 @@
       document.getElementById("glc-accedi").onclick = openOverlay;
     }
   }
+  /* Uscendo non deve restare niente di personale su questo dispositivo: non
+     bastano le chiavi della pagina, perché ogni pagina ne sincronizza solo
+     alcune e il resto (ritratto, navi, sessioni) rimarrebbe a chi entra dopo.
+     Si tengono solo le preferenze dello strumento, che non dicono chi sei. */
+  var UTENTE_KEY = "glc_utente";
+  var PREFERENZE = ["glc_vista_equipaggio"];
+  function puliziaLocale(){
+    try{
+      Object.keys(localStorage).forEach(function(k){
+        if(/^glc_/.test(k) && PREFERENZE.indexOf(k) < 0) localStorage.removeItem(k);
+      });
+    }catch(e){}
+    try{
+      Object.keys(sessionStorage).forEach(function(k){ if(/^glc_/.test(k)) sessionStorage.removeItem(k); });
+    }catch(e){}
+    /* Le illustrazioni delle carte stanno fuori da localStorage. */
+    try{ if(window.indexedDB) indexedDB.deleteDatabase("glc_special_move_media_v1"); }catch(e){}
+    pulledKeys = {}; dirtyKeys = {}; cloudStamp = {};
+    /* Nessun salvataggio in attesa deve riscrivere qualcosa dopo la pulizia. */
+    Object.keys(saveTimers).forEach(function(k){ clearTimeout(saveTimers[k]); });
+    saveTimers = {};
+  }
   async function logout(){
     try{ await cloudSaveAll(); }catch(e){}
-    var uid = currentUser ? currentUser.id : "";
     try{ await sb.auth.signOut(); }catch(e){}
-    SAVE_KEYS.forEach(function(k){ sessionStorage.removeItem("glc_synced_" + uid + "_" + k); });
-    SAVE_KEYS.forEach(function(k){ localStorage.removeItem(k); _setItem(touchKeyName(k), "0"); });
+    currentUser = null;
+    puliziaLocale();
     location.reload();
   }
 
@@ -404,6 +425,17 @@
 
   /* ---------------- stato di autenticazione ---------------- */
   function onSignedIn(user){
+    /* Cambio di account sullo stesso dispositivo: i dati di prima se ne vanno
+       subito, prima che la pagina possa mostrarli o rimandarli nel cloud
+       sbagliato. */
+    var precedente = null;
+    try{ precedente = localStorage.getItem(UTENTE_KEY); }catch(e){}
+    if(precedente && precedente !== user.id){
+      puliziaLocale();
+      location.reload();
+      return;
+    }
+    try{ _setItem(UTENTE_KEY, user.id); }catch(e){}
     currentUser = user;
     renderControl();
     if(SAVE_KEYS.length && !syncedReveal){
