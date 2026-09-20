@@ -108,7 +108,10 @@ a{color:inherit;}
 .carte{position:relative; margin:0 -20px;}
 .carte-pista{
   display:flex; gap:26px; overflow-x:auto; overflow-y:hidden; scroll-snap-type:x mandatory;
-  padding:54px 50% 30px; scrollbar-width:none; -webkit-overflow-scrolling:touch; perspective:1200px;
+  padding:30px 50%; scrollbar-width:none; -webkit-overflow-scrolling:touch; perspective:1200px;
+  /* le carte di lato svaniscono invece di essere tagliate */
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%);
 }
 .carte-pista::-webkit-scrollbar{display:none;}
 .pirata-carta{
@@ -119,7 +122,11 @@ a{color:inherit;}
 }
 .pirata-carta:focus-visible{outline:2px solid var(--gold-bright); outline-offset:4px;}
 .pirata-carta .pc-corpo{position:absolute; inset:0; border-radius:inherit; overflow:hidden; display:flex; flex-direction:column;}
+.pirata-carta .pc-scena{position:absolute; inset:0;}
+.pirata-carta .pc-scena img{width:100%; height:100%; object-fit:cover; display:block; opacity:.9;}
 .pirata-carta .pc-foto{position:absolute; inset:0; background:radial-gradient(70% 55% at 50% 32%,#243244,#0b0906);}
+.pirata-carta.con-scena .pc-foto{background:none;}
+.pirata-carta.con-scena .pc-foto img{object-fit:contain;}
 .pirata-carta .pc-foto img{width:100%; height:100%; object-fit:cover; display:block;}
 .pirata-carta .pc-vuoto{position:absolute; inset:0; display:grid; place-items:center; font-size:46px; color:#8a765a; opacity:.5;}
 .pirata-carta .pc-velo{position:absolute; inset:0; background:linear-gradient(180deg,rgba(6,10,14,.66) 0%,rgba(6,10,14,0) 30%,rgba(6,10,14,.2) 50%,rgba(6,10,14,.94) 86%);}
@@ -129,13 +136,6 @@ a{color:inherit;}
 .pirata-carta .pc-chip{display:inline-block; margin-top:9px; font-family:'Inter',sans-serif; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:999px; border:1px solid currentColor; background:rgba(8,12,16,.55);}
 .pirata-carta .pc-piede{display:flex; justify-content:space-between; gap:8px; margin-top:12px; font-family:'Inter',sans-serif; font-size:10px; letter-spacing:.06em; color:rgba(242,233,216,.72);}
 .pirata-carta .pc-piede b{color:#ffd394; font-weight:600;}
-.pirata-carta .pc-grado{
-  position:absolute; top:-22px; left:50%; transform:translateX(-50%);
-  width:44px; height:44px; border-radius:50%; display:grid; place-items:center;
-  font-family:'Cinzel Decorative',serif; font-size:15px; color:#0e1a16;
-  background:linear-gradient(180deg,#7fd8b0,#2f9d78); border:2px solid rgba(255,255,255,.35);
-  box-shadow:0 8px 20px rgba(0,0,0,.5);
-}
 .pirata-carta .pc-x{
   position:absolute; top:8px; right:8px; z-index:3; width:26px; height:26px; border-radius:50%;
   border:1px solid rgba(226,49,49,.45); background:rgba(10,8,6,.7); color:#ff8a7e; cursor:pointer;
@@ -155,7 +155,7 @@ a{color:inherit;}
 .carte-punti i.on{background:var(--gold-bright); transform:scale(1.35);}
 .carte-vuoto{color:var(--foam); font-style:italic; text-align:center; padding:30px 20px;}
 @media(max-width:560px){
-  .carte-pista{gap:16px; padding:50px 50% 26px;}
+  .carte-pista{gap:16px; padding:26px 50%;}
   .pirata-carta{width:200px;}
   .carte-frec{display:none;}
 }
@@ -509,8 +509,6 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
      guardarlo. */
   var VISTA_KEY="glc_vista_equipaggio";
   function vistaCorrente(){ try{ return localStorage.getItem(VISTA_KEY)==="carte" ? "carte" : "griglia"; }catch(e){ return "griglia"; } }
-  var ROMANI=["I","II","III","IV","V","VI","VII","VIII","IX","X"];
-  function romano(n){ return ROMANI[n] || String(n+1); }
   function taglia(n){ return Number(n||0).toLocaleString("it-IT"); }
   function coloreTaglia(n){
     var i=0; for(var k=0;k<BLV.length;k++){ if(n>=BLV[k][0]) i=k; }
@@ -520,6 +518,14 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     var b=document.createElement("button"); b.type="button"; b.className="pirata-carta";
     b.setAttribute("aria-label","Apri la scheda di "+label(c));
     var corpo=document.createElement("div"); corpo.className="pc-corpo";
+    /* Se il ritratto è un PNG trasparente, dietro ci va lo sfondo scelto nella
+       scheda: così la carta è completa e non mostra il vuoto. */
+    if(c.sceneBackground){
+      b.classList.add("con-scena");
+      var scena=document.createElement("div"); scena.className="pc-scena";
+      var sImg=document.createElement("img"); sImg.src=c.sceneBackground; sImg.alt="";
+      scena.appendChild(sImg); corpo.appendChild(scena);
+    }
     var foto=document.createElement("div"); foto.className="pc-foto";
     if(c.photo){ var img=document.createElement("img"); img.src=c.photo; img.alt=""; img.style.cssText=photoStyle(c.photoPos); foto.appendChild(img); }
     else { var vuoto=document.createElement("div"); vuoto.className="pc-vuoto"; vuoto.textContent="\u2693"; foto.appendChild(vuoto); }
@@ -540,7 +546,6 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     corpo.appendChild(testo);
     b.appendChild(corpo);
 
-    var grado=document.createElement("span"); grado.className="pc-grado"; grado.textContent=romano(indice); b.appendChild(grado);
     var x=document.createElement("button"); x.type="button"; x.className="pc-x"; x.title="Elimina"; x.setAttribute("aria-label","Elimina "+label(c)); x.textContent="\u2715";
     x.onclick=function(ev){ ev.stopPropagation(); delChar(id); };
     b.appendChild(x);
@@ -563,13 +568,32 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     });
     carte.forEach(function(carta){ carta.classList.toggle("attiva", carta===piuVicina); });
     var punti=document.getElementById("carte-punti");
-    if(punti){ [].slice.call(punti.children).forEach(function(p,i){ p.className = carte[i]===piuVicina ? "on" : ""; }); }
+    var posto=piuVicina ? Number(piuVicina.dataset.posto||0) : 0;
+    if(punti){ [].slice.call(punti.children).forEach(function(p,i){ p.className = (i===posto) ? "on" : ""; }); }
+    carteRientra(pista);
+  }
+  /* Quando si esce dalla copia di mezzo si torna dentro di una copia intera:
+     il disegno è identico, quindi il salto non si vede. */
+  function carteRientra(pista){
+    if(pista.dataset.infinito!=="1" || pista.dataset.inMovimento==="1") return;
+    var copia=Number(pista.dataset.larghezzaCopia||0);
+    if(!copia) return;
+    if(pista.scrollLeft < copia*0.5) pista.scrollLeft += copia;
+    else if(pista.scrollLeft > copia*1.5) pista.scrollLeft -= copia;
+  }
+  function carteMisuraCopia(pista){
+    var carte=pista.querySelectorAll(".pirata-carta");
+    var quante=Number(pista.dataset.perCopia||0);
+    pista.dataset.infinito = quante && carte.length === quante*3 ? "1" : "0";
+    pista.dataset.larghezzaCopia = (quante && carte[quante]) ? String(carte[quante].offsetLeft - carte[0].offsetLeft) : "0";
   }
   /* Si sposta solo la pista, non la pagina: scrollIntoView farebbe saltare
      tutto il profilo alla sezione. */
   function carteCentra(carta, morbido){
     var pista=document.getElementById("carte-pista"); if(!pista||!carta) return;
     var meta=carta.offsetLeft + carta.offsetWidth/2 - pista.clientWidth/2;
+    pista.dataset.inMovimento = morbido ? "1" : "0";
+    if(morbido) setTimeout(function(){ pista.dataset.inMovimento="0"; carteRientra(pista); }, 520);
     if(pista.scrollTo) pista.scrollTo({left:meta, behavior: morbido ? "smooth" : "auto"});
     else pista.scrollLeft=meta;
     /* Se lo scorrimento morbido non parte (scheda in secondo piano, animazioni
@@ -585,7 +609,8 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     var carte=[].slice.call(pista.querySelectorAll(".pirata-carta"));
     var attiva=pista.querySelector(".pirata-carta.attiva") || carte[0];
     if(!attiva) return;
-    var i=Math.min(carte.length-1, Math.max(0, carte.indexOf(attiva)+verso));
+    var i=carte.indexOf(attiva)+verso;
+    if(i<0) i=carte.length-1; else if(i>=carte.length) i=0;
     carteCentra(carte[i], true);
   }
   function renderCarte(){
@@ -597,14 +622,26 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
       v.textContent="Non hai ancora pirati. Creane uno con il pulsante qui sopra.";
       pista.appendChild(v); return;
     }
-    ct.order.forEach(function(id,i){
-      pista.appendChild(makePirataCarta(id, ct.chars[id], i));
-      if(punti) punti.appendChild(document.createElement("i"));
-    });
+    /* Il mazzo viene steso tre volte: si scorre sempre sulla copia di mezzo e,
+       quando si esce, si torna dentro di una copia senza che si veda. Così non
+       c'è né inizio né fine. */
+    var quante = ct.order.length > 1 ? 3 : 1;
+    for(var copia=0; copia<quante; copia++){
+      ct.order.forEach(function(id,i){
+        var carta=makePirataCarta(id, ct.chars[id], i);
+        carta.dataset.posto=String(i);
+        carta.dataset.copia=String(copia);
+        pista.appendChild(carta);
+      });
+    }
+    if(punti) ct.order.forEach(function(){ punti.appendChild(document.createElement("i")); });
     /* Il centraggio viene fatto subito e poi ripetuto: in una scheda in secondo
        piano requestAnimationFrame non scatta, e le carte resterebbero spente. */
     var attivo=ct.order.indexOf(ct.activeId);
+    if(quante===3) attivo=(attivo>=0?attivo:0) + ct.order.length;   /* copia di mezzo */
+    pista.dataset.perCopia=String(ct.order.length);
     var centra=function(){
+      carteMisuraCopia(pista);
       var carte=pista.querySelectorAll(".pirata-carta");
       var scelta=carte[attivo>=0?attivo:0];
       carteCentra(scelta, false);
