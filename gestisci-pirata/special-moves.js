@@ -385,15 +385,55 @@ function mediaDB() {
   r.onblocked=()=>{dbPromise=null;no(Error('Chiudi le altre schede locali per aggiornare l’archivio immagini.'));};
  });return dbPromise;
 }
+/* ---------- Copia sincronizzata delle illustrazioni ----------
+   IndexedDB resta l'archivio veloce, ma vive solo su questo dispositivo: la
+   copia in localStorage (chiave glc_media_v1) viaggia col resto del
+   salvataggio, così la carta mostra la sua immagine anche sul telefono. */
+const MEDIA_KEY='glc_media_v1';
+const MEDIA_MAX=8*1024*1024;
+function mediaStore() {
+ try {return JSON.parse(localStorage.getItem(MEDIA_KEY)||'{}')||{};}catch(e){return {};}
+}
+function mediaStoreWrite(store) {
+ try {localStorage.setItem(MEDIA_KEY,JSON.stringify(store));return true;}
+ catch(e){return false;}
+}
+function blobToDataURL(blob) {
+ return new Promise((yes,no)=>{const r=new FileReader();r.onload=()=>yes(String(r.result||''));r.onerror=()=>no(Error('Immagine non leggibile.'));r.readAsDataURL(blob);});
+}
+async function mediaShare(id,blob) {
+ try {
+  const url=await blobToDataURL(blob),store=mediaStore();
+  store[id]=url;
+  const peso=Object.values(store).reduce((n,v)=>n+String(v).length,0);
+  if(peso>MEDIA_MAX){announce('Illustrazioni molto pesanti: questa resta solo su questo dispositivo.');return false;}
+  if(!mediaStoreWrite(store)){announce('Spazio esaurito: l’illustrazione resta solo su questo dispositivo.');return false;}
+  return true;
+ }catch(e){return false;}
+}
+function mediaShared(id) {const v=mediaStore()[id];return typeof v==='string'&&v.slice(0,5)==='data:'?v:null;}
+
 async function mediaPut(id,blob) {
  const db=await mediaDB();await new Promise((yes,no)=>{const tx=db.transaction('art','readwrite');tx.objectStore('art').put(blob,id);tx.oncomplete=yes;tx.onerror=()=>no(Error('Spazio immagini esaurito: la ricetta e la vecchia immagine sono intatte.'));tx.onabort=tx.onerror;});
+ await mediaShare(id,blob);
 }
 async function mediaGet(id) {
  if(mediaURLs.has(id))return mediaURLs.get(id);
- const db=await mediaDB(),blob=await new Promise((yes,no)=>{const tx=db.transaction('art'),r=tx.objectStore('art').get(id);r.onsuccess=()=>yes(r.result);r.onerror=no;});
- if(!blob)return null;const url=URL.createObjectURL(blob);mediaURLs.set(id,url);return url;
+ let blob=null;
+ try {const db=await mediaDB();blob=await new Promise((yes,no)=>{const tx=db.transaction('art'),r=tx.objectStore('art').get(id);r.onsuccess=()=>yes(r.result);r.onerror=no;});}catch(e){/* si prova la copia sincronizzata */}
+ if(blob){const url=URL.createObjectURL(blob);mediaURLs.set(id,url);
+  if(!mediaShared(id))mediaShare(id,blob);
+  return url;}
+ /* Arrivata da un altro dispositivo: la si tiene anche qui, per la prossima volta. */
+ const dato=mediaShared(id);
+ if(!dato)return null;
+ mediaURLs.set(id,dato);
+ try {const risposta=await fetch(dato),copia=await risposta.blob();const db=await mediaDB();
+  await new Promise((yes,no)=>{const tx=db.transaction('art','readwrite');tx.objectStore('art').put(copia,id);tx.oncomplete=yes;tx.onerror=no;tx.onabort=no;});}catch(e){/* la carta si vede comunque */}
+ return dato;
 }
 async function mediaDelete(id) {
+ try {const store=mediaStore();if(store[id]){delete store[id];mediaStoreWrite(store);}}catch(e){}
  try {const db=await mediaDB();await new Promise((yes,no)=>{const tx=db.transaction('art','readwrite');tx.objectStore('art').delete(id);tx.oncomplete=yes;tx.onerror=no;});if(mediaURLs.has(id)){URL.revokeObjectURL(mediaURLs.get(id));mediaURLs.delete(id);}}catch(e){/* Orphan cleanup must never block a recipe. */}
 }
 function artInUse(id) {return Object.values(CT.chars).some(p=>list(p.specialMoves).some(m=>m.presentation?.artId===id));}
@@ -547,7 +587,7 @@ function safeShelf() {
 function shelfTile(m) {
  const tile=node('div','smc-shelf-tile'),open=button('',()=>openCard(m.id),'smc-card-open',{'aria-label':'Apri '+m.name});open.append(cardElement(m,false,false));tile.append(open);
  const actions=node('details','smc-actions');actions.append(node('summary','','Azioni ···'));
- actions.append(button(resolve(m).status==='repair'?'Ripara':'Modifica',()=>openComposer(m.id),'smc-link'),button('Duplica',()=>openComposer(m.id,true),'smc-link'),button('Elimina',()=>deleteCard(m.id),'smc-link'));
+ actions.append(button('Guarda carta',()=>{if(window.GLCCardView)GLCCardView.open(m);},'smc-link'),button(resolve(m).status==='repair'?'Ripara':'Modifica',()=>openComposer(m.id),'smc-link'),button('Duplica',()=>openComposer(m.id,true),'smc-link'),button('Elimina',()=>deleteCard(m.id),'smc-link'));
  tile.append(actions);return tile;
 }
 function deleteCard(id) {
@@ -574,7 +614,7 @@ function renderDialog(focus=false) {
  }else if(UI.mode==='card'){
   const m=savedCard(UI.cardId);if(!m){close(true);return;}
   const content=node('div','smc-card-view');content.append(cardElement(m,true));
-  const buttons=node('div','smc-card-controls',null,[button('Modifica / ripara',()=>openComposer(m.id),'smc-button smc-primary'),button('Duplica',()=>openComposer(m.id,true)),button('Elimina',()=>deleteCard(m.id))]);content.prepend(buttons);
+  const buttons=node('div','smc-card-controls',null,[button('Guarda carta',()=>{if(window.GLCCardView)GLCCardView.open(m);},'smc-button smc-primary'),button('Modifica / ripara',()=>openComposer(m.id)),button('Duplica',()=>openComposer(m.id,true)),button('Elimina',()=>deleteCard(m.id))]);content.prepend(buttons);
   if(list(m.hakiSelections).length){const live=el('details',{class:'smc-live-panel','data-smc-state':'haki-live'});live.append(node('summary','','Stato Haki condiviso · sessione'));hakiLiveControls(live);content.insertBefore(live,content.querySelector('.smc-full'));}
   root.append(content);
  }else{const collection=node('div','smc-collection');collection.append(button('+ Crea Special Move',()=>openComposer(),'smc-button smc-primary'));const grid=node('div','smc-shelf-grid');list(pg.specialMoves).forEach(m=>grid.append(shelfTile(m)));collection.append(grid);root.append(collection);}
@@ -748,5 +788,5 @@ function saveCard() {
   if(previousArt&&previousArt!==m.presentation.artId&&!artInUse(previousArt))mediaDelete(previousArt);
  }catch(e){owner.saving=false;owner.error='Carta non salvata: '+e.message+'. La bozza è ancora qui.';renderDialog();}
 }
-window.GLCMoves={shelf:safeShelf,open:openComposer,openCard,close,resolve,sources,transaction,ensureReferences,normalizeMove,applicable,compatibleEquipment,hakiState,hakiEffects,sourceCost,costBasis,requiresGM,techniqueProblems,metadata:META};
+window.GLCMoves={shelf:safeShelf,open:openComposer,openCard,close,resolve,sources,art:mediaGet,transaction,ensureReferences,normalizeMove,applicable,compatibleEquipment,hakiState,hakiEffects,sourceCost,costBasis,requiresGM,techniqueProblems,metadata:META};
 })();

@@ -109,7 +109,11 @@ function buildCard(card, index, count, character, generatedAt, tasks) {
   img.style.transform = 'scale('+bound(card.presentation.zoom,1,1,2.5)+')';
   art.append(img,caption); page.append(art);
   tasks.push(readArt(card.presentation.artId).then(blob => {
-   if (!blob || !/^image\/(png|jpeg|webp|gif)$/.test(blob.type)) return false;
+   if (!blob || !/^image\/(png|jpeg|webp|gif)$/.test(blob.type)) {
+    // Copia sincronizzata: l'illustrazione può arrivare da un altro dispositivo.
+    const condivisa = readSharedArt(card.presentation.artId);
+    return condivisa ? loadImage(img,condivisa) : false;
+   }
    const url = URL.createObjectURL(blob); urls.add(url); return loadImage(img,url);
   }).catch(() => false).then(ok => {
    if (ok) {art.classList.add('smp-art-loaded');caption.remove();}
@@ -174,6 +178,13 @@ function loadImage(img, src) {
   img.onload = () => finish(true);img.onerror = () => finish(false);img.src = src;
   if (img.complete && img.naturalWidth) finish(true);
  });
+}
+function readSharedArt(id) {
+ try {
+  const store = JSON.parse(localStorage.getItem('glc_media_v1') || '{}') || {};
+  const dato = store[id];
+  return (typeof dato === 'string' && dato.slice(0,11) === 'data:image/') ? dato : null;
+ } catch (e) {return null;}
 }
 function readArt(id) {
  // Only read an existing store: abort creation if no media database exists here.
