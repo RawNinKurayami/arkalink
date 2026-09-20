@@ -266,6 +266,16 @@ body:has(#glc-login-slot.in) .avatar{border-color:#d8452e; animation:haki-aura 5
       </div>
     </div>
 
+    <div class="sec-head" style="margin-top:34px"><h2>Sincronizzazione</h2></div>
+    <div class="panel" id="sync-panel">
+      <div class="ttl">Stato su questo dispositivo</div>
+      <div class="uname">
+        <span id="sync-stato" style="flex:1;min-width:200px">Controllo in corso…</span>
+        <button class="btn-gold" id="sync-now" type="button">Sincronizza ora</button>
+      </div>
+      <div class="hint" id="sync-hint">I dati viaggiano quando sei entrato col tuo account. Se qui compare un errore, mandamelo così com'è.</div>
+    </div>
+
     <div class="foot"><a href="/">◀ Torna al porto</a></div>
   </div>
 
@@ -283,6 +293,35 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
   function label(c){return (c&&c.nome&&c.nome.trim())?c.nome.trim():"Senza nome";}
   function bountyLabel(n){var lv=BLV[0][1];for(var i=0;i<BLV.length;i++){if(n>=BLV[i][0])lv=BLV[i][1];}return lv;}
   function subtitle(c){var b=[];if(c.race&&RACE_NAMES[c.race])b.push(RACE_NAMES[c.race]);if(c.role)b.push(c.role);var n=Number(c.bounty||0);if(n>0)b.push(bountyLabel(n));return b.join("  ·  ")||"Scheda da completare";}
+
+  /* Pannello della sincronizzazione: stato leggibile e prova a mano. */
+  function syncPeso(){
+    var n = (window.GLCSync && GLCSync.peso) ? GLCSync.peso() : 0;
+    return n ? (n / 1048576).toFixed(1).replace(".", ",") + " MB di dati" : "";
+  }
+  function syncRender(msg){
+    var box = document.getElementById("sync-stato"); if(!box) return;
+    if(msg){ box.textContent = msg; return; }
+    if(!window.GLCSync){ box.textContent = "Sincronizzazione non disponibile su questa pagina."; return; }
+    if(!GLCSync.collegato()){ box.textContent = "Non sei entrato: i dati restano su questo dispositivo."; return; }
+    var st = GLCSync.stato(), peso = syncPeso();
+    if(!st){ box.textContent = "Collegato al tuo account. " + peso; return; }
+    var quando = "";
+    try{ quando = new Date(st.quando).toLocaleString("it-IT"); }catch(e){}
+    box.textContent = (st.ok ? "Allineato · " : "Problema · ") + st.dettaglio + (quando ? " · " + quando : "") + (peso ? " · " + peso : "");
+    box.style.color = st.ok ? "" : "#f0c9b0";
+  }
+  function syncBind(){
+    var btn = document.getElementById("sync-now"); if(!btn) return;
+    btn.onclick = function(){
+      if(!window.GLCSync || !GLCSync.collegato()){ syncRender(); return; }
+      btn.disabled = true; syncRender("Sincronizzazione in corso…");
+      GLCSync.adesso().then(function(){ btn.disabled = false; syncRender(); })
+        .catch(function(){ btn.disabled = false; syncRender(); });
+    };
+    syncRender();
+    setTimeout(syncRender, 2500);
+  }
 
   function readCT(){
     var o=null; try{o=JSON.parse(localStorage.getItem(KEY)||"null");}catch(e){}
@@ -457,6 +496,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     if(d) d.addEventListener("click", startEdit);
     if(e) e.addEventListener("click", startEdit);
     if(inp){ inp.addEventListener("blur", endEdit); inp.addEventListener("keydown", function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); inp.blur(); } }); }
+    syncBind();
     var nb=document.getElementById("new-btn"); if(nb) nb.onclick=newChar;
     var nsb=document.getElementById("new-ship"); if(nsb) nsb.onclick=newShip;
     var nss=document.getElementById("new-session"); if(nss) nss.onclick=newSession;

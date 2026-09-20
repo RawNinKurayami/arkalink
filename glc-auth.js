@@ -18,6 +18,10 @@
   window.__glcSB = sb;
 
   var currentUser = null, syncedReveal = false, saveTimers = {};
+  var pulledKeys = {}, dirtyKeys = {}, cloudStamp = {}, lastPull = 0, watching = false;
+  /* I primi secondi sono riscritture di apertura (migrazioni, normalizzazioni):
+     non sono modifiche del giocatore e non devono contare come «più recenti». */
+  var bootFino = Date.now() + 5000;
 
   /* ---------------- stile ---------------- */
   injectCSS();
@@ -74,43 +78,135 @@
   if(SAVE_KEYS.length){
     localStorage.setItem = function(k,v){
       _setItem(k,v);
-      if(currentUser && SAVE_KEYS.indexOf(k) >= 0){
-        clearTimeout(saveTimers[k]);
-        saveTimers[k] = setTimeout(function(){ cloudSaveKey(k); }, 900);
+      if(SAVE_KEYS.indexOf(k) >= 0){
+        if(Date.now() > bootFino){ dirtyKeys[k] = true; setLocalTouch(k, Date.now()); }
+        if(currentUser){
+          clearTimeout(saveTimers[k]);
+          saveTimers[k] = setTimeout(function(){ cloudSaveKey(k); }, 900);
+        }
       }
     };
   }
+  /* Ogni chiave porta con sé il momento dell'ultima modifica locale
+     (glc_touch_<chiave>): confrontandolo con updated_at del cloud si capisce
+     quale versione è la più recente, invece di far vincere sempre il cloud. */
+  function touchKeyName(k){ return "glc_touch_" + k; }
+  function localTouch(k){ var v = 0; try{ v = parseInt(localStorage.getItem(touchKeyName(k)) || "0", 10); }catch(e){} return v > 0 ? v : 0; }
+  function setLocalTouch(k, ms){ try{ _setItem(touchKeyName(k), String(ms || Date.now())); }catch(e){} }
+  function errText(e){
+    if(!e) return "errore sconosciuto";
+    var code = e.code || e.status || "";
+    var msg = e.message || e.error_description || e.details || String(e);
+    if(/Failed to fetch|NetworkError|Load failed/i.test(msg)) msg = "rete non raggiungibile";
+    return (code ? code + " · " : "") + String(msg).slice(0, 140);
+  }
+  function noteSync(phase, ok, detail){
+    try{ _setItem("glc_sync_stato", JSON.stringify({ quando: new Date().toISOString(), fase: phase, ok: !!ok, dettaglio: detail || "" })); }catch(e){}
+  }
+  function sizeMB(n){ return (n / 1048576).toFixed(1).replace(".", ","); }
+
   async function cloudSaveKey(k){
-    if(!currentUser) return;
-    var raw = localStorage.getItem(k); if(raw == null) return;
-    var data; try{ data = JSON.parse(raw); }catch(e){ return; }
+    if(!currentUser) return false;
+    /* Senza un allineamento riuscito non si scrive nel cloud: un dispositivo
+       rimasto indietro non deve sovrascrivere il lavoro degli altri. */
+    if(!pulledKeys[k]){
+      var ok = await cloudPullKey(k);
+      if(!ok){ flash("Non sincronizzato: le modifiche restano su questo dispositivo", true); return false; }
+    }
+    var raw = localStorage.getItem(k); if(raw == null) return false;
+    var data; try{ data = JSON.parse(raw); }catch(e){ return false; }
+    if(raw.length > 4000000) flash("Salvataggio pesante (" + sizeMB(raw.length) + " MB): togli qualche ritratto", true);
     try{
       var res = await sb.from("saves").upsert({ user_id: currentUser.id, key: k, data: data }, { onConflict: "user_id,key" });
       if(res.error) throw res.error;
+      setLocalTouch(k, Date.now());
+      cloudStamp[k] = Date.now();
+      dirtyKeys[k] = false;
+      noteSync("salvataggio", true, k);
       flash("Salvato nel cloud \u2713");
-    }catch(e){ console.error("[GLC] cloudSave", e); flash("Salvataggio cloud non riuscito", true); }
+      return true;
+    }catch(e){
+      console.error("[GLC] cloudSave", e);
+      noteSync("salvataggio", false, k + ": " + errText(e));
+      flash("Salvataggio cloud non riuscito (" + errText(e) + ")", true);
+      return false;
+    }
   }
   async function cloudSaveAll(){ for(var i=0;i<SAVE_KEYS.length;i++){ await cloudSaveKey(SAVE_KEYS[i]); } }
-  async function cloudPull(){
-    try{
-      var res = await sb.from("saves").select("key,data").in("key", SAVE_KEYS);
-      if(res.error) throw res.error;
-      var byKey = {}; (res.data||[]).forEach(function(r){ byKey[r.key] = r.data; });
-      var reload = false;
-      for(var i=0;i<SAVE_KEYS.length;i++){
-        var k = SAVE_KEYS[i];
-        var flag = "glc_synced_" + currentUser.id + "_" + k;
-        var synced = sessionStorage.getItem(flag) === "1";
-        if(byKey[k] != null){
-          if(!synced){ _setItem(k, JSON.stringify(byKey[k])); reload = true; }
-        } else if(localStorage.getItem(k) != null){
-          await cloudSaveKey(k);
+
+  /* Legge la riga del cloud. updated_at può non esserci: in quel caso si
+     ripiega su una lettura semplice. */
+  async function cloudRow(k){
+    var q = await sb.from("saves").select("data,updated_at").eq("user_id", currentUser.id).eq("key", k).maybeSingle();
+    if(q.error && /updated_at/.test(q.error.message || "")){
+      q = await sb.from("saves").select("data").eq("user_id", currentUser.id).eq("key", k).maybeSingle();
+    }
+    if(q.error) throw q.error;
+    return q.data || null;
+  }
+  async function cloudPullKey(k, tentativi){
+    if(!currentUser) return false;
+    var giri = tentativi || 3;
+    for(var n = 0; n < giri; n++){
+      try{
+        var row = await cloudRow(k);
+        var mio = localStorage.getItem(k);
+        if(!row || row.data == null){
+          pulledKeys[k] = true;
+          if(mio != null){ await cloudSaveKey(k); }
+          noteSync("lettura", true, k + ": nessun dato nel cloud");
+          return true;
         }
-        sessionStorage.setItem(flag, "1");
+        var stampCloud = row.updated_at ? Date.parse(row.updated_at) : 0;
+        var stampMio = localTouch(k);
+        pulledKeys[k] = true;
+        cloudStamp[k] = stampCloud;
+        /* Vince la versione più recente. Senza updated_at vince il cloud,
+           a meno che questa sessione non abbia già modifiche locali. */
+        var cloudVince = dirtyKeys[k] ? false : (row.updated_at ? (stampCloud >= stampMio) : true);
+        var testo = JSON.stringify(row.data);
+        if(cloudVince && testo !== mio){
+          _setItem(k, testo);
+          dirtyKeys[k] = false;
+          setLocalTouch(k, stampCloud || Date.now());
+          noteSync("lettura", true, k + ": presi i dati del cloud");
+          return "reload";
+        }
+        if(!cloudVince && testo !== mio){ await cloudSaveKey(k); }
+        noteSync("lettura", true, k + ": già allineato");
+        return true;
+      }catch(e){
+        console.error("[GLC] cloudPull", k, e);
+        if(n === giri - 1){
+          noteSync("lettura", false, k + ": " + errText(e));
+          flash("Sync non riuscita (" + errText(e) + "): uso i dati locali", true);
+          return false;
+        }
+        await new Promise(function(r){ setTimeout(r, 600 * (n + 1)); });
       }
-      if(reload){ location.reload(); return true; }
-    }catch(e){ console.error("[GLC] cloudPull", e); flash("Sync non riuscita: uso i dati locali", true); }
+    }
     return false;
+  }
+  async function cloudPull(){
+    var reload = false;
+    for(var i = 0; i < SAVE_KEYS.length; i++){
+      var esito = await cloudPullKey(SAVE_KEYS[i]);
+      if(esito === "reload") reload = true;
+    }
+    lastPull = Date.now();
+    if(reload){ location.reload(); return true; }
+    return false;
+  }
+  /* Tornando sull'app dopo un po' si ricontrolla il cloud: così il telefono
+     vede il lavoro fatto altrove senza dover essere riavviato. */
+  function watchReturn(){
+    if(!SAVE_KEYS.length || watching) return;
+    watching = true;
+    document.addEventListener("visibilitychange", function(){
+      if(document.visibilityState !== "visible" || !currentUser) return;
+      if(Date.now() - lastPull < 60000) return;
+      cloudPull();
+    });
   }
 
   /* ---------------- overlay di accesso ---------------- */
@@ -213,7 +309,7 @@
     var uid = currentUser ? currentUser.id : "";
     try{ await sb.auth.signOut(); }catch(e){}
     SAVE_KEYS.forEach(function(k){ sessionStorage.removeItem("glc_synced_" + uid + "_" + k); });
-    SAVE_KEYS.forEach(function(k){ localStorage.removeItem(k); });
+    SAVE_KEYS.forEach(function(k){ localStorage.removeItem(k); _setItem(touchKeyName(k), "0"); });
     location.reload();
   }
 
@@ -231,6 +327,7 @@
     renderControl();
     if(SAVE_KEYS.length && !syncedReveal){
       syncedReveal = true;
+      watchReturn();
       cloudPull().then(function(reloaded){ if(!reloaded) closeOverlay(); });
     } else {
       closeOverlay();
@@ -241,6 +338,15 @@
     renderControl();
     if(GATE) openOverlay();
   }
+
+  /* Piccola API per le pagine: stato e sincronizzazione a mano. */
+  window.GLCSync = {
+    chiavi: SAVE_KEYS.slice(),
+    stato: function(){ try{ return JSON.parse(localStorage.getItem("glc_sync_stato") || "null"); }catch(e){ return null; } },
+    collegato: function(){ return !!currentUser; },
+    adesso: function(){ return currentUser ? cloudPull() : Promise.resolve(false); },
+    peso: function(){ var n = 0; SAVE_KEYS.forEach(function(k){ var v = localStorage.getItem(k); if(v) n += v.length; }); return n; }
+  };
 
   function start(){
     buildOverlay();
