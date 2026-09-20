@@ -104,6 +104,14 @@
     try{ _setItem("glc_sync_stato", JSON.stringify({ quando: new Date().toISOString(), fase: phase, ok: !!ok, dettaglio: detail || "" })); }catch(e){}
   }
   function sizeMB(n){ return (n / 1048576).toFixed(1).replace(".", ","); }
+  /* Impronta dei dati del cloud già applicati in questa sessione: all'apertura
+     la pagina normalizza e migra il salvataggio, quindi il testo locale non
+     tornerà mai identico a quello del cloud. Senza questa memoria la pagina si
+     ricaricherebbe all'infinito. */
+  function impronta(t){ var h = 2166136261; for(var i = 0; i < t.length; i++){ h = Math.imul(h ^ t.charCodeAt(i), 16777619); } return (h >>> 0).toString(16) + ":" + t.length; }
+  function appliedName(k){ return "glc_applicato_" + (currentUser ? currentUser.id : "") + "_" + k; }
+  function giaApplicato(k, t){ try{ return sessionStorage.getItem(appliedName(k)) === impronta(t); }catch(e){ return false; } }
+  function segnaApplicato(k, t){ try{ sessionStorage.setItem(appliedName(k), impronta(t)); }catch(e){} }
 
   async function cloudSaveKey(k){
     if(!currentUser) return false;
@@ -165,13 +173,15 @@
            a meno che questa sessione non abbia già modifiche locali. */
         var cloudVince = dirtyKeys[k] ? false : (row.updated_at ? (stampCloud >= stampMio) : true);
         var testo = JSON.stringify(row.data);
-        if(cloudVince && testo !== mio){
+        if(cloudVince && testo !== mio && !giaApplicato(k, testo)){
           _setItem(k, testo);
           dirtyKeys[k] = false;
           setLocalTouch(k, stampCloud || Date.now());
+          segnaApplicato(k, testo);
           noteSync("lettura", true, k + ": presi i dati del cloud");
           return "reload";
         }
+        if(cloudVince && testo !== mio) segnaApplicato(k, testo);
         if(!cloudVince && testo !== mio){ await cloudSaveKey(k); }
         noteSync("lettura", true, k + ": già allineato");
         return true;
@@ -194,7 +204,13 @@
       if(esito === "reload") reload = true;
     }
     lastPull = Date.now();
-    if(reload){ location.reload(); return true; }
+    if(reload){
+      var giri = 0; try{ giri = parseInt(sessionStorage.getItem("glc_reload_sync") || "0", 10) || 0; }catch(e){}
+      if(giri >= 2){ flash("Dati del cloud applicati", false); return false; }
+      try{ sessionStorage.setItem("glc_reload_sync", String(giri + 1)); }catch(e){}
+      location.reload(); return true;
+    }
+    try{ sessionStorage.setItem("glc_reload_sync", "0"); }catch(e){}
     return false;
   }
   /* Tornando sull'app dopo un po' si ricontrolla il cloud: così il telefono
