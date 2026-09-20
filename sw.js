@@ -1,7 +1,7 @@
 /* Grand Line Chronicles — service worker
    Strategia network-first: online usa sempre la rete (così vedi gli aggiornamenti),
    offline ripiega sulla copia salvata. Cache solo delle risposte GET dello stesso dominio. */
-var CACHE = "glc-cache-v2";
+var CACHE = "glc-cache-v3";
 
 self.addEventListener("install", function (e) {
   self.skipWaiting();
@@ -26,6 +26,8 @@ self.addEventListener("fetch", function (e) {
   var url;
   try { url = new URL(req.url); } catch (err) { return; }
 
+  var vivo = /\/(glc-auth|glc-ui)\.js$/.test(url.pathname);
+
   e.respondWith(
     fetch(req)
       .then(function (res) {
@@ -36,6 +38,7 @@ self.addEventListener("fetch", function (e) {
         return res;
       })
       .catch(function () {
+        if (vivo) return Response.error();
         return caches.match(req).then(function (r) {
           if (r) return r;
           if (req.mode === "navigate") return caches.match("/");

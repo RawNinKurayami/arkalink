@@ -110,8 +110,19 @@
      ricaricherebbe all'infinito. */
   function impronta(t){ var h = 2166136261; for(var i = 0; i < t.length; i++){ h = Math.imul(h ^ t.charCodeAt(i), 16777619); } return (h >>> 0).toString(16) + ":" + t.length; }
   function appliedName(k){ return "glc_applicato_" + (currentUser ? currentUser.id : "") + "_" + k; }
-  function giaApplicato(k, t){ try{ return sessionStorage.getItem(appliedName(k)) === impronta(t); }catch(e){ return false; } }
-  function segnaApplicato(k, t){ try{ sessionStorage.setItem(appliedName(k), impronta(t)); }catch(e){} }
+  function giaApplicato(k, t){ try{ return localStorage.getItem(appliedName(k)) === impronta(t); }catch(e){ return false; } }
+  function segnaApplicato(k, t){ try{ _setItem(appliedName(k), impronta(t)); }catch(e){} }
+  /* Tetto alle ricariche: al massimo due ogni due minuti, contate in
+     localStorage. Se si sfora, i dati si applicano lo stesso ma la pagina non
+     si ricarica: la ricarica la fa il giocatore quando vuole. */
+  function ricaricheRecenti(){
+    var n = 0, t0 = 0;
+    try{ var v = (localStorage.getItem("glc_reload_sync") || "").split("|"); n = parseInt(v[0], 10) || 0; t0 = parseInt(v[1], 10) || 0; }catch(e){}
+    if(!t0 || Date.now() - t0 > 120000){ n = 0; t0 = Date.now(); }
+    return { n: n, t0: t0 };
+  }
+  function segnaRicarica(){ var r = ricaricheRecenti(); try{ _setItem("glc_reload_sync", (r.n + 1) + "|" + r.t0); }catch(e){} }
+  function troppeRicariche(){ return ricaricheRecenti().n >= 2; }
 
   async function cloudSaveKey(k){
     if(!currentUser) return false;
@@ -198,6 +209,7 @@
     return false;
   }
   async function cloudPull(){
+    if(/[?&]nosync\b/.test(location.search)){ flash("Sincronizzazione sospesa (nosync)", true); return false; }
     var reload = false;
     for(var i = 0; i < SAVE_KEYS.length; i++){
       var esito = await cloudPullKey(SAVE_KEYS[i]);
@@ -205,12 +217,10 @@
     }
     lastPull = Date.now();
     if(reload){
-      var giri = 0; try{ giri = parseInt(sessionStorage.getItem("glc_reload_sync") || "0", 10) || 0; }catch(e){}
-      if(giri >= 2){ flash("Dati del cloud applicati", false); return false; }
-      try{ sessionStorage.setItem("glc_reload_sync", String(giri + 1)); }catch(e){}
+      if(troppeRicariche()){ flash("Dati del cloud pronti: ricarica la pagina quando vuoi", false); return false; }
+      segnaRicarica();
       location.reload(); return true;
     }
-    try{ sessionStorage.setItem("glc_reload_sync", "0"); }catch(e){}
     return false;
   }
   /* Tornando sull'app dopo un po' si ricontrolla il cloud: così il telefono
