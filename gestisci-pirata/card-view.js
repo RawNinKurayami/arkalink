@@ -212,6 +212,17 @@ function apri(mossa) {
  const giraBtn = el('button', { class: 'cvw-btn cvw-primary', type: 'button', text: 'Gira la carta ↻' });
  giraBtn.onclick = () => stato.gira();
  const attrezzi = nodo('div', 'cvw-tools', null, [giraBtn]);
+ if (window.GLCCardExport) {
+  const scarica = el('button', { class: 'cvw-btn', type: 'button', text: 'Scarica fronte e retro' });
+  scarica.onclick = async () => {
+   const etichetta = scarica.textContent;
+   scarica.disabled = true; scarica.textContent = 'Preparo le immagini…';
+   try { await GLCCardExport.esporta(dato, 'entrambi'); scarica.textContent = 'Scaricate ✓'; }
+   catch (err) { scarica.textContent = 'Non riuscito'; }
+   setTimeout(() => { scarica.disabled = false; scarica.textContent = etichetta; }, 2200);
+  };
+  attrezzi.append(scarica);
+ }
  /* Sul telefono la carta può seguire l'inclinazione vera: si chiede il
     permesso solo quando è il giocatore a volerlo. */
  if (window.DeviceOrientationEvent && matchMedia('(pointer: coarse)').matches) {
