@@ -132,18 +132,32 @@ function manovra(carta, stato) {
  posa();
 
  const punto = e => e.touches ? e.touches[0] : e;
+ /* Anche da girata la carta si muove. Sul retro il primo movimento decide:
+    se il testo è più lungo della carta e il dito va in verticale, si scorre;
+    in tutti gli altri casi si ruota. */
  const inizio = e => {
-  if (e.target.closest('.cvw-back-in') && stato.girata) return;   /* il retro si scorre */
   const p = punto(e);
-  giu = { x: p.clientX, y: p.clientY, rx: stato.rx, ry: stato.ry, t: Date.now(), mosso: 0 };
+  const testo = e.target.closest ? e.target.closest('.cvw-back-in') : null;
+  const scorribile = !!testo && testo.scrollHeight > testo.clientHeight + 2;
+  giu = { x: p.clientX, y: p.clientY, rx: stato.rx, ry: stato.ry, t: Date.now(), mosso: 0, modo: scorribile ? 'daDecidere' : 'ruota' };
   carta.classList.add('cvw-drag');
  };
  const muovi = e => {
   if (!giu) return;
   const p = punto(e);
-  const dx = p.clientX - giu.x, dy = p.clientY - giu.y;
+  let dx = p.clientX - giu.x, dy = p.clientY - giu.y;
   giu.mosso = Math.max(giu.mosso, Math.abs(dx) + Math.abs(dy));
-  stato.ry = giu.ry + dx * .45;
+  if (giu.modo === 'daDecidere') {
+   if (giu.mosso < 8) return;
+   if (Math.abs(dy) > Math.abs(dx) * 1.2) { giu.modo = 'scorri'; carta.classList.remove('cvw-drag'); return; }
+   /* si riparte da qui, così la carta non fa un salto */
+   giu.modo = 'ruota'; giu.x = p.clientX; giu.y = p.clientY; dx = 0; dy = 0;
+  }
+  if (giu.modo === 'scorri') return;
+  /* Dal retro l'immagine è speculare: il trascinamento va invertito, altrimenti
+     la carta sembra andare dalla parte sbagliata. */
+  const verso = stato.girata ? -1 : 1;
+  stato.ry = giu.ry + dx * .45 * verso;
   stato.rx = Math.max(-42, Math.min(42, giu.rx - dy * .35));
   posa();
   if (e.cancelable) e.preventDefault();
@@ -151,11 +165,11 @@ function manovra(carta, stato) {
  const fine = () => {
   if (!giu) return;
   carta.classList.remove('cvw-drag');
-  const giroCompleto = Math.abs(stato.ry) > 90;
-  if (giroCompleto) stato.girata = !stato.girata;
+  const scorso = giu.modo === 'scorri';
+  if (!scorso && Math.abs(stato.ry) > 90) stato.girata = !stato.girata;
   stato.rx = 0; stato.ry = 0;
   posa();
-  const breve = Date.now() - giu.t < 260 && giu.mosso < 8;
+  const breve = !scorso && Date.now() - giu.t < 260 && giu.mosso < 8;
   giu = null;
   if (breve) stato.gira();
  };
