@@ -273,7 +273,12 @@ body:has(#glc-login-slot.in) .avatar{border-color:#d8452e; animation:haki-aura 5
         <span id="sync-stato" style="flex:1;min-width:200px">Controllo in corso…</span>
         <button class="btn-gold" id="sync-now" type="button">Sincronizza ora</button>
       </div>
-      <div class="hint" id="sync-hint">I dati viaggiano quando sei entrato col tuo account. Se qui compare un errore, mandamelo così com'è.</div>
+      <div class="hint" id="sync-righe" style="white-space:pre-line"></div>
+      <div class="uname" style="margin-top:12px">
+        <button class="btn-gold" id="sync-giu" type="button">Prendi i dati del cloud</button>
+        <button class="btn-gold" id="sync-su" type="button">Manda al cloud questo dispositivo</button>
+      </div>
+      <div class="hint" id="sync-hint">I dati viaggiano quando sei entrato col tuo account. «Prendi» sovrascrive questo dispositivo, «Manda» sovrascrive il cloud: scegli il dispositivo che ha la versione giusta. Se compare un errore, mandamelo così com'è.</div>
     </div>
 
     <div class="foot"><a href="/">◀ Torna al porto</a></div>
@@ -311,16 +316,46 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     box.textContent = (st.ok ? "Allineato · " : "Problema · ") + st.dettaglio + (quando ? " · " + quando : "") + (peso ? " · " + peso : "");
     box.style.color = st.ok ? "" : "#f0c9b0";
   }
+  function quando(ms){ if(!ms) return "mai"; try{ return new Date(ms).toLocaleString("it-IT"); }catch(e){ return String(ms); } }
+  function syncRighe(){
+    var box = document.getElementById("sync-righe");
+    if(!box || !window.GLCSync || !GLCSync.dettagli) return;
+    if(!GLCSync.collegato()){ box.textContent = ""; return; }
+    box.textContent = "Lettura del cloud…";
+    GLCSync.dettagli().then(function(righe){
+      box.textContent = righe.map(function(r){
+        if(r.errore) return r.chiave + " — errore: " + r.errore;
+        if(!r.cloud) return r.chiave + " — nel cloud non c'è nulla · qui " + Math.round(r.locale / 1024) + " KB";
+        return r.chiave + " — " + (r.uguali ? "uguali" : "DIVERSI") +
+          " · cloud " + Math.round(r.cloud / 1024) + " KB del " + quando(r.quandoCloud) +
+          " · qui " + Math.round(r.locale / 1024) + " KB, ultima modifica " + quando(r.modificaLocale);
+      }).join("\n");
+    }).catch(function(e){ box.textContent = "Lettura non riuscita: " + (e && e.message ? e.message : e); });
+  }
   function syncBind(){
     var btn = document.getElementById("sync-now"); if(!btn) return;
     btn.onclick = function(){
       if(!window.GLCSync || !GLCSync.collegato()){ syncRender(); return; }
       btn.disabled = true; syncRender("Sincronizzazione in corso…");
-      GLCSync.adesso().then(function(){ btn.disabled = false; syncRender(); })
+      GLCSync.adesso().then(function(){ btn.disabled = false; syncRender(); syncRighe(); })
         .catch(function(){ btn.disabled = false; syncRender(); });
     };
+    var giu = document.getElementById("sync-giu");
+    if(giu) giu.onclick = function(){
+      if(!window.GLCSync || !GLCSync.collegato()) return;
+      if(!confirm("Sovrascrivo i dati di QUESTO dispositivo con quelli del cloud?")) return;
+      giu.disabled = true; syncRender("Scarico dal cloud…");
+      GLCSync.prendiDalCloud().then(function(){ giu.disabled = false; syncRender(); syncRighe(); });
+    };
+    var su = document.getElementById("sync-su");
+    if(su) su.onclick = function(){
+      if(!window.GLCSync || !GLCSync.collegato()) return;
+      if(!confirm("Sovrascrivo il CLOUD (e quindi gli altri dispositivi) con i dati di questo dispositivo?")) return;
+      su.disabled = true; syncRender("Invio al cloud…");
+      GLCSync.mandaAlCloud().then(function(){ su.disabled = false; syncRender(); syncRighe(); });
+    };
     syncRender();
-    setTimeout(syncRender, 2500);
+    setTimeout(function(){ syncRender(); syncRighe(); }, 2500);
   }
 
   function readCT(){

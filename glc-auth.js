@@ -19,6 +19,7 @@
 
   var currentUser = null, syncedReveal = false, saveTimers = {};
   var pulledKeys = {}, dirtyKeys = {}, cloudStamp = {}, lastPull = 0, watching = false;
+  var controllando = false, canale = null;
   /* I primi secondi sono riscritture di apertura (migrazioni, normalizzazioni):
      non sono modifiche del giocatore e non devono contare come «più recenti». */
   var bootFino = Date.now() + 5000;
@@ -136,10 +137,15 @@
     var data; try{ data = JSON.parse(raw); }catch(e){ return false; }
     if(raw.length > 4000000) flash("Salvataggio pesante (" + sizeMB(raw.length) + " MB): togli qualche ritratto", true);
     try{
-      var res = await sb.from("saves").upsert({ user_id: currentUser.id, key: k, data: data }, { onConflict: "user_id,key" });
+      var riga = { user_id: currentUser.id, key: k, data: data };
+      /* Ci si fa restituire updated_at: così il controllo dal vivo sa che
+         quell'aggiornamento è nostro e non lo rilegge come novità. */
+      var res = await sb.from("saves").upsert(riga, { onConflict: "user_id,key" }).select("updated_at").maybeSingle();
+      if(res.error && /updated_at/.test(res.error.message || "")) res = await sb.from("saves").upsert(riga, { onConflict: "user_id,key" });
       if(res.error) throw res.error;
       setLocalTouch(k, Date.now());
-      cloudStamp[k] = Date.now();
+      cloudStamp[k] = (res.data && res.data.updated_at) ? Date.parse(res.data.updated_at) : Date.now();
+      segnaApplicato(k, JSON.stringify(data));
       dirtyKeys[k] = false;
       noteSync("salvataggio", true, k);
       flash("Salvato nel cloud \u2713");
@@ -225,14 +231,61 @@
   }
   /* Tornando sull'app dopo un po' si ricontrolla il cloud: così il telefono
      vede il lavoro fatto altrove senza dover essere riavviato. */
-  function watchReturn(){
+  /* ---------------- aggiornamento dal vivo ----------------
+     Il cloud viene ascoltato in tempo reale (Realtime di Supabase). Dove non è
+     attivo si ripiega su un controllo leggero ogni 12 secondi: si legge solo
+     updated_at, non i dati, così pesa quanto un battito. */
+  async function stampsCloud(){
+    var q = await sb.from("saves").select("key,updated_at").eq("user_id", currentUser.id).in("key", SAVE_KEYS);
+    if(q.error){
+      if(/updated_at/.test(q.error.message || "")) return null;   /* colonna assente */
+      throw q.error;
+    }
+    var out = {};
+    (q.data || []).forEach(function(r){ out[r.key] = r.updated_at ? Date.parse(r.updated_at) : 0; });
+    return out;
+  }
+  async function controlla(motivo){
+    if(!currentUser || controllando) return false;
+    if(document.visibilityState === "hidden") return false;
+    controllando = true;
+    try{
+      var st = await stampsCloud();
+      if(st === null){ await cloudPull(); return true; }   /* senza updated_at: lettura piena */
+      var daPrendere = SAVE_KEYS.filter(function(k){ return (st[k] || 0) > (cloudStamp[k] || 0); });
+      if(!daPrendere.length) return false;
+      var reload = false;
+      for(var i = 0; i < daPrendere.length; i++){
+        var esito = await cloudPullKey(daPrendere[i]);
+        if(esito === "reload") reload = true;
+      }
+      lastPull = Date.now();
+      if(reload){
+        if(troppeRicariche()){ flash("Aggiornato su un altro dispositivo: ricarica la pagina", false); return true; }
+        segnaRicarica(); location.reload();
+      }
+      return true;
+    }catch(e){
+      console.error("[GLC] controllo", motivo, e);
+      return false;
+    }finally{ controllando = false; }
+  }
+  function ascolta(){
     if(!SAVE_KEYS.length || watching) return;
     watching = true;
     document.addEventListener("visibilitychange", function(){
-      if(document.visibilityState !== "visible" || !currentUser) return;
-      if(Date.now() - lastPull < 60000) return;
-      cloudPull();
+      if(document.visibilityState === "visible") controlla("ritorno");
     });
+    window.addEventListener("online", function(){ controlla("rete"); });
+    setInterval(function(){ controlla("battito"); }, 12000);
+    try{
+      if(sb.channel){
+        canale = sb.channel("glc-saves-" + currentUser.id)
+          .on("postgres_changes", { event: "*", schema: "public", table: "saves", filter: "user_id=eq." + currentUser.id },
+              function(){ controlla("realtime"); })
+          .subscribe(function(stato){ noteSync("realtime", stato === "SUBSCRIBED", String(stato)); });
+      }
+    }catch(e){ console.error("[GLC] realtime", e); }
   }
 
   /* ---------------- overlay di accesso ---------------- */
@@ -353,7 +406,7 @@
     renderControl();
     if(SAVE_KEYS.length && !syncedReveal){
       syncedReveal = true;
-      watchReturn();
+      ascolta();
       cloudPull().then(function(reloaded){ if(!reloaded) closeOverlay(); });
     } else {
       closeOverlay();
@@ -366,11 +419,70 @@
   }
 
   /* Piccola API per le pagine: stato e sincronizzazione a mano. */
+  /* Che cosa c'è di qua e che cosa c'è di là, chiave per chiave: serve per
+     capire quale versione il sito considera più recente. */
+  async function dettagli(){
+    var out = [];
+    for(var i = 0; i < SAVE_KEYS.length; i++){
+      var k = SAVE_KEYS[i], mio = localStorage.getItem(k), riga = { chiave: k, locale: mio ? mio.length : 0, modificaLocale: localTouch(k), cloud: 0, quandoCloud: 0, uguali: false, errore: "" };
+      if(currentUser){
+        try{
+          var row = await cloudRow(k);
+          if(row && row.data != null){
+            var testo = JSON.stringify(row.data);
+            riga.cloud = testo.length;
+            riga.quandoCloud = row.updated_at ? Date.parse(row.updated_at) : 0;
+            riga.uguali = testo === mio;
+          }
+        }catch(e){ riga.errore = errText(e); }
+      }
+      out.push(riga);
+    }
+    return out;
+  }
+  /* Forzature a mano: una direzione sola, decisa dal giocatore. */
+  async function forzaGiu(){   /* cloud -> questo dispositivo */
+    if(!currentUser) return false;
+    var cambiato = false;
+    for(var i = 0; i < SAVE_KEYS.length; i++){
+      var k = SAVE_KEYS[i];
+      try{
+        var row = await cloudRow(k);
+        if(!row || row.data == null) continue;
+        var testo = JSON.stringify(row.data);
+        pulledKeys[k] = true; dirtyKeys[k] = false;
+        if(testo !== localStorage.getItem(k)){ _setItem(k, testo); cambiato = true; }
+        setLocalTouch(k, row.updated_at ? Date.parse(row.updated_at) : Date.now());
+        segnaApplicato(k, testo);
+      }catch(e){ flash("Non riuscito (" + errText(e) + ")", true); return false; }
+    }
+    noteSync("forzatura", true, "presi i dati del cloud");
+    if(cambiato){ try{ _setItem("glc_reload_sync", "0|" + Date.now()); }catch(e){} location.reload(); }
+    else flash("Erano già uguali \u2713");
+    return true;
+  }
+  async function forzaSu(){    /* questo dispositivo -> cloud */
+    if(!currentUser) return false;
+    var ok = true;
+    for(var i = 0; i < SAVE_KEYS.length; i++){
+      var k = SAVE_KEYS[i];
+      if(localStorage.getItem(k) == null) continue;
+      pulledKeys[k] = true;
+      var esito = await cloudSaveKey(k);
+      if(!esito) ok = false;
+    }
+    noteSync("forzatura", ok, ok ? "mandati al cloud i dati di questo dispositivo" : "invio non riuscito");
+    return ok;
+  }
+
   window.GLCSync = {
     chiavi: SAVE_KEYS.slice(),
     stato: function(){ try{ return JSON.parse(localStorage.getItem("glc_sync_stato") || "null"); }catch(e){ return null; } },
     collegato: function(){ return !!currentUser; },
     adesso: function(){ return currentUser ? cloudPull() : Promise.resolve(false); },
+    dettagli: dettagli,
+    prendiDalCloud: forzaGiu,
+    mandaAlCloud: forzaSu,
     peso: function(){ var n = 0; SAVE_KEYS.forEach(function(k){ var v = localStorage.getItem(k); if(v) n += v.length; }); return n; }
   };
 
