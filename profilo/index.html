@@ -98,6 +98,68 @@ a{color:inherit;}
 .pname-input{width:100%; max-width:380px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(1.4rem,4vw,2rem); color:var(--vellum); background:var(--field); border:1px solid var(--field-line); border-radius:8px; padding:6px 12px; margin:2px 0 4px;}
 .pname-input:focus{outline:2px solid var(--gold); outline-offset:1px;}
 .pstats{font-size:.95rem; color:var(--ink-soft);}
+
+/* --- equipaggio: griglia oppure carte da gioco --- */
+.vista-scelta{display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; margin-right:auto;}
+.vista-btn{font-family:'Inter',sans-serif; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; padding:8px 15px; border:none; background:transparent; color:var(--ink-soft); cursor:pointer;}
+.vista-btn[aria-pressed="true"]{background:linear-gradient(180deg,var(--gold-bright),var(--gold)); color:#1b1206;}
+.vista-btn:focus-visible{outline:2px solid var(--gold-bright); outline-offset:-2px;}
+
+.carte{position:relative; margin:0 -20px;}
+.carte-pista{
+  display:flex; gap:26px; overflow-x:auto; overflow-y:hidden; scroll-snap-type:x mandatory;
+  padding:54px 50% 30px; scrollbar-width:none; -webkit-overflow-scrolling:touch; perspective:1200px;
+}
+.carte-pista::-webkit-scrollbar{display:none;}
+.pirata-carta{
+  position:relative; flex:none; width:236px; aspect-ratio:2/3; scroll-snap-align:center;
+  border-radius:16px; border:1px solid rgba(240,164,65,.32); background:#0d0b09; cursor:pointer;
+  transform:scale(var(--k,.84)); opacity:var(--o,.55); transition:transform .28s ease, opacity .28s ease, border-color .18s;
+  box-shadow:0 18px 40px rgba(0,0,0,.55); overflow:visible; padding:0; text-align:left; color:inherit; font:inherit;
+}
+.pirata-carta:focus-visible{outline:2px solid var(--gold-bright); outline-offset:4px;}
+.pirata-carta .pc-corpo{position:absolute; inset:0; border-radius:inherit; overflow:hidden; display:flex; flex-direction:column;}
+.pirata-carta .pc-foto{position:absolute; inset:0; background:radial-gradient(70% 55% at 50% 32%,#243244,#0b0906);}
+.pirata-carta .pc-foto img{width:100%; height:100%; object-fit:cover; display:block;}
+.pirata-carta .pc-vuoto{position:absolute; inset:0; display:grid; place-items:center; font-size:46px; color:#8a765a; opacity:.5;}
+.pirata-carta .pc-velo{position:absolute; inset:0; background:linear-gradient(180deg,rgba(6,10,14,.66) 0%,rgba(6,10,14,0) 30%,rgba(6,10,14,.2) 50%,rgba(6,10,14,.94) 86%);}
+.pirata-carta .pc-testo{position:relative; margin-top:auto; padding:14px 14px 16px; text-align:center;}
+.pirata-carta .pc-taglia{font-family:'Cormorant Garamond',serif; font-weight:700; font-size:1.45rem; color:#ffe6b8; text-shadow:0 2px 10px rgba(0,0,0,.8);}
+.pirata-carta .pc-nome{font-family:'Cinzel Decorative','Cormorant Garamond',serif; font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:1rem; color:#fff6e4; margin-top:2px; line-height:1.15;}
+.pirata-carta .pc-chip{display:inline-block; margin-top:9px; font-family:'Inter',sans-serif; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:999px; border:1px solid currentColor; background:rgba(8,12,16,.55);}
+.pirata-carta .pc-piede{display:flex; justify-content:space-between; gap:8px; margin-top:12px; font-family:'Inter',sans-serif; font-size:10px; letter-spacing:.06em; color:rgba(242,233,216,.72);}
+.pirata-carta .pc-piede b{color:#ffd394; font-weight:600;}
+.pirata-carta .pc-grado{
+  position:absolute; top:-22px; left:50%; transform:translateX(-50%);
+  width:44px; height:44px; border-radius:50%; display:grid; place-items:center;
+  font-family:'Cinzel Decorative',serif; font-size:15px; color:#0e1a16;
+  background:linear-gradient(180deg,#7fd8b0,#2f9d78); border:2px solid rgba(255,255,255,.35);
+  box-shadow:0 8px 20px rgba(0,0,0,.5);
+}
+.pirata-carta .pc-x{
+  position:absolute; top:8px; right:8px; z-index:3; width:26px; height:26px; border-radius:50%;
+  border:1px solid rgba(226,49,49,.45); background:rgba(10,8,6,.7); color:#ff8a7e; cursor:pointer;
+  font-size:13px; line-height:1; opacity:0; transition:opacity .2s;
+}
+.pirata-carta.attiva{--k:1; --o:1; border-color:rgba(240,164,65,.75); box-shadow:0 26px 60px rgba(0,0,0,.65), 0 0 34px rgba(240,164,65,.16);}
+.pirata-carta.attiva .pc-x{opacity:1;}
+.pirata-carta.attiva .pc-nome{font-size:1.14rem;}
+.carte-frec{
+  position:absolute; top:50%; transform:translateY(-50%); z-index:4; width:40px; height:40px; border-radius:50%;
+  border:1px solid var(--line); background:rgba(10,20,26,.8); color:var(--gold-bright); font-size:20px; cursor:pointer;
+}
+.carte-frec.prec{left:6px;} .carte-frec.succ{right:6px;}
+.carte-frec:hover{background:rgba(240,164,65,.16);}
+.carte-punti{display:flex; justify-content:center; gap:7px; margin-top:2px;}
+.carte-punti i{width:6px; height:6px; border-radius:50%; background:rgba(242,233,216,.28); transition:background .2s, transform .2s;}
+.carte-punti i.on{background:var(--gold-bright); transform:scale(1.35);}
+.carte-vuoto{color:var(--foam); font-style:italic; text-align:center; padding:30px 20px;}
+@media(max-width:560px){
+  .carte-pista{gap:16px; padding:50px 50% 26px;}
+  .pirata-carta{width:200px;}
+  .carte-frec{display:none;}
+}
+@media(prefers-reduced-motion:reduce){ .pirata-carta{transition:none;} }
 .empty-note{grid-column:1/-1; text-align:center; color:var(--foam); font-style:italic; padding:4px 0 2px;}
 .sec-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:6px 2px 14px; flex-wrap:wrap;}
 .sec-head h2{font-family:'Cormorant Garamond',serif; font-weight:600; text-transform:uppercase; letter-spacing:.03em; font-size:clamp(20px,4vw,28px); color:var(--vellum); margin:0;}
@@ -232,9 +294,19 @@ body:has(#glc-login-slot.in) .avatar{border-color:#d8452e; animation:haki-aura 5
 
     <div class="sec-head">
       <h2>Il tuo equipaggio</h2>
+      <div class="vista-scelta" role="group" aria-label="Come vedere l’equipaggio">
+        <button class="vista-btn" id="vista-griglia" type="button" aria-pressed="true">Griglia</button>
+        <button class="vista-btn" id="vista-carte" type="button" aria-pressed="false">Carte</button>
+      </div>
       <button class="btn-gold" id="new-btn" type="button">+ Nuovo personaggio</button>
     </div>
     <div class="grid" id="chars"></div>
+    <div id="chars-carte" class="carte" hidden>
+      <button class="carte-frec prec" type="button" aria-label="Pirata precedente">‹</button>
+      <div class="carte-pista" id="carte-pista"></div>
+      <button class="carte-frec succ" type="button" aria-label="Pirata successivo">›</button>
+      <div class="carte-punti" id="carte-punti" aria-hidden="true"></div>
+    </div>
 
     <div class="sec-head" style="margin-top:34px">
       <h2>Le tue navi</h2>
@@ -431,12 +503,159 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     nt.order.forEach(function(id){ grid.appendChild(makeShipCard(id, nt.ships[id])); });
     grid.appendChild(makeNewShipCard());
   }
+  /* --- Equipaggio a carte -------------------------------------------------
+     Stessa lista della griglia, presentata come un mazzo che scorre: la carta
+     al centro è quella scelta. Nessun dato diverso, solo un altro modo di
+     guardarlo. */
+  var VISTA_KEY="glc_vista_equipaggio";
+  function vistaCorrente(){ try{ return localStorage.getItem(VISTA_KEY)==="carte" ? "carte" : "griglia"; }catch(e){ return "griglia"; } }
+  var ROMANI=["I","II","III","IV","V","VI","VII","VIII","IX","X"];
+  function romano(n){ return ROMANI[n] || String(n+1); }
+  function taglia(n){ return Number(n||0).toLocaleString("it-IT"); }
+  function coloreTaglia(n){
+    var i=0; for(var k=0;k<BLV.length;k++){ if(n>=BLV[k][0]) i=k; }
+    return ["#9fb3c8","#7fd8b0","#7fc5f5","#c9a7ff","#ffb36b","#ff7a6b"][i] || "#9fb3c8";
+  }
+  function makePirataCarta(id,c,indice){
+    var b=document.createElement("button"); b.type="button"; b.className="pirata-carta";
+    b.setAttribute("aria-label","Apri la scheda di "+label(c));
+    var corpo=document.createElement("div"); corpo.className="pc-corpo";
+    var foto=document.createElement("div"); foto.className="pc-foto";
+    if(c.photo){ var img=document.createElement("img"); img.src=c.photo; img.alt=""; img.style.cssText=photoStyle(c.photoPos); foto.appendChild(img); }
+    else { var vuoto=document.createElement("div"); vuoto.className="pc-vuoto"; vuoto.textContent="\u2693"; foto.appendChild(vuoto); }
+    corpo.appendChild(foto);
+    var velo=document.createElement("div"); velo.className="pc-velo"; corpo.appendChild(velo);
+
+    var testo=document.createElement("div"); testo.className="pc-testo";
+    var n=Number(c.bounty||0);
+    var t=document.createElement("div"); t.className="pc-taglia";
+    t.textContent=(n>0? taglia(n)+" \u0e3f" : "Nessuna taglia"); testo.appendChild(t);
+    var nome=document.createElement("div"); nome.className="pc-nome"; nome.textContent=label(c); testo.appendChild(nome);
+    var chip=document.createElement("span"); chip.className="pc-chip"; chip.textContent=bountyLabel(n);
+    chip.style.color=coloreTaglia(n); testo.appendChild(chip);
+    var piede=document.createElement("div"); piede.className="pc-piede";
+    var sx=document.createElement("span"); sx.innerHTML="<b>"+esc(c.role||"Senza ruolo")+"</b>";
+    var dx=document.createElement("span"); dx.textContent=(c.race&&RACE_NAMES[c.race])?RACE_NAMES[c.race]:"Razza da scegliere";
+    piede.appendChild(sx); piede.appendChild(dx); testo.appendChild(piede);
+    corpo.appendChild(testo);
+    b.appendChild(corpo);
+
+    var grado=document.createElement("span"); grado.className="pc-grado"; grado.textContent=romano(indice); b.appendChild(grado);
+    var x=document.createElement("button"); x.type="button"; x.className="pc-x"; x.title="Elimina"; x.setAttribute("aria-label","Elimina "+label(c)); x.textContent="\u2715";
+    x.onclick=function(ev){ ev.stopPropagation(); delChar(id); };
+    b.appendChild(x);
+    b.onclick=function(){ openChar(id); };
+    return b;
+  }
+  function carteAggiorna(){
+    var pista=document.getElementById("carte-pista"); if(!pista) return;
+    var carte=[].slice.call(pista.querySelectorAll(".pirata-carta"));
+    if(!carte.length) return;
+    var centro=pista.getBoundingClientRect().left + pista.clientWidth/2;
+    var piuVicina=null, minima=Infinity;
+    carte.forEach(function(carta){
+      var r=carta.getBoundingClientRect();
+      var d=Math.abs((r.left + r.width/2) - centro);
+      if(d<minima){ minima=d; piuVicina=carta; }
+      var k=Math.max(0, 1 - d/(pista.clientWidth*.62));
+      carta.style.setProperty("--k",(.82 + k*.18).toFixed(3));
+      carta.style.setProperty("--o",(.45 + k*.55).toFixed(3));
+    });
+    carte.forEach(function(carta){ carta.classList.toggle("attiva", carta===piuVicina); });
+    var punti=document.getElementById("carte-punti");
+    if(punti){ [].slice.call(punti.children).forEach(function(p,i){ p.className = carte[i]===piuVicina ? "on" : ""; }); }
+  }
+  /* Si sposta solo la pista, non la pagina: scrollIntoView farebbe saltare
+     tutto il profilo alla sezione. */
+  function carteCentra(carta, morbido){
+    var pista=document.getElementById("carte-pista"); if(!pista||!carta) return;
+    var meta=carta.offsetLeft + carta.offsetWidth/2 - pista.clientWidth/2;
+    if(pista.scrollTo) pista.scrollTo({left:meta, behavior: morbido ? "smooth" : "auto"});
+    else pista.scrollLeft=meta;
+    /* Se lo scorrimento morbido non parte (scheda in secondo piano, animazioni
+       ridotte) la carta ci arriva comunque. */
+    setTimeout(function(){
+      if(Math.abs(pista.scrollLeft - meta) > 4) pista.scrollLeft = meta;
+      carteAggiorna();
+    }, 380);
+    setTimeout(carteAggiorna, 60);
+  }
+  function carteScorri(verso){
+    var pista=document.getElementById("carte-pista"); if(!pista) return;
+    var carte=[].slice.call(pista.querySelectorAll(".pirata-carta"));
+    var attiva=pista.querySelector(".pirata-carta.attiva") || carte[0];
+    if(!attiva) return;
+    var i=Math.min(carte.length-1, Math.max(0, carte.indexOf(attiva)+verso));
+    carteCentra(carte[i], true);
+  }
+  function renderCarte(){
+    var ct=readCT(), pista=document.getElementById("carte-pista"); if(!pista) return;
+    pista.innerHTML="";
+    var punti=document.getElementById("carte-punti"); if(punti) punti.innerHTML="";
+    if(!ct.order.length){
+      var v=document.createElement("div"); v.className="carte-vuoto";
+      v.textContent="Non hai ancora pirati. Creane uno con il pulsante qui sopra.";
+      pista.appendChild(v); return;
+    }
+    ct.order.forEach(function(id,i){
+      pista.appendChild(makePirataCarta(id, ct.chars[id], i));
+      if(punti) punti.appendChild(document.createElement("i"));
+    });
+    /* Il centraggio viene fatto subito e poi ripetuto: in una scheda in secondo
+       piano requestAnimationFrame non scatta, e le carte resterebbero spente. */
+    var attivo=ct.order.indexOf(ct.activeId);
+    var centra=function(){
+      var carte=pista.querySelectorAll(".pirata-carta");
+      var scelta=carte[attivo>=0?attivo:0];
+      carteCentra(scelta, false);
+      carteAggiorna();
+    };
+    centra();
+    requestAnimationFrame(centra);
+    setTimeout(centra, 80);
+  }
+  function vistaApplica(quale){
+    var griglia=document.getElementById("chars"), carte=document.getElementById("chars-carte");
+    var bg=document.getElementById("vista-griglia"), bc=document.getElementById("vista-carte");
+    if(!griglia||!carte) return;
+    var aCarte = quale==="carte";
+    griglia.hidden=aCarte; griglia.style.display = aCarte ? "none" : "";
+    carte.hidden=!aCarte;
+    if(bg) bg.setAttribute("aria-pressed", String(!aCarte));
+    if(bc) bc.setAttribute("aria-pressed", String(aCarte));
+    try{ localStorage.setItem(VISTA_KEY, aCarte?"carte":"griglia"); }catch(e){}
+    if(aCarte) renderCarte();
+  }
+  function vistaBind(){
+    var bg=document.getElementById("vista-griglia"), bc=document.getElementById("vista-carte");
+    if(bg) bg.onclick=function(){ vistaApplica("griglia"); };
+    if(bc) bc.onclick=function(){ vistaApplica("carte"); };
+    var pista=document.getElementById("carte-pista");
+    if(pista){
+      var atteso=false;
+      pista.addEventListener("scroll", function(){
+        if(atteso) return; atteso=true;
+        var fatto=function(){ atteso=false; carteAggiorna(); };
+        requestAnimationFrame(fatto); setTimeout(fatto, 120);
+      }, {passive:true});
+      window.addEventListener("resize", carteAggiorna);
+    }
+    var carte=document.getElementById("chars-carte");
+    if(carte){
+      var prec=carte.querySelector(".carte-frec.prec"), succ=carte.querySelector(".carte-frec.succ");
+      if(prec) prec.onclick=function(){ carteScorri(-1); };
+      if(succ) succ.onclick=function(){ carteScorri(1); };
+    }
+    vistaApplica(vistaCorrente());
+  }
+
   function renderChars(){
     var ct=readCT(); var grid=document.getElementById("chars"); if(!grid) return;
     grid.innerHTML="";
     if(!ct.order.length){ var en=document.createElement("div"); en.className="empty-note"; en.textContent="Non hai ancora pirati. Creane uno con il riquadro qui sotto."; grid.appendChild(en); }
     ct.order.forEach(function(id){ grid.appendChild(makeCard(id, ct.chars[id])); });
     grid.appendChild(makeNewCard());
+    if(vistaCorrente()==="carte") renderCarte();
   }
   var SKEY="glc_sessioni_v1";
   function newSId(){return "s_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
@@ -532,6 +751,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     if(e) e.addEventListener("click", startEdit);
     if(inp){ inp.addEventListener("blur", endEdit); inp.addEventListener("keydown", function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); inp.blur(); } }); }
     syncBind();
+    vistaBind();
     var nb=document.getElementById("new-btn"); if(nb) nb.onclick=newChar;
     var nsb=document.getElementById("new-ship"); if(nsb) nsb.onclick=newShip;
     var nss=document.getElementById("new-session"); if(nss) nss.onclick=newSession;
