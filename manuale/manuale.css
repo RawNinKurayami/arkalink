@@ -1,0 +1,254 @@
+/* Grand Line Chronicles · Manuale 2.0
+   Impaginazione di lettura: indice sempre a portata, testo in colonna stretta,
+   tabelle leggibili e una resa da libro quando si stampa. */
+
+:root{
+  --man-abisso:#060607;
+  --man-carta:#f2e9d8;
+  --man-ink:#f1ece0;
+  --man-tenue:rgba(241,236,224,.62);
+  --man-oro:#f0a441;
+  --man-oro-chiaro:#ffd394;
+  --man-bordo:rgba(241,236,224,.09);
+  --man-campo:rgba(241,236,224,.045);
+  --man-display:'Barlow Condensed','Arial Narrow',sans-serif;
+  --man-ui:'Manrope','Inter',system-ui,sans-serif;
+  --man-serif:'Cormorant Garamond',Georgia,serif;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:radial-gradient(120% 80% at 50% -10%,#0c0f18 0%,#060607 55%,#060607 100%) fixed;
+  color:var(--man-ink);
+  font-family:var(--man-serif);
+  font-size:19px;
+  line-height:1.66;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;}
+
+/* ---------- testata ---------- */
+.man-top{
+  position:sticky; top:0; z-index:40;
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  padding:12px clamp(14px,4vw,30px);
+  background:rgba(6,6,7,.86);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--man-bordo);
+  font-family:var(--man-ui);
+}
+.man-top .man-marchio{display:flex; align-items:center; gap:9px; text-decoration:none; font-family:var(--man-display); font-size:16px; letter-spacing:.16em; text-transform:uppercase;}
+.man-top .man-marchio .anc{color:var(--man-oro); font-size:18px;}
+.man-strumenti{display:flex; align-items:center; gap:8px;}
+.man-btn{
+  font:600 11px var(--man-ui); letter-spacing:.1em; text-transform:uppercase;
+  border:1px solid var(--man-bordo); background:var(--man-campo); color:var(--man-ink);
+  border-radius:999px; padding:9px 15px; cursor:pointer; text-decoration:none; display:inline-block;
+}
+.man-btn:hover{background:rgba(240,164,65,.14); border-color:rgba(240,164,65,.4);}
+.man-btn.oro{background:linear-gradient(180deg,#ffd394,#f0a441); color:#1b1206; border-color:transparent;}
+.man-btn.solo-telefono{display:none;}
+
+/* ---------- impianto ---------- */
+.man-wrap{
+  display:grid;
+  grid-template-columns:clamp(240px,23vw,320px) minmax(0,1fr);
+  gap:clamp(20px,3vw,48px);
+  max-width:1500px; margin:0 auto; padding:0 clamp(14px,3vw,34px) 80px;
+}
+
+/* ---------- indice ---------- */
+.man-indice{
+  position:sticky; top:62px; align-self:start;
+  max-height:calc(100dvh - 78px); overflow:auto; overscroll-behavior:contain;
+  padding:22px 4px 40px; font-family:var(--man-ui);
+  scrollbar-width:thin;
+}
+.man-indice h2{font:600 10px var(--man-ui); letter-spacing:.2em; text-transform:uppercase; color:var(--man-tenue); margin:0 0 12px;}
+.man-cerca{
+  width:100%; font:400 13px var(--man-ui); color:var(--man-ink);
+  background:var(--man-campo); border:1px solid var(--man-bordo); border-radius:999px;
+  padding:10px 14px; margin-bottom:14px;
+}
+.man-cerca:focus{outline:2px solid rgba(240,164,65,.45); outline-offset:1px;}
+.man-indice ol{list-style:none; margin:0; padding:0;}
+.man-indice .man-i-cap{margin-bottom:6px;}
+.man-indice .man-i-cap>a{
+  display:flex; gap:9px; align-items:baseline; text-decoration:none;
+  font-family:var(--man-display); font-size:17px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+  color:var(--man-ink); padding:7px 10px; border-radius:10px; line-height:1.15;
+}
+.man-indice .man-i-cap>a:hover{background:var(--man-campo);}
+.man-indice .man-i-cap>a .n{font-size:12px; color:var(--man-oro); flex:none; min-width:20px;}
+.man-indice .man-i-sez{list-style:none; margin:0 0 10px; padding:0 0 0 30px;}
+.man-indice .man-i-sez a{
+  display:block; text-decoration:none; font-size:12.5px; color:var(--man-tenue);
+  padding:5px 9px; border-radius:8px; border-left:1px solid var(--man-bordo);
+}
+.man-indice .man-i-sez a:hover{color:var(--man-ink); background:var(--man-campo);}
+.man-indice a.qui{color:#1b1206; background:linear-gradient(180deg,#ffd394,#f0a441); border-left-color:transparent;}
+.man-indice .man-i-cap>a.qui .n{color:#5a3a06;}
+.man-vuoto{font-size:12.5px; color:var(--man-tenue); padding:6px 9px;}
+
+/* ---------- testo ---------- */
+.man-testo{max-width:78ch; padding:26px 0 0;}
+.man-frontespizio{padding:26px 0 34px; border-bottom:1px solid var(--man-bordo); margin-bottom:10px;}
+.man-frontespizio .occhiello{font:600 10px var(--man-ui); letter-spacing:.22em; text-transform:uppercase; color:var(--man-tenue); margin:0 0 10px;}
+.man-frontespizio h1{
+  font-family:var(--man-display); font-weight:600; text-transform:uppercase;
+  font-size:clamp(42px,7vw,86px); line-height:.94; letter-spacing:.03em; margin:0;
+}
+.man-frontespizio .sotto{font-family:var(--man-serif); font-style:italic; color:var(--man-tenue); margin:12px 0 0; font-size:19px;}
+
+.man-cap{padding:38px 0 10px;}
+.man-cap+.man-cap{border-top:1px solid var(--man-bordo);}
+.man-cap-h{margin:0 0 22px;}
+.man-cap-n{display:block; font:600 10px var(--man-ui); letter-spacing:.22em; text-transform:uppercase; color:var(--man-oro); margin-bottom:8px;}
+.man-cap-h h1{
+  font-family:var(--man-display); font-weight:600; text-transform:uppercase;
+  font-size:clamp(32px,5vw,58px); line-height:1; letter-spacing:.03em; margin:0;
+}
+h2.man-sez{
+  display:flex; gap:12px; align-items:baseline;
+  font-family:var(--man-display); font-weight:600; text-transform:uppercase; letter-spacing:.04em;
+  font-size:clamp(23px,3.2vw,31px); line-height:1.1;
+  margin:44px 0 14px; padding-top:14px; border-top:1px solid var(--man-bordo);
+  scroll-margin-top:80px;
+}
+h2.man-sez .man-sez-n{font-family:var(--man-ui); font-size:12px; font-weight:600; color:var(--man-oro); flex:none;}
+h3.man-sub{
+  font-family:var(--man-display); font-weight:600; text-transform:uppercase; letter-spacing:.05em;
+  font-size:20px; line-height:1.15; margin:28px 0 8px; color:var(--man-ink);
+}
+h3.man-sub b{font-weight:inherit;}
+h4.man-lab{
+  font:600 10.5px var(--man-ui); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--man-oro-chiaro); margin:20px 0 6px;
+}
+h4.man-lab b{font-weight:inherit;}
+.man-testo p{margin:0 0 14px;}
+.man-testo b{color:#fff6e4;}
+.man-testo i{color:rgba(241,236,224,.86);}
+
+/* elenchi: quelli del documento e quelli ricomposti dalle righe brevi */
+.man-punti,.man-elenco{margin:0 0 16px; padding:0; list-style:none;}
+.man-punti li,.man-elenco li{position:relative; padding:3px 0 3px 22px;}
+.man-punti li::before,.man-elenco li::before{
+  content:""; position:absolute; left:6px; top:.85em; width:5px; height:5px; border-radius:50%;
+  background:var(--man-oro); opacity:.7;
+}
+.man-elenco{
+  background:var(--man-campo); border-radius:14px; padding:10px 14px; margin:4px 0 18px;
+  font-family:var(--man-ui); font-size:14.5px; line-height:1.5;
+}
+.man-elenco li{padding-left:20px;}
+
+/* righe «X → Y»: diventano una tabellina di corrispondenze */
+.man-mappa{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:8px;
+  margin:6px 0 20px; font-family:var(--man-ui);
+}
+.man-mappa .man-riga{
+  display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+  background:var(--man-campo); border-radius:12px; padding:9px 13px; font-size:14px;
+}
+.man-mappa .man-riga span{color:var(--man-tenue);}
+.man-mappa .man-freccia{color:var(--man-oro); font-style:normal; flex:none; opacity:.8;}
+.man-mappa .man-riga b{color:var(--man-oro-chiaro); font-weight:600; text-align:right;}
+
+/* ---------- tabelle ---------- */
+.man-tab-wrap{margin:8px 0 24px; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+.man-tab{
+  width:100%; border-collapse:collapse; font-family:var(--man-ui); font-size:14px; line-height:1.45;
+  background:rgba(241,236,224,.02); border-radius:14px; overflow:hidden;
+}
+.man-tab th{
+  text-align:left; font:600 10px var(--man-ui); letter-spacing:.13em; text-transform:uppercase;
+  color:var(--man-oro-chiaro); background:rgba(240,164,65,.09);
+  padding:11px 13px; border-bottom:1px solid rgba(240,164,65,.22); white-space:nowrap;
+}
+.man-tab td{padding:10px 13px; border-bottom:1px solid var(--man-bordo); vertical-align:top;}
+.man-tab tr:last-child td{border-bottom:0;}
+.man-tab tbody tr:nth-child(even){background:rgba(241,236,224,.022);}
+.man-tab td b{color:#fff6e4;}
+
+/* ---------- sommario stampato ---------- */
+.man-somm{display:none;}
+
+/* ---------- telefono ---------- */
+@media(max-width:900px){
+  body{font-size:18px;}
+  .man-wrap{grid-template-columns:1fr; padding-bottom:60px;}
+  .man-btn.solo-telefono{display:inline-block;}
+  .man-indice{
+    position:fixed; inset:0 auto 0 0; z-index:60; width:min(86vw,340px);
+    background:#0a0a0c; border-right:1px solid var(--man-bordo);
+    max-height:100dvh; padding:20px 14px 40px;
+    transform:translateX(-102%); transition:transform .25s ease;
+    box-shadow:0 0 60px rgba(0,0,0,.6);
+  }
+  body.man-indice-aperto .man-indice{transform:none;}
+  body.man-indice-aperto .man-velo{opacity:1; pointer-events:auto;}
+  .man-velo{
+    position:fixed; inset:0; z-index:55; background:rgba(4,4,6,.6);
+    opacity:0; pointer-events:none; transition:opacity .25s ease;
+    -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+  }
+  .man-testo{max-width:none; padding-top:18px;}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .man-indice{transition:none;}
+}
+
+/* ---------- stampa / PDF ---------- */
+@page{size:A4; margin:18mm 16mm 20mm;}
+@media print{
+  html,body{background:#fff !important; color:#14110d !important; font-size:10.6pt; line-height:1.48;}
+  .man-top,.man-indice,.man-velo,.glc-bg,#manlock{display:none !important;}
+  .man-wrap{display:block; max-width:none; padding:0;}
+  .man-testo{max-width:none; padding:0;}
+  a{text-decoration:none;}
+
+  .man-frontespizio{
+    border:0; text-align:center; padding:56mm 0 0; break-after:page; page-break-after:always;
+  }
+  .man-frontespizio h1{font-size:44pt; color:#14110d;}
+  .man-frontespizio .occhiello,.man-frontespizio .sotto{color:#6b5a44;}
+
+  /* sommario con i numeri dei capitoli */
+  .man-somm{display:block; break-after:page; page-break-after:always;}
+  .man-somm h2{font-family:var(--man-display); font-size:20pt; text-transform:uppercase; letter-spacing:.05em; margin:0 0 10mm; color:#14110d;}
+  .man-somm ol{list-style:none; margin:0; padding:0; font-family:var(--man-ui); font-size:10pt;}
+  .man-somm .s-cap{font-weight:700; margin:5mm 0 1.5mm; text-transform:uppercase; letter-spacing:.06em;}
+  .man-somm .s-sez{margin:0 0 .8mm 8mm; color:#4a4034;}
+  .man-somm .s-sez b{color:#8a6a1e; font-weight:600; margin-right:5px;}
+
+  .man-cap{break-before:page; page-break-before:always; padding:0; border:0;}
+  .man-cap:first-of-type{break-before:avoid; page-break-before:auto;}
+  .man-cap-n{color:#8a6a1e;}
+  .man-cap-h h1{font-size:26pt; color:#14110d;}
+  h2.man-sez{font-size:15pt; color:#14110d; border-top:1px solid #d8cdbb; margin:9mm 0 3mm; break-after:avoid; page-break-after:avoid;}
+  h2.man-sez .man-sez-n{color:#8a6a1e;}
+  h3.man-sub{font-size:12pt; color:#14110d; margin:5mm 0 1.5mm; break-after:avoid; page-break-after:avoid;}
+  h4.man-lab{color:#8a6a1e; margin:4mm 0 1mm; break-after:avoid; page-break-after:avoid;}
+  p,li{orphans:3; widows:3;}
+  .man-testo b{color:#14110d;}
+  .man-testo i{color:#3a332a;}
+
+  .man-elenco,.man-mappa .man-riga{background:#f4efe4; border:1px solid #e0d6c4;}
+  .man-mappa .man-riga span{color:#4a4034;}
+  .man-mappa .man-freccia{color:#8a6a1e;}
+  .man-mappa .man-riga b{color:#8a6a1e;}
+  .man-punti li::before,.man-elenco li::before{background:#b8912f;}
+
+  .man-tab-wrap{overflow:visible; break-inside:avoid; page-break-inside:avoid;}
+  .man-tab{font-size:9pt; background:#fff; border:1px solid #d8cdbb;}
+  .man-tab th{background:#f0e7d6; color:#5a4a20; border-bottom:1px solid #d8cdbb;}
+  .man-tab td{border-bottom:1px solid #e6dccb;}
+  .man-tab tbody tr:nth-child(even){background:#faf6ee;}
+  .man-tab td b,.man-tab th b,.man-tab td i{color:#14110d;}   /* sulla carta il grassetto resta scuro */
+  .man-tab tr{break-inside:avoid; page-break-inside:avoid;}
+}
