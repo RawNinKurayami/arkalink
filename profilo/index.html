@@ -119,6 +119,10 @@ a{color:inherit;}
   padding:30px 50%; scrollbar-width:none; -webkit-overflow-scrolling:touch;
 }
 .carte-pista::-webkit-scrollbar{display:none;}
+/* Mentre il mazzo scorre le carte seguono il dito senza transizione: animare
+   dodici trasformazioni a ogni fotogramma è ciò che faceva venire gli scatti.
+   La transizione torna appena lo scorrimento si ferma. */
+.carte-pista.in-movimento .pirata-carta{transition:none; will-change:transform, opacity;}
 .pirata-carta{
   position:relative; flex:none; width:236px; aspect-ratio:2/3; scroll-snap-align:center;
   border-radius:16px; border:1px solid rgba(240,164,65,.32); background:#0d0b09; cursor:pointer;
@@ -529,11 +533,11 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     if(c.sceneBackground){
       b.classList.add("con-scena");
       var scena=document.createElement("div"); scena.className="pc-scena";
-      var sImg=document.createElement("img"); sImg.src=c.sceneBackground; sImg.alt="";
+      var sImg=document.createElement("img"); sImg.src=c.sceneBackground; sImg.alt=""; sImg.decoding="async";
       scena.appendChild(sImg); corpo.appendChild(scena);
     }
     var foto=document.createElement("div"); foto.className="pc-foto";
-    if(c.photo){ var img=document.createElement("img"); img.src=c.photo; img.alt=""; img.style.cssText=photoStyle(c.photoPos); foto.appendChild(img); }
+    if(c.photo){ var img=document.createElement("img"); img.src=c.photo; img.alt=""; img.decoding="async"; img.style.cssText=photoStyle(c.photoPos); foto.appendChild(img); }
     else { var vuoto=document.createElement("div"); vuoto.className="pc-vuoto"; vuoto.textContent="\u2693"; foto.appendChild(vuoto); }
     corpo.appendChild(foto);
     var velo=document.createElement("div"); velo.className="pc-velo"; corpo.appendChild(velo);
@@ -558,35 +562,47 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     b.onclick=function(){ openChar(id); };
     return b;
   }
+  /* L'aggiornamento gira a ogni fotogramma mentre si scorre, quindi non deve
+     mai chiedere misure al browser: le posizioni delle carte sono fisse e si
+     calcolano una volta sola (carteMisura). Così non c'è nessun ricalcolo di
+     impaginazione durante lo scorrimento, che è ciò che fa venire gli scatti. */
+  var CARTE=[], PISTA_W=0;
+  function carteMisura(){
+    var pista=document.getElementById("carte-pista"); if(!pista) return;
+    PISTA_W=pista.clientWidth;
+    CARTE=[].slice.call(pista.querySelectorAll(".pirata-carta")).map(function(carta){
+      return {n:carta, c:carta.offsetLeft + carta.offsetWidth/2, posto:Number(carta.dataset.posto||0)};
+    });
+    carteMisuraCopia(pista);
+  }
   function carteAggiorna(){
     var pista=document.getElementById("carte-pista"); if(!pista) return;
-    var carte=[].slice.call(pista.querySelectorAll(".pirata-carta"));
-    if(!carte.length) return;
-    var centro=pista.getBoundingClientRect().left + pista.clientWidth/2;
-    var piuVicina=null, minima=Infinity;
-    carte.forEach(function(carta){
-      var r=carta.getBoundingClientRect();
-      var d=Math.abs((r.left + r.width/2) - centro);
-      if(d<minima){ minima=d; piuVicina=carta; }
-      /* Sul telefono la differenza di grandezza è più contenuta: ingrandire
-         troppo una carta la fa sembrare sgranata mentre si muove. */
-      var scalaMin=window.innerWidth<=560 ? .9 : .82;
-      var vicinanza=Math.max(0, 1 - d/(pista.clientWidth*.62));
-      carta.dataset.scala=(scalaMin + vicinanza*(1-scalaMin)).toFixed(3);
-      carta.dataset.velo=(.45 + vicinanza*.55).toFixed(3);
-    });
-    carte.forEach(function(carta){
-      var attiva = carta===piuVicina;
-      carta.classList.toggle("attiva", attiva);
-      /* La carta al centro resta a grandezza piena esatta: il telefono la
-         disegna com'è, senza ingrandire un'immagine già rimpicciolita. */
-      carta.style.transform = attiva ? "none" : ("scale(" + carta.dataset.scala + ")");
-      carta.style.opacity = attiva ? "1" : carta.dataset.velo;
-    });
+    if(!CARTE.length || CARTE[0].n.parentNode!==pista) carteMisura();
+    if(!CARTE.length) return;
+    var centro=pista.scrollLeft + PISTA_W/2;
+    var scalaMin=PISTA_W<=560 ? .9 : .82, raggio=PISTA_W*.62;
+    var piuVicina=null, minima=Infinity, calcoli=[];
+    for(var i=0;i<CARTE.length;i++){
+      var d=Math.abs(CARTE[i].c - centro);
+      if(d<minima){ minima=d; piuVicina=CARTE[i]; }
+      var vicinanza=Math.max(0, 1 - d/raggio);
+      calcoli.push({v:CARTE[i], scala:scalaMin + vicinanza*(1-scalaMin), velo:.45 + vicinanza*.55});
+    }
+    for(var j=0;j<calcoli.length;j++){
+      var c=calcoli[j], attiva=c.v===piuVicina, n=c.v.n;
+      if(attiva!==n.classList.contains("attiva")) n.classList.toggle("attiva", attiva);
+      /* La carta al centro resta a grandezza piena esatta. */
+      var t=attiva ? "none" : ("scale(" + c.scala.toFixed(3) + ")");
+      var o=attiva ? "1" : c.velo.toFixed(3);
+      if(n.style.transform!==t) n.style.transform=t;
+      if(n.style.opacity!==o) n.style.opacity=o;
+    }
     var punti=document.getElementById("carte-punti");
-    var posto=piuVicina ? Number(piuVicina.dataset.posto||0) : 0;
-    if(punti){ [].slice.call(punti.children).forEach(function(p,i){ p.className = (i===posto) ? "on" : ""; }); }
-    carteRientra(pista);
+    var posto=piuVicina ? piuVicina.posto : 0;
+    if(punti && punti.dataset.acceso!==String(posto)){
+      punti.dataset.acceso=String(posto);
+      [].slice.call(punti.children).forEach(function(p,i){ p.className = (i===posto) ? "on" : ""; });
+    }
   }
   /* Quando si esce dalla copia di mezzo si torna dentro di una copia intera:
      il disegno è identico, quindi il salto non si vede. */
@@ -616,6 +632,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
        ridotte) la carta ci arriva comunque. */
     setTimeout(function(){
       if(Math.abs(pista.scrollLeft - meta) > 4) pista.scrollLeft = meta;
+      carteRientra(pista);
       carteAggiorna();
     }, 380);
     setTimeout(carteAggiorna, 60);
@@ -657,7 +674,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     if(quante===3) attivo=(attivo>=0?attivo:0) + ct.order.length;   /* copia di mezzo */
     pista.dataset.perCopia=String(ct.order.length);
     var centra=function(){
-      carteMisuraCopia(pista);
+      carteMisura();
       var carte=pista.querySelectorAll(".pirata-carta");
       var scelta=carte[attivo>=0?attivo:0];
       carteCentra(scelta, false);
@@ -685,13 +702,23 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     if(bc) bc.onclick=function(){ vistaApplica("carte"); };
     var pista=document.getElementById("carte-pista");
     if(pista){
-      var atteso=false;
+      /* Un solo aggiornamento per fotogramma. Mentre si scorre le carte non
+         hanno transizioni — seguono il dito — e il rientro fra le copie
+         aspetta che lo scorrimento si fermi, per non spezzare l'inerzia. */
+      var atteso=false, fermo=null;
       pista.addEventListener("scroll", function(){
-        if(atteso) return; atteso=true;
-        var fatto=function(){ atteso=false; carteAggiorna(); };
-        requestAnimationFrame(fatto); setTimeout(fatto, 120);
+        if(!pista.classList.contains("in-movimento")) pista.classList.add("in-movimento");
+        clearTimeout(fermo);
+        fermo=setTimeout(function(){
+          pista.classList.remove("in-movimento");
+          carteRientra(pista);
+          carteAggiorna();
+        }, 140);
+        if(atteso) return;
+        atteso=true;
+        requestAnimationFrame(function(){ atteso=false; carteAggiorna(); });
       }, {passive:true});
-      window.addEventListener("resize", carteAggiorna);
+      window.addEventListener("resize", function(){ carteMisura(); carteAggiorna(); });
     }
     var carte=document.getElementById("chars-carte");
     if(carte){
