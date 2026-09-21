@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
-<link rel="stylesheet" href="manuale.css?v=10">
+<link rel="stylesheet" href="manuale.css?v=11">
 <style>
 /* Il gate del Manuale bloccato resta com'era. */
 #manlock[hidden]{display:none !important;}
@@ -7128,10 +7128,11 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 
 <script>
 /* Il Manuale come libro.
-   Su computer e tablet il testo scorre in colonne affiancate e si sfoglia una
-   pagina alla volta; sul telefono resta una colonna che scorre. L'indice è un
-   pannello che si apre e si chiude dal tasto in alto. Qui non ci sono regole
-   di gioco: solo lettura. */
+   Da tablet in su si legge una pagina A4 per volta, con due colonne, e in
+   pagina sta un capitolo alla volta: impaginare tutto il manuale insieme
+   costringeva il browser a calcolare centinaia di colonne a ogni gesto.
+   Sul telefono resta una colonna che scorre. Qui non ci sono regole di gioco:
+   solo lettura. */
 (function(){
  "use strict";
  var indice=document.getElementById("man-indice");
@@ -7142,15 +7143,17 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
  var nessuno=document.getElementById("man-nessuno");
  var libro=document.getElementById("man-libro");
  var foglio=document.getElementById("man-foglio");
- var fine=document.getElementById("man-fine");
  var dove=document.getElementById("man-dove");
  var numeri=document.getElementById("man-numeri");
  var btnPrec=document.getElementById("man-prec");
  var btnSucc=document.getElementById("man-succ");
  var voci=[].slice.call(nav.querySelectorAll("a[data-id]"));
  var perId={};voci.forEach(function(a){perId[a.dataset.id]=a;});
- var capitoli=[].slice.call(document.querySelectorAll(".man-cap"));
- var bersagli=[].slice.call(document.querySelectorAll(".man-cap[id], h2.man-sez[id]"));
+
+ /* I fascicoli: il frontespizio e i sedici capitoli. */
+ var fascicoli=[].slice.call(foglio.querySelectorAll(".man-frontespizio, .man-cap"));
+ var fascicolo=0, pagina=0, pagine=1, passo=0, passoColonna=0, gola=46;
+ var postiSezioni=[];
 
  function aLibro(){ return matchMedia("(min-width:901px)").matches; }
 
@@ -7179,31 +7182,29 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
   if(nessuno)nessuno.hidden=visibili>0;
  });
 
- /* ---------- pagine ---------- */
- var pagina=0, passo=0, passoColonna=0, totale=1, gola=0;
- var postiBersagli=[], postiCapitoli=[];
+ /* ---------- misure ---------- */
  function misuraGola(){
   var v=getComputedStyle(document.documentElement).getPropertyValue("--gola");
   return parseFloat(v)||46;
  }
- /* distanza di un elemento dall'inizio del testo, qualunque pagina si veda */
- function distanza(el){
-  return el.getBoundingClientRect().left - foglio.getBoundingClientRect().left;
+ function distanza(el){ return el.getBoundingClientRect().left - foglio.getBoundingClientRect().left; }
+ function paginaDaDistanza(x){
+  var colonna = passoColonna ? Math.round(x / passoColonna) : 0;
+  return Math.max(0, Math.floor(colonna / 2));
  }
- function misuraPassi(){
+ function misura(){
+  if(!aLibro()) return;
   gola=misuraGola();
   passo=foglio.clientWidth + gola;
   passoColonna=(foglio.clientWidth - gola) / 2 + gola;
- }
- function misura(){
-  if(!aLibro()){ totale=1; pagina=0; foglio.style.removeProperty("--pagina"); aggiornaPiede(); return; }
-  misuraPassi();
-  totale=Math.max(1, paginaDaDistanza(distanza(fine)) + 1);
-  if(pagina>totale-1) pagina=totale-1;
-  /* Le posizioni si calcolano una volta sola: durante lo sfoglio non si chiede
-     più nessuna misura al browser. */
-  postiBersagli=bersagli.map(function(b){ return {el:b, pag:paginaDaDistanza(distanza(b))}; });
-  postiCapitoli=capitoli.map(function(c){ return {el:c, pag:paginaDaDistanza(distanza(c))}; });
+  var corpo=fascicoli[fascicolo];
+  /* quanto è lungo il capitolo aperto: l'ultimo suo elemento dice dove finisce */
+  var ultimo=corpo.lastElementChild || corpo;
+  var fine=distanza(ultimo) + ultimo.getBoundingClientRect().width;
+  pagine=Math.max(1, paginaDaDistanza(fine) + 1);
+  if(pagina>pagine-1) pagina=pagine-1;
+  postiSezioni=[].slice.call(corpo.querySelectorAll("h2.man-sez[id], .man-cap-h"))
+   .map(function(el){ return {el:el, pag:paginaDaDistanza(distanza(el))}; });
   posa(true);
  }
  function posa(subito){
@@ -7212,47 +7213,47 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
   if(subito) requestAnimationFrame(function(){ document.body.classList.remove("man-senza-moto"); });
   aggiornaPiede();
  }
- function aggiornaPiede(){
-  if(btnPrec)btnPrec.disabled = pagina<=0;
-  if(btnSucc)btnSucc.disabled = pagina>=totale-1;
-  if(numeri)numeri.innerHTML = "Pagina <b>"+(pagina+1)+"</b> di <b>"+totale+"</b>";
-  segnaDove();
+
+ /* ---------- fascicoli e pagine ---------- */
+ function mostraFascicolo(n, allaFine){
+  n=Math.max(0, Math.min(fascicoli.length-1, n));
+  if(n!==fascicolo || !fascicoli[n].classList.contains("man-aperto")){
+   fascicoli.forEach(function(f,i){ f.classList.toggle("man-aperto", i===n); });
+   fascicolo=n;
+  }
+  pagina=0;
+  misura();
+  if(allaFine){ pagina=pagine-1; posa(true); }
  }
  function vaiA(n){
-  n=Math.max(0, Math.min(totale-1, n));
+  if(!aLibro()) return;
+  if(n<0){ if(fascicolo>0) mostraFascicolo(fascicolo-1, true); return; }
+  if(n>pagine-1){ if(fascicolo<fascicoli.length-1) mostraFascicolo(fascicolo+1, false); return; }
   if(n===pagina){ aggiornaPiede(); return; }
   pagina=n; posa(false);
  }
- /* La pagina di un elemento si ricava dalla colonna in cui è finito: il passo
-    di colonna è la misura esatta con cui il browser impagina, e arrotondare
-    evita gli errori di mezzo pixel che facevano saltare una pagina. */
- function paginaDaDistanza(x){
-  var colonna = passoColonna ? Math.round(x / passoColonna) : 0;
-  return Math.max(0, Math.floor(colonna / 2));
+ function aggiornaPiede(){
+  if(btnPrec)btnPrec.disabled = (fascicolo===0 && pagina===0);
+  if(btnSucc)btnSucc.disabled = (fascicolo===fascicoli.length-1 && pagina>=pagine-1);
+  if(numeri)numeri.innerHTML = aLibro() ? ("Pagina <b>"+(pagina+1)+"</b> di <b>"+pagine+"</b>") : "";
+  segnaDove();
  }
- function paginaDi(el){
-  misuraPassi();
-  return paginaDaDistanza(distanza(el));
- }
- function ancoraCorrente(){
-  var scelto=null;
-  postiBersagli.forEach(function(p){ if(p.pag <= pagina) scelto=p.el; });
-  return scelto;
- }
- /* Dopo un cambio di larghezza si torna sullo stesso punto del testo. */
- function riallinea(ancora){
-  misura();
-  if(ancora && aLibro()) vaiA(paginaDi(ancora));
- }
-
- /* dove siamo: capitolo e sezione della pagina aperta */
  function segnaDove(){
+  var corpo=fascicoli[fascicolo];
+  var titolo=corpo.querySelector(".man-cap-h h1");
+  if(dove && aLibro()){
+   dove.textContent = titolo ? ("Capitolo "+(corpo.dataset.cap||"")+" · "+titolo.textContent) : "Manuale del gioco";
+  }
+  /* voce dell'indice accesa: l'ultima sezione già iniziata */
   var scelto=null;
   if(aLibro()){
-   postiBersagli.forEach(function(p){ if(p.pag <= pagina) scelto=p.el; });
+   postiSezioni.forEach(function(p){ if(p.pag<=pagina && p.el.id) scelto=p.el; });
+   if(!scelto && corpo.id) scelto=corpo;
   }else{
    var y=window.scrollY+140;
-   bersagli.forEach(function(b){ if(b.getBoundingClientRect().top+window.scrollY<=y) scelto=b; });
+   [].slice.call(document.querySelectorAll(".man-cap[id], h2.man-sez[id]")).forEach(function(b){
+    if(b.getBoundingClientRect().top+window.scrollY<=y) scelto=b;
+   });
   }
   var a=scelto?perId[scelto.id]:null;
   voci.forEach(function(v){ if(v!==a) v.classList.remove("qui"); });
@@ -7262,13 +7263,6 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
     var r=a.getBoundingClientRect(), ri=indice.getBoundingClientRect();
     if(r.top<ri.top+40||r.bottom>ri.bottom-40) indice.scrollTop += r.top-ri.top-110;
    }
-  }
-  if(dove && aLibro()){
-   var cap=null;
-   postiCapitoli.forEach(function(p){ if(p.pag <= pagina) cap=p.el; });
-   var titolo=cap?cap.querySelector(".man-cap-h h1"):null;
-   var numero=cap?cap.dataset.cap:"";
-   dove.textContent = titolo ? ("Capitolo "+numero+" · "+titolo.textContent) : "Manuale del gioco";
   }
  }
 
@@ -7280,13 +7274,13 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
   if(e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
   if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" "){ e.preventDefault(); vaiA(pagina+1); }
   else if(e.key==="ArrowLeft"||e.key==="PageUp"){ e.preventDefault(); vaiA(pagina-1); }
-  else if(e.key==="Home"){ e.preventDefault(); vaiA(0); }
-  else if(e.key==="End"){ e.preventDefault(); vaiA(totale-1); }
+  else if(e.key==="Home"){ e.preventDefault(); mostraFascicolo(0,false); }
+  else if(e.key==="End"){ e.preventDefault(); mostraFascicolo(fascicoli.length-1,true); }
  });
  var attesa=0;
  libro.addEventListener("wheel",function(e){
   if(!aLibro()) return;
-  var ora=Date.now(); if(ora-attesa<320) return;
+  var ora=Date.now(); if(ora-attesa<260) return;
   var d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;
   if(Math.abs(d)<6) return;
   attesa=ora; e.preventDefault(); vaiA(pagina + (d>0?1:-1));
@@ -7295,51 +7289,75 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
  libro.addEventListener("touchstart",function(e){ if(aLibro()&&e.touches[0]) dito={x:e.touches[0].clientX,y:e.touches[0].clientY}; },{passive:true});
  libro.addEventListener("touchend",function(e){
   if(!dito||!aLibro()) return;
-  var t=e.changedTouches[0]; var dx=t.clientX-dito.x, dy=t.clientY-dito.y;
+  var t=e.changedTouches[0], dx=t.clientX-dito.x, dy=t.clientY-dito.y;
   dito=null;
   if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)) vaiA(pagina + (dx<0?1:-1));
  },{passive:true});
 
- /* una voce dell'indice porta alla sua pagina (o alla sua altezza sul telefono) */
+ /* ---------- salti dall'indice ---------- */
+ function fascicoloDi(el){
+  for(var i=0;i<fascicoli.length;i++){ if(fascicoli[i]===el || fascicoli[i].contains(el)) return i; }
+  return 0;
+ }
+ function apriSu(el){
+  if(!el) return;
+  var n=fascicoloDi(el);
+  mostraFascicolo(n,false);
+  if(el!==fascicoli[n]){
+   pagina=paginaDaDistanza(distanza(el));
+   if(pagina>pagine-1) pagina=pagine-1;
+   posa(true);
+  }
+ }
  nav.addEventListener("click",function(e){
   var a=e.target.closest("a[data-id]"); if(!a) return;
   var el=document.getElementById(a.dataset.id);
   if(aLibro()){
    e.preventDefault();
-   if(el) vaiA(paginaDi(el));
+   apriSu(el);
    if(innerWidth<1200) mostraIndice(false);
   }else{
    mostraIndice(false);
   }
  });
 
- /* ---------- avvio e cambi di misura ---------- */
+ /* ---------- avvio, misure e stampa ---------- */
  var ridisegno;
  window.addEventListener("resize",function(){
   clearTimeout(ridisegno);
   ridisegno=setTimeout(function(){
-   riallinea(aLibro()&&passo ? ancoraCorrente() : null);
+   if(aLibro()){
+    /* passando da telefono a libro nessun capitolo è ancora in pagina */
+    if(!foglio.querySelector(".man-aperto")) mostraFascicolo(fascicolo,false);
+    else misura();
+   }else{
+    fascicoli.forEach(function(f){ f.classList.remove("man-aperto"); });
+    foglio.style.removeProperty("--pagina");
+    segnaDove();
+   }
   },180);
  });
  window.addEventListener("scroll",function(){ if(!aLibro()) segnaDove(); },{passive:true});
 
  function avvio(){
-  misura();
-  /* se si arriva con un'ancora nell'indirizzo si apre a quella pagina */
-  if(location.hash){
-   var el=document.getElementById(location.hash.slice(1));
-   if(el&&aLibro()) vaiA(paginaDi(el));
+  if(aLibro()){
+   mostraFascicolo(0,false);
+   if(location.hash){
+    var el=document.getElementById(location.hash.slice(1));
+    if(el) apriSu(el);
+   }
+  }else{
+   fascicoli.forEach(function(f){ f.classList.remove("man-aperto"); });
+   segnaDove();
   }
-  segnaDove();
  }
  avvio();
- if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ setTimeout(misura,60); });
- window.addEventListener("load",function(){ setTimeout(misura,120); });
+ if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ if(aLibro()) misura(); });
 
  var stampa=document.getElementById("man-stampa");
  if(stampa)stampa.onclick=function(){window.print();};
  window.addEventListener("beforeprint",function(){ foglio.style.removeProperty("--pagina"); });
- window.addEventListener("afterprint",function(){ setTimeout(misura,80); });
+ window.addEventListener("afterprint",function(){ if(aLibro()) misura(); });
 })();
 </script>
 

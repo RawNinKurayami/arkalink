@@ -155,45 +155,67 @@ h4.man-lab b{font-weight:inherit;}
 .man-somm{display:none;}
 .man-fine{display:block; height:1px;}
 
-/* ---------- da tablet in su: il libro a pagine ---------- */
+/* ---------- da tablet in su: il libro a pagine A4 ----------
+   In pagina sta un capitolo alla volta: impaginare tutto il manuale in un
+   unico flusso significava far calcolare al browser centinaia di colonne a
+   ogni movimento, ed era questo a rendere tutto lentissimo. */
 @media(min-width:901px){
   body{overflow:hidden;}
   .man-scena{
     height:calc(100dvh - var(--barra));
-    display:grid; grid-template-columns:auto minmax(0,1fr) auto; grid-template-rows:minmax(0,1fr) auto;
-    gap:0 10px; padding:0 clamp(10px,2vw,22px) 4px;
+    display:grid; grid-template-columns:auto auto auto; grid-template-rows:minmax(0,1fr) auto;
+    justify-content:center; align-items:center; gap:0 14px; padding:8px clamp(10px,2vw,22px) 6px;
   }
   .man-libro{
-    grid-column:2; grid-row:1; overflow:hidden;
-    background:var(--carta-alta); border:1px solid var(--carta-ombra); border-radius:3px;
-    box-shadow:0 18px 40px rgba(70,52,20,.12), 0 1px 0 #fff inset;
-    padding:clamp(20px,2.4vw,34px) clamp(22px,2.6vw,40px);
-    margin:12px 0 6px;
-  }
-  /* la piega centrale del libro */
-  .man-libro::after{
-    content:""; position:absolute; top:0; bottom:0; left:50%; width:26px; transform:translateX(-50%);
-    background:linear-gradient(90deg,rgba(120,95,50,0),rgba(120,95,50,.08) 45%,rgba(120,95,50,.08) 55%,rgba(120,95,50,0));
-    pointer-events:none;
+    grid-column:2; grid-row:1;
+    height:min(100%, 1180px);
+    aspect-ratio:1 / 1.4142;          /* proporzioni di un foglio A4 */
+    max-width:calc(100vw - 180px);
+    overflow:hidden; position:relative;
+    background:var(--carta-alta); border:1px solid var(--carta-ombra); border-radius:2px;
+    box-shadow:0 14px 34px rgba(70,52,20,.16), 0 1px 0 #fff inset;
+    padding:clamp(16px,2vh,30px) clamp(18px,2.2vh,32px);
   }
   .man-foglio{
-    height:100%; padding:0;
+    height:100%; padding:0; font-size:13px; line-height:1.45;
     column-count:2; column-gap:var(--gola); column-fill:auto;
     column-rule:1px solid var(--filo);
     transform:translateX(calc(-1 * var(--pagina,0) * (100% + var(--gola))));
-    transition:transform .34s cubic-bezier(.3,.85,.35,1);
+    transition:transform .2s ease-out;
+    will-change:transform;
   }
   body.man-senza-moto .man-foglio{transition:none;}
 
-  .man-cap{break-before:column;}
-  .man-cap:first-of-type{break-before:auto;}
-  .man-frontespizio{break-after:column; min-height:60%; display:flex; flex-direction:column; justify-content:flex-end;}
+  /* un capitolo per volta: gli altri non esistono per l'impaginazione */
+  .man-foglio>.man-cap,.man-foglio>.man-frontespizio{display:none;}
+  .man-foglio>.man-cap.man-aperto,.man-foglio>.man-frontespizio.man-aperto{display:block;}
+  .man-frontespizio.man-aperto{display:flex; flex-direction:column; justify-content:center; height:100%; border-bottom:0;}
+  .man-frontespizio h1{font-size:46px;}
+  .man-frontespizio .sotto{font-size:15px;}
+  .man-cap-h{margin:0 0 12px; padding-bottom:8px;}
+  .man-cap-h h1{font-size:26px;}
+  .man-cap-n{font-size:9px; margin-bottom:4px;}
+  h2.man-sez{font-size:15.5px; margin:16px 0 7px; padding-top:8px; gap:8px;}
+  h2.man-sez .man-sez-n{font-size:10px;}
+  h3.man-sub{font-size:12.5px; margin:12px 0 4px;}
+  h4.man-lab{font-size:9px; margin:10px 0 3px;}
+  .man-foglio p{margin:0 0 8px;}
+  .man-guida{margin:10px 0 5px;}
+  .man-elenco{font-size:11.5px; padding:7px 10px; margin:2px 0 10px;}
+  .man-punti li,.man-elenco li{padding:1px 0 1px 16px;}
+  .man-punti li::before,.man-elenco li::before{left:4px; width:4px; height:4px;}
+  .man-mappa{margin:2px 0 10px;}
+  .man-riga{font-size:11.5px; padding:4px 2px;}
+  .man-tab{font-size:11px;}
+  .man-tab th{font-size:8.5px; padding:6px 8px;}
+  .man-tab td{padding:6px 8px;}
+  .man-tab-wrap{margin:4px 0 12px;}
 
   .man-sfoglia{
     display:grid; place-items:center; align-self:center; grid-row:1;
-    width:44px; height:44px; border-radius:50%; cursor:pointer;
+    width:42px; height:42px; border-radius:50%; cursor:pointer;
     border:1px solid var(--carta-ombra); background:var(--carta-alta); color:var(--rosso);
-    font-size:22px; line-height:1; font-family:var(--serif);
+    font-size:21px; line-height:1; font-family:var(--serif);
   }
   .man-sfoglia:hover{background:var(--rosso); color:var(--carta-alta); border-color:var(--rosso);}
   .man-sfoglia:disabled{opacity:.3; cursor:default; background:var(--carta-alta); color:var(--inchiostro-tenue); border-color:var(--carta-ombra);}
@@ -201,14 +223,12 @@ h4.man-lab b{font-weight:inherit;}
   .man-sfoglia.succ{grid-column:3;}
 
   .man-piede{
-    display:flex; grid-column:2; grid-row:2; align-items:center; justify-content:space-between; gap:12px;
-    font-family:var(--ui); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--inchiostro-tenue); padding:2px 4px 8px;
+    display:flex; grid-column:1 / -1; grid-row:2; align-items:center; justify-content:center; gap:22px;
+    font-family:var(--ui); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--inchiostro-tenue); padding:4px 4px 6px;
   }
   .man-piede b{color:var(--rosso); font-weight:700;}
 
-  /* L'indice scorre SOPRA il libro: se spostasse la pagina, il testo si
-     ridistribuirebbe e il numero di pagina cambierebbe sotto gli occhi. */
   .man-indice{width:min(34vw,340px);}
   .man-velo{background:rgba(40,30,12,.18);}
 }
@@ -245,6 +265,7 @@ h4.man-lab b{font-weight:inherit;}
     height:auto !important; transform:none !important; transition:none !important;
     column-count:1 !important; padding:0 !important; max-width:none !important; font-size:10.4pt;
   }
+  .man-foglio>.man-cap,.man-foglio>.man-frontespizio{display:block !important;}
   .man-frontespizio{break-after:page; page-break-after:always; text-align:center;
     min-height:0; display:block; padding:46mm 0 0; border-bottom:0;}
   .man-frontespizio h1{font-size:40pt;}
