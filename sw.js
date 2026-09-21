@@ -1,7 +1,7 @@
 /* Grand Line Chronicles — service worker
    Strategia network-first: online usa sempre la rete (così vedi gli aggiornamenti),
    offline ripiega sulla copia salvata. Cache solo delle risposte GET dello stesso dominio. */
-var CACHE = "glc-cache-v3";
+var CACHE = "glc-cache-v4";
 
 self.addEventListener("install", function (e) {
   self.skipWaiting();
