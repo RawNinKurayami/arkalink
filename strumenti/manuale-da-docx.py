@@ -118,6 +118,48 @@ def tabella_html(righe):
     out.append('</tbody></table></div>')
     return ''.join(out)
 
+# --- correzioni: paragrafi aggiornati dopo il .docx ---
+# Finché la revisione non entra nel documento, queste sostituzioni tengono la
+# pagina allineata alle regole vere. Il controllo finale confronta la pagina
+# con il documento GIÀ corretto, così resta una garanzia e non una scusa.
+CORREZIONI = os.path.join(REPO, 'strumenti/manuale-correzioni.json')
+correzioni = []
+if os.path.exists(CORREZIONI):
+    correzioni = json.load(open(CORREZIONI, encoding='utf8'))
+
+def applica_correzioni(blocchi, correzioni):
+    for c in correzioni:
+        numero = c['sezione']
+        inizio = None
+        for i, x in enumerate(blocchi):
+            if x['tipo'] == 'p' and x.get('stile') in ('Heading1', 'Heading2'):
+                m = RE_SEZ.match(x['testo'].strip())
+                if m and ('%s.%s' % (m.group(1), m.group(2))) == numero:
+                    inizio = i
+                    break
+        if inizio is None:
+            print('correzione %s: sezione non trovata, salto' % numero)
+            continue
+        fine = len(blocchi)
+        for j in range(inizio + 1, len(blocchi)):
+            x = blocchi[j]
+            if x['tipo'] == 'p' and x.get('stile') in ('Heading1', 'Heading2'):
+                t = x['testo'].strip()
+                if RE_CAP.match(t) or RE_SEZ.match(t):
+                    fine = j
+                    break
+        titolo = '%s · %s' % (numero, c['titolo'])
+        nuovi = [{'tipo': 'p', 'stile': 'Heading2', 'lista': None, 'liv': 0,
+                  'pezzi': [{'t': titolo, 's': []}], 'testo': titolo}]
+        for par in c['paragrafi']:
+            nuovi.append({'tipo': 'p', 'stile': None, 'lista': None, 'liv': 0,
+                          'pezzi': [{'t': par, 's': []}], 'testo': par})
+        blocchi[inizio:fine] = nuovi
+        print('correzione applicata alla sezione %s (%s)' % (numero, c['titolo']))
+    return blocchi
+
+b = applica_correzioni(b, correzioni)
+
 corpo, indice = [], []
 cap_n = 0
 aperto = False
