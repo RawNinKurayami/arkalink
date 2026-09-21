@@ -1,14 +1,1324 @@
-[
+{
+ "nota": "Revisioni arrivate dopo il .docx. Lo strumento le applica a ogni rigenerazione: quando il documento le contiene già, la voce va tolta.",
+ "sezioni": [
   {
-    "sezione": "7.3",
-    "titolo": "Le Tecniche alla creazione",
-    "quando": "2026-09-21",
-    "perche": "Testo aggiornato da Simone: il Grado iniziale non è più fisso a d4.",
-    "paragrafi": [
-      "Un personaggio inizia con la propria Tecnica Razziale e può creare fino a due Tecniche personali.",
-      "Il Grado iniziale di ciascuna Tecnica può essere scelto liberamente fino al Grado dell’Attributo a cui è associata.",
-      "Non è obbligatorio creare la Tecnica al massimo consentito: il giocatore può scegliere anche un Grado inferiore.",
-      "Restano validi gli eventuali limiti aggiuntivi della Fonte. Per esempio, una Tecnica del Frutto non può superare neppure il Dado del Frutto."
-    ]
+   "sezione": "7.3",
+   "titolo": "Le Tecniche alla creazione",
+   "quando": "2026-09-21",
+   "perche": "Testo aggiornato da Simone: il Grado iniziale non è più fisso a d4.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "Un personaggio inizia con la propria Tecnica Razziale e può creare fino a due Tecniche personali."
+    },
+    {
+     "t": "p",
+     "testo": "Il Grado iniziale di ciascuna Tecnica può essere scelto liberamente fino al Grado dell’Attributo a cui è associata."
+    },
+    {
+     "t": "p",
+     "testo": "Non è obbligatorio creare la Tecnica al massimo consentito: il giocatore può scegliere anche un Grado inferiore."
+    },
+    {
+     "t": "p",
+     "testo": "Restano validi gli eventuali limiti aggiuntivi della Fonte. Per esempio, una Tecnica del Frutto non può superare neppure il Dado del Frutto."
+    }
+   ]
+  },
+  {
+   "sezione": "2.5",
+   "titolo": "Punti Vita e Dado Vita",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "I Punti Vita, abbreviati in PV, rappresentano quanto un personaggio può sopportare prima di essere messo fuori combattimento."
+    },
+    {
+     "t": "p",
+     "testo": "Ferite, colpi, cadute, esplosioni e altri effetti possono ridurre i PV del personaggio."
+    },
+    {
+     "t": "p",
+     "testo": "Il valore iniziale dei PV non è uguale per tutti."
+    },
+    {
+     "t": "p",
+     "testo": "È la Razza a stabilire:"
+    },
+    {
+     "t": "lista",
+     "voci": [
+      "i PV iniziali;",
+      "il Dado Vita razziale."
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Un Tontatta, un Umano e un Gigante non partono quindi con la stessa resistenza fisica e non sviluppano i propri PV allo stesso ritmo durante la campagna."
+    },
+    {
+     "t": "h",
+     "testo": "PV Attuali e PV Massimi"
+    },
+    {
+     "t": "p",
+     "testo": "La scheda distingue tra:"
+    },
+    {
+     "t": "tabella",
+     "intestazione": null,
+     "righe": [
+      [
+       "PV Massimi",
+       "Il totale di Punti Vita che il personaggio può possedere normalmente."
+      ],
+      [
+       "PV Attuali",
+       "Quanti Punti Vita possiede in quel momento."
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Quando un personaggio subisce danni, vengono ridotti i suoi PV Attuali."
+    },
+    {
+     "t": "p",
+     "testo": "I PV Massimi rimangono invece invariati finché una regola non li modifica."
+    },
+    {
+     "t": "p",
+     "testo": "Per esempio, un personaggio con:"
+    },
+    {
+     "t": "p",
+     "testo": "18 / 30 PV"
+    },
+    {
+     "t": "p",
+     "testo": "possiede 30 PV Massimi, ma in quel momento gli restano soltanto 18 PV Attuali."
+    },
+    {
+     "t": "p",
+     "testo": "Cure e altri effetti che fanno recuperare PV non possono normalmente portare i PV Attuali oltre i PV Massimi, salvo che una capacità dichiari esplicitamente il contrario."
+    },
+    {
+     "t": "p",
+     "testo": "Le regole relative a cure, recupero, condizioni critiche e raggiungimento di 0 PV vengono trattate nei capitoli dedicati."
+    },
+    {
+     "t": "h",
+     "testo": "Il Dado Vita"
+    },
+    {
+     "t": "p",
+     "testo": "Ogni Razza possiede un proprio Dado Vita."
+    },
+    {
+     "t": "p",
+     "testo": "Il Dado Vita rappresenta la resistenza naturale della Razza e determina quanto aumentano i PV Massimi del personaggio quando riceve un Upgrade."
+    },
+    {
+     "t": "p",
+     "testo": "I Dadi Vita utilizzati dalle Razze sono:"
+    },
+    {
+     "t": "p",
+     "testo": "d6, d8 e d10"
+    },
+    {
+     "t": "p",
+     "testo": "Il Dado Vita non viene tirato durante la crescita del personaggio."
+    },
+    {
+     "t": "p",
+     "testo": "A ogni Upgrade si utilizza invece un valore fisso pari alla metà del valore massimo del Dado Vita."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Dado Vita",
+      "PV ottenuti a ogni Upgrade"
+     ],
+     "righe": [
+      [
+       "d6",
+       "+3 PV"
+      ],
+      [
+       "d8",
+       "+4 PV"
+      ],
+      [
+       "d10",
+       "+5 PV"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Non esiste quindi casualità nella crescita dei Punti Vita."
+    },
+    {
+     "t": "p",
+     "testo": "Due personaggi della stessa Razza che hanno ricevuto lo stesso numero di Upgrade ottengono la stessa quantità di PV attraverso il proprio Dado Vita, salvo che Talenti, capacità o altre regole modifichino direttamente i loro PV Massimi."
+    },
+    {
+     "t": "h",
+     "testo": "Crescita dei PV"
+    },
+    {
+     "t": "p",
+     "testo": "A ogni Upgrade, il personaggio aumenta automaticamente i propri PV Massimi di un valore pari alla metà del valore massimo del proprio Dado Vita razziale."
+    },
+    {
+     "t": "p",
+     "testo": "La progressione standard è quindi:"
+    },
+    {
+     "t": "mappa",
+     "righe": [
+      [
+       "d6",
+       "+3 PV per Upgrade"
+      ],
+      [
+       "d8",
+       "+4 PV per Upgrade"
+      ],
+      [
+       "d10",
+       "+5 PV per Upgrade"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Per esempio, un personaggio possiede:"
+    },
+    {
+     "t": "p",
+     "testo": "PV Massimi: 14 Dado Vita: d6"
+    },
+    {
+     "t": "p",
+     "testo": "Al primo Upgrade ottiene:"
+    },
+    {
+     "t": "p",
+     "testo": "14 + 3 = 17 PV"
+    },
+    {
+     "t": "p",
+     "testo": "Al secondo:"
+    },
+    {
+     "t": "p",
+     "testo": "17 + 3 = 20 PV"
+    },
+    {
+     "t": "p",
+     "testo": "Al terzo:"
+    },
+    {
+     "t": "p",
+     "testo": "20 + 3 = 23 PV"
+    },
+    {
+     "t": "p",
+     "testo": "La crescita è quindi costante e prevedibile."
+    },
+    {
+     "t": "h",
+     "testo": "Esempio con Dado Vita d8"
+    },
+    {
+     "t": "p",
+     "testo": "Un personaggio parte con:"
+    },
+    {
+     "t": "p",
+     "testo": "16 PV Dado Vita d8"
+    },
+    {
+     "t": "p",
+     "testo": "Ogni Upgrade aggiunge:"
+    },
+    {
+     "t": "p",
+     "testo": "+4 PV"
+    },
+    {
+     "t": "p",
+     "testo": "La sua progressione sarà quindi:"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Upgrade",
+      "PV Massimi"
+     ],
+     "righe": [
+      [
+       "Creazione",
+       "16"
+      ],
+      [
+       "1° Upgrade",
+       "20"
+      ],
+      [
+       "2° Upgrade",
+       "24"
+      ],
+      [
+       "3° Upgrade",
+       "28"
+      ],
+      [
+       "4° Upgrade",
+       "32"
+      ],
+      [
+       "5° Upgrade",
+       "36"
+      ]
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Esempio con un Gigante"
+    },
+    {
+     "t": "p",
+     "testo": "Un Gigante possiede:"
+    },
+    {
+     "t": "p",
+     "testo": "22 PV iniziali Dado Vita d10"
+    },
+    {
+     "t": "p",
+     "testo": "A ogni Upgrade ottiene:"
+    },
+    {
+     "t": "p",
+     "testo": "+5 PV Massimi"
+    },
+    {
+     "t": "p",
+     "testo": "La sua progressione sarà quindi:"
+    },
+    {
+     "t": "p",
+     "testo": "22 → 27 → 32 → 37 → 42 → 47..."
+    },
+    {
+     "t": "p",
+     "testo": "Il vantaggio razziale sulla resistenza non riguarda quindi soltanto i PV iniziali."
+    },
+    {
+     "t": "p",
+     "testo": "Una Razza naturalmente più resistente continua a ottenere più PV durante la propria crescita, ma la differenza rimane proporzionata al ritmo generale della progressione."
+    },
+    {
+     "t": "h",
+     "testo": "Il Dado Vita è razziale"
+    },
+    {
+     "t": "p",
+     "testo": "Il Dado Vita dipende dalla Razza, non dal Ruolo."
+    },
+    {
+     "t": "p",
+     "testo": "Diventare Combattente, Dottore, Cuoco, Navigatore o sviluppare un Secondo Ruolo non modifica automaticamente il proprio Dado Vita."
+    },
+    {
+     "t": "p",
+     "testo": "Un Umano Combattente e un Umano Archeologo possiedono entrambi:"
+    },
+    {
+     "t": "p",
+     "testo": "Dado Vita d6"
+    },
+    {
+     "t": "p",
+     "testo": "e ottengono quindi normalmente:"
+    },
+    {
+     "t": "p",
+     "testo": "+3 PV a ogni Upgrade"
+    },
+    {
+     "t": "p",
+     "testo": "Ciò che cambia tra i due personaggi è il modo in cui sviluppano e utilizzano le proprie capacità, non la crescita naturale dei loro Punti Vita."
+    },
+    {
+     "t": "p",
+     "testo": "Talenti, poteri, equipaggiamento o altre regole possono modificare i PV Massimi, il recupero o la resistenza quando lo dichiarano esplicitamente."
+    },
+    {
+     "t": "h",
+     "testo": "Perché il Dado Vita non si tira"
+    },
+    {
+     "t": "p",
+     "testo": "La crescita dei PV deve rappresentare l'evoluzione del personaggio, non dipendere dalla fortuna."
+    },
+    {
+     "t": "p",
+     "testo": "Se il Dado Vita venisse tirato a ogni Upgrade, due personaggi della stessa Razza e con lo stesso numero di avanzamenti potrebbero arrivare allo stesso punto della campagna con quantità di PV molto differenti soltanto a causa dei risultati ottenuti con i dadi."
+    },
+    {
+     "t": "p",
+     "testo": "Utilizzando invece una crescita fissa:"
+    },
+    {
+     "t": "p",
+     "testo": "d6 = +3 PV d8 = +4 PV d10 = +5 PV"
+    },
+    {
+     "t": "p",
+     "testo": "la Razza mantiene un peso preciso e prevedibile sulla resistenza del personaggio."
+    },
+    {
+     "t": "p",
+     "testo": "Il Dado Vita continua così a distinguere le Razze più fragili da quelle naturalmente più robuste, senza far crescere i Punti Vita più rapidamente degli altri elementi della progressione."
+    }
+   ]
+  },
+  {
+   "sezione": "2.10",
+   "titolo": "Progressione iniziale",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "La creazione del personaggio stabilisce soltanto il punto di partenza."
+    },
+    {
+     "t": "p",
+     "testo": "Da quel momento, il pirata cresce attraverso gli Upgrade, sviluppando resistenza, capacità, Tecniche e nuovi Talenti."
+    },
+    {
+     "t": "p",
+     "testo": "Un Upgrade rappresenta un momento significativo della crescita del personaggio: allenamento, esperienza, battaglie, viaggi, sconfitte, scoperte e svolte importanti della campagna."
+    },
+    {
+     "t": "p",
+     "testo": "Non esiste un numero fisso di Upgrade che una campagna debba raggiungere."
+    },
+    {
+     "t": "p",
+     "testo": "È il Game Master a stabilirne il ritmo."
+    },
+    {
+     "t": "p",
+     "testo": "Una campagna breve può avere pochi Upgrade molto sostanziosi."
+    },
+    {
+     "t": "p",
+     "testo": "Una campagna lunga può distribuirne molti lungo l’intera traversata."
+    },
+    {
+     "t": "h",
+     "testo": "Il personaggio alla creazione"
+    },
+    {
+     "t": "p",
+     "testo": "Un nuovo pirata possiede già tutto ciò che gli serve per iniziare l’avventura."
+    },
+    {
+     "t": "p",
+     "testo": "Alla creazione vengono definiti:"
+    },
+    {
+     "t": "p",
+     "testo": "Razza Attributi Skill Ruolo Principale Tecnica Razziale fino a 2 Tecniche personali iniziali Punti Vita iniziali Dado Vita 6 Stamina Movimento Difesa Passiva ed eventualmente un Frutto del Diavolo"
+    },
+    {
+     "t": "p",
+     "testo": "Il personaggio non parte quindi vuoto."
+    },
+    {
+     "t": "p",
+     "testo": "Parte con una propria identità meccanica, che verrà poi sviluppata durante la campagna."
+    },
+    {
+     "t": "h",
+     "testo": "Cosa comporta un Upgrade"
+    },
+    {
+     "t": "p",
+     "testo": "Un Upgrade può far avanzare il personaggio su diversi fronti."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Crescita",
+      "Effetto"
+     ],
+     "righe": [
+      [
+       "Punti Vita",
+       "aumentano automaticamente"
+      ],
+      [
+       "Stamina",
+       "aumenta secondo la propria curva di progressione"
+      ],
+      [
+       "Punti Abilità",
+       "vengono assegnati dal GM"
+      ],
+      [
+       "Talento",
+       "può essere acquisito se disponibile"
+      ],
+      [
+       "Progressione",
+       "nuovi Gradi possono aprire Talenti, effetti e possibilità"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Non tutto cresce nello stesso modo."
+    },
+    {
+     "t": "p",
+     "testo": "Alcuni elementi aumentano automaticamente."
+    },
+    {
+     "t": "p",
+     "testo": "Altri dipendono dalle decisioni del giocatore."
+    },
+    {
+     "t": "p",
+     "testo": "Altri ancora dipendono direttamente dalla crescita narrativa stabilita dal Game Master."
+    },
+    {
+     "t": "h",
+     "testo": "Punti Vita"
+    },
+    {
+     "t": "p",
+     "testo": "A ogni Upgrade il personaggio aumenta automaticamente i propri PV Massimi."
+    },
+    {
+     "t": "p",
+     "testo": "L’aumento è pari alla metà del valore massimo del Dado Vita razziale."
+    },
+    {
+     "t": "p",
+     "testo": "Il Dado Vita non viene tirato."
+    },
+    {
+     "t": "p",
+     "testo": "Quindi:"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Dado Vita",
+      "PV ottenuti per Upgrade"
+     ],
+     "righe": [
+      [
+       "d6",
+       "+3 PV"
+      ],
+      [
+       "d8",
+       "+4 PV"
+      ],
+      [
+       "d10",
+       "+5 PV"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Per esempio, un personaggio con:"
+    },
+    {
+     "t": "p",
+     "testo": "14 PV Dado Vita d6"
+    },
+    {
+     "t": "p",
+     "testo": "progredisce così:"
+    },
+    {
+     "t": "p",
+     "testo": "14 → 17 → 20 → 23 → 26 → 29..."
+    },
+    {
+     "t": "p",
+     "testo": "Un personaggio con:"
+    },
+    {
+     "t": "p",
+     "testo": "16 PV Dado Vita d8"
+    },
+    {
+     "t": "p",
+     "testo": "progredisce invece:"
+    },
+    {
+     "t": "p",
+     "testo": "16 → 20 → 24 → 28 → 32 → 36..."
+    },
+    {
+     "t": "p",
+     "testo": "Il Dado Vita rimane legato alla Razza e continua quindi a influenzare la resistenza del personaggio per tutta la campagna."
+    },
+    {
+     "t": "h",
+     "testo": "Stamina"
+    },
+    {
+     "t": "p",
+     "testo": "Tutti i personaggi iniziano con:"
+    },
+    {
+     "t": "p",
+     "testo": "6 ST"
+    },
+    {
+     "t": "p",
+     "testo": "La Stamina aumenta con gli Upgrade, ma la crescita rallenta progressivamente."
+    },
+    {
+     "t": "p",
+     "testo": "La progressione standard è:"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Fascia di Upgrade",
+      "Progressione"
+     ],
+     "righe": [
+      [
+       "1-10",
+       "+1 ST ogni Upgrade"
+      ],
+      [
+       "11-20",
+       "+1 ST ogni 2 Upgrade"
+      ],
+      [
+       "21-35",
+       "+1 ST ogni 3 Upgrade"
+      ],
+      [
+       "36+",
+       "+1 ST ogni 5 Upgrade"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Gli aumenti avvengono quindi indicativamente a:"
+    },
+    {
+     "t": "p",
+     "testo": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+    },
+    {
+     "t": "p",
+     "testo": "poi:"
+    },
+    {
+     "t": "p",
+     "testo": "12, 14, 16, 18, 20"
+    },
+    {
+     "t": "p",
+     "testo": "poi:"
+    },
+    {
+     "t": "p",
+     "testo": "23, 26, 29, 32, 35"
+    },
+    {
+     "t": "p",
+     "testo": "e successivamente:"
+    },
+    {
+     "t": "p",
+     "testo": "40, 45, 50, 55, 60..."
+    },
+    {
+     "t": "p",
+     "testo": "Alcuni riferimenti:"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Upgrade",
+      "Stamina Massima"
+     ],
+     "righe": [
+      [
+       "0",
+       "6"
+      ],
+      [
+       "5",
+       "11"
+      ],
+      [
+       "10",
+       "16"
+      ],
+      [
+       "20",
+       "21"
+      ],
+      [
+       "35",
+       "26"
+      ],
+      [
+       "50",
+       "29"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Questa progressione è un riferimento standard, non un vincolo assoluto."
+    },
+    {
+     "t": "p",
+     "testo": "Il Game Master può modificarla in base alla durata e al ritmo della campagna."
+    },
+    {
+     "t": "p",
+     "testo": "Una campagna breve può utilizzare una crescita più rapida."
+    },
+    {
+     "t": "p",
+     "testo": "Una campagna estremamente lunga può rallentarla ulteriormente."
+    },
+    {
+     "t": "p",
+     "testo": "L’obiettivo è mantenere significativo il rapporto tra:"
+    },
+    {
+     "t": "p",
+     "testo": "Stamina disponibile"
+    },
+    {
+     "t": "p",
+     "testo": "e"
+    },
+    {
+     "t": "p",
+     "testo": "costo delle capacità più potenti."
+    },
+    {
+     "t": "h",
+     "testo": "Punti Abilità"
+    },
+    {
+     "t": "p",
+     "testo": "Gli Upgrade rappresentano anche una delle principali occasioni per ricevere:"
+    },
+    {
+     "t": "p",
+     "testo": "Punti Abilità, o P.A."
+    },
+    {
+     "t": "p",
+     "testo": "Il Game Master decide quanti P.A. assegnare."
+    },
+    {
+     "t": "p",
+     "testo": "Il giocatore decide poi dove investirli."
+    },
+    {
+     "t": "p",
+     "testo": "I P.A. possono essere utilizzati per sviluppare:"
+    },
+    {
+     "t": "p",
+     "testo": "Attributi Skill Tecniche"
+    },
+    {
+     "t": "p",
+     "testo": "La crescita non avviene quindi tutta automaticamente."
+    },
+    {
+     "t": "p",
+     "testo": "Ogni investimento rappresenta una scelta."
+    },
+    {
+     "t": "p",
+     "testo": "Spendere P.A. in Forza significa non spenderli, nello stesso momento, in una Skill o in una Tecnica."
+    },
+    {
+     "t": "h",
+     "testo": "Soglie dei P.A."
+    },
+    {
+     "t": "p",
+     "testo": "La progressione standard utilizza queste soglie:"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Passaggio",
+      "P.A. necessari"
+     ],
+     "righe": [
+      [
+       "d4 → d6",
+       "10"
+      ],
+      [
+       "d6 → d8",
+       "25"
+      ],
+      [
+       "d8 → d10",
+       "60"
+      ],
+      [
+       "d10 → d12",
+       "150"
+      ],
+      [
+       "d12 → d20",
+       "400"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Raggiunta la soglia richiesta, il dado aumenta al Grado successivo."
+    },
+    {
+     "t": "p",
+     "testo": "La scala rimane:"
+    },
+    {
+     "t": "p",
+     "testo": "d4 → d6 → d8 → d10 → d12 → d20"
+    },
+    {
+     "t": "p",
+     "testo": "Anche queste soglie rappresentano valori di riferimento."
+    },
+    {
+     "t": "p",
+     "testo": "Il Game Master può modificarle in base alla campagna."
+    },
+    {
+     "t": "h",
+     "testo": "Esempio"
+    },
+    {
+     "t": "p",
+     "testo": "Un personaggio possiede:"
+    },
+    {
+     "t": "p",
+     "testo": "Acrobazia d6"
+    },
+    {
+     "t": "p",
+     "testo": "Quando raggiunge i P.A. necessari per il passaggio:"
+    },
+    {
+     "t": "p",
+     "testo": "d6 → d8"
+    },
+    {
+     "t": "p",
+     "testo": "la Skill diventa:"
+    },
+    {
+     "t": "p",
+     "testo": "Acrobazia d8"
+    },
+    {
+     "t": "p",
+     "testo": "Da quel momento utilizza il nuovo dado in tutte le prove appropriate, comprese eventuali Difese Attive basate su Tecnica + Acrobazia."
+    },
+    {
+     "t": "p",
+     "testo": "Lo stesso principio viene applicato agli Attributi e alle Tecniche che utilizzano i P.A."
+    },
+    {
+     "t": "h",
+     "testo": "Gli Attributi non aumentano automaticamente"
+    },
+    {
+     "t": "p",
+     "testo": "Ricevere un Upgrade non aumenta automaticamente:"
+    },
+    {
+     "t": "p",
+     "testo": "Forza Tecnica Spirito Astuzia"
+    },
+    {
+     "t": "p",
+     "testo": "Per far crescere un Attributo bisogna investirvi i P.A. necessari."
+    },
+    {
+     "t": "p",
+     "testo": "Un personaggio che concentra molti P.A. sulla Forza può diventare estremamente potente fisicamente, ma rallenterà lo sviluppo delle proprie Skill e Tecniche."
+    },
+    {
+     "t": "p",
+     "testo": "La crescita nasce quindi dalle priorità del giocatore."
+    },
+    {
+     "t": "h",
+     "testo": "Le Skill"
+    },
+    {
+     "t": "p",
+     "testo": "Anche le Skill crescono attraverso i P.A."
+    },
+    {
+     "t": "p",
+     "testo": "Questo è particolarmente importante per le Skill di Ruolo, perché il loro Grado determina quali fasce dell’albero dei Talenti diventano accessibili."
+    },
+    {
+     "t": "p",
+     "testo": "Per esempio:"
+    },
+    {
+     "t": "p",
+     "testo": "Skill di Ruolo d8 → prima fascia d10 → seconda fascia d12 → terza fascia d20 → fascia finale"
+    },
+    {
+     "t": "p",
+     "testo": "Nel caso di un Secondo Ruolo, viene utilizzato il valore reale della Skill associata a quel percorso."
+    },
+    {
+     "t": "h",
+     "testo": "Le Tecniche"
+    },
+    {
+     "t": "p",
+     "testo": "Le Tecniche possono anch’esse crescere lungo la scala dei dadi."
+    },
+    {
+     "t": "p",
+     "testo": "Una Tecnica più avanzata può accedere a effetti, Slot e possibilità che una Tecnica di Grado inferiore non possiede."
+    },
+    {
+     "t": "p",
+     "testo": "La crescita di una Tecnica rappresenta il perfezionamento di quella specifica mossa."
+    },
+    {
+     "t": "p",
+     "testo": "Le regole complete vengono trattate nel capitolo dedicato alle Tecniche."
+    },
+    {
+     "t": "h",
+     "testo": "Talenti"
+    },
+    {
+     "t": "p",
+     "testo": "Normalmente, ogni Upgrade permette al personaggio di acquisire:"
+    },
+    {
+     "t": "p",
+     "testo": "1 Talento"
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento deve però appartenere a una fascia già accessibile."
+    },
+    {
+     "t": "p",
+     "testo": "Non basta quindi avere molti Upgrade."
+    },
+    {
+     "t": "p",
+     "testo": "Occorre possedere il Grado richiesto nella Skill associata a quel percorso."
+    },
+    {
+     "t": "p",
+     "testo": "Questo impedisce a un personaggio di saltare direttamente alle capacità più avanzate senza aver realmente sviluppato la propria specializzazione."
+    },
+    {
+     "t": "p",
+     "testo": "Nel caso di un personaggio con Doppio Ruolo, il Talento può essere scelto tra i percorsi ai quali ha effettivamente accesso."
+    },
+    {
+     "t": "h",
+     "testo": "Due tipi di progressione"
+    },
+    {
+     "t": "p",
+     "testo": "La crescita di un pirata segue due grandi sistemi."
+    },
+    {
+     "t": "h",
+     "testo": "Progressione tramite P.A."
+    },
+    {
+     "t": "p",
+     "testo": "Vengono sviluppati attraverso i Punti Abilità:"
+    },
+    {
+     "t": "p",
+     "testo": "Attributi Skill Tecniche"
+    },
+    {
+     "t": "p",
+     "testo": "Questa parte della crescita è principalmente nelle mani del giocatore."
+    },
+    {
+     "t": "p",
+     "testo": "Ricevuti i P.A., è lui a decidere dove investirli."
+    },
+    {
+     "t": "h",
+     "testo": "Progressione narrativa"
+    },
+    {
+     "t": "p",
+     "testo": "Alcuni poteri non vengono invece comprati con i P.A."
+    },
+    {
+     "t": "p",
+     "testo": "In particolare:"
+    },
+    {
+     "t": "p",
+     "testo": "Dado del Frutto Dado Haki"
+    },
+    {
+     "t": "p",
+     "testo": "crescono quando il Game Master ritiene che la storia e lo sviluppo del personaggio lo giustifichino."
+    },
+    {
+     "t": "p",
+     "testo": "Sono quindi forme di progressione narrative."
+    },
+    {
+     "t": "h",
+     "testo": "Dado del Frutto"
+    },
+    {
+     "t": "p",
+     "testo": "Il Dado del Frutto rappresenta il livello di padronanza del potere."
+    },
+    {
+     "t": "p",
+     "testo": "Normalmente parte da:"
+    },
+    {
+     "t": "p",
+     "testo": "d4"
+    },
+    {
+     "t": "p",
+     "testo": "e può crescere lungo la scala:"
+    },
+    {
+     "t": "p",
+     "testo": "d4 → d6 → d8 → d10 → d12 → d20"
+    },
+    {
+     "t": "p",
+     "testo": "Non viene aumentato spendendo P.A."
+    },
+    {
+     "t": "p",
+     "testo": "Non aumenta automaticamente ricevendo Upgrade."
+    },
+    {
+     "t": "p",
+     "testo": "È il Game Master a stabilire quando il personaggio ha raggiunto un nuovo livello di padronanza."
+    },
+    {
+     "t": "p",
+     "testo": "Può avvenire dopo:"
+    },
+    {
+     "t": "p",
+     "testo": "allenamenti specifici, utilizzi importanti del potere, sconfitte significative, nuove scoperte, momenti estremi o archi narrativi centrati sul Frutto."
+    },
+    {
+     "t": "p",
+     "testo": "Il Dado del Frutto determina progressivamente l’accesso alle capacità più avanzate del potere."
+    },
+    {
+     "t": "h",
+     "testo": "Dado Haki"
+    },
+    {
+     "t": "p",
+     "testo": "Anche il Dado Haki segue una progressione narrativa."
+    },
+    {
+     "t": "p",
+     "testo": "Non viene acquistato con i P.A. e non cresce automaticamente a ogni Upgrade."
+    },
+    {
+     "t": "p",
+     "testo": "È il Game Master a determinarne l’avanzamento."
+    },
+    {
+     "t": "p",
+     "testo": "Per Armamento e Osservazione, la progressione segue:"
+    },
+    {
+     "t": "p",
+     "testo": "d6 → d8 → d10 → d12 → d20"
+    },
+    {
+     "t": "p",
+     "testo": "La crescita può rappresentare:"
+    },
+    {
+     "t": "p",
+     "testo": "allenamento, maggiore controllo della volontà, esperienza in combattimento, situazioni limite o momenti significativi della storia."
+    },
+    {
+     "t": "p",
+     "testo": "Il Grado del Dado Haki determina anche l’accesso ai relativi effetti e ai PIP disponibili."
+    },
+    {
+     "t": "p",
+     "testo": "L’Haki del Re segue invece la propria progressione specifica e non utilizza la stessa struttura di Armamento e Osservazione."
+    },
+    {
+     "t": "p",
+     "testo": "Le regole complete verranno trattate nel capitolo dedicato all’Haki."
+    },
+    {
+     "t": "h",
+     "testo": "P.A. e progressione narrativa non sono la stessa cosa"
+    },
+    {
+     "t": "p",
+     "testo": "È importante mantenere distinta questa differenza."
+    },
+    {
+     "t": "p",
+     "testo": "Un personaggio potrebbe possedere moltissimi P.A. ma non aver ancora sviluppato un Haki superiore."
+    },
+    {
+     "t": "p",
+     "testo": "Allo stesso modo, non può spendere centinaia di P.A. per forzare il proprio Frutto verso il Risveglio."
+    },
+    {
+     "t": "p",
+     "testo": "Questi poteri devono maturare anche attraverso la storia."
+    },
+    {
+     "t": "p",
+     "testo": "La distinzione è quindi:"
+    },
+    {
+     "t": "p",
+     "testo": "P.A. → Attributi, Skill e Tecniche"
+    },
+    {
+     "t": "p",
+     "testo": "Game Master + sviluppo narrativo → Frutto e Haki"
+    },
+    {
+     "t": "h",
+     "testo": "Il ritmo della campagna"
+    },
+    {
+     "t": "p",
+     "testo": "Il sistema non impone che tutte le campagne crescano alla stessa velocità."
+    },
+    {
+     "t": "p",
+     "testo": "Il Game Master può decidere:"
+    },
+    {
+     "t": "p",
+     "testo": "quando assegnare gli Upgrade quanti P.A. assegnare se modificare le soglie dei P.A. quanto rapidamente aumentare la Stamina quando far crescere il Dado del Frutto quando far crescere il Dado Haki"
+    },
+    {
+     "t": "p",
+     "testo": "Questo permette di utilizzare lo stesso sistema sia per campagne relativamente brevi sia per traversate destinate a durare molti archi narrativi."
+    },
+    {
+     "t": "h",
+     "testo": "La crescita non deve essere uniforme"
+    },
+    {
+     "t": "p",
+     "testo": "Due personaggi con lo stesso numero di Upgrade possono essere completamente diversi."
+    },
+    {
+     "t": "p",
+     "testo": "Uno potrebbe aver investito soprattutto in:"
+    },
+    {
+     "t": "p",
+     "testo": "Forza e Tecniche offensive"
+    },
+    {
+     "t": "p",
+     "testo": "un altro in:"
+    },
+    {
+     "t": "p",
+     "testo": "Skill e Talenti"
+    },
+    {
+     "t": "p",
+     "testo": "un altro ancora potrebbe avere sviluppato rapidamente il proprio:"
+    },
+    {
+     "t": "p",
+     "testo": "Frutto del Diavolo"
+    },
+    {
+     "t": "p",
+     "testo": "mentre un altro ha iniziato a padroneggiare:"
+    },
+    {
+     "t": "p",
+     "testo": "Haki dell’Armamento o dell’Osservazione"
+    },
+    {
+     "t": "p",
+     "testo": "Il numero di Upgrade racconta quanta strada è stata percorsa."
+    },
+    {
+     "t": "p",
+     "testo": "La scheda racconta come quella strada ha cambiato il personaggio."
+    }
+   ]
   }
-]
+ ],
+ "sostituzioni": [
+  {
+   "sezione": "3.2",
+   "da": "+6 PV",
+   "a": "+3 PV"
+  },
+  {
+   "sezione": "3.2",
+   "da": "14 → 20 → 26 → 32 → 38...",
+   "a": "14 → 17 → 20 → 23 → 26..."
+  },
+  {
+   "sezione": "3.3",
+   "da": "+8 PV",
+   "a": "+4 PV"
+  },
+  {
+   "sezione": "3.3",
+   "da": "16 → 24 → 32 → 40 → 48...",
+   "a": "16 → 20 → 24 → 28 → 32..."
+  },
+  {
+   "sezione": "3.4",
+   "da": "+10 PV",
+   "a": "+5 PV"
+  },
+  {
+   "sezione": "3.4",
+   "da": "22 → 32 → 42 → 52 → 62...",
+   "a": "22 → 27 → 32 → 37 → 42..."
+  },
+  {
+   "sezione": "3.5",
+   "da": "+6 PV Massimi",
+   "a": "+3 PV Massimi"
+  },
+  {
+   "sezione": "3.5",
+   "da": "14 → 20 → 26 → 32 → 38...",
+   "a": "14 → 17 → 20 → 23 → 26..."
+  },
+  {
+   "sezione": "3.6",
+   "da": "+8 PV Massimi",
+   "a": "+4 PV Massimi"
+  },
+  {
+   "sezione": "3.6",
+   "da": "16 → 24 → 32 → 40 → 48...",
+   "a": "16 → 20 → 24 → 28 → 32..."
+  },
+  {
+   "sezione": "3.7",
+   "da": "+6 PV Massimi",
+   "a": "+3 PV Massimi"
+  },
+  {
+   "sezione": "3.7",
+   "da": "12 → 18 → 24 → 30 → 36...",
+   "a": "12 → 15 → 18 → 21 → 24..."
+  },
+  {
+   "sezione": "3.8",
+   "da": "+6 PV",
+   "a": "+3 PV"
+  },
+  {
+   "sezione": "3.8",
+   "da": "14 → 20 → 26 → 32 → 38...",
+   "a": "14 → 17 → 20 → 23 → 26..."
+  },
+  {
+   "sezione": "3.10",
+   "da": "A ogni Upgrade aggiunge quindi +6 PV Massimi, senza tirare il dado.",
+   "a": "A ogni Upgrade aggiunge quindi +3 PV Massimi, senza tirare il dado."
+  },
+  {
+   "sezione": "3.10",
+   "da": "12 → 18 → 24 → 30 → 36...",
+   "a": "12 → 15 → 18 → 21 → 24..."
+  },
+  {
+   "sezione": "3.9",
+   "da": "A ogni Upgrade aggiunge il valore massimo del Dado Vita, ottenendo +8 PV Massimi.",
+   "a": "A ogni Upgrade aggiunge metà del valore massimo del Dado Vita, ottenendo +4 PV Massimi."
+  },
+  {
+   "sezione": "3.9",
+   "da": "16 → 24 → 32 → 40 → 48...",
+   "a": "16 → 20 → 24 → 28 → 32..."
+  },
+  {
+   "sezione": "3.1",
+   "da": "Si utilizza sempre il suo valore massimo.",
+   "a": "Si utilizza sempre metà del suo valore massimo."
+  },
+  {
+   "sezione": "3.1",
+   "da": "+6 PV per Upgrade",
+   "a": "+3 PV per Upgrade"
+  },
+  {
+   "sezione": "3.1",
+   "da": "+8 PV per Upgrade",
+   "a": "+4 PV per Upgrade"
+  },
+  {
+   "sezione": "3.1",
+   "da": "+10 PV per Upgrade",
+   "a": "+5 PV per Upgrade"
+  },
+  {
+   "sezione": "3.7",
+   "da": "Il Dado Vita non viene tirato: si aggiunge sempre il suo valore massimo.",
+   "a": "Il Dado Vita non viene tirato: si aggiunge sempre metà del suo valore massimo."
+  },
+  {
+   "sezione": "3.8",
+   "da": "Il Dado Vita non viene tirato. Si utilizza sempre il valore massimo.",
+   "a": "Il Dado Vita non viene tirato. Si utilizza sempre metà del valore massimo."
+  }
+ ]
+}

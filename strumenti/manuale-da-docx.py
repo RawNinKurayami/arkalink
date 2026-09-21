@@ -118,44 +118,96 @@ def tabella_html(righe):
     out.append('</tbody></table></div>')
     return ''.join(out)
 
-# --- correzioni: paragrafi aggiornati dopo il .docx ---
-# Finché la revisione non entra nel documento, queste sostituzioni tengono la
-# pagina allineata alle regole vere. Il controllo finale confronta la pagina
-# con il documento GIÀ corretto, così resta una garanzia e non una scusa.
+# --- correzioni: revisioni arrivate dopo il .docx ---
+# Finché non entrano nel documento, queste sostituzioni tengono la pagina
+# allineata alle regole vere. Il controllo finale confronta la pagina con il
+# documento GIÀ corretto, così resta una garanzia e non una scusa.
 CORREZIONI = os.path.join(REPO, 'strumenti/manuale-correzioni.json')
-correzioni = []
+correzioni = {'sezioni': [], 'sostituzioni': []}
 if os.path.exists(CORREZIONI):
-    correzioni = json.load(open(CORREZIONI, encoding='utf8'))
+    letto_corr = json.load(open(CORREZIONI, encoding='utf8'))
+    correzioni = letto_corr if isinstance(letto_corr, dict) else {'sezioni': letto_corr, 'sostituzioni': []}
+
+def blocco_p(testo, stile=None):
+    return {'tipo': 'p', 'stile': stile, 'lista': None, 'liv': 0,
+            'pezzi': [{'t': testo, 's': []}], 'testo': testo}
+
+def blocco_tabella(intestazione, righe):
+    def cella(t): return [blocco_p(t)]
+    tutte = ([intestazione] if intestazione else []) + righe
+    return {'tipo': 'tbl', 'righe': [[cella(c) for c in r] for r in tutte]}
+
+def blocchi_da_contenuto(voci):
+    fuori = []
+    for v in voci:
+        tipo = v.get('t', 'p')
+        if tipo == 'h':
+            fuori.append(blocco_p(v['testo'], 'Heading2'))
+        elif tipo == 'lista':
+            for voce in v['voci']:
+                b2 = blocco_p(voce)
+                b2['lista'] = 'num'
+                fuori.append(b2)
+        elif tipo == 'mappa':
+            # due colonne unite dalla freccia: il generatore le riconosce da sé
+            for sinistra, destra in v['righe']:
+                fuori.append(blocco_p(sinistra + ' \u2192 ' + destra))
+        elif tipo == 'tabella':
+            fuori.append(blocco_tabella(v.get('intestazione'), v['righe']))
+        else:
+            fuori.append(blocco_p(v['testo']))
+    return fuori
+
+def limiti_sezione(blocchi, numero):
+    """Dove comincia e dove finisce una sezione N.M."""
+    inizio = None
+    for i, x in enumerate(blocchi):
+        if x['tipo'] == 'p' and x.get('stile') in ('Heading1', 'Heading2'):
+            m = RE_SEZ.match(x['testo'].strip())
+            if m and ('%s.%s' % (m.group(1), m.group(2))) == numero:
+                inizio = i
+                break
+    if inizio is None:
+        return None, None
+    fine = len(blocchi)
+    for j in range(inizio + 1, len(blocchi)):
+        x = blocchi[j]
+        if x['tipo'] == 'p' and x.get('stile') in ('Heading1', 'Heading2'):
+            t = x['testo'].strip()
+            if RE_CAP.match(t) or RE_SEZ.match(t):
+                fine = j
+                break
+    return inizio, fine
 
 def applica_correzioni(blocchi, correzioni):
-    for c in correzioni:
+    for c in correzioni.get('sezioni', []):
         numero = c['sezione']
-        inizio = None
-        for i, x in enumerate(blocchi):
-            if x['tipo'] == 'p' and x.get('stile') in ('Heading1', 'Heading2'):
-                m = RE_SEZ.match(x['testo'].strip())
-                if m and ('%s.%s' % (m.group(1), m.group(2))) == numero:
-                    inizio = i
-                    break
+        inizio, fine = limiti_sezione(blocchi, numero)
         if inizio is None:
-            print('correzione %s: sezione non trovata, salto' % numero)
-            continue
-        fine = len(blocchi)
-        for j in range(inizio + 1, len(blocchi)):
-            x = blocchi[j]
-            if x['tipo'] == 'p' and x.get('stile') in ('Heading1', 'Heading2'):
-                t = x['testo'].strip()
-                if RE_CAP.match(t) or RE_SEZ.match(t):
-                    fine = j
-                    break
-        titolo = '%s · %s' % (numero, c['titolo'])
-        nuovi = [{'tipo': 'p', 'stile': 'Heading2', 'lista': None, 'liv': 0,
-                  'pezzi': [{'t': titolo, 's': []}], 'testo': titolo}]
-        for par in c['paragrafi']:
-            nuovi.append({'tipo': 'p', 'stile': None, 'lista': None, 'liv': 0,
-                          'pezzi': [{'t': par, 's': []}], 'testo': par})
-        blocchi[inizio:fine] = nuovi
-        print('correzione applicata alla sezione %s (%s)' % (numero, c['titolo']))
+            sys.exit('correzione %s: sezione non trovata nel documento.' % numero)
+        titolo = '%s \u00b7 %s' % (numero, c['titolo'])
+        contenuto = c.get('contenuto') or [{'t': 'p', 'testo': p} for p in c.get('paragrafi', [])]
+        blocchi[inizio:fine] = [blocco_p(titolo, 'Heading2')] + blocchi_da_contenuto(contenuto)
+        print('sezione %s riscritta (%s)' % (numero, c['titolo']))
+
+    for s_ in correzioni.get('sostituzioni', []):
+        inizio, fine = limiti_sezione(blocchi, s_['sezione'])
+        if inizio is None:
+            sys.exit('sostituzione in %s: sezione non trovata.' % s_['sezione'])
+        trovate = 0
+        for x in blocchi[inizio:fine]:
+            if x['tipo'] != 'p':
+                continue
+            if s_['da'] in x['testo']:
+                x['testo'] = x['testo'].replace(s_['da'], s_['a'])
+                for pezzo in x['pezzi']:
+                    if s_['da'] in pezzo['t']:
+                        pezzo['t'] = pezzo['t'].replace(s_['da'], s_['a'])
+                trovate += 1
+        if trovate != 1:
+            sys.exit('sostituzione in %s: «%s» trovata %d volte, mi fermo.'
+                     % (s_['sezione'], s_['da'], trovate))
+        print('  %s: «%s» \u2192 «%s»' % (s_['sezione'], s_['da'], s_['a']))
     return blocchi
 
 b = applica_correzioni(b, correzioni)
