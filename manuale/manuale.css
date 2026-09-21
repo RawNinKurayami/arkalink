@@ -32,16 +32,16 @@ a{color:inherit;}
 /* ---------- testata ---------- */
 .man-top{
   position:sticky; top:0; z-index:40;
-  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
   padding:12px clamp(14px,4vw,30px);
   background:rgba(6,6,7,.86);
   -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
   border-bottom:1px solid var(--man-bordo);
   font-family:var(--man-ui);
 }
-.man-top .man-marchio{display:flex; align-items:center; gap:9px; text-decoration:none; font-family:var(--man-display); font-size:16px; letter-spacing:.16em; text-transform:uppercase;}
+.man-top .man-marchio{display:flex; align-items:center; gap:9px; min-width:0; text-decoration:none; font-family:var(--man-display); font-size:16px; letter-spacing:.16em; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
 .man-top .man-marchio .anc{color:var(--man-oro); font-size:18px;}
-.man-strumenti{display:flex; align-items:center; gap:8px;}
+.man-strumenti{display:flex; align-items:center; gap:7px; flex-wrap:wrap; justify-content:flex-end; min-width:0;}
 .man-btn{
   font:600 11px var(--man-ui); letter-spacing:.1em; text-transform:uppercase;
   border:1px solid var(--man-bordo); background:var(--man-campo); color:var(--man-ink);
@@ -58,6 +58,9 @@ a{color:inherit;}
   gap:clamp(20px,3vw,48px);
   max-width:1500px; margin:0 auto; padding:0 clamp(14px,3vw,34px) 80px;
 }
+/* Senza questo le colonne non scendono sotto la larghezza del contenuto e la
+   pagina sborda a destra: sul telefono il testo finiva tagliato. */
+.man-wrap>*{min-width:0;}
 
 /* ---------- indice ---------- */
 .man-indice{
@@ -93,7 +96,11 @@ a{color:inherit;}
 .man-vuoto{font-size:12.5px; color:var(--man-tenue); padding:6px 9px;}
 
 /* ---------- testo ---------- */
-.man-testo{max-width:78ch; padding:26px 0 0;}
+/* min() invece di ch secco: la colonna di lettura non supera mai lo spazio
+   disponibile, qualunque sia il carattere caricato. */
+.man-testo{max-width:min(78ch,100%); min-width:0; padding:26px 0 0;}
+.man-testo :where(h1,h2,h3,h4,p,li,td,th){overflow-wrap:anywhere;}
+.man-tab-wrap{max-width:100%;}
 .man-frontespizio{padding:26px 0 34px; border-bottom:1px solid var(--man-bordo); margin-bottom:10px;}
 .man-frontespizio .occhiello{font:600 10px var(--man-ui); letter-spacing:.22em; text-transform:uppercase; color:var(--man-tenue); margin:0 0 10px;}
 .man-frontespizio h1{
@@ -179,8 +186,8 @@ h4.man-lab b{font-weight:inherit;}
 
 /* ---------- telefono ---------- */
 @media(max-width:900px){
-  body{font-size:18px;}
-  .man-wrap{grid-template-columns:1fr; padding-bottom:60px;}
+  body{font-size:17.5px; line-height:1.6;}
+  .man-wrap{grid-template-columns:minmax(0,1fr); padding-bottom:60px;}
   .man-btn.solo-telefono{display:inline-block;}
   .man-indice{
     position:fixed; inset:0 auto 0 0; z-index:60; width:min(86vw,340px);
@@ -196,7 +203,36 @@ h4.man-lab b{font-weight:inherit;}
     opacity:0; pointer-events:none; transition:opacity .25s ease;
     -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
   }
-  .man-testo{max-width:none; padding-top:18px;}
+  .man-testo{max-width:min(70ch,100%); margin:0 auto; padding-top:16px;}
+
+  /* testata compatta: marchio corto, pulsanti piccoli, tutto su una riga */
+  .man-top{gap:8px; padding:10px 14px;}
+  .man-top .man-marchio{font-size:13px; letter-spacing:.1em;}
+  .man-btn{font-size:10px; letter-spacing:.06em; padding:8px 11px;}
+
+  /* titoli proporzionati allo schermo */
+  .man-frontespizio{padding:18px 0 24px;}
+  .man-frontespizio h1{font-size:clamp(34px,11vw,52px);}
+  .man-frontespizio .sotto{font-size:16.5px;}
+  .man-cap{padding:26px 0 6px;}
+  .man-cap-h h1{font-size:clamp(25px,7.6vw,38px);}
+  h2.man-sez{font-size:clamp(19px,5.6vw,26px); margin:30px 0 10px; gap:8px; flex-wrap:wrap;}
+  h3.man-sub{font-size:17px; margin:22px 0 6px;}
+  .man-elenco,.man-mappa{font-size:14px;}
+  .man-tab{font-size:13px;}
+  .man-tab th,.man-tab td{padding:9px 10px;}
+}
+
+/* Sugli schermi stretti i pulsanti restano su una riga sola: il simbolo basta,
+   il nome per esteso resta nel titolo e per chi usa uno screen reader. */
+@media(max-width:470px){
+  .man-top .man-marchio span:not(.anc){display:none;}
+  .man-btn .man-etichetta{display:none;}
+  /* L'indice è il pulsante che si cerca davvero: quello tiene il nome. */
+  #man-apri-indice .man-etichetta{display:inline;}
+  .man-btn{padding:9px 12px; font-size:13px; line-height:1;}
+  .man-top{flex-wrap:nowrap;}
+  .man-strumenti{flex-wrap:nowrap;}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}

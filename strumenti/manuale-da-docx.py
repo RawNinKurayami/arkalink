@@ -233,7 +233,7 @@ PAGINA = '''<!doctype html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
-<link rel="stylesheet" href="manuale.css?v=2">
+<link rel="stylesheet" href="manuale.css?v=7">
 <style>
 /* Il gate del Manuale bloccato resta com'era. */
 #manlock[hidden]{display:none !important;}
@@ -257,9 +257,9 @@ GATE
 <header class="man-top">
   <a class="man-marchio" href="/"><span class="anc">⚓</span><span>Grand Line Chronicles</span></a>
   <div class="man-strumenti">
-    <button class="man-btn solo-telefono" id="man-apri-indice" type="button" aria-expanded="false">☰ Indice</button>
-    <button class="man-btn" id="man-stampa" type="button">⎙ Stampa · PDF</button>
-    <a class="man-btn" href="/">‹ Torna al porto</a>
+    <button class="man-btn solo-telefono" id="man-apri-indice" type="button" aria-expanded="false" title="Indice" aria-label="Indice">☰<span class="man-etichetta"> Indice</span></button>
+    <button class="man-btn" id="man-stampa" type="button" title="Stampa o salva in PDF" aria-label="Stampa o salva in PDF">⎙<span class="man-etichetta"> Stampa · PDF</span></button>
+    <a class="man-btn" href="/" title="Torna al porto" aria-label="Torna al porto">‹<span class="man-etichetta"> Torna al porto</span></a>
   </div>
 </header>
 
