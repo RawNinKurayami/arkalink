@@ -244,7 +244,7 @@ PAGINA = '''<!doctype html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
-<link rel="stylesheet" href="manuale.css?v=11">
+<link rel="stylesheet" href="manuale.css?v=13">
 <style>
 /* Il gate del Manuale bloccato resta com'era. */
 #manlock[hidden]{display:none !important;}
@@ -286,7 +286,6 @@ NAV
 </nav>
 
 <div class="man-scena">
-  <button class="man-sfoglia prec" id="man-prec" type="button" aria-label="Pagina precedente">‹</button>
   <div class="man-libro" id="man-libro">
     <main class="man-foglio" id="man-foglio">
     <div class="man-frontespizio">
@@ -306,19 +305,11 @@ CORPO
       <span class="man-fine" id="man-fine" aria-hidden="true"></span>
     </main>
   </div>
-  <button class="man-sfoglia succ" id="man-succ" type="button" aria-label="Pagina successiva">›</button>
-  <div class="man-piede">
-    <span id="man-dove">Capitolo 1</span>
-    <span id="man-numeri">Pagina <b>1</b> di <b>1</b></span>
-  </div>
 </div>
 
 <script>
-/* Il Manuale come libro.
-   Da tablet in su si legge una pagina A4 per volta, con due colonne, e in
-   pagina sta un capitolo alla volta: impaginare tutto il manuale insieme
-   costringeva il browser a calcolare centinaia di colonne a ogni gesto.
-   Sul telefono resta una colonna che scorre. Qui non ci sono regole di gioco:
+/* Il Manuale si legge scorrendo, come un documento: l'indice si apre e si
+   chiude dal tasto in alto e segna dove sei. Qui non ci sono regole di gioco:
    solo lettura. */
 (function(){
  "use strict";
@@ -328,21 +319,9 @@ CORPO
  var cerca=document.getElementById("man-cerca");
  var nav=document.getElementById("man-nav");
  var nessuno=document.getElementById("man-nessuno");
- var libro=document.getElementById("man-libro");
- var foglio=document.getElementById("man-foglio");
- var dove=document.getElementById("man-dove");
- var numeri=document.getElementById("man-numeri");
- var btnPrec=document.getElementById("man-prec");
- var btnSucc=document.getElementById("man-succ");
  var voci=[].slice.call(nav.querySelectorAll("a[data-id]"));
  var perId={};voci.forEach(function(a){perId[a.dataset.id]=a;});
-
- /* I fascicoli: il frontespizio e i sedici capitoli. */
- var fascicoli=[].slice.call(foglio.querySelectorAll(".man-frontespizio, .man-cap"));
- var fascicolo=0, pagina=0, pagine=1, passo=0, passoColonna=0, gola=46;
- var postiSezioni=[];
-
- function aLibro(){ return matchMedia("(min-width:901px)").matches; }
+ var bersagli=[].slice.call(document.querySelectorAll(".man-cap[id], h2.man-sez[id]"));
 
  /* ---------- indice ---------- */
  function mostraIndice(si){
@@ -353,6 +332,7 @@ CORPO
  if(apri)apri.onclick=function(){ mostraIndice(!document.body.classList.contains("man-indice-aperto")); };
  if(velo)velo.onclick=function(){ mostraIndice(false); };
  document.addEventListener("keydown",function(e){ if(e.key==="Escape") mostraIndice(false); });
+ nav.addEventListener("click",function(e){ if(e.target.closest("a[data-id]")) mostraIndice(false); });
 
  if(cerca) cerca.addEventListener("input",function(){
   var q=cerca.value.trim().toLowerCase(), visibili=0;
@@ -369,81 +349,21 @@ CORPO
   if(nessuno)nessuno.hidden=visibili>0;
  });
 
- /* ---------- misure ---------- */
- function misuraGola(){
-  var v=getComputedStyle(document.documentElement).getPropertyValue("--gola");
-  return parseFloat(v)||46;
- }
- function distanza(el){ return el.getBoundingClientRect().left - foglio.getBoundingClientRect().left; }
- function paginaDaDistanza(x){
-  var colonna = passoColonna ? Math.round(x / passoColonna) : 0;
-  return Math.max(0, Math.floor(colonna / 2));
- }
+ /* ---------- dove sei ----------
+    Le altezze si misurano una volta sola: durante lo scorrimento si confronta
+    solo un numero, così la pagina resta scattante anche con tutto il manuale
+    in una sola colonna. */
+ var posti=[], attiva=null;
  function misura(){
-  if(!aLibro()) return;
-  gola=misuraGola();
-  passo=foglio.clientWidth + gola;
-  passoColonna=(foglio.clientWidth - gola) / 2 + gola;
-  var corpo=fascicoli[fascicolo];
-  /* quanto è lungo il capitolo aperto: l'ultimo suo elemento dice dove finisce */
-  var ultimo=corpo.lastElementChild || corpo;
-  var fine=distanza(ultimo) + ultimo.getBoundingClientRect().width;
-  pagine=Math.max(1, paginaDaDistanza(fine) + 1);
-  if(pagina>pagine-1) pagina=pagine-1;
-  postiSezioni=[].slice.call(corpo.querySelectorAll("h2.man-sez[id], .man-cap-h"))
-   .map(function(el){ return {el:el, pag:paginaDaDistanza(distanza(el))}; });
-  posa(true);
- }
- function posa(subito){
-  if(subito) document.body.classList.add("man-senza-moto");
-  foglio.style.setProperty("--pagina", String(pagina));
-  if(subito) requestAnimationFrame(function(){ document.body.classList.remove("man-senza-moto"); });
-  aggiornaPiede();
- }
-
- /* ---------- fascicoli e pagine ---------- */
- function mostraFascicolo(n, allaFine){
-  n=Math.max(0, Math.min(fascicoli.length-1, n));
-  if(n!==fascicolo || !fascicoli[n].classList.contains("man-aperto")){
-   fascicoli.forEach(function(f,i){ f.classList.toggle("man-aperto", i===n); });
-   fascicolo=n;
-  }
-  pagina=0;
-  misura();
-  if(allaFine){ pagina=pagine-1; posa(true); }
- }
- function vaiA(n){
-  if(!aLibro()) return;
-  if(n<0){ if(fascicolo>0) mostraFascicolo(fascicolo-1, true); return; }
-  if(n>pagine-1){ if(fascicolo<fascicoli.length-1) mostraFascicolo(fascicolo+1, false); return; }
-  if(n===pagina){ aggiornaPiede(); return; }
-  pagina=n; posa(false);
- }
- function aggiornaPiede(){
-  if(btnPrec)btnPrec.disabled = (fascicolo===0 && pagina===0);
-  if(btnSucc)btnSucc.disabled = (fascicolo===fascicoli.length-1 && pagina>=pagine-1);
-  if(numeri)numeri.innerHTML = aLibro() ? ("Pagina <b>"+(pagina+1)+"</b> di <b>"+pagine+"</b>") : "";
-  segnaDove();
+  posti=bersagli.map(function(b){ return {el:b, y:b.getBoundingClientRect().top + window.scrollY}; });
  }
  function segnaDove(){
-  var corpo=fascicoli[fascicolo];
-  var titolo=corpo.querySelector(".man-cap-h h1");
-  if(dove && aLibro()){
-   dove.textContent = titolo ? ("Capitolo "+(corpo.dataset.cap||"")+" · "+titolo.textContent) : "Manuale del gioco";
-  }
-  /* voce dell'indice accesa: l'ultima sezione già iniziata */
-  var scelto=null;
-  if(aLibro()){
-   postiSezioni.forEach(function(p){ if(p.pag<=pagina && p.el.id) scelto=p.el; });
-   if(!scelto && corpo.id) scelto=corpo;
-  }else{
-   var y=window.scrollY+140;
-   [].slice.call(document.querySelectorAll(".man-cap[id], h2.man-sez[id]")).forEach(function(b){
-    if(b.getBoundingClientRect().top+window.scrollY<=y) scelto=b;
-   });
-  }
+  var y=window.scrollY + 220, scelto=null;
+  for(var i=0;i<posti.length;i++){ if(posti[i].y<=y) scelto=posti[i].el; else break; }
   var a=scelto?perId[scelto.id]:null;
-  voci.forEach(function(v){ if(v!==a) v.classList.remove("qui"); });
+  if(a===attiva) return;
+  if(attiva)attiva.classList.remove("qui");
+  attiva=a;
   if(a){
    a.classList.add("qui");
    if(indice.scrollHeight>indice.clientHeight){
@@ -452,99 +372,20 @@ CORPO
    }
   }
  }
-
- /* ---------- comandi ---------- */
- if(btnPrec)btnPrec.onclick=function(){ vaiA(pagina-1); };
- if(btnSucc)btnSucc.onclick=function(){ vaiA(pagina+1); };
- document.addEventListener("keydown",function(e){
-  if(!aLibro()) return;
-  if(e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
-  if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" "){ e.preventDefault(); vaiA(pagina+1); }
-  else if(e.key==="ArrowLeft"||e.key==="PageUp"){ e.preventDefault(); vaiA(pagina-1); }
-  else if(e.key==="Home"){ e.preventDefault(); mostraFascicolo(0,false); }
-  else if(e.key==="End"){ e.preventDefault(); mostraFascicolo(fascicoli.length-1,true); }
- });
- var attesa=0;
- libro.addEventListener("wheel",function(e){
-  if(!aLibro()) return;
-  var ora=Date.now(); if(ora-attesa<260) return;
-  var d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;
-  if(Math.abs(d)<6) return;
-  attesa=ora; e.preventDefault(); vaiA(pagina + (d>0?1:-1));
- },{passive:false});
- var dito=null;
- libro.addEventListener("touchstart",function(e){ if(aLibro()&&e.touches[0]) dito={x:e.touches[0].clientX,y:e.touches[0].clientY}; },{passive:true});
- libro.addEventListener("touchend",function(e){
-  if(!dito||!aLibro()) return;
-  var t=e.changedTouches[0], dx=t.clientX-dito.x, dy=t.clientY-dito.y;
-  dito=null;
-  if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)) vaiA(pagina + (dx<0?1:-1));
+ var atteso=false;
+ window.addEventListener("scroll",function(){
+  if(atteso) return; atteso=true;
+  requestAnimationFrame(function(){ atteso=false; segnaDove(); });
  },{passive:true});
-
- /* ---------- salti dall'indice ---------- */
- function fascicoloDi(el){
-  for(var i=0;i<fascicoli.length;i++){ if(fascicoli[i]===el || fascicoli[i].contains(el)) return i; }
-  return 0;
- }
- function apriSu(el){
-  if(!el) return;
-  var n=fascicoloDi(el);
-  mostraFascicolo(n,false);
-  if(el!==fascicoli[n]){
-   pagina=paginaDaDistanza(distanza(el));
-   if(pagina>pagine-1) pagina=pagine-1;
-   posa(true);
-  }
- }
- nav.addEventListener("click",function(e){
-  var a=e.target.closest("a[data-id]"); if(!a) return;
-  var el=document.getElementById(a.dataset.id);
-  if(aLibro()){
-   e.preventDefault();
-   apriSu(el);
-   if(innerWidth<1200) mostraIndice(false);
-  }else{
-   mostraIndice(false);
-  }
- });
-
- /* ---------- avvio, misure e stampa ---------- */
  var ridisegno;
- window.addEventListener("resize",function(){
-  clearTimeout(ridisegno);
-  ridisegno=setTimeout(function(){
-   if(aLibro()){
-    /* passando da telefono a libro nessun capitolo è ancora in pagina */
-    if(!foglio.querySelector(".man-aperto")) mostraFascicolo(fascicolo,false);
-    else misura();
-   }else{
-    fascicoli.forEach(function(f){ f.classList.remove("man-aperto"); });
-    foglio.style.removeProperty("--pagina");
-    segnaDove();
-   }
-  },180);
- });
- window.addEventListener("scroll",function(){ if(!aLibro()) segnaDove(); },{passive:true});
+ window.addEventListener("resize",function(){ clearTimeout(ridisegno); ridisegno=setTimeout(function(){ misura(); segnaDove(); },200); });
 
- function avvio(){
-  if(aLibro()){
-   mostraFascicolo(0,false);
-   if(location.hash){
-    var el=document.getElementById(location.hash.slice(1));
-    if(el) apriSu(el);
-   }
-  }else{
-   fascicoli.forEach(function(f){ f.classList.remove("man-aperto"); });
-   segnaDove();
-  }
- }
- avvio();
- if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ if(aLibro()) misura(); });
+ misura(); segnaDove();
+ if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ misura(); segnaDove(); });
+ window.addEventListener("load",function(){ misura(); segnaDove(); });
 
  var stampa=document.getElementById("man-stampa");
  if(stampa)stampa.onclick=function(){window.print();};
- window.addEventListener("beforeprint",function(){ foglio.style.removeProperty("--pagina"); });
- window.addEventListener("afterprint",function(){ if(aLibro()) misura(); });
 })();
 </script>
 
