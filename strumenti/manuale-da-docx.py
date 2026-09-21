@@ -150,10 +150,21 @@ while i < len(b):
                      % (ids, m.group(1), m.group(2), esc(m.group(3))))
         i += 1; continue
 
+    # Nel documento i livelli Heading sono stati usati anche per frasi intere:
+    # come titoli diventerebbero righe maiuscole illeggibili. Sopra una certa
+    # lunghezza restano quello che sono, cioè testo in grassetto.
     if stile in ('Heading1', 'Heading2'):
-        corpo.append('<h3 class="man-sub">%s</h3>' % run_html(x['pezzi'])); i += 1; continue
+        if len(t) <= 66 and not t.endswith(('.', ';', '?', '!')):
+            corpo.append('<h3 class="man-sub">%s</h3>' % run_html(x['pezzi']))
+        else:
+            corpo.append('<p class="man-guida">%s</p>' % run_html(x['pezzi']))
+        i += 1; continue
     if stile == 'Heading3':
-        corpo.append('<h4 class="man-lab">%s</h4>' % run_html(x['pezzi'])); i += 1; continue
+        if len(t) <= 48 and not t.endswith(('.', ';', '?', '!')):
+            corpo.append('<h4 class="man-lab">%s</h4>' % run_html(x['pezzi']))
+        else:
+            corpo.append('<p class="man-guida">%s</p>' % run_html(x['pezzi']))
+        i += 1; continue
 
     if x.get('lista'):
         voci = []
@@ -233,7 +244,7 @@ PAGINA = '''<!doctype html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
-<link rel="stylesheet" href="manuale.css?v=7">
+<link rel="stylesheet" href="manuale.css?v=10">
 <style>
 /* Il gate del Manuale bloccato resta com'era. */
 #manlock[hidden]{display:none !important;}
@@ -257,7 +268,7 @@ GATE
 <header class="man-top">
   <a class="man-marchio" href="/"><span class="anc">⚓</span><span>Grand Line Chronicles</span></a>
   <div class="man-strumenti">
-    <button class="man-btn solo-telefono" id="man-apri-indice" type="button" aria-expanded="false" title="Indice" aria-label="Indice">☰<span class="man-etichetta"> Indice</span></button>
+    <button class="man-btn" id="man-apri-indice" type="button" aria-expanded="false" title="Indice" aria-label="Indice">☰<span class="man-etichetta"> Indice</span></button>
     <button class="man-btn" id="man-stampa" type="button" title="Stampa o salva in PDF" aria-label="Stampa o salva in PDF">⎙<span class="man-etichetta"> Stampa · PDF</span></button>
     <a class="man-btn" href="/" title="Torna al porto" aria-label="Torna al porto">‹<span class="man-etichetta"> Torna al porto</span></a>
   </div>
@@ -265,17 +276,19 @@ GATE
 
 <div class="man-velo" id="man-velo" hidden></div>
 
-<div class="man-wrap">
-  <nav class="man-indice" id="man-indice" aria-label="Indice del manuale">
+<nav class="man-indice" id="man-indice" aria-label="Indice del manuale">
     <h2>Indice</h2>
     <input class="man-cerca" id="man-cerca" type="search" placeholder="Cerca un capitolo o una sezione" aria-label="Cerca nell'indice" autocomplete="off">
     <ol id="man-nav">
 NAV
     </ol>
     <p class="man-vuoto" id="man-nessuno" hidden>Nessuna voce con questo nome.</p>
-  </nav>
+</nav>
 
-  <main class="man-testo">
+<div class="man-scena">
+  <button class="man-sfoglia prec" id="man-prec" type="button" aria-label="Pagina precedente">‹</button>
+  <div class="man-libro" id="man-libro">
+    <main class="man-foglio" id="man-foglio">
     <div class="man-frontespizio">
       <p class="occhiello">Grand Line Chronicles</p>
       <h1>Manuale<br>del gioco</h1>
@@ -290,12 +303,22 @@ SOMM
     </nav>
 
 CORPO
-  </main>
+      <span class="man-fine" id="man-fine" aria-hidden="true"></span>
+    </main>
+  </div>
+  <button class="man-sfoglia succ" id="man-succ" type="button" aria-label="Pagina successiva">›</button>
+  <div class="man-piede">
+    <span id="man-dove">Capitolo 1</span>
+    <span id="man-numeri">Pagina <b>1</b> di <b>1</b></span>
+  </div>
 </div>
 
 <script>
-/* Indice: evidenzia dove sei, filtra per nome, e su telefono si apre a lato.
-   Nessuna regola di gioco qui dentro: solo lettura. */
+/* Il Manuale come libro.
+   Su computer e tablet il testo scorre in colonne affiancate e si sfoglia una
+   pagina alla volta; sul telefono resta una colonna che scorre. L'indice è un
+   pannello che si apre e si chiude dal tasto in alto. Qui non ci sono regole
+   di gioco: solo lettura. */
 (function(){
  "use strict";
  var indice=document.getElementById("man-indice");
@@ -304,54 +327,36 @@ CORPO
  var cerca=document.getElementById("man-cerca");
  var nav=document.getElementById("man-nav");
  var nessuno=document.getElementById("man-nessuno");
+ var libro=document.getElementById("man-libro");
+ var foglio=document.getElementById("man-foglio");
+ var fine=document.getElementById("man-fine");
+ var dove=document.getElementById("man-dove");
+ var numeri=document.getElementById("man-numeri");
+ var btnPrec=document.getElementById("man-prec");
+ var btnSucc=document.getElementById("man-succ");
  var voci=[].slice.call(nav.querySelectorAll("a[data-id]"));
  var perId={};voci.forEach(function(a){perId[a.dataset.id]=a;});
-
- function chiudiPannello(){document.body.classList.remove("man-indice-aperto");if(apri)apri.setAttribute("aria-expanded","false");if(velo)velo.hidden=true;}
- if(apri)apri.onclick=function(){
-  var aperto=document.body.classList.toggle("man-indice-aperto");
-  apri.setAttribute("aria-expanded",String(aperto));
-  if(velo)velo.hidden=!aperto;
- };
- if(velo)velo.onclick=chiudiPannello;
- nav.addEventListener("click",function(e){ if(e.target.closest("a")) chiudiPannello(); });
- document.addEventListener("keydown",function(e){ if(e.key==="Escape") chiudiPannello(); });
-
- /* dove sono: si illumina l'ultima intestazione superata */
+ var capitoli=[].slice.call(document.querySelectorAll(".man-cap"));
  var bersagli=[].slice.call(document.querySelectorAll(".man-cap[id], h2.man-sez[id]"));
- var attiva=null;
- function segna(){
-  var y=window.scrollY+120, scelto=null;
-  for(var i=0;i<bersagli.length;i++){ if(bersagli[i].offsetTop<=y) scelto=bersagli[i]; else break; }
-  var a=scelto?perId[scelto.id]:null;
-  if(a===attiva) return;
-  if(attiva)attiva.classList.remove("qui");
-  attiva=a;
-  if(a){a.classList.add("qui");
-   var cap=a.closest(".man-i-cap");
-   if(cap&&indice.scrollHeight>indice.clientHeight){
-    var r=a.getBoundingClientRect(), ri=indice.getBoundingClientRect();
-    if(r.top<ri.top+40||r.bottom>ri.bottom-40) indice.scrollTop+=r.top-ri.top-100;
-   }
-  }
- }
- var atteso=false;
- window.addEventListener("scroll",function(){
-  if(atteso)return; atteso=true;
-  requestAnimationFrame(function(){atteso=false;segna();});
- },{passive:true});
- segna();
 
- /* filtro dell'indice */
+ function aLibro(){ return matchMedia("(min-width:901px)").matches; }
+
+ /* ---------- indice ---------- */
+ function mostraIndice(si){
+  document.body.classList.toggle("man-indice-aperto", si);
+  if(apri)apri.setAttribute("aria-expanded", String(si));
+  if(velo)velo.hidden=!si;
+ }
+ if(apri)apri.onclick=function(){ mostraIndice(!document.body.classList.contains("man-indice-aperto")); };
+ if(velo)velo.onclick=function(){ mostraIndice(false); };
+ document.addEventListener("keydown",function(e){ if(e.key==="Escape") mostraIndice(false); });
+
  if(cerca) cerca.addEventListener("input",function(){
-  var q=cerca.value.trim().toLowerCase();
-  var visibili=0;
+  var q=cerca.value.trim().toLowerCase(), visibili=0;
   nav.querySelectorAll(".man-i-cap").forEach(function(cap){
    var titolo=cap.querySelector("a").textContent.toLowerCase();
-   var sezioni=[].slice.call(cap.querySelectorAll(".man-i-sez li"));
-   var capOk=!q||titolo.indexOf(q)>=0;
-   var qualcuna=false;
-   sezioni.forEach(function(li){
+   var capOk=!q||titolo.indexOf(q)>=0, qualcuna=false;
+   cap.querySelectorAll(".man-i-sez li").forEach(function(li){
     var ok=capOk||!q||li.textContent.toLowerCase().indexOf(q)>=0;
     li.hidden=!ok; if(ok)qualcuna=true;
    });
@@ -361,8 +366,167 @@ CORPO
   if(nessuno)nessuno.hidden=visibili>0;
  });
 
+ /* ---------- pagine ---------- */
+ var pagina=0, passo=0, passoColonna=0, totale=1, gola=0;
+ var postiBersagli=[], postiCapitoli=[];
+ function misuraGola(){
+  var v=getComputedStyle(document.documentElement).getPropertyValue("--gola");
+  return parseFloat(v)||46;
+ }
+ /* distanza di un elemento dall'inizio del testo, qualunque pagina si veda */
+ function distanza(el){
+  return el.getBoundingClientRect().left - foglio.getBoundingClientRect().left;
+ }
+ function misuraPassi(){
+  gola=misuraGola();
+  passo=foglio.clientWidth + gola;
+  passoColonna=(foglio.clientWidth - gola) / 2 + gola;
+ }
+ function misura(){
+  if(!aLibro()){ totale=1; pagina=0; foglio.style.removeProperty("--pagina"); aggiornaPiede(); return; }
+  misuraPassi();
+  totale=Math.max(1, paginaDaDistanza(distanza(fine)) + 1);
+  if(pagina>totale-1) pagina=totale-1;
+  /* Le posizioni si calcolano una volta sola: durante lo sfoglio non si chiede
+     più nessuna misura al browser. */
+  postiBersagli=bersagli.map(function(b){ return {el:b, pag:paginaDaDistanza(distanza(b))}; });
+  postiCapitoli=capitoli.map(function(c){ return {el:c, pag:paginaDaDistanza(distanza(c))}; });
+  posa(true);
+ }
+ function posa(subito){
+  if(subito) document.body.classList.add("man-senza-moto");
+  foglio.style.setProperty("--pagina", String(pagina));
+  if(subito) requestAnimationFrame(function(){ document.body.classList.remove("man-senza-moto"); });
+  aggiornaPiede();
+ }
+ function aggiornaPiede(){
+  if(btnPrec)btnPrec.disabled = pagina<=0;
+  if(btnSucc)btnSucc.disabled = pagina>=totale-1;
+  if(numeri)numeri.innerHTML = "Pagina <b>"+(pagina+1)+"</b> di <b>"+totale+"</b>";
+  segnaDove();
+ }
+ function vaiA(n){
+  n=Math.max(0, Math.min(totale-1, n));
+  if(n===pagina){ aggiornaPiede(); return; }
+  pagina=n; posa(false);
+ }
+ /* La pagina di un elemento si ricava dalla colonna in cui è finito: il passo
+    di colonna è la misura esatta con cui il browser impagina, e arrotondare
+    evita gli errori di mezzo pixel che facevano saltare una pagina. */
+ function paginaDaDistanza(x){
+  var colonna = passoColonna ? Math.round(x / passoColonna) : 0;
+  return Math.max(0, Math.floor(colonna / 2));
+ }
+ function paginaDi(el){
+  misuraPassi();
+  return paginaDaDistanza(distanza(el));
+ }
+ function ancoraCorrente(){
+  var scelto=null;
+  postiBersagli.forEach(function(p){ if(p.pag <= pagina) scelto=p.el; });
+  return scelto;
+ }
+ /* Dopo un cambio di larghezza si torna sullo stesso punto del testo. */
+ function riallinea(ancora){
+  misura();
+  if(ancora && aLibro()) vaiA(paginaDi(ancora));
+ }
+
+ /* dove siamo: capitolo e sezione della pagina aperta */
+ function segnaDove(){
+  var scelto=null;
+  if(aLibro()){
+   postiBersagli.forEach(function(p){ if(p.pag <= pagina) scelto=p.el; });
+  }else{
+   var y=window.scrollY+140;
+   bersagli.forEach(function(b){ if(b.getBoundingClientRect().top+window.scrollY<=y) scelto=b; });
+  }
+  var a=scelto?perId[scelto.id]:null;
+  voci.forEach(function(v){ if(v!==a) v.classList.remove("qui"); });
+  if(a){
+   a.classList.add("qui");
+   if(indice.scrollHeight>indice.clientHeight){
+    var r=a.getBoundingClientRect(), ri=indice.getBoundingClientRect();
+    if(r.top<ri.top+40||r.bottom>ri.bottom-40) indice.scrollTop += r.top-ri.top-110;
+   }
+  }
+  if(dove && aLibro()){
+   var cap=null;
+   postiCapitoli.forEach(function(p){ if(p.pag <= pagina) cap=p.el; });
+   var titolo=cap?cap.querySelector(".man-cap-h h1"):null;
+   var numero=cap?cap.dataset.cap:"";
+   dove.textContent = titolo ? ("Capitolo "+numero+" · "+titolo.textContent) : "Manuale del gioco";
+  }
+ }
+
+ /* ---------- comandi ---------- */
+ if(btnPrec)btnPrec.onclick=function(){ vaiA(pagina-1); };
+ if(btnSucc)btnSucc.onclick=function(){ vaiA(pagina+1); };
+ document.addEventListener("keydown",function(e){
+  if(!aLibro()) return;
+  if(e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
+  if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" "){ e.preventDefault(); vaiA(pagina+1); }
+  else if(e.key==="ArrowLeft"||e.key==="PageUp"){ e.preventDefault(); vaiA(pagina-1); }
+  else if(e.key==="Home"){ e.preventDefault(); vaiA(0); }
+  else if(e.key==="End"){ e.preventDefault(); vaiA(totale-1); }
+ });
+ var attesa=0;
+ libro.addEventListener("wheel",function(e){
+  if(!aLibro()) return;
+  var ora=Date.now(); if(ora-attesa<320) return;
+  var d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;
+  if(Math.abs(d)<6) return;
+  attesa=ora; e.preventDefault(); vaiA(pagina + (d>0?1:-1));
+ },{passive:false});
+ var dito=null;
+ libro.addEventListener("touchstart",function(e){ if(aLibro()&&e.touches[0]) dito={x:e.touches[0].clientX,y:e.touches[0].clientY}; },{passive:true});
+ libro.addEventListener("touchend",function(e){
+  if(!dito||!aLibro()) return;
+  var t=e.changedTouches[0]; var dx=t.clientX-dito.x, dy=t.clientY-dito.y;
+  dito=null;
+  if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)) vaiA(pagina + (dx<0?1:-1));
+ },{passive:true});
+
+ /* una voce dell'indice porta alla sua pagina (o alla sua altezza sul telefono) */
+ nav.addEventListener("click",function(e){
+  var a=e.target.closest("a[data-id]"); if(!a) return;
+  var el=document.getElementById(a.dataset.id);
+  if(aLibro()){
+   e.preventDefault();
+   if(el) vaiA(paginaDi(el));
+   if(innerWidth<1200) mostraIndice(false);
+  }else{
+   mostraIndice(false);
+  }
+ });
+
+ /* ---------- avvio e cambi di misura ---------- */
+ var ridisegno;
+ window.addEventListener("resize",function(){
+  clearTimeout(ridisegno);
+  ridisegno=setTimeout(function(){
+   riallinea(aLibro()&&passo ? ancoraCorrente() : null);
+  },180);
+ });
+ window.addEventListener("scroll",function(){ if(!aLibro()) segnaDove(); },{passive:true});
+
+ function avvio(){
+  misura();
+  /* se si arriva con un'ancora nell'indirizzo si apre a quella pagina */
+  if(location.hash){
+   var el=document.getElementById(location.hash.slice(1));
+   if(el&&aLibro()) vaiA(paginaDi(el));
+  }
+  segnaDove();
+ }
+ avvio();
+ if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ setTimeout(misura,60); });
+ window.addEventListener("load",function(){ setTimeout(misura,120); });
+
  var stampa=document.getElementById("man-stampa");
  if(stampa)stampa.onclick=function(){window.print();};
+ window.addEventListener("beforeprint",function(){ foglio.style.removeProperty("--pagina"); });
+ window.addEventListener("afterprint",function(){ setTimeout(misura,80); });
 })();
 </script>
 
@@ -408,7 +572,7 @@ for x in b:
             for c in r: doc.append(' '.join(p['testo'] for p in c))
 docT = norm(' '.join(doc))
 letto = open(os.path.join(REPO, 'manuale/index.html'), encoding='utf8').read()
-dentro = letto[letto.index('<main class="man-testo">'):letto.index('</main>')]
+dentro = letto[letto.index('<main class="man-foglio"'):letto.index('</main>')]
 dentro = dentro[dentro.index('</nav>') + 6:]
 dentro = re.sub(r'<br\s*/?>', ' ', dentro)
 dentro = re.sub(r'</?(b|i|u|span)[^>]*>', '', dentro)

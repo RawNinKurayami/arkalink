@@ -1,290 +1,266 @@
 /* Grand Line Chronicles · Manuale 2.0
-   Impaginazione di lettura: indice sempre a portata, testo in colonna stretta,
-   tabelle leggibili e una resa da libro quando si stampa. */
+   Su computer e tablet è un libro: pagine a due colonne che si sfogliano,
+   carta avorio, inchiostro nero e rosso. Sul telefono resta una colonna che
+   scorre, con la stessa carta. L'indice si apre e si chiude da un tasto
+   sempre presente. */
 
 :root{
-  --man-abisso:#060607;
-  --man-carta:#f2e9d8;
-  --man-ink:#f1ece0;
-  --man-tenue:rgba(241,236,224,.62);
-  --man-oro:#f0a441;
-  --man-oro-chiaro:#ffd394;
-  --man-bordo:rgba(241,236,224,.09);
-  --man-campo:rgba(241,236,224,.045);
-  --man-display:'Barlow Condensed','Arial Narrow',sans-serif;
-  --man-ui:'Manrope','Inter',system-ui,sans-serif;
-  --man-serif:'Cormorant Garamond',Georgia,serif;
+  --carta:#efe5d2;
+  --carta-alta:#f7f0e2;
+  --carta-ombra:#ded1b6;
+  --inchiostro:#1b1712;
+  --inchiostro-tenue:#5d5344;
+  --rosso:#9e2b23;
+  --filo:#d9cbaf;
+  --display:'Barlow Condensed','Arial Narrow',sans-serif;
+  --ui:'Manrope','Inter',system-ui,sans-serif;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --barra:58px;
+  --gola:46px;                 /* distanza fra le due colonne della pagina */
 }
 
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html,body{margin:0; padding:0;}
 body{
-  margin:0;
-  background:radial-gradient(120% 80% at 50% -10%,#0c0f18 0%,#060607 55%,#060607 100%) fixed;
-  color:var(--man-ink);
-  font-family:var(--man-serif);
-  font-size:19px;
-  line-height:1.66;
+  background:var(--carta);
+  color:var(--inchiostro);
+  font-family:var(--serif);
+  font-size:18.5px;
+  line-height:1.62;
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 a{color:inherit;}
 
 /* ---------- testata ---------- */
 .man-top{
-  position:sticky; top:0; z-index:40;
-  display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
-  padding:12px clamp(14px,4vw,30px);
-  background:rgba(6,6,7,.86);
-  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--man-bordo);
-  font-family:var(--man-ui);
+  position:sticky; top:0; z-index:40; height:var(--barra);
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding:0 clamp(12px,3vw,26px);
+  background:rgba(239,229,210,.94);
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--filo);
+  font-family:var(--ui);
 }
-.man-top .man-marchio{display:flex; align-items:center; gap:9px; min-width:0; text-decoration:none; font-family:var(--man-display); font-size:16px; letter-spacing:.16em; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
-.man-top .man-marchio .anc{color:var(--man-oro); font-size:18px;}
-.man-strumenti{display:flex; align-items:center; gap:7px; flex-wrap:wrap; justify-content:flex-end; min-width:0;}
+.man-marchio{display:flex; align-items:center; gap:9px; min-width:0; text-decoration:none;
+  font-family:var(--display); font-size:15px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.man-marchio .anc{color:var(--rosso); font-size:17px;}
+.man-strumenti{display:flex; align-items:center; gap:7px; min-width:0;}
 .man-btn{
-  font:600 11px var(--man-ui); letter-spacing:.1em; text-transform:uppercase;
-  border:1px solid var(--man-bordo); background:var(--man-campo); color:var(--man-ink);
-  border-radius:999px; padding:9px 15px; cursor:pointer; text-decoration:none; display:inline-block;
+  font:600 11px var(--ui); letter-spacing:.09em; text-transform:uppercase;
+  border:1px solid var(--carta-ombra); background:var(--carta-alta); color:var(--inchiostro);
+  border-radius:999px; padding:9px 15px; cursor:pointer; text-decoration:none; white-space:nowrap;
 }
-.man-btn:hover{background:rgba(240,164,65,.14); border-color:rgba(240,164,65,.4);}
-.man-btn.oro{background:linear-gradient(180deg,#ffd394,#f0a441); color:#1b1206; border-color:transparent;}
-.man-btn.solo-telefono{display:none;}
-
-/* ---------- impianto ---------- */
-.man-wrap{
-  display:grid;
-  grid-template-columns:clamp(240px,23vw,320px) minmax(0,1fr);
-  gap:clamp(20px,3vw,48px);
-  max-width:1500px; margin:0 auto; padding:0 clamp(14px,3vw,34px) 80px;
-}
-/* Senza questo le colonne non scendono sotto la larghezza del contenuto e la
-   pagina sborda a destra: sul telefono il testo finiva tagliato. */
-.man-wrap>*{min-width:0;}
+.man-btn:hover{background:#fff; border-color:var(--rosso); color:var(--rosso);}
+.man-btn:focus-visible{outline:2px solid var(--rosso); outline-offset:2px;}
+.man-btn[aria-expanded="true"]{background:var(--rosso); border-color:var(--rosso); color:var(--carta-alta);}
 
 /* ---------- indice ---------- */
 .man-indice{
-  position:sticky; top:62px; align-self:start;
-  max-height:calc(100dvh - 78px); overflow:auto; overscroll-behavior:contain;
-  padding:22px 4px 40px; font-family:var(--man-ui);
-  scrollbar-width:thin;
+  position:fixed; top:var(--barra); left:0; bottom:0; z-index:60;
+  width:min(88vw,360px); padding:20px 16px 40px;
+  background:var(--carta-alta); border-right:1px solid var(--filo);
+  box-shadow:14px 0 40px rgba(70,52,20,.14);
+  overflow:auto; overscroll-behavior:contain; font-family:var(--ui);
+  transform:translateX(-102%); transition:transform .26s ease;
 }
-.man-indice h2{font:600 10px var(--man-ui); letter-spacing:.2em; text-transform:uppercase; color:var(--man-tenue); margin:0 0 12px;}
-.man-cerca{
-  width:100%; font:400 13px var(--man-ui); color:var(--man-ink);
-  background:var(--man-campo); border:1px solid var(--man-bordo); border-radius:999px;
-  padding:10px 14px; margin-bottom:14px;
-}
-.man-cerca:focus{outline:2px solid rgba(240,164,65,.45); outline-offset:1px;}
+body.man-indice-aperto .man-indice{transform:none;}
+.man-velo{position:fixed; inset:var(--barra) 0 0; z-index:55; background:rgba(40,30,12,.28);
+  opacity:0; pointer-events:none; transition:opacity .26s ease;}
+body.man-indice-aperto .man-velo{opacity:1; pointer-events:auto;}
+.man-indice h2{font:600 10px var(--ui); letter-spacing:.2em; text-transform:uppercase; color:var(--inchiostro-tenue); margin:0 0 12px;}
+.man-cerca{width:100%; font:400 13px var(--ui); color:var(--inchiostro);
+  background:var(--carta); border:1px solid var(--carta-ombra); border-radius:999px; padding:10px 14px; margin-bottom:14px;}
+.man-cerca:focus{outline:2px solid var(--rosso); outline-offset:1px;}
 .man-indice ol{list-style:none; margin:0; padding:0;}
-.man-indice .man-i-cap{margin-bottom:6px;}
-.man-indice .man-i-cap>a{
-  display:flex; gap:9px; align-items:baseline; text-decoration:none;
-  font-family:var(--man-display); font-size:17px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
-  color:var(--man-ink); padding:7px 10px; border-radius:10px; line-height:1.15;
-}
-.man-indice .man-i-cap>a:hover{background:var(--man-campo);}
-.man-indice .man-i-cap>a .n{font-size:12px; color:var(--man-oro); flex:none; min-width:20px;}
-.man-indice .man-i-sez{list-style:none; margin:0 0 10px; padding:0 0 0 30px;}
-.man-indice .man-i-sez a{
-  display:block; text-decoration:none; font-size:12.5px; color:var(--man-tenue);
-  padding:5px 9px; border-radius:8px; border-left:1px solid var(--man-bordo);
-}
-.man-indice .man-i-sez a:hover{color:var(--man-ink); background:var(--man-campo);}
-.man-indice a.qui{color:#1b1206; background:linear-gradient(180deg,#ffd394,#f0a441); border-left-color:transparent;}
-.man-indice .man-i-cap>a.qui .n{color:#5a3a06;}
-.man-vuoto{font-size:12.5px; color:var(--man-tenue); padding:6px 9px;}
+.man-i-cap{margin-bottom:4px;}
+.man-i-cap>a{display:flex; gap:9px; align-items:baseline; text-decoration:none; padding:7px 10px; border-radius:8px;
+  font-family:var(--display); font-size:17px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; line-height:1.15;}
+.man-i-cap>a .n{font-family:var(--ui); font-size:11px; color:var(--rosso); flex:none; min-width:18px;}
+.man-i-cap>a:hover{background:var(--carta);}
+.man-i-sez{list-style:none; margin:0 0 10px; padding:0 0 0 28px;}
+.man-i-sez a{display:block; text-decoration:none; font-size:12.5px; color:var(--inchiostro-tenue);
+  padding:5px 9px; border-radius:6px; border-left:1px solid var(--filo);}
+.man-i-sez a:hover{color:var(--inchiostro); background:var(--carta);}
+.man-indice a.qui{background:var(--rosso); color:var(--carta-alta); border-left-color:var(--rosso);}
+.man-indice a.qui .n{color:var(--carta-alta);}
+.man-vuoto{font-size:12.5px; color:var(--inchiostro-tenue); padding:6px 9px;}
 
-/* ---------- testo ---------- */
-/* min() invece di ch secco: la colonna di lettura non supera mai lo spazio
-   disponibile, qualunque sia il carattere caricato. */
-.man-testo{max-width:min(78ch,100%); min-width:0; padding:26px 0 0;}
-.man-testo :where(h1,h2,h3,h4,p,li,td,th){overflow-wrap:anywhere;}
-.man-tab-wrap{max-width:100%;}
-.man-frontespizio{padding:26px 0 34px; border-bottom:1px solid var(--man-bordo); margin-bottom:10px;}
-.man-frontespizio .occhiello{font:600 10px var(--man-ui); letter-spacing:.22em; text-transform:uppercase; color:var(--man-tenue); margin:0 0 10px;}
-.man-frontespizio h1{
-  font-family:var(--man-display); font-weight:600; text-transform:uppercase;
-  font-size:clamp(42px,7vw,86px); line-height:.94; letter-spacing:.03em; margin:0;
-}
-.man-frontespizio .sotto{font-family:var(--man-serif); font-style:italic; color:var(--man-tenue); margin:12px 0 0; font-size:19px;}
+/* ---------- il libro ---------- */
+.man-scena{position:relative; max-width:1600px; margin:0 auto; padding:0 clamp(12px,3vw,30px);}
+.man-libro{position:relative;}
+.man-foglio{font-size:18.5px; padding:26px 0 40px;}
+.man-sfoglia,.man-piede{display:none;}
 
-.man-cap{padding:38px 0 10px;}
-.man-cap+.man-cap{border-top:1px solid var(--man-bordo);}
-.man-cap-h{margin:0 0 22px;}
-.man-cap-n{display:block; font:600 10px var(--man-ui); letter-spacing:.22em; text-transform:uppercase; color:var(--man-oro); margin-bottom:8px;}
-.man-cap-h h1{
-  font-family:var(--man-display); font-weight:600; text-transform:uppercase;
-  font-size:clamp(32px,5vw,58px); line-height:1; letter-spacing:.03em; margin:0;
-}
-h2.man-sez{
-  display:flex; gap:12px; align-items:baseline;
-  font-family:var(--man-display); font-weight:600; text-transform:uppercase; letter-spacing:.04em;
-  font-size:clamp(23px,3.2vw,31px); line-height:1.1;
-  margin:44px 0 14px; padding-top:14px; border-top:1px solid var(--man-bordo);
-  scroll-margin-top:80px;
-}
-h2.man-sez .man-sez-n{font-family:var(--man-ui); font-size:12px; font-weight:600; color:var(--man-oro); flex:none;}
-h3.man-sub{
-  font-family:var(--man-display); font-weight:600; text-transform:uppercase; letter-spacing:.05em;
-  font-size:20px; line-height:1.15; margin:28px 0 8px; color:var(--man-ink);
-}
+/* frontespizio */
+.man-frontespizio{padding:10px 0 24px; border-bottom:2px solid var(--rosso); margin-bottom:20px;}
+.man-frontespizio .occhiello{font:700 10px var(--ui); letter-spacing:.24em; text-transform:uppercase; color:var(--rosso); margin:0 0 10px;}
+.man-frontespizio h1{font-family:var(--display); font-weight:700; text-transform:uppercase;
+  font-size:clamp(38px,9vw,74px); line-height:.92; letter-spacing:.02em; margin:0;}
+.man-frontespizio .sotto{font-family:var(--serif); font-style:italic; color:var(--inchiostro-tenue); margin:12px 0 0;}
+
+/* capitoli e sezioni */
+.man-cap{padding:0 0 6px;}
+.man-cap-h{margin:0 0 16px; padding-bottom:10px; border-bottom:1px solid var(--filo);}
+.man-cap-n{display:block; font:700 10px var(--ui); letter-spacing:.22em; text-transform:uppercase; color:var(--rosso); margin-bottom:6px;}
+.man-cap-h h1{font-family:var(--display); font-weight:700; text-transform:uppercase;
+  font-size:clamp(28px,5vw,46px); line-height:1; letter-spacing:.02em; margin:0;}
+h2.man-sez{display:flex; gap:10px; align-items:baseline; break-after:avoid;
+  font-family:var(--display); font-weight:700; text-transform:uppercase; letter-spacing:.03em;
+  font-size:22px; line-height:1.12; margin:24px 0 10px; padding-top:10px; border-top:1px solid var(--filo);
+  scroll-margin-top:calc(var(--barra) + 14px);}
+h2.man-sez .man-sez-n{font-family:var(--ui); font-size:11.5px; font-weight:700; color:var(--rosso); flex:none;}
+h3.man-sub{font-family:var(--display); font-weight:600; text-transform:uppercase; letter-spacing:.04em;
+  font-size:17.5px; line-height:1.14; margin:18px 0 6px; break-after:avoid;}
 h3.man-sub b{font-weight:inherit;}
-h4.man-lab{
-  font:600 10.5px var(--man-ui); letter-spacing:.14em; text-transform:uppercase;
-  color:var(--man-oro-chiaro); margin:20px 0 6px;
-}
+h4.man-lab{font:700 10px var(--ui); letter-spacing:.14em; text-transform:uppercase; color:var(--rosso); margin:14px 0 4px; break-after:avoid;}
 h4.man-lab b{font-weight:inherit;}
-.man-testo p{margin:0 0 14px;}
-.man-testo b{color:#fff6e4;}
-.man-testo i{color:rgba(241,236,224,.86);}
+.man-foglio p{margin:0 0 11px;}
+/* frasi che il documento aveva marcato come titolo ma che sono testo guida */
+.man-guida{margin:14px 0 6px;}
+.man-guida b{color:#000;}
+.man-foglio b{color:#000; font-weight:700;}
+.man-foglio :where(h1,h2,h3,h4,p,li,td,th){overflow-wrap:anywhere;}
 
-/* elenchi: quelli del documento e quelli ricomposti dalle righe brevi */
-.man-punti,.man-elenco{margin:0 0 16px; padding:0; list-style:none;}
-.man-punti li,.man-elenco li{position:relative; padding:3px 0 3px 22px;}
-.man-punti li::before,.man-elenco li::before{
-  content:""; position:absolute; left:6px; top:.85em; width:5px; height:5px; border-radius:50%;
-  background:var(--man-oro); opacity:.7;
-}
-.man-elenco{
-  background:var(--man-campo); border-radius:14px; padding:10px 14px; margin:4px 0 18px;
-  font-family:var(--man-ui); font-size:14.5px; line-height:1.5;
-}
-.man-elenco li{padding-left:20px;}
+/* elenchi */
+.man-punti,.man-elenco{margin:0 0 12px; padding:0; list-style:none;}
+.man-punti li,.man-elenco li{position:relative; padding:2px 0 2px 20px;}
+.man-punti li::before,.man-elenco li::before{content:""; position:absolute; left:5px; top:.82em;
+  width:5px; height:5px; border-radius:50%; background:var(--rosso);}
+.man-elenco{background:var(--carta-alta); border:1px solid var(--filo); border-radius:6px;
+  padding:9px 12px; margin:2px 0 14px; font-family:var(--ui); font-size:14px; line-height:1.5; break-inside:avoid;}
+.man-elenco li{padding-left:18px;}
 
-/* righe «X → Y»: diventano una tabellina di corrispondenze */
-.man-mappa{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:8px;
-  margin:6px 0 20px; font-family:var(--man-ui);
-}
-.man-mappa .man-riga{
-  display:flex; align-items:baseline; justify-content:space-between; gap:10px;
-  background:var(--man-campo); border-radius:12px; padding:9px 13px; font-size:14px;
-}
-.man-mappa .man-riga span{color:var(--man-tenue);}
-.man-mappa .man-freccia{color:var(--man-oro); font-style:normal; flex:none; opacity:.8;}
-.man-mappa .man-riga b{color:var(--man-oro-chiaro); font-weight:600; text-align:right;}
+/* coppie «X → Y» */
+.man-mappa{margin:4px 0 14px; font-family:var(--ui); break-inside:avoid;}
+.man-riga{display:flex; align-items:baseline; gap:8px; justify-content:space-between;
+  border-bottom:1px dotted var(--carta-ombra); padding:6px 2px; font-size:13.5px;}
+.man-riga:last-child{border-bottom:0;}
+.man-riga span{color:var(--inchiostro-tenue);}
+.man-freccia{color:var(--rosso); font-style:normal; flex:none;}
+.man-riga b{color:#000; font-weight:700; text-align:right;}
 
-/* ---------- tabelle ---------- */
-.man-tab-wrap{margin:8px 0 24px; overflow-x:auto; -webkit-overflow-scrolling:touch;}
-.man-tab{
-  width:100%; border-collapse:collapse; font-family:var(--man-ui); font-size:14px; line-height:1.45;
-  background:rgba(241,236,224,.02); border-radius:14px; overflow:hidden;
-}
-.man-tab th{
-  text-align:left; font:600 10px var(--man-ui); letter-spacing:.13em; text-transform:uppercase;
-  color:var(--man-oro-chiaro); background:rgba(240,164,65,.09);
-  padding:11px 13px; border-bottom:1px solid rgba(240,164,65,.22); white-space:nowrap;
-}
-.man-tab td{padding:10px 13px; border-bottom:1px solid var(--man-bordo); vertical-align:top;}
+/* tabelle */
+.man-tab-wrap{margin:6px 0 16px; max-width:100%; overflow-x:auto; break-inside:avoid;}
+.man-tab{width:100%; border-collapse:collapse; font-family:var(--ui); font-size:13.5px; line-height:1.45;
+  background:var(--carta-alta); border:1px solid var(--carta-ombra);}
+.man-tab th{text-align:left; font:700 9.5px var(--ui); letter-spacing:.12em; text-transform:uppercase;
+  color:var(--carta-alta); background:var(--rosso); padding:8px 10px;}
+.man-tab td{padding:8px 10px; border-bottom:1px solid var(--filo); vertical-align:top;}
 .man-tab tr:last-child td{border-bottom:0;}
-.man-tab tbody tr:nth-child(even){background:rgba(241,236,224,.022);}
-.man-tab td b{color:#fff6e4;}
+.man-tab tbody tr:nth-child(even){background:rgba(158,43,35,.045);}
+.man-tab td b{color:#000;}
 
-/* ---------- sommario stampato ---------- */
 .man-somm{display:none;}
+.man-fine{display:block; height:1px;}
 
-/* ---------- telefono ---------- */
+/* ---------- da tablet in su: il libro a pagine ---------- */
+@media(min-width:901px){
+  body{overflow:hidden;}
+  .man-scena{
+    height:calc(100dvh - var(--barra));
+    display:grid; grid-template-columns:auto minmax(0,1fr) auto; grid-template-rows:minmax(0,1fr) auto;
+    gap:0 10px; padding:0 clamp(10px,2vw,22px) 4px;
+  }
+  .man-libro{
+    grid-column:2; grid-row:1; overflow:hidden;
+    background:var(--carta-alta); border:1px solid var(--carta-ombra); border-radius:3px;
+    box-shadow:0 18px 40px rgba(70,52,20,.12), 0 1px 0 #fff inset;
+    padding:clamp(20px,2.4vw,34px) clamp(22px,2.6vw,40px);
+    margin:12px 0 6px;
+  }
+  /* la piega centrale del libro */
+  .man-libro::after{
+    content:""; position:absolute; top:0; bottom:0; left:50%; width:26px; transform:translateX(-50%);
+    background:linear-gradient(90deg,rgba(120,95,50,0),rgba(120,95,50,.08) 45%,rgba(120,95,50,.08) 55%,rgba(120,95,50,0));
+    pointer-events:none;
+  }
+  .man-foglio{
+    height:100%; padding:0;
+    column-count:2; column-gap:var(--gola); column-fill:auto;
+    column-rule:1px solid var(--filo);
+    transform:translateX(calc(-1 * var(--pagina,0) * (100% + var(--gola))));
+    transition:transform .34s cubic-bezier(.3,.85,.35,1);
+  }
+  body.man-senza-moto .man-foglio{transition:none;}
+
+  .man-cap{break-before:column;}
+  .man-cap:first-of-type{break-before:auto;}
+  .man-frontespizio{break-after:column; min-height:60%; display:flex; flex-direction:column; justify-content:flex-end;}
+
+  .man-sfoglia{
+    display:grid; place-items:center; align-self:center; grid-row:1;
+    width:44px; height:44px; border-radius:50%; cursor:pointer;
+    border:1px solid var(--carta-ombra); background:var(--carta-alta); color:var(--rosso);
+    font-size:22px; line-height:1; font-family:var(--serif);
+  }
+  .man-sfoglia:hover{background:var(--rosso); color:var(--carta-alta); border-color:var(--rosso);}
+  .man-sfoglia:disabled{opacity:.3; cursor:default; background:var(--carta-alta); color:var(--inchiostro-tenue); border-color:var(--carta-ombra);}
+  .man-sfoglia.prec{grid-column:1;}
+  .man-sfoglia.succ{grid-column:3;}
+
+  .man-piede{
+    display:flex; grid-column:2; grid-row:2; align-items:center; justify-content:space-between; gap:12px;
+    font-family:var(--ui); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--inchiostro-tenue); padding:2px 4px 8px;
+  }
+  .man-piede b{color:var(--rosso); font-weight:700;}
+
+  /* L'indice scorre SOPRA il libro: se spostasse la pagina, il testo si
+     ridistribuirebbe e il numero di pagina cambierebbe sotto gli occhi. */
+  .man-indice{width:min(34vw,340px);}
+  .man-velo{background:rgba(40,30,12,.18);}
+}
+
+/* ---------- telefono: una colonna che scorre ---------- */
 @media(max-width:900px){
   body{font-size:17.5px; line-height:1.6;}
-  .man-wrap{grid-template-columns:minmax(0,1fr); padding-bottom:60px;}
-  .man-btn.solo-telefono{display:inline-block;}
-  .man-indice{
-    position:fixed; inset:0 auto 0 0; z-index:60; width:min(86vw,340px);
-    background:#0a0a0c; border-right:1px solid var(--man-bordo);
-    max-height:100dvh; padding:20px 14px 40px;
-    transform:translateX(-102%); transition:transform .25s ease;
-    box-shadow:0 0 60px rgba(0,0,0,.6);
-  }
-  body.man-indice-aperto .man-indice{transform:none;}
-  body.man-indice-aperto .man-velo{opacity:1; pointer-events:auto;}
-  .man-velo{
-    position:fixed; inset:0; z-index:55; background:rgba(4,4,6,.6);
-    opacity:0; pointer-events:none; transition:opacity .25s ease;
-    -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
-  }
-  .man-testo{max-width:min(70ch,100%); margin:0 auto; padding-top:16px;}
-
-  /* testata compatta: marchio corto, pulsanti piccoli, tutto su una riga */
-  .man-top{gap:8px; padding:10px 14px;}
-  .man-top .man-marchio{font-size:13px; letter-spacing:.1em;}
-  .man-btn{font-size:10px; letter-spacing:.06em; padding:8px 11px;}
-
-  /* titoli proporzionati allo schermo */
-  .man-frontespizio{padding:18px 0 24px;}
+  .man-scena{padding:0 16px 50px;}
+  .man-foglio{padding-top:16px; max-width:min(70ch,100%); margin:0 auto;}
+  .man-cap{padding-top:22px;}
+  .man-cap+.man-cap{border-top:1px solid var(--filo);}
   .man-frontespizio h1{font-size:clamp(34px,11vw,52px);}
-  .man-frontespizio .sotto{font-size:16.5px;}
-  .man-cap{padding:26px 0 6px;}
-  .man-cap-h h1{font-size:clamp(25px,7.6vw,38px);}
-  h2.man-sez{font-size:clamp(19px,5.6vw,26px); margin:30px 0 10px; gap:8px; flex-wrap:wrap;}
-  h3.man-sub{font-size:17px; margin:22px 0 6px;}
-  .man-elenco,.man-mappa{font-size:14px;}
-  .man-tab{font-size:13px;}
-  .man-tab th,.man-tab td{padding:9px 10px;}
+  h2.man-sez{font-size:19.5px; flex-wrap:wrap; gap:8px;}
 }
-
-/* Sugli schermi stretti i pulsanti restano su una riga sola: il simbolo basta,
-   il nome per esteso resta nel titolo e per chi usa uno screen reader. */
 @media(max-width:470px){
-  .man-top .man-marchio span:not(.anc){display:none;}
+  .man-marchio span:not(.anc){display:none;}
   .man-btn .man-etichetta{display:none;}
-  /* L'indice è il pulsante che si cerca davvero: quello tiene il nome. */
   #man-apri-indice .man-etichetta{display:inline;}
   .man-btn{padding:9px 12px; font-size:13px; line-height:1;}
-  .man-top{flex-wrap:nowrap;}
-  .man-strumenti{flex-wrap:nowrap;}
 }
 @media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto;}
-  .man-indice{transition:none;}
+  .man-indice,.man-foglio,.man-scena{transition:none;}
 }
 
 /* ---------- stampa / PDF ---------- */
 @page{size:A4; margin:18mm 16mm 20mm;}
 @media print{
-  html,body{background:#fff !important; color:#14110d !important; font-size:10.6pt; line-height:1.48;}
-  .man-top,.man-indice,.man-velo,.glc-bg,#manlock{display:none !important;}
-  .man-wrap{display:block; max-width:none; padding:0;}
-  .man-testo{max-width:none; padding:0;}
-  a{text-decoration:none;}
-
-  .man-frontespizio{
-    border:0; text-align:center; padding:56mm 0 0; break-after:page; page-break-after:always;
+  html,body{background:#fff !important; color:#14110d !important; font-size:10.4pt; line-height:1.45; overflow:visible !important;}
+  .man-top,.man-indice,.man-velo,.man-sfoglia,.man-piede,.glc-bg,#manlock{display:none !important;}
+  .man-scena{display:block !important; height:auto !important; padding:0 !important; max-width:none;}
+  .man-libro{overflow:visible !important; border:0 !important; box-shadow:none !important; padding:0 !important; margin:0 !important; background:none !important;}
+  .man-libro::after{display:none;}
+  .man-foglio{
+    height:auto !important; transform:none !important; transition:none !important;
+    column-count:1 !important; padding:0 !important; max-width:none !important; font-size:10.4pt;
   }
-  .man-frontespizio h1{font-size:44pt; color:#14110d;}
-  .man-frontespizio .occhiello,.man-frontespizio .sotto{color:#6b5a44;}
-
-  /* sommario con i numeri dei capitoli */
+  .man-frontespizio{break-after:page; page-break-after:always; text-align:center;
+    min-height:0; display:block; padding:46mm 0 0; border-bottom:0;}
+  .man-frontespizio h1{font-size:40pt;}
   .man-somm{display:block; break-after:page; page-break-after:always;}
-  .man-somm h2{font-family:var(--man-display); font-size:20pt; text-transform:uppercase; letter-spacing:.05em; margin:0 0 10mm; color:#14110d;}
-  .man-somm ol{list-style:none; margin:0; padding:0; font-family:var(--man-ui); font-size:10pt;}
-  .man-somm .s-cap{font-weight:700; margin:5mm 0 1.5mm; text-transform:uppercase; letter-spacing:.06em;}
-  .man-somm .s-sez{margin:0 0 .8mm 8mm; color:#4a4034;}
-  .man-somm .s-sez b{color:#8a6a1e; font-weight:600; margin-right:5px;}
-
-  .man-cap{break-before:page; page-break-before:always; padding:0; border:0;}
+  .man-somm h2{font-family:var(--display); font-size:19pt; text-transform:uppercase; letter-spacing:.05em; margin:0 0 8mm;}
+  .man-somm ol{list-style:none; margin:0; padding:0; font-family:var(--ui); font-size:9.5pt; columns:2; column-gap:10mm;}
+  .man-somm .s-cap{font-weight:700; margin:4mm 0 1mm; text-transform:uppercase; letter-spacing:.05em; break-after:avoid;}
+  .man-somm .s-sez{margin:0 0 .6mm 6mm; color:#4a4034;}
+  .man-somm .s-sez b{color:var(--rosso); font-weight:600; margin-right:4px;}
+  .man-cap{break-before:page; page-break-before:always;}
   .man-cap:first-of-type{break-before:avoid; page-break-before:auto;}
-  .man-cap-n{color:#8a6a1e;}
-  .man-cap-h h1{font-size:26pt; color:#14110d;}
-  h2.man-sez{font-size:15pt; color:#14110d; border-top:1px solid #d8cdbb; margin:9mm 0 3mm; break-after:avoid; page-break-after:avoid;}
-  h2.man-sez .man-sez-n{color:#8a6a1e;}
-  h3.man-sub{font-size:12pt; color:#14110d; margin:5mm 0 1.5mm; break-after:avoid; page-break-after:avoid;}
-  h4.man-lab{color:#8a6a1e; margin:4mm 0 1mm; break-after:avoid; page-break-after:avoid;}
+  .man-cap-corpo{columns:2; column-gap:9mm;}
+  .man-cap-h h1{font-size:24pt;}
+  h2.man-sez{font-size:14pt; break-after:avoid;}
   p,li{orphans:3; widows:3;}
-  .man-testo b{color:#14110d;}
-  .man-testo i{color:#3a332a;}
-
-  .man-elenco,.man-mappa .man-riga{background:#f4efe4; border:1px solid #e0d6c4;}
-  .man-mappa .man-riga span{color:#4a4034;}
-  .man-mappa .man-freccia{color:#8a6a1e;}
-  .man-mappa .man-riga b{color:#8a6a1e;}
-  .man-punti li::before,.man-elenco li::before{background:#b8912f;}
-
-  .man-tab-wrap{overflow:visible; break-inside:avoid; page-break-inside:avoid;}
-  .man-tab{font-size:9pt; background:#fff; border:1px solid #d8cdbb;}
-  .man-tab th{background:#f0e7d6; color:#5a4a20; border-bottom:1px solid #d8cdbb;}
-  .man-tab td{border-bottom:1px solid #e6dccb;}
-  .man-tab tbody tr:nth-child(even){background:#faf6ee;}
-  .man-tab td b,.man-tab th b,.man-tab td i{color:#14110d;}   /* sulla carta il grassetto resta scuro */
-  .man-tab tr{break-inside:avoid; page-break-inside:avoid;}
+  .man-tab-wrap,.man-elenco,.man-mappa{break-inside:avoid;}
+  .man-tab{font-size:8.6pt;}
+  .man-fine{display:none;}
 }
