@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={saveKey:["glc_pirata_v4","glc_campagne_v1"],gate:true,profileUrl:"/profilo/"};</script>
 <script src="/glc-auth.js"></script>
 <script src="/glc-map.js"></script>
@@ -221,7 +221,17 @@ async function renderDetail(c){
   p.appendChild(el("label",{class:"fld",text:"Prossime sessioni & eventi"}));
   var evs=INFO.events.slice().filter(function(e){return e&&e.date;}).sort(function(a,b){return a.date<b.date?-1:1;});
   var fut=evs.filter(function(e){return e.date>=todayStr();});
-  if(fut.length){p.appendChild(el("div",{class:"nextdate",html:"Prossima: <b>"+fmtDate(fut[0].date)+"</b>"+(fut[0].titolo?(" \u2014 "+fut[0].titolo):"")}));}
+  /* Data e titolo li scrive un altro giocatore della campagna: vanno messi come
+     testo, mai come HTML, o basterebbe chiamare una sessione <img onerror=...>
+     per far girare codice nel browser di tutti i compagni. */
+  if(fut.length){
+    var pross=el("div",{class:"nextdate"},[
+      document.createTextNode("Prossima: "),
+      el("b",{text:fmtDate(fut[0].date)}),
+      document.createTextNode(fut[0].titolo?(" \u2014 "+fut[0].titolo):"")
+    ]);
+    p.appendChild(pross);
+  }
   var evList=el("div",{class:"evlist"});
   if(!evs.length){evList.appendChild(el("div",{class:"empty2",text:"Nessun evento in programma."}));}
   evs.forEach(function(e){
