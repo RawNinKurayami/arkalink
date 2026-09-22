@@ -338,7 +338,7 @@ PAGINA = '''<!doctype html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
-<link rel="stylesheet" href="manuale.css?v=14">
+<link rel="stylesheet" href="manuale.css?v=16">
 <style>
 /* Il gate del Manuale bloccato resta com'era. */
 #manlock[hidden]{display:none !important;}
@@ -369,6 +369,10 @@ GATE
 </header>
 
 <div class="man-velo" id="man-velo" hidden></div>
+
+<button class="man-gancio" id="man-gancio" type="button" aria-label="Apri l’indice del manuale">
+  <span class="g-segno" aria-hidden="true">☰</span><span>Indice</span>
+</button>
 
 <nav class="man-indice" id="man-indice" aria-label="Indice del manuale">
     <h2>Indice</h2>
@@ -424,6 +428,8 @@ CORPO
   if(velo)velo.hidden=!si;
  }
  if(apri)apri.onclick=function(){ mostraIndice(!document.body.classList.contains("man-indice-aperto")); };
+ var gancio=document.getElementById("man-gancio");
+ if(gancio)gancio.onclick=function(){ document.body.classList.remove("man-top-via"); mostraIndice(true); };
  if(velo)velo.onclick=function(){ mostraIndice(false); };
  document.addEventListener("keydown",function(e){ if(e.key==="Escape") mostraIndice(false); });
  nav.addEventListener("click",function(e){ if(e.target.closest("a[data-id]")) mostraIndice(false); });
@@ -466,11 +472,23 @@ CORPO
    }
   }
  }
+ /* Scendendo la testata si ritrae e al suo posto compare la pastiglia
+    dell'indice: resta raggiungibile senza risalire in cima, ma non ruba
+    spazio alla lettura. Basta risalire un poco per rivedere la testata. */
+ var ultimaY=window.scrollY;
+ function guardaAltezza(){
+  var y=window.scrollY, corpo=document.body;
+  if(y<240){ corpo.classList.remove("man-top-via"); }
+  else if(y-ultimaY>4){ corpo.classList.add("man-top-via"); }
+  else if(ultimaY-y>6){ corpo.classList.remove("man-top-via"); }
+  ultimaY=y;
+ }
  var atteso=false;
  window.addEventListener("scroll",function(){
   if(atteso) return; atteso=true;
-  requestAnimationFrame(function(){ atteso=false; segnaDove(); });
+  requestAnimationFrame(function(){ atteso=false; segnaDove(); guardaAltezza(); });
  },{passive:true});
+ guardaAltezza();
  var ridisegno;
  window.addEventListener("resize",function(){ clearTimeout(ridisegno); ridisegno=setTimeout(function(){ misura(); segnaDove(); },200); });
 
