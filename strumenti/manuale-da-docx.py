@@ -143,6 +143,9 @@ def blocchi_da_contenuto(voci):
         tipo = v.get('t', 'p')
         if tipo == 'h':
             fuori.append(blocco_p(v['testo'], 'Heading2'))
+        elif tipo == 'h3':
+            # etichetta interna: corta diventa titoletto rosso, lunga resta testo
+            fuori.append(blocco_p(v['testo'], 'Heading3'))
         elif tipo == 'lista':
             for voce in v['voci']:
                 b2 = blocco_p(voce)
@@ -157,6 +160,12 @@ def blocchi_da_contenuto(voci):
         else:
             fuori.append(blocco_p(v['testo']))
     return fuori
+
+def ripulisci(t):
+    """Confronto indulgente: spazi ridondanti e apostrofi dritti o curvi."""
+    t = unicodedata.normalize('NFC', t).replace('\u00a0', ' ')
+    t = t.replace('\u2019', "'").replace('\u2018', "'")
+    return re.sub(r'\s+', ' ', t).strip()
 
 def limiti_sezione(blocchi, numero):
     """Dove comincia e dove finisce una sezione N.M."""
@@ -190,20 +199,72 @@ def applica_correzioni(blocchi, correzioni):
         blocchi[inizio:fine] = [blocco_p(titolo, 'Heading2')] + blocchi_da_contenuto(contenuto)
         print('sezione %s riscritta (%s)' % (numero, c['titolo']))
 
+    for g in correzioni.get('blocchi', []):
+        inizio, fine = limiti_sezione(blocchi, g['sezione'])
+        if inizio is None:
+            sys.exit('blocco in %s: sezione non trovata.' % g['sezione'])
+        cercati = [ripulisci(t) for t in g['da']]
+        trovati = []
+        for i in range(inizio, fine - len(cercati) + 1):
+            fetta = blocchi[i:i + len(cercati)]
+            if all(x['tipo'] == 'p' and ripulisci(x['testo']) == atteso
+                   for x, atteso in zip(fetta, cercati)):
+                trovati.append(i)
+        if len(trovati) != 1:
+            sys.exit('blocco in %s: la sequenza che comincia con «%s» compare %d volte, mi fermo.'
+                     % (g['sezione'], g['da'][0][:60], len(trovati)))
+        i = trovati[0]
+        blocchi[i:i + len(cercati)] = blocchi_da_contenuto(g['a'])
+        print('  %s: %d paragrafi \u2192 %d (%s\u2026)'
+              % (g['sezione'], len(cercati), len(g['a']), g['da'][0][:45]))
+
     for s_ in correzioni.get('sostituzioni', []):
         inizio, fine = limiti_sezione(blocchi, s_['sezione'])
         if inizio is None:
             sys.exit('sostituzione in %s: sezione non trovata.' % s_['sezione'])
         trovate = 0
+        def scambia(par):
+            """Sostituisce nel paragrafo intero.
+
+            Il testo di un paragrafo e\u0300 spezzato in pezzi, uno per ogni tratto
+            con la stessa formattazione: una frase che attraversa un grassetto
+            non si trova in nessun pezzo singolo. Qui si lavora sulla stringa
+            unita portandosi dietro lo stile di ogni carattere, poi i pezzi
+            vengono ricomposti: il grassetto intorno resta dov'era.
+            """
+            pieno = ''.join(x['t'] for x in par['pezzi'])
+            if s_['da'] not in pieno:
+                return 0
+            stili = []
+            for x in par['pezzi']:
+                stili.extend([tuple(x['s'])] * len(x['t']))
+            testo, stile_car, i, n = [], [], 0, 0
+            while i < len(pieno):
+                if pieno.startswith(s_['da'], i):
+                    testo.append(s_['a'])
+                    stile_car.extend([stili[i]] * len(s_['a']))
+                    i += len(s_['da']); n += 1
+                else:
+                    testo.append(pieno[i]); stile_car.append(stili[i]); i += 1
+            nuovi, corrente = [], None
+            for carattere, st in zip(''.join(testo), stile_car):
+                if corrente is None or corrente['s'] != list(st):
+                    corrente = {'t': carattere, 's': list(st)}
+                    nuovi.append(corrente)
+                else:
+                    corrente['t'] += carattere
+            par['pezzi'] = nuovi
+            par['testo'] = ''.join(x['t'] for x in nuovi)
+            return n
         for x in blocchi[inizio:fine]:
-            if x['tipo'] != 'p':
-                continue
-            if s_['da'] in x['testo']:
-                x['testo'] = x['testo'].replace(s_['da'], s_['a'])
-                for pezzo in x['pezzi']:
-                    if s_['da'] in pezzo['t']:
-                        pezzo['t'] = pezzo['t'].replace(s_['da'], s_['a'])
-                trovate += 1
+            if x['tipo'] == 'p':
+                trovate += scambia(x)
+            else:
+                # anche le celle delle tabelle: lì vivono i cataloghi degli effetti
+                for riga in x['righe']:
+                    for cella in riga:
+                        for par in cella:
+                            trovate += scambia(par)
         if trovate != 1:
             sys.exit('sostituzione in %s: «%s» trovata %d volte, mi fermo.'
                      % (s_['sezione'], s_['da'], trovate))

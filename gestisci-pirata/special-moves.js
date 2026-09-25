@@ -318,10 +318,12 @@ function resolve(input) {
   const h=s.raw,session=hakiState(s),fx=hakiEffects(s,tech),chosen=[];
   list(hsel.effects).forEach(id=>{const e=fx.find(x=>x.id===id);if(e)chosen.push(e);else errors.push({id:s.id,text:s.name+': effetto non più sbloccato o compatibile ('+id+').'});});
   if(s.name===HAKI_NAMES[0]&&(!['offense','defense'].includes(hsel.use)||(hsel.use==='offense'&&!isAttack(t))||(hsel.use==='defense'&&!isDefense(t))))errors.push({id:s.id,text:'Armamento: scegli un impiego coerente con la forma della Tecnica.'});
-  const activation=session.active?0:1,effectCost=chosen.reduce((sum,e)=>sum+e.cost,0),free=s.name===HAKI_NAMES[0]&&dieRank(h.die)>=dieRank('d12');
-  const ongoing=free&&(!session.active||session.turns<3)?0:1;
+  const activation=session.active?0:1,effectCost=chosen.reduce((sum,e)=>sum+e.cost,0);
+  /* Padronanza dell'Armamento: dal d12, una volta attivato, non chiede più ST. */
+  const free=s.name===HAKI_NAMES[0]&&dieRank(h.die)>=dieRank('d12');
+  const ongoing=free?0:1;
   pip+=activation+effectCost;pipByColor[s.id]=(pipByColor[s.id]||0)+activation+effectCost;maintenanceST+=ongoing;
-  rows.push({id:s.id,name:s.name,st:0,pip:activation+effectCost,maintenanceST:ongoing,maintenancePIP:0,note:(session.active?'Già attivo: 0 PIP di attivazione':'Da attivare: 1 PIP')+(effectCost?' + '+effectCost+' PIP effetti':'')+(free?' · 3 tuoi turni gratuiti, poi 1 ST/turno':'')});
+  rows.push({id:s.id,name:s.name,st:0,pip:activation+effectCost,maintenanceST:ongoing,maintenancePIP:0,note:(session.active?'Già attivo: 0 PIP di attivazione':'Da attivare: 1 PIP')+(effectCost?' + '+effectCost+' PIP effetti':'')+(free?' · dal d12 nessun ST di mantenimento':'')});
   if(!session.active)conditions.push({id:s.id,text:'Attiva '+s.name+' prima di applicarne i benefici: il costo di attivazione è incluso.'});
   chosen.forEach(e=>conditions.push({id:s.id,text:e.desc}));
  });
@@ -354,7 +356,7 @@ function resolve(input) {
    if(owns('Forma Ibrida'))conditional('Forma Ibrida · mischia','+1 dado ai tiri fisici e al Danno in mischia; usa il dado previsto dalla tua forma.');
    if(owns('Ferocia Crescente'))conditional('Ferocia Crescente','+1 dado al Danno in mischia dopo essere sceso sotto metà PV, fino a fine scontro.');
    const armRyou=m.hakiSelections.some(h=>findSource(h.id,ss)?.name===HAKI_NAMES[0]&&h.effects.includes('act:d20'));
-   if(armRyou)conditional('Ryou · Armamento','Danni interni ×2, ignora la difesa. Applica al danno interno secondo la fonte.');
+   if(armRyou)conditional('Ryou · Armamento','Danno interno ×2. Si applica alla componente di danno interessata, secondo la fonte.');
   }else if(isDefense(t)){
    let defense='Effetto difensivo della Tecnica';
    if(hasEffect(t,'Contrattacco'))defense=roll;
@@ -363,7 +365,7 @@ function resolve(input) {
    if(arm?.use==='defense')defense+=' + '+armTerm;
    if(obs)defense+=' + 2 × '+findSource(obs.id,ss).raw.die+' Anticipo (Osservazione)';
    formulas.push({label:'Difesa',text:defense,id:tech.id});
-   if(owns('Contraccolpo')&&hasEffect(t,'Contrattacco'))formulas.push({label:'Contraccolpo',text:t.die+' Tecnica · solo se il contrattacco supera l’attacco nemico',id:tech.id});
+   if(owns('Contraccolpo')&&hasEffect(t,'Contrattacco'))formulas.push({label:'Contraccolpo',text:t.die+' Tecnica · solo se il contrattacco raggiunge o supera l’attacco nemico',id:tech.id});
   }else formulas.push({label:t.forma||'Risoluzione',text:t.forma==='Canzone'?'Effetto sugli alleati; Salvezza per i nemici secondo la Melodia.':tech.techKind==='racial'?t.desc:roll+' · applica gli effetti della Tecnica',id:tech.id});
   list(t.eff).forEach(n=>{const e=tecEffObj(n);if(e)conditions.push({id:tech.id,text:n+': '+e[2]});});
   if(t.durata)conditions.push({id:tech.id,text:'Durata: '+t.durata});
@@ -683,7 +685,7 @@ function hakiLiveControls(work) {
   const update=patch=>liveChange(p=>{p.specialMoveSession=p.specialMoveSession||{};p.specialMoveSession.haki=p.specialMoveSession.haki||{};p.specialMoveSession.haki[s.id]={...state,...patch};delete p.specialMoveSession.haki[s.id].max;});
   group.append(button(state.active?'Attivo ✓':'Inattivo',()=>update({active:!state.active,turns:0}),'smc-button',{'aria-pressed':String(state.active),'data-smc-focus':'live-'+s.id}));
   const remaining=field('PIP rimasti / '+state.max,state.pipRemaining,()=>{},'number',{min:0,max:state.max,step:1,'data-smc-focus':'pip-'+s.id});remaining.querySelector('input').onchange=e=>{const v=Number(e.target.value);if(Number.isInteger(v)&&v>=0&&v<=state.max)update({pipRemaining:v});else {e.target.value=state.pipRemaining;announce('Inserisci PIP fra 0 e '+state.max,true);}};group.append(remaining);
-  if(s.name===HAKI_NAMES[0]&&dieRank(s.raw.die)>=dieRank('d12')){const turns=field('Tuoi turni trascorsi',state.turns,()=>{},'number',{min:0,max:999,step:1,'data-smc-focus':'turns-'+s.id});turns.querySelector('input').onchange=e=>{const n=Number(e.target.value);if(Number.isInteger(n)&&n>=0&&n<=999)update({turns:n});else e.target.value=state.turns;};group.append(turns);}
+  /* Dal d12 l'Armamento non chiede più ST: non c'è più un conto di turni gratuiti da tenere. */
   work.append(group);
  });
  work.append(note('Stato condiviso da tutte le carte di questo personaggio. Registra ciò che è già avvenuto al tavolo: questi controlli non spendono ST o PIP e non modificano la progressione Haki.'));

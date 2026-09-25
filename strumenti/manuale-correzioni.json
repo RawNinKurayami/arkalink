@@ -1197,6 +1197,515 @@
      "testo": "La scheda racconta come quella strada ha cambiato il personaggio."
     }
    ]
+  },
+  {
+   "sezione": "8.7",
+   "titolo": "Haki dell’Armamento",
+   "quando": "2026-09-25",
+   "perche": "Pacchetto di revisione Haki del 23/09/2026: nuova progressione d6-d20, Armamento in difesa solo sulla Difesa Attiva, nuovi effetti d8, d12 e d20.",
+   "contenuto": [
+    {
+     "t": "h3",
+     "testo": "Busoshoku Haki"
+    },
+    {
+     "t": "p",
+     "testo": "L’Haki dell’Armamento permette di rivestire il proprio corpo, le armi e gli attacchi con la propria volontà."
+    },
+    {
+     "t": "p",
+     "testo": "Può essere utilizzato sia offensivamente sia difensivamente e permette inoltre di colpire direttamente il corpo di utilizzatori Logia normalmente intangibili, salvo capacità specifiche che stabiliscano diversamente."
+    },
+    {
+     "t": "p",
+     "testo": "Quando l’Armamento è attivo, il personaggio può applicare il proprio Dado Armamento agli utilizzi compatibili."
+    },
+    {
+     "t": "h3",
+     "testo": "Armamento offensivo"
+    },
+    {
+     "t": "p",
+     "testo": "Quando un attacco fisico viene potenziato dall’Armamento, il personaggio aggiunge il proprio Dado Armamento al danno."
+    },
+    {
+     "t": "p",
+     "testo": "+1 Dado Armamento al danno"
+    },
+    {
+     "t": "p",
+     "testo": "Non è necessario che l’attacco faccia parte di una Special Move. L’Armamento può essere applicato normalmente a un attacco base, a una Tecnica o a qualsiasi altra capacità compatibile."
+    },
+    {
+     "t": "p",
+     "testo": "Una Special Move non concede un utilizzo speciale dell’Haki: rappresenta semplicemente una combinazione organizzata di capacità già possedute dal personaggio."
+    },
+    {
+     "t": "h3",
+     "testo": "Armamento difensivo"
+    },
+    {
+     "t": "p",
+     "testo": "L’Haki dell’Armamento non viene mai tirato insieme alla Difesa Passiva. La Difesa Passiva rimane un valore fisso e non riceve automaticamente il Dado Armamento."
+    },
+    {
+     "t": "p",
+     "testo": "Quando il personaggio effettua una Difesa Attiva compatibile mentre l’Armamento è attivo, aggiunge il proprio Dado Armamento al tiro."
+    },
+    {
+     "t": "p",
+     "testo": "Difesa Attiva compatibile = formula della Difesa Attiva + Dado Armamento"
+    },
+    {
+     "t": "p",
+     "testo": "Esempio:"
+    },
+    {
+     "t": "p",
+     "testo": "Forza d10 + Atletica d8 + Armamento d8"
+    },
+    {
+     "t": "p",
+     "testo": "Come per ogni Difesa Attiva, il pareggio favorisce il difensore."
+    },
+    {
+     "t": "mappa",
+     "righe": [
+      [
+       "Difesa ≥ Attacco",
+       "difesa riuscita"
+      ],
+      [
+       "Difesa < Attacco",
+       "il personaggio viene colpito"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Il semplice utilizzo del Dado Armamento non richiede PIP aggiuntivi oltre all’attivazione dell’Haki. Gli effetti speciali riportati nella progressione richiedono invece il costo indicato."
+    },
+    {
+     "t": "h3",
+     "testo": "8.7.1 · d6: Competente"
+    },
+    {
+     "t": "h3",
+     "testo": "1 PIP massimo"
+    },
+    {
+     "t": "h3",
+     "testo": "Passivo · Controllo dell’Armamento"
+    },
+    {
+     "t": "p",
+     "testo": "Una volta attivato, l’Armamento può essere mantenuto pagando:"
+    },
+    {
+     "t": "p",
+     "testo": "1 ST per turno"
+    },
+    {
+     "t": "p",
+     "testo": "L’utilizzo normale del Dado Armamento non richiede ulteriori PIP. I PIP vengono spesi per l’attivazione dell’Haki e per gli effetti speciali che riportano un costo specifico."
+    },
+    {
+     "t": "p",
+     "testo": "A questo Grado non è disponibile un effetto attivo aggiuntivo."
+    },
+    {
+     "t": "h3",
+     "testo": "8.7.2 · d8: Esperto"
+    },
+    {
+     "t": "h3",
+     "testo": "2 PIP massimi"
+    },
+    {
+     "t": "h3",
+     "testo": "Passivo · Armamento Condensato"
+    },
+    {
+     "t": "p",
+     "testo": "Quando il personaggio tira il proprio Dado Armamento per determinare il danno, qualsiasi risultato inferiore alla metà del valore massimo del dado viene considerato pari alla metà."
+    },
+    {
+     "t": "lista",
+     "voci": [
+      "Armamento d8: risultati 1-3 contano come 4.",
+      "Armamento d10: risultati 1-4 contano come 5.",
+      "Armamento d12: risultati 1-5 contano come 6.",
+      "Armamento d20: risultati 1-9 contano come 10."
+     ]
+    },
+    {
+     "t": "h3",
+     "testo": "Attivo · Armatura Totale"
+    },
+    {
+     "t": "h3",
+     "testo": "1 PIP"
+    },
+    {
+     "t": "h3",
+     "testo": "Difesa"
+    },
+    {
+     "t": "p",
+     "testo": "Quando il personaggio viene colpito da un attacco, può spendere 1 PIP prima di applicare il danno."
+    },
+    {
+     "t": "p",
+     "testo": "Il danno di quel singolo attacco viene dimezzato, arrotondando per eccesso."
+    },
+    {
+     "t": "p",
+     "testo": "Esempio: 13 danni diventano 7 danni."
+    },
+    {
+     "t": "p",
+     "testo": "Armatura Totale protegge esclusivamente da quell’attacco e non rimane automaticamente attiva contro gli attacchi successivi."
+    },
+    {
+     "t": "h3",
+     "testo": "8.7.3 · d10: Maestro"
+    },
+    {
+     "t": "h3",
+     "testo": "3 PIP massimi"
+    },
+    {
+     "t": "h3",
+     "testo": "Passivo · Difesa Rafforzata"
+    },
+    {
+     "t": "p",
+     "testo": "Quando il personaggio utilizza il proprio Dado Armamento in una Difesa Attiva, tira il Dado Armamento due volte e mantiene il risultato migliore. Gli altri dadi della Difesa Attiva vengono tirati normalmente."
+    },
+    {
+     "t": "h3",
+     "testo": "Attivo · Esplosione Haki"
+    },
+    {
+     "t": "h3",
+     "testo": "1 PIP"
+    },
+    {
+     "t": "h3",
+     "testo": "Offensivo · Area"
+    },
+    {
+     "t": "p",
+     "testo": "Dopo un attacco, il personaggio può liberare un’esplosione di Haki in un’area di 5 metri."
+    },
+    {
+     "t": "p",
+     "testo": "I nemici raggiunti dall’esplosione subiscono metà del danno dell’attacco."
+    },
+    {
+     "t": "p",
+     "testo": "Il bersaglio principale continua a subire normalmente il danno completo dell’attacco originale."
+    },
+    {
+     "t": "h3",
+     "testo": "8.7.4 · d12: Leggenda"
+    },
+    {
+     "t": "h3",
+     "testo": "4 PIP massimi"
+    },
+    {
+     "t": "h3",
+     "testo": "Passivo · Padronanza dell’Armamento"
+    },
+    {
+     "t": "p",
+     "testo": "Una volta attivato, l’Haki dell’Armamento non richiede più Stamina per essere mantenuto."
+    },
+    {
+     "t": "p",
+     "testo": "Rimane attivo finché il personaggio decide di interromperlo oppure finché una capacità o una condizione ne provoca la cessazione."
+    },
+    {
+     "t": "h3",
+     "testo": "Attivo · Corazza d’Armamento"
+    },
+    {
+     "t": "h3",
+     "testo": "2 PIP"
+    },
+    {
+     "t": "h3",
+     "testo": "Difesa · 2 turni"
+    },
+    {
+     "t": "p",
+     "testo": "Il personaggio concentra l’Armamento su tutto il proprio corpo."
+    },
+    {
+     "t": "p",
+     "testo": "+4 Difesa Passiva per 2 turni"
+    },
+    {
+     "t": "p",
+     "testo": "Esempio: Difesa Passiva 11 → Difesa Passiva 15."
+    },
+    {
+     "t": "p",
+     "testo": "Il bonus modifica esclusivamente la Difesa Passiva. Non aggiunge dadi alla Difesa Attiva."
+    },
+    {
+     "t": "h3",
+     "testo": "8.7.5 · d20: Mitico"
+    },
+    {
+     "t": "h3",
+     "testo": "5 PIP massimi"
+    },
+    {
+     "t": "h3",
+     "testo": "Passivo · Armamento Perfetto"
+    },
+    {
+     "t": "p",
+     "testo": "Ogni volta che il personaggio tira il proprio Dado Armamento, lo tira due volte e mantiene il risultato migliore."
+    },
+    {
+     "t": "p",
+     "testo": "Il beneficio si applica agli utilizzi offensivi e difensivi del Dado Armamento. Quando viene utilizzato in Difesa Attiva, sostituisce naturalmente Difesa Rafforzata: il dado non viene tirato ulteriori volte."
+    },
+    {
+     "t": "h3",
+     "testo": "Attivo · Ryou"
+    },
+    {
+     "t": "h3",
+     "testo": "3 PIP"
+    },
+    {
+     "t": "h3",
+     "testo": "Offensivo · Danno interno"
+    },
+    {
+     "t": "p",
+     "testo": "Il personaggio concentra l’Armamento all’interno del bersaglio, colpendolo dall’interno."
+    },
+    {
+     "t": "p",
+     "testo": "Quando Ryou viene applicato a un attacco riuscito:"
+    },
+    {
+     "t": "p",
+     "testo": "il danno interno viene raddoppiato ×2"
+    },
+    {
+     "t": "p",
+     "testo": "Il raddoppio viene applicato alla componente di danno interessata da Ryou secondo l’attacco o la Tecnica utilizzata."
+    },
+    {
+     "t": "p",
+     "testo": "Ryou non annulla automaticamente ogni altra capacità del bersaglio e non impedisce al nemico di utilizzare normalmente la propria Difesa Passiva o Difesa Attiva prima che l’attacco venga risolto."
+    }
+   ]
+  },
+  {
+   "sezione": "8.9",
+   "titolo": "Haki del Re",
+   "quando": "2026-09-25",
+   "perche": "Pacchetto di revisione Haki del 23/09/2026: Livelli 1 e 2 invariati, l’attivo del Livello 3 diventa Rivestimento del Re.",
+   "contenuto": [
+    {
+     "t": "h3",
+     "testo": "Haoshoku Haki"
+    },
+    {
+     "t": "p",
+     "testo": "L’Haki del Re è un potere raro, legato alla volontà innata del personaggio."
+    },
+    {
+     "t": "p",
+     "testo": "La sua progressione non segue i dadi dell’Armamento e dell’Osservazione. È articolata in tre livelli, ciascuno caratterizzato da capacità passive e, quando previste, da effetti attivi."
+    },
+    {
+     "t": "p",
+     "testo": "L’Haki del Re possiede un massimo di 3 PIP."
+    },
+    {
+     "t": "p",
+     "testo": "I suoi effetti passivi si applicano automaticamente quando si verificano le condizioni indicate, senza spendere PIP per ciascun bersaglio."
+    },
+    {
+     "t": "p",
+     "testo": "Gli effetti attivi richiedono invece il pagamento del relativo costo. Quando un effetto attivo richiede il Colore già attivo, si applica anche il normale costo di attivazione dell’Haki."
+    },
+    {
+     "t": "h3",
+     "testo": "8.9.1 · Livello 1: Risveglio"
+    },
+    {
+     "t": "h3",
+     "testo": "1 PIP massimo"
+    },
+    {
+     "t": "h3",
+     "testo": "Passivo · Stordimento di Massa"
+    },
+    {
+     "t": "p",
+     "testo": "La volontà del personaggio travolge gli avversari meno resistenti."
+    },
+    {
+     "t": "p",
+     "testo": "Tutti i PNG minori con PV pari o inferiori a 15 presenti nella scena vengono automaticamente Storditi."
+    },
+    {
+     "t": "p",
+     "testo": "Non è richiesto alcun tiro."
+    },
+    {
+     "t": "p",
+     "testo": "L’effetto non si applica automaticamente ai nemici importanti e ai boss soltanto perché hanno pochi PV: il bersaglio deve appartenere alla categoria dei PNG minori prevista dalla capacità."
+    },
+    {
+     "t": "p",
+     "testo": "Questo livello non concede un effetto attivo aggiuntivo."
+    },
+    {
+     "t": "h3",
+     "testo": "8.9.2 · Livello 2: Dominio"
+    },
+    {
+     "t": "h3",
+     "testo": "2 PIP massimi"
+    },
+    {
+     "t": "h3",
+     "testo": "Passivo · Aura Intimidatoria"
+    },
+    {
+     "t": "p",
+     "testo": "Finché i nemici rimangono nella scena, quelli con Spirito inferiore a d8 subiscono una penalità di:"
+    },
+    {
+     "t": "p",
+     "testo": "−2 ai propri tiri"
+    },
+    {
+     "t": "p",
+     "testo": "Il beneficio è automatico e non richiede un tiro separato contro ciascun bersaglio."
+    },
+    {
+     "t": "h3",
+     "testo": "Attivo · Grido dell’Imperatore"
+    },
+    {
+     "t": "h3",
+     "testo": "1 PIP"
+    },
+    {
+     "t": "h3",
+     "testo": "1 volta per combattimento"
+    },
+    {
+     "t": "p",
+     "testo": "Il personaggio concentra la propria volontà su un avversario."
+    },
+    {
+     "t": "p",
+     "testo": "Un nemico scelto perde la propria prossima Azione."
+    },
+    {
+     "t": "p",
+     "testo": "La capacità può essere utilizzata anche contro un boss."
+    },
+    {
+     "t": "p",
+     "testo": "Il limite di utilizzo è di una volta per combattimento."
+    },
+    {
+     "t": "h3",
+     "testo": "8.9.3 · Livello 3: Assoluto"
+    },
+    {
+     "t": "h3",
+     "testo": "3 PIP massimi"
+    },
+    {
+     "t": "h3",
+     "testo": "Passivo · Dominio del Campo"
+    },
+    {
+     "t": "p",
+     "testo": "All’inizio del combattimento, la volontà del personaggio travolge i PNG minori."
+    },
+    {
+     "t": "p",
+     "testo": "I loro PV attuali vengono dimezzati immediatamente, arrotondando per difetto."
+    },
+    {
+     "t": "p",
+     "testo": "Esempio: un PNG minore possiede 15 PV. L’effetto li riduce a 7."
+    },
+    {
+     "t": "p",
+     "testo": "La capacità si applica una sola volta all’inizio dello scontro, non ripetutamente a ogni turno."
+    },
+    {
+     "t": "h3",
+     "testo": "Attivo · Rivestimento del Re"
+    },
+    {
+     "t": "h3",
+     "testo": "2 PIP"
+    },
+    {
+     "t": "h3",
+     "testo": "Attacco fisico"
+    },
+    {
+     "t": "p",
+     "testo": "Il personaggio concentra l’Haki del Re su un singolo attacco fisico, rivestendolo completamente con la propria volontà."
+    },
+    {
+     "t": "p",
+     "testo": "L’effetto deve essere dichiarato prima di effettuare il tiro per colpire."
+    },
+    {
+     "t": "p",
+     "testo": "Se l’attacco va a segno:"
+    },
+    {
+     "t": "lista",
+     "voci": [
+      "i Dadi Danno dell’attacco non vengono tirati;",
+      "ogni Dado Danno assume automaticamente il proprio risultato massimo."
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Esempi:"
+    },
+    {
+     "t": "lista",
+     "voci": [
+      "2d10 → 20 danni.",
+      "3d12 → 36 danni.",
+      "2d20 → 40 danni."
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Eventuali componenti dell’attacco che non fanno parte dei Dadi Danno seguono normalmente le proprie regole."
+    },
+    {
+     "t": "p",
+     "testo": "Rivestimento del Re non garantisce che l’attacco colpisca: il tiro per colpire e la difesa del bersaglio vengono risolti normalmente."
+    },
+    {
+     "t": "p",
+     "testo": "Al Livello Assoluto, l’attivazione dell’Haki del Re costa 1 PIP e Rivestimento del Re ne costa 2: utilizzarli insieme consuma l’intera riserva di 3 PIP. Il personaggio deve quindi recuperare i PIP attraverso un Riposo Breve prima di poter utilizzare nuovamente Rivestimento del Re."
+    }
+   ]
   }
  ],
  "sostituzioni": [
@@ -1319,6 +1828,252 @@
    "sezione": "3.8",
    "da": "Il Dado Vita non viene tirato. Si utilizza sempre il valore massimo.",
    "a": "Il Dado Vita non viene tirato. Si utilizza sempre metà del valore massimo."
+  },
+  {
+   "sezione": "4.2",
+   "quando": "2026-09-25",
+   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
+   "da": "supera l'attacco nemico",
+   "a": "raggiunge o supera l'attacco nemico"
+  },
+  {
+   "sezione": "4.3",
+   "quando": "2026-09-25",
+   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
+   "da": "supera l'attacco nemico",
+   "a": "raggiunge o supera l'attacco nemico"
+  },
+  {
+   "sezione": "4.5",
+   "quando": "2026-09-25",
+   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
+   "da": "supera l’attacco nemico",
+   "a": "raggiunge o supera l’attacco nemico"
+  },
+  {
+   "sezione": "6.10",
+   "quando": "2026-09-25",
+   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
+   "da": "deve superare il tiro dell’avversario",
+   "a": "deve raggiungere o superare il tiro dell’avversario"
+  },
+  {
+   "sezione": "6.10",
+   "quando": "2026-09-25",
+   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
+   "da": "La Parata deve superare il risultato dell’attacco nemico.",
+   "a": "La Parata riesce se raggiunge o supera il risultato dell’attacco nemico."
+  },
+  {
+   "sezione": "7.8",
+   "quando": "2026-09-25",
+   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
+   "da": "se superi il tiro nemico",
+   "a": "se raggiungi o superi il tiro nemico"
+  },
+  {
+   "sezione": "7.8",
+   "quando": "2026-09-25",
+   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
+   "da": "Il tiro deve superare quello dell'avversario.",
+   "a": "Il tiro di Contrattacco riesce se raggiunge o supera quello dell'avversario."
+  }
+ ],
+ "blocchi": [
+  {
+   "sezione": "2.8",
+   "quando": "2026-09-25",
+   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
+   "da": [
+    "Per riuscire:",
+    "Difesa Attiva > Attacco nemico",
+    "Se supera l'attacco:",
+    "il colpo viene neutralizzato.",
+    "Se ottiene lo stesso risultato:",
+    "la difesa fallisce.",
+    "Se ottiene un risultato inferiore:",
+    "la difesa fallisce.",
+    "Quindi:",
+    "Difesa Attiva > Attacco → difeso",
+    "Difesa Attiva ≤ Attacco → colpito",
+    "Il pareggio favorisce sempre l'attaccante."
+   ],
+   "a": [
+    {
+     "t": "p",
+     "testo": "Per riuscire:"
+    },
+    {
+     "t": "p",
+     "testo": "Difesa Attiva ≥ Attacco nemico"
+    },
+    {
+     "t": "p",
+     "testo": "Se raggiunge o supera l’attacco:"
+    },
+    {
+     "t": "p",
+     "testo": "il colpo viene neutralizzato."
+    },
+    {
+     "t": "p",
+     "testo": "Se ottiene un risultato inferiore:"
+    },
+    {
+     "t": "p",
+     "testo": "la difesa fallisce."
+    },
+    {
+     "t": "p",
+     "testo": "Quindi:"
+    },
+    {
+     "t": "mappa",
+     "righe": [
+      [
+       "Difesa Attiva ≥ Attacco nemico",
+       "difeso"
+      ],
+      [
+       "Difesa Attiva < Attacco nemico",
+       "colpito"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Il pareggio favorisce sempre il difensore."
+    },
+    {
+     "t": "p",
+     "testo": "Se il personaggio tenta una Difesa Attiva e il tiro fallisce, la Difesa Passiva non viene applicata nuovamente: la Difesa Attiva sostituisce la Difesa Passiva per quell’attacco."
+    }
+   ]
+  },
+  {
+   "sezione": "2.8",
+   "quando": "2026-09-25",
+   "perche": "Esempio della Schivata allineato al pareggio difeso.",
+   "da": [
+    "Se ottiene:",
+    "15 o più → schiva l'attacco",
+    "Se ottiene:",
+    "14 o meno → viene colpito"
+   ],
+   "a": [
+    {
+     "t": "p",
+     "testo": "Se ottiene:"
+    },
+    {
+     "t": "mappa",
+     "righe": [
+      [
+       "14 o più",
+       "schiva l’attacco"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Se ottiene:"
+    },
+    {
+     "t": "mappa",
+     "righe": [
+      [
+       "13 o meno",
+       "viene colpito"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "sezione": "2.8",
+   "quando": "2026-09-25",
+   "perche": "Esempio del Blocco allineato al pareggio difeso.",
+   "da": [
+    "Con:",
+    "17 → blocco riuscito",
+    "Con:",
+    "16 → blocco fallito",
+    "Con:",
+    "12 → blocco fallito"
+   ],
+   "a": [
+    {
+     "t": "p",
+     "testo": "Con:"
+    },
+    {
+     "t": "mappa",
+     "righe": [
+      [
+       "16 o più",
+       "blocco riuscito"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Con:"
+    },
+    {
+     "t": "mappa",
+     "righe": [
+      [
+       "15 o meno",
+       "blocco fallito"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "sezione": "2.8",
+   "quando": "2026-09-25",
+   "perche": "Riepilogo finale del paragrafo.",
+   "da": [
+    "Per riuscire:",
+    "Difesa Attiva > Attacco",
+    "In caso di pareggio o risultato inferiore:",
+    "la difesa fallisce."
+   ],
+   "a": [
+    {
+     "t": "p",
+     "testo": "Per riuscire:"
+    },
+    {
+     "t": "p",
+     "testo": "Difesa Attiva ≥ Attacco"
+    },
+    {
+     "t": "p",
+     "testo": "In caso di pareggio, la Difesa tiene."
+    }
+   ]
+  },
+  {
+   "sezione": "8.5",
+   "quando": "2026-09-25",
+   "perche": "Dal Grado d12 l’Armamento non richiede più ST di mantenimento: via i tre turni gratuiti.",
+   "da": [
+    "Al Grado d12, l'Armamento rimane attivo gratuitamente per tre turni del personaggio.",
+    "Durante questi tre turni non richiede Stamina di mantenimento.",
+    "Terminato il periodo gratuito, il mantenimento torna a costare 1 ST per turno."
+   ],
+   "a": [
+    {
+     "t": "p",
+     "testo": "Dal Grado d12, una volta attivato, l’Haki dell’Armamento non richiede più Stamina per essere mantenuto."
+    },
+    {
+     "t": "p",
+     "testo": "Rimane attivo finché il personaggio decide di interromperlo oppure finché una capacità o una condizione ne provoca la cessazione."
+    }
+   ]
   }
  ]
 }

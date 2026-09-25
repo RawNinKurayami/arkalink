@@ -1537,7 +1537,7 @@ body.has-bld{overflow:hidden;}
 
 <div id="print-sheet" aria-hidden="true"></div>
 
-<script src="special-moves.js?v=6"></script>
+<script src="special-moves.js?v=7"></script>
 <link rel="stylesheet" href="card-view.css?v=6">
 <script src="card-export.js?v=4" defer></script>
 <script src="card-view.js?v=7" defer></script>
@@ -1570,7 +1570,7 @@ const TALENTS={
   {smcId:"glc-talent-007",smcAlias:"Slancio",n:"Slancio",tier:"d10",d:"se prima di colpire ti sei mosso di almeno 5 metri in linea verso il bersaglio, quando il colpo va a segno puoi spingerlo di 3 metri."},
   {smcId:"glc-talent-008",smcAlias:"Guardia Rotta",n:"Guardia Rotta",tier:"d10",d:"1×/turno, se colpisci lo stesso bersaglio almeno due volte nello stesso turno, il prossimo attacco effettuato contro di lui prima dell'inizio del tuo prossimo turno ha Vantaggio."},
   {smcId:"glc-talent-009",smcAlias:"Raffica — Maestria",n:"Raffica — Maestria",tier:"d12",req:"Raffica — Migliorato",d:"fino a 3 attacchi base extra a mani nude per turno, spendendo 1 ST per ciascun attacco extra."},
-  {smcId:"glc-talent-010",smcAlias:"Contraccolpo",n:"Contraccolpo",tier:"d12",d:"quando una Tecnica con Contrattacco supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata."},
+  {smcId:"glc-talent-010",smcAlias:"Contraccolpo",n:"Contraccolpo",tier:"d12",d:"quando una Tecnica con Contrattacco raggiunge o supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata."},
   {smcId:"glc-talent-011",smcAlias:"Proiezione",n:"Proiezione",tier:"d12",req:"Presa di Ferro",d:"puoi scagliare fino a 5 metri un nemico trattenuto: cade Sbilanciato. Se colpisce un altro nemico, anche quello cade Sbilanciato ed entrambi subiscono 1 Dado Danno."},
   {smcId:"glc-talent-012",smcAlias:"Pugni che Rompono",n:"Pugni che Rompono",tier:"d12",d:"i colpi a mani nude infliggono danno pieno contro porte, muri, strutture e oggetti."},
   {smcId:"glc-talent-013",smcAlias:"Secondo Fiato",n:"Secondo Fiato",tier:"d12",d:"1×/scontro, quando scendi sotto metà PV recuperi 1d6 ST."},
@@ -1586,7 +1586,7 @@ const TALENTS={
   {smcId:"glc-talent-022",smcAlias:"Contrappeso",n:"Contrappeso",tier:"d10",d:"1×/turno, quando resisti con successo a un tentativo di Spingerti o Sbilanciarti, puoi usare la Reazione per spingere di 3 metri chi ci ha provato."},
   {smcId:"glc-talent-023",smcAlias:"Colpo Pesante — Maestria",n:"Colpo Pesante — Maestria",tier:"d12",req:"Colpo Pesante — Migliorato",d:"1×/turno, 2 ST: il tiro ha Vantaggio, infligge +2 Dadi Danno e, se colpisci, il bersaglio cade Sbilanciato. La tua Difesa Passiva scende di 5 fino al tuo prossimo turno. Sostituisce le versioni precedenti."},
   {smcId:"glc-talent-024",smcAlias:"Impatto a Catena",n:"Impatto a Catena",tier:"d12",req:"Onda d'Urto",d:"Onda d'Urto può coinvolgere fino a 3 nemici aggiuntivi entro 3 metri dal bersaglio principale, spingendoli di 3 metri."},
-  {smcId:"glc-talent-025",smcAlias:"Contraccolpo",n:"Contraccolpo",tier:"d12",d:"quando una Tecnica con Contrattacco supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata."},
+  {smcId:"glc-talent-025",smcAlias:"Contraccolpo",n:"Contraccolpo",tier:"d12",d:"quando una Tecnica con Contrattacco raggiunge o supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata."},
   {smcId:"glc-talent-026",smcAlias:"Baricentro Assoluto",n:"Baricentro Assoluto",tier:"d12",req:"Piedi Piantati",d:"finché resti cosciente, a contatto col terreno e non ti muovi volontariamente, non puoi essere Spinto né Sbilanciato da effetti fisici."},
   {smcId:"glc-talent-027",smcAlias:"Colpo di Intercettazione",n:"Colpo di Intercettazione",tier:"d12",d:"1×/turno, quando un nemico entra nella tua portata puoi usare la Reazione per effettuare un attacco base con un'arma contundente."},
   {smcId:"glc-talent-028",smcAlias:"Cataclisma",n:"Cataclisma",tier:"d20",t:"ultimate",d:"1×/scontro, 5 ST, solo col permesso del GM. Funziona interamente con le sue regole: non applica Tecniche, Talenti, Firma dello Stile o effetti dell'arma, salvo ciò che è scritto qui. Per colpire: Attributo + Atletica per lo Striker, Attributo + Grado dell'arma per gli Stili armati; Dado Danno: Atletica per lo Striker, Grado dell'arma per gli altri. — primo tiro, Impatto: un attacco contro un singolo bersaglio con Attributo + Grado dell'arma; se colpisci infliggi 4 Dadi Arma. Secondo tiro, Onda d'Urto: un nuovo tiro Attributo + Grado dell'arma, confrontato con la Difesa Passiva di tutti i bersagli entro 5 metri dal punto d'impatto, bersaglio principale compreso — chi è colpito subisce 2 Dadi Arma, viene spinto di 5 metri e cade Sbilanciato. Il bersaglio principale può subire fino a 6 Dadi Arma. L'area viene devastata: muri, porte, pavimenti, coperture e strutture ne subiscono le conseguenze secondo la situazione."}]},
@@ -1600,7 +1600,7 @@ const TALENTS={
   {smcId:"glc-talent-035",smcAlias:"Fendente d'Aria",n:"Fendente d'Aria",tier:"d10",d:"spendendo 1 ST aggiuntiva, una tua Tecnica Swordsman da mischia può raggiungere un bersaglio fino a 10 metri. Il danno finale viene dimezzato, arrotondato per eccesso."},
   {smcId:"glc-talent-036",smcAlias:"Affilatura",n:"Affilatura",tier:"d10",d:"1×/turno, prima di effettuare un attacco con una spada puoi spendere 1 ST: per quel singolo attacco considera la Difesa Passiva del bersaglio ridotta di 2. Non modifica la Difesa in modo permanente e non influenza gli attacchi degli alleati."},
   {smcId:"glc-talent-037",smcAlias:"Più Spade — Maestria",n:"Più Spade — Maestria",tier:"d12",req:"Più Spade — Migliorato",d:"1×/turno, l'attacco extra con la seconda lama può essere una Tecnica Swordsman invece di un attacco base."},
-  {smcId:"glc-talent-038",smcAlias:"Contraccolpo",n:"Contraccolpo",tier:"d12",d:"quando una Tecnica con Contrattacco supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata."},
+  {smcId:"glc-talent-038",smcAlias:"Contraccolpo",n:"Contraccolpo",tier:"d12",d:"quando una Tecnica con Contrattacco raggiunge o supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata."},
   {smcId:"glc-talent-039",smcAlias:"Sguainata Fulminea",n:"Sguainata Fulminea",tier:"d12",d:"1×/scontro, se inizi con la lama nel fodero puoi spendere 2 ST per effettuare il primo attacco prima della normale Iniziativa, con Vantaggio."},
   {smcId:"glc-talent-040",smcAlias:"Riposta",n:"Riposta",tier:"d12",req:"Contraccolpo",d:"dopo un Contrattacco riuscito puoi spendere 1 ST per effettuare subito un attacco base con la stessa spada."},
   {smcId:"glc-talent-041",smcAlias:"Lama Indistruttibile",n:"Lama Indistruttibile",tier:"d12",d:"la lama non può essere normalmente spezzata o danneggiata, e può Parare anche armi di Grado superiore."},
@@ -2023,7 +2023,7 @@ const TEC_EFF=[
 ["Difesa","Guardia","difesa passiva: +2 Difesa fino al tuo prossimo turno","d6",1,"difesa"],
 ["Difesa","Barriera","copertura per te e gli alleati entro 5 m","d8",1,"difesa"],
 ["Difesa","Scudo d'Alleato","sposti su di te il colpo diretto a un compagno entro 5 m","d8",1,"difesa"],
-["Difesa","Contrattacco","difesa attiva: rispondi come reazione con una tua Tecnica d'attacco (qualsiasi stile e forma); se supera l'attacco nemico, ti difendi","d10",1,"difesa"],
+["Difesa","Contrattacco","difesa attiva: rispondi come reazione con una tua Tecnica d'attacco (qualsiasi stile e forma); se raggiunge o supera l'attacco nemico, ti difendi","d10",1,"difesa"],
 ["Difesa","Parata","difesa attiva: tiri Attributo + dado dell'arma per parare. Non richiede nessuna Tecnica — basta l'arma in pugno","d10",1,"difesa"],
 ["Potenziamento","Slancio","la tua Velocità raddoppia · per la scena","d6",1,"potenz"],
 ["Potenziamento","Furia","+1 gradino al Dado Danno di tutte le tue Tecniche · la tua Difesa Passiva scende di 2 · per la scena","d8",2,"potenz"],
@@ -2655,10 +2655,10 @@ const HAKI_NAMES=["Haki dell'Armamento","Haki dell'Osservazione","Haki del Re"];
 const HAKI_PROG={
 "Haki dell'Armamento":{axis:"die",rows:[
 {k:"d6",liv:"Competente",pass:"Ogni turno puoi pagare 1 ST per mantenere l'Haki attivo (le abilità potenziate con l'Haki non costano PIP).",act:null,cost:null},
-{k:"d8",liv:"Esperto",pass:"Ignori le difese non-Haki dei PNG Minori (PV ≤ 8).",act:"Armatura totale: tutti i danni che subisci sono dimezzati (arr. per eccesso).",cost:1},
-{k:"d10",liv:"Maestro",pass:"In difesa tiri due volte il dado Haki e tieni il risultato più alto.",act:"Esplosione Haki: a fine attacco liberi un'onda che colpisce tutti i nemici in area (metà danno).",cost:1},
-{k:"d12",liv:"Leggenda",pass:"L'Haki resta attivo senza pagare ST per 3 tuoi turni.",act:"Spezza Volontà: l'attacco spezza la difesa dell'avversario per 1 suo turno (Pool difesa dimezzato).",cost:2},
-{k:"d20",liv:"Mitico",pass:"Il nemico tira 2 dadi in difesa e tiene il peggiore.",act:"Ryou: l'Armamento penetra dall'interno — danni interni doppi (×2), ignora la difesa.",cost:3}
+{k:"d8",liv:"Esperto",pass:"Armamento Condensato: quando tiri il Dado Armamento per il danno, ogni risultato sotto metà del massimo conta come metà (d8: 1-3 → 4 · d10: 1-4 → 5 · d12: 1-5 → 6 · d20: 1-9 → 10).",act:"Armatura Totale: quando vieni colpito, prima di applicare il danno dimezzi quel singolo attacco (arr. per eccesso).",cost:1},
+{k:"d10",liv:"Maestro",pass:"Difesa Rafforzata: quando usi il Dado Armamento in una Difesa Attiva lo tiri due volte e tieni il migliore (gli altri dadi si tirano normalmente).",act:"Esplosione Haki: dopo un attacco liberi un'esplosione in un'area di 5 metri; i nemici raggiunti subiscono metà del danno.",cost:1},
+{k:"d12",liv:"Leggenda",pass:"Padronanza dell'Armamento: una volta attivato non richiede più ST di mantenimento, finché non lo interrompi.",act:"Corazza d'Armamento: +4 Difesa Passiva per 2 turni. Non aggiunge dadi alla Difesa Attiva.",cost:2},
+{k:"d20",liv:"Mitico",pass:"Armamento Perfetto: ogni volta che tiri il Dado Armamento lo tiri due volte e tieni il migliore, in attacco e in difesa (sostituisce Difesa Rafforzata).",act:"Ryou: concentri l'Armamento dentro il bersaglio — il danno interno viene raddoppiato (×2).",cost:3}
 ]},
 "Haki dell'Osservazione":{axis:"die",rows:[
 {k:"d6",liv:"Competente",pass:"Ogni turno puoi pagare 1 ST per mantenere l'Haki attivo (le abilità potenziate con l'Haki non costano PIP).",act:null,cost:null},
@@ -2670,7 +2670,7 @@ const HAKI_PROG={
 "Haki del Re":{axis:"pip",max:3,rows:[
 {k:1,liv:"Risveglio",pass:"Stordimento di massa: stordisce automaticamente tutti i PNG minori (PV ≤ 15) nella scena, senza tiro.",act:null,cost:null},
 {k:2,liv:"Dominio",pass:"Aura intimidatoria: −2 ai tiri di tutti i nemici con Spirito < d8 finché restano nella scena.",act:"Grido dell'Imperatore: un nemico (anche boss) perde la sua prossima azione (1×/combattimento).",cost:1},
-{k:3,liv:"Assoluto",pass:"Dominio del campo: a inizio combattimento dimezzi i PV di tutti i PNG minori (arr. per difetto), istantaneo.",act:"Haki del Re Ryou: rivesti un attacco fisico — ignora ogni protezione e tiri due volte tenendo il più alto.",cost:2}
+{k:3,liv:"Assoluto",pass:"Dominio del Campo: a inizio combattimento dimezzi i PV attuali di tutti i PNG minori (arr. per difetto), una sola volta.",act:"Rivestimento del Re: dichiaralo prima del tiro per colpire; se l'attacco va a segno i Dadi Danno non si tirano e valgono il massimo (2d10 → 20). Il tiro per colpire e la difesa si risolvono normalmente.",cost:2}
 ]}
 };
 /* L'Haki del Re non ha dado: o lo hai o non lo hai, e sale a PIP (max 3). */
