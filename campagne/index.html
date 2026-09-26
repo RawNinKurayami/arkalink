@@ -12,7 +12,8 @@
 <script>window.GLC={saveKey:["glc_pirata_v4","glc_campagne_v1"],gate:true,profileUrl:"/profilo/"};</script>
 <script src="/glc-sync.js?v=2"></script>
 <script src="/glc-auth.js?v=2"></script>
-<script src="/glc-map.js"></script>
+<script src="/glc-atlas-store.js?v=1"></script>
+<script src="/glc-map.js?v=3"></script>
 <style>
 :root{--abyss:#060607;--vellum:#f2e9d8;--paper:#15121a;--ink:#f1ece0;--ink-soft:#a69a86;--gold:#f0a441;--gold2:#ffd394;--seal:#e23131;--foam:#a69a86;--line:rgba(240,164,65,.22);}
 *{box-sizing:border-box;}
@@ -134,7 +135,8 @@ async function ME(){try{var r=await SB().auth.getUser();return (r&&r.data)?r.dat
 function genCode(){var c="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",s="";for(var i=0;i<6;i++)s+=c[Math.floor(Math.random()*c.length)];return s;}
 function msg(id,t,kind){var m=$("#"+id);if(!m)return;m.className="hint"+(kind?(" "+kind):"");m.textContent=t||"";}
 
-var CAMPS=[], SELECTED=null;
+var CAMPS=[], SELECTED=new URLSearchParams(location.search).get("c"), campaignAtlas=null;
+var INFO_BASES=new WeakMap(), INFO_ERRORS=new WeakMap();
 
 function myChars(){
   try{var o=JSON.parse(localStorage.getItem("glc_pirata_v4")||"null");if(o&&o.chars){return Object.keys(o.chars).map(function(k){return o.chars[k]&&o.chars[k].nome;}).filter(Boolean);}}catch(e){}
@@ -154,9 +156,10 @@ async function namesFor(ids){
 function uid(){return "x"+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36);}
 function todayStr(){var d=new Date();var m=("0"+(d.getMonth()+1)).slice(-2);var day=("0"+d.getDate()).slice(-2);return d.getFullYear()+"-"+m+"-"+day;}
 function fmtDate(x){if(!x)return "";var p=(""+x).split("-");if(p.length!==3)return x;return p[2]+"/"+p[1]+"/"+p[0];}
-async function loadInfo(cid){try{var r=await SB().from("campaign_info").select("data").eq("campaign_id",cid).maybeSingle();return (r&&r.data&&r.data.data)?r.data.data:{};}catch(e){return {};}}
-async function saveInfo(cid,data){try{var r=await SB().from("campaign_info").upsert({campaign_id:cid,data:data,updated_at:new Date().toISOString()},{onConflict:"campaign_id"}).select();return !(r&&r.error);}catch(e){return false;}}
-async function persistInfo(c,info,msgId,okText,rerender){var ok=await saveInfo(c.id,info);if(msgId){var m=document.getElementById(msgId);if(m){m.className="hint"+(ok?" ok":" err");m.textContent=ok?(okText||"Salvato \u2713"):"Errore nel salvataggio.";}}if(rerender&&ok)renderDetail(c);}
+async function loadInfo(cid){var row=await GLCAtlasStore.campaign(cid);var data=row&&row.data||{};INFO_BASES.set(data,GLCAtlasStore.copy(data));return data;}
+async function saveInfo(cid,data){var baseline=INFO_BASES.get(data)||{},patch={};Object.keys(data).forEach(function(k){if(!GLCAtlasStore.equal(data[k],baseline[k]))patch[k]=data[k];});try{var saved=await GLCAtlasStore.campaignWrite(cid,baseline,patch);INFO_BASES.set(data,GLCAtlasStore.copy(saved));Object.assign(data,saved);return true;}catch(e){INFO_ERRORS.set(data,e.message);return false;}}
+async function persistInfo(c,info,msgId,okText,rerender){var ok=await saveInfo(c.id,info);if(msgId){var m=document.getElementById(msgId);if(m){m.className="hint"+(ok?" ok":" err");m.textContent=ok?(okText||"Salvato ✓"):(INFO_ERRORS.get(info)||"Errore nel salvataggio.");}}else if(!ok)alert(INFO_ERRORS.get(info)||"Errore nel salvataggio.");INFO_ERRORS.delete(info);if(rerender&&ok)renderDetail(c);return ok;}
+
 
 async function loadCampaigns(){
   var me=await ME();var box=$("#campaigns");if(!me||!box)return;
@@ -190,6 +193,7 @@ function renderCampaigns(){
 async function renderDetail(c){
   var me=await ME();var wrap=$("#detailWrap");if(!wrap)return;
   var isGM=!!(me&&c.gm===me.id);
+  if(campaignAtlas){if(!await campaignAtlas.flush())return;campaignAtlas.destroy();campaignAtlas=null;}
   wrap.innerHTML="";
   var p=el("div",{class:"panel detail"});
   p.appendChild(el("div",{class:"row"},[el("h3",{class:"dt",text:c.name}),el("span",{class:"badge "+(isGM?"gm":"pl"),text:isGM?"Sei il Game Master":"Sei un Giocatore",style:"margin-left:8px"})]));
@@ -201,7 +205,7 @@ async function renderDetail(c){
   var names=await namesFor(ids);
 
   // ---- contenuti condivisi della campagna ----
-  var INFO=await loadInfo(c.id);
+  var INFO;try{INFO=await loadInfo(c.id);}catch(error){wrap.appendChild(el("p",{class:"hint err",text:"Impossibile caricare la campagna: "+error.message}));return;}
   INFO.events=Array.isArray(INFO.events)?INFO.events:[];
   INFO.log=Array.isArray(INFO.log)?INFO.log:[];
 
@@ -270,13 +274,32 @@ async function renderDetail(c){
     p.appendChild(el("div",{class:"row",style:"margin-top:6px"},[el("button",{class:"btn sm",text:"+ Aggiungi alla cronaca",onClick:function(){if(!lgB.value.trim()&&!lgT.value.trim())return;INFO.log.push({id:uid(),date:lgD.value||todayStr(),titolo:(lgT.value||"").trim(),corpo:lgB.value});persistInfo(c,INFO,null,null,true);}})]));
   }
 
-  // Mappa delle isole
+  // Atlante personale e carta condivisa del GM: archivi separati.
   p.appendChild(el("div",{class:"sep"}));
-  p.appendChild(el("label",{class:"fld",text:"Mappa delle isole"}));
-  INFO.map=Array.isArray(INFO.map)?INFO.map:[];
-  var mapBox=el("div");
-  p.appendChild(mapBox);
-  if(window.GLCMap){ GLCMap.mount(mapBox,{islands:INFO.map,land:INFO.mapLand||[],readOnly:!isGM,islandUrl:function(isl){return "/isola/?c="+encodeURIComponent(c.id)+"&i="+encodeURIComponent(isl.id);},onChange:function(islands){ INFO.map=islands; persistInfo(c,INFO,null,null,false); },onLand:function(strokes){ INFO.mapLand=strokes; persistInfo(c,INFO,null,null,false); }}); }
+  p.appendChild(el("label",{class:"fld",text:"Il mondo della campagna"}));
+  var mapTabs=el("div",{class:"row",role:"group","aria-label":"Scegli l’atlante",style:"margin-bottom:12px"});
+  var mapMine=el("button",{class:"btn sm ghost",type:"button",text:"Il mio atlante","aria-pressed":"false"});
+  var mapGM=el("button",{class:"btn sm ghost",type:"button",text:"Carta del GM","aria-pressed":"false"});
+  mapTabs.append(mapMine,mapGM);p.appendChild(mapTabs);
+  var mapNotice=el("p",{class:"hint"});p.appendChild(mapNotice);
+  var mapBox=el("div");p.appendChild(mapBox);
+  var atlasSwitch=false;
+  async function showAtlas(personal){
+    if(atlasSwitch)return;atlasSwitch=true;mapMine.disabled=mapGM.disabled=true;
+    try{
+    if(campaignAtlas){if(!await campaignAtlas.flush())return;campaignAtlas.destroy();campaignAtlas=null;}
+    mapMine.setAttribute("aria-pressed",String(personal));mapGM.setAttribute("aria-pressed",String(!personal));
+    mapMine.classList.toggle("ghost",!personal);mapGM.classList.toggle("ghost",personal);
+    mapNotice.textContent=personal?"Il tuo atlante personale: disegna e annota solo ciò che hai scoperto. Gli altri giocatori e il GM non vedono questi appunti.":"La carta del Game Master è condivisa con la ciurma. Solo il GM può modificarla.";
+    var adapter=personal?GLCAtlasStore.mapPrivate(c.id):null;
+    var data=personal?adapter.data:INFO;
+    campaignAtlas=GLCMap.mount(mapBox,{islands:data.map||[],land:data.mapLand||[],focusId:new URLSearchParams(location.search).get("loc"),readOnly:!personal&&!isGM,islandUrl:function(isl){return "/isola/?"+(personal?"a=":"c=")+encodeURIComponent(c.id)+"&i="+encodeURIComponent(isl.id);},onSave:personal?adapter.save:async function(snap){
+      var expected={map:INFO.map,mapLand:INFO.mapLand};var updated=await GLCAtlasStore.campaignWrite(c.id,expected,{map:snap.islands,mapLand:snap.land});Object.assign(INFO,updated);INFO_BASES.set(INFO,GLCAtlasStore.copy(INFO));return true;
+    }});
+    }catch(error){mapNotice.textContent=error.message;}finally{atlasSwitch=false;mapMine.disabled=mapGM.disabled=false;}
+  }
+  mapMine.onclick=function(){showAtlas(true);};mapGM.onclick=function(){showAtlas(false);};
+  var atlasChoice=new URLSearchParams(location.search).get("atlas");showAtlas(atlasChoice?atlasChoice==="personal":!isGM);
 
   // codice (visibile al GM; un giocatore può comunque vederlo per condividerlo)
   p.appendChild(el("div",{class:"sep"}));

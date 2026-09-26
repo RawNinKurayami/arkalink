@@ -12,7 +12,8 @@
 <script>window.GLC={saveKey:["glc_sessioni_v1","glc_pirata_v4","glc_nave_v1","glc_profile_v1"],gate:true,profileUrl:"/profilo/"};</script>
 <script src="/glc-sync.js?v=2"></script>
 <script src="/glc-auth.js?v=2"></script>
-<script src="/glc-map.js"></script>
+<script src="/glc-atlas-store.js?v=1"></script>
+<script src="/glc-map.js?v=3"></script>
 <style>
 :root{
   --abyss:#060607; --abyss-2:#0b0b0d; --vellum:#f2e9d8; --vellum-2:#e9d6ae;
@@ -192,7 +193,9 @@ function buildNotebook(s){
   card.appendChild(el("div",{class:"nbtools"},[addB,delB,el("span",{id:"nb-saved",class:"nbsaved",text:"salvato \u2713"})]));
   return card;
 }
+var sessionAtlas=null;
 function render(){
+  if(sessionAtlas){sessionAtlas.destroy();sessionAtlas=null;}
   var app=$("#app"); app.innerHTML="";
   var st=readST();
   var s=st.sessions[SID];
@@ -273,12 +276,12 @@ function render(){
   /* --- Mappa delle isole --- */
   if(!Array.isArray(s.map)) s.map=[];
   var mapCard=el("div",{class:"card"});
-  mapCard.appendChild(el("h2",{html:"\ud83d\uddfa\ufe0f Mappa delle isole"}));
-  mapCard.appendChild(el("div",{class:"help",text:"Segna le isole che la ciurma scopre: scegli un tipo, premi \u00ab+ Aggiungi isola\u00bb e tocca la mappa. Dai nome e note; trascina un segnaposto per spostarlo."}));
+  mapCard.appendChild(el("h2",{text:"Il mondo della ciurma"}));
+  mapCard.appendChild(el("div",{class:"help",text:"Disegna ciò che il GM vi rivela: terre, montagne, boschi, fiumi e rotte. Ogni luogo ha un taccuino da riempire durante le avventure."}));
   var mapBox=el("div");
   mapCard.appendChild(mapBox);
   app.appendChild(mapCard);
-  if(window.GLCMap){ GLCMap.mount(mapBox,{islands:s.map,land:s.mapLand||[],readOnly:false,islandUrl:function(isl){return "/isola/?s="+encodeURIComponent(SID)+"&i="+encodeURIComponent(isl.id);},onChange:function(islands){ var st2=readST(); var ss=st2.sessions[SID]; if(!ss)return; ss.map=islands; st2.activeId=SID; writeST(st2); },onLand:function(strokes){ var st2=readST(); var ss=st2.sessions[SID]; if(!ss)return; ss.mapLand=strokes; st2.activeId=SID; writeST(st2); }}); }
+  if(window.GLCMap&&window.GLCAtlasStore){var adapter=GLCAtlasStore.mapSession(SID);sessionAtlas=GLCMap.mount(mapBox,{islands:adapter.data.map||[],land:adapter.data.mapLand||[],focusId:new URLSearchParams(location.search).get("loc"),readOnly:false,islandUrl:function(isl){return "/isola/?s="+encodeURIComponent(SID)+"&i="+encodeURIComponent(isl.id);},onSave:adapter.save});}
 
   /* --- Diario --- */
   var dCard=el("div",{class:"card diary"});
