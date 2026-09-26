@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="/glc-theme.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={saveKey:["glc_sessioni_v1"],gate:true,profileUrl:"/profilo/"};</script>
-<script src="/glc-auth.js"></script>
+<script src="/glc-sync.js?v=2"></script>
+<script src="/glc-auth.js?v=2"></script>
 <style>
 :root{
   --ink:#f1ece0; --ink-soft:#a69a86; --gold:#f0a441; --gold-bright:#ffd394;
@@ -136,7 +137,7 @@ textarea.short:focus{outline:2px solid var(--gold);outline-offset:1px;}
     var map=st.sessions[SID].map||[];
     for(var k=0;k<map.length;k++){ if(map[k].id===IID){ map[k]=island; break; } }
     st.sessions[SID].map=map;
-    try{localStorage.setItem(SKEY,JSON.stringify(st));}catch(e){return false;}
+    try{(window.GLCStore||localStorage).setItem(SKEY,JSON.stringify(st));}catch(e){return false;}
     return true;
   }
   function sessionLoad(){

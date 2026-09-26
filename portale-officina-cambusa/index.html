@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="/glc-theme.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={saveKey:["glc_officina_v1","glc_cambusa_v1","glc_sessioni_v1"],gate:true,profileUrl:"/profilo/"};</script>
-<script src="/glc-auth.js"></script>
+<script src="/glc-sync.js?v=2"></script>
+<script src="/glc-auth.js?v=2"></script>
 <style>
 :root{
   --abyss:#060607; --vellum:#f2e9d8; --ink:#f1ece0; --ink-soft:#a69a86;
@@ -174,14 +175,14 @@ var SKEY="glc_sessioni_v1";
 function readST(){var o=null;try{o=JSON.parse(localStorage.getItem(SKEY)||"null");}catch(e){}
   if(o&&o.sessions&&typeof o.sessions==="object"){o.order=Array.isArray(o.order)?o.order.filter(function(id){return o.sessions[id];}):[];for(var id in o.sessions){if(o.order.indexOf(id)<0)o.order.push(id);}return o;}
   return {v:1,activeId:"",order:[],sessions:{}};}
-function writeST(st){try{localStorage.setItem(SKEY,JSON.stringify(st));}catch(e){}}
+function writeST(st){try{(window.GLCStore||localStorage).setItem(SKEY,JSON.stringify(st));}catch(e){throw e;}}
 function sessName(s){return (s&&s.nome&&s.nome.trim())?s.nome.trim():"Sessione senza nome";}
 function newId(p){return p+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
 
 /* ---- oggetti propri (per-utente, cloud via saveKey) ---- */
 var OKEY="glc_officina_v1";
 function readOI(){var o=null;try{o=JSON.parse(localStorage.getItem(OKEY)||"null");}catch(e){}return (o&&Array.isArray(o.items))?o:{v:1,items:[]};}
-function writeOI(o){try{localStorage.setItem(OKEY,JSON.stringify(o));}catch(e){}}
+function writeOI(o){try{(window.GLCStore||localStorage).setItem(OKEY,JSON.stringify(o));}catch(e){throw e;}}
 
 /* ---- immagine: ridimensiona a ~256px jpeg base64 ---- */
 function resizeImg(file,cb){if(!file||!file.type||file.type.indexOf("image/")!==0){cb("");return;}
@@ -408,7 +409,7 @@ async function seedCatalog(){
 /* ===== CAMBUSA ===== */
 var CKEY="glc_cambusa_v1";
 function readMP(){var o=null;try{o=JSON.parse(localStorage.getItem(CKEY)||"null");}catch(e){}return (o&&Array.isArray(o.dishes))?o:{v:1,dishes:[]};}
-function writeMP(o){try{localStorage.setItem(CKEY,JSON.stringify(o));}catch(e){}}
+function writeMP(o){try{(window.GLCStore||localStorage).setItem(CKEY,JSON.stringify(o));}catch(e){throw e;}}
 async function seedDishes(){
   if(!isAdmin||!sb) return;
   if(!confirm("Importare/aggiornare i "+SEED_PIATTI.length+" piatti del manuale nel catalogo ufficiale?")) return;

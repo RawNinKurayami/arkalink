@@ -90,7 +90,7 @@ function transaction(change, owner=CT.activeId) {
  if(owner!==CT.activeId || !CT.chars[owner]) throw Error('Il personaggio attivo è cambiato. Riapri la carta sul suo proprietario.');
  const next=copy(pg), state=copy(CT);change(next);state.chars[owner]=next;
  // Write first. A failed write cannot erase portraits or mutate in-memory data.
- localStorage.setItem(KEY,JSON.stringify(state));
+ (window.GLCStore||localStorage).setItem(KEY,JSON.stringify(state));
  pg=next;CT=state;
  return next;
 }
@@ -149,6 +149,7 @@ const hasEffect=(t,n)=>list(t?.eff).includes(n);
 const isAttack=t=>['Singolo','Area'].includes(t?.forma);
 const isMelee=t=>isAttack(t)&&t.stile!=='Sniper'&&t.forma!=='Area';
 const isDefense=t=>t?.forma==='Difesa';
+const isActiveDefense=t=>isDefense(t)&&(hasEffect(t,'Parata')||hasEffect(t,'Contrattacco'));
 const isPhysical=t=>t?.fonte==='Stile'&&t?.forma!=='Canzone';
 function applicable(s,tech,move={}) {
  const t=tech?.raw;if(!t||!s?.meta||!s.unlocked)return false;
@@ -199,7 +200,7 @@ function hakiEffects(s,tech) {
   const key=String(row.k),a=[];
   if(row.pass)a.push({id:'pass:'+key,mode:'passive',name:row.liv+' · '+key,desc:row.pass,cost:0,row});
   if(row.act){let ok=true;
-   if(s.name===HAKI_NAMES[0])ok=key==='d8'?isDefense(t):isAttack(t);
+   if(s.name===HAKI_NAMES[0])ok=['d8','d12'].includes(key)?isDefense(t):isAttack(t);
    if(s.name===HAKI_NAMES[1]&&key==='d8')ok=hasEffect(t,'Contrattacco');
    if(s.name===HAKI_NAMES[1]&&key==='d12')ok=isDefense(t);
    if(s.name===HAKI_NAMES[2]&&key==='3')ok=isAttack(t)&&isPhysical(t);
@@ -361,10 +362,16 @@ function resolve(input) {
    let defense='Effetto difensivo della Tecnica';
    if(hasEffect(t,'Contrattacco'))defense=roll;
    if(hasEffect(t,'Parata')){const w=findSource(m.weaponId,ss);defense=(attr||'Attributo da definire')+' '+(t.attr||'')+' + '+(w?.raw.grado||'dado arma da collegare')+' arma';if(!w)errors.push({id:tech.id,text:'Parata: collega un’arma compatibile.'});}
-   if(hasEffect(t,'Guardia'))defense='Difesa Passiva attuale + 2 Guardia';
-   if(arm?.use==='defense')defense+=' + '+armTerm;
-   if(obs)defense+=' + 2 × '+findSource(obs.id,ss).raw.die+' Anticipo (Osservazione)';
-   formulas.push({label:'Difesa',text:defense,id:tech.id});
+   const activeDefense=isActiveDefense(t),guard=hasEffect(t,'Guardia');
+   const corazza=arm?.use==='defense'&&arm.effects.includes('act:d12');
+   // Manuale 8.7: i dadi appartengono alla Difesa Attiva, mai alla Passiva.
+   if(activeDefense){
+    if(arm?.use==='defense')defense+=' + '+armTerm;
+    if(obs)defense+=' + 2 × '+findSource(obs.id,ss).raw.die+' Anticipo (Osservazione)';
+    formulas.push({label:'Difesa Attiva',text:defense,id:tech.id});
+   }
+   if(guard||corazza)formulas.push({label:'Difesa Passiva',text:'Difesa Passiva attuale'+(guard?' + 2 Guardia':'')+(corazza?' + 4 Corazza d’Armamento (2 turni)':''),id:tech.id});
+   if(!activeDefense&&!guard&&!corazza)formulas.push({label:'Difesa',text:defense,id:tech.id});
    if(owns('Contraccolpo')&&hasEffect(t,'Contrattacco'))formulas.push({label:'Contraccolpo',text:t.die+' Tecnica · solo se il contrattacco raggiunge o supera l’attacco nemico',id:tech.id});
   }else formulas.push({label:t.forma||'Risoluzione',text:t.forma==='Canzone'?'Effetto sugli alleati; Salvezza per i nemici secondo la Melodia.':tech.techKind==='racial'?t.desc:roll+' · applica gli effetti della Tecnica',id:tech.id});
   list(t.eff).forEach(n=>{const e=tecEffObj(n);if(e)conditions.push({id:tech.id,text:n+': '+e[2]});});
@@ -397,7 +404,7 @@ function mediaStore() {
  try {return JSON.parse(localStorage.getItem(MEDIA_KEY)||'{}')||{};}catch(e){return {};}
 }
 function mediaStoreWrite(store) {
- try {localStorage.setItem(MEDIA_KEY,JSON.stringify(store));return true;}
+ try {(window.GLCStore||localStorage).setItem(MEDIA_KEY,JSON.stringify(store));return true;}
  catch(e){return false;}
 }
 function blobToDataURL(blob) {
@@ -420,6 +427,8 @@ async function mediaPut(id,blob) {
  await mediaShare(id,blob);
 }
 async function mediaGet(id) {
+ // A newly synchronized illustration takes precedence over the old device cache.
+ const shared=mediaShared(id);if(shared){mediaURLs.set(id,shared);return shared;}
  if(mediaURLs.has(id))return mediaURLs.get(id);
  let blob=null;
  try {const db=await mediaDB();blob=await new Promise((yes,no)=>{const tx=db.transaction('art'),r=tx.objectStore('art').get(id);r.onsuccess=()=>yes(r.result);r.onerror=no;});}catch(e){/* si prova la copia sincronizzata */}
@@ -692,13 +701,13 @@ function hakiLiveControls(work) {
 }
 function stepPowers(work) {
  const m=UI.draft,ss=sources(),tech=findSource(m.baseTechId,ss),haki=ss.filter(s=>s.kind==='haki');
- if(haki.length){work.append(heading('Haki','Attivazione, effetti e mantenimento rimangono distinti. Solo l’Armamento aggiunge il suo dado a danno o difesa.'));
+ if(haki.length){work.append(heading('Haki','Attivazione, effetti e mantenimento rimangono distinti. Solo l’Armamento aggiunge il suo dado al danno o alla Difesa Attiva.'));
   const live=el('details',{class:'smc-live-panel','data-smc-state':'haki-live'});live.append(node('summary','','Stato del combattimento · condiviso fra le carte'));hakiLiveControls(live);work.append(live);
   haki.forEach(s=>{
    const selected=m.hakiSelections.find(h=>h.id===s.id),canUse=s.name!==HAKI_NAMES[0]||isAttack(tech?.raw)||isDefense(tech?.raw);if(!canUse&&!selected)return;
    const state=hakiState(s),block=node('div','smc-power');block.append(optionCard(s,!!selected,()=>changeDraft(d=>{d.hakiSelections=selected?d.hakiSelections.filter(h=>h.id!==s.id):[...d.hakiSelections,{id:s.id,use:isDefense(tech?.raw)?'defense':'offense',effects:[]}];}),true,(state.active?'Attivo · 0':'Da attivare · 1')+' PIP attivazione · '+state.pipRemaining+'/'+state.max+' PIP disponibili'));
    if(selected){
-    if(s.name===HAKI_NAMES[0])block.append(selectField('Impiego dell’Armamento',selected.use,isDefense(tech?.raw)?[['defense','Difesa · aggiungi il dado alla difesa']]:[['offense','Offesa · aggiungi il dado al danno']],v=>changeDraft(d=>d.hakiSelections.find(h=>h.id===s.id).use=v)));
+    if(s.name===HAKI_NAMES[0])block.append(selectField('Impiego dell’Armamento',selected.use,isDefense(tech?.raw)?[['defense',isActiveDefense(tech?.raw)?'Difesa Attiva · aggiungi il dado al tiro':'Difesa · effetti Haki, senza dado alla Difesa Passiva']]:[['offense','Offesa · aggiungi il dado al danno']],v=>changeDraft(d=>d.hakiSelections.find(h=>h.id===s.id).use=v)));
     hakiEffects(s,tech).forEach(e=>{const on=selected.effects.includes(e.id),line=button('',()=>changeDraft(d=>{const h=d.hakiSelections.find(h=>h.id===s.id);h.effects=on?h.effects.filter(x=>x!==e.id):[...h.effects,e.id];}),'smc-effect'+(on?' selected':''),{'aria-pressed':String(on),'data-smc-focus':'effect-'+s.id+'-'+e.id});line.append(node('span','smc-effect-mode',e.mode==='active'?e.cost+' PIP':'PASSIVO'),node('span','',null,[node('b','',e.name),node('span','',e.desc)]),node('b','smc-check',on?'✓':'+'));block.append(line);});
    }work.append(block);
   });

@@ -26,7 +26,8 @@ self.addEventListener("fetch", function (e) {
   var url;
   try { url = new URL(req.url); } catch (err) { return; }
 
-  var vivo = /\/(glc-auth|glc-ui)\.js$/.test(url.pathname);
+  // Versioned scripts can be reused offline without falling back to the old sync code.
+  var vivo = /\/glc-auth\.js$/.test(url.pathname) && url.searchParams.get("v") !== "2";
 
   e.respondWith(
     fetch(req)

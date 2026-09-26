@@ -17,6 +17,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 header.top{text-align:center;padding:14px 0 6px;}
 header.top .anchor{font-size:40px;color:var(--gold);line-height:1;}
 header.top h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:900;font-size:clamp(34px,6vw,56px);color:#f2e9d8;margin:.05em 0 0;text-shadow:0 2px 16px rgba(0,0,0,.45);}
+header.top .home-link{color:inherit;text-decoration:none;}
+header.top .home-link:focus-visible{outline:2px solid var(--gold-soft);outline-offset:5px;}
 header.top .sub{font-family:'Inter',sans-serif;font-weight:400;letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:#a69a86;margin-top:4px;}
 .modes{display:flex;justify-content:center;gap:10px;margin:14px 0 6px;}
 .modes button{font-family:'Inter',sans-serif;font-weight:700;font-size:13px;letter-spacing:.06em;border:1px solid var(--gold);background:rgba(242,233,216,.06);color:var(--ink-soft);padding:9px 18px;border-radius:2px;cursor:pointer;transition:.15s;}
@@ -907,7 +909,8 @@ body.has-bld{overflow:hidden;}
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={saveKey:["glc_pirata_v4","glc_media_v1"],gate:true};</script>
-<script src="/glc-auth.js"></script>
+<script src="/glc-sync.js?v=2"></script>
+<script src="/glc-auth.js?v=2"></script>
 <style>
 .crewbar{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px;margin:6px 0 2px;}
 .crewbar .cb-label{font-family:'Inter',sans-serif;font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#a69a86;}
@@ -1446,7 +1449,7 @@ body.has-bld{overflow:hidden;}
 <div class="wrap">
   <header class="top">
     <div class="anchor">⚓</div>
-    <h1>Grand Line Chronicles</h1>
+    <h1><a class="home-link" href="/" aria-label="Grand Line Chronicles — Home" title="Torna alla Home">Grand Line Chronicles</a></h1>
     <div class="sub">Grand Line Chronicles · Sistema Will of D.</div>
     <div class="modes"><button id="mode-crea" class="on">🧭 Creazione guidata</button><button id="mode-gest">📖 Gestione &amp; Avanzamento</button></div>
     <div class="crewbar"><span class="cb-label">⚓ Equipaggio</span><select id="crew-sel" class="cb-sel" aria-label="Personaggio attivo"></select><button id="crew-new" class="cb-btn" type="button">+ Nuovo</button><button id="crew-del" class="cb-btn cb-del" type="button" title="Elimina personaggio">🗑️</button><a class="cb-link" href="/profilo/">I miei personaggi ↗</a></div>
@@ -1537,7 +1540,7 @@ body.has-bld{overflow:hidden;}
 
 <div id="print-sheet" aria-hidden="true"></div>
 
-<script src="special-moves.js?v=7"></script>
+<script src="special-moves.js?v=9"></script>
 <link rel="stylesheet" href="card-view.css?v=6">
 <script src="card-export.js?v=4" defer></script>
 <script src="card-view.js?v=7" defer></script>
@@ -2765,7 +2768,7 @@ function migrateChar(c){c=Object.assign(blank(),c||{});if(c.role){const MAP={"Me
  c.inventario.forEach(function(it){if(it&&it.ico&&INV_MIGRATE[it.ico])it.ico=INV_MIGRATE[it.ico];});
  c.talents=c.talents.map(function(k){var p=String(k).split(" · ");var n=p[p.length-1];if(TAL_RENAME[n]){p[p.length-1]=TAL_RENAME[n];return p.join(" · ");}return k;});
  return c;}
-function save(){CT.chars[CT.activeId]=pg;try{localStorage.setItem(KEY,JSON.stringify(CT));}catch(e){try{const slim=JSON.parse(JSON.stringify(CT));for(const id in slim.chars)delete slim.chars[id].photo;localStorage.setItem(KEY,JSON.stringify(slim));}catch(e2){}}}
+function save(){CT.chars[CT.activeId]=pg;(window.GLCStore||localStorage).setItem(KEY,JSON.stringify(CT));}
 function load(){let raw=null;try{raw=localStorage.getItem(KEY);}catch(e){}let obj=null;if(raw){try{obj=JSON.parse(raw);}catch(e){obj=null;}}if(obj&&obj.chars&&typeof obj.chars==="object"){CT={v:2,activeId:obj.activeId||"",order:Array.isArray(obj.order)?obj.order.slice():[],chars:{}};for(const id in obj.chars)CT.chars[id]=migrateChar(obj.chars[id]);CT.order=CT.order.filter(id=>CT.chars[id]);for(const id in CT.chars)if(CT.order.indexOf(id)<0)CT.order.push(id);if(!CT.chars[CT.activeId])CT.activeId=CT.order[0]||"";}else if(obj){const id=newId();CT={v:2,activeId:id,order:[id],chars:{}};CT.chars[id]=migrateChar(obj);}else{CT={v:2,activeId:"",order:[],chars:{}};}if(!CT.activeId){const id=newId();CT.activeId=id;CT.order=[id];CT.chars[id]=blank();}try{const want=new URLSearchParams(location.search).get("c");if(want&&CT.chars[want])CT.activeId=want;}catch(e){}pg=CT.chars[CT.activeId];}
 function computeAttr(){const r=race();if(!r)return;const ra=racialAttr();ATTRS.forEach(a=>{if(a===ra)pg.attr[a]=r.die;else if(a===pg.d6attr)pg.attr[a]="d6";else if(pg.d6attr)pg.attr[a]="d4";else pg.attr[a]="";});}
 function afterRaceChange(){const r=race();computeAttr();if(r&&pg.pvMax==null){pg.pvMax=r.pv;pg.pvCur=r.pv;}}
@@ -2841,7 +2844,7 @@ function commitSceneImage(field,data,ownerId){
  const pending=Object.assign({},CT,{chars:Object.assign({},CT.chars,{[CT.activeId]:next})});
  // Verifica la capienza prima di sostituire l'immagine: un file troppo grande
  // non deve attivare il fallback storico che elimina i ritratti dal salvataggio.
- try{localStorage.setItem(KEY,JSON.stringify(pending));}
+ try{(window.GLCStore||localStorage).setItem(KEY,JSON.stringify(pending));}
  catch(e){alert("Spazio sul dispositivo insufficiente. Usa un'immagine più leggera: il personaggio e le immagini precedenti sono rimasti invariati.");return false;}
  if(data)pg[field]=data;else delete pg[field];
  if(field==="photo")pg.photoPos=next.photoPos;
@@ -3977,7 +3980,7 @@ function printPayload(){
   if(window.GLCPrintMoves)out.specialMoves=GLCPrintMoves.snapshot(pg,CT.activeId);
   return out;
 }
-$("#printIllus").onclick=function(){try{save();localStorage.setItem("glc_print_v1",JSON.stringify(printPayload()));}catch(e){}window.open("/scheda-stampabile/?c="+encodeURIComponent(CT.activeId),"_blank");};
+$("#printIllus").onclick=function(){try{save();(window.GLCStore||localStorage).setItem("glc_print_v1",JSON.stringify(printPayload()));}catch(e){}window.open("/scheda-stampabile/?c="+encodeURIComponent(CT.activeId),"_blank");};
 $("#export").onclick=()=>{const blob=new Blob([JSON.stringify(pg,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=(pg.nome?pg.nome.replace(/[^a-z0-9]+/gi,"_"):"pirata")+".json";a.click();URL.revokeObjectURL(a.href);};
 $("#importBtn").onclick=()=>$("#importFile").click();
 $("#importFile").onchange=e=>{const file=e.target.files[0];if(!file)return;const rd=new FileReader();rd.onload=()=>{try{const c=migrateChar(JSON.parse(rd.result));const id=newId();CT.chars[CT.activeId]=pg;CT.chars[id]=c;CT.order.push(id);CT.activeId=id;pg=c;save();bindInputs();renderCrewBar();if(mode==="gest")renderManage();else goto(0);render();}catch(err){alert("File non valido.");}};rd.readAsText(file);e.target.value="";};

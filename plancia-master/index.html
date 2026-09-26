@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="/glc-theme.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={saveKey:["glc_bestiario_v1","glc_scontro_v1"],gate:true,profileUrl:"/profilo/"};</script>
-<script src="/glc-auth.js"></script>
+<script src="/glc-sync.js?v=2"></script>
+<script src="/glc-auth.js?v=2"></script>
 <style>
 :root{--abyss:#060607;--vellum:#f2e9d8;--ink:#f1ece0;--ink-soft:#a69a86;--gold:#f0a441;--gold-bright:#ffd394;--seal:#e23131;--foam:#a69a86;--line:rgba(240,164,65,.22);}
 *{box-sizing:border-box;}
@@ -205,9 +206,9 @@ var DEFAULT_BEAST=[
 /* ---------- storage ---------- */
 var best=[], fight={round:1,turn:0,list:[]};
 function loadB(){var o=null;try{o=JSON.parse(localStorage.getItem(KEY_B)||"null");}catch(e){}if(o&&Array.isArray(o.beasts)){best=o.beasts;}else if(Array.isArray(o)){best=o;}else{best=clone(DEFAULT_BEAST);}best.forEach(function(b){if(!b.attr)b.attr=A("d6","d6","d6","d6");if(!Array.isArray(b.atk))b.atk=[];});}
-function saveB(){try{localStorage.setItem(KEY_B,JSON.stringify({v:1,beasts:best}));}catch(e){}}
+function saveB(){try{(window.GLCStore||localStorage).setItem(KEY_B,JSON.stringify({v:1,beasts:best}));}catch(e){throw e;}}
 function loadF(){var o=null;try{o=JSON.parse(localStorage.getItem(KEY_F)||"null");}catch(e){}if(o&&Array.isArray(o.list)){fight=o;}else{fight={round:1,turn:0,list:[]};}}
-function saveF(){try{localStorage.setItem(KEY_F,JSON.stringify(fight));}catch(e){}}
+function saveF(){try{(window.GLCStore||localStorage).setItem(KEY_F,JSON.stringify(fight));}catch(e){throw e;}}
 
 /* ---------- bestiario ---------- */
 function attrCell(b,key){

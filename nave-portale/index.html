@@ -166,7 +166,8 @@ textarea.txt{resize:vertical;min-height:60px;line-height:1.45;}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={saveKey:"glc_nave_v1",gate:true,profileUrl:"/profilo/"};</script>
-<script src="/glc-auth.js"></script>
+<script src="/glc-sync.js?v=2"></script>
+<script src="/glc-auth.js?v=2"></script>
 </head>
 <body class="mode-nave">
   <div class="glc-topbar"><a class="glc-brand" href="/"><span class="glc-anc">⚓</span><span class="glc-bnm">Grand Line Chronicles</span></a><a class="glc-home" href="/">‹ Torna al porto</a></div>
@@ -288,7 +289,7 @@ function readNT(){var o=null;try{o=JSON.parse(localStorage.getItem(KEY)||"null")
  if(o&&o.ships&&typeof o.ships==="object"){o.order=Array.isArray(o.order)?o.order.filter(function(id){return o.ships[id];}):[];for(var id in o.ships)if(o.order.indexOf(id)<0)o.order.push(id);if(!o.ships[o.activeId])o.activeId=o.order[0]||"";return o;}
  if(o){var nid=newId();var sh={};sh[nid]=Object.assign(blank(),o);return {v:1,activeId:nid,order:[nid],ships:sh};}
  return {v:1,activeId:"",order:[],ships:{}};}
-function writeNT(){try{localStorage.setItem(KEY,JSON.stringify(NT));}catch(e){}}
+function writeNT(){try{(window.GLCStore||localStorage).setItem(KEY,JSON.stringify(NT));}catch(e){throw e;}}
 const $=s=>document.querySelector(s);
 function el(t,p,k){const e=document.createElement(t);if(p)for(const x in p){if(x==="class")e.className=p[x];else if(x==="html")e.innerHTML=p[x];else if(x==="text")e.textContent=p[x];else if(x.slice(0,2)==="on")e[x.toLowerCase()]=p[x];else e.setAttribute(x,p[x]);}if(k!=null)(Array.isArray(k)?k:[k]).forEach(c=>{if(c==null)return;e.appendChild(typeof c==="string"?document.createTextNode(c):c);});return e;}
 let saveT;function save(){if(NT.activeId)NT.ships[NT.activeId]=S;writeNT();const sv=$("#saved");if(sv){sv.textContent="salvato ✓";clearTimeout(saveT);saveT=setTimeout(()=>sv.textContent="salvato",1200);}}

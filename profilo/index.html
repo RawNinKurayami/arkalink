@@ -10,330 +10,100 @@
 <link rel="stylesheet" href="/glc-theme.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={saveKey:["glc_pirata_v4","glc_media_v1","glc_nave_v1","glc_profile_v1","glc_sessioni_v1"],gate:true};</script>
-<script src="/glc-auth.js"></script>
-<style>
-:root{
-  --abyss:#060607; --abyss-2:#0b0b0d; --vellum:#f2e9d8; --vellum-2:#e9d6ae;
-  --ink:#f1ece0; --ink-soft:#a69a86; --gold:#f0a441; --gold-bright:#ffd394;
-  --seal:#e23131; --foam:#a69a86; --line:rgba(240,164,65,.16);
-  --field:rgba(242,233,216,.06); --field-line:rgba(240,164,65,.28);
-}
-*{box-sizing:border-box;}
-body{
-  margin:0; min-height:100vh; color:var(--vellum);
-  font-family:'Inter',system-ui,sans-serif; font-size:16px; line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  background:
-    radial-gradient(90% 40% at 50% 100%, rgba(201,111,42,.07), transparent 70%),
-    #060607;
-}
-a{color:inherit;}
-.topbar{
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
-  padding:16px clamp(16px,4vw,40px); border-bottom:1px solid var(--line);
-}
-.brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
-.brand .anc{color:var(--gold); font-size:18px;}
-.brand .nm{font-family:'Inter',sans-serif; font-weight:600; letter-spacing:.34em; text-transform:uppercase; font-size:11px; color:var(--vellum);}
-/* riveste il controllo di login iniettato da glc-auth.js (solo aspetto) */
-.glc-slot .glc-accedi{font-family:'Inter',sans-serif!important;font-weight:600!important;font-size:12px!important;letter-spacing:.04em!important;color:#1b1206!important;background:linear-gradient(180deg,var(--gold-bright),var(--gold))!important;border-radius:999px!important;padding:10px 22px!important}
-.glc-slot .glc-prof,.glc-slot .glc-out{font-family:'Inter',sans-serif!important;letter-spacing:.08em!important;border-color:var(--line)!important;color:var(--gold-bright)!important;border-radius:999px!important}
-.glc-slot .glc-who{font-family:'Inter',sans-serif!important;color:var(--foam)!important}
-.glc-slot .glc-who b{color:var(--gold-bright)!important}
-.wrap{max-width:1000px; margin:0 auto; padding:clamp(22px,5vw,48px) clamp(16px,4vw,40px) 60px;}
-.hero{text-align:center; margin-bottom:30px;}
-.hero .compass{width:54px; height:54px; color:var(--gold); opacity:.9;}
-.hero .kick{font-family:'Inter',sans-serif; font-weight:500; letter-spacing:.45em; text-transform:uppercase; font-size:10.5px; color:var(--gold); margin-top:6px;}
-.hero h1{font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; text-transform:uppercase; letter-spacing:.02em; font-size:clamp(30px,6vw,52px); color:var(--vellum); margin:.1em 0 0; text-shadow:0 2px 18px rgba(0,0,0,.5);}
-.hero p{color:var(--foam); margin:.4em auto 0; max-width:540px;}
-
-.panel{
-  background:linear-gradient(180deg, rgba(242,233,216,.035), rgba(242,233,216,.015));
-  color:var(--ink); border:1px solid var(--line); border-radius:14px;
-  box-shadow:0 16px 40px rgba(0,0,0,.45); padding:22px 24px; margin-bottom:28px;
-}
-.panel .ttl{font-family:'Inter',sans-serif; font-weight:500; letter-spacing:.18em; text-transform:uppercase; font-size:11px; color:var(--ink-soft);}
-.uname{display:flex; gap:12px; align-items:center; margin-top:10px; flex-wrap:wrap;}
-.uname input{
-  flex:1; min-width:200px; font-family:'Inter',sans-serif; font-size:1rem; color:var(--ink);
-  background:var(--field); border:1px solid var(--field-line); border-radius:8px; padding:11px 14px;
-}
-.uname input:focus{outline:2px solid var(--gold); outline-offset:1px;}
-.uname .hint{font-size:.92rem; color:var(--ink-soft);}
-.uname .at{font-family:'Cormorant Garamond',serif; font-weight:700; font-size:1.4rem; color:var(--gold);}
-.panel .kick{font-family:'Inter',sans-serif; font-weight:500; letter-spacing:.3em; text-transform:uppercase; font-size:10.5px; color:var(--gold); margin-bottom:6px;}
-.hint{font-size:.92rem; color:var(--ink-soft); margin-top:8px;}
-.hint.ok{color:#7fc796;}
-.hint.err{color:#ff6b5e;}
-.nakama-panel{padding:18px 20px;}
-.nk-search{display:flex; gap:10px; flex-wrap:wrap;}
-.nk-search input{flex:1; min-width:200px; font-family:'Inter',sans-serif; font-size:.98rem; color:var(--ink); background:var(--field); border:1px solid var(--field-line); border-radius:8px; padding:10px 14px;}
-.nk-search input:focus{outline:2px solid var(--gold); outline-offset:1px;}
-.nk-lists{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:16px;}
-.nk-block h3{font-family:'Inter',sans-serif; font-weight:600; letter-spacing:.18em; font-size:11px; text-transform:uppercase; color:var(--ink-soft); margin:0 0 8px;}
-.nk-list{display:flex; flex-direction:column; gap:8px;}
-.nk-row{display:flex; align-items:center; gap:8px; background:rgba(242,233,216,.04); border:1px solid var(--line); border-radius:10px; padding:8px 10px;}
-.nk-row .nm{flex:1; font-weight:600; color:var(--ink); min-width:0; overflow:hidden; text-overflow:ellipsis;}
-.nk-row button{font-family:'Inter',sans-serif; font-weight:600; font-size:11px; letter-spacing:.04em; border-radius:8px; padding:6px 10px; cursor:pointer; border:1px solid var(--field-line); background:rgba(240,164,65,.1); color:var(--gold-bright);}
-.nk-row button.acc{background:linear-gradient(180deg,var(--gold-bright),var(--gold)); border-color:transparent; color:#1b1206;}
-.nk-row button.dec{background:rgba(226,49,49,.08); border-color:rgba(226,49,49,.4); color:#ff8a7e;}
-.nk-results-box{margin-top:10px; display:flex; flex-direction:column; gap:8px;}
-.nk-empty{color:var(--ink-soft); font-style:italic; font-size:.92rem;}
-
-.phead{display:flex; gap:22px; align-items:center; flex-wrap:wrap;}
-.avatar-wrap{position:relative; flex:none;}
-.avatar{width:120px; height:120px; border-radius:50%; overflow:hidden; cursor:pointer; background:radial-gradient(circle at 50% 35%, #241d15, #140f0a); border:3px solid var(--gold); box-shadow:0 8px 22px rgba(0,0,0,.45); display:flex; align-items:center; justify-content:center; color:var(--gold-bright); font-family:'Cormorant Garamond',serif; font-weight:700; font-size:2.4rem;}
-.avatar img{width:100%; height:100%; object-fit:cover; display:block;}
-.avatar .ph-ico{width:48%; height:48%; color:#8a765a;}
-.avatar-cam{position:absolute; right:0; bottom:4px; width:36px; height:36px; border-radius:50%; border:2px solid #060607; background:linear-gradient(180deg,var(--gold-bright),var(--gold)); color:#1b1206; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 3px 10px rgba(0,0,0,.5); padding:0; z-index:2;}
-.avatar-cam svg{width:18px; height:18px;}
-.avatar-cam:hover{filter:brightness(1.07);}
-.phead-main{flex:1; min-width:210px;}
-.phead-main .kick{font-family:'Inter',sans-serif; font-weight:500; letter-spacing:.34em; text-transform:uppercase; font-size:10.5px; color:var(--gold);}
-.pname-row{display:flex; align-items:center; gap:10px; margin:5px 0 4px;}
-.pname{font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(1.6rem,4.5vw,2.3rem); color:var(--vellum); line-height:1.12; word-break:break-word; cursor:text;}
-.pname.empty{color:var(--ink-soft); font-style:italic; font-weight:500;}
-.pname-edit{flex:none; width:30px; height:30px; border-radius:50%; border:1px solid var(--line); background:rgba(242,233,216,.06); color:var(--gold-bright); cursor:pointer; font-size:13px; line-height:1; display:flex; align-items:center; justify-content:center;}
-.pname-edit:hover{border-color:var(--gold); background:rgba(240,164,65,.12);}
-.pname-input{width:100%; max-width:380px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(1.4rem,4vw,2rem); color:var(--vellum); background:var(--field); border:1px solid var(--field-line); border-radius:8px; padding:6px 12px; margin:2px 0 4px;}
-.pname-input:focus{outline:2px solid var(--gold); outline-offset:1px;}
-.pstats{font-size:.95rem; color:var(--ink-soft);}
-
-/* --- equipaggio: griglia oppure carte da gioco --- */
-.vista-scelta{display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; margin-right:auto;}
-.vista-btn{font-family:'Inter',sans-serif; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; padding:8px 15px; border:none; background:transparent; color:var(--ink-soft); cursor:pointer;}
-.vista-btn[aria-pressed="true"]{background:linear-gradient(180deg,var(--gold-bright),var(--gold)); color:#1b1206;}
-.vista-btn:focus-visible{outline:2px solid var(--gold-bright); outline-offset:-2px;}
-
-.carte{position:relative; margin:0 -20px;}
-/* La sfumatura laterale è disegnata sopra la pista: una maschera obbligherebbe
-   il telefono a tenere tutto il mazzo in un solo livello, e le carte in
-   movimento verrebbero ridisegnate sgranate. */
-.carte::before,.carte::after{
-  content:""; position:absolute; top:0; bottom:0; width:16%; pointer-events:none; z-index:2;
-}
-.carte::before{left:0; background:linear-gradient(90deg,#060607 12%,rgba(6,6,7,0) 100%);}
-.carte::after{right:0; background:linear-gradient(270deg,#060607 12%,rgba(6,6,7,0) 100%);}
-.carte-pista{
-  display:flex; gap:26px; overflow-x:auto; overflow-y:hidden; scroll-snap-type:x mandatory;
-  padding:30px 50%; scrollbar-width:none; -webkit-overflow-scrolling:touch;
-}
-.carte-pista::-webkit-scrollbar{display:none;}
-/* Mentre il mazzo scorre le carte seguono il dito senza transizione: animare
-   dodici trasformazioni a ogni fotogramma è ciò che faceva venire gli scatti.
-   La transizione torna appena lo scorrimento si ferma. */
-.carte-pista.in-movimento .pirata-carta{transition:none; will-change:transform, opacity;}
-.pirata-carta{
-  position:relative; flex:none; width:236px; aspect-ratio:2/3; scroll-snap-align:center;
-  border-radius:16px; border:1px solid rgba(240,164,65,.32); background:#0d0b09; cursor:pointer;
-  transform:scale(.84); opacity:.55; transition:transform .28s ease, opacity .28s ease, border-color .18s;
-  box-shadow:0 18px 40px rgba(0,0,0,.55); overflow:visible; padding:0; text-align:left; color:inherit; font:inherit;
-  transform-origin:center center; backface-visibility:visible;
-}
-.pirata-carta:focus-visible{outline:2px solid var(--gold-bright); outline-offset:4px;}
-.pirata-carta .pc-corpo{position:absolute; inset:0; border-radius:inherit; overflow:hidden; display:flex; flex-direction:column;}
-.pirata-carta .pc-scena{position:absolute; inset:0;}
-.pirata-carta .pc-scena img{width:100%; height:100%; object-fit:cover; display:block; opacity:.9;}
-.pirata-carta .pc-foto{position:absolute; inset:0; background:radial-gradient(70% 55% at 50% 32%,#243244,#0b0906);}
-.pirata-carta.con-scena .pc-foto{background:none;}
-.pirata-carta.con-scena .pc-foto img{object-fit:contain;}
-.pirata-carta .pc-foto img{width:100%; height:100%; object-fit:cover; display:block;}
-.pirata-carta .pc-vuoto{position:absolute; inset:0; display:grid; place-items:center; font-size:46px; color:#8a765a; opacity:.5;}
-.pirata-carta .pc-velo{position:absolute; inset:0; background:linear-gradient(180deg,rgba(6,10,14,.66) 0%,rgba(6,10,14,0) 30%,rgba(6,10,14,.2) 50%,rgba(6,10,14,.94) 86%);}
-.pirata-carta .pc-testo{position:relative; margin-top:auto; padding:14px 14px 16px; text-align:center;}
-.pirata-carta .pc-taglia{font-family:'Cormorant Garamond',serif; font-weight:700; font-size:1.45rem; color:#ffe6b8; text-shadow:0 2px 10px rgba(0,0,0,.8);}
-.pirata-carta .pc-nome{font-family:'Cinzel Decorative','Cormorant Garamond',serif; font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:1rem; color:#fff6e4; margin-top:2px; line-height:1.15;}
-.pirata-carta .pc-chip{display:inline-block; margin-top:9px; font-family:'Inter',sans-serif; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:999px; border:1px solid currentColor; background:rgba(8,12,16,.55);}
-.pirata-carta .pc-piede{display:flex; justify-content:space-between; gap:8px; margin-top:12px; font-family:'Inter',sans-serif; font-size:10px; letter-spacing:.06em; color:rgba(242,233,216,.72);}
-.pirata-carta .pc-piede b{color:#ffd394; font-weight:600;}
-.pirata-carta .pc-x{
-  position:absolute; top:8px; right:8px; z-index:3; width:26px; height:26px; border-radius:50%;
-  border:1px solid rgba(226,49,49,.45); background:rgba(10,8,6,.7); color:#ff8a7e; cursor:pointer;
-  font-size:13px; line-height:1; opacity:0; transition:opacity .2s;
-}
-.pirata-carta.attiva{border-color:rgba(240,164,65,.75); box-shadow:0 26px 60px rgba(0,0,0,.65), 0 0 34px rgba(240,164,65,.16);}
-.pirata-carta.attiva .pc-x{opacity:1;}
-.pirata-carta.attiva .pc-nome{font-size:1.14rem;}
-.carte-frec{
-  position:absolute; top:50%; transform:translateY(-50%); z-index:4; width:40px; height:40px; border-radius:50%;
-  border:1px solid var(--line); background:rgba(10,20,26,.8); color:var(--gold-bright); font-size:20px; cursor:pointer;
-}
-.carte-frec.prec{left:6px;} .carte-frec.succ{right:6px;}
-.carte-frec:hover{background:rgba(240,164,65,.16);}
-.carte-punti{display:flex; justify-content:center; gap:7px; margin-top:2px;}
-.carte-punti i{width:6px; height:6px; border-radius:50%; background:rgba(242,233,216,.28); transition:background .2s, transform .2s;}
-.carte-punti i.on{background:var(--gold-bright); transform:scale(1.35);}
-.carte-vuoto{color:var(--foam); font-style:italic; text-align:center; padding:30px 20px;}
-@media(max-width:560px){
-  .carte-pista{gap:16px; padding:26px 50%;}
-  .pirata-carta{width:200px;}
-  .carte-frec{display:none;}
-}
-@media(prefers-reduced-motion:reduce){ .pirata-carta{transition:none;} }
-.empty-note{grid-column:1/-1; text-align:center; color:var(--foam); font-style:italic; padding:4px 0 2px;}
-.sec-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:6px 2px 14px; flex-wrap:wrap;}
-.sec-head h2{font-family:'Cormorant Garamond',serif; font-weight:600; text-transform:uppercase; letter-spacing:.03em; font-size:clamp(20px,4vw,28px); color:var(--vellum); margin:0;}
-.btn-gold{
-  font-family:'Inter',sans-serif; font-weight:600; letter-spacing:.06em; text-transform:uppercase; font-size:11.5px;
-  color:#1b1206; background:linear-gradient(180deg,var(--gold-bright),var(--gold)); border:none;
-  border-radius:999px; padding:11px 20px; cursor:pointer; transition:transform .15s;
-}
-.btn-gold:hover{transform:translateY(-1px);}
-
-.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px;}
-.ch-card{
-  display:flex; gap:14px; align-items:flex-start;
-  background:linear-gradient(180deg, rgba(242,233,216,.035), rgba(242,233,216,.015));
-  color:var(--ink); border:1px solid var(--line); border-radius:12px; padding:16px; box-shadow:0 10px 26px rgba(0,0,0,.4);
-  transition:border-color .25s ease, transform .2s ease;
-}
-.ch-card:hover{border-color:rgba(240,164,65,.4); transform:translateY(-2px);}
-.ch-av{
-  width:62px; height:62px; flex:none; border-radius:8px; overflow:hidden;
-  display:flex; align-items:center; justify-content:center; font-size:30px; color:var(--gold);
-  background:rgba(242,233,216,.05); border:1px solid var(--line);
-}
-.ch-av img{width:100%; height:100%; object-fit:cover; display:block;}
-.ch-body{flex:1; min-width:0;}
-.ch-name{font-family:'Cormorant Garamond',serif; font-weight:700; font-size:1.25rem; color:var(--vellum); line-height:1.15; word-break:break-word;}
-.ch-sub{font-size:.9rem; color:var(--ink-soft); margin-top:3px; min-height:1.2em;}
-.ch-acts{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;}
-.ch-btn{font-family:'Inter',sans-serif; font-weight:600; letter-spacing:.05em; text-transform:uppercase; font-size:10.5px; border-radius:8px; padding:8px 13px; cursor:pointer; border:1px solid;}
-.ch-btn.open{color:#1b1206; background:linear-gradient(180deg,var(--gold-bright),var(--gold)); border-color:transparent;}
-.ch-btn.open:hover{filter:brightness(1.05);}
-.ch-btn.del{color:#ff8a7e; background:transparent; border-color:rgba(226,49,49,.4);}
-.ch-btn.del:hover{background:rgba(226,49,49,.1);}
-.ch-new{
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
-  min-height:118px; border:1.5px dashed rgba(240,164,65,.4); border-radius:12px;
-  background:rgba(240,164,65,.03); color:var(--foam); cursor:pointer;
-  font-family:'Inter',sans-serif; font-weight:600; letter-spacing:.14em; text-transform:uppercase; font-size:11px; transition:.15s;
-}
-.ch-new:hover{border-color:var(--gold); color:var(--gold-bright); background:rgba(240,164,65,.07);}
-.ch-new .plus{font-size:30px; line-height:1; color:var(--gold);}
-.foot{text-align:center; margin-top:34px;}
-.foot a{font-family:'Inter',sans-serif; font-weight:600; letter-spacing:.18em; text-transform:uppercase; font-size:11px; color:var(--foam); text-decoration:none; border-bottom:1px solid transparent;}
-.foot a:hover{border-bottom-color:var(--gold);}
-@media(max-width:560px){ body{font-size:15px;} .ch-card{flex-direction:row;} }
-
-/* ---------- Haki del Conquistatore: fulmini rossi/neri attorno all'avatar, solo da loggati ---------- */
-.haki{position:absolute; inset:-28px; pointer-events:none; display:none; z-index:1;}
-body:has(#glc-login-slot.in) .haki{display:block;}
-.haki .bolt{opacity:0; animation:haki-flash 5.2s linear infinite; animation-delay:var(--d,0s);}
-.haki .bolt path{fill:none; stroke-linejoin:miter; stroke-linecap:square;}
-.haki .bolt .dark{stroke:#14060b; stroke-width:3.6;}
-.haki .bolt .hot{stroke:#ff3232; stroke-width:1.4; filter:drop-shadow(0 0 4px rgba(255,50,50,.9));}
-@keyframes haki-flash{
-  0%{opacity:0} 2%{opacity:1} 3.5%{opacity:0} 5%{opacity:.85} 6.5%{opacity:0} 100%{opacity:0}
-}
-body:has(#glc-login-slot.in) .avatar{border-color:#d8452e; animation:haki-aura 5.2s ease-in-out infinite;}
-@keyframes haki-aura{
-  0%,84%,100%{box-shadow:0 8px 22px rgba(0,0,0,.45);}
-  90%{box-shadow:0 8px 22px rgba(0,0,0,.45), 0 0 32px rgba(226,49,49,.5);}
-  95%{box-shadow:0 8px 22px rgba(0,0,0,.45), 0 0 18px rgba(226,49,49,.28);}
-}
-@media(prefers-reduced-motion:reduce){
-  .haki .bolt{animation:none!important;}
-  body:has(#glc-login-slot.in) .avatar{animation:none!important;}
-}
-
-/* ---------- impostazioni profilo (pannello richiudibile) ---------- */
-.pset-btn{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:rgba(242,233,216,.06);color:var(--gold-bright);cursor:pointer;font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;}
-.pset-btn:hover{border-color:var(--gold);background:rgba(240,164,65,.12);}
-#uname-panel{display:none;}
-#uname-panel.open{display:block;}
-.btn-gold:disabled{opacity:.45;cursor:default;transform:none;}
-#pub-username:disabled{opacity:.55;}
-
-/* ---------- card equipaggio/navi: immagine protagonista ---------- */
-#chars .ch-card,#ships .ch-card{flex-direction:column;gap:0;padding:0;}
-#chars .ch-av,#ships .ch-av{width:100%;height:auto;border:none;border-radius:0;border-bottom:1px solid var(--line);font-size:26px;color:#8a765a;background:linear-gradient(180deg,rgba(240,164,65,.07),rgba(242,233,216,.02));}
-#chars .ch-av{aspect-ratio:4/5;}
-#ships .ch-av{aspect-ratio:16/9;}
-#chars .ch-body,#ships .ch-body{width:100%;padding:14px 16px 16px;}
-#chars .ch-new{min-height:280px;}
-#ships .ch-new{min-height:160px;}
-</style>
+<script src="/glc-sync.js?v=2"></script>
+<script src="/glc-auth.js?v=2"></script>
+<script src="/glc-sync-panel.js?v=2"></script>
+<link rel="stylesheet" href="/profilo/profile.css?v=1">
 </head>
 <body>
-  <div class="topbar">
-    <a class="brand" href="/"><span class="anc">⚓</span><span class="nm">Grand Line Chronicles</span></a>
+  <a class="skip-link" href="#profile-main">Vai al profilo</a>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">⚓</span><span class="nm">Grand Line<span>Chronicles</span></span></a>
+    <a class="back-port" href="/">← Torna al porto</a>
     <span id="glc-login-slot"></span>
-  </div>
-
-  <div class="wrap">
-    <div class="panel phead">
+  </header>
+  <main class="wrap" id="profile-main">
+    <section class="profile-cover" aria-label="Il tuo profilo">
+      <div class="cover-art" aria-hidden="true"></div>
+      <div class="cover-caption" aria-hidden="true">OLTRE L’ORIZZONTE<br><span>c’è sempre una nuova storia.</span></div>
+      <div class="cover-overline"><span class="profile-eyebrow">REGISTRO PERSONALE</span><span class="cover-coordinate" aria-hidden="true">GRAND LINE · NEW WORLD</span></div>
+      <div class="phead">
       <div class="avatar-wrap">
-        <div class="avatar" id="avatar" title="Cambia immagine"></div>
+        <button type="button" class="avatar" id="avatar" title="Cambia immagine" aria-label="Cambia immagine del profilo"></button>
         <button class="avatar-cam" id="avatar-cam" type="button" title="Cambia immagine" aria-label="Cambia immagine">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.5"/></svg>
         </button>
         <input id="avatar-file" type="file" accept="image/*" style="display:none">
-        <!-- Haki del Conquistatore: decorazione, visibile solo da loggati (via CSS :has) -->
-        <svg class="haki" viewBox="0 0 180 180" aria-hidden="true">
-          <g class="bolt" style="--d:0s"><path class="dark" d="M132 55 L147 45 142 40 158 28 152 24 166 12"/><path class="hot" d="M132 55 L147 45 142 40 158 28 152 24 166 12"/></g>
-          <g class="bolt" style="--d:.9s"><path class="dark" d="M150 96 L166 92 162 84 178 78"/><path class="hot" d="M150 96 L166 92 162 84 178 78"/></g>
-          <g class="bolt" style="--d:1.8s"><path class="dark" d="M136 128 L150 138 144 142 160 154"/><path class="hot" d="M136 128 L150 138 144 142 160 154"/></g>
-          <g class="bolt" style="--d:2.6s"><path class="dark" d="M48 130 L34 142 40 146 24 158"/><path class="hot" d="M48 130 L34 142 40 146 24 158"/></g>
-          <g class="bolt" style="--d:3.4s"><path class="dark" d="M32 90 L16 86 20 94 4 98"/><path class="hot" d="M32 90 L16 86 20 94 4 98"/></g>
-          <g class="bolt" style="--d:4.2s"><path class="dark" d="M52 52 L38 40 44 36 28 24"/><path class="hot" d="M52 52 L38 40 44 36 28 24"/></g>
-          <g class="bolt" style="--d:1.3s"><path class="dark" d="M70 30 L86 36 80 42 96 48"/><path class="hot" d="M70 30 L86 36 80 42 96 48"/></g>
-        </svg>
       </div>
-      <div class="phead-main">
-        <div class="kick">Il tuo profilo</div>
-        <div class="pname-row">
-          <span class="pname" id="pname">—</span>
-          <button class="pname-edit" id="pname-edit" type="button" title="Modifica nome" aria-label="Modifica nome">✎</button>
-          <button class="pset-btn" id="pset-btn" type="button" title="Impostazioni profilo" aria-label="Impostazioni profilo">⚙</button>
+
+        <div class="phead-main">
+          <div id="profile-handle" class="profile-handle">Il tuo spazio nella Grand Line</div>
+          <div class="pname-row"><h1 class="pname" id="pname">Il tuo profilo</h1><button class="pname-edit" id="pname-edit" type="button" title="Modifica nome" aria-label="Modifica nome">✎</button></div>
+          <label class="sr-only" for="username-in">Nome del profilo</label>
+          <input id="username-in" class="pname-input" type="text" placeholder="Il tuo nome di capitano" maxlength="40" autocomplete="off" style="display:none">
+          <p class="profile-bio" id="profile-bio">Il tuo equipaggio, i tuoi legami. La tua rotta.</p>
+          <div class="pstats" id="pstats">La tua ciurma è ancora vuota</div>
         </div>
-        <input id="username-in" class="pname-input" type="text" placeholder="Il tuo nome di capitano" maxlength="40" autocomplete="off" style="display:none">
-        <div class="pstats" id="pstats">—</div>
       </div>
-    </div>
-
-    <div class="panel" id="uname-panel">
-      <div class="kick">Impostazioni · Nome pubblico per i Nakama</div>
-      <div class="uname">
-        <span class="at">@</span>
-        <input id="pub-username" type="text" placeholder="es. lupo_di_mare" maxlength="20" autocomplete="off" spellcheck="false">
-        <button class="btn-gold" id="pub-save" type="button">Salva</button>
+      <div class="cover-bottom">
+        <div class="profile-counts" aria-label="Il tuo registro">
+          <button type="button" data-profile-go="pirati"><strong id="profile-char-count">0</strong><span>Pirati</span></button>
+          <button type="button" data-profile-go="viaggi"><strong id="profile-ship-count">0</strong><span>Navi</span></button>
+          <button type="button" data-profile-go="viaggi"><strong id="profile-session-count">0</strong><span>Sessioni</span></button>
+        </div>
+        <button class="btn-quiet" id="pset-btn" type="button" aria-controls="profile-impostazioni"><span aria-hidden="true">⚙</span> Modifica profilo</button>
       </div>
-      <div class="hint" id="uname-hint">Scegli un username unico (3–20 caratteri: lettere, numeri, underscore). Con questo gli altri pirati potranno trovarti e aggiungerti come nakama. Puoi cambiarlo al massimo una volta ogni 14 giorni.</div>
-    </div>
-
-    <div class="sec-head">
-      <h2>Il tuo equipaggio</h2>
-      <div class="vista-scelta" role="group" aria-label="Come vedere l’equipaggio">
-        <button class="vista-btn" id="vista-griglia" type="button" aria-pressed="true">Griglia</button>
-        <button class="vista-btn" id="vista-carte" type="button" aria-pressed="false">Carte</button>
+    </section>
+    <nav class="profile-navigation" aria-label="Sezioni del profilo">
+      <div class="profile-tabs" role="tablist" aria-label="Il tuo registro">
+        <button type="button" role="tab" id="tab-pirati" aria-controls="profile-pirati" aria-selected="true" data-profile-tab="pirati">I tuoi pirati</button>
+        <button type="button" role="tab" id="tab-viaggi" aria-controls="profile-viaggi" aria-selected="false" tabindex="-1" data-profile-tab="viaggi">Navi e sessioni</button>
+        <button type="button" role="tab" id="tab-nakama" aria-controls="profile-nakama" aria-selected="false" tabindex="-1" data-profile-tab="nakama">Nakama <span id="profile-nakama-count" hidden></span></button>
+        <button type="button" role="tab" id="tab-impostazioni" aria-controls="profile-impostazioni" aria-selected="false" tabindex="-1" data-profile-tab="impostazioni">Impostazioni</button>
       </div>
-      <button class="btn-gold" id="new-btn" type="button">+ Nuovo personaggio</button>
-    </div>
-    <div class="grid" id="chars"></div>
-    <div id="chars-carte" class="carte" hidden>
-      <button class="carte-frec prec" type="button" aria-label="Pirata precedente">‹</button>
-      <div class="carte-pista" id="carte-pista"></div>
-      <button class="carte-frec succ" type="button" aria-label="Pirata successivo">›</button>
-      <div class="carte-punti" id="carte-punti" aria-hidden="true"></div>
-    </div>
-
-    <div class="sec-head" style="margin-top:34px">
-      <h2>Le tue navi</h2>
-      <button class="btn-gold" id="new-ship" type="button">+ Nuova nave</button>
-    </div>
-    <div class="grid" id="ships"></div>
-
-    <div class="sec-head" style="margin-top:34px">
-      <h2>Le tue sessioni</h2>
-      <button class="btn-gold" id="new-session" type="button">+ Nuova sessione</button>
-    </div>
-    <div class="grid" id="sessions"></div>
-
-    <div class="sec-head" style="margin-top:34px">
-      <h2>I tuoi Nakama</h2>
-      <a class="btn-gold" href="/campagne/" style="text-decoration:none">Vai alle Campagne ›</a>
-    </div>
+      <button type="button" class="profile-sync" id="profile-sync" data-profile-go="impostazioni"><span aria-hidden="true"></span><span id="profile-sync-text">Salvataggi</span></button>
+    </nav>
+    <section id="profile-pirati" class="profile-pane" role="tabpanel" aria-labelledby="tab-pirati" tabindex="0">
+      <div class="sec-head crew-heading">
+        <div><div class="profile-eyebrow">IL TUO EQUIPAGGIO</div><h2>Le tue leggende.</h2><p>Ogni volto, una storia ancora da scrivere.</p></div>
+        <div class="crew-actions">
+          <button class="btn-gold btn-import" id="import-char-btn" type="button" title="Importa il JSON esportato dalla Gestione del Pirata">↑ Importa JSON</button>
+          <button class="btn-gold" id="new-btn" type="button">+ Nuovo personaggio</button>
+          <input type="file" id="import-char-file" accept=".json,application/json" hidden>
+        </div>
+      </div>
+      <div class="crew-toolbar"><span class="crew-caption">Scegli chi salpa.</span><div class="vista-scelta" role="group" aria-label="Come vedere l’equipaggio"><button class="vista-btn" id="vista-carte" type="button" aria-pressed="false">◇ Carte</button><button class="vista-btn" id="vista-griglia" type="button" aria-pressed="true">▦ Griglia</button></div></div>
+      <div class="hint" id="import-char-status" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+      <div class="grid" id="chars"></div>
+      <div id="chars-carte" class="carte" hidden>
+        <div class="fleet-stage">
+          <div class="deck-theatre">
+            <div class="deck-orbit" aria-hidden="true"></div>
+            <div class="deck-caption"><span>CHARACTER SELECT</span><span id="deck-count">00 / 00</span></div>
+            <div class="carte-pista" id="carte-pista" role="region" aria-roledescription="carosello" aria-label="Carte dei tuoi pirati"></div>
+            <div class="deck-navigation"><button class="carte-frec prec" type="button" aria-label="Pirata precedente" aria-controls="carte-pista">←</button><div class="carte-punti" id="carte-punti" role="group" aria-label="Scegli un pirata"></div><button class="carte-frec succ" type="button" aria-label="Pirata successivo" aria-controls="carte-pista">→</button></div>
+            <p class="deck-instruction">Scorri le carte o usa le frecce <span aria-hidden="true">← →</span></p>
+          </div>
+          <aside class="pirate-dossier" id="pirate-dossier" aria-label="Il pirata selezionato">
+            <div class="profile-eyebrow">PRONTO A SALPARE</div>
+            <div class="dossier-identity"><div class="dossier-emblem" id="dossier-emblem" aria-hidden="true"></div><div><p id="dossier-role" class="dossier-role"></p><h3 id="dossier-name"></h3></div></div>
+            <p id="dossier-style" class="dossier-style"></p>
+            <div class="dossier-bounty"><span>TAGLIA ATTUALE</span><strong id="dossier-bounty"></strong></div>
+            <dl class="dossier-facts"><div><dt>Razza</dt><dd id="dossier-race"></dd></div><div><dt>Reputazione</dt><dd id="dossier-rank"></dd></div></dl>
+            <blockquote id="dossier-ambition"></blockquote>
+            <button id="dossier-open" class="btn-gold" type="button">Entra in scena <span aria-hidden="true">↗</span></button>
+            <p class="dossier-note">Apri la scheda e riprendi l’avventura.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <section id="profile-viaggi" class="profile-pane" role="tabpanel" aria-labelledby="tab-viaggi" tabindex="0">
+      <div class="section-intro"><div class="profile-eyebrow">IL TUO DIARIO DI BORDO</div><h2>Rotte da ricordare.</h2><p>Navi e sessioni della tua avventura, sempre a portata di mano.</p></div>
+      <div class="sec-head"><h3>Le tue navi</h3><button class="btn-gold" id="new-ship" type="button">+ Nuova nave</button></div><div class="grid" id="ships"></div>
+      <div class="sec-head sub-section"><h3>Le tue sessioni</h3><button class="btn-gold" id="new-session" type="button">+ Nuova sessione</button></div><div class="grid" id="sessions"></div>
+    </section>
+    <section id="profile-nakama" class="profile-pane" role="tabpanel" aria-labelledby="tab-nakama" tabindex="0">
+      <div class="sec-head"><div class="section-intro"><div class="profile-eyebrow">NESSUNO SALPA DA SOLO</div><h2>I tuoi Nakama.</h2><p>Ritrova gli altri giocatori e costruisci la tua ciurma.</p></div><a class="btn-quiet" href="/campagne/">Vai alle Campagne ↗</a></div>
     <div class="panel nakama-panel">
       <div class="nk-search">
         <input id="nk-q" type="text" placeholder="Cerca un pirata per @username" maxlength="20" autocomplete="off" spellcheck="false">
@@ -348,24 +118,41 @@ body:has(#glc-login-slot.in) .avatar{border-color:#d8452e; animation:haki-aura 5
       </div>
     </div>
 
-    <div class="sec-head" style="margin-top:34px"><h2>Sincronizzazione</h2></div>
-    <div class="panel" id="sync-panel">
-      <div class="ttl">Stato su questo dispositivo</div>
+
+    </section>
+    <section id="profile-impostazioni" class="profile-pane" role="tabpanel" aria-labelledby="tab-impostazioni" tabindex="0">
+      <div class="section-intro"><div class="profile-eyebrow">IL TUO ACCOUNT</div><h2>Un profilo che ti somiglia.</h2><p>Personalizza la tua identità e tieni al sicuro le tue avventure.</p></div>
+      <div class="settings-layout">
+        <aside class="settings-index" aria-label="Impostazioni disponibili"><a href="#settings-identity">Identità del giocatore <span>↗</span></a><a href="#uname-panel">Username e Nakama <span>↗</span></a><a href="#sync-panel">Salvataggi e recupero <span>↗</span></a><a href="#settings-account">Accesso <span>↗</span></a><p>Il nome del profilo e i nomi dei tuoi pirati sono indipendenti.</p></aside>
+        <div class="settings-content">
+          <section class="panel settings-section" id="settings-identity"><div class="settings-heading"><div><span class="profile-eyebrow">01 · IDENTITÀ</span><h3>Il giocatore dietro la leggenda.</h3></div><button type="button" class="btn-quiet" id="settings-avatar">Cambia immagine ↗</button></div>
+            <form id="profile-settings-form"><label class="field-label" for="settings-name">Nome del profilo</label><input id="settings-name" type="text" maxlength="40" autocomplete="nickname" placeholder="Il tuo nome di capitano">
+              <label class="field-label" for="settings-bio">Qualcosa di te <span>Facoltativo</span></label><textarea id="settings-bio" rows="3" maxlength="240" placeholder="La tua idea di avventura, il tuo motto, ciò che ti porta per mare…" aria-describedby="bio-count"></textarea><div class="field-counter" id="bio-count">0 / 240</div>
+              <div class="settings-save"><p class="hint">Questi dettagli personalizzano il tuo profilo. Non modificano le schede dei pirati.</p><button class="btn-gold" type="submit">Salva profilo</button></div><p id="profile-settings-status" class="hint" role="status" aria-live="polite"></p>
+            </form>
+          </section>
+          <section class="panel settings-section open" id="uname-panel"><span class="profile-eyebrow">02 · CONNESSIONI</span><h3>Il nome con cui ti trovano.</h3><label class="field-label" for="pub-username">Username pubblico</label><div class="uname"><span class="at" aria-hidden="true">@</span><input id="pub-username" type="text" placeholder="es. lupo_di_mare" maxlength="20" autocomplete="off" spellcheck="false"><button class="btn-gold" id="pub-save" type="button">Salva username</button></div><p class="hint" id="uname-hint">Scegli un username unico (3–20 caratteri: lettere, numeri, underscore). Gli altri giocatori lo usano per trovarti e aggiungerti ai Nakama. Puoi cambiarlo una volta ogni 14 giorni.</p></section>
+    <div class="panel" id="sync-panel"><span class="profile-eyebrow">03 · SALVATAGGI</span>
+      <div class="ttl">I tuoi salvataggi</div>
       <div class="uname">
-        <span id="sync-stato" style="flex:1;min-width:200px">Controllo in corso…</span>
-        <button class="btn-gold" id="sync-now" type="button">Sincronizza ora</button>
+        <span id="sync-stato" role="status" aria-live="polite" style="flex:1;min-width:200px">Controllo in corso…</span>
+        <button class="btn-gold" id="sync-now" type="button">Riprova sincronizzazione</button>
+        <button class="btn-gold" id="sync-history-button" type="button">Versioni precedenti</button>
       </div>
-      <div class="hint" id="sync-righe" style="white-space:pre-line"></div>
-      <div class="uname" style="margin-top:12px">
-        <button class="btn-gold" id="sync-giu" type="button">Prendi i dati del cloud</button>
-        <button class="btn-gold" id="sync-su" type="button">Manda al cloud questo dispositivo</button>
-      </div>
-      <div class="hint" id="sync-hint">I dati viaggiano quando sei entrato col tuo account. «Prendi» sovrascrive questo dispositivo, «Manda» sovrascrive il cloud: scegli il dispositivo che ha la versione giusta. Se compare un errore, mandamelo così com'è.</div>
+      <div class="hint" id="sync-righe"></div>
+      <p class="hint">I salvataggi si aggiornano automaticamente. Se due dispositivi modificano lo stesso pirata, qui puoi confrontare e conservare le copie.</p>
+      <p id="sync-feedback" role="alert"></p>
+      <div id="sync-conflicts"></div>
+      <div id="sync-history" hidden></div>
+      <section id="sync-version-preview" class="sync-conflict" hidden></section>
     </div>
 
-    <div class="foot"><a href="/">◀ Torna al porto</a></div>
-  </div>
-
+          <section class="panel settings-section" id="settings-account"><span class="profile-eyebrow">04 · ACCESSO</span><h3>La tua prossima partenza.</h3><div class="settings-save"><p class="hint">Quando esci, verifichiamo prima che le tue modifiche siano al sicuro.</p><button class="btn-quiet" id="settings-signout" type="button">Esci dall’account ↗</button></div><p class="hint" id="settings-account-status" role="status"></p></section>
+        </div>
+      </div>
+    </section>
+    <footer class="foot"><a href="/">⚓ Grand Line Chronicles</a><span>La forza non si accumula — si guadagna.</span></footer>
+  </main>
 <script>
 function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null?pos.y:50),z=(pos.z!=null?pos.z:1);return "object-position:"+x+"% "+y+"%;transform:scale("+z+");transform-origin:"+x+"% "+y+"%;";}
 (function(){
@@ -381,64 +168,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
   function bountyLabel(n){var lv=BLV[0][1];for(var i=0;i<BLV.length;i++){if(n>=BLV[i][0])lv=BLV[i][1];}return lv;}
   function subtitle(c){var b=[];if(c.race&&RACE_NAMES[c.race])b.push(RACE_NAMES[c.race]);if(c.role)b.push(c.role);var n=Number(c.bounty||0);if(n>0)b.push(bountyLabel(n));return b.join("  ·  ")||"Scheda da completare";}
 
-  /* Pannello della sincronizzazione: stato leggibile e prova a mano. */
-  function syncPeso(){
-    var n = (window.GLCSync && GLCSync.peso) ? GLCSync.peso() : 0;
-    return n ? (n / 1048576).toFixed(1).replace(".", ",") + " MB di dati" : "";
-  }
-  function syncRender(msg){
-    var box = document.getElementById("sync-stato"); if(!box) return;
-    if(msg){ box.textContent = msg; return; }
-    if(!window.GLCSync){ box.textContent = "Sincronizzazione non disponibile su questa pagina."; return; }
-    if(!GLCSync.collegato()){ box.textContent = "Non sei entrato: i dati restano su questo dispositivo."; return; }
-    var st = GLCSync.stato(), peso = syncPeso();
-    if(!st){ box.textContent = "Collegato al tuo account. " + peso; return; }
-    var quando = "";
-    try{ quando = new Date(st.quando).toLocaleString("it-IT"); }catch(e){}
-    box.textContent = (st.ok ? "Allineato · " : "Problema · ") + st.dettaglio + (quando ? " · " + quando : "") + (peso ? " · " + peso : "");
-    box.style.color = st.ok ? "" : "#f0c9b0";
-  }
-  function quando(ms){ if(!ms) return "mai"; try{ return new Date(ms).toLocaleString("it-IT"); }catch(e){ return String(ms); } }
-  function syncRighe(){
-    var box = document.getElementById("sync-righe");
-    if(!box || !window.GLCSync || !GLCSync.dettagli) return;
-    if(!GLCSync.collegato()){ box.textContent = ""; return; }
-    box.textContent = "Lettura del cloud…";
-    GLCSync.dettagli().then(function(righe){
-      box.textContent = righe.map(function(r){
-        if(r.errore) return r.chiave + " — errore: " + r.errore;
-        if(!r.cloud) return r.chiave + " — nel cloud non c'è nulla · qui " + Math.round(r.locale / 1024) + " KB";
-        return r.chiave + " — " + (r.uguali ? "uguali" : "DIVERSI") +
-          " · cloud " + Math.round(r.cloud / 1024) + " KB del " + quando(r.quandoCloud) +
-          " · qui " + Math.round(r.locale / 1024) + " KB, ultima modifica " + quando(r.modificaLocale);
-      }).join("\n");
-    }).catch(function(e){ box.textContent = "Lettura non riuscita: " + (e && e.message ? e.message : e); });
-  }
-  function syncBind(){
-    var btn = document.getElementById("sync-now"); if(!btn) return;
-    btn.onclick = function(){
-      if(!window.GLCSync || !GLCSync.collegato()){ syncRender(); return; }
-      btn.disabled = true; syncRender("Sincronizzazione in corso…");
-      GLCSync.adesso().then(function(){ btn.disabled = false; syncRender(); syncRighe(); })
-        .catch(function(){ btn.disabled = false; syncRender(); });
-    };
-    var giu = document.getElementById("sync-giu");
-    if(giu) giu.onclick = function(){
-      if(!window.GLCSync || !GLCSync.collegato()) return;
-      if(!confirm("Sovrascrivo i dati di QUESTO dispositivo con quelli del cloud?")) return;
-      giu.disabled = true; syncRender("Scarico dal cloud…");
-      GLCSync.prendiDalCloud().then(function(){ giu.disabled = false; syncRender(); syncRighe(); });
-    };
-    var su = document.getElementById("sync-su");
-    if(su) su.onclick = function(){
-      if(!window.GLCSync || !GLCSync.collegato()) return;
-      if(!confirm("Sovrascrivo il CLOUD (e quindi gli altri dispositivi) con i dati di questo dispositivo?")) return;
-      su.disabled = true; syncRender("Invio al cloud…");
-      GLCSync.mandaAlCloud().then(function(){ su.disabled = false; syncRender(); syncRighe(); });
-    };
-    syncRender();
-    setTimeout(function(){ syncRender(); syncRighe(); }, 2500);
-  }
+  function syncBind(){if(window.GLCSyncPanel)GLCSyncPanel.mount();}
 
   function readCT(){
     var o=null; try{o=JSON.parse(localStorage.getItem(KEY)||"null");}catch(e){}
@@ -451,9 +181,9 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     if(o){ var nid=newId(); var ch={}; ch[nid]=o; return {v:2,activeId:nid,order:[nid],chars:ch}; }
     return {v:2,activeId:"",order:[],chars:{}};
   }
-  function writeCT(ct){ try{localStorage.setItem(KEY,JSON.stringify(ct));}catch(e){} }
+  function writeCT(ct){ try{(window.GLCStore||localStorage).setItem(KEY,JSON.stringify(ct));return true;}catch(e){return false;} }
   function readProfile(){ try{return JSON.parse(localStorage.getItem(PKEY)||"{}")||{};}catch(e){return {};} }
-  function writeProfile(p){ try{localStorage.setItem(PKEY,JSON.stringify(p));}catch(e){} }
+  function writeProfile(p){ try{(window.GLCStore||localStorage).setItem(PKEY,JSON.stringify(p));}catch(e){throw e;} }
   var NKEY="glc_nave_v1";
   function newNId(){return "n_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
   function shipLabel(s){return (s&&s.nome&&s.nome.trim())?s.nome.trim():"Nave senza nome";}
@@ -462,13 +192,46 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     if(o&&o.ships&&typeof o.ships==="object"){o.order=Array.isArray(o.order)?o.order.filter(function(id){return o.ships[id];}):[];for(var id in o.ships)if(o.order.indexOf(id)<0)o.order.push(id);if(!o.ships[o.activeId])o.activeId=o.order[0]||"";return o;}
     if(o){var nid=newNId();var sh={};sh[nid]=o;return {v:1,activeId:nid,order:[nid],ships:sh};}
     return {v:1,activeId:"",order:[],ships:{}};}
-  function writeNT(nt){try{localStorage.setItem(NKEY,JSON.stringify(nt));}catch(e){}}
+  function writeNT(nt){try{(window.GLCStore||localStorage).setItem(NKEY,JSON.stringify(nt));}catch(e){throw e;}}
   function openShip(id){var nt=readNT();if(nt.ships[id]){nt.activeId=id;writeNT(nt);}location.href="/nave-portale/?n="+encodeURIComponent(id);}
   function newShip(){var nt=readNT();var id=newNId();nt.ships[id]={};nt.order.push(id);nt.activeId=id;writeNT(nt);location.href="/nave-portale/?n="+encodeURIComponent(id);}
   function delShip(id){var nt=readNT();if(!nt.ships[id])return;if(!confirm("Eliminare «"+shipLabel(nt.ships[id])+"» dalle tue navi? Non è reversibile."))return;delete nt.ships[id];nt.order=nt.order.filter(function(x){return x!==id;});if(nt.activeId===id)nt.activeId=nt.order[0]||"";writeNT(nt);renderShips();}
 
   function openChar(id){ var ct=readCT(); if(ct.chars[id]){ ct.activeId=id; writeCT(ct); } location.href="/gestisci-pirata/?c="+encodeURIComponent(id); }
   function newChar(){ location.href="/crea-il-tuo-pirata/"; }
+  function importCharMessage(text,kind){
+    var box=document.getElementById("import-char-status");
+    box.className="hint"+(kind?" "+kind:""); box.textContent=text; box.hidden=!text;
+  }
+  function importChar(file){
+    if(!file)return;
+    var button=document.getElementById("import-char-btn"), rd=new FileReader();
+    button.disabled=true;
+    importCharMessage("Importazione del personaggio…");
+    function fail(message){ button.disabled=false; importCharMessage(message,"err"); }
+    rd.onerror=rd.onabort=function(){ fail("Non riesco a leggere il file. Selezionalo di nuovo e riprova."); };
+    rd.onload=function(){
+      var c;
+      try{
+        c=JSON.parse(String(rd.result).replace(/^\uFEFF/,""));
+        var object=function(v){return v!==null&&typeof v==="object"&&!Array.isArray(v);};
+        if(!object(c)||typeof c.nome!=="string"||!object(c.attr)||!object(c.skills))throw new Error("invalid character");
+      }catch(e){ fail("File non valido. Scegli il JSON del personaggio esportato da Gestione del Pirata → Azioni."); return; }
+      /* Conserva l'intera scheda: gli aggiornamenti dei vecchi formati vengono
+         applicati dalla Gestione, come per tutti gli altri personaggi. */
+      var ct=readCT(), id;
+      do{ id=newId(); }while(Object.prototype.hasOwnProperty.call(ct.chars,id));
+      ct.chars[id]=c; ct.order.push(id); ct.activeId=id;
+      if(!writeCT(ct)){
+        fail("Impossibile salvare il personaggio: spazio insufficiente o salvataggio non disponibile. Nessun personaggio è stato aggiunto.");
+        return;
+      }
+      button.disabled=false;
+      renderAll();
+      importCharMessage("«"+label(c)+"» importato nell’equipaggio. Puoi aprire la sua scheda.","ok");
+    };
+    try{ rd.readAsText(file); }catch(e){ rd.onerror(); }
+  }
   function delChar(id){ var ct=readCT(); if(!ct.chars[id])return; if(!confirm("Eliminare «"+label(ct.chars[id])+"» dall'equipaggio? Non è reversibile."))return; delete ct.chars[id]; ct.order=ct.order.filter(function(x){return x!==id;}); if(ct.activeId===id) ct.activeId=ct.order[0]||""; writeCT(ct); renderChars(); }
 
   function makeCard(id,c){
@@ -511,22 +274,77 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     grid.innerHTML="";
     if(!nt.order.length){ var en=document.createElement("div"); en.className="empty-note"; en.textContent="Non hai ancora navi. Creane una con il riquadro qui sotto."; grid.appendChild(en); }
     nt.order.forEach(function(id){ grid.appendChild(makeShipCard(id, nt.ships[id])); });
-    grid.appendChild(makeNewShipCard());
+    grid.appendChild(makeNewShipCard());profileSummary();
+  }
+  function motionReduced(){return !!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);}
+  var PROFILE_PANE='pirati', PROFILE_DIRTY=false, DOSSIER_ID=null, PROFILE_RENDER_SNAPSHOT='';
+  function profileSnapshot(){return [KEY,PKEY,NKEY,SKEY].map(function(k){return localStorage.getItem(k)||'';}).join('\u001f');}
+  function refreshProfileIfChanged(){if(profileSnapshot()!==PROFILE_RENDER_SNAPSHOT)renderAll();}
+  function profileHandle(){var n=document.getElementById('profile-handle');if(n)n.textContent=unameCurrent?'@'+unameCurrent:'Il tuo spazio nella Grand Line';}
+  function profileSummary(){
+    var p=readProfile(),counts={'profile-char-count':readCT().order.length,'profile-ship-count':readNT().order.length,'profile-session-count':readST().order.length};
+    Object.keys(counts).forEach(function(id){var n=document.getElementById(id);if(n)n.textContent=counts[id];});
+    var n=counts['profile-char-count'],ps=document.getElementById('pstats');if(ps)ps.textContent=n===0?'La tua ciurma è ancora vuota':n+(n===1?' personaggio':' personaggi')+' nella tua ciurma';
+    var bio=document.getElementById('profile-bio');if(bio)bio.textContent=typeof p.bio==='string'&&p.bio.trim()?p.bio:'Il tuo equipaggio, i tuoi legami. La tua rotta.';
+    if(!PROFILE_DIRTY){var name=document.getElementById('settings-name'),input=document.getElementById('settings-bio');if(name)name.value=p.username||'';if(input){input.value=typeof p.bio==='string'?p.bio:'';document.getElementById('bio-count').textContent=input.value.length+' / 240';}}
+    profileHandle();
+  }
+  function profileShow(pane,focus,updateURL){
+    if(!document.getElementById('profile-'+pane))pane='pirati';PROFILE_PANE=pane;
+    document.querySelectorAll('[data-profile-tab]').forEach(function(b){var on=b.dataset.profileTab===pane;b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1;});
+    document.querySelectorAll('.profile-pane').forEach(function(el){el.hidden=el.id!=='profile-'+pane;el.classList.toggle('entering',!el.hidden);});
+    if(updateURL)try{history.replaceState(null,'','#profile-'+pane);}catch(e){}
+    if(focus)document.getElementById('tab-'+pane).focus({preventScroll:true});
+    if(pane==='pirati'&&vistaCorrente()==='carte')requestAnimationFrame(function(){renderCarte();});
+  }
+  function profileHash(){
+    var id=location.hash.slice(1),target=document.getElementById(id),pane=target&&target.closest('.profile-pane');
+    if(pane){profileShow(pane.id.replace('profile-',''),false,false);if(target!==pane)requestAnimationFrame(function(){target.scrollIntoView({block:'start',behavior:'auto'});});}
+    else profileShow('pirati',false,false);
+  }
+  function profileSyncBadge(){
+    var api=window.GLCSync,st=api&&api.stato(),b=document.getElementById('profile-sync'),n=document.getElementById('profile-sync-text');if(!b||!n)return;
+    var connected=api&&api.collegato();
+    b.dataset.state=!connected?'local':!st||!st.ready||st.error||st.pending||st.conflicts.length?'pending':'ok';
+    n.textContent=b.dataset.state==='local'?'Su questo dispositivo':b.dataset.state==='ok'?'Salvataggi al sicuro':st&&st.conflicts.length?'Copie da confrontare':'Salvataggi in attesa';
+    b.title=api&&api.messaggio?api.messaggio():'Apri le impostazioni dei salvataggi';
+  }
+  function profileBind(){
+    var tabs=[].slice.call(document.querySelectorAll('[data-profile-tab]'));
+    tabs.forEach(function(b,i){b.onclick=function(){profileShow(b.dataset.profileTab,false,true);};b.onkeydown=function(e){var n;if(e.key==='ArrowRight')n=(i+1)%tabs.length;else if(e.key==='ArrowLeft')n=(i+tabs.length-1)%tabs.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=tabs.length-1;else return;e.preventDefault();profileShow(tabs[n].dataset.profileTab,true,true);};});
+    document.querySelectorAll('[data-profile-go]').forEach(function(b){b.onclick=function(){profileShow(b.dataset.profileGo,false,true);if(b.id==='profile-sync')document.getElementById('sync-panel').scrollIntoView({block:'start',behavior:motionReduced()?'auto':'smooth'});};});
+    window.addEventListener('hashchange',profileHash);profileHash();
+    window.addEventListener('glc:sync-status',profileSyncBadge);profileSyncBadge();
+    document.getElementById('settings-avatar').onclick=function(){document.getElementById('avatar-cam').click();};
+    var form=document.getElementById('profile-settings-form'),status=document.getElementById('profile-settings-status');
+    form.addEventListener('input',function(){PROFILE_DIRTY=true;document.getElementById('bio-count').textContent=document.getElementById('settings-bio').value.length+' / 240';status.textContent='Modifiche da salvare.';status.className='hint';});
+    form.onsubmit=function(e){e.preventDefault();if(!form.reportValidity())return;var p=readProfile();p.username=document.getElementById('settings-name').value.trim();p.bio=document.getElementById('settings-bio').value.trim();try{writeProfile(p);PROFILE_DIRTY=false;renderName();renderAvatar();profileSummary();status.className='hint ok';status.textContent='Profilo aggiornato.';}catch(err){status.className='hint err';status.textContent='Profilo non salvato. Le modifiche restano qui: '+err.message;}};
+    document.getElementById('settings-signout').onclick=function(){var out=document.getElementById('glc-out');if(out)out.click();else document.getElementById('settings-account-status').textContent='Non hai effettuato l’accesso su questo dispositivo.';};
+  }
+  var PROFILE_EMBLEMS={Striker:'stile-striker',Crusher:'stile-crusher',Swordsman:'stile-swordsman',Sniper:'stile-sniper',Special:'stile-special',Infermeria:'ruolo-dottore',Tossicologo:'stile-tossicologo',Chimico:'stile-chimico',Carpentiere:'stile-carpentiere',Meccanico:'stile-meccanico',Inventore:'stile-inventore',Combattente:'ruolo-combattente',Ingegnere:'ruolo-ingegnere',Dottore:'ruolo-dottore',Cuoco:'ruolo-cuoco',Navigatore:'ruolo-navigatore',Archeologo:'ruolo-archeologo',Musicista:'ruolo-musicista',Capitano:'ruolo-capitano'};
+  function profileEmblem(c){var key=PROFILE_EMBLEMS[c.style]||PROFILE_EMBLEMS[c.role];return key?'/img/icons/'+key+'.png':'';}
+  function dossierRender(id,force){
+    if(id===DOSSIER_ID&&!force)return;DOSSIER_ID=id;var ct=readCT(),c=ct.chars[id],stage=document.querySelector('.fleet-stage');if(!stage)return;stage.classList.toggle('is-empty',!c);if(!c)return;
+    var values={'dossier-name':label(c),'dossier-role':c.role||'Ruolo da scegliere','dossier-style':[c.style,c.role2,c.style2].filter(Boolean).join(' · '),'dossier-race':RACE_NAMES[c.race]||'Da scegliere','dossier-rank':bountyLabel(Number(c.bounty||0)),'dossier-bounty':Number(c.bounty||0)>0?'฿ '+taglia(c.bounty):'Nessuna taglia','dossier-ambition':c.amb?'“'+c.amb+'”':'La tua prossima avventura comincia qui.'};
+    Object.keys(values).forEach(function(key){document.getElementById(key).textContent=values[key];});
+    var e=document.getElementById('dossier-emblem'),url=profileEmblem(c);e.replaceChildren();if(url){var img=document.createElement('img');img.src=url;img.alt='';e.appendChild(img);}else e.textContent='⚓';
+    document.getElementById('dossier-open').onclick=function(){openChar(id);};
+    var count=document.getElementById('deck-count');if(count)count.textContent=String(ct.order.indexOf(id)+1).padStart(2,'0')+' / '+String(ct.order.length).padStart(2,'0');
   }
   /* --- Equipaggio a carte -------------------------------------------------
      Stessa lista della griglia, presentata come un mazzo che scorre: la carta
      al centro è quella scelta. Nessun dato diverso, solo un altro modo di
      guardarlo. */
   var VISTA_KEY="glc_vista_equipaggio";
-  function vistaCorrente(){ try{ return localStorage.getItem(VISTA_KEY)==="carte" ? "carte" : "griglia"; }catch(e){ return "griglia"; } }
+  function vistaCorrente(){ try{ return localStorage.getItem(VISTA_KEY)==="griglia" ? "griglia" : "carte"; }catch(e){ return "carte"; } }
   function taglia(n){ return Number(n||0).toLocaleString("it-IT"); }
   function coloreTaglia(n){
     var i=0; for(var k=0;k<BLV.length;k++){ if(n>=BLV[k][0]) i=k; }
     return ["#9fb3c8","#7fd8b0","#7fc5f5","#c9a7ff","#ffb36b","#ff7a6b"][i] || "#9fb3c8";
   }
   function makePirataCarta(id,c,indice){
-    var b=document.createElement("button"); b.type="button"; b.className="pirata-carta";
-    b.setAttribute("aria-label","Apri la scheda di "+label(c));
+    var b=document.createElement("article"); b.className="pirata-carta";b.dataset.characterId=id;b.setAttribute("aria-roledescription","carta del personaggio");
+    b.setAttribute("aria-label",label(c));
     var corpo=document.createElement("div"); corpo.className="pc-corpo";
     /* Se il ritratto è un PNG trasparente, dietro ci va lo sfondo scelto nella
        scheda: così la carta è completa e non mostra il vuoto. */
@@ -538,9 +356,11 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     }
     var foto=document.createElement("div"); foto.className="pc-foto";
     if(c.photo){ var img=document.createElement("img"); img.src=c.photo; img.alt=""; img.decoding="async"; img.style.cssText=photoStyle(c.photoPos); foto.appendChild(img); }
-    else { var vuoto=document.createElement("div"); vuoto.className="pc-vuoto"; vuoto.textContent="\u2693"; foto.appendChild(vuoto); }
+    else { var vuoto=document.createElement("div"); vuoto.className="pc-vuoto"; var emblem=profileEmblem(c);if(emblem){var fallback=document.createElement("img");fallback.src=emblem;fallback.alt="";vuoto.appendChild(fallback);}else vuoto.textContent="\u2693"; foto.appendChild(vuoto); }
     corpo.appendChild(foto);
     var velo=document.createElement("div"); velo.className="pc-velo"; corpo.appendChild(velo);
+    var edition=document.createElement('span');edition.className='pc-edition';edition.textContent='GRAND LINE · '+String(indice+1).padStart(2,'0');corpo.appendChild(edition);
+    var emblemURL=profileEmblem(c);if(emblemURL&&c.photo){var crest=document.createElement('img');crest.src=emblemURL;crest.alt='';crest.className='pc-crest';corpo.appendChild(crest);}
 
     var testo=document.createElement("div"); testo.className="pc-testo";
     var n=Number(c.bounty||0);
@@ -556,10 +376,11 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     corpo.appendChild(testo);
     b.appendChild(corpo);
 
-    var x=document.createElement("button"); x.type="button"; x.className="pc-x"; x.title="Elimina"; x.setAttribute("aria-label","Elimina "+label(c)); x.textContent="\u2715";
+    var x=document.createElement("button"); x.type="button"; x.className="pc-x"; x.title="Elimina"; x.setAttribute("aria-label","Elimina "+label(c)); x.innerHTML='<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 10v7M14 10v7"/></svg>';
     x.onclick=function(ev){ ev.stopPropagation(); delChar(id); };
     b.appendChild(x);
-    b.onclick=function(){ openChar(id); };
+    var open=document.createElement('button');open.type='button';open.className='pc-open';open.setAttribute('aria-label','Apri la scheda di '+label(c));open.onclick=function(){openChar(id);};b.insertBefore(open,x);
+    b.addEventListener('pointermove',function(ev){if(motionReduced()||ev.pointerType==='touch')return;var r=b.getBoundingClientRect();b.style.setProperty('--shine-x',((ev.clientX-r.left)/r.width*100).toFixed(1)+'%');b.style.setProperty('--shine-y',((ev.clientY-r.top)/r.height*100).toFixed(1)+'%');});
     return b;
   }
   /* L'aggiornamento gira a ogni fotogramma mentre si scorre, quindi non deve
@@ -578,7 +399,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
   function carteAggiorna(){
     var pista=document.getElementById("carte-pista"); if(!pista) return;
     if(!CARTE.length || CARTE[0].n.parentNode!==pista) carteMisura();
-    if(!CARTE.length) return;
+    if(!CARTE.length||!PISTA_W) return;
     var centro=pista.scrollLeft + PISTA_W/2;
     var scalaMin=PISTA_W<=560 ? .9 : .82, raggio=PISTA_W*.62;
     var piuVicina=null, minima=Infinity, calcoli=[];
@@ -586,23 +407,26 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
       var d=Math.abs(CARTE[i].c - centro);
       if(d<minima){ minima=d; piuVicina=CARTE[i]; }
       var vicinanza=Math.max(0, 1 - d/raggio);
-      calcoli.push({v:CARTE[i], scala:scalaMin + vicinanza*(1-scalaMin), velo:.45 + vicinanza*.55});
+      calcoli.push({v:CARTE[i], scala:scalaMin + vicinanza*(1-scalaMin), velo:.45 + vicinanza*.55, angle:Math.max(-5,Math.min(5,(CARTE[i].c-centro)/55))});
     }
     for(var j=0;j<calcoli.length;j++){
       var c=calcoli[j], attiva=c.v===piuVicina, n=c.v.n;
       if(attiva!==n.classList.contains("attiva")) n.classList.toggle("attiva", attiva);
       /* La carta al centro resta a grandezza piena esatta. */
-      var t=attiva ? "none" : ("scale(" + c.scala.toFixed(3) + ")");
+      var t=attiva ? "none" : ("scale(" + c.scala.toFixed(3) + ") rotate("+c.angle.toFixed(2)+"deg)");
       var o=attiva ? "1" : c.velo.toFixed(3);
       if(n.style.transform!==t) n.style.transform=t;
       if(n.style.opacity!==o) n.style.opacity=o;
+      n.querySelector('.pc-open').tabIndex=attiva?0:-1;n.querySelector('.pc-x').tabIndex=attiva?0:-1;
+      n.setAttribute('aria-hidden',String(!attiva));
     }
     var punti=document.getElementById("carte-punti");
     var posto=piuVicina ? piuVicina.posto : 0;
     if(punti && punti.dataset.acceso!==String(posto)){
       punti.dataset.acceso=String(posto);
-      [].slice.call(punti.children).forEach(function(p,i){ p.className = (i===posto) ? "on" : ""; });
+      [].slice.call(punti.children).forEach(function(p,i){ p.className = (i===posto) ? "on" : "";p.setAttribute("aria-pressed",String(i===posto)); });
     }
+    if(piuVicina)dossierRender(piuVicina.n.dataset.characterId);
   }
   /* Quando si esce dalla copia di mezzo si torna dentro di una copia intera:
      il disegno è identico, quindi il salto non si vede. */
@@ -623,14 +447,16 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
      tutto il profilo alla sezione. */
   function carteCentra(carta, morbido){
     var pista=document.getElementById("carte-pista"); if(!pista||!carta) return;
+    clearTimeout(pista._centerTimer);clearTimeout(pista._settleTimer);
+    morbido=!!morbido&&!motionReduced();
     var meta=carta.offsetLeft + carta.offsetWidth/2 - pista.clientWidth/2;
     pista.dataset.inMovimento = morbido ? "1" : "0";
-    if(morbido) setTimeout(function(){ pista.dataset.inMovimento="0"; carteRientra(pista); }, 520);
+    if(morbido) pista._settleTimer=setTimeout(function(){ pista.dataset.inMovimento="0"; carteRientra(pista); }, 520);
     if(pista.scrollTo) pista.scrollTo({left:meta, behavior: morbido ? "smooth" : "auto"});
     else pista.scrollLeft=meta;
     /* Se lo scorrimento morbido non parte (scheda in secondo piano, animazioni
        ridotte) la carta ci arriva comunque. */
-    setTimeout(function(){
+    pista._centerTimer=setTimeout(function(){
       if(Math.abs(pista.scrollLeft - meta) > 4) pista.scrollLeft = meta;
       carteRientra(pista);
       carteAggiorna();
@@ -648,12 +474,12 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
   }
   function renderCarte(){
     var ct=readCT(), pista=document.getElementById("carte-pista"); if(!pista) return;
-    pista.innerHTML="";
-    var punti=document.getElementById("carte-punti"); if(punti) punti.innerHTML="";
+    pista.innerHTML="";CARTE=[];DOSSIER_ID=null;
+    var punti=document.getElementById("carte-punti"); if(punti){punti.innerHTML="";delete punti.dataset.acceso;}
     if(!ct.order.length){
       var v=document.createElement("div"); v.className="carte-vuoto";
       v.textContent="Non hai ancora pirati. Creane uno con il pulsante qui sopra.";
-      pista.appendChild(v); return;
+      pista.appendChild(v);dossierRender(null,true);document.getElementById("deck-count").textContent="00 / 00";document.querySelectorAll(".carte-frec").forEach(function(b){b.disabled=true;}); return;
     }
     /* Il mazzo viene steso tre volte: si scorre sempre sulla copia di mezzo e,
        quando si esce, si torna dentro di una copia senza che si veda. Così non
@@ -667,7 +493,9 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
         pista.appendChild(carta);
       });
     }
-    if(punti) ct.order.forEach(function(){ punti.appendChild(document.createElement("i")); });
+    if(punti)ct.order.forEach(function(id,i){var point=document.createElement('button');point.type='button';point.setAttribute('aria-label','Seleziona '+label(ct.chars[id]));point.setAttribute('aria-pressed','false');point.onclick=function(){var cards=pista.querySelectorAll('.pirata-carta');carteCentra(cards[i+(quante===3?ct.order.length:0)],true);};punti.appendChild(point);});
+    document.querySelectorAll('.carte-frec').forEach(function(b){b.disabled=ct.order.length<2;});
+    dossierRender(ct.activeId||ct.order[0],true);
     /* Il centraggio viene fatto subito e poi ripetuto: in una scheda in secondo
        piano requestAnimationFrame non scatta, e le carte resterebbero spente. */
     var attivo=ct.order.indexOf(ct.activeId);
@@ -693,7 +521,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     carte.hidden=!aCarte;
     if(bg) bg.setAttribute("aria-pressed", String(!aCarte));
     if(bc) bc.setAttribute("aria-pressed", String(aCarte));
-    try{ localStorage.setItem(VISTA_KEY, aCarte?"carte":"griglia"); }catch(e){}
+    try{ (window.GLCStore||localStorage).setItem(VISTA_KEY, aCarte?"carte":"griglia"); }catch(e){}
     if(aCarte) renderCarte();
   }
   function vistaBind(){
@@ -702,6 +530,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     if(bc) bc.onclick=function(){ vistaApplica("carte"); };
     var pista=document.getElementById("carte-pista");
     if(pista){
+      pista.addEventListener('keydown',function(e){if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();if(e.key==='ArrowLeft'||e.key==='ArrowRight')carteScorri(e.key==='ArrowLeft'?-1:1);else{var count=Number(pista.dataset.perCopia||0),cards=pista.querySelectorAll('.pirata-carta'),middle=count>1?count:0;carteCentra(cards[middle+(e.key==='End'?count-1:0)],true);}setTimeout(function(){var active=pista.querySelector('.attiva .pc-open');if(active)active.focus({preventScroll:true});},motionReduced()?10:540);});
       /* Un solo aggiornamento per fotogramma. Mentre si scorre le carte non
          hanno transizioni — seguono il dito — e il rientro fra le copie
          aspetta che lo scorrimento si fermi, per non spezzare l'inerzia. */
@@ -718,7 +547,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
         atteso=true;
         requestAnimationFrame(function(){ atteso=false; carteAggiorna(); });
       }, {passive:true});
-      window.addEventListener("resize", function(){ carteMisura(); carteAggiorna(); });
+      window.addEventListener("resize", function(){var id=DOSSIER_ID;carteMisura();var cards=pista.querySelectorAll(".pirata-carta"),count=Number(pista.dataset.perCopia||0);var target=[].slice.call(cards).find(function(c){return c.dataset.characterId===id&&Number(c.dataset.copia)===(count>1?1:0);});if(target)carteCentra(target,false);else carteAggiorna();});
     }
     var carte=document.getElementById("chars-carte");
     if(carte){
@@ -734,7 +563,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     grid.innerHTML="";
     if(!ct.order.length){ var en=document.createElement("div"); en.className="empty-note"; en.textContent="Non hai ancora pirati. Creane uno con il riquadro qui sotto."; grid.appendChild(en); }
     ct.order.forEach(function(id){ grid.appendChild(makeCard(id, ct.chars[id])); });
-    grid.appendChild(makeNewCard());
+    grid.appendChild(makeNewCard());profileSummary();
     if(vistaCorrente()==="carte") renderCarte();
   }
   var SKEY="glc_sessioni_v1";
@@ -749,7 +578,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     }
     return {v:1,activeId:"",order:[],sessions:{}};
   }
-  function writeST(st){ try{localStorage.setItem(SKEY,JSON.stringify(st));}catch(e){} }
+  function writeST(st){ try{(window.GLCStore||localStorage).setItem(SKEY,JSON.stringify(st));}catch(e){throw e;} }
   function sessLabel(s){return (s&&s.nome&&s.nome.trim())?s.nome.trim():"Sessione senza nome";}
   function sessSub(s){
     var ct=readCT(), nt=readNT(), b=[];
@@ -785,11 +614,11 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     grid.innerHTML="";
     if(!st.order.length){ var en=document.createElement("div"); en.className="empty-note"; en.textContent="Non hai ancora sessioni. Creane una con il riquadro qui sotto."; grid.appendChild(en); }
     st.order.forEach(function(id){ grid.appendChild(makeSessionCard(id, st.sessions[id])); });
-    grid.appendChild(makeNewSessionCard());
+    grid.appendChild(makeNewSessionCard());profileSummary();
   }
   function renderAvatar(){
     var a=document.getElementById("avatar"); if(!a) return; var p=readProfile();
-    if(p.avatar){ a.innerHTML='<img src="'+p.avatar+'" alt="">'; }
+    if(p.avatar){var portrait=document.createElement("img");portrait.src=p.avatar;portrait.alt="";a.replaceChildren(portrait);}
     else { var init=((p.username||"").trim().charAt(0)||"").toUpperCase();
       a.innerHTML = init ? '<span>'+esc(init)+'</span>' : '<svg class="ph-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-9 2.2-9 6v2h18v-2c0-3.8-4.6-6-9-6Z"/></svg>'; }
   }
@@ -805,7 +634,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
   function endEdit(){
     var d=document.getElementById("pname"), e=document.getElementById("pname-edit"), inp=document.getElementById("username-in");
     if(!inp) return; var p=readProfile(); p.username=(inp.value||"").trim(); writeProfile(p);
-    inp.style.display="none"; if(d) d.style.display=""; if(e) e.style.display=""; renderName(); renderAvatar();
+    inp.style.display="none"; if(d) d.style.display=""; if(e) e.style.display=""; renderName(); renderAvatar();profileSummary();
   }
   function handleAvatar(file){
     if(!file||!file.type||file.type.indexOf("image/")!==0)return;
@@ -822,7 +651,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     renderAvatar(); renderName();
     var n=readCT().order.length;
     var ps=document.getElementById("pstats"); if(ps) ps.textContent = n===0 ? "La tua ciurma è ancora vuota" : (n+(n===1?" personaggio":" personaggi")+" nella tua ciurma");
-    renderChars(); renderShips(); renderSessions();
+    renderChars(); renderShips(); renderSessions();PROFILE_RENDER_SNAPSHOT=profileSnapshot();
   }
 
   document.addEventListener("DOMContentLoaded", function(){
@@ -830,9 +659,15 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     if(d) d.addEventListener("click", startEdit);
     if(e) e.addEventListener("click", startEdit);
     if(inp){ inp.addEventListener("blur", endEdit); inp.addEventListener("keydown", function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); inp.blur(); } }); }
+    profileBind();
     syncBind();
     vistaBind();
     var nb=document.getElementById("new-btn"); if(nb) nb.onclick=newChar;
+    var ib=document.getElementById("import-char-btn"), jf=document.getElementById("import-char-file");
+    if(ib&&jf){
+      ib.onclick=function(){jf.click();};
+      jf.onchange=function(){var file=jf.files[0];jf.value="";if(!ib.disabled)importChar(file);};
+    }
     var nsb=document.getElementById("new-ship"); if(nsb) nsb.onclick=newShip;
     var nss=document.getElementById("new-session"); if(nss) nss.onclick=newSession;
     var av=document.getElementById("avatar"), cam=document.getElementById("avatar-cam"), af=document.getElementById("avatar-file");
@@ -841,19 +676,20 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
     if(cam) cam.addEventListener("click", function(ev){ ev.stopPropagation(); pickAvatar(); });
     if(af) af.addEventListener("change", function(ev){ if(ev.target.files[0]) handleAvatar(ev.target.files[0]); });
     var psetBtn=document.getElementById("pset-btn"), unamePanel=document.getElementById("uname-panel");
-    if(psetBtn&&unamePanel){ psetBtn.addEventListener("click", function(){ unamePanel.classList.toggle("open"); if(unamePanel.classList.contains("open")) unamePanel.scrollIntoView({behavior:"smooth",block:"center"}); }); }
+    if(psetBtn&&unamePanel){ psetBtn.addEventListener("click", function(){ profileShow("impostazioni",false,true);document.getElementById("settings-identity").scrollIntoView({behavior:motionReduced()?"auto":"smooth",block:"start"}); }); }
     var saveBtn=document.getElementById("pub-save"), unameIn=document.getElementById("pub-username");
     if(saveBtn) saveBtn.addEventListener("click", saveUsername);
     if(unameIn) unameIn.addEventListener("keydown", function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); saveUsername(); } });
     var nkFindBtn=document.getElementById("nk-find"), nkQ=document.getElementById("nk-q");
     if(nkFindBtn) nkFindBtn.addEventListener("click", nkFind);
     if(nkQ) nkQ.addEventListener("keydown", function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); nkFind(); } });
+    document.querySelectorAll(".nk-list").forEach(function(n){if(!n.children.length)n.appendChild(nkEl("div","nk-empty","Accedi per ritrovare i tuoi Nakama."));});
     loadUsername(); nkLoad();
     renderAll();
     if(window.__glcSB && window.__glcSB.auth && window.__glcSB.auth.onAuthStateChange){
-      window.__glcSB.auth.onAuthStateChange(function(){ setTimeout(renderAll,300); setTimeout(loadUsername,400); setTimeout(nkLoad,500); });
+      window.__glcSB.auth.onAuthStateChange(function(){ setTimeout(refreshProfileIfChanged,300); setTimeout(loadUsername,400); setTimeout(nkLoad,500); });
     }
-    setTimeout(renderAll,700); setTimeout(renderAll,1700);
+    setTimeout(refreshProfileIfChanged,700); setTimeout(refreshProfileIfChanged,1700);
     setTimeout(loadUsername,900); setTimeout(nkLoad,1000);
   });
 
@@ -875,7 +711,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
         if(document.activeElement!==i){ i.value=r.data.username; }
         unameCurrent=r.data.username;
         unameChangedAt=r.data.updated_at?(Date.parse(r.data.updated_at)||0):0;
-        unameLockUI();
+        unameLockUI();profileHandle();
       }
     }catch(e){}
   }
@@ -900,7 +736,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
         h.className="hint err"; return;
       }
       h.className="hint ok"; h.textContent="Username salvato \u2713 \u2014 ora gli altri ti trovano come @"+v;
-      unameCurrent=v; unameChangedAt=Date.now(); unameLockUI();
+      unameCurrent=v; unameChangedAt=Date.now(); unameLockUI();profileHandle();
     }catch(e){ h.className="hint err"; h.textContent="Errore di rete. Riprova."; }
   }
 
@@ -965,6 +801,7 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
       var incoming=rows.filter(function(x){ return x.addressee===u.id && x.status==="pending"; });
       var outgoing=rows.filter(function(x){ return x.requester===u.id && x.status==="pending"; });
       var friends=rows.filter(function(x){ return x.status==="accepted"; });
+      var badge=document.getElementById("profile-nakama-count");if(badge){badge.textContent=friends.length;badge.hidden=!friends.length;}
       if(!incoming.length) inc.appendChild(nkEl("div","nk-empty","Nessuna richiesta."));
       incoming.forEach(function(x){ var row=nkEl("div","nk-row"); row.appendChild(nkEl("span","nm",nameOf(x.requester)));
         var a=nkEl("button","acc","Accetta"); a.onclick=function(){ nkAccept(x.id); };

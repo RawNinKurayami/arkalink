@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="/glc-theme.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={saveKey:["glc_sessioni_v1","glc_pirata_v4","glc_nave_v1","glc_profile_v1"],gate:true,profileUrl:"/profilo/"};</script>
-<script src="/glc-auth.js"></script>
+<script src="/glc-sync.js?v=2"></script>
+<script src="/glc-auth.js?v=2"></script>
 <script src="/glc-map.js"></script>
 <style>
 :root{
@@ -120,7 +121,7 @@ function readST(){
   }
   return {v:1,activeId:"",order:[],sessions:{}};
 }
-function writeST(st){ try{localStorage.setItem(SKEY,JSON.stringify(st));}catch(e){} }
+function writeST(st){ try{(window.GLCStore||localStorage).setItem(SKEY,JSON.stringify(st));}catch(e){throw e;} }
 
 /* ---------- container PERSONAGGI (lettura) ---------- */
 var CKEY="glc_pirata_v4";

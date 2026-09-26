@@ -12,7 +12,8 @@
 <script src="/glc-ui.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={saveKey:"glc_pirata_v4",gate:true,profileUrl:"/profilo/"};</script>
-<script src="/glc-auth.js"></script>
+<script src="/glc-sync.js?v=2"></script>
+<script src="/glc-auth.js?v=2"></script>
 <style>
 :root{
   --abyss:#060607; --vellum:#f2e9d8; --vellum-2:#e9d6ae; --ink:#f1ece0; --ink-soft:#a69a86;
@@ -129,9 +130,6 @@ textarea{min-height:80px; resize:vertical;}
 .attrcard.locked{cursor:default; background:rgba(240,164,65,.08); border-color:rgba(240,164,65,.5);}
 .attrcard.sel{border-color:var(--gold); box-shadow:0 0 14px rgba(240,164,65,.3);}
 .attrcard .an{font-weight:700; margin-top:6px;} .attrcard .as{font-family:'Inter',sans-serif; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft);}
-.techslot{border:1px solid var(--line); border-radius:10px; padding:12px 14px; background:rgba(242,233,216,.05); display:grid; grid-template-columns:auto 1fr; gap:6px 14px; align-items:start; margin-top:12px;}
-.techslot .ts-i{grid-row:span 4; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px; color:var(--ink-soft); font-size:.75rem;}
-.techslot label.fld{margin:4px 0 3px;}
 .togglecard{display:flex; align-items:center; gap:12px; border:1px solid var(--line); border-radius:10px; padding:12px 14px; cursor:pointer; margin-top:10px; background:rgba(242,233,216,.05);}
 .togglecard.on{border-color:var(--gold); background:rgba(240,164,65,.1);}
 .togglecard .tg{width:44px; height:24px; border-radius:999px; background:rgba(242,233,216,.15); position:relative; flex:none;}
@@ -212,7 +210,7 @@ var ROLES=[
 var STILI_NASCOSTI=["Special"];
 ROLES.forEach(function(r){if(r.styles)r.styles=r.styles.filter(function(x){return STILI_NASCOSTI.indexOf(x[0])<0;});});
 var SKILLS={"Artigianato":"Oggetti e attrezzi","Medicina":"Ferite, veleni","Navigazione":"Rotte, traversate","Cucina":"Pasti, recupero","Furtività":"Non visti, scasso","Atletica":"Corsa, lotta","Archeologia":"Storia, Poneglyph","Acrobazia":"Equilibrio, evasione","Arte":"Musica, falsi","Osservazione":"Pericoli, indizi","Meccanica":"Macchinari, cannoni","Carpenteria":"La nave","Esplorazione":"Isole","Comunicazione":"Convincere, trattare","Natura":"Piante, clima","Sopravvivenza":"Cibo, riparo"};
-var STEPS=["Concetto","Razza","Attributi","Ruolo","Skill","Tecniche","Frutto","Salva"];
+var STEPS=["Concetto","Razza","Attributi","Ruolo","Skill","Frutto","Salva"];
 
 function blank(){return {nome:"",bg:"",amb:"",race:null,umanoAttr:"Forza",d6attr:"",role:null,style:"",role2:null,style2:"",talents:[],
  attr:{Forza:"",Tecnica:"",Spirito:"",Astuzia:""},
@@ -238,13 +236,13 @@ function readCT(){var o=null;try{o=JSON.parse(localStorage.getItem(KEY)||"null")
  if(o&&o.chars&&typeof o.chars==="object"){o.order=Array.isArray(o.order)?o.order.filter(function(id){return o.chars[id];}):[];for(var id in o.chars)if(o.order.indexOf(id)<0)o.order.push(id);if(!o.chars[o.activeId])o.activeId=o.order[0]||"";return o;}
  if(o){var nid=newId();var ch={};ch[nid]=o;return {v:2,activeId:nid,order:[nid],chars:ch};}
  return {v:2,activeId:"",order:[],chars:{}};}
-function writeCT(ct){try{localStorage.setItem(KEY,JSON.stringify(ct));}catch(e){alert("Spazio insufficiente per salvare (forse una foto troppo grande).");}}
+function writeCT(ct){try{(window.GLCStore||localStorage).setItem(KEY,JSON.stringify(ct));return true;}catch(e){if(!window.GLCStore)alert("Salvataggio non riuscito: i dati precedenti sono conservati.");return false;}}
 
 function buildStepper(){var n=$("#stepper");n.innerHTML="";STEPS.forEach(function(name,i){n.appendChild(el("button",{onclick:function(){goto(i);},html:'<span class="n">'+(i+1)+'</span>'+name}));});}
 function refreshStepper(){var ch=$("#stepper").children;for(var i=0;i<ch.length;i++){ch[i].classList.toggle("active",i===step);ch[i].classList.toggle("done",i<step);}}
 function goto(i){step=Math.max(0,Math.min(STEPS.length-1,i));refreshStepper();RENDER[step]();$("#prev").disabled=step===0;$("#next").style.visibility=step===STEPS.length-1?"hidden":"visible";window.scrollTo({top:0,behavior:"smooth"});}
 
-var RENDER=[rConcept,rRace,rAttr,rRole,rSkill,rTech,rFruit,rFinal].map(function(f){return function(){f();renderPreview();};});
+var RENDER=[rConcept,rRace,rAttr,rRole,rSkill,rFruit,rFinal].map(function(f){return function(){f();renderPreview();};});
 function ROLE_ICON(name,style){var r=roleDef();var st=style||"";return STYLE_ICON[st]||STYLE_ICON[name]||"star";}
 function renderPreview(){
   var p=$("#preview");if(!p)return;p.innerHTML="";
@@ -262,14 +260,14 @@ function renderPreview(){
   p.appendChild(el("div",{class:"pv-k pv-more",text:"Skill"}));
   var rs=roleSkill();var sk=[];if(rs)sk.push("<b>d8</b> "+rs);Object.keys(D.skills).forEach(function(k){sk.push("<b>"+D.skills[k]+"</b> "+k);});
   p.appendChild(sk.length?el("div",{class:"pv-list pv-more",html:sk.join("<br>")}):el("div",{class:"pv-empty pv-more",text:"Nessuna Skill ancora."}));
-  p.appendChild(el("div",{class:"pv-k pv-more",text:"Tecniche"}));
-  var tc=[];if(r)tc.push("<b>"+(D.racialDie||"d6")+"</b> "+r.tech);if(D.t1.nome)tc.push("<b>d4</b> "+D.t1.nome);if(D.t2.nome)tc.push("<b>d4</b> "+D.t2.nome);
+  p.appendChild(el("div",{class:"pv-k pv-more",text:"Tecnica razziale"}));
+  var tc=[];if(r)tc.push("<b>"+(D.racialDie||"d6")+"</b> "+r.tech);
   p.appendChild(tc.length?el("div",{class:"pv-list pv-more",html:tc.join("<br>")}):el("div",{class:"pv-empty pv-more",text:"Scegli prima una razza."}));
 }
 
 function rConcept(){
   var p=$("#panel");p.innerHTML="";
-  p.appendChild(el("div",{class:"kicker",text:"Passo 1 di 8"}));
+  p.appendChild(el("div",{class:"kicker",text:"Passo 1 di 7"}));
   p.appendChild(el("h2",{text:"Chi è il tuo pirata?"}));
   p.appendChild(el("div",{class:"explain",html:"Costruiamo il pirata un pezzo alla volta: a ogni passo ti spiego cosa stai scegliendo. Si parte da chi è.<br><b>Nome</b> e <b>Background</b> sono narrativi. L'<b>Ambizione</b> è il sogno che lo spinge: non dà bonus automatici, ma guida la storia e le ricompense decise dal Capitano."}));
   p.appendChild(el("label",{class:"fld",text:"Nome"}));
@@ -282,7 +280,7 @@ function rConcept(){
 
 function rRace(){
   var p=$("#panel");p.innerHTML="";
-  p.appendChild(el("div",{class:"kicker",text:"Passo 2 di 8"}));
+  p.appendChild(el("div",{class:"kicker",text:"Passo 2 di 7"}));
   p.appendChild(el("h2",{text:"Razza"}));
   p.appendChild(el("div",{class:"explain",html:"La Razza dà un <b>bonus a un Attributo</b>, una <b>Tecnica razziale gratuita</b>, i <b>Punti Vita</b> di partenza e il <b>Dado Vita</b> (quanto recuperi riposando). Alcune razze hanno anche uno svantaggio: scegli con cura."}));
   var c=el("div",{class:"cards"});
@@ -310,7 +308,7 @@ function rRace(){
 
 function rAttr(){
   var p=$("#panel");p.innerHTML="";
-  p.appendChild(el("div",{class:"kicker",text:"Passo 3 di 8"}));
+  p.appendChild(el("div",{class:"kicker",text:"Passo 3 di 7"}));
   p.appendChild(el("h2",{text:"Attributi"}));
   p.appendChild(el("div",{class:"explain",html:"Tutto si gioca con i <b>dadi a gradini</b>: "+DICE_LADDER+". Più alto è il dado, più sei bravo.<br>La tua Razza assegna il suo dado a un Attributo. Degli altri tre, <b>tocca quello che prende il d6</b>: gli ultimi due restano a d4."}));
   var r=race();
@@ -331,7 +329,7 @@ function rAttr(){
 
 function rRole(){
   var p=$("#panel");p.innerHTML="";
-  p.appendChild(el("div",{class:"kicker",text:"Passo 4 di 8"}));
+  p.appendChild(el("div",{class:"kicker",text:"Passo 4 di 7"}));
   p.appendChild(el("h2",{text:"Classe"}));
   p.appendChild(el("div",{class:"explain",html:"Il Ruolo è la classe del tuo pirata e gli dà una <b>Skill di Ruolo già a d8</b>. Alcune classi (Combattente, Dottore, Ingegnere) hanno più <b>Stili</b>: lo Stile dice come combatti o lavori."}));
   var c=el("div",{class:"cards three"});
@@ -375,7 +373,7 @@ function setSkill(name,v){
 }
 function rSkill(){
   var p=$("#panel");p.innerHTML="";
-  p.appendChild(el("div",{class:"kicker",text:"Passo 5 di 8"}));
+  p.appendChild(el("div",{class:"kicker",text:"Passo 5 di 7"}));
   p.appendChild(el("h2",{text:"Skill"}));
   p.appendChild(el("div",{class:"explain",html:"Le Skill sono ciò che sai fare. In gioco tiri <b>Attributo + Skill</b> contro una Soglia. La Skill del tuo Ruolo è già a d8.<br>Ora scegline altre: <b>2 a d6</b> e <b>2 a d4</b>."}));
   var rs=roleSkill();
@@ -397,43 +395,20 @@ function rSkill(){
   });
 }
 
-function rTech(){
-  var p=$("#panel");p.innerHTML="";
-  p.appendChild(el("div",{class:"kicker",text:"Passo 6 di 8"}));
-  p.appendChild(el("h2",{text:"Tecniche"}));
-  p.appendChild(el("div",{class:"explain",html:"Le Tecniche sono le mosse speciali: tiri <b>Attributo + un Dado</b> (che è anche il Dado Danno) e aggiungi effetti, spendendo Stamina. La Tecnica razziale è già inclusa. Qui puoi creare fino a <b>2 tecniche tue</b>; a <b>d4</b> fisso (sono colpi gratuiti); potenziarle e costruirne di nuove col costruttore avanzato è compito della <b>Gestione</b>."}));
-  var r=race();
-  if(r)p.appendChild(el("div",{class:"infobox",html:'<b>Tecnica razziale:</b> '+r.tech+' (d6) — '+r.techDesc}));
-  if(r)p.appendChild(el("div",{class:"techslot"},[el("div",{class:"ts-i",html:dieIcon(D.racialDie||"d6",46)+"razziale"}),el("div",{},[el("div",{style:"font-weight:700",text:r.tech}),el("div",{class:"pv-empty",text:r.techDesc})])]));
-  [["t1","Tecnica 1"],["t2","Tecnica 2 (opzionale)"]].forEach(function(pair){
-    var key=pair[0],lab=pair[1];var T=D[key];T.die="d4";
-    var box=el("div",{class:"techslot"});box.appendChild(el("div",{class:"ts-i",html:dieIcon("d4",46)+"d4 fisso"}));
-    var body=el("div",{});
-    body.appendChild(el("label",{class:"fld",text:lab+" — Nome"}));
-    var nm=el("input",{type:"text",placeholder:key==="t1"?"Es. Tre Lame — Oni Giri":"(opzionale)"});nm.value=T.nome;nm.oninput=function(){T.nome=nm.value;renderPreview();};body.appendChild(nm);
-    var grid=el("div",{class:"row2"});
-    var left=el("div",{});left.appendChild(el("label",{class:"fld",text:"Descrizione"}));var ds=el("textarea",{});ds.value=T.desc;ds.oninput=function(){T.desc=ds.value;};left.appendChild(ds);
-    var right=el("div",{});right.appendChild(el("label",{class:"fld",text:"Attributo"}));
-    var as=el("select",{},[el("option",{value:"",text:"—"})].concat(ATTRS.map(function(a){return el("option",{value:a,text:a});})));as.value=T.attr;as.onchange=function(){T.attr=as.value;};right.appendChild(as);
-    grid.appendChild(left);grid.appendChild(right);body.appendChild(grid);box.appendChild(body);p.appendChild(box);
-  });
-  p.appendChild(el("div",{class:"infobox",html:"In creazione le tecniche sono colpi gratuiti a <b>d4</b>. Le potenzi e ne costruisci di nuove nella <b>Gestione</b>."}));
-}
-
 function rFruit(){
   var p=$("#panel");p.innerHTML="";
-  p.appendChild(el("div",{class:"kicker",text:"Passo 7 di 8"}));
+  p.appendChild(el("div",{class:"kicker",text:"Passo 6 di 7"}));
   p.appendChild(el("h2",{text:"Frutto del Diavolo"}));
   p.appendChild(el("div",{class:"explain",html:"Un Frutto del Diavolo è <b>opzionale</b> e lo decide il Capitano. Dà poteri unici in cambio di <b>tre debolezze</b>: il mare, l'agalmatolite (Pietra di Mare) e l'Haki. Se non ne hai uno, salta pure questo passo."}));
   var tgl=el("div",{class:"togglecard"+(D.frutto.has?" on":"")},[el("span",{html:imgIcon("frutto",34)}),el("div",{style:"flex:1"},[el("div",{style:"font-weight:700",text:"Il mio pirata ha mangiato un Frutto del Diavolo"}),el("div",{class:"pv-empty",text:D.frutto.has?"Sì: scegli tipo e nome qui sotto.":"No, per ora."})]),el("span",{class:"tg"})]);
-  tgl.onclick=function(){D.frutto.has=!D.frutto.has;RENDER[6]();};p.appendChild(tgl);
+  tgl.onclick=function(){D.frutto.has=!D.frutto.has;RENDER[5]();};p.appendChild(tgl);
   if(D.frutto.has){
     p.appendChild(el("label",{class:"fld",text:"Nome del Frutto"}));
     var nm=el("input",{type:"text",placeholder:"Es. Gomu Gomu no Mi"});nm.value=D.frutto.nome;nm.oninput=function(){D.frutto.nome=nm.value;renderPreview();};p.appendChild(nm);
     var grid=el("div",{class:"row2"});
     var left=el("div",{});left.appendChild(el("label",{class:"fld",text:"Descrizione / Potere"}));var ds=el("textarea",{});ds.value=D.frutto.desc;ds.oninput=function(){D.frutto.desc=ds.value;};left.appendChild(ds);
     var right=el("div",{});right.appendChild(el("label",{class:"fld",text:"Tipo"}));
-    var tg=el("div",{class:"cards three"});[["Paramecia","Trasforma il corpo o ciò che ti circonda"],["Logia","Diventi un elemento"],["Zoan","Ti trasformi in un animale"]].forEach(function(x){tg.appendChild(el("div",{class:"card"+(D.frutto.tipo===x[0]?" sel":""),onclick:function(){D.frutto.tipo=x[0];RENDER[6]();},html:'<div class="ci">'+svgIcon(STYLE_ICON[x[0]],28)+'</div><div class="cb"><div class="t">'+x[0]+'</div><div class="d">'+x[1]+'</div></div>'}));});right.appendChild(tg);
+    var tg=el("div",{class:"cards three"});[["Paramecia","Trasforma il corpo o ciò che ti circonda"],["Logia","Diventi un elemento"],["Zoan","Ti trasformi in un animale"]].forEach(function(x){tg.appendChild(el("div",{class:"card"+(D.frutto.tipo===x[0]?" sel":""),onclick:function(){D.frutto.tipo=x[0];RENDER[5]();},html:'<div class="ci">'+svgIcon(STYLE_ICON[x[0]],28)+'</div><div class="cb"><div class="t">'+x[0]+'</div><div class="d">'+x[1]+'</div></div>'}));});right.appendChild(tg);
     right.appendChild(el("label",{class:"fld",text:"Dado del Frutto"}));
     var fd=el("select",{},["d4","d6","d8","d10","d12","d20"].map(function(x){return el("option",{value:x,text:x});}));fd.value=D.frutto.die||"d4";fd.onchange=function(){D.frutto.die=fd.value;renderPreview();};right.appendChild(fd);
     right.appendChild(el("div",{class:"explain",style:"margin-top:6px;font-size:.9rem",html:"Misura quanto <b>padroneggi</b> il potere. Parte da <b>d4</b>: <b>lo alza il Game Master, non i P.A.</b>"}));
@@ -457,7 +432,7 @@ function handleFile(file){
 
 function rFinal(){
   var p=$("#panel");p.className="panel";p.innerHTML="";
-  p.appendChild(el("div",{class:"kicker",text:"Passo 8 di 8"}));
+  p.appendChild(el("div",{class:"kicker",text:"Passo 7 di 7"}));
   p.appendChild(el("h2",{text:"Riepilogo & Salvataggio"}));
   p.appendChild(el("div",{class:"explain",html:"Ecco il tuo pirata. Le ultime statistiche si ricavano da sole: <b>PV</b> dalla Razza, <b>Stamina 6</b>, <b>nessun Haki</b> all'inizio (si sblocca crescendo), <b>Legami 0</b>, <b>Taglia 0</b>. Controlla l'anteprima, poi salvalo nella tua lista."}));
 
@@ -467,7 +442,6 @@ function rFinal(){
   var attrStr=ATTRS.map(function(a){return a.slice(0,3)+" "+(D.attr[a]||"—");}).join(" · ");
   var skillStr=Object.keys(D.skills).map(function(k){return k+" "+D.skills[k];}).join(", ")||"—";
   var roleStr=D.role?(D.role+(D.style?(" · "+D.style):"")):"—";
-  var techs=[];if(r)techs.push(r.tech+" (raz.)");if(D.t1.nome)techs.push(D.t1.nome);if(D.t2.nome)techs.push(D.t2.nome);
   var rows=[
     ["Razza", r?r.name:"—"],
     ["Punti Vita", r?(r.pv+" · Vita "+r.hp):"—"],
@@ -475,12 +449,13 @@ function rFinal(){
     ["Attributi", attrStr],
     ["Ruolo", roleStr],
     ["Skill", (roleSkill()?roleSkill()+" d8 · ":"")+skillStr],
-    ["Tecniche", techs.join(", ")||"—"],
+    ["Tecnica razziale", r?r.tech:"—"],
     ["Frutto", D.frutto.has?((D.frutto.nome||"(senza nome)")+(D.frutto.tipo?(" · "+D.frutto.tipo):"")+" · Dado "+(D.frutto.die||"d4")):"Nessuno"]
   ];
   var g=el("div",{class:"sumgrid"});
   rows.forEach(function(rw){g.appendChild(el("div",{class:"sumrow",html:'<span class="k">'+rw[0]+'</span><span class="v">'+esc(rw[1])+'</span>'}));});
   p.appendChild(g);
+  p.appendChild(el("div",{class:"infobox",html:"Le <b>Tecniche personali</b> si creano nella <b>Gestione del Pirata</b>, dopo il salvataggio."}));
 
   var save=el("button",{class:"btn gold big",style:"margin-top:22px;width:100%;",text:"⚓ Salva nella tua lista"});
   save.onclick=saveToList;
@@ -491,7 +466,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp
 function saveToList(){
   if(!D.nome||!D.nome.trim()){alert("Dai un nome al tuo pirata prima di salvare.");goto(0);return;}
   if(!D.race){alert("Scegli una razza prima di salvare.");goto(1);return;}
-  var ct=readCT();var id=newId();ct.chars[id]=D;ct.order.push(id);ct.activeId=id;writeCT(ct);
+  var ct=readCT();var id=newId();ct.chars[id]=D;ct.order.push(id);ct.activeId=id;if(!writeCT(ct))return;
   showDone(id);
 }
 function showDone(id){
