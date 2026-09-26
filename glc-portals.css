@@ -1,0 +1,30 @@
+@media screen {
+/* Shared presentation for the ship and the workshop. Gameplay is untouched. */
+body.premium-portal{--portal-ui:'Manrope','Inter',sans-serif;--portal-title:'Barlow Condensed','Arial Narrow',sans-serif;--portal-line:#f2e9d817;--portal-muted:#b3aa9d;--portal-surface:#141419;--gold-soft:#ffd394;background:radial-gradient(ellipse at 78% 0,#ffd39408,transparent 45%),#0a0a0e;color:#f2e9d8;font-family:var(--portal-ui);font-size:14px;line-height:1.6}
+.premium-portal .portal-topbar{min-height:80px;padding:18px clamp(20px,4vw,64px);display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid var(--portal-line);background:#0b0b0fe8}
+.premium-portal .portal-brand{display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--ink);font:600 11px/1.5 var(--portal-ui);letter-spacing:.22em;text-transform:uppercase}
+.premium-portal .portal-brand>span:first-child{width:38px;height:38px;border:1px solid #ffd39450;border-radius:50%;display:grid;place-items:center;color:var(--gold-soft);font-size:20px;letter-spacing:0}
+.premium-portal .portal-links{display:flex;gap:24px;align-items:center;flex-wrap:wrap}.premium-portal .portal-links a{font-size:11px;color:var(--portal-muted);text-decoration:none;transition:color .18s}.premium-portal .portal-links a:hover,.premium-portal .portal-links a[aria-current=page]{color:var(--gold-soft)}
+.premium-portal :is(button,input,select,textarea,a,summary):focus-visible{outline:2px solid var(--gold-soft);outline-offset:4px}
+.premium-portal :is(.btn,.ibtn,.gbtn){display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:10px 17px;border:1px solid #ffd39460;border-radius:7px;background:#ffd394;color:#241b10;box-shadow:none;font:600 11px/1.4 var(--portal-ui);letter-spacing:.035em;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+.premium-portal :is(.btn,.ibtn,.gbtn):hover{background:#ffe0ad;filter:none;box-shadow:none}.premium-portal :is(.btn,.ibtn,.gbtn).ghost,.premium-portal .gbtn{background:#ffffff05;color:var(--ink);border-color:var(--portal-line)}
+.premium-portal :is(.btn,.ibtn,.gbtn).ghost:hover,.premium-portal .gbtn:hover{background:#ffd3940d;border-color:#ffd39445}
+.premium-portal .btn.gold,.premium-portal .gbtn.gold{background:#ffd394;color:#241b10;border-color:transparent}.premium-portal :is(.btn,.gbtn).sm{min-height:38px;font-size:11px;padding:8px 12px}
+.premium-portal :is(.ibtn.del,.iconbtn){background:none;color:#d8a69d;border-color:#d8a69d30}.premium-portal :is(.ibtn.del,.iconbtn):hover{background:#e2313110;color:#ffc1b5}
+.premium-portal button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.premium-portal :is(input.txt,textarea.txt,select.txt){color:var(--ink);background:#08090b7d;border:1px solid #f2e9d821;border-radius:7px;font:400 13px/1.6 var(--portal-ui);padding:11px 13px;min-width:0;box-shadow:none}
+.premium-portal :is(input.txt,textarea.txt,select.txt):focus{border-color:#ffd39477;box-shadow:0 0 0 3px #ffd39409;outline:none;background:#0e0f12}
+.premium-portal select option{background:#17171c;color:var(--ink)}.premium-portal .lab{font:600 10px/1.5 var(--portal-ui);letter-spacing:.12em;color:var(--portal-muted);margin-bottom:7px}
+.premium-portal :is(.muted,.hint,.note,.sub){color:var(--portal-muted);line-height:1.65}.premium-portal input[type=file]{max-width:100%;min-width:0;font:11px var(--portal-ui);color:var(--portal-muted)}
+.premium-portal input[type=file]::file-selector-button{background:#ffd39410;border:1px solid #ffd39435;color:var(--gold-soft);border-radius:6px;padding:10px 12px;margin:0 12px 8px 0;cursor:pointer}
+.premium-portal .image-help{display:block;font-size:11px;line-height:1.5;color:var(--portal-muted);margin:6px 0 0}
+.premium-portal :is(.gmodal,.ov){background:#060609cc;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:24px}
+.premium-portal :is(.gmbox,.modal){background:radial-gradient(ellipse at 100% 0,#ffd3940a,transparent 65%),#141419;border:1px solid #ffd39435;border-radius:16px;box-shadow:0 36px 100px #0009;max-height:88dvh;overflow:auto}
+.premium-portal .gmhead{border-bottom:1px solid var(--portal-line);padding:22px 26px}.premium-portal :is(.gmtitle,.modal h3){font:500 30px/1.1 var(--portal-title);letter-spacing:.035em;text-transform:uppercase;color:var(--ink)}
+.premium-portal .gmbody{padding:24px 26px}.premium-portal .gmclose{width:40px;height:40px;border:1px solid var(--portal-line);background:transparent;color:var(--portal-muted)}
+.premium-portal .gmbody label.fld{margin-bottom:16px}.premium-portal .gmbody :is(.tddesc,.sub){font-size:13px;line-height:1.7}.premium-portal .gmbody .tdsub{color:var(--gold-soft);font-size:11px;letter-spacing:.12em}
+.premium-portal .portal-footer{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--portal-line);padding:28px 0;margin-top:48px;color:var(--portal-muted);font-size:11px}.premium-portal .portal-footer em{font:italic 18px 'Cormorant Garamond',serif}
+@media(max-width:700px){.premium-portal .portal-topbar{padding:16px 20px;gap:16px;flex-wrap:wrap}.premium-portal .portal-brand{font-size:9px;letter-spacing:.16em}.premium-portal .portal-links{gap:20px}.premium-portal :is(.gmodal,.ov){padding:12px}.premium-portal .gmbody{padding:20px}.premium-portal :is(input.txt,textarea.txt,select.txt){font-size:16px}.premium-portal .portal-footer{flex-direction:column;gap:8px}}
+@media(prefers-reduced-motion:reduce){.premium-portal *,.premium-portal *::before,.premium-portal *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+}

@@ -1444,6 +1444,7 @@ body.has-bld{overflow:hidden;}
 <link rel="stylesheet" href="signature-builder.css?v=1">
 <link rel="stylesheet" href="equipment-builder.css?v=1">
 <link rel="stylesheet" href="dossiers.css?v=1">
+<script src="/glc-images.js?v=1"></script>
 </head>
 <body>
 <div class="wrap">
@@ -2812,28 +2813,12 @@ function bindInputs(){
    sceneBackground viene aggiunto solo quando si carica uno sfondo. */
 function handleFile(file){readSceneImage(file,"photo");}
 function handleBackgroundFile(file){readSceneImage(file,"sceneBackground");}
-function readSceneImage(file,field){
- if(!file||!file.type||file.type.indexOf("image/")!==0)return;
- const ownerId=CT.activeId;
- const failed=()=>alert("Non riesco a leggere questa immagine. Prova un file PNG, WebP o JPG.");
- const rd=new FileReader();rd.onerror=failed;
- rd.onload=()=>{
-  const img=new Image();img.onerror=failed;
-  img.onload=()=>{
-   try{
-    const max=field==="photo"?1200:1600;
-    const sc=Math.min(1,max/Math.max(img.width,img.height));
-    const cv=document.createElement("canvas");cv.width=Math.max(1,Math.round(img.width*sc));cv.height=Math.max(1,Math.round(img.height*sc));
-    cv.getContext("2d").drawImage(img,0,0,cv.width,cv.height);
-    // WebP conserva l'alpha; se non supportato, canvas restituisce PNG.
-    const format=field==="photo"&&!/^image\/jpe?g$/i.test(file.type)?"image/webp":"image/jpeg";
-    const data=cv.toDataURL(format,field==="photo"?0.86:0.78);
-    commitSceneImage(field,data,ownerId);
-   }catch(e){failed();}
-  };
-  img.src=rd.result;
- };
- rd.readAsDataURL(file);
+const sceneImageRequests={};
+async function readSceneImage(file,field){
+ if(!file)return;
+ const ownerId=CT.activeId,token={};sceneImageRequests[field]=token;
+ try{const data=await GLCImages.read(file);if(sceneImageRequests[field]===token)commitSceneImage(field,data,ownerId);}
+ catch(e){alert(e.message);}
 }
 function commitSceneImage(field,data,ownerId){
  if(field!=="photo"&&field!=="sceneBackground")return false;
@@ -2856,8 +2841,8 @@ function sceneImageTools(){
  const file=el("input",{type:"file",accept:"image/*",hidden:"",tabindex:"-1","aria-label":"Scegli lo sfondo personale"});
  file.onchange=e=>{if(e.target.files[0])handleBackgroundFile(e.target.files[0]);};
  tools.appendChild(file);
- tools.appendChild(el("button",{class:"gbtn sm",type:"button",text:"Ritratto",title:"Carica un ritratto o un personaggio con sfondo trasparente",onclick:()=>$("#photoFile").click()}));
- tools.appendChild(el("button",{class:"gbtn sm",type:"button",text:pg.sceneBackground?"Cambia sfondo":"＋ Sfondo",title:"Scegli uno sfondo personale: apparirà attenuato nella scena",onclick:()=>file.click()}));
+ tools.appendChild(el("button",{class:"gbtn sm",type:"button",text:"Ritratto",title:"Carica un ritratto fino a 4K, anche con sfondo trasparente",onclick:()=>$("#photoFile").click()}));
+ tools.appendChild(el("button",{class:"gbtn sm",type:"button",text:pg.sceneBackground?"Cambia sfondo":"＋ Sfondo",title:"Sfondo fino a 4K: apparirà attenuato nella scena",onclick:()=>file.click()}));
  if(pg.sceneBackground)tools.appendChild(el("button",{class:"gbtn sm scene-remove",type:"button",text:"×",title:"Rimuovi lo sfondo personale","aria-label":"Rimuovi lo sfondo personale",onclick:()=>commitSceneImage("sceneBackground","",CT.activeId)}));
  return tools;
 }

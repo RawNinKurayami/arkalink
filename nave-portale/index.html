@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/glc-theme.css">
 <link rel="stylesheet" href="/glc-ui.css">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="scena-nave.css?v=5">
+
 <script src="/glc-ui.js"></script>
 <style>
 :root{--ink:#f1ece0;--ink-soft:#a69a86;--red:#e23131;--red-br:#ff5240;--gold:#f0a441;--gold-2:#ffd394;--paper:#15121a;--paper-2:#1a1622;--line:rgba(240,164,65,.22);--sea:#3d6a8f;--shadow:rgba(0,0,0,.40);--ok:#7fc796;--warn:#e0b84e;--bad:#e23131;}
@@ -168,9 +168,12 @@ textarea.txt{resize:vertical;min-height:60px;line-height:1.45;}
 <script>window.GLC={saveKey:"glc_nave_v1",gate:true,profileUrl:"/profilo/"};</script>
 <script src="/glc-sync.js?v=2"></script>
 <script src="/glc-auth.js?v=2"></script>
+<script src="/glc-images.js?v=1"></script>
+<link rel="stylesheet" href="/glc-portals.css?v=1">
+<link rel="stylesheet" href="scena-nave.css?v=6">
 </head>
-<body class="mode-nave">
-  <div class="glc-topbar"><a class="glc-brand" href="/"><span class="glc-anc">⚓</span><span class="glc-bnm">Grand Line Chronicles</span></a><a class="glc-home" href="/">‹ Torna al porto</a></div>
+<body class="mode-nave premium-portal">
+<div class="portal-topbar"><a class="portal-brand" href="/"><span aria-hidden="true">⚓</span><span>Grand Line Chronicles</span></a><nav class="portal-links" aria-label="Navigazione del porto"><a href="/nave-portale/" aria-current="page">Nave</a><a href="/portale-officina-cambusa/">Officina &amp; Cambusa</a><a href="/profilo/">Il tuo profilo ↗</a></nav></div>
 <div class="wrap">
   <header class="top">
     <div class="wheel">☸</div>
@@ -334,9 +337,33 @@ function stationIcon(key,size){
 }
 function stepShip(k,dir){const i=DICE_SHIP.indexOf(S.stats[k]);const ni=Math.min(DICE_SHIP.length-1,Math.max(0,i+dir));S.stats[k]=DICE_SHIP[ni];if(k==="scafo"&&S.psCur>psMax())S.psCur=psMax();save();renderShip();}
 function sec(title,kids,right){const s=mkEl("section",{class:"gsec"});const h=mkEl("div",{class:"gsec-h"},[mkEl("h3",{html:title})]);if(right)h.appendChild(right);s.appendChild(h);(kids||[]).forEach(k=>{if(k)s.appendChild(k);});return s;}
-function gcard(iconHtml,title,meta,desc,onClick){const c=mkEl("div",{class:"gcard"+(onClick?" click":"")},[mkEl("div",{class:"gc-ico",html:iconHtml}),mkEl("div",{class:"gc-body"},[mkEl("div",{class:"gc-n",text:title}),meta?mkEl("div",{class:"gc-m",html:meta}):null,desc?mkEl("div",{class:"gc-d",html:desc}):null])]);if(onClick)c.onclick=onClick;return c;}
-function slotTile(iconHtml,name,meta,onClick,cls){const t=mkEl("div",{class:"slot"+(onClick?" click":"")+(cls?" "+cls:"")},[mkEl("div",{class:"slot-i",html:iconHtml}),mkEl("div",{class:"slot-b"},[mkEl("div",{class:"slot-n",text:name}),meta?mkEl("div",{class:"slot-m",html:meta}):null])]);if(onClick)t.onclick=onClick;return t;}
-function slotAdd(text,onClick){const t=mkEl("div",{class:"slot add"},[mkEl("div",{class:"slot-i",html:'<span class="gc-em">'+svgIcon("plus",20)+'</span>'}),mkEl("div",{class:"slot-b"},[mkEl("div",{class:"slot-n",text:text})])]);t.onclick=onClick;return t;}
+function gcard(iconHtml,title,meta,desc,onClick){const c=mkEl("div",{class:"gcard"+(onClick?" click":"")},[mkEl("div",{class:"gc-ico",html:iconHtml}),mkEl("div",{class:"gc-body"},[mkEl("div",{class:"gc-n",text:title}),meta?mkEl("div",{class:"gc-m",html:meta}):null,desc?mkEl("div",{class:"gc-d",html:desc}):null])]);if(onClick)c.onclick=onClick;if(onClick){c.tabIndex=0;c.setAttribute("role","button");c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();onClick();}};}return c;}
+function slotTile(iconHtml,name,meta,onClick,cls){const t=mkEl(onClick?"button":"div",{...(onClick?{type:"button"}:{}),class:"slot"+(onClick?" click":"")+(cls?" "+cls:"")},[mkEl("div",{class:"slot-i",html:iconHtml}),mkEl("div",{class:"slot-b"},[mkEl("div",{class:"slot-n",text:name}),meta?mkEl("div",{class:"slot-m",html:meta}):null])]);if(onClick)t.onclick=onClick;return t;}
+function slotAdd(text,onClick){const t=mkEl("button",{type:"button",class:"slot add"},[mkEl("div",{class:"slot-i",html:'<span class="gc-em">'+svgIcon("plus",20)+'</span>'}),mkEl("div",{class:"slot-b"},[mkEl("div",{class:"slot-n",text:text})])]);t.onclick=onClick;return t;}
+/* Optional ship artwork. Save succeeds before the live ship is changed. */
+let shipImageRequest=0;
+function commitShipArtwork(data,ownerId){
+ if(ownerId!==NT.activeId){alert("La nave attiva è cambiata. Ricarica l’immagine sulla nave desiderata.");return false;}
+ const next=Object.assign({},S);if(data)next.photo=data;else delete next.photo;
+ const pending=Object.assign({},NT,{ships:Object.assign({},NT.ships,{[ownerId]:next})});
+ try{(window.GLCStore||localStorage).setItem(KEY,JSON.stringify(pending));}
+ catch(e){alert("Spazio insufficiente: l’immagine precedente e la nave sono rimaste invariate.");return false;}
+ NT=pending;S=next;renderShip();return true;
+}
+function shipArtwork(){
+ const art=mkEl("div",{class:"ship-art"});
+ if(S.photo)art.appendChild(mkEl("img",{src:S.photo,alt:"Ritratto di "+shipLabel(S)}));
+ else art.innerHTML=SHIP_DRAWING;
+ art.appendChild(mkEl("span",{class:"ship-art-caption",text:"IL CUORE DELLA CIURMA"}));
+ const controls=mkEl("div",{class:"ship-art-controls"});
+ const file=mkEl("input",{type:"file",accept:"image/jpeg,image/png,image/webp",hidden:"","aria-label":"Immagine della nave fino a 4K"});
+ file.onchange=async()=>{if(!file.files[0])return;const owner=NT.activeId,request=++shipImageRequest;button.disabled=true;button.textContent="Elaborazione…";try{const data=await GLCImages.read(file.files[0]);if(request===shipImageRequest)commitShipArtwork(data,owner);}catch(e){alert(e.message);}finally{button.disabled=false;button.textContent="Immagine · 4K";file.value="";}};
+ const button=mkEl("button",{type:"button",class:"gbtn",text:"Immagine · 4K",title:"JPG, PNG e WebP fino a 3840 px sul lato lungo",onclick:()=>file.click()});
+ controls.appendChild(file);controls.appendChild(button);
+ if(S.photo)controls.appendChild(mkEl("button",{type:"button",class:"gbtn",text:"Rimuovi",title:"Rimuovi l’immagine della nave",onclick:()=>{shipImageRequest++;commitShipArtwork("",NT.activeId);}}));
+ art.appendChild(controls);return art;
+}
+const SHIP_DRAWING='<svg viewBox="0 0 680 330" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M86 240Q330 267 586 228L549 274Q338 306 132 271Z" fill="#bd996e0a" stroke-width="2"/><path d="M150 259Q335 288 557 250M183 272L185 252M221 278L222 257M261 281V261M301 284V265M341 284V267M381 282V266M421 279V261M461 274V257M501 267V249" opacity=".35"/><path d="M317 260V34M319 40L435 240M317 44L177 243M445 250V96M445 101L544 232M445 106L354 254M176 248V112M176 117L112 246" opacity=".6"/><path d="M251 69H385Q369 97 385 128Q315 143 251 126Q268 101 251 69ZM231 147H403Q387 192 410 218Q321 241 224 218Q250 185 231 147Z" stroke-width="1.7" fill="#d8bb840a"/><path d="M401 126H494Q482 149 496 174Q448 188 397 173Q410 150 401 126ZM391 188H513Q500 207 519 229Q459 248 383 230Q403 210 391 188ZM142 136H210Q200 165 215 185L135 186Q151 162 142 136ZM126 199H225L222 229L115 233Z" fill="#d8bb8406"/><path d="M317 34Q344 21 367 34L355 49L319 47M445 97L488 98L477 111L447 110M90 240L66 218L175 229M559 237L620 205"/><path d="M48 300Q86 289 124 300T200 300T276 300T352 300T428 300T504 300T580 300T656 300M95 316Q138 305 181 316T267 316T353 316T439 316T525 316T611 316" opacity=".18"/><circle cx="320" cy="187" r="18" opacity=".35"/><path d="M312 183L328 199M328 183L312 199" opacity=".35"/></g></svg>';
 /* --- modali --- */
 function identityModal(){openModal("✎ Identità della nave",()=>{const w=mkEl("div",{});w.appendChild(field("Nome della nave","nome",S));w.appendChild(field("Tipo","tipo",S));w.appendChild(field("Polena (figurehead)","polena",S));w.appendChild(field("Legno","legno",S));w.appendChild(mkEl("div",{class:"addrow"},[mkEl("button",{class:"btn gold sm",text:"Fatto",onclick:()=>{closeModal();renderShipsBar();renderShip();}})]));return w;});}
 function actionsModal(){const act=document.querySelector(".toolbar");if(!act)return;const home=act.parentNode;openModal("☰ Nave di partenza, stampa, esporta",()=>{act.classList.add("gactions");return act;});MODAL._onClose=()=>{act.classList.remove("gactions");home.appendChild(act);};}
@@ -374,14 +401,15 @@ function renderShip(){
     fondo le manovre. La colonna unica è la stessa scelta della scheda del
     pirata. */
  const L=mkEl("div",{class:"lpanel"});
- {const mx=psMax();const pct=Math.max(0,Math.min(100,S.psCur/mx*100));const bar=mkEl("div",{class:"lbar pv"},[mkEl("div",{class:"lbar-k",text:"Punti Struttura"}),mkEl("div",{class:"lbar-t"},[mkEl("div",{class:"lbar-f",style:"width:"+pct+"%;background:"+col})]),mkEl("div",{class:"lbar-v"})]);const v=bar.querySelector(".lbar-v");const inp=mkEl("input",{class:"txt num",type:"number",value:S.psCur});inp.oninput=()=>{S.psCur=Math.max(0,Math.min(mx,parseInt(inp.value)||0));save();bar.querySelector(".lbar-f").style.width=Math.max(0,Math.min(100,S.psCur/mx*100))+"%";};v.appendChild(mkEl("button",{class:"pabtn",text:"−",onclick:()=>{S.psCur=Math.max(0,S.psCur-1);save();renderShip();}}));v.appendChild(inp);v.appendChild(mkEl("span",{class:"vsep",text:"/ "+mx}));v.appendChild(mkEl("button",{class:"pabtn",text:"+",onclick:()=>{S.psCur=Math.min(mx,S.psCur+1);save();renderShip();}}));L.appendChild(bar);L.appendChild(mkEl("div",{class:"condline",html:"Condizione: <b style='color:"+col+"'>"+cn+"</b> · integra >75% · danneggiata >50% · grave >25% · critica"}));}
+ {const mx=psMax();const pct=Math.max(0,Math.min(100,S.psCur/mx*100));const bar=mkEl("div",{class:"lbar pv"},[mkEl("div",{class:"lbar-k",text:"Punti Struttura"}),mkEl("div",{class:"lbar-t"},[mkEl("div",{class:"lbar-f",style:"width:"+pct+"%;background:"+col})]),mkEl("div",{class:"lbar-v"})]);const v=bar.querySelector(".lbar-v");const inp=mkEl("input",{class:"txt num",type:"number","aria-label":"Punti Struttura attuali",value:S.psCur});inp.oninput=()=>{S.psCur=Math.max(0,Math.min(mx,parseInt(inp.value)||0));save();bar.querySelector(".lbar-f").style.width=Math.max(0,Math.min(100,S.psCur/mx*100))+"%";};v.appendChild(mkEl("button",{class:"pabtn",text:"−",onclick:()=>{S.psCur=Math.max(0,S.psCur-1);save();renderShip();}}));v.appendChild(inp);v.appendChild(mkEl("span",{class:"vsep",text:"/ "+mx}));v.appendChild(mkEl("button",{class:"pabtn",text:"+",onclick:()=>{S.psCur=Math.min(mx,S.psCur+1);save();renderShip();}}));L.appendChild(bar);L.appendChild(mkEl("div",{class:"condline",html:"Condizione: <b style='color:"+col+"'>"+cn+"</b> · integra >75% · danneggiata >50% · grave >25% · critica"}));}
  const ls=mkEl("div",{class:"lsec"});ls.appendChild(mkEl("div",{class:"lsec-h"},[mkEl("h3",{text:"Statistiche"}),mkEl("span",{class:"sub",text:"salgono al Cantiere"})]));
- STAT_DEFS.forEach(([k,nm,desc])=>{const die=S.stats[k];const der=k==="scafo"?("PS massimi <b>"+psMax()+"</b>"):(k==="struttura"?("Slot <b>"+slotsTot()+"</b> · usati "+slotsUsed()):"");const row=mkEl("div",{class:"prow"},[mkEl("div",{class:"prl"},[mkEl("span",{html:dieIcon(die,42)}),mkEl("div",{style:"min-width:0"},[mkEl("div",{class:"pgname",text:nm}),mkEl("div",{class:"pnext",html:desc+(der?(" · "+der):"")})]),mkEl("span",{class:"step2 mini"},[mkEl("button",{text:"−",onclick:()=>stepShip(k,-1)}),mkEl("button",{text:"+",onclick:()=>stepShip(k,1)})])])]);ls.appendChild(row);});
+ STAT_DEFS.forEach(([k,nm,desc])=>{const die=S.stats[k];const der=k==="scafo"?("PS massimi <b>"+psMax()+"</b>"):(k==="struttura"?("Slot <b>"+slotsTot()+"</b> · usati "+slotsUsed()):"");const row=mkEl("div",{class:"prow"},[mkEl("div",{class:"prl"},[mkEl("span",{html:dieIcon(die,42)}),mkEl("div",{style:"min-width:0"},[mkEl("div",{class:"pgname",text:nm}),mkEl("div",{class:"pnext",html:desc+(der?(" · "+der):"")})]),mkEl("span",{class:"step2 mini"},[mkEl("button",{text:"−","aria-label":"Riduci "+nm,onclick:()=>stepShip(k,-1)}),mkEl("button",{text:"+","aria-label":"Aumenta "+nm,onclick:()=>stepShip(k,1)})])])]);ls.appendChild(row);});
  ls.appendChild(mkEl("div",{class:"sub",style:"margin-top:8px;font-size:11.5px",html:"PS Scafo: d4 20 · d6 30 · d8 40 · d10 50 · d12 60 &nbsp;·&nbsp; Slot Struttura: d4 1 · d6 2 · d8 3 · d10 5 · d12 7"}));
  L.appendChild(ls);
  {const cs=mkEl("div",{class:"lsec"});cs.appendChild(mkEl("div",{class:"lsec-h"},[mkEl("h3",{text:"Carpenteria"}),mkEl("span",{class:"sub",text:"dell'Ingegnere"})]));const row=mkEl("div",{class:"prow"},[mkEl("div",{class:"prl"},[mkEl("span",{html:dieIcon(S.carpenteria,42)}),mkEl("div",{style:"min-width:0"},[mkEl("div",{class:"pgname",text:"Skill Carpenteria"}),mkEl("div",{class:"pnext",html:"si tira per riparare e potenziare"})]),mkEl("span",{class:"step2 mini"},[mkEl("button",{text:"−",onclick:()=>{const D=["d4","d6","d8","d10","d12","d20"];S.carpenteria=D[Math.max(0,D.indexOf(S.carpenteria)-1)];save();renderShip();}}),mkEl("button",{text:"+",onclick:()=>{const D=["d4","d6","d8","d10","d12","d20"];S.carpenteria=D[Math.min(5,D.indexOf(S.carpenteria)+1)];save();renderShip();}})])])]);cs.appendChild(row);L.appendChild(cs);}
  /* ---- centro: il ponte ---- */
  const C=mkEl("div",{class:"stage ship"});g3.appendChild(C);
+ C.appendChild(shipArtwork());
  C.appendChild(mkEl("div",{class:"slots-h",text:"Postazioni"}));
  const pg=mkEl("div",{class:"stations"});STATIONS.forEach(st=>{const c=S.crew[st.key]||{};const has=(c.nome&&c.nome.trim())||(c.attr&&c.attr!=="—");const dado=(c.attr&&c.attr!=="—")?c.attr:"";
   const meta=has?(((c.nome&&c.nome.trim())||"—")+(dado?(" · "+dado):" · <i>senza dado</i>")):"<i>postazione vuota</i>";
@@ -390,7 +418,7 @@ function renderShip(){
  const modsH=mkEl("div",{class:"slots-h",html:"Moduli · "+slotsUsed()+"/"+slotsTot()+" slot"});C.appendChild(modsH);
  const mods=mkEl("div",{class:"mods"});S.moduli.forEach((m,i)=>mods.appendChild(slotTile('<span class="gc-em">'+svgIcon("gear",22)+'</span>',m.nome,m.slot+" slot · "+(m.eff||""),()=>moduleModal(i))));if(slotsUsed()<slotsTot())mods.appendChild(slotAdd("Installa modulo",catalogModal));C.appendChild(mods);
  C.appendChild(mkEl("div",{class:"slots-h",html:"Danni · in Critica un d6 decide cosa si rompe"}));
- const chips=mkEl("div",{class:"row"});DESTRUCT.forEach((d,i)=>{chips.appendChild(mkEl("span",{class:"chip"+(S.distrutti[d.key]?" broken":""),title:d.eff,text:(i+1)+" · "+d.nome,onclick:()=>{toggleDestruct(d.key);renderShip();}}));});C.appendChild(chips);
+ const chips=mkEl("div",{class:"row"});DESTRUCT.forEach((d,i)=>{chips.appendChild(mkEl("button",{type:"button","aria-pressed":String(!!S.distrutti[d.key]),class:"chip"+(S.distrutti[d.key]?" broken":""),title:d.eff,text:(i+1)+" · "+d.nome,onclick:()=>{toggleDestruct(d.key);renderShip();}}));});C.appendChild(chips);
  /* ---- destra ---- */
  g3.appendChild(L);
  const R=mkEl("div",{class:"rpanel"});g3.appendChild(R);

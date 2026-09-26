@@ -99,30 +99,32 @@ select.txt{width:100%; font-family:'Inter',sans-serif; font-size:17px; color:var
 .refrow .rf-bn{color:#ffd394;font-size:15px;}
 @media(max-width:600px){.refrow{grid-template-columns:1fr;}}
 </style>
+<script src="/glc-images.js?v=1"></script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/glc-portals.css?v=1">
+<link rel="stylesheet" href="atelier.css?v=1">
 </head>
-<body>
-<div class="topbar">
-  <a class="brand" href="/"><span class="anc">⚓</span><span class="nm">Grand Line Chronicles</span></a>
-  <span id="glc-login-slot"></span>
-</div>
+<body class="mode-atelier premium-portal">
+<div class="portal-topbar"><a class="portal-brand" href="/"><span aria-hidden="true">⚓</span><span>Grand Line Chronicles</span></a><nav class="portal-links" aria-label="Navigazione del porto"><a href="/nave-portale/">Nave</a><a href="/portale-officina-cambusa/" aria-current="page">Officina &amp; Cambusa</a><a href="/profilo/">Il tuo profilo ↗</a></nav><span id="glc-login-slot"></span></div>
 
 <div class="wrap">
   <a class="back" href="/">‹ Torna al porto</a>
   <div class="hero">
-    <div class="kick">Riserve della ciurma</div>
+    <div class="hero-copy"><div class="kick">Il sapere della ciurma · Grand Line Chronicles</div>
     <h1>Officina &amp; Cambusa</h1>
-    <div id="adminflag"></div>
+    <p>Ogni grande viaggio comincia qui. Strumenti da forgiare, ricette da scoprire e scorte per la prossima rotta.</p><div id="adminflag"></div></div><div class="atelier-seals" aria-hidden="true"><img src="/img/icons/ruolo-ingegnere.png" alt=""><img src="/img/icons/ruolo-cuoco.png" alt=""></div>
   </div>
 
   <div class="tabs" id="tabs">
-    <button class="tab" data-tab="officina" aria-selected="true">⚙ Officina</button>
-    <button class="tab" data-tab="cambusa" aria-selected="false">🍲 Cambusa</button>
-    <button class="tab" data-tab="mercante" aria-selected="false">🪙 Mercante</button>
+    <button class="tab" data-tab="officina" aria-selected="true"><span class="tab-number" aria-hidden="true">01</span>Officina</button>
+    <button class="tab" data-tab="cambusa" aria-selected="false"><span class="tab-number" aria-hidden="true">02</span>Cambusa</button>
+    <button class="tab" data-tab="mercante" aria-selected="false"><span class="tab-number" aria-hidden="true">03</span>Mercante</button>
   </div>
 
   <section class="panel active" data-tab="officina" id="p-officina"></section>
   <section class="panel" data-tab="cambusa" id="p-cambusa"></section>
   <section class="panel" data-tab="mercante" id="p-mercante"></section>
+<footer class="portal-footer"><span>GRAND LINE CHRONICLES · RISERVE DI BORDO</span><em>Il viaggio si prepara insieme.</em></footer>
 </div>
 
 <!-- modale: aggiungi al diario di una sessione -->
@@ -184,13 +186,21 @@ var OKEY="glc_officina_v1";
 function readOI(){var o=null;try{o=JSON.parse(localStorage.getItem(OKEY)||"null");}catch(e){}return (o&&Array.isArray(o.items))?o:{v:1,items:[]};}
 function writeOI(o){try{(window.GLCStore||localStorage).setItem(OKEY,JSON.stringify(o));}catch(e){throw e;}}
 
-/* ---- immagine: ridimensiona a ~256px jpeg base64 ---- */
-function resizeImg(file,cb){if(!file||!file.type||file.type.indexOf("image/")!==0){cb("");return;}
-  var rd=new FileReader();rd.onload=function(){var img=new Image();img.onload=function(){
-    var max=256,w=img.width,h=img.height,sc=Math.min(1,max/Math.max(w,h));
-    var cw=Math.round(w*sc),ch=Math.round(h*sc);var cv=document.createElement("canvas");cv.width=cw;cv.height=ch;
-    cv.getContext("2d").drawImage(img,0,0,cw,ch);var out="";try{out=cv.toDataURL("image/jpeg",0.82);}catch(e){out=rd.result;}cb(out);
-  };img.src=rd.result;};rd.readAsDataURL(file);}
+/* High-resolution image import, shared with the character and profile. */
+var imageRequests=new WeakMap();
+async function resizeImg(file,cb){
+ if(!file)return;
+ var input=[].find.call(document.querySelectorAll('input[type=file]'),function(n){return n.files[0]===file;});
+ var token={},form=input&&input.closest('.formcard'),buttons=form?[].slice.call(form.querySelectorAll('button')):[];
+ var previous=input&&imageRequests.get(input);
+ var disabled=previous?previous.disabled:buttons.map(function(b){return b.disabled;});
+ if(input)imageRequests.set(input,{token:token,disabled:disabled});
+ buttons.forEach(function(b){b.disabled=true;});
+ try{var data=await GLCImages.read(file);if(!input||(input.isConnected&&imageRequests.get(input)&&imageRequests.get(input).token===token))cb(data);}
+ catch(e){alert(e.message);}
+ finally{if(!input||imageRequests.get(input)&&imageRequests.get(input).token===token){buttons.forEach(function(b,i){b.disabled=disabled[i];});if(input){input.value='';imageRequests.delete(input);}}}
+}
+function imageUpload(input){input.accept='image/jpeg,image/png,image/webp';input.setAttribute('aria-label','Immagine fino a 4K');return el('div',{},[input,el('small',{class:'image-help',text:'JPG, PNG o WebP · fino a 4K · trasparenza conservata'})]);}
 
 /* ---- catalogo condiviso (Supabase) ---- */
 async function fetchCatalog(tipo){
@@ -236,7 +246,9 @@ function flash(msg){var f=el("div",{text:msg,style:"position:fixed;left:50%;bott
 function itemCard(o,opts){
   opts=opts||{};
   var pic=el("div",{class:"pic"});
-  if(o.img){ pic.style.backgroundImage="url('"+o.img+"')"; pic.textContent=""; } else { pic.textContent=opts.icon||"⚙"; }
+  if(o.img){ pic.style.backgroundImage="url('"+o.img+"')"; pic.textContent=""; } else { pic.classList.add('empty-art');pic.appendChild(el('img',{src:'/img/icons/'+(opts.diaryKind==='piatto'?'ruolo-cuoco':opts.price?'zaino':'ruolo-ingegnere')+'.png',alt:'',loading:'lazy'})); }
+  var description=o.descrizione||o.desc||'',lines=description.split('\n'),lead=lines.shift(),detail=null;
+  if(lines.length){detail=el('details',{class:'card-details'},[el('summary',{text:'Dettagli e regole'}),el('p',{text:lines.join('\n')})]);}
   var acts=el("div",{class:"iacts"});
   acts.appendChild(el("button",{class:"ibtn",text:"+ Diario",onClick:function(){openDiaryPicker(o.nome||"Oggetto",o.descrizione||o.desc||"",opts.diaryKind||"oggetto");}}));
   if(opts.admin){
@@ -247,9 +259,10 @@ function itemCard(o,opts){
     acts.appendChild(el("button",{class:"ibtn del",text:"Elimina",onClick:function(){opts.onDelete&&opts.onDelete(o);}}));
   }
   return el("div",{class:"item"},[pic,el("div",{class:"ib"},[
+    el("div",{class:"item-category",text:(o.dati&&o.dati.categoria)||o.cat||(opts.diaryKind==="piatto"?"Ricettario":opts.price?"Provviste":"Officina")}),
     el("div",{class:"inm",text:o.nome||"Senza nome"}),
     (opts.price&&o.dati)?el("div",{class:"iprice",text:(o.dati.acquistabile===false)?"⛔ non acquistabile":(fmtBerry(o.dati.prezzo)+" ฿ · "+(o.dati.fascia||""))}):null,
-    el("div",{class:"idesc",text:o.descrizione||o.desc||""}),
+    el("div",{class:"idesc",text:lead}),detail,
     acts
   ])]);
 }
@@ -257,6 +270,7 @@ function itemCard(o,opts){
 /* ---- render Officina ---- */
 async function renderOfficina(){
   var p=$("#p-officina"); p.innerHTML="";
+  p.appendChild(el("nav",{class:"atelier-localnav","aria-label":"Sezioni Officina"},[el("a",{href:"#catgrid",text:"Catalogo"}),el("a",{href:"#mygrid",text:"I miei oggetti"}),el("a",{href:"#officina-create",text:"＋ Crea oggetto"})]));
 
   p.appendChild(el("div",{class:"sec-head"},[el("h2",{text:"Catalogo ufficiale"})]));
   p.appendChild(el("p",{class:"hint",text:isAdmin?"Sei l'amministratore: puoi creare, modificare ed eliminare gli oggetti ufficiali (con immagine). Tutti i giocatori li vedranno.":"Oggetti ufficiali creati dal Capitano. Puoi aggiungerli al diario di una tua sessione."}));
@@ -307,7 +321,7 @@ async function renderOfficina(){
       el("label",{class:"lab",text:"Effetto / descrizione"}), f_desc,
       el("label",{class:"lab",text:"Categoria"}), f_cat,
       el("label",{class:"lab",text:"Immagine"}),
-      el("div",{class:"imgrow"},[prev,file]),
+      el("div",{class:"imgrow"},[prev,imageUpload(file)]),
       el("div",{},[saveBtn])
     ]);
     p.appendChild(form);
@@ -328,16 +342,16 @@ async function renderOfficina(){
   m_file.onchange=function(){ resizeImg(m_file.files[0],function(d){ m_img=d; if(d){m_prev.style.backgroundImage="url('"+d+"')";m_prev.textContent="";} }); };
   var m_add=el("button",{class:"btn",text:"Aggiungi ai miei oggetti",onClick:function(){
     var nome=m_nome.value.trim(); if(!nome){m_nome.focus();return;}
-    var o=readOI(); o.items.push({id:newId("mo_"),nome:nome,desc:m_desc.value.trim(),img:m_img||""}); writeOI(o);
+    var o=readOI(); o.items.push({id:newId("mo_"),nome:nome,desc:m_desc.value.trim(),img:m_img||""}); try{writeOI(o);}catch(e){alert("Spazio insufficiente. Alleggerisci l’immagine: gli oggetti precedenti sono rimasti invariati.");return;}
     m_nome.value=""; m_desc.value=""; m_img=""; m_prev.style.backgroundImage=""; m_prev.textContent="⚙";
     renderMine(mygrid); flash("Oggetto aggiunto ✓");
   }});
-  p.appendChild(el("div",{class:"formcard"},[
+  p.appendChild(el("div",{class:"formcard",id:"officina-create"},[
     el("h3",{text:"Aggiungi un tuo oggetto"}),
     el("label",{class:"lab",text:"Nome"}), m_nome,
     el("label",{class:"lab",text:"Effetto / descrizione"}), m_desc,
     el("label",{class:"lab",text:"Immagine (facoltativa)"}),
-    el("div",{class:"imgrow"},[m_prev,m_file]),
+    el("div",{class:"imgrow"},[m_prev,imageUpload(m_file)]),
     el("div",{},[m_add])
   ]));
 
@@ -456,6 +470,7 @@ function renderMyDishes(grid){
 }
 function renderCambusa(){
   var p=document.getElementById("p-cambusa"); p.innerHTML="";
+  p.appendChild(el("nav",{class:"atelier-localnav","aria-label":"Sezioni Cambusa"},[el("a",{href:"#dishgrid",text:"Ricettario"}),el("a",{href:"#mydishgrid",text:"I miei piatti"}),el("a",{href:"#cambusa-create",text:"＋ Crea piatto"})]));
   p.appendChild(el("div",{class:"sec-head"},[el("h2",{text:"Piatti ufficiali"})]));
   p.appendChild(el("p",{class:"hint",text:isAdmin?"Crea, modifica ed elimina i piatti ufficiali (con immagine). Li vedono tutti.":"Piatti ufficiali del Capitano. Aggiungili al diario di una tua sessione."}));
   var dfbar=el("div",{class:"filterbar"});
@@ -487,7 +502,7 @@ function renderCambusa(){
       d_nome.value="";d_desc.value="";d_cat.value="";d_img="";d_dati=null;d_prev.style.backgroundImage="";d_prev.textContent="\ud83c\udf72";d_edit=null;d_title.textContent="Aggiungi un piatto ufficiale";d_save.textContent="Salva nel catalogo";
       flash("Catalogo aggiornato \u2713"); loadDishes();
     }});
-    var dform=el("div",{class:"formcard"},[d_title,el("label",{class:"lab",text:"Nome"}),d_nome,el("label",{class:"lab",text:"Esiti / descrizione"}),d_desc,el("label",{class:"lab",text:"Categoria"}),d_cat,el("label",{class:"lab",text:"Immagine"}),el("div",{class:"imgrow"},[d_prev,d_file]),el("div",{},[d_save])]);
+    var dform=el("div",{class:"formcard"},[d_title,el("label",{class:"lab",text:"Nome"}),d_nome,el("label",{class:"lab",text:"Esiti / descrizione"}),d_desc,el("label",{class:"lab",text:"Categoria"}),d_cat,el("label",{class:"lab",text:"Immagine"}),el("div",{class:"imgrow"},[d_prev,imageUpload(d_file)]),el("div",{},[d_save])]);
     p.appendChild(dform);
     window.__startEditDish=function(o){d_edit=o.id;d_dati=(o.dati&&typeof o.dati==="object")?JSON.parse(JSON.stringify(o.dati)):{};d_nome.value=o.nome||"";d_desc.value=o.descrizione||"";d_cat.value=(o.dati&&o.dati.categoria)||"";d_img=o.img||"";if(o.img){d_prev.style.backgroundImage="url('"+o.img+"')";d_prev.textContent="";}else{d_prev.style.backgroundImage="";d_prev.textContent="\ud83c\udf72";}d_title.textContent="Modifica piatto ufficiale";d_save.textContent="Aggiorna";dform.scrollIntoView({behavior:"smooth"});};
   }
@@ -516,7 +531,7 @@ function renderCambusa(){
     b_nome.value=""; b_cat.value=""; cust_nome.value=""; cust_bonus.value=""; INGR_NOTE.forEach(function(ing,idx){var c=document.getElementById("ing_"+idx);if(c)c.checked=false;});
     renderMyDishes(document.getElementById("mydishgrid")); flash("Piatto creato \u2713");
   }});
-  p.appendChild(el("div",{class:"formcard"},[
+  p.appendChild(el("div",{class:"formcard",id:"cambusa-create"},[
     el("label",{class:"lab",text:"Nome del piatto"}), b_nome,
     el("label",{class:"lab",text:"Categoria"}), b_cat,
     el("label",{class:"lab",text:"Ingredienti (ognuno col suo bonus)"}), ingWrap,
@@ -579,7 +594,7 @@ function renderMercante(){
       i_nome.value="";i_desc.value="";i_cat.value="";i_prezzo.value="";i_fascia.value="Comune";i_img="";i_dati=null;i_prev.style.backgroundImage="";i_prev.textContent="🪙";i_edit=null;i_title.textContent="Aggiungi un ingrediente";i_save.textContent="Salva nel catalogo";
       flash("Catalogo aggiornato ✓"); loadIngredienti();
     }});
-    var iform=el("div",{class:"formcard"},[i_title,el("label",{class:"lab",text:"Nome"}),i_nome,el("label",{class:"lab",text:"Note / dove si trova"}),i_desc,el("label",{class:"lab",text:"Categoria"}),i_cat,el("label",{class:"lab",text:"Prezzo (฿)"}),i_prezzo,el("label",{class:"lab",text:"Fascia"}),i_fascia,el("label",{class:"lab",text:"Immagine"}),el("div",{class:"imgrow"},[i_prev,i_file]),el("div",{},[i_save])]);
+    var iform=el("div",{class:"formcard"},[i_title,el("label",{class:"lab",text:"Nome"}),i_nome,el("label",{class:"lab",text:"Note / dove si trova"}),i_desc,el("label",{class:"lab",text:"Categoria"}),i_cat,el("label",{class:"lab",text:"Prezzo (฿)"}),i_prezzo,el("label",{class:"lab",text:"Fascia"}),i_fascia,el("label",{class:"lab",text:"Immagine"}),el("div",{class:"imgrow"},[i_prev,imageUpload(i_file)]),el("div",{},[i_save])]);
     p.appendChild(iform);
     window.__startEditIng=function(o){i_edit=o.id;i_dati=(o.dati&&typeof o.dati==="object")?JSON.parse(JSON.stringify(o.dati)):{};i_nome.value=o.nome||"";i_desc.value=o.descrizione||"";i_cat.value=(o.dati&&o.dati.categoria)||"";i_prezzo.value=(o.dati&&o.dati.prezzo!=null)?o.dati.prezzo:"";i_fascia.value=(o.dati&&o.dati.fascia)||"Comune";i_img=o.img||"";if(o.img){i_prev.style.backgroundImage="url('"+o.img+"')";i_prev.textContent="";}else{i_prev.style.backgroundImage="";i_prev.textContent="🪙";}i_title.textContent="Modifica ingrediente";i_save.textContent="Aggiorna";iform.scrollIntoView({behavior:"smooth"});};
   }

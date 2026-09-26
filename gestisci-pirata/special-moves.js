@@ -449,15 +449,7 @@ async function mediaDelete(id) {
 }
 function artInUse(id) {return Object.values(CT.chars).some(p=>list(p.specialMoves).some(m=>m.presentation?.artId===id));}
 async function optimizeArt(file) {
- if(!file||!['image/jpeg','image/png','image/webp'].includes(file.type))throw Error('Scegli un’immagine JPG, PNG o WebP.');
- if(file.size>20*1024*1024)throw Error('L’immagine supera 20 MB. Scegli una versione più leggera.');
- const url=URL.createObjectURL(file);
- try {const img=await new Promise((yes,no)=>{const i=new Image();i.onload=()=>yes(i);i.onerror=()=>no(Error('L’immagine non è leggibile.'));i.src=url;});
-  if(!img.width||!img.height||img.width*img.height>48000000)throw Error('Immagine troppo grande: usa una versione sotto 48 megapixel.');
-  const scale=Math.min(1,1600/Math.max(img.width,img.height)),canvas=document.createElement('canvas');
-  canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);
-  const blob=await new Promise(yes=>canvas.toBlob(yes,'image/webp',.86));if(!blob)throw Error('Il browser non riesce a elaborare l’immagine.');return blob;
- }finally{URL.revokeObjectURL(url);}
+ return GLCImages.prepare(file);
 }
 
 /* ---------- Scoped UI ---------- */
