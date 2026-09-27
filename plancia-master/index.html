@@ -121,57 +121,58 @@ input.in:focus,select.in:focus{outline:none;border-color:var(--gold);box-shadow:
 .empty{color:var(--foam);font-style:italic;border:1px dashed rgba(240,164,65,.4);border-radius:12px;padding:16px;text-align:center;}
 @media(max-width:520px){.cbt{grid-template-columns:50px 1fr;}.attrs{grid-template-columns:repeat(2,1fr);}}
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/glc-portals.css?v=1">
+<link rel="stylesheet" href="/plancia-master/plancia.css?v=1">
 </head>
-<body>
-<div class="topbar">
-  <a class="brand" href="/"><span class="anc">⚓</span><span class="nm">Grand Line Chronicles</span></a>
+<body class="premium-portal mode-master">
+<a class="gm-skip" href="#tabs">Vai agli strumenti del Master</a>
+<svg class="gm-symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+  <symbol id="gm-foe" viewBox="0 0 48 48"><path d="M24 7C14 7 8 14 8 23c0 6 3 9 7 12v6h18v-6c4-3 7-6 7-12C40 14 34 7 24 7Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m20 30 4-5 4 5M19 35v6m5-6v6m5-6v6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m14 19 7 3-4 4-4-2zm20 0-7 3 4 4 4-2z" fill="currentColor"/></symbol>
+  <symbol id="gm-blades" viewBox="0 0 48 48"><path d="m10 7 26 29M10 7l2 11 8-7-10-4Zm-2 27 9 9m-5-5-5 5M38 7 12 36M38 7l-2 11-8-7 10-4Zm2 27-9 9m5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+</defs></svg>
+<header class="portal-topbar">
+  <a class="portal-brand" href="/"><span aria-hidden="true">⚓</span><span>Grand Line Chronicles</span></a>
+  <nav class="portal-links" aria-label="Navigazione del porto"><a href="/campagne/">Campagne</a><a href="/manuale/">Manuale</a><a href="/profilo/">Il tuo profilo ↗</a></nav>
   <span id="glc-login-slot"></span>
-</div>
-
-<div class="wrap">
+</header>
+<main class="wrap">
   <a class="back" href="/">‹ Torna al porto</a>
-  <div class="hero">
-    <div class="kick">Strumento del Capitano</div>
-    <h1>Plancia del Master</h1>
-  </div>
-  <div class="intro">
-    <div class="t">A cosa serve</div>
+  <header class="hero">
+    <div class="gm-hero-copy"><p class="kick">La regia della tua avventura</p><h1>Plancia del <em>Master.</em></h1><p class="gm-intro">Prepara chi attende la ciurma.<br>Dai ritmo a ogni scontro. Lascia il segno nella storia.</p><div class="gm-phases" aria-hidden="true"><span>01 · Prepara</span><i></i><span>02 · Schiera</span><i></i><span>03 · Conduci</span></div></div>
+    <div class="gm-emblem" aria-hidden="true"><div class="gm-orbit"></div><img src="/img/icons/haki-osservazione.png" alt="" width="220" height="220"><span>Oltre l’orizzonte</span></div>
+  </header>
+  <details class="gm-guide"><summary>La plancia, in breve <span aria-hidden="true">+</span></summary><div class="intro">
     Questa è la regia del <b>Master</b>. Nel <b>Bestiario</b> tieni gli avversari pronti all'uso — con <b>attributi</b>, PV, Difesa, attacchi e debolezze — e li puoi modificare o crearne di nuovi. Nello <b>Scontro</b> componi l'incontro aggiungendo nemici (dal bestiario o al volo) e personaggi, <b>scrivi i tiri d'iniziativa</b> usciti al tavolo, ordini il turno e tieni il conto di PV, Stamina e stati. Tutto si salva nel tuo account.
+  </div></details>
+  <div class="tabs" id="tabs" role="group" aria-label="Strumenti del Master">
+    <button class="tab" data-tab="bestiario" aria-selected="true" aria-controls="p-bestiario"><svg aria-hidden="true"><use href="#gm-foe"/></svg><span><span class="gm-tab-kicker">01 / Preparazione</span><strong>Bestiario</strong><small>Il tuo archivio di avversari</small></span><span class="gm-tab-arrow" aria-hidden="true">↗</span></button>
+    <button class="tab" data-tab="scontro" aria-selected="false" aria-controls="p-scontro"><svg aria-hidden="true"><use href="#gm-blades"/></svg><span><span class="gm-tab-kicker">02 / Al tavolo</span><strong>Scontro</strong><small>Iniziativa, risorse e condizioni</small></span><span class="gm-tab-arrow" aria-hidden="true">↗</span></button>
   </div>
-
-  <div class="tabs" id="tabs">
-    <button class="tab" data-tab="bestiario" aria-selected="true">☠ Bestiario</button>
-    <button class="tab" data-tab="scontro" aria-selected="false">⚔ Scontro</button>
-  </div>
-
-  <section class="pane active" data-tab="bestiario" id="p-bestiario">
+  <section class="pane active" data-tab="bestiario" id="p-bestiario" aria-labelledby="gm-archive-title">
+    <div class="gm-section-head"><div><p class="gm-eyebrow">Dossier della Rotta Maggiore</p><h2 id="gm-archive-title">Ogni incontro ha un volto.</h2></div><button class="btn" id="addBeast">+ Nuovo avversario</button></div>
     <div class="toolbar">
-      <button class="btn sm" id="addBeast">+ Nuovo avversario</button>
-      <input class="in" id="bsearch" placeholder="Cerca…" style="min-width:150px">
-      <select class="in" id="bfTipo"><option value="">Ogni tipo</option></select>
-      <select class="in" id="bfMin"><option value="">Ogni minaccia</option></select>
-      <button class="btn sm ghost" id="resetBeast">↺ Ripristina</button>
-      <span class="tcount" id="bcount"></span>
+      <label class="gm-search"><span>Cerca nell’archivio</span><input class="in" id="bsearch" placeholder="Nome, abilità o note…" type="search"></label>
+      <label class="gm-filter"><span>Fazione / natura</span><select class="in" id="bfTipo"><option value="">Ogni tipo</option></select></label>
+      <label class="gm-filter"><span>Minaccia</span><select class="in" id="bfMin"><option value="">Ogni minaccia</option></select></label>
+      <button class="btn sm ghost" id="resetBeast" title="Ripristina il bestiario di partenza">↺ Ripristina</button>
     </div>
+    <div class="gm-results"><span>Modifica la scheda. Schiera quando sei pronto.</span><span class="tcount" id="bcount" role="status" aria-live="polite"></span></div>
     <div class="cards" id="beasts"></div>
   </section>
-
-  <section class="pane" data-tab="scontro" id="p-scontro">
-    <div class="fightbar">
-      <span class="roundbox"><button id="rMinus" title="Round −">−</button>Round <span id="roundN">1</span><button id="rPlus" title="Round +">+</button></span>
-      <button class="btn sm" id="nextTurn">▶ Turno</button>
-      <button class="btn sm ghost" id="sortIni">↕ Ordina iniziativa</button>
-      <select class="in" id="addSel"><option value="">+ dal Bestiario…</option></select>
-      <input class="in" id="addCount" type="number" value="1" min="1" max="12" style="width:54px" title="copie">
-      <button class="btn sm" id="addFromB">Aggiungi</button>
-      <button class="btn sm ghost" id="addEnemy">+ Nemico libero</button>
-      <button class="btn sm ghost" id="addPC">+ Personaggio</button>
-      <button class="btn sm ghost" id="clearFight">🗑 Svuota</button>
+  <section class="pane" data-tab="scontro" id="p-scontro" aria-labelledby="gm-fight-title">
+    <div class="gm-section-head"><div><p class="gm-eyebrow">La scena è della ciurma</p><h2 id="gm-fight-title">Ogni turno può cambiare tutto.</h2></div><p class="gm-section-hint">Inserisci i tiri del tavolo.<br>La plancia tiene il filo.</p></div>
+    <div class="gm-battle-layout">
+      <aside class="fightbar" aria-label="Comandi dello scontro">
+        <div class="gm-round-control"><p class="gm-eyebrow">Ritmo della battaglia</p><div class="roundbox"><button id="rMinus" title="Round −" aria-label="Diminuisci round">−</button><span class="gm-round-display"><span>Round</span><span id="roundN">1</span></span><button id="rPlus" title="Round +" aria-label="Aumenta round">+</button></div><button class="btn" id="nextTurn">▶ Turno</button><button class="btn ghost" id="sortIni">↕ Ordina iniziativa</button></div>
+        <div class="gm-reinforcements"><h3>Schiera in campo</h3><label class="lab" for="addSel">Dal tuo bestiario</label><select class="in" id="addSel"><option value="">+ dal Bestiario…</option></select><div class="gm-add-row"><label for="addCount">Copie<input class="in" id="addCount" type="number" value="1" min="1" max="12" title="copie"></label><button class="btn sm" id="addFromB">Aggiungi</button></div><div class="gm-free-add"><button class="btn sm ghost" id="addEnemy">+ Nemico libero</button><button class="btn sm ghost" id="addPC">+ Personaggio</button></div></div>
+        <button class="btn sm ghost gm-clear" id="clearFight">🗑 Svuota</button>
+      </aside>
+      <div class="gm-battlefield"><div class="gm-field-head"><h3>Ordine di iniziativa</h3><span><i aria-hidden="true"></i> Il turno attuale è evidenziato</span></div><div class="combatants" id="combatants"></div><details class="gm-reference"><summary>Promemoria del combattimento <span aria-hidden="true">+</span></summary><div class="ref" id="ref"></div></details></div>
     </div>
-    <div class="combatants" id="combatants"></div>
-    <div class="ref" id="ref"></div>
   </section>
-</div>
+  <footer class="portal-footer"><span>Grand Line Chronicles · Plancia del Master</span><em>Il mare è tuo. La storia è della ciurma.</em></footer>
+</main>
 
 <script>
 function el(t,a,kids){var e=document.createElement(t);a=a||{};for(var k in a){if(k==="text")e.textContent=a[k];else if(k==="html")e.innerHTML=a[k];else if(k==="onClick")e.onclick=a[k];else e.setAttribute(k,a[k]);}(kids||[]).forEach(function(c){if(c)e.appendChild(c);});return e;}
@@ -212,21 +213,22 @@ function saveF(){try{(window.GLCStore||localStorage).setItem(KEY_F,JSON.stringif
 
 /* ---------- bestiario ---------- */
 function attrCell(b,key){
-  var sel=el("select");DICE.forEach(function(d){sel.appendChild(el("option",{value:d,text:d}));});sel.value=b.attr[key]||"—";
+  var sel=el("select",{"aria-label":key});DICE.forEach(function(d){sel.appendChild(el("option",{value:d,text:d}));});sel.value=b.attr[key]||"—";
   sel.onchange=function(){b.attr[key]=sel.value;saveB();fillFightAttrs(b);};
   return el("div",{class:"attrc"},[el("div",{class:"an",text:key.slice(0,3)}),sel]);
 }
 function statCell(label,get,set){
-  var i=el("input",{type:"text",inputmode:"numeric"});i.value=get();i.oninput=function(){set(i.value.replace(/[^0-9]/g,""));saveB();};
+  var i=el("input",{type:"text",inputmode:"numeric","aria-label":label});i.value=get();i.oninput=function(){set(i.value.replace(/[^0-9]/g,""));saveB();};
   return el("div",{class:"statc"},[el("div",{class:"sn",text:label}),i]);
 }
 function buildBeast(b){
   var card=el("div",{class:"beast"});
-  var nm=el("input",{class:"bnome",type:"text"});nm.value=b.nome||"";nm.oninput=function(){b.nome=nm.value;saveB();fillAddSel();};
+  card.appendChild(el("div",{class:"gm-dossier-mark","aria-hidden":"true",html:"<svg><use href='#gm-foe'/></svg><span>Dossier avversario</span>"}));
+  var nm=el("input",{class:"bnome",type:"text","aria-label":"Nome avversario"});nm.value=b.nome||"";nm.oninput=function(){b.nome=nm.value;saveB();fillAddSel();};
   card.appendChild(el("div",{class:"bh"},[nm,el("button",{class:"x",text:"Elimina",onClick:function(){if(!confirm("Eliminare «"+(b.nome||"")+"» dal bestiario?"))return;best=best.filter(function(x){return x!==b;});saveB();renderBeast();fillAddSel();}})]));
   // tipo + minaccia
-  var tSel=el("select",{class:"in"});TIPI.forEach(function(t){tSel.appendChild(el("option",{value:t,text:t}));});tSel.value=b.tipo;tSel.onchange=function(){b.tipo=tSel.value;saveB();applyFilter();};
-  var mSel=el("select",{class:"in"});MINACCE.forEach(function(m){mSel.appendChild(el("option",{value:m,text:m}));});mSel.value=b.minaccia;mSel.onchange=function(){b.minaccia=mSel.value;saveB();applyFilter();fillAddSel();};
+  var tSel=el("select",{class:"in","aria-label":"Tipo avversario"});TIPI.forEach(function(t){tSel.appendChild(el("option",{value:t,text:t}));});tSel.value=b.tipo;tSel.onchange=function(){b.tipo=tSel.value;saveB();applyFilter();};
+  var mSel=el("select",{class:"in","aria-label":"Minaccia avversario"});MINACCE.forEach(function(m){mSel.appendChild(el("option",{value:m,text:m}));});mSel.value=b.minaccia;mSel.onchange=function(){b.minaccia=mSel.value;saveB();applyFilter();fillAddSel();};
   card.appendChild(el("div",{class:"rowsel"},[tSel,mSel]));
   // attributi
   card.appendChild(el("span",{class:"lab",text:"Attributi"}));
@@ -237,32 +239,36 @@ function buildBeast(b){
     statCell("ST",function(){return b.st;},function(v){b.st=v;}),
     statCell("Difesa",function(){return b.difesa;},function(v){b.difesa=v;})
   ]));
+  // Native disclosure keeps the original fields and their handlers together.
+  var dossier=el("details",{class:"beast-dossier"});
+  dossier.appendChild(el("summary",{html:"Attacchi &amp; dossier <span aria-hidden='true'>+</span>"}));
   // attacchi
-  card.appendChild(el("span",{class:"lab",text:"Attacchi"}));
+  dossier.appendChild(el("span",{class:"lab",text:"Attacchi"}));
   var atkWrap=el("div",{class:"atk"});
   function drawAtk(){
     atkWrap.innerHTML="";
     (b.atk||[]).forEach(function(a,i){
-      var an=el("input",{class:"an",type:"text"});an.value=a[0]||"";an.placeholder="nome";an.oninput=function(){a[0]=an.value;saveB();};
-      var af=el("input",{class:"af",type:"text"});af.value=a[1]||"";af.placeholder="es. Forza d8 + arma d6";af.oninput=function(){a[1]=af.value;saveB();};
-      var ad=el("input",{class:"ad",type:"text"});ad.value=a[2]||"";ad.placeholder="dado";ad.oninput=function(){a[2]=ad.value;saveB();};
-      atkWrap.appendChild(el("div",{class:"atkrow"},[an,af,ad,el("button",{class:"ax",text:"✕",onClick:function(){b.atk.splice(i,1);saveB();drawAtk();}})]));
+      var an=el("input",{class:"an",type:"text","aria-label":"Nome attacco"});an.value=a[0]||"";an.placeholder="nome";an.oninput=function(){a[0]=an.value;saveB();};
+      var af=el("input",{class:"af",type:"text","aria-label":"Tiro per colpire"});af.value=a[1]||"";af.placeholder="es. Forza d8 + arma d6";af.oninput=function(){a[1]=af.value;saveB();};
+      var ad=el("input",{class:"ad",type:"text","aria-label":"Dado danno"});ad.value=a[2]||"";ad.placeholder="dado";ad.oninput=function(){a[2]=ad.value;saveB();};
+      atkWrap.appendChild(el("div",{class:"atkrow"},[an,af,ad,el("button",{class:"ax",text:"✕","aria-label":"Rimuovi attacco",onClick:function(){b.atk.splice(i,1);saveB();drawAtk();}})]));
     });
     atkWrap.appendChild(el("button",{class:"miniadd",text:"+ attacco",onClick:function(){b.atk=b.atk||[];b.atk.push(["Nuovo attacco","Forza d6","d6",""]);saveB();drawAtk();}}));
   }
-  drawAtk();card.appendChild(atkWrap);
+  drawAtk();dossier.appendChild(atkWrap);
   // testi
-  function ta(label,get,set){card.appendChild(el("span",{class:"lab",text:label}));var t=el("textarea");t.value=get()||"";t.oninput=function(){set(t.value);saveB();};card.appendChild(t);}
+  function ta(label,get,set){dossier.appendChild(el("span",{class:"lab",text:label}));var t=el("textarea",{"aria-label":label});t.value=get()||"";t.oninput=function(){set(t.value);saveB();};dossier.appendChild(t);}
   ta("Abilità",function(){return b.abil;},function(v){b.abil=v;});
   ta("Haki",function(){return b.haki;},function(v){b.haki=v;});
   ta("Debolezza",function(){return b.deb;},function(v){b.deb=v;});
   ta("Note",function(){return b.note;},function(v){b.note=v;});
   // aggiungi allo scontro
-  var cnt=el("input",{type:"text",inputmode:"numeric"});cnt.value="1";
+  var cnt=el("input",{type:"text",inputmode:"numeric","aria-label":"Copie da schierare"});cnt.value="1";
   card.appendChild(el("div",{class:"tofight"},[
     el("button",{class:"btn sm",text:"⚔ Aggiungi allo Scontro",onClick:function(){addBeastToFight(b,parseInt(cnt.value)||1);flash();}}),
     cnt,el("span",{class:"lab",style:"margin:0",text:"copie"})
   ]));
+  card.appendChild(dossier);
   return card;
 }
 function flash(){var f=el("div",{text:"Aggiunto allo scontro ✓",style:"position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#14121a;color:#f2e9d8;border:1px solid #f0a441;border-radius:10px;padding:10px 18px;font-family:'Inter',sans-serif;z-index:60"});document.body.appendChild(f);setTimeout(function(){f.style.transition="opacity .4s";f.style.opacity="0";setTimeout(function(){f.remove();},420);},1200);}
@@ -308,31 +314,34 @@ function combatantRow(c,idx){
   var isPC=c.side==="pc";
   var row=el("div",{class:"cbt"+(idx===fight.turn?" turn":"")+(dead?" dead":"")+(isPC?" pc":"")});
   // iniziativa
-  var iniIn=el("input",{type:"text",inputmode:"numeric"});iniIn.value=(c.ini!=null?c.ini:"");iniIn.oninput=function(){c.ini=iniIn.value.replace(/[^0-9]/g,"");saveF();};
+  var iniIn=el("input",{type:"text",inputmode:"numeric","aria-label":"Iniziativa"});iniIn.value=(c.ini!=null?c.ini:"");iniIn.oninput=function(){c.ini=iniIn.value.replace(/[^0-9]/g,"");saveF();};
   row.appendChild(el("div",{class:"ini"},[el("span",{class:"k",text:"INI"}),iniIn]));
   // main
   var main=el("div",{class:"cmain"});
-  var nameIn=el("input",{type:"text"});nameIn.value=c.nome||"";nameIn.oninput=function(){c.nome=nameIn.value;saveF();};
-  main.appendChild(el("div",{class:"cname"},[nameIn,el("span",{class:"sidebadge "+(isPC?"pc":"enemy"),text:isPC?"PG":"Nemico"}),el("button",{class:"cx",text:"✕",onClick:function(){rmCbt(c);}})]));
+  var nameIn=el("input",{type:"text","aria-label":"Nome combattente"});nameIn.value=c.nome||"";nameIn.oninput=function(){c.nome=nameIn.value;saveF();};
+  main.appendChild(el("div",{class:"cname"},[nameIn,el("span",{class:"sidebadge "+(isPC?"pc":"enemy"),text:isPC?"PG":"Nemico"}),el("button",{class:"cx",text:"✕","aria-label":"Rimuovi combattente",onClick:function(){rmCbt(c);}})]));
   var meta=el("div",{class:"cmeta"},[el("span",{class:"defb",text:"Difesa "+(c.difesa||"—")})]);
   if(c.attr)meta.appendChild(el("span",{class:"cattr",html:attrStr(c.attr).replace(/F |T |S |A /g,function(m){return "<b>"+m.trim()+"</b> ";})}));
   if(qm)meta.appendChild(el("span",{class:"qm",text:"QUASI MORTO +2 dadi"}));
   if(dead)meta.appendChild(el("span",{class:"qm",text:"A TERRA"}));
   main.appendChild(meta);
+  // Resource group: presentation only.
+  var vitals=el("div",{class:"gm-vitals"});
+  main.appendChild(vitals);
   // barra PV
-  main.appendChild(el("div",{class:"bar"},[el("div",{class:"fill",style:"width:"+pct+"%;background:"+col+";"}),el("div",{class:"lab",text:(parseInt(c.pvCur)||0)+" / "+pvMax(c)+" PV"})]));
+  vitals.appendChild(el("div",{class:"bar"},[el("div",{class:"fill",style:"width:"+pct+"%;background:"+col+";"}),el("div",{class:"lab",text:(parseInt(c.pvCur)||0)+" / "+pvMax(c)+" PV"})]));
   // controlli PV/ST
-  var amt=el("input",{class:"amt",type:"text",inputmode:"numeric"});amt.value="1";
+  var amt=el("input",{class:"amt",type:"text",inputmode:"numeric","aria-label":"Quantità danno o cura"});amt.value="1";
   var stMini=null;
-  if((parseInt(c.stMax)||0)>0){var si=el("input",{type:"text",inputmode:"numeric"});si.value=c.stCur!=null?c.stCur:0;si.oninput=function(){c.stCur=si.value.replace(/[^0-9]/g,"");saveF();};stMini=el("span",{class:"stmini"},[el("span",{text:"ST"}),si,el("span",{text:"/"+(c.stMax||0)})]);}
-  main.appendChild(el("div",{class:"vrow"},[
+  if((parseInt(c.stMax)||0)>0){var si=el("input",{type:"text",inputmode:"numeric","aria-label":"Stamina attuale"});si.value=c.stCur!=null?c.stCur:0;si.oninput=function(){c.stCur=si.value.replace(/[^0-9]/g,"");saveF();};stMini=el("span",{class:"stmini"},[el("span",{text:"ST"}),si,el("span",{text:"/"+(c.stMax||0)})]);}
+  vitals.appendChild(el("div",{class:"vrow"},[
     el("span",{class:"tag",text:"PV"}),
     el("button",{text:"−",title:"danno",onClick:function(){dmg(c,-(parseInt(amt.value)||0));}}),amt,
     el("button",{class:"heal",text:"+",title:"cura",onClick:function(){dmg(c,(parseInt(amt.value)||0));}}),
     stMini
   ]));
   // stati
-  var conds=el("div",{class:"conds"});CONDS.forEach(function(name){conds.appendChild(el("span",{class:"cond"+((Array.isArray(c.cond)?c.cond:[]).indexOf(name)>=0?" on":""),text:name,onClick:function(){toggleCond(c,name);}}));});
+  var conds=el("div",{class:"conds"});CONDS.forEach(function(name){conds.appendChild(el("button",{type:"button",class:"cond"+((Array.isArray(c.cond)?c.cond:[]).indexOf(name)>=0?" on":""),"aria-pressed":String((Array.isArray(c.cond)?c.cond:[]).indexOf(name)>=0),text:name,onClick:function(){toggleCond(c,name);}}));});
   main.appendChild(conds);
   row.appendChild(main);
   return row;
