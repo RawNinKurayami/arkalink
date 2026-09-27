@@ -212,6 +212,7 @@ async function renderDetail(c){
   var manage=el("section",{class:"camp-section camp-manage"});
   p.appendChild(el("p",{class:"voyage-eyebrow",text:"Quartier generale"}));
   p.appendChild(el("div",{class:"row"},[el("h3",{class:"dt",text:c.name}),el("span",{class:"badge "+(isGM?"gm":"pl"),text:isGM?"Sei il Game Master":"Sei un Giocatore",style:"margin-left:8px"})]));
+  p.appendChild(el("a",{class:"btn ghost",href:"/campo-di-battaglia/?campaign="+encodeURIComponent(c.id),target:"_blank",rel:"noopener",text:"Apri il campo di battaglia ↗"}));
 
   // membri
   var memR=await SB().from("campaign_members").select("*").eq("campaign_id",c.id);

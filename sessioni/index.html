@@ -233,6 +233,7 @@ function render(){
   app.appendChild(hero);
   var jumps=el("nav",{class:"voyage-jumps","aria-label":"Nella sessione"});
   [["session-notebook","Diario di bordo"],["session-map","Atlante"],["session-log","Registro"]].forEach(function(x){jumps.appendChild(el("a",{href:"#"+x[0],text:x[1]}));});
+  jumps.appendChild(el("a",{href:"/tavolo-tattico/?s="+encodeURIComponent(SID),text:"Tavolo tattico del GM ↗"}));
   app.appendChild(jumps);
   var desk=el("div",{class:"session-desk"});app.appendChild(desk);
 
