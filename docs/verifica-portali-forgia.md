@@ -1,6 +1,7 @@
 # Verifica Arkalink / Forgia — 27 settembre 2026
 
 - Build TypeScript e produzione completate.
+- 3 test aggiuntivi per distinguere errori SMTP, rete e credenziali senza esporre dettagli riservati.
 - 5 test della sincronizzazione: revisione vecchia, rete assente, scritture concorrenti, salvataggio prima del caricamento, risoluzione esplicita del conflitto.
 - 15 controlli sul servizio reale con due account temporanei: login, separazione archivi, accesso anonimo negato, controllo revisione e accesso privato ai file.
 - Caricamento e rilettura dell’immagine e di un file maggiore di 8 MiB: byte identici agli originali; provato il trasferimento a blocchi.
@@ -10,3 +11,7 @@
 - Resend: dominio Verified; tre record DNS applicati. SMTP attivato dal proprietario e verificato persistente dopo il ricaricamento della dashboard. Nessuna credenziale privata inclusa.
 - Da completare: ricezione e utilizzo dei link di conferma account e recupero password. L’apertura della versione pubblica nel browser è stata fermata da un limite di utilizzo della verifica automatica; non viene dichiarata collaudata.
 - Account, sessioni e file usati per le prove sono stati rimossi.
+
+## Errore di registrazione segnalato
+
+I log Auth hanno identificato un rifiuto SMTP `535 Authentication credentials invalid` nelle richieste di registrazione. Il proprietario ha reinserito la chiave. È in corso la verifica di un nuovo tentativo. Il modulo ora distingue problemi del servizio email e problemi di rete, con messaggi comprensibili e senza esporre risposte riservate del provider.
