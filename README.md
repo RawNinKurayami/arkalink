@@ -10,4 +10,4 @@ I sorgenti della Forgia, le istruzioni di build e lo stato della configurazione 
 
 Anteprima locale dalla radice: `python3 -m http.server 8934 --bind 127.0.0.1`.
 
-La configurazione SMTP della Forgia richiede ancora la chiave Resend; non considerare collaudate registrazione pubblica e recupero password prima del test email finale.
+Il dominio Resend è verificato e la configurazione SMTP della Forgia è attiva e salvata. Resta da completare il test di ricezione delle email con conferma account e recupero password.

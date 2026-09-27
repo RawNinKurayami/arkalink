@@ -7,4 +7,6 @@
 - Nel browser: creazione di un personaggio, persistenza dopo ricarica, riferimento privato visualizzato; selezione del portale con mouse e tastiera; creazione e rilettura di una versione privata. Il portale è stato controllato anche a 390 px senza scorrimento orizzontale.
 - La prova del selettore file automatico in Chrome è limitata dal permesso dell’estensione per i file locali; il trasferimento e la visualizzazione sono stati verificati separatamente.
 - Nessuna formula o regola GLC modificata. I collegamenti Home puntano alla nuova destinazione GLC; il service worker esclude il portale e la Forgia.
-- Email pubbliche da completare: propagazione Resend, chiave SMTP e verifica finale di conferma/recupero. Nessuna credenziale privata inclusa.
+- Resend: dominio Verified; tre record DNS applicati. SMTP attivato dal proprietario e verificato persistente dopo il ricaricamento della dashboard. Nessuna credenziale privata inclusa.
+- Da completare: ricezione e utilizzo dei link di conferma account e recupero password. L’apertura della versione pubblica nel browser è stata fermata da un limite di utilizzo della verifica automatica; non viene dichiarata collaudata.
+- Account, sessioni e file usati per le prove sono stati rimossi.

@@ -26,8 +26,8 @@ Il cloud rifiuta il salvataggio da una revisione vecchia. In caso di conflitto l
 
 I progetti della bozza precedente possono essere importati come JSON; i file del vecchio servizio devono essere ricaricati. Il JSON contiene riferimenti a file privati dell’account: usare il pacchetto completo per conservare anche gli originali.
 
-## Email: configurazione ancora da completare
+## Email: configurazione attiva, collaudo di ricezione da completare
 
-Il dominio Resend `arkalink.com` è stato aggiunto e i tre record DNS salvati. Prima della pubblicazione delle registrazioni verificare lo stato **Verified**, creare una chiave con solo invio sul dominio e inserirla come password SMTP nel progetto Forgia. Host `smtp.resend.com`, porta 465, utente `resend`, mittente `noreply@arkalink.com`, nome `Arkalink · La Forgia`. Non salvare la chiave in Git.
+Il dominio Resend `arkalink.com` risulta **Verified** e i tre record DNS sono salvati. La chiave è stata inserita dal proprietario direttamente in Supabase, con accesso limitato all’invio sul dominio. SMTP verificato dopo il ricaricamento della dashboard: host `smtp.resend.com`, porta 465, utente `resend`, mittente `noreply@arkalink.com`, nome `Arkalink · La Forgia`. La chiave non è presente in Git.
 
 Provare conferma email e recupero password con un account reale dopo l’attivazione SMTP. Le prove eseguite coprono invece login con account temporanei, separazione dati/file, conflitti e trasferimenti privati.
