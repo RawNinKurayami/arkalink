@@ -2,33 +2,36 @@
 (() => {
   'use strict';
   const worlds = {
-    glc: { title:'Grand Line Chronicles', state:'SOGLIA 01 · CONNESSIONE APERTA', description:'Oltre questo varco: mari sconfinati, ciurme e leggende ancora da scrivere.', type:'GIOCO DI RUOLO · UNIVERSO ONE PIECE', focal:.50, open:true, href:'/grand-line-chronicles/', target:'_self', caption:'ENTRA IN GRAND LINE CHRONICLES', image:'/arkalink-assets/glc-world.png', imageAlt:'Un mondo di mari e isole da esplorare.', detailType:'SOGLIA 01 / GIOCO DI RUOLO', detail:'Un universo di avventure ispirato a One Piece. Crea un pirata, raduna la ciurma e attraversa i mari, una sessione dopo l’altra.', features:['Personaggi e progressione','Campagne e sessioni','Navi, tecniche e strumenti di gioco'] },
-    forge: { title:'La Forgia', state:'SOGLIA 02 · CONNESSIONE APERTA', description:'Tra memoria e materia, i personaggi prendono forma. La Forgia custodisce le creazioni di ogni viaggiatore.', type:'ARKALINK FORGE · CHARACTER DESIGN', focal:.235, open:true, href:'/forgia/', target:'_self', caption:'ENTRA NELLA FORGIA', image:'/arkalink-assets/forge-chamber.png', imageAlt:'La Forgia: una sala di cristalli, riferimenti e forme sospese.', detailType:'SOGLIA 02 / LUOGO DELLA CREAZIONE', detail:'Una sala affacciata sui mondi possibili. Raccogli riferimenti, definisci identità e lavora sulle forme: ogni personaggio ha la propria tela. Il tuo archivio personale ti segue attraverso i dispositivi.', features:['La tela · riferimenti, annotazioni e collegamenti','Le identità · storie e tratti dei personaggi','Le forme · palette, materiali e modelli 3D'] },
-    'unknown-3': { title:'Soglia sconosciuta', state:'SOGLIA 03 · SIGILLATA', description:'Il varco custodisce un orizzonte ancora inesplorato. Questa soglia non è al momento attraversabile.', type:'DESTINAZIONE DA RIVELARE', focal:.77, open:false }
+    glc: { title:'Grand Line Chronicles', state:'SOGLIA 01 · CONNESSIONE APERTA', description:'Oltre questo varco: mari sconfinati, ciurme e leggende ancora da scrivere.', type:'GIOCO DI RUOLO · UNIVERSO ONE PIECE', open:true, href:'/grand-line-chronicles/', target:'_self', caption:'ENTRA IN GRAND LINE CHRONICLES', image:'/img/hero_main.jpg', imageAlt:'Un pirata di spalle contempla il mare al tramonto.', detailType:'SOGLIA 01 / GIOCO DI RUOLO', detail:'Un universo di avventure ispirato a One Piece. Crea un pirata, raduna la ciurma e attraversa i mari, una sessione dopo l’altra.', features:['Personaggi e progressione','Campagne e sessioni','Navi, tecniche e strumenti di gioco'] },
+    forge: { title:'La Forgia', state:'SOGLIA 02 · CONNESSIONE APERTA', description:'Tra memoria e materia, i personaggi prendono forma. La Forgia custodisce le creazioni di ogni viaggiatore.', type:'ARKALINK FORGE · CHARACTER DESIGN', open:true, href:'/forgia/', target:'_self', caption:'ENTRA NELLA FORGIA', image:'/arkalink-assets/forge-chamber.png', imageAlt:'La Forgia: una sala di cristalli, riferimenti e forme sospese.', detailType:'SOGLIA 02 / LUOGO DELLA CREAZIONE', detail:'Una sala affacciata sui mondi possibili. Raccogli riferimenti, definisci identità e lavora sulle forme: ogni personaggio ha la propria tela. Il tuo archivio personale ti segue attraverso i dispositivi.', features:['La tela · riferimenti, annotazioni e collegamenti','Le identità · storie e tratti dei personaggi','Le forme · palette, materiali e modelli 3D'] },
+    'unknown-3': { title:'Soglia sconosciuta', state:'SOGLIA 03 · SIGILLATA', description:'Il varco custodisce un orizzonte ancora inesplorato. Questa soglia non è al momento attraversabile.', type:'DESTINAZIONE DA RIVELARE', open:false }
   };
   const nexus = document.getElementById('nexus');
-  const chamber = document.querySelector('.chamber');
+  const chamber = document.querySelector('.portal-stage');
   const scene = document.getElementById('scene-art');
-  const image = scene.querySelector('img');
+  const layers = [...scene.querySelectorAll('.scene-layer')];
+  let sceneRequest = 0;
   const tabs = [...document.querySelectorAll('[role="tab"]')];
   const controls = [...document.querySelectorAll('[data-select]')];
   const mobile = matchMedia('(max-width:760px)');
   const reduced = matchMedia('(prefers-reduced-motion:reduce)');
   const finePointer = matchMedia('(pointer:fine)');
-  let selected = 'glc';
 
-  function frameScene() {
-    // Every destination occupies the same central aperture at every viewport size.
-    scene.style.setProperty('--light-x', '50%');
+  async function changeScene(id) {
+    const request = ++sceneRequest;
+    const layer = document.getElementById(id === 'forge' ? 'scene-forge' : id === 'unknown-3' ? 'scene-sealed' : 'scene-glc');
+    if (!layer.getAttribute('src')) layer.src = layer.dataset.src;
+    try { await layer.decode(); } catch { return; }
+    // Rapid selections must not let a slower image replace the latest destination.
+    if (request !== sceneRequest) return;
+    layers.forEach(item => item.classList.toggle('is-visible', item === layer));
   }
 
   function selectWorld(id, announce = true) {
     if (!worlds[id]) return;
-    const world = worlds[id]; selected = id;
+    const world = worlds[id];
     nexus.dataset.world = id;
-    image.src = world.image || '/arkalink-assets/nexus-chamber.png';
-    image.alt = world.imageAlt || 'Una soglia ancora sigillata fra le stelle.';
-    document.getElementById('central-gate-title').textContent = world.title;
+    changeScene(id);
     document.getElementById('gate-coordinate').textContent = world.open ? (id === 'glc' ? '01' : '02') + ' / MONDO CONNESSO' : '03 / SEGNALE NON IDENTIFICATO';
 
     document.getElementById('world-title').textContent = world.title;
@@ -67,7 +70,6 @@
       document.getElementById('selection-status').textContent = `${world.state}. ${world.title}. ${world.open ? 'Il portale è attraversabile.' : 'Destinazione non ancora disponibile.'}`;
       history.replaceState(null, '', `#${id}`);
     }
-    frameScene();
   }
   controls.forEach(control => control.addEventListener('click', () => selectWorld(control.dataset.select)));
   document.querySelector('.world-picker').addEventListener('keydown', event => {
@@ -96,8 +98,6 @@
       if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close();
     });
   }
-  connectDialog('about-open', 'info-dialog');
-  connectDialog('signals-open', 'signals-dialog');
   connectDialog('world-details', 'world-dialog');
 
   function resetParallax() {
@@ -107,14 +107,12 @@
   chamber.addEventListener('pointermove', event => {
     if (mobile.matches || reduced.matches || !finePointer.matches) return;
     const rect = chamber.getBoundingClientRect();
-    scene.style.setProperty('--parallax-x', `${(event.clientX / rect.width - .5) * 4}px`);
+    scene.style.setProperty('--parallax-x', `${((event.clientX - rect.left) / rect.width - .5) * 6}px`);
     scene.style.setProperty('--parallax-y', `${((event.clientY - rect.top) / rect.height - .5) * 3}px`);
   });
   chamber.addEventListener('pointerleave', resetParallax);
   reduced.addEventListener('change', resetParallax);
-  mobile.addEventListener('change', () => { resetParallax(); frameScene(); });
-  new ResizeObserver(frameScene).observe(chamber);
-  image.addEventListener('load', frameScene);
+  mobile.addEventListener('change', resetParallax);
 
   const fullscreen = document.getElementById('fullscreen');
   if (!document.fullscreenEnabled) fullscreen.hidden = true;
@@ -130,9 +128,11 @@
     const active = Boolean(document.fullscreenElement);
     fullscreen.setAttribute('aria-pressed', String(active));
     fullscreen.setAttribute('aria-label', active ? 'Esci dallo schermo intero' : 'Attiva schermo intero');
-    frameScene();
   });
-  function readDestination() { selectWorld(worlds[location.hash.slice(1)] ? location.hash.slice(1) : 'glc', false); }
+  function readDestination() {
+    const id = location.hash.slice(1);
+    if (worlds[id]) selectWorld(id, false);
+  }
   addEventListener('hashchange', readDestination);
-  readDestination();
+  selectWorld(worlds[location.hash.slice(1)] ? location.hash.slice(1) : 'glc', false);
 })();
