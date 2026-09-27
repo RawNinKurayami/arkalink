@@ -30,4 +30,4 @@ I progetti della bozza precedente possono essere importati come JSON; i file del
 
 Il dominio Resend `arkalink.com` risulta **Verified** e i tre record DNS sono salvati. La chiave è stata inserita dal proprietario direttamente in Supabase, con accesso limitato all’invio sul dominio. SMTP verificato dopo il ricaricamento della dashboard: host `smtp.resend.com`, porta 465, utente `resend`, mittente `noreply@arkalink.com`, nome `Arkalink · La Forgia`. La chiave non è presente in Git.
 
-Provare conferma email e recupero password con un account reale dopo l’attivazione SMTP. Le prove eseguite coprono invece login con account temporanei, separazione dati/file, conflitti e trasferimenti privati.
+Il proprietario ha ricevuto correttamente l’email di conferma dopo la correzione della credenziale SMTP. Completare l’apertura del link e il collaudo del recupero password con un account reale. Le prove eseguite coprono invece login con account temporanei, separazione dati/file, conflitti e trasferimenti privati.

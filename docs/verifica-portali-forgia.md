@@ -9,9 +9,9 @@
 - La prova del selettore file automatico in Chrome è limitata dal permesso dell’estensione per i file locali; il trasferimento e la visualizzazione sono stati verificati separatamente.
 - Nessuna formula o regola GLC modificata. I collegamenti Home puntano alla nuova destinazione GLC; il service worker esclude il portale e la Forgia.
 - Resend: dominio Verified; tre record DNS applicati. SMTP attivato dal proprietario e verificato persistente dopo il ricaricamento della dashboard. Nessuna credenziale privata inclusa.
-- Da completare: ricezione e utilizzo dei link di conferma account e recupero password. L’apertura della versione pubblica nel browser è stata fermata da un limite di utilizzo della verifica automatica; non viene dichiarata collaudata.
+- Email di conferma ricevuta dal proprietario dopo la correzione della credenziale SMTP. Da completare: utilizzo del link di conferma e percorso di recupero password. L’apertura della versione pubblica nel browser è stata fermata da un limite di utilizzo della verifica automatica; non viene dichiarata collaudata.
 - Account, sessioni e file usati per le prove sono stati rimossi.
 
 ## Errore di registrazione segnalato
 
-I log Auth hanno identificato un rifiuto SMTP `535 Authentication credentials invalid` nelle richieste di registrazione. Il proprietario ha reinserito la chiave. È in corso la verifica di un nuovo tentativo. Il modulo ora distingue problemi del servizio email e problemi di rete, con messaggi comprensibili e senza esporre risposte riservate del provider.
+I log Auth hanno identificato un rifiuto SMTP `535 Authentication credentials invalid` nelle richieste di registrazione. Il proprietario ha reinserito la chiave e ha confermato la ricezione dell’email al successivo tentativo: invio ripristinato. Il modulo ora distingue problemi del servizio email e problemi di rete, con messaggi comprensibili e senza esporre risposte riservate del provider.
