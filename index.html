@@ -126,68 +126,6 @@
   .btn-ghost{background:rgba(242,233,216,.05)}
   @keyframes rise{from{opacity:0;transform:translateY(14px)}}
 
-  /* ---------- divider ---------- */
-  .rope{display:flex;align-items:center;justify-content:center;gap:16px;margin:34px 0 6px;opacity:.9}
-  .rope .ln{height:1px;width:min(220px,30vw);background:linear-gradient(90deg,transparent,var(--line))}
-  .rope .ln:last-child{transform:scaleX(-1)}
-  .rope svg{width:11px;height:11px;color:var(--amber);opacity:.9}
-
-  /* ---------- griglia strumenti ---------- */
-  .stations{padding:40px 0 10px;counter-reset:station}
-  .stations-head{max-width:900px;margin:0 auto 34px;text-align:left}
-  .stations-head .k{font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.5em;text-transform:uppercase;font-size:10.5px;color:var(--amber)}
-  .stations-head h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.9rem,4.5vw,2.6rem);color:var(--ivory);margin-top:10px;line-height:1.1}
-  .grid{display:grid;grid-template-columns:1fr;gap:12px;max-width:900px;margin-left:auto;margin-right:auto}
-  @media(max-width:720px){.grid{grid-template-columns:1fr}}
-  @media(max-width:640px){.topbar{left:16px;right:16px;gap:10px;padding-top:18px}.brand{min-width:0}.brand .name{letter-spacing:.2em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
-
-  .card{
-    position:relative;display:flex;gap:22px;align-items:flex-start;
-    counter-increment:station;
-    background:linear-gradient(180deg,rgba(242,233,216,.035),rgba(242,233,216,.015));
-    border:1px solid var(--line-soft);border-radius:14px;padding:26px 28px;
-    color:var(--ivory);overflow:hidden;
-    transition:transform .2s ease, border-color .25s ease, background .3s ease;
-  }
-  .grid .card{animation:card-in 1s cubic-bezier(.16,1,.3,1) both}
-  .grid .card:nth-child(1){animation-delay:.05s}
-  .grid .card:nth-child(2){animation-delay:.12s}
-  .grid .card:nth-child(3){animation-delay:.19s}
-  .grid .card:nth-child(4){animation-delay:.26s}
-  .grid .card:nth-child(5){animation-delay:.33s}
-  @keyframes card-in{from{opacity:0;transform:translateY(22px)}}
-  .card::before{ /* alone caldo dall'alto, si accende al passaggio */
-    content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
-    background:radial-gradient(60% 110px at 18% 0%, rgba(240,164,65,.12), transparent 70%);
-    transition:opacity .3s ease;
-  }
-  .card:not(.sealed):hover{transform:translateY(-3px);border-color:rgba(240,164,65,.4);background:linear-gradient(180deg,rgba(240,164,65,.06),rgba(242,233,216,.02))}
-  .card:not(.sealed):hover::before{opacity:1}
-  .card .ico{flex:0 0 auto;width:44px;height:44px;color:var(--amber);opacity:.85;margin-top:4px}
-  .card .body{min-width:0}
-  .card .body::before{ /* numerazione da capitolo */
-    content:counter(station,decimal-leading-zero);display:block;
-    font-family:'Inter',sans-serif;font-weight:500;font-size:10px;letter-spacing:.45em;
-    color:var(--amber);opacity:.9;margin-bottom:9px;
-  }
-  .card h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;text-transform:uppercase;letter-spacing:.045em;font-size:1.32rem;color:var(--ivory);line-height:1.1}
-  .card p{font-size:.93rem;color:var(--muted);margin-top:8px;line-height:1.7}
-  .card .go{margin-top:15px;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-weight:600;letter-spacing:.3em;text-transform:uppercase;font-size:10.5px;color:var(--amber)}
-  .card .go svg{width:13px;height:13px;transition:transform .2s ease}
-  .card:not(.sealed):hover .go svg{transform:translateX(5px)}
-  .card .seal,.card.sealed .perma-seal{display:none}
-  .card.sealed{filter:saturate(.8);cursor:default}
-  .card.sealed h3{color:var(--muted)}
-  .card.sealed .go{color:var(--muted-2)}
-
-  .focus-target:focus-visible{outline:2px solid var(--amber-2);outline-offset:3px;border-radius:14px}
-
-  /* ---------- footer ---------- */
-  footer{margin-top:76px;padding:38px 0 50px;border-top:1px solid var(--line-soft);text-align:center}
-  footer .fmark{width:20px;height:20px;color:var(--amber);opacity:.95;margin-bottom:14px}
-  footer .fname{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:.45em;text-transform:uppercase;font-size:10.5px;color:var(--champagne)}
-  footer .fnote{color:var(--muted-2);font-size:.9rem;margin-top:8px}
-
   @media(max-width:720px){
     .card{padding:22px 20px;gap:16px}
     .card .ico{width:38px;height:38px}
@@ -215,22 +153,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="GLC">
 <script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){});});}</script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/home.css?v=1">
 </head>
 <body>
-<div class="wrap">
-
-  <!-- TOP BAR -->
-  <header class="topbar">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-        <circle cx="24" cy="24" r="13" stroke="var(--amber)" stroke-width="8"/>
-      </svg>
-      <span class="name">Grand Line Chronicles</span>
-    </div>
-    <span id="glc-login-slot"></span>
-  </header>
-
-  <!-- HERO -->
+<a class="skip" href="#rotta">Vai al contenuto</a><div class="wrap"><header class="topbar"><a class="brand" href="/" aria-label="Grand Line Chronicles · Home"><svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="13" stroke="currentColor" stroke-width="3"/><path d="M24 2v44M2 24h44" stroke="currentColor"/><path d="m24 11 5 13-5 13-5-13z" fill="currentColor"/></svg><span class="name">Grand Line Chronicles</span></a><nav class="home-nav" aria-label="Navigazione principale"><a href="#notizie">Notizie</a><a href="#strumenti">Esplora</a><a href="/manuale/">Manuale</a></nav><span id="glc-login-slot"></span></header>  <!-- HERO -->
   <section class="hero">
     <!-- SIGNATURE: l'alba sulla Rotta Maggiore (img/hero_main.jpg) -->
     <div class="scene" aria-hidden="true"><video class="scene-video" src="/img/glc.mp4" autoplay muted playsinline preload="auto"></video></div>
@@ -238,9 +165,10 @@
     <div class="hero-inner">
       <p class="eyebrow">Registro di Bordo <span class="dot">✦</span> Sistema «Will of D.»</p>
       <h1 class="title"><span class="line">Grand Line</span><span class="line">Chronicles</span></h1>
-      <p class="tagline">Il porto della tua ciurma. Crea il personaggio, arma la nave, rifornisci la cambusa e siedi alla plancia del Capitano — tutto da un'unica rotta.</p>
+      <p class="tagline">Un pirata. Una ciurma. Un mondo da scrivere.
+      Il tuo tavolo di gioco comincia da qui.</p>
       <div class="cta-row">
-        <a class="btn btn-primary focus-target" href="#strumenti">Scegli la rotta
+        <a class="btn btn-primary focus-target" href="#rotta">Riprendi il viaggio
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
         </a>
         <a class="btn btn-ghost focus-target" href="#manuale">Vedi il manuale</a>
@@ -248,131 +176,45 @@
     </div>
   </section>
 
-  <div class="rope" aria-hidden="true">
-    <span class="ln"></span>
-    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2.5"/></svg>
-    <span class="ln"></span>
-  </div>
-
-  <!-- STRUMENTI -->
-  <main id="strumenti" class="stations">
-    <div class="stations-head">
-      <div class="k">Gli strumenti di bordo</div>
-      <h2>Scegli dove salpare</h2>
-    </div>
-
-    <div class="grid">
-
-      <!-- 1 · PROFILO -->
-      <a class="card focus-target" href="profilo/index.html">
-        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="32" cy="24" r="11"/><path d="M14 52c0-10 8-16 18-16s18 6 18 16"/>
-          <path d="M32 4v4M12 24h4M48 24h4" opacity=".5"/>
-        </svg>
-        <div class="body">
-          <h3>Il mio Profilo</h3>
-          <p>Il tuo profilo personale e la tua ciurma: vedi i tuoi pirati, creane di nuovi o gestisci quelli esistenti.</p>
-          <span class="go">Apri il profilo
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </div>
-        <svg class="seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="var(--seal)"/><circle cx="24" cy="24" r="15" fill="none" stroke="#d8b08c" stroke-width="1" opacity=".5"/><path d="M24 14l3 7 7 .6-5 4.6 1.6 7-6.6-3.8-6.6 3.8 1.6-7-5-4.6 7-.6z" fill="#e9c79a" opacity=".85"/></svg>
-      </a>
-
-      <!-- 2 · NAVE -->
-      <a class="card focus-target" href="nave-portale/index.html">
-        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M10 40h44l-6 11H16z"/><path d="M32 40V12"/><path d="M32 14c8 1 14 5 16 10-6 1-12 1-16-1z"/><path d="M32 20c-7 1-11 4-13 8 5 1 9 1 13-1z"/><path d="M32 8v4"/>
-        </svg>
-        <div class="body">
-          <h3>La Nave</h3>
-          <p>Arma e ripara il vascello: ponti, cannoni, rotta e manovre della ciurma.</p>
-          <span class="go">Sali a bordo
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </div>
-        <svg class="seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="var(--seal)"/><circle cx="24" cy="24" r="15" fill="none" stroke="#d8b08c" stroke-width="1" opacity=".5"/><path d="M24 14l3 7 7 .6-5 4.6 1.6 7-6.6-3.8-6.6 3.8 1.6-7-5-4.6 7-.6z" fill="#e9c79a" opacity=".85"/></svg>
-      </a>
-
-      <!-- 3 · OFFICINA -->
-      <a class="card focus-target" href="portale-officina-cambusa/index.html">
-        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 26h22l-3 8H15z"/><path d="M18 34l-2 12M28 34l2 12M14 46h18"/><path d="M40 20c5 0 9 3 9 8s-4 8-9 8h-3" opacity=".9"/><path d="M44 36v8M40 44h8"/>
-        </svg>
-        <div class="body">
-          <h3>Officina &amp; Cambusa</h3>
-          <p>Forgia equipaggiamento, prepara veleni e cucina le razioni di bordo.</p>
-          <span class="go">Entra in stiva
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </div>
-        <svg class="seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="var(--seal)"/><circle cx="24" cy="24" r="15" fill="none" stroke="#d8b08c" stroke-width="1" opacity=".5"/><path d="M24 14l3 7 7 .6-5 4.6 1.6 7-6.6-3.8-6.6 3.8 1.6-7-5-4.6 7-.6z" fill="#e9c79a" opacity=".85"/></svg>
-      </a>
-
-      <!-- 4 · PLANCIA -->
-      <a class="card focus-target" href="plancia-master/index.html">
-        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M32 12c-9 0-16 6-16 15 0 5 3 8 3 11v4h26v-4c0-3 3-6 3-11 0-9-7-15-16-15z"/><circle cx="25" cy="30" r="3.2" fill="currentColor"/><circle cx="39" cy="30" r="3.2" fill="currentColor"/><path d="M28 44v4M32 44v5M36 44v4"/>
-        </svg>
-        <div class="body">
-          <h3>Plancia del Master</h3>
-          <p>Apri il bestiario e traccia gli scontri, dalla parte del Capitano.</p>
-          <span class="go">Prendi il timone
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </div>
-        <svg class="seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="var(--seal)"/><circle cx="24" cy="24" r="15" fill="none" stroke="#d8b08c" stroke-width="1" opacity=".5"/><path d="M24 14l3 7 7 .6-5 4.6 1.6 7-6.6-3.8-6.6 3.8 1.6-7-5-4.6 7-.6z" fill="#e9c79a" opacity=".85"/></svg>
-      </a>
-
-      <a class="card focus-target" href="campagne/index.html">
-        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="22" cy="24" r="6"/><circle cx="42" cy="24" r="6"/><path d="M12 48c0-6 4-10 10-10s10 4 10 10M32 48c0-6 4-10 10-10s10 4 10 10"/>
-        </svg>
-        <div class="body">
-          <h3>Campagne</h3>
-          <p>Crea o unisciti a una campagna, raduna la ciurma e gioca con i tuoi nakama.</p>
-          <span class="go">Raduna la ciurma
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </div>
-        <svg class="seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="var(--seal)"/><circle cx="24" cy="24" r="15" fill="none" stroke="#d8b08c" stroke-width="1" opacity=".5"/><path d="M24 14l3 7 7 .6-5 4.6 1.6 7-6.6-3.8-6.6 3.8 1.6-7-5-4.6 7-.6z" fill="#e9c79a" opacity=".85"/></svg>
-      </a>
-
-
-    </div>
-
-    <!-- MANUALE (sigillato) -->
-    <div id="manuale" class="grid" style="margin-top:20px">
-      <a class="card focus-target" href="manuale/?ed=2.0" style="grid-column:1 / -1">
-        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 12h26a4 4 0 0 1 4 4v36H20a4 4 0 0 1-4-4z"/><path d="M16 44a4 4 0 0 1 4-4h26"/><path d="M24 20h14M24 26h14"/>
-        </svg>
-        <div class="body">
-          <h3>Il Manuale <span style="display:inline-flex;align-items:center;gap:5px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#e7b06a;border:1px solid rgba(240,164,65,.42);border-radius:999px;padding:3px 9px;vertical-align:middle;margin-left:8px">Edizione 2.0</span></h3>
-          <p>Le regole complete del sistema «Will of D.»: creazione del pirata, Razze, Ruoli e Stili, combattimento, Tecniche, Haki, Frutti del Diavolo, armi, officina, moduli, nave, cambusa, Legami e avanzamento. Sedici capitoli, con indice e versione stampabile.</p>
-          <span class="go">Apri il Manuale
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </div>
-        <svg class="seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="var(--seal)"/><circle cx="24" cy="24" r="15" fill="none" stroke="#d8b08c" stroke-width="1" opacity=".5"/><path d="M24 14l3 7 7 .6-5 4.6 1.6 7-6.6-3.8-6.6 3.8 1.6-7-5-4.6 7-.6z" fill="#e9c79a" opacity=".85"/></svg>
-      </a>
-    </div>
-  </main>
-
-  <div class="rope" aria-hidden="true" style="margin-top:46px">
-    <span class="ln"></span>
-    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2.5"/></svg>
-    <span class="ln"></span>
-  </div>
-
-  <footer>
-    <svg class="fmark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="13" stroke="currentColor" stroke-width="8"/></svg>
-    <div class="fname">Grand Line Chronicles</div>
-    <div class="fnote">Un gioco di ruolo amatoriale ispirato a One Piece.</div>
-  </footer>
-
 </div>
 
+<main class="home-content">
+  <section class="voyage section" id="rotta" aria-labelledby="route-title">
+    <div class="section-head"><div><p class="overline">01 / Il tuo registro di bordo</p><h2 id="route-title">La tua prossima <em>rotta.</em></h2></div><a class="text-link" href="/profilo/">Il mio profilo <span aria-hidden="true">↗</span></a></div>
+    <div class="resume" id="resume">
+      <div class="resume-art" aria-hidden="true"><img src="/img/icons/ruolo-capitano.png" alt="" width="240" height="240"></div>
+      <div class="resume-copy"><p class="overline" id="resume-kicker">Il mare ti aspetta</p><h3 id="resume-name">Ogni leggenda ha un inizio.</h3><p id="resume-description">Dai un volto al tuo pirata, scegli la tua strada e salpa con i tuoi nakama.</p><div class="actions"><a class="button primary" id="resume-link" href="/crea-il-tuo-pirata/">Crea il tuo pirata <span aria-hidden="true">↗</span></a><a class="text-link" id="resume-secondary" href="/profilo/#import-char-btn">Importa un pirata</a></div></div>
+      <div class="resume-log"><span class="overline">Diario di navigazione</span><a id="resume-session" href="/profilo/">Le tue sessioni <span aria-hidden="true">↗</span></a><a id="resume-ship" href="/nave-portale/">La tua nave <span aria-hidden="true">↗</span></a><a href="/campagne/">Le tue campagne <span aria-hidden="true">↗</span></a><p class="fine" id="resume-status" role="status">Il viaggio si costruisce, una sessione alla volta.</p></div>
+    </div>
+  </section>
+
+  <section class="section dispatches" id="notizie" aria-labelledby="news-title">
+    <div class="section-head"><div><p class="overline">02 / Il giornale di bordo</p><h2 id="news-title">Notizie dai <em>mari.</em></h2></div><div class="actions"><a class="text-link" href="/notizie/">Tutti i dispacci <span aria-hidden="true">↗</span></a><a class="text-link" id="news-editor-link" href="/notizie/?redazione=1" hidden>Redazione</a></div></div>
+    <div class="news-grid" id="home-news" aria-live="polite"><div class="news-empty"><span class="news-empty-mark" aria-hidden="true">✧</span><div><p class="overline">Dalla redazione</p><h3>In ascolto dei mari.</h3><p>Qui troverai aggiornamenti, novità e racconti dal mondo di Grand Line Chronicles.</p><p class="fine" id="news-status">Caricamento dei dispacci…</p></div></div></div>
+    <noscript><p>Attiva JavaScript per leggere le notizie e ritrovare il tuo personaggio.</p></noscript>
+  </section>
+
+  <section class="section routes" id="strumenti" aria-labelledby="tools-title">
+    <div class="section-head"><div><p class="overline">03 / Segui il Log Pose</p><h2 id="tools-title">Una ciurma. <em>Infinite rotte.</em></h2></div><p class="section-note">Tutto ciò che serve al tavolo,<br>prima e durante l’avventura.</p></div>
+    <div class="routes-layout">
+      <aside class="log-pose" aria-label="Log Pose decorativo"><div class="compass" aria-hidden="true"><span class="north">N</span><span class="east">E</span><span class="south">S</span><span class="west">W</span><div class="compass-rings"></div><div class="compass-needle" id="log-needle"></div><div class="compass-pin"></div></div><p class="overline">Destinazione</p><p class="compass-label" id="log-label">Il tuo prossimo orizzonte</p><p class="fine">Scegli una rotta.<br>Il resto è la vostra storia.</p></aside>
+      <div class="destinations">
+        <div class="primary-routes">
+          <a class="destination pirate-route" href="/profilo/" data-bearing="-42" data-destination="Il tuo pirata"><img src="/img/icons/ruolo-capitano.png" alt="" loading="lazy"><span class="route-index">I / Identità</span><h3>Il tuo<br>pirata.</h3><p>La scheda, i talenti, le tecniche.<br>La leggenda che stai costruendo.</p><span class="text-link">Apri il profilo <span aria-hidden="true">↗</span></span></a>
+          <a class="destination campaign-route" href="/campagne/" data-bearing="42" data-destination="La tua ciurma"><img src="/img/icons/ruolo-navigatore.png" alt="" loading="lazy"><span class="route-index">II / Avventura</span><h3>Raduna<br>la ciurma.</h3><p>Campagne condivise e un mondo<br>da scoprire insieme ai nakama.</p><span class="text-link">Entra in campagna <span aria-hidden="true">↗</span></span></a>
+        </div>
+        <div class="supply-routes">
+          <a href="/nave-portale/" data-bearing="100" data-destination="La nave"><span class="route-small-icon" aria-hidden="true">⚓</span><div><h3>La nave</h3><p>Il vostro posto nel mondo.</p></div><span aria-hidden="true">↗</span></a>
+          <a href="/portale-officina-cambusa/" data-bearing="155" data-destination="L’officina"><img src="/img/icons/ruolo-ingegnere.png" alt="" loading="lazy"><div><h3>Officina &amp; Cambusa</h3><p>Equipaggiamento, cucina e provviste.</p></div><span aria-hidden="true">↗</span></a>
+        </div>
+        <a class="master-route" href="/plancia-master/" data-bearing="275" data-destination="La plancia del Master"><span class="overline">Dall’altra parte dello schermo</span><h3>Sei tu a tracciare la rotta?</h3><p>Bestiario e scontri alla plancia del Master.</p><span class="text-link">Prendi il timone <span aria-hidden="true">↗</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section origin" id="manuale" aria-labelledby="manual-title"><div class="origin-mark" aria-hidden="true">D.</div><div class="origin-copy"><p class="overline">04 / Sistema «Will of D.»</p><h2 id="manual-title">La tua leggenda<br><em>comincia qui.</em></h2><p>Un gioco di ruolo ispirato a One Piece. Ambizioni che diventano avventure, Legami che rendono più forte la ciurma e un mare di possibilità da esplorare al tavolo.</p><div class="actions"><a class="button primary" href="/manuale/">Entra nel manuale <span aria-hidden="true">↗</span></a><a class="text-link" href="/crea-il-tuo-pirata/">Crea il tuo primo pirata</a></div></div><ol class="origin-steps"><li><span>01</span><div><h3>Immagina</h3><p>Un sogno, un volto, una strada.</p></div></li><li><span>02</span><div><h3>Raduna</h3><p>Nessuna leggenda nasce da sola.</p></div></li><li><span>03</span><div><h3>Salpa</h3><p>Il mondo prende forma giocando.</p></div></li></ol></section>
+</main>
+<footer class="home-footer"><a class="brand" href="/"><svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="13" stroke="currentColor" stroke-width="3"/><path d="M24 2v44M2 24h44" stroke="currentColor"/><path d="m24 11 5 13-5 13-5-13z" fill="currentColor"/></svg><span class="name">Grand Line Chronicles</span></a><p>Un gioco di ruolo amatoriale ispirato a One Piece.</p><nav aria-label="Collegamenti finali"><a href="/manuale/">Manuale</a><a href="/notizie/">Notizie</a><a href="/profilo/">Profilo</a></nav></footer>
 <script>
   // video d'apertura della home: al termine resta l'illustrazione
   (function(){
@@ -385,29 +227,11 @@
     var p=v.play(); if(p && p.catch) p.catch(end);
   })();
 </script>
-<script>
-  // tacche del quadrante (decorazione della rosa dei venti)
-  (function(){
-    var g=document.getElementById('ticks');
-    if(!g) return;
-    var ns='http://www.w3.org/2000/svg';
-    for(var i=0;i<72;i++){
-      var a=i*5*Math.PI/180;
-      var long=(i%9===0);
-      var r1=long?188:198, r2=210;
-      var x1=300+r1*Math.sin(a), y1=300-r1*Math.cos(a);
-      var x2=300+r2*Math.sin(a), y2=300-r2*Math.cos(a);
-      var l=document.createElementNS(ns,'line');
-      l.setAttribute('x1',x1.toFixed(1));l.setAttribute('y1',y1.toFixed(1));
-      l.setAttribute('x2',x2.toFixed(1));l.setAttribute('y2',y2.toFixed(1));
-      l.setAttribute('stroke','var(--gold)');l.setAttribute('stroke-width',long?'1.6':'0.8');
-      g.appendChild(l);
-    }
-  })();
-</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={gate:false,profileUrl:"/profilo/"};</script>
 <script src="/glc-sync.js?v=2"></script>
 <script src="/glc-auth.js?v=2"></script>
+<script src="/glc-news.js?v=1"></script>
+<script src="/home.js?v=1"></script>
 </body>
 </html>
