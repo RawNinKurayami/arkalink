@@ -86,6 +86,107 @@
     tabs[next].focus({ preventScroll:true });
   });
 
+  // Additional navigation stays inside the portal scene; the rest of Home scrolls normally.
+  function moveWorld(direction) {
+    const index = tabs.findIndex(tab => tab.dataset.select === nexus.dataset.world);
+    const next = tabs[(index + direction + tabs.length) % tabs.length];
+    const followFocus = tabs.includes(document.activeElement);
+    selectWorld(next.dataset.select);
+    if (followFocus) next.focus({ preventScroll:true });
+  }
+  function editingText(target) {
+    return Boolean(target.closest('input, textarea, select, [contenteditable]:not([contenteditable="false"]), [role="textbox"], [role="slider"], [role="combobox"]'));
+  }
+  function navigationBlocked(event) {
+    return event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey ||
+      document.querySelector('dialog[open]') || editingText(event.target);
+  }
+  document.addEventListener('keydown', event => {
+    if (navigationBlocked(event) || event.shiftKey || event.repeat ||
+      (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight')) return;
+    const rect = chamber.getBoundingClientRect();
+    // Do not change a portal while reading Segnali or the sections below it.
+    if (rect.top > innerHeight / 2 || rect.bottom < innerHeight / 2) return;
+    if (document.activeElement !== document.body && !chamber.contains(document.activeElement)) return;
+    event.preventDefault();
+    moveWorld(event.key === 'ArrowRight' ? 1 : -1);
+  });
+
+  let swipe = null;
+  let suppressClickUntil = 0;
+  chamber.addEventListener('pointerdown', event => {
+    suppressClickUntil = 0;
+    if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
+    if (!event.isPrimary || navigationBlocked(event) ||
+      event.target.closest('a, button:not([role="tab"]), .nexus-header')) {
+      swipe = null;
+      return;
+    }
+    swipe = { id:event.pointerId, x:event.clientX, y:event.clientY, horizontal:false };
+  }, { passive:true });
+  chamber.addEventListener('pointermove', event => {
+    if (!swipe || event.pointerId !== swipe.id) return;
+    const dx = Math.abs(event.clientX - swipe.x);
+    const dy = Math.abs(event.clientY - swipe.y);
+    if (!swipe.horizontal && Math.max(dx, dy) >= 12) {
+      if (dx <= dy * 1.35) { swipe = null; return; }
+      swipe.horizontal = true;
+      chamber.setPointerCapture(event.pointerId);
+    }
+  }, { passive:true });
+  chamber.addEventListener('pointerup', event => {
+    if (!swipe || event.pointerId !== swipe.id) return;
+    const gesture = swipe;
+    swipe = null;
+    const dx = event.clientX - gesture.x;
+    const dy = event.clientY - gesture.y;
+    if (gesture.horizontal && Math.abs(dx) >= 48 && Math.abs(dx) > Math.abs(dy) * 1.35) {
+      suppressClickUntil = performance.now() + 500;
+      moveWorld(dx < 0 ? 1 : -1);
+    }
+  }, { passive:true });
+  chamber.addEventListener('pointercancel', () => { swipe = null; }, { passive:true });
+  chamber.addEventListener('lostpointercapture', () => { swipe = null; }, { passive:true });
+  chamber.addEventListener('click', event => {
+    // A completed swipe on a thumbnail must not become a click on the old portal.
+    if (event.detail > 0 && performance.now() < suppressClickUntil) {
+      suppressClickUntil = 0;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    }
+  }, true);
+
+  let wheelTotal = 0;
+  let wheelDirection = 0;
+  let wheelLastAt = -Infinity;
+  let wheelChanged = false;
+  chamber.addEventListener('wheel', event => {
+    if (navigationBlocked(event)) return;
+    const horizontal = Math.abs(event.deltaX) > Math.abs(event.deltaY) * 1.2;
+    const overPicker = Boolean(event.target.closest('.world-picker'));
+    // Trackpad / horizontal wheel works across the scene. A normal vertical wheel
+    // changes worlds only over the thumbnails; elsewhere it scrolls the page.
+    if (!horizontal && !event.shiftKey && !overPicker) return;
+    const raw = horizontal ? event.deltaX : event.deltaY;
+    if (!raw || !event.cancelable) return;
+    const delta = raw * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? chamber.clientWidth : 1);
+    const direction = Math.sign(delta);
+    const now = performance.now();
+    event.preventDefault();
+    if (now - wheelLastAt > 180 || direction !== wheelDirection) {
+      wheelTotal = 0;
+      wheelChanged = false;
+    }
+    wheelLastAt = now;
+    wheelDirection = direction;
+    if (wheelChanged) return;
+    wheelTotal += Math.abs(delta);
+    if (wheelTotal >= 48) {
+      wheelChanged = true;
+      moveWorld(direction);
+    }
+  }, { passive:false });
+
   function connectDialog(openerId, dialogId) {
     const opener = document.getElementById(openerId);
     const dialog = document.getElementById(dialogId);
