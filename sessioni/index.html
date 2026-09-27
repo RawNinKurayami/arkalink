@@ -44,7 +44,7 @@ a{color:inherit;}
 .cols{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:18px;}
 @media(max-width:680px){.cols{grid-template-columns:1fr;}}
 .card{background:linear-gradient(180deg, rgba(242,233,216,.045), rgba(242,233,216,.02)); color:var(--ink); border:1px solid var(--line); border-radius:16px; padding:18px 18px 20px; box-shadow:0 14px 34px rgba(0,0,0,.34);}
-.card h2{font-family:'Cormorant Garamond',Georgia,serif; font-weight:700; font-size:16px; color:#ffd394; margin:0 0 12px; display:flex; align-items:center; gap:9px;}
+.card>h2{font-family:'Cormorant Garamond',Georgia,serif; font-weight:700; font-size:16px; color:#ffd394; margin:0 0 12px; display:flex; align-items:center; gap:9px;}
 .lab{font-family:'Inter',sans-serif; letter-spacing:.08em; text-transform:uppercase; font-size:11px; color:var(--ink-soft); display:block; margin-bottom:5px;}
 select.txt,input.txt,textarea.txt{width:100%; font-family:'Inter',sans-serif; font-size:17px; color:var(--ink); background:rgba(242,233,216,.06); border:1px solid var(--line); border-radius:10px; padding:9px 11px; outline:none;}
 select.txt:focus,input.txt:focus,textarea.txt:focus{border-color:var(--gold); box-shadow:0 0 0 3px rgba(240,164,65,.18);}
@@ -90,17 +90,22 @@ textarea.txt{min-height:74px; resize:vertical;}
 .nbbtn.del:hover{background:#e23131; color:#fff;}
 .nbsaved{font-family:'Inter',sans-serif; font-size:12px; color:#7fc796; opacity:0; transition:opacity .3s; margin-left:auto;}
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/glc-portals.css?v=1">
+<link rel="stylesheet" href="/glc-voyage.css?v=1">
 </head>
-<body>
-<div class="topbar">
-  <a class="brand" href="/"><span class="anc">⚓</span><span class="nm">Grand Line Chronicles</span></a>
+<body class="premium-portal voyage-page mode-session">
+<header class="portal-topbar">
+  <a class="portal-brand" href="/"><span aria-hidden="true">⚓</span><span>Grand Line Chronicles</span></a>
+  <nav class="portal-links" aria-label="Navigazione del porto"><a href="/campagne/">Campagne</a><a href="/plancia-master/">Plancia del Master</a><a href="/manuale/">Manuale</a></nav>
   <span id="glc-login-slot"></span>
-</div>
+</header>
 
-<div class="wrap">
+<main class="wrap" id="voyage-main">
   <a class="back" href="/profilo/">‹ Le mie sessioni</a>
   <div id="app"></div>
-</div>
+  <footer class="portal-footer"><span>Grand Line Chronicles · Sessioni</span><em>Ogni pagina conserva un pezzo di mare.</em></footer>
+</main>
 
 <script>
 function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null?pos.y:50),z=(pos.z!=null?pos.z:1);return "object-position:"+x+"% "+y+"%;transform:scale("+z+");transform-origin:"+x+"% "+y+"%;";}
@@ -169,10 +174,10 @@ function buildNotebook(s){
   if(!Array.isArray(s.pages)||!s.pages.length){s.pages=[{id:newSId(),t:"",ts:Date.now()}];var st0=readST();if(st0.sessions[SID]){st0.sessions[SID].pages=s.pages;writeST(st0);}}
   if(NB_PAGE>=s.pages.length)NB_PAGE=s.pages.length-1; if(NB_PAGE<0)NB_PAGE=0;
   var total=s.pages.length, page=s.pages[NB_PAGE];
-  var card=el("div",{class:"card notebook"});
-  card.appendChild(el("h2",{html:"\ud83d\udcd6 Diario di bordo"}));
+  var card=el("section",{class:"card notebook",id:"session-notebook"});
+  card.appendChild(el("h2",{text:"Diario di bordo"}));
   card.appendChild(el("div",{class:"help",text:"Il tuo quaderno: scrivi a piacere, pagina dopo pagina. Si salva da solo."}));
-  var ta=el("textarea",{class:"nbpage",placeholder:""});
+  var ta=el("textarea",{class:"nbpage","aria-label":"Pagina del diario di bordo",placeholder:"La prossima pagina della tua avventura…"});
   ta.value=page.t||"";
   ta.oninput=function(){
     if(nbTimer)clearTimeout(nbTimer); var val=ta.value;
@@ -187,7 +192,7 @@ function buildNotebook(s){
   var prev=el("button",{class:"nbbtn",text:"\u2039 Precedente",onClick:function(){flushPage(ta.value);if(NB_PAGE>0){NB_PAGE--;render();}}});
   var next=el("button",{class:"nbbtn",text:"Successiva \u203a",onClick:function(){flushPage(ta.value);if(NB_PAGE<total-1){NB_PAGE++;render();}}});
   if(NB_PAGE===0)prev.disabled=true; if(NB_PAGE===total-1)next.disabled=true;
-  card.appendChild(el("div",{class:"nbnav"},[prev,el("span",{class:"nbind",text:"Pagina "+(NB_PAGE+1)+" di "+total}),next]));
+  card.insertBefore(el("div",{class:"nbnav"},[prev,el("span",{class:"nbind",text:"Pagina "+(NB_PAGE+1)+" di "+total}),next]),ta);
   var addB=el("button",{class:"nbbtn add",text:"+ Nuova pagina",onClick:function(){flushPage(ta.value);var st=readST();var ss=st.sessions[SID];if(!ss)return;if(!Array.isArray(ss.pages))ss.pages=[];ss.pages.push({id:newSId(),t:"",ts:Date.now()});st.activeId=SID;writeST(st);NB_PAGE=ss.pages.length-1;render();}});
   var delB=el("button",{class:"nbbtn del",text:"Elimina pagina",onClick:function(){if(!confirm("Eliminare questa pagina del diario?"))return;var st=readST();var ss=st.sessions[SID];if(!ss)return;ss.pages.splice(NB_PAGE,1);if(!ss.pages.length)ss.pages.push({id:newSId(),t:"",ts:Date.now()});if(NB_PAGE>=ss.pages.length)NB_PAGE=ss.pages.length-1;st.activeId=SID;writeST(st);render();}});
   card.appendChild(el("div",{class:"nbtools"},[addB,delB,el("span",{id:"nb-saved",class:"nbsaved",text:"salvato \u2713"})]));
@@ -206,16 +211,16 @@ function render(){
   if(!Array.isArray(s.diary)) s.diary=[];
 
   /* hero: nome editabile */
-  var hero=el("div",{class:"hero"});
-  hero.appendChild(el("div",{class:"kick",text:"Diario di bordo"}));
+  var hero=el("header",{class:"hero session-hero"});
+  hero.appendChild(el("div",{class:"kick",text:"Il tuo tavolo di gioco"}));
   var h1=el("h1");
-  var nameSpan=el("span",{class:"editname",title:"Tocca per rinominare"},[
+  var nameSpan=el("button",{type:"button",class:"editname",title:"Tocca per rinominare"},[
     el("span",{text:(s.nome&&s.nome.trim())?s.nome:"Sessione senza nome"}),
     el("span",{class:"pencil",text:"✎"})
   ]);
   nameSpan.onclick=function(){
     h1.innerHTML="";
-    var inp=el("input",{class:"nameinp",value:s.nome||""});
+    var inp=el("input",{class:"nameinp","aria-label":"Nome della sessione",value:s.nome||""});
     inp.placeholder="Nome della sessione";
     h1.appendChild(inp); inp.focus(); inp.select();
     function done(){ setField("nome",inp.value.trim()); render(); }
@@ -223,16 +228,23 @@ function render(){
   };
   h1.appendChild(nameSpan);
   hero.appendChild(h1);
+  hero.appendChild(el("p",{class:"voyage-intro",text:"Il tuo pirata, la tua nave, le storie da ricordare."}));
+  hero.appendChild(el("div",{class:"session-seal","aria-hidden":"true",html:'<img src="/img/icons/legame.png" alt=""><span>Il viaggio continua</span>'}));
   app.appendChild(hero);
+  var jumps=el("nav",{class:"voyage-jumps","aria-label":"Nella sessione"});
+  [["session-notebook","Diario di bordo"],["session-map","Atlante"],["session-log","Registro"]].forEach(function(x){jumps.appendChild(el("a",{href:"#"+x[0],text:x[1]}));});
+  app.appendChild(jumps);
+  var desk=el("div",{class:"session-desk"});app.appendChild(desk);
 
   /* colonne: personaggio + nave */
-  var cols=el("div",{class:"cols"});
+  var cols=el("aside",{class:"cols session-companions","aria-label":"Chi parte con te"});
+  cols.appendChild(el("p",{class:"voyage-eyebrow",text:"Chi parte con te"}));
 
   /* --- Personaggio --- */
   var ct=readCT();
-  var cCard=el("div",{class:"card"});
-  cCard.appendChild(el("h2",{html:"🧑‍✈️ Personaggio"}));
-  var cSel=el("select",{class:"txt"});
+  var cCard=el("section",{class:"card session-character"});
+  cCard.appendChild(el("h2",{text:"Il tuo pirata"}));
+  var cSel=el("select",{class:"txt","aria-label":"Personaggio collegato"});
   cSel.appendChild(el("option",{value:"",text:ct.order.length?"— scegli un personaggio —":"— nessun personaggio creato —"}));
   ct.order.forEach(function(id){ cSel.appendChild(el("option",{value:id,text:charName(ct.chars[id])})); });
   cSel.value = (s.persId && ct.chars[s.persId]) ? s.persId : "";
@@ -244,6 +256,7 @@ function render(){
     var av=el("div",{class:"av"});
     if(c.photo){ var pim=el("img",{src:c.photo,alt:""}); pim.style.cssText=photoStyle(c.photoPos); av.style.overflow="hidden"; av.appendChild(pim); } else { av.textContent="⚓"; }
     cCard.appendChild(el("div",{class:"linked"},[av,el("div",{},[el("div",{class:"nm",text:charName(c)}),el("div",{class:"sb",text:charSub(c)||"Scheda da completare"})])]));
+    cCard.appendChild(el("a",{class:"session-open",href:"/gestisci-pirata/?c="+encodeURIComponent(s.persId),text:"Apri la scheda ↗"}));
   } else if(!ct.order.length){
     cCard.appendChild(el("div",{class:"linked muted",html:"Crea prima un personaggio dal <a href='/crea-il-tuo-pirata/' style='color:#7a4;font-weight:700'>profilo</a>."}));
   }
@@ -251,9 +264,9 @@ function render(){
 
   /* --- Nave --- */
   var nt=readNT();
-  var nCard=el("div",{class:"card"});
-  nCard.appendChild(el("h2",{html:"⛵ Nave"}));
-  var nSel=el("select",{class:"txt"});
+  var nCard=el("section",{class:"card session-ship"});
+  nCard.appendChild(el("h2",{text:"La tua nave"}));
+  var nSel=el("select",{class:"txt","aria-label":"Nave collegata"});
   nSel.appendChild(el("option",{value:"",text:nt.order.length?"— scegli una nave —":"— nessuna nave creata —"}));
   nt.order.forEach(function(id){ nSel.appendChild(el("option",{value:id,text:shipName(nt.ships[id])})); });
   nSel.value = (s.shipId && nt.ships[s.shipId]) ? s.shipId : "";
@@ -263,19 +276,20 @@ function render(){
   if(s.shipId && nt.ships[s.shipId]){
     var sh=nt.ships[s.shipId];
     nCard.appendChild(el("div",{class:"linked"},[el("div",{class:"av",text:"⛵"}),el("div",{},[el("div",{class:"nm",text:shipName(sh)}),el("div",{class:"sb",text:shipSub(sh)||"Nave da completare"})])]));
+    nCard.appendChild(el("a",{class:"session-open",href:"/nave-portale/?n="+encodeURIComponent(s.shipId),text:"Sali a bordo ↗"}));
   } else if(!nt.order.length){
     nCard.appendChild(el("div",{class:"linked muted",html:"Crea prima una nave dal <a href='/profilo/' style='color:#7a4;font-weight:700'>profilo</a>."}));
   }
   cols.appendChild(nCard);
 
-  app.appendChild(cols);
+  desk.appendChild(cols);
 
   /* --- Diario di bordo (quaderno) --- */
-  app.appendChild(buildNotebook(s));
+  desk.appendChild(buildNotebook(s));
 
   /* --- Mappa delle isole --- */
   if(!Array.isArray(s.map)) s.map=[];
-  var mapCard=el("div",{class:"card"});
+  var mapCard=el("section",{class:"card session-map",id:"session-map"});
   mapCard.appendChild(el("h2",{text:"Il mondo della ciurma"}));
   mapCard.appendChild(el("div",{class:"help",text:"Disegna ciò che il GM vi rivela: terre, montagne, boschi, fiumi e rotte. Ogni luogo ha un taccuino da riempire durante le avventure."}));
   var mapBox=el("div");
@@ -284,8 +298,8 @@ function render(){
   if(window.GLCMap&&window.GLCAtlasStore){var adapter=GLCAtlasStore.mapSession(SID);sessionAtlas=GLCMap.mount(mapBox,{islands:adapter.data.map||[],land:adapter.data.mapLand||[],focusId:new URLSearchParams(location.search).get("loc"),readOnly:false,islandUrl:function(isl){return "/isola/?s="+encodeURIComponent(SID)+"&i="+encodeURIComponent(isl.id);},onSave:adapter.save});}
 
   /* --- Diario --- */
-  var dCard=el("div",{class:"card diary"});
-  dCard.appendChild(el("h2",{html:"📜 Registro della sessione"}));
+  var dCard=el("section",{class:"card diary",id:"session-log"});
+  dCard.appendChild(el("h2",{text:"Registro della sessione"}));
   dCard.appendChild(el("div",{class:"help",text:"Note rapide e gli oggetti/piatti inseriti da Officina e Cambusa. Per scrivere a lungo usa il Diario di bordo qui sopra."}));
 
   if(s.diary.length===0){
@@ -312,8 +326,8 @@ function render(){
   }
 
   /* form aggiungi nota */
-  var tIn=el("input",{class:"txt",placeholder:"Titolo della voce (es. «Sbarco a Isola Gelida»)"});
-  var dIn=el("textarea",{class:"txt",placeholder:"Cosa è successo…"});
+  var tIn=el("input",{class:"txt","aria-label":"Titolo della nota rapida",placeholder:"Titolo della voce (es. «Sbarco a Isola Gelida»)"});
+  var dIn=el("textarea",{class:"txt","aria-label":"Testo della nota rapida",placeholder:"Cosa è successo…"});
   var addBtn=el("button",{class:"btn",text:"+ Aggiungi nota",onClick:function(){
     var t=tIn.value.trim(), d=dIn.value.trim();
     if(!t && !d){ tIn.focus(); return; }

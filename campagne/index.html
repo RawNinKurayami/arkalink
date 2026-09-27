@@ -85,47 +85,50 @@ h2.sec{font-family:'Cormorant Garamond',Georgia,serif;color:var(--vellum);font-s
 .muted{color:var(--ink-soft);font-size:.95rem;}
 label.fld{display:block;font-family:'Inter',sans-serif;letter-spacing:.05em;text-transform:uppercase;font-size:10px;color:var(--ink-soft);margin:10px 0 4px;}
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/glc-portals.css?v=1">
+<link rel="stylesheet" href="/glc-voyage.css?v=1">
 </head>
-<body>
-<div class="topbar">
-  <a class="brand" href="/"><span class="anc">⚓</span><span class="nm">Grand Line Chronicles</span></a>
+<body class="premium-portal voyage-page mode-campaign">
+<header class="portal-topbar">
+  <a class="portal-brand" href="/"><span aria-hidden="true">⚓</span><span>Grand Line Chronicles</span></a>
+  <nav class="portal-links" aria-label="Navigazione del porto"><a href="/campagne/">Campagne</a><a href="/plancia-master/">Plancia del Master</a><a href="/manuale/">Manuale</a></nav>
   <span id="glc-login-slot"></span>
-</div>
+</header>
 
-<div class="wrap">
+<main class="wrap" id="voyage-main">
   <a class="back" href="/profilo/">‹ Torna al profilo</a>
-  <div class="hero">
-    <div class="kick">Lo spazio della ciurma</div>
-    <h1>Le tue Campagne</h1>
-    <p>Crea una campagna e diventane il <b>Game Master</b>, oppure unisciti a quella di un nakama con un codice. Ogni pirata porta la propria scheda; le info della sessione le tiene il GM.</p>
-  </div>
-
+  <section class="voyage-hero" aria-labelledby="campaign-title">
+    <div><p class="voyage-eyebrow">Lo spazio della ciurma</p><h1 id="campaign-title">Una ciurma.<br><em>Infinite storie.</em></h1><p class="voyage-intro">Le rotte che condividete, le isole che scoprite.<br>Il prossimo capitolo comincia qui.</p></div>
+    <div class="voyage-crest" aria-hidden="true"><span class="voyage-orbit"></span><img src="/img/icons/ruolo-capitano.png" alt=""><span>Ogni leggenda ha una ciurma</span></div>
+  </section>
+  <section class="campaign-library" aria-labelledby="library-title"><div class="voyage-section-head"><div><p class="voyage-eyebrow">Il tuo orizzonte</p><h2 id="library-title">Le tue campagne</h2></div><span>Scegli la storia da continuare.</span></div>
+  <div id="campaigns"><div class="helm-inline"><svg class="helm-sm" viewBox="0 0 100 100" fill="none" stroke="#c9a24a" stroke-width="4"><circle cx="50" cy="50" r="11" fill="#c9a24a" stroke="none"/><circle cx="50" cy="50" r="26"/><g stroke-linecap="round"><line x1="50" y1="50" x2="50" y2="12"/><line x1="50" y1="50" x2="50" y2="88"/><line x1="50" y1="50" x2="12" y2="50"/><line x1="50" y1="50" x2="88" y2="50"/><line x1="50" y1="50" x2="23" y2="23"/><line x1="50" y1="50" x2="77" y2="77"/><line x1="50" y1="50" x2="77" y2="23"/><line x1="50" y1="50" x2="23" y2="77"/></g><g fill="#c9a24a" stroke="none"><circle cx="50" cy="9" r="5"/><circle cx="50" cy="91" r="5"/><circle cx="9" cy="50" r="5"/><circle cx="91" cy="50" r="5"/><circle cx="20" cy="20" r="5"/><circle cx="80" cy="80" r="5"/><circle cx="80" cy="20" r="5"/><circle cx="20" cy="80" r="5"/></g></svg><span>Si salpa…</span></div></div></section>
   <div class="actions">
-    <div class="panel">
-      <div class="kick2">⚓ Crea una campagna</div>
+    <details class="panel camp-entry">
+      <summary><span class="entry-number">01</span><span><b>Crea una campagna</b><small>Traccia una nuova rotta come Game Master.</small></span><i aria-hidden="true">+</i></summary><div class="entry-body">
       <div class="row">
-        <input class="in" id="newName" type="text" placeholder="Nome della campagna" maxlength="60">
+        <input class="in" id="newName" aria-label="Nome della nuova campagna" type="text" placeholder="Nome della campagna" maxlength="60">
         <button class="btn" id="createBtn" type="button">Crea</button>
       </div>
       <div class="hint" id="createMsg">Ne diventi il Game Master: potrai invitare i nakama e condividere un codice d'accesso.</div>
-    </div>
-    <div class="panel">
-      <div class="kick2">🏴‍☠️ Unisciti con un codice</div>
+    </div></details>
+    <details class="panel camp-entry">
+      <summary><span class="entry-number">02</span><span><b>Unisciti alla ciurma</b><small>Hai già un codice? La tua avventura ti aspetta.</small></span><i aria-hidden="true">+</i></summary><div class="entry-body">
       <div class="row">
-        <input class="in" id="joinCode" type="text" placeholder="Codice (es. 7KQ4M9)" maxlength="6" style="text-transform:uppercase;letter-spacing:.2em">
+        <input class="in" id="joinCode" aria-label="Codice della campagna" type="text" placeholder="Codice (es. 7KQ4M9)" maxlength="6" style="text-transform:uppercase;letter-spacing:.2em">
         <button class="btn" id="joinBtn" type="button">Entra</button>
       </div>
       <label class="fld" for="joinChar">La tua scheda in questa campagna (facoltativa)</label>
       <div class="row"><select class="in" id="joinChar"><option value="">— scegli un personaggio —</option></select></div>
       <div class="hint" id="joinMsg">Chiedi il codice al Game Master della ciurma.</div>
-    </div>
+    </div></details>
   </div>
 
-  <h2 class="sec">Le tue campagne</h2>
-  <div id="campaigns"><div class="helm-inline"><svg class="helm-sm" viewBox="0 0 100 100" fill="none" stroke="#c9a24a" stroke-width="4"><circle cx="50" cy="50" r="11" fill="#c9a24a" stroke="none"/><circle cx="50" cy="50" r="26"/><g stroke-linecap="round"><line x1="50" y1="50" x2="50" y2="12"/><line x1="50" y1="50" x2="50" y2="88"/><line x1="50" y1="50" x2="12" y2="50"/><line x1="50" y1="50" x2="88" y2="50"/><line x1="50" y1="50" x2="23" y2="23"/><line x1="50" y1="50" x2="77" y2="77"/><line x1="50" y1="50" x2="77" y2="23"/><line x1="50" y1="50" x2="23" y2="77"/></g><g fill="#c9a24a" stroke="none"><circle cx="50" cy="9" r="5"/><circle cx="50" cy="91" r="5"/><circle cx="9" cy="50" r="5"/><circle cx="91" cy="50" r="5"/><circle cx="20" cy="20" r="5"/><circle cx="80" cy="80" r="5"/><circle cx="80" cy="20" r="5"/><circle cx="20" cy="80" r="5"/></g></svg><span>Si salpa…</span></div></div>
 
-  <div id="detailWrap"></div>
-</div>
+  <div id="detailWrap" role="region" aria-label="Campagna selezionata"></div>
+  <footer class="portal-footer"><span>Grand Line Chronicles · Campagne</span><em>La rotta è un’idea. La ciurma la rende una storia.</em></footer>
+</main>
 
 <script>
 function el(t,a,kids){var e=document.createElement(t);a=a||{};for(var k in a){if(k==="text")e.textContent=a[k];else if(k==="html")e.innerHTML=a[k];else if(k.slice(0,2)==="on")e[k.toLowerCase()]=a[k];else e.setAttribute(k,a[k]);}(kids||[]).forEach(function(c){if(c)e.appendChild(typeof c==="string"?document.createTextNode(c):c);});return e;}
@@ -181,49 +184,65 @@ function renderCampaigns(){
   if(!CAMPS.length){box.appendChild(el("div",{class:"empty",html:"Non sei ancora in nessuna campagna. Creane una o entra con un codice."}));return;}
   var grid=el("div",{class:"clist"});
   CAMPS.forEach(function(c){
-    var card=el("div",{class:"ccard "+(c._role==="gm"?"gm":"")+(SELECTED===c.id?" sel":""),onClick:function(){SELECTED=c.id;renderDetail(c);renderCampaigns();window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});}});
-    card.appendChild(el("h3",{text:c.name}));
+    var card=el("button",{type:"button","aria-pressed":String(SELECTED===c.id),class:"ccard "+(c._role==="gm"?"gm":"")+(SELECTED===c.id?" sel":""),onClick:function(){SELECTED=c.id;renderDetail(c);renderCampaigns();window.scrollTo({top:Math.max(0,document.getElementById("detailWrap").getBoundingClientRect().top+window.scrollY-24),behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});}});
+    card.appendChild(el("span",{class:"campaign-card-mark","aria-hidden":"true",text:"⚓"}));
+    card.appendChild(el("span",{class:"campaign-name",text:c.name}));
     card.appendChild(el("span",{class:"badge "+(c._role==="gm"?"gm":"pl"),text:c._role==="gm"?"Game Master":"Giocatore"}));
-    card.appendChild(el("div",{class:"meta",text:"Apri per i dettagli ›"}));
+    card.appendChild(el("div",{class:"meta",text:"Entra nella campagna ↗"}));
     grid.appendChild(card);
   });
   box.appendChild(grid);
 }
 
+var campaignRenderTicket=0;
 async function renderDetail(c){
-  var me=await ME();var wrap=$("#detailWrap");if(!wrap)return;
+  var ticket=++campaignRenderTicket;
+  var me=await ME();if(ticket!==campaignRenderTicket)return;var wrap=$("#detailWrap");if(!wrap)return;
   var isGM=!!(me&&c.gm===me.id);
-  if(campaignAtlas){if(!await campaignAtlas.flush())return;campaignAtlas.destroy();campaignAtlas=null;}
+  var previousAtlas=campaignAtlas;
+  if(previousAtlas){if(!await previousAtlas.flush())return;if(ticket!==campaignRenderTicket)return;previousAtlas.destroy();campaignAtlas=null;}
   wrap.innerHTML="";
   var p=el("div",{class:"panel detail"});
+  var brief=el("section",{class:"camp-section camp-brief",id:"camp-brief"});
+  var events=el("section",{class:"camp-section camp-events",id:"camp-events"});
+  var chronicle=el("section",{class:"camp-section camp-chronicle",id:"camp-chronicle"});
+  var chart=el("section",{class:"camp-section camp-chart",id:"camp-chart"});
+  var access=el("section",{class:"camp-section camp-access",id:"camp-access"});
+  var crew=el("section",{class:"camp-section camp-crew",id:"camp-crew"});
+  var manage=el("section",{class:"camp-section camp-manage"});
+  p.appendChild(el("p",{class:"voyage-eyebrow",text:"Quartier generale"}));
   p.appendChild(el("div",{class:"row"},[el("h3",{class:"dt",text:c.name}),el("span",{class:"badge "+(isGM?"gm":"pl"),text:isGM?"Sei il Game Master":"Sei un Giocatore",style:"margin-left:8px"})]));
 
   // membri
   var memR=await SB().from("campaign_members").select("*").eq("campaign_id",c.id);
+  if(ticket!==campaignRenderTicket)return;
   var members=memR.data||[];
   var ids=members.map(function(m){return m.user_id;});ids.push(c.gm);
   var names=await namesFor(ids);
+  if(ticket!==campaignRenderTicket)return;
 
   // ---- contenuti condivisi della campagna ----
   var INFO;try{INFO=await loadInfo(c.id);}catch(error){wrap.appendChild(el("p",{class:"hint err",text:"Impossibile caricare la campagna: "+error.message}));return;}
+  if(ticket!==campaignRenderTicket)return;
   INFO.events=Array.isArray(INFO.events)?INFO.events:[];
   INFO.log=Array.isArray(INFO.log)?INFO.log:[];
 
   // Informazioni
-  p.appendChild(el("div",{class:"sep"}));
-  p.appendChild(el("label",{class:"fld",text:"Informazioni della campagna"}));
+  brief.appendChild(el("div",{class:"sep"}));
+  brief.appendChild(el("label",{class:"fld",text:"Informazioni della campagna"}));
   if(isGM){
-    var infoTa=el("textarea",{class:"in",rows:"4",style:"width:100%;resize:vertical;min-height:80px",placeholder:"Note, regole della casa, premesse, avvisi per la ciurma\u2026"});
+    var infoEditor=el("details",{class:"camp-editor",open:""},[el("summary",{text:"Modifica le informazioni"})]);brief.appendChild(infoEditor);
+    var infoTa=el("textarea",{class:"in","aria-label":"Informazioni della campagna",rows:"4",style:"width:100%;resize:vertical;min-height:80px",placeholder:"Note, regole della casa, premesse, avvisi per la ciurma\u2026"});
     infoTa.value=INFO.info||"";
-    p.appendChild(infoTa);
-    p.appendChild(el("div",{class:"row",style:"margin-top:8px"},[el("button",{class:"btn sm",text:"Salva informazioni",onClick:function(){INFO.info=infoTa.value;persistInfo(c,INFO,"ci-info-msg","Informazioni salvate \u2713",false);}}),el("span",{class:"hint",id:"ci-info-msg"})]));
+    infoEditor.appendChild(infoTa);
+    infoEditor.appendChild(el("div",{class:"row",style:"margin-top:8px"},[el("button",{class:"btn sm",text:"Salva informazioni",onClick:function(){INFO.info=infoTa.value;persistInfo(c,INFO,"ci-info-msg","Informazioni salvate \u2713",false);}}),el("span",{class:"hint",id:"ci-info-msg"})]));
   } else {
-    p.appendChild(el("div",{class:"readbox",text:INFO.info?INFO.info:"Il Game Master non ha ancora scritto informazioni."}));
+    brief.appendChild(el("div",{class:"readbox",text:INFO.info?INFO.info:"Il Game Master non ha ancora scritto informazioni."}));
   }
 
   // Prossime sessioni & eventi
-  p.appendChild(el("div",{class:"sep"}));
-  p.appendChild(el("label",{class:"fld",text:"Prossime sessioni & eventi"}));
+  events.appendChild(el("div",{class:"sep"}));
+  events.appendChild(el("label",{class:"fld",text:"Prossime sessioni & eventi"}));
   var evs=INFO.events.slice().filter(function(e){return e&&e.date;}).sort(function(a,b){return a.date<b.date?-1:1;});
   var fut=evs.filter(function(e){return e.date>=todayStr();});
   /* Data e titolo li scrive un altro giocatore della campagna: vanno messi come
@@ -235,7 +254,7 @@ async function renderDetail(c){
       el("b",{text:fmtDate(fut[0].date)}),
       document.createTextNode(fut[0].titolo?(" \u2014 "+fut[0].titolo):"")
     ]);
-    p.appendChild(pross);
+    events.appendChild(pross);
   }
   var evList=el("div",{class:"evlist"});
   if(!evs.length){evList.appendChild(el("div",{class:"empty2",text:"Nessun evento in programma."}));}
@@ -244,18 +263,19 @@ async function renderDetail(c){
     if(isGM){row.appendChild(el("button",{class:"btn sm danger",text:"\u2715",onClick:function(){INFO.events=INFO.events.filter(function(x){return x!==e;});persistInfo(c,INFO,null,null,true);}}));}
     evList.appendChild(row);
   });
-  p.appendChild(evList);
+  events.appendChild(evList);
   if(isGM){
-    var evD=el("input",{class:"in",type:"date",style:"flex:0 0 150px"});
-    var evT=el("input",{class:"in",type:"text",placeholder:"Titolo (es. Sessione 4)"});
-    var evN=el("input",{class:"in",type:"text",placeholder:"Nota (facoltativa)"});
-    p.appendChild(el("div",{class:"row",style:"margin-top:8px"},[evD,evT]));
-    p.appendChild(el("div",{class:"row",style:"margin-top:6px"},[evN,el("button",{class:"btn sm",text:"+ Aggiungi evento",onClick:function(){if(!evD.value)return;INFO.events.push({id:uid(),date:evD.value,titolo:(evT.value||"").trim(),nota:(evN.value||"").trim()});persistInfo(c,INFO,null,null,true);}})]));
+    var eventEditor=el("details",{class:"camp-editor"},[el("summary",{text:"Programma una sessione"})]);events.appendChild(eventEditor);
+    var evD=el("input",{class:"in","aria-label":"Data evento",type:"date",style:"flex:0 0 150px"});
+    var evT=el("input",{class:"in","aria-label":"Titolo evento",type:"text",placeholder:"Titolo (es. Sessione 4)"});
+    var evN=el("input",{class:"in","aria-label":"Nota evento",type:"text",placeholder:"Nota (facoltativa)"});
+    eventEditor.appendChild(el("div",{class:"row",style:"margin-top:8px"},[evD,evT]));
+    eventEditor.appendChild(el("div",{class:"row",style:"margin-top:6px"},[evN,el("button",{class:"btn sm",text:"+ Aggiungi evento",onClick:function(){if(!evD.value)return;INFO.events.push({id:uid(),date:evD.value,titolo:(evT.value||"").trim(),nota:(evN.value||"").trim()});persistInfo(c,INFO,null,null,true);}})]));
   }
 
   // Registro delle sessioni
-  p.appendChild(el("div",{class:"sep"}));
-  p.appendChild(el("label",{class:"fld",text:"Registro delle sessioni \u2014 cosa \u00e8 successo"}));
+  chronicle.appendChild(el("div",{class:"sep"}));
+  chronicle.appendChild(el("label",{class:"fld",text:"Registro delle sessioni \u2014 cosa \u00e8 successo"}));
   var logList=el("div",{class:"loglist"});
   var logs=INFO.log.slice().sort(function(a,b){return (a.date||"")>(b.date||"")?-1:1;});
   if(!logs.length){logList.appendChild(el("div",{class:"empty2",text:"Ancora nessuna cronaca."}));}
@@ -264,25 +284,26 @@ async function renderDetail(c){
     if(isGM){head.appendChild(el("button",{class:"btn sm danger",text:"\u2715",onClick:function(){INFO.log=INFO.log.filter(function(x){return x!==en;});persistInfo(c,INFO,null,null,true);}}));}
     logList.appendChild(el("div",{class:"logcard"},[head,el("div",{class:"logbody",text:en.corpo||""})]));
   });
-  p.appendChild(logList);
+  chronicle.appendChild(logList);
   if(isGM){
-    var lgD=el("input",{class:"in",type:"date",style:"flex:0 0 150px"});
-    var lgT=el("input",{class:"in",type:"text",placeholder:"Titolo della sessione"});
-    var lgB=el("textarea",{class:"in",rows:"3",style:"width:100%;resize:vertical;min-height:64px",placeholder:"Cosa \u00e8 successo in questa sessione\u2026"});
-    p.appendChild(el("div",{class:"row",style:"margin-top:8px"},[lgD,lgT]));
-    p.appendChild(lgB);
-    p.appendChild(el("div",{class:"row",style:"margin-top:6px"},[el("button",{class:"btn sm",text:"+ Aggiungi alla cronaca",onClick:function(){if(!lgB.value.trim()&&!lgT.value.trim())return;INFO.log.push({id:uid(),date:lgD.value||todayStr(),titolo:(lgT.value||"").trim(),corpo:lgB.value});persistInfo(c,INFO,null,null,true);}})]));
+    var logEditor=el("details",{class:"camp-editor"},[el("summary",{text:"Scrivi una cronaca"})]);chronicle.appendChild(logEditor);
+    var lgD=el("input",{class:"in","aria-label":"Data della cronaca",type:"date",style:"flex:0 0 150px"});
+    var lgT=el("input",{class:"in","aria-label":"Titolo della cronaca",type:"text",placeholder:"Titolo della sessione"});
+    var lgB=el("textarea",{class:"in","aria-label":"Testo della cronaca",rows:"3",style:"width:100%;resize:vertical;min-height:64px",placeholder:"Cosa \u00e8 successo in questa sessione\u2026"});
+    logEditor.appendChild(el("div",{class:"row",style:"margin-top:8px"},[lgD,lgT]));
+    logEditor.appendChild(lgB);
+    logEditor.appendChild(el("div",{class:"row",style:"margin-top:6px"},[el("button",{class:"btn sm",text:"+ Aggiungi alla cronaca",onClick:function(){if(!lgB.value.trim()&&!lgT.value.trim())return;INFO.log.push({id:uid(),date:lgD.value||todayStr(),titolo:(lgT.value||"").trim(),corpo:lgB.value});persistInfo(c,INFO,null,null,true);}})]));
   }
 
   // Atlante personale e carta condivisa del GM: archivi separati.
-  p.appendChild(el("div",{class:"sep"}));
-  p.appendChild(el("label",{class:"fld",text:"Il mondo della campagna"}));
+  chart.appendChild(el("div",{class:"sep"}));
+  chart.appendChild(el("label",{class:"fld",text:"Il mondo della campagna"}));
   var mapTabs=el("div",{class:"row",role:"group","aria-label":"Scegli l’atlante",style:"margin-bottom:12px"});
   var mapMine=el("button",{class:"btn sm ghost",type:"button",text:"Il mio atlante","aria-pressed":"false"});
   var mapGM=el("button",{class:"btn sm ghost",type:"button",text:"Carta del GM","aria-pressed":"false"});
-  mapTabs.append(mapMine,mapGM);p.appendChild(mapTabs);
-  var mapNotice=el("p",{class:"hint"});p.appendChild(mapNotice);
-  var mapBox=el("div");p.appendChild(mapBox);
+  mapTabs.append(mapMine,mapGM);chart.appendChild(mapTabs);
+  var mapNotice=el("p",{class:"hint"});chart.appendChild(mapNotice);
+  var mapBox=el("div");chart.appendChild(mapBox);
   var atlasSwitch=false;
   async function showAtlas(personal){
     if(atlasSwitch)return;atlasSwitch=true;mapMine.disabled=mapGM.disabled=true;
@@ -302,16 +323,16 @@ async function renderDetail(c){
   var atlasChoice=new URLSearchParams(location.search).get("atlas");showAtlas(atlasChoice?atlasChoice==="personal":!isGM);
 
   // codice (visibile al GM; un giocatore può comunque vederlo per condividerlo)
-  p.appendChild(el("div",{class:"sep"}));
-  p.appendChild(el("label",{class:"fld",text:"Codice d'accesso"}));
+  access.appendChild(el("div",{class:"sep"}));
+  access.appendChild(el("label",{class:"fld",text:"Codice d'accesso"}));
   var codeRow=el("div",{class:"row"},[el("span",{class:"codebox",id:"codeShow",text:c.join_code})]);
   if(isGM){codeRow.appendChild(el("button",{class:"btn sm ghost",text:"Rigenera",onClick:function(){regenCode(c);}}));}
   codeRow.appendChild(el("button",{class:"btn sm ghost",text:"Copia",onClick:function(){navigator.clipboard&&navigator.clipboard.writeText(c.join_code);}}));
-  p.appendChild(codeRow);
+  access.appendChild(codeRow);
 
   // roster
-  p.appendChild(el("div",{class:"sep"}));
-  p.appendChild(el("label",{class:"fld",text:"Ciurma ("+members.length+" giocatori + GM)"}));
+  crew.appendChild(el("div",{class:"sep"}));
+  crew.appendChild(el("label",{class:"fld",text:"Ciurma ("+members.length+" giocatori + GM)"}));
   var roster=el("div",{class:"roster"});
   // GM riga
   roster.appendChild(el("div",{class:"mrow"},[
@@ -325,33 +346,41 @@ async function renderDetail(c){
     if(isGM && m.user_id!==me.id){row.appendChild(el("button",{class:"btn sm danger",text:"Rimuovi",onClick:function(){removeMember(c,m.user_id);}}));}
     roster.appendChild(row);
   });
-  p.appendChild(roster);
+  crew.appendChild(roster);
 
   // azioni GM: invita nakama
   if(isGM){
-    p.appendChild(el("div",{class:"sep"}));
-    p.appendChild(el("label",{class:"fld",text:"Invita un nakama"}));
-    var invSel=el("select",{class:"in",id:"invSel"},[el("option",{value:"",text:"— carico i nakama… —"})]);
+    manage.appendChild(el("div",{class:"sep"}));
+    manage.appendChild(el("label",{class:"fld",text:"Invita un nakama"}));
+    var invSel=el("select",{class:"in",id:"invSel","aria-label":"Nakama da invitare"},[el("option",{value:"",text:"— carico i nakama… —"})]);
     var invRow=el("div",{class:"row"},[invSel,el("button",{class:"btn sm",text:"Invita",onClick:function(){inviteNakama(c);}})]);
-    p.appendChild(invRow);
-    p.appendChild(el("div",{class:"hint",id:"invMsg"}));
-    fillNakamaSelect(c, members.map(function(m){return m.user_id;}));
+    manage.appendChild(invRow);
+    manage.appendChild(el("div",{class:"hint",id:"invMsg"}));
+
     // elimina campagna
-    p.appendChild(el("div",{class:"sep"}));
-    p.appendChild(el("button",{class:"btn sm danger",text:"Elimina la campagna",onClick:function(){deleteCampaign(c);}}));
+    manage.appendChild(el("div",{class:"sep"}));
+    manage.appendChild(el("button",{class:"btn sm danger",text:"Elimina la campagna",onClick:function(){deleteCampaign(c);}}));
   } else {
     // azioni giocatore: collega scheda + esci
-    p.appendChild(el("div",{class:"sep"}));
-    p.appendChild(el("label",{class:"fld",text:"La tua scheda in questa campagna"}));
+    manage.appendChild(el("div",{class:"sep"}));
+    manage.appendChild(el("label",{class:"fld",text:"La tua scheda in questa campagna"}));
     var mine=members.filter(function(m){return m.user_id===me.id;})[0];
-    var sel=el("select",{class:"in",id:"mineChar"});
+    var sel=el("select",{class:"in",id:"mineChar","aria-label":"La tua scheda in questa campagna"});
     var setRow=el("div",{class:"row"},[sel,el("button",{class:"btn sm",text:"Salva scheda",onClick:function(){setMyChar(c);}})]);
-    p.appendChild(setRow);fillCharSelect(sel);if(mine&&mine.char_name)sel.value=mine.char_name;
-    p.appendChild(el("div",{class:"hint",id:"mineMsg"}));
-    p.appendChild(el("div",{class:"sep"}));
-    p.appendChild(el("button",{class:"btn sm danger",text:"Esci dalla campagna",onClick:function(){leaveCampaign(c);}}));
+    manage.appendChild(setRow);fillCharSelect(sel);if(mine&&mine.char_name)sel.value=mine.char_name;
+    manage.appendChild(el("div",{class:"hint",id:"mineMsg"}));
+    manage.appendChild(el("div",{class:"sep"}));
+    manage.appendChild(el("button",{class:"btn sm danger",text:"Esci dalla campagna",onClick:function(){leaveCampaign(c);}}));
   }
+  var nav=el("nav",{class:"voyage-jumps","aria-label":"Nella campagna"});
+  [["camp-events","Bacheca"],["camp-crew","Ciurma"],["camp-chart","Atlante"],["camp-chronicle","Cronache"]].forEach(function(x){nav.appendChild(el("a",{href:"#"+x[0],text:x[1]}));});
+  p.appendChild(nav);
+  var main=el("div",{class:"camp-main"},[events,brief,chronicle]);
+  var side=el("aside",{class:"camp-sidebar","aria-label":"La tua ciurma"},[crew,access,manage]);
+  p.appendChild(el("div",{class:"camp-columns"},[main,side]));
+  p.appendChild(chart);
   wrap.appendChild(p);
+  if(isGM)fillNakamaSelect(c, members.map(function(m){return m.user_id;}));
 }
 
 async function fillNakamaSelect(c, memberIds){
