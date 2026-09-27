@@ -1,0 +1,3 @@
+export type Story={background?:string;personality?:string;goals?:string;conflicts?:string;abilities?:string;weaknesses?:string;fields?:{id:string;name:string;value:string}[]};
+export const storySections=[['background','Background'],['personality','Personalità e valori'],['goals','Obiettivi'],['conflicts','Paure e conflitti'],['abilities','Abilità'],['weaknesses','Debolezze']] as const;
+export function storyText(story?:Story){if(!story)return '';return [...storySections.map(([key,label])=>story[key]?.trim()?label+':\n'+story[key]:'').filter(Boolean),...(story.fields||[]).filter(f=>f.name||f.value).map(f=>(f.name||'Informazione')+': '+f.value)].join('\n\n');}

@@ -1,237 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grand Line Chronicles — Registro di Bordo</title>
-<meta name="description" content="Il porto della tua ciurma: crea il personaggio, arma la nave, rifornisci la cambusa e siedi alla plancia del Capitano. Sistema «Will of D.».">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/glc-theme.css">
-<style>
-  :root{
-    /* — palette «golden hour sul mare nero» — */
-    --black:#060607;          /* fondo, quasi nero caldo */
-    --coal:#0b0b0d;
-    --panel:#121014;          /* superfici */
-    --ivory:#f2e9d8;          /* testo principale */
-    --champagne:#e9d6ae;
-    --amber:#f0a441;          /* accento, sole */
-    --amber-2:#ffd394;
-    --rust:#c96f2a;
-    --muted:#a89c89;          /* testo secondario, caldo */
-    --muted-2:#6e6557;
-    --line:rgba(240,164,65,.16);
-    --line-soft:rgba(242,233,216,.12);
-    --shadow:rgba(0,0,0,.6);
-    /* alias storici usati dagli SVG inline */
-    --gold:var(--amber); --gold-bright:var(--amber-2); --seal:var(--rust);
-    --vellum:var(--ivory); --foam:var(--muted); --foam-dim:var(--muted-2);
-    --abyss:var(--black); --rule:var(--line);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  /* vignettatura cinematografica leggera */
-  html::before{
-    content:"";position:fixed;inset:0;z-index:3;pointer-events:none;
-    background:radial-gradient(135% 110% at 50% 42%, transparent 55%, rgba(2,2,3,.5) 100%);
-  }
-  body{
-    font-family:'Inter',system-ui,sans-serif;
-    background:
-      radial-gradient(90% 50% at 50% 118%, rgba(201,111,42,.10), transparent 70%),
-      var(--black);
-    color:var(--ivory);
-    min-height:100vh;
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  /* grana da pellicola, sottile */
-  body::before{
-    content:"";position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  .wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 24px}
-  a{color:inherit;text-decoration:none}
-
-  /* ---------- top bar, sospesa sopra la scena ---------- */
-  .topbar{position:absolute;top:0;left:24px;right:24px;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:24px 0 0}
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand .mark{width:22px;height:22px;flex:0 0 auto}
-  .brand .name{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:.42em;font-size:11px;color:var(--ivory);text-transform:uppercase}
-  /* riveste il controllo di login iniettato da glc-auth.js (solo aspetto) */
-  .glc-slot .glc-accedi{font-family:'Inter',sans-serif!important;font-weight:600!important;font-size:12px!important;letter-spacing:.04em!important;color:#1b1206!important;background:linear-gradient(180deg,var(--amber-2),var(--amber))!important;border-radius:999px!important;padding:10px 22px!important}
-  .glc-slot .glc-prof,.glc-slot .glc-out{font-family:'Inter',sans-serif!important;letter-spacing:.08em!important;border-color:var(--line-soft)!important;color:var(--champagne)!important;border-radius:999px!important}
-  .glc-slot .glc-who{font-family:'Inter',sans-serif!important;color:var(--muted)!important}
-  .glc-slot .glc-who b{color:var(--champagne)!important}
-
-  /* ---------- hero: alba in tempesta ---------- */
-  .hero{position:relative;display:flex;align-items:center;min-height:min(94vh,960px);padding:140px 0 110px}
-  .scene{
-    position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);
-    width:100vw;height:100%;z-index:0;
-    will-change:transform;
-    background:url("/img/hero_main.jpg") center 32% / cover no-repeat;
-    animation:scene-in 2.4s ease both, scene-zoom 45s ease-in-out infinite alternate;
-  }
-  /* video d'apertura: sopra l'illustrazione, dissolve al termine */
-  .scene-video{
-    position:absolute;inset:0;width:100%;height:100%;
-    object-fit:cover;object-position:center 32%;z-index:1;
-    transition:opacity 1.4s ease;
-  }
-  .scene-video.done{opacity:0;}
-  /* scrim per la leggibilità: sopra video E immagine */
-  .scene::after{
-    content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
-    background:
-      linear-gradient(90deg, rgba(4,5,8,.88) 0%, rgba(4,5,8,.55) 34%, rgba(4,5,8,.08) 62%, rgba(4,5,8,.22) 100%),
-      linear-gradient(180deg, rgba(6,6,7,.6) 0%, rgba(6,6,7,0) 24%, rgba(6,6,7,0) 58%, #060607 97%);
-  }
-  @keyframes scene-in{from{opacity:0}}
-  @keyframes scene-zoom{from{transform:translateX(-50%) scale(1)}to{transform:translateX(-50%) scale(1.045)}}
-  .hero-inner{position:relative;z-index:1;max-width:640px;text-align:left}
-  .eyebrow{
-    font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.5em;text-transform:uppercase;font-size:11px;
-    color:var(--amber);margin-bottom:24px;animation:track-in 1.4s cubic-bezier(.16,1,.3,1) both .2s;
-  }
-  .eyebrow .dot{color:var(--amber-2);margin:0 .55em}
-  @keyframes track-in{from{opacity:0;letter-spacing:.85em}}
-  h1.title{
-    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.04;
-    font-size:clamp(2.8rem,7.5vw,5rem);letter-spacing:.015em;text-transform:uppercase;
-    color:var(--ivory);text-shadow:0 2px 34px rgba(0,0,0,.6),0 1px 6px rgba(0,0,0,.4);
-  }
-  h1.title .line{display:block;animation:title-in 1.5s cubic-bezier(.16,1,.3,1) both .35s}
-  h1.title .line+.line{animation-delay:.55s;color:var(--champagne)}
-  @keyframes title-in{from{opacity:0;transform:translateY(26px);filter:blur(8px)}}
-  .tagline{
-    max-width:46ch;margin:24px 0 0;font-size:clamp(.98rem,1.6vw,1.05rem);
-    color:var(--muted);font-weight:400;line-height:1.75;animation:rise 1.3s ease both .85s;
-  }
-  .cta-row{margin-top:36px;display:flex;gap:12px;justify-content:flex-start;flex-wrap:wrap;animation:rise 1.3s ease both 1.05s}
-  .btn{
-    font-family:'Inter',sans-serif;font-weight:500;font-size:.87rem;letter-spacing:.02em;
-    padding:13px 26px;border-radius:999px;cursor:pointer;
-    border:1px solid var(--line-soft);color:var(--ivory);
-    background:rgba(20,18,16,.55);
-    transition:background .25s ease, border-color .25s ease, transform .18s ease;
-    display:inline-flex;align-items:center;gap:9px;
-  }
-  .btn:hover{background:rgba(242,233,216,.15);border-color:rgba(242,233,216,.3);transform:translateY(-1px)}
-  .btn-primary{background:rgba(240,164,65,.16);border-color:rgba(240,164,65,.38);color:#ffe9c4}
-  .btn-primary:hover{background:rgba(240,164,65,.27);border-color:rgba(240,164,65,.55)}
-  .btn-ghost{background:rgba(242,233,216,.05)}
-  @keyframes rise{from{opacity:0;transform:translateY(14px)}}
-
-  @media(max-width:720px){
-    .card{padding:22px 20px;gap:16px}
-    .card .ico{width:38px;height:38px}
-    .hero{padding:120px 0 90px}
-    .scene{ /* su schermi stretti: soggetto centrato */
-      background:url("/img/hero_main.jpg") center 30% / cover no-repeat;
-    }
-    .scene-video{object-position:center 30%;}
-    .scene::after{ /* velo scuro uniforme */
-      background:
-        linear-gradient(180deg, rgba(6,6,7,.65) 0%, rgba(6,6,7,.2) 30%, rgba(6,6,7,.2) 55%, #060607 96%),
-        linear-gradient(rgba(4,5,8,.42), rgba(4,5,8,.42));
-    }
-  }
-  @media(prefers-reduced-motion:reduce){
-    *{animation:none!important;scroll-behavior:auto!important}
-    .scene-video{display:none}
-  }
-</style>
-<link rel="manifest" href="/manifest.webmanifest">
-<meta name="theme-color" content="#060607">
-<link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="GLC">
-<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){});});}</script>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/home.css?v=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090e18">
+  <title>Arkalink — Il crocevia dei mondi</title>
+  <meta name="description" content="Tra un universo e l’altro esiste una soglia. Arkalink è il crocevia dei mondi.">
+  <link rel="icon" href="/arkalink-assets/arkalink-sigil.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Oxanium:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/arkalink-assets/nexus.css">
+  <script>if(new URLSearchParams(location.search).has('code') || /(?:access_token|error_description)=/.test(location.hash)) location.replace('/grand-line-chronicles/'+location.search+location.hash);</script>
+  <script src="/arkalink-assets/nexus.js" defer></script>
 </head>
 <body>
-<a class="skip" href="#rotta">Vai al contenuto</a><div class="wrap"><header class="topbar"><a class="brand" href="/" aria-label="Grand Line Chronicles · Home"><svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="13" stroke="currentColor" stroke-width="3"/><path d="M24 2v44M2 24h44" stroke="currentColor"/><path d="m24 11 5 13-5 13-5-13z" fill="currentColor"/></svg><span class="name">Grand Line Chronicles</span></a><nav class="home-nav" aria-label="Navigazione principale"><a href="#notizie">Notizie</a><a href="#strumenti">Esplora</a><a href="/manuale/">Manuale</a></nav><span id="glc-login-slot"></span></header>  <!-- HERO -->
-  <section class="hero">
-    <!-- SIGNATURE: l'alba sulla Rotta Maggiore (img/hero_main.jpg) -->
-    <div class="scene" aria-hidden="true"><video class="scene-video" src="/img/glc.mp4" autoplay muted playsinline preload="auto"></video></div>
+  <a class="skip" href="#destinations">Vai alla scelta dei portali</a>
+  <svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="sigil" viewBox="0 0 60 72"><path d="M30 3 55 23v28L30 69 5 51V23L30 3Z"/><path d="m30 14 15 15-15 27-15-27 15-15ZM30 3v11M5 51l18-7m32 7-18-7M15 29h30M30 56v13"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="star" viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z"/></symbol>
+    <symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></symbol>
+    <symbol id="expand" viewBox="0 0 24 24"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6"/></symbol>
+    <symbol id="signal" viewBox="0 0 24 24"><path d="M5 18v-5m7 5V6m7 12V3"/><circle cx="5" cy="9" r="1"/><circle cx="12" cy="2" r="1"/></symbol>
+  </svg>
 
-    <div class="hero-inner">
-      <p class="eyebrow">Registro di Bordo <span class="dot">✦</span> Sistema «Will of D.»</p>
-      <h1 class="title"><span class="line">Grand Line</span><span class="line">Chronicles</span></h1>
-      <p class="tagline">Un pirata. Una ciurma. Un mondo da scrivere.
-      Il tuo tavolo di gioco comincia da qui.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary focus-target" href="#rotta">Riprendi il viaggio
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-        </a>
-        <a class="btn btn-ghost focus-target" href="#manuale">Vedi il manuale</a>
-      </div>
-    </div>
-  </section>
+  <main class="nexus" id="nexus" data-world="glc">
+    <header class="nexus-header">
+      <div class="header-location"><svg class="location-mark" aria-hidden="true"><use href="#sigil"/></svg><span>LA CONVERGENZA<small>SALA DEI PORTALI</small></span></div>
+      <div class="brand"><h1>ARKALINK</h1><p>IL CROCEVIA DEI MONDI</p></div>
+      <nav class="header-nav" aria-label="Esplora Arkalink"><button type="button" id="about-open"><svg aria-hidden="true"><use href="#star"/></svg><span>La convergenza</span></button><button type="button" id="signals-open"><svg aria-hidden="true"><use href="#signal"/></svg><span>Segnali</span></button></nav>
+    </header>
 
-</div>
-
-<main class="home-content">
-  <section class="voyage section" id="rotta" aria-labelledby="route-title">
-    <div class="section-head"><div><p class="overline">01 / Il tuo registro di bordo</p><h2 id="route-title">La tua prossima <em>rotta.</em></h2></div><a class="text-link" href="/profilo/">Il mio profilo <span aria-hidden="true">↗</span></a></div>
-    <div class="resume" id="resume">
-      <div class="resume-art" aria-hidden="true"><img src="/img/icons/ruolo-capitano.png" alt="" width="240" height="240"></div>
-      <div class="resume-copy"><p class="overline" id="resume-kicker">Il mare ti aspetta</p><h3 id="resume-name">Ogni leggenda ha un inizio.</h3><p id="resume-description">Dai un volto al tuo pirata, scegli la tua strada e salpa con i tuoi nakama.</p><div class="actions"><a class="button primary" id="resume-link" href="/crea-il-tuo-pirata/">Crea il tuo pirata <span aria-hidden="true">↗</span></a><a class="text-link" id="resume-secondary" href="/profilo/#import-char-btn">Importa un pirata</a></div></div>
-      <div class="resume-log"><span class="overline">Diario di navigazione</span><a id="resume-session" href="/profilo/">Le tue sessioni <span aria-hidden="true">↗</span></a><a id="resume-ship" href="/nave-portale/">La tua nave <span aria-hidden="true">↗</span></a><a href="/campagne/">Le tue campagne <span aria-hidden="true">↗</span></a><p class="fine" id="resume-status" role="status">Il viaggio si costruisce, una sessione alla volta.</p></div>
-    </div>
-  </section>
-
-  <section class="section dispatches" id="notizie" aria-labelledby="news-title">
-    <div class="section-head"><div><p class="overline">02 / Il giornale di bordo</p><h2 id="news-title">Notizie dai <em>mari.</em></h2></div><div class="actions"><a class="text-link" href="/notizie/">Tutti i dispacci <span aria-hidden="true">↗</span></a><a class="text-link" id="news-editor-link" href="/notizie/?redazione=1" hidden>Redazione</a></div></div>
-    <div class="news-grid" id="home-news" aria-live="polite"><div class="news-empty"><span class="news-empty-mark" aria-hidden="true">✧</span><div><p class="overline">Dalla redazione</p><h3>In ascolto dei mari.</h3><p>Qui troverai aggiornamenti, novità e racconti dal mondo di Grand Line Chronicles.</p><p class="fine" id="news-status">Caricamento dei dispacci…</p></div></div></div>
-    <noscript><p>Attiva JavaScript per leggere le notizie e ritrovare il tuo personaggio.</p></noscript>
-  </section>
-
-  <section class="section routes" id="strumenti" aria-labelledby="tools-title">
-    <div class="section-head"><div><p class="overline">03 / Segui il Log Pose</p><h2 id="tools-title">Una ciurma. <em>Infinite rotte.</em></h2></div><p class="section-note">Tutto ciò che serve al tavolo,<br>prima e durante l’avventura.</p></div>
-    <div class="routes-layout">
-      <aside class="log-pose" aria-label="Log Pose decorativo"><div class="compass" aria-hidden="true"><span class="north">N</span><span class="east">E</span><span class="south">S</span><span class="west">W</span><div class="compass-rings"></div><div class="compass-needle" id="log-needle"></div><div class="compass-pin"></div></div><p class="overline">Destinazione</p><p class="compass-label" id="log-label">Il tuo prossimo orizzonte</p><p class="fine">Scegli una rotta.<br>Il resto è la vostra storia.</p></aside>
-      <div class="destinations">
-        <div class="primary-routes">
-          <a class="destination pirate-route" href="/profilo/" data-bearing="-42" data-destination="Il tuo pirata"><img src="/img/icons/ruolo-capitano.png" alt="" loading="lazy"><span class="route-index">I / Identità</span><h3>Il tuo<br>pirata.</h3><p>La scheda, i talenti, le tecniche.<br>La leggenda che stai costruendo.</p><span class="text-link">Apri il profilo <span aria-hidden="true">↗</span></span></a>
-          <a class="destination campaign-route" href="/campagne/" data-bearing="42" data-destination="La tua ciurma"><img src="/img/icons/ruolo-navigatore.png" alt="" loading="lazy"><span class="route-index">II / Avventura</span><h3>Raduna<br>la ciurma.</h3><p>Campagne condivise e un mondo<br>da scoprire insieme ai nakama.</p><span class="text-link">Entra in campagna <span aria-hidden="true">↗</span></span></a>
+    <section class="chamber" aria-label="Sala delle soglie">
+      <div class="scene-art" id="scene-art">
+        <div class="portal-aura" aria-hidden="true"></div>
+        <div class="central-gate">
+          <img class="room-image" src="/arkalink-assets/glc-world.png" width="1672" height="941" fetchpriority="high" alt="Un mondo di mari e isole da esplorare.">
+          <div class="gate-surface" aria-hidden="true"></div>
+          <div class="gate-seal" aria-hidden="true"><svg><use href="#sigil"/></svg></div>
+          <span class="gate-coordinate" id="gate-coordinate">01 / MONDO CONNESSO</span>
+          <p class="central-gate-title" id="central-gate-title">Grand Line Chronicles</p>
         </div>
-        <div class="supply-routes">
-          <a href="/nave-portale/" data-bearing="100" data-destination="La nave"><span class="route-small-icon" aria-hidden="true">⚓</span><div><h3>La nave</h3><p>Il vostro posto nel mondo.</p></div><span aria-hidden="true">↗</span></a>
-          <a href="/portale-officina-cambusa/" data-bearing="155" data-destination="L’officina"><img src="/img/icons/ruolo-ingegnere.png" alt="" loading="lazy"><div><h3>Officina &amp; Cambusa</h3><p>Equipaggiamento, cucina e provviste.</p></div><span aria-hidden="true">↗</span></a>
-        </div>
-        <a class="master-route" href="/plancia-master/" data-bearing="275" data-destination="La plancia del Master"><span class="overline">Dall’altra parte dello schermo</span><h3>Sei tu a tracciare la rotta?</h3><p>Bestiario e scontri alla plancia del Master.</p><span class="text-link">Prendi il timone <span aria-hidden="true">↗</span></span></a>
+        <span class="orbit-caption" aria-hidden="true">ARKALINK · NEXUS</span>
       </div>
-    </div>
-  </section>
+      <div class="scene-vignette" aria-hidden="true"></div>
+      <p class="chamber-caption">Tra un universo e l’altro,<br><em>esiste una soglia.</em></p>
+      <button class="immersion" type="button" id="fullscreen" aria-label="Attiva schermo intero" aria-pressed="false"><svg aria-hidden="true"><use href="#expand"/></svg><span>Immersione</span></button>
+    </section>
 
-  <section class="section origin" id="manuale" aria-labelledby="manual-title"><div class="origin-mark" aria-hidden="true">D.</div><div class="origin-copy"><p class="overline">04 / Sistema «Will of D.»</p><h2 id="manual-title">La tua leggenda<br><em>comincia qui.</em></h2><p>Un gioco di ruolo ispirato a One Piece. Ambizioni che diventano avventure, Legami che rendono più forte la ciurma e un mare di possibilità da esplorare al tavolo.</p><div class="actions"><a class="button primary" href="/manuale/">Entra nel manuale <span aria-hidden="true">↗</span></a><a class="text-link" href="/crea-il-tuo-pirata/">Crea il tuo primo pirata</a></div></div><ol class="origin-steps"><li><span>01</span><div><h3>Immagina</h3><p>Un sogno, un volto, una strada.</p></div></li><li><span>02</span><div><h3>Raduna</h3><p>Nessuna leggenda nasce da sola.</p></div></li><li><span>03</span><div><h3>Salpa</h3><p>Il mondo prende forma giocando.</p></div></li></ol></section>
-</main>
-<footer class="home-footer"><a class="brand" href="/"><svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="13" stroke="currentColor" stroke-width="3"/><path d="M24 2v44M2 24h44" stroke="currentColor"/><path d="m24 11 5 13-5 13-5-13z" fill="currentColor"/></svg><span class="name">Grand Line Chronicles</span></a><p>Un gioco di ruolo amatoriale ispirato a One Piece.</p><nav aria-label="Collegamenti finali"><a href="/manuale/">Manuale</a><a href="/notizie/">Notizie</a><a href="/profilo/">Profilo</a></nav></footer>
-<script>
-  // video d'apertura della home: al termine resta l'illustrazione
-  (function(){
-    var v=document.querySelector('.scene-video');
-    if(!v) return;
-    function end(){ v.classList.add('done'); }
-    v.addEventListener('ended', end);
-    v.addEventListener('error', end);
-    if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches){ try{v.pause();}catch(e){} end(); return; }
-    var p=v.play(); if(p && p.catch) p.catch(end);
-  })();
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>window.GLC={gate:false,profileUrl:"/profilo/"};</script>
-<script src="/glc-sync.js?v=2"></script>
-<script src="/glc-auth.js?v=2"></script>
-<script src="/glc-news.js?v=1"></script>
-<script src="/home.js?v=1"></script>
+    <section class="gate-console" id="destinations" aria-label="Destinazioni del multiverso">
+      <div class="console-line" aria-hidden="true"><span></span><svg><use href="#star"/></svg><span></span></div>
+      <div class="destination-info" id="destination-panel" role="tabpanel" aria-labelledby="world-glc">
+        <div class="destination-emblem" aria-hidden="true"><svg><use href="#sigil"/></svg></div>
+        <div class="destination-copy"><p class="destination-state" id="world-state"><span class="state-light"></span>SOGLIA 01 · CONNESSIONE APERTA</p><h2 id="world-title">Grand Line Chronicles</h2><p id="world-description">Oltre questo varco: mari sconfinati, ciurme e leggende ancora da scrivere.</p><p class="world-type" id="world-type">GIOCO DI RUOLO <span>·</span> UNIVERSO ONE PIECE</p></div>
+        <div class="destination-action"><a class="enter-world" id="enter-world" href="/grand-line-chronicles/" target="_self" rel="noopener noreferrer"><span>Attraversa il portale<small id="enter-world-caption">ENTRA IN GRAND LINE CHRONICLES</small></span><svg aria-hidden="true"><use href="#arrow"/></svg></a><div class="sealed-world" id="sealed-world" hidden><svg aria-hidden="true"><use href="#lock"/></svg><span>Portale non disponibile<small>DESTINAZIONE NON ANCORA RIVELATA</small></span></div><button class="world-details" id="world-details" type="button">Esplora la destinazione <span aria-hidden="true">↗</span></button></div>
+      </div>
+
+      <div class="world-picker" role="tablist" aria-label="Scegli un portale">
+        <button id="world-glc" type="button" role="tab" aria-selected="true" aria-controls="destination-panel" tabindex="0" data-select="glc"><span class="picker-number">01</span><span class="picker-text">Grand Line Chronicles<small>PORTALE APERTO</small></span><svg class="picker-icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+        <button id="world-forge" type="button" role="tab" aria-selected="false" aria-controls="destination-panel" tabindex="-1" data-select="forge"><span class="picker-number">02</span><span class="picker-text">La Forgia<small>PORTALE APERTO</small></span><svg class="picker-icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+        <button id="world-unknown-3" type="button" role="tab" aria-selected="false" aria-controls="destination-panel" tabindex="-1" data-select="unknown-3"><span class="picker-number">03</span><span class="picker-text">Soglia sconosciuta<small>SIGILLATA</small></span><svg class="picker-icon" aria-hidden="true"><use href="#lock"/></svg></button>
+      </div>
+      <footer class="console-footer"><p>UN SOLO CROCEVIA. INFINITI ORIZZONTI.</p><span>SELEZIONA UNA SOGLIA PER ESPLORARLA <span aria-hidden="true">◇</span></span></footer>
+    </section>
+    <p class="sr-only" role="status" id="selection-status"></p>
+  </main>
+
+  <dialog id="info-dialog" class="nexus-dialog" aria-labelledby="info-title"><button type="button" class="close-dialog" aria-label="Chiudi">×</button><div class="dialog-sigil" aria-hidden="true"><svg><use href="#sigil"/></svg></div><p class="overline">ARKALINK / LA CONVERGENZA</p><h2 id="info-title">Dove i mondi<br>si incontrano.</h2><div class="dialog-rule" aria-hidden="true"></div><p>Tra universi lontani esiste un luogo che non appartiene a nessuno di essi.</p><p>Arkalink è quel crocevia. Una sala di soglie affacciate su realtà diverse, ognuna con le proprie storie, forme e regole.</p><p>Alcuni portali sono già aperti. Altri custodiscono destinazioni che devono ancora prendere forma.</p><p class="dialog-closing">Ogni soglia è l’inizio di un altro mondo.</p></dialog>
+
+  <dialog id="signals-dialog" class="nexus-dialog signals-dialog" aria-labelledby="signals-title"><button type="button" class="close-dialog" aria-label="Chiudi">×</button><p class="overline">TRACCE DAI MONDI</p><h2 id="signals-title">Segnali dalla<br>convergenza.</h2><article class="signal-article"><img src="/arkalink-assets/glc-world.png" width="1672" height="941" loading="lazy" alt="Una ciurma osserva un’isola dal ponte di una nave."><div><span class="overline">GRAND LINE CHRONICLES</span><h3>Una nuova rotta.</h3><p>Il varco sui mari è aperto. Personaggi, ciurme e avventure trovano il loro approdo nel mondo di Grand Line Chronicles.</p><a href="/grand-line-chronicles/" target="_self" rel="noopener noreferrer">Raggiungi il mondo <span aria-hidden="true">↗</span></a></div></article><p class="draft-note">Anteprima della sezione notizie · Contenuti da definire.</p></dialog>
+
+  <dialog id="world-dialog" class="nexus-dialog world-dialog" aria-labelledby="world-dialog-title"><button type="button" class="close-dialog" aria-label="Chiudi">×</button><img id="world-dialog-image" src="/arkalink-assets/glc-world.png" width="1672" height="941" alt="Un mondo di mari e isole da esplorare."><div class="world-dialog-copy"><p class="overline" id="world-dialog-type">SOGLIA 01 / GIOCO DI RUOLO</p><h2 id="world-dialog-title">Grand Line<br>Chronicles</h2><p id="world-dialog-description">Un universo di avventure ispirato a One Piece. Crea un pirata, raduna la ciurma e attraversa i mari, una sessione dopo l’altra.</p><ul class="world-features" id="world-dialog-features"><li>Personaggi e progressione</li><li>Campagne e sessioni</li><li>Navi, tecniche e strumenti di gioco</li></ul><a class="enter-world" id="world-dialog-enter" href="/grand-line-chronicles/" target="_self" rel="noopener noreferrer"><span>Attraversa il portale</span><svg aria-hidden="true"><use href="#arrow"/></svg></a></div></dialog>
 </body>
 </html>

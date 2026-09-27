@@ -2,3 +2,9 @@
 .claude/
 immagini di riferimento per restyling/
 AGGIORNAMENTO GLC.md
+
+**/node_modules/
+_forgia-src/dist/
+**/.env*
+!**/.env.example
+**/*.tsbuildinfo
