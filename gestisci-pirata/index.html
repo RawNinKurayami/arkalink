@@ -910,7 +910,7 @@ body.has-bld{overflow:hidden;}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={saveKey:["glc_pirata_v4","glc_media_v1"],gate:true};</script>
 <script src="/glc-sync.js?v=2"></script>
-<script src="/glc-auth.js?v=3"></script>
+<script src="/glc-auth.js?v=4"></script>
 <style>
 .crewbar{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px;margin:6px 0 2px;}
 .crewbar .cb-label{font-family:'Inter',sans-serif;font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#a69a86;}
@@ -3971,7 +3971,9 @@ $("#importBtn").onclick=()=>$("#importFile").click();
 $("#importFile").onchange=e=>{const file=e.target.files[0];if(!file)return;const rd=new FileReader();rd.onload=()=>{try{const c=migrateChar(JSON.parse(rd.result));const id=newId();CT.chars[CT.activeId]=pg;CT.chars[id]=c;CT.order.push(id);CT.activeId=id;pg=c;save();bindInputs();renderCrewBar();if(mode==="gest")renderManage();else goto(0);render();}catch(err){alert("File non valido.");}};rd.readAsText(file);e.target.value="";};
 $("#reset").onclick=()=>{if(confirm("Azzerare questo personaggio e ricominciare la sua scheda?")){const id=CT.activeId;CT.chars[id]=blank();pg=CT.chars[id];save();bindInputs();renderCrewBar();setMode("crea");goto(0);render();}};
 $("#prev").onclick=()=>goto(step-1);$("#next").onclick=()=>goto(step+1);
+(window.GLCSync ? GLCSync.whenReady() : Promise.resolve()).then(function(){
 load();buildStepper();bindInputs();bindPhoto();renderCrewBar();$("#crew-sel").onchange=e=>switchChar(e.target.value);$("#crew-new").onclick=function(){location.href="/crea-il-tuo-pirata/";};$("#crew-del").onclick=deleteChar;goto(0);setMode("gest");render();
+});
 </script>
 </body>
 </html>

@@ -167,7 +167,7 @@ textarea.txt{resize:vertical;min-height:60px;line-height:1.45;}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={saveKey:"glc_nave_v1",gate:true,profileUrl:"/profilo/"};</script>
 <script src="/glc-sync.js?v=2"></script>
-<script src="/glc-auth.js?v=3"></script>
+<script src="/glc-auth.js?v=4"></script>
 <script src="/glc-images.js?v=1"></script>
 <link rel="stylesheet" href="/glc-portals.css?v=1">
 <link rel="stylesheet" href="scena-nave.css?v=6">
@@ -460,7 +460,9 @@ function renderShipsBar(){var sel=$("#ship-sel");if(!sel)return;sel.innerHTML=""
 function switchShip(id){if(!NT.ships[id])return;save();NT.activeId=id;S=Object.assign(blank(),NT.ships[id]);writeNT();renderShipsBar();renderAll();}
 function newShip(){save();var id=newId();NT.ships[id]=blank();NT.order.push(id);NT.activeId=id;S=NT.ships[id];writeNT();renderShipsBar();renderAll();}
 function delShip(){if(NT.order.length<=1){alert("Devi avere almeno una nave.");return;}if(!confirm("Eliminare \u00ab"+shipLabel(S)+"\u00bb? Non \u00e8 reversibile."))return;var id=NT.activeId;delete NT.ships[id];NT.order=NT.order.filter(function(x){return x!==id;});NT.activeId=NT.order[0]||"";S=Object.assign(blank(),NT.ships[NT.activeId]||{});writeNT();renderShipsBar();renderAll();}
+(window.GLCSync ? GLCSync.whenReady() : Promise.resolve()).then(function(){
 load();renderShipsBar();renderAll();$("#ship-sel").onchange=function(e){switchShip(e.target.value);};$("#ship-new").onclick=newShip;$("#ship-del").onclick=delShip;
+});
 </script>
 </body>
 </html>

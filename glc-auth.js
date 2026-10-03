@@ -27,6 +27,8 @@
 
   var currentUser = null, canale = null, syncTimer = null;
   var startup = null, loggingOut = false, reloading = false, authResolved = false;
+  var saveFailure = null, releasePage;
+  var pageReady = new Promise(function(resolve){releasePage=resolve;});
   var ALL_KEYS = ["glc_pirata_v4","glc_media_v1","glc_profile_v1","glc_nave_v1","glc_sessioni_v1","glc_bestiario_v1","glc_scontro_v1","glc_officina_v1","glc_cambusa_v1","glc_campagne_v1"];
   // Every page protects the complete account, including drafts from another tool.
   SAVE_KEYS = ALL_KEYS;
@@ -40,6 +42,7 @@
     var st = document.createElement("style"); st.id = "glc-auth-css";
     st.textContent =
     "html.glc-loading > body{visibility:hidden}html.glc-loading #glc-auth{visibility:visible}"+
+    "#glc-loading-status{position:fixed;inset:0;z-index:99998;visibility:visible;display:grid;place-content:center;gap:12px;padding:24px;text-align:center;background:#0d0c10;color:#b0a797;font:14px/1.6 'Inter',system-ui,sans-serif}#glc-loading-status[hidden]{display:none!important}#glc-loading-status strong{color:#ffd394;font-size:12px;letter-spacing:.18em;text-transform:uppercase}"+
     "#glc-auth{position:fixed;inset:0;z-index:99999;width:100%;height:100%;max-width:none;max-height:none;margin:0;border:0;color:#f2e9d8;background:#060607;padding:24px}"+
     "#glc-auth[open]{display:flex;align-items:center;justify-content:center}#glc-auth:not([open]){display:none}"+
     /* controllo nello slot (barra in alto della home) */
@@ -84,7 +87,7 @@
     },
     schedule:function(run){clearTimeout(syncTimer);syncTimer=setTimeout(run,500);},
     onStatus:function(){renderSyncNotice();window.dispatchEvent(new Event("glc:sync-status"));},
-    onApply:function(){reloading=true;document.documentElement.classList.add("glc-loading");location.reload();}
+    onApply:reloadAfterSync
   }) : null;
   window.GLCStore = {setItem:function(key,value){
     try{
@@ -96,9 +99,10 @@
       if(currentUser && !engine.ready) throw Error("Attendi il completamento della sincronizzazione");
       engine.write(key,value);
       if(authResolved&&!currentUser&&!owner&&SAVE_KEYS.indexOf(key)>=0)engine.initial[key]=JSON.parse(value);
+      if(saveFailure&&saveFailure.key===key){saveFailure=null;renderSyncNotice();}
     }catch(e){
       var message=e.name==="QuotaExceededError"?"Spazio sul dispositivo esaurito. Il salvataggio precedente e le immagini sono conservati; esporta la scheda prima di chiudere.":e.message;
-      window.alert("Modifica non salvata: "+message);throw e;
+      saveFailure={key:key,message:"Modifica non salvata: "+message};renderSyncNotice();throw e;
     }
   }};
   function syncMessage(){
@@ -113,12 +117,28 @@
   }
   function renderSyncNotice(){
     if(!document.body)return;
-    var st=engine&&engine.state(), show=currentUser&&(!st||st.error||st.pending||st.conflicts.length);
+    var st=engine&&engine.state(), show=saveFailure||currentUser&&(!st||!st.ready||st.error||st.pending||st.conflicts.length);
     var box=document.getElementById("glc-sync-notice");
     if(!box){box=document.createElement("div");box.id="glc-sync-notice";box.setAttribute("role","status");box.style.cssText="position:fixed;bottom:14px;left:14px;right:14px;z-index:9900;margin:auto;max-width:740px;padding:12px 18px;background:#10171c;color:#f7ead2;border:1px solid #b59760;border-radius:8px;font:14px/1.4 sans-serif;box-shadow:0 8px 30px #0008";document.body.appendChild(box);}
-    box.hidden=!show;box.replaceChildren(document.createTextNode(syncMessage()+" "));
+    box.hidden=!show;box.setAttribute("role",saveFailure?"alert":"status");box.replaceChildren(document.createTextNode((saveFailure?saveFailure.message:syncMessage())+" "));
     if(show){var link=document.createElement("a");link.href="/profilo/#sync-panel";link.textContent="Apri il Profilo";link.style.color="#ffd391";box.appendChild(link);}
   }
+  function setLoading(loading){
+    var box=document.getElementById("glc-loading-status");
+    if(loading&&GATE&&!box&&document.body){
+      box=document.createElement("div");box.id="glc-loading-status";box.setAttribute("role","status");box.setAttribute("aria-live","polite");
+      var brand=document.createElement("strong");brand.textContent="Grand Line Chronicles";
+      box.appendChild(brand);box.appendChild(document.createTextNode("Allineamento del registro…"));document.body.appendChild(box);
+    }
+    if(box)box.hidden=!loading;
+    if(loading&&GATE)document.documentElement.classList.add("glc-loading");
+    else document.documentElement.classList.remove("glc-loading");
+  }
+  function readyForPage(){
+    return authResolved&&!reloading&&(!currentUser||!!(engine&&engine.ready&&!engine.applying&&!engine.stopped));
+  }
+  function releaseReadyPage(){if(releasePage&&readyForPage()){releasePage();releasePage=null;}}
+  function reloadAfterSync(){reloading=true;hideOverlay();setLoading(true);location.reload();}
   function ascolta(){
     document.addEventListener("visibilitychange",function(){if(document.visibilityState==="visible"&&engine)engine.sync();});
     window.addEventListener("online",function(){if(engine)engine.sync();});
@@ -265,21 +285,27 @@
   function openOverlay(){
     buildOverlay(); var o=el("glc-auth");
     if(o.open)return;
+    setLoading(false);
     returnFocus=document.activeElement; savedOverflow=document.body.style.overflow;
     document.body.style.overflow="hidden"; o.classList.remove("glc-hidden"); o.showModal();
     if(GATE)document.documentElement.classList.add("glc-loading");
     // Focus an entry control, without opening the mobile keyboard automatically.
     (el("glc-tabs").hidden?el("glc-title"):el("glc-tab-login")).focus();
   }
-  function closeOverlay(){
+  function hideOverlay(){
     var o=el("glc-auth");
     if(o && o.open){o.close();o.classList.add("glc-hidden");document.body.style.overflow=savedOverflow||"";savedOverflow=null;}
-    document.documentElement.classList.remove("glc-loading"); clearPasswords();
-    if(returnFocus && returnFocus.isConnected)returnFocus.focus(); returnFocus=null;
+    clearPasswords();
+  }
+  function closeOverlay(){
+    hideOverlay();
     if(recoveryRequested || callbackError){
       var user=recoveryUser || callbackUser;recoveryDismissed=true;callbackError=null;callbackUser=null;clearRecovery();setBusy(false);showMode("login");
-      if(user)onSignedIn(user);else sb.auth.getSession().then(function(r){if(r.data&&r.data.session)onSignedIn(r.data.session.user);});
+      if(user){onSignedIn(user);return;}else sb.auth.getSession().then(function(r){if(r.data&&r.data.session)onSignedIn(r.data.session.user);});
     }
+    var waiting=currentUser&&engine&&!engine.ready;
+    setLoading(!!waiting);
+    if(!waiting){releaseReadyPage();if(returnFocus&&returnFocus.isConnected)returnFocus.focus();returnFocus=null;}
   }
   function authErrorMessage(e){
     var code=e&&e.code||"",status=e&&e.status||0;
@@ -479,17 +505,19 @@
     if(loggingOut)return;
     if(recoveryRequested)return holdRecovery(user);
     if(callbackError){callbackUser=user;return;}
-    if(engine&&engine.stopped){reloading=true;location.reload();return;}
+    if(engine&&engine.stopped){reloadAfterSync();return;}
     if(startup&&currentUser&&currentUser.id===user.id)return startup;
     var previous=localStorage.getItem("glc_utente");
     if(previous&&previous!==user.id){
-      if(engine)engine.stop();puliziaLocale();_setItem("glc_utente",user.id);location.reload();return;
+      if(engine)engine.stop();puliziaLocale();_setItem("glc_utente",user.id);reloadAfterSync();return;
     }
     authResolved=true;_setItem("glc_utente",user.id);currentUser=user;renderControl();
+    hideOverlay();setLoading(true);
     startup=(async function(){
       if(!engine){flash("Sincronizzazione non caricata: ricarica la pagina",true);closeOverlay();return;}
       var result=await engine.start(user.id);
-      if(result.reload){location.reload();return;}
+      if(loggingOut||!currentUser||currentUser.id!==user.id||engine.stopped)return;
+      if(result.reload){reloadAfterSync();return;}
       ascolta();closeOverlay();renderSyncNotice();
     })();return startup;
   }
@@ -498,9 +526,11 @@
     authResolved=true;
     if(recoveryRequested){clearRecovery();showMode("forgot");setMessage("Il link di recupero è scaduto o non è più valido. Richiedine uno nuovo.");openOverlay();}
     if(currentUser&&engine){engine.stop();startup=null;}
-    currentUser=null;renderControl();renderSyncNotice();if(GATE)openOverlay();
+    currentUser=null;setLoading(false);renderControl();renderSyncNotice();if(GATE)openOverlay();else releaseReadyPage();
   }
   window.GLCSync = {
+    whenReady:function(){return pageReady;},
+    pronto:readyForPage,
     chiavi:SAVE_KEYS.slice(),
     stato:function(){return engine?engine.state():null;},
     messaggio:syncMessage,
@@ -515,9 +545,11 @@
   };
 
   function start(){
+    var authEventResolved=false;
     buildOverlay();
     el("glc-title").tabIndex=-1;
-    if(GATE || recoveryRequested || callbackError)openOverlay();
+    if(recoveryRequested || callbackError)openOverlay();
+    else if(GATE)setLoading(true);
     if(callbackError){
       showMode(callbackError==="otp_expired"?"forgot":"login");
       setMessage(callbackError==="otp_expired"?"Il link è scaduto o è già stato usato. Richiedine uno nuovo.":"Il link di accesso non è valido oppure l’accesso è stato annullato. Riprova con Google, email o un nuovo link.");
@@ -528,10 +560,13 @@
     sb.auth.onAuthStateChange(function(event,session){
       setTimeout(function(){
         if(event==="PASSWORD_RECOVERY" && session && session.user && !recoveryDismissed){recoveryVerified=true;recoveryRequested=true;holdRecovery(session.user);return;}
-        if(session && session.user){onSignedIn(session.user);}else{onSignedOut();}
+        if(session && session.user){authEventResolved=true;onSignedIn(session.user);}
+        else if(event==="SIGNED_OUT" || event==="INITIAL_SESSION"&&!authResolved){authEventResolved=true;onSignedOut();}
       },0);
     });
     sb.auth.getSession().then(function(res){
+      // A slow bootstrap response must not undo a newer sign-in or sign-out event.
+      if(authEventResolved&&!recoveryRequested)return;
       if(res.error)throw res.error;
       var session=res.data&&res.data.session;
       // An expired callback must never reuse an unrelated cached session as a reset link.
@@ -543,7 +578,7 @@
       callbackParams=new URLSearchParams();
       if(session){onSignedIn(session.user);}
       else{onSignedOut();}
-    }).catch(function(){onSignedOut();flash("Accesso non verificabile: controlla la connessione",true);});
+    }).catch(function(){if(!authEventResolved){onSignedOut();flash("Accesso non verificabile: controlla la connessione",true);}});
   }
   if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
   else start();

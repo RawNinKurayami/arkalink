@@ -39,5 +39,6 @@
  $('back').onclick=async e=>{e.preventDefault();if(await flush())location.assign(back);};
  window.addEventListener('beforeunload',e=>{if(!CID&&dirty)flush();if(dirty||pending||running){e.preventDefault();e.returnValue='';}});
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&dirty)flush();});
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+ function ready(){(window.GLCSync ? GLCSync.whenReady() : Promise.resolve()).then(boot);}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready);else ready();
 })();

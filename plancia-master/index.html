@@ -11,7 +11,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={saveKey:["glc_bestiario_v1","glc_scontro_v1"],gate:true,profileUrl:"/profilo/"};</script>
 <script src="/glc-sync.js?v=2"></script>
-<script src="/glc-auth.js?v=3"></script>
+<script src="/glc-auth.js?v=4"></script>
 <style>
 :root{--abyss:#060607;--vellum:#f2e9d8;--ink:#f1ece0;--ink-soft:#a69a86;--gold:#f0a441;--gold-bright:#ffd394;--seal:#e23131;--foam:#a69a86;--line:rgba(240,164,65,.22);}
 *{box-sizing:border-box;}
@@ -360,7 +360,8 @@ function selectTab(name){
   document.querySelectorAll("section.pane").forEach(function(p){p.classList.toggle("active",p.dataset.tab===name);});
   if(name==="scontro")renderFight();
 }
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded",async function(){
+    if(window.GLCSync)await GLCSync.whenReady();
   loadB();loadF();
   renderBeast();fillAddSel();renderRef();renderFight();
   [].forEach.call(document.querySelectorAll("#tabs .tab"),function(b){b.onclick=function(){selectTab(b.dataset.tab);};});
@@ -375,7 +376,7 @@ document.addEventListener("DOMContentLoaded",function(){
   $("#addPC").onclick=function(){addFree("pc");};
   $("#clearFight").onclick=function(){if(confirm("Svuotare lo scontro?")){fight={round:1,turn:0,list:[]};saveF();renderFight();}};
 });
-window.addEventListener("focus",function(){loadB();loadF();if($("#p-bestiario").classList.contains("active")){renderBeast();fillAddSel();}else{renderFight();}});
+window.addEventListener("focus",function(){if(window.GLCSync&&!GLCSync.pronto())return;loadB();loadF();if($("#p-bestiario").classList.contains("active")){renderBeast();fillAddSel();}else{renderFight();}});
 </script>
 </body>
 </html>
