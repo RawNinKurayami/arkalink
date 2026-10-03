@@ -12,6 +12,14 @@
   var GATE = !!CFG.gate;
   var PROFILE_URL = CFG.profileUrl || "";
   var REDIRECT = location.origin + location.pathname;
+  var callbackParams = new URLSearchParams(location.hash.slice(1));
+  var callbackError = callbackParams.get("error_code") || callbackParams.get("error");
+  var callbackUser = null, recoveryDismissed = false, recoveryVerified = false;
+  var recoveryRequested = !callbackError && callbackParams.get("type") === "recovery";
+  try{
+    var rememberedRecovery = JSON.parse(sessionStorage.getItem("glc_auth_recovery") || "null");
+    if(!callbackError && rememberedRecovery && rememberedRecovery.until > Date.now())recoveryRequested=true;
+  }catch(e){}
 
   if(!window.supabase){ console.error("[GLC] supabase-js non caricato"); return; }
   var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
@@ -32,24 +40,8 @@
     var st = document.createElement("style"); st.id = "glc-auth-css";
     st.textContent =
     "html.glc-loading > body{visibility:hidden}html.glc-loading #glc-auth{visibility:visible}"+
-    "#glc-auth{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(120% 90% at 50% -10%,#14323d 0%,#0a1920 55%,#060f14 100%);font-family:'Cormorant Garamond',Georgia,serif;transition:opacity .35s ease}"+
-    "#glc-auth.glc-hidden{opacity:0;pointer-events:none}"+
-    "#glc-auth .glc-card{position:relative;width:min(420px,100%);background:linear-gradient(168deg,#ecdcb6,#e3d0a4);color:#34271a;border:1px solid #cdb487;border-radius:8px;padding:30px 28px 26px;box-shadow:0 24px 60px rgba(0,0,0,.5);text-align:center}"+
-    "#glc-auth .glc-x{position:absolute;top:10px;right:12px;border:none;background:transparent;font-size:24px;line-height:1;color:#8a6a3a;cursor:pointer}"+
-    "#glc-auth .glc-mark{width:50px;height:50px;color:#9a241a;margin-bottom:2px}"+
-    "#glc-auth .glc-k{font-family:'Marcellus SC',serif;letter-spacing:.24em;text-transform:uppercase;font-size:11px;color:#9a7a2a}"+
-    "#glc-auth h2.glc-h{font-family:'Cinzel Decorative',serif;font-weight:700;font-size:1.5rem;color:#2a1f12;margin:4px 0}"+
-    "#glc-auth .glc-sub{font-size:1.02rem;color:#5e4c34;margin:6px 0 18px}"+
-    "#glc-auth .glc-google{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:12px;border:1px solid #b9a06f;border-radius:5px;background:#fffaf0;color:#2a1f12;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.05rem;cursor:pointer;transition:background .15s}"+
-    "#glc-auth .glc-google:hover{background:#fff}"+
-    "#glc-auth .glc-or{display:flex;align-items:center;gap:10px;margin:16px 0 12px;color:#8a6a3a;font-size:.9rem}"+
-    "#glc-auth .glc-or::before,#glc-auth .glc-or::after{content:'';flex:1;height:1px;background:#cbb488}"+
-    "#glc-auth input{width:100%;padding:12px 14px;border:1px solid #b9a06f;border-radius:5px;background:#fffaf0;font-family:inherit;font-size:1.05rem;color:#2a1f12;margin-bottom:12px}"+
-    "#glc-auth input:focus{outline:2px solid #c9a24a;outline-offset:1px}"+
-    "#glc-auth .glc-go{width:100%;padding:13px;border:none;border-radius:5px;background:linear-gradient(180deg,#ecca77,#c9a24a);color:#23170a;font-family:'Marcellus SC',serif;letter-spacing:.1em;text-transform:uppercase;font-size:13px;cursor:pointer;transition:transform .15s}"+
-    "#glc-auth .glc-go:hover{transform:translateY(-1px)}#glc-auth .glc-go:disabled{opacity:.6;cursor:default;transform:none}"+
-    "#glc-auth .glc-msg{min-height:20px;margin-top:12px;font-size:.98rem;color:#7a1410;line-height:1.35}#glc-auth .glc-msg.ok{color:#2f6d4a}"+
-    "#glc-auth .glc-later{display:inline-block;margin-top:15px;font-size:.92rem;color:#8a6a3a;text-decoration:underline;cursor:pointer}"+
+    "#glc-auth{position:fixed;inset:0;z-index:99999;width:100%;height:100%;max-width:none;max-height:none;margin:0;border:0;color:#f2e9d8;background:#060607;padding:24px}"+
+    "#glc-auth[open]{display:flex;align-items:center;justify-content:center}#glc-auth:not([open]){display:none}"+
     /* controllo nello slot (barra in alto della home) */
     ".glc-slot{display:inline-flex;align-items:center;gap:9px}"+
     ".glc-slot .glc-accedi,.glc-bar-out .glc-accedi{font-family:'Marcellus SC',serif;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:#23170a;background:linear-gradient(180deg,#ecca77,#c9a24a);border:none;border-radius:999px;padding:9px 18px;cursor:pointer}"+
@@ -71,6 +63,10 @@
     "#glc-flash.show{opacity:1;transform:translateX(-50%) translateY(0)}#glc-flash.err{border-color:#9a241a;color:#f0c9b0}"+
     "@media(prefers-reduced-motion:reduce){#glc-auth,#glc-flash{transition:none}}";
     (document.head||document.documentElement).appendChild(st);
+    // Refresh the shared theme too: cached legacy rules used !important on the old login.
+    document.querySelectorAll('link[href="/glc-theme.css"]').forEach(function(theme){theme.href="/glc-theme.css?v=login-1";});
+    var link=document.createElement("link");link.id="glc-login-css";link.rel="stylesheet";link.href="/glc-login.css?v=2";
+    (document.head||document.documentElement).appendChild(link);
   }
 
   /* ---------------- versioned cloud synchronization ---------------- */
@@ -137,58 +133,261 @@
   }
 
   /* ---------------- overlay di accesso ---------------- */
+  var authMode = "login", authBusy = false, emailCooldown = 0;
+  var returnFocus = null, savedOverflow = null, resendAvailable = false;
+  var recoveryUser = null, recoveryCheck = null, recoveryComplete = false;
+  var RECOVERY_KEY = "glc_auth_recovery";
+
+  function el(id){ return document.getElementById(id); }
+  function savedRecovery(){
+    try{
+      var value = JSON.parse(sessionStorage.getItem(RECOVERY_KEY) || "null");
+      return value && value.user && value.until > Date.now() ? value : null;
+    }catch(e){ return null; }
+  }
+  function clearRecovery(){
+    recoveryRequested = false; recoveryUser = null; recoveryCheck = null; recoveryComplete = false;
+    try{ sessionStorage.removeItem(RECOVERY_KEY); }catch(e){}
+  }
+  function setMessage(text, ok){
+    var msg = el("glc-msg");
+    if(msg){ msg.className = "glc-msg" + (ok ? " ok" : ""); msg.textContent = text || ""; }
+  }
+  function clearPasswords(){
+    ["glc-password","glc-confirm"].forEach(function(id){ var field=el(id); if(field){field.value="";field.type="password";} });
+    var reveal=el("glc-reveal"); if(reveal){reveal.textContent="Mostra";reveal.setAttribute("aria-pressed","false");}
+  }
+  function setBusy(busy){
+    authBusy = busy;
+    var o = el("glc-auth"); if(!o)return;
+    el("glc-form").setAttribute("aria-busy",String(busy));
+    o.querySelectorAll("input,button:not(.glc-x):not(.glc-later)").forEach(function(item){item.disabled=busy;});
+    var waiting = authMode === "checking";
+    el("glc-send").disabled = busy || waiting;
+    el("glc-send").textContent = busy ? "Attendi…" : submitLabel();
+  }
+  function submitLabel(){
+    return {login:"Accedi al registro",register:"Crea account GLC",magic:"Invia il link d’accesso",forgot:"Invia il link di recupero",recovery:"Salva la nuova password",checking:"Verifica del link…",confirmation:"Vai all’accesso",complete:"Continua nel registro"}[authMode];
+  }
+  function showMode(mode, keepMessage){
+    if(authBusy)return;
+    authMode=mode; clearPasswords();
+    if(!keepMessage){setMessage("");resendAvailable=false;}
+    var entry=mode==="login" || mode==="register";
+    var password=entry || mode==="recovery", confirmation=mode==="register" || mode==="recovery";
+    el("glc-auth").setAttribute("data-mode",mode);
+    el("glc-title").textContent={login:"Riprendi il viaggio",register:"Il viaggio inizia qui",magic:"Entra con un link",forgot:"Ritrova la tua rotta",recovery:"Una nuova password",checking:"Verifico il tuo link",confirmation:"Controlla la posta",complete:"Password aggiornata"}[mode];
+    el("glc-subtitle").textContent={
+      login:"Accedi al tuo account GLC e ritrova personaggi, ciurma e campagne.",
+      register:"Crea il tuo registro personale. Confermerai l’email prima di entrare.",
+      magic:"Ricevi un link sicuro via email e accedi senza inserire una password.",
+      forgot:"Hai dimenticato la password o non l’hai ancora impostata? Ricevi il link via email.",
+      recovery:"Scegli la password per il tuo account GLC. I tuoi personaggi restano nello stesso account.",
+      checking:"Attendi mentre verifico che il link sia ancora valido.",
+      confirmation:"Apri l’email di conferma per attivare il registro, poi torna qui per accedere.",
+      complete:"La nuova password è pronta. Puoi tornare al tuo registro."
+    }[mode];
+    el("glc-tabs").hidden=!entry;
+    el("glc-tab-login").setAttribute("aria-pressed",String(mode==="login"));
+    el("glc-tab-register").setAttribute("aria-pressed",String(mode==="register"));
+    el("glc-google").hidden=!entry; el("glc-or").hidden=!entry;
+    el("glc-email-field").hidden=mode==="recovery" || mode==="checking" || mode==="complete" || mode==="confirmation";
+    el("glc-email").required=!el("glc-email-field").hidden;
+    el("glc-password-field").hidden=!password; el("glc-confirm-field").hidden=!confirmation;
+    el("glc-password").required=password; el("glc-confirm").required=confirmation;
+    el("glc-password").autocomplete=mode==="login"?"current-password":"new-password";
+    el("glc-password").minLength=mode==="login"?1:12;
+    el("glc-password-label").textContent=mode==="recovery"?"Nuova password":"Password";
+    el("glc-password-hint").hidden=mode==="login" || !password;
+    el("glc-forgot-row").hidden=mode!=="login";
+    el("glc-magic").hidden=mode!=="login";
+    el("glc-back").hidden=entry || mode==="complete" || mode==="checking";
+    el("glc-resend").hidden=!resendAvailable;
+    ["glc-email","glc-password","glc-confirm"].forEach(function(id){el(id).removeAttribute("aria-invalid");});
+    setBusy(false);
+    if(el("glc-auth").open)el("glc-title").focus();
+  }
   function buildOverlay(){
-    if(document.getElementById("glc-auth")) return;
-    var o = document.createElement("div"); o.id = "glc-auth"; o.className = "glc-hidden";
-    o.innerHTML =
+    if(el("glc-auth"))return;
+    var o=document.createElement("dialog"); o.id="glc-auth"; o.className="glc-hidden";
+    o.setAttribute("aria-labelledby","glc-title"); o.setAttribute("aria-describedby","glc-subtitle");
+    o.innerHTML=
       '<div class="glc-card">'+
-        '<button class="glc-x" id="glc-x" aria-label="Chiudi">\u00d7</button>'+
-        '<svg class="glc-mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="24" r="21"/><path d="M24 6 L27 24 L24 42 L21 24 Z" fill="currentColor" stroke="none"/><path d="M6 24h36" opacity=".4"/></svg>'+
-        '<div class="glc-k">Grand Line Chronicles</div>'+
-        '<h2 class="glc-h">Il tuo registro</h2>'+
-        '<p class="glc-sub">Accedi per ritrovare la tua ciurma su ogni dispositivo.</p>'+
-        '<button class="glc-google" id="glc-google">'+
-          '<svg viewBox="0 0 18 18" width="18" height="18"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.71-1.57 2.68-3.89 2.68-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.81.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.97 10.72a5.4 5.4 0 0 1 0-3.44V4.95H.96a9 9 0 0 0 0 8.1l3.01-2.33z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58A9 9 0 0 0 .96 4.95L3.97 7.28C4.68 5.16 6.66 3.58 9 3.58z"/></svg>'+
-          'Continua con Google</button>'+
-        '<div class="glc-or">oppure con email</div>'+
-        '<input id="glc-email" type="email" placeholder="la-tua@email.com" autocomplete="email">'+
-        '<button class="glc-go" id="glc-send">Invia il link d\'accesso</button>'+
-        '<div class="glc-msg" id="glc-msg"></div>'+
-        (GATE ? '<span class="glc-later" id="glc-later">Entra pi\u00f9 tardi \u00b7 usa solo su questo dispositivo</span>' : '')+
+        '<button type="button" class="glc-x" id="glc-x" aria-label="Chiudi accesso">×</button>'+
+        '<aside class="glc-voyage" aria-label="Registro di bordo">'+
+          '<div class="glc-k">Il registro di bordo</div>'+
+          '<div><svg class="glc-seal" aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor"><circle cx="24" cy="24" r="19"/><circle cx="24" cy="24" r="14" opacity=".35"/><path d="M24 1v7m0 32v7M1 24h7m32 0h7"/><path d="m24 10 5 14-5 14-5-14Z" fill="currentColor" stroke="none"/></svg>'+
+          '<h3>La tua rotta.<br> Sempre con te.</h3><p>Personaggi, ciurma e campagne. Ritrova il tuo viaggio, su ogni dispositivo.</p></div>'+
+          '<div class="glc-voyage-footer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="4" r="2"/><path d="M12 6v15M8 10h8M3 14c0 7 18 7 18 0M1 16l2-2 2 2m14 0 2-2 2 2"/></svg>Grand Line Chronicles · Will of D.</div>'+
+        '</aside>'+
+        '<section class="glc-access">'+
+          '<div class="glc-k">Grand Line Chronicles</div><h2 class="glc-h" id="glc-title"></h2><p class="glc-sub" id="glc-subtitle"></p>'+
+          '<div class="glc-tabs" id="glc-tabs" role="group" aria-label="Accedi o crea account"><button type="button" id="glc-tab-login" data-glc-mode="login">Accedi</button><button type="button" id="glc-tab-register" data-glc-mode="register">Crea account</button></div>'+
+          '<button type="button" class="glc-google" id="glc-google"><svg aria-hidden="true" viewBox="0 0 18 18" width="18" height="18"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.71-1.57 2.68-3.89 2.68-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.81.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.97 10.72a5.4 5.4 0 0 1 0-3.44V4.95H.96a9 9 0 0 0 0 8.1l3.01-2.33z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58A9 9 0 0 0 .96 4.95L3.97 7.28C4.68 5.16 6.66 3.58 9 3.58z"/></svg>Continua con Google</button>'+
+          '<div class="glc-or" id="glc-or">oppure con la tua email</div>'+
+          '<form id="glc-form">'+
+            '<div class="glc-field" id="glc-email-field"><label for="glc-email">Email</label><input id="glc-email" name="email" type="email" placeholder="la-tua@email.com" autocomplete="email" autocapitalize="none" spellcheck="false" required></div>'+
+            '<div class="glc-field" id="glc-password-field"><label id="glc-password-label" for="glc-password">Password</label><div class="glc-password-wrap"><input id="glc-password" name="password" type="password" autocomplete="current-password" required><button type="button" class="glc-reveal" id="glc-reveal" aria-controls="glc-password" aria-pressed="false">Mostra</button></div><small class="glc-password-hint" id="glc-password-hint">Almeno 12 caratteri. Usa una password lunga e diversa da quelle di altri siti.</small></div>'+
+            '<div class="glc-field" id="glc-confirm-field"><label for="glc-confirm">Conferma password</label><input id="glc-confirm" name="password-confirm" type="password" autocomplete="new-password"></div>'+
+            '<div class="glc-forgot-row" id="glc-forgot-row"><button type="button" class="glc-text-button" data-glc-mode="forgot">Password dimenticata?</button></div>'+
+            '<button type="submit" class="glc-go" id="glc-send"></button>'+
+          '</form>'+
+          '<div class="glc-msg" id="glc-msg" role="status" aria-live="polite" aria-atomic="true"></div>'+
+          '<button type="button" class="glc-text-button glc-resend" id="glc-resend" hidden>Invia di nuovo la conferma email</button>'+
+          '<div class="glc-alternatives"><button type="button" class="glc-text-button" id="glc-magic" data-glc-mode="magic">Preferisci ricevere un link via email?</button><button type="button" class="glc-text-button" id="glc-back">← Torna all’accesso</button></div>'+
+          '<button type="button" class="glc-later" id="glc-later">'+(GATE?'Continua solo su questo dispositivo':'Continua a esplorare')+'</button>'+
+          '<p class="glc-account-note">Il tuo account GLC è indipendente dalla Forgia.</p>'+
+        '</section>'+
       '</div>';
     document.body.appendChild(o);
-    document.getElementById("glc-x").onclick = closeOverlay;
-    document.getElementById("glc-google").onclick = googleLogin;
-    document.getElementById("glc-send").onclick = sendLink;
-    var later = document.getElementById("glc-later"); if(later) later.onclick = closeOverlay;
-    document.getElementById("glc-email").addEventListener("keydown", function(e){ if(e.key === "Enter") sendLink(); });
+    el("glc-x").onclick=closeOverlay; el("glc-later").onclick=closeOverlay;
+    el("glc-google").onclick=googleLogin;
+    el("glc-form").addEventListener("submit",function(e){e.preventDefault();submitAuth();});
+    o.querySelectorAll("[data-glc-mode]").forEach(function(button){button.onclick=function(){showMode(button.getAttribute("data-glc-mode"));};});
+    el("glc-back").onclick=function(){
+      if(authBusy)return;
+      if(recoveryRequested){closeOverlay();return;}
+      showMode("login");
+    };
+    el("glc-reveal").onclick=function(){var field=el("glc-password"),visible=field.type==="password";field.type=visible?"text":"password";this.textContent=visible?"Nascondi":"Mostra";this.setAttribute("aria-pressed",String(visible));};
+    el("glc-resend").onclick=resendConfirmation;
+    o.addEventListener("cancel",function(e){e.preventDefault();closeOverlay();});
+    o.addEventListener("keydown",function(e){
+      if(e.key!=="Tab")return;
+      var controls=Array.from(o.querySelectorAll('button:not(:disabled),input:not(:disabled),a[href]')).filter(function(item){return item.getClientRects().length && !item.closest('[hidden]');});
+      if(!controls.length)return;
+      var first=controls[0],last=controls[controls.length-1];
+      if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus();}
+    });
+    showMode("login");
   }
-  function openOverlay(){ buildOverlay(); var o = document.getElementById("glc-auth"); if(o) o.classList.remove("glc-hidden"); if(GATE) document.documentElement.classList.add("glc-loading"); }
-  function closeOverlay(){ var o = document.getElementById("glc-auth"); if(o) o.classList.add("glc-hidden"); document.documentElement.classList.remove("glc-loading"); }
-
+  function openOverlay(){
+    buildOverlay(); var o=el("glc-auth");
+    if(o.open)return;
+    returnFocus=document.activeElement; savedOverflow=document.body.style.overflow;
+    document.body.style.overflow="hidden"; o.classList.remove("glc-hidden"); o.showModal();
+    if(GATE)document.documentElement.classList.add("glc-loading");
+    // Focus an entry control, without opening the mobile keyboard automatically.
+    (el("glc-tabs").hidden?el("glc-title"):el("glc-tab-login")).focus();
+  }
+  function closeOverlay(){
+    var o=el("glc-auth");
+    if(o && o.open){o.close();o.classList.add("glc-hidden");document.body.style.overflow=savedOverflow||"";savedOverflow=null;}
+    document.documentElement.classList.remove("glc-loading"); clearPasswords();
+    if(returnFocus && returnFocus.isConnected)returnFocus.focus(); returnFocus=null;
+    if(recoveryRequested || callbackError){
+      var user=recoveryUser || callbackUser;recoveryDismissed=true;callbackError=null;callbackUser=null;clearRecovery();setBusy(false);showMode("login");
+      if(user)onSignedIn(user);else sb.auth.getSession().then(function(r){if(r.data&&r.data.session)onSignedIn(r.data.session.user);});
+    }
+  }
+  function authErrorMessage(e){
+    var code=e&&e.code||"",status=e&&e.status||0;
+    if(code==="invalid_credentials")return "Email o password non corrette. Se usavi Google o un link via email, usa lo stesso metodo oppure imposta una password con il recupero.";
+    if(code==="email_not_confirmed")return "Conferma l’email dal link ricevuto. Puoi richiedere una nuova email di conferma qui sotto.";
+    if(code==="weak_password")return "Scegli una password più sicura, di almeno 12 caratteri.";
+    if(code==="same_password")return "Scegli una password diversa da quella attuale.";
+    if(code==="email_address_invalid" || code==="validation_failed")return "Controlla che l’indirizzo email sia completo e valido.";
+    if(code.indexOf("rate_limit")>=0 || status===429)return "Troppe richieste. Attendi qualche minuto prima di riprovare.";
+    if(code==="signup_disabled")return "Le nuove registrazioni sono temporaneamente sospese. Puoi accedere a un account esistente.";
+    if(code==="otp_expired" || code==="flow_state_expired" || code==="session_not_found" || code==="refresh_token_not_found")return "Il link è scaduto o non è più valido. Richiedine uno nuovo.";
+    if(code==="email_address_not_authorized" || status>=500)return "Il servizio di accesso o invio email è temporaneamente indisponibile. Riprova più tardi.";
+    if(e && (e.name==="AuthRetryableFetchError" || e.name==="TypeError"))return "Non riesco a raggiungere il servizio di accesso. Controlla la connessione e riprova.";
+    return "La richiesta non è stata completata. Riprova; se il problema continua, contatta Arkalink.";
+  }
+  function validEmail(){
+    var field=el("glc-email"),email=field.value.trim();field.value=email;
+    if(!email || !field.checkValidity()){field.setAttribute("aria-invalid","true");setMessage("Inserisci un indirizzo email valido.");field.focus();return null;}
+    return email;
+  }
+  function checkEmailCooldown(){
+    if(Date.now()<emailCooldown){setMessage("Email già richiesta. Attendi un minuto prima di inviarne un’altra.",true);return false;}
+    return true;
+  }
   async function googleLogin(){
-    var msg = document.getElementById("glc-msg"); if(msg){ msg.className = "glc-msg"; msg.textContent = "Apertura di Google\u2026"; }
+    if(authBusy)return;callbackError=null;callbackUser=null;setBusy(true);setMessage("Apertura di Google…",true);
     try{
-      var r = await sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: REDIRECT } });
-      if(r.error) throw r.error;
-    }catch(e){ if(msg){ msg.className = "glc-msg"; msg.textContent = "Google non disponibile: " + (e.message || e); } }
+      var r=await sb.auth.signInWithOAuth({provider:"google",options:{redirectTo:REDIRECT}});if(r.error)throw r.error;
+    }catch(e){setMessage(authErrorMessage(e));setBusy(false);}
   }
-  async function sendLink(){
-    var email = (document.getElementById("glc-email").value || "").trim();
-    var msg = document.getElementById("glc-msg"); msg.className = "glc-msg";
-    if(!/.+@.+\..+/.test(email)){ msg.textContent = "Inserisci un indirizzo email valido."; return; }
-    var btn = document.getElementById("glc-send"); btn.disabled = true; btn.textContent = "Invio in corso\u2026";
+  async function submitAuth(){
+    if(authBusy || authMode==="checking")return;
+    if(authMode==="complete"){closeOverlay();return;}
+    if(authMode==="confirmation"){showMode("login");return;}
+    var mode=authMode,email=null,password=el("glc-password").value;
+    if(mode!=="recovery"){email=validEmail();if(!email)return;}
+    if(mode==="login" && !password){setMessage("Inserisci la password.");el("glc-password").focus();return;}
+    if(mode==="register" || mode==="recovery"){
+      if(password.length<12){el("glc-password").setAttribute("aria-invalid","true");setMessage("Scegli una password di almeno 12 caratteri.");el("glc-password").focus();return;}
+      if(password!==el("glc-confirm").value){el("glc-confirm").setAttribute("aria-invalid","true");setMessage("Le due password non coincidono.");el("glc-confirm").focus();return;}
+    }
+    if((mode==="register" || mode==="forgot" || mode==="magic")&&!checkEmailCooldown())return;
+    setBusy(true);setMessage("");resendAvailable=false;
     try{
-      var r = await sb.auth.signInWithOtp({ email: email, options: { emailRedirectTo: REDIRECT } });
-      if(r.error) throw r.error;
-      msg.className = "glc-msg ok"; msg.textContent = "Link inviato a " + email + ". Aprilo per entrare (controlla lo spam).";
-      btn.textContent = "Link inviato \u2713";
-    }catch(e){ msg.textContent = "Non riuscito: " + (e.message || e); btn.disabled = false; btn.textContent = "Invia il link d'accesso"; }
+      var r;
+      if(mode==="login"){
+        callbackError=null;callbackUser=null;
+        r=await sb.auth.signInWithPassword({email:email,password:password});if(r.error)throw r.error;
+        if(!r.data||!r.data.user)throw Error("Missing user");
+        clearPasswords();setMessage("Accesso riuscito. Controllo dei salvataggi in corso…",true);
+        await onSignedIn(r.data.user);
+      }else if(mode==="register"){
+        callbackError=null;callbackUser=null;
+        r=await sb.auth.signUp({email:email,password:password,options:{emailRedirectTo:REDIRECT}});if(r.error)throw r.error;
+        clearPasswords();
+        if(r.data&&r.data.session){await onSignedIn(r.data.session.user);}
+        else{emailCooldown=Date.now()+60000;resendAvailable=true;setMessage("Controlla la posta e lo spam per confermare il tuo account. Se usavi già Google o un link via email, torna ad Accedi e usa il recupero per impostare la password sullo stesso account.",true);}
+      }else if(mode==="magic"){
+        r=await sb.auth.signInWithOtp({email:email,options:{emailRedirectTo:REDIRECT}});if(r.error)throw r.error;
+        emailCooldown=Date.now()+60000;setMessage("Link richiesto. Controlla la posta e lo spam, poi apri l’email per entrare nel registro.",true);
+      }else if(mode==="forgot"){
+        r=await sb.auth.resetPasswordForEmail(email,{redirectTo:REDIRECT});if(r.error)throw r.error;
+        emailCooldown=Date.now()+60000;setMessage("Se esiste un account con questo indirizzo, riceverai il link per impostare la password. Controlla anche lo spam.",true);
+      }else if(mode==="recovery"){
+        if(!recoveryUser)throw {code:"otp_expired"};
+        r=await sb.auth.updateUser({password:password});if(r.error)throw r.error;
+        clearPasswords();recoveryComplete=true;
+        try{sessionStorage.removeItem(RECOVERY_KEY);}catch(e){}
+      }
+    }catch(e){
+      resendAvailable=e.code==="email_not_confirmed";
+      setMessage(authErrorMessage(e));
+    }finally{
+      setBusy(false);el("glc-resend").hidden=!resendAvailable;
+      if(recoveryComplete && authMode==="recovery")showMode("complete");
+      else if(mode==="register" && resendAvailable)showMode("confirmation",true);
+    }
+  }
+  async function resendConfirmation(){
+    if(authBusy)return;var email=validEmail();if(!email || !checkEmailCooldown())return;
+    setBusy(true);setMessage("");
+    try{
+      var r=await sb.auth.resend({type:"signup",email:email,options:{emailRedirectTo:REDIRECT}});if(r.error)throw r.error;
+      emailCooldown=Date.now()+60000;setMessage("Conferma richiesta. Se l’account attende una conferma, riceverai una nuova email.",true);
+    }catch(e){setMessage(authErrorMessage(e));}finally{setBusy(false);}
+  }
+  function holdRecovery(user){
+    if(recoveryCheck)return recoveryCheck;
+    showMode("checking");openOverlay();
+    recoveryCheck=(async function(){
+      try{
+        var remembered=savedRecovery();
+        if(remembered && remembered.user!==user.id)throw {code:"otp_expired"};
+        var r=await sb.auth.getUser();if(r.error)throw r.error;
+        if(!r.data||!r.data.user||r.data.user.id!==user.id)throw {code:"otp_expired"};
+        if(!recoveryRequested)return;
+        recoveryUser=r.data.user;
+        try{sessionStorage.setItem(RECOVERY_KEY,JSON.stringify({user:user.id,until:remembered?remembered.until:Date.now()+600000}));}catch(e){}
+        showMode("recovery");
+      }catch(e){
+        clearRecovery();showMode("forgot");setMessage(authErrorMessage(e));
+      }
+    })();return recoveryCheck;
   }
 
   /* ---------------- avatar + username nella barra ---------------- */
   function avatarHTML(av){
-    if(av){ return '<span class="glc-ava"><img src="' + av + '" alt=""></span>'; }
+    if(av){ return '<span class="glc-ava"><img src="' + escapeHtml(av) + '" alt=""></span>'; }
     return '<span class="glc-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg></span>';
   }
   async function enrichControl(){
@@ -208,7 +407,7 @@
     var nm = document.querySelector("#glc-login-slot .glc-name") || document.querySelector("#glc-bar .glc-name");
     if(nm){ nm.textContent = uname ? ("@" + uname) : (currentUser.email || "\u2014"); if(nm.parentNode) nm.parentNode.title = nm.textContent; }
     var av = document.querySelector("#glc-login-slot .glc-ava") || document.querySelector("#glc-bar .glc-ava");
-    if(av && avatar){ av.innerHTML = '<img src="' + avatar + '" alt="">'; }
+    if(av && avatar){ av.innerHTML = '<img src="' + escapeHtml(avatar) + '" alt="">'; }
   }
 
   /* ---------------- controllo accesso (slot home o barra fissa) ---------------- */
@@ -278,6 +477,8 @@
   /* ---------------- stato di autenticazione ---------------- */
   function onSignedIn(user){
     if(loggingOut)return;
+    if(recoveryRequested)return holdRecovery(user);
+    if(callbackError){callbackUser=user;return;}
     if(engine&&engine.stopped){reloading=true;location.reload();return;}
     if(startup&&currentUser&&currentUser.id===user.id)return startup;
     var previous=localStorage.getItem("glc_utente");
@@ -295,6 +496,7 @@
   function onSignedOut(){
     if(loggingOut)return;
     authResolved=true;
+    if(recoveryRequested){clearRecovery();showMode("forgot");setMessage("Il link di recupero è scaduto o non è più valido. Richiedine uno nuovo.");openOverlay();}
     if(currentUser&&engine){engine.stop();startup=null;}
     currentUser=null;renderControl();renderSyncNotice();if(GATE)openOverlay();
   }
@@ -314,15 +516,34 @@
 
   function start(){
     buildOverlay();
-    if(GATE) openOverlay();
+    el("glc-title").tabIndex=-1;
+    if(GATE || recoveryRequested || callbackError)openOverlay();
+    if(callbackError){
+      showMode(callbackError==="otp_expired"?"forgot":"login");
+      setMessage(callbackError==="otp_expired"?"Il link è scaduto o è già stato usato. Richiedine uno nuovo.":"Il link di accesso non è valido oppure l’accesso è stato annullato. Riprova con Google, email o un nuovo link.");
+      history.replaceState(history.state,"",location.pathname+location.search);
+    }
     renderControl();
-    sb.auth.getSession().then(function(res){
-      if(res.data && res.data.session){ onSignedIn(res.data.session.user); }
-      else { onSignedOut(); }
-    }).catch(function(){onSignedOut();flash("Accesso non verificabile: controlla la connessione",true);});
-    sb.auth.onAuthStateChange(function(event, session){
-      setTimeout(function(){if(session && session.user){onSignedIn(session.user);}else{onSignedOut();}},0);
+    // Defer SDK work out of the auth callback to avoid an auth lock deadlock.
+    sb.auth.onAuthStateChange(function(event,session){
+      setTimeout(function(){
+        if(event==="PASSWORD_RECOVERY" && session && session.user && !recoveryDismissed){recoveryVerified=true;recoveryRequested=true;holdRecovery(session.user);return;}
+        if(session && session.user){onSignedIn(session.user);}else{onSignedOut();}
+      },0);
     });
+    sb.auth.getSession().then(function(res){
+      if(res.error)throw res.error;
+      var session=res.data&&res.data.session;
+      // An expired callback must never reuse an unrelated cached session as a reset link.
+      if(recoveryRequested && callbackParams.get("type")==="recovery" && !recoveryVerified && (!session || session.access_token!==callbackParams.get("access_token"))){
+        clearRecovery();callbackError="otp_expired";callbackUser=session&&session.user;
+        showMode("forgot");setMessage("Il link di recupero è scaduto o non è più valido. Richiedine uno nuovo.");openOverlay();
+        callbackParams=new URLSearchParams();return;
+      }
+      callbackParams=new URLSearchParams();
+      if(session){onSignedIn(session.user);}
+      else{onSignedOut();}
+    }).catch(function(){onSignedOut();flash("Accesso non verificabile: controlla la connessione",true);});
   }
   if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
   else start();

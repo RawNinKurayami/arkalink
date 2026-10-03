@@ -1,0 +1,197 @@
+/* Shared GLC access panel. Scoped so game tools and Forge keep their own styles. */
+#glc-auth {
+  --glc-login-ink: #f2e9d8;
+  --glc-login-muted: #b0a797;
+  --glc-login-gold: #ffd394;
+  --glc-login-line: rgba(242, 233, 216, .15);
+  box-sizing: border-box;
+  font: 14px/1.55 'Inter', system-ui, sans-serif;
+  color: var(--glc-login-ink);
+  padding: 24px clamp(16px, 4vw, 56px);
+  background: rgba(6, 6, 7, .9);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color-scheme: dark;
+}
+#glc-auth::backdrop { background: #060607; }
+#glc-auth *, #glc-auth *::before, #glc-auth *::after { box-sizing: border-box; }
+#glc-auth [hidden] { display: none !important; }
+#glc-auth .glc-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: min(100%, 1040px);
+  min-width: 0;
+  margin: auto;
+  border: 1px solid var(--glc-login-line);
+  border-radius: 22px;
+  overflow: hidden;
+  background: #121014;
+  box-shadow: 0 40px 100px #0009;
+  text-align: left;
+  isolation: isolate;
+  animation: glcLoginEnter .3s ease both;
+}
+#glc-auth button {
+  font: inherit;
+  text-transform: none;
+  letter-spacing: normal;
+  cursor: pointer;
+  margin: 0;
+  box-shadow: none;
+  touch-action: manipulation;
+}
+#glc-auth button:disabled { cursor: wait; opacity: .6; }
+#glc-auth button:focus-visible, #glc-auth input:focus-visible {
+  outline: 2px solid var(--glc-login-gold);
+  outline-offset: 4px;
+}
+#glc-auth .glc-x {
+  position: absolute;
+  z-index: 2;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--glc-login-line);
+  border-radius: 50%;
+  color: var(--glc-login-muted);
+  background: #171419;
+  font-size: 25px;
+  line-height: 1;
+}
+#glc-auth .glc-x:hover { color: var(--glc-login-ink); border-color: #ffd39480; }
+#glc-auth .glc-voyage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 60px;
+  padding: clamp(28px, 4vw, 48px);
+  min-height: 660px;
+  background: #17151a;
+  overflow: hidden;
+}
+#glc-auth .glc-voyage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: url('/img/hero_main.jpg') center center / cover;
+  opacity: .55;
+}
+#glc-auth .glc-voyage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, #08070ab0, #08070a10 35%, #08070ac9 68%, #08070a), radial-gradient(ellipse at 50% 50%, transparent 25%, #12101455);
+}
+#glc-auth .glc-voyage { isolation: isolate; }
+#glc-auth .glc-k { font-size: 10px; font-weight: 600; letter-spacing: .24em; color: var(--glc-login-gold); text-transform: uppercase; }
+#glc-auth .glc-seal {
+  width: 68px;
+  height: 68px;
+  padding: 13px;
+  border: 1px solid #ffd39450;
+  border-radius: 50%;
+  color: var(--glc-login-gold);
+  background: #0b090c60;
+  margin: 0 0 20px;
+}
+#glc-auth .glc-voyage h3 {
+  font: 600 clamp(34px, 3.8vw, 48px)/1.06 'Cormorant Garamond', Georgia, serif;
+  color: var(--glc-login-ink);
+  margin: 0 0 20px;
+  letter-spacing: -.015em;
+}
+#glc-auth .glc-voyage p { max-width: 32ch; margin: 0; color: #ded3c2; font-size: 14px; line-height: 1.7; }
+#glc-auth .glc-voyage-footer { border-top: 1px solid #ffd39435; padding-top: 20px; display: flex; gap: 12px; align-items: center; font-size: 10px; letter-spacing: .12em; color: #bfb09c; text-transform: uppercase; }
+#glc-auth .glc-voyage-footer svg { width: 18px; height: 18px; flex: none; color: var(--glc-login-gold); }
+#glc-auth .glc-access { padding: 36px clamp(24px, 4vw, 48px) 24px; min-width: 0; }
+#glc-auth .glc-access .glc-k { color: var(--glc-login-muted); margin: 0 48px 14px 0; font-size: 9px; }
+#glc-auth h2.glc-h { font: 600 clamp(30px, 3vw, 38px)/1.1 'Cormorant Garamond', Georgia, serif; color: var(--glc-login-ink); margin: 0 0 6px; letter-spacing: -.02em; }
+#glc-auth .glc-sub { margin: 0 0 16px; color: var(--glc-login-muted); font-size: 13px; min-height: 36px; line-height: 1.65; }
+#glc-auth .glc-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border: 1px solid var(--glc-login-line); border-radius: 10px; margin: 0 0 14px; background: #09080b; }
+#glc-auth .glc-tabs button { min-height: 36px; border: 0; border-radius: 6px; background: transparent; color: var(--glc-login-muted); font-size: 12px; font-weight: 600; }
+#glc-auth .glc-tabs button[aria-pressed='true'] { background: #292128; color: var(--glc-login-gold); }
+#glc-auth .glc-google { width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; padding: 10px; border: 1px solid var(--glc-login-line); border-radius: 9px; background: #1e1b21; color: var(--glc-login-ink); font-size: 13px; font-weight: 500; }
+#glc-auth .glc-google:hover { background: #28232a; border-color: #ffd39450; }
+#glc-auth .glc-or { display: flex; gap: 12px; align-items: center; margin: 14px 0; font-size: 10px; color: var(--glc-login-muted); }
+#glc-auth .glc-or::before, #glc-auth .glc-or::after { content: ''; height: 1px; background: var(--glc-login-line); flex: 1; }
+#glc-auth .glc-field { display: block; margin: 0 0 12px; }
+#glc-auth .glc-field label { display: block; font-size: 11px; font-weight: 500; color: #d9cfbe; margin: 0 0 5px; }
+#glc-auth input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 14px;
+  margin: 0;
+  border: 1px solid #f2e9d829;
+  border-radius: 9px;
+  background: #0c0b0e;
+  color: var(--glc-login-ink);
+  font: 16px/1.4 'Inter', system-ui, sans-serif;
+  box-shadow: none;
+}
+#glc-auth input::placeholder { color: #847c70; opacity: 1; font-size: 13px; }
+#glc-auth input:focus { border-color: #ffd39488; }
+#glc-auth input[aria-invalid='true'] { border-color: #e2a99d; }
+#glc-auth .glc-password-wrap { position: relative; }
+#glc-auth .glc-password-wrap input { padding-right: 82px; }
+#glc-auth .glc-reveal { position: absolute; right: 8px; top: 2px; height: 40px; padding: 0 8px; color: #d5c7b4; background: transparent; border: 0; border-radius: 4px; font-size: 11px; }
+#glc-auth .glc-password-hint { display: block; margin-top: 7px; color: var(--glc-login-muted); font-size: 10px; line-height: 1.5; }
+#glc-auth .glc-forgot-row { margin: -4px 0 12px; text-align: right; }
+#glc-auth .glc-text-button { min-height: 32px; padding: 5px 0; color: var(--glc-login-gold); background: transparent; border: 0; border-radius: 3px; font-size: 11px; line-height: 1.6; }
+#glc-auth .glc-text-button:hover { text-decoration: underline; text-underline-offset: 4px; }
+#glc-auth .glc-go { width: 100%; display: flex; align-items: center; justify-content: center; gap: 16px; min-height: 50px; padding: 13px 16px; border: 1px solid #ffd394; border-radius: 9px; color: #21170d; background: linear-gradient(105deg, #ffd394, #e9bb75); font-size: 13px; font-weight: 600; transition: background .15s ease, transform .15s ease; }
+#glc-auth .glc-go:hover:not(:disabled) { background: #ffe0b1; transform: translateY(-1px); }
+#glc-auth .glc-go::after { content: '›'; font-size: 21px; line-height: 1; }
+#glc-auth .glc-go:disabled::after { content: ''; }
+#glc-auth .glc-msg { color: #e9bcad; line-height: 1.6; font-size: 12px; margin: 16px 0 0; overflow-wrap: anywhere; }
+#glc-auth .glc-msg:empty { display: none; }
+#glc-auth .glc-msg.ok { color: #c7dcb2; }
+#glc-auth .glc-resend { margin-top: 4px; }
+#glc-auth .glc-alternatives { margin-top: 12px; text-align: center; }
+#glc-auth .glc-later { width: 100%; margin-top: 12px; min-height: 40px; padding: 8px 0 0; border: 0; border-top: 1px solid var(--glc-login-line); background: transparent; color: var(--glc-login-muted); font-size: 11px; }
+#glc-auth .glc-account-note { text-align: center; color: #918778; font-size: 10px; margin: 8px 0 0; }
+@keyframes glcLoginEnter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (min-width: 761px) and (max-height: 780px) {
+  #glc-auth { padding-top: 16px; padding-bottom: 16px; }
+  #glc-auth .glc-voyage { min-height: 0; padding: 32px; gap: 32px; }
+  #glc-auth .glc-access { padding: 24px 40px 18px; }
+  #glc-auth .glc-access .glc-k { margin-bottom: 10px; }
+  #glc-auth h2.glc-h { font-size: 34px; }
+  #glc-auth .glc-sub { min-height: 0; margin-bottom: 12px; font-size: 12px; }
+  #glc-auth .glc-tabs { margin-bottom: 12px; }
+  #glc-auth .glc-or { margin: 12px 0; }
+  #glc-auth .glc-field { margin-bottom: 10px; }
+  #glc-auth .glc-forgot-row { margin: -4px 0 8px; }
+  #glc-auth .glc-go { min-height: 46px; padding: 10px 16px; }
+  #glc-auth .glc-text-button { min-height: 28px; }
+  #glc-auth .glc-alternatives { margin-top: 8px; }
+  #glc-auth .glc-later { margin-top: 8px; min-height: 36px; }
+  #glc-auth .glc-account-note { font-size: 9px; }
+}
+@media (max-width: 760px) {
+  #glc-auth { padding: 16px; }
+  #glc-auth .glc-card { max-width: 480px; grid-template-columns: 1fr; border-radius: 16px; }
+  #glc-auth .glc-voyage { min-height: 0; padding: 24px; gap: 16px; }
+  #glc-auth .glc-voyage::before { background-position: center 42%; opacity: .4; }
+  #glc-auth .glc-voyage::after { background: linear-gradient(100deg, #0a080bc9, #0a080b30), linear-gradient(0deg, #121014, #12101400); }
+  #glc-auth .glc-voyage h3 { font-size: 30px; margin: 0; }
+  #glc-auth .glc-voyage h3 br { display: none; }
+  #glc-auth .glc-voyage p, #glc-auth .glc-voyage-footer, #glc-auth .glc-seal { display: none; }
+  #glc-auth .glc-access { padding: 24px 24px 20px; }
+  #glc-auth .glc-access .glc-k { display: none; }
+  #glc-auth .glc-sub { min-height: 0; margin-bottom: 20px; }
+  #glc-auth .glc-x { top: 12px; right: 12px; background: #121014d9; }
+}
+@media (max-width: 360px) { #glc-auth { padding: 8px; } #glc-auth .glc-access, #glc-auth .glc-voyage { padding: 20px; } }
+@media (prefers-reduced-motion: reduce) { #glc-auth .glc-card { animation: none; } #glc-auth .glc-go { transition: none; } }

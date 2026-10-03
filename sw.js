@@ -1,7 +1,7 @@
 /* Grand Line Chronicles — service worker
    Strategia network-first: online usa sempre la rete (così vedi gli aggiornamenti),
    offline ripiega sulla copia salvata. Cache solo delle risposte GET dello stesso dominio. */
-var CACHE = "glc-cache-v5";
+var CACHE = "glc-cache-v6";
 
 self.addEventListener("install", function (e) {
   self.skipWaiting();
@@ -30,7 +30,7 @@ self.addEventListener("fetch", function (e) {
   if (url.origin !== location.origin || url.pathname === "/" || url.pathname.indexOf("/forgia/") === 0 || url.pathname.indexOf("/arkalink-assets/") === 0) return;
 
   // Versioned scripts can be reused offline without falling back to the old sync code.
-  var vivo = /\/glc-auth\.js$/.test(url.pathname) && url.searchParams.get("v") !== "2";
+  var vivo = /\/glc-auth\.js$/.test(url.pathname) && url.searchParams.get("v") !== "3";
 
   e.respondWith(
     fetch(req)

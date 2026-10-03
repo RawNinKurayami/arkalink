@@ -1,24 +1,7 @@
 /* Grand Line Chronicles — tema «golden hour» per i controlli iniettati da glc-auth.js.
    Solo aspetto: nessun selettore funzionale viene alterato. */
 
-/* Overlay di accesso */
-#glc-auth{background:radial-gradient(100% 80% at 50% 0%, #10131c 0%, #060607 60%)!important;font-family:'Inter',system-ui,sans-serif!important}
-#glc-auth .glc-card{background:linear-gradient(180deg,#14121a,#0e0c12)!important;color:#f2e9d8!important;border:1px solid rgba(240,164,65,.25)!important;border-radius:16px!important}
-#glc-auth .glc-x{color:#a69a86!important}
-#glc-auth .glc-mark{color:#f0a441!important}
-#glc-auth .glc-k{font-family:'Inter',sans-serif!important;letter-spacing:.3em!important;color:#f0a441!important}
-#glc-auth h2.glc-h{font-family:'Cormorant Garamond',Georgia,serif!important;text-transform:uppercase;letter-spacing:.02em;color:#f2e9d8!important}
-#glc-auth .glc-sub{color:#a69a86!important}
-#glc-auth .glc-google{background:rgba(242,233,216,.06)!important;border:1px solid rgba(240,164,65,.28)!important;color:#f2e9d8!important;font-family:'Inter',sans-serif!important;font-weight:500!important;border-radius:10px!important}
-#glc-auth .glc-google:hover{background:rgba(242,233,216,.12)!important}
-#glc-auth .glc-or{color:#a69a86!important}
-#glc-auth .glc-or::before,#glc-auth .glc-or::after{background:rgba(240,164,65,.2)!important}
-#glc-auth input{background:rgba(242,233,216,.06)!important;border:1px solid rgba(240,164,65,.28)!important;color:#f2e9d8!important;border-radius:10px!important;font-family:'Inter',sans-serif!important;font-size:1rem!important}
-#glc-auth input:focus{outline:2px solid #f0a441!important}
-#glc-auth .glc-go{background:linear-gradient(180deg,#ffd394,#f0a441)!important;color:#1b1206!important;font-family:'Inter',sans-serif!important;font-weight:600!important;letter-spacing:.08em!important;border-radius:999px!important}
-#glc-auth .glc-msg{color:#ff8a7e!important}
-#glc-auth .glc-msg.ok{color:#7fc796!important}
-#glc-auth .glc-later{color:#a69a86!important}
+/* Il pannello di accesso ha il proprio stile in glc-login.css. */
 
 /* Pillola/controlli nello slot della topbar */
 .glc-slot .glc-accedi,.glc-bar-out .glc-accedi{font-family:'Inter',sans-serif!important;font-weight:600!important;font-size:12px!important;letter-spacing:.04em!important;color:#1b1206!important;background:linear-gradient(180deg,#ffd394,#f0a441)!important;border-radius:999px!important;padding:10px 22px!important}
