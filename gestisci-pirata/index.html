@@ -2006,7 +2006,6 @@ const TEC_EFF=[
 ["Danno","Esecuzione","+1 Dado Danno contro chi è Quasi Morto","d12",1,""],
 ["Danno","Carica","salti un turno: se non vieni colpito, al tuo prossimo turno raddoppi i Dadi Danno, tiri con Vantaggio e ignori la copertura","d10",2,""],
 ["Danno","Sovraccarico","tiri il doppio dei Dadi Danno, ma subisci 1d10 PV","d12",3,""],
-["Danno","Colpo Annientante","danno triplicato","d20",10,""],
 ["Danno","Tutto o Niente","manchi = niente, e non puoi difenderti dal prossimo attacco · colpo pulito = danno triplo","d12",7,""],
 ["Controllo","Sbilancio","Sbilanciato — perde la reazione","d6",1,""],
 ["Controllo","Lacerazione","Sanguinante","d6",1,""],
@@ -2072,7 +2071,13 @@ const TEC_EFF=[
 ["Concatenati","Marchio Esplosivo","segni ora, lo fai detonare quando vuoi entro la scena — la detonazione usa la Forma della Tecnica","d10",2,""],
 ["Concatenati","Catena","fino a 3 bersagli in fila: tiri per colpire tutti e 3, un solo tiro di danno — pieno al primo, metà al secondo, metà della metà al terzo","d12",2,""]
 ];
-function tecEffObj(nm){return TEC_EFF.find(e=>e[1]===nm);}
+/* Effetti ritirati: consultazione e costi delle Tecniche già salvate.
+   Non fanno parte del catalogo selezionabile; le whitelist storiche restano
+   compatibili con le Tecniche esistenti. */
+const TEC_EFF_ARCHIVIATI=[
+["Danno","Colpo Annientante","danno triplicato","d20",10,""]
+];
+function tecEffObj(nm){return TEC_EFF.find(e=>e[1]===nm)||TEC_EFF_ARCHIVIATI.find(e=>e[1]===nm);}
 function isMusicista(){try{return !!(pg&&(pg.role==="Musicista"||pg.role2==="Musicista"));}catch(e){return false;}}
 function isCombSpecial(){try{return styleVisible("Special")&&!!(pg&&((pg.role==="Combattente"&&pg.style==="Special")||(pg.role2==="Combattente"&&pg.style2==="Special")));}catch(e){return false;}}
 function hasTalent(n){try{var t=(pg&&pg.talents)||[];for(var i=0;i<t.length;i++){var p=String(t[i]).split(" · ");if(p[p.length-1]===n)return true;}return false;}catch(e){return false;}}
@@ -3606,7 +3611,6 @@ const MOD_CATALOGO=[
  {n:"Cannone a pressione",req:"d10",tipo:["Offensivo","Controllo"],arma:true,ico:"burst",fn:"Spara aria compressa.",cat:"Sconto",tgt:"Proiezione",eff:"Proiezione non occupa slot nelle Tecniche compatibili.",vinc:"Proiezione resta d6, 0 ST; la sagoma ad area non è inclusa."},
  {n:"Lanciafiamme ventrale",req:"d12",tipo:["Offensivo"],arma:true,ico:"flame",fn:"Proietta combustibile acceso.",cat:"Sconto",tgt:"Terreno Alterato",eff:"Terreno Alterato non occupa slot nelle Tecniche compatibili.",vinc:"Restano costo, durata della zona e la sostanza da preparare."},
  {n:"Emettitore a catena",req:"d12",tipo:["Offensivo"],arma:true,ico:"bolt",fn:"Distribuisce una scarica fra più bersagli.",cat:"Sconto",tgt:"Catena",eff:"Catena non occupa slot nelle Tecniche compatibili.",vinc:"Catena resta d12, 2 ST, tiri separati e danni decrescenti."},
- {n:"Reattore d'annientamento",req:"d20",tipo:["Offensivo"],arma:true,ico:"star",fn:"Concentra energia per un attacco eccezionale.",cat:"Sconto",tgt:"Colpo Annientante",eff:"Colpo Annientante non occupa slot nelle Tecniche compatibili.",vinc:"Colpo Annientante resta d20, 10 ST, e agisce solo tramite una Tecnica idonea."},
  {n:"Fari integrati",req:"d8",tipo:["Utilità"],arma:false,ico:"lamp",fn:"Illuminano l'ambiente.",cat:"Sconto",tgt:"Accecante",eff:"Accecante non occupa slot nelle Tecniche compatibili.",vinc:"Accecante resta d8, 1 ST, con tiro salvezza: la luce accesa non accieca da sola."},
  {n:"Vano attrezzi",req:"d8",tipo:["Utilità"],arma:false,ico:"box",fn:"Contiene utensili incorporati, sempre con te.",cat:"",tgt:"",eff:"",vinc:"Nessun effetto speciale approvato: il vantaggio «niente penalità senza strumenti» non è un effetto del costruttore. Da concordare col GM."}];
 function newModId(){return "mod"+Date.now().toString(36)+Math.floor(Math.random()*1000);}
