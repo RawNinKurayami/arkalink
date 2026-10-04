@@ -1546,7 +1546,7 @@ body.has-bld{overflow:hidden;}
 <script src="/regole/prestigio.js?v=2"></script>
 <script src="/regole/prestigio-presentazione.js?v=1"></script>
 <script src="prestigio-ui.js?v=2"></script>
-<script src="special-moves.js?v=12"></script>
+<script src="special-moves.js?v=13"></script>
 <link rel="stylesheet" href="card-view.css?v=6">
 <script src="card-export.js?v=4" defer></script>
 <script src="card-view.js?v=7" defer></script>
@@ -1815,6 +1815,9 @@ const TALENTS={
   {smcId:"glc-talent-223",smcAlias:"All'Arrembaggio!",n:"All'Arrembaggio!",tier:"d20",t:"ultimate",d:"1×/scena, 5 ST: ogni alleato che ti vede o ti sente agisce immediatamente, fuori dal proprio turno — movimento e azione. Poi il combattimento riprende normale. Richiede l'Ambizione del Capitano e il permesso del GM."}]}}}
 };
 /* Talenti "a gradini" divisi in tre voci: le schede salvate col vecchio nome puntano al gradino Base. */
+/* Talenti ritirati dal gioco: la migrazione li toglie dalle schede già salvate,
+   così non restano righe senza descrizione e lo slot torna libero. */
+const TAL_RITIRATI=["Marchio Duraturo"];
 const TAL_RENAME={"Incassare":"Guardia del Combattente","Campo di Battaglia":"Pressione Costante","Frantumare":"Contraccolpo","Estensione":"Portata Naturale","Intangibilità":"Sentire l'Elemento","Raffica":"Raffica — Base","Più Spade":"Più Spade — Base","Tiro Lungo":"Tiro Lungo — Base","Arsenale Modulare":"Arsenale Modulare — Base"};
 const TIER_LABEL={d8:"Mozzo",d10:"Pirata",d12:"Veterano",d20:"Leggenda"};
 const TIERS=["d8","d10","d12","d20"];
@@ -1948,7 +1951,6 @@ const FRUIT_TALENTS={
   {smcId:"glc-talent-228",smcAlias:"Doppio Uso",n:"Doppio Uso",tier:"d8",d:"spendendo 2 ST applichi il potere due volte nella stessa azione — due bersagli, due punti del campo, o lo stesso bersaglio due volte."},
   {smcId:"glc-talent-229",smcAlias:"Ciò che Resta",n:"Ciò che Resta",tier:"d8",d:"le durate delle tue Tecniche del Frutto salgono di un gradino senza costo: Un turno diventa 3 turni senza pagare i 2 ST, e Mantieni non ti costa il primo turno di mantenimento."},
   {smcId:"glc-talent-230",smcAlias:"Nessuno dei Miei",n:"Nessuno dei Miei",tier:"d8",d:"sulle tue Tecniche del Frutto l'effetto Occhio del Ciclone (scegli chi non colpire) non occupa slot e non costa Stamina, e puoi usarlo anche sotto la sua soglia di d12. Il tuo potere ha imparato a riconoscere la tua ciurma."},
-  {smcId:"glc-talent-231",smcAlias:"Marchio Duraturo",n:"Marchio Duraturo",tier:"d8",d:"l'effetto Marchio Esplosivo ti costa 1 ST invece di 2, lo sblocchi già a d8 invece che a d10, e puoi tenerne due attivi insieme invece di uno."},
   {smcId:"glc-talent-232",smcAlias:"Portata Naturale",n:"Portata Naturale",tier:"d12",d:"su tutte le tue Tecniche del Frutto: l'effetto Gittata è gratuito e non occupa slot; le Tecniche di forma Area hanno il raggio aumentato di un gradino; l'effetto Catena costa 1 ST in meno. Non ti dà portata: rende la portata una cosa che non paghi più."},
   {smcId:"glc-talent-233",smcAlias:"Forma di Combattimento",n:"Forma di Combattimento",tier:"d12",d:"incanali il potere in una modalità per l'intera scena: bonus costante a tema, mantenuta a Stamina. Non è una Tecnica: è come stai finché reggi il fiato."},
   {smcId:"glc-talent-234",smcAlias:"Senza Contraccolpo",n:"Senza Contraccolpo",tier:"d12",d:"il tuo corpo ha imparato a reggerlo: le mosse del Frutto costano 1 ST in meno (minimo 1), e non subisci più gli effetti collaterali che il potere aveva su di te."},
@@ -2074,14 +2076,14 @@ const TEC_EFF=[
 ["Concatenati","Aggancio","se il colpo va a segno, il bersaglio resta agganciato: il tuo prossimo attacco contro di lui in questo scontro ha Vantaggio","d6",1,""],
 ["Concatenati","Schianto","lo sbatti contro qualcosa o contro un altro nemico: +1d8 di danno (il partner naturale di Proiezione)","d8",1,""],
 ["Concatenati","Rimbalzo","il colpo rimbalza su un secondo bersaglio entro 5 m dal primo, a metà danno","d10",2,""],
-["Concatenati","Marchio Esplosivo","segni ora, lo fai detonare quando vuoi entro la scena — la detonazione usa la Forma della Tecnica","d10",2,""],
 ["Concatenati","Catena","fino a 3 bersagli in fila: tiri per colpire tutti e 3, un solo tiro di danno — pieno al primo, metà al secondo, metà della metà al terzo","d12",2,""]
 ];
 /* Effetti ritirati: consultazione e costi delle Tecniche già salvate.
    Non fanno parte del catalogo selezionabile; le whitelist storiche restano
    compatibili con le Tecniche esistenti. */
 const TEC_EFF_ARCHIVIATI=[
-["Danno","Colpo Annientante","danno triplicato","d20",10,""]
+["Danno","Colpo Annientante","danno triplicato","d20",10,""],
+["Concatenati","Marchio Esplosivo","segni ora, lo fai detonare quando vuoi entro la scena — la detonazione usa la Forma della Tecnica","d10",2,""]
 ];
 function tecEffObj(nm){return TEC_EFF.find(e=>e[1]===nm)||TEC_EFF_ARCHIVIATI.find(e=>e[1]===nm);}
 function isMusicista(){try{return !!(pg&&(pg.role==="Musicista"||pg.role2==="Musicista"));}catch(e){return false;}}
@@ -2779,7 +2781,8 @@ function migrateChar(c){c=Object.assign(blank(),c||{});if(c.role){const MAP={"Me
  if(Array.isArray(c.strumenti))c.strumenti.forEach(function(a){if(a&&!a.tipo)a.tipo="Corde";});
  if(!Array.isArray(c.inventario))c.inventario=[];
  c.inventario.forEach(function(it){if(it&&it.ico&&INV_MIGRATE[it.ico])it.ico=INV_MIGRATE[it.ico];});
- c.talents=c.talents.map(function(k){var p=String(k).split(" · ");var n=p[p.length-1];if(TAL_RENAME[n]){p[p.length-1]=TAL_RENAME[n];return p.join(" · ");}return k;});
+ c.talents=c.talents.map(function(k){var p=String(k).split(" · ");var n=p[p.length-1];if(TAL_RENAME[n]){p[p.length-1]=TAL_RENAME[n];return p.join(" · ");}return k;})
+   .filter(function(k){var p=String(k).split(" · ");return TAL_RITIRATI.indexOf(p[p.length-1])<0;});
  return window.GLCPrestige?GLCPrestige.normalize(c):c;}
 function save(){CT.chars[CT.activeId]=pg;(window.GLCStore||localStorage).setItem(KEY,JSON.stringify(CT));}
 function load(){let raw=null;try{raw=localStorage.getItem(KEY);}catch(e){}let obj=null;if(raw){try{obj=JSON.parse(raw);}catch(e){obj=null;}}if(obj&&obj.chars&&typeof obj.chars==="object"){CT={v:2,activeId:obj.activeId||"",order:Array.isArray(obj.order)?obj.order.slice():[],chars:{}};for(const id in obj.chars)CT.chars[id]=migrateChar(obj.chars[id]);CT.order=CT.order.filter(id=>CT.chars[id]);for(const id in CT.chars)if(CT.order.indexOf(id)<0)CT.order.push(id);if(!CT.chars[CT.activeId])CT.activeId=CT.order[0]||"";}else if(obj){const id=newId();CT={v:2,activeId:id,order:[id],chars:{}};CT.chars[id]=migrateChar(obj);}else{CT={v:2,activeId:"",order:[],chars:{}};}if(!CT.activeId){const id=newId();CT.activeId=id;CT.order=[id];CT.chars[id]=blank();}try{const want=new URLSearchParams(location.search).get("c");if(want&&CT.chars[want])CT.activeId=want;}catch(e){}pg=CT.chars[CT.activeId];}

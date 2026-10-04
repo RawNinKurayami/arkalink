@@ -2010,6 +2010,13 @@
    "perche": "Espansione ufficiale del Prestigio e sostituzione delle versioni precedenti richiesta dall’autore.",
    "da": "Attivare un Colore dell'Haki richiede un'Azione Bonus e consuma 1 PIP dalla riserva di quel Colore.",
    "a": "Attivare un Colore dell'Haki richiede un'Azione Bonus e consuma 1 PIP dalla riserva di quel Colore. L’eccezione di Prestigio Sintonia dei Colori permette di attivarne due con la stessa Bonus, o tre a Spirito Saikyō: ciascun Colore paga comunque il proprio PIP. Non concede anche l’uso di un effetto attivo Haki nello stesso turno."
+  },
+  {
+   "sezione": "7.11",
+   "quando": "2026-10-04",
+   "perche": "Tolto il 7.11.4, Catena prende il suo numero: niente buchi nella numerazione.",
+   "da": "7.11.5 · Catena",
+   "a": "7.11.4 · Catena"
   }
  ],
  "blocchi": [
@@ -2207,6 +2214,41 @@
      "testo": "Rimane attivo finché il personaggio decide di interromperlo oppure finché una capacità o una condizione ne provoca la cessazione."
     }
    ]
+  },
+  {
+   "sezione": "7.11",
+   "quando": "2026-10-04",
+   "perche": "Marchio Esplosivo e Marchio Duraturo tolti dal gioco (richiesta di Simone del 04/10/2026).",
+   "da": [
+    "7.11.4 · Marchio Esplosivo",
+    "La Tecnica lascia un marchio sul bersaglio o sul punto colpito.",
+    "Il marchio può essere fatto detonare in un momento successivo, purché ciò avvenga entro la stessa scena.",
+    "La detonazione utilizza la Forma della Tecnica.",
+    "Il marchio non concede una Forma differente né permette di scegliere una nuova area al momento dell'esplosione."
+   ],
+   "a": []
+  },
+  {
+   "sezione": "9.7",
+   "quando": "2026-10-04",
+   "perche": "Marchio Esplosivo e Marchio Duraturo tolti dal gioco (richiesta di Simone del 04/10/2026).",
+   "da": [
+    "Marchio Duraturo",
+    "Passivo",
+    "Migliori l'effetto Marchio Esplosivo.",
+    "Il suo costo scende da 2 ST a 1 ST.",
+    "Puoi utilizzarlo già al Grado d8, anziché attendere d10.",
+    "Inoltre, puoi mantenere due Marchi Esplosivi contemporaneamente, invece di uno."
+   ],
+   "a": []
+  }
+ ],
+ "tabelle": [
+  {
+   "sezione": "7.11",
+   "quando": "2026-10-04",
+   "perche": "Marchio Esplosivo e Marchio Duraturo tolti dal gioco (richiesta di Simone del 04/10/2026).",
+   "togli_riga": "Marchio Esplosivo"
   }
  ]
 }

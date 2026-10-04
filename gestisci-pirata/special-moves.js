@@ -57,7 +57,7 @@ define('Musicista','Musica Incrollabile|Contrappunto — Base|Contrappunto — M
 define('Musicista','Suonare per i Caduti','active','song');
 define('Paramecia','Potere Versatile|Dono Passivo|Seconda Natura','passive','any');
 define('Paramecia','Doppio Uso|Potere Istintivo','active','fruit');
-define('Paramecia','Ciò che Resta|Nessuno dei Miei|Marchio Duraturo|Portata Naturale|Senza Contraccolpo','passive','fruit');
+define('Paramecia','Ciò che Resta|Nessuno dei Miei|Portata Naturale|Senza Contraccolpo','passive','fruit');
 define('Paramecia','Forma di Combattimento','active','any',{gm:true});
 define('Paramecia','Risveglio','active','fruit',{gm:true,noCard:true});
 define('Logia','Sentire l’Elemento|Sentire l\'Elemento|Corpo Diffuso','passive','any');
@@ -339,7 +339,6 @@ function resolve(input) {
    let raw=list(t.eff).reduce((sum,n)=>sum+(tecEffObj(n)?.[4]||0),0)+(TEC_DUR.find(d=>d[0]===t.durata)?.[1]||0);
    if(t.fonte==='Frutto'){
     if(owns('Nessuno dei Miei')&&hasEffect(t,'Occhio del Ciclone')){raw-=tecEffObj('Occhio del Ciclone')[4];notes.push('Occhio del Ciclone gratuito');}
-    if(owns('Marchio Duraturo')&&hasEffect(t,'Marchio Esplosivo')){raw-=Math.max(0,tecEffObj('Marchio Esplosivo')[4]-1);notes.push('Marchio: 1 ST');}
     if(owns('Portata Naturale')){raw-=list(t.eff).filter(n=>tecEffObj(n)?.[6]==='gittata').reduce((v,n)=>v+tecEffObj(n)[4],0);if(hasEffect(t,'Catena'))raw-=1;notes.push('Sconti di Portata Naturale');}
    }
    c.st=Math.max(1,raw);

@@ -199,6 +199,28 @@ def applica_correzioni(blocchi, correzioni):
         blocchi[inizio:fine] = [blocco_p(titolo, 'Heading2')] + blocchi_da_contenuto(contenuto)
         print('sezione %s riscritta (%s)' % (numero, c['titolo']))
 
+    for tb in correzioni.get('tabelle', []):
+        inizio, fine = limiti_sezione(blocchi, tb['sezione'])
+        if inizio is None:
+            sys.exit('tabella in %s: sezione non trovata.' % tb['sezione'])
+        cercata = ripulisci(tb['togli_riga'])
+        tolte = 0
+        for x in blocchi[inizio:fine]:
+            if x['tipo'] != 'tbl':
+                continue
+            restano = []
+            for riga in x['righe']:
+                prima = ripulisci(' '.join(par['testo'] for par in riga[0])) if riga else ''
+                if prima == cercata:
+                    tolte += 1
+                else:
+                    restano.append(riga)
+            x['righe'] = restano
+        if tolte != 1:
+            sys.exit('tabella in %s: la riga \u00ab%s\u00bb compare %d volte, mi fermo.'
+                     % (tb['sezione'], tb['togli_riga'], tolte))
+        print('  %s: tolta la riga \u00ab%s\u00bb dalla tabella' % (tb['sezione'], tb['togli_riga']))
+
     for g in correzioni.get('blocchi', []):
         inizio, fine = limiti_sezione(blocchi, g['sezione'])
         if inizio is None:
