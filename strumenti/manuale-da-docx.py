@@ -421,11 +421,11 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 GATE
 
 <header class="man-top">
-  <a class="man-marchio" href="/"><span class="anc">⚓</span><span>Grand Line Chronicles</span></a>
+  <a class="man-marchio" href="/grand-line-chronicles/"><span class="anc">⚓</span><span>Grand Line Chronicles</span></a>
   <div class="man-strumenti">
     <button class="man-btn" id="man-apri-indice" type="button" aria-expanded="false" title="Indice" aria-label="Indice">☰<span class="man-etichetta"> Indice</span></button>
     <button class="man-btn" id="man-stampa" type="button" title="Stampa o salva in PDF" aria-label="Stampa o salva in PDF">⎙<span class="man-etichetta"> Stampa · PDF</span></button>
-    <a class="man-btn" href="/" title="Torna al porto" aria-label="Torna al porto">‹<span class="man-etichetta"> Torna al porto</span></a>
+    <a class="man-btn" href="/grand-line-chronicles/" title="Torna al porto" aria-label="Torna al porto">‹<span class="man-etichetta"> Torna al porto</span></a>
   </div>
 </header>
 

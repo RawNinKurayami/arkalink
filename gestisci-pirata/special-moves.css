@@ -20,6 +20,13 @@
 :is(#smc-shelf,#smc-dialog) .smc-section-heading{margin:30px 0 16px;}
 :is(#smc-shelf,#smc-dialog) .smc-section-heading h3{font-size:27px;margin-bottom:8px;}
 :is(#smc-shelf,#smc-dialog) .smc-warning{color:var(--smc-gold);padding:10px 0;border-bottom:1px solid var(--smc-edge);}
+:is(#smc-shelf,#smc-dialog) .smc-action-budget{display:grid;gap:6px;padding:15px 17px;margin:0 0 20px;background:rgba(239,189,115,.045);border-left:2px solid var(--smc-gold);border-radius:0 10px 10px 0;overflow-wrap:anywhere;}
+:is(#smc-shelf,#smc-dialog) .smc-action-budget>strong{font:600 22px/1.2 'Barlow Condensed',sans-serif;letter-spacing:.03em;}
+:is(#smc-shelf,#smc-dialog) .smc-action-budget .smc-note{font-size:11px;}
+:is(#smc-shelf,#smc-dialog) .smc-action-conflict{background:rgba(239,189,115,.13);}
+#smc-dialog .smc-option-reason{padding:0 20px 15px;color:var(--smc-gold);}
+#smc-dialog .smc-effect-hint{padding:0 12px 9px;color:var(--smc-gold);}
+#smc-dialog .smc-live-haki .smc-field.smc-live-duration{max-width:none;flex:1 1 200px;}
 /* The shelf has its own stage; it never takes space inside the portrait composition. */
 #smc-shelf{margin:46px 0 34px;padding:32px 0 20px;border-top:1px solid var(--smc-edge);}
 #smc-shelf .smc-shelf-head{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:24px;}
