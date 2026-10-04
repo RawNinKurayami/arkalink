@@ -24,32 +24,117 @@ chapters=[('introduzione',2,27,'Entrare nel Prestigio'),('combattenti',3,141,'Il
 starts=[25,43,62,81,101,123,144,167,189,208,230,248]
 for a,b in zip(starts,starts[1:]+[252]):chapters.append(('ruoli',a,b,sources['ruoli'][a]['text']))
 for a,b,title in [(3,35,'Spirito e Haki regole comuni'),(35,57,'Il Prestigio di Spirito'),(57,89,'Il Prestigio di Armamento'),(89,113,'Il Prestigio di Osservazione'),(113,143,'Il Prestigio del Re'),(143,167,'Haki e Spirito al tavolo')]:chapters.append(('haki',a,b,title))
-anchors=set();rendered=[];toc=[];included=set()
-def block_html(src,i,b):
+# Use the base manual's actual presentation template without executing its DOCX
+# generator. Its controls, reading layout and navigation script remain the single
+# reference for both manuals; only this manual's palette is overridden.
+import ast
+from html.parser import HTMLParser
+base_generator=(ROOT/'strumenti/manuale-da-docx.py').read_text()
+base_template=next(ast.literal_eval(n.value) for n in ast.parse(base_generator).body
+                   if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='PAGINA' for t in n.targets))
+shell_start=base_template.index('<header class="man-top">')
+shell_end=base_template.index('\n<script>',shell_start)
+shell=base_template[shell_start:shell_end]
+reader_start=base_template.index('<script>',shell_end)+len('<script>')
+reader_end=base_template.index('</script>',reader_start)
+reader=base_template[reader_start:reader_end].strip()
+assert 'var indice=document.getElementById("man-indice")' in reader
+assert 'solo lettura.' in reader
+
+anchors=set();rendered=[];toc=[];summary=[];included=set()
+def anchor(src,i,b):
+ a=src+'-'+slug(b['text'])
+ if a in anchors:a+='-'+str(i)
+ anchors.add(a);return a
+
+def source_attr(src,i):return f' data-prestigio-source="{src}:{i}"'
+
+def block_html(src,i,b,number=None):
+ provenance=source_attr(src,i)
  if b['type']=='table':
-  return '<div class="pr-table-scroll" tabindex="0" role="region" aria-label="Tabella delle regole"><table><thead><tr>'+''.join('<th scope="col">'+esc(v)+'</th>' for v in b['rows'][0])+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+esc(v).replace('\n','<br>')+'</td>' for v in row)+'</tr>' for row in b['rows'][1:])+'</tbody></table></div>'
+  return '<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Tabella delle regole"'+provenance+'><table class="man-tab"><thead><tr>'+''.join('<th scope="col">'+esc(v)+'</th>' for v in b['rows'][0])+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+esc(v).replace('\n','<br>')+'</td>' for v in row)+'</tr>' for row in b['rows'][1:])+'</tbody></table></div>'
  txt=b['text'];style=b['style']
  if style.startswith('Heading'):
-  a=src+'-'+slug(txt)
-  if a in anchors:a+='-'+str(i)
-  anchors.add(a);level=min(6,int(style[-1])+2)
-  return f'<h{level} id="{a}">{esc(txt)}</h{level}>'
- return '<p'+(' class="pr-bullet"' if style=='List Bullet' else ' class="pr-step"' if style=='List Number' else '')+'>'+esc(txt)+'</p>'
+  a=anchor(src,i,b)
+  if style in ['Heading 1','Heading 2']:
+   return f'<h2 class="man-sez" id="{a}"><span class="man-sez-n">{number}</span><span{provenance}>{esc(txt)}</span></h2>'
+  level=3 if style=='Heading 3' else 4
+  cls='man-sub' if level==3 else 'man-lab'
+  return f'<h{level} class="{cls}" id="{a}"{provenance}>{esc(txt)}</h{level}>'
+ return '<p'+provenance+'>'+esc(txt)+'</p>'
+
 for no,(src,start,end,title) in enumerate(chapters,1):
- content=[];links=[];chapter_anchor=""
- for i in range(start,end):
+ content=[];links=[];chapter_anchor='';section_number=0;chapter_source='';i=start
+ while i<end:
   b=sources[src][i];included.add((src,i))
   if i==start and b.get('text')==title and b.get('style','').startswith('Heading'):
-   chapter_anchor=src+'-'+slug(title);anchors.add(chapter_anchor)
-  else:content.append(block_html(src,i,b))
+   chapter_anchor=anchor(src,i,b);chapter_source=source_attr(src,i);i+=1;continue
   if b.get('style') in ['Heading 1','Heading 2']:
-   a=src+'-'+slug(b['text']);links.append('<a href="#'+a+'">'+esc(b['text'])+'</a>')
- rendered.append(f'<section class="pr-chapter" id="cap-{no}" aria-labelledby="titolo-{no}"><header id="{chapter_anchor or "cap-intro-"+str(no)}"><span>CAPITOLO {no:02}</span><h2 id="titolo-{no}">{esc(title)}</h2></header>'+''.join(content)+'</section>')
- toc.append(f'<details><summary><a href="#cap-{no}"><span>{no:02}</span> {esc(title)}</a></summary>'+''.join(links)+'</details>')
+   section_number+=1;number=f'{no}.{section_number}'
+   content.append(block_html(src,i,b,number))
+   a=src+'-'+slug(b['text'])
+   if a+'-'+str(i) in anchors:a+='-'+str(i)
+   links.append(f'<li><a href="#{a}" data-id="{a}">{number} · {esc(b["text"])}</a></li>')
+   summary.append(('section',no,number,b['text']))
+  elif b.get('style') in ['List Bullet','List Number']:
+   style=b['style'];tag='ul' if style=='List Bullet' else 'ol';cls='man-punti' if tag=='ul' else 'man-passi'
+   items=[]
+   while i<end and sources[src][i].get('style')==style:
+    included.add((src,i));items.append('<li'+source_attr(src,i)+'>'+esc(sources[src][i]['text'])+'</li>');i+=1
+   content.append(f'<{tag} class="{cls}">'+''.join(items)+f'</{tag}>');continue
+  else:content.append(block_html(src,i,b))
+  i+=1
+ rendered.append(f'<section class="man-cap" id="cap-{no}" aria-labelledby="titolo-{no}"><header class="man-cap-h" id="{chapter_anchor or "cap-intro-"+str(no)}"><span class="man-cap-n">Capitolo {no:02}</span><h1 id="titolo-{no}"{chapter_source}>{esc(title)}</h1></header><div class="man-cap-corpo">'+''.join(content)+'</div></section>')
+ toc.append(f'<li class="man-i-cap"><a href="#cap-{no}" data-id="cap-{no}"><span class="n">{no}</span>{esc(title)}</a>'+('<ol class="man-i-sez">'+''.join(links)+'</ol>' if links else '')+'</li>')
 expected={(s,i) for s,blocks in sources.items() for i,b in enumerate(blocks) if b.get('style') not in ['Title','Subtitle']}
 assert included==expected,(expected-included,included-expected)
-head='''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Manuale del Prestigio · Grand Line Chronicles</title><meta name="description" content="Il manuale ufficiale del Prestigio: Attributi, Talenti di Ruolo, Spirito, Haki e Saikyō."><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/manuali/manuali.css?v=1"><script src="reader.js?v=1" defer></script></head><body class="pr-reader"><a class="pr-skip" href="#contenuto">Vai al manuale</a><header class="pr-top"><a class="pr-brand" href="/grand-line-chronicles/">⚓ <span>Grand Line Chronicles</span></a><nav><a href="/manuali/">Biblioteca</a><button id="pr-toc-toggle" aria-expanded="false" aria-controls="pr-index">Indice ☰</button><button id="pr-print">Stampa</button></nav></header><div class="pr-progress" aria-hidden="true"><i></i></div><aside class="pr-index" id="pr-index" aria-label="Indice del Manuale del Prestigio"><p class="pr-kicker">Manuale del Prestigio</p><label for="pr-search">Cerca nell’indice</label><input id="pr-search" type="search" placeholder="Talento, Haki, Attributo…"><nav>'''
-cover='''</nav><p id="pr-empty" hidden>Nessuna sezione trovata.</p></aside><main id="contenuto" class="pr-reading"><header class="pr-cover"><p class="pr-kicker">Grand Line Chronicles · Espansione ufficiale</p><div class="pr-seal" aria-hidden="true">✦</div><h1>Manuale<br>del <em>Prestigio</em></h1><p>Attributi, Talenti di Ruolo, Spirito e Haki.<br>Le regole della crescita oltre il d20, fino a Saikyō.</p><div class="pr-cover-dice">d20 + d4 <span>→</span> d20 + d20</div><a class="pr-primary" href="#cap-1">Inizia la lettura ↓</a></header><p class="pr-editorial">Le evoluzioni dei Talenti di Ruolo sostituiscono le versioni precedenti come scelte utilizzabili. I prerequisiti acquisiti e i benefici incorporati restano validi. Gli effetti Haki conservano invece le alternative base espressamente previste.</p>'''
-out=head+''.join(toc)+cover+''.join(rendered)+'''<footer class="pr-end"><p class="pr-kicker">Grand Line Chronicles</p><h2>La leggenda continua.</h2><a class="pr-primary" href="/gestisci-pirata/">Apri la scheda del pirata ↗</a><a href="/manuali/">Torna alla biblioteca</a></footer></main></body></html>'''
-target=ROOT/'manuale-prestigio';target.mkdir(exist_ok=True);(target/'index.html').write_text(out)
-print(f'Manuale del Prestigio: {len(chapters)} capitoli, {len(anchors)} sezioni, {len(included)} blocchi. Copertura integrale delle quattro fonti: True.')
+
+# The printed table of contents follows the same structure as the base manual.
+somm=[]
+for no,(_,_,_,title) in enumerate(chapters,1):
+ somm.append(f'<li class="s-cap">{no} · {esc(title)}</li>')
+ somm.extend('<li class="s-sez"><b>'+number+'</b>'+esc(text)+'</li>' for _,chapter,number,text in summary if chapter==no)
+shell=shell.replace('\nNAV\n','\n'+'\n'.join(toc)+'\n').replace('\nSOMM\n','\n'+'\n'.join(somm)+'\n').replace('\nCORPO\n','\n'+'\n'.join(rendered)+'\n')
+# Preserve the old public content anchor as well as every chapter/section anchor.
+shell=shell.replace('<main class="man-foglio" id="man-foglio">','<main class="man-foglio" id="man-foglio"><span id="contenuto" aria-hidden="true"></span>')
+shell=shell.replace('Manuale<br>del gioco','Manuale<br>del Prestigio').replace('Edizione 2.0 · dalla creazione del pirata alla rotta della ciurma.','Espansione ufficiale · Attributi, Talenti di Ruolo, Spirito e Haki, oltre il d20 fino a Saikyō.')
+editorial='Le evoluzioni dei Talenti di Ruolo sostituiscono le versioni precedenti come scelte utilizzabili. I prerequisiti acquisiti e i benefici incorporati restano validi. Gli effetti Haki conservano invece le alternative base espressamente previste.'
+shell=shell.replace('    <nav class="man-somm"', '    <p class="man-guida">'+editorial+'</p>\n\n    <nav class="man-somm"')
+
+# Reuse the base manual's fonts and layout asset; Prestige supplies only its palette.
+base_head=base_template[:base_template.index('<style>')]
+base_head=base_head.replace('<title>Manuale · Grand Line Chronicles</title>','<title>Manuale del Prestigio · Grand Line Chronicles</title>')
+base_head=re.sub(r'<meta name="description"[^>]+>', '<meta name="description" content="Il manuale ufficiale del Prestigio: Attributi, Talenti di Ruolo, Spirito, Haki e Saikyō.">',base_head)
+base_head=base_head.replace('href="manuale.css?', 'href="/manuale/manuale.css?')
+head=base_head+'<link rel="stylesheet" href="prestigio.css?v=2">\n<script src="reader.js?v=2" defer></script>\n</head>\n<body class="manuale-prestigio">\n<div class="glc-bg" aria-hidden="true"></div>\n'
+out=head+shell+'\n</body>\n</html>\n'
+
+# Exact normative-text check, independent of the heading/list/table markup.
+class SourceText(HTMLParser):
+ def __init__(self):super().__init__();self.level=0;self.active=None;self.texts={}
+ def handle_starttag(self,tag,attrs):
+  attrs=dict(attrs)
+  if tag in ['br','img','input','link','meta','hr','source','wbr']:
+   if self.active:self.texts[self.active[0]].append(' ')
+   return
+  self.level+=1
+  if 'data-prestigio-source' in attrs:
+   key=attrs['data-prestigio-source'];assert key not in self.texts,key
+   self.active=(key,self.level);self.texts[key]=[]
+ def handle_endtag(self,tag):
+  if self.active:
+   if self.level==self.active[1]:self.active=None
+   else:self.texts[self.active[0]].append(' ')
+  self.level-=1
+ def handle_data(self,text):
+  if self.active:self.texts[self.active[0]].append(text)
+def norm(text):return re.sub(r'\s+',' ',unicodedata.normalize('NFC',text)).strip()
+parsed=SourceText();parsed.feed(out)
+assert len(parsed.texts)==len(expected)
+for src,i in expected:
+ b=sources[src][i];original=b['text'] if b['type']=='p' else ' '.join(cell for row in b['rows'] for cell in row)
+ assert norm(''.join(parsed.texts[f'{src}:{i}']))==norm(original),f'Text mismatch: {src}:{i}'
+target=ROOT/'manuale-prestigio';target.mkdir(exist_ok=True)
+(target/'index.html').write_text(out)
+(target/'reader.js').write_text('/* Generated from the base manual UI by strumenti/prestigio-manuale.py. */\n'+reader+'\n')
+print(f'Manuale del Prestigio: {len(chapters)} capitoli, {len(anchors)} sezioni, {len(included)} blocchi. Copertura e testo integrale delle quattro fonti: True. UI: Manuale base.')

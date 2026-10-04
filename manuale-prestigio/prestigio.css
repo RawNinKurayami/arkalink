@@ -1,0 +1,14 @@
+/* Layout, typography, controls and responsive behavior come from manuale.css.
+   Only the Prestige palette is different; the base manual is not modified. */
+@media screen {
+ :root{--carta:#0c0d11;--carta-alta:#14151b;--carta-ombra:#24242c;--inchiostro:#f4f0e7;--inchiostro-tenue:#b5b1a8;--rosso:#e5bd76;--filo:#34302a;}
+ .man-top{background:#0c0d11ed;}
+ .man-gancio{background:#14151bed;}
+ .man-btn:hover{background:#26221c;color:#f4d394;}
+ .man-guida b,.man-foglio b,.man-riga b,.man-tab td b{color:#f4f0e7;}
+ .man-tab tbody tr:nth-child(even){background:#e5bd7608;}
+}
+/* Numbered procedures use the base list's spacing, retaining their numbering. */
+.man-passi{margin:0 0 12px;padding:0 0 0 20px;}
+.man-passi li{padding:2px 0;}
+.man-passi li::marker{color:var(--rosso);}
