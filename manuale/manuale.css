@@ -1,7 +1,7 @@
 /* Grand Line Chronicles · Manuale 2.0
    Su computer e tablet è un libro: pagine a due colonne che si sfogliano,
-   carta avorio, inchiostro nero e rosso. Sul telefono resta una colonna che
-   scorre, con la stessa carta. L'indice si apre e si chiude da un tasto
+   pagine scure, testo bianco e oro. Sul telefono resta una colonna che
+   scorre, con la stessa gerarchia. L'indice si apre e si chiude da un tasto
    sempre presente. */
 
 :root{
@@ -262,4 +262,17 @@ h4.man-lab b{font-weight:inherit;}
   .man-tab-wrap,.man-elenco,.man-mappa{break-inside:avoid;}
   .man-tab{font-size:8.6pt;}
   .man-fine{display:none;}
+}
+
+/* Biblioteca: white/gold reading theme. Print keeps its existing light paper. */
+@media screen {
+ :root{--carta:#101015;--carta-alta:#19191f;--carta-ombra:#0b0b10;--inchiostro:#f1eee7;--inchiostro-tenue:#bcb7ac;--rosso:#e8c17f;--filo:#3b342a;color-scheme:dark;}
+ .man-top{background:rgba(16,16,21,.96);border-color:var(--filo);}
+ .man-btn:hover{background:#28251f;color:#ffe0a9;}
+ .man-gancio{background:rgba(25,25,31,.96);box-shadow:0 6px 24px #0008;}
+ .man-velo{background:#0009;}
+ .man-foglio{box-shadow:0 18px 70px #0005;}
+ .man-guida b,.man-foglio b,.man-riga b,.man-tab td b{color:#fff9ed;}
+ .man-tab tbody tr:nth-child(even){background:#e8c17f08;}
+ .man-btn:focus-visible,.man-indice a:focus-visible{outline:2px solid #e8c17f;outline-offset:4px;}
 }

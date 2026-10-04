@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
 <link rel="stylesheet" href="special-moves-print.css?v=1">
-<script src="special-moves-print.js?v=3"></script>
+<script src="special-moves-print.js?v=4"></script>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#33261a;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -417,6 +417,7 @@ html,body{overflow-x:visible;}
     function sec(title,inner){ if(inner) secs.push('<div style="break-inside:avoid;margin-bottom:5mm"><div style="display:flex;align-items:center;gap:8px;margin-bottom:3px"><div style="font-family:\'Marcellus SC\',serif;text-transform:uppercase;letter-spacing:3px;font-size:11px">'+title+'</div><div style="flex:1;border-top:2px double var(--gold,#c9a24a)"></div></div>'+inner+'</div>'); }
     var row=function(t,meta,d,d2){ return '<div style="padding:3px 0;border-bottom:1px dotted #b3a07a;break-inside:avoid"><div style="font-size:11px"><b>'+esc(t)+'</b>'+(meta?' <span style="font-family:\'Marcellus SC\',serif;font-size:7.5px;letter-spacing:1px;color:var(--accent,#9a241a)">'+esc(meta)+'</span>':'')+'</div>'+(d?'<div style="font-size:9.5px;line-height:1.4;color:#33261a">'+esc(d)+'</div>':'')+(d2?'<div style="font-size:9px;line-height:1.35;color:#6b5a44;font-style:italic">'+esc(d2)+'</div>':'')+'</div>'; };
     var tal=P?P.talenti:(pg.talents||[]).map(function(k){var p=String(k).split(' \u00b7 ');return {name:p[p.length-1],branch:p.length>2?p[1]:'',tag:'',desc:''};});
+    if(P?.prestigio?.length)sec('Prestigio degli Attributi',P.prestigio.map(function(a){return row(a.name,a.level+' · '+a.die,(a.benefits||[]).map(function(b){return b.name+': '+b.value+' '+b.unit+'. '+b.detail;}).join(' · '));}).join(''));
     if(tal&&tal.length) sec('Talenti',tal.map(function(t){return row(t.name,[t.branch,t.tag].filter(Boolean).join(' \u00b7 '),t.desc);}).join(''));
     if(extraTechs.length) sec('Tecniche / Armi (segue)',extraTechs.map(function(t){return row(t.nome,[t.tipo,t.attr,t.die].filter(Boolean).join(' \u00b7 '),t.eff);}).join(''));
     var tec=P?P.tecniche:[];

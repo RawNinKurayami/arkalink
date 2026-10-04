@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
-<link rel="stylesheet" href="manuale.css?v=16">
+<link rel="stylesheet" href="manuale.css?v=17">
 <style>
 /* Il gate del Manuale bloccato resta com'era. */
 #manlock[hidden]{display:none !important;}
@@ -48,7 +48,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
   <div class="man-strumenti">
     <button class="man-btn" id="man-apri-indice" type="button" aria-expanded="false" title="Indice" aria-label="Indice">☰<span class="man-etichetta"> Indice</span></button>
     <button class="man-btn" id="man-stampa" type="button" title="Stampa o salva in PDF" aria-label="Stampa o salva in PDF">⎙<span class="man-etichetta"> Stampa · PDF</span></button>
-    <a class="man-btn" href="/grand-line-chronicles/" title="Torna al porto" aria-label="Torna al porto">‹<span class="man-etichetta"> Torna al porto</span></a>
+    <a class="man-btn" href="/manuali/" title="Biblioteca dei manuali" aria-label="Biblioteca dei manuali">‹<span class="man-etichetta"> Biblioteca</span></a>
   </div>
 </header>
 
@@ -4812,14 +4812,14 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h4 class="man-lab">4 PIP</h4>
 <h3 class="man-sub">d20</h3>
 <h4 class="man-lab">5 PIP</h4>
-<p class="man-guida">Il Grado determina le capacità sbloccate e la quantità massima di PIP disponibili.</p>
+<p class="man-guida">Il Grado determina le capacità sbloccate e la quantità massima di PIP disponibili. Il dado di Armamento e quello di Osservazione non possono mai superare il dado di Spirito, compreso il Prestigio. Aumentare Spirito innalza il limite raggiungibile, ma non aumenta automaticamente i Colori. Oltre d20, la progressione prosegue secondo il Manuale del Prestigio; la riserva resta di 5 PIP per ciascun Colore.</p>
 <p class="man-guida">Un personaggio con Armamento d10 possiede anche gli effetti dei Gradi d6 e d8. Non perde le capacità precedenti quando sviluppa il Colore.</p>
 <h3 class="man-sub">Haki del Re</h3>
 <p class="man-guida">L'Haki del Re non utilizza un dado di progressione.</p>
 <p class="man-guida">È un potere innato che il personaggio deve possedere per poterlo sviluppare. Non può essere ottenuto semplicemente dichiarando di volerlo allenare.</p>
 <p class="man-guida">Il suo sviluppo è misurato attraverso tre livelli:</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Livello</b></th><th><b>Nome</b></th></tr></thead><tbody><tr><td>1 PIP</td><td>Risveglio</td></tr><tr><td>2 PIP</td><td>Dominio</td></tr><tr><td>3 PIP</td><td>Assoluto</td></tr></tbody></table></div>
-<p class="man-guida">L'accesso all'Haki del Re e la sua progressione vengono stabiliti con il Game Master.</p>
+<p class="man-guida">L'accesso all'Haki del Re e la sua progressione vengono stabiliti con il Game Master. Il suo Prestigio ha tre stadi distinti, assegnati dal GM: Prestigio I, Prestigio II e Saikyō. Non utilizza un dado, non richiede soglie numeriche di Spirito e mantiene il massimo ordinario di 3 PIP.</p>
 <h2 id="sez-8-3" class="man-sez"><span class="man-sez-n">8.3 ·</span> I PIP</h2>
 <p class="man-guida">I PIP rappresentano la riserva di volontà che il personaggio può spendere per attivare e utilizzare l'Haki.</p>
 <p class="man-guida">Sono una risorsa distinta dalla Stamina.</p>
@@ -4836,7 +4836,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h3 class="man-sub">Attivazione dell'Haki</h3>
 <h4 class="man-lab">1 Azione Bonus</h4>
 <h4 class="man-lab">1 PIP</h4>
-<p class="man-guida">Attivare un Colore dell'Haki richiede un'Azione Bonus e consuma 1 PIP dalla riserva di quel Colore.</p>
+<p class="man-guida">Attivare un Colore dell'Haki richiede un'Azione Bonus e consuma 1 PIP dalla riserva di quel Colore. L’eccezione di Prestigio Sintonia dei Colori permette di attivarne due con la stessa Bonus, o tre a Spirito Saikyō: ciascun Colore paga comunque il proprio PIP. Non concede anche l’uso di un effetto attivo Haki nello stesso turno.</p>
 <p class="man-guida">Una volta attivo, il personaggio può utilizzarne i benefici secondo le capacità sbloccate e i relativi costi.</p>
 <p class="man-guida">L'attivazione dell'Haki non consuma l'Azione principale.</p>
 <p class="man-guida">Un personaggio può quindi attivare l'Armamento con l'Azione Bonus ed effettuare un attacco con la propria Azione nello stesso turno.</p>
@@ -7034,7 +7034,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Gli Upgrade rappresentano i grandi momenti di crescita della storia e concedono risorse, P.A. e Talenti.</p>
 <p class="man-guida">I due percorsi lavorano insieme, ma non sono la stessa cosa. Un pirata può perfezionare una Tecnica attraverso l'esperienza senza dover aspettare un Upgrade. Viceversa, un Upgrade concede benefici che non si ottengono semplicemente accumulando P.A.</p>
 <h2 id="sez-16-1" class="man-sez"><span class="man-sez-n">16.1 ·</span> I dadi della progressione</h2>
-<p class="man-guida">Attributi, Skill e Tecniche utilizzano la stessa scala di avanzamento.</p>
+<p class="man-guida">Attributi, Skill e Tecniche utilizzano la stessa scala ordinaria di avanzamento. Il Manuale del Prestigio estende Attributi e Skill oltre d20: d20+d4, d20+d6, d20+d8, d20+d10, d20+d12 e d20+d20 (Saikyō). Ogni progressione resta indipendente. Il catalogo ordinario delle Tecniche conserva i propri Gradi, slot, costi e requisiti.</p>
 <h3 class="man-sub">Scala di progressione</h3>
 <p><b>d4 → d6 → d8 → d10 → d12 → d20</b></p>
 <p class="man-guida">Un avanzamento aumenta il dado di un gradino.</p>
@@ -7110,9 +7110,9 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h2 id="sez-16-8" class="man-sez"><span class="man-sez-n">16.8 ·</span> Registrare la crescita</h2>
 <p class="man-guida">La gestione del pirata permette di tenere traccia dei P.A., dei dadi, degli Upgrade e dei Talenti acquisiti.</p>
 <p class="man-guida">Quando un personaggio avanza, occorre aggiornare i valori interessati e verificare se il nuovo dado rende disponibili ulteriori opzioni nell'Albero dei Talenti o nel Costruttore di Tecniche.</p>
-<p class="man-guida">L'apertura di nuove opzioni non equivale alla loro acquisizione automatica.</p>
+<p class="man-guida">L'apertura di nuove opzioni non equivale alla loro acquisizione automatica. Le scelte dei Talenti di Prestigio si aprono ai Prestigi I, III e V della Skill di Ruolo; a Saikyō migliorano i talenti posseduti senza una quarta scelta. Spirito dispone di tre scelte separate. I potenziamenti degli altri Attributi seguono la rispettiva compatibilità e non consumano scelte di Ruolo.</p>
 <p class="man-guida">Una Tecnica può raggiungere d12 senza avere ancora selezionato effetti d12. Una Skill di Ruolo può raggiungere d20 senza che il personaggio abbia ottenuto l'Ultimate.</p>
-<p class="man-guida">La scheda deve rappresentare ciò che il pirata ha effettivamente imparato, non tutto ciò che sarebbe teoricamente in grado di imparare.</p>
+<p class="man-guida">La scheda deve rappresentare ciò che il pirata ha effettivamente imparato, non tutto ciò che sarebbe teoricamente in grado di imparare. Quando si acquisisce una versione evoluta di un Talento di Ruolo, anche nella progressione ordinaria, la versione precedente non è più utilizzabile separatamente. Rimane acquisita come prerequisito e conserva soltanto i benefici incorporati nell’evoluzione; bonus, costi e limiti non si sommano. Per gli effetti Haki restano invece le alternative base espressamente previste dal Manuale del Prestigio.</p>
 <p class="man-guida"><i>«Non importa quanto sia lontana la prossima isola. Finché c'è un sogno da inseguire e una ciurma con cui dividere il mare, il viaggio continua.»</i></p>
 <h4 class="man-lab"></h4>
 </div></section>

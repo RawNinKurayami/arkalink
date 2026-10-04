@@ -8,41 +8,7 @@ const vm=require('node:vm');
 const root=process.env.GLC_TEST_ROOT||path.join(__dirname,'..');
 const html=fs.readFileSync(process.env.GLC_MOVES_HTML||path.join(root,'gestisci-pirata/index.html'),'utf8');
 const source=fs.readFileSync(process.env.GLC_MOVES_SOURCE||path.join(root,'gestisci-pirata/special-moves.js'),'utf8');
-function declaration(name){
- const start=html.indexOf('const '+name+'=');assert.ok(start>=0,name);
- const text=html.slice(start),first=text.indexOf('\n');
- const end=text.slice(0,first).includes(';')?text.indexOf(';')+1:text.search(/\n[}\]];/)+3;
- assert.ok(end>2,name+' end');return text.slice(0,end);
-}
-function oneLine(name){const found=html.match(new RegExp('^function '+name+'\\([^\\n]+','m'));assert.ok(found,name);return found[0];}
-function setup(){
- const context=vm.createContext({window:{crypto:{randomUUID:()=> 'new-move'}},console,
-  race:()=>null,styleVisible:()=>true,roleSkillDieOf:()=> 'd20',talentGlyph:()=> 'star',
-  FORMA_ICO:{},STYLE_IMG:{},STYLE_ICON:{},ROLE_IMG:{},WEAPON_ICO:{},
-  tbCompute:()=>({stato:{s:'ok',m:''}}),TBUILD:null,SMBD:null,
-  weaponCompat:()=>({s:'ok'}),weaponStyleReq:()=> 'Striker',moduliVisibili:()=>true,
-  modStateLabel:()=>({t:'Attivo'}),
- });
- vm.runInContext(['DICE','HAKI_NAMES','HAKI_PROG','TALENTS','FRUIT_TALENTS','TEC_DUR','TEC_EFF','TEC_EFF_ARCHIVIATI'].map(declaration).join('\n'),context);
- vm.runInContext(['hakiPip','hakiPipAxis','hakiMaxPip','hakiPipOf','hakiUnlocked','hakiGrade','dieRank','tecEffObj','tecCost'].map(oneLine).join('\n'),context);
- vm.runInContext(`globalThis.rules={TALENTS,FRUIT_TALENTS,HAKI_PROG,HAKI_NAMES};`,context);
- context.pg={role:'Combattente',style:'Striker',roleSkillDie:'d20',attr:{Forza:'d10',Spirito:'d12'},stCur:30,
-  talents:['Combattente · Striker · Raffica — Base','Combattente · Striker · Pressione Costante','Combattente · Striker · Guardia del Combattente'],
-  extraTech:[{id:'punch',nome:'Pugno di prova',fonte:'Stile',stile:'Striker',forma:'Singolo',attr:'Forza',die:'d10',eff:[],durata:'Un turno'},
-   {id:'guard',nome:'Guardia di prova',fonte:'Stile',stile:'Striker',forma:'Difesa',attr:'Forza',die:'d10',eff:['Contrattacco'],durata:'Un turno'}],
-  haki:context.rules.HAKI_NAMES.map((name,i)=>({name,die:'d20',pip:3,smcId:'color-'+i})),armi:[],moduli:[],frutto:{has:false},specialMoves:[]};
- vm.runInContext(source,context);
- const moves=context.window.GLCMoves,ss=moves.sources();
- const talent=name=>ss.find(s=>s.kind==='talent'&&s.name===name).id;
- const colors=ss.filter(s=>s.kind==='haki').map(s=>s.id);
- const h=(i=0,extra={})=>({id:colors[i],use:'offense',effects:[],...extra});
- const card=extra=>({id:'fixture-move',name:'Special Move di prova',baseTechId:'tech:punch',...extra});
- const state=(i=0,extra={})=>{context.pg.specialMoveSession??={haki:{}};context.pg.specialMoveSession.haki[colors[i]]={active:true,pipRemaining:i===2?3:5,effects:{},...extra};};
- const resolve=extra=>moves.resolve(card(extra));
- return {context,moves,colors,h,card,state,resolve,talent};
-}
-const errorText=r=>r.errors.map(e=>e.text).join(' | ');
-const hasBonusError=r=>r.errors.some(e=>e.code==='bonus');
+const {setup,errorText,hasBonusError}=require('./helpers/glc-fixture.cjs');
 
 test('A technique and passive talents leave the Bonus free, including old 0 ST active slots',()=>{
  const h=setup(),r=h.resolve({activeTalentId:h.talent('Pressione Costante')});
@@ -167,7 +133,7 @@ test('Print snapshots use the new rule version and propagate action limits and p
  vm.runInContext(fs.readFileSync(printFile,'utf8'),h.context);
  h.context.pg.specialMoves=[h.card({activeTalentId:h.talent('Raffica — Base'),hakiSelections:[h.h(0,{activation:'prepared'})]})];
  const pack=h.context.window.GLCPrintMoves.snapshot(h.context.pg,'qa');
- assert.equal(pack.v,2);assert.equal(pack.cards[0].totals.pip,0);
+ assert.equal(pack.v,3);assert.equal(pack.cards[0].totals.pip,0);
  assert.ok(pack.cards[0].conditions.some(c=>/Economia del turno/.test(c.text)));
  assert.ok(pack.cards[0].conditions.some(c=>/turno precedente/.test(c.text)));
  h.context.pg.specialMoves[0].hakiSelections[0].effects=['act:d20'];

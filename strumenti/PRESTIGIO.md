@@ -1,0 +1,35 @@
+# Prestigio di Grand Line Chronicles
+
+Il catalogo applica l'aggiornamento ufficiale e le quattro fonti fornite dal creatore:
+Introduzione al Prestigio, Prestigio Combattente, Prestigio Ruoli e Prestigio Haki.
+
+## Fonti e manuale
+
+- `regole/prestigio-fonti.json` conserva i blocchi delle quattro fonti in ordine.
+- `regole/prestigio-revisioni.json` registra le sole correzioni necessarie alla regola ufficiale più recente: un Talento di Ruolo evoluto rende indisponibile la precedente versione separata.
+- `regole/prestigio-catalogo.json` contiene requisiti, scelte, costi e riferimenti alle fonti.
+- `python3 strumenti/prestigio-manuale.py` rigenera il manuale web e `prestigio-data.js`, verificando la copertura integrale dei blocchi.
+- Il manuale base mantiene il proprio generatore e le correzioni esplicite in `manuale-correzioni.json`.
+
+## Progressione e compatibilità
+
+Le soglie P.A. oltre d20 non sono definite nelle fonti: i passaggi vengono assegnati dal GM tramite i controlli del dado esistenti. Non sono introdotti costi automatici.
+Attributi, Skill di Ruolo e Colori Haki avanzano separatamente. Le scelte si aprono ai Prestigi I, III e V; Saikyō non dà una quarta scelta.
+
+La proprietà facoltativa `prestige` conserva scelte dei percorsi, scelte di Spirito e contatori di sessione. Le normali chiavi di salvataggio, il cloud e gli identificativi dei personaggi restano quelli esistenti. Scelte temporaneamente non valide vengono conservate ma rese inattive.
+I talenti ordinari sostituiti rimangono acquisiti come prerequisiti. Non si possono usare separatamente dall'evoluzione; i benefici incorporati vengono mostrati nella descrizione della versione corrente.
+
+Armamento e Osservazione vengono limitati al dado completo di Spirito durante la lettura/importazione e dopo una modifica. I dadi precedenti restano in `prestigePreviousDice`. L'aumento di Spirito non rialza automaticamente il Colore né restituisce PIP già consumati. Il Re non ha dado: i suoi tre Prestigi sono assegnati dal GM con `prestigeGM`, mantenendo il massimo di 3 PIP.
+
+## Uso al tavolo
+
+Il sigillo Prestigio apre le scale degli Attributi e il registro della sessione. Gli alberi dei Talenti includono un percorso Prestigio per ciascun Ruolo compatibile. Il riquadro Haki mostra effetti, requisiti e costi.
+
+I contatori registrano utilizzi risolti al tavolo e non consumano automaticamente azioni o ST. Riscossa della Volontà recupera soltanto i PIP assegnati e consentiti. La Special Move mostra costi, incompatibilità, requisiti di preparazione ed effetti senza spendere risorse.
+
+## Verifica
+
+`node --test tests/glc-*.test.cjs`
+
+La suite copre regole, conservazione delle scelte, sostituzioni, limite di Spirito, formule del Composer, filtri reali del Signature Builder, login e sincronizzazione. Le prove non usano account né personaggi reali.
+La verifica visiva nel browser non è stata eseguita: l'accesso locale è rimasto bloccato da un permesso salvato e il creatore ha autorizzato il completamento senza tale verifica.

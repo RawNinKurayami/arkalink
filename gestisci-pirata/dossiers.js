@@ -91,6 +91,7 @@
  function prepare(w,kind,item,extra){
   if(!w||!item)return;
   if(kind==='signature'||kind==='legacy')technique(w,kind,item,extra);
+  if(kind==='signature'&&window.GLCPrestige){const insights=GLCPrestige.techniqueBenefits(pg,item);if(insights.length){const body=make('div','prg-prose');insights.forEach(b=>body.append(make('p','',b.name+': '+b.value+' '+b.unit+'. '+b.detail)));w.querySelector('.ds-main')?.append(disclosure('✦ Potenziamenti del Prestigio',[body],'prestige'));}}
   else if(kind==='module')moduleSheet(w,item,extra);
  }
  function weapon(i){
@@ -100,6 +101,7 @@
    const {hero,main,foot}=shell(w,'weapon',a);
    hero.append(make('h2','ds-name',(a.nome||'').trim()||'Arma senza nome'),make('div','ds-source',a.tipo+(a.asta?' · '+a.asta:'')));
    const stats=make('div','ds-stats');stats.append(metric('Grado',a.grado+' · '+gradeLabel(a.grado)),metric('Attributo',a.attr||'Da definire'),metric('Portata',a.portata||'Da definire'),metric('Accordo GM',a.gmOk?'Approvata':'Da approvare'));hero.append(stats);
+   if(a.tipo==='Lama'&&window.GLCPrestige?.has(pg,'maestria-assoluta-della-lama'))hero.append(metric('Maestria della Lama · attacco base e Parata','d20 effettivo'));
    const compat=weaponCompat(a),c=make('div','compat '+compat.s,compat.msg.replace(/<[^>]+>/g,''));
    main.append(section('Compatibilità',[c],'ds-links'));
    if(a.eff){
