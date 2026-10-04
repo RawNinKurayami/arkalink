@@ -71,7 +71,7 @@ define('Zoan','Tre Forme','active','physical');
 define('Zoan','Artigli e Zanne|Stazza|Ferocia Crescente','passive','melee');
 define('Zoan','Corsa Bestiale','passive','move');
 define('Zoan','Resistenza Bestiale','passive','defense');
-define('Zoan','Zoan Mitologico / Ancestrale','passive','fruit');
+define('Zoan','Retaggio Ancestrale / Mitologico|Zoan Mitologico / Ancestrale','passive','fruit');
 define('Zoan','Istinto di Sopravvivenza|Trasformazione Istintiva','active','defense');
 define('Zoan','Risveglio','active','physical',{noCard:true});
 
