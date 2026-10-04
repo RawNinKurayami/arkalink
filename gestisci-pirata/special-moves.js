@@ -347,8 +347,8 @@ function resolve(input) {
    if(t.fonte==='Frutto'&&owns('Senza Contraccolpo')){c.st=Math.max(1,c.st-1);notes.push('Senza Contraccolpo: −1, minimo 1');}
    if(t.fonte==='Frutto'&&owns('Ciò che Resta')){if(t.durata==='Mantieni (+1/turno)')conditions.push({id:s.id,text:'Ciò che Resta: primo turno di mantenimento gratuito; poi '+c.maintenanceST+' ST/turno.'});if(t.durata==='Un turno')conditions.push({id:s.id,text:'Ciò che Resta: durata 3 turni senza sovrapprezzo.'});}
    if(t.fonte==='Frutto'&&owns('Fonte Inesauribile')){if(m.conditions.elementSource){c.st=0;c.maintenanceST=0;notes.push('Fonte Inesauribile: condizione dichiarata');}else conditions.push({id:s.id,text:'Fonte Inesauribile: costo 0 ST solo dentro o a ridosso di una grande fonte del tuo elemento.'});}
-   const logiaAwake=talentSelected.some(x=>x.branch==='Logia'&&x.alias==='Risveglio');
-   if(t.fonte==='Frutto'&&logiaAwake){c.st=0;c.maintenanceST=0;notes.push('Risveglio Logia: entro 50 m, per la scena');}
+   /* Il Risveglio Logia non azzera piu` il costo delle Tecniche: si costruisce
+      con la Linea Guida del Risveglio, quindi gli effetti li concorda il GM. */
   }
   if(c.pip||c.maintenancePIP){const hs=findSource(c.pipSourceId,ss);if(!hs||hs.kind!=='haki'){unknown.push(s);return;}pipByColor[hs.id]=(pipByColor[hs.id]||0)+c.pip;}
   st+=c.st;pip+=c.pip;maintenanceST+=c.maintenanceST;maintenancePIP+=c.maintenancePIP;
