@@ -62,7 +62,7 @@ define('Paramecia','Forma di Combattimento','active','any',{gm:true});
 define('Paramecia','Risveglio','active','fruit',{gm:true,noCard:true});
 define('Logia','Sentire l’Elemento|Sentire l\'Elemento|Corpo Diffuso','passive','any');
 define('Logia','Corpo Elementale','passive','move');
-define('Logia','Sempre in Forma|Assorbire|Reintegrazione|Chi Ti Tocca','passive','defense');
+define('Logia','Sempre in Forma|Assorbire|Chi Ti Tocca','passive','defense');
 define('Logia','Elemento Onnipresente|Dominio dell’Elemento|Dominio dell\'Elemento|Fonte Inesauribile','passive','fruit');
 define('Logia','Forma Perduta','active','move');
 define('Logia','Risveglio','active','fruit',{noCard:true});

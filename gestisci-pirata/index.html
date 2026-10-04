@@ -1546,7 +1546,7 @@ body.has-bld{overflow:hidden;}
 <script src="/regole/prestigio.js?v=2"></script>
 <script src="/regole/prestigio-presentazione.js?v=1"></script>
 <script src="prestigio-ui.js?v=2"></script>
-<script src="special-moves.js?v=13"></script>
+<script src="special-moves.js?v=14"></script>
 <link rel="stylesheet" href="card-view.css?v=6">
 <script src="card-export.js?v=4" defer></script>
 <script src="card-view.js?v=7" defer></script>
@@ -1817,7 +1817,7 @@ const TALENTS={
 /* Talenti "a gradini" divisi in tre voci: le schede salvate col vecchio nome puntano al gradino Base. */
 /* Talenti ritirati dal gioco: la migrazione li toglie dalle schede già salvate,
    così non restano righe senza descrizione e lo slot torna libero. */
-const TAL_RITIRATI=["Marchio Duraturo"];
+const TAL_RITIRATI=["Marchio Duraturo","Reintegrazione"];
 const TAL_RENAME={"Incassare":"Guardia del Combattente","Campo di Battaglia":"Pressione Costante","Frantumare":"Contraccolpo","Estensione":"Portata Naturale","Intangibilità":"Sentire l'Elemento","Raffica":"Raffica — Base","Più Spade":"Più Spade — Base","Tiro Lungo":"Tiro Lungo — Base","Arsenale Modulare":"Arsenale Modulare — Base"};
 const TIER_LABEL={d8:"Mozzo",d10:"Pirata",d12:"Veterano",d20:"Leggenda"};
 const TIERS=["d8","d10","d12","d20"];
@@ -1967,11 +1967,10 @@ const FRUIT_TALENTS={
   {smcId:"glc-talent-244",smcAlias:"Elemento Onnipresente",n:"Elemento Onnipresente",tier:"d8",d:"le tue Tecniche non devono più partire dal tuo corpo: possono nascere da qualsiasi fonte del tuo elemento presente nella scena — un braciere dall'altra parte della sala, la nebbia sul ponte, l'acqua nella stiva."},
   {smcId:"glc-talent-245",smcAlias:"Riformarsi Altrove",n:"Riformarsi Altrove",tier:"d8",d:"1×/scontro, come reazione, ti dissolvi e ti ricomponi entro 15 metri in un punto che puoi vedere. Non provochi attacchi di reazione e non spendi l'azione."},
   {smcId:"glc-talent-246",smcAlias:"Dominio dell'Elemento",n:"Dominio dell'Elemento",tier:"d12",d:"controlli l'elemento nell'ambiente: terreno, copertura, alimentarlo o spegnerlo, usare le fonti presenti."},
-  {smcId:"glc-talent-247",smcAlias:"Reintegrazione",n:"Reintegrazione",tier:"d12",d:"quando vieni colpito — anche con Haki — l'elemento si riforma: dimezzi il danno oppure ti rialzi più in fretta."},
   {smcId:"glc-talent-248",smcAlias:"Chi Ti Tocca",n:"Chi Ti Tocca",tier:"d12",d:"chi ti colpisce in mischia a mani nude, o con qualunque parte del corpo, ne subisce la natura: 1d6 danni del tuo elemento."},
   {smcId:"glc-talent-249",smcAlias:"Fonte Inesauribile",n:"Fonte Inesauribile",tier:"d12",req:"Nutrirsi dell'Elemento",d:"quando sei dentro o a ridosso di una grande fonte del tuo elemento, le tue Tecniche del Frutto non costano Stamina."},
   {smcId:"glc-talent-250",smcAlias:"Forma Perduta",n:"Forma Perduta",tier:"d12",d:"puoi restare completamente disperso — nube, fiamma, corrente, banco di nebbia — per un'intera scena: niente oggetti né attacchi, ma ti muovi ovunque possa andare il tuo elemento, attraversi qualsiasi barriera non ermetica e nessuno ti riconosce. Tornare in forma richiede un'azione."},
-  {smcId:"glc-talent-251",smcAlias:"Risveglio",n:"Risveglio",tier:"d20",t:"ultimate",d:"vetta del potere: per tutta la scena il tuo elemento satura l'ambiente entro 50 metri — lì le tue Tecniche del Frutto non costano Stamina, ogni nemico subisce la natura dell'elemento a inizio turno, l'Intangibilità vale anche contro l'Haki dell'Armamento (mare e Pietra di Mare restano l'unica risposta) e Reintegrazione, se l'hai, scatta da sola. Il prezzo: a fine scena Stamina a 0 e niente Frutto fino al prossimo riposo lungo. Richiede Dado del Frutto a d20, Ambizione e permesso del GM."}]},
+  {smcId:"glc-talent-251",smcAlias:"Risveglio",n:"Risveglio",tier:"d20",t:"ultimate",d:"il personaggio raggiunge la manifestazione più elevata del proprio elemento. Durante il Risveglio l'elemento non rappresenta più soltanto il corpo del personaggio o ciò che egli controlla direttamente: la sua presenza invade e modifica l'ambiente circostante. Richiede Dado del Frutto a d20, Ambizione e permesso del GM."}]},
  "Zoan":{ico:"🐾",tratto:"Le Tre Forme — ti trasformi in animale e in forma ibrida: pura spinta fisica. La trasformazione è gratuita: non costa Stamina, non occupa slot, non richiede una Tecnica. In forma ibrida o bestiale hai la stazza dell'animale, e i tuoi colpi la portano con sé.",firma:"Il colpo travolge — sul colpo pulito (+4) in forma ibrida il bersaglio è Stordito, oppure aggiungi un Dado Danno.",talenti:[
   {smcId:"glc-talent-252",smcAlias:"Forma Ibrida",n:"Forma Ibrida",tier:"d4",d:"per la scena: +1 dado ai tiri fisici (Forza / Atletica) e al Danno in mischia."},
   {smcId:"glc-talent-253",smcAlias:"Istinto Animale",n:"Istinto Animale",tier:"d4",d:"esplorazione: +1 dado a Osservazione, Sopravvivenza e inseguimento; superi terreni proibitivi che fermerebbero chiunque altro."},
