@@ -31,8 +31,9 @@ function setup(){
   extraTech:[{id:'punch',nome:'Pugno di prova',fonte:'Stile',stile:'Striker',forma:'Singolo',attr:'Forza',die:'d10',eff:[],durata:'Un turno'},
    {id:'guard',nome:'Guardia di prova',fonte:'Stile',stile:'Striker',forma:'Difesa',attr:'Forza',die:'d10',eff:['Contrattacco'],durata:'Un turno'}],
   haki:context.rules.HAKI_NAMES.map((name,i)=>({name,die:'d20',pip:3,smcId:'color-'+i})),armi:[],moduli:[],frutto:{has:false},specialMoves:[]};
- for(const f of ['regole/prestigio-data.js','regole/prestigio.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context);
+ for(const f of ['regole/prestigio-data.js','regole/prestigio.js','regole/prestigio-presentazione.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context);
  context.GLCPrestige=context.window.GLCPrestige;
+ context.GLCPrestigeView=context.window.GLCPrestigeView;
  context.window.GLCPrestige.configure(context.rules.TALENTS);
  vm.runInContext(source,context);
  const moves=context.window.GLCMoves,ss=moves.sources();

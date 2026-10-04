@@ -135,7 +135,7 @@ function sources() {
  (window.GLCPrestige?.acquired(pg)||[]).filter(t=>!['outside','baseOnly','spirit'].includes(t.match)).forEach(t=>out.push({
   id:'prestige:'+t.id,kind:'talent',prestige:true,name:t.name,alias:t.name,raw:t,branch:t.path.style,unlocked:true,
   meta:{mode:t.action==='bonus'?'active':'passive',match:t.match,action:t.action,quantity:t.id==='raffica-senza-fine'},
-  desc:window.GLCPrestige.text(t.blocks),icon:STYLE_ICON[t.path.style]||'star',emblem:STYLE_IMG[t.path.style]||ROLE_IMG[t.path.role],subtitle:'Prestigio · '+t.path.skill+' '+t.path.die
+  desc:window.GLCPrestigeView.talentText(pg,t),icon:STYLE_ICON[t.path.style]||'star',emblem:STYLE_IMG[t.path.style]||ROLE_IMG[t.path.role],subtitle:'Prestigio · '+t.path.skill+' '+t.path.die
  }));
  if(pg.frutto?.has){const f=pg.frutto;
   out.push({id:'fruit:'+f.tipo,kind:'fruit',name:f.nome||f.tipo||'Frutto del Diavolo',raw:f,desc:f.desc||'',emblem:'frutto',subtitle:f.tipo+' · '+f.die});

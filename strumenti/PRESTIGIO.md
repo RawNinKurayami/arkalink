@@ -23,7 +23,9 @@ Armamento e Osservazione vengono limitati al dado completo di Spirito durante la
 
 ## Uso al tavolo
 
-Il sigillo Prestigio apre le scale degli Attributi e il registro della sessione. Gli alberi dei Talenti includono un percorso Prestigio per ciascun Ruolo compatibile. Il riquadro Haki mostra effetti, requisiti e costi.
+Il sigillo Prestigio mostra i percorsi già raggiunti, i valori attuali degli Attributi e il registro della sessione. Le schede operative non contengono anteprime dei livelli successivi: le scale complete restano nel manuale. Gli alberi separano i talenti acquisiti dalle scelte acquisibili con livello, prerequisiti e posti attuali; le scelte conservate ma inattive restano accessibili senza mostrarne benefici come utilizzabili. Il riquadro Haki elenca soltanto gli effetti sbloccati, con costi e durate attuali.
+
+`regole/prestigio-presentazione.js` contiene i riepiloghi operativi dei 52 talenti e dei 9 effetti Haki, derivati dal livello del rispettivo percorso. Vengono usati anche nelle descrizioni delle Special Moves e nei dati della scheda stampabile. Non modifica costi, sblocchi, formule o salvataggi: quando cambia una regola ufficiale occorre aggiornare anche il relativo riepilogo. I documenti e il catalogo conservano le regole integrali.
 
 I contatori registrano utilizzi risolti al tavolo e non consumano automaticamente azioni o ST. Riscossa della Volontà recupera soltanto i PIP assegnati e consentiti. La Special Move mostra costi, incompatibilità, requisiti di preparazione ed effetti senza spendere risorse.
 
@@ -31,5 +33,5 @@ I contatori registrano utilizzi risolti al tavolo e non consumano automaticament
 
 `node --test tests/glc-*.test.cjs`
 
-La suite copre regole, conservazione delle scelte, sostituzioni, limite di Spirito, formule del Composer, filtri reali del Signature Builder, login e sincronizzazione. Le prove non usano account né personaggi reali.
+La suite copre regole, conservazione delle scelte, sostituzioni, limite di Spirito, formule del Composer, filtri reali del Signature Builder, login e sincronizzazione. I test di presentazione verificano anche selezione delle capacità attuali, valori delle scale, passaggi di livello, varianti Haki, descrizioni nel Composer e comandi della UI tramite un adattatore del documento senza browser. Le prove non usano account né personaggi reali.
 La verifica visiva nel browser non è stata eseguita: l'accesso locale è rimasto bloccato da un permesso salvato e il creatore ha autorizzato il completamento senza tale verifica.

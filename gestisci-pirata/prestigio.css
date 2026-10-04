@@ -10,3 +10,30 @@
 .prg-tal-medal .medring{border-color:#ffe6ac!important;box-shadow:0 0 18px #f3cc8633,inset 0 0 16px #ffebae12;color:#fff1c9}.prg-tal-medal .medname{color:#ffe5b5}
 
 #ttree.tt-prestige{padding:0;gap:0}#ttree .prg-lit-tab{color:#ffe6ac;border-bottom:1px solid #ffe2ab66}#ttree .prg-tree-head{flex-shrink:0}#ttree .prg-tree-scroll{min-height:0;width:100%}.prg-choice{overflow-wrap:anywhere}.prg-timeline small{white-space:nowrap}.prg-row .prl{min-width:0}
+
+/* The operational sheet presents the current level, not the future catalogue. */
+.prg-current{display:flex;align-items:center;gap:25px;margin:0 0 25px;padding:8px 0 26px;border-bottom:1px solid #d1af7130}
+.prg-current-die{flex:none;display:flex;align-items:center;justify-content:center}
+.prg-current .prg-overline{margin-bottom:9px}.prg-current h2{margin-bottom:8px}
+.prg-current-level{color:#ffe3a4;font:600 14px/1.6 'Inter',sans-serif;margin:0}
+.prg-section-title{font:600 23px/1.3 'Barlow Condensed','Arial Narrow',sans-serif;color:#e9dbc0;margin:28px 0 18px;letter-spacing:.03em}
+.prg-facts{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}
+.prg-facts>span{font:600 10px/1.5 'Inter',sans-serif;color:#ffe2a6;background:#f2d3980b;border:1px solid #e7c58d24;border-radius:3px;padding:5px 8px}
+.prg-choice .prg-effect,.prg-haki .prg-effect{font:500 14px/1.75 'Inter',sans-serif;color:#f1eadd;margin:0 0 18px}
+.prg-choice .prg-rules{margin:20px 0 0;border-bottom:0;padding-bottom:0}.prg-choice .prg-prose{font-size:12px;margin-bottom:12px}
+.prg-choice .prg-rules>.prg-button{display:flex;margin-top:14px}.prg-choice>.prg-button.primary{margin-top:22px;width:100%}
+.prg-pick{margin:30px 0;padding:24px;border:1px solid #eac78a50;background:#d0a45107;border-radius:5px}
+.prg-pick>summary{font:600 21px/1.4 'Barlow Condensed','Arial Narrow',sans-serif;color:#ffe4b2;cursor:pointer;min-height:34px}
+.prg-pick .prg-choices{margin-top:22px}.prg-pick .prg-choice{box-shadow:none;background:#17161c}
+.prg-empty{font:400 14px/1.8 'Inter',sans-serif;color:#bdb4a5;padding:25px 0;margin:0}
+.prg-inactive{color:#b1a89a}.prg-inactive-choice{padding:16px 0;border-bottom:1px solid #ffffff10}.prg-inactive-choice h4{color:#c8bdab;font:600 16px 'Inter',sans-serif;margin:0}
+.prg-bands{width:100%;border-collapse:collapse;font:12px/1.6 'Inter',sans-serif;color:#efe4cd;margin-top:16px}
+.prg-bands caption{text-align:left;font-size:11px;color:#bfb39b;margin-bottom:10px}
+.prg-bands th,.prg-bands td{text-align:left;padding:10px 5px;border-bottom:1px solid #d1af7125}.prg-bands td:last-child{font-weight:600;color:#ffe7b0;white-space:nowrap}
+.prg-bands th{color:#c7bba6;font-size:10px;text-transform:uppercase;letter-spacing:.07em}
+.prg-benefit .prg-rules p{margin:10px 0 0}.prg-benefit h3{margin-bottom:15px}.prg-benefit>p{margin-top:18px}
+.prg-portals{grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr))}.prg-portal-summary{color:#cabfa9;font-weight:400}
+.prg-haki-effect{margin:18px 0;padding:22px 0 4px}.prg-haki-effect h4{font:600 25px/1.2 'Barlow Condensed','Arial Narrow',sans-serif;color:#ffe9bf;margin:0 0 16px}
+.prg-haki-effect .prg-rules{border-bottom:0;margin-bottom:0;padding-bottom:0}.prg-haki .prg-lead{font-size:12px}
+.prg-haki :focus-visible{outline:2px solid #ffe4a4;outline-offset:4px}
+@media(max-width:620px){.prg-current{gap:16px}.prg-current h2{font-size:34px}.prg-current-level{font-size:12px}.prg-pick{padding:18px 14px}.prg-pick .prg-choice{padding:22px 17px}.prg-current .prg-overline{font-size:9px;letter-spacing:.12em}}
