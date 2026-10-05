@@ -607,5 +607,111 @@
    }
   ],
   "perche": "Revisione del 05/10/2026 (modifiche glc 2): Musicista allineato a Soglia delle Canzoni, Canzoni Sostenute e Motivetto di Vigore."
+ },
+ {
+  "source": "ruoli",
+  "after": 150,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Ogni attivazione aggiuntiva paga separatamente munizioni, carburante, energia e altri consumi del macchinario. Regia Meccanica non rende autonomi i dispositivi e non concede manovre navali ulteriori."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2, Ingegnere): Guasto e Distruzione, seconde attivazioni, Riparazione d’Emergenza a 1 Dado Carpenteria, miglioramenti permanenti della nave."
+ },
+ {
+  "source": "ruoli",
+  "block": 154,
+  "from": "Con attrezzi, ricambi e una prova di riparazione riuscita effettui uno dei seguenti interventi:",
+  "to": "Con attrezzi, ricambi e una Prova di riparazione riuscita puoi intervenire anche su un dispositivo Distrutto, superando il normale limite di Pronto Intervento. Effettui uno dei seguenti interventi:",
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2, Ingegnere): Guasto e Distruzione, seconde attivazioni, Riparazione d’Emergenza a 1 Dado Carpenteria, miglioramenti permanenti della nave."
+ },
+ {
+  "source": "ruoli",
+  "after": 157,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Gli interventi sul corpo e sui Moduli di un Cyborg seguono comunque le definizioni e le condizioni del Manuale del Cyborg."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2, Ingegnere): Guasto e Distruzione, seconde attivazioni, Riparazione d’Emergenza a 1 Dado Carpenteria, miglioramenti permanenti della nave."
+ },
+ {
+  "source": "ruoli",
+  "after": 165,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Dominio delle Macchine utilizza le normali regole di accesso fisico stabilite da Sabotaggio: il Meccanico deve poter raggiungere realmente un comando, collegamento o punto di controllo del sistema."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2, Ingegnere): Guasto e Distruzione, seconde attivazioni, Riparazione d’Emergenza a 1 Dado Carpenteria, miglioramenti permanenti della nave."
+ },
+ {
+  "source": "ruoli",
+  "block": 171,
+  "from": "Effettui una riparazione d’emergenza. Se la prova riesce, recuperi il doppio dei PS normalmente restituiti e rimetti in funzione un Modulo distrutto, oltre agli interventi già consentiti da Mani sul Legno — Migliorato.",
+  "to": "Effettui una Riparazione d’Emergenza. Se riesce:",
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2, Ingegnere): Guasto e Distruzione, seconde attivazioni, Riparazione d’Emergenza a 1 Dado Carpenteria, miglioramenti permanenti della nave."
+ },
+ {
+  "source": "ruoli",
+  "after": 171,
+  "blocchi": [
+   {
+    "style": "List Bullet",
+    "text": "Calcola normalmente i PS recuperati."
+   },
+   {
+    "style": "List Bullet",
+    "text": "Aggiungi Mani sul Legno — Base."
+   },
+   {
+    "style": "List Bullet",
+    "text": "Applica l’eventuale raddoppio della Firma La Riparazione che Tiene."
+   },
+   {
+    "style": "List Bullet",
+    "text": "Raddoppia infine il totale ottenuto grazie a Ricostruzione Leggendaria."
+   },
+   {
+    "style": "Normal",
+    "text": "Inoltre puoi rimettere in funzione un Modulo Distrutto, oltre agli effetti già consentiti da Mani sul Legno — Migliorato."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2, Ingegnere): Guasto e Distruzione, seconde attivazioni, Riparazione d’Emergenza a 1 Dado Carpenteria, miglioramenti permanenti della nave."
+ },
+ {
+  "source": "ruoli",
+  "block": 172,
+  "from": "Calcoli prima il recupero ordinario, compresi Mani sul Legno — Base e l’eventuale Firma, poi applichi il moltiplicatore. Servono i materiali necessari e il recupero non può superare i PS massimi.",
+  "to": "Servono normalmente i materiali necessari e il recupero non può superare i PS Massimi.",
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2, Ingegnere): Guasto e Distruzione, seconde attivazioni, Riparazione d’Emergenza a 1 Dado Carpenteria, miglioramenti permanenti della nave."
+ },
+ {
+  "source": "ruoli",
+  "block": 174,
+  "from": "Saikyō: recuperi il triplo dei PS ordinari e puoi ripristinare due Moduli distrutti nello stesso intervento, anziché uno. Costo e limite restano quelli descritti.",
+  "to": "Saikyō: il moltiplicatore finale diventa ×3 e puoi ripristinare due Moduli Distrutti nello stesso intervento.",
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2, Ingegnere): Guasto e Distruzione, seconde attivazioni, Riparazione d’Emergenza a 1 Dado Carpenteria, miglioramenti permanenti della nave."
+ },
+ {
+  "source": "ruoli",
+  "after": 178,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Nave Leggendaria costituisce un miglioramento permanente della nave e segue le normali regole dei Miglioramenti Permanenti. Non si trasferisce su un’altra nave se il Carpentiere cambia equipaggio o imbarcazione."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2, Ingegnere): Guasto e Distruzione, seconde attivazioni, Riparazione d’Emergenza a 1 Dado Carpenteria, miglioramenti permanenti della nave."
+ },
+ {
+  "source": "ruoli",
+  "block": 186,
+  "from": "Questo beneficio sostituisce la riduzione di un dado concessa da Scafo Rinforzato.",
+  "to": "Questo beneficio sostituisce la riduzione di un gradino dei Dadi Danno delle cannonate concessa da Scafo Rinforzato.",
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2, Ingegnere): Guasto e Distruzione, seconde attivazioni, Riparazione d’Emergenza a 1 Dado Carpenteria, miglioramenti permanenti della nave."
  }
 ]
