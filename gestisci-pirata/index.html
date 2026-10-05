@@ -1546,7 +1546,7 @@ body.has-bld{overflow:hidden;}
 <script src="/regole/prestigio.js?v=2"></script>
 <script src="/regole/prestigio-presentazione.js?v=1"></script>
 <script src="prestigio-ui.js?v=2"></script>
-<script src="special-moves.js?v=15"></script>
+<script src="special-moves.js?v=16"></script>
 <link rel="stylesheet" href="card-view.css?v=6">
 <script src="card-export.js?v=4" defer></script>
 <script src="card-view.js?v=7" defer></script>
@@ -1901,7 +1901,8 @@ const ICONS={
 };
 function svgIcon(key,size){const d=ICONS[key];if(!d)return "";size=size||22;return '<svg class="ic" width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+d+'</svg>';}
 const IMG_ICON={"Haki dell'Armamento":"haki-armamento","Haki dell'Osservazione":"haki-osservazione","Haki del Re":"haki-re",frutto:"frutto",legame:"legame",zaino:"zaino"};
-const BOND_DICE=["d4","d6","d8","d10","d12","d20"];
+/* Un Legame nasce a 0: esiste, ma non concede ancora un dado. */
+const BOND_DICE=["0","d4","d6","d8","d10","d12","d20"];
 /* I PIP dell'Haki seguono il dado: d6 = 1 … d20 = 5. */
 function hakiPip(die){return ({d4:0,d6:1,d8:2,d10:3,d12:4,d20:5})[String(die||"").replace(/\+.*/,"")]||(String(die||"").indexOf("d20")===0?5:0);}
 function bondStep(d,dir){let i=BOND_DICE.indexOf(d);if(i<0)i=0;return BOND_DICE[Math.max(0,Math.min(BOND_DICE.length-1,i+dir))];}
@@ -2010,7 +2011,6 @@ const TEC_EFF=[
 ["Danno","+1d8 Dado Danno","un d8 in più al danno","d10",2,""],
 ["Danno","+1d10 Dado Danno","un d10 in più al danno","d12",2,""],
 ["Danno","Colpo Pesante","il danno non scende sotto metà del dado","d10",1,""],
-["Danno","Esecuzione","+1 Dado Danno contro chi è Quasi Morto","d12",1,""],
 ["Danno","Carica","salti un turno: se non vieni colpito, al tuo prossimo turno raddoppi i Dadi Danno, tiri con Vantaggio e ignori la copertura","d10",2,""],
 ["Danno","Sovraccarico","tiri il doppio dei Dadi Danno, ma subisci 1d10 PV","d12",3,""],
 ["Danno","Tutto o Niente","manchi = niente, e non puoi difenderti dal prossimo attacco · colpo pulito = danno triplo","d12",5,""],
@@ -2082,7 +2082,8 @@ const TEC_EFF=[
    compatibili con le Tecniche esistenti. */
 const TEC_EFF_ARCHIVIATI=[
 ["Danno","Colpo Annientante","danno triplicato","d20",7,""],
-["Concatenati","Marchio Esplosivo","segni ora, lo fai detonare quando vuoi entro la scena — la detonazione usa la Forma della Tecnica","d10",2,""]
+["Concatenati","Marchio Esplosivo","segni ora, lo fai detonare quando vuoi entro la scena — la detonazione usa la Forma della Tecnica","d10",2,""],
+["Danno","Esecuzione","+1 Dado Danno contro chi è Quasi Morto","d12",1,""]
 ];
 function tecEffObj(nm){return TEC_EFF.find(e=>e[1]===nm)||TEC_EFF_ARCHIVIATI.find(e=>e[1]===nm);}
 function isMusicista(){try{return !!(pg&&(pg.role==="Musicista"||pg.role2==="Musicista"));}catch(e){return false;}}
@@ -3841,7 +3842,7 @@ function renderManage(){
  CW.appendChild(el("div",{class:"sub",style:"margin:-2px 0 10px",html:"Ogni legame ha un dado da <b>d4</b> a <b>d20</b>: cresce con la storia, e certi Talenti lo richiedono a un gradino minimo."}));
  const bw=el("div",{class:"bonds"});
  function renderBonds(){bw.innerHTML="";if(!Array.isArray(pg.bonds))pg.bonds=[];pg.bonds.forEach((bd,i)=>{if(!bd.die)bd.die="d4";const row=el("div",{class:"bond"});row.appendChild(el("div",{class:"bond-i",html:imgIcon("legame",34)}));const nm=el("input",{type:"text"});nm.value=bd.nome||"";nm.setAttribute("placeholder","Nome del compagno");nm.oninput=()=>{pg.bonds[i].nome=nm.value;save();};row.appendChild(nm);row.appendChild(el("span",{class:"bond-die",html:dieIcon(bd.die,32)}));row.appendChild(el("span",{class:"step2 mini"},[el("button",{text:"−",title:"Legame più debole",onclick:()=>{bd.die=bondStep(bd.die,-1);save();renderBonds();render();}}),el("button",{text:"+",title:"Legame più forte",onclick:()=>{bd.die=bondStep(bd.die,1);save();renderBonds();render();}})]));row.appendChild(el("button",{class:"iconbtn",text:"✕",onclick:()=>{pg.bonds.splice(i,1);save();renderBonds();render();}}));bw.appendChild(row);});
-  const add=el("div",{class:"bond add"},[el("div",{class:"bond-i",html:'<span class="gc-em">'+svgIcon("plus",22)+'</span>'}),el("span",{class:"slot-n",text:"Nuovo legame"})]);add.onclick=()=>{if(!Array.isArray(pg.bonds))pg.bonds=[];pg.bonds.push({nome:"",die:"d4"});save();renderBonds();render();flyIn(imgIcon("legame",96),()=>{const b=document.querySelectorAll(".bond:not(.add)");return b[b.length-1];});};bw.appendChild(add);}
+  const add=el("div",{class:"bond add"},[el("div",{class:"bond-i",html:'<span class="gc-em">'+svgIcon("plus",22)+'</span>'}),el("span",{class:"slot-n",text:"Nuovo legame"})]);add.onclick=()=>{if(!Array.isArray(pg.bonds))pg.bonds=[];pg.bonds.push({nome:"",die:"0"});save();renderBonds();render();flyIn(imgIcon("legame",96),()=>{const b=document.querySelectorAll(".bond:not(.add)");return b[b.length-1];});};bw.appendChild(add);}
  renderBonds();CW.appendChild(bw);
  placePortrait("head");placeRaceMedal();
  save();

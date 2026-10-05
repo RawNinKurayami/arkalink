@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
-<link rel="stylesheet" href="manuale.css?v=17">
+<link rel="stylesheet" href="manuale.css?v=18">
 <style>
 /* Il gate del Manuale bloccato resta com'era. */
 #manlock[hidden]{display:none !important;}
@@ -500,6 +500,18 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p><b>ogni dado deve rappresentare qualcosa che il personaggio sta realmente utilizzando.</b></p>
 <p>Non si aggiunge un dado perché “serve un bonus”.</p>
 <p>Si aggiunge perché una capacità concreta sta contribuendo all’azione.</p>
+<h4 class="man-lab">Dadi aggiuntivi senza tipo specificato</h4>
+<p class="man-guida">Quando una regola concede +1 dado o più dadi aggiuntivi senza specificarne il tipo, si utilizza il dado che costituisce il riferimento principale dell’azione o dell’effetto.</p>
+<p class="man-guida">In una normale Prova basata su Attributo + Skill, il dado di riferimento è normalmente l’Attributo, salvo che la capacità indichi diversamente.</p>
+<p class="man-guida">Se invece l’azione o l’effetto utilizza esplicitamente come riferimento una Skill, un Grado d’Arma, un Dado Tecnica, un Dado Danno, un Dado del Frutto, un Dado Haki o un altro dado specifico, il dado aggiuntivo è una nuova copia di quel dado.</p>
+<p class="man-guida">Un generico +1 dado non significa ripetere l’intero pool e non aggiunge automaticamente tutti i dadi che compongono l’azione.</p>
+<p class="man-guida">I dadi aggiuntivi ottenuti attraverso il Prestigio non vengono duplicati da questa regola, salvo indicazione esplicita.</p>
+<h4 class="man-lab">Riduzioni di dado</h4>
+<p class="man-guida">Quando una regola indica −1 dado, non viene eliminato fisicamente un dado dal pool. Il dado di riferimento viene invece ridotto di un Grado lungo la normale scala:</p>
+<div class="man-mappa"><div class="man-riga"><span>d20</span> <i class="man-freccia">→</i> <b>d12</b></div><div class="man-riga"><span>d12</span> <i class="man-freccia">→</i> <b>d10</b></div><div class="man-riga"><span>d10</span> <i class="man-freccia">→</i> <b>d8</b></div><div class="man-riga"><span>d8</span> <i class="man-freccia">→</i> <b>d6</b></div><div class="man-riga"><span>d6</span> <i class="man-freccia">→</i> <b>d4</b></div></div>
+<p class="man-guida">Il d4 rappresenta il limite minimo e non può essere ridotto ulteriormente da una normale riduzione di Grado.</p>
+<p class="man-guida">Se una formula utilizza più copie dello stesso dado di riferimento, la riduzione modifica il Grado di quel riferimento. Per esempio, 3 Dadi Arma d10 diventano 3d8.</p>
+<p class="man-guida">La riduzione dura per il periodo indicato dall’effetto che la provoca.</p>
 <h3 class="man-sub">Il dado racconta la competenza</h3>
 <p>Immaginiamo due pirati che cercano di raggiungere la cima di una torre.</p>
 <p>Il primo è forte ma poco allenato nel movimento acrobatico.</p>
@@ -528,6 +540,15 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Esiste <b>un’altra volontà dall’altra parte del tiro</b>.</p>
 <p>Le regole specifiche stabiliscono quali dadi vengono utilizzati e come viene determinato il vincitore del confronto.</p>
 <p>Il combattimento utilizza questa stessa filosofia, ma con procedure più precise.</p>
+<h4 class="man-lab">Salvezze</h4>
+<p class="man-guida">Una Salvezza rappresenta il tentativo di resistere, evitare o liberarsi da un effetto.</p>
+<p class="man-guida">Quando la capacità indica direttamente l’Attributo da utilizzare, si utilizza quell’Attributo.</p>
+<p class="man-guida">Quando non lo indica, il Game Master sceglie l’Attributo più coerente con ciò che il personaggio sta cercando di contrastare.</p>
+<p class="man-guida">Se la Salvezza viene espressa come confronto contro un’altra capacità, per esempio Forza contro Electro, si effettua una prova contrapposta fra i rispettivi pool.</p>
+<p class="man-guida">In caso di pareggio, prevale sempre chi sta subendo l’effetto.</p>
+<p class="man-guida">Se la capacità possiede invece una Soglia specifica, il risultato della Salvezza deve eguagliare o superare quella Soglia.</p>
+<p class="man-guida">Se non sono indicati né una Soglia né un valore contrapposto, il Game Master stabilisce la difficoltà prima del tiro.</p>
+<p class="man-guida">Veleni, sostanze e altri effetti che dispongono di una propria Soglia utilizzano sempre quella indicata nella rispettiva descrizione.</p>
 <h3 class="man-sub">Il margine conta</h3>
 <p>In Grand Line Chronicles non conta soltanto riuscire o fallire.</p>
 <p>In molte situazioni conta anche <b>di quanto</b> il risultato supera il valore necessario.</p>
@@ -542,6 +563,13 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Non indicano semplicemente che un personaggio “è più forte”.</p>
 <p>Indicano che, <b>in quel preciso momento</b>, le circostanze stanno lavorando a suo favore o contro di lui.</p>
 <p>Le regole dettagliate su come vengono tirati e combinati sono descritte nel capitolo dedicato alle regole fondamentali.</p>
+<h4 class="man-lab">Risolvere Vantaggio e Svantaggio</h4>
+<p class="man-guida">Vantaggio e Svantaggio si applicano all’intero pool di dadi del tiro indicato dall’effetto.</p>
+<p class="man-guida">Con Vantaggio, costruisci normalmente il pool completo, tiralo due volte e conserva il totale più alto.</p>
+<p class="man-guida">Con Svantaggio, costruisci normalmente il pool completo, tiralo due volte e conserva il totale più basso.</p>
+<p class="man-guida">Non si ritira quindi un singolo dado del pool: viene ripetuto l’intero tiro.</p>
+<p class="man-guida">Più fonti di Vantaggio non producono ulteriori tiri. Allo stesso modo, più fonti di Svantaggio non si accumulano.</p>
+<p class="man-guida">Se sullo stesso tiro sono presenti sia Vantaggio sia Svantaggio, i due effetti si annullano e il tiro viene effettuato normalmente.</p>
 <h3 class="man-sub">Una sola scala, molti sistemi</h3>
 <p>La forza del Sistema Will of D. sta nella sua continuità.</p>
 <p>Lo stesso linguaggio che descrive una Skill descrive anche una Tecnica, un’arma, l’Haki o il potere di un Frutto.</p>
@@ -824,6 +852,10 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>La sua scheda raccoglierà progressivamente:</p>
 <p>Attributi, Skill, PV, Stamina, Talenti, Tecniche, armi, Haki, eventuale Frutto del Diavolo, equipaggiamento, Special Moves e tutte le altre capacità ottenute durante il viaggio.</p>
 <p>La creazione stabilisce quindi <b>il punto di partenza</b>, non il personaggio definitivo.</p>
+<h3 class="man-sub">Dotazione iniziale</h3>
+<p class="man-guida">Grand Line Chronicles non utilizza una dotazione iniziale universale.</p>
+<p class="man-guida">Berry, armi, equipaggiamento, strumenti professionali, munizioni, materiali, medicine e altre risorse disponibili alla creazione dipendono dalla campagna.</p>
+<p class="man-guida">Il Game Master stabilisce la dotazione iniziale in base al punto di partenza dell’avventura, alle risorse della ciurma e al tono della campagna.</p>
 <h3 class="man-sub">Ciò che viene calcolato automaticamente</h3>
 <p>Non ogni valore deve essere scelto manualmente.</p>
 <p>Alcune statistiche derivano direttamente dalle decisioni precedenti.</p>
@@ -1163,6 +1195,22 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p><b>la Stamina Attuale non può normalmente superare la Stamina Massima.</b></p>
 <p>Se un effetto permette di oltrepassare questo limite, deve dichiararlo esplicitamente.</p>
 <p>Le diverse forme di recupero vengono spiegate nei rispettivi capitoli.</p>
+<h3 class="man-sub">2.6.1 · Riposo e recupero</h3>
+<p class="man-guida">Esistono due forme principali di riposo.</p>
+<h4 class="man-lab">Riposo breve</h4>
+<p class="man-guida">Un Riposo breve può essere effettuato soltanto quando i personaggi si trovano fuori da un pericolo immediato e possono realmente interrompere le proprie attività.</p>
+<p class="man-guida">Durante un Riposo breve un personaggio recupera:</p>
+<ul class="man-punti"><li>PV pari a metà dei propri PV Massimi;</li><li>ST pari a metà della propria Stamina Massima.</li></ul>
+<p class="man-guida">Le metà vengono sempre arrotondate per eccesso.</p>
+<p class="man-guida">Il recupero non può portare PV o ST oltre i rispettivi valori massimi.</p>
+<p class="man-guida">Il Riposo breve recupera inoltre le risorse che dichiarano espressamente di essere ripristinate attraverso di esso, come i PIP dell’Haki.</p>
+<h4 class="man-lab">Riposo lungo</h4>
+<p class="man-guida">Un Riposo lungo richiede un vero periodo di sonno e viene effettuato fuori dalle scene attive.</p>
+<p class="man-guida">Al termine di un Riposo lungo il personaggio recupera completamente i propri PV e la propria ST, oltre alle altre risorse che indicano espressamente il Riposo lungo come condizione di recupero.</p>
+<h4 class="man-lab">Riposare significa riposare</h4>
+<p class="man-guida">Un personaggio non può utilizzare un Riposo breve o lungo come tempo di lavoro.</p>
+<p class="man-guida">Crafting, riparazioni, costruzioni, addestramenti impegnativi e altre attività che richiedono un’azione continuativa non vengono svolti contemporaneamente a un Riposo.</p>
+<p class="man-guida">Le capacità che permettono espressamente attività particolari durante un Riposo costituiscono un’eccezione.</p>
 <h2 id="sez-2-7" class="man-sez"><span class="man-sez-n">2.7 ·</span> Movimento</h2>
 <p>Il <b>Movimento</b> indica quanti metri un personaggio può percorrere durante il proprio turno.</p>
 <p>Il valore dipende principalmente dalla <b>Razza</b> e rappresenta elementi come corporatura, lunghezza del passo, agilità naturale e capacità fisiche particolari.</p>
@@ -1348,25 +1396,23 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Un personaggio senza Atletica può tentare un Blocco tirando:</p>
 <h3 class="man-sub">Forza</h3>
 <p>Naturalmente, possedere e sviluppare la Skill rende la Difesa Attiva molto più efficace.</p>
+<h3 class="man-sub">Dichiarare la Difesa Attiva</h3>
+<p class="man-guida">Quando un personaggio viene scelto come bersaglio di un attacco, deve decidere se affidarsi alla propria Difesa Passiva oppure utilizzare una Difesa Attiva prima che venga effettuato il tiro per colpire dell’attaccante.</p>
+<p class="man-guida">Il difensore non conosce quindi il risultato dell’attacco nel momento in cui prende questa decisione.</p>
+<p class="man-guida">Se sceglie la Difesa Attiva, utilizza la propria Reazione e il risultato del tiro difensivo sostituisce la Difesa Passiva per quell’attacco.</p>
+<p class="man-guida">Una volta effettuata la scelta non è possibile tornare alla Difesa Passiva dopo aver visto i risultati.</p>
 <h3 class="man-sub">Risolvere la Difesa Attiva</h3>
-<p>Il risultato della Difesa Attiva viene confrontato direttamente con il risultato dell’attacco.</p>
-<p>Per riuscire:</p>
-<p>Difesa Attiva ≥ Attacco nemico</p>
-<p>Se raggiunge o supera l’attacco:</p>
-<p>il colpo viene neutralizzato.</p>
-<p>Se ottiene un risultato inferiore:</p>
-<p>la difesa fallisce.</p>
-<p>Quindi:</p>
-<div class="man-mappa"><div class="man-riga"><span>Difesa Attiva ≥ Attacco nemico</span> <i class="man-freccia">→</i> <b>difeso</b></div><div class="man-riga"><span>Difesa Attiva &lt; Attacco nemico</span> <i class="man-freccia">→</i> <b>colpito</b></div></div>
-<p>Il pareggio favorisce sempre il difensore.</p>
-<p>Se il personaggio tenta una Difesa Attiva e il tiro fallisce, la Difesa Passiva non viene applicata nuovamente: la Difesa Attiva sostituisce la Difesa Passiva per quell’attacco.</p>
+<div class="man-mappa"><div class="man-riga"><span>Difesa Attiva ≥ Attacco</span> <i class="man-freccia">→</i> <b>attacco difeso</b></div><div class="man-riga"><span>Attacco > Difesa Attiva</span> <i class="man-freccia">→</i> <b>attacco riuscito</b></div></div>
+<p class="man-guida">Il pareggio favorisce sempre il difensore.</p>
+<p class="man-guida">Se la Difesa Attiva fallisce, la Difesa Passiva non viene utilizzata come seconda protezione.</p>
 <h3 class="man-sub">Esempio: Schivata</h3>
-<p>Un nemico attacca e ottiene:</p>
-<p><b>14</b></p>
+<p>Un nemico dichiara l’attacco. Prima del tiro, il bersaglio sceglie di schivare.</p>
 <p>Il bersaglio possiede:</p>
 <p><b>Tecnica d8<br>Acrobazia d6</b></p>
-<p>Decide di spendere la propria Reazione e schivare.</p>
-<p>Tira:</p>
+<p>Spende la propria Reazione. Si tirano quindi attacco e difesa.</p>
+<p>L’attacco ottiene:</p>
+<p><b>14</b></p>
+<p>Il bersaglio tira:</p>
 <p><b>d8 + d6</b></p>
 <p>Se ottiene:</p>
 <p>14 o più → schiva l’attacco</p>
@@ -1375,10 +1421,10 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h3 class="man-sub">Esempio: Blocco</h3>
 <p>Un personaggio possiede:</p>
 <p><b>Forza d10<br>Atletica d8</b></p>
-<p>Un attacco nemico totalizza:</p>
+<p>Un nemico dichiara l’attacco e il personaggio sceglie di bloccare prima del tiro.</p>
+<p>L’attacco totalizza:</p>
 <p><b>16</b></p>
-<p>Il personaggio tenta di bloccarlo.</p>
-<p>Tira:</p>
+<p>Il personaggio tira:</p>
 <p><b>d10 + d8</b></p>
 <p>Con:</p>
 <p>16 o più → blocco riuscito</p>
@@ -1660,11 +1706,12 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Punti Abilità, o P.A.</p>
 <p>Il Game Master decide quanti P.A. assegnare.</p>
 <p>Il giocatore decide poi dove investirli.</p>
-<p>I P.A. possono essere utilizzati per sviluppare:</p>
-<p>Attributi Skill Tecniche</p>
+<p>I Punti Abilità vengono utilizzati per sviluppare:</p>
+<ul class="man-punti"><li>Attributi;</li><li>Skill;</li><li>eventuali capacità che dichiarano espressamente di utilizzare P.A.</li></ul>
+<p>Le Tecniche Custom non possiedono una propria progressione in P.A. Il loro limite dipende dall’Attributo associato.</p>
 <p>La crescita non avviene quindi tutta automaticamente.</p>
 <p>Ogni investimento rappresenta una scelta.</p>
-<p>Spendere P.A. in Forza significa non spenderli, nello stesso momento, in una Skill o in una Tecnica.</p>
+<p>Spendere P.A. in Forza significa non spenderli, nello stesso momento, in una Skill.</p>
 <p class="man-guida">Soglie dei P.A.</p>
 <p>La progressione standard utilizza queste soglie:</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th>Passaggio</th><th>P.A. necessari</th></tr></thead><tbody><tr><td>d4 → d6</td><td>10</td></tr><tr><td>d6 → d8</td><td>25</td></tr><tr><td>d8 → d10</td><td>60</td></tr><tr><td>d10 → d12</td><td>150</td></tr><tr><td>d12 → d20</td><td>400</td></tr></tbody></table></div>
@@ -1681,7 +1728,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>la Skill diventa:</p>
 <p>Acrobazia d8</p>
 <p>Da quel momento utilizza il nuovo dado in tutte le prove appropriate, comprese eventuali Difese Attive basate su Tecnica + Acrobazia.</p>
-<p>Lo stesso principio viene applicato agli Attributi e alle Tecniche che utilizzano i P.A.</p>
+<p>Lo stesso principio viene applicato agli Attributi e alle capacità che utilizzano i P.A.</p>
 <h3 class="man-sub">Gli Attributi non aumentano automaticamente</h3>
 <p>Ricevere un Upgrade non aumenta automaticamente:</p>
 <p>Forza Tecnica Spirito Astuzia</p>
@@ -1711,7 +1758,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>La crescita di un pirata segue due grandi sistemi.</p>
 <p class="man-guida">Progressione tramite P.A.</p>
 <p>Vengono sviluppati attraverso i Punti Abilità:</p>
-<p>Attributi Skill Tecniche</p>
+<ul class="man-punti"><li>Attributi;</li><li>Skill;</li><li>capacità che dichiarano espressamente di utilizzare questa risorsa.</li></ul>
+<p>Le Tecniche Custom seguono invece il Grado dell’Attributo al quale sono collegate.</p>
 <p>Questa parte della crescita è principalmente nelle mani del giocatore.</p>
 <p>Ricevuti i P.A., è lui a decidere dove investirli.</p>
 <h3 class="man-sub">Progressione narrativa</h3>
@@ -1749,7 +1797,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Allo stesso modo, non può spendere centinaia di P.A. per forzare il proprio Frutto verso il Risveglio.</p>
 <p>Questi poteri devono maturare anche attraverso la storia.</p>
 <p>La distinzione è quindi:</p>
-<div class="man-mappa"><div class="man-riga"><span>P.A.</span> <i class="man-freccia">→</i> <b>Attributi, Skill e Tecniche</b></div><div class="man-riga"><span>Game Master + sviluppo narrativo</span> <i class="man-freccia">→</i> <b>Frutto e Haki</b></div></div>
+<div class="man-mappa"><div class="man-riga"><span>P.A.</span> <i class="man-freccia">→</i> <b>Attributi, Skill e capacità che dichiarano di utilizzarli</b></div><div class="man-riga"><span>Tecniche Custom</span> <i class="man-freccia">→</i> <b>limitate dall’Attributo utilizzato</b></div><div class="man-riga"><span>Game Master + sviluppo narrativo</span> <i class="man-freccia">→</i> <b>Frutto e Haki</b></div></div>
 <h3 class="man-sub">Il ritmo della campagna</h3>
 <p>Il sistema non impone che tutte le campagne crescano alla stessa velocità.</p>
 <p>Il Game Master può decidere:</p>
@@ -1822,6 +1870,10 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Come stabilito nel Capitolo 2, <b>non esiste una Corsa universale che raddoppia il Movimento</b>.</p>
 <h3 class="man-sub">Tecnica Razziale</h3>
 <p>Ogni Razza possiede una:</p>
+<h3 class="man-sub">Tecniche Razziali e attacchi</h3>
+<p class="man-guida">Quando una Tecnica Razziale modifica un attacco, il suo effetto viene aggiunto all’attacco o alla Tecnica utilizzata e non sostituisce automaticamente l’azione principale.</p>
+<p class="man-guida">Il personaggio risolve normalmente l’attacco e applica poi la capacità razziale secondo le sue condizioni e i suoi eventuali costi.</p>
+<p class="man-guida">La Tecnica Razziale non concede automaticamente un attacco aggiuntivo o una nuova Azione, salvo che lo dichiari espressamente.</p>
 <h3 class="man-sub">Tecnica Razziale a d6</h3>
 <p>La Tecnica Razziale rappresenta una caratteristica innata del corpo, del sangue o della natura di quella Razza.</p>
 <p>Non è una delle Tecniche personali create dal giocatore.</p>
@@ -2022,6 +2074,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Ogni Uomo Pesce / Tritone possiede:</p>
 <h3 class="man-sub">Dominio degli Abissi</h3>
 <p>La Tecnica Razziale parte da:</p>
+<p class="man-guida">Ai fini di Dominio degli Abissi, un Uomo Pesce o Tritone è considerato in acqua quando il proprio corpo è effettivamente immerso.</p>
+<p class="man-guida">Pioggia, spruzzi o il semplice essere bagnato non attivano i benefici dell’immersione.</p>
 <h3 class="man-sub">d6</h3>
 <p>e può essere sviluppata attraverso i <b>Punti Abilità</b> lungo la progressione:</p>
 <h3 class="man-sub">d6 → d8 → d10 → d12 → d20</h3>
@@ -2059,6 +2113,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h3 class="man-sub">Terra arida</h3>
 <p>L’adattamento estremo all’acqua crea anche la principale debolezza della Razza.</p>
 <p>Quando un Uomo Pesce / Tritone si trova su:</p>
+<p class="man-guida">Per terra arida si intende un ambiente realmente desertico, fortemente disidratato o caratterizzato da caldo e secchezza estremi.</p>
+<p class="man-guida">Un normale terreno asciutto non viene considerato automaticamente terra arida.</p>
 <h3 class="man-sub">terra arida</h3>
 <p>subisce:</p>
 <h3 class="man-sub">Svantaggio a ogni tiro</h3>
@@ -2271,6 +2327,12 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Il d20 non aumenta quindi ulteriormente la durata.</p>
 <p>Rende la scarica molto più distruttiva.</p>
 <h3 class="man-sub">Sulong</h3>
+<h4 class="man-lab">Attivare Sulong</h4>
+<p class="man-guida">Per entrare in Sulong, il Mink deve poter vedere la luna.</p>
+<p class="man-guida">Entrare in Sulong è gratuito: non richiede Azione, Azione Bonus, Reazione o Stamina.</p>
+<p class="man-guida">Una volta attivato, Sulong dura per il combattimento secondo le normali regole della capacità.</p>
+<p class="man-guida">Al termine della trasformazione la Stamina scende a 0 come previsto.</p>
+<p class="man-guida">Sulong non possiede un limite di utilizzo separato per notte. Se il Mink riesce successivamente a recuperare la Stamina necessaria e può nuovamente vedere la luna, può entrare di nuovo in Sulong.</p>
 <p>La seconda componente della capacità razziale è:</p>
 <h3 class="man-sub">Sulong</h3>
 <p>Quando il Mink entra in Sulong, per un combattimento:</p>
@@ -2287,7 +2349,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h3 class="man-sub">1 gradino</h3>
 <p>Seguendo la normale scala:</p>
 <div class="man-mappa"><div class="man-riga"><span>d4</span> <i class="man-freccia">→</i> <b>d6</b></div><div class="man-riga"><span>d6</span> <i class="man-freccia">→</i> <b>d8</b></div><div class="man-riga"><span>d8</span> <i class="man-freccia">→</i> <b>d10</b></div><div class="man-riga"><span>d10</span> <i class="man-freccia">→</i> <b>d12</b></div><div class="man-riga"><span>d12</span> <i class="man-freccia">→</i> <b>d20</b></div></div>
-<p>Un Attributo già a d20 non può naturalmente salire oltre il massimo previsto dal sistema.</p>
+<p class="man-guida">Sulong non possiede una propria progressione di Prestigio. Quando però aumenta temporaneamente un Attributo che possiede già accesso alla scala di Prestigio, è l’Attributo a seguire la propria normale progressione.</p>
+<p class="man-guida">Questo aumento temporaneo modifica soltanto il dado e non sblocca nuovi Talenti o capacità di Prestigio.</p>
 <h3 class="man-sub">Esempio</h3>
 <p>Un Mink possiede:</p>
 <p><b>Forza d6<br>Tecnica d10<br>Spirito d4<br>Astuzia d8</b></p>
@@ -2543,6 +2606,10 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Rimangono applicabili gli effetti di Trascinamento o Proiezione e la relativa Salvezza di Forza.</p>
 <h3 class="man-sub">d20 · Quattro bersagli</h3>
 <p>Al Grado massimo:</p>
+<h3 class="man-sub">Bersagli multipli</h3>
+<p class="man-guida">Quando la capacità permette di coinvolgere più bersagli, viene effettuato un tiro per colpire separato contro ciascun bersaglio.</p>
+<p class="man-guida">Ogni bersaglio colpito risolve normalmente il proprio danno e l’eventuale Salvezza prevista dalla capacità.</p>
+<p class="man-guida">Il numero massimo di bersagli non rappresenta un singolo tiro applicato contemporaneamente a tutti.</p>
 <h3 class="man-sub">d20</h3>
 <p>Portata Estesa può coinvolgere:</p>
 <h3 class="man-sub">fino a 4 nemici</h3>
@@ -2615,7 +2682,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Questo vantaggio deriva direttamente dalla lunghezza delle sue gambe.</p>
 <p>Non aumenta il Movimento e non trasforma il calcio in un attacco a distanza.</p>
 <p>Il bersaglio deve comunque trovarsi entro la portata del personaggio.</p>
-<p>La capacità non stabilisce un valore numerico aggiuntivo in metri: tale distanza non viene quindi inventata in questa sezione.</p>
+<p>Calcio Colossale porta la normale portata dei calci del Lungagamba a 2 metri. Rimane una portata da corpo a corpo e non trasforma il calcio in un attacco a distanza.</p>
 <h3 class="man-sub">d8 · Schiantato</h3>
 <p>Quando Calcio Colossale raggiunge:</p>
 <h3 class="man-sub">d8</h3>
@@ -2642,6 +2709,10 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>I nemici devono essere raggiungibili dai calci del personaggio.</p>
 <h3 class="man-sub">d20 · Quattro bersagli</h3>
 <p>Al Grado massimo:</p>
+<h3 class="man-sub">Bersagli multipli</h3>
+<p class="man-guida">Quando la capacità permette di coinvolgere più bersagli, viene effettuato un tiro per colpire separato contro ciascun bersaglio.</p>
+<p class="man-guida">Ogni bersaglio colpito risolve normalmente il proprio danno e l’eventuale Salvezza prevista dalla capacità.</p>
+<p class="man-guida">Il numero massimo di bersagli non rappresenta un singolo tiro applicato contemporaneamente a tutti.</p>
 <h3 class="man-sub">d20</h3>
 <p>il Lungagamba può colpire:</p>
 <h3 class="man-sub">fino a 4 nemici</h3>
@@ -4254,6 +4325,11 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>I Talenti passivi si applicano automaticamente quando vengono soddisfatte le condizioni descritte.</p>
 <p>Non consumano Azioni Bonus e non richiedono un’attivazione volontaria.</p>
 <p>Un Talento passivo non aggira tuttavia i propri limiti: se può applicarsi una sola volta per turno o per scontro, tale limite rimane valido.</p>
+<h4 class="man-lab">Capacità prive di classificazione esplicita</h4>
+<p class="man-guida">Se una capacità richiede al giocatore di scegliere volontariamente se applicarla o attivarla nel momento in cui se ne verificano le condizioni, viene considerata una capacità attiva.</p>
+<p class="man-guida">Se non viene indicata un’altra risorsa, l’attivazione utilizza l’Azione Bonus.</p>
+<p class="man-guida">Se invece l’effetto si applica automaticamente quando vengono soddisfatte le condizioni previste, viene considerato passivo e non utilizza l’Azione Bonus.</p>
+<p class="man-guida">Una capacità che indica espressamente Azione, Reazione o un’altra modalità di attivazione utilizza naturalmente quella regola specifica.</p>
 <h4 class="man-lab">Talenti di Reazione</h4>
 <p>I Talenti che si attivano in risposta a un evento specifico e richiedono una Reazione utilizzano la Reazione, non l’Azione Bonus.</p>
 <p>Per esempio, Scudo della Ciurma si utilizza quando un alleato sta per subire danni.</p>
@@ -4328,18 +4404,29 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Le cadute iniziano a provocare danni da 3 metri di altezza. Il GM determina le conseguenze in base alla distanza e alla situazione.</p>
 <h2 id="sez-6-6" class="man-sez"><span class="man-sez-n">6.6 ·</span> Portata in mischia</h2>
 <p>La portata indica la distanza massima alla quale un personaggio può colpire un bersaglio in mischia.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Attaccante o arma</b></th><th><b>Portata</b></th></tr></thead><tbody><tr><td>Mani nude e armi corte</td><td>1 m</td></tr><tr><td>Lance, bastoni e altre armi lunghe</td><td>2 m</td></tr><tr><td>Longbraccio con Portata Estesa</td><td>2 m</td></tr><tr><td>Giganti e Zoan di grande stazza</td><td>2–5 m</td></tr></tbody></table></div>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Attaccante o arma</b></th><th><b>Portata</b></th></tr></thead><tbody><tr><td>Mani nude e armi corte</td><td>1 m</td></tr><tr><td>Lance, bastoni e altre armi lunghe</td><td>2 m</td></tr><tr><td>Longbraccio con Portata Estesa</td><td>2 m</td></tr><tr><td>Lungagamba con Calcio Colossale</td><td>2 m</td></tr><tr><td>Giganti e Zoan di grande stazza</td><td>2–5 m</td></tr></tbody></table></div>
 <p>La portata indicata da un’arma o da una Tecnica specifica prevale sui valori generali.</p>
 <h4 class="man-lab">Allontanarsi da un nemico</h4>
 <p>Quando un personaggio abbandona la portata di un avversario che lo minaccia, quest’ultimo può utilizzare la propria Reazione per effettuare un attacco.</p>
 <p>Alcuni Talenti consentono di sganciarsi senza provocare attacchi di Reazione.</p>
 <p>Un personaggio Sbilanciato non può effettuare questo attacco se lo stato gli impedisce di utilizzare Reazioni.</p>
+<h4 class="man-lab">Spostamenti forzati</h4>
+<p class="man-guida">Gli spostamenti prodotti da Spinta, Proiezione, Attrazione, Trascinamento o da un’altra capacità che muove forzatamente una creatura non provocano attacchi di Reazione dovuti all’allontanamento.</p>
+<p class="man-guida">Se uno spostamento forzato porterebbe una creatura oltre un bordo, fuori da una superficie o in una posizione dalla quale può ragionevolmente tentare di aggrapparsi, il bersaglio può effettuare una Salvezza di Forza.</p>
+<p class="man-guida">Se supera la Salvezza, riesce ad afferrarsi o a fermare la caduta quando ciò è materialmente possibile.</p>
+<p class="man-guida">Il Game Master stabilisce la Soglia in base alla situazione.</p>
 <h2 id="sez-6-7" class="man-sez"><span class="man-sez-n">6.7 ·</span> Attaccare</h2>
 <p>Quando un personaggio effettua un attacco, utilizza un Attributo e il dado appropriato al tipo di attacco.</p>
-<h4 class="man-lab">Attacco base</h4>
-<h4 class="man-lab">Attributo + Grado dell’arma</h4>
+<h4 class="man-lab">Attacco base con arma</h4>
+<h4 class="man-lab">Attributo + Grado dell’Arma</h4>
+<p class="man-guida">Danno: Dado Arma.</p>
+<h4 class="man-lab">Attacco base a mani nude</h4>
+<h4 class="man-lab">Attributo + Skill di Ruolo utilizzata per il combattimento</h4>
+<p class="man-guida">Danno: dado della stessa Skill di Ruolo.</p>
 <h4 class="man-lab">Attacco con Tecnica</h4>
 <h4 class="man-lab">Attributo + Dado Tecnica</h4>
+<p class="man-guida">Danno: Dado Tecnica, salvo modifiche.</p>
+<p class="man-guida">L’Attributo e la Skill utilizzati devono essere compatibili con il modo in cui il personaggio sta combattendo.</p>
 <p>L’Attributo utilizzato è quello previsto dall’arma o dalla Tecnica.</p>
 <p>Il risultato viene confrontato con la Difesa Passiva del bersaglio, salvo che quest’ultimo utilizzi una difesa consentita dalle proprie capacità.</p>
 <h2 id="sez-6-8" class="man-sez"><span class="man-sez-n">6.8 ·</span> Difesa Passiva</h2>
@@ -4353,6 +4440,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Per determinare l’esito di un attacco si calcola il margine:</p>
 <p><b>Margine = risultato dell’attacco − DP</b></p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Margine</b></th><th><b>Risultato</b></th></tr></thead><tbody><tr><td>Inferiore a 0</td><td>Mancato</td></tr><tr><td>0</td><td>Difesa riuscita, nessun danno</td></tr><tr><td>+1 / +3</td><td>Colpo a segno</td></tr><tr><td>+4 o superiore</td><td>Colpo pulito</td></tr></tbody></table></div>
+<p class="man-guida">Se il bersaglio ha scelto una Difesa Attiva, il Margine dell’attacco viene calcolato rispetto al risultato della Difesa Attiva anziché rispetto alla Difesa Passiva.</p>
+<p class="man-guida">Un pareggio viene considerato una difesa riuscita e non può produrre un colpo a segno o un colpo pulito.</p>
 <p>A differenza delle normali Prove, pareggiare la Difesa Passiva non è sufficiente per infliggere danni.</p>
 <h4 class="man-lab">Colpo pulito</h4>
 <p>Un attacco con margine almeno +4 è un colpo pulito.</p>
@@ -4386,19 +4475,35 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Una Tecnica utilizzata senza potenziamenti non richiede automaticamente Stamina.</p>
 <p>Gli effetti aggiuntivi del Costruttore richiedono invece i costi indicati nelle rispettive descrizioni.</p>
 <p>Quando una Special Move comprende più effetti, tutti i costi applicabili devono essere pagati. La Special Move non concede sconti impliciti.</p>
+<h3 class="man-sub">Ordine dei calcoli</h3>
+<p class="man-guida">Quando più effetti modificano lo stesso danno, vengono applicati nel seguente ordine:</p>
+<ol class="man-passi"><li>aumenti o riduzioni di Grado dei dadi;</li><li>aggiunta o rimozione di dadi;</li><li>tiro dei dadi e somma del danno;</li><li>moltiplicatori;</li><li>dimezzamenti;</li><li>riduzioni o aumenti numerici fissi.</li></ol>
+<p class="man-guida">Gli effetti compatibili si cumulano.</p>
+<p class="man-guida">Due effetti distinti che raddoppiano lo stesso danno producono quindi ×4, salvo che una delle capacità specifichi espressamente di non potersi cumulare o stabilisca un metodo differente.</p>
+<p class="man-guida">Una regola specifica che indica un ordine proprio prevale su questa sequenza generale.</p>
 <h2 id="sez-6-12" class="man-sez"><span class="man-sez-n">6.12 ·</span> Condizioni critiche</h2>
-<h4 class="man-lab">Quasi Morto</h4>
-<p>Un personaggio che si trova al 25% dei propri PV Massimi o meno è considerato Quasi Morto.</p>
-<p>Finché rimane in questa condizione ottiene +2 dadi ai propri tiri.</p>
-<p>Alcune Tecniche possono richiedere espressamente che il bersaglio sia Quasi Morto per applicare determinati effetti.</p>
 <h4 class="man-lab">A Terra</h4>
-<p>Quando un combattente raggiunge 0 PV, va a Terra ed esce normalmente dallo scontro.</p>
-<p>Gli effetti che permettono di stabilizzarlo, mantenerlo cosciente o riportarlo sopra 0 PV seguono le proprie descrizioni.</p>
+<p class="man-guida">Quando un personaggio raggiunge 0 PV, va A Terra ed esce normalmente dallo scontro.</p>
+<p class="man-guida">Raggiungere 0 PV non provoca automaticamente la morte.</p>
+<p class="man-guida">Un personaggio A Terra non può agire normalmente, salvo che una capacità stabilisca espressamente il contrario.</p>
+<p class="man-guida">Un compagno può spostarlo in una posizione sicura se la situazione e le condizioni fisiche lo permettono.</p>
+<p class="man-guida">Cure, capacità del Dottore e altri effetti che restituiscono PV possono riportarlo sopra 0 PV e farlo tornare cosciente secondo le rispettive regole.</p>
+<p class="man-guida">La morte può avvenire soltanto quando, dopo che il personaggio è già A Terra, un nemico continua deliberatamente ad agire contro di lui oppure quando una circostanza della scena ne minaccia concretamente la vita. La risoluzione di queste situazioni appartiene al Game Master.</p>
+<p class="man-guida">Se il personaggio sopravvive fino alla fine dello scontro e non è stato curato, torna cosciente con 1 PV.</p>
+<p class="man-guida">A Terra non è equivalente allo Stato Schiantato.</p>
 <h2 id="sez-6-13" class="man-sez"><span class="man-sez-n">6.13 ·</span> Stati</h2>
-<p>Le Tecniche, le Firme e i Talenti possono applicare stati come Stordito, Sbilanciato, Sanguinante, Avvelenato, Accecato o Paralizzato.</p>
-<p>Uno stato viene applicato soltanto quando un effetto ne prevede l’applicazione e ne vengono soddisfatte le condizioni.</p>
-<p>Durata, eventuali Salvezze e conseguenze sono determinate dalla descrizione dell’effetto che lo provoca.</p>
-<p>Un semplice colpo a segno non infligge automaticamente uno stato aggiuntivo.</p>
+<p class="man-guida">Le Tecniche, le Firme, i Talenti, i veleni e altre capacità possono applicare degli Stati.</p>
+<p class="man-guida">Quando una capacità modifica espressamente durata, danno, Salvezza o funzionamento di uno Stato, la regola specifica prevale su quella generale riportata qui.</p>
+<p class="man-guida">Se un effetto concede una Salvezza senza specificarne il momento, la prima Salvezza viene effettuata quando lo Stato viene applicato. Se lo Stato permane, il bersaglio può ripetere la Salvezza alla fine di ciascun proprio turno, salvo indicazione differente.</p>
+<div class="man-tab-wrap man-tab-lunga"><table class="man-tab"><thead><tr><th><b>Stato</b></th><th><b>Effetto</b></th><th><b>Danno</b></th><th><b>Salvezza / Rimozione</b></th></tr></thead><tbody><tr><td><b>Sbilanciato</b></td><td>Il personaggio non può utilizzare Reazioni.</td><td>—</td><td>Tecnica, Soglia 8.</td></tr><tr><td><b>Sanguinante</b></td><td>Il personaggio continua a perdere sangue finché la ferita non viene trattata.</td><td>1d4 PV all’inizio del proprio turno.</td><td>Non possiede una Salvezza automatica. Richiede una cura, Medicina o un effetto che rimuova lo Stato.</td></tr><tr><td><b>Avvelenato</b></td><td>Il personaggio subisce gli effetti della sostanza che lo ha avvelenato.</td><td>Se il veleno non indica un danno proprio, 1d6 PV all’inizio del turno.</td><td>Forza contro la Soglia del veleno. Ogni veleno può possedere danni, effetti e Soglie differenti.</td></tr><tr><td><b>Accecato</b></td><td>Gli attacchi e le Prove che dipendono dalla vista vengono effettuati con Svantaggio. Non può utilizzare normalmente capacità che richiedono una linea di vista chiara.</td><td>—</td><td>Tecnica, Soglia 8.</td></tr><tr><td><b>Atterrito</b></td><td>Non può avvicinarsi volontariamente alla fonte della paura e i suoi attacchi vengono effettuati con Svantaggio.</td><td>—</td><td>Spirito, Soglia 8.</td></tr><tr><td><b>Stordito</b></td><td>Non può utilizzare Azione, Azione Bonus o Reazione. Può ancora utilizzare il proprio Movimento.</td><td>—</td><td>Forza, Soglia 10.</td></tr><tr><td><b>Paralizzato</b></td><td>Non può utilizzare Movimento, Azione, Azione Bonus o Reazione.</td><td>—</td><td>Forza, Soglia 12.</td></tr><tr><td><b>Addormentato</b></td><td>Non può utilizzare Movimento, Azione, Azione Bonus o Reazione.</td><td>—</td><td>Spirito, Soglia 10. Subire danni o un effetto che dichiara di svegliare il bersaglio termina lo Stato.</td></tr><tr><td><b>Immobilizzato</b></td><td>Il Movimento è 0. Il personaggio può continuare a compiere le altre azioni consentite.</td><td>—</td><td>Forza oppure Tecnica, secondo il modo in cui tenta di liberarsi, Soglia 8.</td></tr><tr><td><b>Trattenuto</b></td><td>Il personaggio non può allontanarsi volontariamente dalla creatura o dall’effetto che lo trattiene.</td><td>—</td><td>Normalmente prova contrapposta di Forza contro la fonte della Presa.</td></tr><tr><td><b>Schiantato</b></td><td>Il personaggio è stato abbattuto a terra. Non può muoversi normalmente finché non si rialza.</td><td>—</td><td>Non richiede Salvezza: per rialzarsi deve spendere 1 Azione.</td></tr></tbody></table></div>
+<h3 class="man-sub">Stati ripetuti</h3>
+<p class="man-guida">Lo stesso Stato non moltiplica automaticamente i propri effetti.</p>
+<p class="man-guida">Due applicazioni identiche di Sanguinante, Stordito, Accecato o di un altro Stato non producono due copie della stessa penalità o dello stesso danno. Se possiedono durate differenti, si conserva la durata maggiore ancora applicabile.</p>
+<p class="man-guida">Effetti differenti che producono lo stesso Stato possono tuttavia mantenere separatamente le proprie proprietà specifiche.</p>
+<p class="man-guida">In particolare, veleni differenti possono essere attivi contemporaneamente. Ogni veleno mantiene i propri danni, la propria Soglia, la propria durata e gli eventuali effetti aggiuntivi.</p>
+<p class="man-guida">Applicare più volte lo stesso veleno non moltiplica invece automaticamente un singolo effetto già in corso, salvo che la descrizione del veleno stabilisca espressamente il contrario.</p>
+<p class="man-guida">Stati differenti possono coesistere normalmente.</p>
+<p class="man-guida">A Terra non è uno Stato. La condizione A Terra provocata dal raggiungimento di 0 PV segue le regole di § 6.12 e non deve essere confusa con Schiantato.</p>
 <h2 id="sez-6-14" class="man-sez"><span class="man-sez-n">6.14 ·</span> Terreno e Copertura</h2>
 <p>L’ambiente può modificare le possibilità di Movimento e le difese dei combattenti.</p>
 <h4 class="man-lab">Terreno Difficile</h4>
@@ -4439,7 +4544,13 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h2 id="sez-7-2" class="man-sez"><span class="man-sez-n">7.2 ·</span> Il Grado della Tecnica</h2>
 <p class="man-guida">Ogni Tecnica possiede un Grado espresso attraverso un dado.</p>
 <p class="man-guida">La progressione segue la scala generale del sistema:</p>
-<p class="man-guida">Il Grado cresce attraverso i Punti Abilità.</p>
+<p class="man-guida">Il Grado della Tecnica è collegato all’Attributo utilizzato per eseguirla.</p>
+<p class="man-guida">Una Tecnica non può mai possedere un Grado superiore all’Attributo associato, ma può possedere volontariamente un Grado inferiore.</p>
+<p class="man-guida">Per esempio, un personaggio con Tecnica d10 può possedere una Tecnica d6, una Tecnica d8 oppure una Tecnica d10. Non può invece possedere una Tecnica d12 basata su Tecnica finché il proprio Attributo non raggiunge almeno d12.</p>
+<p class="man-guida">Le Tecniche Custom non crescono spendendo Punti Abilità.</p>
+<p class="man-guida">Quando l’Attributo associato aumenta di Grado, il personaggio può decidere di aumentare anche una Tecnica collegata fino al nuovo limite. L’aumento non è obbligatorio: una Tecnica può rimanere a un Grado inferiore anche quando l’Attributo è più alto.</p>
+<p class="man-guida">Quando il Grado della Tecnica aumenta, aumentano normalmente il Dado Tecnica utilizzato dal tiro, il Dado Danno della Tecnica, gli Slot Effetto disponibili per quel Grado e gli effetti del Costruttore che diventano accessibili.</p>
+<p class="man-guida">Gli effetti non vengono acquisiti automaticamente: la Tecnica deve essere aggiornata attraverso il Costruttore rispettando slot, Fonte, Forma, requisiti e costi.</p>
 <h4 class="man-lab">Il dado svolge due funzioni:</h4>
 <p class="man-guida"><b>Dado Tecnica:</b> viene sommato all'Attributo appropriato durante il tiro per colpire.</p>
 <p class="man-guida"><b>Dado Danno:</b> determina il danno base inflitto quando la Tecnica colpisce.</p>
@@ -4456,10 +4567,13 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Se un personaggio possiede Spirito d12 e Dado del Frutto d8, le Tecniche del Frutto basate su Spirito possono raggiungere al massimo <b>d8</b>.</p>
 <h4 class="man-lab"></h4>
 <h2 id="sez-7-3" class="man-sez"><span class="man-sez-n">7.3 ·</span> Le Tecniche alla creazione</h2>
-<p>Un personaggio inizia con la propria Tecnica Razziale e può creare fino a due Tecniche personali.</p>
-<p>Il Grado iniziale di ciascuna Tecnica può essere scelto liberamente fino al Grado dell’Attributo a cui è associata.</p>
-<p>Non è obbligatorio creare la Tecnica al massimo consentito: il giocatore può scegliere anche un Grado inferiore.</p>
-<p>Restano validi gli eventuali limiti aggiuntivi della Fonte. Per esempio, una Tecnica del Frutto non può superare neppure il Dado del Frutto.</p>
+<p class="man-guida">Alla creazione un personaggio possiede la propria Tecnica Razziale e può creare fino a due Tecniche Custom.</p>
+<p class="man-guida">Una Tecnica Custom può essere creata a qualsiasi Grado consentito dall’Attributo utilizzato.</p>
+<p class="man-guida">Non è quindi obbligata a partire da d4.</p>
+<p class="man-guida">Per esempio, un personaggio con Tecnica d8 può creare una propria Tecnica basata su Tecnica direttamente a d8, oppure scegliere volontariamente di crearla a d4 o d6.</p>
+<p class="man-guida">Rimangono applicabili gli eventuali limiti della Fonte, dello Stile, del Frutto o di altre capacità coinvolte.</p>
+<p class="man-guida">Durante la campagna il personaggio può creare ulteriori Tecniche senza un limite numerico universale, purché possieda i requisiti necessari e il Game Master ne approvi l’identità e la compatibilità.</p>
+<p class="man-guida">Anche una nuova Tecnica creata durante la campagna non può superare il Grado dell’Attributo che utilizza.</p>
 <h2 id="sez-7-4" class="man-sez"><span class="man-sez-n">7.4 ·</span> Le Fonti</h2>
 <p class="man-guida">La Fonte determina l'origine della Tecnica.</p>
 <p class="man-guida">Nel Costruttore, le Fonti selezionabili per le Tecniche costruite sono <b>Stile</b> e <b>Frutto</b>.</p>
@@ -4520,13 +4634,18 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Alcuni effetti costano 0 ST e non aggiungono alcun costo proprio. Il costo totale è quello risultante dal riepilogo del Costruttore, applicando le regole di calcolo e gli eventuali sconti previsti: non si attribuisce manualmente 1 ST a un effetto indicato a costo zero.</p>
 <p class="man-guida"><b>Una Special Move non riduce automaticamente questi costi.</b> Gli eventuali sconti devono provenire da Talenti, equipaggiamento o altri effetti che li prevedono espressamente.</p>
 <h4 class="man-lab"></h4>
+<h3 class="man-sub">Quando si pagano i costi</h3>
+<p class="man-guida">Ogni costo necessario per utilizzare una Tecnica, un Talento, una capacità, un consumabile, una munizione, una dose o una carica viene pagato nel momento in cui l’utilizzo viene dichiarato e prima di conoscerne l’esito.</p>
+<p class="man-guida">Un attacco mancato, una Prova fallita, una Difesa riuscita dell’avversario o un’interruzione successiva non restituiscono le risorse già spese.</p>
+<p class="man-guida">Non esistono rimborsi automatici.</p>
+<p class="man-guida">Una risorsa viene restituita soltanto quando una capacità lo dichiara espressamente.</p>
 <h2 id="sez-7-8" class="man-sez"><span class="man-sez-n">7.8 ·</span> Catalogo degli effetti</h2>
 <p class="man-guida">Il Catalogo è organizzato in nove famiglie.</p>
 <p class="man-guida">I Gradi riportati nel Catalogo indicano il requisito minimo del singolo effetto. La Tecnica deve possedere uno slot disponibile e rispettare sia il requisito di Grado sia le compatibilità della propria Forma e Fonte.</p>
 <h4 class="man-lab"></h4>
 <h4 class="man-lab">7.8.1 · Danno</h4>
 <p class="man-guida">Gli effetti Danno modificano la quantità o le condizioni del danno inflitto.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Effetto</b></th><th><b>Grado min.</b></th><th><b>ST</b></th><th><b>Funzionamento</b></th></tr></thead><tbody><tr><td><b>+1d6 Dado Danno</b></td><td>d8</td><td>1</td><td>Aggiunge 1d6 al danno.</td></tr><tr><td><b>+1d8 Dado Danno</b></td><td>d10</td><td>2</td><td>Aggiunge 1d8 al danno.</td></tr><tr><td><b>+1d10 Dado Danno</b></td><td>d12</td><td>2</td><td>Aggiunge 1d10 al danno.</td></tr><tr><td><b>Colpo Pesante</b></td><td>d10</td><td>1</td><td>Il danno non può scendere sotto metà del valore del dado.</td></tr><tr><td><b>Esecuzione</b></td><td>d12</td><td>1</td><td>Aggiunge un Dado Danno contro un bersaglio Quasi Morto.</td></tr><tr><td><b>Carica</b></td><td>d10</td><td>2</td><td>Salti un turno; se non vieni colpito, nel turno successivo raddoppi i Dadi Danno, attacchi con Vantaggio e ignori la Copertura.</td></tr><tr><td><b>Sovraccarico</b></td><td>d12</td><td>3</td><td>Raddoppi i Dadi Danno, ma subisci 1d10 PV.</td></tr><tr><td><b>Colpo Annientante</b></td><td>d20</td><td>7</td><td>Triplica il danno.</td></tr><tr><td><b>Tutto o Niente</b></td><td>d12</td><td>5</td><td>Se manchi, non puoi difenderti dal prossimo attacco. Con un colpo pulito, il danno viene triplicato.</td></tr></tbody></table></div>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Effetto</b></th><th><b>Grado min.</b></th><th><b>ST</b></th><th><b>Funzionamento</b></th></tr></thead><tbody><tr><td><b>+1d6 Dado Danno</b></td><td>d8</td><td>1</td><td>Aggiunge 1d6 al danno.</td></tr><tr><td><b>+1d8 Dado Danno</b></td><td>d10</td><td>2</td><td>Aggiunge 1d8 al danno.</td></tr><tr><td><b>+1d10 Dado Danno</b></td><td>d12</td><td>2</td><td>Aggiunge 1d10 al danno.</td></tr><tr><td><b>Colpo Pesante</b></td><td>d10</td><td>1</td><td>Il danno non può scendere sotto metà del valore del dado.</td></tr><tr><td><b>Carica</b></td><td>d10</td><td>2</td><td>Salti un turno; se non vieni colpito, nel turno successivo raddoppi i Dadi Danno, attacchi con Vantaggio e ignori la Copertura.</td></tr><tr><td><b>Sovraccarico</b></td><td>d12</td><td>3</td><td>Raddoppi i Dadi Danno, ma subisci 1d10 PV.</td></tr><tr><td><b>Colpo Annientante</b></td><td>d20</td><td>7</td><td>Triplica il danno.</td></tr><tr><td><b>Tutto o Niente</b></td><td>d12</td><td>5</td><td>Se manchi, non puoi difenderti dal prossimo attacco. Con un colpo pulito, il danno viene triplicato.</td></tr></tbody></table></div>
 <p class="man-guida">Il costo di <b>Colpo Annientante è 7 ST</b> nella configurazione del Costruttore di gestione.</p>
 <h4 class="man-lab">Carica non è la Corsa</h4>
 <p class="man-guida">L'effetto <i>Carica</i> è una preparazione offensiva specifica. Non introduce un'Azione Corsa e non permette di raddoppiare liberamente il Movimento.</p>
@@ -4571,6 +4690,14 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Le Tecniche di Potenziamento richiedono un'<b>Azione principale</b>.</p>
 <p class="man-guida">I loro effetti vengono applicati per la durata indicata. Non utilizzano l'Azione Bonus riservata ai Talenti attivi e all'attivazione dell'Haki.</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Effetto</b></th><th><b>Grado min.</b></th><th><b>ST</b></th><th><b>Funzionamento</b></th></tr></thead><tbody><tr><td><b>Slancio</b></td><td>d6</td><td>2</td><td>Raddoppia la Velocità per la scena.</td></tr><tr><td><b>Furia</b></td><td>d8</td><td>3</td><td>+1 gradino al Dado Danno delle Tecniche, ma DP −2 per la scena.</td></tr><tr><td><b>Mira</b></td><td>d8</td><td>3</td><td>+1 gradino al dado delle Tecniche utilizzato per colpire, per la scena.</td></tr><tr><td><b>Tempra</b></td><td>d10</td><td>2</td><td>DP +2, ma Dado Danno −1 gradino per la scena.</td></tr><tr><td><b>Oltre il Limite</b></td><td>d20</td><td>4</td><td>Aumenta il dado di un gradino oltre il normale tetto del d20 per tre turni.</td></tr></tbody></table></div>
+<h4 class="man-lab">Aumenti temporanei di Grado</h4>
+<p class="man-guida">Quando un effetto aumenta temporaneamente un dado di un Grado, si segue la progressione prevista per la componente modificata.</p>
+<p class="man-guida">Attributi e Skill che possiedono una progressione di Prestigio possono continuare oltre d20:</p>
+<div class="man-mappa"><div class="man-riga"><span>d20</span> <i class="man-freccia">→</i> <b>d20+d4</b></div><div class="man-riga"><span>d20+d4</span> <i class="man-freccia">→</i> <b>d20+d6</b></div><div class="man-riga"><span>d20+d6</span> <i class="man-freccia">→</i> <b>d20+d8</b></div><div class="man-riga"><span>d20+d8</span> <i class="man-freccia">→</i> <b>d20+d10</b></div><div class="man-riga"><span>d20+d10</span> <i class="man-freccia">→</i> <b>d20+d12</b></div><div class="man-riga"><span>d20+d12</span> <i class="man-freccia">→</i> <b>d20+d20</b></div></div>
+<p class="man-guida">L’aumento temporaneo modifica il pool per la durata prevista ma non concede automaticamente nuovi Talenti, capacità o altri benefici di Prestigio che il personaggio non possiede.</p>
+<p class="man-guida">Le Tecniche Custom, le Tecniche Razziali, il Dado del Frutto e le altre componenti che non possiedono una propria progressione di Prestigio hanno normalmente d20 come limite massimo.</p>
+<p class="man-guida">Un effetto che dichiara espressamente di poter superare d20, come Oltre il Limite, costituisce un’eccezione temporanea. In quel caso viene utilizzato il dado successivo della scala superiore esclusivamente per determinare il pool, senza trasformare la Tecnica in una capacità di Prestigio.</p>
+<p class="man-guida">Il Dado del Frutto non acquisisce una progressione di Prestigio e rimane limitato a d20.</p>
 <p class="man-guida">Slancio è un potenziamento specifico e non ripristina la Corsa come Azione generale.</p>
 <p class="man-guida">Il personaggio deve spendere l'Azione e la Stamina richieste per ottenere il beneficio.</p>
 <h4 class="man-lab"></h4>
@@ -4934,12 +5061,13 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Il beneficio si applica agli utilizzi offensivi e difensivi del Dado Armamento. Quando viene utilizzato in Difesa Attiva, sostituisce naturalmente Difesa Rafforzata: il dado non viene tirato ulteriori volte.</p>
 <h4 class="man-lab">Attivo · Ryou</h4>
 <h4 class="man-lab">3 PIP</h4>
-<h4 class="man-lab">Offensivo · Danno interno</h4>
-<p>Il personaggio concentra l’Armamento all’interno del bersaglio, colpendolo dall’interno.</p>
-<p>Quando Ryou viene applicato a un attacco riuscito:</p>
-<p>il danno interno viene raddoppiato ×2</p>
-<p>Il raddoppio viene applicato alla componente di danno interessata da Ryou secondo l’attacco o la Tecnica utilizzata.</p>
-<p>Ryou non annulla automaticamente ogni altra capacità del bersaglio e non impedisce al nemico di utilizzare normalmente la propria Difesa Passiva o Difesa Attiva prima che l’attacco venga risolto.</p>
+<h4 class="man-lab">Offensivo</h4>
+<p class="man-guida">L’Armamento penetra le difese esterne e colpisce dall’interno.</p>
+<p class="man-guida">L’effetto permette di:</p>
+<ul class="man-punti"><li>ignorare la difesa prevista dall’effetto;</li><li>raddoppiare il danno complessivo dell’azione offensiva alla quale Ryou viene applicato.</li></ul>
+<p class="man-guida">Si costruisce e si calcola normalmente tutto il danno prodotto dall’azione, comprendendo tutti i dadi e i bonus effettivamente applicabili, quindi il risultato viene moltiplicato ×2.</p>
+<p class="man-guida">Ryou non raddoppia separatamente ogni singola componente per poi raddoppiare nuovamente il totale.</p>
+<p class="man-guida">Il potere non elimina condizioni, immunità o capacità specifiche che ne limitano espressamente l’utilizzo.</p>
 <h2 id="sez-8-8" class="man-sez"><span class="man-sez-n">8.8 ·</span> Haki dell'Osservazione</h2>
 <h4 class="man-lab"></h4>
 <h3 class="man-sub">Kenbunshoku Haki</h3>
@@ -5004,6 +5132,11 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Attacco: i suoi attacchi ignorano la difesa.</p>
 <p class="man-guida">Difesa: schiva automaticamente ogni colpo.</p>
 <p class="man-guida">L'effetto dura due turni e deve essere attivato pagando il costo di 3 PIP.</p>
+<h4 class="man-lab">Conflitto tra Previsioni Future</h4>
+<p class="man-guida">Quando due personaggi possiedono contemporaneamente Previsione Futura attiva e i rispettivi automatismi entrano direttamente in conflitto, ha precedenza la Previsione Futura attivata per prima.</p>
+<p class="man-guida">L’effetto attivato successivamente non annulla quello precedente.</p>
+<p class="man-guida">La seconda Previsione rimane comunque attiva e continua a funzionare normalmente contro gli altri personaggi e contro tutte le situazioni nelle quali non entra in conflitto con quella precedente.</p>
+<p class="man-guida">Esempio: se il primo personaggio attiva Previsione Futura e successivamente il secondo fa lo stesso, quando il primo attacca il secondo prevale il suo effetto che ignora la difesa. Quando invece il secondo attacca il primo, prevale la schivata automatica della Previsione attivata per prima.</p>
 <h2 id="sez-8-9" class="man-sez"><span class="man-sez-n">8.9 ·</span> Haki del Re</h2>
 <h4 class="man-lab">Haoshoku Haki</h4>
 <p>L’Haki del Re è un potere raro, legato alla volontà innata del personaggio.</p>
@@ -5083,11 +5216,13 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Il costo di attivazione e quello degli effetti speciali sono distinti.</p>
 <p class="man-guida">Attivazione del Colore ed effetto attivo devono avvenire in turni diversi perché ciascuno richiede la propria Azione Bonus. Il mantenimento del Colore e i passivi, invece, non richiedono una nuova Bonus.</p>
 <h2 id="sez-8-13" class="man-sez"><span class="man-sez-n">8.13 ·</span> Interruzione e recupero</h2>
-<p class="man-guida">Quando un personaggio non mantiene più attivo un Colore, non può continuare a utilizzarne i benefici che richiedono quello stato attivo.</p>
-<p class="man-guida">Per riattivarlo deve spendere nuovamente l'Azione Bonus e 1 PIP.</p>
-<p class="man-guida">Gli effetti che possiedono una durata autonoma seguono invece la propria descrizione.</p>
-<p class="man-guida">Il personaggio recupera i PIP attraverso il riposo breve, senza superare la riserva massima prevista dal Grado del Colore.</p>
-<p class="man-guida">L'Haki non sostituisce la Stamina: mantenimento, Tecniche e Talenti devono continuare a essere pagati con le risorse appropriate.</p>
+<p class="man-guida">Un Colore dell’Haki si interrompe quando:</p>
+<ul class="man-punti"><li>il personaggio decide volontariamente di non mantenerlo;</li><li>la relativa riserva di PIP raggiunge 0;</li><li>il personaggio perde conoscenza;</li><li>subisce uno Stato o un effetto che altera sufficientemente la coscienza da impedirgli di mantenerlo, come Stordito.</li></ul>
+<p class="man-guida">Quando l’Haki si interrompe, tutti i benefici che richiedono il Colore attivo cessano immediatamente.</p>
+<p class="man-guida">Gli effetti che possiedono una propria durata autonoma continuano invece a seguire la rispettiva descrizione.</p>
+<p class="man-guida">Per riattivare il Colore occorre effettuare normalmente una nuova attivazione e pagarne il costo.</p>
+<p class="man-guida">I PIP vengono recuperati attraverso un Riposo breve oppure attraverso capacità che ne prevedono espressamente il recupero, senza mai superare la riserva massima prevista dal Grado del Colore.</p>
+<p class="man-guida">L’Haki non sostituisce la Stamina: mantenimento, Tecniche e Talenti continuano a utilizzare le proprie risorse.</p>
 </div></section>
 <section class="man-cap" id="cap-9" data-cap="9"><header class="man-cap-h"><span class="man-cap-n">Capitolo 9 ·</span> <h1>I Frutti del Diavolo</h1></header><div class="man-cap-corpo">
 <p class="man-guida">Un solo morso può cambiare il destino di un pirata.</p>
@@ -5127,6 +5262,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Le tre debolezze non sono intercambiabili: agiscono in modi differenti.</p>
 <p class="man-guida">Le conseguenze specifiche dell'immersione, del contatto con la Pietra di Mare e delle interazioni particolari tra poteri vengono determinate dalle rispettive regole e dalla situazione descritta dal Game Master.</p>
 <p class="man-guida">Un Frutto non perde automaticamente ogni sua proprietà soltanto perché il possessore viene colpito dall'Haki. L'Armamento permette di superare determinate difese, ma non cancella indiscriminatamente tutte le capacità del bersaglio.</p>
+<p class="man-guida">Un Uomo Pesce o Tritone che abbia mangiato un Frutto del Diavolo conserva la propria capacità naturale di respirare sott’acqua, ma perde la capacità di nuotare.</p>
+<p class="man-guida">Se rimane immerso senza un altro mezzo di movimento, non annega grazie alla propria fisiologia, ma non può nuotare e rimane incapace di muoversi normalmente nell’acqua finché la condizione persiste.</p>
 <h2 id="sez-9-4" class="man-sez"><span class="man-sez-n">9.4 ·</span> Il Dado del Frutto</h2>
 <p class="man-guida">Il Dado del Frutto rappresenta il livello di padronanza raggiunto dal personaggio.</p>
 <p class="man-guida">Non determina quale potere possiede, ma quanto riesce a controllarlo.</p>
@@ -7088,26 +7225,33 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 </div></section>
 <section class="man-cap" id="cap-15" data-cap="15"><header class="man-cap-h"><span class="man-cap-n">Capitolo 15 ·</span> <h1>I Legami Nakama</h1></header><div class="man-cap-corpo">
 <h2 id="sez-15-1" class="man-sez"><span class="man-sez-n">15.1 ·</span> Il Legame Nakama</h2>
-<p class="man-guida">Un Legame Nakama rappresenta la fiducia e l'intesa sviluppate tra due compagni attraverso le avventure condivise.</p>
-<p class="man-guida">Ogni personaggio registra separatamente il Legame che possiede con ciascun compagno. Il suo valore è espresso attraverso un dado che cresce con la storia, secondo le decisioni del Game Master.</p>
-<p><b>Progressione del Legame: d4 → d6 → d8 → d10 → d12 → d20.</b></p>
-<p class="man-guida">Il Legame non cresce spendendo Punti Abilità.</p>
+<p class="man-guida">Un Legame Nakama rappresenta la fiducia e l’intesa sviluppate tra due compagni.</p>
+<p class="man-guida">Ogni Legame nasce a 0.</p>
+<p class="man-guida">A 0 il Legame esiste narrativamente, ma non concede ancora alcun dado.</p>
+<p class="man-guida">Quando cresce, segue la progressione:</p>
+<p class="man-guida">0 → d4 → d6 → d8 → d10 → d12 → d20.</p>
+<p class="man-guida">Il Legame non cresce attraverso Punti Abilità. È il Game Master a stabilire quando gli eventi vissuti insieme giustificano un aumento.</p>
 <h2 id="sez-15-2" class="man-sez"><span class="man-sez-n">15.2 ·</span> Aiuto Nakama</h2>
-<h3 class="man-sub">Aiuto Nakama</h3>
-<h4 class="man-lab">1 volta per scena</h4>
-<p class="man-guida">Una volta per scena, quando un compagno sta per effettuare una Prova, puoi intervenire immediatamente per aiutarlo, anche fuori dal tuo turno, purché il contributo sia possibile e narrativamente appropriato.</p>
-<p class="man-guida">Costo: l'aiuto utilizza una tua Azione. Se intervieni fuori dal tuo turno, rinunci alla prossima Azione che avresti a disposizione. Se intervieni durante il tuo turno, spendi l'Azione di quel turno; non perdi una seconda Azione.</p>
-<p class="man-guida">Beneficio: il compagno aggiunge al proprio tiro il dado del Legame Nakama che possiedi nei suoi confronti.</p>
-<p class="man-guida">Il GM verifica che l'intervento abbia senso nella scena.</p>
-<p class="man-guida">Aiutare un compagno a sollevare un macigno, distrarre il suo avversario o collaborare alla riparazione di un macchinario sono interventi possibili. Un personaggio che si trova altrove e non può contribuire non può concedere il proprio dado soltanto perché possiede un Legame elevato.</p>
+<p class="man-guida">Un personaggio può utilizzare il proprio Legame per aiutare un compagno quando il contributo è concretamente possibile.</p>
+<p class="man-guida">Uno stesso tiro può ricevere il dado Nakama di un solo compagno.</p>
+<h4 class="man-lab">Durante uno scontro</h4>
+<p class="man-guida">Ciascun personaggio può fornire Aiuto Nakama una volta per scontro.</p>
+<h4 class="man-lab">Fuori dal combattimento</h4>
+<p class="man-guida">Ciascun personaggio può utilizzare Aiuto Nakama una volta per scena.</p>
+<p class="man-guida">Il compagno aiutato aggiunge al proprio tiro il dado del Legame posseduto dall’aiutante nei suoi confronti.</p>
+<p class="man-guida">Durante il combattimento, aiutare utilizza l’Azione dell’aiutante. Se l’aiuto viene fornito fuori dal proprio turno, il personaggio rinuncia alla propria prossima Azione.</p>
+<p class="man-guida">Fuori dal combattimento non viene applicata questa economia delle Azioni, salvo che la scena utilizzi espressamente una struttura a turni.</p>
+<p class="man-guida">Il Game Master verifica sempre che l’intervento sia realmente possibile nella situazione.</p>
 </div></section>
 <section class="man-cap" id="cap-16" data-cap="16"><header class="man-cap-h"><span class="man-cap-n">Capitolo 16 ·</span> <h1>Avanzamento e Upgrade</h1></header><div class="man-cap-corpo">
 <p class="man-guida">Nessun pirata nasce leggenda.</p>
 <p class="man-guida">Si diventa più forti sopravvivendo agli scontri, imparando dai propri errori e attraversando mari che sembravano impossibili. Ma crescere non significa soltanto infliggere più danni: un Navigatore può imparare a leggere correnti sconosciute, un Dottore può perfezionare le proprie cure e un Capitano può trovare il coraggio di guidare la ciurma contro un nemico molto più potente.</p>
-<p class="man-guida">In Grand Line Chronicles, la crescita del personaggio segue due percorsi complementari:</p>
-<p class="man-guida">I Punti Abilità (P.A.) permettono di aumentare i dadi di Attributi, Skill e Tecniche.</p>
+<p class="man-guida">In Grand Line Chronicles, la crescita del personaggio segue percorsi differenti:</p>
+<p class="man-guida">I Punti Abilità (P.A.) permettono di sviluppare Attributi, Skill e le capacità che dichiarano espressamente di utilizzarli.</p>
+<p class="man-guida">Le Tecniche Custom seguono il limite dell’Attributo utilizzato.</p>
 <p class="man-guida">Gli Upgrade rappresentano i grandi momenti di crescita della storia e concedono risorse, P.A. e Talenti.</p>
-<p class="man-guida">I due percorsi lavorano insieme, ma non sono la stessa cosa. Un pirata può perfezionare una Tecnica attraverso l'esperienza senza dover aspettare un Upgrade. Viceversa, un Upgrade concede benefici che non si ottengono semplicemente accumulando P.A.</p>
+<p class="man-guida">Frutto e Haki seguono le rispettive progressioni narrative.</p>
+<p class="man-guida">Questi sistemi lavorano insieme, ma non sono la stessa cosa. Un pirata può perfezionare le proprie capacità attraverso l'esperienza senza dover aspettare un Upgrade. Viceversa, un Upgrade concede benefici che non si ottengono semplicemente accumulando P.A.</p>
 <h2 id="sez-16-1" class="man-sez"><span class="man-sez-n">16.1 ·</span> I dadi della progressione</h2>
 <p class="man-guida">Attributi, Skill e Tecniche utilizzano la stessa scala ordinaria di avanzamento. Il Manuale del Prestigio estende Attributi e Skill oltre d20: d20+d4, d20+d6, d20+d8, d20+d10, d20+d12 e d20+d20 (Saikyō). Ogni progressione resta indipendente. Il catalogo ordinario delle Tecniche conserva i propri Gradi, slot, costi e requisiti.</p>
 <h3 class="man-sub">Scala di progressione</h3>
@@ -7115,23 +7259,27 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Un avanzamento aumenta il dado di un gradino.</p>
 <p class="man-guida">Non è possibile passare direttamente da d4 a d10 pagando soltanto il costo dell'ultimo passaggio.</p>
 <p class="man-guida">Quando aumenta il dado di una Skill, quel miglioramento si applica a tutte le Prove che utilizzano la Skill.</p>
-<p class="man-guida">Quando aumenta il dado di una Tecnica, cresce sia il dado utilizzato per colpire sia il suo Dado Danno, poiché i due valori coincidono.</p>
+<p class="man-guida">Le Tecniche Custom non possiedono invece P.A. propri: il loro Grado può essere aumentato quando il Grado dell’Attributo associato lo permette.</p>
+<p class="man-guida">Quando aumenta il Grado di una Tecnica, crescono il suo Dado Tecnica, il Dado Danno e gli Slot disponibili.</p>
 <p class="man-guida">L'aumento del dado non aggiunge automaticamente nuovi effetti alla Tecnica: il personaggio deve modificarla attraverso il Costruttore, rispettandone i requisiti.</p>
 <h2 id="sez-16-2" class="man-sez"><span class="man-sez-n">16.2 ·</span> I Punti Abilità</h2>
 <p class="man-guida">I P.A. rappresentano la padronanza acquisita attraverso l'esperienza e l'allenamento.</p>
-<p class="man-guida">Ogni Attributo, Skill e Tecnica possiede una progressione individuale.</p>
-<p class="man-guida">Un pirata può quindi avere molti P.A. accumulati in Atletica, pochi in Navigazione e una quantità differente nella propria Tecnica principale.</p>
+<p class="man-guida">Vengono distribuiti fra Attributi, Skill e le eventuali capacità che dichiarano espressamente di utilizzare P.A.</p>
+<p class="man-guida">Le Tecniche Custom non accumulano e non spendono P.A. propri.</p>
+<p class="man-guida">Ogni Attributo e ogni Skill possiede una progressione individuale.</p>
+<p class="man-guida">Un pirata può quindi avere molti P.A. accumulati in Atletica e pochi in Navigazione.</p>
 <p class="man-guida">I P.A. non rappresentano Berry e non possono essere utilizzati per comprare armi, materiali o Moduli.</p>
 <p class="man-guida"><b>Come si ottengono?</b></p>
 <p class="man-guida">Esistono due fonti.</p>
-<p class="man-guida">Esperienza durante la storia. Utilizzare una Skill o una Tecnica in situazioni significative può farle accumulare P.A. Il Game Master determina quanti assegnarne.</p>
+<p class="man-guida">Esperienza durante la storia. Utilizzare una Skill in situazioni significative può farle accumulare P.A. Il Game Master determina quanti assegnarne.</p>
 <p class="man-guida">Ricompensa dell'Upgrade. Quando concede un Upgrade, il Game Master assegna anche una quantità di P.A. che il giocatore può distribuire liberamente tra Attributi, Skill e Tecniche.</p>
 <p class="man-guida">Non esiste una quantità fissa di P.A. per ogni tiro riuscito. La loro assegnazione deve riflettere il ritmo della campagna, senza obbligare i giocatori a ripetere continuamente Prove irrilevanti per accumulare punti.</p>
 <h2 id="sez-16-3" class="man-sez"><span class="man-sez-n">16.3 ·</span> Le soglie di avanzamento</h2>
 <p class="man-guida">Per aumentare un dado, il personaggio deve accumulare il numero di P.A. richiesto dal passaggio successivo.</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Passaggio</b></th><th><b>P.A. necessari</b></th></tr></thead><tbody><tr><td>d4 → d6</td><td>10</td></tr><tr><td>d6 → d8</td><td>25</td></tr><tr><td>d8 → d10</td><td>60</td></tr><tr><td>d10 → d12</td><td>150</td></tr><tr><td>d12 → d20</td><td>400</td></tr></tbody></table></div>
 <p class="man-guida">Questi sono i valori di riferimento del manuale. Il Game Master può modificarli in base alla durata prevista della campagna.</p>
-<p class="man-guida">Le soglie si applicano a tutti e tre i gruppi di progressione: Attributi, Skill e Tecniche.</p>
+<p class="man-guida">Le soglie dei P.A. si applicano ad Attributi, Skill e alle capacità che dichiarano espressamente di utilizzare i Punti Abilità.</p>
+<p class="man-guida">Non si applicano alle Tecniche Custom.</p>
 <p class="man-guida"><b>Spendere i P.A.</b></p>
 <p class="man-guida">Quando un personaggio possiede abbastanza P.A. su una capacità, può spenderli per aumentare il suo dado di un gradino.</p>
 <p class="man-guida">I punti necessari vengono sottratti dalla progressione di quella capacità.</p>
@@ -7156,20 +7304,18 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Il giocatore deve scegliere di investirvi una parte dei propri P.A.</p>
 <p class="man-guida">Questa scelta comporta una rinuncia: i punti spesi in Forza non possono essere utilizzati contemporaneamente per aumentare una Skill o una Tecnica.</p>
 <h4 class="man-lab">Attributi e Tecniche</h4>
-<p class="man-guida">Quando si migliora una Tecnica, rimangono validi i requisiti di costruzione.</p>
-<p class="man-guida">Il dado della Tecnica non può superare quello dell'Attributo a cui è collegata.</p>
-<p class="man-guida">Un personaggio con Tecnica d8, per esempio, non può portare una mossa basata su Tecnica a d10 finché non possiede un Attributo sufficiente.</p>
-<p class="man-guida">Il personaggio può conservare i P.A. accumulati e utilizzarli quando avrà soddisfatto il requisito.</p>
+<p class="man-guida">Il Grado dell’Attributo determina il massimo Grado raggiungibile dalle Tecniche che lo utilizzano.</p>
+<p class="man-guida">Quando un Attributo aumenta, le Tecniche collegate non aumentano automaticamente: il giocatore può decidere quali portare al nuovo Grado e quali mantenere a un Grado inferiore.</p>
+<p class="man-guida">Questo aumento non richiede P.A. aggiuntivi per la Tecnica.</p>
+<p class="man-guida">Per esempio, un personaggio possiede Tecnica d6 e una Tecnica personale d6. Se l’Attributo Tecnica sale a d8, il giocatore può portare quella Tecnica personale a d8: la Tecnica ottiene il Dado Tecnica, il Dado Danno e gli Slot previsti dal nuovo Grado.</p>
 <h2 id="sez-16-5" class="man-sez"><span class="man-sez-n">16.5 ·</span> Migliorare le Tecniche</h2>
-<p class="man-guida">Ogni Tecnica personalizzata possiede un dado e una progressione individuale.</p>
-<p class="man-guida">Quando viene migliorata, il suo dado aumenta di un gradino.</p>
-<h3 class="man-sub">Avanzamento della Tecnica</h3>
-<p><b>d8 → d10</b></p>
-<p class="man-guida">Tiro per colpire: il dado della Tecnica passa da d8 a d10.</p>
-<p class="man-guida">Dado Danno: passa anch'esso da d8 a d10.</p>
-<p class="man-guida">Costruttore: diventano disponibili gli effetti che richiedono il nuovo Grado, purché vengano rispettati slot, compatibilità e costi.</p>
-<p class="man-guida">Aumentare una Tecnica non significa che ogni suo effetto migliori automaticamente.</p>
-<p class="man-guida">Gli effetti devono essere quelli effettivamente selezionati nel Costruttore.</p>
+<p class="man-guida">Una Tecnica Custom non cresce attraverso Punti Abilità propri.</p>
+<p class="man-guida">Il suo limite è determinato dall’Attributo utilizzato.</p>
+<p class="man-guida">Quando quel limite aumenta, il giocatore può aumentare volontariamente il Grado della Tecnica fino al nuovo massimo disponibile.</p>
+<p class="man-guida">Migliorare una Tecnica:</p>
+<ul class="man-punti"><li>aumenta il Dado Tecnica;</li><li>aumenta il Dado Danno;</li><li>aumenta gli Slot Effetto disponibili;</li><li>rende accessibili gli effetti del nuovo Grado.</li></ul>
+<p class="man-guida">Una Tecnica non è obbligata a raggiungere il massimo consentito.</p>
+<p class="man-guida">Aumentare il Grado non aggiunge automaticamente nuovi effetti: la Tecnica deve essere modificata attraverso il Costruttore.</p>
 <h2 id="sez-16-6" class="man-sez"><span class="man-sez-n">16.6 ·</span> Gli Upgrade</h2>
 <p class="man-guida">Un Upgrade rappresenta un momento decisivo della crescita del personaggio.</p>
 <p class="man-guida">Può essere concesso alla conclusione di un arco narrativo, dopo un'impresa importante o in seguito a un evento che cambia profondamente il pirata.</p>

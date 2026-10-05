@@ -260,6 +260,11 @@ h4.man-lab b{font-weight:inherit;}
   h2.man-sez{font-size:14pt; break-after:avoid;}
   p,li{orphans:3; widows:3;}
   .man-tab-wrap,.man-elenco,.man-mappa{break-inside:avoid;}
+  /* Una tabella più alta di una pagina non può restare intera: si spezza
+     fra una riga e l'altra, ripetendo l'intestazione. */
+  .man-tab-wrap.man-tab-lunga{break-inside:auto !important;}
+  .man-tab-lunga tr{break-inside:avoid;}
+  .man-tab-lunga thead{display:table-header-group;}
   .man-tab{font-size:8.6pt;}
   .man-fine{display:none;}
 }
