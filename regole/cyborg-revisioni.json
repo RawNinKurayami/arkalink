@@ -102,5 +102,35 @@
   "da": "Impatto Devastante",
   "a": "Onda Titanica",
   "perche": "Il Talento di Prestigio dello Striker si chiama Onda Titanica dal 05/10/2026."
+ },
+ {
+  "sostituisci": [
+   250,
+   250
+  ],
+  "inizia_con": "12 · Protesi",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): la Stabilizzazione universale del manuale base (6.12.1) non vale automaticamente sul corpo Cyborg. Nuova sezione in coda al capitolo 11.",
+  "con": [
+   {
+    "style": "Heading2",
+    "text": "11.5 · Stabilizzazione del Cyborg"
+   },
+   {
+    "style": "Normal",
+    "text": "La normale Stabilizzazione attraverso Medicina rappresenta un intervento biologico e non si applica automaticamente a un corpo Cyborg."
+   },
+   {
+    "style": "Normal",
+    "text": "Un intervento equivalente deve utilizzare Meccanica oppure una capacità che permetta espressamente di intervenire su un Cyborg."
+   },
+   {
+    "style": "Normal",
+    "text": "Stabilizzare un Cyborg non restituisce automaticamente PV e non ripara i suoi Moduli."
+   },
+   {
+    "style": "Normal",
+    "text": "Il recupero dei PV continua a seguire Riparazione di Campo e le altre capacità specifiche del Cyborg."
+   }
+  ]
  }
 ]
