@@ -437,7 +437,7 @@ function resolve(input) {
    if(owns('Forma Ibrida'))conditional('Forma Ibrida · mischia','+1 dado ai tiri fisici e al Danno in mischia; usa il dado previsto dalla tua forma.');
    if(owns('Ferocia Crescente'))conditional('Ferocia Crescente','+1 dado al Danno in mischia dopo essere sceso sotto metà PV, fino a fine scontro.');
    const armRyou=m.hakiSelections.some(h=>findSource(h.id,ss)?.name===HAKI_NAMES[0]&&h.effects.includes('act:d20'));
-   if(armRyou||hakiFX('ryou-persistente'))conditional('Ryou · Armamento','Ignora la difesa prevista dall’effetto e raddoppia ×2 il danno complessivo dell’azione, calcolato una volta sola sul totale.');
+   if(armRyou||hakiFX('ryou-persistente'))conditional('Ryou · Armamento','Raddoppia ×2 il danno complessivo dell’azione, calcolato una volta sola sul totale. Il bersaglio usa normalmente la propria difesa.');
   }else if(isDefense(t)){
    let defense='Effetto difensivo della Tecnica';
    if(hasEffect(t,'Contrattacco'))defense=roll;
