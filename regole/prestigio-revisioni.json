@@ -306,5 +306,234 @@
   "from": "Questo documento raccoglie 33 Talenti di Prestigio in 11 cataloghi: Capitano, Musicista, le tre specializzazioni del Dottore, le tre specializzazioni dell’Ingegnere,",
   "to": "Questo documento raccoglie 30 Talenti di Prestigio in 10 cataloghi: Capitano, Musicista, le tre specializzazioni del Dottore, le due specializzazioni dell’Ingegnere,",
   "perche": "Revisione del 05/10/2026: residui dell’Inventore, confermati da Simone."
+ },
+ {
+  "source": "ruoli",
+  "block": 34,
+  "from": "rimuovono uno stato negativo, come nella capacità ordinaria",
+  "to": "rimuovono uno Stato negativo rimovibile, come nella capacità ordinaria",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 66,
+  "from": "e non si somma a esso.",
+  "to": "e non si somma a esso. L’aumento si applica alla Soglia registrata nella scheda del veleno utilizzato.",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 72,
+  "from": "Diffondi una nube tossica. Una creatura che vi entra o vi inizia il proprio turno effettua la normale Salvezza; se fallisce, diventa Avvelenata e Accecata. Il raggio massimo dipende dalla tua Medicina.",
+  "to": "Nebbia Pestilenziale utilizza e consuma una dose preparata di Veleno compatibile con Inalazione, come Nube Tossica. L’Azione comprende la dispersione della sostanza e non richiede un tiro per colpire.",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "after": 72,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Il punto d’origine deve essere visibile e materialmente raggiungibile dalla sostanza; ostacoli solidi impediscono di collocarlo oltre di essi."
+   },
+   {
+    "style": "Normal",
+    "text": "Quando la nube compare, le creature già presenti effettuano immediatamente la normale Salvezza. Successivamente effettuano la Salvezza quando entrano nella nube o iniziano il turno al suo interno. Se falliscono, diventano Avvelenate e Accecate secondo le normali regole di Nube Tossica."
+   },
+   {
+    "style": "Normal",
+    "text": "Il raggio massimo dipende dalla Medicina:"
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 74,
+  "from": "Se possiedi Tossine Sovrane, applichi anche il suo aumento della Soglia e la riduzione dell’Attributo in caso di Salvezza fallita. Gli alleati esposti effettuano la Salvezza: Profilassi protegge soltanto i soggetti trattati contro quella tossina.",
+  "to": "Se possiedi Tossine Sovrane, applichi anche il suo aumento della Soglia e la riduzione dell’Attributo in caso di Salvezza fallita. Gli alleati esposti effettuano normalmente la Salvezza. Profilassi protegge soltanto chi è stato preventivamente trattato contro quella tossina.",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "after": 74,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Si applicano normalmente le regole relative a pareti, ventilazione, acqua, maschere e protezioni respiratorie."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 75,
+  "from": "Saikyō: il costo diventa 5 ST, puoi collocare il centro entro 100 m e la nube dura 5 turni. Il raggio massimo è 100 m.",
+  "to": "Saikyō: costo 5 ST, centro entro 100 m, durata 5 turni e raggio massimo 100 m.",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "after": 79,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "La distanza rappresenta quanto lontano puoi raggiungere il bersaglio con la Reazione. Il percorso deve essere praticabile e devi poter somministrare fisicamente la dose."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 84,
+  "from": "Evolve: Mani da Chirurgo — Maestria. Tipo: passivo sulle cure da campo riuscite.",
+  "to": "Evolve: Mani da Chirurgo — Maestria. Tipo: passivo sulle Cure da Campo riuscite.",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 85,
+  "from": "Le tue cure da campo restituiscono il doppio dei PV normalmente recuperati. Calcoli prima il recupero ordinario, compresi i bonus applicabili, e poi raddoppi il totale.",
+  "to": "Le tue Cure da Campo restituiscono il doppio dei PV normalmente recuperati. Calcola prima il recupero ordinario, compresi tutti i bonus applicabili, quindi raddoppia il totale.",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 86,
+  "from": "La rimozione dello stato negativo di Mani da Chirurgo — Maestria diventa la rimozione di due stati negativi. Gli altri benefici ordinari pertinenti mantengono le proprie regole.",
+  "to": "La rimozione di uno Stato negativo rimovibile concessa da Mani da Chirurgo — Maestria diventa la rimozione di due Stati negativi rimovibili.",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 87,
+  "from": "Restano necessari la normale prova di Medicina, i materiali e il limite delle cure da campo sullo stesso paziente. Mani da Chirurgo — Migliorato continua a determinare il numero di pazienti curabili con una sola Azione.",
+  "to": "Restano necessari:",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "after": 87,
+  "blocchi": [
+   {
+    "style": "List Bullet",
+    "text": "La normale Prova di Cura da Campo."
+   },
+   {
+    "style": "List Bullet",
+    "text": "I materiali."
+   },
+   {
+    "style": "List Bullet",
+    "text": "L’accesso fisico al paziente."
+   },
+   {
+    "style": "List Bullet",
+    "text": "Il normale limite delle Cure da Campo sullo stesso paziente."
+   },
+   {
+    "style": "Normal",
+    "text": "Mani da Chirurgo — Migliorato continua a determinare il numero di pazienti curabili con una sola Azione."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 88,
+  "from": "Saikyō: il recupero diventa triplo rispetto alla cura ordinaria e la rimozione della Maestria riguarda tre stati negativi. La quantità di ST recuperata da altri benefici non viene moltiplicata da questo Talento.",
+  "to": "Saikyō: il recupero diventa triplo rispetto alla Cura da Campo ordinaria e puoi rimuovere fino a tre Stati negativi rimovibili. La quantità di ST recuperata da altri benefici non viene moltiplicata.",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 91,
+  "from": "Quando un alleato ancora in vita raggiunge 0 PV, puoi raggiungerlo e intervenire immediatamente, purché il percorso sia praticabile. Lo stabilizzi e gli restituisci PV pari al risultato di un tiro completo di Medicina, fino ai suoi PV massimi.",
+  "to": "Quando un alleato ancora in vita raggiunge 0 PV, puoi utilizzare la Reazione per raggiungerlo e intervenire immediatamente. Lo spostamento necessario fa parte della Reazione, ma il percorso deve essere praticabile e devi poter raggiungere fisicamente il paziente.",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 92,
+  "from": "Il tiro quantifica il recupero e non è una seconda prova di riuscita. L’alleato torna cosciente grazie ai PV recuperati. I tre utilizzi sostituiscono quello di Intervento Immediato e sono condivisi con la forma ordinaria.",
+  "to": "Lo Stabilizzi e gli restituisci PV pari al risultato di un tiro completo di Medicina, fino ai suoi PV Massimi. Questo recupero sostituisce l’1d4 di Specialista in Rianimazione e non si somma a esso. Il tiro quantifica il recupero e non costituisce una seconda Prova di riuscita. L’alleato torna cosciente grazie ai PV recuperati.",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 93,
+  "from": "Questa è una rianimazione distinta dalle cure da campo: non consuma il loro limite sul paziente e non riceve il moltiplicatore di Chirurgia Leggendaria.",
+  "to": "Questa è una rianimazione distinta dalla Cura da Campo:",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "after": 93,
+  "blocchi": [
+   {
+    "style": "List Bullet",
+    "text": "Non consuma il limite delle Cure da Campo sul paziente."
+   },
+   {
+    "style": "List Bullet",
+    "text": "Non riceve il moltiplicatore di Chirurgia Leggendaria."
+   },
+   {
+    "style": "Normal",
+    "text": "I tre utilizzi sostituiscono quello di Intervento Immediato e sono condivisi con la sua forma ordinaria."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "after": 106,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Per danno iniziale si intende il Dado Danno registrato nella scheda del preparato, compreso il dado aggiuntivo di Reazioni Violente — Base. Bruciatura e altri danni successivi non fanno parte del danno iniziale e non vengono moltiplicati."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "after": 109,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Entrambi i preparati devono possedere una scheda completa e devono essere effettivamente preparabili dal Chimico."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "after": 121,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Si applicano le normali regole di utilizzo dei preparati ad Area. Il punto d’origine deve essere visibile e raggiungibile dal lancio; pareti e ostacoli solidi impediscono di collocarlo oltre di essi. La dose viene consumata normalmente."
+   },
+   {
+    "style": "Normal",
+    "text": "Lancio Preciso continua a permettere di escludere i bersagli previsti. Dispersione Sovrana non modifica il danno o gli Stati del preparato: modifica soltanto la sua capacità di diffusione e la Portata di lancio."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 235,
+  "from": "Rimuovono inoltre due stati negativi, anziché quello di Mano del Cuoco — Maestria.",
+  "to": "I tuoi piatti rimuovono inoltre fino a due Stati negativi rimovibili, anziché quello previsto da Mano del Cuoco — Maestria.",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+ },
+ {
+  "source": "ruoli",
+  "block": 236,
+  "from": "e gli stati rimossi diventano tre.",
+  "to": "e gli Stati negativi rimovibili diventano tre.",
+  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
  }
 ]
