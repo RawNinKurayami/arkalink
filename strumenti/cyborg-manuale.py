@@ -68,8 +68,12 @@ for e in revisioni:
         assert len(t['rows']) == prima - 1, e
     elif 'da' in e:
         t = blocchi[e['blocco']]
-        assert e['da'] in t['text'], e
-        t['text'] = t['text'].replace(e['da'], e['a'])
+        if t['type'] == 'table':
+            assert any(e['da'] in c for r in t['rows'] for c in r), e
+            t['rows'] = [[c.replace(e['da'], e['a']) for c in r] for r in t['rows']]
+        else:
+            assert e['da'] in t['text'], e
+            t['text'] = t['text'].replace(e['da'], e['a'])
 for e in sorted([e for e in revisioni if 'sostituisci' in e], key=lambda e: -e['sostituisci'][0]):
     a, b = e['sostituisci']
     assert blocchi[a]['text'].startswith(e['inizia_con']), (e['inizia_con'], blocchi[a]['text'][:60])

@@ -14,7 +14,7 @@ for edit in revisioni:
  if 'togli_riga' in edit:
   assert b['type']=='table',edit
   prima=len(b['rows']);b['rows']=[r for r in b['rows'] if r[0]!=edit['togli_riga']]
-  assert len(b['rows'])==prima-1,edit
+  assert len(b['rows'])==prima-edit.get('quante',1),edit
   continue
  if b['type']=='table':
   assert any(edit['from'] in v for row in b['rows'] for v in row),edit
