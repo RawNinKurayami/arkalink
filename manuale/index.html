@@ -3417,74 +3417,358 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>L’Infermeria è lo Stile dedicato alle cure e al recupero. Il suo specialista può stabilizzare i feriti, ripristinare PV e Stamina, eseguire operazioni e migliorare il recupero dell’intera ciurma.</p>
 <h4 class="man-lab">Tratto · La Corsia</h4>
 <p>Sempre attivo · Gratuito</p>
-<p>Il Dottore specializzato in Infermeria può effettuare cure che vanno oltre il primo soccorso. Non si limita a tamponare le ferite: possiede le competenze necessarie per rimettere realmente in piedi un paziente.</p>
+<p>Il Dottore specializzato in Infermeria possiede le competenze necessarie per effettuare vere Cure da Campo.</p>
+<p>Un personaggio che possiede Medicina può prestare primo soccorso, diagnosticare una ferita, stabilizzare un ferito e utilizzare normalmente strumenti e preparati medici.</p>
+<p>La capacità di recuperare direttamente PV attraverso una Cura da Campo, invece, appartiene all’Infermeria e segue le regole riportate di seguito.</p>
+<h4 class="man-lab">Cura da Campo</h4>
+<p>Una Cura da Campo rappresenta un intervento medico rapido effettuato per rimettere in condizioni operative un personaggio ferito.</p>
+<ul class="man-elenco"><li>Attivazione: Azione.</li><li>Bersaglio: un personaggio che puoi raggiungere e trattare fisicamente.</li><li>Prova: Astuzia + Medicina.</li><li>Soglia ordinaria: 8.</li><li>Materiali: materiale medico appropriato.</li></ul>
+<p>Per effettuare la Cura da Campo devi poter raggiungere fisicamente il paziente e utilizzare gli strumenti necessari. Una parete, una barriera chiusa o un altro ostacolo che impedisce materialmente l’intervento rende impossibile la Cura.</p>
+<p>Effettua: Astuzia + Medicina contro Soglia 8.</p>
+<p>Se la Prova riesce, effettua un tiro completo di Medicina. Il risultato indica quanti PV recupera il paziente.</p>
+<p>Il tiro utilizzato per determinare i PV recuperati non è una seconda Prova di riuscita: serve soltanto a quantificare la cura.</p>
+<p>Il recupero non può portare il personaggio oltre i propri PV Massimi.</p>
+<p>Ogni Cura da Campo consuma la dose, il preparato o il materiale medico consumabile richiesto dall’intervento. Un Kit o uno strumento permanente non viene consumato, salvo che la propria scheda specifichi diversamente.</p>
+<p>Durante uno scontro, uno stesso personaggio può beneficiare normalmente di una sola Cura da Campo.</p>
+<p>Un personaggio a 0 PV può ricevere una Cura da Campo. Se l’intervento gli restituisce almeno 1 PV, torna sopra 0 PV e riprende coscienza.</p>
+<p>I Cyborg non recuperano normalmente PV attraverso Medicina e seguono le regole specifiche del Manuale del Cyborg.</p>
 <h4 class="man-lab">Firma · La mano che non trema</h4>
 <p>Sempre attiva · Gratuita</p>
-<p>Quando ottieni un tiro di Medicina riuscito con margine +4 durante una cura, il compagno curato riceve anche:</p>
-<ul class="man-punti"><li>1d6 Stamina recuperata.</li><li>Rimozione di uno stato negativo a scelta.</li></ul>
-<p>La Firma si attiva sulle cure effettuate con Medicina, non sui colpi andati a segno.</p>
+<p>Quando ottieni un margine di almeno +4 nella Prova di Medicina di una Cura da Campo riuscita, il paziente riceve anche entrambi i seguenti benefici:</p>
+<ul class="man-punti"><li>Recupera 1d6 ST.</li><li>Rimuove uno Stato negativo rimovibile a scelta.</li></ul>
+<p>La Firma utilizza il margine della Prova di Cura da Campo, non il successivo tiro che determina i PV recuperati.</p>
+<p>La rimozione degli Stati segue le regole di Stato e causa dello Stato del Capitolo 6.</p>
 <h4 class="man-lab">Talenti d8 · Mozzo</h4>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td>Erbe Curative</td><td>Quando cerchi ingredienti medici, aggiungi Medicina al tiro di Reperimento: Astuzia + Esplorazione + Medicina.</td></tr><tr><td>Specialista in Rianimazione</td><td>Quando stabilizzi un compagno a 0 PV, gli restituisci anche 1d4 PV. Il compagno torna cosciente.</td></tr><tr><td>Mani da Chirurgo · Base</td><td>Le tue cure da campo restituiscono +1 dado di PV.</td></tr><tr><td>Diagnosi</td><td>Come Azione, studi un nemico vivente ed effettui Medicina contro la sua Difesa Passiva. Se riesci, il GM rivela una debolezza; il primo alleato che la sfrutta nello stesso scontro tira con Vantaggio.</td></tr></tbody></table></div>
+<h4 class="man-lab">Erbe Curative</h4>
+<p>Quando cerchi ingredienti medici, aggiungi Medicina al tiro di Reperimento: Astuzia + Esplorazione + Medicina.</p>
+<h4 class="man-lab">Specialista in Rianimazione</h4>
+<p>Quando stabilizzi con successo un compagno a 0 PV, gli restituisci anche 1d4 PV.</p>
+<p>Se il recupero lo porta sopra 0 PV, il compagno torna cosciente.</p>
+<p>Questo intervento rimane una Stabilizzazione e non conta come Cura da Campo; non consuma quindi il normale limite delle Cure da Campo sul paziente.</p>
+<h4 class="man-lab">Mani da Chirurgo · Base</h4>
+<p>Quando una tua Cura da Campo riesce, aggiungi un ulteriore dado Medicina ai PV recuperati.</p>
+<p>Il dado aggiuntivo modifica soltanto il recupero dei PV: non viene aggiunto alla Prova Astuzia + Medicina utilizzata per determinare se la Cura riesce.</p>
+<h4 class="man-lab">Diagnosi</h4>
+<p>Come Azione, studi un nemico vivente ed effettui Medicina contro la sua Difesa Passiva. Se riesci, il GM rivela una debolezza; il primo alleato che la sfrutta nello stesso scontro tira con Vantaggio.</p>
 <h4 class="man-lab">Talenti d10 · Pirata</h4>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td>Recupero Esperto</td><td>Con un tiro di Medicina riuscito, restituisci a un compagno 1d6 ST oltre alle cure.</td></tr><tr><td>Cure Costanti</td><td>Puoi effettuare cure da campo sulla stessa persona due volte per scontro, anziché una.</td></tr><tr><td>Mani da Chirurgo · Migliorato</td><td>Con la stessa Azione puoi curare due compagni anziché uno. Richiede Mani da Chirurgo · Base.</td></tr><tr><td>Intervento Immediato</td><td>1 volta per scontro, come Reazione, stabilizzi un compagno entro 5 metri che scende a 0 PV, senza spendere la tua Azione.</td></tr></tbody></table></div>
+<h4 class="man-lab">Recupero Esperto</h4>
+<p>Quando una tua Cura da Campo riesce, il paziente recupera anche 1d6 ST.</p>
+<p>Il recupero di Stamina si applica dopo aver risolto normalmente i PV recuperati dalla Cura.</p>
+<h4 class="man-lab">Cure Costanti</h4>
+<p>Uno stesso personaggio può beneficiare delle tue Cure da Campo due volte per scontro anziché una.</p>
+<p>Ogni intervento richiede normalmente la propria Azione, la propria Prova e i materiali necessari.</p>
+<h4 class="man-lab">Mani da Chirurgo · Migliorato</h4>
+<p>Prerequisito: Mani da Chirurgo · Base</p>
+<p>Con la stessa Azione puoi effettuare una Cura da Campo su due compagni che puoi raggiungere fisicamente.</p>
+<p>Risolvi separatamente la Prova di Cura da Campo e il recupero dei PV per ciascun paziente.</p>
+<p>Devono essere disponibili i materiali necessari per entrambi.</p>
+<p>Ciascun paziente utilizza normalmente uno dei propri utilizzi di Cura da Campo per lo scontro.</p>
+<h4 class="man-lab">Intervento Immediato</h4>
+<p>Reazione · 1 volta per scontro</p>
+<p>Quando un compagno ancora in vita entro 5 metri raggiunge 0 PV, puoi utilizzare la tua Reazione per raggiungerlo e stabilizzarlo immediatamente.</p>
+<p>Lo spostamento necessario, fino a un massimo di 5 metri, fa parte della Reazione e non utilizza il tuo normale Movimento.</p>
+<p>Il percorso deve però essere realmente praticabile.</p>
+<p>Devi inoltre poter raggiungere fisicamente il paziente e avere accesso sufficiente per effettuare l’intervento.</p>
+<p>Intervento Immediato non rappresenta una cura a distanza e non permette di attraversare pareti, porte chiuse, grate invalicabili o altri ostacoli che impediscono materialmente il trattamento.</p>
+<p>Se possiedi Specialista in Rianimazione, si applica normalmente il suo recupero di 1d4 PV.</p>
+<p>Questa Stabilizzazione non consuma il normale limite delle Cure da Campo sul paziente.</p>
 <h4 class="man-lab">Talenti d12 · Veterano</h4>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td>Mani da Chirurgo · Maestria</td><td>Le tue cure rimuovono anche uno stato negativo dal compagno curato. Richiede Mani da Chirurgo · Migliorato.</td></tr><tr><td>Punti di Pressione</td><td>1 volta per scontro, quando colpisci in mischia una creatura vivente, puoi infliggerle Sbilanciato oltre al danno. Richiede Diagnosi.</td></tr><tr><td>Lettura del Respiro</td><td>Senza tiro né Azione, riconosci il livello generale delle ferite di un nemico visibile. Quando è sul punto di cedere, il primo alleato che lo attacca in quel round ha Vantaggio.</td></tr><tr><td>Sala Operatoria</td><td>Con tempo, luce e una superficie pulita puoi operare per rimuovere ferite persistenti, estrarre proiettili e ricomporre ossa.</td></tr><tr><td>Medico di Bordo</td><td>Finché sei sulla nave e in salute, la ciurma recupera il doppio durante un riposo lungo. Chi riposa sotto la tua sorveglianza riparte con +2 Stamina.</td></tr></tbody></table></div>
+<h4 class="man-lab">Mani da Chirurgo · Maestria</h4>
+<p>Prerequisito: Mani da Chirurgo · Migliorato</p>
+<p>Quando una tua Cura da Campo riesce, puoi rimuovere anche uno Stato negativo rimovibile dal paziente.</p>
+<p>Il beneficio si aggiunge alle versioni precedenti di Mani da Chirurgo.</p>
+<p>Rimuovere lo Stato non elimina automaticamente una causa fisica, ambientale o chimica che continua ad applicarlo.</p>
+<h4 class="man-lab">Punti di Pressione</h4>
+<p>1 volta per scontro, quando colpisci in mischia una creatura vivente, puoi infliggerle Sbilanciato oltre al danno. Richiede Diagnosi.</p>
+<h4 class="man-lab">Lettura del Respiro</h4>
+<p>Senza tiro né Azione, riconosci il livello generale delle ferite di un nemico visibile. Quando è sul punto di cedere, il primo alleato che lo attacca in quel round ha Vantaggio.</p>
+<h4 class="man-lab">Sala Operatoria</h4>
+<p>Con tempo sufficiente, luce adeguata e una superficie pulita puoi trattare Conseguenze Persistenti di natura fisica che richiedono un vero intervento medico, come:</p>
+<ul class="man-punti"><li>Fratture.</li><li>Proiettili o corpi estranei conficcati.</li><li>Ferite profonde.</li><li>Lesioni che non possono essere risolte da una normale Cura da Campo.</li></ul>
+<p>Se l’esito dell’intervento è incerto, effettua Astuzia + Medicina contro la Soglia indicata dalla Conseguenza.</p>
+<p>Se la Conseguenza non possiede una Soglia propria, il Game Master utilizza le normali Soglie di difficoltà del Capitolo 5.</p>
+<p>Un successo rimuove o migliora la Conseguenza secondo quanto indicato dalla sua descrizione.</p>
+<p>Sala Operatoria non rigenera automaticamente parti del corpo perdute e non elimina malattie, veleni o altre condizioni che richiedono un trattamento differente.</p>
+<h4 class="man-lab">Medico di Bordo</h4>
+<p>Finché sei sulla nave e in salute, la ciurma recupera il doppio durante un riposo lungo. Chi riposa sotto la tua sorveglianza riparte con +2 Stamina.</p>
 <p class="man-guida"><b>Talento Supremo d20 · Nessuno Muore Sotto la Mia Mano</b></p>
 <h4 class="man-lab">Nessuno Muore Sotto la Mia Mano</h4>
 <ul class="man-elenco"><li>Ultimate</li><li>Costo: 5 ST</li><li>Frequenza: 1 volta per scena</li></ul>
-<p>Tutti gli alleati entro 10 metri recuperano PV pari al doppio del proprio Dado Vita e si liberano da ogni stato negativo.</p>
+<p>Tutti gli alleati entro 10 metri recuperano PV pari al doppio del proprio Dado Vita e si liberano da tutti gli Stati negativi rimovibili.</p>
 <p>Un compagno a 0 PV si rialza con metà dei propri PV Massimi.</p>
+<p>L’Ultimate non distrugge automaticamente vincoli fisici, non neutralizza sostanze ancora attive e non rimuove Conseguenze Persistenti.</p>
 <p>Requisiti: Ambizione del Dottore e permesso del Game Master.</p>
 <h4 class="man-lab">4.6.2 · Tossicologo</h4>
 <p>Il Tossicologo studia veleni, sedativi e antidoti. Può utilizzare le sostanze per debilitare i nemici, neutralizzare gli avvelenamenti e preparare la ciurma ad affrontare minacce conosciute.</p>
 <h4 class="man-lab">Tratto · Il Laboratorio</h4>
 <p>Sempre attivo · Gratuito</p>
-<p>Il Tossicologo possiede competenze specialistiche nella preparazione e nell’utilizzo di veleni e antidoti. Conosce gli effetti delle sostanze e il modo in cui il dosaggio può modificarli.</p>
+<p>Il Tossicologo possiede competenze specialistiche nella preparazione, identificazione e utilizzo di veleni, sedativi e antidoti.</p>
+<p>Può estrarre sostanze tossiche, prepararle in dosi utilizzabili e riconoscere il modo corretto di somministrarle.</p>
+<p>Le sostanze del Tossicologo non producono effetti liberamente scelti al momento dell’utilizzo: ogni veleno, sedativo o antidoto possiede una propria scheda che ne stabilisce Soglia, effetto, durata, via di esposizione e trattamento.</p>
+<h4 class="man-lab">Dosi e vie di esposizione</h4>
+<p>Veleni e sedativi vengono conservati e utilizzati in dosi.</p>
+<p>Ogni dose possiede una via di esposizione indicata dalla propria scheda:</p>
+<ul class="man-punti"><li><b>Ferita</b> — deve entrare nell’organismo attraverso un’arma, un ago, un dardo o un altro mezzo capace di ferire il bersaglio.</li><li><b>Contatto</b> — deve raggiungere direttamente pelle, mucose o una superficie indicata dalla sostanza.</li><li><b>Inalazione</b> — il bersaglio deve respirare l’aria contaminata.</li><li><b>Ingestione</b> — il bersaglio deve ingerire la sostanza.</li></ul>
+<p>Una dose non può essere utilizzata attraverso una via differente salvo che la propria scheda lo permetta.</p>
+<p>La scheda di una sostanza deve indicare almeno:</p>
+<p>Nome · Categoria · Via di esposizione · Soglia · Effetto · Durata · Antidoto o trattamento.</p>
+<h4 class="man-lab">Applicare una tossina</h4>
+<p>Preparare una dose per essere somministrata attraverso un’arma, un proiettile, un dardo, del cibo o un altro vettore richiede normalmente:</p>
+<p>Azione · Astuzia + Medicina · Soglia 8</p>
+<p>In caso di successo, la dose viene applicata correttamente ed è pronta per essere utilizzata.</p>
+<p>In caso di fallimento, la dose viene contaminata, dispersa o applicata in modo inefficace e viene consumata.</p>
+<p>Questo è il tiro di Medicina considerato dall’effetto La Dose Giusta.</p>
+<p>Il tiro di Medicina non sostituisce l’eventuale attacco necessario per colpire il bersaglio e non sostituisce la Salvezza contro la sostanza.</p>
+<p>Se la tossina viene applicata a un’arma o a un proiettile, il successivo attacco viene risolto normalmente. Se colpisce e la via di esposizione è compatibile, il bersaglio effettua la Salvezza prevista dalla tossina.</p>
+<p>Un attacco mancato non consuma automaticamente la dose applicata all’arma o al proiettile recuperabile. La dose rimane disponibile fino a quando viene effettivamente somministrata o fino alla fine della scena.</p>
+<p>Quando una dose viene effettivamente somministrata, viene consumata indipendentemente dall’esito della Salvezza.</p>
+<h4 class="man-lab">Potenza e durata delle tossine</h4>
+<p>Ogni veleno o sedativo possiede la propria Soglia.</p>
+<p>Le Salvezze utilizzano l’Attributo indicato dalla sostanza. Quando si tratta di un normale veleno introdotto nell’organismo e non viene indicato diversamente, si utilizza Forza contro la Soglia del veleno, come previsto dalle regole dello Stato Avvelenato.</p>
+<p>Gli effetti con una durata numerica devono indicarla in turni, round o altra unità precisa.</p>
+<p>Una durata espressa come ‘fino a un antidoto’, ‘per la scena’ o attraverso un’altra condizione non viene considerata una durata numerica.</p>
+<p>Applicazioni ripetute della stessa sostanza non sommano automaticamente lo stesso effetto: normalmente ne aggiornano la durata.</p>
+<p>Le riduzioni dello stesso Attributo non si sommano. Se più effetti riducono lo stesso Attributo, si applica la riduzione maggiore.</p>
+<p>Nessuna riduzione causata da una tossina può portare un Attributo sotto d4, salvo che una capacità dichiari espressamente il contrario.</p>
+<h4 class="man-lab">Nuvole, ostacoli e ambiente</h4>
+<p>Una nube occupa un volume reale.</p>
+<p>Pareti e porte chiuse ne bloccano la diffusione.</p>
+<p>Può raggiungere piani differenti soltanto attraverso spazi realmente collegati e compresi nel proprio raggio.</p>
+<p>Un forte vento o una ventilazione abbastanza potente può disperdere la nube prima della durata prevista; in condizioni chiaramente sufficienti, il Game Master può farla terminare alla fine del round corrente.</p>
+<p>Una normale nube dispersa nell’aria non funziona sott’acqua, salvo che la sostanza utilizzata dichiari espressamente il contrario.</p>
+<h4 class="man-lab">Protezione dalle sostanze inalate</h4>
+<p>Una Maschera Filtrante efficace impedisce l’esposizione a sostanze che agiscono esclusivamente tramite Inalazione finché viene indossata correttamente e il filtro è funzionante.</p>
+<p>Una semplice protezione delle vie respiratorie non impedisce automaticamente Accecato provocato da fumo, irritazione o oscuramento della vista.</p>
+<p>Per proteggere anche gli occhi è necessaria una protezione integrale che lo dichiari espressamente.</p>
+<p>L’immunità ai veleni impedisce Avvelenato e gli altri effetti tossici della sostanza, ma non rende automaticamente immune all’oscuramento visivo di una nube.</p>
 <h4 class="man-lab">Firma · La dose giusta</h4>
 <p>Sempre attiva · Gratuita</p>
-<p>Quando ottieni un tiro di Medicina riuscito con margine +4 nell’applicazione di una tossina, questa attecchisce in profondità.</p>
-<p>Il bersaglio diventa Avvelenato e perde un gradino in un Attributo a tua scelta per il resto della scena.</p>
+<p>Quando ottieni un margine di almeno +4 nella Prova di Medicina utilizzata per applicare una tossina o un sedativo, prepari quella singola dose in modo particolarmente preciso.</p>
+<p>Se la dose raggiunge successivamente un bersaglio attraverso la corretta via di esposizione, la prima Salvezza effettuata contro quella dose viene effettuata con Svantaggio.</p>
+<p>La Dose Giusta non modifica gli effetti della sostanza, non aggiunge Stati, non aumenta la durata e non riduce Attributi.</p>
+<p>Se la dose non viene somministrata entro la fine della scena, il beneficio della Firma termina.</p>
 <h4 class="man-lab">Talenti d8 · Mozzo</h4>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td>Cacciatore di Veleni</td><td>Ottieni Vantaggio a qualsiasi estrazione di veleno.</td></tr><tr><td>Sedativi Efficaci</td><td>Aumenta la Soglia necessaria per resistere ai tuoi sedativi.</td></tr><tr><td>Tossine Raffinate · Base</td><td>La Soglia per resistere ai tuoi veleni aumenta di 2.</td></tr><tr><td>Lama Intinta</td><td>Come Azione rapida, applichi una tua tossina a un’arma o a una Tecnica. Il prossimo colpo a segno applica anche Avvelenato, senza ST aggiuntiva. Puoi avere due lame intinte pronte per scontro.</td></tr></tbody></table></div>
+<h4 class="man-lab">Cacciatore di Veleni</h4>
+<p>Ottieni Vantaggio a qualsiasi estrazione di veleno.</p>
+<h4 class="man-lab">Sedativi Efficaci</h4>
+<p>La Soglia delle Salvezze contro i tuoi sedativi aumenta di +2.</p>
+<p>Il beneficio si applica soltanto alle sostanze classificate come Sedativi.</p>
+<h4 class="man-lab">Tossine Raffinate · Base</h4>
+<p>La Soglia delle Salvezze contro i tuoi veleni aumenta di +2.</p>
+<h4 class="man-lab">Lama Intinta</h4>
+<p>Azione Bonus</p>
+<p>Utilizzi una dose di una tua tossina per rivestire un’arma, una munizione o un altro vettore compatibile.</p>
+<p>Effettui normalmente la Prova di applicazione Astuzia + Medicina contro Soglia 8, ma l’intervento utilizza l’Azione Bonus anziché l’Azione.</p>
+<p>Una Tecnica può essere avvelenata soltanto se viene realmente eseguita attraverso un’arma, un proiettile, un ago o un altro mezzo fisico capace di somministrare la sostanza.</p>
+<p>Un pugno, un’onda d’urto, un fendente a distanza o un’altra Tecnica priva di contatto con la tossina non può essere avvelenata soltanto perché viene chiamata Tecnica.</p>
+<p>Il primo colpo compatibile che va a segno espone il bersaglio alla tossina e consuma la dose.</p>
+<p>Se il colpo manca, la dose rimane sul vettore.</p>
+<p>Puoi mantenere pronti al massimo due vettori intinti contemporaneamente per scontro.</p>
 <h4 class="man-lab">Talenti d10 · Pirata</h4>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td>Maestro Antidoti</td><td>Dimezzi la Soglia necessaria per creare l’antidoto a qualsiasi veleno.</td></tr><tr><td>Immunità Acquisita</td><td>Diventi immune ai veleni. Puoi identificare una tossina al gusto e maneggiare sostanze letali senza rischio.</td></tr><tr><td>Tossine Raffinate · Migliorato</td><td>La durata dei tuoi veleni raddoppia. Richiede Tossine Raffinate · Base.</td></tr><tr><td>Dardo Soporifero</td><td>1 volta per scontro, come Azione, colpisci un bersaglio entro 10 metri con un dardo sedativo. Se fallisce la Salvezza, dorme per un minuto o finché non subisce danni.</td></tr></tbody></table></div>
+<h4 class="man-lab">Maestro Antidoti</h4>
+<p>Dimezzi la Soglia necessaria per preparare l’antidoto di un veleno che hai identificato.</p>
+<p>Identificare la sostanza e preparare l’antidoto rimangono due passaggi distinti.</p>
+<h4 class="man-lab">Immunità Acquisita</h4>
+<p>Sei immune agli effetti delle sostanze classificate come Veleno.</p>
+<p>Puoi identificarne una attraverso il gusto e maneggiare veleni senza subirne gli effetti.</p>
+<p>Questa immunità non comprende automaticamente:</p>
+<ul class="man-punti"><li>Sedativi che non sono classificati anche come Veleno.</li><li>Acidi e sostanze corrosive.</li><li>Malattie.</li><li>Gas che producono effetti puramente fisici o oscurano la vista.</li><li>Farmaci e preparati benefici.</li></ul>
+<p>Se una sostanza possiede anche la categoria Veleno, l’immunità si applica alla componente tossica indicata dalla sua scheda.</p>
+<h4 class="man-lab">Tossine Raffinate · Migliorato</h4>
+<p>Prerequisito: Tossine Raffinate · Base</p>
+<p>Raddoppia la durata numerica dei tuoi veleni.</p>
+<p>Una durata di 2 turni diventa 4 turni; una durata di 3 turni diventa 6.</p>
+<p>Il Talento non modifica durate espresse come ‘per la scena’, ‘fino alla somministrazione di un antidoto’ o attraverso altre condizioni non numeriche.</p>
+<h4 class="man-lab">Dardo Soporifero</h4>
+<p>Azione · 1 volta per scontro · Portata 10 m</p>
+<p>Utilizzi un dardo appositamente preparato e consumi una dose di Sedativo compatibile con esposizione tramite Ferita.</p>
+<p>Il dardo e il mezzo necessario a lanciarlo fanno parte dell’utilizzo del Talento: non è richiesta un’arma separata.</p>
+<p>Devi avere linea di tiro e una traiettoria materialmente libera verso il bersaglio.</p>
+<p>Non effettui un tiro per colpire separato: il bersaglio effettua direttamente una Salvezza di Forza contro la Soglia del Sedativo.</p>
+<p>Se fallisce, diventa Addormentato per un massimo di 10 round oppure finché subisce danni.</p>
+<p>Durante questa durata non ripete automaticamente la Salvezza alla fine di ogni turno: la regola specifica del Talento prevale sul funzionamento generale dello Stato.</p>
+<p>La dose viene consumata anche se il bersaglio supera la Salvezza.</p>
+<p>Sedativi Efficaci aumenta normalmente la Soglia.</p>
 <h4 class="man-lab">Talenti d12 · Veterano</h4>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td>Tossine Raffinate · Maestria</td><td>Chi fallisce la Salvezza contro un tuo veleno perde anche un gradino in un Attributo finché non riceve un antidoto. Richiede Tossine Raffinate · Migliorato.</td></tr><tr><td>Nube Tossica</td><td>Come Azione, spendi 3 ST e crei entro 10 metri una nube di raggio 5 metri, che dura 3 turni. Chi entra o inizia il turno al suo interno effettua una Salvezza oppure diventa Avvelenato e Accecato.</td></tr><tr><td>Colpo di Grazia</td><td>Contro un bersaglio già Avvelenato, i tuoi attacchi infliggono +1 dado di danno. Se il colpo lo porterebbe sotto metà PV, subisce anche Sbilanciato. Richiede Lama Intinta.</td></tr><tr><td>Antidoto Istantaneo</td><td>1 volta per scontro, come Reazione, neutralizzi un veleno o uno stato causato da una sostanza su un compagno entro 5 metri, nel momento in cui lo subisce.</td></tr><tr><td>Profilassi</td><td>Prima di una missione, tratti la ciurma. Per tutta l’avventura, i compagni trattati sono immuni a un veleno o a una malattia che hai già identificato.</td></tr></tbody></table></div>
+<h4 class="man-lab">Tossine Raffinate · Maestria</h4>
+<p>Prerequisito: Tossine Raffinate · Migliorato</p>
+<p>Quando un bersaglio fallisce la Salvezza contro un tuo veleno, perde anche un gradino in un Attributo a tua scelta finché non riceve un antidoto efficace.</p>
+<p>L’Attributo non può scendere sotto d4.</p>
+<p>Applicazioni ripetute non sommano ulteriori riduzioni sullo stesso Attributo.</p>
+<p>Se La Dose Giusta e Tossine Raffinate · Maestria riducono lo stesso Attributo, si applica una sola riduzione di un gradino.</p>
+<p>Possono invece interessare Attributi differenti.</p>
+<h4 class="man-lab">Nube Tossica</h4>
+<p>Azione · 3 ST</p>
+<p>Utilizzi e consumi una dose preparata di Veleno compatibile con esposizione tramite Inalazione.</p>
+<p>L’Azione comprende l’estrazione del contenitore e la sua dispersione mediante fiala, bomba, nebulizzatore o altro mezzo appropriato.</p>
+<p>Non è richiesto un tiro per colpire.</p>
+<p>Scegli un punto che puoi vedere entro 10 metri e che possa essere raggiunto fisicamente dalla sostanza. Pareti, porte chiuse e altri ostacoli solidi impediscono di collocare il centro oltre di essi.</p>
+<p>Dal punto scelto si genera una nube di raggio 5 metri che dura 3 turni.</p>
+<p>Quando la nube compare, tutte le creature già presenti nell’area effettuano immediatamente una Salvezza.</p>
+<p>Successivamente, una creatura effettua la stessa Salvezza quando:</p>
+<ul class="man-punti"><li>Entra nella nube per la prima volta nel proprio turno.</li><li>Inizia il proprio turno al suo interno.</li></ul>
+<p>La Salvezza utilizza Forza contro la Soglia del veleno consumato, modificata normalmente dai tuoi Talenti.</p>
+<p>Se fallisce:</p>
+<ul class="man-punti"><li>Diventa Avvelenata secondo la normale durata del veleno.</li><li>Diventa Accecata finché rimane all’interno della nube.</li></ul>
+<p>Uscire dall’area termina l’Accecamento causato dalla nube, ma non rimuove automaticamente Avvelenato.</p>
+<p>Nube Tossica utilizza la Soglia della dose consumata, ma non copia automaticamente ulteriori effetti speciali posseduti da quel veleno.</p>
+<p>La dose viene consumata al momento della dispersione.</p>
+<h4 class="man-lab">Colpo di Grazia</h4>
+<p>Contro un bersaglio già Avvelenato, i tuoi attacchi infliggono +1 dado di danno. Se il colpo lo porterebbe sotto metà PV, subisce anche Sbilanciato. Richiede Lama Intinta.</p>
+<h4 class="man-lab">Antidoto Istantaneo</h4>
+<p>Reazione · 1 volta per scontro · Portata 5 m</p>
+<p>Quando un compagno entro 5 metri viene esposto a un veleno o subisce uno Stato causato da una sostanza che hai identificato, puoi utilizzare la Reazione per raggiungerlo e somministrargli immediatamente un antidoto appropriato.</p>
+<p>Devi possedere una dose di antidoto già preparata.</p>
+<p>Lo spostamento necessario fino a 5 metri fa parte della Reazione, ma il percorso deve essere praticabile e devi poter raggiungere fisicamente il bersaglio.</p>
+<p>La dose viene consumata.</p>
+<p>L’antidoto neutralizza la sostanza per cui è stato preparato e rimuove gli Stati direttamente causati da essa.</p>
+<p>Antidoto Istantaneo non crea un antidoto al momento dell’utilizzo.</p>
+<h4 class="man-lab">Profilassi</h4>
+<p>Prima di una missione puoi preparare la ciurma contro un veleno o una malattia che hai già identificato.</p>
+<p>Ogni personaggio trattato richiede una dose della profilassi appropriata.</p>
+<p>Preparazione, materiali e costo seguono il progetto dell’antidoto o del trattamento corrispondente.</p>
+<p>Il trattamento deve essere effettuato prima dell’esposizione e non può essere improvvisato retroattivamente.</p>
+<p>Per tutta l’avventura, i personaggi trattati sono immuni alla sostanza o alla malattia specifica scelta.</p>
+<p>Profilassi non protegge contro altri veleni, altre malattie o effetti ambientali non causati dalla sostanza trattata.</p>
 <h4 class="man-lab">Talento Supremo d20 · Marea Nera</h4>
 <h4 class="man-lab">Marea Nera</h4>
-<ul class="man-elenco"><li>Ultimate</li><li>Costo: 5 ST</li><li>Frequenza: 1 volta per scena</li></ul>
-<p>Una tossina invade il campo entro 15 metri. Ogni nemico effettua una Salvezza.</p>
-<p>Chi fallisce diventa Avvelenato e Sbilanciato, perdendo inoltre un gradino in un Attributo per il resto della scena.</p>
-<p>I personaggi protetti tramite Profilassi sono immuni. Gli altri alleati devono effettuare la Salvezza come i nemici.</p>
+<ul class="man-elenco"><li>Ultimate</li><li>Attivazione: Azione</li><li>Costo: 5 ST</li><li>Frequenza: 1 volta per scena</li></ul>
+<p>Consumando una dose preparata di Veleno compatibile con Inalazione, liberi una quantità straordinaria di tossina nell’aria circostante.</p>
+<p>La sostanza si diffonde dal tuo punto in un raggio di 15 metri.</p>
+<p>Marea Nera è una dispersione istantanea, non una Zona Persistente.</p>
+<p>Pareti, porte chiuse e altri ostacoli solidi impediscono alla sostanza di raggiungere spazi isolati.</p>
+<p>Tutte le creature esposte effettuano una Salvezza di Forza contro la Soglia del veleno utilizzato.</p>
+<p>Chi fallisce:</p>
+<ul class="man-punti"><li>Diventa Avvelenato.</li><li>Diventa Sbilanciato.</li><li>Perde un gradino in un Attributo a tua scelta per il resto della scena.</li></ul>
+<p>La riduzione non può portare l’Attributo sotto d4 e non si somma ad altre riduzioni sullo stesso Attributo.</p>
+<p>I personaggi precedentemente trattati con Profilassi contro quella specifica tossina sono immuni.</p>
+<p>Gli altri alleati effettuano la Salvezza come i nemici.</p>
+<p>Immunità Acquisita protegge il Tossicologo dagli effetti tossici della propria Marea Nera, ma non concede alcuna protezione agli altri personaggi.</p>
 <p>Requisiti: Ambizione del Tossicologo e permesso del Game Master.</p>
 <h4 class="man-lab">4.6.3 · Chimico</h4>
 <p>Il Chimico trasforma reagenti grezzi in preparati incendiari, acidi, fumogeni ed esplosivi. Può produrre sostanze da utilizzare sul campo, modificarne gli effetti e sviluppare una vera attività di produzione e commercio.</p>
 <h4 class="man-lab">Tratto · La Distilleria</h4>
 <p>Sempre attivo · Gratuito</p>
-<p>Il Chimico possiede le competenze necessarie per trasformare materiali grezzi in preparati utilizzabili o vendibili.</p>
+<p>Il Chimico possiede le competenze necessarie per trasformare reagenti grezzi in preparati utilizzabili o vendibili.</p>
+<p>Ogni preparato viene realizzato attraverso una scheda già definita.</p>
+<p>La Soglia utilizzata per produrlo misura la difficoltà della preparazione e non determina automaticamente il danno, l’area o la potenza del preparato in combattimento.</p>
+<p>Questi valori devono essere indicati nella sua scheda prima della produzione.</p>
+<h4 class="man-lab">Scheda di un preparato</h4>
+<p>Ogni preparato utilizzabile in gioco deve riportare:</p>
+<ul class="man-punti"><li>Nome.</li><li>Famiglia — Incendiario, Acido, Fumogeno, Esplosivo o altra categoria prevista.</li><li>Uso — Bersaglio, Area, Contatto, Carica o altro.</li><li>Portata.</li><li>Danno iniziale, se presente.</li><li>Area, se presente.</li><li>Salvezza, se presente.</li><li>Effetto o Stato.</li><li>Durata.</li><li>Soglia di preparazione.</li><li>Tempo di preparazione.</li><li>Materiali.</li><li>Dosi prodotte.</li></ul>
+<p>Un preparato non ottiene valori di combattimento dalla propria Soglia di fabbricazione.</p>
+<p>Se una voce del Catalogo indica soltanto descrizioni come ‘danno in area ristretta’ o ‘grandi danni strutturali’, deve essere completata con valori numerici prima di essere utilizzata.</p>
+<h4 class="man-lab">Utilizzare un preparato</h4>
+<p>Utilizzare un preparato consuma normalmente una dose.</p>
+<p>Salvo diversa indicazione, richiede un’Azione.</p>
+<p>Un preparato lanciabile possiede una portata ordinaria di 10 metri.</p>
+<b>Preparato a bersaglio diretto:</b> effettua Tecnica + Medicina contro la Difesa Passiva del bersaglio, salvo che la scheda indichi una formula differente.
+<p>Se l’attacco manca, la dose lanciata viene comunque consumata.</p>
+<b>Preparato ad Area:</b> scegli un punto visibile e raggiungibile entro la Portata. Non effettui un tiro per colpire; i bersagli nell’Area risolvono invece la Salvezza indicata dal preparato.
+<p>Pareti e ostacoli solidi bloccano normalmente la propagazione di un’Area.</p>
+<p>Tutte le creature nell’Area sono coinvolte, alleati compresi, salvo che una capacità permetta espressamente di escluderle.</p>
 <h4 class="man-lab">Firma · La reazione dilaga</h4>
 <p>Sempre attiva · Gratuita</p>
-<p>Quando ottieni un tiro di Medicina riuscito con margine +4 relativo a un preparato, scegli uno dei seguenti benefici:</p>
-<p>Diffusione: il preparato investe un’area anziché un singolo bersaglio.</p>
-<p>Produzione aggiuntiva: ottieni una dose supplementare senza consumare altri ingredienti.</p>
-<p>La scelta avviene nel momento in cui si attiva la Firma.</p>
+<p>Quando ottieni un margine di almeno +4 nella Prova di preparazione di un preparato, scegli uno dei seguenti benefici.</p>
+<b>Diffusione.</b> Se il preparato era offensivo e destinato a un singolo bersaglio, diventa un preparato ad Area con cerchio di raggio 3 metri.
+<p>Il punto d’origine rimane quello normalmente previsto dal preparato.</p>
+<p>Essendo diventato un effetto ad Area:</p>
+<ul class="man-punti"><li>I bersagli subiscono metà del normale danno.</li><li>Gli Stati e gli altri effetti che lo prevedono concedono la normale Salvezza.</li></ul>
+<p>Diffusione non si applica a preparati già ad Area, antidoti, tonici, strumenti da contatto o cariche da piazzare.</p>
+<b>Produzione Aggiuntiva.</b> Ottieni una seconda dose identica del preparato senza consumare ingredienti aggiuntivi.
+<p>La dose aggiuntiva viene prodotta nello stesso momento della dose originale e possiede la stessa scheda.</p>
+<p>La scelta viene effettuata al termine della Prova di preparazione.</p>
 <h4 class="man-lab">Talenti d8 · Mozzo</h4>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td>Reagenti Reattivi</td><td>Puoi produrre le famiglie riservate di preparati: incendiari, acidi, fumogeni ed esplosivi.</td></tr><tr><td>Improvvisazione</td><td>Puoi sostituire un ingrediente mancante con uno di ripiego, affrontando una Soglia più alta.</td></tr><tr><td>Reazioni Violente · Base</td><td>I tuoi preparati offensivi infliggono +1 dado di danno.</td></tr><tr><td>Lancio Preciso</td><td>Puoi lanciare preparati fino a 15 metri ed escludere dall’effetto un numero di bersagli pari al valore del dado Medicina diviso due.</td></tr></tbody></table></div>
+<h4 class="man-lab">Reagenti Reattivi</h4>
+<p>Puoi produrre le famiglie riservate di preparati: incendiari, acidi, fumogeni ed esplosivi.</p>
+<h4 class="man-lab">Improvvisazione</h4>
+<p>Puoi sostituire un ingrediente mancante con un materiale di ripiego coerente.</p>
+<p>La Soglia di preparazione aumenta di +2.</p>
+<p>Il materiale sostitutivo viene consumato normalmente.</p>
+<p>Improvvisazione non permette di sostituire componenti unici o ingredienti dichiarati indispensabili dal progetto.</p>
+<h4 class="man-lab">Reazioni Violente · Base</h4>
+<p>Quando un tuo preparato offensivo possiede un Dado Danno base, aggiungi un ulteriore dado dello stesso tipo al danno iniziale.</p>
+<p>Esempio: preparato 1d8 → 2d8.</p>
+<p>Il Talento non crea danno su un preparato che non possiede un Dado Danno base.</p>
+<h4 class="man-lab">Lancio Preciso</h4>
+<p>La portata dei tuoi preparati lanciabili aumenta da 10 a 15 metri.</p>
+<p>Quando utilizzi un preparato ad Area, puoi escludere dall’effetto un numero di creature pari alla metà del valore massimo del tuo dado Medicina, arrotondato per difetto.</p>
+<p>Esempio:</p>
+<ul class="man-punti"><li>Medicina d8 → fino a 4 creature escluse.</li><li>Medicina d12 → fino a 6.</li></ul>
+<p>Il Talento modifica portata e selezione dei bersagli; non aggiunge un tiro per colpire a un preparato che normalmente utilizza soltanto una Salvezza.</p>
 <h4 class="man-lab">Talenti d10 · Pirata</h4>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td>Distillatore Efficiente</td><td>Riduci le ore necessarie per preparato e puoi distillarne due nello stesso blocco di lavoro.</td></tr><tr><td>Su Commissione</td><td>I tuoi preparati acquistano maggiore valore commerciale e puoi produrli in lotti.</td></tr><tr><td>Reazioni Violente · Migliorato</td><td>Il raggio d’effetto dei tuoi preparati raddoppia. Richiede Reazioni Violente · Base.</td></tr><tr><td>Miscela al Volo</td><td>Come Azione, spendi 2 ST ed effettui un tiro di Medicina per produrre una dose di un preparato che già conosci, utilizzando ciò che hai addosso. Massimo 2 volte per scontro; la dose deve essere usata entro la scena.</td></tr></tbody></table></div>
+<h4 class="man-lab">Distillatore Efficiente</h4>
+<p>Riduci del 25% il tempo necessario per preparare una dose, arrotondando per eccesso all’unità di lavoro utilizzata.</p>
+<p>Puoi inoltre lavorare contemporaneamente su due preparati nello stesso blocco di lavoro.</p>
+<p>Ogni preparato:</p>
+<ul class="man-punti"><li>Richiede i propri materiali.</li><li>Mantiene la propria Soglia.</li><li>Effettua separatamente la propria Prova di preparazione.</li></ul>
+<p>Se i due preparati richiedono tempi differenti, il blocco termina quando è completato quello più lungo.</p>
+<h4 class="man-lab">Su Commissione</h4>
+<p>Puoi organizzare la produzione di preparati identici in lotti.</p>
+<p>Un lotto può contenere fino a 3 dosi dello stesso preparato.</p>
+<p>Devi possedere e consumare i materiali completi per ciascuna dose.</p>
+<p>Il tempo totale è:</p>
+<ul class="man-punti"><li>1 dose → tempo normale.</li><li>2 dosi → ×1,5 il tempo normale.</li><li>3 dosi → ×2 il tempo normale.</li></ul>
+<p>Effettua una Prova di preparazione separata per ogni dose.</p>
+<p>Quando vendi preparati prodotti personalmente in un mercato nel quale esiste una reale domanda, il loro valore commerciale aumenta del 20% prima delle normali trattative.</p>
+<p>Il Talento non garantisce automaticamente la presenza di compratori e non elimina le normali condizioni di mercato.</p>
+<h4 class="man-lab">Reazioni Violente · Migliorato</h4>
+<p>Prerequisito: Reazioni Violente · Base</p>
+<p>Il raggio dei tuoi preparati che possiedono già un’Area viene raddoppiato.</p>
+<p>Un raggio di 3 metri diventa 6 metri.</p>
+<p>Un preparato privo di Area non ne ottiene automaticamente una.</p>
+<p>Se La Reazione Dilaga ha trasformato un preparato a bersaglio singolo in un’Area di raggio 3 metri, Reazioni Violente · Migliorato può portarla a 6 metri.</p>
+<p>Il Talento non raddoppia la Portata di lancio.</p>
+<h4 class="man-lab">Miscela al Volo</h4>
+<p>Azione · 2 ST · massimo 2 volte per scontro</p>
+<p>Scegli un preparato che conosci e di cui possiedi tutti gli ingredienti necessari per una dose.</p>
+<p>Consuma immediatamente i materiali ed effettua la normale Prova di preparazione contro la Soglia del preparato.</p>
+<b>Successo:</b> produci una dose con tutte le caratteristiche già registrate nella sua scheda.
+<b>Fallimento:</b> la dose non viene prodotta; materiali e ST rimangono consumati.
+<p>Miscela al Volo sostituisce il normale tempo di preparazione, ma non modifica Soglia, ingredienti o statistiche del preparato.</p>
+<p>L’Azione utilizzata produce la dose: non la utilizza automaticamente.</p>
+<p>Per lanciarla, applicarla o piazzarla devi successivamente utilizzare l’Azione normalmente richiesta.</p>
+<p>La dose deve essere utilizzata entro la fine della scena.</p>
 <h4 class="man-lab">Talenti d12 · Veterano</h4>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td>Reazioni Violente · Maestria</td><td>I preparati applicano anche uno stato legato alla sostanza. Richiede Reazioni Violente · Migliorato.</td></tr><tr><td>Innesco a Tempo</td><td>Puoi piazzare una carica con innesco a tempo, a contatto o a strappo e farla detonare quando decidi, anche come Reazione. Massimo due cariche attive contemporaneamente.</td></tr><tr><td>Carica da Sfondamento</td><td>I tuoi esplosivi possono colpire strutture resistenti. In battaglia navale, una carica ben piazzata danneggia direttamente un Modulo della nave nemica.</td></tr><tr><td>Officina Mobile</td><td>Puoi produrre preparati anche senza una distilleria, lavorando in luoghi improvvisati senza penalità.</td></tr><tr><td>Mercante di Polveri</td><td>Hai contatti nei porti per reperire reagenti rari e trovare compratori per i tuoi lotti, anche illegali. Richiede Su Commissione.</td></tr></tbody></table></div>
-<h4 class="man-lab">Stati di Reazioni Violente · Maestria</h4>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Preparato</b></th><th><b>Effetto aggiuntivo</b></th></tr></thead><tbody><tr><td>Incendiario</td><td>Il bersaglio brucia a inizio turno.</td></tr><tr><td>Acido</td><td>Difesa Passiva −2.</td></tr><tr><td>Fumogeno</td><td>Accecato.</td></tr><tr><td>Esplosivo</td><td>Sbilanciato.</td></tr></tbody></table></div>
-<p>Questi effetti si applicano ai bersagli colpiti dai preparati del Chimico che possiede Reazioni Violente · Maestria.</p>
+<h4 class="man-lab">Reazioni Violente · Maestria</h4>
+<p>Prerequisito: Reazioni Violente · Migliorato</p>
+<p>I tuoi preparati offensivi applicano anche un effetto aggiuntivo legato alla propria famiglia.</p>
+<ul class="man-punti"><li><b>Incendiario — Bruciatura.</b> Il bersaglio subisce 1d4 PV all’inizio dei propri prossimi 2 turni. Può utilizzare un’Azione e un mezzo appropriato per spegnere le fiamme. Applicazioni ripetute aggiornano la durata ma non sommano il danno periodico.</li><li><b>Acido — Corrosione.</b> Difesa Passiva −2 per 2 turni. Più applicazioni non sommano la penalità. Un intervento adatto di neutralizzazione può terminarla anticipatamente.</li><li><b>Fumogeno — Accecato.</b> Il bersaglio diventa Accecato fino alla fine del proprio turno successivo. Se il preparato crea una zona fumogena persistente, Accecato dura invece finché il bersaglio rimane nella zona, secondo la scheda del preparato.</li><li><b>Esplosivo — Sbilanciato.</b> Il bersaglio subisce Sbilanciato secondo le normali regole dello Stato.</li></ul>
+<p>Quando il preparato concede già una Salvezza, la stessa Salvezza determina anche l’applicazione dell’effetto di Maestria.</p>
+<p>Se non possiede una Salvezza, si utilizza quella prevista dallo Stato applicato.</p>
+<h4 class="man-lab">Innesco a Tempo</h4>
+<p>Puoi preparare e armare cariche esplosive con differenti sistemi di attivazione.</p>
+<p>Piazzare e armare una carica: Azione.</p>
+<p>Quando la piazzi scegli uno dei seguenti inneschi:</p>
+<ul class="man-punti"><li><b>Timer</b> — stabilisci quando detonerà. In combattimento indica il round esatto.</li><li><b>Contatto</b> — detona quando viene premuta, urtata o attivata secondo la modalità stabilita.</li><li><b>Strappo</b> — detona quando un filo, una sicura o un collegamento viene rimosso.</li><li><b>Manuale</b> — puoi farla detonare utilizzando la tua Reazione mentre ti trovi entro 30 metri e il detonatore rimane funzionante.</li></ul>
+<p>Programmare l’innesco fa parte della stessa Azione utilizzata per piazzare la carica.</p>
+<p>Puoi mantenere al massimo due cariche armate contemporaneamente.</p>
+<p>Una creatura che raggiunge fisicamente una carica può tentare di disinnescarla utilizzando un’Azione e una Prova appropriata di Astuzia + Meccanica oppure Astuzia + Medicina, in base al tipo di innesco, contro la Soglia di preparazione della carica.</p>
+<p>Un fallimento lascia la carica attiva, salvo che l’intervento abbia materialmente attivato il suo innesco.</p>
+<h4 class="man-lab">Carica da Sfondamento</h4>
+<p>Quando piazzi un esplosivo direttamente contro una struttura, puoi utilizzarlo come Carica da Sfondamento.</p>
+<p>Contro una struttura dotata di Punti Struttura, la carica infligge il proprio normale danno strutturale e i PS vengono ridotti normalmente.</p>
+<p>Durante una battaglia navale puoi invece piazzarla direttamente su un Modulo raggiungibile della nave nemica.</p>
+<p>In questo caso scegli al momento del piazzamento se colpire:</p>
+<ul class="man-punti"><li><b>Lo scafo</b> — il danno viene sottratto normalmente dai PS della nave.</li><li><b>Il Modulo</b> — il danno non viene sottratto anche ai PS della nave. Se la carica produce almeno 1 danno effettivo dopo le eventuali protezioni, un Modulo Integro diventa Danneggiato. Un Modulo già Danneggiato diventa Distrutto.</li></ul>
+<p>Una singola Carica da Sfondamento non distrugge automaticamente un Modulo Integro.</p>
+<h4 class="man-lab">Officina Mobile</h4>
+<p>Puoi produrre preparati anche senza una distilleria, lavorando in luoghi improvvisati senza penalità.</p>
+<h4 class="man-lab">Mercante di Polveri</h4>
+<p>Hai contatti nei porti per reperire reagenti rari e trovare compratori per i tuoi lotti, anche illegali. Richiede Su Commissione.</p>
 <h4 class="man-lab">Talento Supremo d20 · Reazione a Catena</h4>
 <h4 class="man-lab">Reazione a Catena</h4>
-<ul class="man-elenco"><li>Ultimate</li><li>Costo: 5 ST</li><li>Frequenza: 1 volta per scena</li></ul>
-<p>Tutti i preparati che hai disseminato sul campo detonano contemporaneamente.</p>
-<p>Ogni nemico entro 15 metri effettua una Salvezza.</p>
-<p>Salvezza fallita: subisce il danno pieno di ciascun preparato coinvolto e il relativo stato.</p>
-<p>Salvezza riuscita: subisce metà del danno.</p>
-<p>L’area viene modificata dalle conseguenze delle detonazioni, secondo la situazione.</p>
+<ul class="man-elenco"><li>Ultimate</li><li>Attivazione: Azione</li><li>Costo: 5 ST</li><li>Frequenza: 1 volta per scena</li></ul>
+<p>Scegli fino a 5 tuoi preparati detonabili già piazzati e ancora presenti entro 15 metri da te.</p>
+<p>Devono essere esplosivi, incendiari o altri preparati la cui scheda permetta realmente una detonazione.</p>
+<p>Antidoti, tonici, semplici dosi di acido, fumogeni già esauriti e altri oggetti privi di un innesco compatibile non possono essere scelti.</p>
+<p>Tutti i preparati scelti detonano contemporaneamente dalle loro posizioni reali.</p>
+<p>Ogni preparato conserva:</p>
+<ul class="man-punti"><li>Il proprio danno.</li><li>La propria Area.</li><li>La propria Soglia.</li><li>I propri Stati.</li><li>I propri effetti.</li></ul>
+<p>Non viene effettuata una Salvezza unica per l’intera Ultimate: ogni creatura coinvolta risolve le normali difese e Salvezze dei preparati che la raggiungono.</p>
+<p>Una creatura può essere raggiunta da più detonazioni e subire i rispettivi danni. Copie dello stesso Stato non si sommano oltre le normali regole.</p>
+<p>Gli alleati presenti nelle Aree vengono colpiti normalmente. Reazione a Catena non distingue automaticamente amici e nemici.</p>
+<p>La capacità non piazza nuovi preparati e non crea dosi gratuitamente: tutto ciò che esplode deve essere stato realmente preparato e disseminato prima dell’attivazione.</p>
 <p>Requisiti: Ambizione del Chimico e permesso del Game Master.</p>
 <h2 id="sez-4-7" class="man-sez"><span class="man-sez-n">4.7 ·</span> Cuoco</h2>
 <p>Una ciurma può sopravvivere a una battaglia, ma senza provviste e pasti adeguati non arriverà lontano. Il Cuoco si occupa di trasformare gli ingredienti raccolti durante il viaggio in piatti capaci di recuperare le energie e preparare i compagni alle sfide successive.</p>
@@ -3550,8 +3834,9 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Il Cuoco diventa capace di sostenere l’intero equipaggio, intervenire nei momenti critici e preparare pasti anche lontano dalla cucina della nave.</p>
 <h4 class="man-lab">Mano del Cuoco · Maestria</h4>
 <p>Prerequisito: Mano del Cuoco · Migliorato</p>
-<p>I tuoi piatti rimuovono anche uno stato negativo da chi li mangia.</p>
+<p>I tuoi piatti rimuovono anche uno Stato negativo rimovibile da chi li mangia.</p>
 <p>Il beneficio si aggiunge ai normali effetti del piatto e a quelli delle versioni precedenti di Mano del Cuoco.</p>
+<p>Il piatto non elimina automaticamente una causa fisica, ambientale o chimica che continua ad applicare lo Stato.</p>
 <h4 class="man-lab">Secondo Fuoco</h4>
 <ul class="man-elenco"><li>1×/scontro</li><li>Reazione · Bersaglio entro 5 m</li></ul>
 <p>Quando un compagno entro 5 metri scende sotto metà dei propri PV, puoi utilizzare la Reazione per lanciargli una razione.</p>
@@ -4064,8 +4349,9 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h4 class="man-lab">Grido di Guerra</h4>
 <p>Gratuito · 1 volta per scontro</p>
 <p>Il Capitano incita i compagni con un grido che raggiunge tutti gli alleati in grado di sentirlo.</p>
-<p>Ogni alleato interessato ottiene entrambi i benefici:</p>
-<ul class="man-punti"><li>Rimuove uno stato negativo a scelta.</li><li>Aggiunge +1 dado al proprio prossimo tiro.</li></ul>
+<p>Ogni alleato interessato:</p>
+<ul class="man-punti"><li>Rimuove uno Stato negativo rimovibile a scelta.</li><li>Aggiunge +1 dado al proprio prossimo tiro.</li></ul>
+<p>Grido di Guerra non elimina cause fisiche o ambientali che continuano ad applicare uno Stato.</p>
 <p>Il Talento non richiede Stamina.</p>
 <h4 class="man-lab">Ordine del Capitano · Base</h4>
 <p>Azione · 2 ST · 1 volta per scontro</p>
@@ -4419,11 +4705,46 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">La morte può avvenire soltanto quando, dopo che il personaggio è già A Terra, un nemico continua deliberatamente ad agire contro di lui oppure quando una circostanza della scena ne minaccia concretamente la vita. La risoluzione di queste situazioni appartiene al Game Master.</p>
 <p class="man-guida">Se il personaggio sopravvive fino alla fine dello scontro e non è stato curato, torna cosciente con 1 PV.</p>
 <p class="man-guida">A Terra non è equivalente allo Stato Schiantato.</p>
+<h4 class="man-lab">6.12.1 · Stabilizzazione</h4>
+<p class="man-guida">Un personaggio A Terra può essere Stabilizzato per mettere sotto controllo le ferite che lo hanno portato a 0 PV.</p>
+<ul class="man-elenco"><li>Attivazione: Azione.</li><li>Bersaglio: un personaggio a 0 PV raggiungibile fisicamente.</li><li>Prova: Astuzia + Medicina.</li><li>Soglia ordinaria: 8.</li></ul>
+<p class="man-guida">Se la Prova riesce, il personaggio è Stabilizzato.</p>
+<p class="man-guida">Stabilizzare non restituisce PV e non fa tornare cosciente il personaggio.</p>
+<p class="man-guida">Le ferite che lo hanno portato a 0 PV non costituiscono più, da sole, una minaccia immediata alla sua vita.</p>
+<p class="man-guida">La Stabilizzazione non protegge però da nuove fonti di pericolo. Un personaggio può ancora essere danneggiato, attaccato deliberatamente, soffocare, annegare, bruciare, subire gli effetti di un veleno ancora attivo o trovarsi in altre condizioni capaci di ucciderlo.</p>
+<p class="man-guida">Se una capacità o un oggetto permette di Stabilizzare senza Prova, la Stabilizzazione riesce automaticamente.</p>
+<p class="man-guida">La Stabilizzazione non conta come Cura da Campo.</p>
+<p class="man-guida">Rimane valida la normale regola per cui un personaggio che sopravvive fino alla fine dello scontro senza essere curato torna cosciente con 1 PV.</p>
+<h4 class="man-lab">6.12.2 · Conseguenze Persistenti</h4>
+<p class="man-guida">Non tutte le conseguenze di una ferita vengono rappresentate dalla perdita di PV o da uno Stato.</p>
+<p class="man-guida">Fratture, proiettili conficcati, ferite particolarmente gravi, malattie e altre condizioni di lunga durata possono essere rappresentate come Conseguenze Persistenti.</p>
+<p class="man-guida">Una Conseguenza Persistente nasce soltanto quando una regola, un pericolo o il Game Master la assegna esplicitamente.</p>
+<p class="man-guida">Raggiungere 0 PV, subire un Critico o perdere molti PV non genera automaticamente una Conseguenza Persistente.</p>
+<p class="man-guida">Ogni Conseguenza Persistente deve indicare almeno:</p>
+<p class="man-guida">Causa · Effetto · Trattamento · Condizione di guarigione</p>
+<p class="man-guida">Quando è necessaria una Prova, la Conseguenza può indicare la propria Soglia. Se non lo fa, il Game Master utilizza le normali Soglie del Capitolo 5.</p>
+<p class="man-guida">Recuperare PV non rimuove automaticamente una Conseguenza Persistente.</p>
+<p class="man-guida">Allo stesso modo, un effetto che rimuove uno Stato negativo non ricompone automaticamente una frattura, non estrae un proiettile e non guarisce una malattia.</p>
+<p class="man-guida">Una Conseguenza termina quando vengono soddisfatte le condizioni previste dal suo trattamento.</p>
+<h4 class="man-lab">Malattie</h4>
+<p class="man-guida">Una malattia può indicare durata, sintomi, Soglia, progressione e trattamento propri.</p>
+<p class="man-guida">Non esiste una progressione universale obbligatoria per tutte le malattie: una malattia semplice può risolversi con riposo e trattamento, mentre una malattia importante può possedere una propria scheda.</p>
+<h4 class="man-lab">Stanchezza</h4>
+<p class="man-guida">La normale stanchezza del personaggio è rappresentata principalmente dalla Stamina e dalle regole del Riposo.</p>
+<p class="man-guida">Una forma di stanchezza persistente esiste soltanto quando una regola o una Conseguenza specifica la introduce.</p>
 <h2 id="sez-6-13" class="man-sez"><span class="man-sez-n">6.13 ·</span> Stati</h2>
 <p class="man-guida">Le Tecniche, le Firme, i Talenti, i veleni e altre capacità possono applicare degli Stati.</p>
 <p class="man-guida">Quando una capacità modifica espressamente durata, danno, Salvezza o funzionamento di uno Stato, la regola specifica prevale su quella generale riportata qui.</p>
 <p class="man-guida">Se un effetto concede una Salvezza senza specificarne il momento, la prima Salvezza viene effettuata quando lo Stato viene applicato. Se lo Stato permane, il bersaglio può ripetere la Salvezza alla fine di ciascun proprio turno, salvo indicazione differente.</p>
-<div class="man-tab-wrap man-tab-lunga"><table class="man-tab"><thead><tr><th><b>Stato</b></th><th><b>Effetto</b></th><th><b>Danno</b></th><th><b>Salvezza / Rimozione</b></th></tr></thead><tbody><tr><td><b>Sbilanciato</b></td><td>Il personaggio non può utilizzare Reazioni.</td><td>—</td><td>Tecnica, Soglia 8.</td></tr><tr><td><b>Sanguinante</b></td><td>Il personaggio continua a perdere sangue finché la ferita non viene trattata.</td><td>1d4 PV all’inizio del proprio turno.</td><td>Non possiede una Salvezza automatica. Richiede una cura, Medicina o un effetto che rimuova lo Stato.</td></tr><tr><td><b>Avvelenato</b></td><td>Il personaggio subisce gli effetti della sostanza che lo ha avvelenato.</td><td>Se il veleno non indica un danno proprio, 1d6 PV all’inizio del turno.</td><td>Forza contro la Soglia del veleno. Ogni veleno può possedere danni, effetti e Soglie differenti.</td></tr><tr><td><b>Accecato</b></td><td>Gli attacchi e le Prove che dipendono dalla vista vengono effettuati con Svantaggio. Non può utilizzare normalmente capacità che richiedono una linea di vista chiara.</td><td>—</td><td>Tecnica, Soglia 8.</td></tr><tr><td><b>Atterrito</b></td><td>Non può avvicinarsi volontariamente alla fonte della paura e i suoi attacchi vengono effettuati con Svantaggio.</td><td>—</td><td>Spirito, Soglia 8.</td></tr><tr><td><b>Stordito</b></td><td>Non può utilizzare Azione, Azione Bonus o Reazione. Può ancora utilizzare il proprio Movimento.</td><td>—</td><td>Forza, Soglia 10.</td></tr><tr><td><b>Paralizzato</b></td><td>Non può utilizzare Movimento, Azione, Azione Bonus o Reazione.</td><td>—</td><td>Forza, Soglia 12.</td></tr><tr><td><b>Addormentato</b></td><td>Non può utilizzare Movimento, Azione, Azione Bonus o Reazione.</td><td>—</td><td>Spirito, Soglia 10. Subire danni o un effetto che dichiara di svegliare il bersaglio termina lo Stato.</td></tr><tr><td><b>Immobilizzato</b></td><td>Il Movimento è 0. Il personaggio può continuare a compiere le altre azioni consentite.</td><td>—</td><td>Forza oppure Tecnica, secondo il modo in cui tenta di liberarsi, Soglia 8.</td></tr><tr><td><b>Trattenuto</b></td><td>Il personaggio non può allontanarsi volontariamente dalla creatura o dall’effetto che lo trattiene.</td><td>—</td><td>Normalmente prova contrapposta di Forza contro la fonte della Presa.</td></tr><tr><td><b>Schiantato</b></td><td>Il personaggio è stato abbattuto a terra. Non può muoversi normalmente finché non si rialza.</td><td>—</td><td>Non richiede Salvezza: per rialzarsi deve spendere 1 Azione.</td></tr></tbody></table></div>
+<div class="man-tab-wrap man-tab-lunga"><table class="man-tab"><thead><tr><th><b>Stato</b></th><th><b>Effetto</b></th><th><b>Danno</b></th><th><b>Salvezza / Rimozione</b></th></tr></thead><tbody><tr><td><b>Sbilanciato</b></td><td>Il personaggio non può utilizzare Reazioni.</td><td>—</td><td>Tecnica, Soglia 8.</td></tr><tr><td><b>Sanguinante</b></td><td>Il personaggio continua a perdere sangue finché la ferita non viene trattata.</td><td>1d4 PV all’inizio del proprio turno.</td><td>Non possiede una Salvezza automatica. Richiede Medicina, una Cura appropriata o una capacità che tratti espressamente l’emorragia. Un effetto generico che rimuove Stati negativi non ferma automaticamente un’emorragia ancora attiva.</td></tr><tr><td><b>Avvelenato</b></td><td>Il personaggio subisce gli effetti della sostanza che lo ha avvelenato.</td><td>Se il veleno non indica un danno proprio, 1d6 PV all’inizio del turno.</td><td>Forza contro la Soglia del veleno. Ogni veleno può possedere danni, effetti e Soglie differenti.</td></tr><tr><td><b>Accecato</b></td><td>Gli attacchi e le Prove che dipendono dalla vista vengono effettuati con Svantaggio. Non può utilizzare normalmente capacità che richiedono una linea di vista chiara.</td><td>—</td><td>Tecnica, Soglia 8.</td></tr><tr><td><b>Atterrito</b></td><td>Non può avvicinarsi volontariamente alla fonte della paura e i suoi attacchi vengono effettuati con Svantaggio.</td><td>—</td><td>Spirito, Soglia 8.</td></tr><tr><td><b>Stordito</b></td><td>Non può utilizzare Azione, Azione Bonus o Reazione. Può ancora utilizzare il proprio Movimento.</td><td>—</td><td>Forza, Soglia 10.</td></tr><tr><td><b>Paralizzato</b></td><td>Non può utilizzare Movimento, Azione, Azione Bonus o Reazione.</td><td>—</td><td>Forza, Soglia 12.</td></tr><tr><td><b>Addormentato</b></td><td>Non può utilizzare Movimento, Azione, Azione Bonus o Reazione.</td><td>—</td><td>Spirito, Soglia 10. Subire danni o un effetto che dichiara di svegliare il bersaglio termina lo Stato.</td></tr><tr><td><b>Immobilizzato</b></td><td>Il Movimento è 0. Il personaggio può continuare a compiere le altre azioni consentite.</td><td>—</td><td>Forza oppure Tecnica, secondo il modo in cui tenta di liberarsi, Soglia 8.</td></tr><tr><td><b>Trattenuto</b></td><td>Il personaggio non può allontanarsi volontariamente dalla creatura o dall’effetto che lo trattiene.</td><td>—</td><td>Normalmente prova contrapposta di Forza contro la fonte della Presa.</td></tr><tr><td><b>Schiantato</b></td><td>Il personaggio è stato abbattuto a terra. Non può muoversi normalmente finché non si rialza.</td><td>—</td><td>Non richiede Salvezza: per rialzarsi deve spendere 1 Azione.</td></tr></tbody></table></div>
+<h4 class="man-lab">6.13.1 · Stato e causa dello Stato</h4>
+<p class="man-guida">Lo Stato applicato a un personaggio e la causa che lo produce sono due elementi differenti.</p>
+<p class="man-guida">Un effetto che permette di rimuovere uno Stato negativo elimina normalmente soltanto uno Stato rimovibile.</p>
+<p class="man-guida">Uno Stato è rimovibile quando può cessare senza dover prima eliminare una causa fisica, ambientale o chimica che continua a imporlo.</p>
+<p class="man-guida">Se la causa continua a essere presente, una generica rimozione dello Stato non distrugge, neutralizza o modifica automaticamente quella causa.</p>
+<h4 class="man-lab">Esempi</h4>
+<ul class="man-punti"><li>Un personaggio Accecato da un lampo temporaneo può liberarsi normalmente di Accecato.</li><li>Un personaggio Accecato perché possiede una benda sugli occhi non torna a vedere grazie a una generica rimozione dello Stato: deve prima liberare gli occhi.</li><li>La perdita permanente di un occhio non è un normale Stato Accecato, ma una Conseguenza Persistente.</li><li>Un personaggio Immobilizzato da catene non viene liberato da un effetto che rimuove uno Stato: le catene devono essere aperte, spezzate o eliminate in altro modo.</li><li>Un personaggio Accecato da una nube persistente può liberarsi momentaneamente dello Stato soltanto se l’effetto lo permette, ma la nube può applicarlo nuovamente secondo le proprie regole.</li><li>Rimuovere Avvelenato non neutralizza automaticamente la sostanza presente nell’organismo. Se il veleno continua ad applicare i propri effetti, deve essere neutralizzato con un antidoto o con un’altra capacità appropriata.</li></ul>
+<p class="man-guida">Quando una capacità dichiara espressamente di trattare anche la causa — per esempio Medicina che ferma un’emorragia o un antidoto che neutralizza una tossina — può rimuovere anche lo Stato associato.</p>
 <h3 class="man-sub">Stati ripetuti</h3>
 <p class="man-guida">Lo stesso Stato non moltiplica automaticamente i propri effetti.</p>
 <p class="man-guida">Due applicazioni identiche di Sanguinante, Stordito, Accecato o di un altro Stato non producono due copie della stessa penalità o dello stesso danno. Se possiedono durate differenti, si conserva la durata maggiore ancora applicabile.</p>
@@ -6969,7 +7290,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Non richiede un'Azione Bonus.</p>
 <h2 id="sez-14-11" class="man-sez"><span class="man-sez-n">14.11 ·</span> I Talenti che migliorano i piatti</h2>
 <p class="man-guida">I Talenti del Cuoco modificano la preparazione, il numero di destinatari e i benefici dei pasti.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td><b>Dispensa del Cuoco · d8</b></td><td>Aggiungi il dado Cucina ai tiri per cercare o pescare ingredienti.</td></tr><tr><td><b>Mai a Stomaco Vuoto · d8</b></td><td>I tuoi piatti rendono almeno come uno Stentato, anche se la Prova fallisce.</td></tr><tr><td><b>Mano del Cuoco · Base · d8</b></td><td>Aggiungi un dado alla risorsa recuperata dal piatto, PV oppure ST, secondo l'effetto.</td></tr><tr><td><b>Cuoco da Battaglia · d10</b></td><td>Il Bonus di categoria si attiva già su un Successo.</td></tr><tr><td><b>Specialità · d10</b></td><td>Scegli un piatto del catalogo e ne riduci la Soglia di 2.</td></tr><tr><td><b>Mano del Cuoco · Migliorato · d10</b></td><td>Una preparazione può essere consumata da due compagni; entrambi ricevono l'esito.</td></tr><tr><td><b>Mano del Cuoco · Maestria · d12</b></td><td>I tuoi piatti rimuovono anche uno stato negativo da chi li consuma.</td></tr><tr><td><b>Banchetto di Guerra · d12</b></td><td>Prepari un pasto prima dello scontro e applichi l'esito a tutti i compagni che partecipano al banchetto.</td></tr></tbody></table></div>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td><b>Dispensa del Cuoco · d8</b></td><td>Aggiungi il dado Cucina ai tiri per cercare o pescare ingredienti.</td></tr><tr><td><b>Mai a Stomaco Vuoto · d8</b></td><td>I tuoi piatti rendono almeno come uno Stentato, anche se la Prova fallisce.</td></tr><tr><td><b>Mano del Cuoco · Base · d8</b></td><td>Aggiungi un dado alla risorsa recuperata dal piatto, PV oppure ST, secondo l'effetto.</td></tr><tr><td><b>Cuoco da Battaglia · d10</b></td><td>Il Bonus di categoria si attiva già su un Successo.</td></tr><tr><td><b>Specialità · d10</b></td><td>Scegli un piatto del catalogo e ne riduci la Soglia di 2.</td></tr><tr><td><b>Mano del Cuoco · Migliorato · d10</b></td><td>Una preparazione può essere consumata da due compagni; entrambi ricevono l'esito.</td></tr><tr><td><b>Mano del Cuoco · Maestria · d12</b></td><td>I tuoi piatti rimuovono anche uno Stato negativo rimovibile da chi li consuma.</td></tr><tr><td><b>Banchetto di Guerra · d12</b></td><td>Prepari un pasto prima dello scontro e applichi l'esito a tutti i compagni che partecipano al banchetto.</td></tr></tbody></table></div>
 <p class="man-guida">I Talenti con prerequisiti mantengono la propria progressione.</p>
 <p class="man-guida">Mano del Cuoco · Migliorato richiede la versione Base. Mano del Cuoco · Maestria richiede la versione Migliorato.</p>
 <h4 class="man-lab">Le porzioni</h4>
