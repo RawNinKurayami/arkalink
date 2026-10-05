@@ -87,7 +87,7 @@ function talent(c,t){
    s?'Con Coro della Ciurma e due compagni realmente partecipanti al canto, il raggio diventa 1.000 m.':'Restano le normali condizioni di Requiem.'),
   'tossine-sovrane':()=>sheet('Veleni: Soglia +'+extra+' e, su Salvezza fallita, un Attributo ridotto di '+(s?'3':'2')+' gradini.',
    'Il bonus sostituisce il +2 ordinario e si applica alla Soglia registrata nella scheda del veleno. La riduzione dura fino a un antidoto efficace, segue anche i dadi di Prestigio e non scende sotto d4.',
-   'Sullo stesso Attributo si applica solo la penalità maggiore: applicazioni ripetute e Firma non sommano riduzioni.'),
+   'Applicazioni ripetute sullo stesso Attributo non sommano riduzioni.'),
   'nebbia-pestilenziale':()=>sheet('Nube di '+area+' m di raggio, centro entro '+(s?'100':'20')+' m, durata '+(s?'5':'3')+' turni.',
    'Consuma una dose di Veleno inalabile, senza tiro per colpire; il centro dev’essere visibile e raggiungibile, mai oltre ostacoli solidi. Chi è nella nube quando compare, chi vi entra o vi inizia il turno effettua la Salvezza: se fallisce è Avvelenato e Accecato.',
    'Tossine Sovrane si applica se acquisito. Anche gli alleati sono esposti; Profilassi protegge solo chi è stato trattato per quella tossina. Valgono pareti, ventilazione, acqua e maschere.'),
