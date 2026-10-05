@@ -2026,8 +2026,8 @@ const TEC_EFF=[
 ["Controllo","Sopore","Addormentato (Salvezza)","d12",2,""],
 ["Spostamento","Proiezione","spingi via il bersaglio di 3 m — non richiede la Forma Spostamento: una spinta è la conseguenza di un colpo ben dato. Con Schianto (Concatenati) conta anche contro cosa finisce","d6",0,""],
 ["Spostamento","Attrazione","lo trascini verso di te di 3 m — solo con armi o oggetti in grado di afferrare","d8",1,"spost"],
-["Spostamento","Scatto","ti muovi fino a metà del tuo Movimento, prima o dopo il colpo","d6",1,"spost"],
-["Spostamento","Balzo","raggiungi una posizione alta o lontana fino a metà del tuo Movimento, anche in verticale","d6",1,"spost"],
+["Spostamento","Scatto","ti muovi fino a metà del tuo Movimento, prima o dopo il colpo — sempre disponibile, anche senza la Forma Spostamento","d6",1,""],
+["Spostamento","Balzo","raggiungi una posizione alta o lontana fino a metà del tuo Movimento, anche in verticale — sempre disponibile, anche senza la Forma Spostamento","d6",1,""],
 ["Spostamento","Inseguire","segui un bersaglio che si allontana, fino a tutto il tuo Movimento, e colpisci","d8",2,"spost"],
 ["Spostamento","Strattone","sposti un alleato entro 3 m — lo tiri fuori dai guai o lo metti in posizione; lui non spende nulla e non perde il turno","d8",1,"spost"],
 ["Spostamento","Scambio","ti scambi di posto con un alleato entro 10 m","d10",2,"spost"],
@@ -2325,7 +2325,7 @@ function tbCompute(){
  const fz=(TBUILD.fonte==="Frutto"&&ftype==="Zoan");
  let forme=TEC_FORME.filter(f=>!(f==="Area"&&fz)&&!(f==="Canzone"&&!musica));
  if(TBUILD.fonte==="Stile"&&soloCanzone)forme=["Canzone"];
- if(WLS){const has=g=>TEC_EFF.some(e=>WLS.indexOf(e[1])>=0&&(g==="sagoma"?e[6]==="sagoma":e[5]===g));
+ if(WLS){const has=g=>TEC_EFF.some(e=>WLS.indexOf(e[1])>=0&&(g==="sagoma"?e[6]==="sagoma":(e[5]===g||(g==="spost"&&e[0]==="Spostamento"&&e[5]===""))));
   forme=forme.filter(f=>f==="Area"?has("sagoma"):(f==="Spostamento"?has("spost"):(f==="Difesa"?has("difesa"):(f==="Potenziamento"?has("potenz"):true))));}
  if(TBUILD.forma==="Area"&&fz)TBUILD.forma="Singolo";
  if(forme.indexOf(TBUILD.forma)<0)TBUILD.forma=forme[0]||"Singolo";
