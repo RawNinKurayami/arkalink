@@ -3803,11 +3803,16 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>I tuoi piatti restituiscono +1 dado della risorsa che normalmente recuperano.</p>
 <p>Se un piatto restituisce PV, aggiungi un dado al recupero dei PV. Se restituisce Stamina, aggiungi un dado al recupero della Stamina.</p>
 <p>Il Talento non trasforma automaticamente un piatto che recupera PV in uno che recupera anche ST.</p>
+<p>Se una ricetta recupera sia PV sia ST, scegli al momento della preparazione una delle due risorse: Mano del Cuoco · Base aggiunge il proprio dado soltanto a quella risorsa.</p>
 <h4 class="man-lab">Servizio in Battaglia</h4>
-<p>Azione · Bersaglio entro 5 m</p>
-<p>Come Azione, puoi consegnare a un compagno entro 5 metri un piatto che hai già cucinato.</p>
-<p>Il compagno lo mangia immediatamente e ne riceve l’effetto.</p>
-<p>Il piatto deve essere stato preparato in precedenza. Servizio in Battaglia non permette di cucinare un nuovo pasto durante lo scontro.</p>
+<p>Azione · Bersaglio cosciente entro 5 metri</p>
+<p>Servi una porzione già preparata a un compagno cosciente entro 5 metri.</p>
+<p>La consegna e il consumo fanno parte della stessa Azione del Cuoco.</p>
+<p>Il destinatario non spende la propria Azione.</p>
+<p>La capacità non comprende uno spostamento del Cuoco: il bersaglio deve già trovarsi entro 5 metri.</p>
+<p>Deve inoltre esistere un modo fisicamente possibile di consegnargli il cibo; una parete chiusa o un altro ostacolo invalicabile impedisce il servizio.</p>
+<p>Il destinatario deve essere cosciente e materialmente in grado di mangiare o bere.</p>
+<p>Un personaggio Incosciente non può ricevere i benefici di un normale pasto attraverso questa capacità.</p>
 <h4 class="man-lab">d10 · Pirata</h4>
 <p>Il Cuoco acquisisce maggiore controllo sui risultati delle preparazioni e riesce a nutrire più compagni impiegando meno tempo.</p>
 <h4 class="man-lab">Cuoco da Battaglia</h4>
@@ -3832,9 +3837,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Il Cuoco diventa capace di sostenere l’intero equipaggio, intervenire nei momenti critici e preparare pasti anche lontano dalla cucina della nave.</p>
 <h4 class="man-lab">Mano del Cuoco · Maestria</h4>
 <p>Prerequisito: Mano del Cuoco · Migliorato</p>
-<p>I tuoi piatti rimuovono anche uno Stato negativo rimovibile da chi li mangia.</p>
-<p>Il beneficio si aggiunge ai normali effetti del piatto e a quelli delle versioni precedenti di Mano del Cuoco.</p>
-<p>Il piatto non elimina automaticamente una causa fisica, ambientale o chimica che continua ad applicare lo Stato.</p>
+<p>I tuoi piatti rimuovono anche uno Stato negativo rimovibile da chi li consuma.</p>
+<p>Il pasto non elimina automaticamente una causa fisica, ambientale o chimica che continua ad applicare lo Stato.</p>
 <h4 class="man-lab">Secondo Fuoco</h4>
 <ul class="man-elenco"><li>1×/scontro</li><li>Reazione · Bersaglio entro 5 m</li></ul>
 <p>Quando un compagno entro 5 metri scende sotto metà dei propri PV, puoi utilizzare la Reazione per lanciargli una razione.</p>
@@ -3895,10 +3899,15 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Le modalità specifiche con cui aggiunge Navigazione alle prove vengono definite dai Talenti e dalle regole di traversata.</p>
 <h4 class="man-lab">Firma · Rotta Perfetta</h4>
 <p>Sempre attiva · Gratuita</p>
-<p>Quando ottieni un tiro di Navigazione riuscito con margine +4, la rotta è particolarmente accurata.</p>
-<p>Ottieni entrambi i benefici:</p>
-<ul class="man-punti"><li>+1d6 alla traversata.</li><li>Anticipi un pericolo presente lungo il percorso.</li></ul>
-<p>La Firma non elimina automaticamente il pericolo: permette di conoscerlo in anticipo e prepararsi ad affrontarlo.</p>
+<p>Quando ottieni un margine di almeno +4 in una Prova di Navigazione legata a una traversata, individui una rotta particolarmente favorevole.</p>
+<p>Ottieni entrambi i seguenti benefici:</p>
+<b>Rotta preparata.</b> Fino al raggiungimento della destinazione, la ciurma conserva 1d6 di Rotta. Prima di effettuare una Prova direttamente collegata alla stessa traversata, il Navigatore può consumare questo dado e aggiungerlo alla Prova.
+<p>Può trattarsi, per esempio, di:</p>
+<ul class="man-punti"><li>Superare una corrente.</li><li>Affrontare un tratto di tempesta.</li><li>Evitare una secca.</li><li>Mantenere la rotta durante un imprevisto.</li><li>Effettuare una nuova Prova di traversata richiesta dal viaggio.</li></ul>
+<p>Il dado deve essere dichiarato prima del tiro.</p>
+<p>Una sola Rotta Perfetta può essere conservata per volta. Ottenere nuovamente la Firma prima di aver utilizzato il dado sostituisce quello precedente.</p>
+<b>Pericolo anticipato.</b> Il Game Master comunica inoltre un pericolo reale presente più avanti lungo il percorso, se ne esiste uno che la rotta permette ragionevolmente di prevedere.
+<p>Se l’intera traversata viene risolta con una sola Prova e non vengono richieste ulteriori Prove prima dell’arrivo, il dado di Rotta semplicemente non viene utilizzato. Il beneficio informativo della Firma rimane comunque valido.</p>
 <h4 class="man-lab">Albero dei Talenti</h4>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Grado di Navigazione</b></th><th><b>Fascia</b></th></tr></thead><tbody><tr><td>d8</td><td>Mozzo</td></tr><tr><td>d10</td><td>Pirata</td></tr><tr><td>d12</td><td>Veterano</td></tr><tr><td>d20</td><td>Leggenda</td></tr></tbody></table></div>
 <p>I Talenti diventano disponibili al raggiungimento del Grado richiesto, ma devono essere acquisiti attraverso gli Upgrade, rispettando gli eventuali prerequisiti.</p>
@@ -3912,9 +3921,13 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Il Talento si applica quando conduci personalmente la nave.</p>
 <h4 class="man-lab">Occhio del Cielo</h4>
 <p>Passivo</p>
-<p>Effettui le prove per prevedere il clima con Vantaggio.</p>
-<p>Un pericolo meteorologico previsto perde inoltre parte della propria pericolosità per la ciurma: conoscere in anticipo una tempesta, per esempio, permette di affrontarla con una preparazione adeguata.</p>
-<p>Il Talento non impedisce che il maltempo si verifichi.</p>
+<p>Effettui con Vantaggio le Prove utilizzate per prevedere condizioni meteorologiche.</p>
+<p>Quando riesci a prevedere un pericolo atmosferico prima di entrarvi, il Game Master deve comunicarti almeno:</p>
+<ul class="man-punti"><li>La natura generale del fenomeno.</li><li>La direzione o la zona da cui proviene.</li><li>Una conseguenza concreta che potrebbe provocare.</li></ul>
+<p>La ciurma può quindi prepararsi prima di affrontarlo.</p>
+<p>Una preparazione coerente può, secondo la situazione:</p>
+<ul class="man-punti"><li>Evitare una penalità che sarebbe derivata dall’essere colti di sorpresa.</li><li>Permettere di assicurare il carico o le vele.</li><li>Modificare la rotta.</li><li>Predisporre una Manovra appropriata.</li></ul>
+<p>Occhio del Cielo non impedisce la tempesta e non annulla automaticamente tutte le sue conseguenze.</p>
 <h4 class="man-lab">Timoniere Nato · Base</h4>
 <p>Passivo</p>
 <p>Durante una battaglia navale, la nave aggiunge il tuo dado Navigazione alle proprie manovre di evasione.</p>
@@ -3944,15 +3957,16 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Il Talento annulla una singola cannonata, non l’intera salva nemica.</p>
 <h4 class="man-lab">Vento in Poppa</h4>
 <p>Passivo</p>
-<p>Finché sei al timone e la nave dispone di vele da sfruttare, può effettuare:</p>
-<h4 class="man-lab">+1 manovra per round</h4>
-<p>Il beneficio richiede entrambe le condizioni: devi essere al timone e devono esserci vele utilizzabili.</p>
+<p>Finché sei al timone e la nave dispone di vele utilizzabili, la nave può effettuare +1 Manovra navale per round.</p>
+<p>Vento in Poppa aumenta il limite delle Manovre della nave, ma non concede Azioni aggiuntive ai personaggi.</p>
+<p>La seconda Manovra deve quindi essere eseguita da un membro dell’equipaggio che possieda ancora la propria Azione e occupi la postazione appropriata.</p>
 <h4 class="man-lab">d12 · Veterano</h4>
 <p>Il Navigatore può affrontare condizioni estreme, guidare l’equipaggio attraverso percorsi apparentemente impossibili e sfruttare il mare come elemento tattico.</p>
 <h4 class="man-lab">Timoniere Nato · Maestria</h4>
 <p>Prerequisito: Timoniere Nato · Migliorato</p>
 <p>Durante una battaglia navale, la nave può manovrare e sparare nello stesso turno senza penalità.</p>
 <p>Il Talento elimina la penalità associata a questa combinazione, senza concedere automaticamente cannonate o Azioni aggiuntive.</p>
+<p>La possibilità di manovrare e sparare nello stesso round autorizza entrambe le Manovre navali. La Manovra al timone e la Cannonata devono comunque essere eseguite dalle rispettive postazioni e utilizzare le Azioni dei personaggi coinvolti.</p>
 <h4 class="man-lab">Rotta Impossibile</h4>
 <p>Passivo</p>
 <p>Sai condurre la nave attraverso percorsi che gli altri equipaggi devono normalmente aggirare.</p>
@@ -3960,10 +3974,12 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Il Talento permette di superare ostacoli di navigazione particolarmente complessi, ma non rende la nave indistruttibile.</p>
 <h4 class="man-lab">Sfruttare la Tempesta</h4>
 <p>Passivo</p>
-<p>Tu e la tua nave ignorate le penalità causate da tempesta, pioggia, nebbia e mare grosso.</p>
-<p>I nemici continuano invece a subirle.</p>
-<p>Se conduci deliberatamente gli avversari all’interno di queste condizioni, essi subiscono Svantaggio finché rimangono esposti.</p>
-<p>Il Talento permette di sfruttare il maltempo come vantaggio tattico, non di controllare o generare fenomeni atmosferici.</p>
+<p>Quando sei al timone, tu e la nave ignorate le penalità ai tiri di Navigazione e alle Manovre navali dovute esclusivamente a:</p>
+<ul class="man-punti"><li>Pioggia.</li><li>Nebbia naturale.</li><li>Mare grosso.</li><li>Vento forte.</li><li>Tempesta.</li></ul>
+<p>Gli effetti fisici del fenomeno continuano a esistere.</p>
+<p>Una tempesta può ancora danneggiare una vela, un’onda può ancora spazzare il ponte e una nebbia può ancora impedire materialmente di vedere qualcosa che non è individuabile con gli strumenti disponibili.</p>
+<p>Le navi nemiche che non possiedono una capacità equivalente continuano a subire le normali penalità.</p>
+<p>Se le conduci deliberatamente in una condizione atmosferica che padroneggi, esse effettuano con Svantaggio le Prove direttamente ostacolate da quel fenomeno.</p>
 <h4 class="man-lab">Mai Perduto</h4>
 <p>Passivo</p>
 <p>Sai sempre dove ti trovi, da dove sei arrivato e in quale direzione si trova il mare aperto.</p>
@@ -3982,9 +3998,12 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Il Navigatore è in grado di individuare un percorso che nessun altro avrebbe saputo riconoscere.</p>
 <p>Il Talento può essere utilizzato in due situazioni differenti.</p>
 <h4 class="man-lab">In mare · Traversata impossibile</h4>
-<p>Dichiari una destinazione.</p>
-<p>La nave raggiunge il luogo scelto, indipendentemente dagli ostacoli presenti lungo la rotta.</p>
-<p>Non è richiesto alcun tiro di traversata e non si verificano incontri indesiderati durante il viaggio.</p>
+<p>Dichiari una destinazione che:</p>
+<ul class="man-punti"><li>Conosci oppure sei in grado di identificare attraverso una carta, un Log Pose, un Eternal Pose o un’altra indicazione affidabile.</li><li>È fisicamente raggiungibile via mare dalla nave utilizzata.</li></ul>
+<p>Individui una rotta straordinaria e la nave completa la traversata senza effettuare le normali Prove di Navigazione.</p>
+<p>Durante il viaggio:</p>
+<ul class="man-punti"><li>Non si verificano incontri casuali o deviazioni indesiderate.</li><li>Tempeste, correnti, nebbie e normali pericoli di navigazione non impediscono di raggiungere la destinazione.</li><li>Il viaggio richiede comunque il normale tempo indicativo della rotta.</li><li>La nave continua a consumare normalmente provviste e altre risorse.</li><li>L’Ultimate non permette di attraversare terraferma, muri invalicabili, mari fisicamente inaccessibili alla nave o altri ostacoli che renderebbero impossibile il viaggio stesso.</li></ul>
+<p>Eventi narrativi inevitabili legati direttamente alla destinazione non vengono cancellati dalla capacità.</p>
 <h4 class="man-lab">In battaglia navale · Manovra leggendaria</h4>
 <p>La nave esce dalla linea di tiro nemica e ricompare in una posizione inattesa.</p>
 <p>Il nemico perde il proprio turno e la tua nave spara per prima.</p>
@@ -4217,6 +4236,19 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>A seconda dell’attività svolta:</p>
 <ul class="man-punti"><li>Traduzione: comprendi interamente il testo e individui anche un dettaglio nascosto.</li><li>Esplorazione: riconosci una trappola prima che venga attivata.</li></ul>
 <p>La Firma non conferisce automaticamente entrambe le informazioni: si applica all’attività che ha prodotto il risultato.</p>
+<h4 class="man-lab">Esame Archeologico</h4>
+<p>Quando un Archeologo studia un luogo, un reperto, un’iscrizione o una testimonianza materiale, deve esistere qualcosa da cui ricavare l’informazione:</p>
+<ul class="man-punti"><li>Architettura.</li><li>Simboli.</li><li>Tracce di utilizzo.</li><li>Materiali.</li><li>Iscrizioni.</li><li>Danni.</li><li>Oggetti.</li><li>Testimonianze già conosciute.</li></ul>
+<p>Un normale esame richiede circa 5 minuti.</p>
+<p>Se l’informazione è incerta o nascosta, il Game Master richiede una Prova di Astuzia + Archeologia contro una Soglia appropriata.</p>
+<p>In caso di successo, il giocatore può formulare una domanda concreta sul soggetto esaminato e il Game Master fornisce un’informazione vera e utilizzabile derivabile dalle tracce presenti.</p>
+<p>Un fallimento non fornisce informazioni false: significa che le tracce disponibili non sono state interpretate correttamente o non sono sufficienti per ottenere quella risposta.</p>
+<p>Una singola Prova non rende l’Archeologo onnisciente e non rivela informazioni che non abbiano lasciato alcuna traccia.</p>
+<h4 class="man-lab">Tempi di traduzione e studio</h4>
+<p>Il tempo necessario dipende dalla quantità e dalla complessità del materiale.</p>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Materiale</b></th><th><b>Tempo ordinario</b></th></tr></thead><tbody><tr><td>Simbolo, frase o breve iscrizione</td><td>10 minuti</td></tr><tr><td>Tavola, stele o testo medio</td><td>1 ora</td></tr><tr><td>Grande iscrizione, codice complesso o Poneglyph</td><td>4 ore</td></tr><tr><td>Archivio o raccolta</td><td>Una o più sessioni di studio</td></tr></tbody></table></div>
+<p>Questi tempi presuppongono che il testo sia materialmente leggibile.</p>
+<p>Copie incomplete, parti mancanti o superfici danneggiate possono rendere impossibile una traduzione completa.</p>
 <h4 class="man-lab">Albero dei Talenti</h4>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Grado di Archeologia</b></th><th><b>Fascia</b></th></tr></thead><tbody><tr><td>d8</td><td>Mozzo</td></tr><tr><td>d10</td><td>Pirata</td></tr><tr><td>d12</td><td>Veterano</td></tr><tr><td>d20</td><td>Leggenda</td></tr></tbody></table></div>
 <p>Raggiungere il Grado richiesto permette di acquisire i Talenti corrispondenti attraverso gli Upgrade. Restano validi gli eventuali prerequisiti.</p>
@@ -4249,10 +4281,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Il Talento non stabilisce un incremento monetario fisso: il valore dipende dall’oggetto e dal suo contesto.</p>
 <h4 class="man-lab">Studioso</h4>
 <p>Passivo</p>
-<p>Produci trattati e mappe storiche più rapidamente.</p>
-<p>Una mappa storica realizzata da te può essere utilizzata dal Navigatore come carta nautica dettagliata, concedendo:</p>
-<h4 class="man-lab">+d8</h4>
-<p>al tiro per cui è previsto il beneficio della carta.</p>
+<p>Dimezzi il tempo necessario per realizzare trattati, copie commentate e mappe storiche.</p>
+<p>Una mappa storica completata da te può essere utilizzata dal Navigatore come carta nautica dettagliata e concede normalmente +d8 quando è pertinente.</p>
 <h4 class="man-lab">Scrittura Morta · Migliorato</h4>
 <p>Prerequisito: Scrittura Morta · Base</p>
 <p>Puoi leggere scritture che nessun altro conosce più.</p>
@@ -4260,9 +4290,14 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Non concede ancora automaticamente la capacità di leggere i Poneglyph, che viene acquisita con Scrittura Morta · Maestria.</p>
 <h4 class="man-lab">Insegne e Cicatrici</h4>
 <p>Riconoscimento</p>
-<p>Esaminando uno stemma, un’arma, un tatuaggio o il modo di muoversi di un individuo, puoi riconoscere elementi della sua storia.</p>
-<p>Il Game Master ti rivela un’informazione vera e utile sul nemico.</p>
-<p>L’informazione deve derivare da ciò che è possibile riconoscere attraverso le conoscenze dell’Archeologo.</p>
+<p>Esaminando per almeno un momento un individuo, un’arma, uno stemma, un tatuaggio, un’uniforme o altri segni riconoscibili, puoi tentare di ricostruirne una parte della storia.</p>
+<p>Fuori dal combattimento l’esame richiede normalmente circa un minuto.</p>
+<p>Durante uno scontro richiede la tua Azione.</p>
+<p>Effettua Astuzia + Archeologia contro la Soglia stabilita dal Game Master.</p>
+<p>In caso di successo, ottieni un’informazione vera e utile che possa essere dedotta dai segni osservati.</p>
+<p>Il Talento può rivelare, per esempio:</p>
+<ul class="man-punti"><li>Appartenenza a un’organizzazione.</li><li>Provenienza culturale.</li><li>Una guerra o battaglia a cui il soggetto sembra aver partecipato.</li><li>Il significato di un simbolo.</li><li>La funzione storica di un’arma o di un’uniforme.</li></ul>
+<p>Non rivela automaticamente pensieri, capacità segrete o eventi che non abbiano lasciato tracce riconoscibili.</p>
 <h4 class="man-lab">d12 · Veterano</h4>
 <p>Il Veterano è capace di interpretare testimonianze eccezionalmente rare, utilizzare i meccanismi delle rovine e preservare le scoperte della ciurma.</p>
 <h4 class="man-lab">Scrittura Morta · Maestria</h4>
@@ -4270,21 +4305,36 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Hai acquisito la capacità di leggere i Poneglyph.</p>
 <p>La lettura richiede comunque tempo e impegno: possedere il Talento non significa comprenderne istantaneamente l’intero contenuto.</p>
 <p>Questa capacità permette alla ciurma di accedere direttamente alle informazioni custodite dalle antiche iscrizioni.</p>
+<p>Un Poneglyph segue normalmente il riferimento di 4 ore di studio per una grande iscrizione.</p>
+<p>Il Talento permette di leggerlo: non garantisce che una superficie danneggiata o incompleta contenga ancora tutte le informazioni originarie.</p>
 <h4 class="man-lab">Meccanismi Antichi</h4>
 <p>Passivo</p>
-<p>Sai interpretare e utilizzare i congegni delle civiltà scomparse.</p>
-<p>Puoi aprire porte di pietra, attivare sistemi a contrappeso e risolvere serrature a combinazione incisa, senza doverli sfondare e senza far scattare le trappole.</p>
-<p>Il Talento riguarda i meccanismi antichi presenti nei siti esplorati.</p>
+<p>Sai comprendere e utilizzare i meccanismi costruiti dalle civiltà antiche.</p>
+<p>Quando puoi esaminare un dispositivo integro per almeno 5 minuti, ne comprendi:</p>
+<ul class="man-punti"><li>La funzione generale.</li><li>Il normale metodo di attivazione.</li><li>Gli eventuali comandi fisicamente accessibili.</li></ul>
+<p>Se il dispositivo è integro, accessibile e il suo funzionamento è stato compreso, puoi utilizzare le sue normali funzioni senza doverlo sfondare e senza attivare accidentalmente trappole che hai già identificato.</p>
+<p>Comprendere un dispositivo non significa automaticamente:</p>
+<ul class="man-punti"><li>Individuare ogni trappola nascosta.</li><li>Riparare parti mancanti.</li><li>Fornirgli energia.</li><li>Aggirare un meccanismo deliberatamente bloccato.</li><li>Comandarlo a distanza quando non possiede un sistema di controllo remoto.</li></ul>
+<p>Quando il meccanismo è particolarmente complesso, danneggiato o deve essere utilizzato sotto pressione, il Game Master può richiedere Astuzia + Archeologia contro la Soglia del dispositivo.</p>
 <h4 class="man-lab">Trappola Antica</h4>
 <ul class="man-elenco"><li>Azione</li><li>Prerequisito: Occhio delle Rovine</li></ul>
-<p>Una trappola che hai individuato può diventare un’arma a disposizione della ciurma.</p>
-<p>Come Azione, puoi attivarla contro un nemico che le passa vicino.</p>
-<p>L’effetto concreto dipende dalla trappola presente nel sito. Il Talento permette di utilizzare un dispositivo esistente, non di crearne uno dal nulla.</p>
+<p>Puoi utilizzare una trappola antica che hai già individuato e di cui hai compreso il funzionamento.</p>
+<p>Devi poter raggiungere il comando, l’innesco o un altro punto realmente utilizzabile.</p>
+<p>Come Azione puoi attivarla quando un bersaglio si trova già nella zona in cui la trappola può colpire.</p>
+<p>Il bersaglio risolve i danni, gli Stati e le Salvezze previsti dalla trappola stessa.</p>
+<p>Trappola Antica:</p>
+<ul class="man-punti"><li>Non crea una nuova trappola.</li><li>Non cambia il suo danno.</li><li>Non cambia la sua area.</li><li>Non permette di attivarla da una distanza che il dispositivo non supporta.</li></ul>
+<p>La versione ordinaria non utilizza la Reazione.</p>
+<p>Maestro dei Meccanismi Antichi del Manuale del Prestigio è ciò che permette di intervenire immediatamente quando una creatura raggiunge il punto d’attivazione.</p>
 <h4 class="man-lab">Memoria del Mondo</h4>
 <p>Nessun tiro</p>
 <p>Quando la ciurma sente parlare di un luogo, una rovina, un’isola o un reperto, conosci già qualcosa al riguardo.</p>
 <p>Il Game Master ti comunica un frammento di informazione vero, anche quando si tratta di una conoscenza scomoda o inattesa.</p>
 <p>Il Talento non rivela necessariamente tutti i segreti del soggetto: garantisce una conoscenza concreta da cui iniziare.</p>
+<p>Memoria del Mondo non richiede un Esame Archeologico e non necessita di tracce fisiche davanti al personaggio.</p>
+<p>Fornisce una conoscenza storica già posseduta dall’Archeologo.</p>
+<p>Normalmente concede un’informazione concreta per soggetto quando questo diventa rilevante per la prima volta nell’avventura.</p>
+<p>Risentire ripetutamente lo stesso nome non produce automaticamente nuove informazioni.</p>
 <h4 class="man-lab">Custode del Sapere</h4>
 <p>Passivo</p>
 <p>Le conoscenze che hai raccolto vengono conservate attraverso archivi, calchi e copie custodite anche altrove.</p>
@@ -4300,9 +4350,15 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Studiando un’iscrizione o un reperto, ricavi un’informazione concreta e utilizzabile che modifica il corso dell’arco narrativo.</p>
 <p>La scoperta viene fornita dal Game Master e deve avere una conseguenza reale per l’avventura.</p>
 <h4 class="man-lab">Dentro una rovina · Dominio dei meccanismi</h4>
-<p>Per una scena, i meccanismi del luogo obbediscono ai tuoi comandi.</p>
-<p>Puoi così sfruttare i dispositivi presenti nella rovina, utilizzandone le funzioni in modo coerente con la loro natura.</p>
-<p>Il Talento non crea nuovi meccanismi: conferisce il controllo di quelli esistenti.</p>
+<p>Per una scena comprendi completamente il sistema di controllo dei meccanismi antichi presenti nel sito.</p>
+<p>Puoi comandare soltanto dispositivi:</p>
+<ul class="man-punti"><li>Realmente esistenti.</li><li>Ancora funzionanti.</li><li>Collegati al sistema che hai compreso.</li><li>Provvisti dell’energia o della forza necessaria a funzionare.</li></ul>
+<p>La capacità non ricostruisce parti mancanti e non crea funzioni che il dispositivo non possiede.</p>
+<p>Aprire una porta può soltanto aprire quella porta. Un sistema di contrappesi può muovere le parti a cui è realmente collegato. Una trappola utilizza i propri danni, la propria area e le proprie Salvezze.</p>
+<p>L’Ultimate non concede Azioni aggiuntive.</p>
+<p>Attivare un meccanismo utilizza l’Azione normalmente prevista dal dispositivo; se il dispositivo non possiede una procedura specifica, impartire un comando significativo richiede la tua Azione.</p>
+<p>Puoi controllare a distanza un meccanismo soltanto se la rovina possiede realmente un collegamento che lo consente.</p>
+<p>La rivelazione narrativa dell’altra forma dell’Ultimate rimane invece nelle mani del Game Master e deve produrre una conseguenza concreta per l’avventura.</p>
 <p>Requisiti: Ambizione dell’Archeologo e permesso del Game Master.</p>
 <p>La Voce delle Pietre può essere utilizzata una sola volta per avventura, scegliendo una delle due applicazioni al momento dell’attivazione.</p>
 <h2 id="sez-4-11" class="man-sez"><span class="man-sez-n">4.11 ·</span> Musicista</h2>
@@ -6965,14 +7021,21 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Questa capacità rappresenta un'eccezione alla regola ordinaria.</p>
 <h2 id="sez-13-6" class="man-sez"><span class="man-sez-n">13.6 ·</span> I danni ai componenti</h2>
 <p class="man-guida">Una nave non è costituita da un unico blocco di Punti Struttura.</p>
-<p class="man-guida">Quando entra in condizioni Critiche, può subire danni specifici ai propri componenti.</p>
-<p class="man-guida">Il sistema utilizza un d6 per determinare quale parte cede.</p>
+<p class="man-guida">Quando una nave entra in condizione Critica per la prima volta durante una battaglia navale, tira 1d6 sulla tabella dei Componenti.</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>d6</b></th><th><b>Componente</b></th><th><b>Conseguenza</b></th></tr></thead><tbody><tr><td><b>1</b></td><td>Albero maestro</td><td>Vele −1 dado e velocità dimezzata.</td></tr><tr><td><b>2</b></td><td>Timone</td><td>Non puoi effettuare Manovra Evasiva.</td></tr><tr><td><b>3</b></td><td>Batteria cannoni</td><td>Artiglieria −1 dado.</td></tr><tr><td><b>4</b></td><td>Stiva</td><td>Cargo danneggiato o perduto.</td></tr><tr><td><b>5</b></td><td>Sala macchine</td><td>La nave non può muoversi attivamente.</td></tr><tr><td><b>6</b></td><td>Scafo sotto la linea</td><td>PS massimi −10 permanentemente, finché il danno non viene riparato.</td></tr></tbody></table></div>
-<p class="man-guida">Il tiro viene effettuato quando la situazione richiede di determinare un cedimento, in particolare quando la nave entra in condizioni Critiche.</p>
-<p class="man-guida">Non si effettua automaticamente un nuovo tiro a ogni turno soltanto perché la nave rimane Critica.</p>
-<h4 class="man-lab">Componenti già danneggiati</h4>
-<p class="man-guida">Se il risultato indica un componente che è già fuori uso, il GM stabilisce se il danno peggiora oppure interessa un altro componente.</p>
-<p class="man-guida">Il sistema non impone una seconda tabella di danni cumulativi per questi casi.</p>
+<p class="man-guida">Il componente indicato subisce la conseguenza prevista.</p>
+<p class="man-guida">Rimanere in condizione Critica non provoca nuovi tiri automatici ogni round.</p>
+<p class="man-guida">Se la nave viene riparata sopra la soglia Critica e successivamente vi entra nuovamente a causa di nuovi danni, effettua un nuovo tiro.</p>
+<p class="man-guida">Un Colpo Pulito contro lo scafo non danneggia automaticamente un componente.</p>
+<p class="man-guida">Un attacco può colpire direttamente un componente soltanto se:</p>
+<ul class="man-punti"><li>Una capacità lo permette espressamente.</li><li>Il componente è materialmente esposto e il Game Master ritiene possibile prenderlo di mira.</li></ul>
+<h4 class="man-lab">Componente già danneggiato</h4>
+<p class="man-guida">Se il d6 indica un componente già danneggiato, ritira una volta.</p>
+<p class="man-guida">Se anche il secondo risultato indica un componente già fuori uso, il Game Master può:</p>
+<ul class="man-punti"><li>Peggiorarne la condizione in modo coerente.</li><li>Oppure applicare il danno a un altro componente esposto.</li></ul>
+<h4 class="man-lab">Riduzione dei PS Massimi</h4>
+<p class="man-guida">Se un danno riduce i PS Massimi della nave e i PS Attuali superano il nuovo massimo, i PS Attuali scendono immediatamente al nuovo valore massimo.</p>
+<p class="man-guida">Se erano già inferiori, rimangono invariati.</p>
 <h2 id="sez-13-7" class="man-sez"><span class="man-sez-n">13.7 ·</span> Le postazioni dell'equipaggio</h2>
 <p class="man-guida">Durante una battaglia navale, i personaggi assumono delle postazioni.</p>
 <p class="man-guida">Ogni postazione utilizza un Attributo specifico e contribuisce a un aspetto della navigazione o del combattimento.</p>
@@ -6988,6 +7051,17 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Per esempio, una cannonata utilizza Artiglieria e Tecnica del Cannoniere.</p>
 <p class="man-guida">Una Manovra Evasiva utilizza Vele e Astuzia del Timoniere.</p>
 <p class="man-guida">Le capacità che aggiungono dadi alla formula vengono applicate separatamente.</p>
+<h4 class="man-lab">13.7.2 · Equipaggio e Manovre</h4>
+<p class="man-guida">Una postazione indica chi può effettuare la Prova richiesta dalla Manovra.</p>
+<p class="man-guida">La presenza di più marinai alla stessa postazione non moltiplica automaticamente il numero di Manovre della nave.</p>
+<p class="man-guida">I membri PNG dell’equipaggio possono:</p>
+<ul class="man-punti"><li>Occupare postazioni lasciate libere.</li><li>Effettuare i tiri previsti dalla loro scheda.</li><li>Eseguire una Manovra disponibile della nave.</li></ul>
+<p class="man-guida">Gli eventuali «uno o due tiri per turno» concessi dalla scheda di un equipaggio PNG indicano quante Prove quel gruppo può sostenere nell’ambito delle attività consentite, non quante Manovre navali aggiuntive la nave ottiene.</p>
+<p class="man-guida">Un personaggio può trovarsi in grado di raggiungere più postazioni, ma con una sola Azione principale può normalmente eseguirne soltanto una.</p>
+<p class="man-guida">Occorrono Manovre disponibili e Azioni disponibili.</p>
+<h4 class="man-lab">Cannoni</h4>
+<p class="man-guida">Il dado Artiglieria rappresenta la potenza complessiva della batteria utilizzata per quella Cannonata, non il numero esatto di cannoni fisici presenti sul ponte.</p>
+<p class="man-guida">Una capacità che fa «agire un cannone due volte» si riferisce al sistema di Artiglieria o al Modulo effettivamente utilizzato, non moltiplica automaticamente la Cannonata per ogni cannone decorativo presente sulla nave.</p>
 <h2 id="sez-13-8" class="man-sez"><span class="man-sez-n">13.8 ·</span> La Navigazione</h2>
 <p class="man-guida">Navigare non significa soltanto procedere nella direzione desiderata.</p>
 <p class="man-guida">La ciurma deve trovare una rotta, sfruttare il vento, riconoscere i pericoli e mantenere la nave operativa per tutta la traversata.</p>
@@ -7030,14 +7104,18 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Un fallimento può provocare una complicazione coerente con il viaggio, come una deviazione, un ritardo, un danno alla nave o l'esposizione a un pericolo.</p>
 <p class="man-guida">Non esiste un danno fisso da fallimento della traversata. Il GM deve determinare la conseguenza in base all'ostacolo affrontato.</p>
 <h4 class="man-lab">Firma del Navigatore · Rotta Perfetta</h4>
-<p class="man-guida">Quando il Navigatore ottiene un margine di almeno +4 in una Prova di Navigazione, attiva la propria Firma.</p>
-<h4 class="man-lab">La ciurma ottiene:</h4>
-<p class="man-guida">+d6 alla traversata.</p>
-<p class="man-guida">L'anticipazione di un pericolo del percorso.</p>
-<p class="man-guida">Il bonus e l'informazione vengono applicati secondo la situazione descritta dal GM.</p>
+<p class="man-guida">Quando ottieni un margine di almeno +4 in una Prova di Navigazione legata a una traversata, individui una rotta particolarmente favorevole.</p>
+<p class="man-guida">Ottieni entrambi i seguenti benefici:</p>
+<b>Rotta preparata.</b> Fino al raggiungimento della destinazione, la ciurma conserva 1d6 di Rotta. Prima di effettuare una Prova direttamente collegata alla stessa traversata, il Navigatore può consumare questo dado e aggiungerlo alla Prova.
+<p class="man-guida">Può trattarsi, per esempio, di:</p>
+<ul class="man-punti"><li>Superare una corrente.</li><li>Affrontare un tratto di tempesta.</li><li>Evitare una secca.</li><li>Mantenere la rotta durante un imprevisto.</li><li>Effettuare una nuova Prova di traversata richiesta dal viaggio.</li></ul>
+<p class="man-guida">Il dado deve essere dichiarato prima del tiro.</p>
+<p class="man-guida">Una sola Rotta Perfetta può essere conservata per volta. Ottenere nuovamente la Firma prima di aver utilizzato il dado sostituisce quello precedente.</p>
+<b>Pericolo anticipato.</b> Il Game Master comunica inoltre un pericolo reale presente più avanti lungo il percorso, se ne esiste uno che la rotta permette ragionevolmente di prevedere.
+<p class="man-guida">Se l’intera traversata viene risolta con una sola Prova e non vengono richieste ulteriori Prove prima dell’arrivo, il dado di Rotta semplicemente non viene utilizzato. Il beneficio informativo della Firma rimane comunque valido.</p>
 <h2 id="sez-13-11" class="man-sez"><span class="man-sez-n">13.11 ·</span> I Talenti del Navigatore in mare</h2>
 <p class="man-guida">Alcuni Talenti modificano il modo in cui la ciurma affronta la traversata.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Beneficio</b></th></tr></thead><tbody><tr><td><b>Occhio del Cielo</b></td><td>Prevedi il clima con Vantaggio.</td></tr><tr><td><b>Rotta Maestra</b></td><td>Anticipi un pericolo durante la pianificazione della rotta, anche senza ottenere un margine +4.</td></tr><tr><td><b>Cartografo</b></td><td>Le tue carte valgono come carte dettagliate: +d8 e riutilizzabili.</td></tr><tr><td><b>Sondare il Fondale</b></td><td>Sfrutti secche e bassi fondali per percorrere passaggi inaccessibili alle navi più grandi.</td></tr><tr><td><b>Rotta Impossibile</b></td><td>Attraversi percorsi estremi che altre navi devono aggirare.</td></tr><tr><td><b>Sfruttare la Tempesta</b></td><td>Tu e la tua nave ignorate le penalità di tempesta, pioggia, nebbia e mare grosso.</td></tr><tr><td><b>Mai Perduto</b></td><td>Sai sempre dove ti trovi e ritrovi i luoghi già visitati.</td></tr></tbody></table></div>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Beneficio</b></th></tr></thead><tbody><tr><td><b>Occhio del Cielo</b></td><td>Prevedi il clima con Vantaggio; se anticipi un pericolo atmosferico, il GM ne indica natura, provenienza e una conseguenza concreta.</td></tr><tr><td><b>Rotta Maestra</b></td><td>Anticipi un pericolo durante la pianificazione della rotta, anche senza ottenere un margine +4.</td></tr><tr><td><b>Cartografo</b></td><td>Le tue carte valgono come carte dettagliate: +d8 e riutilizzabili.</td></tr><tr><td><b>Sondare il Fondale</b></td><td>Sfrutti secche e bassi fondali per percorrere passaggi inaccessibili alle navi più grandi.</td></tr><tr><td><b>Rotta Impossibile</b></td><td>Attraversi percorsi estremi che altre navi devono aggirare.</td></tr><tr><td><b>Sfruttare la Tempesta</b></td><td>Al timone, tu e la nave ignorate le penalità a Navigazione e Manovre dovute a pioggia, nebbia naturale, mare grosso, vento forte e tempesta; gli effetti fisici restano.</td></tr><tr><td><b>Mai Perduto</b></td><td>Sai sempre dove ti trovi e ritrovi i luoghi già visitati.</td></tr></tbody></table></div>
 <p class="man-guida">Queste capacità non richiedono automaticamente di introdurre una nuova statistica navale.</p>
 <p class="man-guida">Modificano le Prove, le conseguenze e le possibilità della traversata secondo le proprie descrizioni.</p>
 <h2 id="sez-13-12" class="man-sez"><span class="man-sez-n">13.12 ·</span> Il combattimento navale</h2>
@@ -7049,6 +7127,14 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">I Talenti che concedono esplicitamente manovre aggiuntive costituiscono un'eccezione.</p>
 <p class="man-guida">Durante il combattimento, la ciurma sceglie se attaccare, evitare le cannonate, speronare, fuggire oppure effettuare una riparazione d'emergenza.</p>
 <p class="man-guida">Le singole postazioni determinano chi effettua la Prova.</p>
+<h4 class="man-lab">Manovre aggiuntive e Azioni dell’equipaggio</h4>
+<p class="man-guida">Una capacità che concede una Manovra aggiuntiva alla nave aumenta il numero massimo di Manovre navali che la nave può effettuare in quel round.</p>
+<p class="man-guida">Non concede però automaticamente un’Azione aggiuntiva ai personaggi.</p>
+<p class="man-guida">Ogni Manovra deve essere eseguita da un personaggio o da un membro dell’equipaggio che:</p>
+<ul class="man-punti"><li>Occupi una postazione compatibile.</li><li>Possa realmente eseguire la Manovra.</li><li>Disponga dell’Azione necessaria, salvo che la capacità dica espressamente il contrario.</li></ul>
+<p class="man-guida">Se due personaggi occupano postazioni differenti, ciascuno può quindi spendere la propria Azione per eseguire una delle Manovre disponibili.</p>
+<p class="man-guida">Un singolo personaggio non può utilizzare due Manovre nello stesso round soltanto perché la nave ne possiede due, se non dispone anche delle Azioni necessarie.</p>
+<p class="man-guida">Una capacità che concede un tiro aggiuntivo non equivale invece a una Manovra aggiuntiva. Il tiro modifica o completa la Manovra indicata dalla capacità.</p>
 <h2 id="sez-13-13" class="man-sez"><span class="man-sez-n">13.13 ·</span> Le distanze navali</h2>
 <p class="man-guida">Le battaglie navali utilizzano quattro fasce.</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Fascia</b></th><th><b>Distanza</b></th><th><b>Possibilità</b></th></tr></thead><tbody><tr><td><b>Accostati</b></td><td>0–20 m</td><td>Arrembaggio e combattimento personale.</td></tr><tr><td><b>Sotto tiro</b></td><td>Fino a 200 m</td><td>Cannonate a piena efficacia.</td></tr><tr><td><b>In vista</b></td><td>Fino a 600 m</td><td>Cannonate a lunga gittata.</td></tr><tr><td><b>All'orizzonte</b></td><td>Oltre 600 m</td><td>Inseguimento e navigazione.</td></tr></tbody></table></div>
@@ -7063,14 +7149,19 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h4 class="man-lab">Offensiva</h4>
 <p class="man-guida">Postazione: Cannoniere.</p>
 <p class="man-guida">Tiro: Artiglieria + Tecnica.</p>
-<p class="man-guida">Danno: risultato di un tiro del dado Artiglieria.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Distanza</b></th><th><b>Soglia</b></th></tr></thead><tbody><tr><td><b>Vicina</b></td><td>8</td></tr><tr><td><b>Media</b></td><td>12</td></tr><tr><td><b>Lontana</b></td><td>14</td></tr></tbody></table></div>
+<p class="man-guida">Danno: 1 Dado Artiglieria, salvo Moduli o capacità.</p>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Fascia</b></th><th><b>Distanza</b></th><th><b>Soglia</b></th></tr></thead><tbody><tr><td><b>Accostati</b></td><td>0–20 m</td><td>8</td></tr><tr><td><b>Sotto tiro</b></td><td>oltre 20 m fino a 200 m</td><td>8</td></tr><tr><td><b>In vista</b></td><td>oltre 200 m fino a 600 m</td><td>12</td></tr><tr><td><b>All’orizzonte</b></td><td>oltre 600 m</td><td>Normalmente fuori portata</td></tr></tbody></table></div>
+<p class="man-guida">In vista rappresenta il tiro a lunga gittata e applica quindi il normale aumento di +4 rispetto alla Soglia ordinaria 8.</p>
+<p class="man-guida">Oltre 600 metri una Cannonata non è normalmente possibile salvo che un Modulo o una capacità conceda espressamente una gittata superiore.</p>
 <p class="man-guida">Se il tiro supera o raggiunge la Soglia richiesta, la cannonata colpisce.</p>
 <p class="man-guida">La nave nemica perde un numero di PS pari al risultato del dado Artiglieria.</p>
 <p class="man-guida">Esempio: una nave con Artiglieria d8 colpisce un avversario.</p>
 <p class="man-guida">Il Cannoniere tira 1d8 per determinare il danno. Ottiene 6.</p>
 <p class="man-guida">La nave nemica perde 6 PS.</p>
 <p class="man-guida">Eventuali Moduli, come una batteria pesante, possono modificare il danno quando vengono utilizzati.</p>
+<h4 class="man-lab">Bersaglio</h4>
+<p class="man-guida">Una Cannonata ordinaria prende come bersaglio la nave, non un singolo personaggio sul ponte.</p>
+<p class="man-guida">Mirare deliberatamente a una persona richiede una situazione in cui il bersaglio sia realmente identificabile ed esposto e viene risolto come attacco contro un personaggio, non come normale Cannonata contro i PS.</p>
 <h4 class="man-lab">13.14.2 · Manovra Evasiva</h4>
 <h3 class="man-sub">Manovra Evasiva</h3>
 <h4 class="man-lab">Difensiva</h4>
@@ -7122,6 +7213,16 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Se il risultato della Prova supera la Soglia di almeno +4, può attivarsi la Firma La Riparazione che Tiene.</p>
 <p class="man-guida">Utilizzare Riparazione d’Emergenza conta normalmente come la manovra della nave per quel turno, salvo capacità che concedano manovre ulteriori.</p>
 <p class="man-guida">Le riparazioni ordinarie fuori dalla battaglia continuano invece a utilizzare le tabelle del Cantiere e non vengono sostituite da questa procedura.</p>
+<h4 class="man-lab">13.14.6 · Personaggi, navi e due scale di danno</h4>
+<p class="man-guida">PV e PS rappresentano due scale differenti, ma utilizzano gli stessi valori numerici quando un attacco può realmente danneggiare il proprio bersaglio.</p>
+<b>Attacco personale contro una nave.</b> Un personaggio può infliggere PS soltanto se la propria arma, Tecnica o capacità è materialmente in grado di danneggiare una struttura navale.
+<p class="man-guida">Se può farlo, il danno viene tirato normalmente e il risultato viene sottratto ai PS in rapporto 1:1.</p>
+<p class="man-guida">Un colpo incapace di danneggiare seriamente legno, metallo o la struttura interessata può non infliggere PS anche se sarebbe perfettamente efficace contro una creatura.</p>
+<b>Cannonata contro un personaggio.</b> Una Cannonata ordinaria contro la nave non infligge automaticamente PV ai personaggi sul ponte.
+<p class="man-guida">Se un singolo colpo di artiglieria prende realmente di mira un personaggio, effettua Artiglieria + Tecnica contro la sua normale Difesa e, se colpisce, infligge 1 Dado Artiglieria in PV.</p>
+<p class="man-guida">Copertura, Difesa Attiva e capacità in grado di intercettare il colpo funzionano normalmente quando compatibili.</p>
+<b>Danno allo scafo e persone.</b> Perdere PS non infligge automaticamente la stessa quantità di PV all’equipaggio.
+<p class="man-guida">Esplosioni, schegge, crolli e altri pericoli possono tuttavia produrre conseguenze separate sui personaggi, determinate dalla fonte concreta dell’attacco.</p>
 <h2 id="sez-13-15" class="man-sez"><span class="man-sez-n">13.15 ·</span> Esempio di battaglia navale</h2>
 <p class="man-guida">Due navi si incontrano in mare aperto.</p>
 <h4 class="man-lab">La nave dei personaggi possiede:</h4>
@@ -7167,6 +7268,12 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Modulo</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td><b>Cannoni gemelli</b></td><td>Una cannonata extra per scena.</td></tr><tr><td><b>Scafo corazzato</b></td><td>Riduce di 2 i danni subiti dalle cannonate.</td></tr><tr><td><b>Timone gemello</b></td><td>+1 dado alla Manovra Evasiva.</td></tr><tr><td><b>Cabina del navigatore</b></td><td>+1 dado ai tiri di Navigazione.</td></tr><tr><td><b>Officina di bordo</b></td><td>Riparazioni: −25% ore e +1 dado.</td></tr><tr><td><b>Compartimenti stagni</b></td><td>La nave affonda soltanto a −10 PS.</td></tr></tbody></table></div>
 <p class="man-guida">Il catalogo completo rimane nel Portale della Nave.</p>
 <p class="man-guida">Installare un Modulo non modifica automaticamente le statistiche della nave, salvo che l'effetto lo preveda espressamente.</p>
+<h4 class="man-lab">13.16.3 · Scheda completa di un Modulo navale</h4>
+<p class="man-guida">Ogni Modulo navale deve indicare in modo esplicito:</p>
+<p class="man-guida">Nome · Slot · Attivazione · Bersaglio o sistema interessato · Valore numerico · Durata o frequenza · Eventuali consumi · Limitazioni</p>
+<p class="man-guida">Formule come «+1 dado», «+iniziativa», «+cargo» o «fuga automatica» devono essere completate prima dell’utilizzo.</p>
+<ul class="man-punti"><li>Un bonus in dadi deve indicare quale dado viene aggiunto e a quale Prova.</li><li>Un bonus al Cargo deve indicare quante Unità di Stiva vengono aggiunte.</li><li>Un bonus all’Iniziativa deve indicare il valore oppure il dado aggiunto.</li><li>Una Manovra automatica deve specificare quale Manovra sostituisce e quali condizioni continua a dover rispettare.</li></ul>
+<p class="man-guida">«Fuga automatica», per esempio, significa che non è richiesta la normale Prova di Fuga; non permette di attraversare terraferma, una barriera fisica, una nave che blocca completamente il passaggio o un’altra condizione che renda materialmente impossibile allontanarsi.</p>
 <h2 id="sez-13-17" class="man-sez"><span class="man-sez-n">13.17 ·</span> Il Cantiere</h2>
 <p class="man-guida">Il Cantiere permette di riparare la nave e migliorarne le statistiche.</p>
 <p class="man-guida">Le quattro statistiche vengono potenziate separatamente.</p>
@@ -7207,7 +7314,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Le conseguenze dipendono dall'intervento specifico.</p>
 <h2 id="sez-13-19" class="man-sez"><span class="man-sez-n">13.19 ·</span> I Talenti degli Ingegneri in battaglia navale</h2>
 <p class="man-guida">I Talenti degli Ingegneri possono modificare radicalmente la capacità della nave di resistere ai danni.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Beneficio</b></th></tr></thead><tbody><tr><td><b>Riparazione d'Emergenza</b></td><td>Permette di riparare lo scafo durante la battaglia.</td></tr><tr><td><b>Mani sul Legno · Base</b></td><td>Le riparazioni navali restituiscono +1 dado di PS.</td></tr><tr><td><b>Mani sul Legno · Migliorato</b></td><td>Con la stessa Azione ripari lo scafo e un Modulo danneggiato.</td></tr><tr><td><b>Mani sul Legno · Maestria</b></td><td>Una volta per battaglia ripristini un Modulo distrutto.</td></tr><tr><td><b>Scafo Rinforzato</b></td><td>Riduci di un dado i danni ricevuti dalle cannonate.</td></tr><tr><td><b>Cantiere Viaggiante</b></td><td>Ripari e potenzi la nave in mare aperto, in metà tempo.</td></tr><tr><td><b>Maestro dei Moduli</b></td><td>La nave ottiene uno slot Modulo aggiuntivo.</td></tr></tbody></table></div>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Beneficio</b></th></tr></thead><tbody><tr><td><b>Riparazione d'Emergenza</b></td><td>Con la manovra Riparazione d'Emergenza la nave recupera 1 Dado Carpenteria in PS.</td></tr><tr><td><b>Mani sul Legno · Base</b></td><td>Le Riparazioni d'Emergenza recuperano +1 Dado Carpenteria in PS.</td></tr><tr><td><b>Mani sul Legno · Migliorato</b></td><td>Con la stessa Azione ripari lo scafo e un Modulo danneggiato.</td></tr><tr><td><b>Mani sul Legno · Maestria</b></td><td>Una volta per battaglia ripristini un Modulo distrutto.</td></tr><tr><td><b>Scafo Rinforzato</b></td><td>I Dadi Danno delle cannonate subite dalla nave scendono di un gradino.</td></tr><tr><td><b>Cantiere Viaggiante</b></td><td>Ripari e potenzi la nave in mare aperto, in metà tempo.</td></tr><tr><td><b>Maestro dei Moduli</b></td><td>La nave ottiene uno slot Modulo aggiuntivo.</td></tr></tbody></table></div>
 <p class="man-guida">Questi benefici richiedono il possesso dei rispettivi Talenti.</p>
 <p class="man-guida">L'Ingegnere non li ottiene automaticamente soltanto perché occupa la postazione tecnica.</p>
 <h2 id="sez-13-20" class="man-sez"><span class="man-sez-n">13.20 ·</span> L'arrembaggio</h2>
@@ -7244,15 +7351,19 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>La presenza di più personaggi alle postazioni non concede una manovra aggiuntiva a ciascuno.</p>
 <p>Un Cannoniere e un Timoniere possono essere entrambi pronti, ma la nave sceglie normalmente una sola manovra.</p>
 <p>Eccezione: Timoniere Nato · Maestria permette di manovrare e sparare nello stesso turno senza penalità. Altre capacità possono concedere ulteriori eccezioni secondo la propria descrizione.</p>
-<p class="man-guida"><b>13.21.3 · Quando intervengono i personaggi?</b></p>
-<p>Il combattimento navale e quello personale utilizzano due scale differenti.</p>
-<p>Finché le navi si affrontano a distanza, il GM gestisce lo scontro attraverso i turni navali. I personaggi possono svolgere attività compatibili con la situazione, ma non ottengono automaticamente una cannonata personale aggiuntiva per ciascun membro della ciurma.</p>
-<p>Quando inizia un arrembaggio o uno scontro diretto tra personaggi, si utilizza la normale Iniziativa del Capitolo 6:</p>
-<p><b>Tecnica + Astuzia</b></p>
-<p>Se la battaglia navale continua contemporaneamente all'arrembaggio, il GM mantiene entrambe le componenti della scena.</p>
-<p>Il personaggio che esegue una manovra navale impiega la propria Azione principale per svolgere quel compito. Non può utilizzare la stessa Azione anche per eseguire una Tecnica personale.</p>
-<p>Gli altri personaggi possono agire normalmente quando il combattimento personale lo consente.</p>
-<p>Una nave continua ad avere una sola manovra ordinaria per round, indipendentemente dal numero di combattenti presenti sul ponte.</p>
+<h4 class="man-lab">13.21.3 · Combattimento misto</h4>
+<p>Quando le navi combattono a distanza e nessun personaggio è direttamente coinvolto in uno scontro personale, si utilizza normalmente il turno della nave.</p>
+<p>Quando iniziano contemporaneamente:</p>
+<ul class="man-punti"><li>Arrembaggio.</li><li>Combattimenti sul ponte.</li><li>Spostamenti fra navi.</li><li>Attacchi personali contro equipaggi o strutture.</li></ul>
+<p>la scena passa a una Iniziativa personale comune.</p>
+<p>Tutti i personaggi effettuano normalmente <b>Tecnica + Astuzia</b>.</p>
+<p>Ogni round di combattimento personale conta anche come un round navale.</p>
+<p>All’interno di quel round ogni nave conserva normalmente 1 Manovra navale, più eventuali Manovre aggiuntive concesse da Talenti o Moduli.</p>
+<p>Una Manovra viene eseguita durante il turno personale del personaggio che occupa la postazione appropriata e utilizza la sua Azione principale.</p>
+<p>Il personaggio non riceve un’Azione aggiuntiva perché sta operando una postazione.</p>
+<p>Effetti che durano «un turno» o «un round», compreso Haki, Stati e mantenimenti, utilizzano il normale round personale.</p>
+<p>Una capacità che permette di saltare, muoversi o intervenire fra due navi viene quindi risolta nel normale turno del personaggio oppure attraverso la Reazione indicata dalla capacità.</p>
+<p>Per navi controllate principalmente da PNG, il Game Master può utilizzare un unico turno dell’equipaggio per risolvere la Manovra navale senza dover assegnare una Iniziativa individuale a ogni marinaio.</p>
 <h2 id="sez-13-22" class="man-sez"><span class="man-sez-n">13.22 ·</span> Avvicinamento e inseguimento</h2>
 <p>Una battaglia navale non è necessariamente uno scambio statico di cannonate.</p>
 <p>Una nave può tentare di raggiungerne un'altra per abbordarla. Un'altra può cercare di sottrarsi al combattimento, sfruttando il vento e la propria manovrabilità.</p>
@@ -7286,13 +7397,13 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Non può più continuare normalmente la navigazione o il combattimento.</p>
 <p>Questo stato non implica che tutti i personaggi a bordo muoiano istantaneamente.</p>
 <p>Il GM descrive le conseguenze in base alla natura del danno: una nave potrebbe spezzarsi durante uno Speronamento, imbarcare acqua attraverso una falla oppure perdere progressivamente la capacità di galleggiare.</p>
-<h4 class="man-lab">13.23.1 · Raggiungere 0 PS</h4>
-<h3 class="man-sub">Nave affondata</h3>
-<p>0 PS</p>
-<p>Quando la nave raggiunge 0 PS:</p>
-<ul class="man-punti"><li>Non può effettuare normalmente manovre navali.</li><li>La ciurma deve affrontare le conseguenze del cedimento dello scafo.</li><li>Il GM determina se esiste il tempo materiale per abbandonare l'imbarcazione o tentare un intervento d'emergenza.</li></ul>
-<p>Il sistema non stabilisce un numero universale di turni prima che una nave scompaia sott'acqua.</p>
-<p>Il GM deve rendere chiaro il pericolo ai giocatori prima che prendano le loro decisioni. Una nave che affonda lentamente e una distrutta da un'esplosione non possono essere trattate come situazioni identiche.</p>
+<h4 class="man-lab">13.23.1 · Quando la nave raggiunge la soglia di affondamento</h4>
+<p>Quando una nave raggiunge la propria soglia di affondamento, il Game Master dichiara immediatamente quale tipo di cedimento si sta verificando.</p>
+<b>Cedimento lento · 3 round.</b> La nave imbarca acqua o perde gradualmente galleggiabilità. La ciurma ha tre round completi per evacuare o tentare un intervento.
+<b>Cedimento rapido · 1 round.</b> Una falla grave o un cedimento strutturale lascia un solo round completo prima della perdita della nave.
+<b>Cedimento catastrofico · immediato.</b> La nave viene spezzata, esplode o perde istantaneamente la capacità di restare a galla. I personaggi possono utilizzare soltanto le Reazioni o le capacità che dichiarano di poter intervenire in quel momento.
+<p>Il GM sceglie il profilo in base alla causa del danno e deve comunicarlo chiaramente quando la nave raggiunge la soglia.</p>
+<p>Una riparazione che riporta la nave sopra la propria soglia di affondamento prima del cedimento può arrestare il processo, se la causa fisica lo permette.</p>
 <h4 class="man-lab">13.23.2 · Abbandonare la nave</h4>
 <p>Se l'affondamento lascia tempo per reagire, i personaggi possono tentare di salvarsi.</p>
 <p>Le possibilità dipendono dagli strumenti disponibili e dalla situazione.</p>
@@ -7300,6 +7411,10 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Quando l'esito è incerto, il GM richiede una Prova appropriata, come Atletica, Acrobazia o un'altra Skill pertinente.</p>
 <p>Le distanze e il Movimento seguono le regole ordinarie.</p>
 <p>I possessori dei Frutti del Diavolo rimangono soggetti alla propria debolezza al mare. Non possono ignorarla soltanto perché stanno tentando di abbandonare una nave.</p>
+<h4 class="man-lab">Evacuazione</h4>
+<p>Durante ogni round disponibile, un personaggio può utilizzare normalmente Movimento e Azione per:</p>
+<ul class="man-punti"><li>Raggiungere una scialuppa.</li><li>Liberare un compagno.</li><li>Recuperare un oggetto.</li><li>Saltare su un’altra nave.</li><li>Tentare una riparazione.</li><li>Utilizzare una capacità di mobilità.</li></ul>
+<p>I passeggeri che non vengono gestiti individualmente vengono evacuati attraverso le azioni della ciurma e le risorse disponibili; se l’esito è incerto il GM richiede una Prova appropriata.</p>
 <h4 class="man-lab">13.23.3 · Compartimenti stagni</h4>
 <h3 class="man-sub">Modulo · Compartimenti stagni</h3>
 <p>La nave resiste oltre la soglia ordinaria di 0 PS.</p>
@@ -7307,21 +7422,23 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Il Modulo modifica esclusivamente la soglia di affondamento.</p>
 <p>Non restituisce PS e non ripara automaticamente le parti danneggiate.</p>
 <p>Una nave a −4 PS con Compartimenti stagni non è integra: è gravemente compromessa, ma il Modulo le permette di rimanere a galla fino alla soglia prevista.</p>
+<p>La soglia di affondamento diventa −10 PS. Da 0 a −9 PS la nave è ancora a galla ma rimane in condizioni Critiche e gravemente compromessa.</p>
 <h4 class="man-lab">13.23.4 · Polena vivente</h4>
 <p>Il Modulo Polena vivente permette alla nave di resistere a un colpo fatale.</p>
 <p>Una volta per avventura, quando un colpo la porterebbe alla soglia di affondamento, rimane a 1 PS.</p>
 <p>Il beneficio si applica al singolo colpo fatale.</p>
 <p>Non protegge automaticamente la nave da tutti gli attacchi successivi.</p>
+<p>Polena vivente impedisce un singolo colpo fatale e lascia la nave a 1 PS. Non avvia l’affondamento. Se un colpo successivo la porta nuovamente alla soglia, si applicano le normali regole.</p>
 <p class="man-guida"><b>13.23.5 · Ultimate del Carpentiere: Lei Non Affonda</b></p>
 <h3 class="man-sub">Lei Non Affonda</h3>
 <p>Ultimate</p>
 <p>Frequenza: una volta per battaglia navale.</p>
 <p>Quando la nave scenderebbe a 0 PS o meno:</p>
-<ul class="man-punti"><li>Rimane a galla con 1 PS.</li><li>Può continuare a combattere fino alla fine della battaglia.</li><li>Tutti i Moduli distrutti tornano temporaneamente operativi.</li></ul>
+<ul class="man-punti"><li>Rimane a galla con 1 PS e, fino alla fine della battaglia, non può scendere sotto 1 PS.</li><li>Può continuare a effettuare le manovre che la situazione rende possibili.</li><li>Tutti i Moduli Distrutti tornano temporaneamente operativi.</li></ul>
+<p>Se attiva, prevale finché dura: la nave rimane a 1 PS e non entra nel processo di affondamento fino alla fine della battaglia.</p>
 <p>Al termine della battaglia</p>
-<p>Il beneficio termina. La nave necessita di un intervento in un vero Cantiere per tornare operativa.</p>
-<p>L'Ultimate non costituisce una riparazione permanente.</p>
-<p>Permette alla nave di resistere fino alla conclusione dello scontro, senza eliminare la necessità di affrontare i danni subiti.</p>
+<p>La nave rimane a 1 PS, in condizioni Critiche; i Moduli tornano alla loro reale condizione precedente e serve un vero Cantiere per le riparazioni strutturali.</p>
+<p>L’Ultimate non costituisce una riparazione permanente. La descrizione completa è nel Talento del Carpentiere (§ 4.9.1).</p>
 <h2 id="sez-13-24" class="man-sez"><span class="man-sez-n">13.24 ·</span> Traversate e risorse</h2>
 <p>Un viaggio sulla Grand Line può richiedere poche ore oppure intere settimane.</p>
 <p>La sua durata dipende dalla rotta, dalle condizioni del mare, dalla nave e dalle capacità del Navigatore.</p>
@@ -7341,13 +7458,30 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h4 class="man-lab">13.24.2 · Provviste e cargo</h4>
 <p>Le provviste vengono registrate nel Diario di bordo, insieme al cargo e alle altre risorse della nave.</p>
 <p>Comprendono ciò che la ciurma ha effettivamente imbarcato per affrontare la traversata.</p>
-<p>Il sistema attuale non stabilisce un consumo universale giornaliero per ogni personaggio.</p>
 <p>Per evitare una contabilità eccessiva, il GM può registrare le scorte in relazione alla durata prevista del viaggio e verificare se rimangono sufficienti quando la traversata subisce un ritardo significativo.</p>
-<p>La quantità di provviste iniziali e il loro consumo devono essere concordati prima della partenza, non determinati retroattivamente soltanto per mettere in difficoltà i giocatori.</p>
+<p>La quantità di provviste iniziali deve essere concordata prima della partenza, non determinata retroattivamente soltanto per mettere in difficoltà i giocatori.</p>
+<h4 class="man-lab">Unità di Stiva</h4>
+<p>La Stiva utilizza Unità astratte per rappresentare cargo, botti, casse, materiali e provviste ingombranti.</p>
+<p>La capacità ordinaria dipende da Struttura:</p>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Struttura</b></th><th><b>Unità di Stiva</b></th></tr></thead><tbody><tr><td>d4</td><td>8</td></tr><tr><td>d6</td><td>12</td></tr><tr><td>d8</td><td>16</td></tr><tr><td>d10</td><td>20</td></tr><tr><td>d12</td><td>24</td></tr></tbody></table></div>
+<p>Piccoli oggetti personali, armi portate dai personaggi e normale equipaggiamento individuale non occupano Unità di Stiva.</p>
+<p>Un’Unità rappresenta approssimativamente una cassa, un barile o un quantitativo equivalente di carico.</p>
+<h4 class="man-lab">Provviste</h4>
+<p>Un’Unità di Provviste sostiene fino a 5 persone per una settimana.</p>
+<p>Equipaggio e passeggeri vengono sommati per determinare il consumo.</p>
+<p>Esempio: una nave con 10 persone consuma 2 Unità di Provviste per settimana.</p>
+<p>Le frazioni vengono arrotondate per eccesso alla fine di ogni settimana di viaggio.</p>
+<p>Una capacità che riduce il consumo delle provviste modifica questo valore prima dell’arrotondamento.</p>
+<h4 class="man-lab">Cargo e Moduli</h4>
+<p>Le Unità di Stiva e gli slot Modulo sono risorse completamente separate.</p>
+<p>Gli slot Modulo rappresentano la capacità strutturale della nave di ospitare installazioni.</p>
+<p>Le Unità di Stiva rappresentano lo spazio disponibile per trasportare risorse e merci.</p>
+<p>Installare un Modulo non occupa automaticamente Unità di Stiva salvo che la sua scheda lo dichiari.</p>
 <h4 class="man-lab">Stiva ampliata</h4>
 <p>Il Modulo Stiva ampliata permette di trasportare una maggiore quantità di cargo e provviste.</p>
 <p>Non produce automaticamente nuove scorte.</p>
 <p>Il beneficio aumenta la capacità di trasporto della nave; le risorse devono comunque essere acquistate o procurate.</p>
+<p>Stiva Ampliata deve indicare espressamente quante Unità aggiunge. Una dicitura generica come «aumenta il cargo» non è sufficiente per una scheda utilizzabile.</p>
 <h4 class="man-lab">13.24.3 · Ritardi e imprevisti</h4>
 <p>Un fallimento durante una Prova di Navigazione può modificare la traversata.</p>
 <p>Il GM sceglie una conseguenza coerente con l'ostacolo affrontato: un ritardo, una deviazione, un danno alla nave oppure l'esposizione a un nuovo pericolo.</p>
@@ -7388,6 +7522,12 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Registra il risultato. Il piatto preparato conserva l'esito ottenuto, che determina i benefici quando viene consumato.</p>
 <p class="man-guida">Un piatto viene preparato prima di essere servito. Non è possibile dichiarare durante un combattimento di aver cucinato una ricetta che non era stata preparata.</p>
 <p class="man-guida">Il Talento Servizio in Battaglia permette di servire un piatto già pronto durante lo scontro, non di cucinarlo istantaneamente.</p>
+<h4 class="man-lab">Porzioni</h4>
+<p class="man-guida">Le quantità di ingredienti indicate da una ricetta rappresentano normalmente gli ingredienti necessari per una porzione.</p>
+<p class="man-guida">Preparare più porzioni moltiplica proporzionalmente gli ingredienti richiesti.</p>
+<p class="man-guida">La Prova può essere effettuata una sola volta per un lotto dello stesso piatto preparato contemporaneamente; tutte le porzioni di quel lotto conservano lo stesso esito.</p>
+<p class="man-guida">Mano del Cuoco · Migliorato costituisce un’eccezione: una singola porzione preparata dal Cuoco può beneficiare due compagni.</p>
+<p class="man-guida">Banchetto di Guerra richiede comunque ingredienti sufficienti per nutrire effettivamente la ciurma, ma utilizza una sola Prova di preparazione per l’intero banchetto.</p>
 <h2 id="sez-14-3" class="man-sez"><span class="man-sez-n">14.3 ·</span> I quattro esiti della Cucina</h2>
 <p class="man-guida">Il valore della Prova viene confrontato con la Soglia per determinare il margine.</p>
 <p><b>Margine = risultato − Soglia</b></p>
@@ -7421,6 +7561,13 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Esito</b></th><th><b>PV</b></th><th><b>ST</b></th></tr></thead><tbody><tr><td><b>Critico</b></td><td>2d6+2</td><td>+3</td></tr><tr><td><b>Successo</b></td><td>1d8+2</td><td>+2</td></tr><tr><td><b>Stentato</b></td><td>1d4</td><td>+1</td></tr><tr><td><b>Fallimento</b></td><td>Nessuno</td><td>Nessuna</td></tr></tbody></table></div>
 <p class="man-guida">Questo è un esempio di struttura tratto dal ricettario, non una tabella universale applicabile a ogni piatto.</p>
 <p class="man-guida">Un piatto a base di frutta, per esempio, potrebbe recuperare soprattutto Stamina, mentre altre ricette potrebbero privilegiare i PV.</p>
+<h4 class="man-lab">Beneficio dei pasti</h4>
+<p class="man-guida">Un personaggio può ottenere il recupero di PV e ST di un solo pasto ordinario per scena.</p>
+<p class="man-guida">Consumare ulteriori piatti nella stessa scena è possibile narrativamente, ma non concede nuovamente recuperi di PV o ST.</p>
+<p class="man-guida">Il limite si azzera quando inizia una nuova scena significativa oppure dopo un Riposo.</p>
+<p class="man-guida">Le capacità che dichiarano espressamente di poter servire un nuovo pasto durante lo scontro — come Secondo Fuoco Leggendario — costituiscono un’eccezione e producono i propri effetti secondo la loro descrizione.</p>
+<p class="man-guida">Due piatti che concedono lo stesso bonus temporaneo non sommano lo stesso beneficio: si utilizza il valore maggiore.</p>
+<p class="man-guida">Bonus differenti possono coesistere quando le loro regole lo permettono.</p>
 <h2 id="sez-14-5" class="man-sez"><span class="man-sez-n">14.5 ·</span> Le categorie dei piatti</h2>
 <p class="man-guida">La Cambusa organizza le ricette in categorie.</p>
 <p class="man-guida">Ogni categoria descrive una famiglia di preparazioni e permette di individuare più facilmente gli ingredienti adatti.</p>
@@ -7434,6 +7581,9 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Per i benefici che non specificano a quale tiro o recupero aggiungere il dado, il GM deve definirne l'applicazione prima della preparazione.</p>
 <p class="man-guida">Non si deve presumere che «+1 dado bonus» significhi automaticamente +1 Dado Vita, +1 Dado Danno oppure +1 dado a qualsiasi Prova.</p>
 <p class="man-guida">La ricetta e la descrizione dell'ingrediente rimangono il riferimento principale.</p>
+<h4 class="man-lab">Dadi concessi dagli ingredienti</h4>
+<p class="man-guida">Un dado concesso da un ingrediente non viene mai aggiunto alla Prova di Cucina salvo che la scheda dica espressamente che modifica la Prova.</p>
+<p class="man-guida">Se modifica un recupero, deve indicare quale risorsa modifica e quale dado viene aggiunto.</p>
 <h2 id="sez-14-6" class="man-sez"><span class="man-sez-n">14.6 ·</span> Gli ingredienti speciali</h2>
 <p class="man-guida">Alcuni ingredienti possiedono proprietà che modificano il risultato del piatto.</p>
 <p class="man-guida">Il bonus viene applicato secondo le condizioni indicate dall'ingrediente.</p>
@@ -7454,11 +7604,22 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Un ingrediente che funziona soltanto con Successo o Critico non concede invece il proprio beneficio su uno Stentato.</p>
 <p class="man-guida">I bonus degli ingredienti non cancellano i requisiti necessari per procurarseli.</p>
 <p class="man-guida">Una creatura marina rara potrebbe richiedere una spedizione di pesca, mentre un ingrediente leggendario potrebbe essere disponibile soltanto su un'isola particolare.</p>
+<h4 class="man-lab">Ingredienti extra</h4>
+<p class="man-guida">Una preparazione può utilizzare normalmente un solo Ingrediente Extra, oltre agli ingredienti richiesti dalla ricetta.</p>
+<p class="man-guida">Gli ingredienti obbligatori della ricetta non contano ai fini di questo limite.</p>
+<p class="man-guida">Un Ingrediente Extra viene consumato durante la preparazione e applica esclusivamente il beneficio indicato nella propria scheda.</p>
+<p class="man-guida">Due copie dello stesso Ingrediente Extra non possono essere utilizzate per sommare più volte lo stesso beneficio, salvo che una ricetta dichiari espressamente il contrario.</p>
+<p class="man-guida">Gli ingredienti differenti possono produrre effetti differenti soltanto quando fanno già parte della ricetta oppure una capacità permette espressamente di utilizzarne più di uno.</p>
 <h4 class="man-lab">Disponibilità e conservazione</h4>
 <p class="man-guida">Il riferimento della Cambusa distingue ingredienti comuni, non comuni, rari e leggendari.</p>
 <p class="man-guida">Alcuni prodotti possono essere acquistati nei porti. Altri devono essere pescati, raccolti o ottenuti durante l'avventura.</p>
 <p class="man-guida">Il GM verifica che la ciurma possieda effettivamente gli ingredienti richiesti.</p>
 <p class="man-guida">La cucina non crea materie prime dal nulla.</p>
+<h4 class="man-lab">Conservazione</h4>
+<p class="man-guida">Salvo indicazioni differenti della ricetta:</p>
+<ul class="man-punti"><li>Un piatto appena preparato conserva i propri benefici per 24 ore.</li><li>Un ingrediente fresco si conserva normalmente per 3 giorni.</li><li>Ingredienti essiccati, salati, inscatolati o appositamente conservati seguono la durata indicata dalla loro scheda e possono normalmente durare per settimane.</li></ul>
+<p class="man-guida">Una Cambusa refrigerata, un contenitore adatto o un altro sistema di conservazione può prolungare questi tempi secondo la propria descrizione.</p>
+<p class="man-guida">Quando un alimento supera il proprio tempo di conservazione non mantiene automaticamente gli effetti meccanici registrati nella preparazione.</p>
 <h2 id="sez-14-7" class="man-sez"><span class="man-sez-n">14.7 ·</span> La Firma del Cuoco: L'Apice</h2>
 <h3 class="man-sub">L'Apice</h3>
 <h4 class="man-lab">Firma · Margine +4</h4>
@@ -7468,16 +7629,18 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Il recupero è quello specificato per il Critico, modificato soltanto dai benefici effettivamente applicabili.</p>
 <p class="man-guida">Il Talento Cuoco da Battaglia può anticipare l'attivazione del Bonus di categoria al normale Successo.</p>
 <h2 id="sez-14-8" class="man-sez"><span class="man-sez-n">14.8 ·</span> Creare un piatto personalizzato</h2>
-<p class="man-guida">Il giocatore non è obbligato a utilizzare esclusivamente le ricette ufficiali.</p>
-<p class="man-guida">La Cambusa permette di creare piatti personali selezionando ingredienti e categoria.</p>
-<p class="man-guida">Il nuovo piatto deve essere costruito in modo che le sue proprietà siano chiare prima del tiro.</p>
-<h3 class="man-sub">Scheda di una nuova ricetta</h3>
+<p class="man-guida">Per creare una nuova ricetta, scegli innanzitutto una ricetta ufficiale di riferimento con Soglia e funzione simili.</p>
+<p class="man-guida">La nuova ricetta utilizza quella scheda come limite di potenza.</p>
+<p class="man-guida">Definisci:</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Campo</b></th><th><b>Descrizione</b></th></tr></thead><tbody><tr><td><b>Nome</b></td><td>Nome del piatto.</td></tr><tr><td><b>Categoria</b></td><td>Carne, Pesce, Verdura, Frutta, Dolci o Brodo.</td></tr><tr><td><b>Ingredienti</b></td><td>Materie prime necessarie.</td></tr><tr><td><b>Soglia</b></td><td>Difficoltà della preparazione.</td></tr><tr><td><b>Tempo</b></td><td>Tempo richiesto.</td></tr><tr><td><b>Critico</b></td><td>Recupero massimo.</td></tr><tr><td><b>Successo</b></td><td>Recupero ordinario.</td></tr><tr><td><b>Stentato</b></td><td>Recupero ridotto.</td></tr><tr><td><b>Fallimento</b></td><td>Eventuale recupero minimo o assenza di benefici.</td></tr><tr><td><b>Bonus</b></td><td>Proprietà aggiuntive degli ingredienti e della categoria.</td></tr></tbody></table></div>
-<p class="man-guida">Il creatore digitale permette di scegliere ingredienti notevoli e aggiunge le relative descrizioni dei bonus alla scheda personale.</p>
-<p class="man-guida">Consente inoltre di inserire un ingrediente extra con un bonus personalizzato.</p>
-<p class="man-guida">La creazione della scheda non equivale all'approvazione automatica di qualunque effetto.</p>
-<p class="man-guida">Per rendere il piatto utilizzabile in gioco, il GM deve approvare i valori di recupero, la Soglia e gli eventuali bonus originali.</p>
-<p class="man-guida">La Cambusa digitale registra nome, categoria, ingredienti e bonus, ma non calcola automaticamente una formula completa per tutti e quattro gli esiti dei piatti personalizzati. Questi valori devono quindi essere definiti con il GM.</p>
+<p class="man-guida">Una ricetta personalizzata può redistribuire il proprio recupero tra PV e ST, ma non dovrebbe superare complessivamente il valore di una ricetta ufficiale della stessa fascia senza richiedere ingredienti più rari o una Soglia superiore.</p>
+<p class="man-guida">La rarità di un ingrediente non concede da sola un valore numerico universale.</p>
+<p class="man-guida">Un ingrediente raro produce soltanto il bonus indicato nella propria scheda.</p>
+<p class="man-guida">I benefici che appartengono ai Talenti del Cuoco — per esempio:</p>
+<ul class="man-punti"><li>Più destinatari.</li><li>Rimozione automatica di Stati.</li><li>Recuperi moltiplicati.</li><li>Servizio rapido in battaglia.</li></ul>
+<p class="man-guida">non possono essere inseriti gratuitamente in una ricetta personalizzata.</p>
+<p class="man-guida">Qualsiasi effetto originale deve essere definito e approvato prima della Prova di Cucina.</p>
+<p class="man-guida">Il risultato della Prova decide quale dei quattro esiti registrati viene applicato: non permette di scegliere nuovi effetti dopo il tiro.</p>
 <h2 id="sez-14-9" class="man-sez"><span class="man-sez-n">14.9 ·</span> Cucinare durante la traversata</h2>
 <p class="man-guida">Una nave con una Cambusa funzionante permette di preparare i pasti durante la navigazione, quando le condizioni lo consentono.</p>
 <p class="man-guida">La ciurma deve avere ingredienti sufficienti e il tempo richiesto dalle ricette.</p>
@@ -7494,22 +7657,31 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h2 id="sez-14-10" class="man-sez"><span class="man-sez-n">14.10 ·</span> Servire il cibo durante il combattimento</h2>
 <p class="man-guida">Normalmente, la preparazione avviene prima dello scontro.</p>
 <p class="man-guida">Il Talento Servizio in Battaglia costituisce un'eccezione che permette al Cuoco di distribuire rapidamente una razione già pronta.</p>
+<h4 class="man-lab">Consumare un pasto</h4>
+<p class="man-guida">Un normale pasto non è un oggetto da combattimento.</p>
+<p class="man-guida">Fuori dallo scontro, consumare una porzione richiede normalmente alcuni minuti e il beneficio viene applicato al termine del pasto.</p>
+<p class="man-guida">Durante un combattimento, un personaggio non può consumare liberamente un normale piatto con una semplice Azione salvo che una capacità lo permetta espressamente.</p>
+<p class="man-guida">Servizio in Battaglia, Servizio Sovrano e capacità analoghe costituiscono eccezioni.</p>
 <h3 class="man-sub">Servizio in Battaglia</h3>
 <h4 class="man-lab">Talento d8</h4>
-<p class="man-guida">Costo: 1 Azione principale.</p>
-<p class="man-guida">Portata: un compagno entro 5 metri.</p>
-<p class="man-guida">Requisito: possedere un piatto già preparato.</p>
-<p class="man-guida">Il Cuoco serve il piatto a un compagno, che lo consuma immediatamente e riceve il beneficio corrispondente all'esito ottenuto durante la preparazione.</p>
-<p class="man-guida">Servire il piatto non richiede una seconda Prova di Cucina.</p>
-<p class="man-guida">Il risultato è già stato determinato quando la ricetta è stata preparata.</p>
-<p class="man-guida">L'utilizzo del Talento non crea una porzione aggiuntiva né consente di scegliere un esito differente.</p>
+<p class="man-guida">Azione · Bersaglio cosciente entro 5 metri.</p>
+<p class="man-guida">Requisito: possedere una porzione già preparata.</p>
+<p class="man-guida">Servi una porzione già preparata a un compagno cosciente entro 5 metri.</p>
+<p class="man-guida">La consegna e il consumo fanno parte della stessa Azione del Cuoco.</p>
+<p class="man-guida">Il destinatario non spende la propria Azione.</p>
+<p class="man-guida">La capacità non comprende uno spostamento del Cuoco: il bersaglio deve già trovarsi entro 5 metri.</p>
+<p class="man-guida">Deve inoltre esistere un modo fisicamente possibile di consegnargli il cibo; una parete chiusa o un altro ostacolo invalicabile impedisce il servizio.</p>
+<p class="man-guida">Il destinatario deve essere cosciente e materialmente in grado di mangiare o bere.</p>
+<p class="man-guida">Un personaggio Incosciente non può ricevere i benefici di un normale pasto attraverso questa capacità.</p>
+<p class="man-guida">Servire il piatto non richiede una seconda Prova di Cucina: il risultato è già stato determinato quando la ricetta è stata preparata.</p>
+<p class="man-guida">L’utilizzo del Talento non crea una porzione aggiuntiva né consente di scegliere un esito differente.</p>
 <h4 class="man-lab">Secondo Fuoco</h4>
 <p class="man-guida">Il Talento Secondo Fuoco del Cuoco, disponibile nella fascia d12, permette di lanciare una razione a un compagno entro 5 metri quando questi scende sotto metà dei propri PV.</p>
 <p class="man-guida">La capacità utilizza una Reazione, può essere impiegata una volta per scontro e restituisce immediatamente 1d6 ST al compagno.</p>
 <p class="man-guida">Non richiede un'Azione Bonus.</p>
 <h2 id="sez-14-11" class="man-sez"><span class="man-sez-n">14.11 ·</span> I Talenti che migliorano i piatti</h2>
 <p class="man-guida">I Talenti del Cuoco modificano la preparazione, il numero di destinatari e i benefici dei pasti.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td><b>Dispensa del Cuoco · d8</b></td><td>Aggiungi il dado Cucina ai tiri per cercare o pescare ingredienti.</td></tr><tr><td><b>Mai a Stomaco Vuoto · d8</b></td><td>I tuoi piatti rendono almeno come uno Stentato, anche se la Prova fallisce.</td></tr><tr><td><b>Mano del Cuoco · Base · d8</b></td><td>Aggiungi un dado alla risorsa recuperata dal piatto, PV oppure ST, secondo l'effetto.</td></tr><tr><td><b>Cuoco da Battaglia · d10</b></td><td>Il Bonus di categoria si attiva già su un Successo.</td></tr><tr><td><b>Specialità · d10</b></td><td>Scegli un piatto del catalogo e ne riduci la Soglia di 2.</td></tr><tr><td><b>Mano del Cuoco · Migliorato · d10</b></td><td>Una preparazione può essere consumata da due compagni; entrambi ricevono l'esito.</td></tr><tr><td><b>Mano del Cuoco · Maestria · d12</b></td><td>I tuoi piatti rimuovono anche uno Stato negativo rimovibile da chi li consuma.</td></tr><tr><td><b>Banchetto di Guerra · d12</b></td><td>Prepari un pasto prima dello scontro e applichi l'esito a tutti i compagni che partecipano al banchetto.</td></tr></tbody></table></div>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Talento</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td><b>Dispensa del Cuoco · d8</b></td><td>Aggiungi il dado Cucina ai tiri per cercare o pescare ingredienti.</td></tr><tr><td><b>Mai a Stomaco Vuoto · d8</b></td><td>I tuoi piatti rendono almeno come uno Stentato, anche se la Prova fallisce.</td></tr><tr><td><b>Mano del Cuoco · Base · d8</b></td><td>Aggiungi un dado alla risorsa recuperata dal piatto, PV oppure ST, secondo l'effetto. Se il piatto recupera entrambe, scegli una sola risorsa al momento della preparazione.</td></tr><tr><td><b>Cuoco da Battaglia · d10</b></td><td>Il Bonus di categoria si attiva già su un Successo.</td></tr><tr><td><b>Specialità · d10</b></td><td>Scegli un piatto del catalogo e ne riduci la Soglia di 2.</td></tr><tr><td><b>Mano del Cuoco · Migliorato · d10</b></td><td>Una preparazione può essere consumata da due compagni; entrambi ricevono l'esito.</td></tr><tr><td><b>Mano del Cuoco · Maestria · d12</b></td><td>I tuoi piatti rimuovono anche uno Stato negativo rimovibile da chi li consuma.</td></tr><tr><td><b>Banchetto di Guerra · d12</b></td><td>Prepari un pasto prima dello scontro e applichi l'esito a tutti i compagni che partecipano al banchetto.</td></tr></tbody></table></div>
 <p class="man-guida">I Talenti con prerequisiti mantengono la propria progressione.</p>
 <p class="man-guida">Mano del Cuoco · Migliorato richiede la versione Base. Mano del Cuoco · Maestria richiede la versione Migliorato.</p>
 <h4 class="man-lab">Le porzioni</h4>
