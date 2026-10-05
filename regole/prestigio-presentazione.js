@@ -154,7 +154,7 @@ function talent(c,t){
    'Devi aver identificato il dispositivo e raggiungere un comando o collegamento utile. Restano i suoi danni, effetti e Salvezze.',
    ...(s?['I due interventi consumano una sola Reazione, un solo costo e un utilizzo.']:[])),
   'nutrimento-leggendario':()=>sheet('Piatti ordinari: recupero PV e ST ×'+(s?'3':'2')+' e fino a '+(s?'3':'2')+' Stati negativi rimovibili rimossi.',
-   'Calcola prima ricetta, ingredienti e bonus. Ogni piatto conserva le risorse che può recuperare e il normale numero di destinatari.'),
+   'Calcola prima ricetta, ingredienti e bonus. Se il piatto recupera sia PV sia ST le moltiplica entrambe, ma non aggiunge una risorsa che la ricetta non dà; conserva il normale numero di destinatari.'),
   'servizio-sovrano':()=>sheet('Servi subito fino a '+(s?'5':'3')+' personaggi coscienti entro '+(s?'20':'10')+' m, incluso te.',
    'Consumano porzioni già preparate senza spendere un’Azione. Devi avere e consumare cibo sufficiente.',
    'Restano i destinatari per preparazione di Mano del Cuoco. Nutrimento Leggendario si applica solo se acquisito.'),

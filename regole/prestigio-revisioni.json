@@ -713,5 +713,16 @@
   "from": "Questo beneficio sostituisce la riduzione di un dado concessa da Scafo Rinforzato.",
   "to": "Questo beneficio sostituisce la riduzione di un gradino dei Dadi Danno delle cannonate concessa da Scafo Rinforzato.",
   "perche": "Revisione del 05/10/2026 (modifiche glc 2, Ingegnere): Guasto e Distruzione, seconde attivazioni, Riparazione d’Emergenza a 1 Dado Carpenteria, miglioramenti permanenti della nave."
+ },
+ {
+  "source": "ruoli",
+  "after": 234,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Se il piatto recupera entrambe le risorse, Nutrimento Leggendario moltiplica entrambe. Non aggiunge una risorsa che la ricetta non recupera."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2, Cuoco): piatti che recuperano sia PV sia ST."
  }
 ]
