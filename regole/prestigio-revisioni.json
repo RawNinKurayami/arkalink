@@ -1,26 +1,239 @@
 [
-  {
-    "source": "ruoli",
-    "block": 15,
-    "from": "Le forme ordinarie restano utilizzabili alle proprie condizioni.",
-    "to": "Acquisire l’evoluzione rende indisponibile la versione precedente come scelta separata. I suoi benefici non sostituiti restano incorporati nell’evoluzione."
-  },
-  {
-    "source": "ruoli",
-    "block": 251,
-    "from": "Gli utilizzi delle forme base e potenziate restano condivisi quando la capacità di Prestigio ne sostituisce il limite.",
-    "to": "La versione evoluta sostituisce quella precedente anche nel conteggio degli utilizzi: i limiti non si sommano."
-  },
-  {
-    "source": "combattenti",
-    "block": 263,
-    "from": "Puoi ancora utilizzare la versione ordinaria secondo le sue regole, pagando il suo costo, quando non utilizzi Onda Sismica.",
-    "to": "Onda Sismica rende indisponibile Impatto a Catena come scelta separata; i suoi benefici vengono incorporati nell’evoluzione."
-  },
-  {
-    "source": "combattenti",
-    "block": 282,
-    "from": "Puoi usare la versione ordinaria secondo le sue regole quando non utilizzi Arresto del Colosso.",
-    "to": "Arresto del Colosso rende indisponibile Colpo di Intercettazione come scelta separata."
-  }
+ {
+  "source": "ruoli",
+  "block": 15,
+  "from": "Le forme ordinarie restano utilizzabili alle proprie condizioni.",
+  "to": "Acquisire l’evoluzione rende indisponibile la versione precedente come scelta separata. I suoi benefici non sostituiti restano incorporati nell’evoluzione."
+ },
+ {
+  "source": "ruoli",
+  "block": 251,
+  "from": "Gli utilizzi delle forme base e potenziate restano condivisi quando la capacità di Prestigio ne sostituisce il limite.",
+  "to": "La versione evoluta sostituisce quella precedente anche nel conteggio degli utilizzi: i limiti non si sommano."
+ },
+ {
+  "source": "combattenti",
+  "block": 263,
+  "from": "Puoi ancora utilizzare la versione ordinaria secondo le sue regole, pagando il suo costo, quando non utilizzi Onda Sismica.",
+  "to": "Onda Sismica rende indisponibile Impatto a Catena come scelta separata; i suoi benefici vengono incorporati nell’evoluzione."
+ },
+ {
+  "source": "combattenti",
+  "block": 282,
+  "from": "Puoi usare la versione ordinaria secondo le sue regole quando non utilizzi Arresto del Colosso.",
+  "to": "Arresto del Colosso rende indisponibile Colpo di Intercettazione come scelta separata."
+ },
+ {
+  "source": "combattenti",
+  "block": 14,
+  "from": "La proiezione richiede una Tecnica offensiva in mischia del proprio Ruolo contenente Proiezione. Tutti i costi delle capacità impiegate restano dovuti.",
+  "to": "La Proiezione Colossale richiede una Tecnica offensiva in mischia del proprio Ruolo contenente l’effetto Proiezione del Costruttore. Tutti i costi della Tecnica e degli effetti utilizzati restano dovuti.",
+  "perche": "Revisione del 05/10/2026: distinguere la Proiezione Colossale dalle altre spinte."
+ },
+ {
+  "source": "combattenti",
+  "after": 14,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Questo serve solo a distinguerla dal Talento Proiezione dello Striker e dalle altre capacità che producono una spinta propria."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026: distinguere la Proiezione Colossale dalle altre spinte."
+ },
+ {
+  "source": "combattenti",
+  "after": 42,
+  "blocchi": [
+   {
+    "style": "Heading 4",
+    "text": "Forma Area e propagazione dell’impatto"
+   },
+   {
+    "style": "Normal",
+    "text": "Una Tecnica con Forma Area e la propagazione di un impatto sono due meccaniche differenti."
+   },
+   {
+    "style": "Normal",
+    "text": "Una Tecnica con Forma Area viene costruita fin dall’origine per coinvolgere una porzione dello spazio e utilizza la propria sagoma. Non rappresenta automaticamente una propagazione della scala di Forza."
+   },
+   {
+    "style": "Normal",
+    "text": "La distruzione ambientale del Prestigio di Forza nasce invece da un singolo impatto fisico identificabile che si scarica sul terreno, su un oggetto o su una struttura."
+   },
+   {
+    "style": "Normal",
+    "text": "Una Tecnica Area non genera un punto d’impatto separato per ogni creatura raggiunta e non moltiplica la scala di distruzione. Se una Tecnica Area produce anche un impatto valido sullo scenario, viene individuato un solo punto d’impatto dal quale risolvere l’eventuale propagazione."
+   },
+   {
+    "style": "Normal",
+    "text": "La Forma Area mantiene la propria sagoma, i propri effetti e i propri costi; la scala di distruzione mantiene separatamente il proprio raggio e le proprie regole."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026: la Forma Area e la propagazione di un impatto sono meccaniche distinte."
+ },
+ {
+  "source": "combattenti",
+  "after": 163,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Ogni attivazione di Onda Titanica utilizza un solo punto d’impatto. Il Talento rappresenta la propagazione di un singolo colpo riuscito e non una Forma Area del Costruttore."
+   },
+   {
+    "style": "Normal",
+    "text": "Se la Tecnica che genera il colpo possiede già Forma Area, la sua sagoma rimane separata da Onda Titanica. La Tecnica non genera un nuovo centro di propagazione per ciascun bersaglio raggiunto e la sua sagoma non aumenta il raggio di Onda Titanica."
+   },
+   {
+    "style": "Normal",
+    "text": "Allo stesso modo, Onda Titanica non aumenta né sostituisce la sagoma della Tecnica utilizzata."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026: la Forma Area e la propagazione di un impatto sono meccaniche distinte."
+ },
+ {
+  "source": "combattenti",
+  "after": 258,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Onda Sismica nasce sempre da un singolo impatto valido."
+   },
+   {
+    "style": "Normal",
+    "text": "Una eventuale Forma Area della Tecnica utilizzata non genera più coni e non crea un nuovo centro di Onda Sismica per ciascun bersaglio raggiunto."
+   },
+   {
+    "style": "Normal",
+    "text": "Se una Tecnica Area viene utilizzata per generare Onda Sismica, deve comunque essere identificabile un singolo punto in cui l’impatto contundente si scarica sulla superficie. Da quel punto viene risolta l’intera onda."
+   },
+   {
+    "style": "Normal",
+    "text": "La sagoma della Tecnica e il cono di Onda Sismica rimangono effetti distinti e non aumentano reciprocamente le proprie dimensioni."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026: la Forma Area e la propagazione di un impatto sono meccaniche distinte."
+ },
+ {
+  "source": "combattenti",
+  "after": 331,
+  "blocchi": [
+   {
+    "style": "Heading 3",
+    "text": "Tecniche Area dello Striker"
+   },
+   {
+    "style": "Normal",
+    "text": "Le Tecniche con Forma Area dello Striker rimangono Tecniche del Costruttore e utilizzano normalmente la propria sagoma."
+   },
+   {
+    "style": "Normal",
+    "text": "In assenza di una capacità, un Talento o un altro effetto che permetta espressamente di estenderne la portata, una Tecnica Area dello Striker rappresenta un’azione fisica eseguita con il proprio corpo e coinvolge lo spazio raggiungibile attorno alla posizione dello Striker."
+   },
+   {
+    "style": "Normal",
+    "text": "Una Forma Area non concede automaticamente la capacità di generare un effetto a distanza e non utilizza la scala di distruzione del Prestigio di Forza."
+   },
+   {
+    "style": "Normal",
+    "text": "Onda Titanica rappresenta invece la propagazione successiva di un singolo colpo e segue le proprie regole indipendentemente dalla Forma della Tecnica che lo ha generato."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026: la Forma Area e la propagazione di un impatto sono meccaniche distinte."
+ },
+ {
+  "source": "combattenti",
+  "after": 342,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Una Tecnica Crusher con Forma Area mantiene separatamente la propria sagoma. La Forma Area non aumenta la scala di distruzione e non modifica il cono di Onda Sismica; allo stesso modo, Onda Sismica non aumenta automaticamente l’Area della Tecnica che ha prodotto l’impatto."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026: la Forma Area e la propagazione di un impatto sono meccaniche distinte."
+ },
+ {
+  "source": "combattenti",
+  "block": 14,
+  "from": "Impatto Devastante",
+  "to": "Onda Titanica",
+  "perche": "Revisione del 05/10/2026: il Talento dello Striker si chiama Onda Titanica, per non confonderlo con la Firma del Crusher."
+ },
+ {
+  "source": "combattenti",
+  "block": 24,
+  "from": "Impatto Devastante",
+  "to": "Onda Titanica",
+  "perche": "Revisione del 05/10/2026: il Talento dello Striker si chiama Onda Titanica, per non confonderlo con la Firma del Crusher."
+ },
+ {
+  "source": "combattenti",
+  "block": 39,
+  "from": "Impatto Devastante",
+  "to": "Onda Titanica",
+  "perche": "Revisione del 05/10/2026: il Talento dello Striker si chiama Onda Titanica, per non confonderlo con la Firma del Crusher."
+ },
+ {
+  "source": "combattenti",
+  "block": 42,
+  "from": "Impatto Devastante",
+  "to": "Onda Titanica",
+  "perche": "Revisione del 05/10/2026: il Talento dello Striker si chiama Onda Titanica, per non confonderlo con la Firma del Crusher."
+ },
+ {
+  "source": "combattenti",
+  "block": 44,
+  "from": "Impatto Devastante",
+  "to": "Onda Titanica",
+  "perche": "Revisione del 05/10/2026: il Talento dello Striker si chiama Onda Titanica, per non confonderlo con la Firma del Crusher."
+ },
+ {
+  "source": "combattenti",
+  "block": 51,
+  "from": "Impatto Devastante",
+  "to": "Onda Titanica",
+  "perche": "Revisione del 05/10/2026: il Talento dello Striker si chiama Onda Titanica, per non confonderlo con la Firma del Crusher."
+ },
+ {
+  "source": "combattenti",
+  "block": 146,
+  "from": "Impatto Devastante",
+  "to": "Onda Titanica",
+  "perche": "Revisione del 05/10/2026: il Talento dello Striker si chiama Onda Titanica, per non confonderlo con la Firma del Crusher."
+ },
+ {
+  "source": "combattenti",
+  "block": 159,
+  "from": "Impatto Devastante",
+  "to": "Onda Titanica",
+  "perche": "Revisione del 05/10/2026: il Talento dello Striker si chiama Onda Titanica, per non confonderlo con la Firma del Crusher."
+ },
+ {
+  "source": "combattenti",
+  "block": 162,
+  "from": "Impatto Devastante",
+  "to": "Onda Titanica",
+  "perche": "Revisione del 05/10/2026: il Talento dello Striker si chiama Onda Titanica, per non confonderlo con la Firma del Crusher."
+ },
+ {
+  "source": "combattenti",
+  "block": 330,
+  "from": "Impatto Devastante",
+  "to": "Onda Titanica",
+  "perche": "Revisione del 05/10/2026: il Talento dello Striker si chiama Onda Titanica, per non confonderlo con la Firma del Crusher."
+ },
+ {
+  "source": "combattenti",
+  "block": 362,
+  "from": "Impatto Devastante",
+  "to": "Onda Titanica",
+  "perche": "Revisione del 05/10/2026: il Talento dello Striker si chiama Onda Titanica, per non confonderlo con la Firma del Crusher."
+ },
+ {
+  "source": "combattenti",
+  "block": 243,
+  "from": "È distinta dal Talento di Prestigio Impatto Devastante dello Striker.",
+  "to": "È distinta dal Talento di Prestigio Onda Titanica dello Striker.",
+  "perche": "Revisione del 05/10/2026: il Talento dello Striker si chiama Onda Titanica, per non confonderlo con la Firma del Crusher."
+ }
 ]
