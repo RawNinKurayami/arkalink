@@ -1,0 +1,2678 @@
+[
+ {
+  "type": "p",
+  "style": "Title",
+  "text": "Manuale del Cyborg"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Grand Line Chronicles · Linee Guida per Corpo Meccanico e Moduli"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Cyborg non porta semplicemente degli strumenti: li integra nel proprio corpo. Corpo Meccanico stabilisce quanti Moduli può ospitare e quale livello tecnologico può sostenere; i Moduli definiscono invece che cosa quella tecnologia sa fare."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Questo manuale raccoglie le regole necessarie per progettare Moduli chiari, confrontabili e utilizzabili al tavolo, senza trasformare ogni descrizione tecnologica in un insieme illimitato di bonus."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "1 · Essere un Cyborg"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Cyborg è un individuo il cui corpo è stato modificato attraverso protesi, innesti e dispositivi meccanici integrati. Due Cyborg dello stesso Grado possono avere corpi completamente diversi: uno può essere una piattaforma armata, un altro può puntare sulla mobilità, sui sensori o sugli strumenti."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "1.1 · Corpo Meccanico"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Ogni Cyborg possiede la Tecnica Razziale Corpo Meccanico. Il suo Grado rappresenta la qualità e il livello di integrazione della tecnologia presente nel corpo, non la quantità di metallo o la massa del personaggio."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Corpo Meccanico determina due cose: il numero di slot disponibili e la Fascia Tecnologica massima dei Moduli installabili."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "1.2 · I Moduli"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo è un dispositivo tecnologico integrato nel corpo e registrato come parte del Corpo Meccanico. Può essere un arto artificiale, un’arma, un propulsore, una corazza, un sensore, uno strumento o un altro sistema coerente."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Ogni Modulo deve avere una funzione concreta. Dire che un dispositivo è «avanzato» non concede benefici: occorre definire che cosa è progettato per fare."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "1.3 · Moduli e Tecniche"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo non è una Tecnica. Il Modulo è il dispositivo; la Tecnica è il modo particolare in cui il personaggio usa le proprie capacità."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo può essere usato secondo la propria funzione oppure come esecutore di una Tecnica compatibile. Non concede automaticamente Effetti del Signature Move Builder, bonus ai tiri, Stati, danni aggiuntivi o altre proprietà non indicate nella sua scheda."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "1.4 · Principio generale"
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "La funzione indica cosa può fare un Modulo; la Fascia Tecnologica stabilisce quanto può farlo. Gli Effetti Speciali introducono eventuali eccezioni. Slot, energia, attivazione e integrità stabiliscono quando il dispositivo può essere utilizzato."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La descrizione narrativa non può aumentare liberamente potenza, distanza o autonomia. Allo stesso tempo, le regole definiscono limiti e valori senza imporre a tutti i Cyborg lo stesso arsenale."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "2 · Corpo Meccanico"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Corpo Meccanico misura il livello di integrazione tecnologica del Cyborg. La sua progressione ordinaria è d6 → d8 → d10 → d12 → d20 e non possiede una progressione di Prestigio."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "2.1 · Progressione"
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Corpo Meccanico",
+    "Slot disponibili",
+    "Fascia massima"
+   ],
+   [
+    "d6",
+    "1",
+    "d6"
+   ],
+   [
+    "d8",
+    "2",
+    "d8"
+   ],
+   [
+    "d10",
+    "3",
+    "d10"
+   ],
+   [
+    "d12",
+    "4",
+    "d12"
+   ],
+   [
+    "d20",
+    "5",
+    "d20"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Cyborg può installare Moduli della propria Fascia Tecnologica o di una Fascia inferiore. Avere uno slot libero non permette di installare un dispositivo oltre il proprio Grado di Corpo Meccanico."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "2.2 · Slot e Fascia Tecnologica"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Gli slot misurano quanti Moduli possono essere integrati; la Fascia Tecnologica misura quanto può essere avanzato ciascun Modulo."
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Ogni Modulo installato occupa normalmente 1 slot, indipendentemente dalla Fascia."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Uno slot non corrisponde necessariamente a una parte anatomica. Più Moduli possono trovarsi nella stessa zona del corpo se la configurazione è plausibile, ma sistemi tecnologici indipendenti restano Moduli distinti."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "2.3 · Fascia Tecnologica e Grado d’Arma"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La Fascia Tecnologica indica il requisito di Corpo Meccanico. Il Grado d’Arma indica invece il dado usato da un Modulo-Arma. I due valori sono separati: un cannone di Fascia d10 può, per esempio, essere un’arma d8."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "2.4 · Crescita"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Quando Corpo Meccanico aumenta di Grado, il Cyborg ottiene il nuovo slot previsto dalla tabella e può installare Moduli della nuova Fascia. Non riceve gratuitamente un nuovo Modulo."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "I Moduli già posseduti non aumentano automaticamente di Fascia. Per migliorarli devono essere modificati, ricostruiti o sostituiti attraverso le procedure previste."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "2.5 · Valori indipendenti"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Corpo Meccanico è indipendente dall’Attributo Forza. Aumentare Corpo Meccanico non aumenta Forza, Difesa Passiva, danno a mani nude o capacità di sollevamento generale. Aumentare Forza non concede slot o accesso a Fasce superiori."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Il limite ordinario è d20: 5 slot e Moduli fino alla Fascia d20. Eventuali eccezioni devono provenire da una capacità specifica."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "3 · Anatomia di un Modulo"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Ogni Modulo usa una scheda standard. La scheda separa funzione, stato operativo, eventuali Effetti Speciali e risorse, così che ciò che il dispositivo può fare sia sempre leggibile."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "3.1 · Campi della scheda"
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Campo",
+    "Contenuto"
+   ],
+   [
+    "Nome",
+    "Identità del dispositivo."
+   ],
+   [
+    "Fascia Tecnologica",
+    "d6, d8, d10, d12 o d20."
+   ],
+   [
+    "Categoria",
+    "Offensivo, Difensivo, Mobilità, Controllo, Utilità."
+   ],
+   [
+    "Struttura",
+    "Funzionale oppure Modulo-Arma."
+   ],
+   [
+    "Grado d’Arma",
+    "Solo se il Modulo è utilizzabile come arma."
+   ],
+   [
+    "Funzione fisica",
+    "Che cosa il dispositivo è costruito per fare."
+   ],
+   [
+    "Funzione inattiva",
+    "Ciò che resta utilizzabile da inattivo."
+   ],
+   [
+    "Funzione attiva",
+    "Ciò che il Modulo può fare quando è operativo."
+   ],
+   [
+    "Effetto Speciale",
+    "Facoltativo; massimo uno."
+   ],
+   [
+    "Energia",
+    "Tipo di risorsa, se prevista."
+   ],
+   [
+    "Capacità / Consumo / Ricarica",
+    "Gestione della risorsa energetica."
+   ],
+   [
+    "Tecniche compatibili",
+    "Eventuali limiti all’uso come esecutore."
+   ],
+   [
+    "Limiti",
+    "Condizioni specifiche del progetto."
+   ],
+   [
+    "Integrità",
+    "Integro oppure Danneggiato."
+   ],
+   [
+    "Installazione",
+    "Installato oppure Non installato."
+   ],
+   [
+    "Attivazione",
+    "Attivo oppure Inattivo."
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "3.2 · Installazione, integrità e attivazione"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo può esistere senza essere installato. Solo un Modulo installato occupa uno slot ed entra nel sistema di Corpo Meccanico."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo Integro è funzionante; un Modulo Danneggiato non può usare la propria Funzione operativa, il proprio Effetto Speciale o le Tecniche che lo richiedono finché non viene riparato."
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Un Modulo installato e integro può essere Attivo o Inattivo. Essere installato, essere integro ed essere attivo sono tre condizioni distinte."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "3.3 · Funzione inattiva e funzione attiva"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La Funzione inattiva comprende soltanto proprietà fisiche che non richiedono il funzionamento operativo del sistema: per esempio un vano che continua a contenere oggetti o un arto artificiale che conserva una normale mobilità se il progetto lo prevede."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Propulsione, sensori avanzati, bonus difensivi, Effetti Speciali e Tecniche collegate non rimangono attivi automaticamente. Se la scheda non indica alcuna Funzione inattiva, il Modulo inattivo non concede benefici meccanici."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La Funzione attiva descrive invece il normale funzionamento del dispositivo quando è installato, integro e attivo."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "3.4 · Effetti, energia e limiti"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo può possedere al massimo un Effetto Speciale. Se usa una risorsa dedicata, la scheda indica capacità, consumo e ricarica. Tecniche compatibili e Limiti specificano eventuali condizioni ulteriori senza concedere benefici aggiuntivi."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "3.5 · Modello di scheda"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Nome:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Fascia Tecnologica:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Categoria:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Struttura:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Grado d’Arma:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Funzione fisica:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Funzione inattiva:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Funzione attiva:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Effetto Speciale:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Energia:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Capacità / Consumo / Ricarica:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Tecniche compatibili:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Limiti:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Integrità:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Installazione:"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Attivazione:"
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "4 · Fasce Tecnologiche"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La Fascia Tecnologica stabilisce il limite massimo della Funzione Principale del Modulo. Non concede automaticamente tutte le prestazioni della stessa riga: ogni dispositivo usa soltanto i parametri necessari alla propria funzione."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "4.1 · Scala generale"
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Portata funzionale",
+    "Spostamento",
+    "Forza meccanica",
+    "Sensori",
+    "Area funzionale"
+   ],
+   [
+    "d6",
+    "3 m",
+    "5 m",
+    "100 kg",
+    "10 m",
+    "1 m"
+   ],
+   [
+    "d8",
+    "5 m",
+    "10 m",
+    "250 kg",
+    "25 m",
+    "2 m"
+   ],
+   [
+    "d10",
+    "10 m",
+    "20 m",
+    "500 kg",
+    "50 m",
+    "3 m"
+   ],
+   [
+    "d12",
+    "20 m",
+    "30 m",
+    "2 t",
+    "100 m",
+    "5 m"
+   ],
+   [
+    "d20",
+    "50 m",
+    "50 m",
+    "10 t",
+    "300 m",
+    "10 m"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Portata funzionale indica fin dove un dispositivo può agire fisicamente; Spostamento indica la distanza generata da una Funzione di Mobilità; Forza meccanica indica il carico operativo ordinario; Sensori e Area funzionale indicano i rispettivi raggi massimi."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "4.2 · Mobilità e volo"
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Capacità di propulsione"
+   ],
+   [
+    "d6",
+    "Spinta assistita: accelerazioni, salti, frenate e correzioni. Nessun volo continuativo."
+   ],
+   [
+    "d8",
+    "Spostamento aereo breve: può sollevarsi, ma deve terminare su una superficie."
+   ],
+   [
+    "d10",
+    "Volo: movimento tridimensionale e permanenza in aria finché il sistema è operativo."
+   ],
+   [
+    "d12",
+    "Volo avanzato: controllo stabile in manovre complesse e condizioni difficili ordinarie."
+   ],
+   [
+    "d20",
+    "Volo leggendario: massimo controllo tecnologico ordinario, sempre entro i limiti di distanza ed energia."
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "4.3 · Protezione"
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Scala protetta"
+   ],
+   [
+    "d6",
+    "Parte del corpo o direzione limitata"
+   ],
+   [
+    "d8",
+    "Intero utilizzatore"
+   ],
+   [
+    "d10",
+    "Utilizzatore + 1 bersaglio adiacente oppure piccola barriera"
+   ],
+   [
+    "d12",
+    "Piccolo gruppo o barriera estesa"
+   ],
+   [
+    "d20",
+    "Gruppo o ampia posizione difensiva"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La Fascia stabilisce la scala della protezione, non il danno annullato: il beneficio concreto dipende dalla Funzione Difensiva scelta."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "4.4 · Limiti delle Fasce"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Le tabelle rappresentano condizioni operative normali. Superare temporaneamente un carico o operare in condizioni estreme può richiedere una Prova appropriata, ma non trasforma permanentemente un Modulo in una Fascia superiore."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Nessuna Fascia concede automaticamente Effetti del Signature Move Builder come Attrazione, Presa, Proiezione, Stati, Dadi Danno, Area o Gittata. La Fascia descrive la capacità materiale del dispositivo; gli effetti di combattimento provengono da Funzioni specifiche, Effetti Speciali, Moduli-Arma, Tecniche o Talenti."
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Un Modulo possiede una Funzione Principale. Componenti secondarie necessarie al suo funzionamento sono ammesse, ma capacità meccaniche indipendenti richiedono un Effetto Speciale compatibile o un secondo Modulo."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "5 · Funzioni dei Moduli"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La Funzione Principale è ciò che il Modulo sa fare normalmente. Una Funzione continua opera finché il Modulo è attivo; una Funzione operativa richiede normalmente 1 Azione, salvo che la sua descrizione stabilisca diversamente."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "5.1 · Offensivo"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo che infligge direttamente danni deve essere un Modulo-Arma oppure utilizzare una Tecnica o una capacità che assegni espressamente danni o Stati."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo-Arma indica se è da Mischia o a Distanza e possiede un Grado d’Arma. La Fascia Tecnologica stabilisce se il corpo può sostenerlo; il Grado d’Arma ne determina l’efficacia offensiva."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "5.2 · Difensivo"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Le due Funzioni Difensive principali sono Corazza e Scudo/Barriera."
+ },
+ {
+  "type": "p",
+  "style": "Heading3",
+  "text": "5.2.1 · Corazza"
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Riduzione danno fisico"
+   ],
+   [
+    "d6",
+    "−1"
+   ],
+   [
+    "d8",
+    "−2"
+   ],
+   [
+    "d10",
+    "−3"
+   ],
+   [
+    "d12",
+    "−4"
+   ],
+   [
+    "d20",
+    "−6"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La riduzione si applica dopo eventuali dimezzamenti e non può portare il danno sotto 0. Resistenze specifiche a fuoco, freddo, elettricità, acido, veleno, Haki o altri danni richiedono una proprietà prevista dal progetto."
+ },
+ {
+  "type": "p",
+  "style": "Heading3",
+  "text": "5.2.2 · Scudo o Barriera"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Quando correttamente rivolto verso la minaccia, concede Copertura Parziale: DP +2. La Fascia aumenta la scala protetta, non il bonus."
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Protezione"
+   ],
+   [
+    "d6",
+    "Utilizzatore contro una direzione dichiarata"
+   ],
+   [
+    "d8",
+    "Utilizzatore"
+   ],
+   [
+    "d10",
+    "Utilizzatore + 1 alleato entro 2 m"
+   ],
+   [
+    "d12",
+    "Utilizzatore + fino a 3 alleati entro 3 m"
+   ],
+   [
+    "d20",
+    "Utilizzatore + alleati entro 5 m"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La Copertura Parziale non si somma con un’altra identica; si usa il beneficio migliore. La Copertura Completa richiede una capacità specifica."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "5.3 · Mobilità"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Propulsore utilizza lo Spostamento della propria Fascia una volta per turno. Lo spostamento si aggiunge al normale Movimento e non costituisce un’Azione aggiuntiva. Le capacità di volo disponibili dipendono dalla Fascia secondo il Capitolo 4. Eventuali consumi energetici vengono pagati normalmente."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "5.4 · Controllo"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Manipolatori, cavi, arpioni e sistemi simili utilizzano Portata funzionale e Forza meccanica della propria Fascia per afferrare, sostenere, spostare o azionare oggetti."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Contro una creatura, raggiungerla fisicamente non concede automaticamente Presa, Immobilizzato, Attrazione, Proiezione o altri spostamenti forzati. Questi effetti richiedono la normale prova appropriata, una Tecnica o una capacità specifica."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un sistema di ancoraggio può sostenere il Cyborg, tirare oggetti entro il proprio carico o permettere di raggiungere un punto agganciato, sempre entro la Portata del dispositivo."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "5.5 · Utilità"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "I Moduli di Utilità comprendono sensori, strumenti integrati, sistemi di analisi, comunicazione, illuminazione e immagazzinamento."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Sensore viene progettato per un tipo definito di informazione e usa il raggio indicato dalla propria Fascia. Non individua automaticamente tutto ciò che rientra nel raggio: occultamento, disturbi e condizioni ambientali possono richiedere una Prova."
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Strumento integrato"
+   ],
+   [
+    "d6",
+    "Singolo utensile o strumento comune"
+   ],
+   [
+    "d8",
+    "Piccolo set professionale"
+   ],
+   [
+    "d10",
+    "Attrezzatura avanzata e di precisione"
+   ],
+   [
+    "d12",
+    "Postazione tecnica specializzata portatile"
+   ],
+   [
+    "d20",
+    "Laboratorio mobile specializzato in un singolo ambito"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Uno Strumento integrato sostituisce l’attrezzatura necessaria, ma non aumenta automaticamente la Skill, non fornisce materiali e non concede Talenti professionali."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "5.6 · Emissioni"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo può emettere luce, fumo, schiuma, vapore, segnali, liquidi o altri elementi entro l’Area funzionale della propria Fascia. La sola emissione non infligge automaticamente danni, Stati, Vantaggio o Svantaggio: per ottenere un effetto di combattimento serve una regola che lo assegni."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "5.7 · Utilizzo creativo"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un giocatore può proporre impieghi creativi coerenti con la Funzione. Il GM può permetterli direttamente o richiedere una Prova. L’uso creativo non trasforma però il Modulo in una Funzione che non possiede e non duplica automaticamente effetti già forniti da Tecniche o Effetti Speciali."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "6 · Effetti Speciali"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Effetto Speciale è una proprietà aggiuntiva del Modulo. È facoltativo e ogni Modulo può possederne al massimo uno. Un singolo Effetto concede un solo beneficio meccanico principale: condizioni e limiti possono specificarlo, ma non nascondere più vantaggi indipendenti."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "L’Effetto Speciale appartiene alla stessa Fascia Tecnologica del Modulo e deve essere coerente con il suo funzionamento."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "6.1 · Sconto"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Riduce il costo di una capacità specifica utilizzata attraverso il Modulo. Deve indicare con precisione la Tecnica, l’Effetto del Builder o la capacità interessata."
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Punti Sconto"
+   ],
+   [
+    "d6",
+    "1"
+   ],
+   [
+    "d8",
+    "2"
+   ],
+   [
+    "d10",
+    "3"
+   ],
+   [
+    "d12",
+    "4"
+   ],
+   [
+    "d20",
+    "5"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "1 Punto Sconto = −1 ST. Il costo non può scendere sotto 1 ST."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Da d8: 2 Punti Sconto = −1 Slot Effetto. Uno Slot può scendere fino a 0."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Lo Sconto non concede la capacità, non elimina requisiti e non si applica fuori dal Modulo."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Più Sconti sullo stesso costo non si sommano automaticamente: si usa il migliore."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "6.2 · Sblocco"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Rende disponibile attraverso il Modulo un singolo Effetto del Signature Move Builder che la tecnologia rende materialmente possibile."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "L’Effetto sbloccato non può avere Grado minimo superiore alla Fascia del Modulo. Sblocco non riduce il Grado minimo e non elimina Forma, Slot, ST, prerequisiti di Talento, Haki, Frutti, Ultimate, Prestigio o limiti fondamentali dei Manuali di Ruolo."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "6.3 · Passiva"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Una Passiva funziona finché il Modulo è installato, integro e attivo. I modelli principali sono:"
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Modello",
+    "Requisito",
+    "Effetto"
+   ],
+   [
+    "Ottimizzazione",
+    "d6+",
+    "Migliora un solo parametro della Funzione Principale."
+   ],
+   [
+    "Stabilizzazione",
+    "d8+",
+    "Vantaggio a un tipo di Prova molto specifico legato alla Funzione."
+   ],
+   [
+    "Compensazione",
+    "d10+",
+    "Ignora una penalità operativa specifica che ostacola la Funzione."
+   ],
+   [
+    "Resistenza Specializzata",
+    "d12+",
+    "Protegge la Funzione da una categoria molto specifica di interferenza."
+   ],
+   [
+    "Sistema Leggendario",
+    "d20",
+    "Massima espressione di uno dei modelli precedenti, senza immunità o azioni extra."
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Per Ottimizzazione, l’aumento massimo del parametro scelto è:"
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Aumento massimo"
+   ],
+   [
+    "d6",
+    "+25%"
+   ],
+   [
+    "d8",
+    "+50%"
+   ],
+   [
+    "d10",
+    "+75%"
+   ],
+   [
+    "d12",
+    "+100%"
+   ],
+   [
+    "d20",
+    "+150%"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "6.4 · Reazione"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Permette di usare una proprietà del Modulo in risposta a un Trigger specifico. La scheda deve indicare Trigger, effetto, frequenza ed eventuali costi. La Reazione non concede Reazioni aggiuntive."
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Frequenza massima"
+   ],
+   [
+    "d6",
+    "1 volta per scontro"
+   ],
+   [
+    "d8",
+    "2 volte per scontro"
+   ],
+   [
+    "d10",
+    "1 volta per round"
+   ],
+   [
+    "d12",
+    "1 volta per round"
+   ],
+   [
+    "d20",
+    "1 volta per round"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La Reazione utilizza una sola Funzione del Modulo e paga normalmente Energia, Cariche, ST o Munizioni. Da d12 può utilizzare una Funzione che normalmente richiederebbe un’Azione, purché il Trigger sia specifico. A d20 può includere l’Attivazione d’emergenza del Modulo come parte della stessa Reazione."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "6.5 · Maledizione"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Una Maledizione amplia in un solo aspetto uno Sconto, uno Sblocco, una Passiva o una Reazione, ma impone una conseguenza meccanica reale. Può rappresentare sovraccarico, instabilità, surriscaldamento o tecnologia sperimentale."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Sconto: può estendersi a una piccola famiglia coerente di effetti."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Sblocco: può comprendere 2 Effetti strettamente collegati."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Passiva: può estendere il beneficio a due condizioni strettamente correlate."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Reazione: può aumentare di 1 utilizzo per scontro, senza superare la normale economia delle Reazioni."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Possibili prezzi della Maledizione:"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Consumo raddoppiato."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "+1 ST per utilizzo."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Surriscaldamento: il Modulo diventa Inattivo fino all’inizio del turno successivo."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Danno da sovraccarico secondo la Fascia."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Vulnerabilità operativa specifica."
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Danno da sovraccarico"
+   ],
+   [
+    "d6",
+    "1d4"
+   ],
+   [
+    "d8",
+    "1d6"
+   ],
+   [
+    "d10",
+    "1d8"
+   ],
+   [
+    "d12",
+    "1d10"
+   ],
+   [
+    "d20",
+    "1d12"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La conseguenza deve essere realmente rilevante. Una Maledizione non permette di superare la Fascia d20."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "6.6 · Regole comuni"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Salvo eccezioni esplicite, un Effetto Speciale richiede il Modulo Installato, Integro e Attivo."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Se modifica una Tecnica, la Tecnica deve essere eseguita attraverso quel Modulo."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Effetti identici non si moltiplicano automaticamente: due fonti di Vantaggio restano un solo Vantaggio; due Sblocchi uguali non danno benefici ulteriori."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Nessun normale Effetto Speciale concede Azioni aggiuntive, Reazioni aggiuntive, Ultimate, Haki, Prestigio, Frutti del Diavolo, Talenti di Ruolo, immunità generale o risorse infinite."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "7 · Energia e Cariche"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Non tutti i Moduli richiedono una risorsa separata. Ogni scheda indica Energia: Nessuna oppure una fonte coerente, come batteria, carburante, pressione, munizioni o altre Cariche. L’energia serve a limitare gli utilizzi che realmente la richiedono, non ogni normale movimento del dispositivo."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "7.1 · Cariche"
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Cariche massime"
+   ],
+   [
+    "d6",
+    "3"
+   ],
+   [
+    "d8",
+    "4"
+   ],
+   [
+    "d10",
+    "5"
+   ],
+   [
+    "d12",
+    "6"
+   ],
+   [
+    "d20",
+    "8"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un normale utilizzo consuma 1 Carica. Funzioni particolarmente intense possono indicare un consumo maggiore o un costo di mantenimento; il consumo deve comparire nella scheda."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "7.2 · Cariche e Stamina"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Cariche e Stamina sono risorse differenti. Se una Tecnica costa ST e il Modulo che la esegue consuma Cariche, vengono pagate entrambe. Le Cariche non sostituiscono il costo della Tecnica."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "7.3 · Ricarica"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Le Cariche non vengono recuperate automaticamente con il Riposo. Se la risorsa necessaria è disponibile, una normale ricarica completa richiede 10 minuti fuori dal combattimento. Munizioni, combustibili particolari o risorse rare devono essere posseduti, acquistati o prodotti secondo il progetto."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "7.4 · Fonti comuni"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Una fonte facile da reperire non rende il Modulo infinito. Un serbatoio da 5 Cariche rimane da 5 Cariche anche se utilizza acqua, aria, carbone o elettricità e la fonte è immediatamente disponibile."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "7.5 · Moduli senza Cariche"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo con Energia: Nessuna può utilizzare normalmente la propria Funzione. Restano comunque validi Azioni, ST, limiti, attivazione ed eventuali Effetti Speciali previsti dalla scheda."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "8 · Moduli-Arma e Tecniche"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo costruito per infliggere direttamente danni può essere classificato come Modulo-Arma e possiede sia una Fascia Tecnologica sia un Grado d’Arma."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "8.1 · Grado d’Arma"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Il Grado d’Arma segue la scala d4 → d6 → d8 → d10 → d12 → d20 e non può superare la Fascia Tecnologica del Modulo."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Esempio: Modulo d10 · Arma d8 è valido; Modulo d8 · Arma d10 non lo è."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "8.2 · Attacco base"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Quando un Modulo-Arma effettua un normale attacco usa:"
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Tiro per colpire = Attributo + Grado d’Arma"
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Danno = Dado Arma"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Gittata, munizioni e condizioni particolari dipendono dal progetto o dalla voce del Catalogo."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "8.3 · Il Modulo come esecutore di una Tecnica"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo può eseguire una Tecnica compatibile, ma non sostituisce il Dado Tecnica. La Tecnica utilizza normalmente Attributo + Dado Tecnica e il proprio Dado Danno. Il Modulo fornisce il mezzo fisico, la propria Funzione, l’eventuale Effetto Speciale e gli eventuali costi in Cariche."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "8.4 · Grado e compatibilità"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Il Grado della Tecnica continua a dipendere dall’Attributo utilizzato e non aumenta perché il Modulo possiede una Fascia superiore. La Tecnica deve inoltre essere fisicamente compatibile con il dispositivo e rispettare Forma, Slot, ST, requisiti ed eventuali limiti del Ruolo."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "8.5 · Nessuna duplicazione"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Quando una Tecnica sfrutta una proprietà già resa possibile dal Modulo, quella proprietà è il mezzo dell’azione e non viene applicata due volte. Un braccio telescopico che permette di raggiungere un bersaglio non aggiunge una seconda Attrazione a una Tecnica che possiede già Attrazione."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "9 · Attivazione dei Moduli"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Il Cyborg può avere più Moduli installati, ma normalmente mantiene un solo Modulo Attivo alla volta."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "9.1 · Modulo attivo"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Il Modulo Attivo può utilizzare la propria Funzione attiva, l’Effetto Speciale e le Tecniche collegate. Gli altri Moduli installati rimangono Inattivi e mantengono soltanto le eventuali Funzioni inattive indicate nella loro scheda."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "9.2 · Modulo iniziale"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Fuori dal combattimento il Cyborg sceglie liberamente quale Modulo mantenere attivo. All’inizio di uno scontro conserva quello già attivo; se non era stato dichiarato, ne sceglie uno senza spendere Azioni."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "9.3 · Cambio Modulo"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Una volta durante il proprio turno, il Cyborg può cambiare gratuitamente il Modulo Attivo. Il cambio non usa Azione, Azione Bonus, Movimento o Reazione."
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Il nuovo Modulo diventa immediatamente Attivo e quello precedente Inattivo. Non è possibile effettuare un secondo cambio gratuito nello stesso turno."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "9.4 · Durata e spegnimento"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo rimane Attivo finché viene sostituito, spento volontariamente, Danneggiato, privato della risorsa necessaria oppure disattivato da una capacità specifica. Non si spegne automaticamente a fine turno o a fine scontro."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Spegnere volontariamente un Modulo durante il proprio turno è gratuito, ma non concede un secondo cambio nello stesso turno."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "9.5 · Fuori turno"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Normalmente non si cambia Modulo fuori dal proprio turno. Un Effetto o una capacità con Attivazione d’emergenza può farlo tramite Reazione; il nuovo Modulo sostituisce immediatamente quello precedente."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "10 · Costruzione, Installazione e Integrità"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo può essere costruito dalla ciurma, commissionato a un professionista oppure ottenuto durante l’avventura. La Fascia Tecnologica determina la difficoltà di realizzazione; funzione, materiali e aspetto restano invece legati al singolo progetto."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "10.1 · Costruire un Modulo"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La costruzione utilizza normalmente Astuzia + Meccanica. La Fascia del Modulo stabilisce il Grado minimo di Meccanica, la Soglia e il tempo base di lavoro."
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Meccanica minima",
+    "Soglia",
+    "Tempo",
+    "Materiali(riferimento)",
+    "Professionistaesterno"
+   ],
+   [
+    "d6",
+    "d6",
+    "8",
+    "8 ore",
+    "≈ 1.000 ฿",
+    "5.000 ฿"
+   ],
+   [
+    "d8",
+    "d8",
+    "10",
+    "16 ore",
+    "≈ 5.000 ฿",
+    "15.000 ฿"
+   ],
+   [
+    "d10",
+    "d10",
+    "12",
+    "24 ore",
+    "≈ 15.000 ฿",
+    "35.000 ฿"
+   ],
+   [
+    "d12",
+    "d12",
+    "16",
+    "48 ore",
+    "≈ 40.000 ฿",
+    "85.000 ฿"
+   ],
+   [
+    "d20",
+    "d20",
+    "20",
+    "96 ore",
+    "100.000 ฿+",
+    "200.000 ฿+"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Il requisito di Meccanica indica la competenza minima necessaria per tentare il progetto. I Talenti dell’Ingegnere possono modificare normalmente tempo, materiali, risultati o altre condizioni quando la loro descrizione lo permette."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La tabella fornisce valori di riferimento. Un progetto particolarmente semplice, ingombrante, sperimentale o fuori dagli standard può essere modificato dal GM senza cambiare la Fascia Tecnologica del Modulo."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "10.2 · Materiali e libertà del progetto"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Non esiste una lista universale di materiali obbligatori per ogni Fascia. I materiali cambiano in base al Modulo e vengono scelti dal GM in funzione di ciò che il dispositivo deve realmente fare."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Il GM ha piena libertà creativa nel decidere componenti, quantità, reperibilità e provenienza: possono essere acquistati, recuperati da macchinari, ottenuti come ricompensa o diventare l’obiettivo di una ricerca durante l’avventura."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Il valore indicativo riportato nella tabella serve soltanto come riferimento economico. Non è una lista della spesa né un costo obbligatorio. Se la ciurma possiede già parte dei componenti, non deve pagarli nuovamente; se il progetto richiede materiali rari o unici, il GM può aumentarne il valore o richiedere che vengano ottenuti narrativamente."
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Un materiale raro non rende automaticamente più potente il Modulo: i valori meccanici continuano a dipendere dalla Fascia, dalla Funzione e dall’eventuale Effetto Speciale."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "10.3 · Commissionare il lavoro"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Cyborg può affidare la costruzione a un Meccanico o a un’officina esterna. Il prezzo della colonna Professionista esterno comprende normalmente lavoro, materiali ordinari e installazione."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Materiali eccezionali, componenti unici o tecnologie che richiedono una specifica avventura non sono compresi automaticamente nel prezzo. La disponibilità di un professionista capace di realizzare Moduli d12 o d20 non è garantita dal semplice possesso dei Berry e rimane una scelta del GM."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Quando il lavoro viene commissionato, il giocatore non effettua la Prova di costruzione: si presume che il professionista assunto possieda la competenza richiesta."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "10.4 · Esempio di costruzione"
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Braccio Telescopico d8"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Fascia Tecnologica: d8."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Funzione: braccio estensibile entro la normale Portata d8."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Meccanica minima: d8."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Prova: Astuzia + Meccanica contro Soglia 10."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Tempo: 16 ore di lavoro."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Materiali: scelti dal GM tra quelli coerenti con il progetto; valore indicativo complessivo circa 5.000 ฿."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Commissione esterna: circa 15.000 ฿, installazione e materiali ordinari compresi."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Il GM può decidere liberamente quali componenti del proprio Catalogo siano necessari. Se il personaggio li recupera durante l’avventura, li utilizza al posto di acquistarli. Un margine +4 nella costruzione utilizza normalmente le regole del Capolavoro già previste dall’Officina."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "10.5 · Installare, sostituire e potenziare"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Per installare un Modulo servono uno slot libero, Corpo Meccanico almeno pari alla sua Fascia, il dispositivo completo e strumenti adeguati."
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Tempo base di installazione"
+   ],
+   [
+    "d6",
+    "30 minuti"
+   ],
+   [
+    "d8",
+    "1 ora"
+   ],
+   [
+    "d10",
+    "2 ore"
+   ],
+   [
+    "d12",
+    "4 ore"
+   ],
+   [
+    "d20",
+    "8 ore"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Sostituire un Modulo usa il tempo della nuova installazione e comprende la rimozione del precedente. Un intervento non può essere svolto contemporaneamente a un Riposo."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Potenziare un Modulo a una Fascia superiore è un nuovo progetto: il Cyborg deve soddisfare il nuovo requisito e il GM determina quali componenti del vecchio dispositivo possono essere riutilizzati. Il potenziamento non avviene automaticamente quando aumenta Corpo Meccanico."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "10.6 · Integrità e riparazione dei Moduli"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo possiede due stati: Integro e Danneggiato. I normali danni subiti dal Cyborg non danneggiano automaticamente i Moduli installati."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo può diventare Danneggiato quando una regola lo prende di mira, una conseguenza colpisce direttamente il dispositivo, oppure il progetto subisce un Sovraccarico o un guasto previsto."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Modulo Danneggiato non può usare Funzione attiva, Effetto Speciale o Tecniche collegate finché non viene riparato."
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fascia",
+    "Tempo di riparazione"
+   ],
+   [
+    "d6",
+    "10 minuti"
+   ],
+   [
+    "d8",
+    "20 minuti"
+   ],
+   [
+    "d10",
+    "30 minuti"
+   ],
+   [
+    "d12",
+    "1 ora"
+   ],
+   [
+    "d20",
+    "2 ore"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Con strumenti e ricambi adeguati, una normale riparazione fuori dal combattimento riesce senza bisogno di una Prova. Se il lavoro avviene in condizioni difficili, con materiali insufficienti o su una tecnologia eccezionale, il GM può richiedere Meccanica e definire la Soglia appropriata."
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Riparare un Modulo non restituisce automaticamente PV al Cyborg. Riparare il corpo del Cyborg e riparare un Modulo sono due interventi distinti."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "11 · Il Corpo del Cyborg e le Cure"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "I Punti Vita rappresentano l’integrità complessiva del Cyborg. L’Integrità dei Moduli viene invece gestita separatamente: un Cyborg può essere gravemente ferito con tutti i Moduli integri, oppure essere in piena salute con un Modulo Danneggiato."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "11.1 · Riferimento rapido"
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Fonte di recupero",
+    "Effetto sul Cyborg"
+   ],
+   [
+    "Riposo Breve",
+    "Funziona normalmente."
+   ],
+   [
+    "Riposo Lungo",
+    "Funziona normalmente."
+   ],
+   [
+    "Cibo e Cambusa",
+    "Recuperano normalmente PV e ST."
+   ],
+   [
+    "Normale cura con Medicina",
+    "Non recupera PV al Cyborg."
+   ],
+   [
+    "Riparazione di Campo del Meccanico",
+    "Recupera PV secondo le regole di questo capitolo."
+   ],
+   [
+    "Effetto che recupera direttamente PV",
+    "Funziona normalmente, salvo una limitazione specifica della capacità."
+   ],
+   [
+    "Riparazione di un Modulo",
+    "Non recupera PV al Cyborg."
+   ],
+   [
+    "Recupero di PV del Cyborg",
+    "Non ripara automaticamente i Moduli Danneggiati."
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Le cure biologiche che agiscono espressamente su carne, organi o processi naturali non funzionano automaticamente su un corpo Cyborg. Quando una capacità si limita invece a far recuperare PV senza imporre una natura biologica alla cura, funziona normalmente salvo indicazione contraria."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "11.2 · Riparazione di Campo"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Fuori dal combattimento, un Meccanico può riparare direttamente il corpo di un Cyborg. L’intervento richiede strumenti da Meccanico, ricambi ordinari e 10 minuti di lavoro."
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Prova: Astuzia + Meccanica contro Soglia 8."
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Successo: il Cyborg recupera 1 Dado Meccanica PV."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un Cyborg può beneficiare di una sola Riparazione di Campo tra due Riposi Brevi. Un Cyborg che possiede personalmente le competenze del Meccanico può effettuare l’intervento su se stesso."
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Meccanica",
+    "PV recuperati"
+   ],
+   [
+    "d6",
+    "1d6"
+   ],
+   [
+    "d8",
+    "1d8"
+   ],
+   [
+    "d10",
+    "1d10"
+   ],
+   [
+    "d12",
+    "1d12"
+   ],
+   [
+    "d20",
+    "1d20"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "La Riparazione di Campo non può essere effettuata normalmente durante uno scontro. Una capacità specifica può creare un’eccezione."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "11.3 · Carne e Metallo"
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Talento d12 · Passivo"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Quando effettui una Riparazione di Campo su un Cyborg, aggiungi +1 Dado Meccanica ai PV recuperati. Se il bersaglio possiede anche un Modulo Danneggiato, durante lo stesso intervento puoi riportare operativo un Modulo, purché siano disponibili i materiali necessari alla sua riparazione."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Carne e Metallo non elimina eventuali requisiti speciali del Modulo e non permette di ricostruire gratuitamente componenti unici o distrutti."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "11.4 · PV e Moduli restano separati"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Recuperare PV non modifica lo stato dei Moduli. Riparare un Modulo non restituisce PV, salvo che una capacità dichiari espressamente entrambe le cose."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Essere un Cyborg non concede automaticamente autoriparazioni in combattimento. Cure immediate, riparazioni istantanee o recuperi aggiuntivi richiedono una Tecnica, un Talento, un Effetto Speciale o un’altra capacità che li permetta."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "12 · Protesi, Gadget e Personaggi non Cyborg"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Non ogni oggetto meccanico collegato a un corpo è un Modulo."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "12.1 · Protesi e gadget ordinari"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Una protesi semplice, un utensile indossato o un gadget può essere normale equipaggiamento. In questo caso non occupa slot e non utilizza Attivazione, Effetti Speciali o Fasce Tecnologiche del sistema dei Moduli."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un oggetto ordinario non diventa un Modulo soltanto perché è fissato al corpo."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "12.2 · Quando diventa un vero Modulo"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un dispositivo è un Modulo quando viene progettato e registrato come tale, occupa uno slot e utilizza le regole di questo manuale. Solo allora può ottenere Funzioni di Fascia, Effetti Speciali e collegamenti alle Tecniche previsti per i Moduli."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "12.3 · Personaggi non Cyborg"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Un personaggio non Cyborg può usare normali protesi e gadget come equipaggiamento. Per installare un vero Modulo deve possedere una capacità che gli conceda esplicitamente accesso agli slot e al sistema dei Moduli."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Una semplice competenza in Meccanica permette di costruire o riparare dispositivi, ma non concede automaticamente slot nel proprio corpo."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "12.4 · Regole Legacy"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Capacità provenienti da configurazioni precedenti, come Arsenale Modulare o Autoriparazione, non fanno parte automaticamente della normale progressione V2. Se il GM decide di importarle, funzionano secondo la propria scheda e non costituiscono precedenti per creare nuovi Moduli più potenti."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "13 · Catalogo Rapido dei Moduli"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Questi Moduli sono esempi pronti all’uso. Possono essere rinominati e descritti liberamente senza modificarne i valori meccanici."
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Nome",
+    "Fascia",
+    "Categoria",
+    "Funzione",
+    "Effetto / Energia"
+   ],
+   [
+    "Braccio Utensile",
+    "d6",
+    "Utilità · Controllo",
+    "Manipolatore 3 m; integra un singolo utensile comune.",
+    "Nessuno · Nessuna"
+   ],
+   [
+    "Piastre Toraciche",
+    "d6",
+    "Difensivo",
+    "Corazza: riduzione −1 danno fisico.",
+    "Nessuno · Nessuna"
+   ],
+   [
+    "Braccio Telescopico",
+    "d8",
+    "Controllo · Utilità",
+    "Manipolatore 5 m, carico 250 kg.",
+    "Sblocco: Attrazione · Nessuna"
+   ],
+   [
+    "Occhio Termico",
+    "d8",
+    "Utilità",
+    "Rileva fonti di calore entro 25 m.",
+    "Stabilizzazione su Prove di rilevamento termico · Nessuna"
+   ],
+   [
+    "Jet Heel",
+    "d10",
+    "Mobilità",
+    "Spostamento 20 m e Volo d10.",
+    "Ottimizzazione Spostamento (+75%) · 5 Cariche"
+   ],
+   [
+    "Cannone a Pressione",
+    "d10",
+    "Offensivo",
+    "Modulo-Arma a distanza d10.",
+    "Sconto: +1 Dado Danno · 5 Cariche"
+   ],
+   [
+    "Guardia Automatica",
+    "d12",
+    "Difensivo",
+    "Scudo: DP +2; protegge utilizzatore + fino a 3 alleati entro 3 m.",
+    "Reazione: applica lo Scudo a un alleato bersagliato · Nessuna"
+   ],
+   [
+    "Bobina Magnetica",
+    "d12",
+    "Controllo",
+    "Manipola oggetti metallici entro 20 m, fino a 2 t.",
+    "Sblocco: Attrazione · 6 Cariche"
+   ],
+   [
+    "Motore Fenice",
+    "d20",
+    "Mobilità",
+    "Spostamento 50 m e Volo d20.",
+    "Reazione con Attivazione d’emergenza · 8 Cariche"
+   ],
+   [
+    "Occhio dell’Orizzonte",
+    "d20",
+    "Utilità",
+    "Sensore specializzato fino a 300 m.",
+    "Resistenza Specializzata contro interferenze ordinarie del sensore · Nessuna"
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Il Catalogo non limita la creazione personale: serve come riferimento rapido per capire quale livello di prestazione sia appropriato a ciascuna Fascia."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "14 · Creare un Modulo Personalizzato"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Per creare un Modulo non serve costruire una nuova sottoregola. Usa questa procedura e fermati quando la scheda descrive già chiaramente il dispositivo."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "14.1 · Procedura rapida"
+ },
+ {
+  "type": "p",
+  "style": "ListNumber",
+  "text": "Definisci il concetto: che cosa è il dispositivo e qual è la sua Funzione Principale?"
+ },
+ {
+  "type": "p",
+  "style": "ListNumber",
+  "text": "Scegli la Fascia, che non può superare Corpo Meccanico."
+ },
+ {
+  "type": "p",
+  "style": "ListNumber",
+  "text": "Assegna Categoria e Struttura: Funzionale oppure Modulo-Arma."
+ },
+ {
+  "type": "p",
+  "style": "ListNumber",
+  "text": "Prendi dal Capitolo 4 solo i valori necessari alla Funzione e applica le regole del Capitolo 5."
+ },
+ {
+  "type": "p",
+  "style": "ListNumber",
+  "text": "Se serve, aggiungi un solo Effetto Speciale dal Capitolo 6."
+ },
+ {
+  "type": "p",
+  "style": "ListNumber",
+  "text": "Decidi se usa Energia o Cariche e registra consumo e ricarica."
+ },
+ {
+  "type": "p",
+  "style": "ListNumber",
+  "text": "Compila Limiti, Tecniche compatibili e scheda finale; quindi costruiscilo e installalo secondo il Capitolo 10."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "14.2 · Controllo di coerenza"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Prima di approvare il progetto verifica quattro domande:"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Sta facendo una sola cosa principale oppure contiene più Moduli nascosti?"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "I valori rispettano la Fascia scelta?"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Danni, Stati o modifiche alle Tecniche provengono da una regola che li concede realmente?"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "L’Effetto Speciale è un solo beneficio, oppure nasconde più vantaggi indipendenti?"
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Se le quattro risposte sono chiare, il Modulo è normalmente pronto per essere utilizzato."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "14.3 · Esempio"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Progetto: Arpione Meccanico"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Corpo Meccanico del personaggio: d10."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Fascia scelta: d10."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Categoria: Controllo · Mobilità."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Struttura: Funzionale."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Funzione: cavo e arpione con Portata 10 m e carico operativo 500 kg; può ancorarsi e trascinare oggetti compatibili."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Effetto Speciale: Sblocco · Attrazione."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Energia: Nessuna."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Tecniche compatibili: Tecniche eseguite tramite cavo o arpione."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Il Modulo può quindi agganciarsi, sostenere o tirare oggetti entro i propri limiti. Contro una creatura non applica automaticamente Attrazione: per farlo usa una Tecnica compatibile che sfrutta lo Sblocco del Modulo."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "14.4 · Regola finale"
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Il sistema dei Moduli deve ampliare le possibilità del Cyborg, non trasformare ogni dispositivo in un regolamento a parte. Se una funzione è già coperta dalle tabelle, usa la tabella; se un effetto è già coperto dal Builder, usa il Builder."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "15 · Guida alle Build del Cyborg"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Questo capitolo non introduce requisiti aggiuntivi. È una guida per orientare le scelte di Ruolo, Skill, Talenti, Prestigio e Haki quando si crea un Cyborg. Un personaggio può ignorare completamente queste combinazioni e costruire il proprio percorso in qualunque altro modo consentito dalle regole."
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Essere Cyborg non obbliga a scegliere Ingegnere, Meccanica o un particolare Haki. I Moduli possono essere costruiti, acquistati o commissionati: il Ruolo descrive ciò che il personaggio fa, non ciò che deve essere per poter usare il proprio corpo meccanico."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "15.1 · Prima di scegliere il Ruolo"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Corpo Meccanico, Attributi, Skill e Ruoli crescono separatamente. Corpo Meccanico determina slot e Fascia Tecnologica dei Moduli e si ferma ordinariamente a d20; non entra nel Prestigio. Gli Attributi, le Skill di Ruolo e l’Haki possono invece continuare oltre d20 secondo il Manuale del Prestigio."
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Se vuoi...",
+    "Priorità",
+    "Perché"
+   ],
+   [
+    "Più Moduli o Moduli più avanzati",
+    "Corpo Meccanico",
+    "Aumenta slot e Fascia Tecnologica massima."
+   ],
+   [
+    "Costruire e riparare personalmente",
+    "Astuzia + Meccanica",
+    "È la combinazione tipica per progetti, Officina e Riparazioni di Campo."
+   ],
+   [
+    "Combattere con potenza e impatto",
+    "Forza + Atletica",
+    "Si abbina naturalmente a Crusher e allo Striker fisico."
+   ],
+   [
+    "Combattere con mobilità e precisione",
+    "Tecnica + Acrobazia / Atletica",
+    "Favorisce Striker tecnico e Swordsman mobile."
+   ],
+   [
+    "Usare Moduli-Arma a distanza",
+    "Osservazione + Attributo dell’arma; Astuzia nel Prestigio Sniper",
+    "Sniper valorizza precisione e gittata; l’Attributo effettivo resta quello registrato nell’arma o Tecnica."
+   ],
+   [
+    "Costruire una build centrata sull’Haki",
+    "Spirito + Colore scelto",
+    "Spirito sostiene l’accesso e le combinazioni avanzate dei Colori."
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Meccanica non è necessaria per attivare o utilizzare un Modulo. Un Cyborg senza Meccanica può essere un eccellente combattente, capitano, navigatore o qualsiasi altra professione e affidare costruzione e manutenzione a un alleato o a un professionista esterno."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "15.2 · Ruoli che si combinano bene con il Cyborg"
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Ruolo / Stile",
+    "Sinergia",
+    "Attenzione"
+   ],
+   [
+    "Ingegnere · Meccanico",
+    "Riparazioni, recupero componenti, manutenzione e autosufficienza. È la scelta più diretta per un Cyborg che vuole gestire personalmente il proprio corpo.",
+    "Non aumenta da solo il danno dei Moduli e non è obbligatorio per usarli."
+   ],
+   [
+    "Ingegnere · Inventore",
+    "Progetti personalizzati, prototipi e modifiche. Ideale se il cuore della build è creare tecnologia nuova.",
+    "È più orientato alla progettazione che alla sopravvivenza immediata."
+   ],
+   [
+    "Combattente · Sniper",
+    "Ottimo per cannoni, fucili e altri Moduli-Arma a distanza; sensori e mobilità aiutano a creare linee di tiro.",
+    "I Talenti Sniper richiedono attacchi a distanza compatibili."
+   ],
+   [
+    "Combattente · Crusher",
+    "Ottimo per armi contundenti integrate, corazza, ancoraggio e build pesanti da prima linea.",
+    "Le capacità Crusher richiedono un’arma contundente compatibile."
+   ],
+   [
+    "Combattente · Swordsman",
+    "Lame integrate, sistemi di mobilità e difesa producono un Cyborg molto aggressivo e preciso.",
+    "Le capacità dello Stile continuano a richiedere una Lama compatibile."
+   ],
+   [
+    "Combattente · Striker",
+    "Propulsori, corazze, sensori e sistemi di controllo possono sostenere un combattente a mani nude senza sostituirne lo Stile.",
+    "Un Modulo-Arma non diventa un attacco Striker: le Tecniche Striker restano a mani nude."
+   ],
+   [
+    "Capitano",
+    "Barriere, sensori, comunicazione e controllo rendono molto efficace un Cyborg da supporto e comando.",
+    "La potenza nasce dagli ordini e dalla squadra, non dal numero di Moduli offensivi."
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "15.3 · Pianificare il Prestigio"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Il Prestigio della Skill di Ruolo e quello degli Attributi sono progressioni indipendenti. Portare Atletica, Osservazione o Meccanica oltre d20 non porta automaticamente in Prestigio Forza, Astuzia o Tecnica, e viceversa."
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Dado della Skill di Ruolo",
+    "Cosa ottieni"
+   ],
+   [
+    "d20+d4",
+    "Prima scelta di un Talento di Prestigio."
+   ],
+   [
+    "d20+d6",
+    "Crescita della Skill; nessuna nuova scelta."
+   ],
+   [
+    "d20+d8",
+    "Seconda scelta di un Talento di Prestigio."
+   ],
+   [
+    "d20+d10",
+    "Crescita della Skill; nessuna nuova scelta."
+   ],
+   [
+    "d20+d12",
+    "Terza scelta di un Talento di Prestigio."
+   ],
+   [
+    "d20+d20 · Saikyō",
+    "I Talenti posseduti applicano le proprie versioni Saikyō; non ottieni una quarta scelta."
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Per un Cyborg, gli abbinamenti più naturali fra Prestigio dell’Attributo e percorso di Ruolo sono:"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Forza + Crusher o Striker fisico: il Prestigio di Forza amplia distruzione ambientale e Proiezione Colossale quando le capacità utilizzate sono compatibili."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Tecnica + Striker tecnico o Swordsman mobile: il Prestigio di Tecnica sviluppa Spostamento Fulmineo e Agilità Sovrumana nei percorsi compatibili."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Astuzia + Sniper: il Prestigio di Astuzia sviluppa gittata utile e Geometria del Tiro; Osservazione rimane la Skill che sblocca i Talenti Sniper."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Spirito + build Haki: il Prestigio di Spirito permette di investire in Volontà Indomabile, Sintonia dei Colori e Riscossa della Volontà."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "15.4 · Talenti di Prestigio particolarmente utili"
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Percorso",
+    "Scelte molto adatte a un Cyborg",
+    "Quando preferirle"
+   ],
+   [
+    "Meccanico",
+    "Ricostruzione Prodigiosa · Regia Meccanica · Dominio delle Macchine",
+    "Ricostruzione Prodigiosa è la scelta più diretta per un Cyborg da prima linea o autosufficiente; le altre due privilegiano gestione e controllo dei sistemi."
+   ],
+   [
+    "Inventore",
+    "Progettazione Perfetta · Arsenale da Campo · Sovraccarico Controllato",
+    "Progettazione Perfetta per il costruttore puro; Sovraccarico Controllato per una build da combattimento; Arsenale da Campo per versatilità."
+   ],
+   [
+    "Sniper",
+    "Tiro Risolutivo · Precisione Chirurgica · Interdizione Sovrana · Danza dei Proiettili",
+    "Hai solo tre scelte: danno singolo, colpi mirati, controllo reattivo o multi-bersaglio vanno scelti in base al tipo di Modulo-Arma usato."
+   ],
+   [
+    "Crusher",
+    "Maglio Inarrestabile · Onda Sismica · Guardia Frantumata · Arresto del Colosso",
+    "Hai solo tre scelte: Onda Sismica per area, Arresto del Colosso per controllo, Guardia Frantumata contro difese, Maglio per pressione frontale."
+   ],
+   [
+    "Swordsman",
+    "Fendente Sovrano · Taglio Colossale · Guardia Invalicabile · Maestria Assoluta della Lama",
+    "Hai solo tre scelte: orienta il percorso verso portata/taglio, difesa oppure padronanza generale della lama."
+   ],
+   [
+    "Striker · Forza",
+    "Potenza del Titano · Impatto Devastante · Raffica Senza Fine",
+    "Percorso molto lineare per chi vuole trasformare il corpo meccanico in una piattaforma di impatto senza usare Moduli-Arma per i colpi."
+   ],
+   [
+    "Striker · Tecnica",
+    "Precisione Assoluta · Punto di Rottura tramite le Tecniche compatibili · Raffica Senza Fine",
+    "Percorso per mobilità, precisione e neutralizzazione di parti o componenti."
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Le righe precedenti sono priorità consigliate, non una sequenza obbligatoria. Quando un catalogo offre più Talenti delle tre scelte disponibili, il giocatore deve decidere quale funzione sacrificare. È spesso più efficace scegliere tre capacità che sostengono la stessa identità piuttosto che inseguire ogni possibilità del catalogo."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "15.5 · Haki e Cyborg"
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "L’Haki non dipende dal Corpo Meccanico e non è necessario per essere un Cyborg efficace. Quando viene sviluppato, però, può completare molto bene alcuni archetipi."
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Colore",
+    "Build consigliate",
+    "Prestigio e utilità"
+   ],
+   [
+    "Armamento",
+    "Crusher, Swordsman, Striker fisico, Cyborg difensivi",
+    "A d20+d4 sblocca Armatura Totale Superiore; a d20+d8 Esplosione Haki Superiore; a d20+d12 Ryou Persistente. È la scelta più naturale per chi combatte direttamente."
+   ],
+   [
+    "Osservazione",
+    "Sniper, Striker tecnico, ricognitori, build reattive",
+    "A d20+d4 Anticipo Superiore; a d20+d8 Previsione Breve Prolungata; a d20+d12 Anticipo Offensivo. Ottimo per precisione e sopravvivenza."
+   ],
+   [
+    "Re",
+    "Capitani, frontliner dominanti, personaggi costruiti attorno alla volontà",
+    "È raro e dipende dal GM. Non va considerato un requisito della build; se presente, il suo Prestigio sviluppa Pressione Imperiale, Impatto Sovrano e infine Volontà Illeggibile."
+   ]
+  ]
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Se il personaggio investe in più Colori, il Prestigio di Spirito diventa particolarmente interessante. Sintonia dei Colori riduce il problema di accendere più Haki con la stessa economia di Azioni Bonus, mentre Riscossa della Volontà permette di recuperare PIP da distribuire fra le riserve possedute."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "15.6 · Esempi di build"
+ },
+ {
+  "type": "p",
+  "style": "Heading3",
+  "text": "Artigliere Cyborg"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Ruoli: Combattente · Sniper + Ingegnere · Inventore."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Priorità: Astuzia, Osservazione e Meccanica; l’Attributo dell’arma rimane quello scelto nella sua scheda."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Moduli: cannone o fucile integrato, sensore, propulsore o sistema di posizionamento."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Talenti: Tiro Lungo, Colpo Mirato / Colpo Anticipato; lato Inventore, Inventiva e capacità di prototipazione."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Prestigio: Astuzia per gittata e traiettorie; Osservazione per Tiro Risolutivo e le altre scelte Sniper. Se Meccanica raggiunge il Prestigio, Sovraccarico Controllato è molto adatto ai Moduli-Arma."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Haki: Osservazione è la scelta più naturale; Armamento resta valido se il personaggio vuole massimizzare l’impatto dei colpi fisici."
+ },
+ {
+  "type": "p",
+  "style": "Heading3",
+  "text": "Juggernaut"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Ruoli: Combattente · Crusher + Ingegnere · Meccanico."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Priorità: Forza, Atletica e Meccanica."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Moduli: arma contundente integrata compatibile, Corazza, ancoraggio e propulsore breve."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Talenti: Colpo Pesante, Piedi Piantati / Baricentro Assoluto, Pronto Intervento e Carne e Metallo."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Prestigio: Forza per distruzione e proiezione; Atletica per Maglio Inarrestabile, Onda Sismica o Arresto del Colosso. Ricostruzione Prodigiosa è eccellente se anche Meccanica entra nel Prestigio."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Haki: Armamento; Spirito diventa interessante se la build investe pesantemente nel mantenimento dell’Haki."
+ },
+ {
+  "type": "p",
+  "style": "Heading3",
+  "text": "Lama Integrata"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Ruoli: Combattente · Swordsman + Ingegnere · Inventore oppure Meccanico."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Priorità: Atletica e l’Attributo scelto per le Tecniche di lama. Tecnica favorisce la mobilità; Forza favorisce un’impostazione più distruttiva."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Moduli: lama integrata compatibile, propulsore, scudo o sensore."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Prestigio: Atletica sblocca Fendente Sovrano, Taglio Colossale, Guardia Invalicabile e Maestria Assoluta della Lama; Tecnica in Prestigio aggiunge il pacchetto di mobilità quando compatibile."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Haki: Armamento è la scelta più immediata; Osservazione è ottimo per una variante più difensiva e reattiva."
+ },
+ {
+  "type": "p",
+  "style": "Heading3",
+  "text": "Assaltatore Mobile"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Ruoli: Combattente · Striker + un secondo Ruolo libero; Ingegnere è utile ma non necessario."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Priorità: Forza + Atletica per impatto oppure Tecnica + Acrobazia per mobilità e precisione."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Moduli: propulsori, corazza, sensori, cavi e sistemi di utilità. Evita di basare le Tecniche Striker su un Modulo-Arma: lo Stile resta a mani nude."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Prestigio: Forza porta verso Potenza del Titano e Impatto Devastante; Tecnica sviluppa la mobilità e Precisione Assoluta. Raffica Senza Fine è comune ai due percorsi."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Haki: Armamento per il percorso Forza; Osservazione per il percorso Tecnica. Entrambi sono validi se il personaggio sviluppa Spirito a sufficienza."
+ },
+ {
+  "type": "p",
+  "style": "Heading3",
+  "text": "Officina Vivente"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Ruolo chiave: Ingegnere · Meccanico oppure Inventore. Il secondo Ruolo può essere scelto liberamente in base alla funzione desiderata nella ciurma."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Priorità: Astuzia + Meccanica; Corpo Meccanico alto se il personaggio vuole sperimentare molti Moduli diversi."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Moduli: strumenti integrati, sensori, sistemi di riparazione, difese e un singolo Modulo offensivo di emergenza."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Prestigio Meccanico: Ricostruzione Prodigiosa per tenere in vita se stesso e gli altri Cyborg. Prestigio Inventore: Progettazione Perfetta per ridurre drasticamente tempi e materiali."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Haki: completamente opzionale. Se il personaggio preferisce investire tutto in tecnologia, può rimanere competitivo senza alcun Colore."
+ },
+ {
+  "type": "p",
+  "style": "Heading3",
+  "text": "Comandante Meccanizzato"
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Ruoli: Capitano + un percorso tecnologico o da combattimento a scelta."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Priorità: Spirito, Comunicazione e le statistiche necessarie al secondo Ruolo."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Moduli: sensori, comunicazione, barriera, controllo del campo e mobilità."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Prestigio: Comunicazione sviluppa il catalogo del Capitano; Spirito in Prestigio è particolarmente efficace se il personaggio possiede più Colori dell’Haki."
+ },
+ {
+  "type": "p",
+  "style": "ListBullet",
+  "text": "Haki: Osservazione per leggere il campo; Re soltanto se concesso dalla storia e dal GM."
+ },
+ {
+  "type": "p",
+  "style": "Heading2",
+  "text": "15.7 · Consiglio finale"
+ },
+ {
+  "type": "p",
+  "style": "Regola",
+  "text": "Prima scegli che cosa vuoi fare durante una scena; poi scegli Moduli, Ruolo e progressioni che rendono quella cosa più interessante. Non costruire il personaggio partendo dall’idea che un Cyborg debba possedere Meccanica, cinque armi o tutti i sistemi possibili."
+ },
+ {
+  "type": "p",
+  "style": "Normal",
+  "text": "Una build riuscita tende ad avere due o tre idee forti: per esempio mobilità + precisione, corazza + controllo, oppure progettazione + supporto. Gli slot sono pochi proprio per spingere il giocatore a dare un’identità alla propria tecnologia. Il resto può essere affidato alla ciurma, all’equipaggiamento comune o a un professionista."
+ },
+ {
+  "type": "p",
+  "style": "Heading1",
+  "text": "Riepilogo del Cyborg"
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    "Elemento",
+    "Regola rapida"
+   ],
+   [
+    "Corpo Meccanico",
+    "d6–d20; determina slot e Fascia massima."
+   ],
+   [
+    "Slot",
+    "1 / 2 / 3 / 4 / 5; ogni Modulo occupa normalmente 1 slot."
+   ],
+   [
+    "Modulo",
+    "Una Funzione Principale, massimo 1 Effetto Speciale."
+   ],
+   [
+    "Attivazione",
+    "1 Modulo Attivo; 1 cambio gratuito per turno."
+   ],
+   [
+    "Cariche",
+    "3 / 4 / 5 / 6 / 8 quando il progetto le utilizza."
+   ],
+   [
+    "Modulo-Arma",
+    "Grado d’Arma ≤ Fascia Tecnologica."
+   ],
+   [
+    "Integrità",
+    "Integro o Danneggiato; i PV del Cyborg non danneggiano automaticamente i Moduli."
+   ],
+   [
+    "Recupero",
+    "Riposo e Cambusa funzionano normalmente; le cure biologiche non recuperano PV."
+   ],
+   [
+    "Costruzione",
+    "Fascia = Meccanica minima, Soglia e tempo; materiali e componenti sono scelti dal GM."
+   ],
+   [
+    "Protesi comuni",
+    "Non sono Moduli e non usano slot, salvo capacità specifiche."
+   ]
+  ]
+ }
+]

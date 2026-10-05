@@ -1,0 +1,31 @@
+/* Impaginazione, tipografia, controlli e stampa arrivano da manuale.css.
+   Qui cambia solo la tavolozza, e si aggiunge il riquadro delle Regole:
+   il manuale base non viene toccato. */
+@media screen {
+ :root{--carta:#0b0f14;--carta-alta:#131a22;--carta-ombra:#1f2a35;--inchiostro:#e9eef4;
+       --inchiostro-tenue:#9fb0c0;--rosso:#5fc8d8;--filo:#27323d;}
+ .man-top{background:#0b0f14ed;}
+ .man-gancio{background:#131a22ed;}
+ .man-btn:hover{background:#1b2730;color:#bdf0f8;}
+ .man-guida b,.man-foglio b,.man-riga b,.man-tab td b{color:#ffffff;}
+ .man-tab tbody tr:nth-child(even){background:#5fc8d808;}
+ .man-tab th{color:#06222a;}
+}
+
+/* Le procedure numerate usano la spaziatura degli elenchi del manuale base. */
+.man-passi{margin:0 0 12px;padding:0 0 0 20px;}
+.man-passi li{padding:2px 0;}
+.man-passi li::marker{color:var(--rosso);}
+
+/* Lo stile «Regola» del documento: una riga che vale come norma, non come
+   spiegazione. Stessa cassetta degli elenchi riquadrati del manuale base. */
+.man-regola{background:var(--carta-alta); border:1px solid var(--filo);
+  border-left:3px solid var(--rosso); border-radius:6px;
+  padding:9px 12px; margin:4px 0 14px;
+  font-family:var(--ui); font-size:14px; line-height:1.5;
+  break-inside:avoid;}
+
+@media print{
+  .man-regola{background:none; border:1px solid #bbb; border-left:3px solid #000;
+    font-size:9.4pt; padding:5pt 7pt;}
+}
