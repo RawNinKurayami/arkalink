@@ -542,5 +542,70 @@
   "from": " Se intervengono anche la Firma o la Maestria ordinaria, sul medesimo Attributo si applica la penalità maggiore, senza sommare i gradini persi.",
   "to": "",
   "perche": "Revisione del 05/10/2026, confermata da Simone: La Dose Giusta non riduce più Attributi e Tossine Sovrane sostituisce la Maestria ordinaria, quindi la frase non si applicava più."
+ },
+ {
+  "source": "ruoli",
+  "after": 49,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Le Canzoni Sostenute continuano a richiedere che il Musicista sia materialmente in grado di suonare e che i bersagli possano sentirlo. Orchestra Vivente modifica il numero di Canzoni e la loro attivazione, ma non permette di mantenerle durante Incoscienza, perdita dello strumento o altre condizioni che rendano materialmente impossibile l’esecuzione."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2): Musicista allineato a Soglia delle Canzoni, Canzoni Sostenute e Motivetto di Vigore."
+ },
+ {
+  "source": "ruoli",
+  "after": 56,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Risonanza Leggendaria aumenta il recupero di Motivetto del Vigore a 2d6, oppure 3d6 a Saikyō, ma non modifica il limite di una volta per scena per ciascun beneficiario."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2): Musicista allineato a Soglia delle Canzoni, Canzoni Sostenute e Motivetto di Vigore."
+ },
+ {
+  "source": "ruoli",
+  "block": 59,
+  "from": "Tutti i nemici nel raggio che possono sentirti effettuano la normale Salvezza di Requiem. La sua Soglia è quella ordinaria derivata dallo strumento, aumentata del valore massimo del dado aggiuntivo del tuo Prestigio di Arte.",
+  "to": "Intoni una versione superiore di Requiem. Tutti i nemici entro il raggio che possono sentirti effettuano una Salvezza di Spirito. La Soglia è quella normalmente determinata dal Grado effettivo del tuo strumento, aumentata del valore massimo del dado aggiuntivo del tuo Prestigio di Arte.",
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2): Musicista allineato a Soglia delle Canzoni, Canzoni Sostenute e Motivetto di Vigore."
+ },
+ {
+  "source": "ruoli",
+  "after": 59,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Esempio: strumento d12 → Soglia ordinaria 12; Arte d20+d8 → +8; Soglia finale → 20."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2): Musicista allineato a Soglia delle Canzoni, Canzoni Sostenute e Motivetto di Vigore."
+ },
+ {
+  "source": "ruoli",
+  "block": 60,
+  "from": "Chi fallisce subisce Svantaggio a tutti i tiri fino all’inizio del tuo turno successivo, anziché soltanto al prossimo tiro. La Canzone non infligge danni diretti e la sua esecuzione non richiede un tiro per colpire.",
+  "to": "Chi fallisce subisce Svantaggio a tutti i tiri fino all’inizio del tuo turno successivo. Requiem Sovrano non infligge danni diretti e non richiede un tiro per colpire. Non utilizza separatamente Requiem Beffardo: questa forma ne sostituisce l’esecuzione quando viene utilizzata.",
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2): Musicista allineato a Soglia delle Canzoni, Canzoni Sostenute e Motivetto di Vigore."
+ },
+ {
+  "source": "ruoli",
+  "block": 61,
+  "from": "Saikyō: il costo diventa 5 ST e il raggio 500 m. Se possiedi Coro della Ciurma e soddisfi le sue condizioni, compresi i due compagni che partecipano realmente al canto, il normale raddoppio porta questo raggio a 1.000 m.",
+  "to": "Saikyō: costo 5 ST e raggio 500 metri. Se possiedi Coro della Ciurma e almeno due compagni partecipano realmente al canto, la portata raddoppia normalmente fino a 1.000 metri.",
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2): Musicista allineato a Soglia delle Canzoni, Canzoni Sostenute e Motivetto di Vigore."
+ },
+ {
+  "source": "ruoli",
+  "after": 61,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Anche a queste distanze i bersagli devono essere realmente in grado di sentire la musica: il raggio non permette alla Canzone di attraversare automaticamente ostacoli che bloccano completamente il suono."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026 (modifiche glc 2): Musicista allineato a Soglia delle Canzoni, Canzoni Sostenute e Motivetto di Vigore."
  }
 ]
