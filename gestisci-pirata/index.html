@@ -3757,7 +3757,7 @@ function moduleSheetModal(i){
   if(att)row2.appendChild(el("button",{class:"iconbtn",text:"Disattiva",onclick:()=>mutateM(()=>{pg.moduloAttivo="";})}));
   row2.appendChild(el("button",{class:"iconbtn",text:"✕ Rimuovi",onclick:()=>{const n=modTecniche(mo).length;if(!confirm("Rimuovere «"+(mo.nome||"modulo")+"»?"+(n?(" "+n+" Tecnic"+(n===1?"a":"he")+" resteranno in scheda, con il collegamento da aggiornare."):" Lo slot torna libero.")))return;closeModal();mutate(()=>{if(pg.moduloAttivo===mo.id)pg.moduloAttivo="";pg.moduli.splice(i,1);});}}));
   w.appendChild(row2);
-  w.appendChild(el("div",{class:"hintbox",text:"Cambiare modulo attivo in combattimento costa un'azione, salvo talenti come Cambio Rapido: il sito mostra il costo, la spesa la gestite al tavolo."}));
+  w.appendChild(el("div",{class:"hintbox",text:"Una volta per turno puoi cambiare gratuitamente il modulo attivo, senza spendere Azione, Azione Bonus, Movimento o Reazione. Fuori dal tuo turno serve una capacità che lo permetta."}));
   if(window.GLCDetails)GLCDetails.prepare(w,"module",mo,i);return w;
  });
 }
