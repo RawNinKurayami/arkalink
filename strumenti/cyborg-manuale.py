@@ -52,6 +52,30 @@ if len(sys.argv) > 1:
 blocchi = json.load(open(FONTI, encoding='utf8'))
 
 
+# ------------------------------------------- le revisioni arrivate dopo il .docx
+# Le fonti restano lo specchio del documento; le modifiche editoriali stanno in
+# regole/cyborg-revisioni.json. Ogni voce dice dove agisce (indice del blocco
+# nelle fonti) e controlla di trovare il testo che si aspetta: se il .docx viene
+# riletto e gli indici si spostano, il generatore si ferma invece di sbagliare.
+REVISIONI = os.path.join(RADICE, 'regole/cyborg-revisioni.json')
+revisioni = json.load(open(REVISIONI, encoding='utf8')) if os.path.exists(REVISIONI) else []
+for e in revisioni:
+    if 'togli_riga' in e:
+        t = blocchi[e['blocco']]
+        assert t['type'] == 'table', e
+        prima = len(t['rows'])
+        t['rows'] = [r for r in t['rows'] if r[0] != e['togli_riga']]
+        assert len(t['rows']) == prima - 1, e
+    elif 'da' in e:
+        t = blocchi[e['blocco']]
+        assert e['da'] in t['text'], e
+        t['text'] = t['text'].replace(e['da'], e['a'])
+for e in sorted([e for e in revisioni if 'sostituisci' in e], key=lambda e: -e['sostituisci'][0]):
+    a, b = e['sostituisci']
+    assert blocchi[a]['text'].startswith(e['inizia_con']), (e['inizia_con'], blocchi[a]['text'][:60])
+    blocchi[a:b] = [{'type': 'p', 'style': x.get('style', 'Normal'), 'text': x['text']} for x in e['con']]
+
+
 # ------------------------------------------------- il guscio del manuale base
 base = open(os.path.join(RADICE, 'strumenti/manuale-da-docx.py'), encoding='utf8').read()
 modello = next(ast.literal_eval(n.value) for n in ast.parse(base).body

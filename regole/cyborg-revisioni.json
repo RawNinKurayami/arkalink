@@ -1,0 +1,94 @@
+[
+ {
+  "blocco": 304,
+  "togli_riga": "Ingegnere · Inventore",
+  "perche": "Revisione del 05/10/2026: l’Inventore non esiste più."
+ },
+ {
+  "blocco": 314,
+  "togli_riga": "Inventore",
+  "perche": "Revisione del 05/10/2026: l’Inventore non esiste più."
+ },
+ {
+  "sostituisci": [
+   322,
+   328
+  ],
+  "inizia_con": "Ruoli: Combattente · Sniper",
+  "perche": "Revisione del 05/10/2026: l’Inventore non esiste più. Artigliere Cyborg riscritto.",
+  "con": [
+   {
+    "style": "ListBullet",
+    "text": "Ruolo chiave: Combattente · Sniper. Il secondo Ruolo è libero; Ingegnere · Meccanico è particolarmente adatto se il personaggio vuole occuparsi personalmente della manutenzione dei propri sistemi."
+   },
+   {
+    "style": "ListBullet",
+    "text": "Priorità: Astuzia, Osservazione e l’Attributo utilizzato dal Modulo-Arma."
+   },
+   {
+    "style": "ListBullet",
+    "text": "Moduli: cannone o fucile integrato, sensore, propulsore o sistema di posizionamento."
+   },
+   {
+    "style": "ListBullet",
+    "text": "Talenti: Tiro Lungo, Colpo Mirato, Colpo Anticipato e le altre capacità Sniper compatibili con l’arma utilizzata."
+   },
+   {
+    "style": "ListBullet",
+    "text": "Prestigio: Astuzia sviluppa gittata e controllo delle traiettorie; Osservazione concede l’accesso ai Talenti di Prestigio dello Sniper. Se il personaggio sceglie anche Meccanico, il Prestigio di Meccanica può sviluppare le capacità di quel percorso."
+   },
+   {
+    "style": "ListBullet",
+    "text": "Haki: Osservazione è la scelta più naturale; Armamento rimane valido per chi vuole aumentare l’efficacia dei propri attacchi."
+   }
+  ]
+ },
+ {
+  "sostituisci": [
+   336,
+   337
+  ],
+  "inizia_con": "Ruoli: Combattente · Swordsman",
+  "perche": "Revisione del 05/10/2026: l’Inventore non esiste più. Lama Integrata, solo i Ruoli.",
+  "con": [
+   {
+    "style": "ListBullet",
+    "text": "Ruoli: Combattente · Swordsman. Il secondo Ruolo è libero; Ingegnere · Meccanico è una scelta adatta se il personaggio vuole occuparsi personalmente della manutenzione dei propri Moduli."
+   }
+  ]
+ },
+ {
+  "sostituisci": [
+   348,
+   353
+  ],
+  "inizia_con": "Ruolo chiave: Ingegnere · Meccanico",
+  "perche": "Revisione del 05/10/2026: l’Inventore non esiste più. Officina Vivente riscritta.",
+  "con": [
+   {
+    "style": "ListBullet",
+    "text": "Ruolo chiave: Ingegnere · Meccanico. Il secondo Ruolo può essere scelto liberamente in base alla funzione desiderata nella ciurma."
+   },
+   {
+    "style": "ListBullet",
+    "text": "Priorità: Astuzia + Meccanica; Corpo Meccanico elevato se il personaggio vuole utilizzare numerosi Moduli differenti."
+   },
+   {
+    "style": "ListBullet",
+    "text": "Moduli: strumenti integrati, sensori, sistemi di riparazione, difese e un singolo Modulo offensivo di emergenza."
+   },
+   {
+    "style": "ListBullet",
+    "text": "Crafting: il personaggio può costruire e riparare dispositivi utilizzando normalmente Meccanica e le altre Skill appropriate. Progetti particolari possono essere ottenuti durante la campagna e costruiti secondo le regole dell’Officina."
+   },
+   {
+    "style": "ListBullet",
+    "text": "Prestigio: Ricostruzione Prodigiosa è particolarmente indicata per mantenere operativi se stesso e gli altri Cyborg; Regia Meccanica e Dominio delle Macchine privilegiano invece la gestione dei sistemi."
+   },
+   {
+    "style": "ListBullet",
+    "text": "Haki: completamente opzionale. Un Cyborg orientato alla tecnologia può investire principalmente nelle proprie Skill, nei Talenti e nei Moduli."
+   }
+  ]
+ }
+]

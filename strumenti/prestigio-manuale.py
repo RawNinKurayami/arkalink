@@ -9,8 +9,13 @@ ROOT=Path(__file__).resolve().parent.parent
 sources=json.loads((ROOT/'regole/prestigio-fonti.json').read_text())
 revisioni=json.loads((ROOT/'regole/prestigio-revisioni.json').read_text())
 for edit in revisioni:
- if 'blocchi' in edit:continue
+ if 'blocchi' in edit or 'escludi_capitolo' in edit:continue
  b=sources[edit['source']][edit['block']]
+ if 'togli_riga' in edit:
+  assert b['type']=='table',edit
+  prima=len(b['rows']);b['rows']=[r for r in b['rows'] if r[0]!=edit['togli_riga']]
+  assert len(b['rows'])==prima-1,edit
+  continue
  if b['type']=='table':
   assert any(edit['from'] in v for row in b['rows'] for v in row),edit
   b['rows']=[[v.replace(edit['from'],edit['to']) for v in row] for row in b['rows']]
@@ -43,6 +48,15 @@ chapters=[(s_,shift(s_,a),shift(s_,b),t_) for s_,a,b,t_ in
 starts=[25,43,62,81,101,123,144,167,189,208,230,248]
 for a,b in zip(starts,starts[1:]+[252]):chapters.append(('ruoli',shift('ruoli',a),shift('ruoli',b),sources['ruoli'][shift('ruoli',a)]['text']))
 for a,b,title in [(3,35,'Spirito e Haki regole comuni'),(35,57,'Il Prestigio di Spirito'),(57,89,'Il Prestigio di Armamento'),(89,113,'Il Prestigio di Osservazione'),(113,143,'Il Prestigio del Re'),(143,167,'Haki e Spirito al tavolo')]:chapters.append(('haki',shift('haki',a),shift('haki',b),title))
+# Capitoli tolti dal manuale con una revisione: si indicano con gli indici
+# originali delle fonti, tradotti da shift() come tutti gli altri.
+esclusi=set()
+for e in revisioni:
+ if 'escludi_capitolo' not in e:continue
+ a,b=e['escludi_capitolo'];a,b=shift(e['source'],a),shift(e['source'],b)
+ prima=len(chapters);chapters=[c for c in chapters if not (c[0]==e['source'] and c[1]==a and c[2]==b)]
+ assert len(chapters)==prima-1,e
+ esclusi|={(e['source'],i) for i in range(a,b)}
 # Use the base manual's actual presentation template without executing its DOCX
 # generator. Its controls, reading layout and navigation script remain the single
 # reference for both manuals; only this manual's palette is overridden.
@@ -106,6 +120,7 @@ for no,(src,start,end,title) in enumerate(chapters,1):
  rendered.append(f'<section class="man-cap" id="cap-{no}" aria-labelledby="titolo-{no}"><header class="man-cap-h" id="{chapter_anchor or "cap-intro-"+str(no)}"><span class="man-cap-n">Capitolo {no:02}</span><h1 id="titolo-{no}"{chapter_source}>{esc(title)}</h1></header><div class="man-cap-corpo">'+''.join(content)+'</div></section>')
  toc.append(f'<li class="man-i-cap"><a href="#cap-{no}" data-id="cap-{no}"><span class="n">{no}</span>{esc(title)}</a>'+('<ol class="man-i-sez">'+''.join(links)+'</ol>' if links else '')+'</li>')
 expected={(s,i) for s,blocks in sources.items() for i,b in enumerate(blocks) if b.get('style') not in ['Title','Subtitle']}
+expected-=esclusi
 assert included==expected,(expected-included,included-expected)
 
 # The printed table of contents follows the same structure as the base manual.

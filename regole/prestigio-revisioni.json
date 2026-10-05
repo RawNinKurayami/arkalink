@@ -235,5 +235,62 @@
   "from": "È distinta dal Talento di Prestigio Impatto Devastante dello Striker.",
   "to": "È distinta dal Talento di Prestigio Onda Titanica dello Striker.",
   "perche": "Revisione del 05/10/2026: il Talento dello Striker si chiama Onda Titanica, per non confonderlo con la Firma del Crusher."
+ },
+ {
+  "source": "ruoli",
+  "block": 5,
+  "togli_riga": "Ingegnere Inventore",
+  "perche": "Revisione del 05/10/2026: l’Inventore non esiste più."
+ },
+ {
+  "source": "ruoli",
+  "block": 11,
+  "from": "Tossicologo, Infermiere e Chimico utilizzano Medicina, ma restano specializzazioni distinte. Anche Inventore e Meccanico condividono Meccanica senza condividere automaticamente i rispettivi Talenti. Conoscere la Skill permette di effettuare le prove ordinarie previste dal regolamento; l’accesso al catalogo dipende dalla specializzazione posseduta.",
+  "to": "Tossicologo, Infermiere e Chimico utilizzano Medicina, ma restano specializzazioni distinte.",
+  "perche": "Revisione del 05/10/2026: l’Inventore non esiste più."
+ },
+ {
+  "source": "ruoli",
+  "after": 11,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "Conoscere una Skill permette di effettuare le normali Prove previste dal regolamento; l’accesso ai Talenti di Prestigio dipende invece dal Ruolo o dallo Stile posseduto."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026: l’Inventore non esiste più."
+ },
+ {
+  "source": "ruoli",
+  "block": 23,
+  "from": "Prototipi, piatti, preparati, antidoti, carte nautiche e lavori di cantiere devono essere effettivamente preparati. Un talento di servizio",
+  "to": "Piatti, preparati, antidoti, carte nautiche e lavori di cantiere devono essere effettivamente preparati. Un Talento di servizio",
+  "perche": "Revisione del 05/10/2026: l’Inventore non esiste più."
+ },
+ {
+  "source": "ruoli",
+  "block": 24,
+  "from": "Non viene introdotta alcuna evoluzione di Prestigio delle Ultimates. All’Arrembaggio, Canzone dell’Anima, Marea Nera, Nessuno Muore Sotto la Mia Mano, Reazione a Catena, Colpo di Genio, Tutto a Pieno Carico, Lei Non Affonda, La Rotta che Nessuno Conosce, La Voce delle Pietre e Il Banchetto Leggendario conservano regole, costi e requisiti ordinari. I potenziamenti di questo documento si applicano alle capacità ordinarie e non potenziano automaticamente queste Ultimates.",
+  "to": "Non viene introdotta alcuna evoluzione di Prestigio delle Ultimates. All’Arrembaggio, Canzone dell’Anima, Marea Nera, Nessuno Muore Sotto la Mia Mano, Reazione a Catena, Tutto a Pieno Carico, Lei Non Affonda, La Rotta che Nessuno Conosce, La Voce delle Pietre e Il Banchetto Leggendario conservano regole, costi e requisiti ordinari.",
+  "perche": "Revisione del 05/10/2026: l’Inventore non esiste più."
+ },
+ {
+  "source": "ruoli",
+  "after": 24,
+  "blocchi": [
+   {
+    "style": "Normal",
+    "text": "I potenziamenti di questo documento si applicano alle capacità ordinarie e non potenziano automaticamente queste Ultimates."
+   }
+  ],
+  "perche": "Revisione del 05/10/2026: l’Inventore non esiste più."
+ },
+ {
+  "source": "ruoli",
+  "escludi_capitolo": [
+   123,
+   144
+  ],
+  "perche": "Revisione del 05/10/2026: l’Inventore non esiste più. Capitolo 11 Inventore eliminato integralmente."
  }
 ]
