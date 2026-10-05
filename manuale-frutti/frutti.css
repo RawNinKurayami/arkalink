@@ -1,0 +1,29 @@
+/* Impaginazione, tipografia, controlli e stampa arrivano da manuale.css.
+   Qui cambia solo la tavolozza e si aggiungono il riquadro del «Testo del
+   Manuale» e i titoli dei Talenti: il manuale base non viene toccato. */
+@media screen {
+ :root{--carta:#120d19;--carta-alta:#1b1426;--carta-ombra:#2a1f3a;--inchiostro:#f1ebf7;
+       --inchiostro-tenue:#b8a9ca;--rosso:#c79bff;--filo:#33284a;}
+ .man-top{background:#120d19ed;}
+ .man-gancio{background:#1b1426ed;}
+ .man-btn:hover{background:#271c38;color:#e6d4ff;}
+ .man-guida b,.man-foglio b,.man-riga b,.man-tab td b{color:#ffffff;}
+ .man-tab tbody tr:nth-child(even){background:#c79bff08;}
+ .man-tab th{color:#1d0f2e;}
+ /* Le celle non spezzano le parole a metà: se serve, la tabella scorre. */
+ .man-foglio :where(td,th){overflow-wrap:break-word;}
+}
+
+/* Il testo originale di un Talento, citato prima della spiegazione. */
+.man-citazione{background:var(--carta-alta); border:1px solid var(--filo);
+  border-left:3px solid var(--rosso); border-radius:6px;
+  padding:10px 14px 2px; margin:4px 0 16px; break-inside:avoid;}
+.man-citazione .man-guida{font-size:.96em;}
+
+/* Ogni Talento apre con un titolo un po' più marcato dei sottotitoli. */
+.man-sub.man-talento{border-bottom:1px solid var(--filo); padding-bottom:4px; margin-top:28px;}
+
+@media print{
+  .man-citazione{background:none; border:1px solid #bbb; border-left:3px solid #000; padding:5pt 8pt 1pt;}
+  .man-sub.man-talento{border-bottom:1px solid #999;}
+}

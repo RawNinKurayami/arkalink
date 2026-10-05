@@ -1,0 +1,1493 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manuale dei Frutti del Diavolo · Grand Line Chronicles</title>
+<meta name="description" content="Il manuale dei Frutti del Diavolo: Scheda di Identità, Talenti di Paramecia, Logia e Zoan, Forma di Combattimento e Risveglio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/glc-theme.css">
+<link rel="stylesheet" href="/manuale/manuale.css?v=18">
+<link rel="stylesheet" href="frutti.css?v=2">
+<script src="reader.js?v=1" defer></script>
+</head>
+<body class="manuale-frutti">
+<div class="glc-bg" aria-hidden="true"></div>
+<header class="man-top">
+  <a class="man-marchio" href="/grand-line-chronicles/"><span class="anc">⚓</span><span>Grand Line Chronicles</span></a>
+  <div class="man-strumenti">
+    <button class="man-btn" id="man-apri-indice" type="button" aria-expanded="false" title="Indice" aria-label="Indice">☰<span class="man-etichetta"> Indice</span></button>
+    <button class="man-btn" id="man-stampa" type="button" title="Stampa o salva in PDF" aria-label="Stampa o salva in PDF">⎙<span class="man-etichetta"> Stampa · PDF</span></button>
+    <a class="man-btn" href="/manuali/" title="Biblioteca dei manuali" aria-label="Biblioteca dei manuali">‹<span class="man-etichetta"> Biblioteca</span></a>
+  </div>
+</header>
+
+<div class="man-velo" id="man-velo" hidden></div>
+
+<button class="man-gancio" id="man-gancio" type="button" aria-label="Apri l’indice del manuale">
+  <span class="g-segno" aria-hidden="true">☰</span><span>Indice</span>
+</button>
+
+<nav class="man-indice" id="man-indice" aria-label="Indice del manuale">
+    <h2>Indice</h2>
+    <input class="man-cerca" id="man-cerca" type="search" placeholder="Cerca un capitolo o una sezione" aria-label="Cerca nell'indice" autocomplete="off">
+    <ol id="man-nav">
+<li class="man-i-cap"><a href="#cap-1" data-id="cap-1"><span class="n">1</span>I Frutti del Diavolo</a><ol class="man-i-sez">
+<li><a href="#sez-1-1" data-id="sez-1-1">1.1 · Ottenere un Frutto del Diavolo</a></li>
+<li><a href="#sez-1-2" data-id="sez-1-2">1.2 · I tre tipi di Frutto</a></li>
+<li><a href="#sez-1-3" data-id="sez-1-3">1.3 · Le tre debolezze</a></li>
+<li><a href="#sez-1-4" data-id="sez-1-4">1.4 · Il Dado del Frutto</a></li>
+<li><a href="#sez-1-5" data-id="sez-1-5">1.5 · Costruire le Tecniche del Frutto</a></li>
+<li><a href="#sez-1-6" data-id="sez-1-6">1.6 · I Talenti del Frutto</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-2" data-id="cap-2"><span class="n">2</span>Definire un Frutto del Diavolo</a><ol class="man-i-sez">
+<li><a href="#sez-2-1" data-id="sez-2-1">2.1 · Scheda di Identità del Frutto</a></li>
+<li><a href="#sez-2-2" data-id="sez-2-2">2.2 · Possibilità narrativa ed effetto meccanico</a></li>
+<li><a href="#sez-2-3" data-id="sez-2-3">2.3 · Applicazioni iniziali</a></li>
+<li><a href="#sez-2-4" data-id="sez-2-4">2.4 · Portata ordinaria</a></li>
+<li><a href="#sez-2-5" data-id="sez-2-5">2.5 · Quantità e scala</a></li>
+<li><a href="#sez-2-6" data-id="sez-2-6">2.6 · Durata e permanenza</a></li>
+<li><a href="#sez-2-7" data-id="sez-2-7">2.7 · Creature viventi</a></li>
+<li><a href="#sez-2-8" data-id="sez-2-8">2.8 · Limitazioni strutturali e Contraccolpi</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-3" data-id="cap-3"><span class="n">3</span>Guida ai Talenti dei Frutti del Diavolo</a><ol class="man-i-sez">
+</ol></li>
+<li class="man-i-cap"><a href="#cap-4" data-id="cap-4"><span class="n">4</span>Paramecia</a><ol class="man-i-sez">
+<li><a href="#sez-4-1" data-id="sez-4-1">4.1 · Tratto · Il Potere Unico</a></li>
+<li><a href="#sez-4-2" data-id="sez-4-2">4.2 · Firma · L’impronta del potere</a></li>
+<li><a href="#sez-4-3" data-id="sez-4-3">4.3 · d4–d6 · Il Dono</a></li>
+<li><a href="#sez-4-4" data-id="sez-4-4">4.4 · d8–d10 · Il Controllo</a></li>
+<li><a href="#sez-4-5" data-id="sez-4-5">4.5 · d12 · La Padronanza</a></li>
+<li><a href="#sez-4-6" data-id="sez-4-6">4.6 · d20 · Il Risveglio</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-5" data-id="cap-5"><span class="n">5</span>Linea guida · Forma di Combattimento</a><ol class="man-i-sez">
+<li><a href="#sez-5-1" data-id="sez-5-1">5.1 · Creare una Forma di Combattimento</a></li>
+<li><a href="#sez-5-2" data-id="sez-5-2">5.2 · Il principio fondamentale</a></li>
+<li><a href="#sez-5-3" data-id="sez-5-3">5.3 · Cosa non è una Forma di Combattimento</a></li>
+<li><a href="#sez-5-4" data-id="sez-5-4">5.4 · Definire il beneficio</a></li>
+<li><a href="#sez-5-5" data-id="sez-5-5">5.5 · Attivazione</a></li>
+<li><a href="#sez-5-6" data-id="sez-5-6">5.6 · Forma di Combattimento e Tecniche</a></li>
+<li><a href="#sez-5-7" data-id="sez-5-7">5.7 · Forma di Combattimento e Scheda del Frutto</a></li>
+<li><a href="#sez-5-8" data-id="sez-5-8">5.8 · Esempio · Corpo a Molla</a></li>
+<li><a href="#sez-5-9" data-id="sez-5-9">5.9 · Esempio · Armatura di Cera</a></li>
+<li><a href="#sez-5-10" data-id="sez-5-10">5.10 · Forma di Combattimento e Risveglio</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-6" data-id="cap-6"><span class="n">6</span>Linea guida · Risveglio Paramecia</a><ol class="man-i-sez">
+<li><a href="#sez-6-1" data-id="sez-6-1">6.1 · Costruire il Risveglio</a></li>
+<li><a href="#sez-6-2" data-id="sez-6-2">6.2 · Famiglie del Risveglio</a></li>
+<li><a href="#sez-6-3" data-id="sez-6-3">6.3 · Le Famiglie non sono benefici</a></li>
+<li><a href="#sez-6-4" data-id="sez-6-4">6.4 · Più Famiglie</a></li>
+<li><a href="#sez-6-5" data-id="sez-6-5">6.5 · Manifestazione e beneficio</a></li>
+<li><a href="#sez-6-6" data-id="sez-6-6">6.6 · Il Risveglio non sostituisce le Tecniche</a></li>
+<li><a href="#sez-6-7" data-id="sez-6-7">6.7 · Creature viventi</a></li>
+<li><a href="#sez-6-8" data-id="sez-6-8">6.8 · Permanenza</a></li>
+<li><a href="#sez-6-9" data-id="sez-6-9">6.9 · Limitazioni</a></li>
+<li><a href="#sez-6-10" data-id="sez-6-10">6.10 · Prezzo del Risveglio</a></li>
+<li><a href="#sez-6-11" data-id="sez-6-11">6.11 · Scheda di progettazione del Risveglio</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-7" data-id="cap-7"><span class="n">7</span>Logia</a><ol class="man-i-sez">
+<li><a href="#sez-7-1" data-id="sez-7-1">7.1 · Tratto · L’Elemento</a></li>
+<li><a href="#sez-7-2" data-id="sez-7-2">7.2 · Firma · L’elemento dilaga</a></li>
+<li><a href="#sez-7-3" data-id="sez-7-3">7.3 · d4–d6 · Il Dono</a></li>
+<li><a href="#sez-7-4" data-id="sez-7-4">7.4 · d8–d10 · Il Controllo</a></li>
+<li><a href="#sez-7-5" data-id="sez-7-5">7.5 · d12 · La Padronanza</a></li>
+<li><a href="#sez-7-6" data-id="sez-7-6">7.6 · d20 · Risveglio Logia</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-8" data-id="cap-8"><span class="n">8</span>Zoan</a><ol class="man-i-sez">
+<li><a href="#sez-8-1" data-id="sez-8-1">8.1 · Scheda della Creatura</a></li>
+<li><a href="#sez-8-2" data-id="sez-8-2">8.2 · Anatomia e vantaggi meccanici</a></li>
+<li><a href="#sez-8-3" data-id="sez-8-3">8.3 · Tratto · Le Tre Forme</a></li>
+<li><a href="#sez-8-4" data-id="sez-8-4">8.4 · Firma · Il Colpo Travolge</a></li>
+<li><a href="#sez-8-5" data-id="sez-8-5">8.5 · d4–d6 · Il Dono</a></li>
+<li><a href="#sez-8-6" data-id="sez-8-6">8.6 · d8–d10 · Il Controllo</a></li>
+<li><a href="#sez-8-7" data-id="sez-8-7">8.7 · d12 · La Padronanza</a></li>
+<li><a href="#sez-8-8" data-id="sez-8-8">8.8 · d20 · Il Risveglio</a></li>
+</ol></li>
+    </ol>
+    <p class="man-vuoto" id="man-nessuno" hidden>Nessuna voce con questo nome.</p>
+</nav>
+
+<div class="man-scena">
+  <div class="man-libro" id="man-libro">
+    <main class="man-foglio" id="man-foglio">
+    <div class="man-frontespizio">
+      <p class="occhiello">Grand Line Chronicles</p>
+      <h1>Manuale<br>dei Frutti del Diavolo</h1>
+      <p class="sotto">Linee guida ufficiali · Scheda di Identità, Talenti, Forma di Combattimento e Risveglio.</p>
+    </div>
+
+    <nav class="man-somm" aria-label="Sommario">
+      <h2>Sommario</h2>
+      <ol>
+<li class="s-cap">1 · I Frutti del Diavolo</li>
+<li class="s-sez"><b>1.1</b>Ottenere un Frutto del Diavolo</li>
+<li class="s-sez"><b>1.2</b>I tre tipi di Frutto</li>
+<li class="s-sez"><b>1.3</b>Le tre debolezze</li>
+<li class="s-sez"><b>1.4</b>Il Dado del Frutto</li>
+<li class="s-sez"><b>1.5</b>Costruire le Tecniche del Frutto</li>
+<li class="s-sez"><b>1.6</b>I Talenti del Frutto</li>
+<li class="s-cap">2 · Definire un Frutto del Diavolo</li>
+<li class="s-sez"><b>2.1</b>Scheda di Identità del Frutto</li>
+<li class="s-sez"><b>2.2</b>Possibilità narrativa ed effetto meccanico</li>
+<li class="s-sez"><b>2.3</b>Applicazioni iniziali</li>
+<li class="s-sez"><b>2.4</b>Portata ordinaria</li>
+<li class="s-sez"><b>2.5</b>Quantità e scala</li>
+<li class="s-sez"><b>2.6</b>Durata e permanenza</li>
+<li class="s-sez"><b>2.7</b>Creature viventi</li>
+<li class="s-sez"><b>2.8</b>Limitazioni strutturali e Contraccolpi</li>
+<li class="s-cap">3 · Guida ai Talenti dei Frutti del Diavolo</li>
+<li class="s-cap">4 · Paramecia</li>
+<li class="s-sez"><b>4.1</b>Tratto · Il Potere Unico</li>
+<li class="s-sez"><b>4.2</b>Firma · L’impronta del potere</li>
+<li class="s-sez"><b>4.3</b>d4–d6 · Il Dono</li>
+<li class="s-sez"><b>4.4</b>d8–d10 · Il Controllo</li>
+<li class="s-sez"><b>4.5</b>d12 · La Padronanza</li>
+<li class="s-sez"><b>4.6</b>d20 · Il Risveglio</li>
+<li class="s-cap">5 · Linea guida · Forma di Combattimento</li>
+<li class="s-sez"><b>5.1</b>Creare una Forma di Combattimento</li>
+<li class="s-sez"><b>5.2</b>Il principio fondamentale</li>
+<li class="s-sez"><b>5.3</b>Cosa non è una Forma di Combattimento</li>
+<li class="s-sez"><b>5.4</b>Definire il beneficio</li>
+<li class="s-sez"><b>5.5</b>Attivazione</li>
+<li class="s-sez"><b>5.6</b>Forma di Combattimento e Tecniche</li>
+<li class="s-sez"><b>5.7</b>Forma di Combattimento e Scheda del Frutto</li>
+<li class="s-sez"><b>5.8</b>Esempio · Corpo a Molla</li>
+<li class="s-sez"><b>5.9</b>Esempio · Armatura di Cera</li>
+<li class="s-sez"><b>5.10</b>Forma di Combattimento e Risveglio</li>
+<li class="s-cap">6 · Linea guida · Risveglio Paramecia</li>
+<li class="s-sez"><b>6.1</b>Costruire il Risveglio</li>
+<li class="s-sez"><b>6.2</b>Famiglie del Risveglio</li>
+<li class="s-sez"><b>6.3</b>Le Famiglie non sono benefici</li>
+<li class="s-sez"><b>6.4</b>Più Famiglie</li>
+<li class="s-sez"><b>6.5</b>Manifestazione e beneficio</li>
+<li class="s-sez"><b>6.6</b>Il Risveglio non sostituisce le Tecniche</li>
+<li class="s-sez"><b>6.7</b>Creature viventi</li>
+<li class="s-sez"><b>6.8</b>Permanenza</li>
+<li class="s-sez"><b>6.9</b>Limitazioni</li>
+<li class="s-sez"><b>6.10</b>Prezzo del Risveglio</li>
+<li class="s-sez"><b>6.11</b>Scheda di progettazione del Risveglio</li>
+<li class="s-cap">7 · Logia</li>
+<li class="s-sez"><b>7.1</b>Tratto · L’Elemento</li>
+<li class="s-sez"><b>7.2</b>Firma · L’elemento dilaga</li>
+<li class="s-sez"><b>7.3</b>d4–d6 · Il Dono</li>
+<li class="s-sez"><b>7.4</b>d8–d10 · Il Controllo</li>
+<li class="s-sez"><b>7.5</b>d12 · La Padronanza</li>
+<li class="s-sez"><b>7.6</b>d20 · Risveglio Logia</li>
+<li class="s-cap">8 · Zoan</li>
+<li class="s-sez"><b>8.1</b>Scheda della Creatura</li>
+<li class="s-sez"><b>8.2</b>Anatomia e vantaggi meccanici</li>
+<li class="s-sez"><b>8.3</b>Tratto · Le Tre Forme</li>
+<li class="s-sez"><b>8.4</b>Firma · Il Colpo Travolge</li>
+<li class="s-sez"><b>8.5</b>d4–d6 · Il Dono</li>
+<li class="s-sez"><b>8.6</b>d8–d10 · Il Controllo</li>
+<li class="s-sez"><b>8.7</b>d12 · La Padronanza</li>
+<li class="s-sez"><b>8.8</b>d20 · Il Risveglio</li>
+      </ol>
+    </nav>
+
+<section class="man-cap" id="cap-1" data-cap="1"><header class="man-cap-h"><span class="man-cap-n">Capitolo 1 ·</span> <h1>I Frutti del Diavolo</h1></header><div class="man-cap-corpo">
+<div data-frutti-base="cap-9"><p class="man-guida">Un solo morso può cambiare il destino di un pirata.</p>
+<p class="man-guida">C'è chi diventa di gomma, chi si trasforma in una creatura leggendaria e chi acquisisce il potere di un elemento naturale. Nessun Frutto è identico a un altro, ma tutti condividono una caratteristica: concedono capacità straordinarie in cambio di una vulnerabilità permanente al mare.</p>
+<p class="man-guida">In Grand Line Chronicles, i Frutti del Diavolo sono poteri personalizzabili. Il giocatore ne definisce il concetto insieme al Game Master, mentre il Dado del Frutto, i Talenti e il Costruttore di Tecniche ne regolano la crescita.</p>
+<p class="man-guida">Il Frutto non sostituisce lo Stile di Combattimento del personaggio. Si aggiunge alle sue capacità, permettendogli di sviluppare un modo di combattere unico.</p></div>
+<h2 id="sez-1-1" class="man-sez"><span class="man-sez-n">1.1 ·</span> <span data-frutti-base="ottenere-un-frutto-del-diavolo">Ottenere un Frutto del Diavolo</span></h2>
+<p class="man-guida">Il possesso di un Frutto del Diavolo è facoltativo e richiede l'approvazione del Game Master.</p>
+<p class="man-guida">Il personaggio può iniziare la campagna con un Frutto oppure ottenerlo durante l'avventura.</p>
+<p class="man-guida">Quando acquisisce il potere, il giocatore deve definirne le caratteristiche fondamentali.</p>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Caratteristica</b></th><th><b>Descrizione</b></th></tr></thead><tbody><tr><td>Nome</td><td>Nome del Frutto.</td></tr><tr><td>Tipo</td><td>Paramecia, Logia o Zoan.</td></tr><tr><td>Descrizione</td><td>Natura del potere e sue possibilità.</td></tr><tr><td>Dado del Frutto</td><td>Grado di padronanza del potere.</td></tr><tr><td>Tratto</td><td>Capacità fondamentale associata al tipo.</td></tr><tr><td>Firma</td><td>Effetto che si attiva nelle condizioni previste.</td></tr><tr><td>Talenti</td><td>Capacità acquisite attraverso la crescita.</td></tr></tbody></table></div>
+<p class="man-guida">Il Frutto non deve necessariamente essere orientato al combattimento.</p>
+<p class="man-guida">Un potere apparentemente modesto può rivelarsi utile nell'esplorazione, nella navigazione, nella costruzione di oggetti o nelle interazioni sociali.</p>
+<p class="man-guida">La sua efficacia dipende dalle applicazioni sviluppate dal personaggio.</p>
+<h2 id="sez-1-2" class="man-sez"><span class="man-sez-n">1.2 ·</span> <span data-frutti-base="i-tre-tipi-di-frutto">I tre tipi di Frutto</span></h2>
+<p class="man-guida">I Frutti del Diavolo appartengono a tre categorie.</p>
+<h3 class="man-sub">Paramecia</h3>
+<h4 class="man-lab">Il potere unico</h4>
+<p class="man-guida">Conferisce una proprietà straordinaria al corpo, permette di produrre una sostanza oppure modifica la materia e l'ambiente.</p>
+<h3 class="man-sub">Logia</h3>
+<h4 class="man-lab">L'elemento</h4>
+<p class="man-guida">Permette di diventare e controllare un elemento naturale, acquisendone le proprietà.</p>
+<h3 class="man-sub">Zoan</h3>
+<h4 class="man-lab">La trasformazione</h4>
+<p class="man-guida">Consente di assumere una forma animale e una forma ibrida, modificando il corpo e le capacità fisiche.</p>
+<p class="man-guida">Ogni tipo possiede un Tratto, una Firma e un Albero dei Talenti specifico.</p>
+<p class="man-guida">I Frutti mitologici e ancestrali appartengono alla categoria Zoan, ma possono ottenere caratteristiche particolari attraverso le capacità previste dal relativo Albero.</p>
+<h2 id="sez-1-3" class="man-sez"><span class="man-sez-n">1.3 ·</span> <span data-frutti-base="le-tre-debolezze">Le tre debolezze</span></h2>
+<p class="man-guida">Il potere di un Frutto comporta tre debolezze fondamentali.</p>
+<h3 class="man-sub">Le debolezze del Frutto</h3>
+<h4 class="man-lab">Il mare</h4>
+<p class="man-guida">Il possessore di un Frutto perde la propria naturale libertà nell'ambiente marino.</p>
+<h4 class="man-lab">Agalmatolite · Pietra di Mare</h4>
+<p class="man-guida">Un materiale capace di contrastare il potere dei Frutti del Diavolo.</p>
+<h4 class="man-lab">Haki</h4>
+<p class="man-guida">L'Armamento permette di contrastare le difese dei Frutti, in particolare l'intangibilità ordinaria dei Logia.</p>
+<p class="man-guida">Le tre debolezze non sono intercambiabili: agiscono in modi differenti.</p>
+<p class="man-guida">Le conseguenze specifiche dell'immersione, del contatto con la Pietra di Mare e delle interazioni particolari tra poteri vengono determinate dalle rispettive regole e dalla situazione descritta dal Game Master.</p>
+<p class="man-guida">Un Frutto non perde automaticamente ogni sua proprietà soltanto perché il possessore viene colpito dall'Haki. L'Armamento permette di superare determinate difese, ma non cancella indiscriminatamente tutte le capacità del bersaglio.</p>
+<p class="man-guida">Un Uomo Pesce o Tritone che abbia mangiato un Frutto del Diavolo conserva la propria capacità naturale di respirare sott’acqua, ma perde la capacità di nuotare.</p>
+<p class="man-guida">Se rimane immerso senza un altro mezzo di movimento, non annega grazie alla propria fisiologia, ma non può nuotare e rimane incapace di muoversi normalmente nell’acqua finché la condizione persiste.</p>
+<h2 id="sez-1-4" class="man-sez"><span class="man-sez-n">1.4 ·</span> <span data-frutti-base="il-dado-del-frutto">Il Dado del Frutto</span></h2>
+<p class="man-guida">Il Dado del Frutto rappresenta il livello di padronanza raggiunto dal personaggio.</p>
+<p class="man-guida">Non determina quale potere possiede, ma quanto riesce a controllarlo.</p>
+<p class="man-guida">Un utilizzatore inesperto potrebbe produrre il proprio elemento senza riuscire a modellarlo con precisione. Un esperto potrebbe invece impiegarlo in modi completamente differenti.</p>
+<h4 class="man-lab">La progressione segue questa scala:</h4>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Dado</b></th><th><b>Padronanza</b></th></tr></thead><tbody><tr><td>d4</td><td>Il potere si è manifestato.</td></tr><tr><td>d6</td><td>Il personaggio comincia a comprenderlo.</td></tr><tr><td>d8</td><td>Controllo affidabile.</td></tr><tr><td>d10</td><td>Padronanza avanzata.</td></tr><tr><td>d12</td><td>Maestria.</td></tr><tr><td>d20</td><td>Vetta del potere, necessaria per il Risveglio.</td></tr></tbody></table></div>
+<p class="man-guida">Il Dado del Frutto parte normalmente da d4.</p>
+<h4 class="man-lab">1.4.1 · Come cresce</h4>
+<p class="man-guida">Il Dado del Frutto non viene aumentato spendendo Punti Abilità.</p>
+<p class="man-guida">È il Game Master a determinarne l'avanzamento quando la crescita del personaggio lo giustifica.</p>
+<p class="man-guida">Un miglioramento può essere associato all'allenamento, a una scoperta sul funzionamento del Frutto, a una sconfitta significativa o alla conclusione di un arco narrativo.</p>
+<p class="man-guida">Il dado non deve aumentare automaticamente dopo ogni combattimento.</p>
+<h4 class="man-lab">1.4.2 · Cosa determina</h4>
+<p class="man-guida">Il Dado del Frutto svolge due funzioni.</p>
+<p class="man-guida">Limita le Tecniche del Frutto: nessuna Tecnica che utilizza il Frutto come Fonte può superare il suo Grado.</p>
+<p class="man-guida">Sblocca i Talenti del Frutto: ogni fascia dell'Albero richiede una padronanza minima.</p>
+<h3 class="man-sub">Progressione dei Talenti</h3>
+<p class="man-guida">d4–d6 · Il Dono<br>Il personaggio esplora le possibilità iniziali del potere.</p>
+<p class="man-guida">d8–d10 · Il Controllo<br>Il Frutto diventa più versatile ed efficiente.</p>
+<p class="man-guida">d12 · La Padronanza<br>Il personaggio sviluppa applicazioni avanzate.</p>
+<p class="man-guida">d20 · Il Risveglio<br>Diventa possibile raggiungere la manifestazione più elevata del potere.</p>
+<h2 id="sez-1-5" class="man-sez"><span class="man-sez-n">1.5 ·</span> <span data-frutti-base="costruire-le-tecniche-del-frutto">Costruire le Tecniche del Frutto</span></h2>
+<p class="man-guida">Le Tecniche del Frutto utilizzano il Costruttore presentato nel Capitolo 7.</p>
+<p class="man-guida">Per crearne una, il giocatore seleziona Frutto come Fonte e definisce Attributo, Forma, Grado ed effetti.</p>
+<p class="man-guida">La Tecnica deve rispettare tre condizioni fondamentali:</p>
+<p class="man-guida">Il suo Grado non può superare il Dado dell'Attributo utilizzato.</p>
+<p class="man-guida">Il suo Grado non può superare il Dado del Frutto.</p>
+<p class="man-guida">Gli effetti scelti devono essere coerenti con la natura del potere e con le regole del Costruttore.</p>
+<p class="man-guida">Il Game Master verifica la compatibilità narrativa della Tecnica.</p>
+<p class="man-guida">Un Frutto capace di produrre cera può creare barriere e strutture. Non può produrre liberamente fulmini soltanto perché nel Catalogo esiste un effetto adatto a un attacco elettrico.</p>
+<h3 class="man-sub">Tecniche d4 e d6</h3>
+<p class="man-guida">Come stabilito per il regolamento V2, le Tecniche d4 e d6 non dispongono di effetti aggiuntivi.</p>
+<p class="man-guida">Gli effetti del Catalogo diventano disponibili dal Grado d8, rispettando i relativi requisiti.</p>
+<p class="man-guida">Questo limite riguarda le Tecniche costruite. Non elimina il Tratto naturale del Frutto o le capacità dei Talenti già posseduti.</p>
+<h3 class="man-sub">Costi</h3>
+<p class="man-guida">Le Tecniche del Frutto pagano la Stamina prevista dai propri effetti.</p>
+<p class="man-guida">Il fatto di possedere un Frutto non rende automaticamente gratuite tutte le Tecniche che ne derivano.</p>
+<p class="man-guida">Talenti specifici possono ridurre o eliminare determinati costi.</p>
+<h2 id="sez-1-6" class="man-sez"><span class="man-sez-n">1.6 ·</span> <span data-frutti-base="i-talenti-del-frutto">I Talenti del Frutto</span></h2>
+<p class="man-guida">Ogni tipo di Frutto possiede un Albero dedicato.</p>
+<p class="man-guida">I Talenti si acquisiscono attraverso gli Upgrade, scegliendo tra quelli disponibili in base al Dado del Frutto e rispettando gli eventuali prerequisiti.</p>
+<p class="man-guida">Raggiungere un Grado sblocca l'accesso ai Talenti, ma non assegna automaticamente tutti quelli della fascia.</p>
+<p class="man-guida">I Talenti possono rappresentare capacità passive, attivazioni volontarie, Reazioni o eccezioni particolari.</p>
+<p class="man-guida">Nel sistema V2, un Talento che richiede un'attivazione volontaria utilizza normalmente l'Azione Bonus. Quando la sua descrizione prevede una Reazione, un'attivazione gratuita o un altro funzionamento esplicito, prevale quella regola.</p>
+<p class="man-guida">I passivi si applicano automaticamente quando le loro condizioni sono soddisfatte.</p>
+</div></section>
+<section class="man-cap" id="cap-2" data-cap="2"><header class="man-cap-h"><span class="man-cap-n">Capitolo 2 ·</span> <h1>Definire un Frutto del Diavolo</h1></header><div class="man-cap-corpo">
+<span class="man-cap-fonte" data-frutti-source="0" hidden>Definire un Frutto del Diavolo</span>
+<p class="man-guida" data-frutti-source="1">Scegliere Paramecia, Logia o Zoan non è sufficiente a determinare come funziona un Frutto del Diavolo.</p>
+<p class="man-guida" data-frutti-source="2">Due Paramecia possono avere possibilità completamente differenti. Due Logia possono interagire con l&#x27;ambiente in modi diversi a causa della natura del proprio elemento. Due Zoan possono possedere anatomie, forme di movimento e capacità naturali radicalmente differenti.</p>
+<p class="man-guida" data-frutti-source="3">Per questo, quando viene acquisito un Frutto del Diavolo, giocatore e Game Master devono compilare insieme la sua Scheda di Identità.</p>
+<p class="man-guida" data-frutti-source="4">Questa scheda stabilisce cosa il Frutto può fare normalmente, cosa non può fare e quali aspetti potranno essere sviluppati successivamente attraverso Tecniche e Talenti.</p>
+<p class="man-guida" data-frutti-source="5">La Scheda di Identità non assegna automaticamente bonus numerici.</p>
+<p class="man-guida" data-frutti-source="6">Definisce le possibilità naturali del potere.</p>
+<p class="man-guida" data-frutti-source="7">Tecniche e Talenti determinano invece gli effetti meccanici avanzati.</p>
+<h2 id="sez-2-1" class="man-sez"><span class="man-sez-n">2.1 ·</span> <span data-frutti-source="8">Scheda di Identità del Frutto</span></h2>
+<p class="man-guida" data-frutti-source="9">Ogni Frutto deve definire almeno i seguenti elementi.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Tabella" data-frutti-source="10"><table class="man-tab"><thead><tr><th scope="col"><b>Campo</b></th><th scope="col"><b>Cosa stabilisce</b></th></tr></thead><tbody><tr><td>Nome</td><td>Nome del Frutto.</td></tr><tr><td>Tipo</td><td>Paramecia, Logia o Zoan.</td></tr><tr><td>Nucleo del Potere</td><td>Una frase che descrive esattamente cosa permette di fare il Frutto.</td></tr><tr><td>Materia / Fenomeno / Creatura</td><td>Cosa rappresenta concretamente il potere.</td></tr><tr><td>Applicazioni iniziali</td><td>Quali famiglie di utilizzo sono disponibili fin dall&#x27;acquisizione.</td></tr><tr><td>Origine del potere</td><td>Da dove può manifestarsi normalmente.</td></tr><tr><td>Bersagli validi</td><td>Sé stesso, creature, oggetti, ambiente, materia esistente o altre categorie.</td></tr><tr><td>Portata ordinaria</td><td>Fino a quale distanza il potere può essere controllato normalmente.</td></tr><tr><td>Quantità ordinaria</td><td>Quanta materia, superficie o numero di elementi può essere controllato senza una Tecnica specifica.</td></tr><tr><td>Durata ordinaria</td><td>Quanto permane normalmente ciò che viene creato o modificato.</td></tr><tr><td>Precisione del controllo</td><td>Quanto finemente il potere può essere manipolato.</td></tr><tr><td>Interazione con esseri viventi</td><td>Se e come il potere può modificare direttamente un corpo vivente.</td></tr><tr><td>Permanenza</td><td>Cosa accade alle creazioni o modifiche quando il controllo termina.</td></tr><tr><td>Limitazioni strutturali</td><td>Ciò che il Frutto non può fare o le condizioni necessarie per utilizzarlo.</td></tr><tr><td>Contraccolpi naturali</td><td>Eventuali conseguenze che il potere provoca sul corpo dell&#x27;utilizzatore.</td></tr></tbody></table></div>
+<p class="man-guida" data-frutti-source="11">Tutti questi elementi devono essere stabiliti quando il Frutto viene introdotto oppure prima che diventino rilevanti durante la partita.</p>
+<p class="man-guida" data-frutti-source="12">Una definizione non dovrebbe essere:</p>
+<p class="man-guida" data-frutti-source="13"><b>«Posso controllare la cera.»</b></p>
+<p class="man-guida" data-frutti-source="14">Dovrebbe essere qualcosa di simile a:</p>
+<p class="man-guida" data-frutti-source="15">«Posso produrre cera dal mio corpo e modellare quella che ho prodotto. Posso controllarla entro la mia normale portata, creare oggetti semplici e lasciarla solidificare. Non posso controllare qualsiasi cera esistente nel mondo e non posso modificare direttamente il corpo di una creatura vivente.»</p>
+<p class="man-guida" data-frutti-source="16">In questo modo giocatore e Game Master sanno già cosa appartiene naturalmente al Frutto e cosa richiede uno sviluppo successivo.</p>
+<h2 id="sez-2-2" class="man-sez"><span class="man-sez-n">2.2 ·</span> <span data-frutti-source="17">Possibilità narrativa ed effetto meccanico</span></h2>
+<p class="man-guida" data-frutti-source="18">La Scheda di Identità concede permessi narrativi, non bonus gratuiti.</p>
+<p class="man-guida" data-frutti-source="19">Un potere può permettere qualcosa senza trasformare automaticamente quella possibilità in un vantaggio numerico.</p>
+<p class="man-guida" data-frutti-source="20">Un personaggio capace di creare cera può creare una candela senza costruire una Tecnica.</p>
+<p class="man-guida" data-frutti-source="21">Può tappare un piccolo foro o lasciare una traccia di cera sul terreno se non esiste una reale incertezza.</p>
+<p class="man-guida" data-frutti-source="22">Ma creare una barriera capace di bloccare un attacco, immobilizzare un nemico o ricoprire un&#x27;intera zona produce un effetto meccanico significativo e deve essere rappresentato da una Tecnica, un Talento o un&#x27;altra regola appropriata.</p>
+<p class="man-guida" data-frutti-source="23">La domanda fondamentale è:</p>
+<p class="man-guida" data-frutti-source="24">questa applicazione descrive semplicemente ciò che il potere può fare oppure sta producendo un vantaggio meccanico?</p>
+<p class="man-guida" data-frutti-source="25">Se produce danni, Stati, Spostamenti forzati, protezione, modificatori, Zone, attacchi aggiuntivi o altri benefici meccanici, normalmente entra in gioco una regola.</p>
+<h2 id="sez-2-3" class="man-sez"><span class="man-sez-n">2.3 ·</span> <span data-frutti-source="26">Applicazioni iniziali</span></h2>
+<p class="man-guida" data-frutti-source="27">Un Frutto non concede automaticamente ogni applicazione teoricamente immaginabile del proprio concetto.</p>
+<p class="man-guida" data-frutti-source="28">Alla creazione devono essere definite le sue Applicazioni iniziali.</p>
+<p class="man-guida" data-frutti-source="29">Un Paramecia potrebbe, per esempio, iniziare permettendo di:</p>
+<ul class="man-punti"><li data-frutti-source="30">produrre una sostanza;</li><li data-frutti-source="31">oppure modificare il proprio corpo;</li><li data-frutti-source="32">oppure manipolare un materiale esistente.</li></ul>
+<p class="man-guida" data-frutti-source="33">Possedere una di queste capacità non concede automaticamente le altre.</p>
+<p class="man-guida" data-frutti-source="34">Se un Frutto modifica inizialmente il corpo dell&#x27;utilizzatore, non significa necessariamente che possa modificare anche il corpo degli altri.</p>
+<p class="man-guida" data-frutti-source="35">Se produce una sostanza, non significa necessariamente che possa controllare tutta la sostanza dello stesso tipo già presente nell&#x27;ambiente.</p>
+<p class="man-guida" data-frutti-source="36">Se altera oggetti, non significa automaticamente che possa alterare creature viventi.</p>
+<p class="man-guida" data-frutti-source="37">Nuove famiglie di applicazioni possono essere ottenute attraverso Talenti come Potere Versatile e Seconda Natura.</p>
+<h2 id="sez-2-4" class="man-sez"><span class="man-sez-n">2.4 ·</span> <span data-frutti-source="38">Portata ordinaria</span></h2>
+<p class="man-guida" data-frutti-source="39">Ogni Frutto deve possedere una Portata ordinaria concordata.</p>
+<p class="man-guida" data-frutti-source="40">Può essere:</p>
+<p class="man-guida" data-frutti-source="41"><b>Personale</b><br>Il potere agisce soltanto sull&#x27;utilizzatore.</p>
+<p class="man-guida" data-frutti-source="42"><b>Contatto</b><br>È necessario toccare ciò che viene influenzato.</p>
+<p class="man-guida" data-frutti-source="43"><b>Distanza definita</b><br>Il Frutto può agire entro un determinato numero di metri.</p>
+<p class="man-guida" data-frutti-source="44"><b>Fonte visibile</b><br>Il potere può essere esercitato su una fonte valida che il personaggio riesce a vedere.</p>
+<p class="man-guida" data-frutti-source="45">La Portata ordinaria definisce il normale controllo del Frutto.</p>
+<p class="man-guida" data-frutti-source="46">Non sostituisce la Gittata delle Tecniche.</p>
+<p class="man-guida" data-frutti-source="47">Una Tecnica offensiva, un attacco ad Area o un effetto che estende meccanicamente la distanza continua a seguire il Costruttore.</p>
+<h2 id="sez-2-5" class="man-sez"><span class="man-sez-n">2.5 ·</span> <span data-frutti-source="48">Quantità e scala</span></h2>
+<p class="man-guida" data-frutti-source="49">Il Game Master non dovrebbe utilizzare termini indefiniti come:</p>
+<p class="man-guida" data-frutti-source="50">«molto», «una grande quantità», «quanto vuole».</p>
+<p class="man-guida" data-frutti-source="51">La Scheda deve fornire almeno un riferimento comprensibile.</p>
+<p class="man-guida" data-frutti-source="52">Per esempio:</p>
+<p class="man-guida" data-frutti-source="53">«Può manipolare normalmente una quantità sufficiente a riempire un secchio.»</p>
+<p class="man-guida" data-frutti-source="54">«Può alterare un singolo oggetto di dimensioni umane.»</p>
+<p class="man-guida" data-frutti-source="55">«Può controllare contemporaneamente la materia presente in una zona delle dimensioni di una stanza.»</p>
+<p class="man-guida" data-frutti-source="56">La quantità ordinaria non rappresenta necessariamente un limite assoluto.</p>
+<p class="man-guida" data-frutti-source="57">Tecniche, Talenti, Dado del Frutto e Risveglio possono permettere applicazioni molto superiori.</p>
+<p class="man-guida" data-frutti-source="58">Serve semplicemente a stabilire il funzionamento normale del potere.</p>
+<h2 id="sez-2-6" class="man-sez"><span class="man-sez-n">2.6 ·</span> <span data-frutti-source="59">Durata e permanenza</span></h2>
+<p class="man-guida" data-frutti-source="60">La Scheda deve specificare cosa succede quando l&#x27;utilizzatore smette di controllare il potere.</p>
+<p class="man-guida" data-frutti-source="61">Una sostanza generata potrebbe:</p>
+<ul class="man-punti"><li data-frutti-source="62">scomparire;</li><li data-frutti-source="63">rimanere fino alla fine della scena;</li><li data-frutti-source="64">rimanere finché non viene distrutta;</li><li data-frutti-source="65">oppure diventare vera materia permanente.</li></ul>
+<p class="man-guida" data-frutti-source="66">Queste possibilità non sono equivalenti.</p>
+<p class="man-guida" data-frutti-source="67">Creare permanentemente tonnellate di materiale ha conseguenze sul mondo molto diverse dal creare una sostanza che scompare dopo pochi minuti.</p>
+<p class="man-guida" data-frutti-source="68">Se il Frutto può creare materia permanente, questa proprietà deve essere esplicitamente registrata nella Scheda di Identità.</p>
+<p class="man-guida" data-frutti-source="69">La permanenza narrativa non sostituisce comunque le regole delle Zone Persistenti quando ciò che rimane produce effetti meccanici durante uno scontro.</p>
+<h2 id="sez-2-7" class="man-sez"><span class="man-sez-n">2.7 ·</span> <span data-frutti-source="70">Creature viventi</span></h2>
+<p class="man-guida" data-frutti-source="71">Intervenire direttamente su una creatura vivente è una proprietà importante e deve essere dichiarata.</p>
+<p class="man-guida" data-frutti-source="72">Un potere che modifica oggetti non può essere automaticamente applicato al corpo di un nemico.</p>
+<p class="man-guida" data-frutti-source="73">La Scheda deve indicare se il Frutto può agire:</p>
+<ul class="man-punti"><li data-frutti-source="74">solo sull&#x27;utilizzatore;</li><li data-frutti-source="75">su creature consenzienti;</li><li data-frutti-source="76">su qualsiasi creatura;</li><li data-frutti-source="77">oppure non può alterare direttamente esseri viventi.</li></ul>
+<p class="man-guida" data-frutti-source="78">Quando l&#x27;applicazione produce un effetto meccanico su un bersaglio ostile, continua a essere necessaria la normale risoluzione attraverso Tecniche, Salvezze o altre regole appropriate.</p>
+<p class="man-guida" data-frutti-source="79">Il semplice fatto che il potere possa teoricamente influenzare il corpo non permette di ignorare Difesa, PV o condizioni del combattimento.</p>
+<h2 id="sez-2-8" class="man-sez"><span class="man-sez-n">2.8 ·</span> <span data-frutti-source="80">Limitazioni strutturali e Contraccolpi</span></h2>
+<p class="man-guida" data-frutti-source="81">Questi due elementi devono essere distinti.</p>
+<h3 class="man-sub" id="definire-limitazione-strutturale" data-frutti-source="82">Limitazione strutturale</h3>
+<p class="man-guida" data-frutti-source="83">Una Limitazione strutturale definisce come funziona il potere.</p>
+<p class="man-guida" data-frutti-source="84">Esempi:</p>
+<ul class="man-punti"><li data-frutti-source="85">deve toccare il bersaglio;</li><li data-frutti-source="86">deve vedere la fonte;</li><li data-frutti-source="87">può controllare soltanto materia prodotta personalmente;</li><li data-frutti-source="88">non funziona sugli esseri viventi;</li><li data-frutti-source="89">può mantenere una sola creazione complessa;</li><li data-frutti-source="90">richiede la presenza dell&#x27;elemento;</li><li data-frutti-source="91">non può superare una determinata quantità.</li></ul>
+<p class="man-guida" data-frutti-source="92">Una Limitazione strutturale non è un effetto collaterale.</p>
+<p class="man-guida" data-frutti-source="93">È parte dell&#x27;identità del Frutto.</p>
+<h3 class="man-sub" id="definire-contraccolpo-naturale" data-frutti-source="94">Contraccolpo naturale</h3>
+<p class="man-guida" data-frutti-source="95">Un Contraccolpo è invece una conseguenza che l&#x27;utilizzo del potere provoca sul corpo del possessore.</p>
+<p class="man-guida" data-frutti-source="96">Esempi:</p>
+<ul class="man-punti"><li data-frutti-source="97">disidratazione;</li><li data-frutti-source="98">raffreddamento del corpo;</li><li data-frutti-source="99">dolore provocato da trasformazioni estreme;</li><li data-frutti-source="100">perdita temporanea di sensibilità;</li><li data-frutti-source="101">surriscaldamento.</li></ul>
+<p class="man-guida" data-frutti-source="102">Il Contraccolpo deve essere definito nella Scheda se rappresenta realmente una caratteristica del Frutto.</p>
+<p class="man-guida" data-frutti-source="103">Non deve essere inventato dal GM durante una scena soltanto per limitare un utilizzo inatteso.</p>
+</div></section>
+<section class="man-cap" id="cap-3" data-cap="3"><header class="man-cap-h"><span class="man-cap-n">Capitolo 3 ·</span> <h1>Guida ai Talenti dei Frutti del Diavolo</h1></header><div class="man-cap-corpo">
+<span class="man-cap-fonte" data-frutti-source="104" hidden>Guida ai Talenti dei Frutti del Diavolo</span>
+<p class="man-guida" data-frutti-source="105">I Talenti del Frutto rappresentano sviluppi specifici della padronanza del potere.</p>
+<p class="man-guida" data-frutti-source="106">La Scheda di Identità stabilisce ciò che il Frutto è naturalmente in grado di fare. I Talenti permettono invece di ampliare quelle possibilità, specializzarle, trasformarle in vantaggi meccanici oppure superare alcuni dei limiti iniziali.</p>
+<p class="man-guida" data-frutti-source="107">Per ogni Talento vengono riportati:</p>
+<p class="man-guida" data-frutti-source="108"><b>Testo del Manuale</b><br>La descrizione attualmente presente nel regolamento.</p>
+<p class="man-guida" data-frutti-source="109"><b>A cosa serve</b><br>La funzione che il Talento ricopre all&#x27;interno della progressione del Frutto.</p>
+<p class="man-guida" data-frutti-source="110"><b>Chiarimento definitivo</b><br>Come deve essere interpretato e applicato durante il gioco.</p>
+</div></section>
+<section class="man-cap" id="cap-4" data-cap="4"><header class="man-cap-h"><span class="man-cap-n">Capitolo 4 ·</span> <h1>Paramecia</h1></header><div class="man-cap-corpo">
+<span class="man-cap-fonte" data-frutti-source="111" hidden>Paramecia</span>
+<div data-frutti-base="intro-paramecia"><h4 class="man-lab">Il potere unico</h4>
+<p class="man-guida">I Paramecia comprendono poteri estremamente diversi tra loro. Possono alterare il corpo, produrre materia oppure intervenire sull'ambiente.</p>
+<p class="man-guida">Il loro principio fondamentale è la libertà creativa: giocatore e Game Master definiscono un potere riconoscibile e ne sviluppano le applicazioni senza trasformarlo in una raccolta illimitata di capacità scollegate.</p></div>
+<h2 id="sez-4-1" class="man-sez"><span class="man-sez-n">4.1 ·</span> <span data-frutti-base="tratto-il-potere-unico">Tratto · Il Potere Unico</span></h2>
+<h4 class="man-lab">Sempre attivo</h4>
+<p class="man-guida">Il personaggio altera corpo, materia o ambiente attraverso un potere concordato con il Game Master.</p>
+<p class="man-guida">La natura del Frutto determina ciò che il personaggio può fare.</p>
+<p class="man-guida">Non esiste una tabella universale che assegna a ogni Paramecia lo stesso insieme di effetti.</p>
+<p class="man-guida">Il Tratto rappresenta le proprietà fondamentali del Frutto, non uno sblocco da acquistare.</p>
+<h2 id="sez-4-2" class="man-sez"><span class="man-sez-n">4.2 ·</span> <span data-frutti-base="firma-limpronta-del-potere">Firma · L’impronta del potere</span></h2>
+<h4 class="man-lab">Colpo pulito · Margine +4</h4>
+<p class="man-guida">Quando il personaggio ottiene un colpo pulito con una Tecnica del Frutto, il potere lascia una conseguenza aggiuntiva coerente con la sua natura.</p>
+<p class="man-guida">Può trattarsi di un'alterazione del terreno, di uno stato oppure di una zona che rimane dopo l'impatto.</p>
+<p class="man-guida">L'applicazione concreta viene definita insieme al Game Master secondo il potere posseduto.</p>
+<p class="man-guida">La Firma non concede al giocatore l'accesso permanente a ogni effetto del Catalogo: rappresenta la conseguenza speciale del colpo pulito.</p>
+<h2 id="sez-4-3" class="man-sez"><span class="man-sez-n">4.3 ·</span> <span data-frutti-source="112">d4–d6 · Il Dono</span></h2>
+<h3 class="man-sub man-talento" id="paramecia-potere-versatile" data-frutti-source="113">Potere Versatile</h3>
+<h4 class="man-lab" data-frutti-source="114">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="115"><b>Potere Versatile</b><br>Passivo<br>Sblocchi una nuova applicazione del Frutto.<br>Potresti imparare a utilizzare il potere a distanza, applicarlo al tuo corpo oppure impiegarlo per difenderti.<br>La nuova applicazione permette di sviluppare un&#x27;intera famiglia di Tecniche che prima non potevi costruire.<br>La scelta deve essere coerente con il concetto originario del Frutto.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="116">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="117">Potere Versatile amplia le possibilità iniziali del Paramecia.</p>
+<p class="man-guida" data-frutti-source="118">Non aumenta direttamente danni, portata o potenza del Frutto. Permette invece di sviluppare un modo nuovo di utilizzare un potere già esistente.</p>
+<h4 class="man-lab" data-frutti-source="119">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="120">Quando il Talento viene acquisito, il giocatore sceglie insieme al GM una nuova Applicazione del Frutto e la aggiunge alla Scheda di Identità.</p>
+<p class="man-guida" data-frutti-source="121">L&#x27;Applicazione deve derivare logicamente dal Nucleo del Potere.</p>
+<p class="man-guida" data-frutti-source="122">Esempio:</p>
+<p class="man-guida" data-frutti-source="123">Un Frutto permette inizialmente di produrre cera dal proprio corpo.</p>
+<p class="man-guida" data-frutti-source="124">Potere Versatile potrebbe permettere di:</p>
+<ul class="man-punti"><li data-frutti-source="125">controllare a distanza la cera già prodotta;</li><li data-frutti-source="126">utilizzare la cera come protezione;</li><li data-frutti-source="127">rivestire il proprio corpo di cera.</li></ul>
+<p class="man-guida" data-frutti-source="128">Il Talento concede una di queste nuove direzioni, non tutte contemporaneamente.</p>
+<p class="man-guida" data-frutti-source="129">Non permette di inventare liberamente nuove proprietà ogni volta che viene utilizzato.</p>
+<h3 class="man-sub man-talento" id="paramecia-controllo-fine" data-frutti-source="130">Controllo Fine</h3>
+<h4 class="man-lab" data-frutti-source="131">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="132"><b>Controllo Fine</b><br>Passivo · Fuori dal combattimento<br>Aggiungi +1 dado alle prove appropriate di manipolazione, attraversamento, protezione e furtività quando utilizzi il Frutto.<br>Il bonus si applica soltanto alle attività per le quali il potere offre effettivamente un vantaggio.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="133">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="134">Rappresenta la precisione raggiunta nell&#x27;utilizzo quotidiano del Frutto.</p>
+<p class="man-guida" data-frutti-source="135">È pensato principalmente per esplorazione, infiltrazione, manipolazione dell&#x27;ambiente e utilizzi creativi non direttamente offensivi.</p>
+<h4 class="man-lab" data-frutti-source="136">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="137">Controllo Fine non concede nuove Applicazioni.</p>
+<p class="man-guida" data-frutti-source="138">Il personaggio deve già essere capace di compiere l&#x27;azione secondo la propria Scheda del Frutto.</p>
+<p class="man-guida" data-frutti-source="139">Quando viene richiesta una prova e il potere offre concretamente un vantaggio, il personaggio aggiunge:</p>
+<p class="man-guida" data-frutti-source="140"><b>+1 dado</b></p>
+<p class="man-guida" data-frutti-source="141">alla prova appropriata.</p>
+<p class="man-guida" data-frutti-source="142">Esempio:</p>
+<p class="man-guida" data-frutti-source="143">Un personaggio capace di manipolare fili potrebbe utilizzare Controllo Fine per manovrare con estrema precisione un piccolo meccanismo.</p>
+<p class="man-guida" data-frutti-source="144">Se però il suo Frutto non può controllare direttamente il corpo delle persone, Controllo Fine non gli permette di farlo.</p>
+<h3 class="man-sub man-talento" id="paramecia-dono-passivo" data-frutti-source="145">Dono Passivo</h3>
+<h4 class="man-lab" data-frutti-source="146">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="147"><b>Dono Passivo</b><br>Passivo · Permanente<br>Il Frutto ti concede una proprietà permanente coerente con la sua natura.<br>Questa proprietà non richiede Stamina né l&#x27;utilizzo di una Tecnica.<br>Per esempio, un corpo di gomma non conduce l&#x27;elettricità.<br>Il giocatore e il GM concordano esattamente quale proprietà viene ottenuta e quali conseguenze produce.<br>Una volta definita, rimane una caratteristica permanente del personaggio.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="148">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="149">Permette di trasformare una conseguenza naturale del potere in una proprietà permanente del personaggio.</p>
+<h4 class="man-lab" data-frutti-source="150">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="151">La proprietà viene scelta quando il Talento viene acquisito e viene registrata nella Scheda del Frutto.</p>
+<p class="man-guida" data-frutti-source="152">Deve derivare direttamente dalla natura del potere.</p>
+<p class="man-guida" data-frutti-source="153">Per esempio:</p>
+<p class="man-guida" data-frutti-source="154">Corpo di gomma → non conduce normalmente elettricità.</p>
+<p class="man-guida" data-frutti-source="155">Corpo costituito da una sostanza galleggiante → può possedere naturalmente una particolare galleggiabilità, salvo le normali debolezze dei Frutti.</p>
+<p class="man-guida" data-frutti-source="156">La proprietà non può equivalere liberamente a:</p>
+<ul class="man-punti"><li data-frutti-source="157">immunità generica ai danni;</li><li data-frutti-source="158">bonus permanenti agli Attributi;</li><li data-frutti-source="159">Talenti esistenti;</li><li data-frutti-source="160">capacità che non derivano realmente dalla natura del Frutto.</li></ul>
+<p class="man-guida" data-frutti-source="161">Una volta scelta, non cambia da una scena all&#x27;altra.</p>
+<h3 class="man-sub man-talento" id="paramecia-riflesso-del-potere" data-frutti-source="162">Riflesso del Potere</h3>
+<h4 class="man-lab" data-frutti-source="163">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="164"><b>Riflesso del Potere</b><br>Reazione<br>1 volta per scontro<br>0 ST<br>Quando tu o un alleato entro 5 metri state per subire un attacco, il Frutto reagisce istintivamente.<br>Il danno viene ridotto di un dado.<br>Non è necessario utilizzare una Tecnica: il potere si manifesta direttamente attraverso la Reazione.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="165">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="166">Rappresenta una manifestazione difensiva istintiva del Paramecia.</p>
+<p class="man-guida" data-frutti-source="167">Il potere interviene immediatamente per attenuare un attacco diretto contro l&#x27;utilizzatore oppure contro un compagno vicino.</p>
+<h4 class="man-lab" data-frutti-source="168">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="169">La frase:</p>
+<p class="man-guida" data-frutti-source="170">«Il danno viene ridotto di un dado»</p>
+<p class="man-guida" data-frutti-source="171">significa:</p>
+<p class="man-guida" data-frutti-source="172">tutti i Dadi Danno dell&#x27;attacco scendono di 1 Grado.</p>
+<p class="man-guida" data-frutti-source="173">Progressione:</p>
+<div class="man-mappa" data-frutti-source="174"><div class="man-riga"><span>d20</span> <i class="man-freccia">→</i> <b>d12</b></div><div class="man-riga"><span>d12</span> <i class="man-freccia">→</i> <b>d10</b></div><div class="man-riga"><span>d10</span> <i class="man-freccia">→</i> <b>d8</b></div><div class="man-riga"><span>d8</span> <i class="man-freccia">→</i> <b>d6</b></div><div class="man-riga"><span>d6</span> <i class="man-freccia">→</i> <b>d4</b></div></div>
+<p class="man-guida" data-frutti-source="175">Il d4 rappresenta il minimo e non scende ulteriormente.</p>
+<p class="man-guida" data-frutti-source="176">Esempio:</p>
+<p class="man-guida" data-frutti-source="177">Un attacco infligge:</p>
+<p class="man-guida" data-frutti-source="178"><b>3d10</b></p>
+<p class="man-guida" data-frutti-source="179">Riflesso del Potere lo trasforma in:</p>
+<p class="man-guida" data-frutti-source="180"><b>3d8</b></p>
+<p class="man-guida" data-frutti-source="181">Un attacco che infligge:</p>
+<p class="man-guida" data-frutti-source="182">d12 + 2d8</p>
+<p class="man-guida" data-frutti-source="183">diventa:</p>
+<p class="man-guida" data-frutti-source="184">d10 + 2d6</p>
+<p class="man-guida" data-frutti-source="185">Il Talento modifica i Dadi Danno dell&#x27;attacco, non il tiro per colpire.</p>
+<p class="man-guida" data-frutti-source="186">Non annulla eventuali Stati, Spostamenti o altri effetti dell&#x27;attacco salvo che questi dipendano espressamente dal danno.</p>
+<p class="man-guida" data-frutti-source="187">Utilizza la Reazione del personaggio e può essere attivato una sola volta per scontro.</p>
+<h2 id="sez-4-4" class="man-sez"><span class="man-sez-n">4.4 ·</span> <span data-frutti-source="188">d8–d10 · Il Controllo</span></h2>
+<h3 class="man-sub man-talento" id="paramecia-doppio-uso" data-frutti-source="189">Doppio Uso</h3>
+<h4 class="man-lab" data-frutti-source="190">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="191"><b>Doppio Uso</b><br>2 ST<br>Talento attivo · Azione Bonus<br>Puoi applicare il potere due volte durante la stessa Azione.<br>Puoi scegliere due bersagli, due punti differenti del campo oppure applicarlo due volte allo stesso bersaglio.<br>L&#x27;utilizzo deve rimanere compatibile con il potere posseduto e con la Tecnica eseguita.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="192">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="193">Permette al Paramecia di utilizzare contemporaneamente il lato combattivo e quello creativo del proprio potere.</p>
+<h4 class="man-lab" data-frutti-source="194">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="195">Il testo viene precisato così:</p>
+<p class="man-guida" data-frutti-source="196">durante la stessa Azione puoi effettuare due applicazioni del Frutto.</p>
+<p class="man-guida" data-frutti-source="197">Soltanto una delle due può essere:</p>
+<ul class="man-punti"><li data-frutti-source="198">un attacco;</li><li data-frutti-source="199">una Tecnica offensiva;</li><li data-frutti-source="200">un&#x27;applicazione che infligge danno;</li><li data-frutti-source="201">un&#x27;applicazione che produce direttamente uno Stato offensivo.</li></ul>
+<p class="man-guida" data-frutti-source="202">La seconda applicazione deve essere narrativa o di utilità.</p>
+<p class="man-guida" data-frutti-source="203">Può, per esempio:</p>
+<ul class="man-punti"><li data-frutti-source="204">spostare un oggetto;</li><li data-frutti-source="205">generare una piccola quantità della propria sostanza;</li><li data-frutti-source="206">modificare un elemento dello scenario;</li><li data-frutti-source="207">manipolare qualcosa già controllato;</li><li data-frutti-source="208">utilizzare una proprietà non offensiva del Frutto.</li></ul>
+<p class="man-guida" data-frutti-source="209">Doppio Uso non concede:</p>
+<ul class="man-punti"><li data-frutti-source="210">due attacchi;</li><li data-frutti-source="211">due Tecniche;</li><li data-frutti-source="212">due applicazioni offensive sullo stesso bersaglio;</li><li data-frutti-source="213">due istanze di danno.</li></ul>
+<p class="man-guida" data-frutti-source="214">Il Talento costa:</p>
+<p class="man-guida" data-frutti-source="215"><b>2 ST</b></p>
+<p class="man-guida" data-frutti-source="216">una sola volta.</p>
+<p class="man-guida" data-frutti-source="217">L&#x27;eventuale Tecnica offensiva paga normalmente tutti i propri costi.</p>
+<p class="man-guida" data-frutti-source="218">La seconda applicazione paga un costo separato soltanto se la capacità utilizzata ne possiede già uno.</p>
+<h3 class="man-sub man-talento" id="paramecia-cio-che-resta" data-frutti-source="219">Ciò che Resta</h3>
+<h4 class="man-lab" data-frutti-source="220">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="221"><b>Ciò che Resta</b><br>Passivo<br>Le durate delle Tecniche del Frutto migliorano senza costi aggiuntivi.</p>
+<p class="man-guida" data-frutti-source="222">Un turno → diventa tre turni, senza pagare i 2 ST aggiuntivi.</p>
+<p class="man-guida" data-frutti-source="223">Mantieni → il primo turno di mantenimento è gratuito.</p>
+<p class="man-guida" data-frutti-source="224">Il Talento modifica soltanto le durate alle quali si applica.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="225">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="226">Specializza il Paramecia negli effetti che rimangono sul campo o continuano ad agire dopo l&#x27;utilizzo iniziale.</p>
+<h4 class="man-lab" data-frutti-source="227">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="228">Ciò che Resta modifica esclusivamente una durata meccanica prevista dalla Tecnica.</p>
+<p class="man-guida" data-frutti-source="229">Non rende automaticamente permanente ciò che viene creato dal Frutto.</p>
+<p class="man-guida" data-frutti-source="230">Se una Tecnica dura:</p>
+<p class="man-guida" data-frutti-source="231"><b>1 turno</b></p>
+<p class="man-guida" data-frutti-source="232">dura invece:</p>
+<p class="man-guida" data-frutti-source="233">3 turni.</p>
+<p class="man-guida" data-frutti-source="234">Se una Tecnica richiede:</p>
+<p class="man-guida" data-frutti-source="235"><b>Mantieni</b></p>
+<p class="man-guida" data-frutti-source="236">il primo costo di mantenimento non viene pagato.</p>
+<p class="man-guida" data-frutti-source="237">Se la Tecnica non possiede una durata o un mantenimento, il Talento non produce alcun beneficio.</p>
+<p class="man-guida" data-frutti-source="238">La permanenza naturale della materia indicata nella Scheda del Frutto rimane una proprietà separata.</p>
+<h3 class="man-sub man-talento" id="paramecia-nessuno-dei-miei" data-frutti-source="239">Nessuno dei Miei</h3>
+<h4 class="man-lab" data-frutti-source="240">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="241"><b>Nessuno dei Miei</b><br>Passivo<br>L&#x27;effetto Occhio del Ciclone diventa più accessibile per le tue Tecniche del Frutto.<br>Quando lo utilizzi:<br>· Non occupa slot.<br>· Non costa Stamina.<br>· Può essere selezionato anche prima del normale requisito d12.<br>Il Frutto riconosce i compagni del personaggio e permette di escluderli dagli effetti delle proprie Tecniche ad Area.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="242">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="243">Permette di sviluppare un Paramecia particolarmente preciso nell&#x27;utilizzo delle Tecniche ad Area.</p>
+<h4 class="man-lab" data-frutti-source="244">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="245">Quando utilizza una propria Tecnica ad Area, il personaggio può selezionare Occhio del Ciclone:</p>
+<ul class="man-punti"><li data-frutti-source="246">senza occupare Slot;</li><li data-frutti-source="247">senza spendere ST;</li><li data-frutti-source="248">indipendentemente dal normale requisito d12.</li></ul>
+<p class="man-guida" data-frutti-source="249">Il giocatore sceglie quali bersagli presenti nell&#x27;Area vengono esclusi dalla Tecnica.</p>
+<p class="man-guida" data-frutti-source="250">Il Talento protegge dalle conseguenze dirette della Tecnica.</p>
+<p class="man-guida" data-frutti-source="251">Non rende automaticamente gli alleati immuni a conseguenze ambientali indipendenti che possono derivare successivamente dalla scena.</p>
+<p class="man-guida" data-frutti-source="252">Per esempio, essere esclusi da un&#x27;esplosione di fuoco non rende automaticamente immuni a un normale edificio che prende fuoco dopo l&#x27;attacco.</p>
+<h2 id="sez-4-5" class="man-sez"><span class="man-sez-n">4.5 ·</span> <span data-frutti-source="253">d12 · La Padronanza</span></h2>
+<h3 class="man-sub man-talento" id="paramecia-portata-naturale" data-frutti-source="254">Portata Naturale</h3>
+<h4 class="man-lab" data-frutti-source="255">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="256"><b>Portata Naturale</b><br>Passivo<br>Il tuo Frutto ha raggiunto un livello di controllo tale da rendere più efficiente la proiezione del potere.<br>Ottieni tre benefici:<br>· Gli effetti Gittata delle Tecniche del Frutto sono gratuiti e non occupano slot.<br>· Le Tecniche ad Area aumentano il proprio raggio di un gradino.<br>· L&#x27;effetto Catena costa 1 ST in meno.<br>Il Talento non concede automaticamente Gittata a una Tecnica che ne è priva. Elimina il costo della Gittata effettivamente selezionata.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="257">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="258">Rende molto più efficiente un Paramecia specializzato nel proiettare il proprio potere a distanza o su più bersagli.</p>
+<h4 class="man-lab" data-frutti-source="259">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="260">Portata Naturale modifica le Tecniche, non la Portata ordinaria della Scheda del Frutto.</p>
+<p class="man-guida" data-frutti-source="261">Una Tecnica deve comunque possedere un effetto Gittata per beneficiarne.</p>
+<p class="man-guida" data-frutti-source="262">Se lo possiede:</p>
+<ul class="man-punti"><li data-frutti-source="263">la Gittata costa 0 ST;</li><li data-frutti-source="264">non occupa Slot.</li></ul>
+<p class="man-guida" data-frutti-source="265">Le Tecniche ad Area aumentano di un gradino della normale progressione delle sagome, non di una quantità arbitraria scelta dal GM.</p>
+<p class="man-guida" data-frutti-source="266">Catena costa:</p>
+<p class="man-guida" data-frutti-source="267">1 ST in meno, fino al normale minimo applicabile.</p>
+<p class="man-guida" data-frutti-source="268">Il Talento non permette di compiere gratuitamente utilizzi narrativi a distanze superiori alla Portata ordinaria stabilita nella Scheda del Frutto.</p>
+<h3 class="man-sub man-talento" id="paramecia-forma-di-combattimento" data-frutti-source="269">Forma di Combattimento</h3>
+<h4 class="man-lab" data-frutti-source="270">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="271"><b>Forma di Combattimento</b><br>Talento attivo · Azione Bonus<br>Il personaggio incanala il Frutto in una modalità particolare per l&#x27;intera scena.<br>La Forma concede un bonus costante coerente con il potere e richiede Stamina per essere mantenuta.<br>Il valore del bonus e il costo di mantenimento devono essere concordati con il GM: il Talento non stabilisce una quantità numerica universale.<br>La Forma di Combattimento non è una Tecnica. Rappresenta lo stato del personaggio mentre mantiene il potere.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="272">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="273">Permette al Paramecia di trasformare un&#x27;applicazione del proprio potere in uno stato di combattimento mantenuto.</p>
+<h4 class="man-lab" data-frutti-source="274">Chiarimento necessario</h4>
+<p class="man-guida" data-frutti-source="275">Il funzionamento generale è chiaro, ma il Talento non è ancora completamente definito dal punto di vista numerico.</p>
+<p class="man-guida" data-frutti-source="276">Attualmente il GM dovrebbe inventare:</p>
+<ul class="man-punti"><li data-frutti-source="277">il bonus;</li><li data-frutti-source="278">il costo di mantenimento;</li><li data-frutti-source="279">il limite del bonus.</li></ul>
+<p class="man-guida" data-frutti-source="280">Questo crea Forme di Combattimento potenzialmente molto diverse tra un tavolo e l&#x27;altro.</p>
+<p class="man-guida" data-frutti-source="281">Per questo il Talento necessita di una tabella standard di Forme di Combattimento dalla quale scegliere un beneficio coerente con il Frutto.</p>
+<p class="man-guida" data-frutti-source="282">Questa tabella dovrà essere definita separatamente.</p>
+<p class="man-guida" data-frutti-source="283">Fino ad allora, il Talento non dovrebbe essere considerato completamente chiuso.</p>
+<h3 class="man-sub man-talento" id="paramecia-senza-contraccolpo" data-frutti-source="284">Senza Contraccolpo</h3>
+<h4 class="man-lab" data-frutti-source="285">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="286"><b>Senza Contraccolpo</b><br>Passivo<br>Le tue Tecniche del Frutto costano 1 ST in meno, fino a un minimo di 1 ST.<br>Inoltre, non subisci più gli effetti collaterali che il tuo potere provocava sul tuo stesso corpo.<br>Il beneficio riguarda gli effetti collaterali del Frutto, non i danni ricevuti da nemici o da fonti esterne.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="287">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="288">Rappresenta la completa acclimatazione del corpo al proprio Frutto.</p>
+<h4 class="man-lab" data-frutti-source="289">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="290">Le Tecniche del Frutto costano:</p>
+<p class="man-guida" data-frutti-source="291"><b>−1 ST</b></p>
+<p class="man-guida" data-frutti-source="292">fino a un minimo di:</p>
+<p class="man-guida" data-frutti-source="293">1 ST.</p>
+<p class="man-guida" data-frutti-source="294">Inoltre vengono ignorati esclusivamente i Contraccolpi naturali registrati nella Scheda di Identità del Frutto.</p>
+<p class="man-guida" data-frutti-source="295">Non vengono eliminati:</p>
+<ul class="man-punti"><li data-frutti-source="296">Limitazioni strutturali;</li><li data-frutti-source="297">requisiti di contatto;</li><li data-frutti-source="298">requisiti di visibilità;</li><li data-frutti-source="299">Portata;</li><li data-frutti-source="300">quantità massima;</li><li data-frutti-source="301">mantenimento;</li><li data-frutti-source="302">costi dei Talenti;</li><li data-frutti-source="303">condizioni delle Tecniche;</li><li data-frutti-source="304">mare;</li><li data-frutti-source="305">Pietra di Mare;</li><li data-frutti-source="306">Haki;</li><li data-frutti-source="307">conseguenze provocate da nemici o ambiente.</li></ul>
+<p class="man-guida" data-frutti-source="308">Senza Contraccolpo elimina ciò che il Frutto fa involontariamente al proprio utilizzatore.</p>
+<p class="man-guida" data-frutti-source="309">Non elimina i prezzi deliberatamente previsti dalle regole.</p>
+<h3 class="man-sub man-talento" id="paramecia-potere-istintivo" data-frutti-source="310">Potere Istintivo</h3>
+<h4 class="man-lab" data-frutti-source="311">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="312"><b>Potere Istintivo</b><br>1 volta per scena<br>Eccezione alle Azioni<br>Puoi utilizzare una mossa del Frutto senza spendere l&#x27;Azione principale, anche fuori dal tuo turno.<br>La capacità modifica il costo in Azioni della mossa, ma non elimina automaticamente il suo costo in Stamina.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="313">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="314">Permette una manifestazione improvvisa e istintiva del Frutto fuori dalla normale economia delle Azioni.</p>
+<h4 class="man-lab" data-frutti-source="315">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="316">Una volta per scena puoi utilizzare una capacità del Frutto che normalmente richiederebbe:</p>
+<p class="man-guida" data-frutti-source="317"><b>1 Azione principale</b></p>
+<p class="man-guida" data-frutti-source="318">senza spendere quell&#x27;Azione.</p>
+<p class="man-guida" data-frutti-source="319">Puoi farlo anche fuori dal tuo turno.</p>
+<p class="man-guida" data-frutti-source="320">La capacità continua a pagare normalmente:</p>
+<ul class="man-punti"><li data-frutti-source="321">Stamina;</li><li data-frutti-source="322">eventuali PIP o altre risorse;</li><li data-frutti-source="323">mantenimenti;</li><li data-frutti-source="324">requisiti;</li><li data-frutti-source="325">condizioni.</li></ul>
+<p class="man-guida" data-frutti-source="326">Potere Istintivo non concede:</p>
+<ul class="man-punti"><li data-frutti-source="327">un turno aggiuntivo;</li><li data-frutti-source="328">Movimento;</li><li data-frutti-source="329">una seconda Azione Bonus;</li><li data-frutti-source="330">una seconda Reazione;</li><li data-frutti-source="331">una seconda intera sequenza di combattimento.</li></ul>
+<p class="man-guida" data-frutti-source="332">È esclusivamente un&#x27;eccezione al costo in Azioni della singola mossa utilizzata.</p>
+<h3 class="man-sub man-talento" id="paramecia-seconda-natura" data-frutti-source="333">Seconda Natura</h3>
+<h4 class="man-lab" data-frutti-source="334">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="335"><b>Seconda Natura</b><br>Prerequisito: Potere Versatile<br>Passivo<br>Il Frutto rivela una seconda famiglia di applicazioni, completamente differente dalla prima.<br>La nuova possibilità viene concordata con il Game Master.<br>Non rappresenta necessariamente un aumento della potenza numerica del Frutto: ne amplia le possibilità.<br>Esempio: un potere utilizzato inizialmente per modificare il proprio corpo potrebbe sviluppare una modalità coerente che agisce anche su materiali esterni, se il concetto del Frutto lo consente.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="336">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="337">Rappresenta uno degli sviluppi più importanti di un Paramecia.</p>
+<p class="man-guida" data-frutti-source="338">A differenza di Potere Versatile, non aggiunge semplicemente un nuovo utilizzo: apre una seconda famiglia fondamentale del potere.</p>
+<h4 class="man-lab" data-frutti-source="339">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="340">La distinzione è:</p>
+<p class="man-guida" data-frutti-source="341">Potere Versatile → nuova Applicazione.</p>
+<p class="man-guida" data-frutti-source="342">Seconda Natura → nuova famiglia di Applicazioni.</p>
+<p class="man-guida" data-frutti-source="343">Esempio:</p>
+<p class="man-guida" data-frutti-source="344">Frutto iniziale:</p>
+<p class="man-guida" data-frutti-source="345">modifica il proprio corpo.</p>
+<p class="man-guida" data-frutti-source="346">Potere Versatile:</p>
+<p class="man-guida" data-frutti-source="347">utilizza quella trasformazione anche per proteggersi.</p>
+<p class="man-guida" data-frutti-source="348">Seconda Natura:</p>
+<p class="man-guida" data-frutti-source="349">il principio del Frutto può ora essere applicato anche alla materia esterna.</p>
+<p class="man-guida" data-frutti-source="350">La nuova famiglia viene registrata nella Scheda di Identità.</p>
+<p class="man-guida" data-frutti-source="351">Da quel momento può essere utilizzata come base narrativa per creare nuove Tecniche.</p>
+<p class="man-guida" data-frutti-source="352">Seconda Natura non concede automaticamente effetti del Catalogo, danni, Stati o bonus.</p>
+<h2 id="sez-4-6" class="man-sez"><span class="man-sez-n">4.6 ·</span> <span data-frutti-source="353">d20 · Il Risveglio</span></h2>
+<h3 class="man-sub man-talento" id="paramecia-risveglio-paramecia" data-frutti-source="354">Risveglio · Paramecia</h3>
+<h4 class="man-lab" data-frutti-source="355">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="356"><b>Risveglio · Paramecia</b><br>Ultimate<br>Requisiti: Dado del Frutto d20, Ambizione e permesso del Game Master.<br>Il potere raggiunge la propria manifestazione più elevata.<br>Per l&#x27;intera scena, il Paramecia sviluppa un effetto straordinario concordato con il GM, normalmente legato alla capacità di plasmare l&#x27;ambiente circostante.<br>Il Risveglio non possiede un bonus numerico universale: la sua manifestazione dipende dalla natura del Frutto.</p>
+<p class="man-guida" data-frutti-source="357">Il Risveglio Paramecia viene costruito utilizzando la normale Linea Guida del Risveglio.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="358">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="359">Rappresenta la massima estensione del Nucleo del Paramecia.</p>
+<p class="man-guida" data-frutti-source="360">Normalmente il potere smette di riguardare soltanto l&#x27;utilizzatore o il bersaglio immediato e comincia a influenzare l&#x27;ambiente su scala molto superiore.</p>
+<h4 class="man-lab" data-frutti-source="361">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="362">Il Risveglio non viene improvvisato quando viene utilizzato.</p>
+<p class="man-guida" data-frutti-source="363">Prima che il personaggio possa acquisirlo devono essere definiti e registrati:</p>
+<p class="man-guida" data-frutti-source="364"><b>Manifestazione del Risveglio</b><br>Cosa accade concretamente.</p>
+<p class="man-guida" data-frutti-source="365"><b>Bersagli validi</b><br>Cosa può influenzare.</p>
+<p class="man-guida" data-frutti-source="366"><b>Area o Portata</b><br>Quanto spazio può interessare.</p>
+<p class="man-guida" data-frutti-source="367"><b>Durata</b><br>Quanto permane l&#x27;effetto.</p>
+<p class="man-guida" data-frutti-source="368"><b>Effetti meccanici</b><br>Quali conseguenze concrete produce.</p>
+<p class="man-guida" data-frutti-source="369"><b>Limitazioni</b><br>Cosa continua a non poter fare.</p>
+<p class="man-guida" data-frutti-source="370">Una volta approvato, quello diventa il Risveglio specifico di quel Frutto.</p>
+<p class="man-guida" data-frutti-source="371">Il permesso del GM riguarda quindi la creazione del Risveglio, non la possibilità di inventarne ogni volta uno differente.</p>
+</div></section>
+<section class="man-cap" id="cap-5" data-cap="5"><header class="man-cap-h"><span class="man-cap-n">Capitolo 5 ·</span> <h1>Linea guida · Forma di Combattimento</h1></header><div class="man-cap-corpo">
+<span class="man-cap-fonte" data-frutti-source="372" hidden>Linea guida · Forma di Combattimento</span>
+<p class="man-guida" data-frutti-source="373">La Forma di Combattimento rappresenta uno stato particolare nel quale il personaggio utilizza continuamente il proprio Frutto su sé stesso per modificare il proprio modo di combattere.</p>
+<p class="man-guida" data-frutti-source="374">Non è una Tecnica.</p>
+<p class="man-guida" data-frutti-source="375">Non è una nuova Applicazione del Frutto.</p>
+<p class="man-guida" data-frutti-source="376">Non è una forma ridotta di Risveglio.</p>
+<p class="man-guida" data-frutti-source="377">La Forma di Combattimento prende una possibilità già presente nella Scheda di Identità del Frutto e la concentra sul corpo, sui movimenti o sul modo di combattere del personaggio.</p>
+<p class="man-guida" data-frutti-source="378">Il Talento deve quindi produrre un beneficio principalmente personale.</p>
+<h2 id="sez-5-1" class="man-sez"><span class="man-sez-n">5.1 ·</span> <span data-frutti-source="379">Creare una Forma di Combattimento</span></h2>
+<p class="man-guida" data-frutti-source="380">Quando il Talento viene acquisito, giocatore e Game Master definiscono insieme la Forma.</p>
+<p class="man-guida" data-frutti-source="381">Devono essere stabiliti:</p>
+<p class="man-guida" data-frutti-source="382"><b>Nome</b></p>
+<p class="man-guida" data-frutti-source="383">Il nome della Forma.</p>
+<p class="man-guida" data-frutti-source="384"><b>Manifestazione</b></p>
+<p class="man-guida" data-frutti-source="385">Come cambia il personaggio mentre utilizza il Frutto in questo modo.</p>
+<p class="man-guida" data-frutti-source="386"><b>Beneficio</b></p>
+<p class="man-guida" data-frutti-source="387">Quale vantaggio concreto ottiene mentre la Forma è attiva.</p>
+<p class="man-guida" data-frutti-source="388"><b>Costo</b></p>
+<p class="man-guida" data-frutti-source="389">Quanta Stamina richiede attivarla o mantenerla.</p>
+<p class="man-guida" data-frutti-source="390"><b>Limitazioni</b></p>
+<p class="man-guida" data-frutti-source="391">Eventuali condizioni necessarie per conservarne i benefici.</p>
+<p class="man-guida" data-frutti-source="392">Una volta definita, la Forma rimane quella.</p>
+<p class="man-guida" data-frutti-source="393">Il personaggio non sceglie un beneficio differente ogni volta che la attiva.</p>
+<h2 id="sez-5-2" class="man-sez"><span class="man-sez-n">5.2 ·</span> <span data-frutti-source="394">Il principio fondamentale</span></h2>
+<p class="man-guida" data-frutti-source="395">La Forma di Combattimento riguarda principalmente:</p>
+<p class="man-guida" data-frutti-source="396">il personaggio stesso.</p>
+<p class="man-guida" data-frutti-source="397">Può modificare:</p>
+<ul class="man-punti"><li data-frutti-source="398">il proprio corpo;</li><li data-frutti-source="399">la propria mobilità;</li><li data-frutti-source="400">la propria capacità offensiva;</li><li data-frutti-source="401">la propria capacità difensiva;</li><li data-frutti-source="402">il modo in cui utilizza personalmente il Frutto;</li><li data-frutti-source="403">oppure un&#x27;altra caratteristica direttamente legata al proprio stile di combattimento.</li></ul>
+<p class="man-guida" data-frutti-source="404">Non serve invece a modificare su larga scala il funzionamento generale del Frutto.</p>
+<h2 id="sez-5-3" class="man-sez"><span class="man-sez-n">5.3 ·</span> <span data-frutti-source="405">Cosa non è una Forma di Combattimento</span></h2>
+<p class="man-guida" data-frutti-source="406">Una Forma di Combattimento normalmente non permette di:</p>
+<ul class="man-punti"><li data-frutti-source="407">estendere il potere sull&#x27;intero ambiente;</li><li data-frutti-source="408">ottenere nuove categorie di bersagli;</li><li data-frutti-source="409">trasformare grandi quantità di materia circostante;</li><li data-frutti-source="410">cambiare liberamente il punto di origine delle Tecniche;</li><li data-frutti-source="411">controllare vaste aree;</li><li data-frutti-source="412">alterare permanentemente il campo di battaglia;</li><li data-frutti-source="413">superare importanti Limitazioni strutturali del Frutto;</li><li data-frutti-source="414">ottenere una manifestazione equivalente al Risveglio.</li></ul>
+<p class="man-guida" data-frutti-source="415">Questi sviluppi appartengono a capacità differenti e, ai livelli più elevati, al Risveglio.</p>
+<h2 id="sez-5-4" class="man-sez"><span class="man-sez-n">5.4 ·</span> <span data-frutti-source="416">Definire il beneficio</span></h2>
+<p class="man-guida" data-frutti-source="417">Non esiste una tabella universale dei benefici della Forma di Combattimento.</p>
+<p class="man-guida" data-frutti-source="418">Due Paramecia completamente differenti non devono essere costretti a scegliere gli stessi bonus.</p>
+<p class="man-guida" data-frutti-source="419">Il beneficio viene concordato tra giocatore e Game Master e deve derivare direttamente dalla Manifestazione scelta.</p>
+<p class="man-guida" data-frutti-source="420">La domanda da utilizzare durante la creazione è:</p>
+<p class="man-guida" data-frutti-source="421">«In che modo utilizzare costantemente questo potere sul mio personaggio modifica concretamente il suo modo di combattere?»</p>
+<p class="man-guida" data-frutti-source="422">La risposta determina il beneficio.</p>
+<h3 class="man-sub" id="forma-valutare-il-beneficio" data-frutti-source="423">Valutare il beneficio</h3>
+<p class="man-guida" data-frutti-source="424">Il beneficio deve essere significativo, perché Forma di Combattimento è un Talento d12, ma deve rimanere inferiore per importanza a un Risveglio.</p>
+<p class="man-guida" data-frutti-source="425">Il GM dovrebbe considerare:</p>
+<ul class="man-punti"><li data-frutti-source="426">quanto frequentemente entra in gioco;</li><li data-frutti-source="427">quanto modifica attacco, difesa o movimento;</li><li data-frutti-source="428">quante capacità del personaggio influenza contemporaneamente;</li><li data-frutti-source="429">quanto facilmente può essere mantenuto;</li><li data-frutti-source="430">quanto è importante il costo in Stamina richiesto.</li></ul>
+<p class="man-guida" data-frutti-source="431">Un beneficio molto specifico può avere un costo contenuto.</p>
+<p class="man-guida" data-frutti-source="432">Un beneficio che influenza gran parte del combattimento dovrebbe richiedere un impegno maggiore.</p>
+<h2 id="sez-5-5" class="man-sez"><span class="man-sez-n">5.5 ·</span> <span data-frutti-source="433">Attivazione</span></h2>
+<p class="man-guida" data-frutti-source="434">La Forma di Combattimento viene attivata utilizzando:</p>
+<p class="man-guida" data-frutti-source="435"><b>Azione Bonus</b></p>
+<p class="man-guida" data-frutti-source="436">La sua durata e il suo eventuale mantenimento vengono stabiliti quando viene creata.</p>
+<p class="man-guida" data-frutti-source="437">Normalmente può rimanere attiva per l&#x27;intera scena finché il personaggio riesce a sostenerne il costo.</p>
+<p class="man-guida" data-frutti-source="438">Se il personaggio non può più pagare il mantenimento previsto, la Forma termina.</p>
+<h2 id="sez-5-6" class="man-sez"><span class="man-sez-n">5.6 ·</span> <span data-frutti-source="439">Forma di Combattimento e Tecniche</span></h2>
+<p class="man-guida" data-frutti-source="440">La Forma modifica il personaggio.</p>
+<p class="man-guida" data-frutti-source="441">Le Tecniche continuano invece a determinare le azioni specifiche che compie.</p>
+<p class="man-guida" data-frutti-source="442">Essere in Forma di Combattimento non significa poter applicare gratuitamente:</p>
+<ul class="man-punti"><li data-frutti-source="443">danni;</li><li data-frutti-source="444">Stati;</li><li data-frutti-source="445">Zone;</li><li data-frutti-source="446">Spostamenti;</li><li data-frutti-source="447">attacchi aggiuntivi;</li><li data-frutti-source="448">o altri effetti del Costruttore.</li></ul>
+<p class="man-guida" data-frutti-source="449">Se il personaggio vuole produrre uno di questi effetti, continua a utilizzare una Tecnica appropriata.</p>
+<p class="man-guida" data-frutti-source="450">La Forma può migliorare il modo in cui quella Tecnica viene eseguita soltanto se il beneficio concordato lo prevede.</p>
+<h2 id="sez-5-7" class="man-sez"><span class="man-sez-n">5.7 ·</span> <span data-frutti-source="451">Forma di Combattimento e Scheda del Frutto</span></h2>
+<p class="man-guida" data-frutti-source="452">La Forma deve rispettare il Nucleo del Potere e le Applicazioni già possedute.</p>
+<p class="man-guida" data-frutti-source="453">Non può essere utilizzata come scorciatoia per ottenere Potere Versatile o Seconda Natura.</p>
+<p class="man-guida" data-frutti-source="454">Se il Frutto non può normalmente compiere qualcosa, la Forma non concede automaticamente quella capacità.</p>
+<p class="man-guida" data-frutti-source="455">Può invece portare a un livello superiore un utilizzo personale già possibile.</p>
+<h2 id="sez-5-8" class="man-sez"><span class="man-sez-n">5.8 ·</span> <span data-frutti-source="456">Esempio · Corpo a Molla</span></h2>
+<p class="man-guida" data-frutti-source="457">Il personaggio possiede un Paramecia che permette di trasformare parti del proprio corpo in molle.</p>
+<p class="man-guida" data-frutti-source="458">Sviluppa:</p>
+<p class="man-guida" data-frutti-source="459"><b>Molla Compressa</b></p>
+<p class="man-guida" data-frutti-source="460"><b>Manifestazione</b></p>
+<p class="man-guida" data-frutti-source="461">Il personaggio mantiene continuamente il proprio corpo in tensione, comprimendo arti e muscoli attraverso il Frutto.</p>
+<p class="man-guida" data-frutti-source="462"><b>Beneficio</b></p>
+<p class="man-guida" data-frutti-source="463">Giocatore e GM concordano un vantaggio legato alla maggiore esplosività dei movimenti e degli attacchi.</p>
+<p class="man-guida" data-frutti-source="464"><b>Costo</b></p>
+<p class="man-guida" data-frutti-source="465">Viene definito un costo coerente con l&#x27;efficacia del beneficio.</p>
+<p class="man-guida" data-frutti-source="466">La Forma non permette al personaggio di trasformare l&#x27;ambiente in molle.</p>
+<p class="man-guida" data-frutti-source="467">Non modifica altri personaggi.</p>
+<p class="man-guida" data-frutti-source="468">Non espande il raggio generale del Frutto.</p>
+<p class="man-guida" data-frutti-source="469">Potenzia esclusivamente il modo in cui l&#x27;utilizzatore combatte attraverso il proprio corpo.</p>
+<h2 id="sez-5-9" class="man-sez"><span class="man-sez-n">5.9 ·</span> <span data-frutti-source="470">Esempio · Armatura di Cera</span></h2>
+<p class="man-guida" data-frutti-source="471">Il personaggio può produrre e modellare cera.</p>
+<p class="man-guida" data-frutti-source="472">Sviluppa una Forma nella quale mantiene costantemente il proprio corpo ricoperto da uno strato rinforzato.</p>
+<p class="man-guida" data-frutti-source="473"><b>Manifestazione</b></p>
+<p class="man-guida" data-frutti-source="474">La cera forma una corazza modellata sul corpo.</p>
+<p class="man-guida" data-frutti-source="475"><b>Beneficio</b></p>
+<p class="man-guida" data-frutti-source="476">Viene concordato un vantaggio difensivo appropriato.</p>
+<p class="man-guida" data-frutti-source="477"><b>Costo</b></p>
+<p class="man-guida" data-frutti-source="478">Il mantenimento della corazza richiede una quantità di Stamina concordata.</p>
+<p class="man-guida" data-frutti-source="479">Il Talento non permette automaticamente di proteggere tutta la ciurma o ricoprire l&#x27;intero campo di battaglia.</p>
+<p class="man-guida" data-frutti-source="480">Quella sarebbe un&#x27;applicazione di scala differente.</p>
+<h2 id="sez-5-10" class="man-sez"><span class="man-sez-n">5.10 ·</span> <span data-frutti-source="481">Forma di Combattimento e Risveglio</span></h2>
+<p class="man-guida" data-frutti-source="482">La differenza fondamentale è:</p>
+<p class="man-guida" data-frutti-source="483"><b>Forma di Combattimento</b></p>
+<p class="man-guida" data-frutti-source="484">Il personaggio porta il proprio Frutto dentro il proprio stile di combattimento.</p>
+<p class="man-guida" data-frutti-source="485">Il centro dell&#x27;effetto è sé stesso.</p>
+<p class="man-guida" data-frutti-source="486"><b>Risveglio</b></p>
+<p class="man-guida" data-frutti-source="487">Il Frutto supera alcuni dei propri normali confini e cambia il rapporto del potere con l&#x27;ambiente, i bersagli o le normali Limitazioni.</p>
+<p class="man-guida" data-frutti-source="488">Il centro dell&#x27;effetto diventa il potere stesso.</p>
+</div></section>
+<section class="man-cap" id="cap-6" data-cap="6"><header class="man-cap-h"><span class="man-cap-n">Capitolo 6 ·</span> <h1>Linea guida · Risveglio Paramecia</h1></header><div class="man-cap-corpo">
+<span class="man-cap-fonte" data-frutti-source="489" hidden>Linea guida · Risveglio Paramecia</span>
+<p class="man-guida" data-frutti-source="490">Il Risveglio rappresenta la massima evoluzione del Nucleo del Frutto.</p>
+<p class="man-guida" data-frutti-source="491">Non è semplicemente una versione numericamente superiore delle normali Tecniche.</p>
+<p class="man-guida" data-frutti-source="492">Il principio fondamentale del potere raggiunge una scala, una libertà o una profondità normalmente impossibili.</p>
+<p class="man-guida" data-frutti-source="493">Il Risveglio viene progettato insieme al Game Master quando il personaggio raggiunge i requisiti necessari.</p>
+<p class="man-guida" data-frutti-source="494">Deve essere completamente definito prima della sua prima attivazione.</p>
+<p class="man-guida" data-frutti-source="495">Non viene inventato durante lo scontro.</p>
+<p class="man-guida" data-frutti-source="496">Una volta approvato, diventa il Risveglio specifico di quel Frutto.</p>
+<h2 id="sez-6-1" class="man-sez"><span class="man-sez-n">6.1 ·</span> <span data-frutti-source="497">Costruire il Risveglio</span></h2>
+<p class="man-guida" data-frutti-source="498">Ogni Risveglio deve definire:</p>
+<p class="man-guida" data-frutti-source="499"><b>Nome</b></p>
+<p class="man-guida" data-frutti-source="500">Identifica la manifestazione risvegliata.</p>
+<p class="man-guida" data-frutti-source="501"><b>Principio Risvegliato</b></p>
+<p class="man-guida" data-frutti-source="502">Indica quale caratteristica fondamentale del Frutto viene portata oltre i propri normali limiti.</p>
+<p class="man-guida" data-frutti-source="503"><b>Manifestazione</b></p>
+<p class="man-guida" data-frutti-source="504">Descrive cosa accade quando il Risveglio viene attivato.</p>
+<p class="man-guida" data-frutti-source="505"><b>Famiglie di sviluppo</b></p>
+<p class="man-guida" data-frutti-source="506">Indicano quali aspetti del Frutto vengono trasformati.</p>
+<p class="man-guida" data-frutti-source="507"><b>Benefici</b></p>
+<p class="man-guida" data-frutti-source="508">Definiscono gli effetti meccanici concordati.</p>
+<p class="man-guida" data-frutti-source="509"><b>Area o Portata</b></p>
+<p class="man-guida" data-frutti-source="510">Stabilisce lo spazio entro il quale il Risveglio può operare, quando rilevante.</p>
+<p class="man-guida" data-frutti-source="511"><b>Bersagli validi</b></p>
+<p class="man-guida" data-frutti-source="512">Stabilisce cosa può essere influenzato.</p>
+<p class="man-guida" data-frutti-source="513"><b>Permanenza</b></p>
+<p class="man-guida" data-frutti-source="514">Definisce cosa accade alle modifiche prodotte quando il Risveglio termina.</p>
+<p class="man-guida" data-frutti-source="515"><b>Limitazioni</b></p>
+<p class="man-guida" data-frutti-source="516">Indica ciò che continua a non essere possibile.</p>
+<h2 id="sez-6-2" class="man-sez"><span class="man-sez-n">6.2 ·</span> <span data-frutti-source="517">Famiglie del Risveglio</span></h2>
+<p class="man-guida" data-frutti-source="518">Le Famiglie non assegnano bonus.</p>
+<p class="man-guida" data-frutti-source="519">Servono a identificare quale confine del Frutto viene superato dal Risveglio.</p>
+<h3 class="man-sub" id="risveglio-origine" data-frutti-source="520">Origine</h3>
+<p class="man-guida" data-frutti-source="521">Modifica il modo o il punto dal quale il potere può manifestarsi.</p>
+<h3 class="man-sub" id="risveglio-costi-sconti" data-frutti-source="522">Costi / Sconti</h3>
+<p class="man-guida" data-frutti-source="523">Modifica l&#x27;efficienza con cui vengono utilizzate determinate capacità del Frutto.</p>
+<h3 class="man-sub" id="risveglio-espansione" data-frutti-source="524">Espansione</h3>
+<p class="man-guida" data-frutti-source="525">Aumenta la scala alla quale il potere può operare.</p>
+<p class="man-guida" data-frutti-source="526">Può riguardare portata, quantità, area, numero di bersagli o altre caratteristiche analoghe.</p>
+<h3 class="man-sub" id="risveglio-dominio" data-frutti-source="527">Dominio</h3>
+<p class="man-guida" data-frutti-source="528">Amplia il rapporto tra il Frutto e materia, ambiente o fenomeni compatibili.</p>
+<h3 class="man-sub" id="risveglio-difesa" data-frutti-source="529">Difesa</h3>
+<p class="man-guida" data-frutti-source="530">Porta le proprietà difensive del potere oltre la normale padronanza.</p>
+<h3 class="man-sub" id="risveglio-attacco" data-frutti-source="531">Attacco</h3>
+<p class="man-guida" data-frutti-source="532">Porta l&#x27;applicazione offensiva del Frutto a una manifestazione superiore.</p>
+<h3 class="man-sub" id="risveglio-controllo" data-frutti-source="533">Controllo</h3>
+<p class="man-guida" data-frutti-source="534">Aumenta precisione, durata, complessità o quantità delle manifestazioni controllabili.</p>
+<h2 id="sez-6-3" class="man-sez"><span class="man-sez-n">6.3 ·</span> <span data-frutti-source="535">Le Famiglie non sono benefici</span></h2>
+<p class="man-guida" data-frutti-source="536">Se un Risveglio appartiene alla famiglia:</p>
+<p class="man-guida" data-frutti-source="537"><b>Dominio</b></p>
+<p class="man-guida" data-frutti-source="538">questo non significa che ottenga automaticamente un determinato bonus.</p>
+<p class="man-guida" data-frutti-source="539">Significa che il Risveglio supera principalmente un limite relativo al controllo dell&#x27;ambiente.</p>
+<p class="man-guida" data-frutti-source="540">Il beneficio concreto deve essere scritto separatamente.</p>
+<p class="man-guida" data-frutti-source="541">La stessa Famiglia può quindi produrre Risvegli completamente differenti.</p>
+<h2 id="sez-6-4" class="man-sez"><span class="man-sez-n">6.4 ·</span> <span data-frutti-source="542">Più Famiglie</span></h2>
+<p class="man-guida" data-frutti-source="543">Un Risveglio può coinvolgere più Famiglie contemporaneamente quando la propria Manifestazione lo richiede.</p>
+<p class="man-guida" data-frutti-source="544">Il numero di Famiglie non stabilisce automaticamente la potenza.</p>
+<p class="man-guida" data-frutti-source="545">Un singolo superamento molto importante può essere più influente di diversi miglioramenti minori.</p>
+<p class="man-guida" data-frutti-source="546">Il GM deve valutare il Risveglio nel suo insieme.</p>
+<h2 id="sez-6-5" class="man-sez"><span class="man-sez-n">6.5 ·</span> <span data-frutti-source="547">Manifestazione e beneficio</span></h2>
+<p class="man-guida" data-frutti-source="548">La Manifestazione descrive:</p>
+<p class="man-guida" data-frutti-source="549">cosa diventa possibile.</p>
+<p class="man-guida" data-frutti-source="550">Il Beneficio stabilisce:</p>
+<p class="man-guida" data-frutti-source="551">cosa cambia meccanicamente.</p>
+<p class="man-guida" data-frutti-source="552">Le due cose devono essere definite separatamente.</p>
+<p class="man-guida" data-frutti-source="553">Per esempio:</p>
+<p class="man-guida" data-frutti-source="554"><b>Manifestazione</b></p>
+<p class="man-guida" data-frutti-source="555">Il personaggio può trasferire la proprietà del proprio Frutto all&#x27;ambiente.</p>
+<p class="man-guida" data-frutti-source="556">Questo non stabilisce automaticamente danni, Stati, bonus o penalità.</p>
+<p class="man-guida" data-frutti-source="557">Questi devono essere definiti attraverso i Benefici concordati oppure attraverso le Tecniche utilizzate.</p>
+<h2 id="sez-6-6" class="man-sez"><span class="man-sez-n">6.6 ·</span> <span data-frutti-source="558">Il Risveglio non sostituisce le Tecniche</span></h2>
+<p class="man-guida" data-frutti-source="559">Il Risveglio amplia enormemente le possibilità del Frutto.</p>
+<p class="man-guida" data-frutti-source="560">Non trasforma ogni utilizzo narrativo in un effetto di combattimento gratuito.</p>
+<p class="man-guida" data-frutti-source="561">Se il personaggio vuole ottenere:</p>
+<ul class="man-punti"><li data-frutti-source="562">danni;</li><li data-frutti-source="563">Stati;</li><li data-frutti-source="564">immobilizzazioni;</li><li data-frutti-source="565">Zone;</li><li data-frutti-source="566">Spostamenti;</li><li data-frutti-source="567">o altri effetti regolati dal sistema;</li><li data-frutti-source="568">deve utilizzare una Tecnica appropriata oppure possedere un Beneficio del Risveglio che stabilisca esplicitamente quella conseguenza.</li></ul>
+<h2 id="sez-6-7" class="man-sez"><span class="man-sez-n">6.7 ·</span> <span data-frutti-source="569">Creature viventi</span></h2>
+<p class="man-guida" data-frutti-source="570">Il Risveglio non concede automaticamente la possibilità di modificare direttamente esseri viventi.</p>
+<p class="man-guida" data-frutti-source="571">Questa capacità deve derivare dal Frutto oppure essere esplicitamente prevista dal Risveglio.</p>
+<p class="man-guida" data-frutti-source="572">Quando viene utilizzata contro un bersaglio ostile continuano normalmente a essere applicate Difesa, Salvezze, contese o altre regole appropriate.</p>
+<p class="man-guida" data-frutti-source="573">Il Risveglio non permette di ignorare automaticamente le difese del bersaglio.</p>
+<h2 id="sez-6-8" class="man-sez"><span class="man-sez-n">6.8 ·</span> <span data-frutti-source="574">Permanenza</span></h2>
+<p class="man-guida" data-frutti-source="575">Ogni Risveglio deve stabilire cosa accade alle proprie manifestazioni al termine dell&#x27;effetto.</p>
+<p class="man-guida" data-frutti-source="576">Le modifiche possono:</p>
+<ul class="man-punti"><li data-frutti-source="577">scomparire;</li><li data-frutti-source="578">tornare progressivamente alla normalità;</li><li data-frutti-source="579">rimanere fisicamente presenti;</li><li data-frutti-source="580">oppure produrre conseguenze ambientali permanenti.</li></ul>
+<p class="man-guida" data-frutti-source="581">La scelta dipende dal Frutto e deve essere definita durante la progettazione.</p>
+<p class="man-guida" data-frutti-source="582">La permanenza narrativa non prolunga automaticamente Stati, Zone o altri effetti meccanici.</p>
+<h2 id="sez-6-9" class="man-sez"><span class="man-sez-n">6.9 ·</span> <span data-frutti-source="583">Limitazioni</span></h2>
+<p class="man-guida" data-frutti-source="584">Il Risveglio può superare alcune Limitazioni strutturali del Frutto.</p>
+<p class="man-guida" data-frutti-source="585">Deve però specificare quali.</p>
+<p class="man-guida" data-frutti-source="586">Tutte le Limitazioni non espressamente modificate continuano a essere applicate.</p>
+<p class="man-guida" data-frutti-source="587">Le debolezze fondamentali dei Frutti rimangono sempre valide.</p>
+<h2 id="sez-6-10" class="man-sez"><span class="man-sez-n">6.10 ·</span> <span data-frutti-source="588">Prezzo del Risveglio</span></h2>
+<p class="man-guida" data-frutti-source="589">Il Risveglio dura normalmente:</p>
+<p class="man-guida" data-frutti-source="590">1 scena.</p>
+<p class="man-guida" data-frutti-source="591">Al termine:</p>
+<ul class="man-punti"><li data-frutti-source="592">la Stamina del personaggio scende a 0;</li><li data-frutti-source="593">il personaggio non può utilizzare il Frutto fino al prossimo riposo lungo.</li></ul>
+<p class="man-guida" data-frutti-source="594">Terminare volontariamente il Risveglio prima della fine della scena non evita il prezzo previsto.</p>
+<h2 id="sez-6-11" class="man-sez"><span class="man-sez-n">6.11 ·</span> <span data-frutti-source="595">Scheda di progettazione del Risveglio</span></h2>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Tabella" data-frutti-source="596"><table class="man-tab"><thead><tr><th scope="col"><b>Campo</b></th><th scope="col"><b>Definizione</b></th></tr></thead><tbody><tr><td>Nome</td><td>Nome del Risveglio.</td></tr><tr><td>Principio Risvegliato</td><td>Aspetto fondamentale del Frutto portato oltre il limite.</td></tr><tr><td>Manifestazione</td><td>Cosa diventa possibile durante il Risveglio.</td></tr><tr><td>Famiglie coinvolte</td><td>Origine, Costi/Sconti, Espansione, Dominio, Difesa, Attacco, Controllo.</td></tr><tr><td>Benefici concordati</td><td>Conseguenze meccaniche definite con il GM.</td></tr><tr><td>Area / Portata</td><td>Estensione quando rilevante.</td></tr><tr><td>Bersagli validi</td><td>Cosa può essere influenzato.</td></tr><tr><td>Creature viventi</td><td>Se e come possono essere influenzate.</td></tr><tr><td>Permanenza</td><td>Cosa rimane al termine.</td></tr><tr><td>Limiti superati</td><td>Limitazioni modificate dal Risveglio.</td></tr><tr><td>Limiti mantenuti</td><td>Restrizioni ancora valide.</td></tr><tr><td>Prezzo</td><td>Conseguenze al termine del Risveglio.</td></tr></tbody></table></div>
+</div></section>
+<section class="man-cap" id="cap-7" data-cap="7"><header class="man-cap-h"><span class="man-cap-n">Capitolo 7 ·</span> <h1>Logia</h1></header><div class="man-cap-corpo">
+<span class="man-cap-fonte" data-frutti-source="597" hidden>Logia</span>
+<div data-frutti-base="intro-logia"><h4 class="man-lab">L'elemento</h4>
+<p class="man-guida">I Logia permettono di diventare e controllare un elemento naturale.</p>
+<p class="man-guida">La natura dell'elemento influenza permanentemente il corpo del personaggio e le sue possibilità di movimento, attacco e difesa.</p></div>
+<p class="man-guida" data-frutti-source="598">I Talenti Logia sviluppano principalmente:</p>
+<ul class="man-punti"><li data-frutti-source="599">il corpo elementale;</li><li data-frutti-source="600">il controllo dell&#x27;elemento;</li><li data-frutti-source="601">il rapporto con le fonti dello stesso elemento presenti nell&#x27;ambiente.</li></ul>
+<p class="man-guida" data-frutti-source="602">Non tutti gli elementi interagiscono con il mondo nello stesso modo.</p>
+<p class="man-guida" data-frutti-source="603">Quando un Talento richiede una proprietà specifica, questa deve essere coerente con la natura dell&#x27;elemento.</p>
+<p class="man-guida" data-frutti-source="604">Il Talento non crea arbitrariamente nuove proprietà soltanto per permetterne l&#x27;utilizzo.</p>
+<h2 id="sez-7-1" class="man-sez"><span class="man-sez-n">7.1 ·</span> <span data-frutti-base="tratto-lelemento">Tratto · L’Elemento</span></h2>
+<h4 class="man-lab">Sempre attivo</h4>
+<p class="man-guida">Il personaggio diventa e controlla il proprio elemento.</p>
+<p class="man-guida">Può utilizzarlo per colpire, anche a distanza, e i suoi attacchi ne possiedono naturalmente le caratteristiche.</p>
+<h4 class="man-lab">La natura elementale del Frutto:</h4>
+<p class="man-guida">Non costa Stamina.</p>
+<p class="man-guida">Non occupa slot Effetto.</p>
+<p class="man-guida">Non deve essere acquistata attraverso il Costruttore.</p>
+<p class="man-guida">Se il personaggio è fatto di fuoco, i suoi attacchi possiedono naturalmente le caratteristiche del fuoco. Non è necessario comprare separatamente il permesso narrativo di produrlo.</p>
+<h4 class="man-lab">Intangibilità</h4>
+<p class="man-guida">Gli attacchi privi di Haki o Pietra di Mare possono attraversare il corpo elementale.</p>
+<p class="man-guida">In base alla natura dell'attacco e alla situazione, possono mancare completamente oppure infliggere danni dimezzati.</p>
+<p class="man-guida">Il GM determina quale delle due conseguenze è appropriata.</p>
+<p class="man-guida">L'intangibilità appartiene al Tratto iniziale del Logia. Non è necessario raggiungere un Grado avanzato per ottenerla.</p>
+<h2 id="sez-7-2" class="man-sez"><span class="man-sez-n">7.2 ·</span> <span data-frutti-base="firma-lelemento-dilaga">Firma · L’elemento dilaga</span></h2>
+<h4 class="man-lab">Colpo pulito · Margine +4</h4>
+<p class="man-guida">Quando ottieni un colpo pulito utilizzando il Frutto, l'elemento si espande su un'intera zona.</p>
+<p class="man-guida">La manifestazione dell'effetto deve rispettare la natura dell'elemento e la situazione.</p>
+<p class="man-guida">La Firma non assegna automaticamente dimensioni o costi numerici non previsti dalla capacità.</p>
+<h2 id="sez-7-3" class="man-sez"><span class="man-sez-n">7.3 ·</span> <span data-frutti-source="605">d4–d6 · Il Dono</span></h2>
+<h3 class="man-sub man-talento" id="logia-sentire-l-elemento" data-frutti-source="606">Sentire l&#x27;Elemento</h3>
+<h4 class="man-lab" data-frutti-source="607">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="608"><b>Passivo</b></p>
+<p class="man-guida" data-frutti-source="609">Percepisci tutto ciò che entra in contatto con il tuo elemento.</p>
+<p class="man-guida" data-frutti-source="610">Puoi riconoscere la presenza, la posizione e il movimento di chi si trova al suo interno, anche senza poterlo vedere direttamente.</p>
+<p class="man-guida" data-frutti-source="611">Per esempio, un personaggio fatto di nebbia può percepire qualcuno che attraversa la sua nube.</p>
+<p class="man-guida" data-frutti-source="612">La capacità non equivale a vedere attraverso qualsiasi ostacolo: funziona attraverso il contatto con l&#x27;elemento.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="613">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="614">Trasforma l&#x27;elemento controllato dal Logia in un&#x27;estensione dei propri sensi.</p>
+<h4 class="man-lab" data-frutti-source="615">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="616">L&#x27;utilizzatore percepisce attraverso:</p>
+<ul class="man-punti"><li data-frutti-source="617">il proprio corpo elementale;</li><li data-frutti-source="618">l&#x27;elemento che sta producendo;</li><li data-frutti-source="619">l&#x27;elemento che sta controllando direttamente.</li></ul>
+<p class="man-guida" data-frutti-source="620">Una fonte esterna non diventa automaticamente parte della percezione del Logia soltanto perché appartiene allo stesso elemento.</p>
+<p class="man-guida" data-frutti-source="621">Per stabilire il collegamento con una fonte esterna, il personaggio deve almeno:</p>
+<p class="man-guida" data-frutti-source="622">poterla vedere.</p>
+<p class="man-guida" data-frutti-source="623">Una volta portata sotto il proprio controllo, Sentire l&#x27;Elemento permette di percepire ciò che entra in contatto con essa finché il collegamento rimane valido.</p>
+<p class="man-guida" data-frutti-source="624">Il Talento non crea una rete sensoriale attraverso tutte le manifestazioni dello stesso elemento presenti nella scena, nell&#x27;isola o nel mondo.</p>
+<h3 class="man-sub man-talento" id="logia-corpo-elementale" data-frutti-source="625">Corpo Elementale</h3>
+<h4 class="man-lab" data-frutti-source="626">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="627"><b>Passivo</b></p>
+<p class="man-guida" data-frutti-source="628">Aggiungi +1 dado alle prove di fuga, mobilità e liberazione dalla cattura quando sfrutti la natura del tuo corpo elementale.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="629">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="630">Permette di sfruttare fisicamente le proprietà dell&#x27;elemento.</p>
+<h4 class="man-lab" data-frutti-source="631">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="632">Il bonus si applica soltanto quando la natura dell&#x27;elemento offre realmente un vantaggio.</p>
+<p class="man-guida" data-frutti-source="633">Non rappresenta un +1 dado universale a tutte le prove di movimento.</p>
+<p class="man-guida" data-frutti-source="634">Corpo Elementale non rende inoltre automaticamente immuni a Prese o immobilizzazioni.</p>
+<p class="man-guida" data-frutti-source="635">Quella capacità appartiene a Corpo Diffuso.</p>
+<h3 class="man-sub man-talento" id="logia-sempre-in-forma" data-frutti-source="636">Sempre in Forma</h3>
+<h4 class="man-lab" data-frutti-source="637">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="638"><b>Passivo</b></p>
+<p class="man-guida" data-frutti-source="639">La tua intangibilità diventa istintiva.</p>
+<p class="man-guida" data-frutti-source="640">Continua a funzionare anche quando vieni colto di sorpresa, sei addormentato oppure sei privo di sensi.</p>
+<p class="man-guida" data-frutti-source="641">Restano applicabili le debolezze del Frutto.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="642">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="643">Permette al corpo elementale di reagire senza bisogno della volontà cosciente dell&#x27;utilizzatore.</p>
+<h4 class="man-lab" data-frutti-source="644">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="645">L&#x27;intangibilità continua a funzionare quando il personaggio:</p>
+<ul class="man-punti"><li data-frutti-source="646">è sorpreso;</li><li data-frutti-source="647">non ha percepito l&#x27;attacco;</li><li data-frutti-source="648">dorme;</li><li data-frutti-source="649">è privo di sensi.</li></ul>
+<p class="man-guida" data-frutti-source="650">Sempre in Forma modifica quando l&#x27;intangibilità funziona.</p>
+<p class="man-guida" data-frutti-source="651">Non ne aumenta la potenza e non modifica le normali interazioni con Haki, Pietra di Mare, mare o altre debolezze applicabili.</p>
+<h3 class="man-sub man-talento" id="logia-nutrirsi-dell-elemento" data-frutti-source="652">Nutrirsi dell&#x27;Elemento</h3>
+<h4 class="man-lab" data-frutti-source="653">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="654"><b>Passivo</b></p>
+<p class="man-guida" data-frutti-source="655">Quando ti trovi vicino a una fonte viva del tuo elemento, recuperi 1d6 Stamina all&#x27;inizio di ogni scena.</p>
+<p class="man-guida" data-frutti-source="656">La fonte deve essere sufficientemente significativa e coerente con il Frutto.</p>
+<p class="man-guida" data-frutti-source="657">Un utilizzatore del fuoco potrebbe alimentarsi attraverso un incendio o una fornace. Un utilizzatore del ghiaccio potrebbe sfruttare un ghiacciaio.</p>
+<p class="man-guida" data-frutti-source="658">Una semplice traccia del proprio elemento non equivale necessariamente a una fonte viva.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="659">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="660">Premia il Logia quando si trova in un ambiente naturalmente favorevole al proprio elemento.</p>
+<h4 class="man-lab" data-frutti-source="661">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="662">Il recupero avviene:</p>
+<p class="man-guida" data-frutti-source="663">una sola volta all&#x27;inizio della scena.</p>
+<p class="man-guida" data-frutti-source="664">La fonte deve essere una presenza significativa.</p>
+<p class="man-guida" data-frutti-source="665">Una piccola quantità dell&#x27;elemento non è sufficiente.</p>
+<p class="man-guida" data-frutti-source="666">Una fonte prodotta appositamente dall&#x27;utilizzatore non viene automaticamente considerata valida.</p>
+<p class="man-guida" data-frutti-source="667">Lo scopo del Talento è sfruttare una condizione ambientale reale, non permettere al personaggio di generarsi autonomamente una fonte di recupero.</p>
+<h2 id="sez-7-4" class="man-sez"><span class="man-sez-n">7.4 ·</span> <span data-frutti-source="668">d8–d10 · Il Controllo</span></h2>
+<h3 class="man-sub man-talento" id="logia-corpo-diffuso" data-frutti-source="669">Corpo Diffuso</h3>
+<h4 class="man-lab" data-frutti-source="670">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="671"><b>Passivo</b></p>
+<p class="man-guida" data-frutti-source="672">Il tuo corpo elementale non può essere afferrato, trattenuto, legato o immobilizzato attraverso mani, corde e catene comuni.</p>
+<p class="man-guida" data-frutti-source="673">Puoi inoltre attraversare qualsiasi apertura nella quale riuscirebbe a passare il tuo elemento.</p>
+<p class="man-guida" data-frutti-source="674">Un Logia del fumo, per esempio, potrebbe attraversare le fessure di una porta.</p>
+<p class="man-guida" data-frutti-source="675">L&#x27;Haki e la Pietra di Mare rimangono efficaci.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="676">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="677">Porta la trasformazione elementale oltre la semplice intangibilità.</p>
+<p class="man-guida" data-frutti-source="678">Il corpo acquisisce realmente le caratteristiche fisiche dell&#x27;elemento quando deve attraversare o sfuggire a ostacoli ordinari.</p>
+<h4 class="man-lab" data-frutti-source="679">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="680">Il personaggio può attraversare soltanto spazi attraverso i quali il proprio elemento potrebbe realmente passare.</p>
+<p class="man-guida" data-frutti-source="681">Un Logia del fumo può attraversare una fessura.</p>
+<p class="man-guida" data-frutti-source="682">Questo non significa che possa attraversare una parete completamente ermetica.</p>
+<p class="man-guida" data-frutti-source="683">La possibilità viene determinata dalle proprietà dell&#x27;elemento.</p>
+<p class="man-guida" data-frutti-source="684">Haki e Pietra di Mare continuano a funzionare normalmente.</p>
+<h3 class="man-sub man-talento" id="logia-assorbire" data-frutti-source="685">Assorbire</h3>
+<h4 class="man-lab" data-frutti-source="686">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="687"><b>Passivo</b></p>
+<p class="man-guida" data-frutti-source="688">Quando subisci un attacco costituito dal tuo stesso elemento, non ricevi i danni.</p>
+<p class="man-guida" data-frutti-source="689">Al loro posto, recuperi 1d6 Stamina.</p>
+<p class="man-guida" data-frutti-source="690">Il Talento richiede che l&#x27;attacco utilizzi effettivamente l&#x27;elemento corrispondente al tuo Frutto.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="691">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="692">Rappresenta la completa compatibilità del Logia con la propria stessa sostanza o fenomeno.</p>
+<h4 class="man-lab" data-frutti-source="693">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="694">L&#x27;attacco deve essere costituito effettivamente dallo stesso elemento.</p>
+<p class="man-guida" data-frutti-source="695">La semplice affinità non è sufficiente.</p>
+<p class="man-guida" data-frutti-source="696">Un Logia del fuoco può assorbire fuoco.</p>
+<p class="man-guida" data-frutti-source="697">Questo non significa automaticamente che possa assorbire magma, esplosioni, fulmini o altre fonti energetiche.</p>
+<p class="man-guida" data-frutti-source="698">La Scheda del Frutto stabilisce ciò che appartiene realmente all&#x27;elemento.</p>
+<p class="man-guida" data-frutti-source="699">Assorbire non può essere sfruttato intenzionalmente attraverso attacchi del personaggio stesso o di un alleato effettuati esclusivamente per generare Stamina.</p>
+<h3 class="man-sub man-talento" id="logia-elemento-onnipresente" data-frutti-source="700">Elemento Onnipresente</h3>
+<h4 class="man-lab" data-frutti-source="701">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="702"><b>Passivo</b></p>
+<p class="man-guida" data-frutti-source="703">Le tue Tecniche del Frutto non devono più avere origine necessariamente dal tuo corpo.</p>
+<p class="man-guida" data-frutti-source="704">Possono manifestarsi attraverso qualsiasi fonte del tuo elemento presente nella scena.</p>
+<p class="man-guida" data-frutti-source="705">La nuova origine deve essere compatibile con la natura del Frutto e con la disponibilità dell&#x27;elemento nell&#x27;ambiente.</p>
+<p class="man-guida" data-frutti-source="706">Il Talento non elimina automaticamente i costi delle Tecniche né i requisiti dei loro effetti.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="707">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="708">Permette di utilizzare fonti ambientali dell&#x27;elemento come nuovi punti di origine delle Tecniche.</p>
+<h4 class="man-lab" data-frutti-source="709">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="710">La fonte deve:</p>
+<ul class="man-punti"><li data-frutti-source="711">essere realmente costituita dall&#x27;elemento del Frutto;</li><li data-frutti-source="712">essere presente nella scena;</li><li data-frutti-source="713">essere visibile al personaggio nel momento dell&#x27;utilizzo.</li></ul>
+<p class="man-guida" data-frutti-source="714">Non è possibile utilizzare una fonte nascosta soltanto perché il personaggio sa che esiste.</p>
+<p class="man-guida" data-frutti-source="715">Quando viene utilizzata, quella fonte diventa il punto di origine della Tecnica.</p>
+<p class="man-guida" data-frutti-source="716">Quando rilevante, vengono quindi calcolate da quel punto:</p>
+<ul class="man-punti"><li data-frutti-source="717">linea di tiro;</li><li data-frutti-source="718">coperture;</li><li data-frutti-source="719">direzione;</li><li data-frutti-source="720">Area;</li><li data-frutti-source="721">distanze.</li></ul>
+<p class="man-guida" data-frutti-source="722">Elemento Onnipresente non concede automaticamente il controllo permanente di tutte le fonti presenti nella scena.</p>
+<h3 class="man-sub man-talento" id="logia-riformarsi-altrove" data-frutti-source="723">Riformarsi Altrove</h3>
+<h4 class="man-lab" data-frutti-source="724">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="725"><b>Reazione</b><br>1 volta per scontro<br>15 metri</p>
+<p class="man-guida" data-frutti-source="726">Il personaggio dissolve il proprio corpo e si ricompone in un punto che può vedere, entro 15 metri.</p>
+<p class="man-guida" data-frutti-source="727">Lo spostamento non richiede l&#x27;Azione principale e non provoca Reazioni dovute allo spostamento.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="728">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="729">È la principale capacità di mobilità reattiva del Logia.</p>
+<h4 class="man-lab" data-frutti-source="730">Chiarimento necessario</h4>
+<p class="man-guida" data-frutti-source="731">Il funzionamento generale è definito:</p>
+<ul class="man-punti"><li data-frutti-source="732">Reazione;</li><li data-frutti-source="733">1 volta per scontro;</li><li data-frutti-source="734">15 metri;</li><li data-frutti-source="735">punto visibile.</li></ul>
+<p class="man-guida" data-frutti-source="736">Rimane però da stabilire con precisione quale evento permetta di attivare la Reazione.</p>
+<p class="man-guida" data-frutti-source="737">Una Reazione necessita di un trigger chiaro.</p>
+<p class="man-guida" data-frutti-source="738">Questo punto deve essere definito prima di considerare definitivo il Talento.</p>
+<h2 id="sez-7-5" class="man-sez"><span class="man-sez-n">7.5 ·</span> <span data-frutti-source="739">d12 · La Padronanza</span></h2>
+<h3 class="man-sub man-talento" id="logia-dominio-dell-elemento" data-frutti-source="740">Dominio dell&#x27;Elemento</h3>
+<h4 class="man-lab" data-frutti-source="741">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="742"><b>Passivo</b></p>
+<p class="man-guida" data-frutti-source="743">Il personaggio acquisisce un controllo avanzato sull&#x27;elemento già presente nell&#x27;ambiente.</p>
+<p class="man-guida" data-frutti-source="744">Può intervenire sulle sue proprietà e sulla sua distribuzione per modificare le condizioni della scena.</p>
+<p class="man-guida" data-frutti-source="745">Le applicazioni comprendono la manipolazione del terreno, la creazione o modifica di coperture, l&#x27;alimentazione o lo spegnimento di fonti elementali e l&#x27;utilizzo delle risorse ambientali.</p>
+<p class="man-guida" data-frutti-source="746">Il Talento amplia il controllo sull&#x27;elemento, ma non assegna automaticamente danni, dimensioni o durate numeriche.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="747">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="748">Permette al Logia di smettere di dipendere esclusivamente dall&#x27;elemento generato dal proprio corpo e di esercitare un controllo molto più avanzato sulle fonti naturali esistenti.</p>
+<h4 class="man-lab" data-frutti-source="749">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="750">Dominio dell&#x27;Elemento amplia ciò che può essere controllato.</p>
+<p class="man-guida" data-frutti-source="751">Non rende automaticamente gratuiti gli effetti meccanici derivanti da quel controllo.</p>
+<p class="man-guida" data-frutti-source="752">Le modifiche puramente narrative possono essere effettuate attraverso il Talento.</p>
+<p class="man-guida" data-frutti-source="753">Quando invece l&#x27;utilizzo vuole generare:</p>
+<ul class="man-punti"><li data-frutti-source="754">danno;</li><li data-frutti-source="755">Stati;</li><li data-frutti-source="756">Zone;</li><li data-frutti-source="757">immobilizzazioni;</li><li data-frutti-source="758">coperture con effetti meccanici;</li><li data-frutti-source="759">o altre conseguenze regolate;</li><li data-frutti-source="760">si utilizzano le normali Tecniche o altre regole appropriate.</li></ul>
+<p class="man-guida" data-frutti-source="761">Dominio dell&#x27;Elemento non permette automaticamente di trasformare altra materia nel proprio elemento.</p>
+<h3 class="man-sub man-talento" id="logia-chi-ti-tocca" data-frutti-source="762">Chi Ti Tocca</h3>
+<h4 class="man-lab" data-frutti-source="763">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="764"><b>Passivo · Difesa</b></p>
+<p class="man-guida" data-frutti-source="765">La natura del tuo elemento è pericolosa anche per chi riesce a colpirti.</p>
+<p class="man-guida" data-frutti-source="766">Quando un nemico ti colpisce in mischia a mani nude o utilizzando un&#x27;altra parte del proprio corpo, subisce:</p>
+<p class="man-guida" data-frutti-source="767">1d6 Danni del tuo elemento.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="768">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="769">Trasforma il corpo elementale stesso in un pericolo per chi entra in contatto fisico diretto con il Logia.</p>
+<h4 class="man-lab" data-frutti-source="770">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="771">Il danno si applica:</p>
+<p class="man-guida" data-frutti-source="772">una volta per ogni attacco che produce contatto fisico diretto.</p>
+<p class="man-guida" data-frutti-source="773">Il numero di colpi descritto narrativamente non aumenta il numero di attivazioni.</p>
+<p class="man-guida" data-frutti-source="774">Un&#x27;arma normalmente evita il contatto diretto del corpo dell&#x27;attaccante.</p>
+<h4 class="man-lab" data-frutti-source="775">Compatibilità</h4>
+<p class="man-guida" data-frutti-source="776">Il Talento deve avere senso per l&#x27;elemento.</p>
+<p class="man-guida" data-frutti-source="777">Per alcuni elementi la conseguenza al contatto è immediata.</p>
+<p class="man-guida" data-frutti-source="778">Per altri potrebbe non esserlo.</p>
+<p class="man-guida" data-frutti-source="779">Il GM non deve inventare una proprietà dannosa che l&#x27;elemento non possiede soltanto per rendere utilizzabile il Talento.</p>
+<p class="man-guida" data-frutti-source="780">Se il contatto con quell&#x27;elemento non può ragionevolmente produrre danno, il Talento può non essere appropriato per quello specifico Logia.</p>
+<h3 class="man-sub man-talento" id="logia-fonte-inesauribile" data-frutti-source="781">Fonte Inesauribile</h3>
+<h4 class="man-lab" data-frutti-source="782">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="783"><b>Prerequisito: Nutrirsi dell&#x27;Elemento</b><br>Passivo</p>
+<p class="man-guida" data-frutti-source="784">Quando ti trovi dentro o immediatamente a ridosso di una grande fonte del tuo elemento, le tue Tecniche del Frutto non costano Stamina.</p>
+<p class="man-guida" data-frutti-source="785">Il beneficio riguarda le Tecniche del Frutto e richiede che la fonte sia effettivamente disponibile.</p>
+<p class="man-guida" data-frutti-source="786">Una fonte piccola o puramente decorativa non soddisfa automaticamente la condizione.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="787">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="788">Trasforma l&#x27;ambiente ideale del Logia in una condizione di dominio energetico.</p>
+<h4 class="man-lab" data-frutti-source="789">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="790">La fonte deve essere:</p>
+<ul class="man-punti"><li data-frutti-source="791">grande;</li><li data-frutti-source="792">significativa;</li><li data-frutti-source="793">realmente presente nell&#x27;ambiente.</li></ul>
+<p class="man-guida" data-frutti-source="794">Il personaggio deve trovarsi dentro o immediatamente a ridosso della fonte.</p>
+<p class="man-guida" data-frutti-source="795">Una fonte creata deliberatamente dal personaggio non diventa automaticamente valida.</p>
+<p class="man-guida" data-frutti-source="796">Il beneficio riguarda esclusivamente:</p>
+<p class="man-guida" data-frutti-source="797">le Tecniche del Frutto.</p>
+<p class="man-guida" data-frutti-source="798">Non elimina automaticamente costi di Talenti, Haki o altre risorse.</p>
+<h3 class="man-sub man-talento" id="logia-forma-perduta" data-frutti-source="799">Forma Perduta</h3>
+<h4 class="man-lab" data-frutti-source="800">Testo del Manuale</h4>
+<div class="man-citazione">
+<p class="man-guida" data-frutti-source="801"><b>Talento attivo · Azione Bonus</b></p>
+<p class="man-guida" data-frutti-source="802">Il personaggio disperde completamente il proprio corpo nell&#x27;elemento.</p>
+<p class="man-guida" data-frutti-source="803">Può assumere la forma di una nube, corrente, fiamma diffusa o altra manifestazione coerente.</p>
+<p class="man-guida" data-frutti-source="804">La trasformazione dura un&#x27;intera scena.</p>
+<p class="man-guida" data-frutti-source="805">Durante questo stato:</p>
+<ul class="man-punti"><li data-frutti-source="806">non può impugnare o utilizzare oggetti;</li><li data-frutti-source="807">non può effettuare attacchi;</li><li data-frutti-source="808">può muoversi ovunque il proprio elemento possa arrivare;</li><li data-frutti-source="809">può attraversare barriere non ermetiche;</li><li data-frutti-source="810">non può essere riconosciuto attraverso il proprio normale aspetto.</li></ul>
+<p class="man-guida" data-frutti-source="811">Tornare alla forma ordinaria richiede un&#x27;Azione principale.</p>
+</div>
+<h4 class="man-lab" data-frutti-source="812">A cosa serve</h4>
+<p class="man-guida" data-frutti-source="813">È una capacità di dispersione, infiltrazione e mobilità.</p>
+<p class="man-guida" data-frutti-source="814">Non è una forma offensiva.</p>
+<h4 class="man-lab" data-frutti-source="815">Chiarimento definitivo</h4>
+<p class="man-guida" data-frutti-source="816">La frase:</p>
+<p class="man-guida" data-frutti-source="817">«può muoversi ovunque il proprio elemento possa arrivare»</p>
+<p class="man-guida" data-frutti-source="818">descrive i percorsi possibili.</p>
+<p class="man-guida" data-frutti-source="819">Non concede movimento illimitato.</p>
+<p class="man-guida" data-frutti-source="820">Il personaggio continua normalmente a rispettare il proprio Movimento salvo capacità che stabiliscano diversamente.</p>
+<p class="man-guida" data-frutti-source="821">Durante Forma Perduta non può:</p>
+<ul class="man-punti"><li data-frutti-source="822">attaccare;</li><li data-frutti-source="823">utilizzare Tecniche offensive;</li><li data-frutti-source="824">impugnare o utilizzare oggetti.</li></ul>
+<p class="man-guida" data-frutti-source="825">La natura dell&#x27;elemento determina quali barriere possano essere attraversate.</p>
+<h2 id="sez-7-6" class="man-sez"><span class="man-sez-n">7.6 ·</span> <span data-frutti-source="826">d20 · Risveglio Logia</span></h2>
+<h3 class="man-sub man-talento" id="logia-risveglio-logia" data-frutti-source="827">Risveglio · Logia</h3>
+<p class="man-guida" data-frutti-source="828"><b>Ultimate</b></p>
+<p class="man-guida" data-frutti-source="829">Requisiti: Dado del Frutto d20, Ambizione e permesso del Game Master.</p>
+<p class="man-guida" data-frutti-source="830">Il personaggio raggiunge la manifestazione più elevata del proprio elemento.</p>
+<p class="man-guida" data-frutti-source="831">Durante il Risveglio, l&#x27;elemento non rappresenta più soltanto il corpo del personaggio o ciò che egli controlla direttamente.</p>
+<p class="man-guida" data-frutti-source="832">La sua presenza invade e modifica l&#x27;ambiente circostante.</p>
+<p class="man-guida" data-frutti-source="833">Il Risveglio Logia viene costruito utilizzando la normale Linea Guida del Risveglio.</p>
+<p class="man-guida" data-frutti-source="834">Devono quindi essere definiti prima dell&#x27;acquisizione:</p>
+<ul class="man-punti"><li data-frutti-source="835">Nome;</li><li data-frutti-source="836">Principio Risvegliato;</li><li data-frutti-source="837">Manifestazione;</li><li data-frutti-source="838">Famiglie coinvolte;</li><li data-frutti-source="839">Benefici concordati;</li><li data-frutti-source="840">Area o Portata;</li><li data-frutti-source="841">Bersagli validi;</li><li data-frutti-source="842">Permanenza;</li><li data-frutti-source="843">Limiti superati;</li><li data-frutti-source="844">Limiti mantenuti;</li><li data-frutti-source="845">Prezzo.</li></ul>
+<p class="man-guida" data-frutti-source="846">Il Risveglio non viene improvvisato durante l&#x27;attivazione.</p>
+<h3 class="man-sub" id="logia-caratteristica-propria-del-risveglio-logia" data-frutti-source="847">Caratteristica propria del Risveglio Logia</h3>
+<p class="man-guida" data-frutti-source="848">Ogni Risveglio Logia possiede una caratteristica fondamentale:</p>
+<h4 class="man-lab" data-frutti-source="849">Saturazione Elementale</h4>
+<p class="man-guida" data-frutti-source="850">Durante il Risveglio, l&#x27;elemento del personaggio invade l&#x27;ambiente all&#x27;interno dell&#x27;Area stabilita nella propria Scheda del Risveglio.</p>
+<p class="man-guida" data-frutti-source="851">La manifestazione concreta dipende dall&#x27;elemento.</p>
+<p class="man-guida" data-frutti-source="852">Un Logia del fuoco potrebbe riempire la zona di calore, fiamme e combustione.</p>
+<p class="man-guida" data-frutti-source="853">Un Logia del ghiaccio potrebbe trasformare progressivamente l&#x27;ambiente in una distesa congelata.</p>
+<p class="man-guida" data-frutti-source="854">Un Logia del fumo potrebbe saturare lo spazio con una massa densa e persistente.</p>
+<p class="man-guida" data-frutti-source="855">Non esiste una dimensione universale dell&#x27;Area.</p>
+<p class="man-guida" data-frutti-source="856">L&#x27;estensione viene definita attraverso la normale Scheda del Risveglio.</p>
+<h3 class="man-sub" id="logia-ambiente-ostile" data-frutti-source="857">Ambiente Ostile</h3>
+<p class="man-guida" data-frutti-source="858">La Saturazione Elementale modifica le condizioni della scena.</p>
+<p class="man-guida" data-frutti-source="859">Ogni Risveglio Logia deve quindi definire uno o più effetti ambientali coerenti con la natura dell&#x27;elemento.</p>
+<p class="man-guida" data-frutti-source="860">Questi effetti non sono universali.</p>
+<p class="man-guida" data-frutti-source="861">Cambiano da Frutto a Frutto.</p>
+<p class="man-guida" data-frutti-source="862">Possono essere rappresentati attraverso Condizioni idonee alla natura dell&#x27;elemento o attraverso altre conseguenze meccaniche concordate con il Game Master.</p>
+<p class="man-guida" data-frutti-source="863">Per esempio:</p>
+<ul class="man-punti"><li data-frutti-source="864">un elemento che impedisce la vista potrebbe produrre una Condizione legata alla percezione;</li><li data-frutti-source="865">un elemento estremamente freddo potrebbe produrre conseguenze coerenti con congelamento o limitazione del movimento;</li><li data-frutti-source="866">un elemento soffocante potrebbe produrre una conseguenza appropriata alla respirazione;</li><li data-frutti-source="867">un elemento che provoca paura, dolore, corrosione o altre reazioni deve utilizzare una conseguenza coerente con quelle proprietà.</li></ul>
+<p class="man-guida" data-frutti-source="868">La Condizione scelta deve essere definita quando viene creato il Risveglio.</p>
+<p class="man-guida" data-frutti-source="869">Non può cambiare liberamente durante ogni turno.</p>
+<h4 class="man-lab" data-frutti-source="870">Applicazione delle Condizioni</h4>
+<p class="man-guida" data-frutti-source="871">Quando Ambiente Ostile applica una Condizione a una creatura ostile, si utilizzano normalmente le regole previste per quella Condizione.</p>
+<p class="man-guida" data-frutti-source="872">Se la Condizione concede una Salvezza, la Salvezza continua a essere applicata.</p>
+<p class="man-guida" data-frutti-source="873">Il Risveglio non permette automaticamente di ignorare le normali difese previste dal sistema.</p>
+<p class="man-guida" data-frutti-source="874">Giocatore e Game Master devono stabilire nella Scheda del Risveglio:</p>
+<ul class="man-punti"><li data-frutti-source="875">quale Condizione può essere applicata;</li><li data-frutti-source="876">in quali circostanze;</li><li data-frutti-source="877">quando viene verificata;</li><li data-frutti-source="878">come può essere rimossa o superata.</li></ul>
+<h3 class="man-sub" id="logia-famiglie-del-risveglio" data-frutti-source="879">Famiglie del Risveglio</h3>
+<p class="man-guida" data-frutti-source="880">Oltre alla Saturazione Elementale e ad Ambiente Ostile, il Risveglio Logia segue le normali Famiglie della Linea Guida del Risveglio:</p>
+<p class="man-guida" data-frutti-source="881"><b>Origine</b></p>
+<p class="man-guida" data-frutti-source="882"><b>Costi / Sconti</b></p>
+<p class="man-guida" data-frutti-source="883"><b>Espansione</b></p>
+<p class="man-guida" data-frutti-source="884"><b>Dominio</b></p>
+<p class="man-guida" data-frutti-source="885"><b>Difesa</b></p>
+<p class="man-guida" data-frutti-source="886"><b>Attacco</b></p>
+<p class="man-guida" data-frutti-source="887"><b>Controllo</b></p>
+<p class="man-guida" data-frutti-source="888">Le Famiglie non concedono automaticamente alcun bonus.</p>
+<p class="man-guida" data-frutti-source="889">Identificano esclusivamente quali aspetti dell&#x27;elemento vengono portati oltre la normale padronanza.</p>
+<p class="man-guida" data-frutti-source="890">I Benefici concreti vengono concordati tra giocatore e Game Master.</p>
+<h3 class="man-sub" id="logia-esempio-risveglio-del-fuoco" data-frutti-source="891">Esempio · Risveglio del Fuoco</h3>
+<p class="man-guida" data-frutti-source="892"><b>Principio Risvegliato</b></p>
+<p class="man-guida" data-frutti-source="893">La presenza del fuoco non dipende più soltanto dal corpo dell&#x27;utilizzatore o dalle singole fonti controllate.</p>
+<p class="man-guida" data-frutti-source="894"><b>Manifestazione</b></p>
+<p class="man-guida" data-frutti-source="895">L&#x27;ambiente viene progressivamente invaso dalle fiamme.</p>
+<p class="man-guida" data-frutti-source="896"><b>Saturazione Elementale</b></p>
+<p class="man-guida" data-frutti-source="897">Il fuoco occupa e modifica l&#x27;Area definita nella Scheda del Risveglio.</p>
+<p class="man-guida" data-frutti-source="898"><b>Ambiente Ostile</b></p>
+<p class="man-guida" data-frutti-source="899">Giocatore e GM stabiliscono una conseguenza appropriata al calore e alle fiamme e definiscono le eventuali Condizioni applicabili.</p>
+<p class="man-guida" data-frutti-source="900"><b>Famiglie</b></p>
+<p class="man-guida" data-frutti-source="901">Possono essere scelte, per esempio, Espansione, Dominio, Origine o altre Famiglie appropriate.</p>
+<p class="man-guida" data-frutti-source="902">I Benefici concreti vengono definiti separatamente.</p>
+<p class="man-guida" data-frutti-source="903">Il Risveglio non concede automaticamente tutti questi vantaggi soltanto perché appartiene alla categoria Logia.</p>
+<h3 class="man-sub" id="logia-esempio-risveglio-del-fumo" data-frutti-source="904">Esempio · Risveglio del Fumo</h3>
+<p class="man-guida" data-frutti-source="905"><b>Principio Risvegliato</b></p>
+<p class="man-guida" data-frutti-source="906">Il fumo diventa una presenza dominante nell&#x27;intera zona.</p>
+<p class="man-guida" data-frutti-source="907"><b>Manifestazione</b></p>
+<p class="man-guida" data-frutti-source="908">Una massa sempre più densa invade l&#x27;ambiente e permane finché il Risveglio è attivo.</p>
+<p class="man-guida" data-frutti-source="909"><b>Saturazione Elementale</b></p>
+<p class="man-guida" data-frutti-source="910">Lo spazio viene occupato dal fumo secondo Area e Portata definite nella Scheda.</p>
+<p class="man-guida" data-frutti-source="911"><b>Ambiente Ostile</b></p>
+<p class="man-guida" data-frutti-source="912">Il Risveglio può utilizzare Condizioni coerenti con visibilità, respirazione o altre proprietà effettivamente possedute dall&#x27;elemento.</p>
+<p class="man-guida" data-frutti-source="913">Le condizioni esatte devono essere stabilite preventivamente.</p>
+<h3 class="man-sub" id="logia-prezzo-del-risveglio" data-frutti-source="914">Prezzo del Risveglio</h3>
+<p class="man-guida" data-frutti-source="915">Il Risveglio dura normalmente:</p>
+<p class="man-guida" data-frutti-source="916">1 scena.</p>
+<p class="man-guida" data-frutti-source="917">Al termine:</p>
+<ul class="man-punti"><li data-frutti-source="918">la Stamina del personaggio scende a 0;</li><li data-frutti-source="919">il personaggio non può utilizzare il Frutto fino al prossimo riposo lungo.</li></ul>
+<p class="man-guida" data-frutti-source="920">Terminare volontariamente il Risveglio in anticipo non evita il prezzo previsto.</p>
+<h3 class="man-sub" id="logia-struttura-finale-del-risveglio-logia" data-frutti-source="921">Struttura finale del Risveglio Logia</h3>
+<p class="man-guida" data-frutti-source="922">Il Risveglio Logia è quindi composto da due livelli.</p>
+<p class="man-guida" data-frutti-source="923"><b>Identità Logia</b></p>
+<p class="man-guida" data-frutti-source="924">Saturazione Elementale.</p>
+<p class="man-guida" data-frutti-source="925">Ambiente Ostile coerente con l&#x27;elemento.</p>
+<p class="man-guida" data-frutti-source="926"><b>Costruzione personalizzata</b></p>
+<p class="man-guida" data-frutti-source="927">Tutto il resto segue la normale Linea Guida del Risveglio e viene costruito attraverso Manifestazione, Famiglie, Benefici e Limitazioni concordate.</p>
+<p class="man-guida" data-frutti-source="928">In questo modo tutti i Risvegli Logia condividono la stessa filosofia senza diventare copie meccaniche dello stesso potere.</p>
+</div></section>
+<section class="man-cap" id="cap-8" data-cap="8"><header class="man-cap-h"><span class="man-cap-n">Capitolo 8 ·</span> <h1>Zoan</h1></header><div class="man-cap-corpo">
+<span class="man-cap-fonte" data-frutti-source="929" hidden>Zoan</span>
+<p class="man-guida" data-frutti-source="930">Gli Zoan permettono al possessore di trasformarsi in una creatura animale e di combinarne le caratteristiche con il proprio corpo.</p>
+<p class="man-guida" data-frutti-source="931">Il loro sviluppo è principalmente legato a:</p>
+<ul class="man-punti"><li data-frutti-source="932">forza fisica;</li><li data-frutti-source="933">resistenza;</li><li data-frutti-source="934">mobilità;</li><li data-frutti-source="935">sensi;</li><li data-frutti-source="936">armi naturali;</li><li data-frutti-source="937">istinti;</li><li data-frutti-source="938">caratteristiche biologiche della creatura.</li></ul>
+<p class="man-guida" data-frutti-source="939">Ogni Zoan possiede tre forme fondamentali:</p>
+<p class="man-guida" data-frutti-source="940"><b>Forma Umana</b><br>L&#x27;aspetto ordinario del personaggio.</p>
+<p class="man-guida" data-frutti-source="941"><b>Forma Ibrida</b><br>Combina anatomia umana e caratteristiche della creatura.</p>
+<p class="man-guida" data-frutti-source="942"><b>Forma Bestiale</b><br>Assume completamente la forma della creatura.</p>
+<h2 id="sez-8-1" class="man-sez"><span class="man-sez-n">8.1 ·</span> <span data-frutti-source="943">Scheda della Creatura</span></h2>
+<p class="man-guida" data-frutti-source="944">Quando viene definito uno Zoan, giocatore e Game Master compilano una breve Scheda della Creatura.</p>
+<p class="man-guida" data-frutti-source="945">Devono essere indicati:</p>
+<p class="man-guida" data-frutti-source="946"><b>Specie</b></p>
+<p class="man-guida" data-frutti-source="947">La creatura rappresentata dal Frutto.</p>
+<p class="man-guida" data-frutti-source="948"><b>Categoria</b></p>
+<p class="man-guida" data-frutti-source="949">Ordinario, Ancestrale oppure Mitologico.</p>
+<p class="man-guida" data-frutti-source="950"><b>Stazza Bestiale</b></p>
+<p class="man-guida" data-frutti-source="951">La dimensione raggiunta dalla Forma Bestiale.</p>
+<p class="man-guida" data-frutti-source="952"><b>Anatomia</b></p>
+<p class="man-guida" data-frutti-source="953">Artigli, zanne, corna, ali, coda, guscio, aculei o altre strutture caratteristiche.</p>
+<p class="man-guida" data-frutti-source="954"><b>Modalità di movimento</b></p>
+<p class="man-guida" data-frutti-source="955">Corsa, volo, arrampicata, scavo o altre forme di locomozione.</p>
+<p class="man-guida" data-frutti-source="956"><b>Sensi caratteristici</b></p>
+<p class="man-guida" data-frutti-source="957">Olfatto, vista, udito, ecolocalizzazione, percezione delle vibrazioni o altri sensi propri della specie.</p>
+<p class="man-guida" data-frutti-source="958"><b>Capacità naturali</b></p>
+<p class="man-guida" data-frutti-source="959">Caratteristiche biologiche che la creatura possiede naturalmente.</p>
+<p class="man-guida" data-frutti-source="960"><b>Retaggio</b></p>
+<p class="man-guida" data-frutti-source="961">Per gli Zoan Ancestrali e Mitologici vengono inoltre registrate le caratteristiche eccezionali che potranno essere sviluppate durante la crescita del Frutto.</p>
+<h2 id="sez-8-2" class="man-sez"><span class="man-sez-n">8.2 ·</span> <span data-frutti-source="962">Anatomia e vantaggi meccanici</span></h2>
+<p class="man-guida" data-frutti-source="963">Le caratteristiche fisiche della creatura esistono realmente quando il personaggio assume una forma appropriata.</p>
+<p class="man-guida" data-frutti-source="964">Uno Zoan volatile possiede ali.</p>
+<p class="man-guida" data-frutti-source="965">Uno Zoan felino possiede artigli.</p>
+<p class="man-guida" data-frutti-source="966">Uno Zoan dotato di corna possiede realmente quelle corna.</p>
+<p class="man-guida" data-frutti-source="967">Uno Zoan con un guscio possiede realmente quella struttura.</p>
+<p class="man-guida" data-frutti-source="968">Questo concede le normali possibilità narrative derivanti dall&#x27;anatomia.</p>
+<p class="man-guida" data-frutti-source="969">Non concede automaticamente bonus numerici.</p>
+<p class="man-guida" data-frutti-source="970">Per esempio:</p>
+<ul class="man-punti"><li data-frutti-source="971">avere ali permette di volare, ma non aumenta automaticamente il Movimento;</li><li data-frutti-source="972">avere artigli permette di utilizzarli fisicamente, ma non li rende automaticamente Armi Naturali di Grado pari al Frutto;</li><li data-frutti-source="973">avere un guscio non concede automaticamente Riduzione del Danno;</li><li data-frutti-source="974">avere un olfatto sviluppato non permette automaticamente di individuare creature nascoste entro una distanza fissa.</li></ul>
+<p class="man-guida" data-frutti-source="975">I Talenti trasformano queste caratteristiche naturali in vantaggi meccanici specifici.</p>
+<h2 id="sez-8-3" class="man-sez"><span class="man-sez-n">8.3 ·</span> <span data-frutti-source="976">Tratto · Le Tre Forme</span></h2>
+<p class="man-guida" data-frutti-source="977"><b>Gratuito</b></p>
+<p class="man-guida" data-frutti-source="978">Il personaggio può trasformarsi nella propria Forma Ibrida o Bestiale e ritornare alla Forma Umana.</p>
+<p class="man-guida" data-frutti-source="979">La trasformazione:</p>
+<ul class="man-punti"><li data-frutti-source="980">non costa Stamina;</li><li data-frutti-source="981">non occupa Slot Effetto;</li><li data-frutti-source="982">non richiede una Tecnica.</li></ul>
+<p class="man-guida" data-frutti-source="983">Una trasformazione normale utilizza l&#x27;Azione principale.</p>
+<p class="man-guida" data-frutti-source="984">In Forma Ibrida o Bestiale il corpo assume le caratteristiche anatomiche appropriate della creatura.</p>
+<h2 id="sez-8-4" class="man-sez"><span class="man-sez-n">8.4 ·</span> <span data-frutti-source="985">Firma · Il Colpo Travolge</span></h2>
+<p class="man-guida" data-frutti-source="986"><b>Colpo pulito · Margine +4</b></p>
+<p class="man-guida" data-frutti-source="987">Quando il personaggio ottiene un Colpo Pulito mentre si trova in Forma Ibrida, sceglie uno dei seguenti effetti:</p>
+<p class="man-guida" data-frutti-source="988"><b>Stordimento</b></p>
+<p class="man-guida" data-frutti-source="989">Il bersaglio diventa Stordito.</p>
+<p class="man-guida" data-frutti-source="990"><b>Danno aggiuntivo</b></p>
+<p class="man-guida" data-frutti-source="991">Aggiungi 1 Dado Danno all&#x27;attacco.</p>
+<p class="man-guida" data-frutti-source="992">Il personaggio sceglie un solo effetto.</p>
+<p class="man-guida" data-frutti-source="993">La Firma richiede la Forma Ibrida.</p>
+<h2 id="sez-8-5" class="man-sez"><span class="man-sez-n">8.5 ·</span> <span data-frutti-source="994">d4–d6 · Il Dono</span></h2>
+<h3 class="man-sub man-talento" id="zoan-forma-ibrida" data-frutti-source="995">Forma Ibrida</h3>
+<p class="man-guida" data-frutti-source="996"><b>Talento attivo · Azione Bonus</b></p>
+<p class="man-guida" data-frutti-source="997">Assumi la Forma Ibrida e sfrutti pienamente la combinazione tra anatomia umana e animale.</p>
+<p class="man-guida" data-frutti-source="998">Per l&#x27;intera scena ottieni:</p>
+<p class="man-guida" data-frutti-source="999">+1 dado ai tiri fisici basati su Forza e Atletica.</p>
+<p class="man-guida" data-frutti-source="1000">+1 Dado Danno agli attacchi in mischia.</p>
+<p class="man-guida" data-frutti-source="1001">Il beneficio al danno si applica agli attacchi compatibili con la Forma Ibrida.</p>
+<p class="man-guida" data-frutti-source="1002">Il Talento non modifica automaticamente tutti gli Attributi.</p>
+<p class="man-guida" data-frutti-source="1003">La Forma Ibrida può essere assunta anche senza questo Talento.</p>
+<p class="man-guida" data-frutti-source="1004">Il Talento rappresenta la capacità di utilizzarla come vera configurazione da combattimento.</p>
+<h3 class="man-sub man-talento" id="zoan-istinto-animale" data-frutti-source="1005">Istinto Animale</h3>
+<p class="man-guida" data-frutti-source="1006"><b>Passivo</b></p>
+<p class="man-guida" data-frutti-source="1007">Gli istinti della creatura diventano parte naturale del comportamento del personaggio.</p>
+<p class="man-guida" data-frutti-source="1008">Durante l&#x27;esplorazione aggiungi:</p>
+<p class="man-guida" data-frutti-source="1009"><b>+1 dado</b></p>
+<p class="man-guida" data-frutti-source="1010">alle prove appropriate di:</p>
+<ul class="man-punti"><li data-frutti-source="1011">Osservazione;</li><li data-frutti-source="1012">Sopravvivenza;</li><li data-frutti-source="1013">inseguimento.</li></ul>
+<p class="man-guida" data-frutti-source="1014">Il bonus si applica soltanto quando gli istinti della creatura offrono realmente un vantaggio.</p>
+<p class="man-guida" data-frutti-source="1015">Puoi inoltre affrontare ambienti e terreni normalmente difficili quando la natura della creatura lo giustifica.</p>
+<p class="man-guida" data-frutti-source="1016">Per esempio:</p>
+<ul class="man-punti"><li data-frutti-source="1017">una creatura arboricola può muoversi con facilità tra alberi e rami;</li><li data-frutti-source="1018">una creatura montana può affrontare superfici ripide;</li><li data-frutti-source="1019">un predatore può seguire meglio una preda.</li></ul>
+<p class="man-guida" data-frutti-source="1020">Istinto Animale non sostituisce Sensi Animali.</p>
+<h3 class="man-sub man-talento" id="zoan-tre-forme" data-frutti-source="1021">Tre Forme</h3>
+<p class="man-guida" data-frutti-source="1022"><b>Gratuito</b><br>1 volta per turno</p>
+<p class="man-guida" data-frutti-source="1023">Puoi passare liberamente tra Forma Umana, Ibrida e Bestiale una volta per turno, senza consumare l&#x27;Azione principale.</p>
+<p class="man-guida" data-frutti-source="1024">Il cambio può avvenire anche durante una sequenza di colpi.</p>
+<p class="man-guida" data-frutti-source="1025">Il Talento non concede nuove Azioni né permette un numero illimitato di trasformazioni nello stesso turno.</p>
+<p class="man-guida" data-frutti-source="1026">Il cambio di forma utilizza l&#x27;Azione Bonus e non costa Stamina.</p>
+<h3 class="man-sub man-talento" id="zoan-artigli-e-zanne" data-frutti-source="1027">Artigli e Zanne</h3>
+<p class="man-guida" data-frutti-source="1028"><b>Passivo</b></p>
+<p class="man-guida" data-frutti-source="1029">Le caratteristiche offensive naturali dello Zoan diventano vere Armi Naturali.</p>
+<p class="man-guida" data-frutti-source="1030">Possono comprendere:</p>
+<ul class="man-punti"><li data-frutti-source="1031">artigli;</li><li data-frutti-source="1032">zanne;</li><li data-frutti-source="1033">corna;</li><li data-frutti-source="1034">rostro;</li><li data-frutti-source="1035">coda;</li><li data-frutti-source="1036">spuntoni;</li><li data-frutti-source="1037">aculei;</li><li data-frutti-source="1038">chele;</li><li data-frutti-source="1039">pungiglioni;</li><li data-frutti-source="1040">altre strutture appropriate alla creatura.</li></ul>
+<p class="man-guida" data-frutti-source="1041">Quando acquisisci il Talento, registra le Armi Naturali disponibili nelle forme appropriate.</p>
+<h4 class="man-lab" data-frutti-source="1042">Scheda dell&#x27;Arma Naturale</h4>
+<p class="man-guida" data-frutti-source="1043">Per ogni Arma Naturale devono essere indicati:</p>
+<p class="man-guida" data-frutti-source="1044"><b>Nome</b></p>
+<p class="man-guida" data-frutti-source="1045"><b>Parte anatomica</b></p>
+<p class="man-guida" data-frutti-source="1046"><b>Forma disponibile</b></p>
+<p class="man-guida" data-frutti-source="1047"><b>Tipo di arma</b></p>
+<p class="man-guida" data-frutti-source="1048"><b>Grado</b></p>
+<p class="man-guida" data-frutti-source="1049"><b>Attributo</b></p>
+<p class="man-guida" data-frutti-source="1050"><b>Portata</b></p>
+<h4 class="man-lab" data-frutti-source="1051">Grado</h4>
+<p class="man-guida" data-frutti-source="1052">Il Grado dell&#x27;Arma Naturale è pari al:</p>
+<p class="man-guida" data-frutti-source="1053">Dado del Frutto.</p>
+<p class="man-guida" data-frutti-source="1054">Uno Zoan d8 possiede quindi Armi Naturali d8.</p>
+<p class="man-guida" data-frutti-source="1055">Uno Zoan d12 possiede Armi Naturali d12.</p>
+<h4 class="man-lab" data-frutti-source="1056">Tipo di arma</h4>
+<p class="man-guida" data-frutti-source="1057">Ogni Arma Naturale viene associata a uno dei normali tipi di arma del sistema.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Tabella" data-frutti-source="1058"><table class="man-tab"><thead><tr><th scope="col"><b>Anatomia</b></th><th scope="col"><b>Tipo appropriato</b></th></tr></thead><tbody><tr><td>Artigli, zanne, lame naturali, rostro tagliente</td><td>Lama</td></tr><tr><td>Zoccoli, testate, coda pesante, pugni animali</td><td>Contundente</td></tr><tr><td>Corna lunghe, pungiglioni, zanne perforanti</td><td>Ad asta</td></tr><tr><td>Aculei o proiettili prodotti direttamente dal corpo</td><td>A distanza</td></tr><tr><td>Parti anatomiche staccate e lanciate</td><td>Da lancio</td></tr><tr><td>Lingue, code prensili, tentacoli e anatomie particolari</td><td>Speciale</td></tr></tbody></table></div>
+<p class="man-guida" data-frutti-source="1059">La classificazione viene scelta quando l&#x27;Arma Naturale viene registrata e non cambia da un attacco all&#x27;altro.</p>
+<h4 class="man-lab" data-frutti-source="1060">Portata</h4>
+<p class="man-guida" data-frutti-source="1061">Le Armi Naturali da mischia utilizzano normalmente la portata appropriata alla Forma e alla Stazza dello Zoan.</p>
+<p class="man-guida" data-frutti-source="1062">Se l&#x27;Arma Naturale può essere utilizzata a distanza, la sua Portata viene registrata quando il Talento viene acquisito.</p>
+<p class="man-guida" data-frutti-source="1063">Per esempio, una creatura capace di sparare aculei può possedere un&#x27;Arma Naturale di tipo A distanza.</p>
+<h4 class="man-lab" data-frutti-source="1064">Personaggi senza Ruolo Combattente</h4>
+<p class="man-guida" data-frutti-source="1065">Le Armi Naturali rappresentano un&#x27;eccezione alle normali limitazioni dell&#x27;Arsenale.</p>
+<p class="man-guida" data-frutti-source="1066">Un personaggio può effettuare attacchi base con le proprie Armi Naturali anche se non possiede il Ruolo Combattente.</p>
+<p class="man-guida" data-frutti-source="1067">Le Armi Naturali:</p>
+<ul class="man-punti"><li data-frutti-source="1068">non occupano posti dell&#x27;Arsenale;</li><li data-frutti-source="1069">non richiedono uno Stile di Combattimento per essere utilizzate in un attacco base;</li><li data-frutti-source="1070">non possono essere disarmate normalmente.</li></ul>
+<p class="man-guida" data-frutti-source="1071">Artigli e Zanne non concede però automaticamente:</p>
+<ul class="man-punti"><li data-frutti-source="1072">Tecniche Swordsman;</li><li data-frutti-source="1073">Tecniche Crusher;</li><li data-frutti-source="1074">Tecniche Sniper;</li><li data-frutti-source="1075">Talenti appartenenti agli Stili di Combattimento.</li></ul>
+<p class="man-guida" data-frutti-source="1076">Il personaggio può combattere efficacemente attraverso il proprio corpo Zoan senza diventare automaticamente un Combattente specializzato.</p>
+<h2 id="sez-8-6" class="man-sez"><span class="man-sez-n">8.6 ·</span> <span data-frutti-source="1077">d8–d10 · Il Controllo</span></h2>
+<h3 class="man-sub man-talento" id="zoan-sensi-animali" data-frutti-source="1078">Sensi Animali</h3>
+<p class="man-guida" data-frutti-source="1079"><b>Passivo</b></p>
+<p class="man-guida" data-frutti-source="1080">I sensi caratteristici della creatura raggiungono un livello eccezionale.</p>
+<p class="man-guida" data-frutti-source="1081">Quando acquisisci il Talento, vengono identificati i sensi appropriati allo Zoan.</p>
+<p class="man-guida" data-frutti-source="1082">Possono comprendere:</p>
+<ul class="man-punti"><li data-frutti-source="1083">olfatto;</li><li data-frutti-source="1084">udito;</li><li data-frutti-source="1085">vista;</li><li data-frutti-source="1086">ecolocalizzazione;</li><li data-frutti-source="1087">percezione delle vibrazioni;</li><li data-frutti-source="1088">percezione termica;</li><li data-frutti-source="1089">altre capacità sensoriali proprie della creatura.</li></ul>
+<p class="man-guida" data-frutti-source="1090">Attraverso questi sensi puoi individuare creature nascoste entro:</p>
+<p class="man-guida" data-frutti-source="1091"><b>20 metri</b></p>
+<p class="man-guida" data-frutti-source="1092">anche quando non puoi vederle direttamente, purché il senso scelto possa effettivamente rilevarle.</p>
+<p class="man-guida" data-frutti-source="1093">Puoi inoltre seguire tracce vecchie di giorni quando il senso utilizzato lo permette.</p>
+<p class="man-guida" data-frutti-source="1094">Il Talento non concede automaticamente tutti i sensi della lista.</p>
+<p class="man-guida" data-frutti-source="1095">Si utilizzano esclusivamente quelli coerenti con la creatura.</p>
+<h3 class="man-sub man-talento" id="zoan-corsa-bestiale" data-frutti-source="1096">Corsa Bestiale</h3>
+<p class="man-guida" data-frutti-source="1097"><b>Passivo · Forma Bestiale</b></p>
+<p class="man-guida" data-frutti-source="1098">La Forma Bestiale sfrutta pienamente la propria modalità naturale di locomozione.</p>
+<p class="man-guida" data-frutti-source="1099">Quando acquisisci il Talento, associa lo Zoan a una Famiglia di Movimento.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Tabella" data-frutti-source="1100"><table class="man-tab"><thead><tr><th scope="col"><b>Famiglia</b></th><th scope="col"><b>Esempi</b></th><th scope="col"><b>Aumento</b></th></tr></thead><tbody><tr><td>Scattatore terrestre</td><td>Felini, canidi veloci, equidi, antilopi, struzzi, predatori bipedi</td><td>+4 m sul terreno</td></tr><tr><td>Massiccio terrestre</td><td>Orsi, bovidi, cinghiali, rinoceronti, elefanti, grandi dinosauri pesanti</td><td>+2 m sul terreno</td></tr><tr><td>Arrampicatore</td><td>Primati, caprini, gechi, animali arboricoli</td><td>+2 m normalmente; +4 m durante arrampicata o movimento su superfici appropriate</td></tr><tr><td>Volatore</td><td>Uccelli, pipistrelli, insetti alati, pterosauri</td><td>+2 m sul terreno; +4 m durante il volo</td></tr><tr><td>Scavatore</td><td>Talpe, tassi, insetti e creature scavatrici</td><td>+2 m sul terreno; +4 m durante lo scavo in terreno appropriato</td></tr><tr><td>Serpentino</td><td>Serpenti e grandi creature striscianti</td><td>+3 m negli spostamenti compatibili con questa locomozione</td></tr></tbody></table></div>
+<p class="man-guida" data-frutti-source="1101">La Famiglia viene registrata quando il Talento viene acquisito.</p>
+<p class="man-guida" data-frutti-source="1102">Non può essere cambiata liberamente.</p>
+<h4 class="man-lab" data-frutti-source="1103">Terreno Difficile</h4>
+<p class="man-guida" data-frutti-source="1104">In Forma Bestiale ignori il Terreno Difficile naturale quando la tua modalità di locomozione è adatta a quell&#x27;ambiente.</p>
+<p class="man-guida" data-frutti-source="1105">Un arrampicatore può ignorare molte difficoltà legate a pareti e pendii.</p>
+<p class="man-guida" data-frutti-source="1106">Uno scattatore terrestre può attraversare più facilmente terreno aperto accidentato.</p>
+<p class="man-guida" data-frutti-source="1107">Un volatore può ignorare molti ostacoli del terreno quando si trova in aria.</p>
+<h4 class="man-lab" data-frutti-source="1108">Creature acquatiche</h4>
+<p class="man-guida" data-frutti-source="1109">Non esiste una Famiglia di Movimento acquatico.</p>
+<p class="man-guida" data-frutti-source="1110">Un utilizzatore di Frutto del Diavolo mantiene sempre la propria debolezza al mare.</p>
+<p class="man-guida" data-frutti-source="1111">Uno Zoan basato su una creatura acquatica può possederne anatomia e caratteristiche, ma l&#x27;immersione continua a produrre le normali conseguenze dei Frutti del Diavolo.</p>
+<h3 class="man-sub man-talento" id="zoan-stazza" data-frutti-source="1112">Stazza</h3>
+<p class="man-guida" data-frutti-source="1113"><b>Passivo · Forma Bestiale</b></p>
+<p class="man-guida" data-frutti-source="1114">La massa e le dimensioni della Forma Bestiale diventano un vantaggio concreto durante il combattimento.</p>
+<p class="man-guida" data-frutti-source="1115">La Stazza viene registrata nella Scheda della Creatura.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Tabella" data-frutti-source="1116"><table class="man-tab"><thead><tr><th scope="col"><b>Stazza</b></th><th scope="col"><b>Dimensione indicativa</b></th><th scope="col"><b>Portata in mischia</b></th></tr></thead><tbody><tr><td>Piccola / Media</td><td>fino a circa 2,5 m</td><td>1 m</td></tr><tr><td>Grande</td><td>circa 2,5–5 m</td><td>2 m</td></tr><tr><td>Enorme</td><td>circa 5–8 m</td><td>3 m</td></tr><tr><td>Gigantesca</td><td>circa 8–12 m</td><td>4 m</td></tr><tr><td>Colossale</td><td>oltre 12 m</td><td>5 m</td></tr></tbody></table></div>
+<p class="man-guida" data-frutti-source="1117">Le dimensioni sono riferimenti di gioco.</p>
+<p class="man-guida" data-frutti-source="1118">La Forma Bestiale effettiva determina la categoria appropriata.</p>
+<h4 class="man-lab" data-frutti-source="1119">Portata</h4>
+<p class="man-guida" data-frutti-source="1120">Gli attacchi in mischia effettuati attraverso il corpo o le Armi Naturali utilizzano la Portata prevista dalla Stazza quando questa è superiore alla normale portata dell&#x27;arma.</p>
+<h4 class="man-lab" data-frutti-source="1121">Travolgere</h4>
+<p class="man-guida" data-frutti-source="1122">Quando ti muovi attraverso lo spazio occupato da una creatura di Stazza inferiore alla tua, puoi travolgerla.</p>
+<p class="man-guida" data-frutti-source="1123">Il bersaglio diventa:</p>
+<p class="man-guida" data-frutti-source="1124">Sbilanciato.</p>
+<p class="man-guida" data-frutti-source="1125">Il Talento non permette di travolgere normalmente creature della stessa Stazza o superiori.</p>
+<h4 class="man-lab" data-frutti-source="1126">Trasporto</h4>
+<p class="man-guida" data-frutti-source="1127">Uno Zoan di Stazza Grande o superiore può trasportare almeno un personaggio di dimensioni normali senza ridurre il proprio Movimento.</p>
+<p class="man-guida" data-frutti-source="1128">Creature ancora più grandi possono trasportare quantità superiori secondo la normale logica della loro anatomia.</p>
+<h4 class="man-lab" data-frutti-source="1129">Limite</h4>
+<p class="man-guida" data-frutti-source="1130">Il Talento Stazza non rende più grande uno Zoan.</p>
+<p class="man-guida" data-frutti-source="1131">Trasforma in vantaggio meccanico una grande dimensione che la Forma Bestiale possiede già.</p>
+<p class="man-guida" data-frutti-source="1132">Uno Zoan naturalmente Piccolo o Medio non acquisisce Portata aggiuntiva semplicemente scegliendo questo Talento.</p>
+<h3 class="man-sub man-talento" id="zoan-ferocia-crescente" data-frutti-source="1133">Ferocia Crescente</h3>
+<p class="man-guida" data-frutti-source="1134"><b>Passivo</b></p>
+<p class="man-guida" data-frutti-source="1135">Quando i tuoi PV scendono sotto la metà del valore massimo, gli istinti della creatura diventano più aggressivi.</p>
+<p class="man-guida" data-frutti-source="1136">Ottieni:</p>
+<p class="man-guida" data-frutti-source="1137">+1 Dado Danno agli attacchi in mischia.</p>
+<p class="man-guida" data-frutti-source="1138">Una volta attivato, Ferocia Crescente rimane attivo fino alla fine dello scontro.</p>
+<p class="man-guida" data-frutti-source="1139">Essere successivamente curato sopra metà PV non rimuove il beneficio.</p>
+<p class="man-guida" data-frutti-source="1140">Il Talento non richiede Azione Bonus.</p>
+<h2 id="sez-8-7" class="man-sez"><span class="man-sez-n">8.7 ·</span> <span data-frutti-source="1141">d12 · La Padronanza</span></h2>
+<h3 class="man-sub man-talento" id="zoan-resistenza-bestiale" data-frutti-source="1142">Resistenza Bestiale</h3>
+<p class="man-guida" data-frutti-source="1143"><b>Passivo · Forma Ibrida o Bestiale</b></p>
+<p class="man-guida" data-frutti-source="1144">Il corpo trasformato sviluppa una resistenza eccezionale alle ferite.</p>
+<p class="man-guida" data-frutti-source="1145">1 volta per round, quando subisci danno da un attacco, puoi ridurre di:</p>
+<p class="man-guida" data-frutti-source="1146"><b>1 Grado</b></p>
+<p class="man-guida" data-frutti-source="1147">tutti i Dadi Danno di quell&#x27;attacco.</p>
+<p class="man-guida" data-frutti-source="1148">Progressione:</p>
+<div class="man-mappa" data-frutti-source="1149"><div class="man-riga"><span>d20</span> <i class="man-freccia">→</i> <b>d12</b></div><div class="man-riga"><span>d12</span> <i class="man-freccia">→</i> <b>d10</b></div><div class="man-riga"><span>d10</span> <i class="man-freccia">→</i> <b>d8</b></div><div class="man-riga"><span>d8</span> <i class="man-freccia">→</i> <b>d6</b></div><div class="man-riga"><span>d6</span> <i class="man-freccia">→</i> <b>d4</b></div></div>
+<p class="man-guida" data-frutti-source="1150">Il d4 rappresenta il minimo.</p>
+<p class="man-guida" data-frutti-source="1151">Resistenza Bestiale non utilizza la Reazione.</p>
+<p class="man-guida" data-frutti-source="1152">Il Talento modifica esclusivamente i Dadi Danno.</p>
+<p class="man-guida" data-frutti-source="1153">Non elimina automaticamente:</p>
+<ul class="man-punti"><li data-frutti-source="1154">Stati;</li><li data-frutti-source="1155">Spostamenti;</li><li data-frutti-source="1156">effetti secondari;</li><li data-frutti-source="1157">condizioni;</li><li data-frutti-source="1158">danni fissi non espressi attraverso Dadi Danno.</li></ul>
+<h3 class="man-sub man-talento" id="zoan-retaggio-ancestrale" data-frutti-source="1159">Retaggio Ancestrale</h3>
+<p class="man-guida" data-frutti-source="1160"><b>Passivo</b><br>Requisito: Zoan Ancestrale</p>
+<p class="man-guida" data-frutti-source="1161">Il personaggio raggiunge una padronanza sufficiente per sfruttare una caratteristica eccezionale della propria creatura ancestrale.</p>
+<p class="man-guida" data-frutti-source="1162">Lo Zoan era già Ancestrale fin dalla creazione del Frutto.</p>
+<p class="man-guida" data-frutti-source="1163">Il Talento non modifica la categoria del Frutto.</p>
+<p class="man-guida" data-frutti-source="1164">Sblocca invece una capacità avanzata collegata alla natura ancestrale della creatura.</p>
+<p class="man-guida" data-frutti-source="1165">Può trattarsi di:</p>
+<ul class="man-punti"><li data-frutti-source="1166">una struttura corporea eccezionale;</li><li data-frutti-source="1167">un&#x27;Arma Naturale particolare;</li><li data-frutti-source="1168">una conformazione fisica unica;</li><li data-frutti-source="1169">una capacità biologica straordinaria;</li><li data-frutti-source="1170">una stazza eccezionale;</li><li data-frutti-source="1171">un&#x27;altra caratteristica propria della specie.</li></ul>
+<p class="man-guida" data-frutti-source="1172">La caratteristica potenziale viene registrata nella Scheda della Creatura fin dalla creazione del Frutto.</p>
+<p class="man-guida" data-frutti-source="1173">Il Talento rappresenta il momento in cui il personaggio impara a sfruttarla pienamente.</p>
+<h3 class="man-sub man-talento" id="zoan-retaggio-mitologico" data-frutti-source="1174">Retaggio Mitologico</h3>
+<p class="man-guida" data-frutti-source="1175"><b>Passivo</b><br>Requisito: Zoan Mitologico</p>
+<p class="man-guida" data-frutti-source="1176">Il personaggio raggiunge una padronanza sufficiente per manifestare una delle capacità soprannaturali della propria creatura mitologica.</p>
+<p class="man-guida" data-frutti-source="1177">Lo Zoan era già Mitologico fin dalla creazione del Frutto.</p>
+<p class="man-guida" data-frutti-source="1178">Il Talento non modifica la categoria.</p>
+<p class="man-guida" data-frutti-source="1179">Sblocca una capacità soprannaturale precedentemente non padroneggiata.</p>
+<p class="man-guida" data-frutti-source="1180">Può trattarsi di:</p>
+<ul class="man-punti"><li data-frutti-source="1181">un elemento;</li><li data-frutti-source="1182">un fenomeno soprannaturale;</li><li data-frutti-source="1183">una capacità rigenerativa;</li><li data-frutti-source="1184">una manifestazione mistica;</li><li data-frutti-source="1185">una proprietà esclusiva della creatura.</li></ul>
+<p class="man-guida" data-frutti-source="1186">La capacità deve essere coerente con il Retaggio indicato nella Scheda della Creatura.</p>
+<h4 class="man-lab" data-frutti-source="1187">Tecniche del Retaggio</h4>
+<p class="man-guida" data-frutti-source="1188">Quando Retaggio Mitologico o Ancestrale sblocca una nuova capacità, questa può diventare una Fonte narrativa valida per creare nuove Tecniche del Frutto.</p>
+<p class="man-guida" data-frutti-source="1189">Il Talento non concede automaticamente gli effetti del Costruttore.</p>
+<p class="man-guida" data-frutti-source="1190">Concede la capacità che permette di rappresentarli.</p>
+<h4 class="man-lab" data-frutti-source="1191">Esempio · Drago Mitologico</h4>
+<p class="man-guida" data-frutti-source="1192">Il personaggio possiede fin dall&#x27;inizio uno Zoan Mitologico del Drago.</p>
+<p class="man-guida" data-frutti-source="1193">La natura mitologica del Frutto è già registrata.</p>
+<p class="man-guida" data-frutti-source="1194">Al d12 acquisisce Retaggio Mitologico e sblocca:</p>
+<p class="man-guida" data-frutti-source="1195">generazione del fuoco.</p>
+<p class="man-guida" data-frutti-source="1196">Da quel momento può utilizzare il fuoco come capacità del proprio Zoan e costruire Tecniche del Frutto coerenti con quella manifestazione.</p>
+<p class="man-guida" data-frutti-source="1197">Il personaggio non è diventato un drago mitologico al d12.</p>
+<p class="man-guida" data-frutti-source="1198">Ha finalmente imparato a padroneggiare una delle sue caratteristiche superiori.</p>
+<h3 class="man-sub man-talento" id="zoan-istinto-di-sopravvivenza" data-frutti-source="1199">Istinto di Sopravvivenza</h3>
+<p class="man-guida" data-frutti-source="1200"><b>1 volta per scontro</b><br>Quando scenderesti a 0 PV</p>
+<p class="man-guida" data-frutti-source="1201">Quando un attacco o un altro effetto dovrebbe portarti a 0 PV, l&#x27;istinto animale ti permette di continuare a combattere.</p>
+<p class="man-guida" data-frutti-source="1202">Rimani cosciente con:</p>
+<p class="man-guida" data-frutti-source="1203"><b>1 PV</b></p>
+<p class="man-guida" data-frutti-source="1204">fino alla fine del tuo prossimo turno.</p>
+<p class="man-guida" data-frutti-source="1205">Il PV ottenuto è temporaneo e non rappresenta una guarigione.</p>
+<p class="man-guida" data-frutti-source="1206">Alla fine del tuo prossimo turno scendi a:</p>
+<p class="man-guida" data-frutti-source="1207"><b>0 PV</b></p>
+<p class="man-guida" data-frutti-source="1208">salvo che nel frattempo tu abbia ricevuto una vera guarigione sufficiente a mantenerti sopra 0.</p>
+<h3 class="man-sub man-talento" id="zoan-trasformazione-istintiva" data-frutti-source="1209">Trasformazione Istintiva</h3>
+<p class="man-guida" data-frutti-source="1210"><b>Reazione</b><br>1 volta per scena<br>0 ST</p>
+<p class="man-guida" data-frutti-source="1211">Il corpo reagisce automaticamente a un pericolo imminente.</p>
+<p class="man-guida" data-frutti-source="1212">Quando stai per essere direttamente coinvolto da:</p>
+<ul class="man-punti"><li data-frutti-source="1213">un attacco;</li><li data-frutti-source="1214">una Tecnica ostile;</li><li data-frutti-source="1215">un effetto pericoloso;</li><li data-frutti-source="1216">puoi utilizzare la tua Reazione per trasformarti immediatamente.</li></ul>
+<p class="man-guida" data-frutti-source="1217">La trasformazione avviene prima della risoluzione dell&#x27;effetto.</p>
+<p class="man-guida" data-frutti-source="1218">Puoi utilizzare Trasformazione Istintiva anche quando sei:</p>
+<ul class="man-punti"><li data-frutti-source="1219">addormentato;</li><li data-frutti-source="1220">Stordito;</li><li data-frutti-source="1221">privo di sensi.</li></ul>
+<h4 class="man-lab" data-frutti-source="1222">Economia delle trasformazioni</h4>
+<p class="man-guida" data-frutti-source="1223"><b>Trasformazione normale</b></p>
+<p class="man-guida" data-frutti-source="1224">Azione principale.<br>0 ST.</p>
+<p class="man-guida" data-frutti-source="1225"><b>Tre Forme</b></p>
+<p class="man-guida" data-frutti-source="1226">Azione Bonus.<br>0 ST.<br>1 volta per turno.</p>
+<p class="man-guida" data-frutti-source="1227"><b>Trasformazione Istintiva</b></p>
+<p class="man-guida" data-frutti-source="1228">Reazione.<br>0 ST.<br>1 volta per scena.</p>
+<p class="man-guida" data-frutti-source="1229">Trasformazione Istintiva effettua esclusivamente il cambio di forma.</p>
+<p class="man-guida" data-frutti-source="1230">Non attiva automaticamente altri Talenti attivi.</p>
+<h3 class="man-sub man-talento" id="zoan-richiamo-del-sangue" data-frutti-source="1231">Richiamo del Sangue</h3>
+<p class="man-guida" data-frutti-source="1232"><b>Passivo · Narrativo</b></p>
+<p class="man-guida" data-frutti-source="1233">Gli animali appartenenti alla stessa specie della tua Forma Bestiale, o a specie abbastanza affini da riconoscerti, percepiscono nel personaggio una presenza familiare e dominante.</p>
+<p class="man-guida" data-frutti-source="1234">Normalmente:</p>
+<ul class="man-punti"><li data-frutti-source="1235">non ti attaccano per primi;</li><li data-frutti-source="1236">permettono il passaggio attraverso il proprio territorio;</li><li data-frutti-source="1237">possono tollerare la tua presenza;</li><li data-frutti-source="1238">con tempo e interazioni appropriate possono arrivare a seguirti.</li></ul>
+<p class="man-guida" data-frutti-source="1239">Il Talento non concede controllo mentale.</p>
+<p class="man-guida" data-frutti-source="1240">Gli animali non diventano automaticamente:</p>
+<ul class="man-punti"><li data-frutti-source="1241">servitori;</li><li data-frutti-source="1242">combattenti;</li><li data-frutti-source="1243">compagni permanenti;</li><li data-frutti-source="1244">creature disposte a sacrificarsi.</li></ul>
+<p class="man-guida" data-frutti-source="1245">Richieste rischiose o contrarie al loro comportamento naturale possono richiedere tempo, condizioni narrative o prove appropriate.</p>
+<h2 id="sez-8-8" class="man-sez"><span class="man-sez-n">8.8 ·</span> <span data-frutti-source="1246">d20 · Il Risveglio</span></h2>
+<h3 class="man-sub man-talento" id="zoan-risveglio-zoan" data-frutti-source="1247">Risveglio · Zoan</h3>
+<p class="man-guida" data-frutti-source="1248"><b>Ultimate</b></p>
+<p class="man-guida" data-frutti-source="1249">Requisiti:</p>
+<ul class="man-punti"><li data-frutti-source="1250">Dado del Frutto d20;</li><li data-frutti-source="1251">Ambizione;</li><li data-frutti-source="1252">permesso del Game Master.</li></ul>
+<p class="man-guida" data-frutti-source="1253">Il personaggio raggiunge la:</p>
+<h4 class="man-lab" data-frutti-source="1254">Forma Definitiva</h4>
+<p class="man-guida" data-frutti-source="1255">La Forma Definitiva rappresenta la manifestazione estrema della creatura.</p>
+<p class="man-guida" data-frutti-source="1256">Il corpo, gli istinti e le caratteristiche fondamentali dello Zoan raggiungono un livello impossibile attraverso la normale trasformazione.</p>
+<p class="man-guida" data-frutti-source="1257">Il Risveglio dura:</p>
+<p class="man-guida" data-frutti-source="1258">1 scena.</p>
+<h4 class="man-lab" data-frutti-source="1259">Rigenerazione Risvegliata</h4>
+<p class="man-guida" data-frutti-source="1260">All&#x27;inizio di ogni tuo turno recuperi:</p>
+<p class="man-guida" data-frutti-source="1261">1d10 PV.</p>
+<p class="man-guida" data-frutti-source="1262">Non puoi superare i tuoi PV massimi.</p>
+<h4 class="man-lab" data-frutti-source="1263">Armi Naturali Risvegliate</h4>
+<p class="man-guida" data-frutti-source="1264">Gli attacchi effettuati direttamente attraverso il corpo trasformato o attraverso le Armi Naturali ottengono:</p>
+<p class="man-guida" data-frutti-source="1265">+2 Dadi Danno.</p>
+<p class="man-guida" data-frutti-source="1266">Il beneficio può applicarsi a:</p>
+<ul class="man-punti"><li data-frutti-source="1267">artigli;</li><li data-frutti-source="1268">zanne;</li><li data-frutti-source="1269">corna;</li><li data-frutti-source="1270">coda;</li><li data-frutti-source="1271">rostro;</li><li data-frutti-source="1272">pugni o arti trasformati;</li><li data-frutti-source="1273">altre Armi Naturali coerenti con la Forma Definitiva.</li></ul>
+<p class="man-guida" data-frutti-source="1274">Il bonus non concede attacchi aggiuntivi.</p>
+<h4 class="man-lab" data-frutti-source="1275">Istinto Assoluto</h4>
+<p class="man-guida" data-frutti-source="1276">Durante la Forma Definitiva non puoi essere:</p>
+<p class="man-guida" data-frutti-source="1277"><b>Stordito</b></p>
+<p class="man-guida" data-frutti-source="1278">o</p>
+<p class="man-guida" data-frutti-source="1279">Sbilanciato.</p>
+<h4 class="man-lab" data-frutti-source="1280">Caratteristica Dominante</h4>
+<p class="man-guida" data-frutti-source="1281">Ogni Risveglio Zoan porta inoltre all&#x27;estremo una caratteristica fondamentale della creatura.</p>
+<p class="man-guida" data-frutti-source="1282">Questa viene definita utilizzando la normale Linea Guida del Risveglio.</p>
+<p class="man-guida" data-frutti-source="1283">Può riguardare, quando appropriato:</p>
+<p class="man-guida" data-frutti-source="1284"><b>Movimento</b></p>
+<p class="man-guida" data-frutti-source="1285">Una creatura costruita sulla velocità o sul volo può raggiungere capacità di spostamento eccezionali.</p>
+<p class="man-guida" data-frutti-source="1286"><b>Difesa</b></p>
+<p class="man-guida" data-frutti-source="1287">Una creatura corazzata, resistente o particolarmente difficile da abbattere può sviluppare una difesa superiore.</p>
+<p class="man-guida" data-frutti-source="1288"><b>Stazza</b></p>
+<p class="man-guida" data-frutti-source="1289">Una creatura naturalmente enorme può portare ulteriormente all&#x27;estremo massa, portata e presenza fisica.</p>
+<p class="man-guida" data-frutti-source="1290"><b>Sensi</b></p>
+<p class="man-guida" data-frutti-source="1291">Una creatura specializzata nella percezione può sviluppare capacità sensoriali eccezionali.</p>
+<p class="man-guida" data-frutti-source="1292"><b>Controllo del corpo</b></p>
+<p class="man-guida" data-frutti-source="1293">Una creatura estremamente agile, flessibile o adattabile può ottenere una padronanza superiore del proprio corpo.</p>
+<p class="man-guida" data-frutti-source="1294"><b>Retaggio</b></p>
+<p class="man-guida" data-frutti-source="1295">Uno Zoan Ancestrale o Mitologico che abbia già sbloccato il proprio Retaggio può portarne la capacità a una manifestazione superiore.</p>
+<p class="man-guida" data-frutti-source="1296">Il beneficio concreto viene definito quando viene progettato il Risveglio e rimane fisso.</p>
+<h4 class="man-lab" data-frutti-source="1297">Identità del Risveglio Zoan</h4>
+<p class="man-guida" data-frutti-source="1298">Il Risveglio Zoan non concede un aumento universale a Forza o Movimento.</p>
+<p class="man-guida" data-frutti-source="1299">Ogni creatura sviluppa invece ciò che la rende realmente eccezionale.</p>
+<p class="man-guida" data-frutti-source="1300">Un felino può raggiungere una velocità estrema.</p>
+<p class="man-guida" data-frutti-source="1301">Una creatura corazzata può sviluppare una difesa straordinaria.</p>
+<p class="man-guida" data-frutti-source="1302">Un grande erbivoro può aumentare enormemente massa e capacità di travolgere.</p>
+<p class="man-guida" data-frutti-source="1303">Un volatile può portare la propria mobilità aerea oltre i normali limiti.</p>
+<p class="man-guida" data-frutti-source="1304">Un Mitologico può portare il proprio Retaggio soprannaturale a una nuova manifestazione.</p>
+<p class="man-guida" data-frutti-source="1305">In questo modo due Zoan differenti producono Risvegli realmente differenti.</p>
+<h4 class="man-lab" data-frutti-source="1306">Prezzo del Risveglio</h4>
+<p class="man-guida" data-frutti-source="1307">Alla fine della scena:</p>
+<p class="man-guida" data-frutti-source="1308">la Stamina del personaggio scende a 0.</p>
+<p class="man-guida" data-frutti-source="1309">Il personaggio non può utilizzare nuovamente le trasformazioni Zoan fino al prossimo:</p>
+<p class="man-guida" data-frutti-source="1310">Riposo Lungo.</p>
+<p class="man-guida" data-frutti-source="1311">Terminare volontariamente il Risveglio prima della fine della scena non evita queste conseguenze.</p>
+</div></section>
+      <span class="man-fine" id="man-fine" aria-hidden="true"></span>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>
