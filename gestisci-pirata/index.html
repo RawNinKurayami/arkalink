@@ -1543,7 +1543,7 @@ body.has-bld{overflow:hidden;}
 
 <link rel="stylesheet" href="prestigio.css?v=2">
 <script src="/regole/prestigio-data.js?v=1"></script>
-<script src="/regole/prestigio.js?v=2"></script>
+<script src="/regole/prestigio.js?v=3"></script>
 <script src="/regole/prestigio-presentazione.js?v=1"></script>
 <script src="prestigio-ui.js?v=2"></script>
 <script src="special-moves.js?v=17"></script>
@@ -2095,10 +2095,11 @@ function grpOf(nm){const e=tecEffObj(nm);if(!e)return "";if(e[0]==="Potenziament
 function isSagoma(nm){const e=tecEffObj(nm);return !!(e&&e[6]==="sagoma");}
 function slotUsed(list){return (list||[]).filter(nm=>!isSagoma(nm)).length;}
 function fruitDieCap(){try{return (pg&&pg.frutto&&pg.frutto.has)?(pg.frutto.die||"d4"):"";}catch(e){return "";}}
-/* Stili tolti dal sito (aggiornamento ufficiale del 19/09/2026): i loro dati e
-   talenti restano qui nel codice per eventuali modifiche, ma non compaiono da
-   nessuna parte — né nelle scelte, né nei talenti, né nelle stampe. */
-const STILI_NASCOSTI=["Special"];
+/* Stili tolti dal sito (Special dal 19/09/2026, Inventore dal 05/10/2026): i
+   loro dati e talenti restano qui nel codice per eventuali modifiche, ma non
+   compaiono da nessuna parte — né nelle scelte, né nei talenti, né nelle
+   stampe, né nei percorsi di Prestigio. */
+const STILI_NASCOSTI=["Special","Inventore"];
 function styleVisible(st){return STILI_NASCOSTI.indexOf(st)<0;}
 function talentKeyVisible(k){const p=String(k).split(" · ");return !(p.length>2&&STILI_NASCOSTI.indexOf(p[1])>=0);}
 function visibleTalents(){return (Array.isArray(pg.talents)?pg.talents:[]).filter(k=>talentKeyVisible(k)&&(!window.GLCPrestige||!GLCPrestige.superseded(pg,k)));}
@@ -2758,7 +2759,10 @@ function migrateChar(c){c=Object.assign(blank(),c||{});if(c.role){const MAP={"Me
   var rn=c[k[0]],st=c[k[1]];
   if(rn&&st&&STILI_NASCOSTI.indexOf(st)>=0&&TALENTS[rn]){
    c[k[1]+"Nascosto"]=st;
-   c[k[1]]=Object.keys(TALENTS[rn].styles).filter(function(x){return STILI_NASCOSTI.indexOf(x)<0;})[0]||"";
+   var rimasti=Object.keys(TALENTS[rn].styles).filter(function(x){return STILI_NASCOSTI.indexOf(x)<0;});
+   var skillVecchia=(TALENTS[rn].styles[st]||{}).skill;
+   var simile=rimasti.filter(function(x){return (TALENTS[rn].styles[x]||{}).skill===skillVecchia;})[0];
+   c[k[1]]=simile||rimasti[0]||"";
   }
  });
  /* La Fonte Arma non esiste più: un'arma esegue le Tecniche, non le genera.

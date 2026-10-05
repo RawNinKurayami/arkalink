@@ -208,9 +208,9 @@ var ROLES=[
  {name:"Musicista",multi:false,skill:"Arte",desc:"Il moltiplicatore: ridà Stamina e spezza la paura."},
  {name:"Capitano",multi:false,skill:"Comunicazione",desc:"La sua forza è l'Ambizione, i Legami e il comando."}
 ];
-/* Stili tolti dal sito (aggiornamento del 19/09/2026): restano scritti qui
-   sopra per eventuali modifiche, ma non si possono scegliere. */
-var STILI_NASCOSTI=["Special"];
+/* Stili tolti dal sito (Special dal 19/09/2026, Inventore dal 05/10/2026):
+   restano scritti qui sopra per eventuali modifiche, ma non si possono scegliere. */
+var STILI_NASCOSTI=["Special","Inventore"];
 ROLES.forEach(function(r){if(r.styles)r.styles=r.styles.filter(function(x){return STILI_NASCOSTI.indexOf(x[0])<0;});});
 var SKILLS={"Artigianato":"Oggetti e attrezzi","Medicina":"Ferite, veleni","Navigazione":"Rotte, traversate","Cucina":"Pasti, recupero","Furtività":"Non visti, scasso","Atletica":"Corsa, lotta","Archeologia":"Storia, Poneglyph","Acrobazia":"Equilibrio, evasione","Arte":"Musica, falsi","Osservazione":"Pericoli, indizi","Meccanica":"Macchinari, cannoni","Carpenteria":"La nave","Esplorazione":"Isole","Comunicazione":"Convincere, trattare","Natura":"Piante, clima","Sopravvivenza":"Cibo, riparo"};
 var STEPS=["Concetto","Razza","Attributi","Ruolo","Skill","Frutto","Salva"];

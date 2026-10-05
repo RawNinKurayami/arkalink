@@ -4,6 +4,9 @@
 (function(root){
 'use strict';
 const D=root.GLCPrestigeData, list=x=>Array.isArray(x)?x:[], unique=x=>[...new Set(x)];
+/* Stili tolti dal sito: il loro percorso di Prestigio non viene mai proposto,
+ * anche se i dati restano nel catalogo per il manuale. */
+const STILI_RITIRATI=['Inventore'];
 let ordinary={};
 const rank=die=>D.dice.indexOf(die),level=die=>Math.max(0,rank(die)-5),slots=die=>Math.min(3,Math.ceil(level(die)/2));
 const label=die=>level(die)===6?'Saikyō':level(die)?'Prestigio '+D.stages[level(die)-1]:'';
@@ -17,7 +20,8 @@ function paths(c){
  const mainSkill=skillFor(c,c.role,c.style,1),out=[];
  [[c.role,c.style,1],[c.role2,c.style2,2]].forEach(([role,style,slot])=>{
   const skill=skillFor(c,role,style,slot);
-  const p=D.paths.find(p=>p.role===role&&p.style===(style||role)&&p.skill===skill);
+  if(STILI_RITIRATI.includes(style))return;
+ const p=D.paths.find(p=>p.role===role&&p.style===(style||role)&&p.skill===skill);
   if(p&&!out.some(x=>x.role===p.role&&x.style===p.style))out.push({...p,slot,die:skill===mainSkill?(c.roleSkillDie||'d8'):(c.skills?.[skill]||'')});
  });return out;
 }
