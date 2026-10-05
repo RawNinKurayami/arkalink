@@ -2051,6 +2051,7 @@ const TEC_EFF=[
 ["Melodie del Musicista","Assolo Travolgente","gli alleati in ascolto recuperano 1d6 ST e hanno +1d6 al tiro per colpire · +1 ST per ogni utilizzo in più nella stessa scena","d10",5,"musicista"],
 ["Melodie del Musicista","Inno della Ciurma","per la scena, ogni compagno sceglie un proprio dado e lo tira due volte tenendo il migliore","d12",5,"musicista"],
 ["Melodie del Musicista","Canto di Bordo","in battaglia navale, per la scena ogni compagno a una postazione aggiunge +1 dado al tiro della sua postazione","d12",4,"musicista"],
+["Melodie del Musicista","Marcia Funebre","richiede il Talento Marcia Funebre · Sostenuta: ogni nemico entro 10 m che ti sente tira Spirito o è Atterrito finché resta in portata, ti sente e continui a suonare","d12",3,"musicista","",1],
 ["Melodie del Musicista","Canzone dell'Anima","Ultimate, 1×/scena — chi della ciurma ti sente, tu compreso, riporta la Stamina al massimo","d20",6,"musicista"],
 ["Area","Soffio","cono di 5 m","d6",0,"area","sagoma"],
 ["Area","Onda","cono di 10 m","d8",1,"area","sagoma"],
@@ -2112,6 +2113,7 @@ function effVeto(e){ // regole trasversali: restituisce il motivo del blocco, o 
   if(TBUILD.forma==="Difesa"&&fam!=="Difesa")return "Forma Difesa: solo effetti Difesa";
   if(TBUILD.forma==="Spostamento"&&fam!=="Spostamento")return "Forma Spostamento: solo effetti Spostamento";
   if(TBUILD.forma==="Canzone"&&fam!=="Melodie del Musicista")return "Forma Canzone: solo Melodie";
+  if(e[1]==="Marcia Funebre"&&!hasTalent("Marcia Funebre"))return "Richiede il Talento Marcia Funebre";
   return "";
 }
 function tecCost(t){let st=0,pt=0;(t.eff||[]).forEach(nm=>{const e=tecEffObj(nm);if(e){st+=e[4];if(e[7])pt+=e[7];}});const d=TEC_DUR.find(x=>x[0]===t.durata);if(d){st+=d[1];pt+=d[2];}st=Math.max(1,st);return{st:st,pt:pt};}
