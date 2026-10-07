@@ -26,7 +26,7 @@ for edit in revisioni:
 # chapter ranges and the talent spans keep pointing at the same text.
 aggiunte=[e for e in revisioni if 'blocchi' in e]
 for e in sorted(aggiunte,key=lambda e:-e['after']):
- blocchi=[dict(type='p',style=x.get('style','Normal'),text=x['text'],aggiunta=True) for x in e['blocchi']]
+ blocchi=[dict(type='table',rows=x['rows'],aggiunta=True) if x.get('type')=='table' else dict(type='p',style=x.get('style','Normal'),text=x['text'],aggiunta=True) for x in e['blocchi']]
  sources[e['source']][e['after']+1:e['after']+1]=blocchi
 def shift(src,i):
  return i+sum(len(e['blocchi']) for e in aggiunte if e['source']==src and e['after']+1<=i)

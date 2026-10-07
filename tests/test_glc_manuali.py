@@ -255,6 +255,21 @@ class ManualConsistency(unittest.TestCase):
                 rendered = env['tabella_html'](table['righe'], table['classe'])
                 self.assertIn('man-tab man-tab-effetti', rendered)
                 self.assertIn('tabindex="0"', rendered)
+            if edit.get('dopo'):
+                # A fresh DOCX does not yet contain the new section. Insert it
+                # at the end of chapter 16 without consuming chapter 17.
+                seed = [env['blocco_p'](f"{edit['dopo']} · Registrare la crescita", 'Heading2'),
+                        env['blocco_p']('Crescita precedente'),
+                        env['blocco_p']('Capitolo 17 · La ciurma', 'Heading1')]
+                with contextlib.redirect_stdout(io.StringIO()):
+                    result = env['applica_correzioni'](seed, {'sezioni': [edit]})
+                self.assertEqual(result[-1]['testo'], 'Capitolo 17 · La ciurma')
+                self.assertEqual(result[1]['testo'], 'Crescita precedente')
+                self.assertEqual(chars(block_text(result[3:-1])), chars(text(actual)))
+                catalogue = next(b for b in result if b['tipo'] == 'tbl' and b.get('classe') == 'man-tab-tratti')
+                rendered = env['tabella_html'](catalogue['righe'], catalogue['classe'])
+                self.assertIn('man-tab-lunga', rendered)
+                self.assertIn('Catalogo dei Tratti Unici', rendered)
         for edit in corrections['sostituzioni']:
             if edit.get('quando') != '2026-10-07':
                 continue
@@ -314,7 +329,7 @@ class ManualConsistency(unittest.TestCase):
         striker = self.base.section('sez-4-2')
         signature = norm(text(subsection(striker, 'Firma · Il colpo sfonda')))
         self.assertIn('1 volta per turno', signature)
-        self.assertIn('non la attivano nuovamente', signature)
+        self.assertRegex(signature, r'non (?:la )?attivano nuovamente')
         pressure = norm(text(subsection(striker, 'Pressione Costante')))
         broken = norm(text(subsection(striker, 'Guardia Rotta')))
         self.assertIn('almeno due volte nel tuo turno', pressure)
@@ -339,6 +354,82 @@ class ManualConsistency(unittest.TestCase):
                 href = node.attrs.get('href', '')
                 if href.startswith('#') and len(href) > 1:
                     self.assertIn(href[1:], ids)
+
+    def test_saving_thresholds_agree_across_sources(self):
+        ordinary = [['d4', '3'], ['d6', '4'], ['d8', '5'], ['d10', '6'], ['d12', '7'], ['d20', '11']]
+        general = list(tables(self.base.section('sez-1-4')))
+        self.assertEqual(general[0][1:], ordinary)
+        self.assertEqual([r[1] for r in general[1][1:]], ['13', '14', '15', '16', '17', '21'])
+        self.assertEqual(next(tables(self.base.section('sez-7-12')))[1:], ordinary)
+        electro = list(tables(self.base.section('sez-3-5')))
+        self.assertIn([['Grado di Electro', 'Soglia di Forza']] + ordinary[1:], electro)
+        songs = norm(text(self.base.section('sez-7-12')))
+        self.assertIn('Canzoni avranno quindi Soglia 5', songs)
+        self.assertIn('strumento d4 e produce quindi normalmente Soglia 3', songs)
+        prestige_tables = list(tables(self.prestige.section('introduzione-la-crescita-oltre-il-d20')))
+        self.assertTrue(any([r[-1] for r in rows[1:]] == ['13', '14', '15', '16', '17', '21'] for rows in prestige_tables))
+        sources = norm(text(self.base.section('sez-1-4')))
+        self.assertIn('La fonte non tira dadi'.lower(), sources.lower())
+        self.assertIn('soltanto il proprio Attributo completo', sources)
+        self.assertIn('raggiunge o supera la Soglia', sources)
+        self.assertIn('fonte originale', sources)
+
+    def test_state_exceptions_and_trap_preparation_survive(self):
+        states = {r[0]: r for rows in tables(self.base.section('sez-6-13')) for r in rows[1:]}
+        for state in ['Sbilanciato', 'Accecato', 'Atterrito', 'Stordito', 'Paralizzato', 'Addormentato', 'Immobilizzato']:
+            self.assertIn('Soglia della fonte', states[state][-1])
+            self.assertNotRegex(states[state][-1], r'Soglia (?:8|10|12)\b')
+        self.assertIn('Non possiede una Salvezza automatica', states['Sanguinante'][-1])
+        self.assertIn('Soglia del veleno', states['Avvelenato'][-1])
+        self.assertIn('prova contrapposta di Forza', states['Trattenuto'][-1])
+        self.assertIn('spendere 1 Azione', states['Schiantato'][-1])
+        control = norm(text(self.base.section('sez-7-8')))
+        self.assertIn('Presa conserva la contesa di Forza anche quando applica Immobilizzato', control)
+        trap = norm(text(self.base.section('sez-4-9')))
+        self.assertIn('Astuzia + Osservazione contro Soglia 10', trap)
+        self.assertIn('Astuzia + Meccanica contro Soglia 10', trap)
+        self.assertIn('al momento della preparazione', trap)
+        self.assertIn('non modifica retroattivamente le trappole', trap)
+        self.assertIn('Salvezza di Forza oppure Tecnica contro la stessa Soglia', trap)
+        signature = norm(text(subsection(self.base.section('sez-4-2'), 'Firma · Il colpo sfonda')))
+        self.assertIn('Forza per Stordito, Tecnica per Sbilanciato', signature)
+        self.assertIn('Grado attuale della Skill di Ruolo', signature)
+
+    def test_trait_catalogue_is_complete_and_acquisition_is_separate(self):
+        trait_section = self.base.section('sez-16-9')
+        rows = next(tables(trait_section))[1:]
+        self.assertEqual(len(rows), 31)
+        self.assertEqual(len({r[0] for r in rows}), 16)
+        self.assertEqual(len({r[2] for r in rows}), 31)
+        detail_names = {norm(n.text()) for n in trait_section if n.tag == 'h4'}
+        self.assertEqual(detail_names, {r[2] for r in rows})
+        rules = norm(text(trait_section))
+        self.assertIn('non significa acquisirlo automaticamente', rules)
+        self.assertIn('normale scelta di Talento concessa da un Upgrade', rules)
+        self.assertIn('non deve essere Skill di Ruolo', rules)
+        self.assertIn('Corpo Mostruoso acquisito', rules)
+        self.assertIn('Il +4 sostituisce il precedente +2', rules)
+        self.assertIn('salvo eccezioni espressamente ammesse nel catalogo', rules)
+        self.assertIn('catalogo dei Tratti Unici di Prestigio verrà definito separatamente', rules)
+        for section in ['sez-2-4', 'sez-2-8', 'sez-16-6', 'sez-16-8']:
+            self.assertIn('16.9', text(self.base.section(section)))
+        for editorial in ['AUDIT ANTI-SOVRAPPOSIZIONE', 'MAPPA OPERATIVA DI INTEGRAZIONE', '52,5%', 'SUCCESSO A PARI GRADO']:
+            for document in [self.base, self.prestige, self.fruit]:
+                self.assertNotIn(editorial, document.root.text())
+
+    def test_fruit_signature_uses_fruit_grade_and_technique_uses_own_grade(self):
+        technique = norm(text(self.base.section('sez-9-5')))
+        self.assertIn('Grado della Tecnica, non direttamente dal Dado del Frutto', technique)
+        nodes = self.base.section('sez-9-7')
+        start = next(i for i, n in enumerate(nodes) if norm(n.text()).startswith('9.7.2 · Firma:'))
+        end = next(i for i, n in enumerate(nodes[start + 1:], start + 1) if norm(n.text()).startswith('9.7.3 ·'))
+        signature = norm(text(nodes[start + 1:end]))
+        self.assertIn('Soglia è determinata dal Dado del Frutto', signature)
+        self.assertIn('colpo pulito della Tecnica resta necessario', signature)
+        fruit_signature = norm(text(self.fruit.section('sez-4-2')))
+        self.assertIn('Soglia è determinata dal Dado del Frutto', fruit_signature)
+        hostile = norm(self.fruit.root.text())
+        self.assertIn('Soglia 11', hostile)
 
 
 if __name__ == '__main__':

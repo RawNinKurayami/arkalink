@@ -347,7 +347,7 @@ testa = testa.replace('<title>Manuale · Grand Line Chronicles</title>',
 testa = re.sub(r'<meta name="description"[^>]+>',
                '<meta name="description" content="Il manuale dei Frutti del Diavolo: Scheda di Identità, '
                'Talenti di Paramecia, Logia e Zoan, Forma di Combattimento e Risveglio.">', testa)
-testa = re.sub(r'href="manuale\.css\?v=\d+"', 'href="/manuale/manuale.css?v=18"', testa)
+testa = re.sub(r'href="manuale\.css\?v=\d+"', 'href="/manuale/manuale.css?v=20"', testa)
 testa += ('<link rel="stylesheet" href="frutti.css?v=2">\n'
           '<script src="reader.js?v=1" defer></script>\n</head>\n'
           '<body class="manuale-frutti">\n<div class="glc-bg" aria-hidden="true"></div>\n')

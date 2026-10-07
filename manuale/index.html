@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
-<link rel="stylesheet" href="manuale.css?v=19">
+<link rel="stylesheet" href="manuale.css?v=20">
 <style>
 /* Il gate del Manuale bloccato resta com'era. */
 #manlock[hidden]{display:none !important;}
@@ -108,7 +108,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <ol class="man-i-sez"><li><a href="#sez-15-1" data-id="sez-15-1">15.1 · Il Legame Nakama</a></li><li><a href="#sez-15-2" data-id="sez-15-2">15.2 · Aiuto Nakama</a></li></ol>
 </li>
 <li class="man-i-cap"><a href="#cap-16" data-id="cap-16"><span class="n">16</span>Avanzamento e Upgrade</a>
-<ol class="man-i-sez"><li><a href="#sez-16-1" data-id="sez-16-1">16.1 · I dadi della progressione</a></li><li><a href="#sez-16-2" data-id="sez-16-2">16.2 · I Punti Abilità</a></li><li><a href="#sez-16-3" data-id="sez-16-3">16.3 · Le soglie di avanzamento</a></li><li><a href="#sez-16-4" data-id="sez-16-4">16.4 · Migliorare gli Attributi</a></li><li><a href="#sez-16-5" data-id="sez-16-5">16.5 · Migliorare le Tecniche</a></li><li><a href="#sez-16-6" data-id="sez-16-6">16.6 · Gli Upgrade</a></li><li><a href="#sez-16-7" data-id="sez-16-7">16.7 · Il ritmo della campagna</a></li><li><a href="#sez-16-8" data-id="sez-16-8">16.8 · Registrare la crescita</a></li></ol>
+<ol class="man-i-sez"><li><a href="#sez-16-1" data-id="sez-16-1">16.1 · I dadi della progressione</a></li><li><a href="#sez-16-2" data-id="sez-16-2">16.2 · I Punti Abilità</a></li><li><a href="#sez-16-3" data-id="sez-16-3">16.3 · Le soglie di avanzamento</a></li><li><a href="#sez-16-4" data-id="sez-16-4">16.4 · Migliorare gli Attributi</a></li><li><a href="#sez-16-5" data-id="sez-16-5">16.5 · Migliorare le Tecniche</a></li><li><a href="#sez-16-6" data-id="sez-16-6">16.6 · Gli Upgrade</a></li><li><a href="#sez-16-7" data-id="sez-16-7">16.7 · Il ritmo della campagna</a></li><li><a href="#sez-16-8" data-id="sez-16-8">16.8 · Registrare la crescita</a></li><li><a href="#sez-16-9" data-id="sez-16-9"><span class="n">16.9</span>Tratti Unici e Sinergie</a></li></ol>
 </li>
     </ol>
     <p class="man-vuoto" id="man-nessuno" hidden>Nessuna voce con questo nome.</p>
@@ -332,7 +332,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <li class="s-sez"><b>16.5</b>Migliorare le Tecniche</li>
 <li class="s-sez"><b>16.6</b>Gli Upgrade</li>
 <li class="s-sez"><b>16.7</b>Il ritmo della campagna</li>
-<li class="s-sez"><b>16.8</b>Registrare la crescita</li>
+<li class="s-sez"><b>16.8</b>Registrare la crescita</li><li class="s-sez"><b>16.9</b>Tratti Unici e Sinergie</li>
       </ol>
     </nav>
 
@@ -540,14 +540,17 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Le regole specifiche stabiliscono quali dadi vengono utilizzati e come viene determinato il vincitore del confronto.</p>
 <p>Il combattimento utilizza questa stessa filosofia, ma con procedure più precise.</p>
 <h4 class="man-lab">Salvezze</h4>
-<p class="man-guida">Una Salvezza rappresenta il tentativo di resistere, evitare o liberarsi da un effetto.</p>
-<p class="man-guida">Quando la capacità indica direttamente l’Attributo da utilizzare, si utilizza quell’Attributo.</p>
-<p class="man-guida">Quando non lo indica, il Game Master sceglie l’Attributo più coerente con ciò che il personaggio sta cercando di contrastare.</p>
-<p class="man-guida">Se la Salvezza viene espressa come confronto contro un’altra capacità, per esempio Forza contro Electro, si effettua una prova contrapposta fra i rispettivi pool.</p>
-<p class="man-guida">In caso di pareggio, prevale sempre chi sta subendo l’effetto.</p>
-<p class="man-guida">Se la capacità possiede invece una Soglia specifica, il risultato della Salvezza deve eguagliare o superare quella Soglia.</p>
-<p class="man-guida">Se non sono indicati né una Soglia né un valore contrapposto, il Game Master stabilisce la difficoltà prima del tiro.</p>
-<p class="man-guida">Veleni, sostanze e altri effetti che dispongono di una propria Soglia utilizzano sempre quella indicata nella rispettiva descrizione.</p>
+<p>Una Salvezza rappresenta il tentativo di resistere, evitare o liberarsi da un effetto. Quando la capacità indica l’Attributo da utilizzare, si usa quell’Attributo; altrimenti il Game Master sceglie quello più coerente.</p>
+<p>Lo Stato stabilisce l’Attributo della Salvezza; la fonte stabilisce la Soglia. Quando l’effetto proviene da una fonte che possiede un Grado, la fonte non tira dadi: il suo Grado determina una Soglia fissa. Il bersaglio tira soltanto il proprio Attributo completo, compreso l’eventuale dado di Prestigio, e riesce se il risultato raggiunge o supera la Soglia.</p>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th>Grado della fonte</th><th>Soglia</th></tr></thead><tbody><tr><td>d4</td><td>3</td></tr><tr><td>d6</td><td>4</td></tr><tr><td>d8</td><td>5</td></tr><tr><td>d10</td><td>6</td></tr><tr><td>d12</td><td>7</td></tr><tr><td>d20</td><td>11</td></tr></tbody></table></div>
+<h4 class="man-lab">Salvezze e Prestigio</h4>
+<p>Una fonte che ha raggiunto il Prestigio usa il proprio Grado completo per determinare la Soglia fissa. La progressione e le regole del Prestigio sono descritte nel Manuale del Prestigio.</p>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th>Grado della fonte</th><th>Soglia</th></tr></thead><tbody><tr><td>d20+d4 · Prestigio I</td><td>13</td></tr><tr><td>d20+d6 · Prestigio II</td><td>14</td></tr><tr><td>d20+d8 · Prestigio III</td><td>15</td></tr><tr><td>d20+d10 · Prestigio IV</td><td>16</td></tr><tr><td>d20+d12 · Prestigio V</td><td>17</td></tr><tr><td>d20+d20 · Saikyō</td><td>21</td></tr></tbody></table></div>
+<h4 class="man-lab">Determinare la fonte</h4>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th>Fonte</th><th>Grado usato per la Soglia</th></tr></thead><tbody><tr><td>Effetto inserito in una Tecnica</td><td>Grado della Tecnica che contiene l’effetto.</td></tr><tr><td>Tecnica Razziale</td><td>Grado attuale della Tecnica Razziale.</td></tr><tr><td>Talento o Firma che applica direttamente uno Stato</td><td>Grado attuale della Skill che governa il Talento o la Firma, salvo indicazione specifica; nel Prestigio si usa il pool completo della Skill.</td></tr><tr><td>Effetto di un Frutto non contenuto in una Tecnica</td><td>Dado del Frutto. Un effetto inserito in una Tecnica del Frutto usa invece il Grado della Tecnica.</td></tr><tr><td>Effetto diretto dell’Haki</td><td>Grado del Colore che produce l’effetto, quando quel Colore possiede un Grado.</td></tr><tr><td>Effetto speciale di un’arma</td><td>Grado effettivamente utilizzabile dell’arma, salvo Soglia propria dell’effetto.</td></tr><tr><td>Canzone del Musicista</td><td>Grado effettivamente utilizzabile dello strumento, salvo evoluzione di Prestigio specifica.</td></tr><tr><td>Oggetto, preparato, veleno o dispositivo con Soglia propria</td><td>Soglia scritta nella scheda: la regola specifica prevale.</td></tr><tr><td>Effetto ambientale senza Grado</td><td>Soglia stabilita dalla regola o dal Game Master prima del tiro.</td></tr></tbody></table></div>
+<p>Il Grado della fonte non può essere scelto liberamente fra le statistiche del personaggio: si usa la componente che contiene o genera meccanicamente lo Stato. Se una regola specifica indica una fonte diversa, prevale quella regola.</p>
+<p>Una Soglia propria, una prova contrapposta o una procedura specifica prevalgono sulla tabella generale. Veleni, sostanze, vincoli fisici e condizioni ambientali conservano la procedura della propria scheda o quella stabilita dal Game Master prima del tiro.</p>
+<p>Se un effetto concede una Salvezza senza specificarne il momento, la prima Salvezza viene effettuata quando lo Stato viene applicato. Se lo Stato permane, il bersaglio può ripeterla alla fine di ciascun proprio turno, salvo indicazione differente. La Soglia rimane quella determinata dalla fonte originale finché quello specifico effetto continua a essere la causa dello Stato. Le nuove applicazioni seguono le normali regole sugli Stati ripetuti e sulle durate (§6.13).</p>
 <h3 class="man-sub">Il margine conta</h3>
 <p>In Grand Line Chronicles non conta soltanto riuscire o fallire.</p>
 <p>In molte situazioni conta anche <b>di quanto</b> il risultato supera il valore necessario.</p>
@@ -1020,6 +1023,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>La crescita della <b>Skill di Ruolo</b> ha inoltre un’importanza particolare, perché permette di raggiungere fasce sempre più alte dell’albero dei Talenti collegato al Ruolo.</p>
 <p>Il personaggio non cresce quindi soltanto aumentando i propri numeri.</p>
 <p>Crescendo nelle Skill, diventa capace di fare <b>cose nuove</b>.</p>
+<h3 class="man-sub">Sinergie e Tratti Unici</h3>
+<p>Lo sviluppo di una Skill può entrare in Sinergia con un Attributo. Una Sinergia è una coppia specifica Attributo + Skill che, al raggiungimento dei Gradi richiesti, rende disponibili Tratti Unici. Una Skill non deve essere Skill di Ruolo per partecipare a una Sinergia. Le regole complete, i requisiti e il Catalogo dei Tratti Unici sono riportati nel §16.9.</p>
 <h2 id="sez-2-5" class="man-sez"><span class="man-sez-n">2.5 ·</span> Punti Vita e Dado Vita</h2>
 <p>I Punti Vita, abbreviati in PV, rappresentano quanto un personaggio può sopportare prima di essere messo fuori combattimento.</p>
 <p>Ferite, colpi, cadute, esplosioni e altri effetti possono ridurre i PV del personaggio.</p>
@@ -1339,6 +1344,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>La formula è:</p>
 <h3 class="man-sub">Difesa Passiva = valore del dado dell’Attributo Razziale + 1</h3>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Attributo Razziale</b></th><th><b>Difesa Passiva</b></th></tr></thead><tbody><tr><td><b>d4</b></td><td><b>5</b></td></tr><tr><td><b>d6</b></td><td><b>7</b></td></tr><tr><td><b>d8</b></td><td><b>9</b></td></tr><tr><td><b>d10</b></td><td><b>11</b></td></tr><tr><td><b>d12</b></td><td><b>13</b></td></tr><tr><td><b>d20</b></td><td><b>21</b></td></tr></tbody></table></div>
+<p>La Difesa Passiva base resta determinata dall’Attributo Razziale. Al valore finale si applicano gli eventuali modificatori espliciti alla DP concessi da Talenti, Haki, Tecniche o Tratti Unici. Corpo Mostruoso concede +2 DP; Fortezza Vivente porta questo bonus a +4, sostituendo il +2 senza sommarsi a esso. Modificatori di fonti differenti si combinano secondo le rispettive regole; le Evoluzioni sostituiscono il beneficio precedente (§16.9).</p>
 <p>Per esempio:</p>
 <div class="man-mappa"><div class="man-riga"><span>Attributo Razziale d8</span> <i class="man-freccia">→</i> <b>Difesa Passiva 9</b></div><div class="man-riga"><span>Attributo Razziale d12</span> <i class="man-freccia">→</i> <b>Difesa Passiva 13</b></div></div>
 <h3 class="man-sub">L’Attributo Razziale</h3>
@@ -2275,12 +2281,14 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Utilizzare Electro costa una Stamina che dipende dal Grado della Tecnica Razziale:</p>
 <div class="man-mappa"><div class="man-riga"><span>Electro d6 e d8</span> <i class="man-freccia">→</i> <b>1 ST</b></div><div class="man-riga"><span>Electro d10 e d12</span> <i class="man-freccia">→</i> <b>2 ST</b></div><div class="man-riga"><span>Electro d20</span> <i class="man-freccia">→</i> <b>3 ST</b></div></div>
 <p>Quando Electro viene applicato, il bersaglio può effettuare:</p>
-<h3 class="man-sub">Salvezza di Forza contro Electro</h3>
+<h3 class="man-sub">Salvezza di Forza contro la Soglia di Electro</h3>
 <p>La Salvezza viene effettuata <b>ogni turno</b> mentre la paralisi rimane attiva.</p>
+<p>La fonte non tira dadi. La Soglia è determinata dal Grado della Tecnica Razziale Electro secondo la tabella seguente.</p>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th>Grado di Electro</th><th>Soglia di Forza</th></tr></thead><tbody><tr><td>d6</td><td>4</td></tr><tr><td>d8</td><td>5</td></tr><tr><td>d10</td><td>6</td></tr><tr><td>d12</td><td>7</td></tr><tr><td>d20</td><td>11</td></tr></tbody></table></div>
 <p>Il Grado della Tecnica Razziale determina durata ed eventuali danni aggiuntivi.</p>
 <h3 class="man-sub">Progressione di Electro</h3>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Grado</b></th><th><b>Costo</b></th><th><b>Effetto</b></th></tr></thead><tbody><tr><td><b>d6</b></td><td><b>1 ST</b></td><td>Paralisi per <b>1 turno</b></td></tr><tr><td><b>d8</b></td><td><b>1 ST</b></td><td>Paralisi per <b>2 turni</b></td></tr><tr><td><b>d10</b></td><td><b>2 ST</b></td><td>Paralisi per <b>3 turni</b></td></tr><tr><td><b>d12</b></td><td><b>2 ST</b></td><td>Paralisi per <b>3 turni</b> + <b>1d6 danni per turno</b></td></tr><tr><td><b>d20</b></td><td><b>3 ST</b></td><td>Paralisi per <b>3 turni</b> + <b>1d8 danni per turno</b></td></tr></tbody></table></div>
-<p>A ogni turno interessato dall'effetto, il bersaglio può tentare la propria <b>Salvezza di Forza contro Electro</b>.</p>
+<p>A ogni turno interessato dall’effetto, il bersaglio può tentare una Salvezza di Forza contro la Soglia fissata dal Grado di Electro al momento dell’applicazione.</p>
 <h3 class="man-sub">d6 · Electro</h3>
 <p>Alla sua forma iniziale:</p>
 <h3 class="man-sub">Electro d6</h3>
@@ -2959,7 +2967,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Il Tratto comprende inoltre una particolare predisposizione per prese e atterramenti. Questa descrizione non introduce, da sola, un bonus numerico aggiuntivo: gli effetti specifici vengono definiti dalle regole delle prese e dai Talenti acquisiti.</p>
 <h3 class="man-sub">Firma · Il colpo sfonda</h3>
 <p>(Sempre attiva · Gratuita · 1 volta per turno)</p>
-<p>Quando uno Striker ottiene un colpo pulito con margine +4 con un colpo dello Stile, il bersaglio subisce Stordito oppure Sbilanciato per 1 turno. Dopo che la Firma si è attivata una volta, ulteriori colpi puliti ottenuti dallo stesso Striker durante quel turno non la attivano nuovamente.</p>
+<p>Quando uno Striker ottiene un colpo pulito con margine +4 con un colpo dello Stile, può attivare Il Colpo Sfonda al massimo 1 volta per turno. Il bersaglio subisce Stordito oppure Sbilanciato per 1 turno se fallisce la relativa Salvezza: Forza per Stordito, Tecnica per Sbilanciato. La Soglia è determinata dal Grado attuale della Skill di Ruolo dello Striker (§1.4). Dopo un’attivazione, ulteriori colpi puliti ottenuti dallo stesso Striker durante quel turno non attivano nuovamente la Firma.</p>
 <p>La Firma si applica ai colpi dello Stile e non richiede di essere acquistata come Talento. Il personaggio può utilizzarla fin dalla creazione.</p>
 <p>La limitazione riguarda soltanto la Firma. Pressione Costante e Guardia Rotta continuano a verificare normalmente le proprie condizioni.</p>
 <h3 class="man-sub">Albero dei Talenti Striker</h3>
@@ -3529,6 +3537,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Quando una dose viene effettivamente somministrata, viene consumata indipendentemente dall’esito della Salvezza.</p>
 <h4 class="man-lab">Potenza e durata delle tossine</h4>
 <p>Ogni veleno o sedativo possiede la propria Soglia.</p>
+<p>La Soglia registrata nella scheda della sostanza è una regola specifica e prevale sulla tabella generale delle fonti graduate. Sedativi Efficaci, Tossine Raffinate e capacità analoghe continuano a modificarla secondo il proprio testo.</p>
 <p>Le Salvezze utilizzano l’Attributo indicato dalla sostanza. Quando si tratta di un normale veleno introdotto nell’organismo e non viene indicato diversamente, si utilizza Forza contro la Soglia del veleno, come previsto dalle regole dello Stato Avvelenato.</p>
 <p>Gli effetti con una durata numerica devono indicarla in turni, round o altra unità precisa.</p>
 <p>Una durata espressa come ‘fino a un antidoto’, ‘per la scena’ o attraverso un’altra condizione non viene considerata una durata numerica.</p>
@@ -3665,20 +3674,24 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Utilizzare un preparato consuma normalmente una dose.</p>
 <p>Salvo diversa indicazione, richiede un’Azione.</p>
 <p>Un preparato lanciabile possiede una portata ordinaria di 10 metri.</p>
-<b>Preparato a bersaglio diretto:</b> effettua Tecnica + Medicina contro la Difesa Passiva del bersaglio, salvo che la scheda indichi una formula differente.
+<p><b>Preparato a bersaglio diretto:</b> effettua Tecnica + Medicina contro la Difesa Passiva del bersaglio, salvo che la scheda indichi una formula differente.
+</p>
 <p>Se l’attacco manca, la dose lanciata viene comunque consumata.</p>
-<b>Preparato ad Area:</b> scegli un punto visibile e raggiungibile entro la Portata. Non effettui un tiro per colpire; i bersagli nell’Area risolvono invece la Salvezza indicata dal preparato.
+<p><b>Preparato ad Area:</b> scegli un punto visibile e raggiungibile entro la Portata. Non effettui un tiro per colpire; i bersagli nell’Area risolvono invece la Salvezza indicata dal preparato.
+</p>
 <p>Pareti e ostacoli solidi bloccano normalmente la propagazione di un’Area.</p>
 <p>Tutte le creature nell’Area sono coinvolte, alleati compresi, salvo che una capacità permetta espressamente di escluderle.</p>
 <h4 class="man-lab">Firma · La reazione dilaga</h4>
 <p>Sempre attiva · Gratuita</p>
 <p>Quando ottieni un margine di almeno +4 nella Prova di preparazione di un preparato, scegli uno dei seguenti benefici.</p>
-<b>Diffusione.</b> Se il preparato era offensivo e destinato a un singolo bersaglio, diventa un preparato ad Area con cerchio di raggio 3 metri.
+<p><b>Diffusione.</b> Se il preparato era offensivo e destinato a un singolo bersaglio, diventa un preparato ad Area con cerchio di raggio 3 metri.
+</p>
 <p>Il punto d’origine rimane quello normalmente previsto dal preparato.</p>
 <p>Essendo diventato un effetto ad Area:</p>
 <ul class="man-punti"><li>I bersagli subiscono metà del normale danno.</li><li>Gli Stati e gli altri effetti che lo prevedono concedono la normale Salvezza.</li></ul>
 <p>Diffusione non si applica a preparati già ad Area, antidoti, tonici, strumenti da contatto o cariche da piazzare.</p>
-<b>Produzione Aggiuntiva.</b> Ottieni una seconda dose identica del preparato senza consumare ingredienti aggiuntivi.
+<p><b>Produzione Aggiuntiva.</b> Ottieni una seconda dose identica del preparato senza consumare ingredienti aggiuntivi.
+</p>
 <p>La dose aggiuntiva viene prodotta nello stesso momento della dose originale e possiede la stessa scheda.</p>
 <p>La scelta viene effettuata al termine della Prova di preparazione.</p>
 <h4 class="man-lab">Talenti d8 · Mozzo</h4>
@@ -3726,8 +3739,10 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Azione · 2 ST · massimo 2 volte per scontro</p>
 <p>Scegli un preparato che conosci e di cui possiedi tutti gli ingredienti necessari per una dose.</p>
 <p>Consuma immediatamente i materiali ed effettua la normale Prova di preparazione contro la Soglia del preparato.</p>
-<b>Successo:</b> produci una dose con tutte le caratteristiche già registrate nella sua scheda.
-<b>Fallimento:</b> la dose non viene prodotta; materiali e ST rimangono consumati.
+<p><b>Successo:</b> produci una dose con tutte le caratteristiche già registrate nella sua scheda.
+</p>
+<p><b>Fallimento:</b> la dose non viene prodotta; materiali e ST rimangono consumati.
+</p>
 <p>Miscela al Volo sostituisce il normale tempo di preparazione, ma non modifica Soglia, ingredienti o statistiche del preparato.</p>
 <p>L’Azione utilizzata produce la dose: non la utilizza automaticamente.</p>
 <p>Per lanciarla, applicarla o piazzarla devi successivamente utilizzare l’Azione normalmente richiesta.</p>
@@ -4190,10 +4205,11 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <ul class="man-elenco"><li>Trappola Meccanica</li><li>Preparazione · 5 minuti</li></ul>
 <p>Utilizzando strumenti e materiali appropriati, puoi installare una trappola in un punto, un passaggio oppure su un oggetto.</p>
 <p>Puoi mantenere al massimo due trappole innescate contemporaneamente.</p>
-<b>Individuarla.</b> Un personaggio che cerca attivamente la trappola effettua Astuzia + Osservazione contro Soglia 10.
-<b>Disinnescarla.</b> Richiede un’Azione e Astuzia + Meccanica contro Soglia 10.
-<b>Attivazione.</b> Il primo nemico che soddisfa il trigger della trappola effettua una Salvezza di Tecnica contro Soglia 10. Se riesce, evita l’effetto. Se fallisce, diventa Sbilanciato e Trattenuto.
-<b>Liberarsi.</b> Il bersaglio Trattenuto può spendere un’Azione ed effettuare Forza oppure Tecnica contro Soglia 10. In caso di successo si libera.
+<p><b>Individuarla.</b> Un personaggio che cerca attivamente la trappola effettua Astuzia + Osservazione contro Soglia 10.</p>
+<p><b>Disinnescarla.</b> Richiede un’Azione e Astuzia + Meccanica contro Soglia 10.</p>
+<p>Attivazione. Il primo nemico che soddisfa il trigger della trappola effettua una Salvezza di Tecnica contro la Soglia determinata dal Grado di Meccanica del creatore al momento della preparazione (§1.4). Se riesce, evita l’effetto; se fallisce, diventa Sbilanciato e Trattenuto.</p>
+<p>Liberarsi. Il bersaglio Trattenuto può spendere un’Azione ed effettuare una Salvezza di Forza oppure Tecnica contro la stessa Soglia della trappola. In caso di successo si libera. Questa procedura specifica prevale sulla normale contesa di Trattenuto.</p>
+<p>La trappola conserva la Soglia determinata al momento della preparazione; un successivo aumento di Meccanica non modifica retroattivamente le trappole già preparate.</p>
 <p>Una trappola scattata deve essere nuovamente preparata prima di poter funzionare ancora.</p>
 <ul class="man-elenco"><li>Sabotaggio Profondo</li><li>Prerequisito: Sabotaggio</li><li>Azione</li></ul>
 <p>Quando raggiungi fisicamente un Modulo, un punto di comando oppure un collegamento essenziale della nave nemica, puoi tentare di metterlo completamente fuori uso.</p>
@@ -4957,7 +4973,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Le Tecniche, le Firme, i Talenti, i veleni e altre capacità possono applicare degli Stati.</p>
 <p class="man-guida">Quando una capacità modifica espressamente durata, danno, Salvezza o funzionamento di uno Stato, la regola specifica prevale su quella generale riportata qui.</p>
 <p class="man-guida">Se un effetto concede una Salvezza senza specificarne il momento, la prima Salvezza viene effettuata quando lo Stato viene applicato. Se lo Stato permane, il bersaglio può ripetere la Salvezza alla fine di ciascun proprio turno, salvo indicazione differente.</p>
-<div class="man-tab-wrap man-tab-lunga"><table class="man-tab"><thead><tr><th><b>Stato</b></th><th><b>Effetto</b></th><th><b>Danno</b></th><th><b>Salvezza / Rimozione</b></th></tr></thead><tbody><tr><td><b>Sbilanciato</b></td><td>Il personaggio non può utilizzare Reazioni.</td><td>—</td><td>Tecnica, Soglia 8.</td></tr><tr><td><b>Sanguinante</b></td><td>Il personaggio continua a perdere sangue finché la ferita non viene trattata.</td><td>1d4 PV all’inizio del proprio turno.</td><td>Non possiede una Salvezza automatica. Richiede Medicina, una Cura appropriata o una capacità che tratti espressamente l’emorragia. Un effetto generico che rimuove Stati negativi non ferma automaticamente un’emorragia ancora attiva.</td></tr><tr><td><b>Avvelenato</b></td><td>Il personaggio subisce gli effetti della sostanza che lo ha avvelenato.</td><td>Se il veleno non indica un danno proprio, 1d6 PV all’inizio del turno.</td><td>Forza contro la Soglia del veleno. Ogni veleno può possedere danni, effetti e Soglie differenti.</td></tr><tr><td><b>Accecato</b></td><td>Gli attacchi e le Prove che dipendono dalla vista vengono effettuati con Svantaggio. Non può utilizzare normalmente capacità che richiedono una linea di vista chiara.</td><td>—</td><td>Tecnica, Soglia 8.</td></tr><tr><td><b>Atterrito</b></td><td>Non può avvicinarsi volontariamente alla fonte della paura e i suoi attacchi vengono effettuati con Svantaggio.</td><td>—</td><td>Spirito, Soglia 8.</td></tr><tr><td><b>Stordito</b></td><td>Non può utilizzare Azione, Azione Bonus o Reazione. Può ancora utilizzare il proprio Movimento.</td><td>—</td><td>Forza, Soglia 10.</td></tr><tr><td><b>Paralizzato</b></td><td>Non può utilizzare Movimento, Azione, Azione Bonus o Reazione.</td><td>—</td><td>Forza, Soglia 12.</td></tr><tr><td><b>Addormentato</b></td><td>Non può utilizzare Movimento, Azione, Azione Bonus o Reazione.</td><td>—</td><td>Spirito, Soglia 10. Subire danni o un effetto che dichiara di svegliare il bersaglio termina lo Stato.</td></tr><tr><td><b>Immobilizzato</b></td><td>Il Movimento è 0. Il personaggio può continuare a compiere le altre azioni consentite.</td><td>—</td><td>Forza oppure Tecnica, secondo il modo in cui tenta di liberarsi, Soglia 8.</td></tr><tr><td><b>Trattenuto</b></td><td>Il personaggio non può allontanarsi volontariamente dalla creatura o dall’effetto che lo trattiene.</td><td>—</td><td>Normalmente prova contrapposta di Forza contro la fonte della Presa.</td></tr><tr><td><b>Schiantato</b></td><td>Il personaggio è stato abbattuto a terra. Non può muoversi normalmente finché non si rialza.</td><td>—</td><td>Non richiede Salvezza: per rialzarsi deve spendere 1 Azione.</td></tr></tbody></table></div>
+<p>Per gli Stati che concedono Salvezza, l’Attributo è indicato qui; la Soglia deriva dalla fonte originale secondo §1.4 e rimane fissata finché quella causa persiste. Le Soglie proprie e le procedure specifiche prevalgono.</p>
+<div class="man-tab-wrap man-tab-lunga" tabindex="0" role="region" aria-label="Stati e Salvezze"><table class="man-tab man-tab-stati"><thead><tr><th><b>Stato</b></th><th><b>Effetto</b></th><th><b>Danno</b></th><th><b>Salvezza / Rimozione</b></th></tr></thead><tbody><tr><td><b>Sbilanciato</b></td><td>Il personaggio non può utilizzare Reazioni.</td><td>—</td><td>Tecnica contro la Soglia della fonte.</td></tr><tr><td><b>Sanguinante</b></td><td>Il personaggio continua a perdere sangue finché la ferita non viene trattata.</td><td>1d4 PV all’inizio del proprio turno.</td><td>Non possiede una Salvezza automatica. Richiede Medicina, una Cura appropriata o una capacità che tratti espressamente l’emorragia. Un effetto generico che rimuove Stati negativi non ferma automaticamente un’emorragia ancora attiva.</td></tr><tr><td><b>Avvelenato</b></td><td>Il personaggio subisce gli effetti della sostanza che lo ha avvelenato.</td><td>Se il veleno non indica un danno proprio, 1d6 PV all’inizio del turno.</td><td>Forza contro la Soglia del veleno. Ogni veleno può possedere danni, effetti e Soglie differenti.</td></tr><tr><td><b>Accecato</b></td><td>Gli attacchi e le Prove che dipendono dalla vista vengono effettuati con Svantaggio. Non può utilizzare normalmente capacità che richiedono una linea di vista chiara.</td><td>—</td><td>Tecnica contro la Soglia della fonte.</td></tr><tr><td><b>Atterrito</b></td><td>Non può avvicinarsi volontariamente alla fonte della paura e i suoi attacchi vengono effettuati con Svantaggio.</td><td>—</td><td>Spirito contro la Soglia della fonte.</td></tr><tr><td><b>Stordito</b></td><td>Non può utilizzare Azione, Azione Bonus o Reazione. Può ancora utilizzare il proprio Movimento.</td><td>—</td><td>Forza contro la Soglia della fonte.</td></tr><tr><td><b>Paralizzato</b></td><td>Non può utilizzare Movimento, Azione, Azione Bonus o Reazione.</td><td>—</td><td>Forza contro la Soglia della fonte.</td></tr><tr><td><b>Addormentato</b></td><td>Non può utilizzare Movimento, Azione, Azione Bonus o Reazione.</td><td>—</td><td>Spirito contro la Soglia della fonte. Subire danni o un effetto che dichiara di svegliare il bersaglio termina normalmente lo Stato.</td></tr><tr><td><b>Immobilizzato</b></td><td>Il Movimento è 0. Il personaggio può continuare a compiere le altre azioni consentite.</td><td>—</td><td>Forza oppure Tecnica, secondo il modo in cui tenta di liberarsi, contro la Soglia della fonte o la Soglia specifica del vincolo. Una Presa risolta con contesa mantiene la propria procedura.</td></tr><tr><td><b>Trattenuto</b></td><td>Il personaggio non può allontanarsi volontariamente dalla creatura o dall’effetto che lo trattiene.</td><td>—</td><td>Normalmente prova contrapposta di Forza contro la fonte della Presa; non usa automaticamente la tabella delle Soglie. Una procedura specifica, come Trappola Meccanica, prevale.</td></tr><tr><td><b>Schiantato</b></td><td>Il personaggio è stato abbattuto a terra. Non può muoversi normalmente finché non si rialza.</td><td>—</td><td>Nessuna Salvezza generale per rialzarsi: spendere 1 Azione. Se una capacità concede espressamente una Salvezza per evitare Schiantato, usa la Soglia della fonte.</td></tr></tbody></table></div>
 <h4 class="man-lab">6.13.1 · Stato e causa dello Stato</h4>
 <p class="man-guida">Lo Stato applicato a un personaggio e la causa che lo produce sono due elementi differenti.</p>
 <p class="man-guida">Un effetto che permette di rimuovere uno Stato negativo elimina normalmente soltanto uno Stato rimovibile.</p>
@@ -5100,6 +5117,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h4 class="man-lab">Carica non è la Corsa</h4>
 <p>Carica è una preparazione offensiva: il personaggio rinuncia al turno previsto e deve evitare di essere colpito per ottenere i benefici nel turno successivo. Non introduce un’Azione Corsa e non raddoppia liberamente il Movimento.</p>
 <h4 class="man-lab">7.8.2 · Controllo</h4>
+<p>Quando un effetto della Tecnica applica uno Stato che concede Salvezza, la Soglia è determinata dal Grado della Tecnica (§1.4). Vale anche per i profili speciali Accecante, Terrore, Paralisi e Sopore, quando la Fonte li autorizza. Presa conserva la contesa di Forza anche quando applica Immobilizzato; Lacerazione e Sanguinante non concedono Salvezza automatica. Le sostanze mantengono la propria Soglia specifica.</p>
 <div class="man-tab-wrap" tabindex="0" role="region" aria-label="Catalogo degli effetti"><table class="man-tab man-tab-effetti"><thead><tr><th>Effetto</th><th>Grado min.</th><th>Costo</th><th>Stile</th><th>Funzionamento</th></tr></thead><tbody><tr><td>Sbilancio</td><td>d6</td><td>1 ST</td><td>Striker, Crusher</td><td>Applica Sbilanciato secondo le regole dello Stato.</td></tr><tr><td>Lacerazione</td><td>d6</td><td>1 ST</td><td>Swordsman, Sniper</td><td>Applica Sanguinante; lo stesso Stato non si cumula con sé stesso.</td></tr><tr><td>Presa</td><td>d8</td><td>1 ST/turno</td><td>Striker</td><td>Immobilizza finché mantenuta fisicamente; contesa di Forza ogni turno.</td></tr><tr><td>Sfondamento</td><td>d8</td><td>2 ST</td><td>Striker, Crusher</td><td>Applica Stordito per 1 turno; concede Salvezza secondo le regole dello Stato.</td></tr></tbody></table></div>
 <h4 class="man-lab">Presa</h4>
 <p>Quando la Tecnica applica Presa, spendi 1 ST. Il bersaglio rimane Immobilizzato finché mantieni fisicamente la presa e continui a pagarne il costo. All’inizio di ogni tuo turno successivo, prima di agire, puoi spendere 1 ST per mantenerla; se non lo fai, termina immediatamente. Ogni turno viene inoltre risolta la normale contesa di Forza prevista dall’effetto. La Tecnica deve permettere realmente di afferrare e trattenere il bersaglio.</p>
@@ -5146,7 +5164,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>La Gittata è facoltativa e occupa uno slot Effetto. Senza Gittata, l’Area speciale parte dal personaggio e può coinvolgerlo direttamente. Area Ravvicinata non può ricevere Gittata.</p>
 <p>Soltanto un’Area speciale dotata di Gittata può essere utilizzata oltre la propria fascia di distanza con Soglia aumentata di 4, se compatibile con la Fonte. Questa regola non proietta Area Ravvicinata e non concede una gittata superiore alle armi Sniper: quella deriva dall’arma e dalle capacità che la estendono.</p>
 <h4 class="man-lab">7.9.3 · Danni e Stati ad Area</h4>
-<p>I bersagli interessati dalla Tecnica ad Area subiscono metà del danno. Gli Stati applicati attraverso l’Area concedono una Salvezza. Queste regole valgono anche per Area Ravvicinata, salvo un’eccezione espressa di una capacità specifica.</p>
+<p>I bersagli interessati dalla Tecnica ad Area subiscono metà del danno. Per gli Stati applicati attraverso l’Area che concedono Salvezza, la Soglia è determinata dal Grado della Tecnica che genera l’Area. Sanguinante, sostanze e Prese conservano le proprie procedure specifiche. Queste regole valgono anche per Area Ravvicinata, salvo un’eccezione espressa di una capacità specifica.</p>
 <h4 class="man-lab">7.9.4 · Occhio del Ciclone</h4>
 <p>Profilo speciale: d12, 1 ST, uno slot Effetto salvo eccezioni espresse. Permette di scegliere quali bersagli non vengono colpiti da una Tecnica ad Area già autorizzata. Non concede da solo l’accesso alla Forma Area e non amplia il catalogo ordinario degli Stili. Il Talento Nessuno dei Miei modifica slot, costo e requisito per le Tecniche del Frutto secondo le proprie regole.</p>
 <h2 id="sez-7-10" class="man-sez"><span class="man-sez-n">7.10 ·</span> Zone Persistenti</h2>
@@ -5178,7 +5196,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">La Cortina non è automaticamente una barriera fisica: impedire la vista non significa impedire il passaggio.</p>
 <h4 class="man-lab">Prigione</h4>
 <p class="man-guida">Prigione trattiene i bersagli presenti nella Zona.</p>
-<p class="man-guida">Un personaggio intrappolato deve superare la Salvezza prevista per riuscire a uscire.</p>
+<p>Un personaggio intrappolato deve superare una Salvezza con l’Attributo coerente con la forma della prigione contro la Soglia determinata dal Grado della Tecnica (§1.4). Una scheda specifica può indicare un Attributo, una Soglia o una procedura differente.</p>
 <p class="man-guida">La forma concreta della prigione dipende dalla Tecnica: radici, pietra, ghiaccio, materia adesiva o altri elementi compatibili.</p>
 <h2 id="sez-7-11" class="man-sez"><span class="man-sez-n">7.11 ·</span> Effetti Concatenati</h2>
 <p>Gli Effetti Concatenati ordinari sono Schianto, Rimbalzo e Catena. Aggancio è rimosso. Il catalogo resta limitato agli Stili indicati.</p>
@@ -5208,10 +5226,10 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Una Canzone non attiva la Firma del Musicista attraverso un margine +4, poiché il Musicista non effettua un tiro per eseguirla.</p>
 <h4 class="man-lab">Soglia delle Canzoni</h4>
 <p class="man-guida">Quando una Canzone richiede una Salvezza, la sua Soglia è determinata dal Grado effettivamente utilizzato dello strumento musicale.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Grado dello strumento</b></th><th><b>Soglia</b></th></tr></thead><tbody><tr><td>d4</td><td>4</td></tr><tr><td>d6</td><td>6</td></tr><tr><td>d8</td><td>8</td></tr><tr><td>d10</td><td>10</td></tr><tr><td>d12</td><td>12</td></tr><tr><td>d20</td><td>20</td></tr></tbody></table></div>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Grado dello strumento</b></th><th><b>Soglia</b></th></tr></thead><tbody><tr><td>d4</td><td>3</td></tr><tr><td>d6</td><td>4</td></tr><tr><td>d8</td><td>5</td></tr><tr><td>d10</td><td>6</td></tr><tr><td>d12</td><td>7</td></tr><tr><td>d20</td><td>11</td></tr></tbody></table></div>
 <p class="man-guida">Il Grado effettivamente utilizzabile dello strumento non può superare Arte.</p>
-<p class="man-guida">Esempio: un Musicista con Arte d8 che possiede uno strumento d12 utilizza temporaneamente quello strumento come d8; le sue Canzoni avranno quindi Soglia 8.</p>
-<p class="man-guida">La voce rimane sempre disponibile come strumento d4 e produce quindi normalmente Soglia 4.</p>
+<p>Esempio: un Musicista con Arte d8 che possiede uno strumento d12 utilizza temporaneamente quello strumento come d8; le sue Canzoni avranno quindi Soglia 5.</p>
+<p>La voce rimane sempre disponibile come strumento d4 e produce quindi normalmente Soglia 3.</p>
 <p class="man-guida">La Salvezza utilizza l’Attributo indicato dalla Melodia o dallo Stato applicato.</p>
 <p class="man-guida">Se la Melodia non specifica un Attributo ma agisce sulla volontà, sull’emotività o sulla mente del bersaglio, utilizza normalmente Spirito.</p>
 <h4 class="man-lab">7.12.1 · Catalogo delle Melodie</h4>
@@ -5244,7 +5262,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Se viene perso o distrutto lo strumento utilizzato, la Canzone termina. Il Musicista può intonare successivamente una nuova Canzone utilizzando la voce o un altro strumento disponibile.</p>
 <h4 class="man-lab">Portata e ascolto</h4>
 <p class="man-guida">Salvo che una Melodia indichi una portata differente, una Canzone possiede una portata ordinaria di:</p>
-<b>20 metri</b>
+<p><b>20 metri</b>
+</p>
 <p class="man-guida">Essere entro la distanza non è sufficiente: il destinatario deve anche poter sentire realmente la musica.</p>
 <p class="man-guida">Non è necessaria una linea di vista.</p>
 <p class="man-guida">Pareti spesse, ambienti completamente isolati, silenzio soprannaturale o altri ostacoli che impediscono realmente al suono di raggiungere il bersaglio bloccano la Canzone.</p>
@@ -5741,6 +5760,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Le Tecniche del Frutto pagano la Stamina prevista dai propri effetti.</p>
 <p class="man-guida">Il fatto di possedere un Frutto non rende automaticamente gratuite tutte le Tecniche che ne derivano.</p>
 <p class="man-guida">Talenti specifici possono ridurre o eliminare determinati costi.</p>
+<p>Quando un effetto inserito in una Tecnica del Frutto applica uno Stato che concede Salvezza, la Soglia è determinata dal Grado della Tecnica, non direttamente dal Dado del Frutto (§1.4 del Manuale del Gioco).</p>
 <h2 id="sez-9-6" class="man-sez"><span class="man-sez-n">9.6 ·</span> I Talenti del Frutto</h2>
 <p class="man-guida">Ogni tipo di Frutto possiede un Albero dedicato.</p>
 <p class="man-guida">I Talenti si acquisiscono attraverso gli Upgrade, scegliendo tra quelli disponibili in base al Dado del Frutto e rispettando gli eventuali prerequisiti.</p>
@@ -5766,6 +5786,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Può trattarsi di un'alterazione del terreno, di uno stato oppure di una zona che rimane dopo l'impatto.</p>
 <p class="man-guida">L'applicazione concreta viene definita insieme al Game Master secondo il potere posseduto.</p>
 <p class="man-guida">La Firma non concede al giocatore l'accesso permanente a ogni effetto del Catalogo: rappresenta la conseguenza speciale del colpo pulito.</p>
+<p>Se la conseguenza della Firma è uno Stato che concede Salvezza, la Soglia è determinata dal Dado del Frutto (§1.4 del Manuale del Gioco), perché lo Stato è prodotto dalla Firma e non selezionato come effetto della Tecnica. Il colpo pulito della Tecnica resta necessario.</p>
 <h4 class="man-lab">9.7.3 · d4–d6: Il Dono</h4>
 <h4 class="man-lab">Potere Versatile</h4>
 <h4 class="man-lab">Passivo</h4>
@@ -5794,7 +5815,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h4 class="man-lab">1 volta per scontro</h4>
 <h4 class="man-lab">0 ST</h4>
 <p class="man-guida">Quando tu o un alleato entro 5 metri state per subire danno da un attacco, il Frutto reagisce istintivamente.</p>
-<p class="man-guida">Tutti i Dadi Danno dell&#x27;attacco vengono ridotti di:</p>
+<p class="man-guida">Tutti i Dadi Danno dell'attacco vengono ridotti di:</p>
 <p class="man-guida"><b>1 Grado</b></p>
 <p class="man-guida">Progressione:</p>
 <div class="man-mappa"><div class="man-riga"><span>d20</span> <i class="man-freccia">→</i> <b>d12</b></div><div class="man-riga"><span>d12</span> <i class="man-freccia">→</i> <b>d10</b></div><div class="man-riga"><span>d10</span> <i class="man-freccia">→</i> <b>d8</b></div><div class="man-riga"><span>d8</span> <i class="man-freccia">→</i> <b>d6</b></div><div class="man-riga"><span>d6</span> <i class="man-freccia">→</i> <b>d4</b></div></div>
@@ -5807,10 +5828,10 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h4 class="man-lab">Talento attivo · Azione Bonus</h4>
 <p class="man-guida">Durante la stessa Azione puoi effettuare due differenti applicazioni del tuo Frutto.</p>
 <p class="man-guida">Soltanto una delle due può essere un attacco o produrre direttamente un effetto offensivo.</p>
-<p class="man-guida">La seconda applicazione deve essere narrativa o di utilità e può, per esempio, permettere di manipolare un oggetto, produrre una piccola quantità della propria sostanza, modificare un elemento dello scenario oppure utilizzare un&#x27;altra proprietà non offensiva del Frutto.</p>
+<p class="man-guida">La seconda applicazione deve essere narrativa o di utilità e può, per esempio, permettere di manipolare un oggetto, produrre una piccola quantità della propria sostanza, modificare un elemento dello scenario oppure utilizzare un'altra proprietà non offensiva del Frutto.</p>
 <p class="man-guida">Doppio Uso non concede due attacchi, due Tecniche offensive o due differenti applicazioni di danno durante la stessa Azione.</p>
 <p class="man-guida">Il Talento costa 2 ST una sola volta.</p>
-<p class="man-guida">L&#x27;eventuale Tecnica utilizzata paga normalmente i propri costi.</p>
+<p class="man-guida">L'eventuale Tecnica utilizzata paga normalmente i propri costi.</p>
 <p class="man-guida">La seconda applicazione paga un costo separato soltanto se la capacità utilizzata ne prevede già uno.</p>
 <h4 class="man-lab">Ciò che Resta</h4>
 <h4 class="man-lab">Passivo</h4>
@@ -5852,8 +5873,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h4 class="man-lab">Limitazioni</h4>
 <p class="man-guida">Eventuali condizioni necessarie per utilizzare la Forma.</p>
 <p class="man-guida">Il beneficio deve derivare da una capacità già posseduta dal Frutto e deve riguardare principalmente il personaggio stesso.</p>
-<p class="man-guida">Può migliorare, per esempio, mobilità, capacità offensiva, capacità difensiva oppure un&#x27;altra caratteristica personale coerente con il potere.</p>
-<p class="man-guida">Forma di Combattimento non concede una nuova Applicazione del Frutto e non permette normalmente di modificare l&#x27;ambiente, ampliare le categorie di bersagli o superare importanti Limitazioni strutturali.</p>
+<p class="man-guida">Può migliorare, per esempio, mobilità, capacità offensiva, capacità difensiva oppure un'altra caratteristica personale coerente con il potere.</p>
+<p class="man-guida">Forma di Combattimento non concede una nuova Applicazione del Frutto e non permette normalmente di modificare l'ambiente, ampliare le categorie di bersagli o superare importanti Limitazioni strutturali.</p>
 <p class="man-guida">Una volta definita, la Forma rimane invariata e non può cambiare beneficio a ogni utilizzo.</p>
 <p class="man-guida">Normalmente la Forma può rimanere attiva per l’intera scena finché il personaggio ne sostiene il costo: se non può più pagare il mantenimento previsto, termina.</p>
 <p class="man-guida">La linea guida completa per costruire una Forma di Combattimento si trova nel Manuale dei Frutti del Diavolo.</p>
@@ -7804,6 +7825,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Aumentare il Grado non aggiunge automaticamente nuovi effetti: la Tecnica deve essere modificata attraverso il Costruttore.</p>
 <h2 id="sez-16-6" class="man-sez"><span class="man-sez-n">16.6 ·</span> Gli Upgrade</h2>
 <p class="man-guida">Un Upgrade rappresenta un momento decisivo della crescita del personaggio.</p>
+<h3 class="man-sub">Tratti Unici e Upgrade</h3>
+<p>Quando un Attributo e una Skill raggiungono i requisiti di una Sinergia, il relativo Tratto Unico diventa disponibile. Lo sblocco non equivale all’acquisizione. Un Tratto Unico disponibile può essere acquisito utilizzando la normale scelta di Talento concessa da un Upgrade. Se più Tratti vengono sbloccati contemporaneamente, diventano tutti disponibili, ma ciascuno deve essere acquisito separatamente (§16.9).</p>
 <p class="man-guida">Può essere concesso alla conclusione di un arco narrativo, dopo un'impresa importante o in seguito a un evento che cambia profondamente il pirata.</p>
 <p class="man-guida">Non viene assegnato automaticamente dopo un numero prestabilito di combattimenti.</p>
 <p class="man-guida">È il Game Master a stabilire quando la storia giustifica un Upgrade.</p>
@@ -7816,12 +7839,161 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">È importante che i giocatori conoscano il ritmo previsto: investire 400 P.A. per raggiungere d20 è una scelta differente in una campagna destinata a durare anni rispetto a una storia di poche sessioni.</p>
 <h2 id="sez-16-8" class="man-sez"><span class="man-sez-n">16.8 ·</span> Registrare la crescita</h2>
 <p class="man-guida">La gestione del pirata permette di tenere traccia dei P.A., dei dadi, degli Upgrade e dei Talenti acquisiti.</p>
+<h3 class="man-sub">Sinergie nella crescita</h3>
+<p>Quando aumenta il Grado di un Attributo o di una Skill, verifica se il nuovo valore soddisfa i requisiti di una o più Sinergie. I Tratti che soddisfano i requisiti vengono registrati come disponibili. Un Tratto viene registrato come acquisito soltanto dopo aver speso una scelta valida. Se un Tratto è un’Evoluzione, il nuovo beneficio sostituisce quello precedente e non si somma ad esso (§16.9).</p>
 <p class="man-guida">Quando un personaggio avanza, occorre aggiornare i valori interessati e verificare se il nuovo dado rende disponibili ulteriori opzioni nell'Albero dei Talenti o nel Costruttore di Tecniche.</p>
 <p class="man-guida">L'apertura di nuove opzioni non equivale alla loro acquisizione automatica. Le scelte dei Talenti di Prestigio si aprono ai Prestigi I, III e V della Skill di Ruolo; a Saikyō migliorano i talenti posseduti senza una quarta scelta. Spirito dispone di tre scelte separate. I potenziamenti degli altri Attributi seguono la rispettiva compatibilità e non consumano scelte di Ruolo.</p>
 <p class="man-guida">Una Tecnica può raggiungere d12 senza avere ancora selezionato effetti d12. Una Skill di Ruolo può raggiungere d20 senza che il personaggio abbia ottenuto l'Ultimate.</p>
 <p class="man-guida">La scheda deve rappresentare ciò che il pirata ha effettivamente imparato, non tutto ciò che sarebbe teoricamente in grado di imparare. Quando si acquisisce una versione evoluta di un Talento di Ruolo, anche nella progressione ordinaria, la versione precedente non è più utilizzabile separatamente. Rimane acquisita come prerequisito e conserva soltanto i benefici incorporati nell’evoluzione; bonus, costi e limiti non si sommano. Per gli effetti Haki restano invece le alternative base espressamente previste dal Manuale del Prestigio.</p>
 <p class="man-guida"><i>«Non importa quanto sia lontana la prossima isola. Finché c'è un sogno da inseguire e una ciurma con cui dividere il mare, il viaggio continua.»</i></p>
 <h4 class="man-lab"></h4>
+<h2 id="sez-16-9" class="man-sez"><span class="man-sez-n">16.9 ·</span> Tratti Unici e Sinergie</h2>
+<p>I Tratti Unici valorizzano lo sviluppo delle sedici Skill attraverso Sinergie fra Attributo e Skill. Sono distinti dai Talenti di Ruolo e si sbloccano automaticamente al raggiungimento dei requisiti indicati.</p>
+<h3 class="man-sub">16.9.1 · Sinergie</h3>
+<p>Una Sinergia è una combinazione specifica fra un Attributo e una Skill. Ogni Tratto Unico indica direttamente la coppia e i Gradi necessari per renderlo disponibile.</p>
+<h3 class="man-sub">16.9.2 · Sblocco e acquisizione</h3>
+<p>Quando l’Attributo e la Skill raggiungono entrambi i Gradi richiesti, il Tratto Unico viene sbloccato automaticamente. Non sono richieste imprese narrative, autorizzazioni speciali del Game Master o contatori di utilizzo.</p>
+<p>Sbloccare un Tratto Unico non significa acquisirlo automaticamente. Un Tratto Unico sbloccato può essere acquisito utilizzando la normale scelta di Talento concessa da un Upgrade.</p>
+<p>Una Skill non deve essere Skill di Ruolo per partecipare a una Sinergia. Un Grado superiore soddisfa automaticamente un requisito inferiore. Se più Tratti vengono sbloccati contemporaneamente, diventano tutti disponibili; ciascuno deve essere acquisito separatamente.</p>
+<h3 class="man-sub">16.9.3 · Cumulo ed Evoluzioni</h3>
+<p>I Tratti Unici sono cumulabili fra loro, anche quando utilizzano lo stesso Attributo o la stessa Skill. Se un Tratto è indicato come Evoluzione di un altro, il nuovo valore sostituisce quello precedente invece di sommarsi.</p>
+<p>I normali limiti di Vantaggio e Svantaggio continuano ad applicarsi. I Tratti non concedono Azioni, Azioni Bonus o Reazioni aggiuntive salvo indicazione espressa.</p>
+<h3 class="man-sub">16.9.4 · Rapporto con i Talenti</h3>
+<p>Un Tratto Unico non deve riprodurre integralmente l’effetto di un Talento, di una Firma, di un Tratto di Ruolo, di una capacità razziale, di un effetto Haki o di una capacità di Prestigio già esistente, salvo eccezioni espressamente ammesse nel catalogo. Se una revisione futura crea una sovrapposizione diretta, viene modificato il Tratto Unico. È espressamente ammessa la sovrapposizione di Ombra Perfetta con Tiro dall’Ombra dello Sniper.</p>
+<h3 class="man-sub">16.9.5 · Catalogo rapido</h3>
+<div class="man-tab-wrap man-tab-lunga" tabindex="0" role="region" aria-label="Catalogo dei Tratti Unici"><table class="man-tab man-tab-tratti"><thead><tr><th>Skill</th><th>Sinergia</th><th>Tratto Unico</th><th>Requisiti</th></tr></thead><tbody><tr><td>Atletica</td><td>Forza + Atletica</td><td>Corpo Mostruoso</td><td>Forza d12 · Atletica d10</td></tr><tr><td>Atletica</td><td>Forza + Atletica</td><td>Fortezza Vivente</td><td>Forza d20 · Atletica d12 · Corpo Mostruoso acquisito</td></tr><tr><td>Acrobazia</td><td>Tecnica + Acrobazia</td><td>Riflessi Sovrumani</td><td>Tecnica d12 · Acrobazia d10</td></tr><tr><td>Acrobazia</td><td>Tecnica + Acrobazia</td><td>Passo Fantasma</td><td>Tecnica d20 · Acrobazia d12</td></tr><tr><td>Osservazione</td><td>Astuzia + Osservazione</td><td>Occhio dell’Avversario</td><td>Astuzia d12 · Osservazione d10</td></tr><tr><td>Osservazione</td><td>Astuzia + Osservazione</td><td>Predatore di Aperture</td><td>Astuzia d12 · Osservazione d12</td></tr><tr><td>Osservazione</td><td>Spirito + Osservazione</td><td>Mente Inespugnabile</td><td>Spirito d12 · Osservazione d10</td></tr><tr><td>Furtività</td><td>Tecnica + Furtività</td><td>Passo Silenzioso</td><td>Tecnica d12 · Furtività d10</td></tr><tr><td>Furtività</td><td>Astuzia + Furtività</td><td>Ombra Perfetta</td><td>Astuzia d12 · Furtività d12</td></tr><tr><td>Sopravvivenza</td><td>Forza + Sopravvivenza</td><td>Tempra Selvaggia</td><td>Forza d12 · Sopravvivenza d10</td></tr><tr><td>Sopravvivenza</td><td>Spirito + Sopravvivenza</td><td>Non Ancora</td><td>Spirito d20 · Sopravvivenza d12</td></tr><tr><td>Comunicazione</td><td>Astuzia + Comunicazione</td><td>Lingua d’Argento</td><td>Astuzia d12 · Comunicazione d10</td></tr><tr><td>Comunicazione</td><td>Spirito + Comunicazione</td><td>Presenza Schiacciante</td><td>Spirito d12 · Comunicazione d12</td></tr><tr><td>Medicina</td><td>Astuzia + Medicina</td><td>Occhio Clinico</td><td>Astuzia d12 · Medicina d10</td></tr><tr><td>Medicina</td><td>Tecnica + Medicina</td><td>Mano Chirurgica</td><td>Tecnica d12 · Medicina d12</td></tr><tr><td>Meccanica</td><td>Astuzia + Meccanica</td><td>Genio Meccanico</td><td>Astuzia d12 · Meccanica d10</td></tr><tr><td>Meccanica</td><td>Tecnica + Meccanica</td><td>Mano da Orologiaio</td><td>Tecnica d12 · Meccanica d12</td></tr><tr><td>Navigazione</td><td>Astuzia + Navigazione</td><td>Senso della Rotta</td><td>Astuzia d12 · Navigazione d10</td></tr><tr><td>Navigazione</td><td>Spirito + Navigazione</td><td>Nessun Mare Mi Ferma</td><td>Spirito d12 · Navigazione d12</td></tr><tr><td>Esplorazione</td><td>Astuzia + Esplorazione</td><td>Orientamento Perfetto</td><td>Astuzia d12 · Esplorazione d10</td></tr><tr><td>Esplorazione</td><td>Tecnica + Esplorazione</td><td>Passo dell’Esploratore</td><td>Tecnica d12 · Esplorazione d12</td></tr><tr><td>Natura</td><td>Astuzia + Natura</td><td>Istinto Naturalista</td><td>Astuzia d12 · Natura d10</td></tr><tr><td>Artigianato</td><td>Tecnica + Artigianato</td><td>Maestro Artigiano</td><td>Tecnica d12 · Artigianato d10</td></tr><tr><td>Artigianato</td><td>Astuzia + Artigianato</td><td>Inventore</td><td>Astuzia d12 · Artigianato d10</td></tr><tr><td>Carpenteria</td><td>Forza + Carpenteria</td><td>Mano Pesante</td><td>Forza d12 · Carpenteria d10</td></tr><tr><td>Carpenteria</td><td>Astuzia + Carpenteria</td><td>Occhio Strutturale</td><td>Astuzia d12 · Carpenteria d10</td></tr><tr><td>Cucina</td><td>Astuzia + Cucina</td><td>Palato Assoluto</td><td>Astuzia d12 · Cucina d10</td></tr><tr><td>Cucina</td><td>Spirito + Cucina</td><td>Cucina dell’Anima</td><td>Spirito d12 · Cucina d12</td></tr><tr><td>Arte</td><td>Tecnica + Arte</td><td>Mano Perfetta</td><td>Tecnica d12 · Arte d10</td></tr><tr><td>Arte</td><td>Spirito + Arte</td><td>Presenza Scenica</td><td>Spirito d12 · Arte d10</td></tr><tr><td>Archeologia</td><td>Astuzia + Archeologia</td><td>Memoria del Mondo</td><td>Astuzia d12 · Archeologia d10</td></tr></tbody></table></div>
+<h3 class="man-sub">16.9.6 · Catalogo dettagliato</h3>
+<h3 class="man-sub">Atletica</h3>
+<h4 class="man-lab">Corpo Mostruoso</h4>
+<p>Tipo: Passivo · Requisiti: Forza d12, Atletica d10</p>
+<p>La tua Difesa Passiva aumenta di +2.</p>
+<p>Il bonus si somma agli altri modificatori alla Difesa Passiva applicabili.</p>
+<h4 class="man-lab">Fortezza Vivente</h4>
+<p>Tipo: Passivo · Evoluzione di Corpo Mostruoso · Requisiti: Forza d20, Atletica d12, Corpo Mostruoso acquisito</p>
+<p>Il bonus alla Difesa Passiva concesso da Corpo Mostruoso diventa +4.</p>
+<p>Il +4 sostituisce il precedente +2 e non si somma ad esso.</p>
+<h3 class="man-sub">Acrobazia</h3>
+<h4 class="man-lab">Riflessi Sovrumani</h4>
+<p>Tipo: Passivo · Requisiti: Tecnica d12, Acrobazia d10 · Limite: 1 volta per round</p>
+<p>Quando un attacco contro di te manca la tua Difesa Passiva, puoi spostarti immediatamente di 2 m.</p>
+<p>Lo spostamento fa parte del Tratto, non utilizza la Reazione e non provoca attacchi di Reazione dovuti all’allontanamento.</p>
+<h4 class="man-lab">Passo Fantasma</h4>
+<p>Tipo: Passivo · Requisiti: Tecnica d20, Acrobazia d12</p>
+<p>Quando una tua Difesa Attiva riesce, puoi spostarti immediatamente fino a metà del tuo Movimento.</p>
+<p>Lo spostamento fa parte del Tratto e non provoca attacchi di Reazione dovuti all’allontanamento.</p>
+<h3 class="man-sub">Osservazione</h3>
+<h4 class="man-lab">Occhio dell’Avversario</h4>
+<p>Tipo: Passivo · Requisiti: Astuzia d12, Osservazione d10 · Limite: 1 volta per round</p>
+<p>Dopo che una creatura che puoi vedere effettua un attacco, ottieni +2 alla prossima Difesa Attiva effettuata contro quella creatura prima dell’inizio del tuo prossimo turno.</p>
+<p>Il bonus si applica al risultato della Difesa Attiva, non alla Difesa Passiva.</p>
+<h4 class="man-lab">Predatore di Aperture</h4>
+<p>Tipo: Passivo · Requisiti: Astuzia d12, Osservazione d12 · Limite: 1 volta per turno</p>
+<p>Quando un nemico consuma la propria Reazione, il tuo prossimo attacco contro di lui prima della fine del turno ottiene Vantaggio.</p>
+<h4 class="man-lab">Mente Inespugnabile</h4>
+<p>Tipo: Passivo · Requisiti: Spirito d12, Osservazione d10</p>
+<p>Ottieni Vantaggio alle Salvezze di Spirito effettuate per resistere a paura, intimidazione o coercizione mentale.</p>
+<p>Il Tratto non crea una Salvezza contro effetti che non ne prevedono una.</p>
+<h3 class="man-sub">Furtività</h3>
+<h4 class="man-lab">Passo Silenzioso</h4>
+<p>Tipo: Passivo · Requisiti: Tecnica d12, Furtività d10</p>
+<p>Quando una Prova di Furtività viene richiesta mentre ti stai muovendo a non più di metà del tuo Movimento, effettui la Prova con Vantaggio.</p>
+<h4 class="man-lab">Ombra Perfetta</h4>
+<p>Tipo: Passivo · Requisiti: Astuzia d12, Furtività d12</p>
+<p>Quando effettui un attacco contro una creatura che non ti ha individuato, quell’attacco ottiene Vantaggio.</p>
+<p>Limite: 1 volta per turno.</p>
+<h3 class="man-sub">Sopravvivenza</h3>
+<h4 class="man-lab">Tempra Selvaggia</h4>
+<p>Tipo: Passivo · Requisiti: Forza d12, Sopravvivenza d10</p>
+<p>Ottieni Vantaggio alle Salvezze richieste da caldo, freddo, esposizione e altri pericoli ambientali di natura fisica.</p>
+<p>Il Tratto non annulla automaticamente gli effetti ambientali che non prevedono una Salvezza.</p>
+<h4 class="man-lab">Non Ancora</h4>
+<p>Tipo: Passivo · Requisiti: Spirito d20, Sopravvivenza d12 · Limite: 1 volta per scontro</p>
+<p>Quando fallisci una Salvezza di Forza o Spirito contro uno Stato, puoi aumentare il risultato ottenuto di +2 dopo aver visto il tiro.</p>
+<p>Se il nuovo risultato raggiunge la Soglia, la Salvezza riesce.</p>
+<h3 class="man-sub">Comunicazione</h3>
+<h4 class="man-lab">Lingua d’Argento</h4>
+<p>Tipo: Passivo · Requisiti: Astuzia d12, Comunicazione d10 · Limite: 1 volta per scena</p>
+<p>Quando fallisci una Prova di Comunicazione effettuata per convincere, trattare o ingannare, puoi ripetere il tiro completo.</p>
+<p>Devi accettare il secondo risultato.</p>
+<h4 class="man-lab">Presenza Schiacciante</h4>
+<p>Tipo: Passivo · Requisiti: Spirito d12, Comunicazione d12</p>
+<p>Effettui con Vantaggio le Prove di Comunicazione utilizzate per comandare o intimidire.</p>
+<h3 class="man-sub">Medicina</h3>
+<h4 class="man-lab">Occhio Clinico</h4>
+<p>Tipo: Passivo · Requisiti: Astuzia d12, Medicina d10 · Limite: 1 volta per scena</p>
+<p>Quando ottieni un successo con margine +4 in una Prova di Medicina effettuata su una creatura, la tua prossima Prova di Medicina sulla stessa creatura nella scena ottiene Vantaggio.</p>
+<p>Il beneficio termina dopo la Prova oppure alla fine della scena.</p>
+<h4 class="man-lab">Mano Chirurgica</h4>
+<p>Tipo: Passivo · Requisiti: Tecnica d12, Medicina d12 · Limite: 1 volta per intervento</p>
+<p>Quando un effetto medico che utilizzi richiede di tirare uno o più dadi per determinare PV recuperati, puoi ritirare uno di quei dadi.</p>
+<p>Devi accettare il nuovo risultato.</p>
+<h3 class="man-sub">Meccanica</h3>
+<h4 class="man-lab">Genio Meccanico</h4>
+<p>Tipo: Passivo · Requisiti: Astuzia d12, Meccanica d10</p>
+<p>Effettui con Vantaggio le Prove di Meccanica utilizzate per individuare un guasto o comprendere il funzionamento di un macchinario.</p>
+<h4 class="man-lab">Mano da Orologiaio</h4>
+<p>Tipo: Passivo · Requisiti: Tecnica d12, Meccanica d12</p>
+<p>Quando una Prova di Meccanica utilizza Tecnica come Attributo, aggiungi +2 al risultato della Prova.</p>
+<p>Il bonus si applica soltanto alle Prove di Meccanica realmente basate su Tecnica.</p>
+<h3 class="man-sub">Navigazione</h3>
+<h4 class="man-lab">Senso della Rotta</h4>
+<p>Tipo: Passivo · Requisiti: Astuzia d12, Navigazione d10 · Limite: 1 volta per traversata</p>
+<p>Quando fallisci una Prova di Navigazione, puoi ripetere il tiro completo.</p>
+<p>Devi accettare il secondo risultato.</p>
+<h4 class="man-lab">Nessun Mare Mi Ferma</h4>
+<p>Tipo: Passivo · Requisiti: Spirito d12, Navigazione d12 · Limite: 1 volta per traversata</p>
+<p>Quando fallisci una Prova di Navigazione con margine compreso tra -1 e -3, puoi considerare il margine pari a 0.</p>
+<p>La Prova viene quindi trattata come un successo al limite.</p>
+<h3 class="man-sub">Esplorazione</h3>
+<h4 class="man-lab">Orientamento Perfetto</h4>
+<p>Tipo: Passivo · Requisiti: Astuzia d12, Esplorazione d10</p>
+<p>Effettui con Vantaggio le Prove di Esplorazione utilizzate per orientarti, ritrovare un percorso oppure determinare una direzione.</p>
+<h4 class="man-lab">Passo dell’Esploratore</h4>
+<p>Tipo: Passivo · Requisiti: Tecnica d12, Esplorazione d12 · Limite: 1 volta per turno</p>
+<p>Puoi ignorare fino a 3 m di Terreno Difficile naturale ai fini del Movimento.</p>
+<p>Il tratto di terreno ignorato viene percorso come terreno normale. Il Terreno Difficile rimanente segue le regole ordinarie.</p>
+<h3 class="man-sub">Natura</h3>
+<h4 class="man-lab">Istinto Naturalista</h4>
+<p>Tipo: Passivo · Requisiti: Astuzia d12, Natura d10</p>
+<p>Effettui con Vantaggio le Prove di Natura utilizzate per riconoscere animali, piante, fenomeni climatici o pericoli naturali.</p>
+<h3 class="man-sub">Artigianato</h3>
+<h4 class="man-lab">Maestro Artigiano</h4>
+<p>Tipo: Passivo · Requisiti: Tecnica d12, Artigianato d10</p>
+<p>Quando ottieni un successo con margine +4 in una Prova di Artigianato effettuata per realizzare un oggetto, il tempo richiesto per quella realizzazione viene dimezzato.</p>
+<p>Il Tratto non riduce materiali, costi o requisiti dell’oggetto.</p>
+<h4 class="man-lab">Inventore</h4>
+<p>Tipo: Passivo · Requisiti: Astuzia d12, Artigianato d10</p>
+<p>Effettui con Vantaggio le Prove di Artigianato utilizzate per progettare o modificare un oggetto.</p>
+<h3 class="man-sub">Carpenteria</h3>
+<h4 class="man-lab">Mano Pesante</h4>
+<p>Tipo: Passivo · Requisiti: Forza d12, Carpenteria d10</p>
+<p>Effettui con Vantaggio le Prove di Carpenteria nelle quali spostare, mantenere in posizione o lavorare componenti pesanti costituisce la difficoltà principale dell’intervento.</p>
+<h4 class="man-lab">Occhio Strutturale</h4>
+<p>Tipo: Passivo · Requisiti: Astuzia d12, Carpenteria d10</p>
+<p>Effettui con Vantaggio le Prove di Carpenteria utilizzate per individuare danni, cedimenti o punti deboli di una struttura.</p>
+<h3 class="man-sub">Cucina</h3>
+<h4 class="man-lab">Palato Assoluto</h4>
+<p>Tipo: Passivo · Requisiti: Astuzia d12, Cucina d10</p>
+<p>Effettui con Vantaggio le Prove di Cucina utilizzate per identificare ingredienti, alterazioni o errori di preparazione.</p>
+<h4 class="man-lab">Cucina dell’Anima</h4>
+<p>Tipo: Passivo · Requisiti: Spirito d12, Cucina d12</p>
+<p>Quando un piatto preparato da te recupera Stamina, ogni creatura che ne riceve il recupero ottiene +1 ST aggiuntiva.</p>
+<p>Una creatura può ricevere questo bonus una sola volta dallo stesso pasto.</p>
+<h3 class="man-sub">Arte</h3>
+<h4 class="man-lab">Mano Perfetta</h4>
+<p>Tipo: Passivo · Requisiti: Tecnica d12, Arte d10</p>
+<p>Quando una Prova di Arte utilizza Tecnica come Attributo, effettui la Prova con Vantaggio.</p>
+<h4 class="man-lab">Presenza Scenica</h4>
+<p>Tipo: Passivo · Requisiti: Spirito d12, Arte d10</p>
+<p>Quando ottieni un successo con margine +4 in una Prova di Arte davanti a un pubblico, la prima Prova di Comunicazione che effettui verso quello stesso pubblico nella scena ottiene Vantaggio.</p>
+<p>Il beneficio termina dopo la Prova oppure alla fine della scena.</p>
+<h3 class="man-sub">Archeologia</h3>
+<h4 class="man-lab">Memoria del Mondo</h4>
+<p>Tipo: Passivo · Requisiti: Astuzia d12, Archeologia d10</p>
+<p>Effettui con Vantaggio le Prove di Archeologia utilizzate per collegare un reperto, un luogo o un’iscrizione a informazioni che il personaggio conosce già.</p>
+<p>Il Tratto non fornisce conoscenze che il personaggio non possiede.</p>
+<h3 class="man-sub">16.9.7 · Rinvio al Prestigio</h3>
+<p>Le Sinergie non ottengono nuovi Tratti ai singoli Gradi intermedi del Prestigio. Quando entrambe le componenti della stessa Sinergia raggiungono Saikyō, quella coppia può rendere disponibile un solo Tratto Unico di Prestigio, secondo le regole del Manuale del Prestigio. Il catalogo dei Tratti Unici di Prestigio verrà definito separatamente; questa regola non assegna automaticamente un nuovo effetto.</p>
 </div></section>
       <span class="man-fine" id="man-fine" aria-hidden="true"></span>
     </main>

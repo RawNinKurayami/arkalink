@@ -13,7 +13,7 @@ function choices(c,key){
  return {active,available,inactive,slots,remaining:Math.max(0,slots-active.length),blocked:states.filter(t=>!t.owned&&!t.available).length};
 }
 function talent(c,t){
- const s=t.level===6,die=t.path.die,extra=Number(String(die).split('+d')[1])||0;
+ const s=t.level===6,die=t.path.die,threshold=P.saveThreshold(die);
  const force=c.attr?.Forza||'—',mind=c.attr?.Astuzia||'—',spirit=c.attr?.Spirito||'—';
  const scale=(attr,key,fallback)=>D.scales[key][P.level(c.attr?.[attr])-1]??fallback;
  const forceArea=scale('Forza','destruction',null),area=[10,10,20,20,50,100][t.level-1];
@@ -49,9 +49,11 @@ function talent(c,t){
    'Il Grado reale, i requisiti e le proprietà dell’arma restano gli stessi. Le Tecniche conservano i propri dadi; il Prestigio non aggiunge un secondo dado al Dado Arma.'),
   'maglio-inarrestabile':()=>sheet('Vantaggio al colpo, +2 Dadi Danno, +Forza ('+force+') ai danni e Sbilanciamento se colpisci.',
    'Dichiara prima di un attacco contundente compatibile nel tuo turno. DP −5 fino all’inizio del tuo prossimo turno, anche se manchi. Le 3 ST sostituiscono il costo di Maestria.',
+   'Il bersaglio evita Sbilanciato con una Salvezza di Tecnica contro Soglia '+threshold+' dalla Skill di Ruolo ('+die+'). La fonte non tira; il pareggio salva.',
    'Se il tiro supera la difesa per colpire ma una Parata riesce: metà del danno, arrotondata per difetto, poi le riduzioni; nessun altro effetto del colpo. Una Schivata riuscita evita tutto.'),
   'onda-sismica':()=>sheet(forceArea?'Cono di 90° fino a '+number(forceArea)+' m: danno attenuato, spinta di 3 m e Sbilanciamento.':'Per generare l’onda serve Forza in Prestigio.',
    'Dopo un colpo contundente di Forza riuscito nel tuo turno: deve trasmettersi a una superficie. Colpisce solo le creature appoggiate alla superficie collegata, compresi gli alleati; tu sei escluso.',
+   'La Salvezza di Tecnica contro Sbilanciato usa Soglia '+threshold+' dalla Skill di Ruolo ('+die+'), anche se Forza ha un altro Grado. Il pareggio salva.',
    'Stesso tiro per colpire e danno iniziale, con fasce calcolate sul raggio massimo. Niente duplicazione sul bersaglio iniziale, Schianto o propagazione degli altri effetti. Le 3 ST sostituiscono il costo dell’onda precedente.',
    'Area Ravvicinata (d8, 2 ST) resta centrata sul Crusher e usa la Portata effettiva dell’arma. Non genera più coni e non aumenta la sagoma di Onda Sismica.'),
   'guardia-frantumata':()=>sheet('Con un colpo contundente pulito, impedisci Parate e blocchi fisici fino alla fine del prossimo turno del bersaglio.',
@@ -87,15 +89,16 @@ function talent(c,t){
   'risonanza-leggendaria':()=>sheet('Benefici delle Canzoni ×'+(s?'3':'2')+': dadi di recupero ST, dadi bonus alle prove e sconti ST.',
    'Motivetto: '+(s?'3d6':'2d6')+' ST, sempre 1 volta per scena per beneficiario. Marcia: +'+(s?'3d4':'2d4')+' al tiro previsto. Crescendo: −'+(s?'6':'4')+' ST alla Tecnica, minimo 1 ST quando previsto.',
    'Restano invariati Vantaggio, ridadi, portata, bersagli, costi, sconti PIP e Canzone dell’Anima.'),
-  'requiem-sovrano':()=>sheet('Raggio '+(s?'500':'50')+' m · Soglia ordinaria dello strumento +'+extra+'.',
+  'requiem-sovrano':()=>sheet('Raggio '+(s?'500':'50')+' m · Soglia '+threshold+' da Arte ('+die+').',
    'I nemici che ti sentono effettuano una Salvezza di Spirito: chi fallisce ha Svantaggio a tutti i tiri fino all’inizio del tuo prossimo turno. Nessun danno diretto o tiro per colpire; sostituisce l’esecuzione di Requiem Beffardo.',
+   'La Soglia deriva dal pool completo di Arte; non si somma la Soglia dello strumento. Il bersaglio tira il proprio pool completo di Spirito e riesce se raggiunge o supera la Soglia.',
    s?'Con Coro della Ciurma e due compagni realmente partecipanti al canto, il raggio diventa 1.000 m.':'I bersagli devono poter sentire davvero la musica: il raggio non attraversa ostacoli che bloccano il suono.'),
-  'tossine-sovrane':()=>sheet('Veleni: Soglia +'+extra+' e, su Salvezza fallita, un Attributo ridotto di '+(s?'3':'2')+' gradini.',
-   'Il bonus sostituisce il +2 ordinario e si applica alla Soglia registrata nella scheda del veleno. La riduzione dura fino a un antidoto efficace, segue anche i dadi di Prestigio e non scende sotto d4.',
+  'tossine-sovrane':()=>sheet('Veleni: usa la più alta tra la Soglia propria e '+threshold+' da Medicina ('+die+'). Su Salvezza fallita, un Attributo ridotto di '+(s?'3':'2')+' gradini.',
+   'Questo beneficio sostituisce il +2 di Tossine Raffinate — Base e non si somma a esso. La riduzione dura fino a un antidoto efficace, segue anche i dadi di Prestigio e non scende sotto d4.',
    'Applicazioni ripetute sullo stesso Attributo non sommano riduzioni.'),
   'nebbia-pestilenziale':()=>sheet('Nube di '+area+' m di raggio, centro entro '+(s?'100':'20')+' m, durata '+(s?'5':'3')+' turni.',
    'Consuma una dose di Veleno inalabile, senza tiro per colpire; il centro dev’essere visibile e raggiungibile, mai oltre ostacoli solidi. Chi è nella nube quando compare, chi vi entra o vi inizia il turno effettua la Salvezza: se fallisce è Avvelenato e Accecato.',
-   'Tossine Sovrane si applica se acquisito. Anche gli alleati sono esposti; Profilassi protegge solo chi è stato trattato per quella tossina. Valgono pareti, ventilazione, acqua e maschere.'),
+   'Usa la normale Salvezza della dose. Con Tossine Sovrane acquisito, la Soglia è la più alta tra quella propria del veleno e quella da Medicina; non aggiungere il +2 ordinario. Anche gli alleati sono esposti; Profilassi protegge solo chi è stato trattato per quella tossina. Valgono pareti, ventilazione, acqua e maschere.'),
   'antidoto-perfetto':()=>sheet('Entro '+(s?'10':'5')+' m, neutralizzi tutti i veleni di un alleato e ripristini gli Attributi ridotti dalle tossine.',
    'Consuma una dose di antidoto preparata da te: la portata è quanto raggiungi con la Reazione, su un percorso praticabile. Rimuove gli stati delle sostanze, ma non restituisce i PV persi. Gli utilizzi sono condivisi con Antidoto Istantaneo.',
    ...(s?['Il bersaglio è immune alle tossine appena neutralizzate per il resto del combattimento.']:[])),

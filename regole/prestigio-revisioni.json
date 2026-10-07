@@ -285,9 +285,9 @@
  {
   "source": "ruoli",
   "block": 66,
-  "from": "e non si somma a esso.",
-  "to": "e non si somma a esso. L’aumento si applica alla Soglia registrata nella scheda del veleno utilizzato.",
-  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+  "from": "La Soglia di Salvezza dei tuoi veleni aumenta del valore massimo del dado aggiuntivo del tuo Prestigio di Medicina. Questo bonus sostituisce il normale +2 di Tossine Raffinate — Base e non si somma a esso.",
+  "to": "Quando una tua dose classificata come Veleno richiede una Salvezza, confronta la Soglia registrata nella scheda del veleno con la Soglia di Prestigio corrispondente al tuo Grado attuale di Medicina. Usa la più alta delle due. Questo beneficio sostituisce il normale +2 di Tossine Raffinate — Base e non si somma a esso.",
+  "perche": "Revisione delle Salvezze v1.1 del 07/10/2026: fonte graduata con Soglia fissa; prevalenza delle procedure specifiche."
  },
  {
   "source": "ruoli",
@@ -319,8 +319,8 @@
   "source": "ruoli",
   "block": 74,
   "from": "Se possiedi Tossine Sovrane, applichi anche il suo aumento della Soglia e la riduzione dell’Attributo in caso di Salvezza fallita. Gli alleati esposti effettuano la Salvezza: Profilassi protegge soltanto i soggetti trattati contro quella tossina.",
-  "to": "Se possiedi Tossine Sovrane, applichi anche il suo aumento della Soglia e la riduzione dell’Attributo in caso di Salvezza fallita. Gli alleati esposti effettuano normalmente la Salvezza. Profilassi protegge soltanto chi è stato preventivamente trattato contro quella tossina.",
-  "perche": "Revisione del 05/10/2026 (MODIFICHE GLC): Cure da Campo, Stabilizzazione, Stati rimovibili, dosi e schede dei preparati."
+  "to": "Se possiedi Tossine Sovrane, usa la Soglia effettiva del veleno dopo l’eventuale sostituzione con la Soglia minima di Prestigio di Medicina. In caso di Salvezza fallita, applichi anche la riduzione dell’Attributo. Gli alleati esposti effettuano normalmente la Salvezza. Profilassi protegge soltanto chi è stato preventivamente trattato contro quella tossina.",
+  "perche": "Revisione delle Salvezze v1.1 del 07/10/2026: fonte graduata con Soglia fissa; prevalenza delle procedure specifiche."
  },
  {
   "source": "ruoli",
@@ -537,19 +537,8 @@
   "source": "ruoli",
   "block": 59,
   "from": "Tutti i nemici nel raggio che possono sentirti effettuano la normale Salvezza di Requiem. La sua Soglia è quella ordinaria derivata dallo strumento, aumentata del valore massimo del dado aggiuntivo del tuo Prestigio di Arte.",
-  "to": "Intoni una versione superiore di Requiem. Tutti i nemici entro il raggio che possono sentirti effettuano una Salvezza di Spirito. La Soglia è quella normalmente determinata dal Grado effettivo del tuo strumento, aumentata del valore massimo del dado aggiuntivo del tuo Prestigio di Arte.",
-  "perche": "Revisione del 05/10/2026 (modifiche glc 2): Musicista allineato a Soglia delle Canzoni, Canzoni Sostenute e Motivetto di Vigore."
- },
- {
-  "source": "ruoli",
-  "after": 59,
-  "blocchi": [
-   {
-    "style": "Normal",
-    "text": "Esempio: strumento d12 → Soglia ordinaria 12; Arte d20+d8 → +8; Soglia finale → 20."
-   }
-  ],
-  "perche": "Revisione del 05/10/2026 (modifiche glc 2): Musicista allineato a Soglia delle Canzoni, Canzoni Sostenute e Motivetto di Vigore."
+  "to": "Intoni una versione superiore di Requiem. Tutti i nemici entro il raggio che possono sentirti effettuano una Salvezza di Spirito. La Soglia è determinata dal Grado di Prestigio attuale di Arte secondo la tabella universale delle Salvezze e Prestigio (§1.1). La Soglia dello strumento non viene sommata al valore di Prestigio.",
+  "perche": "Revisione delle Salvezze v1.1 del 07/10/2026: fonte graduata con Soglia fissa; prevalenza delle procedure specifiche."
  },
  {
   "source": "ruoli",
@@ -914,5 +903,142 @@
   "from": "Punto di Rottura sostituisce soltanto lo stato della Firma per quel colpo. Gli eventuali altri effetti della Tecnica seguono le proprie regole, rispettando il limite ordinario degli effetti per famiglia. Il Talento non permette di ignorare automaticamente una difesa o di colpire una parte fisicamente irraggiungibile.",
   "to": "Punto di Rottura sostituisce soltanto lo stato della Firma per quel colpo e ne condivide il limite di una attivazione per turno. Applicare Punto di Rottura consuma l’unica attivazione della Firma; se Il Colpo Sfonda si è già attivato in quel turno, non puoi applicare nuovamente la Firma attraverso Punto di Rottura. Gli eventuali altri effetti della Tecnica seguono le proprie regole, rispettando il limite ordinario degli effetti per famiglia. Il Talento non permette di ignorare automaticamente una difesa o di colpire una parte fisicamente irraggiungibile.",
   "perche": "Chiarimento conservativo della regola esistente: Punto di Rottura sostituisce lo stato della Firma, non la sua attivazione. La patch Raffica limita la Firma a una volta per turno e non introduce un’eccezione per Punto di Rottura."
+ },
+ {
+  "source": "introduzione",
+  "after": 7,
+  "blocchi": [
+   {
+    "style": "Heading 3",
+    "text": "Salvezze e Prestigio"
+   },
+   {
+    "style": "Normal",
+    "text": "Quando una fonte graduata che ha raggiunto il Prestigio impone una Salvezza, non tira il proprio pool. Il Grado di Prestigio determina una Soglia fissa secondo la tabella seguente. Il bersaglio effettua la Salvezza con il proprio Attributo completo, compreso l’eventuale dado di Prestigio, e riesce se il risultato raggiunge o supera la Soglia."
+   },
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Grado della fonte",
+      "Soglia di Prestigio"
+     ],
+     [
+      "d20+d4 · Prestigio I",
+      "13"
+     ],
+     [
+      "d20+d6 · Prestigio II",
+      "14"
+     ],
+     [
+      "d20+d8 · Prestigio III",
+      "15"
+     ],
+     [
+      "d20+d10 · Prestigio IV",
+      "16"
+     ],
+     [
+      "d20+d12 · Prestigio V",
+      "17"
+     ],
+     [
+      "d20+d20 · Saikyō",
+      "21"
+     ]
+    ]
+   },
+   {
+    "style": "Normal",
+    "text": "Lo Stato determina l’Attributo della Salvezza; la fonte determina la Soglia. Le regole specifiche che possiedono una Soglia propria o una procedura diversa continuano a prevalere."
+   },
+   {
+    "style": "Normal",
+    "text": "Quando un Talento di Prestigio applica direttamente uno Stato e non indica una fonte diversa, la Soglia deriva dal Grado attuale della Skill di Ruolo che governa quel Talento. Questo vale anche per gli Stati applicati dalle evoluzioni, come Maglio Inarrestabile e Onda Sismica. Un effetto inserito in una Tecnica usa invece il Grado della Tecnica, salvo regola specifica."
+   }
+  ],
+  "perche": "Revisione delle Salvezze v1.1 del 07/10/2026: fonte graduata con Soglia fissa; prevalenza delle procedure specifiche."
+ },
+ {
+  "source": "introduzione",
+  "after": 13,
+  "blocchi": [
+   {
+    "style": "Heading 3",
+    "text": "Sinergie nel Prestigio"
+   },
+   {
+    "style": "Normal",
+    "text": "Le Sinergie fra Attributi e Skill continuano a essere verificate anche oltre il d20. Una Sinergia può utilizzare qualunque Skill prevista dal proprio requisito, anche se non è Skill di Ruolo. I Gradi intermedi di Prestigio non concedono nuovi Tratti Unici e non consumano le scelte dei Talenti di Prestigio della Skill di Ruolo."
+   },
+   {
+    "style": "Normal",
+    "text": "Le regole complete delle Sinergie e il catalogo ordinario dei Tratti Unici sono riportati nel §16.9 del Manuale del Gioco."
+   }
+  ],
+  "perche": "Tratti Unici e Sinergie v1.2 del 07/10/2026: regole delle Sinergie nel Prestigio e accesso a Saikyō; nessun catalogo di Prestigio ancora definito."
+ },
+ {
+  "source": "introduzione",
+  "after": 25,
+  "blocchi": [
+   {
+    "style": "Heading 3",
+    "text": "Tratti Unici di Prestigio"
+   },
+   {
+    "style": "Normal",
+    "text": "Le Sinergie non possiedono una progressione di Tratti ai singoli Gradi di Prestigio. Quando l’Attributo e la Skill della stessa Sinergia raggiungono entrambi Saikyō, quella coppia può rendere disponibile un solo Tratto Unico di Prestigio. Questo Tratto non è un quarto Talento di Ruolo e segue il proprio catalogo. Finché tale catalogo non è pubblicato, il raggiungimento di Saikyō non assegna automaticamente un nuovo effetto."
+   }
+  ],
+  "perche": "Tratti Unici e Sinergie v1.2 del 07/10/2026: regole delle Sinergie nel Prestigio e accesso a Saikyō; nessun catalogo di Prestigio ancora definito."
+ },
+ {
+  "source": "ruoli",
+  "after": 66,
+  "blocchi": [
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Medicina",
+      "Soglia minima con Tossine Sovrane"
+     ],
+     [
+      "d20+d4 · Prestigio I",
+      "13"
+     ],
+     [
+      "d20+d6 · Prestigio II",
+      "14"
+     ],
+     [
+      "d20+d8 · Prestigio III",
+      "15"
+     ],
+     [
+      "d20+d10 · Prestigio IV",
+      "16"
+     ],
+     [
+      "d20+d12 · Prestigio V",
+      "17"
+     ],
+     [
+      "d20+d20 · Saikyō",
+      "21"
+     ]
+    ]
+   }
+  ],
+  "perche": "Revisione delle Salvezze v1.1 del 07/10/2026: fonte graduata con Soglia fissa; prevalenza delle procedure specifiche."
+ },
+ {
+  "source": "ruoli",
+  "block": 69,
+  "from": "Saikyō: la riduzione diventa di tre gradini. Il bonus alla Soglia segue il dado aggiuntivo d20 e vale quindi +20.",
+  "to": "Saikyō: la riduzione diventa di tre gradini. Per la Salvezza confronta la Soglia propria del veleno con la Soglia minima 21 di Medicina a Saikyō e usa la più alta.",
+  "perche": "Revisione delle Salvezze v1.1 del 07/10/2026: fonte graduata con Soglia fissa; prevalenza delle procedure specifiche."
  }
 ]
