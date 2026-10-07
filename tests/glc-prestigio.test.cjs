@@ -56,9 +56,29 @@ test('Attribute scales respect class compatibility and use all six stages',()=>{
 });
 test('Raffica Senza Fine supports mixed base attacks and techniques, exact ST, no three-attack limit, one Bonus',()=>{
  const h=fixture();h.take('raffica-senza-fine');h.take('potenza-del-titano');const id='prestige:raffica-senza-fine';
- const r=h.resolve({activeTalentId:id,passiveTalentIds:['prestige:potenza-del-titano'],talentUses:{[id]:4},talentTechniqueUses:{[id]:2}});assert.equal(r.status,'ready',errorText(r));assert.equal(r.totals.st,11);assert.equal(r.economy.used,1);assert.ok(r.formulas.some(f=>f.text.includes('d20+d12')&&f.text.includes('Potenza del Titano')));
+ const r=h.resolve({activeTalentId:id,passiveTalentIds:['prestige:potenza-del-titano'],talentUses:{[id]:4},talentTechniqueUses:{[id]:2}});assert.equal(r.status,'ready',errorText(r));assert.equal(r.totals.st,13);assert.equal(r.rows.find(row=>row.id===id).st,12);assert.equal(r.economy.used,1);assert.ok(r.formulas.some(f=>f.text.includes('d20+d12')&&f.text.includes('Potenza del Titano')));
  const bad=h.resolve({activeTalentId:id,talentUses:{[id]:3},talentTechniqueUses:{[id]:4}});assert.equal(bad.totals,null);
  h.c.stCur=5;assert.equal(h.resolve({activeTalentId:id,talentUses:{[id]:4}}).status,'unavailable');
+});
+test('Raffica Senza Fine charges increasing extra costs and every complete technique cost, including Saikyo',()=>{
+ for(const die of ['d20+d12','d20+d20']){
+  const h=fixture('striker-atletica',die);h.take('raffica-senza-fine');const id='prestige:raffica-senza-fine';
+  let r=h.resolve({activeTalentId:id,talentUses:{[id]:4}});
+  assert.equal(r.status,'ready',errorText(r));assert.equal(r.rows.find(row=>row.id===id).st,10);assert.equal(r.totals.st,11);assert.equal(r.economy.used,1);
+  h.c.extraTech[0].eff=['Scatto','Balzo'];
+  r=h.resolve({activeTalentId:id,talentUses:{[id]:2},talentTechniqueUses:{[id]:2}});
+  assert.equal(r.status,'ready',errorText(r));assert.equal(r.rows.find(row=>row.id==='tech:punch').st,2);
+  assert.equal(r.rows.find(row=>row.id===id).st,7);assert.equal(r.totals.st,9);assert.equal(r.economy.used,1);
+  assert.ok(r.conditions.some(c=>/mancato consuma ST ma non interrompe/.test(c.text)));
+ }
+});
+test('Raffica Senza Fine has no fixed extra cap and cannot add support, Area or another Style techniques',()=>{
+ const h=fixture();h.take('raffica-senza-fine');const id='prestige:raffica-senza-fine';
+ const r=h.resolve({activeTalentId:id,talentUses:{[id]:7}});assert.equal(r.status,'ready',errorText(r));assert.equal(r.rows.find(row=>row.id===id).st,28);
+ for(const count of [0,-1,1.5,Number.MAX_SAFE_INTEGER])assert.equal(h.resolve({activeTalentId:id,talentUses:{[id]:count}}).totals,null);
+ for(const [forma,stile]of [['Supporto','Striker'],['Area','Striker'],['Singolo','Swordsman']]){
+  Object.assign(h.c.extraTech[0],{forma,stile});const invalid=h.resolve({activeTalentId:id,talentUses:{[id]:2},talentTechniqueUses:{[id]:1}});assert.equal(invalid.totals,null);
+ }
 });
 test('Maglio pays 3 ST without spending the Bonus, adds two DD and full Forza, and retains parry restrictions',()=>{
  const h=fixture('crusher');h.take('maglio-inarrestabile');h.take('onda-sismica');const r=h.resolve({activeTalentId:'prestige:onda-sismica',passiveTalentIds:['prestige:maglio-inarrestabile']});assert.equal(r.status,'ready',errorText(r));assert.equal(r.economy.used,1);assert.equal(r.totals.st,7);assert.ok(r.formulas.some(f=>f.text.includes('2 × d10 Maglio')&&f.text.includes('d20+d12')));assert.ok(r.formulas.some(f=>f.label.includes('Parata riuscita')));

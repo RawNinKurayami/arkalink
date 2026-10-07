@@ -263,6 +263,74 @@ class ManualConsistency(unittest.TestCase):
             if norm(edit['da']) not in norm(edit['a']):
                 self.assertNotIn(norm(edit['da']), actual, edit['sezione'])
 
+    def test_raffica_progression_and_attack_rules_agree(self):
+        striker = self.base.section('sez-4-2')
+        progress = next(tables(subsection(striker, 'Progressione della Raffica')))
+        self.assertEqual(progress[1:], [
+            ['Base', 'd8', '1', '1', '1 ST'],
+            ['Migliorato', 'd10 + Base', '2', '1 + 2', '3 ST'],
+            ['Maestria', 'd12 + Migliorato', '3', '1 + 2 + 3', '6 ST']
+        ])
+        for version, total in [('Base', 1), ('Migliorato', 3), ('Maestria', 6)]:
+            rule = norm(text(subsection(striker, 'Raffica · ' + version)))
+            self.assertIn('Azione Bonus · 1 volta per turno', rule)
+            self.assertIn('attacco base' if version == 'Base' else 'attacchi base', rule)
+            self.assertIn(f'{total} ST', rule)
+        for version in ['Migliorato', 'Maestria']:
+            rule = norm(text(subsection(striker, 'Raffica · ' + version)))
+            self.assertIn('non interrompe', rule)
+            self.assertNotIn('1 ST per colpo extra', rule)
+        initial = norm(text(subsection(striker, 'Raffica · Base')))
+        self.assertIn('Tecnica offensiva Striker compatibile eseguita a mani nude', initial)
+        self.assertIn('pagata prima', initial)
+        self.assertIn('la ST rimane spesa', initial)
+        self.assertIn('non concede una seconda Azione', initial)
+
+    def test_raffica_prestige_costs_examples_and_sources_agree(self):
+        rule = norm(text(self.prestige.section('combattenti-talento-comune-ai-due-percorsi-dello-striker')))
+        self.assertIn('il primo costa 1 ST, il secondo 2 ST, il terzo 3 ST, il quarto 4 ST, il quinto 5 ST', rule)
+        self.assertIn('I due costi si sommano integralmente', rule)
+        self.assertIn('non interrompe Raffica Senza Fine', rule)
+        self.assertIn('Non esiste un numero massimo prestabilito', rule)
+        self.assertIn('1 + 2 + 3 = 6 ST', rule)
+        self.assertIn('per un totale di 7 ST', rule)
+        self.assertIn('2° extra con Tecnica da 2 ST: Raffica 2 ST + Tecnica 2 ST = 4 ST', rule)
+        self.assertNotIn('2 ST per attacco extra', rule)
+        self.assertNotIn('quattro attacchi base aggiuntivi, a 2 ST ciascuno', rule)
+        self.assertIn('Il Colpo Sfonda rimane soggetto al limite generale di una sola attivazione per turno', rule)
+        precision = norm(self.prestige.root.text())
+        self.assertIn('Punto di Rottura sostituisce soltanto lo stato della Firma per quel colpo e ne condivide il limite di una attivazione per turno', precision)
+        self.assertIn('Applicare Punto di Rottura consuma l\'unica attivazione della Firma', precision)
+        catalogue = json.loads((ROOT / 'regole/prestigio-catalogo.json').read_text())
+        talent = next(t for t in catalogue['talents'] if t['id'] == 'raffica-senza-fine')
+        self.assertEqual((talent['costST'], talent['saikyoST'], talent['costProgression']), (1, 1, 'extra-index'))
+        self.assertEqual(talent['replaces'], ['Raffica — Base', 'Raffica — Migliorato', 'Raffica — Maestria'])
+        costs = next(rows for rows in tables([self.prestige.root]) if rows[0] == ['Talento', 'Tipo', 'Bonus', 'Costo', 'Limite principale'])
+        cost = next(row[3] for row in costs if row[0] == 'Raffica Senza Fine')
+        self.assertIn('1 ST il primo attacco extra, 2 ST il secondo, 3 ST il terzo', cost)
+        self.assertIn('normali costi', cost)
+
+    def test_raffica_signature_and_burning_combo_remain_coherent(self):
+        striker = self.base.section('sez-4-2')
+        signature = norm(text(subsection(striker, 'Firma · Il colpo sfonda')))
+        self.assertIn('1 volta per turno', signature)
+        self.assertIn('non la attivano nuovamente', signature)
+        pressure = norm(text(subsection(striker, 'Pressione Costante')))
+        broken = norm(text(subsection(striker, 'Guardia Rotta')))
+        self.assertIn('almeno due volte nel tuo turno', pressure)
+        self.assertIn('almeno due volte nello stesso turno', broken)
+        self.assertIn('Vantaggio', broken)
+        self.assertIn('non riduce la Difesa Passiva di 2', broken)
+        smash = norm(text(subsection(striker, 'Smash Hit · Regole particolari')))
+        self.assertIn('non attivano Pressione Costante, Guardia Rotta o Il colpo sfonda', smash)
+        combo = norm(text(self.base.section('sez-6-4')))
+        self.assertLess(combo.index('Azione: esegui Burning Combo'), combo.index('Dopo l\'attacco iniziale, Azione Bonus'))
+        self.assertIn('1 ST, 2 ST e 3 ST', combo)
+        self.assertIn('non riutilizzano la Tecnica Burning Combo', combo)
+        self.assertNotIn('pagando 1 ST per ciascuno', combo)
+        for document in [self.fruit, self.cyborg]:
+            self.assertNotIn('2 ST per attacco extra', document.root.text())
+
     def test_manual_navigation_targets_exist(self):
         for document in [self.base, self.prestige, self.fruit, self.cyborg]:
             ids = [n.attrs['id'] for n in document.nodes if n.attrs.get('id')]

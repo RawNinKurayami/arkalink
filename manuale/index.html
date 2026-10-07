@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
-<link rel="stylesheet" href="manuale.css?v=18">
+<link rel="stylesheet" href="manuale.css?v=19">
 <style>
 /* Il gate del Manuale bloccato resta com'era. */
 #manlock[hidden]{display:none !important;}
@@ -2958,11 +2958,10 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>In cambio, i suoi attacchi a mani nude non sono limitati dal requisito del Grado dell'arma: lo Striker può utilizzare il pieno del proprio Attributo.</p>
 <p>Il Tratto comprende inoltre una particolare predisposizione per prese e atterramenti. Questa descrizione non introduce, da sola, un bonus numerico aggiuntivo: gli effetti specifici vengono definiti dalle regole delle prese e dai Talenti acquisiti.</p>
 <h3 class="man-sub">Firma · Il colpo sfonda</h3>
-<p>(Sempre attiva · Gratuita)</p>
-<p>Quando uno Striker ottiene un <b>colpo pulito con margine +4</b>, il bersaglio subisce:</p>
-<p><b>Stordito oppure Sbilanciato per 1 turno.</b></p>
-<p>La Firma si applica ai colpi dello Stile e non richiede di essere acquistata come Talento.</p>
-<p>Il personaggio può quindi utilizzare questa capacità fin dalla creazione.</p>
+<p>(Sempre attiva · Gratuita · 1 volta per turno)</p>
+<p>Quando uno Striker ottiene un colpo pulito con margine +4 con un colpo dello Stile, il bersaglio subisce Stordito oppure Sbilanciato per 1 turno. Dopo che la Firma si è attivata una volta, ulteriori colpi puliti ottenuti dallo stesso Striker durante quel turno non la attivano nuovamente.</p>
+<p>La Firma si applica ai colpi dello Stile e non richiede di essere acquistata come Talento. Il personaggio può utilizzarla fin dalla creazione.</p>
+<p>La limitazione riguarda soltanto la Firma. Pressione Costante e Guardia Rotta continuano a verificare normalmente le proprie condizioni.</p>
 <h3 class="man-sub">Albero dei Talenti Striker</h3>
 <p>I Talenti si sbloccano in base al Grado della Skill di Ruolo scelta alla creazione.</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Grado richiesto</b></th><th><b>Fascia</b></th></tr></thead><tbody><tr><td>d8</td><td>Mozzo</td></tr><tr><td>d10</td><td>Pirata</td></tr><tr><td>d12</td><td>Veterano</td></tr><tr><td>d20</td><td>Leggenda</td></tr></tbody></table></div>
@@ -2971,7 +2970,9 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>I Talenti iniziali introducono gli attacchi aggiuntivi, il movimento rapido e le prime capacità di controllo e difesa.</p>
 <h3 class="man-sub">Raffica · Base</h3>
 <p>(1 ST)</p>
-<p>Attiva · 1 volta per turnoDopo aver effettuato un attacco a mani nude, puoi spendere <b>1 ST</b> per compiere <b>1 attacco base aggiuntivo a mani nude</b>.Il secondo colpo è un attacco base: il Talento non concede una seconda Azione con cui utilizzare liberamente un'altra Tecnica.</p>
+<p>Attiva · Azione Bonus · 1 volta per turno</p>
+<p>Dopo aver effettuato un attacco a mani nude, puoi spendere 1 ST e la tua Azione Bonus per compiere immediatamente 1 attacco base aggiuntivo a mani nude. L’attacco iniziale può essere un attacco base oppure una Tecnica offensiva Striker compatibile eseguita a mani nude. L’attacco aggiuntivo concesso da Raffica è sempre un attacco base: il Talento non concede una seconda Azione con cui utilizzare liberamente un’altra Tecnica.</p>
+<p>La Stamina viene pagata prima di effettuare l’attacco extra. Se l’attacco manca, la ST rimane spesa.</p>
 <h3 class="man-sub">Passo Fulmineo</h3>
 <p>(Nessun costo ST indicato)</p>
 <p>1 volta per turno · Durante il MovimentoPuoi effettuare uno scatto verso un nemico senza provocare <b>Reazioni causate dallo spostamento</b>.Il Talento non stabilisce un numero aggiuntivo di metri: non concede automaticamente un Movimento illimitato.</p>
@@ -2982,8 +2983,11 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h3 class="man-sub">d10 · Pirata</h3>
 <p>Il secondo Grado permette allo Striker di intensificare le proprie combinazioni e sfruttare i colpi consecutivi per limitare le possibilità dell'avversario.</p>
 <h3 class="man-sub">Raffica · Migliorato</h3>
-<p>(1 ST per colpo extra)</p>
-<p>Prerequisito: Raffica · BasePuoi effettuare <b>fino a 2 attacchi base aggiuntivi a mani nude per turno</b>, spendendo 1 ST per ciascuno.I due attacchi extra rappresentano il limite complessivo raggiunto dalla Raffica: non si sommano all'attacco extra della versione Base.<b>Esempio:</b> effettui il tuo attacco normale, poi spendi 2 ST per tentare altri due attacchi base a mani nude.</p>
+<p>(1 + 2 ST; massimo 3 ST)</p>
+<p>Prerequisito: Raffica · Base · Attiva · Azione Bonus · 1 volta per turno</p>
+<p>Puoi effettuare fino a 2 attacchi base aggiuntivi a mani nude nello stesso turno. Il primo attacco extra costa 1 ST; se desideri effettuare anche il secondo, paghi altre 2 ST prima di tentarlo.</p>
+<p>La sequenza completa costa 3 ST. Puoi fermarti dopo il primo attacco extra e spendere soltanto 1 ST. Un attacco mancato consuma la ST pagata ma non interrompe la Raffica e non impedisce di acquistare il successivo, purché tu disponga della Stamina necessaria.</p>
+<p>Il limite di 2 attacchi extra sostituisce Raffica · Base: le versioni non si sommano.</p>
 <h3 class="man-sub">Pressione Costante</h3>
 <p>(1 volta per turno)Se colpisci lo stesso bersaglio <b>almeno due volte nel tuo turno</b>, fino all'inizio del tuo prossimo turno quel bersaglio non può effettuare Reazioni contro di te.Il Talento premia le combinazioni riuscite: non si attiva se hai soltanto tentato due attacchi, ma ne hai messo a segno uno.</p>
 <h3 class="man-sub">Slancio</h3>
@@ -2993,8 +2997,11 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h3 class="man-sub">d12 · Veterano</h3>
 <p>A questo Grado, lo Striker sviluppa combinazioni più lunghe e capacità avanzate legate a contrattacchi, prese e resistenza.</p>
 <h3 class="man-sub">Raffica · Maestria</h3>
-<p>(1 ST per colpo extra)</p>
-<p>Prerequisito: Raffica · MiglioratoPuoi effettuare <b>fino a 3 attacchi base aggiuntivi a mani nude per turno</b>, spendendo 1 ST per ogni attacco extra.Il limite di tre sostituisce quello delle versioni precedenti: non si sommano gli attacchi extra di Base, Migliorato e Maestria.Con l'attacco normale e tutti e tre gli attacchi extra, puoi quindi tentare <b>quattro attacchi a mani nude nello stesso turno</b>, spendendo 3 ST per la Raffica.</p>
+<p>(1 + 2 + 3 ST; massimo 6 ST)</p>
+<p>Prerequisito: Raffica · Migliorato · Attiva · Azione Bonus · 1 volta per turno</p>
+<p>Puoi effettuare fino a 3 attacchi base aggiuntivi a mani nude nello stesso turno. Il primo attacco extra costa 1 ST, il secondo 2 ST e il terzo 3 ST.</p>
+<p>La sequenza completa costa 6 ST. Puoi interromperla volontariamente dopo qualsiasi attacco extra. Un attacco mancato consuma la ST pagata ma non interrompe la sequenza.</p>
+<p>Il limite di 3 attacchi extra sostituisce le versioni precedenti. Con l’attacco iniziale e tutti e tre gli attacchi extra, puoi tentare fino a quattro attacchi a mani nude nello stesso turno.</p>
 <h3 class="man-sub">Contraccolpo</h3>
 <p>Quando utilizzi una Tecnica d’attacco Striker compatibile come Difesa Attiva e il risultato della tua difesa supera il tiro dell’attacco nemico, infliggi anche il normale Dado Danno della Tecnica utilizzata. Un pareggio neutralizza l’attacco ma non infligge danni. Contraccolpo non concede una Reazione aggiuntiva e non applica automaticamente gli altri effetti offensivi della Tecnica, salvo regole specifiche.</p>
 <h3 class="man-sub">Proiezione</h3>
@@ -3027,9 +3034,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p><b>Precisazione per gli Striker con Acrobazia come Skill di Ruolo:</b> il Grado di Acrobazia può sbloccare il Talento, ma Smash Hit richiede comunque Atletica per i propri tiri e danni. La scelta iniziale fra Atletica e Acrobazia non modifica questa regola.</p>
 <h3 class="man-sub">Progressione della Raffica</h3>
 <p>La Raffica è il Talento a gradini che definisce lo sviluppo offensivo dello Striker.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Versione</b></th><th><b>Requisito</b></th><th><b>Attacchi base extra massimi</b></th><th><b>Costo</b></th></tr></thead><tbody><tr><td><b>Base</b></td><td>d8</td><td>1</td><td>1 ST</td></tr><tr><td><b>Migliorato</b></td><td>d10 + Base</td><td>2</td><td>1 ST per attacco</td></tr><tr><td><b>Maestria</b></td><td>d12 + Migliorato</td><td>3</td><td>1 ST per attacco</td></tr></tbody></table></div>
-<p><b>Le versioni non si sommano.</b> Ogni Grado superiore sostituisce il limite precedente.</p>
-<p>Gli attacchi extra sono sempre <b>attacchi base a mani nude</b>. Raffica non concede azioni supplementari con cui utilizzare altre Tecniche.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Progressione di Raffica"><table class="man-tab man-tab-raffica"><thead><tr><th><b>Versione</b></th><th><b>Requisito</b></th><th><b>Extra max</b></th><th><b>Costo progressivo</b></th><th><b>Costo massimo</b></th></tr></thead><tbody><tr><td>Base</td><td>d8</td><td>1</td><td>1</td><td>1 ST</td></tr><tr><td>Migliorato</td><td>d10 + Base</td><td>2</td><td>1 + 2</td><td>3 ST</td></tr><tr><td>Maestria</td><td>d12 + Migliorato</td><td>3</td><td>1 + 2 + 3</td><td>6 ST</td></tr></tbody></table></div>
+<p>Le versioni non si sommano. Ogni Grado superiore sostituisce il limite precedente. Gli attacchi extra sono sempre attacchi base a mani nude. Il giocatore paga ciascun costo prima di tentare il relativo attacco e può fermare volontariamente la sequenza in qualunque momento. Un attacco mancato non interrompe la Raffica. L’intera sequenza usa l’unica Azione Bonus del turno e non concede Azioni principali o Azioni Bonus supplementari.</p>
 <h2 id="sez-4-3" class="man-sez"><span class="man-sez-n">4.3 ·</span> Swordsman</h2>
 <p>Lo <b>Swordsman</b> è un Combattente specializzato nell'uso delle lame. La sua forza non dipende soltanto dalla qualità della spada, ma dalla capacità di controllarne ogni movimento: attaccare, mantenere la guardia, intercettare un nemico e trovare il momento esatto per colpire.</p>
 <p>Il suo percorso permette di sviluppare il combattimento con due spade, perfezionare le parate e trasformare le Tecniche da mischia in fendenti capaci di raggiungere bersagli più lontani.</p>
@@ -4814,9 +4820,9 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h4 class="man-lab">Turno 2 · Esecuzione</h4>
 <p>Combo</p>
 <p>Mantenimento: paghi il costo previsto per mantenere l’Haki attivo.</p>
-<p>Azione Bonus: attivi Raffica · Maestria.</p>
-<p>Azione: esegui Burning Combo.</p>
-<p>Puoi utilizzare gli attacchi extra concessi da Raffica, pagando 1 ST per ciascuno e rispettando il massimo previsto dal Talento.</p>
+<p>Azione: esegui Burning Combo con l’attacco iniziale a mani nude.</p>
+<p>Dopo l’attacco iniziale, Azione Bonus: attivi Raffica · Maestria.</p>
+<p>Puoi tentare fino a tre attacchi base extra a mani nude, pagando rispettivamente 1 ST, 2 ST e 3 ST prima di ciascuno: la sequenza completa costa 6 ST, oltre ai costi dell’attacco iniziale e dell’Haki. Puoi fermarti dopo qualsiasi attacco extra; un mancato non interrompe la sequenza. Gli attacchi extra ordinari non riutilizzano la Tecnica Burning Combo.</p>
 <p>Gli effetti passivi si applicano automaticamente quando se ne verificano le condizioni.</p>
 <p>Se il personaggio colpisce lo stesso bersaglio almeno due volte durante il turno, può attivarsi Pressione Costante, purché sia presente tra i suoi Talenti passivi.</p>
 <p>Non occorre spendere una seconda Azione Bonus per applicarlo.</p>

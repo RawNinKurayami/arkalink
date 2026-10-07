@@ -783,5 +783,136 @@
   "from": "Devi dichiarare l’impiego sul tiro scelto prima di tirare. La difesa consuma la Reazione o le altre risorse che richiede normalmente. Anticipo Superiore non concede Reazioni aggiuntive e non aumenta i danni dell’eventuale Contrattacco.",
   "to": "Devi dichiarare l’impiego sul tiro scelto prima di tirare. La difesa consuma normalmente la Reazione e le altre risorse richieste, inclusi i costi della Tecnica. Anticipo Superiore non concede Reazioni aggiuntive, non aumenta il danno e non permette danni in risposta senza una capacità specifica come Contraccolpo: questa infligge il normale Dado Danno soltanto se la difesa supera il tiro avversario; un pareggio difende ma non infligge quel danno.",
   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 190,
+  "from": "Evoluzione di: Raffica Maestria. Tipo: attivo. Attivazione: 1 Azione Bonus dopo un attacco a mani nude. Costo aggiuntivo: 2 ST per attacco extra. Limite: 1 attivazione nel tuo turno.",
+  "to": "Evoluzione di: Raffica · Maestria. Tipo: attivo. Attivazione: 1 Azione Bonus dopo un attacco a mani nude. Limite: 1 attivazione nel tuo turno. Costo progressivo: 1 ST il primo attacco extra, 2 ST il secondo, 3 ST il terzo, 4 ST il quarto e così via, oltre a tutti i costi normali dell’eventuale Tecnica.",
+  "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 191,
+  "from": "Dopo aver effettuato un attacco a mani nude, puoi attivare Raffica Senza Fine per eseguire una sequenza di attacchi aggiuntivi nello stesso turno. L’attacco iniziale può essere un attacco base o una Tecnica offensiva compatibile e non deve necessariamente essere andato a segno.",
+  "to": "Dopo aver effettuato un attacco a mani nude, puoi attivare Raffica Senza Fine per eseguire una sequenza di attacchi aggiuntivi nello stesso turno. L’attacco iniziale può essere un attacco base oppure una Tecnica offensiva in mischia dello Striker eseguita a mani nude e non deve necessariamente essere andato a segno.",
+  "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 192,
+  "from": "Ogni attacco aggiuntivo costa 2 ST e può essere un attacco base a mani nude oppure una Tecnica offensiva in mischia dello Striker. Se scegli una Tecnica, paghi anche tutti i suoi costi normali. La Raffica non ha un costo fisso di attivazione oltre ai 2 ST dovuti per ciascun attacco extra.",
+  "to": "Il costo della Raffica cresce per ogni attacco aggiuntivo effettuato durante quella attivazione: il primo costa 1 ST, il secondo 2 ST, il terzo 3 ST, il quarto 4 ST, il quinto 5 ST e così via. Non esiste un numero massimo prestabilito di attacchi extra: il limite è la Stamina che il personaggio può e decide di spendere. Ogni attacco aggiuntivo può essere un attacco base a mani nude oppure una Tecnica offensiva in mischia dello Striker. Se scegli una Tecnica, paghi sempre sia il costo progressivo di Raffica relativo a quell’attacco sia tutti i costi normali della Tecnica e dei suoi effetti. I due costi si sommano integralmente.",
+  "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 193,
+  "from": "Il limite di tre attacchi aggiuntivi di Raffica Maestria viene sostituito dalla Stamina che puoi spendere. Decidi se proseguire dopo aver risolto ciascun colpo e paga il costo del successivo prima di tentarlo. Gli attacchi mancati consumano comunque la ST spesa.",
+  "to": "Decidi se proseguire dopo aver risolto ciascun attacco e paghi il costo del successivo prima di tentarlo. Un attacco mancato consuma normalmente la Stamina pagata ma non interrompe Raffica Senza Fine.",
+  "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 194,
+  "from": "Puoi concentrare i colpi sullo stesso avversario oppure distribuirli tra bersagli raggiungibili. Ogni attacco conserva la propria portata, il proprio tiro per colpire, il proprio danno e le normali possibilità di difesa del bersaglio. La Raffica non concede Movimento o spostamento speciale extra: eventuali spostamenti utilizzano il Movimento o il budget speciale ancora disponibili, secondo la capacità impiegata.",
+  "to": "Puoi concentrare gli attacchi sullo stesso avversario oppure distribuirli tra bersagli raggiungibili. Ogni attacco conserva la propria portata, il proprio tiro per colpire, il proprio danno e le normali possibilità di difesa del bersaglio. Raffica Senza Fine non concede Movimento gratuito o spostamenti speciali. Eventuali movimenti derivano dal Movimento ancora disponibile o dagli effetti contenuti nella Tecnica impiegata e ne consumano normalmente i costi e gli eventuali budget.",
+  "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 195,
+  "from": "Gli attacchi aggiuntivi non sono nuove Azioni principali e non concedono altre Azioni Bonus. Non possono essere impiegati per attivare altri Talenti, attivare l’Haki, eseguire Tecniche di Supporto o di Potenziamento oppure utilizzare liberamente una Special Move. I Talenti passivi compatibili, come Potenza del Titano, e i potenziamenti degli Attributi, come Proiezione Colossale, Spostamento Fulmineo e Agilità Sovrumana, possono applicarsi ai singoli colpi. Ogni Tecnica deve contenere gli effetti necessari e rispettare i relativi requisiti.",
+  "to": "Gli attacchi aggiuntivi non sono nuove Azioni principali e non concedono ulteriori Azioni Bonus. Non possono essere usati per attivare altri Talenti attivi, attivare l’Haki, eseguire Tecniche di Supporto o di Potenziamento oppure utilizzare liberamente una Special Move. Talenti passivi e potenziamenti compatibili possono applicarsi ai singoli colpi secondo le proprie regole, compresi Potenza del Titano e i potenziamenti degli Attributi Proiezione Colossale, Spostamento Fulmineo e Agilità Sovrumana. Ogni Tecnica deve contenere gli effetti necessari e rispettare i relativi requisiti.",
+  "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 196,
+  "from": "Questa evoluzione incorpora la catena di Raffica. Non puoi sommare o riattivare nello stesso turno le versioni Base, Migliorato e Maestria per ottenere altri attacchi.",
+  "to": "Questa evoluzione incorpora completamente la catena di Raffica. Nello stesso turno non puoi sommare o riattivare Raffica · Base, Migliorato o Maestria per ottenere attacchi aggiuntivi ulteriori. Il Colpo Sfonda rimane soggetto al limite generale di una sola attivazione per turno.",
+  "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 197,
+  "from": "Esempio: dopo l’attacco iniziale hai 8 ST disponibili. Puoi spenderle per quattro attacchi base aggiuntivi, a 2 ST ciascuno. Se scegli invece una Tecnica da 2 ST, ogni suo uso extra costa 4 ST complessivi: 2 ST per la Raffica e 2 ST per la Tecnica.",
+  "to": "Esempio con 8 ST disponibili dopo l’attacco iniziale: puoi effettuare tre attacchi base extra pagando 1 + 2 + 3 = 6 ST. Il quarto costerebbe 4 ST e non può essere acquistato con le 2 ST rimaste. Se utilizzi invece una Tecnica da 2 ST per gli attacchi extra, il primo costa 3 ST complessivi e il secondo 4 ST, per un totale di 7 ST. Rimane 1 ST e non puoi pagare il terzo, che costerebbe 5 ST complessivi.",
+  "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 198,
+  "from": "Esempio con mobilità e precisione: una Tecnica aggiuntiva con Scatto costa almeno 3 ST, di cui 2 per Raffica e 1 per Scatto, e consuma soltanto i metri effettivamente percorsi dal budget di Tecnica. Una Tecnica aggiuntiva con Punto di Rottura costa almeno 4 ST, di cui 2 per Raffica e 2 per l’effetto, e richiede Precisione Assoluta. Gli altri effetti si pagano normalmente.",
+  "to": "Esempio con mobilità e precisione: il primo attacco extra con una Tecnica contenente Scatto costa almeno 2 ST, di cui 1 per Raffica e 1 per Scatto, e consuma soltanto i metri effettivamente percorsi dal budget di Tecnica. Il primo attacco extra con Punto di Rottura costa almeno 3 ST, di cui 1 per Raffica e 2 per l’effetto, e richiede Precisione Assoluta. Gli altri effetti si pagano normalmente.",
+  "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 331,
+  "from": "Raffica Senza Fine può concedere più Tecniche con Proiezione o con effetti di mobilità. Ogni Tecnica paga i suoi costi, produce al massimo uno Schianto e consuma i metri effettivamente percorsi dal budget condiviso. Il limite di una collisione vale per ogni uso della Tecnica; il budget di mobilità vale per l'intero intervallo fra l'inizio del turno e l'inizio del turno successivo.",
+  "to": "Raffica Senza Fine può concedere più Tecniche offensive Striker nello stesso turno. Per ogni Tecnica aggiuntiva paghi sia il costo progressivo di Raffica relativo a quell’attacco sia tutti i costi normali della Tecnica e dei suoi effetti. Ogni Tecnica conserva i propri requisiti, il proprio limite di collisione e gli eventuali budget di movimento condivisi. Il limite di una collisione vale per ogni uso della Tecnica; il budget di mobilità vale per l’intero intervallo fra l’inizio del turno e l’inizio del turno successivo.",
+  "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 362,
+  "from": "2 ST per colpo extra",
+  "to": "1 ST il primo attacco extra, 2 ST il secondo, 3 ST il terzo, poi +1 ST progressiva per ogni attacco extra successivo; oltre a tutti i normali costi dell’eventuale Tecnica utilizzata.",
+  "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "after": 196,
+  "blocchi": [
+   {
+    "style": "Heading 4",
+    "text": "Esempi di costo"
+   },
+   {
+    "style": "List Bullet",
+    "text": "1° attacco extra base: Raffica 1 ST + Tecnica 0 ST = 1 ST."
+   },
+   {
+    "style": "List Bullet",
+    "text": "2° attacco extra base: Raffica 2 ST + Tecnica 0 ST = 2 ST."
+   },
+   {
+    "style": "List Bullet",
+    "text": "3° attacco extra base: Raffica 3 ST + Tecnica 0 ST = 3 ST."
+   },
+   {
+    "style": "List Bullet",
+    "text": "4° attacco extra base: Raffica 4 ST + Tecnica 0 ST = 4 ST."
+   },
+   {
+    "style": "List Bullet",
+    "text": "1° extra con Tecnica da 2 ST: Raffica 1 ST + Tecnica 2 ST = 3 ST."
+   },
+   {
+    "style": "List Bullet",
+    "text": "2° extra con Tecnica da 2 ST: Raffica 2 ST + Tecnica 2 ST = 4 ST."
+   },
+   {
+    "style": "List Bullet",
+    "text": "3° extra con Tecnica da 2 ST: Raffica 3 ST + Tecnica 2 ST = 5 ST."
+   },
+   {
+    "style": "List Bullet",
+    "text": "1° extra con Scatto: Raffica 1 ST + Scatto 1 ST = 2 ST, oltre agli altri eventuali costi della Tecnica."
+   },
+   {
+    "style": "List Bullet",
+    "text": "1° extra con Punto di Rottura: Raffica 1 ST + Punto di Rottura 2 ST = 3 ST, oltre agli altri eventuali costi della Tecnica."
+   }
+  ],
+  "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 185,
+  "from": "Punto di Rottura sostituisce soltanto lo stato della Firma per quel colpo. Gli eventuali altri effetti della Tecnica seguono le proprie regole, rispettando il limite ordinario degli effetti per famiglia. Il Talento non permette di ignorare automaticamente una difesa o di colpire una parte fisicamente irraggiungibile.",
+  "to": "Punto di Rottura sostituisce soltanto lo stato della Firma per quel colpo e ne condivide il limite di una attivazione per turno. Applicare Punto di Rottura consuma l’unica attivazione della Firma; se Il Colpo Sfonda si è già attivato in quel turno, non puoi applicare nuovamente la Firma attraverso Punto di Rottura. Gli eventuali altri effetti della Tecnica seguono le proprie regole, rispettando il limite ordinario degli effetti per famiglia. Il Talento non permette di ignorare automaticamente una difesa o di colpire una parte fisicamente irraggiungibile.",
+  "perche": "Chiarimento conservativo della regola esistente: Punto di Rottura sostituisce lo stato della Firma, non la sua attivazione. La patch Raffica limita la Firma a una volta per turno e non introduce un’eccezione per Punto di Rottura."
  }
 ]

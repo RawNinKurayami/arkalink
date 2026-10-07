@@ -10,6 +10,23 @@ const html=fs.readFileSync(process.env.GLC_MOVES_HTML||path.join(root,'gestisci-
 const source=fs.readFileSync(process.env.GLC_MOVES_SOURCE||path.join(root,'gestisci-pirata/special-moves.js'),'utf8');
 const {setup,errorText,hasBonusError}=require('./helpers/glc-fixture.cjs');
 
+test('Ordinary Raffica charges 1, 3 or 6 ST cumulatively while extras remain basic attacks',()=>{
+ const chain=['Raffica — Base','Raffica — Migliorato','Raffica — Maestria'];
+ for(let tier=0;tier<chain.length;tier++){
+  const h=setup();h.context.pg.talents.push(...chain.slice(1,tier+1).map(n=>'Combattente · Striker · '+n));
+  const id=h.moves.sources().find(s=>s.name===chain[tier]).id;
+  for(let count=1;count<=tier+1;count++){
+   const r=h.resolve({activeTalentId:id,talentUses:{[id]:count}}),cost=[1,3,6][count-1];
+   assert.equal(r.status,'ready',errorText(r));assert.equal(r.rows.find(row=>row.id===id).st,cost);
+   assert.equal(r.totals.st,1+cost);assert.equal(r.economy.used,1);
+   assert.ok(r.conditions.some(c=>/extra sono sempre attacchi base/.test(c.text)&&/mancato consuma ST ma non interrompe/.test(c.text)));
+  }
+  h.context.pg.extraTech[0].eff=['Scatto','Balzo'];
+  const r=h.resolve({activeTalentId:id,talentUses:{[id]:tier+1}});
+  assert.equal(r.totals.st,2+[1,3,6][tier]);
+  for(const count of [0,1.5,tier+2])assert.equal(h.resolve({activeTalentId:id,talentUses:{[id]:count}}).totals,null);
+ }
+});
 test('A technique and passive talents leave the Bonus free, including old 0 ST active slots',()=>{
  const h=setup(),r=h.resolve({activeTalentId:h.talent('Pressione Costante')});
  assert.equal(r.errors.length,0,errorText(r));assert.equal(r.economy.normal,1);assert.equal(r.economy.used,0);

@@ -8,6 +8,7 @@ const STEPS = ['Identità','Tecnica','Talenti','Poteri','Equipaggiamento','Ricet
 const copy = value => JSON.parse(JSON.stringify(value));
 const list = value => Array.isArray(value) ? value : [];
 const number = (v, fallback=0) => Number.isFinite(Number(v)) && v!=='' && v!=null ? Number(v) : fallback;
+const rafficaCost = count => count * (count + 1) / 2;
 const clean = s => String(s || '').replace(/<[^>]*>/g,'');
 const uniq = a => [...new Set(a)];
 const uid = () => 'sm_'+(window.crypto?.randomUUID?.() || Date.now().toString(36)+'_'+Math.random().toString(36).slice(2));
@@ -333,8 +334,8 @@ function resolve(input) {
  selected.filter(s=>s.kind!=='haki'&&s.kind!=='fruit').forEach(s=>{
   let c=sourceCost(s);if(!c){unknown.push(s);return;}c={...c};
   const notes=[];
-  if(s.prestige&&s.meta.quantity){const q=Number(m.talentUses[s.id]??1);if(!Number.isSafeInteger(q)||q<1)errors.push({id:s.id,text:'Raffica: indica un numero intero positivo di attacchi extra.'});else{c.st*=q;notes.push(q+' attacchi extra · 2 ST ciascuno · 1 Bonus complessiva');}}
-  else if(s.kind==='talent'&&s.meta?.quantity){const max=s.alias.includes('Maestria')?3:s.alias.includes('Migliorato')?2:1;const q=Math.max(1,Math.min(max,number(m.talentUses[s.id],1)));c.st*=q;notes.push(q+' attacch'+(q===1?'o':'i')+' base extra · 1×/turno');}
+  if(s.prestige&&s.meta.quantity){const q=Number(m.talentUses[s.id]??1);if(!Number.isSafeInteger(q)||q<1||!Number.isSafeInteger(rafficaCost(q)))errors.push({id:s.id,text:'Raffica: indica un numero intero positivo di attacchi extra.'});else{c.st=rafficaCost(q);notes.push(q+' attacchi extra · costi progressivi da 1 a '+q+' ST · 1 Bonus complessiva');}}
+  else if(s.kind==='talent'&&s.meta?.quantity){const max=s.alias.includes('Maestria')?3:s.alias.includes('Migliorato')?2:1;const q=Number(m.talentUses[s.id]??1);if(!Number.isSafeInteger(q)||q<1||q>max)errors.push({id:s.id,text:'Raffica: indica da 1 a '+max+' attacchi base extra, con un numero intero.'});else{c.st=rafficaCost(q);notes.push(q+' attacch'+(q===1?'o':'i')+' base extra · costi progressivi da 1 a '+q+' ST · 1×/turno');}conditions.push({id:s.id,text:'Raffica ordinaria: gli extra sono sempre attacchi base a mani nude, non altri usi della Tecnica. Paga prima di ciascun attacco; un mancato consuma ST ma non interrompe la sequenza. Puoi fermarti dopo qualunque extra; Il Colpo Sfonda si attiva al massimo una volta per turno.'});}
   if(s===tech&&s.techKind==='built'){
    let raw=list(t.eff).reduce((sum,n)=>sum+(tecEffObj(n)?.[4]||0),0)+(TEC_DUR.find(d=>d[0]===t.durata)?.[1]||0);
    if(t.fonte==='Frutto'){
@@ -365,9 +366,9 @@ function resolve(input) {
  const endless=prestige('raffica-senza-fine');
  if(endless&&techniqueRow){
   const count=Number(m.talentTechniqueUses[endless.id]||0),total=Number(m.talentUses[endless.id]??1);
-  if(!Number.isSafeInteger(count)||count<0||count>total||count&&!isMelee(t))errors.push({id:endless.id,text:'Raffica: gli usi aggiuntivi della Tecnica devono essere da 0 al totale degli attacchi extra e richiedono una Tecnica offensiva in mischia.'});
+  if(!Number.isSafeInteger(count)||count<0||count>total||count&&!isMelee(t))errors.push({id:endless.id,text:'Raffica: gli usi aggiuntivi della Tecnica devono essere da 0 al totale degli attacchi extra e richiedono una Tecnica offensiva Striker in mischia.'});
   else if(count){const row=rows.find(r=>r.id===endless.id),extra=count*techniqueRow.st;row.st+=extra;st+=extra;row.note+=' · '+count+' usi aggiuntivi di '+tech.name+' ('+techniqueRow.st+' ST ciascuno)';}
-  conditions.push({id:endless.id,text:'Raffica: '+(total-count)+' attacchi base extra e '+count+' usi extra della Tecnica. Ogni colpo ha un tiro separato. Nessuna nuova Bonus, Special Move, attivazione Haki o riserva di movimento; paga prima di ciascun colpo e puoi interrompere la sequenza.'});
+  conditions.push({id:endless.id,text:'Raffica: '+(total-count)+' attacchi base a mani nude extra e '+count+' usi extra della Tecnica offensiva Striker in mischia, oltre all’attacco iniziale. Ogni extra paga il costo progressivo della Raffica più il costo completo della Tecnica e dei suoi effetti, quando usata. Ogni colpo ha un tiro separato. Nessuna nuova Azione, Bonus, Special Move, attivazione Haki o riserva di movimento; paga prima di ciascun colpo e puoi interrompere la sequenza. Un mancato consuma ST ma non interrompe la Raffica. Il Colpo Sfonda si attiva al massimo una volta per turno.'});
  }
  m.hakiSelections.forEach(hsel=>{
   const s=findSource(hsel.id,ss);if(!s||s.kind!=='haki')return;
@@ -773,9 +774,9 @@ function talentsArea(work,fruit) {
    if(on&&s.prestige&&s.meta.quantity){
     const quantities=node('div','smc-live-panel');
     const add=(label,value,key,min)=>{const f=field(label,value,()=>{},'number',{min,step:1});f.querySelector('input').onchange=e=>{const n=Number(e.target.value);if(Number.isSafeInteger(n)&&n>=min)changeDraft(d=>d[key][s.id]=n);else {UI.error='Indica un numero intero valido.';renderDialog();}};quantities.append(f);};
-    add('Attacchi extra totali · 2 ST ciascuno',m.talentUses[s.id]??1,'talentUses',1);
+    add('Attacchi extra totali · costi 1, 2, 3, 4… ST',m.talentUses[s.id]??1,'talentUses',1);
     add('Di questi, usi della stessa Tecnica · paghi anche il suo costo',m.talentTechniqueUses[s.id]||0,'talentTechniqueUses',0);grid.append(quantities);
-   }else if(on&&s.meta.quantity){const max=s.alias.includes('Maestria')?3:s.alias.includes('Migliorato')?2:1;grid.append(selectField('Attacchi base extra',String(m.talentUses[s.id]||1),Array.from({length:max},(_,i)=>[String(i+1),String(i+1)+' · '+(i+1)+' ST']),v=>changeDraft(d=>d.talentUses[s.id]=+v)));}
+   }else if(on&&s.meta.quantity){const max=s.alias.includes('Maestria')?3:s.alias.includes('Migliorato')?2:1;grid.append(selectField('Attacchi base extra',String(m.talentUses[s.id]||1),Array.from({length:max},(_,i)=>[String(i+1),String(i+1)+' · '+rafficaCost(i+1)+' ST totali']),v=>changeDraft(d=>d.talentUses[s.id]=+v)));}
    if(on&&requiresGM(s))grid.append(gmCostEditor(s));
   });work.append(grid);
  }

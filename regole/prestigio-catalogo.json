@@ -442,8 +442,8 @@
         "Raffica — Maestria"
       ],
       "action": "bonus",
-      "costST": 2,
-      "saikyoST": 2,
+      "costST": 1,
+      "saikyoST": 1,
       "match": "unarmed",
       "uses": 1,
       "saikyoUses": 1,
@@ -504,7 +504,8 @@
           "text": "Esempio con mobilità e precisione: una Tecnica aggiuntiva con Scatto costa almeno 3 ST, di cui 2 per Raffica e 1 per Scatto, e consuma soltanto i metri effettivamente percorsi dal budget di Tecnica. Una Tecnica aggiuntiva con Punto di Rottura costa almeno 4 ST, di cui 2 per Raffica e 2 per l’effetto, e richiede Precisione Assoluta. Gli altri effetti si pagano normalmente."
         }
       ],
-      "frequency": "turn"
+      "frequency": "turn",
+      "costProgression": "extra-index"
     },
     {
       "id": "fendente-sovrano",

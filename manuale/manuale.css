@@ -181,6 +181,8 @@ h4.man-lab b{font-weight:inherit;}
 .man-tab-effetti{min-width:640px;}
 .man-tab-effetti th,.man-tab-effetti td{overflow-wrap:normal;word-break:normal;}
 .man-tab-effetti th,.man-tab-effetti td:nth-child(-n+3){white-space:nowrap;}
+.man-tab-raffica{min-width:600px;}
+.man-tab-raffica th,.man-tab-raffica td{overflow-wrap:normal;word-break:normal;white-space:nowrap;}
 
 .man-somm{display:none;}
 .man-fine{display:block; height:1px;}
@@ -270,6 +272,8 @@ h4.man-lab b{font-weight:inherit;}
   .man-tab-lunga thead{display:table-header-group;}
   .man-tab{font-size:8.6pt;}
   .man-tab-effetti{min-width:0;}
+  .man-tab-raffica{min-width:0;}
+  .man-tab-wrap:has(>.man-tab-raffica){column-span:all;overflow:visible;}
   .man-tab-wrap:has(>.man-tab-effetti){column-span:all;overflow:visible;}
   .man-fine{display:none;}
 }

@@ -1542,11 +1542,11 @@ body.has-bld{overflow:hidden;}
 <div id="print-sheet" aria-hidden="true"></div>
 
 <link rel="stylesheet" href="prestigio.css?v=2">
-<script src="/regole/prestigio-data.js?v=6"></script>
+<script src="/regole/prestigio-data.js?v=7"></script>
 <script src="/regole/prestigio.js?v=4"></script>
-<script src="/regole/prestigio-presentazione.js?v=7"></script>
+<script src="/regole/prestigio-presentazione.js?v=8"></script>
 <script src="prestigio-ui.js?v=2"></script>
-<script src="special-moves.js?v=18"></script>
+<script src="special-moves.js?v=19"></script>
 <link rel="stylesheet" href="card-view.css?v=6">
 <script src="card-export.js?v=4" defer></script>
 <script src="card-view.js?v=7" defer></script>
@@ -1569,16 +1569,16 @@ const RACES=[
 ];
 const TALENTS={
 "Combattente":{multi:true,styles:{
-"Striker":{ico:"👊",skillChoice:["Atletica", "Acrobazia"],tratto:"Mani Nude — combatti esclusivamente a mani nude: nessun'arma dell'Arsenale è compatibile con lo Striker, tirapugni e armi improvvisate compresi. In cambio nessun Grado ti frena: usi il pieno dell'Attributo, e prese e atterramenti ti riescono facili.",firma:"Il colpo sfonda — sul +4 il bersaglio è Stordito / Sbilanciato per 1 turno.",talenti:[
-  {smcId:"glc-talent-001",smcAlias:"Raffica — Base",n:"Raffica — Base",tier:"d8",d:"1×/turno, dopo un tuo attacco a mani nude puoi spendere 1 ST per effettuare 1 attacco base aggiuntivo a mani nude."},
+"Striker":{ico:"👊",skillChoice:["Atletica", "Acrobazia"],tratto:"Mani Nude — combatti esclusivamente a mani nude: nessun'arma dell'Arsenale è compatibile con lo Striker, tirapugni e armi improvvisate compresi. In cambio nessun Grado ti frena: usi il pieno dell'Attributo, e prese e atterramenti ti riescono facili.",firma:"Il colpo sfonda — 1×/turno, sul +4 con un colpo dello Stile il bersaglio è Stordito / Sbilanciato per 1 turno. Ulteriori colpi puliti nello stesso turno non riattivano la Firma.",talenti:[
+  {smcId:"glc-talent-001",smcAlias:"Raffica — Base",n:"Raffica — Base",tier:"d8",d:"1×/turno, Azione Bonus dopo un tuo attacco a mani nude: spendi 1 ST prima di effettuare 1 attacco base aggiuntivo a mani nude. L’attacco iniziale può essere una Tecnica offensiva Striker compatibile; l’extra è sempre un attacco base. La ST resta spesa anche se manca."},
   {smcId:"glc-talent-002",smcAlias:"Passo Fulmineo",n:"Passo Fulmineo",tier:"d8",d:"1×/turno, durante il Movimento puoi effettuare uno scatto verso un nemico senza provocare reazioni causate dallo spostamento."},
   {smcId:"glc-talent-003",smcAlias:"Presa di Ferro",n:"Presa di Ferro",tier:"d8",d:"quando afferri un nemico della tua stazza o inferiore resta Trattenuto finché non supera una prova di Forza contro la tua. Finché lo trattieni non può allontanarsi."},
   {smcId:"glc-talent-004",smcAlias:"Guardia del Combattente",n:"Guardia del Combattente",tier:"d8",d:"1×/scontro, quando un attacco ti colpisce puoi ignorare un effetto secondario provocato dal colpo, come Stordito, Sbilanciato o Spinta. Il danno lo subisci normalmente."},
-  {smcId:"glc-talent-005",smcAlias:"Raffica — Migliorato",n:"Raffica — Migliorato",tier:"d10",req:"Raffica — Base",d:"puoi effettuare fino a 2 attacchi base extra a mani nude per turno, spendendo 1 ST per ciascun attacco extra."},
+  {smcId:"glc-talent-005",smcAlias:"Raffica — Migliorato",n:"Raffica — Migliorato",tier:"d10",req:"Raffica — Base",d:"1×/turno, una sola Azione Bonus dopo un attacco a mani nude: fino a 2 attacchi base extra. Il primo costa 1 ST e il secondo altre 2 ST; totale 3 ST. Paghi prima di ciascun extra, puoi fermarti e un mancato non interrompe la sequenza. Sostituisce Base; le versioni non si sommano."},
   {smcId:"glc-talent-006",smcAlias:"Pressione Costante",n:"Pressione Costante",tier:"d10",d:"1×/turno, se colpisci lo stesso bersaglio almeno due volte nel tuo turno, fino all'inizio del tuo prossimo turno quel bersaglio non può effettuare Reazioni contro di te."},
   {smcId:"glc-talent-007",smcAlias:"Slancio",n:"Slancio",tier:"d10",d:"se prima di colpire ti sei mosso di almeno 5 metri in linea verso il bersaglio, quando il colpo va a segno puoi spingerlo di 3 metri."},
   {smcId:"glc-talent-008",smcAlias:"Guardia Rotta",n:"Guardia Rotta",tier:"d10",d:"1×/turno, se colpisci lo stesso bersaglio almeno due volte nello stesso turno, il prossimo attacco effettuato contro di lui prima dell'inizio del tuo prossimo turno ha Vantaggio."},
-  {smcId:"glc-talent-009",smcAlias:"Raffica — Maestria",n:"Raffica — Maestria",tier:"d12",req:"Raffica — Migliorato",d:"fino a 3 attacchi base extra a mani nude per turno, spendendo 1 ST per ciascun attacco extra."},
+  {smcId:"glc-talent-009",smcAlias:"Raffica — Maestria",n:"Raffica — Maestria",tier:"d12",req:"Raffica — Migliorato",d:"1×/turno, una sola Azione Bonus dopo un attacco a mani nude: fino a 3 attacchi base extra. Costano 1, 2 e 3 ST; totale 6 ST. Paghi prima di ciascun extra, puoi fermarti e un mancato non interrompe la sequenza. Sostituisce le versioni precedenti: non si sommano e non concedono Azioni o Bonus ulteriori."},
   {smcId:"glc-talent-010",smcAlias:"Contraccolpo",n:"Contraccolpo",tier:"d12",d:"quando una Tecnica con Contrattacco raggiunge o supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata."},
   {smcId:"glc-talent-011",smcAlias:"Proiezione",n:"Proiezione",tier:"d12",req:"Presa di Ferro",d:"puoi scagliare fino a 5 metri un nemico trattenuto: cade Sbilanciato. Se colpisce un altro nemico, anche quello cade Sbilanciato ed entrambi subiscono 1 Dado Danno."},
   {smcId:"glc-talent-012",smcAlias:"Pugni che Rompono",n:"Pugni che Rompono",tier:"d12",d:"i colpi a mani nude infliggono danno pieno contro porte, muri, strutture e oggetti."},

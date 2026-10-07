@@ -108,7 +108,8 @@ def tabella_html(righe, classe=None):
     corpo = righe[1:]
     intestata = all(t and len(t) < 40 for t in testa) and len(corpo) > 0
     classi = 'man-tab' + (' ' + html.escape(classe, quote=True) if classe else '')
-    accesso = ' tabindex="0" role="region" aria-label="Catalogo degli effetti"' if classe == 'man-tab-effetti' else ''
+    etichetta = {'man-tab-effetti': 'Catalogo degli effetti', 'man-tab-raffica': 'Progressione di Raffica'}.get(classe)
+    accesso = ' tabindex="0" role="region" aria-label="%s"' % etichetta if etichetta else ''
     out = ['<div class="man-tab-wrap"%s><table class="%s">' % (accesso, classi)]
     if intestata:
         out.append('<thead><tr>' + ''.join('<th>' + t + '</th>' for t in testa) + '</tr></thead>')
@@ -429,7 +430,7 @@ PAGINA = '''<!doctype html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
-<link rel="stylesheet" href="manuale.css?v=18">
+<link rel="stylesheet" href="manuale.css?v=19">
 <style>
 /* Il gate del Manuale bloccato resta com'era. */
 #manlock[hidden]{display:none !important;}

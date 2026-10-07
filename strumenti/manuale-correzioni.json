@@ -3076,7 +3076,7 @@
    "sezione": "4.2",
    "titolo": "Striker",
    "quando": "2026-10-07",
-   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026. Conserva la precedente revisione del Costruttore.",
    "contenuto": [
     {
      "t": "p",
@@ -3266,47 +3266,19 @@
     },
     {
      "t": "p",
-     "testo": "(Sempre attiva · Gratuita)"
+     "testo": "(Sempre attiva · Gratuita · 1 volta per turno)"
     },
     {
      "t": "p",
-     "testo": "Quando uno Striker ottiene un colpo pulito con margine +4, il bersaglio subisce:",
-     "pezzi": [
-      {
-       "t": "Quando uno Striker ottiene un ",
-       "s": []
-      },
-      {
-       "t": "colpo pulito con margine +4",
-       "s": [
-        "b"
-       ]
-      },
-      {
-       "t": ", il bersaglio subisce:",
-       "s": []
-      }
-     ]
+     "testo": "Quando uno Striker ottiene un colpo pulito con margine +4 con un colpo dello Stile, il bersaglio subisce Stordito oppure Sbilanciato per 1 turno. Dopo che la Firma si è attivata una volta, ulteriori colpi puliti ottenuti dallo stesso Striker durante quel turno non la attivano nuovamente."
     },
     {
      "t": "p",
-     "testo": "Stordito oppure Sbilanciato per 1 turno.",
-     "pezzi": [
-      {
-       "t": "Stordito oppure Sbilanciato per 1 turno.",
-       "s": [
-        "b"
-       ]
-      }
-     ]
+     "testo": "La Firma si applica ai colpi dello Stile e non richiede di essere acquistata come Talento. Il personaggio può utilizzarla fin dalla creazione."
     },
     {
      "t": "p",
-     "testo": "La Firma si applica ai colpi dello Stile e non richiede di essere acquistata come Talento."
-    },
-    {
-     "t": "p",
-     "testo": "Il personaggio può quindi utilizzare questa capacità fin dalla creazione."
+     "testo": "La limitazione riguarda soltanto la Firma. Pressione Costante e Guardia Rotta continuano a verificare normalmente le proprie condizioni."
     },
     {
      "t": "h",
@@ -3363,33 +3335,15 @@
     },
     {
      "t": "p",
-     "testo": "Attiva · 1 volta per turnoDopo aver effettuato un attacco a mani nude, puoi spendere 1 ST per compiere 1 attacco base aggiuntivo a mani nude.Il secondo colpo è un attacco base: il Talento non concede una seconda Azione con cui utilizzare liberamente un'altra Tecnica.",
-     "pezzi": [
-      {
-       "t": "Attiva · 1 volta per turnoDopo aver effettuato un attacco a mani nude, puoi spendere ",
-       "s": []
-      },
-      {
-       "t": "1 ST",
-       "s": [
-        "b"
-       ]
-      },
-      {
-       "t": " per compiere ",
-       "s": []
-      },
-      {
-       "t": "1 attacco base aggiuntivo a mani nude",
-       "s": [
-        "b"
-       ]
-      },
-      {
-       "t": ".Il secondo colpo è un attacco base: il Talento non concede una seconda Azione con cui utilizzare liberamente un'altra Tecnica.",
-       "s": []
-      }
-     ]
+     "testo": "Attiva · Azione Bonus · 1 volta per turno"
+    },
+    {
+     "t": "p",
+     "testo": "Dopo aver effettuato un attacco a mani nude, puoi spendere 1 ST e la tua Azione Bonus per compiere immediatamente 1 attacco base aggiuntivo a mani nude. L’attacco iniziale può essere un attacco base oppure una Tecnica offensiva Striker compatibile eseguita a mani nude. L’attacco aggiuntivo concesso da Raffica è sempre un attacco base: il Talento non concede una seconda Azione con cui utilizzare liberamente un’altra Tecnica."
+    },
+    {
+     "t": "p",
+     "testo": "La Stamina viene pagata prima di effettuare l’attacco extra. Se l’attacco manca, la ST rimane spesa."
     },
     {
      "t": "h",
@@ -3491,37 +3445,23 @@
     },
     {
      "t": "p",
-     "testo": "(1 ST per colpo extra)"
+     "testo": "(1 + 2 ST; massimo 3 ST)"
     },
     {
      "t": "p",
-     "testo": "Prerequisito: Raffica · BasePuoi effettuare fino a 2 attacchi base aggiuntivi a mani nude per turno, spendendo 1 ST per ciascuno.I due attacchi extra rappresentano il limite complessivo raggiunto dalla Raffica: non si sommano all'attacco extra della versione Base.Esempio: effettui il tuo attacco normale, poi spendi 2 ST per tentare altri due attacchi base a mani nude.",
-     "pezzi": [
-      {
-       "t": "Prerequisito: Raffica · BasePuoi effettuare ",
-       "s": []
-      },
-      {
-       "t": "fino a 2 attacchi base aggiuntivi a mani nude per turno",
-       "s": [
-        "b"
-       ]
-      },
-      {
-       "t": ", spendendo 1 ST per ciascuno.I due attacchi extra rappresentano il limite complessivo raggiunto dalla Raffica: non si sommano all'attacco extra della versione Base.",
-       "s": []
-      },
-      {
-       "t": "Esempio:",
-       "s": [
-        "b"
-       ]
-      },
-      {
-       "t": " effettui il tuo attacco normale, poi spendi 2 ST per tentare altri due attacchi base a mani nude.",
-       "s": []
-      }
-     ]
+     "testo": "Prerequisito: Raffica · Base · Attiva · Azione Bonus · 1 volta per turno"
+    },
+    {
+     "t": "p",
+     "testo": "Puoi effettuare fino a 2 attacchi base aggiuntivi a mani nude nello stesso turno. Il primo attacco extra costa 1 ST; se desideri effettuare anche il secondo, paghi altre 2 ST prima di tentarlo."
+    },
+    {
+     "t": "p",
+     "testo": "La sequenza completa costa 3 ST. Puoi fermarti dopo il primo attacco extra e spendere soltanto 1 ST. Un attacco mancato consuma la ST pagata ma non interrompe la Raffica e non impedisce di acquistare il successivo, purché tu disponga della Stamina necessaria."
+    },
+    {
+     "t": "p",
+     "testo": "Il limite di 2 attacchi extra sostituisce Raffica · Base: le versioni non si sommano."
     },
     {
      "t": "h",
@@ -3639,37 +3579,23 @@
     },
     {
      "t": "p",
-     "testo": "(1 ST per colpo extra)"
+     "testo": "(1 + 2 + 3 ST; massimo 6 ST)"
     },
     {
      "t": "p",
-     "testo": "Prerequisito: Raffica · MiglioratoPuoi effettuare fino a 3 attacchi base aggiuntivi a mani nude per turno, spendendo 1 ST per ogni attacco extra.Il limite di tre sostituisce quello delle versioni precedenti: non si sommano gli attacchi extra di Base, Migliorato e Maestria.Con l'attacco normale e tutti e tre gli attacchi extra, puoi quindi tentare quattro attacchi a mani nude nello stesso turno, spendendo 3 ST per la Raffica.",
-     "pezzi": [
-      {
-       "t": "Prerequisito: Raffica · MiglioratoPuoi effettuare ",
-       "s": []
-      },
-      {
-       "t": "fino a 3 attacchi base aggiuntivi a mani nude per turno",
-       "s": [
-        "b"
-       ]
-      },
-      {
-       "t": ", spendendo 1 ST per ogni attacco extra.Il limite di tre sostituisce quello delle versioni precedenti: non si sommano gli attacchi extra di Base, Migliorato e Maestria.Con l'attacco normale e tutti e tre gli attacchi extra, puoi quindi tentare ",
-       "s": []
-      },
-      {
-       "t": "quattro attacchi a mani nude nello stesso turno",
-       "s": [
-        "b"
-       ]
-      },
-      {
-       "t": ", spendendo 3 ST per la Raffica.",
-       "s": []
-      }
-     ]
+     "testo": "Prerequisito: Raffica · Migliorato · Attiva · Azione Bonus · 1 volta per turno"
+    },
+    {
+     "t": "p",
+     "testo": "Puoi effettuare fino a 3 attacchi base aggiuntivi a mani nude nello stesso turno. Il primo attacco extra costa 1 ST, il secondo 2 ST e il terzo 3 ST."
+    },
+    {
+     "t": "p",
+     "testo": "La sequenza completa costa 6 ST. Puoi interromperla volontariamente dopo qualsiasi attacco extra. Un attacco mancato consuma la ST pagata ma non interrompe la sequenza."
+    },
+    {
+     "t": "p",
+     "testo": "Il limite di 3 attacchi extra sostituisce le versioni precedenti. Con l’attacco iniziale e tutti e tre gli attacchi extra, puoi tentare fino a quattro attacchi a mani nude nello stesso turno."
     },
     {
      "t": "h",
@@ -4021,13 +3947,15 @@
      "intestazione": [
       "Versione",
       "Requisito",
-      "Attacchi base extra massimi",
-      "Costo"
+      "Extra max",
+      "Costo progressivo",
+      "Costo massimo"
      ],
      "righe": [
       [
        "Base",
        "d8",
+       "1",
        "1",
        "1 ST"
       ],
@@ -4035,51 +3963,22 @@
        "Migliorato",
        "d10 + Base",
        "2",
-       "1 ST per attacco"
+       "1 + 2",
+       "3 ST"
       ],
       [
        "Maestria",
        "d12 + Migliorato",
        "3",
-       "1 ST per attacco"
+       "1 + 2 + 3",
+       "6 ST"
       ]
-     ]
+     ],
+     "classe": "man-tab-raffica"
     },
     {
      "t": "p",
-     "testo": "Le versioni non si sommano. Ogni Grado superiore sostituisce il limite precedente.",
-     "pezzi": [
-      {
-       "t": "Le versioni non si sommano.",
-       "s": [
-        "b"
-       ]
-      },
-      {
-       "t": " Ogni Grado superiore sostituisce il limite precedente.",
-       "s": []
-      }
-     ]
-    },
-    {
-     "t": "p",
-     "testo": "Gli attacchi extra sono sempre attacchi base a mani nude. Raffica non concede azioni supplementari con cui utilizzare altre Tecniche.",
-     "pezzi": [
-      {
-       "t": "Gli attacchi extra sono sempre ",
-       "s": []
-      },
-      {
-       "t": "attacchi base a mani nude",
-       "s": [
-        "b"
-       ]
-      },
-      {
-       "t": ". Raffica non concede azioni supplementari con cui utilizzare altre Tecniche.",
-       "s": []
-      }
-     ]
+     "testo": "Le versioni non si sommano. Ogni Grado superiore sostituisce il limite precedente. Gli attacchi extra sono sempre attacchi base a mani nude. Il giocatore paga ciascun costo prima di tentare il relativo attacco e può fermare volontariamente la sequenza in qualunque momento. Un attacco mancato non interrompe la Raffica. L’intera sequenza usa l’unica Azione Bonus del turno e non concede Azioni principali o Azioni Bonus supplementari."
     }
    ]
   },
@@ -7688,6 +7587,185 @@
      "testo": "Esempio: una Zona può rimanere attiva per tre turni, mentre un Talento utilizzato insieme alla Tecnica può avere effetto soltanto sull'attacco iniziale. La persistenza della Zona non prolunga il Talento."
     }
    ]
+  },
+  {
+   "sezione": "6.4",
+   "titolo": "Le Special Moves",
+   "quando": "2026-10-07",
+   "perche": "Patch editoriale Raffica del 06/10/2026 approvata nel documento e applicata il 07/10/2026. Corregge anche costo e ordine di attivazione dell’esempio Burning Combo.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "Una Special Move è una combinazione personalizzata delle capacità possedute dal personaggio."
+    },
+    {
+     "t": "p",
+     "testo": "Può comprendere una Tecnica, effetti del Costruttore, benefici dell’Haki e Talenti compatibili."
+    },
+    {
+     "t": "p",
+     "testo": "La Special Move serve a raccogliere queste componenti in una mossa pronta da utilizzare e consultare durante il combattimento."
+    },
+    {
+     "t": "h3",
+     "testo": "Regola delle Special Moves"
+    },
+    {
+     "t": "p",
+     "testo": "Una Special Move non concede effetti aggiuntivi, non elimina i costi e non modifica l’economia delle Azioni."
+    },
+    {
+     "t": "p",
+     "testo": "Tutte le sue componenti devono essere utilizzabili nel momento in cui la mossa viene eseguita."
+    },
+    {
+     "t": "p",
+     "testo": "Gli effetti passivi si applicano automaticamente quando vengono soddisfatte le loro condizioni."
+    },
+    {
+     "t": "p",
+     "testo": "L’Haki deve essere attivo."
+    },
+    {
+     "t": "p",
+     "testo": "La Special Move combina un’Azione normale, effetti passivi compatibili e al massimo un effetto da attivare con l’Azione Bonus: un Talento attivo oppure un effetto attivo Haki (⚡). Anche la prima attivazione di un Colore richiede la Bonus: queste attivazioni non si possono sommare nello stesso turno."
+    },
+    {
+     "t": "p",
+     "testo": "Una Special Move offensiva utilizza normalmente l’Azione principale per eseguire l’attacco."
+    },
+    {
+     "t": "p",
+     "testo": "La sua preparazione può invece richiedere uno o più turni, a seconda delle capacità coinvolte."
+    },
+    {
+     "t": "h3",
+     "testo": "6.4.1 · Attivazioni nello stesso turno"
+    },
+    {
+     "t": "p",
+     "testo": "Se una Special Move richiede l’Haki, ma non richiede l’attivazione di un Talento attivo né di un effetto attivo Haki (⚡), il personaggio può:"
+    },
+    {
+     "t": "lista",
+     "voci": [
+      "Attivare l’Haki con l’Azione Bonus.",
+      "Eseguire la Special Move con l’Azione."
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Le due operazioni possono avvenire nello stesso turno perché utilizzano risorse differenti."
+    },
+    {
+     "t": "h3",
+     "testo": "6.4.2 · Attivazioni su più turni"
+    },
+    {
+     "t": "p",
+     "testo": "Se una Special Move richiede sia l’attivazione dell’Haki sia un Talento attivo, le due attivazioni non possono essere effettuate nello stesso turno."
+    },
+    {
+     "t": "p",
+     "testo": "Il personaggio può preparare la combinazione attivando l’Haki nel primo turno, mantenendolo nel secondo e utilizzando allora l’Azione Bonus per il Talento."
+    },
+    {
+     "t": "p",
+     "testo": "La combinazione funziona soltanto se tutti gli effetti necessari risultano ancora applicabili al momento dell’esecuzione."
+    },
+    {
+     "t": "p",
+     "testo": "Non è possibile accumulare anticipatamente Talenti o effetti Haki istantanei. Un effetto preparato in un turno precedente rimane disponibile soltanto se la sua durata lo consente e non è ancora scaduto. Il costo già pagato non si ripete, ma la Special Move non rinnova né prolunga la durata."
+    },
+    {
+     "t": "p",
+     "testo": "6.4.3 · Esempio completo: Diable Jambe, Burning Combo",
+     "pezzi": [
+      {
+       "t": "6.4.3 · Esempio completo: Diable Jambe, Burning Combo",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Un combattente possiede una Special Move che sfrutta l’Haki dell’Armamento e il Talento Raffica · Maestria."
+    },
+    {
+     "t": "p",
+     "testo": "La mossa contiene inoltre effetti passivi che si applicano quando vengono soddisfatte le rispettive condizioni."
+    },
+    {
+     "t": "h3",
+     "testo": "Burning Combo"
+    },
+    {
+     "t": "p",
+     "testo": "Sequenza di preparazione ed esecuzione"
+    },
+    {
+     "t": "h3",
+     "testo": "Turno 1 · Preparazione"
+    },
+    {
+     "t": "p",
+     "testo": "Haki"
+    },
+    {
+     "t": "p",
+     "testo": "Azione Bonus: attivi l’Haki dell’Armamento, pagando il costo di attivazione."
+    },
+    {
+     "t": "p",
+     "testo": "Azione: puoi comunque effettuare un normale attacco o un’altra azione disponibile."
+    },
+    {
+     "t": "p",
+     "testo": "L’Haki rimane attivo secondo le sue regole di durata e mantenimento."
+    },
+    {
+     "t": "h3",
+     "testo": "Turno 2 · Esecuzione"
+    },
+    {
+     "t": "p",
+     "testo": "Combo"
+    },
+    {
+     "t": "p",
+     "testo": "Mantenimento: paghi il costo previsto per mantenere l’Haki attivo."
+    },
+    {
+     "t": "p",
+     "testo": "Azione: esegui Burning Combo con l’attacco iniziale a mani nude."
+    },
+    {
+     "t": "p",
+     "testo": "Dopo l’attacco iniziale, Azione Bonus: attivi Raffica · Maestria."
+    },
+    {
+     "t": "p",
+     "testo": "Puoi tentare fino a tre attacchi base extra a mani nude, pagando rispettivamente 1 ST, 2 ST e 3 ST prima di ciascuno: la sequenza completa costa 6 ST, oltre ai costi dell’attacco iniziale e dell’Haki. Puoi fermarti dopo qualsiasi attacco extra; un mancato non interrompe la sequenza. Gli attacchi extra ordinari non riutilizzano la Tecnica Burning Combo."
+    },
+    {
+     "t": "p",
+     "testo": "Gli effetti passivi si applicano automaticamente quando se ne verificano le condizioni."
+    },
+    {
+     "t": "p",
+     "testo": "Se il personaggio colpisce lo stesso bersaglio almeno due volte durante il turno, può attivarsi Pressione Costante, purché sia presente tra i suoi Talenti passivi."
+    },
+    {
+     "t": "p",
+     "testo": "Non occorre spendere una seconda Azione Bonus per applicarlo."
+    },
+    {
+     "t": "p",
+     "testo": "La Special Move non anticipa né regala alcuna attivazione: descrive una combinazione che il personaggio deve preparare e realizzare rispettando le regole."
+    }
+   ]
   }
  ],
  "sostituzioni": [
@@ -7810,27 +7888,6 @@
    "sezione": "3.8",
    "da": "Il Dado Vita non viene tirato. Si utilizza sempre il valore massimo.",
    "a": "Il Dado Vita non viene tirato. Si utilizza sempre metà del valore massimo."
-  },
-  {
-   "sezione": "6.4",
-   "quando": "2026-10-04",
-   "perche": "Una sola Azione Bonus condivisa tra Talento, attivazione del Colore ed effetto Haki, come confermato dall’autore.",
-   "da": "Un Talento attivo deve essere attivato utilizzando l’Azione Bonus, rispettando il limite di uno per turno.",
-   "a": "La Special Move combina un’Azione normale, effetti passivi compatibili e al massimo un effetto da attivare con l’Azione Bonus: un Talento attivo oppure un effetto attivo Haki (⚡). Anche la prima attivazione di un Colore richiede la Bonus: queste attivazioni non si possono sommare nello stesso turno."
-  },
-  {
-   "sezione": "6.4",
-   "quando": "2026-10-04",
-   "perche": "Una sola Azione Bonus condivisa tra Talento, attivazione del Colore ed effetto Haki, come confermato dall’autore.",
-   "da": "Se una Special Move richiede l’Haki, ma non richiede l’attivazione di un Talento attivo, il personaggio può:",
-   "a": "Se una Special Move richiede l’Haki, ma non richiede l’attivazione di un Talento attivo né di un effetto attivo Haki (⚡), il personaggio può:"
-  },
-  {
-   "sezione": "6.4",
-   "quando": "2026-10-04",
-   "perche": "Una sola Azione Bonus condivisa tra Talento, attivazione del Colore ed effetto Haki, come confermato dall’autore.",
-   "da": "Non è possibile accumulare anticipatamente Talenti che non prevedono una durata persistente: un effetto preparato in un turno precedente rimane disponibile soltanto se le sue regole lo consentono.",
-   "a": "Non è possibile accumulare anticipatamente Talenti o effetti Haki istantanei. Un effetto preparato in un turno precedente rimane disponibile soltanto se la sua durata lo consente e non è ancora scaduto. Il costo già pagato non si ripete, ma la Special Move non rinnova né prolunga la durata."
   },
   {
    "sezione": "8.4",
@@ -8082,5 +8139,5 @@
   }
  ],
  "tabelle": [],
- "attenzione": "Dal 04/10/2026 il .docx del Manuale non è più sul disco e il generatore non può girare. Le revisioni di quella data sono state applicate DIRETTAMENTE a manuale/index.html: le rimozioni e le piccole correzioni sono registrate qui sotto e si riapplicano da sole, ma la riscrittura dei Talenti dei Frutti (Paramecia: Riflesso del Potere, Doppio Uso, Forma di Combattimento, Senza Contraccolpo, Risveglio · Logia: Sentire l'Elemento, Elemento Onnipresente, Risveglio · Zoan: Artigli e Zanne, Sensi Animali, Corsa Bestiale, Stazza, Resistenza Bestiale, Retaggio Ancestrale / Mitologico, Trasformazione Istintiva, Risveglio) vive solo nella pagina. Prima di rigenerare dal .docx, recuperare quelle sezioni (9.7, 9.8 e 9.9) dalla pagina attuale o dal commit che le ha introdotte, altrimenti si perdono. Lo stesso vale per la revisione dei costi in Stamina (Colpo Pesante, Tutto o Niente, Colpo Annientante, Slancio, Furia, Mira, Oltre il Limite, Motivetto di Vigore, Assolo Travolgente, Onda d'Urto, Doppio Uso ed Electro): i nuovi valori stanno solo nella pagina, non nel .docx. Vive solo nella pagina anche il blocco «Il Costruttore e i Manuali di Ruolo», aggiunto in apertura del Capitolo 7. Vive solo nella pagina anche la rimozione dell’Inventore del 05/10/2026 (1.1, 4.9 e 4.9.3, 10.13, introduzione del Capitolo 11, 11.1, 11.2, 11.6, 11.10, 11.11, 11.13, 11.14 Progetti speciali al posto di 11.14 e 11.15, rinumerazione di 11.15 e 11.16, 12.16). Vive solo nella pagina anche la sincronizzazione con il Manuale del Cyborg del 05/10/2026 (3.9, Carne e Metallo in 4.9.2, 7.14, 11.15 e quasi tutto il Capitolo 12). Vive solo nella pagina anche la revisione MODIFICHE GLC del 05/10/2026: tutta la 4.6 Dottore (numerazione 4.6.1-4.6.3, Talenti riscritti e passati dalle tabelle ai blocchi come nel Capitano, nuove regole Cura da Campo, Dosi e vie di esposizione, Applicare una tossina, Potenza e durata delle tossine, Nuvole ostacoli e ambiente, Protezione dalle sostanze inalate, Scheda di un preparato, Utilizzare un preparato), le nuove 6.12.1, 6.12.2 e 6.13.1, la cella Rimozione di Sanguinante, Grido di Guerra (4.12) e Mano del Cuoco · Maestria (4.7 e 14.11). Vive solo nella pagina anche la revisione «modifiche glc 2» del 05/10/2026: 6.2.3 Azioni concesse fuori dal turno, una frase in 6.12.1, il Capitano (Firma, Ordini, Occhio del Comandante, Scudo della Ciurma, Voce che Arriva Lontano, Il Piano, Parlamentare, Secondo in Comando, Nessuno Resta Indietro), il Musicista (Requiem, Coro della Ciurma, Marcia Funebre, Suonare per i Caduti, Canzone dell’Anima) e in 7.12 Soglia delle Canzoni, Motivetto di Vigore, Canzoni Sostenute e Portata e ascolto, più la riga di Marcia Funebre nel Catalogo delle Melodie (7.12.1). Vive solo nella pagina anche la revisione dell’Ingegnere del 05/10/2026: in 4.9.1 Firma, Riparazione d’Emergenza, Mani sul Legno · Base, Barricata, Maestro dei Moduli, Ponte d’Arrembaggio, Scafo Rinforzato, Fortificazione, Nave Cresciuta, Lei Non Affonda; in 4.9.2 Gestire un macchinario, Firma, Pronto Intervento, Regolazione Fine (tre versioni), Sabotaggio, Sabotaggio Profondo, Trappola Meccanica, Ingranaggi e Serrature, Tutto a Pieno Carico; Guasto e Distruzione in 11.12; 13.14.5 riscritta; nuova 13.17.2 Miglioramenti permanenti della nave. Vive solo nella pagina anche la revisione «Navigatore, Archeologo, Cuoco e Nave» del 05/10/2026: in 4.8 Firma, Occhio del Cielo, Vento in Poppa, Timoniere Nato · Maestria, Sfruttare la Tempesta, Traversata impossibile; in 4.10 Esame Archeologico, Tempi di traduzione e studio, Studioso, Insegne e Cicatrici, Scrittura Morta · Maestria, Meccanismi Antichi, Trappola Antica, Memoria del Mondo, Dominio dei meccanismi; in 4.7 Servizio in Battaglia e Mano del Cuoco (Base e Maestria); nel capitolo 14 Porzioni (14.2), Beneficio dei pasti (14.4), Dadi concessi dagli ingredienti (14.5), Ingredienti extra e Conservazione (14.6), 14.8 riscritta, Consumare un pasto e Servizio in Battaglia (14.10), riga di Mano del Cuoco in 14.11; nel capitolo 13 la 13.6 riscritta, 13.7.2, Rotta Perfetta in 13.10.1, righe della 13.11 e della 13.19, Manovre aggiuntive (13.12), Cannonate a fasce e Bersaglio (13.14.1), 13.14.6, 13.16.3, 13.21.3 Combattimento misto, 13.23.1 riscritta con Evacuazione e interazioni di 13.23.3–13.23.5, Unità di Stiva, Provviste e Cargo in 13.24.2. Vive solo nella pagina anche l’allineamento del Capitolo 9 al Manuale dei Frutti del Diavolo del 05/10/2026: nota d’apertura del capitolo e rimando in 9.6, chiarimenti aggiunti ai Talenti di 9.7–9.9, Doppio Uso a 2 ST, Retaggio diviso in Retaggio Ancestrale e Retaggio Mitologico, Tratto Zoan con l’Azione principale e Tre Forme con l’Azione Bonus. Il Manuale dei Frutti (strumenti/frutti-manuale.py) importa dal base le sezioni 9.1–9.6 e introduzione, Tratto e Firma di Paramecia e Logia: se cambiano qui, va rigenerato. Vive solo nella pagina anche la frase della 7.8.3 per cui Scatto, Balzo e Inseguire, come Proiezione, sono sempre disponibili anche senza la Forma Spostamento (05/10/2026).\n\nAggiornamento del 07/10/2026: la revisione del Costruttore consolida integralmente 2.8, 4.2–4.5, 6.10, 7.4–7.11, 7.13 e 9.5 nelle correzioni, conservando i passaggi correnti non riscritti. Le precedenti note su quelle sezioni sono superate dai nuovi contenuti. Le altre revisioni descritte sopra richiedono ancora la pagina corrente prima di rigenerare dal DOCX originale, che non è disponibile nel checkout. Le sostituzioni minori della nuova revisione sono applicate anche al manuale HTML. Prestigio, Frutti e Cyborg si rigenerano dai rispettivi JSON."
+ "attenzione": "Dal 04/10/2026 il .docx del Manuale non è più sul disco e il generatore non può girare. Le revisioni di quella data sono state applicate DIRETTAMENTE a manuale/index.html: le rimozioni e le piccole correzioni sono registrate qui sotto e si riapplicano da sole, ma la riscrittura dei Talenti dei Frutti (Paramecia: Riflesso del Potere, Doppio Uso, Forma di Combattimento, Senza Contraccolpo, Risveglio · Logia: Sentire l'Elemento, Elemento Onnipresente, Risveglio · Zoan: Artigli e Zanne, Sensi Animali, Corsa Bestiale, Stazza, Resistenza Bestiale, Retaggio Ancestrale / Mitologico, Trasformazione Istintiva, Risveglio) vive solo nella pagina. Prima di rigenerare dal .docx, recuperare quelle sezioni (9.7, 9.8 e 9.9) dalla pagina attuale o dal commit che le ha introdotte, altrimenti si perdono. Lo stesso vale per la revisione dei costi in Stamina (Colpo Pesante, Tutto o Niente, Colpo Annientante, Slancio, Furia, Mira, Oltre il Limite, Motivetto di Vigore, Assolo Travolgente, Onda d'Urto, Doppio Uso ed Electro): i nuovi valori stanno solo nella pagina, non nel .docx. Vive solo nella pagina anche il blocco «Il Costruttore e i Manuali di Ruolo», aggiunto in apertura del Capitolo 7. Vive solo nella pagina anche la rimozione dell’Inventore del 05/10/2026 (1.1, 4.9 e 4.9.3, 10.13, introduzione del Capitolo 11, 11.1, 11.2, 11.6, 11.10, 11.11, 11.13, 11.14 Progetti speciali al posto di 11.14 e 11.15, rinumerazione di 11.15 e 11.16, 12.16). Vive solo nella pagina anche la sincronizzazione con il Manuale del Cyborg del 05/10/2026 (3.9, Carne e Metallo in 4.9.2, 7.14, 11.15 e quasi tutto il Capitolo 12). Vive solo nella pagina anche la revisione MODIFICHE GLC del 05/10/2026: tutta la 4.6 Dottore (numerazione 4.6.1-4.6.3, Talenti riscritti e passati dalle tabelle ai blocchi come nel Capitano, nuove regole Cura da Campo, Dosi e vie di esposizione, Applicare una tossina, Potenza e durata delle tossine, Nuvole ostacoli e ambiente, Protezione dalle sostanze inalate, Scheda di un preparato, Utilizzare un preparato), le nuove 6.12.1, 6.12.2 e 6.13.1, la cella Rimozione di Sanguinante, Grido di Guerra (4.12) e Mano del Cuoco · Maestria (4.7 e 14.11). Vive solo nella pagina anche la revisione «modifiche glc 2» del 05/10/2026: 6.2.3 Azioni concesse fuori dal turno, una frase in 6.12.1, il Capitano (Firma, Ordini, Occhio del Comandante, Scudo della Ciurma, Voce che Arriva Lontano, Il Piano, Parlamentare, Secondo in Comando, Nessuno Resta Indietro), il Musicista (Requiem, Coro della Ciurma, Marcia Funebre, Suonare per i Caduti, Canzone dell’Anima) e in 7.12 Soglia delle Canzoni, Motivetto di Vigore, Canzoni Sostenute e Portata e ascolto, più la riga di Marcia Funebre nel Catalogo delle Melodie (7.12.1). Vive solo nella pagina anche la revisione dell’Ingegnere del 05/10/2026: in 4.9.1 Firma, Riparazione d’Emergenza, Mani sul Legno · Base, Barricata, Maestro dei Moduli, Ponte d’Arrembaggio, Scafo Rinforzato, Fortificazione, Nave Cresciuta, Lei Non Affonda; in 4.9.2 Gestire un macchinario, Firma, Pronto Intervento, Regolazione Fine (tre versioni), Sabotaggio, Sabotaggio Profondo, Trappola Meccanica, Ingranaggi e Serrature, Tutto a Pieno Carico; Guasto e Distruzione in 11.12; 13.14.5 riscritta; nuova 13.17.2 Miglioramenti permanenti della nave. Vive solo nella pagina anche la revisione «Navigatore, Archeologo, Cuoco e Nave» del 05/10/2026: in 4.8 Firma, Occhio del Cielo, Vento in Poppa, Timoniere Nato · Maestria, Sfruttare la Tempesta, Traversata impossibile; in 4.10 Esame Archeologico, Tempi di traduzione e studio, Studioso, Insegne e Cicatrici, Scrittura Morta · Maestria, Meccanismi Antichi, Trappola Antica, Memoria del Mondo, Dominio dei meccanismi; in 4.7 Servizio in Battaglia e Mano del Cuoco (Base e Maestria); nel capitolo 14 Porzioni (14.2), Beneficio dei pasti (14.4), Dadi concessi dagli ingredienti (14.5), Ingredienti extra e Conservazione (14.6), 14.8 riscritta, Consumare un pasto e Servizio in Battaglia (14.10), riga di Mano del Cuoco in 14.11; nel capitolo 13 la 13.6 riscritta, 13.7.2, Rotta Perfetta in 13.10.1, righe della 13.11 e della 13.19, Manovre aggiuntive (13.12), Cannonate a fasce e Bersaglio (13.14.1), 13.14.6, 13.16.3, 13.21.3 Combattimento misto, 13.23.1 riscritta con Evacuazione e interazioni di 13.23.3–13.23.5, Unità di Stiva, Provviste e Cargo in 13.24.2. Vive solo nella pagina anche l’allineamento del Capitolo 9 al Manuale dei Frutti del Diavolo del 05/10/2026: nota d’apertura del capitolo e rimando in 9.6, chiarimenti aggiunti ai Talenti di 9.7–9.9, Doppio Uso a 2 ST, Retaggio diviso in Retaggio Ancestrale e Retaggio Mitologico, Tratto Zoan con l’Azione principale e Tre Forme con l’Azione Bonus. Il Manuale dei Frutti (strumenti/frutti-manuale.py) importa dal base le sezioni 9.1–9.6 e introduzione, Tratto e Firma di Paramecia e Logia: se cambiano qui, va rigenerato. Vive solo nella pagina anche la frase della 7.8.3 per cui Scatto, Balzo e Inseguire, come Proiezione, sono sempre disponibili anche senza la Forma Spostamento (05/10/2026).\n\nAggiornamento del 07/10/2026: la revisione del Costruttore consolida integralmente 2.8, 4.2–4.5, 6.10, 7.4–7.11, 7.13 e 9.5 nelle correzioni, conservando i passaggi correnti non riscritti. Le precedenti note su quelle sezioni sono superate dai nuovi contenuti. Le altre revisioni descritte sopra richiedono ancora la pagina corrente prima di rigenerare dal DOCX originale, che non è disponibile nel checkout. Le sostituzioni minori della nuova revisione sono applicate anche al manuale HTML. Prestigio, Frutti e Cyborg si rigenerano dai rispettivi JSON. La revisione di Raffica consolida anche §6.4 dal testo web corrente; §4.2 conserva la revisione precedente del Costruttore."
 }

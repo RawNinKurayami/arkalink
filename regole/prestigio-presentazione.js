@@ -28,10 +28,12 @@ function talent(c,t){
    'Lo Striker non ha Area ordinaria. Onda Titanica propaga un solo impatto; un’Area concessa da una Fonte speciale resta distinta e non moltiplica le origini dell’onda.'),
   'precisione-assoluta':()=>sheet('Puoi inserire Punto di Rottura nelle Tecniche Striker in mischia basate su Tecnica.',
    'L’effetto costa 2 ST e 1 slot. Dichiara una parte raggiungibile prima del tiro: con un colpo pulito (+4), sostituisce lo stato della Firma e conserva il danno.',
+   'Condivide l’unica attivazione per turno della Firma: se Il Colpo Sfonda si è già attivato, Punto di Rottura non concede una seconda attivazione.',
    'Mano inutilizzabile oppure Movimento volontario bloccato: fino a un’Azione di recupero o alla fine dello scontro. In alternativa interrompi una presa o danneggi un componente secondo i suoi PS. Una sola funzione neutralizzata per bersaglio.'),
   'raffica-senza-fine':()=>sheet('Dopo un attacco a mani nude, esegui attacchi extra finché puoi pagarne il costo.',
-   'Una sola Bonus avvia la sequenza: 2 ST per ogni attacco extra, più tutti i costi della Tecnica se ne usi una. Decidi se proseguire dopo ciascun colpo; anche un attacco mancato paga il costo.',
-   'Ogni colpo ha tiro, portata e difese propri. Non concede altre Bonus, Movimento o attivazioni Haki. Le versioni precedenti di Raffica non si sommano.'),
+   'Una sola Bonus avvia la sequenza: il primo extra costa 1 ST, il secondo 2 ST, il terzo 3 ST e così via, più tutti i costi della Tecnica e dei suoi effetti se ne usi una. Paghi prima di ogni attacco e decidi se proseguire dopo ciascun colpo; un mancato consuma ST ma non interrompe la sequenza.',
+   'Ogni extra è un attacco base a mani nude oppure una Tecnica offensiva Striker in mischia. Ogni colpo ha tiro, portata e difese propri. Non concede altre Azioni, Bonus, Movimento o attivazioni Haki. Le versioni precedenti di Raffica non si sommano.',
+   'Il Colpo Sfonda può attivarsi una sola volta per turno, anche nella Raffica. Non concede Tecniche di Supporto o Potenziamento, altri Talenti attivi o Special Move libere.'),
   'fendente-sovrano':()=>sheet('Fendente a distanza con danno pieno. '+blade('slash')+'.',
    'Usa la portata dell’Attributo della Tecnica Swordsman in mischia, eseguita con una lama. Il costo è +1 ST, senza Bonus.',
    'Restano Forma, bersagli, slot, effetti, ostacoli e difese normali. Gli effetti a contatto richiedono ancora il contatto.',
@@ -176,7 +178,7 @@ function talent(c,t){
 }
 function cost(t){
  if(t.id==='sintonia-dei-colori')return '1 PIP per Colore';
- if(t.id==='raffica-senza-fine')return t.costST+' ST per attacco extra';
+ if(t.id==='raffica-senza-fine')return '1 / 2 / 3 / 4 / … ST per extra + costo completo Tecnica';
  return t.costST+' ST'+(t.action==='modifier'?' aggiuntivi':'');
 }
 function talentText(c,t){const v=talent(c,t);return [action(t.action)+' · '+cost(t)+(t.limit?' · '+t.limit+' '+frequency(t.frequency):''),v.effect,...v.details].join('\n');}

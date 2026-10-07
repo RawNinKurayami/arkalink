@@ -12,6 +12,15 @@ function fixture(id='striker-atletica',die='d20+d4'){
  return {...h,P,V,c,p,take:t=>P.choose(c,p.id,t,true)};
 }
 
+test('Raffica summaries show progressive costs, full extra technique costs and one Firma per turn',()=>{
+ for(const die of ['d20+d12','d20+d20']){
+  const h=fixture('striker-atletica',die);h.take('raffica-senza-fine');const t=h.P.acquired(h.c).find(t=>t.id==='raffica-senza-fine'),text=h.V.talentText(h.c,t);
+  assert.match(h.V.cost(t),/1 \/ 2 \/ 3 \/ 4/);assert.match(text,/il primo extra costa 1 ST, il secondo 2 ST, il terzo 3 ST/);
+  assert.match(text,/tutti i costi della Tecnica e dei suoi effetti/);assert.match(text,/mancato consuma ST ma non interrompe/);
+  assert.match(text,/Il Colpo Sfonda può attivarsi una sola volta per turno/);assert.doesNotMatch(text,/2 ST per ogni attacco extra/);
+ }
+});
+
 // Small document adapter: exercises real UI callbacks and text, without a browser,
 // layout simulation, network, localStorage or real characters.
 class Node {
