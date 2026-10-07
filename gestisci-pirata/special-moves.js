@@ -75,16 +75,27 @@ define('Zoan','Resistenza Bestiale','passive','defense');
 define('Zoan','Retaggio Ancestrale|Retaggio Mitologico|Retaggio Ancestrale / Mitologico|Zoan Mitologico / Ancestrale','passive','fruit');
 define('Zoan','Istinto di Sopravvivenza|Trasformazione Istintiva','active','defense');
 define('Zoan','Risveglio','active','physical',{noCard:true});
+define('Sniper','Ricarica Rapida','active','ranged',{action:'bonus'});
+define('Swordsman','Riposta','passive','counter',{costST:1});
+define('Striker','Slancio|Guardia Rotta','passive','unarmed');
+define('Crusher','Rompiguardia','passive','blunt');
+define('Crusher','Contrappeso','passive','outside',{action:'reaction'});
+define('Swordsman','Taglio Netto','passive','blade');
+define('Swordsman','Parata Perfetta','passive','parry',{action:'modifier'});
+define('Sniper',"Tiro dall'Ombra",'passive','ranged');
+define('Sniper','Appostamento','passive','ranged',{action:'prepared'});
+define('Sniper','Tiro di Copertura','active','outside',{action:'normal'});
+define('Sniper','Colpo Anticipato','passive','outside',{action:'reaction'});
+define('Tossicologo','Colpo di Grazia','passive','attack');
 
-/* A talent that costs no ST is passive: only talents that spend Stamina take the active slot.
- * GM-priced talents keep their mode, since their cost is decided at the table.
- * Risveglio stays active but never enters a card (noCard). */
+/* Explicit timing wins over the historical ST heuristic. A zero-ST Reaction or
+ * preparation is not an additional free attack or an extra Bonus Action. */
 function talentST(desc) {
  const n=String(desc||'').match(/(?:spend\w*\s+|\+|,\s*)(\d+)\s*(?:ST|Stamina)\b/i)||String(desc||'').match(/\b(\d+)\s+ST\b/);
  return n?+n[1]:0;
 }
 function talentMeta(meta, desc) {
- return meta&&meta.mode==='active'&&!meta.gm&&!meta.noCard&&!talentST(desc)?{...meta,mode:'passive'}:meta;
+ return meta;
 }
 
 function transaction(change, owner=CT.activeId) {
@@ -96,10 +107,11 @@ function transaction(change, owner=CT.activeId) {
  return next;
 }
 function ensureReferences() {
- const needs=['t1','t2'].some(k=>pg[k]?.nome&&!pg[k].smcId) || list(pg.haki).some(h=>!h.smcId);
+ const needs=['t1','t2'].some(k=>pg[k]?.nome&&!pg[k].smcId) || list(pg.haki).some(h=>!h.smcId) || list(pg.strumenti).some(i=>!i.smcId);
  if(needs)transaction(p=>{
-  ['t1','t2'].forEach(k=>{if(p[k]?.nome&&!p[k].smcId)p[k].smcId=uid();});
+  ['t1','t2'].forEach(k=>{if(p[k]?.nome&&!p[k].smcId)p[k].smcId=k;});
   list(p.haki).forEach(h=>{if(!h.smcId)h.smcId=uid();});
+  list(p.strumenti).forEach(i=>{if(!i.smcId)i.smcId=uid();});
  });
 }
 function sourceIcon(s,size=24) {
@@ -114,7 +126,7 @@ function sourceTech(t,id,kind='built') {
   subtitle:[t.fonte,t.stile||t.fruitType,t.forma,t.die].filter(Boolean).join(' · ')};
 }
 function sources() {
- const out=[];
+ const out=[],talentStates=window.GLCTalents?.states(pg)||[];
  list(pg.extraTech).forEach(t=>{if(t?.id)out.push(sourceTech(t,'tech:'+t.id));});
  ['t1','t2'].forEach(k=>{const t=pg[k];if(t?.nome)out.push(sourceTech(t,'tech:'+(t.smcId||k),'legacy'));});
  const r=race();if(r)out.push(sourceTech({nome:r.tech,desc:r.techDesc,die:pg.racialDie,attr:'',fonte:'Razziale',eff:[]},'racial:'+r.id,'racial'));
@@ -127,9 +139,10 @@ function sources() {
    const alias=t.smcAlias||t.n, meta=talentMeta(t.smc||META[branch+'|'+alias],t.d);
    const reqDef=tree.talenti.find(x=>x.n===t.req||x.smcAlias===t.req);
    const replacedBy=window.GLCPrestige?.superseded(pg,prefix+t.n)||'';
-   const unlocked=!replacedBy&&dieRank(roleSkillDieOf(role,style,slot))>=dieRank(t.tier||'d8')&&(!t.req||owned(t.req)||(reqDef&&owned(reqDef.n)));
+   const state=talentStates.find(x=>x.key===prefix+t.n);
+   const unlocked=state?state.active:!replacedBy&&dieRank(roleSkillDieOf(role,style,slot))>=dieRank(t.tier||'d8')&&(!t.req||owned(t.req)||(reqDef&&owned(reqDef.n)));
    if(meta?.noCard)return;
-   if(owned(t.n)||owned(alias))out.push({id:t.smcId,kind:'talent',name:t.n,alias,raw:t,meta,branch,unlocked,replacedBy,desc:[t.d,...(window.GLCPrestige?.inherited(pg,prefix+t.n)||[]).map(x=>'Beneficio incorporato — '+x.n+': '+x.d)].join('\n'),icon:talentGlyph(t.n,STYLE_ICON[branch]||'star'),emblem:STYLE_IMG[branch]||ROLE_IMG[role],subtitle:branch+' · '+t.tier});
+   if(owned(t.n)||owned(alias)||state?.owned)out.push({id:t.smcId,kind:'talent',name:t.n,alias,raw:t,meta,branch,role,roleSlot:slot,unlocked,replacedBy,desc:[t.d,...(window.GLCPrestige?.inherited(pg,prefix+t.n)||[]).map(x=>'Beneficio incorporato — '+x.n+': '+x.d)].join('\n'),icon:talentGlyph(t.n,STYLE_ICON[branch]||'star'),emblem:STYLE_IMG[branch]||ROLE_IMG[role],subtitle:branch+' · '+t.tier});
   });
  };
  scan(pg.role,pg.style,1);scan(pg.role2,pg.style2,2);
@@ -138,16 +151,28 @@ function sources() {
   meta:{mode:t.action==='bonus'?'active':'passive',match:t.match,action:t.action,quantity:t.id==='raffica-senza-fine'},
   desc:window.GLCPrestigeView.talentText(pg,t),icon:STYLE_ICON[t.path.style]||'star',emblem:STYLE_IMG[t.path.style]||ROLE_IMG[t.path.role],subtitle:'Prestigio · '+t.path.skill+' '+t.path.die
  }));
+ (window.GLCTratti?.active(pg)||[]).forEach(t=>out.push({
+  id:'trait:'+t.id,kind:'talent',subtype:'uniqueTrait',name:t.name,alias:t.name,raw:t,branch:'Tratti Unici',unlocked:true,
+  meta:{mode:'passive',action:'passive',match:'uniqueTrait'},
+  desc:[t.metadata||'Tipo: Passivo · Requisiti: '+t.requirementsText,...t.effects,
+   'Si applica soltanto quando ricorrono le condizioni della regola; verifica il contesto al tavolo. Non modifica automaticamente il tiro o il costo della Tecnica.'].join('\n'),
+  icon:'star',subtitle:'Tratto Unico · '+t.requirementsText
+ }));
  if(pg.frutto?.has){const f=pg.frutto;
   out.push({id:'fruit:'+f.tipo,kind:'fruit',name:f.nome||f.tipo||'Frutto del Diavolo',raw:f,desc:f.desc||'',emblem:'frutto',subtitle:f.tipo+' · '+f.die});
   const tree=FRUIT_TALENTS[f.tipo];if(tree)tree.talenti.forEach(t=>{
    const alias=t.smcAlias||t.n,prefix='Frutto · '+f.tipo+' · ',owned=n=>list(pg.talents).includes(prefix+n);
    if((t.smc||META[f.tipo+'|'+alias])?.noCard)return;
-   if(owned(t.n)||owned(alias))out.push({id:t.smcId,kind:'talent',fruit:true,name:t.n,alias,raw:t,meta:talentMeta(t.smc||META[f.tipo+'|'+alias],t.d),branch:f.tipo,unlocked:dieRank(f.die)>=dieRank(t.tier||'d4')&&(!t.req||owned(t.req)),desc:t.d,icon:'fruit',emblem:'frutto',subtitle:f.tipo+' · '+t.tier});
+   const state=talentStates.find(x=>x.key===prefix+t.n);
+   if(owned(t.n)||owned(alias)||state?.owned)out.push({id:t.smcId,kind:'talent',fruit:true,name:t.n,alias,raw:t,meta:talentMeta(t.smc||META[f.tipo+'|'+alias],t.d),branch:f.tipo,unlocked:state?state.active:dieRank(f.die)>=dieRank(t.tier||'d4')&&(!t.req||owned(t.req)),desc:t.d,icon:'fruit',emblem:'frutto',subtitle:f.tipo+' · '+t.tier});
   });
  }
  list(pg.haki).forEach(h=>{if(h&&hakiUnlocked(h).length)out.push({id:'haki:'+(h.smcId||h.name)+':'+HAKI_NAMES.indexOf(h.name),kind:'haki',name:h.name,raw:h,desc:'',icon:h.name===HAKI_NAMES[0]?'fist':h.name===HAKI_NAMES[1]?'eye':'crown',subtitle:hakiGrade(h)});});
  list(pg.armi).forEach(a=>out.push({id:'weapon:'+a.id,kind:'weapon',name:a.nome||'Arma senza nome',raw:a,icon:WEAPON_ICO[a.tipo]||'sword',desc:a.eff?.desc||'',subtitle:a.tipo+' · '+a.grado}));
+ if(typeof isMusicista==='function'&&isMusicista()){
+  out.push({id:'instrument:voice',kind:'instrument',name:'La tua voce',raw:{die:'d4'},icon:'music',desc:'Strumento d4 sempre disponibile.',subtitle:'Voce · d4'});
+  list(pg.strumenti).forEach(i=>{if(i.smcId)out.push({id:'instrument:'+i.smcId,kind:'instrument',name:i.nome||'Strumento senza nome',raw:i,icon:'music',desc:i.note||'',subtitle:(i.tipo||'Strumento')+' · '+i.die});});
+ }
  list(pg.moduli).forEach(m=>out.push({id:'module:'+m.id,kind:'module',name:m.nome||'Modulo senza nome',raw:m,icon:'gear',desc:[m.funzione,m.eff?.testo,m.eff?.cond,m.eff?.limiti,m.effLegacy].filter(Boolean).join('\n'),subtitle:modStateLabel(m).t||m.stato}));
  return out.filter((s,i,a)=>s.id&&a.findIndex(x=>x.id===s.id)===i);
 }
@@ -156,19 +181,27 @@ const hasEffect=(t,n)=>list(t?.eff).includes(n);
 const isAttack=t=>['Singolo','Area'].includes(t?.forma);
 const isMelee=t=>isAttack(t)&&t.stile!=='Sniper'&&t.forma!=='Area';
 const isDefense=t=>t?.forma==='Difesa';
-const isActiveDefense=t=>isDefense(t)&&(hasEffect(t,'Parata')||hasEffect(t,'Contrattacco'));
+const isActiveDefense=(t,m={})=>isAttack(t)&&m.techniqueUse==='defense';
+const isNormalParry=(t,m={})=>isAttack(t)&&t.fonte==='Stile'&&['Swordsman','Crusher'].includes(t.stile)&&m.techniqueUse==='parry';
+const isDefending=(t,m={})=>isDefense(t)||isActiveDefense(t,m)||isNormalParry(t,m);
 const isPhysical=t=>t?.fonte==='Stile'&&t?.forma!=='Canzone';
 function applicable(s,tech,move={}) {
  const t=tech?.raw;if(!t||!s?.meta||!s.unlocked)return false;
+ if(s.subtype==='uniqueTrait')return !!window.GLCTratti?.has(pg,s.raw.id);
  const m=s.meta.match;
  if(s.kind==='talent'&&!s.fruit&&['Striker','Crusher','Swordsman','Sniper'].includes(s.branch)&&t.stile!==s.branch)return false;
- const active=findSource(move.activeTalentId),an=active?.alias;
+ const active=findSource(move.activeTalentId),an=active?.alias,defending=isActiveDefense(t,move)||isNormalParry(t,move),parry=isNormalParry(t,move);
+ if(defending&&(s.meta.quantity||s.meta.action==='bonus'||s.meta.action==='normal'))return false;
+ if(s.prestige&&s.raw.id==='guardia-invalicabile'&&!parry)return false;
+ if(parry&&!['parry','defense','successfulDefense','any','blade','physical'].includes(m))return false;
+ if(s.branch==='Musicista'&&s.alias==='Requiem'&&!hasEffect(t,'Requiem Beffardo'))return false;
+ if(s.branch==='Tossicologo'&&s.alias==='Lama Intinta'&&(!isAttack(t)||t.stile==='Striker'||!move.weaponId))return false;
  return ({any:true,attack:isAttack(t),physical:isPhysical(t)||t.fruitType==='Zoan',
   unarmed:t.stile==='Striker'&&isAttack(t),blunt:t.stile==='Crusher'&&isAttack(t),
   blade:t.stile==='Swordsman'&&isMelee(t),ranged:t.stile==='Sniper'&&isAttack(t),
   melee:isMelee(t),move:t.forma==='Spostamento'||hasEffect(t,'Scatto')||hasEffect(t,'Inseguire'),
-  grab:hasEffect(t,'Presa')||hasEffect(t,'Proiezione'),counter:hasEffect(t,'Contrattacco'),
-  parry:hasEffect(t,'Parata'),defense:isDefense(t),song:t.forma==='Canzone',fruit:t.fonte==='Frutto',
+  grab:hasEffect(t,'Presa')||hasEffect(t,'Proiezione'),counter:defending,
+  parry,successfulDefense:defending,defense:isDefending(t,move),song:t.forma==='Canzone',fruit:t.fonte==='Frutto',
   poison:hasEffect(t,'Veleno')||an==='Lama Intinta',shock:/^Onda d['’]Urto$/.test(an||''),
   precision:t.stile==='Striker'&&t.attr==='Tecnica'&&isMelee(t),
   seismic:t.stile==='Crusher'&&t.attr==='Forza'&&isAttack(t)&&!!window.GLCPrestige?.level(pg.attr?.Forza),
@@ -186,9 +219,49 @@ function compatibleEquipment(s,tech,ignoreState=false) {
   (ignoreState||(s.raw.stato!=='danneggiato'&&pg.moduloAttivo===s.raw.id));
  return false;
 }
-function techniqueProblems(s) {
+function techniqueRules(){
+ const owned=name=>window.GLCTalents?window.GLCTalents.has(pg,name,{includeInherited:true}):list(pg.talents).some(key=>String(key).split(' · ').pop()===name);
+ return {catalogue:TEC_EFF,whitelist:STILE_WHITELIST,precisioneAssoluta:!!window.GLCPrestige?.has(pg,'precisione-assoluta'),nessunoDeiMiei:owned('Nessuno dei Miei')};
+}
+function currentRoleSaveSource(source={}){
+ const slot=source.roleSlot||((source.branch===pg.style2&&pg.role2==='Combattente')?2:1);
+ const skill=window.GLCTalents?.skillName(pg,slot)||((slot===2?pg.roleSkillChoice2:pg.roleSkillChoice)==='Acrobazia'?'Acrobazia':'Atletica');
+ return {name:skill,die:window.GLCTalents?.skillDie(pg,skill)||(slot===1?pg.roleSkillDie:pg.skills?.[skill])||''};
+}
+function directSaveProfile(id,name,state,attribute,source,when){
+ return {id,name,state,attribute,source:source.name,die:source.die,threshold:window.GLCPrestige?.saveThreshold(source.die)??null,when};
+}
+function directTalentSaves(s){
+ if(!s||s.kind!=='talent'||s.subtype==='uniqueTrait')return [];
+ const skill=name=>({name,die:window.GLCTalents?.skillDie(pg,name)||pg.skills?.[name]||''});
+ const profiles={
+  'glc-talent-011':()=>directSaveProfile(s.id,s.name,'Sbilanciato','Tecnica',currentRoleSaveSource(s),'il Talento lancia una creatura già Trattenuta, rispettando le condizioni della Proiezione; vale anche per il secondo nemico colpito nella collisione'),
+  'glc-talent-023':()=>directSaveProfile(s.id,s.name,'Sbilanciato','Tecnica',skill('Atletica'),'Colpo Pesante Maestria applica Sbilanciato dopo un colpo riuscito'),
+  'glc-talent-080':()=>directSaveProfile(s.id,s.name,'Sbilanciato','Tecnica',skill('Medicina'),'Punti di Pressione si applica con un colpo riuscito in mischia a una creatura vivente, una volta per scontro'),
+  'glc-talent-095':()=>directSaveProfile(s.id,s.name,'Sbilanciato','Tecnica',skill('Medicina'),'Colpo di Grazia colpisce una creatura già Avvelenata e il colpo la porta sotto metà PV; questa Salvezza è distinta da quella della dose'),
+  'glc-talent-258':()=>directSaveProfile(s.id,s.name,'Sbilanciato','Tecnica',{name:'Dado del Frutto',die:pg.frutto?.die||''},'Stazza travolge una creatura di Stazza inferiore muovendoti attraverso di lei in Forma Bestiale'),
+  // Ultimate use their own execution, and stay outside a normal Technique recipe.
+  'glc-talent-014':()=>directSaveProfile(s.id,s.name,'Stordito','Forza',skill('Atletica'),'Smash Hit applica Stordito con almeno tre colpi riusciti; la fonte resta Atletica anche per uno Striker con Skill di Ruolo Acrobazia'),
+  'glc-talent-028':()=>directSaveProfile(s.id,s.name,'Sbilanciato','Tecnica',skill('Atletica'),'l’Onda d’Urto di Cataclisma colpisce il bersaglio, secondo la procedura propria della Ultimate'),
+ };
+ return profiles[s.id]?[profiles[s.id]()]:[];
+}
+function techniqueProblems(s,move={}) {
  if(!s||s.kind!=='tech')return ['Scegli una Tecnica esistente.'];
- if(s.techKind!=='built')return [];
+ if(s.techKind!=='built'){
+  if(s.techKind==='racial')return [];
+  const errors=['Questa Tecnica storica richiede la conversione nel Costruttore: scegli Fonte, Stile, Forma e profilo degli effetti. La descrizione libera e un costo registrato non sostituiscono la validazione delle regole.'];
+  if(!['d4','d6','d8','d10','d12','d20'].includes(s.raw.die))errors.push('Le Tecniche personalizzate non possono superare d20. Correggi il Grado della Tecnica salvata.');
+  if(s.raw.attr&&!pg.attr?.[s.raw.attr])errors.push('Manca l’Attributo della Tecnica salvata.');
+  if(s.raw.attr&&pg.attr?.[s.raw.attr]&&dieRank(s.raw.die)>Math.min(dieRank(pg.attr[s.raw.attr]),dieRank('d20')))errors.push('Il Grado della Tecnica salvata supera il suo Attributo.');
+  return errors;
+ }
+ if(window.GLCTechniques){
+  const draft=copy(s.raw);
+  if(move.weaponId)draft.arma=move.weaponId.replace(/^weapon:/,'');
+  if(move.moduleId)draft.modulo=move.moduleId.replace(/^module:/,'');
+  return window.GLCTechniques.evaluate(pg,draft,techniqueRules()).errors.map(e=>e.text);
+ }
  // Reuse the existing validator on a temporary draft, restoring BOTH globals.
  const beforeT=TBUILD,beforeD=SMBD;let checked,D;
  try {TBUILD=copy(s.raw);D=tbCompute();checked=copy(TBUILD);} finally {TBUILD=beforeT;SMBD=beforeD;}
@@ -211,11 +284,18 @@ function hakiState(s) {
 /* Each use has one shared Bonus Action. Preparation is a requirement, not an
  * automatic activation or a free extension of an effect's original duration. */
 function actionPlan(m,ss=sources(),tech=findSource(m.baseTechId,ss)) {
- const bonus=[],haki=[],errors=[];
- ss.filter(s=>selectedIDs(m).includes(s.id)&&s.kind==='talent'&&s.meta?.mode==='active').forEach(s=>bonus.push({id:s.id,text:s.name}));
+ const bonus=[],haki=[],errors=[],reaction=[],normal=[];
+ const defending=isActiveDefense(tech?.raw,m)||isNormalParry(tech?.raw,m);
+ if(tech)(defending?reaction:normal).push({id:tech.id,text:tech.name});
+ ss.filter(s=>selectedIDs(m).includes(s.id)&&s.kind==='talent').forEach(s=>{
+  const action=s.meta?.action;
+  if(action==='reaction'&&!(defending&&['defense','counter','parry'].includes(s.meta?.match)))reaction.push({id:s.id,text:s.name});
+  else if(action==='normal')normal.push({id:s.id,text:s.name});
+  else if(action==='bonus'||s.meta?.mode==='active')bonus.push({id:s.id,text:s.name});
+ });
  list(m.hakiSelections).forEach(selection=>{
   const s=findSource(selection.id,ss);if(s?.kind!=='haki')return;
-  const state=hakiState(s),effects=hakiEffects(s,tech),chosen=list(selection.effects).map(id=>effects.find(e=>e.id===id)).filter(Boolean);
+  const state=hakiState(s),effects=hakiEffects(s,tech,m),chosen=list(selection.effects).map(id=>effects.find(e=>e.id===id)).filter(Boolean);
   const prepared=selection.activation==='prepared',activation=!prepared&&!state.active;
   const preparedEffects=[];
   list(selection.preparedEffects).forEach(id=>{
@@ -234,19 +314,22 @@ function actionPlan(m,ss=sources(),tech=findSource(m.baseTechId,ss)) {
   if(activations.length>1){const count=Math.min(capacity,activations.length),group=activations.slice(0,count);group.forEach(b=>bonus.splice(bonus.indexOf(b),1));bonus.push({id:'prestige:sintonia-dei-colori',text:'Sintonia dei Colori · '+count+' attivazioni (1 PIP ciascuna)'});}
  }
  if(bonus.length>1)errors.push({code:'bonus',text:'Una sola Azione Bonus per turno: '+bonus.map(b=>b.text).join(' + ')+'. Scegli un solo effetto attivo; l’Haki e gli effetti persistenti necessari vanno preparati nei turni precedenti.'});
- return {normal:tech?1:0,used:bonus.length,limit:1,bonus,haki,errors};
+ if(reaction.length>1)errors.push({code:'reaction',text:'Una sola Reazione disponibile: '+reaction.map(r=>r.text).join(' + ')+'. La ricetta non concede Reazioni aggiuntive.'});
+ if(normal.length>1)errors.push({code:'normal',text:'Una sola Azione principale: '+normal.map(r=>r.text).join(' + ')+'. Le preparazioni vanno eseguite nel turno previsto dalla loro regola.'});
+ return {normal:normal.length,reactions:reaction.length,used:bonus.length,limit:1,bonus,haki,errors};
 }
-function hakiEffects(s,tech) {
+function hakiEffects(s,tech,move={}) {
  const t=tech?.raw;
+ const defending=isDefending(t,move),activeDefense=isActiveDefense(t,move)||isNormalParry(t,move);
  return hakiUnlocked(s.raw).flatMap(row=>{
   const key=String(row.k),a=[];
   if(row.pass)a.push({id:'pass:'+key,mode:'passive',name:row.liv+' · '+key,desc:row.pass,cost:0,row});
   if(row.act){let ok=true;
-   if(s.name===HAKI_NAMES[0])ok=['d8','d12'].includes(key)?isDefense(t):isAttack(t);
-   if(s.name===HAKI_NAMES[1]&&key==='d8')ok=hasEffect(t,'Contrattacco');
-   if(s.name===HAKI_NAMES[1]&&key==='d12')ok=isDefense(t);
-   if(s.name===HAKI_NAMES[2]&&key==='3')ok=isAttack(t)&&isPhysical(t);
-   if(row.prestige)ok=({any:true,defense:isDefense(t),attack:isAttack(t)&&isPhysical(t),physical:isAttack(t)&&isPhysical(t),counter:hasEffect(t,'Contrattacco')})[row.match]===true;
+   if(s.name===HAKI_NAMES[0])ok=['d8','d12'].includes(key)?defending:isAttack(t)&&!activeDefense;
+   if(s.name===HAKI_NAMES[1]&&key==='d8')ok=activeDefense;
+   if(s.name===HAKI_NAMES[1]&&key==='d12')ok=defending;
+   if(s.name===HAKI_NAMES[2]&&key==='3')ok=isAttack(t)&&isPhysical(t)&&!activeDefense;
+   if(row.prestige)ok=({any:true,defense:defending,attack:isAttack(t)&&isPhysical(t)&&!activeDefense,physical:isAttack(t)&&isPhysical(t)&&!activeDefense,counter:activeDefense})[row.match]===true;
    if(ok)a.push({id:'act:'+key,mode:'active',name:row.act.split(':')[0],desc:row.act,cost:row.cost||0,row});
   }return a;
  });
@@ -279,8 +362,9 @@ function sourceCost(s) {
   return c;
  }
  const c={st:0,pip:0,maintenanceST:0,maintenancePIP:0,resource:0};
- if(s.kind==='tech'&&s.techKind==='built'){const v=tecCost(s.raw);c.st=v.st;c.maintenanceST=v.pt;}
+ if(s.kind==='tech'&&s.techKind==='built'){const v=window.GLCTechniques?window.GLCTechniques.cost(s.raw,TEC_EFF,techniqueRules()):tecCost(s.raw);c.st=v.st;c.maintenanceST=v.pt;}
  if(s.prestige)c.st=s.raw.costST;
+ else if(s.kind==='talent'&&Number.isInteger(s.meta?.costST))c.st=s.meta.costST;
  else if(s.kind==='talent'&&s.meta?.mode==='active'){
   c.st=talentST(s.desc);
  }
@@ -300,21 +384,34 @@ function normalizeMove(m={}) {
  const barred=noCardIds();
  if(barred.has(m.activeTalentId)||list(m.passiveTalentIds).some(id=>barred.has(id)))
   m={...m,activeTalentId:barred.has(m.activeTalentId)?'':m.activeTalentId,passiveTalentIds:list(m.passiveTalentIds).filter(id=>!barred.has(id))};
- return {id:m.id||uid(),name:String(m.name||''),baseTechId:m.baseTechId||'',activeTalentId:m.activeTalentId||'',
+ return {id:m.id||uid(),name:String(m.name||''),baseTechId:m.baseTechId||'',techniqueUse:['defense','parry'].includes(m.techniqueUse)?m.techniqueUse:'normal',instrumentId:m.instrumentId||'',activeTalentId:m.activeTalentId||'',
   passiveTalentIds:uniq(list(m.passiveTalentIds)),hakiSelections:list(m.hakiSelections).filter(h=>h&&typeof h==='object').map(h=>({id:h.id,use:h.use||'offense',effects:uniq(list(h.effects)),activation:h.activation==='prepared'?'prepared':'auto',preparedEffects:uniq(list(h.preparedEffects))})),
   fruitSelections:uniq(list(m.fruitSelections)),weaponId:m.weaponId||'',moduleId:m.moduleId||'',
   talentUses:m.talentUses||{},talentTechniqueUses:m.talentTechniqueUses||{},conditions:m.conditions||{},sequence:uniq(list(m.sequence)),
   presentation:{subtitle:'',quote:'',quoteZone:'bottom',variant:'dossier',finish:'none',zoom:1,x:50,y:50,...m.presentation},notes:String(m.notes||'')};
 }
-function selectedIDs(m) {return uniq([m.baseTechId,m.activeTalentId,...list(m.passiveTalentIds),...list(m.fruitSelections),...list(m.hakiSelections).map(h=>h.id),m.weaponId,m.moduleId].filter(Boolean));}
+function selectedIDs(m) {return uniq([m.baseTechId,m.activeTalentId,...list(m.passiveTalentIds),...list(m.fruitSelections),...list(m.hakiSelections).map(h=>h.id),m.weaponId,m.moduleId,m.instrumentId].filter(Boolean));}
 function resolve(input) {
  const m=normalizeMove(input),ss=sources(),tech=findSource(m.baseTechId,ss),t=tech?.raw;
- const errors=[],unavailable=[],unknown=[],rows=[],conditions=[],formulas=[],resources=[];
+ const errors=[],unavailable=[],unknown=[],rows=[],conditions=[],formulas=[],resources=[],directSaves=[];
  const selected=selectedIDs(m).map(id=>findSource(id,ss)).filter(Boolean);
  const economy=actionPlan(m,ss,tech);errors.push(...economy.errors);
- conditions.push({id:tech?.id,text:'Economia del turno: '+economy.normal+' Azione normale + '+economy.used+'/1 Azione Bonus'+(economy.bonus.length?' ('+economy.bonus.map(b=>b.text).join(' + ')+')':' (Bonus libera)')+'. I passivi e il mantenimento Haki non occupano la Bonus.'});
- selectedIDs(m).forEach(id=>{if(!findSource(id,ss))errors.push({id,text:'Fonte non più presente · '+id});});
- techniqueProblems(tech).forEach(text=>errors.push({id:m.baseTechId,text}));
+ conditions.push({id:tech?.id,text:'Economia del turno: '+economy.normal+' Azione normale + '+economy.reactions+'/1 Reazione + '+economy.used+'/1 Azione Bonus'+(economy.bonus.length?' ('+economy.bonus.map(b=>b.text).join(' + ')+')':' (Bonus libera)')+'. I passivi e il mantenimento Haki non occupano la Bonus.'});
+ selectedIDs(m).forEach(id=>{
+  if(findSource(id,ss))return;
+  if(id.startsWith('trait:')){
+   const trait=window.GLCTratti?.states(pg).find(t=>t.id===id.slice(6));
+   const text=!window.GLCTratti?'Catalogo dei Tratti Unici non disponibile. Aggiorna la pagina prima di utilizzare questa carta.':
+    !trait?'Tratto Unico non più presente nel catalogo · '+id:trait.superseded?trait.name+': '+trait.reason:
+    !trait.acquired?trait.name+': non più acquisito. La carta conserva il riferimento finché non lo correggi.':trait.name+': inattivo. '+trait.reason;
+   errors.push({id,text});
+  }else errors.push({id,text:'Fonte non più presente · '+id});
+ });
+ techniqueProblems(tech,m).forEach(text=>errors.push({id:m.baseTechId,text}));
+ if(m.techniqueUse==='defense'&&!isAttack(t))errors.push({id:m.baseTechId,text:'La Difesa Attiva con una Tecnica richiede una Tecnica d’attacco compatibile.'});
+ if(m.techniqueUse==='parry'&&!isNormalParry(t,m))errors.push({id:m.baseTechId,text:'La Parata con arma richiede una Tecnica di contesto Swordsman o Crusher e un’arma da mischia compatibile.'});
+ if(isNormalParry(t,m)&&!findSource(m.weaponId,ss))errors.push({id:m.baseTechId,text:'Parata: collega l’arma compatibile effettivamente impugnata.'});
+ if(m.instrumentId&&t?.forma!=='Canzone')errors.push({id:m.instrumentId,text:'Lo strumento musicale si collega soltanto a una Canzone.'});
  let st=0,pip=0,maintenanceST=0,maintenancePIP=0;const pipByColor={};
  const talentSelected=selected.filter(s=>s.kind==='talent');
  if(talentSelected.filter(s=>s.meta?.mode==='active').length>1)errors.push({text:'La carta contiene più di un Talento attivo.'});
@@ -337,12 +434,13 @@ function resolve(input) {
   if(s.prestige&&s.meta.quantity){const q=Number(m.talentUses[s.id]??1);if(!Number.isSafeInteger(q)||q<1||!Number.isSafeInteger(rafficaCost(q)))errors.push({id:s.id,text:'Raffica: indica un numero intero positivo di attacchi extra.'});else{c.st=rafficaCost(q);notes.push(q+' attacchi extra · costi progressivi da 1 a '+q+' ST · 1 Bonus complessiva');}}
   else if(s.kind==='talent'&&s.meta?.quantity){const max=s.alias.includes('Maestria')?3:s.alias.includes('Migliorato')?2:1;const q=Number(m.talentUses[s.id]??1);if(!Number.isSafeInteger(q)||q<1||q>max)errors.push({id:s.id,text:'Raffica: indica da 1 a '+max+' attacchi base extra, con un numero intero.'});else{c.st=rafficaCost(q);notes.push(q+' attacch'+(q===1?'o':'i')+' base extra · costi progressivi da 1 a '+q+' ST · 1×/turno');}conditions.push({id:s.id,text:'Raffica ordinaria: gli extra sono sempre attacchi base a mani nude, non altri usi della Tecnica. Paga prima di ciascun attacco; un mancato consuma ST ma non interrompe la sequenza. Puoi fermarti dopo qualunque extra; Il Colpo Sfonda si attiva al massimo una volta per turno.'});}
   if(s===tech&&s.techKind==='built'){
-   let raw=list(t.eff).reduce((sum,n)=>sum+(tecEffObj(n)?.[4]||0),0)+(TEC_DUR.find(d=>d[0]===t.durata)?.[1]||0);
+   if(isNormalParry(t,m)){c.st=0;c.maintenanceST=0;notes.push('Tecnica di contesto: la Parata non ne esegue gli effetti o il mantenimento');}
+   let raw=c.st;
    if(t.fonte==='Frutto'){
-    if(owns('Nessuno dei Miei')&&hasEffect(t,'Occhio del Ciclone')){raw-=tecEffObj('Occhio del Ciclone')[4];notes.push('Occhio del Ciclone gratuito');}
+    if(owns('Nessuno dei Miei')&&hasEffect(t,'Occhio del Ciclone'))notes.push('Occhio del Ciclone gratuito');
     if(owns('Portata Naturale')){raw-=list(t.eff).filter(n=>tecEffObj(n)?.[6]==='gittata').reduce((v,n)=>v+tecEffObj(n)[4],0);if(hasEffect(t,'Catena'))raw-=1;notes.push('Sconti di Portata Naturale');}
    }
-   c.st=Math.max(1,raw);
+   c.st=Math.max(0,raw);
    if(t.forma==='Canzone'&&owns('Fiato Lungo')){c.st=Math.max(1,c.st-1);notes.push('Fiato Lungo: −1, minimo 1');}
    if(t.forma==='Canzone'&&(owns('Contrappunto — Maestria')||prestige('orchestra-vivente'))){c.maintenanceST=0;notes.push('Contrappunto: mantenimento gratuito');}
    if(t.fonte==='Frutto'&&owns('Senza Contraccolpo')){c.st=Math.max(1,c.st-1);notes.push('Senza Contraccolpo: −1, minimo 1');}
@@ -372,10 +470,10 @@ function resolve(input) {
  }
  m.hakiSelections.forEach(hsel=>{
   const s=findSource(hsel.id,ss);if(!s||s.kind!=='haki')return;
-  const h=s.raw,session=hakiState(s),fx=hakiEffects(s,tech),chosen=[];
+  const h=s.raw,session=hakiState(s),fx=hakiEffects(s,tech,m),chosen=[];
   list(hsel.effects).forEach(id=>{const e=fx.find(x=>x.id===id);if(e)chosen.push(e);else errors.push({id:s.id,text:s.name+': effetto non più sbloccato o compatibile ('+id+').'});});
   const groups=new Set();chosen.filter(e=>e.mode==='active').forEach(e=>{const group=e.row.variantGroup||String(e.row.k);if(groups.has(group))errors.push({id:s.id,text:s.name+': scegli una sola versione dello stesso effetto Haki, base oppure Prestigio.'});groups.add(group);});
-  if(s.name===HAKI_NAMES[0]&&(!['offense','defense'].includes(hsel.use)||(hsel.use==='offense'&&!isAttack(t))||(hsel.use==='defense'&&!isDefense(t))))errors.push({id:s.id,text:'Armamento: scegli un impiego coerente con la forma della Tecnica.'});
+  if(s.name===HAKI_NAMES[0]&&(!['offense','defense'].includes(hsel.use)||(hsel.use==='offense'&&(!isAttack(t)||isActiveDefense(t,m)||isNormalParry(t,m)))||(hsel.use==='defense'&&!isDefending(t,m))))errors.push({id:s.id,text:'Armamento: scegli un impiego coerente con la forma e l’uso della Tecnica.'});
   const plan=economy.haki.find(p=>p.selection===hsel),activation=plan.activation?1:0,effectCost=plan.fresh.reduce((sum,e)=>sum+e.cost,0);
   /* Padronanza dell'Armamento: dal d12, una volta attivato, non chiede più ST. */
   const free=s.name===HAKI_NAMES[0]&&dieRank(window.GLCPrestige?.effectiveHakiDie(pg,h)||h.die)>=dieRank('d12');
@@ -403,7 +501,7 @@ function resolve(input) {
   const obs=m.hakiSelections.find(x=>findSource(x.id,ss)?.name===HAKI_NAMES[1]&&x.effects.some(id=>['act:d8','act:prestige-anticipo-superiore'].includes(id)));
   const hakiFX=id=>m.hakiSelections.find(h=>h.effects.some(key=>key==='act:prestige-'+id||key==='act:prestige-'+id+'-standard'));
   const fullDie=h=>{const source=findSource(h.id,ss);return window.GLCPrestige?.effectiveHakiDie(pg,source.raw)||source.raw.die;};
-  if(isAttack(t)){
+  if(isAttack(t)&&!isActiveDefense(t,m)&&!isNormalParry(t,m)){
    const anticipation=hakiFX('anticipo-offensivo'),anticipationSource=anticipation&&findSource(anticipation.id,ss);
    formulas.push({label:'Per colpire',text:roll+(anticipation?' + '+(window.GLCPrestige.hakiLevel(pg,anticipationSource.raw)===6&&!anticipation.effects.includes('act:prestige-anticipo-offensivo-standard')?3:2)+' × ('+fullDie(anticipation)+') Anticipo Offensivo · solo questo attacco':''),id:tech.id});
    const terms=[t.die+' Tecnica'];
@@ -423,7 +521,8 @@ function resolve(input) {
    if(hasEffect(t,'Sovraccarico'))damage='2 × ('+damage+') · Sovraccarico';
    if(hasEffect(t,'Colpo Annientante'))damage='3 × ('+damage+') · Colpo Annientante';
    if(owns("Fendente d'Aria"))damage='⌈('+damage+') / 2⌉ · Fendente d’Aria';
-   formulas.push({label:owns('Colpo Mirato')?'Colpo Mirato':'Danno · fonti',text:owns('Colpo Mirato')?'Effetto mirato al posto del danno. Soglia +2.':damage,id:tech.id});
+   if(t.forma==='Area')damage='⌊('+damage+') / 2⌋ · per ogni bersaglio dell’Area';
+   formulas.push({label:owns('Colpo Mirato')?'Colpo Mirato':'Danno · fonti',text:owns('Colpo Mirato')?'Effetto mirato al posto del danno. Difesa Passiva del bersaglio +2; questa difficoltà non modifica le Salvezze.':damage,id:tech.id});
    const conditional=(label,text,id=tech.id)=>formulas.push({label,text,id});
    if(hasEffect(t,'Carica'))conditional('Carica · condizionale','2 × Dadi Danno, Vantaggio, ignora copertura · al prossimo turno, solo se non vieni colpito.');
    if(hasEffect(t,'Tutto o Niente'))conditional('Tutto o Niente · colpo pulito','3 × danno solo sul +4. Se manchi non puoi difenderti dal prossimo attacco.');
@@ -439,23 +538,26 @@ function resolve(input) {
    if(owns('Ferocia Crescente'))conditional('Ferocia Crescente','+1 dado al Danno in mischia dopo essere sceso sotto metà PV, fino a fine scontro.');
    const armRyou=m.hakiSelections.some(h=>findSource(h.id,ss)?.name===HAKI_NAMES[0]&&h.effects.includes('act:d20'));
    if(armRyou||hakiFX('ryou-persistente'))conditional('Ryou · Armamento','Raddoppia ×2 il danno complessivo dell’azione, calcolato una volta sola sul totale. Il bersaglio usa normalmente la propria difesa.');
-  }else if(isDefense(t)){
-   let defense='Effetto difensivo della Tecnica';
-   if(hasEffect(t,'Contrattacco'))defense=roll;
-   if(hasEffect(t,'Parata')){const w=findSource(m.weaponId,ss);defense=(attr||'Attributo da definire')+' '+(t.attr||'')+' + '+(w&&prestige('maestria-assoluta-della-lama')?'d20':w?.raw.grado||'dado arma da collegare')+' arma';if(!w)errors.push({id:tech.id,text:'Parata: collega un’arma compatibile.'});}
-   const activeDefense=isActiveDefense(t),guard=hasEffect(t,'Guardia');
+  }else if(isDefending(t,m)){
+   const parry=isNormalParry(t,m),weapon=findSource(m.weaponId,ss);
+   const weaponAttr=weapon?.raw.attr,weaponPool=pg.attr?.[weaponAttr];
+   let defense=parry?(weaponPool||'Attributo arma da definire')+' '+(weaponAttr||'')+' + '+(prestige('maestria-assoluta-della-lama')?'d20':weapon?.raw.grado||'Grado arma da collegare')+' arma':isActiveDefense(t,m)?roll:'Effetto difensivo della Tecnica';
+   const activeDefense=isActiveDefense(t,m)||parry,guard=parry?'':list(t.eff).find(n=>/^Guardia(?: Migliorata| Maestria| Suprema)?$/.test(n));
+   const guardBonus={Guardia:2,'Guardia Migliorata':3,'Guardia Maestria':4,'Guardia Suprema':5}[guard]||0;
    const corazza=arm?.use==='defense'&&arm.effects.includes('act:d12');
    // Manuale 8.7: i dadi appartengono alla Difesa Attiva, mai alla Passiva.
    if(activeDefense){
     if(arm?.use==='defense')defense+=' + '+armTerm;
     if(obs)defense+=' + '+(obs.effects.includes('act:prestige-anticipo-superiore')?3:2)+' × ('+fullDie(obs)+') Anticipo (Osservazione)';
-    if(prestige('guardia-invalicabile'))defense+=' + ('+prestige('guardia-invalicabile').raw.path.die+') Atletica';
-    formulas.push({label:'Difesa Attiva',text:defense,id:tech.id});
+    if(parry&&prestige('guardia-invalicabile'))defense+=' + ('+prestige('guardia-invalicabile').raw.path.die+') Atletica';
+    formulas.push({label:parry?'Parata con arma':'Difesa Attiva',text:defense,id:tech.id});
+    conditions.push({id:tech.id,text:parry?'Parata con arma: spendi la Reazione e gli eventuali costi della capacità difensiva prima di tirare. La Tecnica scelta dà solo contesto e non esegue né paga i propri effetti. Un risultato pari o superiore all’attacco neutralizza il colpo. Nessun danno automatico.':'Dichiara la Difesa Attiva prima del tiro nemico; spendi la Reazione e il costo completo della Tecnica e degli eventuali potenziamenti prima di tirare. Un risultato pari o superiore all’attacco neutralizza il colpo. Il pareggio non infligge danni; gli effetti offensivi non si applicano automaticamente.'});
    }
-   if(guard||corazza)formulas.push({label:'Difesa Passiva',text:'Difesa Passiva attuale'+(guard?' + 2 Guardia':'')+(corazza?' + 4 Corazza d’Armamento (2 turni)':''),id:tech.id});
+   if(guard||corazza)formulas.push({label:'Difesa Passiva',text:'Difesa Passiva attuale'+(guard?' + '+guardBonus+' '+guard+' (fino all’inizio del prossimo turno)':'')+(corazza?' + 4 Corazza d’Armamento (2 turni)':''),id:tech.id});
    if(!activeDefense&&!guard&&!corazza)formulas.push({label:'Difesa',text:defense,id:tech.id});
-   if(owns('Contraccolpo')&&hasEffect(t,'Contrattacco'))formulas.push({label:'Contraccolpo',text:t.die+' Tecnica · solo se il contrattacco raggiunge o supera l’attacco nemico',id:tech.id});
-  }else formulas.push({label:t.forma||'Risoluzione',text:t.forma==='Canzone'?'Effetto sugli alleati; Salvezza per i nemici secondo la Melodia.':tech.techKind==='racial'?t.desc:roll+' · applica gli effetti della Tecnica',id:tech.id});
+   if(owns('Contraccolpo')&&activeDefense&&!parry)formulas.push({label:'Contraccolpo',text:t.die+' Dado Danno della Tecnica · soltanto se la Difesa Attiva supera strettamente l’attacco nemico. Il pareggio evita il colpo senza contro-danno; nessun altro effetto offensivo automatico.',id:tech.id});
+   if(owns('Riposta')&&activeDefense&&!parry){const w=findSource(m.weaponId,ss)||findSource('weapon:'+t.arma,ss);formulas.push({label:'Riposta · attacco separato',text:'Dopo una Difesa Attiva riuscita con la Tecnica, anche in pareggio, puoi spendere 1 ST per un attacco base separato: '+(pg.attr?.[w?.raw.attr]||'Attributo arma da definire')+' '+(w?.raw.attr||'')+' + '+(prestige('maestria-assoluta-della-lama')?'d20':w?.raw.grado||'Grado arma compatibile')+' arma per colpire; un Dado Arma di danno. Non garantisce il colpo e non ripete automaticamente la Tecnica.',id:tech.id});}
+  }else formulas.push({label:t.forma||'Risoluzione',text:t.forma==='Canzone'?'Effetto sugli alleati; Salvezza per i nemici secondo la Melodia.':t.forma==='Potenziamento'?'Spendi un’Azione principale e il costo della Tecnica. Il beneficio dura per la scena e lascia libera la Bonus.':tech.techKind==='racial'?t.desc:roll+' · applica gli effetti della Tecnica',id:tech.id});
   if(window.GLCPrestige){
    const b=window.GLCPrestige.techniqueBenefits(pg,t);
    b.forEach(x=>{if(x.id==='projection'&&hasEffect(t,'Proiezione')||x.id==='movement'&&list(t.eff).some(n=>['Scatto','Inseguire','Balzo'].includes(n))||x.id==='jump'&&hasEffect(t,'Balzo')||x.id==='range'&&t.stile==='Sniper'||x.id==='slash'&&prestige('fendente-sovrano')||x.id==='cut'&&prestige('taglio-colossale'))conditions.push({id:tech.id,text:x.name+': '+x.value+' '+x.unit+'. '+x.detail});});
@@ -463,13 +565,41 @@ function resolve(input) {
    if(prestige('fendente-sovrano')&&!b.some(x=>x.id==='slash'))conditions.push({id:tech.id,text:'Fendente Sovrano: 10 m di portata con Attributo non ancora in Prestigio; danno pieno e +1 ST.'});
    if(prestige('risonanza-leggendaria')&&t.forma==='Canzone')formulas.push({label:'Risonanza Leggendaria',text:(prestige('risonanza-leggendaria').raw.level===6?'3':'2')+' × dadi di recupero ST, dadi bonus alle prove e importo degli sconti ST della Melodia ordinaria. Sconto con minimo 1 ST; non moltiplica PIP, Vantaggio, portata, bersagli o Ultimate.',id:prestige('risonanza-leggendaria').id});
   }
-  list(t.eff).forEach(n=>{const e=tecEffObj(n);if(e)conditions.push({id:tech.id,text:n+': '+e[2]});});
-  if(t.durata)conditions.push({id:tech.id,text:'Durata: '+t.durata});
+  if(!isNormalParry(t,m))list(t.eff).forEach(n=>{const e=tecEffObj(n);if(e)conditions.push({id:tech.id,text:n+': '+e[2]});});
+  const saveAttributes={Sbilancio:'Tecnica',Sfondamento:'Forza',Accecante:'Tecnica',Terrore:'Spirito',Paralisi:'Forza',Sopore:'Spirito',Prigione:'l’Attributo coerente con la Prigione'};
+  const saving=window.GLCTechniques?.states?window.GLCTechniques.states(t,techniqueRules()).filter(x=>x.threshold):list(t.eff).filter(n=>saveAttributes[n]).map(effect=>({effect,attribute:saveAttributes[effect],threshold:window.GLCPrestige?.saveThreshold(t.die)}));
+  if(saving.length&&!isActiveDefense(t,m)&&!isNormalParry(t,m)){
+   saving.forEach(state=>formulas.push({label:'Salvezza · '+state.effect,text:'Il bersaglio tira soltanto '+state.attribute+' contro Soglia '+state.threshold+' dal Grado '+t.die+' della Tecnica. Un risultato pari o superiore riesce.',id:tech.id}));
+   conditions.push({id:tech.id,text:'La fonte non tira per la Salvezza. Se lo Stato persiste, ripeti a fine turno del bersaglio con la Soglia originaria di questa applicazione, salvo una procedura specifica.'});
+  }
+  if(hasEffect(t,'Presa')&&!isNormalParry(t,m))conditions.push({id:tech.id,text:'Presa: contesa di Forza ogni turno, senza Salvezza graduata. Paghi 1 ST quando la applichi e 1 ST all’inizio di ogni tuo turno successivo, prima di agire; senza pagamento o presa fisica termina.'});
+  if(hasEffect(t,'Lacerazione')&&!isNormalParry(t,m))conditions.push({id:tech.id,text:'Sanguinante: non concede Salvezza automatica; lo Stato non si cumula con se stesso e termina con Medicina o una cura appropriata.'});
+  if(t.forma==='Canzone'){
+   const instrument=findSource(m.instrumentId,ss),effective=instrument&&typeof instrEff==='function'?instrEff(instrument.raw):{eff:'d4',soglia:3};
+   if(!instrument&&m.instrumentId)errors.push({id:m.instrumentId,text:'Lo strumento selezionato non è più disponibile: scegli uno strumento posseduto o la voce.'});
+   if(list(t.eff).some(n=>['Richiamo','Requiem Beffardo','Ninnananna','Marcia Funebre'].includes(n)))formulas.push({label:'Salvezza · Canzone',text:'Il nemico tira soltanto Spirito contro Soglia '+effective.soglia+' dal Grado effettivo '+effective.eff+' dello strumento '+(instrument?.name||'La tua voce')+'. Arte limita il Grado utilizzabile; il Dado Tecnica non determina questa Soglia.',id:tech.id});
+   conditions.push({id:tech.id,text:'Canzone: nessun tiro per colpire, nessuna attivazione della Firma tramite margine +4. Gli alleati ricevono automaticamente gli effetti previsti. La Canzone richiede l’Azione principale.'});
+  }
+  if(t.durata&&!isNormalParry(t,m))conditions.push({id:tech.id,text:'Durata: '+t.durata});
  }
  talentSelected.forEach(s=>conditions.push({id:s.id,text:s.name+': '+s.desc}));
+ talentSelected.filter(s=>s.unlocked&&applicable(s,tech,m)).forEach(s=>directSaves.push(...directTalentSaves(s)));
+ if(tech&&m.techniqueUse==='normal'){
+  if(t.fonte==='Stile'&&t.stile==='Striker'&&isAttack(t)&&!hasEffect(t,'Punto di Rottura')){
+   const source=currentRoleSaveSource({branch:'Striker',roleSlot:pg.role==='Combattente'&&pg.style==='Striker'?1:2});
+   const when='la Firma Il Colpo Sfonda si attiva su un colpo pulito con margine +4, al massimo una volta per turno, e scegli lo Stato previsto per 1 turno';
+   directSaves.push(directSaveProfile(tech.id,'Firma · Il Colpo Sfonda','Stordito','Forza',source,when),directSaveProfile(tech.id,'Firma · Il Colpo Sfonda','Sbilanciato','Tecnica',source,when));
+  }
+  if(t.fonte==='Frutto'&&t.fruitType==='Zoan'&&isAttack(t))directSaves.push(directSaveProfile(tech.id,'Firma · Zoan','Stordito','Forza',{name:'Dado del Frutto',die:pg.frutto?.die||''},'la Firma Zoan si attiva con un colpo pulito di margine +4 in Forma Ibrida e scegli Stordito al posto del Dado Danno aggiuntivo'));
+  if(tech.techKind==='racial'&&pg.race==='mink')directSaves.push(directSaveProfile(tech.id,'Electro','Paralizzato','Forza',{name:'Grado di Electro',die:pg.racialDie||''},'Electro applica la propria Paralisi; conserva durata e costi razziali, e la normale Salvezza ogni turno'));
+  if(tech.techKind==='racial'&&dieRank(pg.racialDie)>=dieRank('d8')&&['longbraccio','lungagamba'].includes(pg.race))directSaves.push(directSaveProfile(tech.id,tech.name,pg.race==='longbraccio'?'Trascinamento / Proiezione':'Schiantato','Forza',{name:'Tecnica Razziale',die:pg.racialDie||''},pg.race==='longbraccio'?'Portata Estesa applica il proprio Trascinamento o Proiezione da d8; ogni bersaglio mantiene il suo tiro per colpire separato':'Calcio Colossale applica il proprio Schiantato da d8; ogni bersaglio mantiene il suo tiro per colpire separato'));
+ }
+ directSaves.forEach(profile=>formulas.push({label:'Salvezza condizionale · '+profile.name+' · '+profile.state,
+  text:'Quando '+profile.when+': il bersaglio tira soltanto '+profile.attribute+' contro '+(profile.threshold==null?'la Soglia da definire dalla fonte':'Soglia '+profile.threshold)+' da '+profile.source+' ('+(profile.die||'Grado da definire')+'). Un risultato pari o superiore riesce. Questa indicazione non applica automaticamente lo Stato e non modifica la Soglia degli effetti della Tecnica.',id:profile.id}));
+ if(talentSelected.some(s=>s.subtype==='uniqueTrait'))conditions.push({text:'Tratti Unici: questi riferimenti sono promemoria condizionali. Non aggiungono Azioni, Bonus, Reazioni, costi, dadi o Vantaggio alla ricetta. I bonus alla Difesa Passiva già inclusi nella scheda non si sommano una seconda volta.'});
  selected.filter(s=>s.kind==='weapon'||s.kind==='module').forEach(s=>{if(s.desc)conditions.push({id:s.id,text:s.name+': '+s.desc});if(s.raw.eff?.freq)conditions.push({id:s.id,text:s.raw.eff.freq});if(s.raw.eff?.prezzo==='PV')conditions.push({id:s.id,text:'Prezzo in PV: '+s.raw.eff.prezzoDett});});
  const invalid=errors.length>0||unknown.length>0;
- return {move:m,sources:ss,selected,tech,errors,unknown,unavailable,rows,conditions,formulas,resources,pipByColor,economy,
+ return {move:m,sources:ss,selected,tech,errors,unknown,unavailable,rows,conditions,formulas,resources,directSaves,pipByColor,economy,
   totals:invalid?null:{st,pip,maintenanceST,maintenancePIP},status:errors.length?'repair':unknown.length?'costs':unavailable.length?'unavailable':'ready'};
 }
 
@@ -615,7 +745,7 @@ function budget(r) {
 }
 function actionBudget(r) {
  const e=r.economy,box=node('div','smc-action-budget'+(e.used>e.limit?' smc-action-conflict':''));
- box.append(node('span','smc-eyebrow','NEL TURNO DELLA MOSSA'),node('strong','',e.normal+' Azione · '+e.used+'/1 Bonus'),note(e.bonus.length?e.bonus.map(b=>b.text).join(' + '):'Bonus libera · passivi e mantenimento non la consumano.'));
+ box.append(node('span','smc-eyebrow','NEL TURNO DELLA MOSSA'),node('strong','',e.normal+' Azione · '+e.reactions+'/1 Reazione · '+e.used+'/1 Bonus'),note(e.bonus.length?e.bonus.map(b=>b.text).join(' + '):'Bonus libera · passivi e mantenimento non la consumano.'));
  return box;
 }
 function breakdown(r) {
@@ -749,9 +879,12 @@ function stepTechnique(work) {
  const ss=sources().filter(s=>s.kind==='tech');if(!ss.length){work.append(note('Non hai ancora Tecniche: creane una dal Signature Move Builder e torna qui.'));return;}
  const grid=node('div','smc-options');ss.forEach(s=>{
   const cost=sourceCost(s),suffix=(cost?cost.st+' ST'+(cost.maintenanceST?' · +'+cost.maintenanceST+' ST/turno':''):'Costi GM da registrare')+' · '+(list(s.raw.eff).join(' · ')||s.desc||'Senza effetti aggiuntivi');
-  grid.append(optionCard(s,UI.draft.baseTechId===s.id,()=>changeDraft(m=>{m.baseTechId=s.id;m.weaponId=s.raw.arma?'weapon:'+s.raw.arma:'';m.moduleId=s.raw.modulo?'module:'+s.raw.modulo:'';}),true,suffix));
+  grid.append(optionCard(s,UI.draft.baseTechId===s.id,()=>changeDraft(m=>{m.baseTechId=s.id;m.weaponId=s.raw.arma?'weapon:'+s.raw.arma:'';m.moduleId=s.raw.modulo?'module:'+s.raw.modulo:'';if(!isAttack(s.raw))m.techniqueUse='normal';if(s.raw.forma!=='Canzone')m.instrumentId='';}),true,suffix));
  });work.append(grid);
- const chosen=findSource(UI.draft.baseTechId);if(chosen&&requiresGM(chosen))work.append(gmCostEditor(chosen));
+ const chosen=findSource(UI.draft.baseTechId);if(chosen&&chosen.techKind!=='legacy'&&requiresGM(chosen))work.append(gmCostEditor(chosen));
+ if(isAttack(chosen?.raw))work.append(selectField('Impiego della Tecnica',UI.draft.techniqueUse,[['normal','Attacco · Azione principale'],['defense','Difesa Attiva con la Tecnica · Reazione'],...(chosen.raw.fonte==='Stile'&&['Swordsman','Crusher'].includes(chosen.raw.stile)?[['parry','Parata con arma · Reazione, senza effetti della Tecnica']]:[])],v=>changeDraft(m=>{m.techniqueUse=v;m.hakiSelections.forEach(h=>{if(findSource(h.id)?.name===HAKI_NAMES[0])h.use=v==='normal'?'offense':'defense';});})));
+ if(UI.draft.techniqueUse==='parry')work.append(note('Parata con arma: la Tecnica selezionata fornisce solo il contesto dello Stile e dell’Attributo. La Parata usa l’arma collegata, non esegue gli effetti della Tecnica e non ne paga il costo.'));
+ if(chosen?.raw.forma==='Canzone')work.append(selectField('Strumento della Canzone',UI.draft.instrumentId||'instrument:voice',sources().filter(s=>s.kind==='instrument').map(s=>[s.id,s.name+' · '+(typeof instrEff==='function'?instrEff(s.raw).eff:s.raw.die)]),v=>changeDraft(m=>m.instrumentId=v)));
  const issues=resolve(UI.draft).errors.filter(e=>e.id===UI.draft.baseTechId);issues.forEach(e=>work.append(note(e.text,'smc-warning')));
 }
 function selectTalent(s) {
@@ -766,8 +899,8 @@ function talentsArea(work,fruit) {
  const m=UI.draft,ss=sources(),tech=findSource(m.baseTechId,ss),available=ss.filter(s=>s.kind==='talent'&&!!s.fruit===fruit&&applicable(s,tech,m));
  if(!available.length){work.append(note('Nessun Talento '+(fruit?'del Frutto ':'')+'acquisito e compatibile con questa Tecnica.'));return;}
  for(const mode of ['active','passive']){
-  const choices=available.filter(s=>s.meta.mode===mode);if(!choices.length)continue;
-  work.append(heading(mode==='active'?'Talento attivo · la tua Azione Bonus':'Passivi, modificatori e reazioni',mode==='active'?'Un solo effetto attivo: Talento oppure Haki ⚡, anche per il Frutto. L’Haki già preparato e mantenuto lascia libera la Bonus.':'Non occupano la Bonus. Modificatori e Reazioni conservano i propri costi e requisiti.'));
+  const choices=available.filter(s=>s.meta.mode===mode&&s.subtype!=='uniqueTrait');if(!choices.length)continue;
+  work.append(heading(mode==='active'?'Talento attivo':'Passivi, modificatori e reazioni',mode==='active'?'Il Talento conserva il proprio tempo di attivazione. Una sola Bonus è condivisa con l’Haki; preparazioni e Reazioni rispettano le proprie condizioni.':'Non occupano la Bonus. Modificatori e Reazioni conservano i propri costi e requisiti.'));
   const grid=node('div','smc-options');choices.forEach(s=>{const on=selectedIDs(m).includes(s.id),c=sourceCost(s);const suffix=(s.prestige?(s.meta.action==='reaction'?'REAZIONE · ':s.meta.action==='modifier'?'MODIFICATORE · ':mode==='active'?'BONUS · ':'PASSIVO · ')+(c?c.st+' ST · ':''):mode==='active'?(c?c.st+' ST · ':'Costo GM · '):'PASSIVO · ')+s.desc;
    const blocked=!on&&mode==='active'&&actionPlan({...m,activeTalentId:s.id},ss,tech).used>1?'Bonus impegnata dall’Haki: modifica la preparazione in Poteri.':'';
    grid.append(optionCard(s,on,()=>selectTalent(s),true,suffix,blocked));
@@ -779,6 +912,11 @@ function talentsArea(work,fruit) {
    }else if(on&&s.meta.quantity){const max=s.alias.includes('Maestria')?3:s.alias.includes('Migliorato')?2:1;grid.append(selectField('Attacchi base extra',String(m.talentUses[s.id]||1),Array.from({length:max},(_,i)=>[String(i+1),String(i+1)+' · '+rafficaCost(i+1)+' ST totali']),v=>changeDraft(d=>d.talentUses[s.id]=+v)));}
    if(on&&requiresGM(s))grid.append(gmCostEditor(s));
   });work.append(grid);
+ }
+ const traits=available.filter(s=>s.subtype==='uniqueTrait');
+ if(traits.length){
+  work.append(heading('Tratti Unici · promemoria condizionali','Si applicano soltanto quando ricorrono le condizioni della regola; verifica il contesto al tavolo. Associarli alla carta non cambia le formule o i costi della Tecnica.'));
+  const grid=node('div','smc-options');traits.forEach(s=>grid.append(optionCard(s,selectedIDs(m).includes(s.id),()=>selectTalent(s),true,'PASSIVO · '+s.desc)));work.append(grid);
  }
 }
 function stepTalents(work) {work.append(actionBudget(resolve(UI.draft)));talentsArea(work,false);invalidSelections(work,'talent');}
@@ -811,8 +949,8 @@ function stepPowers(work) {
      ['prepared','Prima della mossa · richiede il Colore già attivo']
     ],v=>changeDraft(d=>d.hakiSelections.find(h=>h.id===s.id).activation=v)));
     if(selected.activation==='prepared')block.append(note('Preparazione: attiva questo Colore in un turno precedente, pagando 1 PIP e la Bonus. Nel turno della mossa applichi il mantenimento; i costi preparatori non si pagano di nuovo.'));
-    if(s.name===HAKI_NAMES[0])block.append(selectField('Impiego dell’Armamento',selected.use,isDefense(tech?.raw)?[['defense',isActiveDefense(tech?.raw)?'Difesa Attiva · aggiungi il dado al tiro':'Difesa · effetti Haki, senza dado alla Difesa Passiva']]:[['offense','Offesa · aggiungi il dado al danno']],v=>changeDraft(d=>d.hakiSelections.find(h=>h.id===s.id).use=v)));
-    hakiEffects(s,tech).forEach(e=>{
+    if(s.name===HAKI_NAMES[0])block.append(selectField('Impiego dell’Armamento',selected.use,isDefending(tech?.raw,m)?[['defense',isActiveDefense(tech?.raw,m)?'Difesa Attiva · aggiungi il dado al tiro':'Difesa · effetti Haki, senza dado alla Difesa Passiva']]:[['offense','Offesa · aggiungi il dado al danno']],v=>changeDraft(d=>d.hakiSelections.find(h=>h.id===s.id).use=v)));
+    hakiEffects(s,tech,m).forEach(e=>{
      const on=selected.effects.includes(e.id),prepared=list(selected.preparedEffects).includes(e.id),persistent=e.mode==='active'&&e.row.durationTurns>1;
      const candidate={...m,hakiSelections:m.hakiSelections.map(h=>h.id===s.id?{...h,effects:[...h.effects,e.id]}:h)};
      const blocked=!on&&e.mode==='active'&&actionPlan(candidate,ss,tech).used>1;
@@ -852,12 +990,13 @@ function stepEquipment(work) {
  invalidSelections(work,'equipment');
 }
 function invalidSelections(work,kind) {
- const r=resolve(UI.draft),warnings=r.errors.filter(e=>e.id&&e.id!==UI.draft.baseTechId&&(!kind||kind==='talent'&&findSource(e.id,r.sources)?.kind==='talent'||kind==='equipment'&&/^(weapon|module):/.test(e.id)));
+ const r=resolve(UI.draft),warnings=r.errors.filter(e=>e.id&&e.id!==UI.draft.baseTechId&&(!kind||kind==='talent'&&(findSource(e.id,r.sources)?.kind==='talent'||e.id.startsWith('trait:'))||kind==='equipment'&&/^(weapon|module):/.test(e.id)));
  if(!warnings.length)return;
  const block=node('div','smc-repair');block.append(heading('Collegamenti da riparare'));
  uniq(warnings.map(e=>e.id)).forEach(id=>{const text=warnings.filter(e=>e.id===id).map(e=>e.text).join(' · ');block.append(node('div','smc-repair-row',null,[note(text),button('Scollega',()=>changeDraft(m=>{if(m.activeTalentId===id)m.activeTalentId='';m.passiveTalentIds=m.passiveTalentIds.filter(x=>x!==id);m.fruitSelections=m.fruitSelections.filter(x=>x!==id);m.hakiSelections=m.hakiSelections.filter(x=>x.id!==id);if(m.weaponId===id)m.weaponId='';if(m.moduleId===id)m.moduleId='';}),'smc-link')]));});work.append(block);
 }
 function gmCostEditor(s) {
+ if(s.techKind==='legacy')return note(s.name+': converti la Tecnica storica nel Costruttore prima di definirne effetti e costi.','smc-warning');
  const details=el('details',{class:'smc-gm','data-smc-state':'cost-'+s.id});details.open=!sourceCost(s);details.append(node('summary','','Costi già approvati dal GM · '+s.name));
  details.append(note('Registrazione sulla fonte, condivisa da tutte le carte. Inserisci 0 quando il costo è esplicitamente nullo. Questi campi non concedono nuovi effetti.'));
  const old=pg.specialMoveSourceCosts?.[s.id]||{},values={},grid=node('div','smc-form-grid');
@@ -917,5 +1056,5 @@ function saveCard() {
   if(previousArt&&previousArt!==m.presentation.artId&&!artInUse(previousArt))mediaDelete(previousArt);
  }catch(e){owner.saving=false;owner.error='Carta non salvata: '+e.message+'. La bozza è ancora qui.';renderDialog();}
 }
-window.GLCMoves={shelf:safeShelf,open:openComposer,openCard,close,resolve,sources,art:mediaGet,transaction,ensureReferences,normalizeMove,applicable,compatibleEquipment,hakiState,hakiEffects,sourceCost,costBasis,requiresGM,techniqueProblems,metadata:META};
+window.GLCMoves={shelf:safeShelf,open:openComposer,openCard,close,resolve,sources,art:mediaGet,transaction,ensureReferences,normalizeMove,applicable,compatibleEquipment,hakiState,hakiEffects,sourceCost,costBasis,requiresGM,techniqueProblems,directTalentSaves,metadata:META};
 })();

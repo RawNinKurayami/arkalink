@@ -1441,7 +1441,7 @@ body.has-bld{overflow:hidden;}
 
 </style>
 <link rel="stylesheet" href="special-moves.css?v=2">
-<link rel="stylesheet" href="signature-builder.css?v=1">
+<link rel="stylesheet" href="signature-builder.css?v=2">
 <link rel="stylesheet" href="equipment-builder.css?v=1">
 <link rel="stylesheet" href="dossiers.css?v=1">
 <script src="/glc-images.js?v=1"></script>
@@ -1543,29 +1543,36 @@ body.has-bld{overflow:hidden;}
 
 <link rel="stylesheet" href="prestigio.css?v=2">
 <script src="/regole/prestigio-data.js?v=8"></script>
-<script src="/regole/prestigio.js?v=5"></script>
-<script src="/regole/prestigio-presentazione.js?v=9"></script>
-<script src="prestigio-ui.js?v=2"></script>
-<script src="special-moves.js?v=19"></script>
+<script src="/regole/prestigio.js?v=6"></script>
+<script src="/regole/prestigio-presentazione.js?v=10"></script>
+<script src="/regole/avanzamento.js?v=1"></script>
+<script src="/regole/talenti.js?v=1"></script>
+<script src="/regole/tratti-data.js?v=1"></script>
+<script src="/regole/tratti.js?v=1"></script>
+<script src="/regole/tecniche.js?v=1"></script>
+<link rel="stylesheet" href="tratti-ui.css?v=1">
+<script src="tratti-ui.js?v=1"></script>
+<script src="prestigio-ui.js?v=3"></script>
+<script src="special-moves.js?v=21"></script>
 <link rel="stylesheet" href="card-view.css?v=6">
 <script src="card-export.js?v=4" defer></script>
 <script src="card-view.js?v=7" defer></script>
-<script src="signature-builder.js?v=1"></script>
+<script src="signature-builder.js?v=2"></script>
 <script src="equipment-builder.js?v=1"></script>
 <script src="dossiers.js?v=2"></script>
-<script src="/scheda-stampabile/special-moves-print.js?v=4"></script>
+<script src="/scheda-stampabile/special-moves-print.js?v=6"></script>
 <script>
 "use strict";
 const RACES=[
  {id:"umano",name:"Umano",attr:"choice",die:"d8",pv:14,hp:"d6",tech:"Volontà Incrollabile",techDesc:"A ≤25% PV si aggiunge a qualsiasi tiro. Non costa ST.",sv:"Nessuno"},
  {id:"uomopesce",name:"Uomo Pesce / Tritone",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Dominio degli Abissi",techDesc:"In acqua si aggiunge a ogni tiro fisico. Respiro subacqueo infinito.",sv:"Svantaggio a ogni tiro su terra arida"},
  {id:"gigante",name:"Gigante",attr:"Forza",die:"d10",pv:22,hp:"d10",tech:"Scala Colossale",techDesc:"Quando la stazza conta si aggiunge al tiro. Ogni colpo a segno: Dado Danno +1 gradino.",sv:"No navi/edifici standard"},
- {id:"mink",name:"Mink",attr:"Tecnica",die:"d8",pv:14,hp:"d6",tech:"Electro + Sulong",techDesc:"Electro: paralisi, Salvezza di Forza ogni turno contro la Soglia del Grado di Electro (1 ST fino a d8, 2 ST a d10 e d12, 3 ST a d20). Sulong: attributi +1 dado per una scena, poi esaurimento.",sv:"Esaurimento post-Sulong"},
- {id:"lunarian",name:"Lunarian",attr:"Spirito",die:"d8",pv:16,hp:"d8",tech:"Fiamma Immortale",techDesc:"Fiamma ON: +1 dado resistenza. OFF: bonus evasione. Alternare 1×/turno gratis.",sv:"Taglia automatica 50M"},
- {id:"longbraccio",name:"Longbraccio",attr:"Tecnica",die:"d8",pv:12,hp:"d6",tech:"Portata Estesa",techDesc:"Mischia a distanza insolita. Chi ti attacca ravvicinato ha +2 soglia.",sv:"Nessuno"},
- {id:"lungagamba",name:"Lungagamba",attr:"Forza",die:"d8",pv:14,hp:"d6",tech:"Calcio Colossale",techDesc:"Bonus su calci e movimenti verticali. 1×/combat salti fuori portata senza tiro.",sv:"Nessuno"},
+ {id:"mink",name:"Mink",attr:"Tecnica",die:"d8",pv:14,hp:"d6",tech:"Electro + Sulong",techDesc:"Electro: paralisi, Salvezza di Forza ogni turno contro la Soglia fissata dal suo Grado (1 ST fino a d8, 2 ST a d10 e d12, 3 ST a d20). Sulong: vedendo la luna, attivazione gratuita, Attributi +1 gradino e Vantaggio a ogni tiro per un combattimento; al termine ST 0.",sv:"Esaurimento post-Sulong"},
+ {id:"lunarian",name:"Lunarian",attr:"Spirito",die:"d8",pv:16,hp:"d8",tech:"Fiamma Immortale",techDesc:"Fiamma ON: Svantaggio al tiro per colpire, riduci il primo danno fisico del round con il Dado Razziale. OFF: −2 Difesa Passiva, aggiungi il Dado Razziale al tiro per colpire. Alternare 1×/turno gratis.",sv:"Taglia automatica 50M"},
+ {id:"longbraccio",name:"Longbraccio",attr:"Tecnica",die:"d8",pv:12,hp:"d6",tech:"Portata Estesa",techDesc:"Portata maggiore per i colpi con le braccia; da d8, Salvezza di Forza contro Trascinamento o Proiezione. Da d10 coinvolge più bersagli entro portata, con un tiro per colpire separato per ciascuno.",sv:"Nessuno"},
+ {id:"lungagamba",name:"Lungagamba",attr:"Forza",die:"d8",pv:14,hp:"d6",tech:"Calcio Colossale",techDesc:"Portata maggiore per i calci; da d8, Salvezza di Forza contro Schiantato. Da d10 coinvolge più bersagli entro portata, con un tiro per colpire separato per ciascuno.",sv:"Nessuno"},
  {id:"cyborg",name:"Cyborg",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Corpo Meccanico",techDesc:"Installa moduli meccanici nel corpo: 1 slot a d6, 2 a d8, 3 a d10, 4 a d12, 5 a d20.",sv:"Curabile solo da un meccanico"},
- {id:"tontatta",name:"Tontatta",attr:"choice2",die:"d8",pv:12,hp:"d6",tech:"Piccolo Guerriero",techDesc:"Aggiungi il Dado razziale alle prove di Furtività o Mobilità; il primo attacco nemico contro di te arriva in Svantaggio.",sv:"Presa: +3 difficoltà per liberarti · niente armi/oggetti di taglia normale o grande"}
+ {id:"tontatta",name:"Tontatta",attr:"choice2",die:"d8",pv:12,hp:"d6",tech:"Piccolo Guerriero",techDesc:"Aggiungi il Dado Razziale alle Prove di Furtività o Mobilità; il primo attacco di ciascun nemico contro di te arriva in Svantaggio.",sv:"Presa: +3 difficoltà per liberarti · niente armi/oggetti di taglia normale o grande"}
 ];
 const TALENTS={
 "Combattente":{multi:true,styles:{
@@ -1579,11 +1586,11 @@ const TALENTS={
   {smcId:"glc-talent-007",smcAlias:"Slancio",n:"Slancio",tier:"d10",d:"se prima di colpire ti sei mosso di almeno 5 metri in linea verso il bersaglio, quando il colpo va a segno puoi spingerlo di 3 metri."},
   {smcId:"glc-talent-008",smcAlias:"Guardia Rotta",n:"Guardia Rotta",tier:"d10",d:"1×/turno, se colpisci lo stesso bersaglio almeno due volte nello stesso turno, il prossimo attacco effettuato contro di lui prima dell'inizio del tuo prossimo turno ha Vantaggio."},
   {smcId:"glc-talent-009",smcAlias:"Raffica — Maestria",n:"Raffica — Maestria",tier:"d12",req:"Raffica — Migliorato",d:"1×/turno, una sola Azione Bonus dopo un attacco a mani nude: fino a 3 attacchi base extra. Costano 1, 2 e 3 ST; totale 6 ST. Paghi prima di ciascun extra, puoi fermarti e un mancato non interrompe la sequenza. Sostituisce le versioni precedenti: non si sommano e non concedono Azioni o Bonus ulteriori."},
-  {smcId:"glc-talent-010",smcAlias:"Contraccolpo",n:"Contraccolpo",tier:"d12",d:"quando una Tecnica con Contrattacco raggiunge o supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata."},
+  {smcId:"glc-talent-010",smcAlias:"Contraccolpo",n:"Contraccolpo",tier:"d12",d:"quando utilizzi una Tecnica d’attacco Striker compatibile come Difesa Attiva e la tua difesa supera il tiro dell’attacco nemico, infliggi anche il normale Dado Danno della Tecnica. Un pareggio neutralizza l’attacco ma non infligge danni. Usi la normale Reazione e paghi tutti i costi della difesa; gli altri effetti offensivi non si applicano automaticamente."},
   {smcId:"glc-talent-011",smcAlias:"Proiezione",n:"Proiezione",tier:"d12",req:"Presa di Ferro",d:"puoi scagliare fino a 5 metri un nemico trattenuto: cade Sbilanciato. Se colpisce un altro nemico, anche quello cade Sbilanciato ed entrambi subiscono 1 Dado Danno."},
   {smcId:"glc-talent-012",smcAlias:"Pugni che Rompono",n:"Pugni che Rompono",tier:"d12",d:"i colpi a mani nude infliggono danno pieno contro porte, muri, strutture e oggetti."},
   {smcId:"glc-talent-013",smcAlias:"Secondo Fiato",n:"Secondo Fiato",tier:"d12",d:"1×/scontro, quando scendi sotto metà PV recuperi 1d6 ST."},
-  {smcId:"glc-talent-014",smcAlias:"Smash Hit",n:"Smash Hit",tier:"d20",t:"ultimate",d:"1×/scontro, 5 ST, solo col permesso del GM. Funziona interamente con le sue regole: non applica Tecniche, Talenti, Firma dello Stile o effetti dell'arma, salvo ciò che è scritto qui. Per colpire: Attributo + Atletica per lo Striker, Attributo + Grado dell'arma per gli Stili armati; Dado Danno: Atletica per lo Striker, Grado dell'arma per gli altri. — una combo totale contro un singolo bersaglio: 4 tiri per colpire consecutivi contro lo stesso bersaglio, ognuno con Attributo + Atletica e Vantaggio. Per ogni colpo a segno accumuli Dadi Danno di Atletica — 1 colpo: 1 Dado Danno · 2 colpi: 2 Dadi · 3 colpi: 4 Dadi + Stordito · 4 colpi: 6 Dadi + Stordito. Il danno si tira una sola volta, alla fine: non sono quattro attacchi normali ma una combo sola, risolta in quattro tiri. Con Atletica d20, la sequenza completa vale 6d20."}]},
+  {smcId:"glc-talent-014",smcAlias:"Smash Hit",n:"Smash Hit",tier:"d20",t:"ultimate",d:"1×/scontro, 5 ST, solo col permesso del GM. Una combinazione contro un singolo bersaglio: 4 tiri per colpire consecutivi, ognuno con Attributo + Atletica e Vantaggio, anche se la Skill di Ruolo è Acrobazia. Dado Danno sempre Atletica: 1 colpo a segno → 1 Dado Danno; 2 → 2 Dadi; 3 → 4 Dadi + Stordito; 4 → 6 Dadi + Stordito. Il danno si tira una sola volta alla fine; con Atletica d20, la sequenza completa vale 6d20. Segue soltanto le proprie regole: non applica altre Tecniche, Talenti, Firma dello Stile o effetti dell’arma."}]},
 "Crusher":{ico:"🔨",skill:"Atletica",tratto:"Il Peso del Ferro — sai sfruttare l'inerzia delle armi contundenti: mazze, martelli, clave, tirapugni e aste usate d'impatto. Le armi contundenti di Grado alto sbloccano i loro effetti speciali nelle tue mani.",firma:"Impatto Devastante — su un colpo pulito (+4) con un'arma contundente il bersaglio viene spinto di 3 metri.",nota:"Le Tecniche dello Stile Crusher si attivano solo mentre impugni e utilizzi un'arma contundente compatibile: mai a mani nude, mai con un'arma non compatibile.",talenti:[
   {smcId:"glc-talent-015",smcAlias:"Colpo Pesante — Base",n:"Colpo Pesante — Base",tier:"d8",d:"1×/turno, quando attacchi con un'arma contundente puoi spendere 2 ST per aggiungere +1 Dado Danno. Dalla dichiarazione fino all'inizio del tuo prossimo turno la tua Difesa Passiva scende di 3, anche se l'attacco manca."},
   {smcId:"glc-talent-016",smcAlias:"Piedi Piantati",n:"Piedi Piantati",tier:"d8",d:"finché non ti muovi volontariamente, i tentativi di Spingerti o Sbilanciarti vengono effettuati in Svantaggio."},
@@ -1595,10 +1602,10 @@ const TALENTS={
   {smcId:"glc-talent-022",smcAlias:"Contrappeso",n:"Contrappeso",tier:"d10",d:"1×/turno, quando resisti con successo a un tentativo di Spingerti o Sbilanciarti, puoi usare la Reazione per spingere di 3 metri chi ci ha provato."},
   {smcId:"glc-talent-023",smcAlias:"Colpo Pesante — Maestria",n:"Colpo Pesante — Maestria",tier:"d12",req:"Colpo Pesante — Migliorato",d:"1×/turno, 2 ST: il tiro ha Vantaggio, infligge +2 Dadi Danno e, se colpisci, il bersaglio cade Sbilanciato. La tua Difesa Passiva scende di 5 fino al tuo prossimo turno. Sostituisce le versioni precedenti."},
   {smcId:"glc-talent-024",smcAlias:"Impatto a Catena",n:"Impatto a Catena",tier:"d12",req:"Onda d'Urto",d:"Onda d'Urto può coinvolgere fino a 3 nemici aggiuntivi entro 3 metri dal bersaglio principale, spingendoli di 3 metri."},
-  {smcId:"glc-talent-025",smcAlias:"Contraccolpo",n:"Contraccolpo",tier:"d12",d:"quando una Tecnica con Contrattacco raggiunge o supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata."},
+  {smcId:"glc-talent-025",smcAlias:"Contraccolpo",n:"Contraccolpo",tier:"d12",d:"quando utilizzi una Tecnica d’attacco Crusher compatibile con l’arma contundente impugnata come Difesa Attiva e la tua difesa supera il tiro dell’attacco nemico, infliggi anche il normale Dado Danno della Tecnica. Un pareggio neutralizza l’attacco ma non infligge danni. Usi la normale Reazione e paghi tutti i costi della difesa; gli altri effetti offensivi non si applicano automaticamente."},
   {smcId:"glc-talent-026",smcAlias:"Baricentro Assoluto",n:"Baricentro Assoluto",tier:"d12",req:"Piedi Piantati",d:"finché resti cosciente, a contatto col terreno e non ti muovi volontariamente, non puoi essere Spinto né Sbilanciato da effetti fisici."},
   {smcId:"glc-talent-027",smcAlias:"Colpo di Intercettazione",n:"Colpo di Intercettazione",tier:"d12",d:"1×/turno, quando un nemico entra nella tua portata puoi usare la Reazione per effettuare un attacco base con un'arma contundente."},
-  {smcId:"glc-talent-028",smcAlias:"Cataclisma",n:"Cataclisma",tier:"d20",t:"ultimate",d:"1×/scontro, 5 ST, solo col permesso del GM. Funziona interamente con le sue regole: non applica Tecniche, Talenti, Firma dello Stile o effetti dell'arma, salvo ciò che è scritto qui. Per colpire: Attributo + Atletica per lo Striker, Attributo + Grado dell'arma per gli Stili armati; Dado Danno: Atletica per lo Striker, Grado dell'arma per gli altri. — primo tiro, Impatto: un attacco contro un singolo bersaglio con Attributo + Grado dell'arma; se colpisci infliggi 4 Dadi Arma. Secondo tiro, Onda d'Urto: un nuovo tiro Attributo + Grado dell'arma, confrontato con la Difesa Passiva di tutti i bersagli entro 5 metri dal punto d'impatto, bersaglio principale compreso — chi è colpito subisce 2 Dadi Arma, viene spinto di 5 metri e cade Sbilanciato. Il bersaglio principale può subire fino a 6 Dadi Arma. L'area viene devastata: muri, porte, pavimenti, coperture e strutture ne subiscono le conseguenze secondo la situazione."}]},
+  {smcId:"glc-talent-028",smcAlias:"Cataclisma",n:"Cataclisma",tier:"d20",t:"ultimate",d:"1×/scontro, 5 ST, solo col permesso del GM. Segue soltanto le proprie regole: non applica altre Tecniche, Talenti, Firma dello Stile o effetti dell’arma. Primo tiro, Impatto: Attributo + Grado dell’arma contro un singolo bersaglio; se colpisci infliggi 4 Dadi Arma. Secondo tiro, Onda d’Urto: un nuovo tiro Attributo + Grado dell’arma contro la Difesa Passiva di tutti i bersagli entro 5 metri dal punto d’impatto, bersaglio principale compreso. Chi è colpito subisce 2 Dadi Arma, viene spinto di 5 metri e cade Sbilanciato. Il bersaglio principale può subire fino a 6 Dadi Arma. Muri, porte, pavimenti, coperture e strutture nell’area subiscono le conseguenze secondo la situazione."}]},
 "Swordsman":{ico:"⚔️",skill:"Atletica",tratto:"La Guardia — maestro della difesa attiva; le lame di Grado alto sbloccano i loro effetti solo nelle sue mani.",firma:"Doppio fendente — sul +4 tiri il Dado Danno una volta in più e sommi.",talenti:[
   {smcId:"glc-talent-029",smcAlias:"Più Spade — Base",n:"Più Spade — Base",tier:"d8",d:"puoi portare con te fino a 2 spade invece della normale singola arma concessa dallo Stile. A d8 combatti comunque con una sola spada alla volta: le due lame insieme arrivano con Più Spade · Migliorato."},
   {smcId:"glc-talent-030",smcAlias:"Postura Imperturbabile",n:"Postura Imperturbabile",tier:"d8",d:"1×/turno, quando staresti per diventare Stordito o Sbilanciato puoi spendere 1 ST per ignorare quello stato."},
@@ -1609,14 +1616,14 @@ const TALENTS={
   {smcId:"glc-talent-035",smcAlias:"Fendente d'Aria",n:"Fendente d'Aria",tier:"d10",d:"spendendo 1 ST aggiuntiva, una tua Tecnica Swordsman da mischia può raggiungere un bersaglio fino a 10 metri. Il danno finale viene dimezzato, arrotondato per eccesso."},
   {smcId:"glc-talent-036",smcAlias:"Affilatura",n:"Affilatura",tier:"d10",d:"1×/turno, prima di effettuare un attacco con una spada puoi spendere 1 ST: per quel singolo attacco considera la Difesa Passiva del bersaglio ridotta di 2. Non modifica la Difesa in modo permanente e non influenza gli attacchi degli alleati."},
   {smcId:"glc-talent-037",smcAlias:"Più Spade — Maestria",n:"Più Spade — Maestria",tier:"d12",req:"Più Spade — Migliorato",d:"1×/turno, l'attacco extra con la seconda lama può essere una Tecnica Swordsman invece di un attacco base."},
-  {smcId:"glc-talent-038",smcAlias:"Contraccolpo",n:"Contraccolpo",tier:"d12",d:"quando una Tecnica con Contrattacco raggiunge o supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata."},
+  {smcId:"glc-talent-038",smcAlias:"Contraccolpo",n:"Contraccolpo",tier:"d12",d:"quando utilizzi una Tecnica d’attacco Swordsman compatibile come Difesa Attiva e la tua difesa supera il tiro dell’attacco nemico, infliggi anche il normale Dado Danno della Tecnica. Un pareggio neutralizza l’attacco ma non infligge danni. Usi la normale Reazione e paghi tutti i costi della difesa; gli altri effetti offensivi non si applicano automaticamente. La normale Parata non diventa un attacco."},
   {smcId:"glc-talent-039",smcAlias:"Sguainata Fulminea",n:"Sguainata Fulminea",tier:"d12",d:"1×/scontro, se inizi con la lama nel fodero puoi spendere 2 ST per effettuare il primo attacco prima della normale Iniziativa, con Vantaggio."},
-  {smcId:"glc-talent-040",smcAlias:"Riposta",n:"Riposta",tier:"d12",req:"Contraccolpo",d:"dopo un Contrattacco riuscito puoi spendere 1 ST per effettuare subito un attacco base con la stessa spada."},
+  {smcId:"glc-talent-040",smcAlias:"Riposta",n:"Riposta",tier:"d12",req:"Contraccolpo",d:"dopo una Difesa Attiva riuscita con una Tecnica d’attacco Swordsman compatibile puoi spendere 1 ST per effettuare subito un attacco base distinto con la stessa spada, con il proprio tiro per colpire e le normali difese. Vale anche se la difesa riesce con un pareggio, che non infligge il danno di Contraccolpo. Non concede un’Azione generica."},
   {smcId:"glc-talent-041",smcAlias:"Lama Indistruttibile",n:"Lama Indistruttibile",tier:"d12",d:"la lama non può essere normalmente spezzata o danneggiata, e può Parare anche armi di Grado superiore."},
-  {smcId:"glc-talent-042",smcAlias:"Asura",n:"Asura",tier:"d20",t:"ultimate",d:"1×/scontro, 5 ST, solo col permesso del GM. Funziona interamente con le sue regole: non applica Tecniche, Talenti, Firma dello Stile o effetti dell'arma, salvo ciò che è scritto qui. Per colpire: Attributo + Atletica per lo Striker, Attributo + Grado dell'arma per gli Stili armati; Dado Danno: Atletica per lo Striker, Grado dell'arma per gli altri. — un unico colpo in concentrazione assoluta: un solo tiro per colpire con Tecnica + Tecnica + Grado dell'arma — il dado dell'Attributo si tira due volte e si somma. Il danno dipende dal margine sulla Difesa Passiva: +0/+3: 3 Dadi Arma · +4/+7: 4 · +8/+11: 5 · +12 o più: 6. Con una katana d12: 2d20 + d12 per colpire e, al massimo, 6d12 di danno. Non applica anche la Firma Doppio Fendente: il danno crescente è già Asura."}]},
+  {smcId:"glc-talent-042",smcAlias:"Asura",n:"Asura",tier:"d20",t:"ultimate",d:"1×/scontro, 5 ST, solo col permesso del GM. Un unico tiro per colpire con Tecnica + Tecnica + Grado dell’arma: tira due volte l’Attributo Tecnica e somma il Dado Arma. Danno secondo il margine sulla Difesa Passiva: +0/+3 → 3 Dadi Arma; +4/+7 → 4; +8/+11 → 5; +12 o più → 6. Eccezione di Asura: margine 0 infligge comunque 3 Dadi Arma. Con Tecnica d20 e katana d12: 2d20 + d12 per colpire e al massimo 6d12 danni. Non applica altre Tecniche, Talenti, Firma Doppio Fendente o effetti speciali dell’arma."}]},
 "Sniper":{ico:"🎯",skill:"Osservazione",tratto:"La Distanza — colpisci a distanza, fuori dalla mischia, e spesso agisci per primo.",firma:"Il punto scoperto — sul +4 il tuo prossimo colpo contro lo stesso bersaglio conta la sua Difesa Passiva ridotta di 2.",talenti:[
   {smcId:"glc-talent-043",smcAlias:"Tiro Lungo — Base",n:"Tiro Lungo — Base",tier:"d8",d:"aumenti di una fascia la gittata utile delle armi a distanza compatibili."},
-  {smcId:"glc-talent-044",smcAlias:"Ricarica Rapida",n:"Ricarica Rapida",tier:"d8",d:"1×/turno, ricaricare un'arma non richiede la tua Azione."},
+  {smcId:"glc-talent-044",smcAlias:"Ricarica Rapida",n:"Ricarica Rapida",tier:"d8",d:"1×/turno, ricaricare un’arma utilizza la tua Azione Bonus invece dell’Azione principale. Restano i requisiti particolari dell’arma."},
   {smcId:"glc-talent-045",smcAlias:"Occhio Fermo",n:"Occhio Fermo",tier:"d8",d:"ignori la copertura parziale del bersaglio. La copertura totale continua a impedirti normalmente di colpire."},
   {smcId:"glc-talent-046",smcAlias:"Appostamento",n:"Appostamento",tier:"d8",d:"se trascorri un'Azione intera senza muoverti per prendere la mira su un bersaglio, il tuo prossimo attacco a distanza contro di lui ha Vantaggio. Il beneficio termina se attacchi, se ti muovi o se subisci danno prima di attaccare."},
   {smcId:"glc-talent-047",smcAlias:"Tiro Lungo — Migliorato",n:"Tiro Lungo — Migliorato",tier:"d10",req:"Tiro Lungo — Base",d:"la gittata utile delle tue armi a distanza aumenta di un'ulteriore fascia."},
@@ -1628,7 +1635,7 @@ const TALENTS={
   {smcId:"glc-talent-053",smcAlias:"Colpo Anticipato",n:"Colpo Anticipato",tier:"d12",d:"1×/turno, quando un nemico che stai osservando dichiara un'Azione puoi attaccarlo come Reazione prima che la completi. Se colpisci, quell'Azione avviene in Svantaggio."},
   {smcId:"glc-talent-054",smcAlias:"Colpo Impossibile",n:"Colpo Impossibile",tier:"d12",d:"spendi 2 ST per tentare traiettorie anomale — rimbalzi, feritoie, angoli — o bersagli fuori dalla linea di vista diretta, se esiste un percorso plausibile."},
   {smcId:"glc-talent-055",smcAlias:"Respiro Trattenuto",n:"Respiro Trattenuto",tier:"d12",d:"1×/scontro, 2 ST: se il prossimo attacco va a segno conta automaticamente come colpo pulito (+4)."},
-  {smcId:"glc-talent-056",smcAlias:"Tempesta di Piombo",n:"Tempesta di Piombo",tier:"d20",t:"ultimate",d:"1×/scontro, 5 ST, solo col permesso del GM. Funziona interamente con le sue regole: non applica Tecniche, Talenti, Firma dello Stile o effetti dell'arma, salvo ciò che è scritto qui. Per colpire: Attributo + Atletica per lo Striker, Attributo + Grado dell'arma per gli Stili armati; Dado Danno: Atletica per lo Striker, Grado dell'arma per gli altri. — scegli un singolo bersaglio ed effettui 3 tiri per colpire separati, ognuno con Attributo + Grado dell'arma: ogni colpo riuscito infligge 2 Dadi Arma (fino a 6). Munizioni fulminee: prima di ciascun colpo puoi cambiare il tipo di proiettile con qualsiasi munizione compatibile che possiedi, senza Azione né ST aggiuntiva, e i suoi effetti si applicano normalmente. Ogni colpo ha precisione chirurgica: puoi dichiarare un punto specifico del bersaglio senza rinunciare ai 2 Dadi Danno."}]},
+  {smcId:"glc-talent-056",smcAlias:"Tempesta di Piombo",n:"Tempesta di Piombo",tier:"d20",t:"ultimate",d:"1×/scontro, 5 ST, solo col permesso del GM. Scegli un singolo bersaglio ed effettui 3 tiri per colpire separati, ognuno con Attributo + Grado dell’arma; ogni colpo riuscito infligge 2 Dadi Arma, fino a 6 complessivi. Prima di ciascun colpo puoi cambiare il proiettile con una munizione compatibile che possiedi, senza Azione né ST aggiuntiva: i suoi effetti si applicano normalmente. Ogni colpo può mirare a un punto specifico senza rinunciare ai 2 Dadi Danno. Non applica altre Tecniche, Talenti, Firma dello Stile o effetti speciali dell’arma; gli effetti delle munizioni sono l’eccezione espressamente prevista."}]},
 "Special":{ico:"⚙️",skillChoice:"any",tratto:"Arsenale Unico — cyborg o inventore con armi non convenzionali, concordate col Capitano. Nessun altro combatte con quello con cui combatte lui.",firma:"Il modulo si scatena — sul +4 scateni l'effetto del tuo modulo: esplosione, stato, scarica.",talenti:[
   {smcId:"glc-talent-057",smcAlias:"Arsenale Modulare — Base",n:"Arsenale Modulare — Base",tier:"d8",d:"un set di moduli concordati: ne usi uno come Tecnica e li cambi liberamente. 2 moduli."},
   {smcId:"glc-talent-058",smcAlias:"Cambio Rapido",n:"Cambio Rapido",tier:"d8",d:"cambiare modulo non ti costa l'azione: lo fai una volta per turno, anche in mezzo a una sequenza di colpi."},
@@ -1665,13 +1672,13 @@ const TALENTS={
   {smcId:"glc-talent-085",smcAlias:"Cacciatore di Veleni",n:"Cacciatore di Veleni",tier:"d8",d:"Vantaggio a qualsiasi estrazione di veleno."},
   {smcId:"glc-talent-086",smcAlias:"Sedativi Efficaci",n:"Sedativi Efficaci",tier:"d8",d:"la Soglia delle Salvezze contro i tuoi sedativi sale di +2. Vale solo per le sostanze classificate come Sedativi."},
   {smcId:"glc-talent-087",smcAlias:"Tossine Raffinate — Base",n:"Tossine Raffinate — Base",tier:"d8",d:"la Soglia delle Salvezze contro i tuoi veleni sale di +2."},
-  {smcId:"glc-talent-088",smcAlias:"Lama Intinta",n:"Lama Intinta",tier:"d8",d:"come azione bonus intingi una dose in un'arma, una munizione o un altro vettore (Astuzia + Medicina contro Soglia 8). Una Tecnica si avvelena solo se passa davvero per un'arma, un proiettile o un ago: un pugno o un'onda d'urto no. Il primo colpo compatibile a segno espone il bersaglio e consuma la dose; se manchi, la dose resta sul vettore. Al massimo due vettori intinti per scontro."},
+  {smcId:"glc-talent-088",smcAlias:"Lama Intinta",n:"Lama Intinta",tier:"d8",d:"come Azione Bonus intingi una dose in un’arma, una munizione o un altro vettore (Astuzia + Medicina contro Soglia 8). Una Tecnica si avvelena solo se passa davvero per un’arma, un proiettile o un ago: un pugno o un’onda d’urto no. Il primo colpo compatibile a segno espone il bersaglio e consuma la dose; se manchi, la dose resta sul vettore. Al massimo due vettori intinti contemporaneamente per scontro."},
   {smcId:"glc-talent-089",smcAlias:"Maestro Antidoti",n:"Maestro Antidoti",tier:"d10",d:"dimezzi la Soglia per preparare l'antidoto di un veleno che hai già identificato. Identificarlo e preparare l'antidoto restano due passaggi distinti."},
   {smcId:"glc-talent-090",smcAlias:"Immunità Acquisita",n:"Immunità Acquisita",tier:"d10",d:"sei immune alle sostanze classificate come Veleno: le riconosci al gusto e le maneggi senza subirne gli effetti. Non copre sedativi che non siano anche Veleno, acidi, malattie, gas che agiscono solo fisicamente o oscurano la vista, né farmaci e preparati benefici."},
   {smcId:"glc-talent-091",smcAlias:"Tossine Raffinate — Migliorato",n:"Tossine Raffinate — Migliorato",tier:"d10",req:"Tossine Raffinate — Base",d:"raddoppia la durata numerica dei tuoi veleni (2 turni diventano 4). Non tocca durate come «per la scena» o «fino all'antidoto»."},
   {smcId:"glc-talent-092",smcAlias:"Dardo Soporifero",n:"Dardo Soporifero",tier:"d10",d:"come azione, entro 10 metri: un dardo con una dose di Sedativo (via ferita), senza arma separata e senza tiro per colpire, ma con una traiettoria libera. Il bersaglio tira Forza contro la Soglia del Sedativo: se fallisce dorme fino a 10 round o finché subisce danni, senza ritentare la Salvezza a ogni turno. La dose si consuma comunque. Non fa rumore, non lascia morti. 1×/scontro."},
   {smcId:"glc-talent-093",smcAlias:"Tossine Raffinate — Maestria",n:"Tossine Raffinate — Maestria",tier:"d12",req:"Tossine Raffinate — Migliorato",d:"chi fallisce la Salvezza contro un tuo veleno perde anche un gradino in un Attributo a tua scelta finché non riceve un antidoto efficace. Mai sotto d4; le applicazioni ripetute non sommano riduzioni sullo stesso Attributo."},
-  {smcId:"glc-talent-094",smcAlias:"Nube Tossica",n:"Nube Tossica",tier:"d12",d:"come azione, 3 ST e una dose di Veleno inalabile: senza tiro per colpire la disperdi in un punto visibile entro 10 metri, mai oltre pareti o porte chiuse. Nube di raggio 5 metri per 3 turni: chi c'è quando compare, chi entra o vi inizia il turno tira Forza contro la Soglia del veleno; se fallisce è Avvelenato e Accecato finché resta dentro. Usa la Soglia della dose, non i suoi effetti speciali. Il vento forte la disperde, sott'acqua non funziona, una maschera filtrante ferma il veleno ma non il buio."},
+  {smcId:"glc-talent-094",smcAlias:"Nube Tossica",n:"Nube Tossica",tier:"d12",d:"come Azione, 3 ST e una dose di Veleno inalabile: senza tiro per colpire la disperdi in un punto visibile e raggiungibile entro 10 metri, mai oltre pareti o porte chiuse. Nube di raggio 5 metri per 3 turni: chi è presente quando compare, vi entra per la prima volta nel proprio turno o vi inizia il turno tira Forza contro la Soglia della dose, modificata dai Talenti. Se fallisce è Avvelenato per la normale durata del veleno e Accecato finché resta nella nube. Uscire termina solo Accecato. Non copia gli altri effetti speciali della dose. Il vento forte la disperde; sott’acqua non funziona; una maschera filtrante ferma il veleno, non l’oscuramento visivo."},
   {smcId:"glc-talent-095",smcAlias:"Colpo di Grazia",n:"Colpo di Grazia",tier:"d12",req:"Lama Intinta",d:"contro un bersaglio già Avvelenato i tuoi attacchi infliggono +1 dado di danno, e se il colpo lo porterebbe sotto metà PV subisce anche Sbilanciato."},
   {smcId:"glc-talent-096",smcAlias:"Antidoto Istantaneo",n:"Antidoto Istantaneo",tier:"d12",d:"come reazione, quando un compagno entro 5 metri viene esposto a un veleno o a uno Stato di una sostanza che hai identificato, lo raggiungi (percorso praticabile) e gli dai un antidoto già preparato: neutralizza quella sostanza e gli Stati che causa. La dose si consuma. 1×/scontro."},
   {smcId:"glc-talent-097",smcAlias:"Profilassi",n:"Profilassi",tier:"d12",d:"prima di una missione tratti la ciurma contro un veleno o una malattia che hai già identificato: una dose a testa, con materiali e costo dell'antidoto corrispondente. Per tutta l'avventura i trattati sono immuni a quella sostanza, e solo a quella. Chi non c'era al trattamento, peggio per lui."},
@@ -1749,7 +1756,7 @@ const TALENTS={
   {smcId:"glc-talent-162",smcAlias:"Batteria Regolata",n:"Batteria Regolata",tier:"d10",d:"prima dello scontro passi in rassegna ogni pezzo: per tutta la battaglia la nave guadagna un gradino di Artiglieria. Al termine i cannoni vanno revisionati prima di poterlo rifare."},
   {smcId:"glc-talent-163",smcAlias:"Regolazione Fine — Maestria",n:"Regolazione Fine — Maestria",tier:"d12",req:"Regolazione Fine — Migliorato",d:"1 volta per battaglia navale un cannone o un macchinario che gestisci fa due attivazioni in quel round, consumando le sue risorse ogni volta. Non arriva a tre se ha già la seconda dalla Firma."},
   {smcId:"glc-talent-164",smcAlias:"Carne e Metallo",n:"Carne e Metallo",tier:"d12",d:"quando fai una Riparazione di Campo su un Cyborg aggiungi +1 Dado Meccanica ai PV recuperati; se ha anche un Modulo Danneggiato, nello stesso intervento lo rimetti in funzione, purché ci siano i materiali. Non aggira i requisiti speciali del Modulo e non ricostruisce gratis componenti unici o distrutti."},
-  {smcId:"glc-talent-165",smcAlias:"Trappola Meccanica",n:"Trappola Meccanica",tier:"d12",d:"in 5 minuti, con attrezzi e materiali, piazzi una trappola: trovarla è Astuzia + Osservazione a Soglia 10, disinnescarla un'azione e Astuzia + Meccanica a Soglia 10. Il primo nemico che la fa scattare tira una Salvezza di Tecnica contro la Soglia del Grado di Meccanica del creatore al momento della preparazione; se fallisce è Sbilanciato e Trattenuto. Per liberarsi spende un'azione e tira Forza oppure Tecnica contro la stessa Soglia. Un aumento successivo di Meccanica non modifica le trappole già preparate. Due innescate alla volta."},
+  {smcId:"glc-talent-165",smcAlias:"Trappola Meccanica",n:"Trappola Meccanica",tier:"d12",d:"in 5 minuti, con attrezzi e materiali, piazzi una trappola: trovarla è Astuzia + Osservazione a Soglia 10, disinnescarla un’Azione e Astuzia + Meccanica a Soglia 10. Il primo nemico che la fa scattare tira Tecnica contro la Soglia del Grado di Meccanica del creatore al momento della preparazione; se fallisce è Sbilanciato e Trattenuto. Per liberarsi spende un’Azione e tira Forza oppure Tecnica contro la stessa Soglia, come eccezione alla normale contesa di Trattenuto. Un aumento successivo di Meccanica non modifica le trappole già preparate. Due innescate alla volta; una trappola scattata deve essere preparata nuovamente."},
   {smcId:"glc-talent-166",smcAlias:"Sabotaggio Profondo",n:"Sabotaggio Profondo",tier:"d12",req:"Sabotaggio",d:"come azione, raggiunto fisicamente un modulo, un comando o un collegamento della nave nemica, Astuzia + Meccanica contro la sua Soglia (12 se non ne ha): resta fuori uso per tutta la battaglia, e Pronto Intervento non basta a rimetterlo in piedi."},
   {smcId:"glc-talent-167",smcAlias:"Ingranaggi e Serrature",n:"Ingranaggi e Serrature",tier:"d12",d:"fuori dal combattimento, con attrezzi, tempo e nessuno a disturbarti, apri lucchetti, manette, casseforti, portelli e meccanismi a ingranaggi: fino a 10 minuti e nessuna Prova per quelli normali, Astuzia + Meccanica per quelli eccezionali. Se c'è una trappola la vedi prima, ma va comunque disinnescata."},
   {smcId:"glc-talent-168",smcAlias:"Tutto a Pieno Carico",n:"Tutto a Pieno Carico",tier:"d20",t:"ultimate",d:"1 volta per battaglia navale, 5 ST: per un round ogni cannone e macchinario usato fa due attivazioni (pagando i consumi ogni volta) e i moduli danneggiati funzionano come integri. Poi il GM sceglie un sistema che ha lavorato: una macchina diventa Guasta, un modulo integro Danneggiato, uno già danneggiato può diventare Distrutto. Richiede l'Ambizione dell'Ingegnere e il permesso del GM."}]},
@@ -1829,12 +1836,12 @@ const RACE_EFF={
  umano:function(d){return "A ≤25% PV aggiungi <b>"+d+"</b> a qualsiasi tiro. Non costa ST. — <i>Svantaggio: nessuno.</i>";},
  gigante:function(d){return "Quando la stazza conta, aggiungi <b>"+d+"</b> al tiro (non ai tiri per colpire né ai danni). Ogni colpo a segno: Dado Danno +1 gradino. — <i>Svantaggio: niente navi/edifici standard.</i>";},
  uomopesce:function(d){return "In acqua aggiungi <b>"+d+"</b> a ogni tiro fisico. Respiro subacqueo infinito. — <i>Svantaggio: Svantaggio a ogni tiro su terra arida.</i>";},
- mink:function(d){var t={d6:"Electro — paralisi 1 turno",d8:"Electro — paralisi 2 turni",d10:"Electro — paralisi 3 turni",d12:"Electro — paralisi 3 turni + 1d6 danni/turno",d20:"Electro — paralisi 3 turni + 1d8 danni/turno"};/* Il costo di Electro sale con il Grado della Tecnica Razziale. */var st={d6:1,d8:1,d10:2,d12:2,d20:3}[d]||1;return (t[d]||t.d6)+" (Salvezza di Forza contro Soglia "+GLCPrestige.saveThreshold(d in t?d:"d6")+" ogni turno · "+st+" ST). <b>Sulong</b>: Attributi +1 dado per un combattimento, Vantaggio a ogni tiro. — <i>Svantaggio: dopo il Sulong resti a 0 Stamina.</i>";},
+ mink:function(d){var t={d6:"Electro — paralisi 1 turno",d8:"Electro — paralisi 2 turni",d10:"Electro — paralisi 3 turni",d12:"Electro — paralisi 3 turni + 1d6 danni/turno",d20:"Electro — paralisi 3 turni + 1d8 danni/turno"};/* Il costo di Electro sale con il Grado della Tecnica Razziale. */var st={d6:1,d8:1,d10:2,d12:2,d20:3}[d]||1;return (t[d]||t.d6)+" (Salvezza di Forza contro Soglia "+GLCPrestige.saveThreshold(d in t?d:"d6")+" ogni turno · "+st+" ST, fissata all’applicazione). <b>Sulong</b>: vedendo la luna, attivazione gratuita; Attributi +1 gradino e Vantaggio a ogni tiro per un combattimento. L’aumento temporaneo non sblocca nuove capacità. — <i>Svantaggio: dopo il Sulong resti a 0 Stamina.</i>";},
  cyborg:function(d){var n={d6:1,d8:2,d10:3,d12:4,d20:5};var k=n[d]||1;return "Corpo Meccanico: installa <b>"+k+"</b> modul"+(k>1?"i":"o")+" (concordati col GM). — <i>Svantaggio: curabile solo da un meccanico (o da te se sei meccanico).</i>";},
  lunarian:function(d){return "<b>Fiamma ON</b> (malus: Svantaggio al tiro per colpire): riduci il primo danno fisico subito ogni round di <b>"+d+"</b>. <b>Fiamma OFF</b> (malus: −2 Difesa Passiva): aggiungi <b>"+d+"</b> al tiro per colpire ogni round. — <i>Svantaggio: taglia automatica 50M.</i>";},
  lungagamba:function(d){var t={d6:"la portata dei tuoi calci è maggiore",d8:"il nemico supera una salvezza di Forza o è Schiantato",d10:"colpisci fino a 2 nemici vicini (salvezza Forza o Schiantati)",d12:"colpisci fino a 3 nemici (salvezza Forza o Schiantati)",d20:"colpisci fino a 4 nemici (salvezza Forza o Schiantati)"};return "Calcio Colossale: "+(t[d]||t.d6)+". — <i>Svantaggio: nessuno.</i>";},
  longbraccio:function(d){var t={d6:"la portata dei tuoi attacchi con le braccia è maggiore",d8:"il nemico supera una salvezza di Forza o subisce Trascinamento/Proiezione",d10:"colpisci fino a 2 nemici vicini (salvezza Forza o Trascinamento/Proiezione)",d12:"colpisci fino a 3 nemici (salvezza Forza o Trascinamento/Proiezione)",d20:"colpisci fino a 4 nemici (salvezza Forza o Trascinamento/Proiezione)"};return "Portata Estesa: "+(t[d]||t.d6)+". — <i>Svantaggio: nessuno.</i>";},
- tontatta:function(d){return "Nelle prove di <b>Furtività</b> o <b>Mobilità</b> aggiungi <b>"+d+"</b>. Il primo attacco nemico contro di te è in Svantaggio. — <i>Svantaggio: +3 difficoltà per liberarti da una presa; niente armi/oggetti di taglia normale o grande.</i>";}
+ tontatta:function(d){return "Nelle Prove di <b>Furtività</b> o <b>Mobilità</b> aggiungi <b>"+d+"</b>. Il primo attacco di ciascun nemico contro di te è in Svantaggio. — <i>Svantaggio: +3 difficoltà per liberarti da una presa; niente armi/oggetti di taglia normale o grande.</i>";}
 };
 /* Inquadratura della foto: punto focale in % e zoom, usati ovunque la foto compare. */
 function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null?pos.y:50),z=(pos.z!=null?pos.z:1);return "object-position:"+x+"% "+y+"%;transform:scale("+z+");transform-origin:"+x+"% "+y+"%;";}
@@ -1937,7 +1944,7 @@ const GLYPH_KW=[[/spad|lama|fendent|taglio|sguain|riposta|affilat/i,"sword"],[/p
 function talentGlyph(name,fallback){for(var i=0;i<GLYPH_KW.length;i++)if(GLYPH_KW[i][0].test(name))return GLYPH_KW[i][1];return fallback||"star";}
 function medal(glyph,name,sub,off){const art=/ultimate-/.test(String(glyph));return el("div",{class:"medal"+(off?" off":""),title:name},[el("div",{class:"medring"+(art?" art":""),html:ICONS[glyph]?svgIcon(glyph,30):(glyph||"")}),el("div",{class:"medname",text:name}),el("div",{class:"medsub",text:sub||""})]);}
 function racialEffect(id,die){var f=RACE_EFF[id];return f?f(die):"";}
-function difesaPassiva(){var ra=racialAttr();var d=ra&&pg.attr?pg.attr[ra]:"";if(!d)return null;var n=parseInt(String(d).slice(1),10);return n?n+1:null;}
+function difesaPassiva(){var ra=racialAttr();var d=ra&&pg.attr?pg.attr[ra]:"";if(!d)return null;var n=parseInt(String(d).slice(1),10);return n?n+1+(window.GLCTratti?GLCTratti.derivedDP(pg):0):null;}
 function firstStyle(rn){const T=TALENTS[rn];if(!T||!T.styles)return "";return T.multi?Object.keys(T.styles)[0]:"";}
 function roleSkillOf(rn,st,choice){const T=TALENTS[rn];if(!T)return null;const ks=Object.keys(T.styles||{});const sx=(T.styles&&T.styles[st])||(T.styles&&T.styles[ks[0]]);if(sx){if(sx.skill)return sx.skill;if(sx.skillChoice){if(sx.skillChoice==="any")return (choice&&SKILLS[choice])?choice:"";if(Array.isArray(sx.skillChoice)){if(choice&&sx.skillChoice.indexOf(choice)>=0)return choice;return sx.skillChoice[0];}}}if(T.skill)return T.skill;return null;}
 function roleLabel(){if(!pg.role)return "\u2014 ruolo \u2014";const T=TALENTS[pg.role];let s=pg.role+((T&&T.multi&&pg.style)?(" \u00b7 "+pg.style):"");if(pg.role2&&TALENTS[pg.role2]){const T2=TALENTS[pg.role2];s+=" + "+pg.role2+((T2.multi&&pg.style2)?(" \u00b7 "+pg.style2):"");}return s;}
@@ -1951,8 +1958,8 @@ const FRUIT_TALENTS={
   {smcId:"glc-talent-227",smcAlias:"Riflesso del Potere",n:"Riflesso del Potere",tier:"d4",d:"1×/scontro, come reazione e senza Stamina: quando tu o un alleato entro 5 metri state per subire un attacco, tutti i Dadi Danno scendono di 1 Grado (d20 → d12 → d10 → d8 → d6 → d4, che è il minimo; 3d10 diventa 3d8). Tocca i dadi del danno, non il tiro per colpire; Stati, Spostamenti e altri effetti restano, salvo che dipendano dal danno."},
   {smcId:"glc-talent-228",smcAlias:"Doppio Uso",n:"Doppio Uso",tier:"d8",d:"2 ST, Azione Bonus: nella stessa Azione fai due applicazioni del Frutto, ma una sola può essere un attacco, una Tecnica offensiva, un danno o uno Stato offensivo. La seconda è narrativa o di utilità — spostare un oggetto, produrre un po' della tua sostanza, cambiare un elemento della scena. Le 2 ST si pagano una volta sola; la Tecnica offensiva paga i propri costi."},
   {smcId:"glc-talent-229",smcAlias:"Ciò che Resta",n:"Ciò che Resta",tier:"d8",d:"le durate delle tue Tecniche del Frutto migliorano gratis: Un turno diventa 3 turni senza pagare i 2 ST, e Mantieni non ti costa il primo turno. Tocca solo le durate meccaniche: senza durata o mantenimento non fa nulla, e non rende permanente ciò che crei."},
-  {smcId:"glc-talent-230",smcAlias:"Nessuno dei Miei",n:"Nessuno dei Miei",tier:"d8",d:"sulle tue Tecniche del Frutto ad Area l'effetto Occhio del Ciclone non occupa slot, non costa Stamina e lo puoi scegliere anche prima di d12: decidi tu chi escludere. Protegge dalla Tecnica, non dalle conseguenze ambientali che la scena produce dopo."},
-  {smcId:"glc-talent-232",smcAlias:"Portata Naturale",n:"Portata Naturale",tier:"d12",d:"sulle tue Tecniche del Frutto: la Gittata (se la Tecnica ce l'ha) è gratuita e non occupa slot; le Tecniche ad Area salgono di un gradino di sagoma; Catena costa 1 ST in meno. Cambia le Tecniche, non la Portata ordinaria della Scheda del Frutto."},
+  {smcId:"glc-talent-230",smcAlias:"Nessuno dei Miei",n:"Nessuno dei Miei",tier:"d8",d:"su una tua Tecnica del Frutto con un’Area già autorizzata dalla Fonte, Occhio del Ciclone non occupa slot, non costa ST e può essere selezionato anche prima di d12: scegli chi escludere. Il Talento non concede da solo la Forma Area. Protegge dalle conseguenze dirette della Tecnica, non dagli effetti ambientali successivi."},
+  {smcId:"glc-talent-232",smcAlias:"Portata Naturale",n:"Portata Naturale",tier:"d12",d:"sulle tue Tecniche del Frutto già autorizzate dalla Fonte: la Gittata effettivamente selezionata costa 0 ST e non occupa slot; l’Area aumenta di un gradino della progressione delle sagome; Catena costa 1 ST in meno, fino al normale minimo applicabile. Non crea Gittata, Area o Catena che il Frutto non potrebbe produrre. Modifica le Tecniche, non la Portata ordinaria della Scheda del Frutto."},
   {smcId:"glc-talent-233",smcAlias:"Forma di Combattimento",n:"Forma di Combattimento",tier:"d12",d:"Azione Bonus: porti il Frutto dentro il tuo modo di combattere. Quando lo prendi, con il GM definisci Nome, Manifestazione, Beneficio, Costo e Limitazioni: il beneficio nasce da una capacità che il Frutto ha già e riguarda te, non l'ambiente; resta attiva per la scena finché ne paghi il mantenimento. Una volta definita non cambia più. Linea guida completa nel Manuale dei Frutti del Diavolo."},
   {smcId:"glc-talent-234",smcAlias:"Senza Contraccolpo",n:"Senza Contraccolpo",tier:"d12",d:"le Tecniche del Frutto costano 1 ST in meno, minimo 1, e non subisci più i Contraccolpi naturali registrati nella Scheda di Identità. Non toglie Limitazioni strutturali, contatto, visibilità, Portata, quantità, mantenimenti, costi dei Talenti, condizioni delle Tecniche, mare, Pietra di Mare, Haki o ciò che ti fanno nemici e ambiente."},
   {smcId:"glc-talent-235",smcAlias:"Potere Istintivo",n:"Potere Istintivo",tier:"d12",d:"1×/scena usi una mossa del Frutto che richiederebbe l'Azione senza spenderla, anche fuori dal tuo turno. Paghi comunque Stamina, PIP, mantenimenti e requisiti; niente turno in più, Movimento, seconda Azione Bonus o seconda Reazione."},
@@ -1993,54 +2000,42 @@ const SKILLS={"Artigianato":"Oggetti e attrezzi","Medicina":"Ferite, veleni","Na
 /* Le Fonti sono due: Stile e Frutto. Un'arma non genera Tecniche, le esegue —
    i suoi effetti vivono nel costruttore d'arma, non qui. */
 const TEC_FONTI=["Stile","Frutto"];
-/* Whitelist ufficiale degli effetti per Stile (aggiornamento del 19/09/2026).
-   Con Fonte Stile si vede solo ciò che lo Stile della Tecnica può prendere;
-   con Fonte Frutto e con la Forma Canzone le whitelist non si applicano. */
-const STILE_WHITELIST={"Striker": ["Punto di Rottura", "+1d6 Dado Danno", "+1d8 Dado Danno", "+1d10 Dado Danno", "Esecuzione", "Carica", "Sovraccarico", "Colpo Annientante", "Tutto o Niente", "Sbilancio", "Presa", "Accecante", "Sfondamento", "Paralisi", "Proiezione", "Scatto", "Balzo", "Inseguire", "Strattone", "Guardia", "Scudo d'Alleato", "Contrattacco", "Slancio", "Furia", "Tempra", "Oltre il Limite", "Soffio", "Onda", "Marea", "Solco", "Lancia", "Scoppio", "Esplosione", "Occhio del Ciclone", "Aggancio", "Schianto", "Catena"], "Crusher": ["+1d6 Dado Danno", "+1d8 Dado Danno", "+1d10 Dado Danno", "Colpo Pesante", "Esecuzione", "Carica", "Sovraccarico", "Colpo Annientante", "Tutto o Niente", "Sbilancio", "Sfondamento", "Paralisi", "Proiezione", "Attrazione", "Scatto", "Balzo", "Inseguire", "Guardia", "Barriera", "Scudo d'Alleato", "Contrattacco", "Parata", "Slancio", "Furia", "Tempra", "Oltre il Limite", "Soffio", "Onda", "Marea", "Solco", "Lancia", "Squarcio", "Scoppio", "Esplosione", "Deflagrazione", "Cataclisma", "Terreno Alterato", "Terreno Alterato Lv2", "Terreno Alterato Lv3", "Pantano", "Cortina", "Prigione", "Aggancio", "Schianto", "Catena"], "Swordsman": ["+1d6 Dado Danno", "+1d8 Dado Danno", "+1d10 Dado Danno", "Esecuzione", "Carica", "Sovraccarico", "Colpo Annientante", "Tutto o Niente", "Sbilancio", "Lacerazione", "Accecante", "Paralisi", "Proiezione", "Scatto", "Balzo", "Inseguire", "Guardia", "Scudo d'Alleato", "Contrattacco", "Parata", "Slancio", "Mira", "Tempra", "Oltre il Limite", "Soffio", "Onda", "Marea", "Solco", "Lancia", "Squarcio", "Scoppio", "Esplosione", "Deflagrazione", "Occhio del Ciclone", "Aggancio", "Rimbalzo", "Catena"], "Sniper": ["+1d6 Dado Danno", "+1d8 Dado Danno", "+1d10 Dado Danno", "Esecuzione", "Carica", "Colpo Annientante", "Tutto o Niente", "Sbilancio", "Accecante", "Sfondamento", "Scatto", "Balzo", "Inseguire", "Guardia", "Contrattacco", "Slancio", "Mira", "Oltre il Limite", "Aggancio", "Rimbalzo", "Catena"]};
+/* Catalogo ordinario dei manuali correnti (§7.8). Le Fonti speciali devono
+   documentare concessioni specifiche; il possesso non concede ogni profilo. */
+const STILE_WHITELIST={"Striker":["Sbilancio","Presa","Sfondamento","Proiezione","Scatto","Balzo","Guardia","Furia","Schianto"],"Swordsman":["Lacerazione","Scatto","Balzo","Guardia","Mira","Tutto o Niente","Area Ravvicinata","Catena"],"Sniper":["Scatto","Lacerazione","Mira","Rimbalzo","Catena"],"Crusher":["Sbilancio","Sfondamento","Proiezione","Guardia","Scudo d'Alleato","Furia","Schianto","Carica","Area Ravvicinata"]};
 
 const TEC_FORME=["Singolo","Area","Spostamento","Difesa","Potenziamento","Canzone"];
-const TEC_DADI=["d4","d6","d8","d10","d12","d20","d20+"];
-const TEC_RANK={d4:1,d6:2,d8:3,d10:4,d12:5,d20:6,"d20+":7};
-const TEC_SLOT={d4:1,d6:1,d8:2,d10:2,d12:3,d20:4,"d20+":5};
-const TEC_DUR=[["Un turno",0,0,""],["Mantieni (+1/turno)",0,1,""],["3 turni",2,0,""],["Tutta la scena",0,0,"d20+"]];
+const TEC_DADI=["d4","d6","d8","d10","d12","d20"];
+const TEC_RANK={d4:1,d6:2,d8:3,d10:4,d12:5,d20:6};
+const TEC_SLOT={d4:0,d6:0,d8:2,d10:2,d12:3,d20:4};
+const TEC_DUR=[["Un turno",0,0,""],["Mantieni (+1/turno)",0,1,""],["3 turni",2,0,""],["Tutta la scena",0,0,"d20"]];
 const TEC_FAMS=["Danno","Controllo","Spostamento","Difesa","Potenziamento","Melodie del Musicista","Area","Zona Persistente","Concatenati"];
 /* [famiglia, nome, effetto, dado minimo, costo ST, requisito, sottogruppo, mantenimento ST/turno]
    sottogruppo "sagoma": non occupa slot, se ne sceglie una sola · "gittata": una sola, occupa slot */
 const TEC_EFF=[
  ["Controllo","Punto di Rottura","Con colpo pulito (+4), neutralizza una funzione accessibile al posto dello stato della Firma. Mano o gamba: fino al recupero con un’Azione o alla fine dello scontro; una sola funzione per bersaglio. Presa e componenti seguono le regole del Prestigio.","d4",2,"","controllo"],
-["Danno","+1d6 Dado Danno","un d6 in più al danno","d8",1,""],
-["Danno","+1d8 Dado Danno","un d8 in più al danno","d10",2,""],
-["Danno","+1d10 Dado Danno","un d10 in più al danno","d12",2,""],
-["Danno","Colpo Pesante","il danno non scende sotto metà del dado","d10",1,""],
 ["Danno","Carica","salti un turno: se non vieni colpito, al tuo prossimo turno raddoppi i Dadi Danno, tiri con Vantaggio e ignori la copertura","d10",2,""],
-["Danno","Sovraccarico","tiri il doppio dei Dadi Danno, ma subisci 1d10 PV","d12",3,""],
 ["Danno","Tutto o Niente","manchi = niente, e non puoi difenderti dal prossimo attacco · colpo pulito = danno triplo","d12",5,""],
 ["Controllo","Sbilancio","Sbilanciato — perde la reazione (Salvezza di Tecnica contro la Soglia del Grado della Tecnica)","d6",1,""],
 ["Controllo","Lacerazione","Sanguinante","d6",1,""],
-["Controllo","Veleno","Avvelenato","d6",1,""],
-["Controllo","Presa","Immobilizzato finché lo tieni: contesa di Forza ogni turno","d8",1,""],
+["Controllo","Presa","Immobilizzato finché mantieni fisicamente la presa: contesa di Forza ogni turno. 1 ST all’applicazione e all’inizio di ogni tuo turno successivo; senza pagamento termina subito.","d8",1,"","",1],
 ["Controllo","Accecante","Accecato (Salvezza di Tecnica contro la Soglia del Grado della Tecnica)","d8",1,""],
 ["Controllo","Terrore","Atterrito (Salvezza di Spirito contro la Soglia del Grado della Tecnica): non può avvicinarsi a te e attacca in Svantaggio, finché non supera la Salvezza in un turno successivo","d8",1,""],
 ["Controllo","Sfondamento","Stordito per 1 turno (Salvezza di Forza contro la Soglia del Grado della Tecnica)","d8",2,""],
 ["Controllo","Paralisi","Paralizzato per 1 turno (Salvezza di Forza contro la Soglia del Grado della Tecnica)","d12",2,""],
 ["Controllo","Sopore","Addormentato (Salvezza di Spirito contro la Soglia del Grado della Tecnica)","d12",2,""],
-["Spostamento","Proiezione","spingi via il bersaglio di 3 m — non richiede la Forma Spostamento: una spinta è la conseguenza di un colpo ben dato. Con Schianto (Concatenati) conta anche contro cosa finisce","d6",0,""],
+["Spostamento","Proiezione","spingi via il bersaglio di 3 m. Con Schianto il dado aggiuntivo richiede una collisione valida.","d6",1,""],
 ["Spostamento","Attrazione","lo trascini verso di te di 3 m — solo con armi o oggetti in grado di afferrare","d8",1,"spost"],
 ["Spostamento","Scatto","ti muovi fino a metà del tuo Movimento, prima o dopo il colpo — sempre disponibile, anche senza la Forma Spostamento","d6",1,""],
 ["Spostamento","Balzo","raggiungi una posizione alta o lontana fino a metà del tuo Movimento, anche in verticale — sempre disponibile, anche senza la Forma Spostamento","d6",1,""],
-["Spostamento","Inseguire","segui un bersaglio che si allontana, fino a tutto il tuo Movimento, e colpisci — sempre disponibile, anche senza la Forma Spostamento","d8",2,""],
-["Spostamento","Strattone","sposti un alleato entro 3 m — lo tiri fuori dai guai o lo metti in posizione; lui non spende nulla e non perde il turno","d8",1,"spost"],
-["Spostamento","Scambio","ti scambi di posto con un alleato entro 10 m","d10",2,"spost"],
-["Difesa","Guardia","difesa passiva: +2 Difesa fino al tuo prossimo turno","d6",1,"difesa"],
+["Difesa","Guardia","Guardia Base: +2 DP fino all’inizio del tuo prossimo turno. Le versioni superiori sostituiscono bonus e costo, senza sommarli.","d8",1,"difesa"],
+["Difesa","Guardia Migliorata","+3 DP fino all’inizio del tuo prossimo turno; sostituisce Guardia Base.","d10",2,"difesa"],
+["Difesa","Guardia Maestria","+4 DP fino all’inizio del tuo prossimo turno; sostituisce le versioni precedenti.","d12",3,"difesa"],
+["Difesa","Guardia Suprema","+5 DP fino all’inizio del tuo prossimo turno; sostituisce le versioni precedenti.","d20",4,"difesa"],
 ["Difesa","Barriera","copertura per te e gli alleati entro 5 m","d8",1,"difesa"],
 ["Difesa","Scudo d'Alleato","sposti su di te il colpo diretto a un compagno entro 5 m","d8",1,"difesa"],
-["Difesa","Contrattacco","difesa attiva: rispondi come reazione con una tua Tecnica d'attacco (qualsiasi stile e forma); se raggiunge o supera l'attacco nemico, ti difendi","d10",1,"difesa"],
-["Difesa","Parata","difesa attiva: tiri Attributo + dado dell'arma per parare. Non richiede nessuna Tecnica — basta l'arma in pugno","d10",1,"difesa"],
-["Potenziamento","Slancio","la tua Velocità raddoppia · per la scena","d6",2,"potenz"],
-["Potenziamento","Furia","+1 gradino al Dado Danno di tutte le tue Tecniche · la tua Difesa Passiva scende di 2 · per la scena","d8",3,"potenz"],
-["Potenziamento","Mira","+1 gradino al dado delle tue Tecniche per il tiro per colpire · per la scena","d8",3,"potenz"],
-["Potenziamento","Tempra","+2 Difesa Passiva · in cambio −1 gradino al Dado Danno · per la scena","d10",2,"potenz"],
-["Potenziamento","Oltre il Limite","il dado sale di 1 oltre il tetto (da d20) · 3 turni","d20",4,"potenz"],
+["Potenziamento","Furia","Azione principale; per la scena: +1 gradino al Dado Danno delle Tecniche compatibili, massimo d20; DP −1. Non aumenta il Dado Tecnica o gli slot.","d8",3,"potenz"],
+["Potenziamento","Mira","Azione principale; per la scena: Vantaggio ai tiri per colpire delle Tecniche compatibili. Non aumenta il dado.","d8",3,"potenz"],
 ["Melodie del Musicista","Motivetto di Vigore","un alleato che ti sente recupera 1d6 ST · ognuno ne beneficia 1×/scena · nella scena costa +1 ST per ogni bersaglio diverso già servito","d6",2,"musicista"],
 ["Melodie del Musicista","Richiamo","ogni nemico entro 20 m che ti sente deve attaccare te in questo turno, o tira in Svantaggio contro chiunque altro (Salvezza)","d6",1,"musicista"],
 ["Melodie del Musicista","Marcia di Guerra","Sostenuta: finché suoni, un alleato scelto ha +1d4 agli attacchi","d6",2,"musicista","",1],
@@ -2054,6 +2049,7 @@ const TEC_EFF=[
 ["Melodie del Musicista","Canto di Bordo","in battaglia navale, per la scena ogni compagno a una postazione aggiunge +1 dado al tiro della sua postazione","d12",4,"musicista"],
 ["Melodie del Musicista","Marcia Funebre","richiede il Talento Marcia Funebre · Sostenuta: ogni nemico entro 10 m che ti sente tira Spirito o è Atterrito finché resta in portata, ti sente e continui a suonare","d12",3,"musicista","",1],
 ["Melodie del Musicista","Canzone dell'Anima","Ultimate, 1×/scena — chi della ciurma ti sente, tu compreso, riporta la Stamina al massimo","d20",6,"musicista"],
+["Area","Area Ravvicinata","cerchio centrato su di te, raggio pari alla Portata effettiva dell’arma utilizzata. Non riceve Gittata; la sagoma non occupa slot.","d8",2,"area","sagoma"],
 ["Area","Soffio","cono di 5 m","d6",0,"area","sagoma"],
 ["Area","Onda","cono di 10 m","d8",1,"area","sagoma"],
 ["Area","Marea","cono di 20 m","d12",3,"area","sagoma"],
@@ -2074,8 +2070,7 @@ const TEC_EFF=[
 ["Zona Persistente","Pantano","terreno difficile: niente carica, movimento dimezzato","d8",1,"area"],
 ["Zona Persistente","Cortina","blocca la vista; chi è dentro mira fuori come Accecato","d8",1,"area"],
 ["Zona Persistente","Prigione","chi è dentro è trattenuto: esce con una Salvezza dell’Attributo coerente con la Prigione contro la Soglia del Grado della Tecnica, salvo procedura specifica della Fonte","d12",2,"area"],
-["Concatenati","Aggancio","se il colpo va a segno, il bersaglio resta agganciato: il tuo prossimo attacco contro di lui in questo scontro ha Vantaggio","d6",1,""],
-["Concatenati","Schianto","lo sbatti contro qualcosa o contro un altro nemico: +1d8 di danno (il partner naturale di Proiezione)","d8",1,""],
+["Concatenati","Schianto","se il bersaglio urta una superficie, un ostacolo o una creatura, subisce +1d8 danni. Richiede una collisione valida; non aggiunge danni senza urto.","d8",2,""],
 ["Concatenati","Rimbalzo","il colpo rimbalza su un secondo bersaglio entro 5 m dal primo, a metà danno","d10",2,""],
 ["Concatenati","Catena","fino a 3 bersagli in fila: tiri per colpire tutti e 3, un solo tiro di danno — pieno al primo, metà al secondo, metà della metà al terzo","d12",2,""]
 ];
@@ -2083,6 +2078,21 @@ const TEC_EFF=[
    Non fanno parte del catalogo selezionabile; le whitelist storiche restano
    compatibili con le Tecniche esistenti. */
 const TEC_EFF_ARCHIVIATI=[
+["Danno","+1d6 Dado Danno","effetto ritirato: un d6 in più al danno","d8",1,""],
+["Danno","+1d8 Dado Danno","effetto ritirato: un d8 in più al danno","d10",2,""],
+["Danno","+1d10 Dado Danno","effetto ritirato: un d10 in più al danno","d12",2,""],
+["Danno","Colpo Pesante","effetto ritirato; il Talento Crusher omonimo mantiene le proprie regole","d10",1,""],
+["Danno","Sovraccarico","effetto ritirato; il sovraccarico dei Moduli mantiene le proprie regole","d12",3,""],
+["Controllo","Veleno","effetto ritirato: utilizza una dose reale con effetti e Soglia propri","d6",1,""],
+["Spostamento","Inseguire","effetto ritirato: segue il bersaglio fino al proprio Movimento","d8",2,""],
+["Spostamento","Strattone","effetto ritirato: sposta un alleato entro 3 m","d8",1,""],
+["Spostamento","Scambio","effetto ritirato: scambia posizione con un alleato entro 10 m","d10",2,""],
+["Difesa","Contrattacco","effetto ritirato: una Tecnica d’attacco compatibile si usa direttamente come Difesa Attiva, con Reazione e costo immediato","d10",1,"difesa"],
+["Difesa","Parata","effetto ritirato: la Parata è una normale difesa con arma compatibile","d10",1,"difesa"],
+["Potenziamento","Slancio","effetto ritirato; il Talento Striker omonimo conserva le proprie regole","d6",2,"potenz"],
+["Potenziamento","Tempra","effetto ritirato: +2 DP e −1 gradino al Dado Danno","d10",2,"potenz"],
+["Potenziamento","Oltre il Limite","effetto ritirato: le Tecniche personalizzate non superano d20","d20",4,"potenz"],
+["Concatenati","Aggancio","effetto ritirato: Vantaggio al prossimo attacco sul bersaglio","d6",1,""],
 ["Danno","Colpo Annientante","danno triplicato","d20",7,""],
 ["Concatenati","Marchio Esplosivo","segni ora, lo fai detonare quando vuoi entro la scena — la detonazione usa la Forma della Tecnica","d10",2,""],
 ["Danno","Esecuzione","+1 Dado Danno contro chi è Quasi Morto","d12",1,""]
@@ -2090,12 +2100,12 @@ const TEC_EFF_ARCHIVIATI=[
 function tecEffObj(nm){return TEC_EFF.find(e=>e[1]===nm)||TEC_EFF_ARCHIVIATI.find(e=>e[1]===nm);}
 function isMusicista(){try{return !!(pg&&(pg.role==="Musicista"||pg.role2==="Musicista"));}catch(e){return false;}}
 function isCombSpecial(){try{return styleVisible("Special")&&!!(pg&&((pg.role==="Combattente"&&pg.style==="Special")||(pg.role2==="Combattente"&&pg.style2==="Special")));}catch(e){return false;}}
-function hasTalent(n){try{var t=(pg&&pg.talents)||[];for(var i=0;i<t.length;i++){var p=String(t[i]).split(" · ");if(p[p.length-1]===n)return true;}return false;}catch(e){return false;}}
+function hasTalent(n){return window.GLCTalents?GLCTalents.has(pg,n,{includeInherited:true}):(pg.talents||[]).some(k=>String(k).split(" · ").pop()===n);}
 function dieRank(d){var k=DICE.indexOf(d);return k<0?-1:k;}
 function famOf(nm){const e=tecEffObj(nm);return e?e[0]:"";}
 function grpOf(nm){const e=tecEffObj(nm);if(!e)return "";if(e[0]==="Potenziamento")return e[0]+"/"+e[1];return e[0]+(e[6]?("/"+e[6]):"");}
 function isSagoma(nm){const e=tecEffObj(nm);return !!(e&&e[6]==="sagoma");}
-function slotUsed(list){return (list||[]).filter(nm=>!isSagoma(nm)).length;}
+function slotUsed(list){return (list||[]).reduce((n,nm)=>n+(isSagoma(nm)?0:(nm==="Occhio del Ciclone"&&TBUILD.fonte==="Frutto"&&hasTalent("Nessuno dei Miei")?0:1)),0);}
 function fruitDieCap(){try{return (pg&&pg.frutto&&pg.frutto.has)?(pg.frutto.die||"d4"):"";}catch(e){return "";}}
 /* Stili tolti dal sito (Special dal 19/09/2026, Inventore dal 05/10/2026): i
    loro dati e talenti restano qui nel codice per eventuali modifiche, ma non
@@ -2104,8 +2114,8 @@ function fruitDieCap(){try{return (pg&&pg.frutto&&pg.frutto.has)?(pg.frutto.die|
 const STILI_NASCOSTI=["Special","Inventore"];
 function styleVisible(st){return STILI_NASCOSTI.indexOf(st)<0;}
 function talentKeyVisible(k){const p=String(k).split(" · ");return !(p.length>2&&STILI_NASCOSTI.indexOf(p[1])>=0);}
-function visibleTalents(){return (Array.isArray(pg.talents)?pg.talents:[]).filter(k=>talentKeyVisible(k)&&(!window.GLCPrestige||!GLCPrestige.superseded(pg,k)));}
-function combStyles(){var s=[];try{if(pg.role==="Combattente"&&pg.style&&styleVisible(pg.style))s.push(pg.style);if(pg.role2==="Combattente"&&pg.style2&&styleVisible(pg.style2))s.push(pg.style2);}catch(e){}return s;}
+function visibleTalents(){return window.GLCTalents?GLCTalents.active(pg).map(t=>t.key):(Array.isArray(pg.talents)?pg.talents:[]).filter(k=>talentKeyVisible(k)&&(!window.GLCPrestige||!GLCPrestige.superseded(pg,k)));}
+function combStyles(){var s=[];try{if(pg.role==="Combattente"&&pg.style&&styleVisible(pg.style))s.push(pg.style);if(pg.role2==="Combattente"&&pg.style2&&styleVisible(pg.style2))s.push(pg.style2);}catch(e){}return Array.from(new Set(s));}
 const WEAPON_TYPES=["Lama","Contundente","Ad asta","A distanza","Da lancio","Speciale"];
 function weaponTypes(){return WEAPON_TYPES.slice();}
 function effVeto(e){ // regole trasversali: restituisce il motivo del blocco, o ""
@@ -2117,7 +2127,7 @@ function effVeto(e){ // regole trasversali: restituisce il motivo del blocco, o 
   if(e[1]==="Marcia Funebre"&&!hasTalent("Marcia Funebre"))return "Richiede il Talento Marcia Funebre";
   return "";
 }
-function tecCost(t){let st=0,pt=0;(t.eff||[]).forEach(nm=>{const e=tecEffObj(nm);if(e){st+=e[4];if(e[7])pt+=e[7];}});const d=TEC_DUR.find(x=>x[0]===t.durata);if(d){st+=d[1];pt+=d[2];}st=Math.max(1,st);return{st:st,pt:pt};}
+function tecCost(t){let st=0,pt=0;(t.eff||[]).forEach(nm=>{const e=tecEffObj(nm);if(e&&!(nm==="Occhio del Ciclone"&&t.fonte==="Frutto"&&hasTalent("Nessuno dei Miei"))){st+=e[4];if(e[7])pt+=e[7];}});const d=t.forma==="Area"?TEC_DUR.find(x=>x[0]===t.durata):null;if(d){st+=d[1];pt+=d[2];}return{st:st,pt:pt};}
 function tecCostLabel(t){const c=tecCost(t);return c.st+" ST"+(c.pt?(" +"+c.pt+"/turno"):"");}
 function tecSummary(t){const a=[];if(t.fonte)a.push(t.fonte==="Frutto"&&t.fruitType?("Frutto "+t.fruitType):(t.stile?("Stile "+t.stile):t.fonte));if(t.forma)a.push(t.forma);if(t.die)a.push(t.die);if(t.durata&&t.forma==="Area"&&t.durata!=="Un turno")a.push(t.durata);let s=a.join(" · ");if(t.eff&&t.eff.length)s+=" — "+t.eff.join(", ");return s;}
 const FAM_SHORT={"Melodie del Musicista":"Melodie","Zona Persistente":"Zona pers.","Potenziamento":"Potenz.","Concatenati":"Concat.","Spostamento":"Spost."};
@@ -2125,9 +2135,8 @@ let TBUILD={nome:"",attr:"",fonte:"Stile",stile:"",forma:"Singolo",die:"d6",dura
 function tbReset(){TBUILD={nome:"",attr:"",fonte:"Stile",stile:"",forma:"Singolo",die:"d6",durata:"Un turno",eff:[],desc:"",_open:[],_fam:"",_id:null,fruitType:"",arma:"",modulo:""};}
 /* ==========================================================================
    SIGNATURE MOVE BUILDER
-   Documento di specifica: «esclusivamente estetico». Regole, filtri, slot,
-   costi, requisiti e dati salvati sono identici al Costruttore precedente —
-   qui cambiano solo composizione, superfici, tipografia e movimento.
+   Regole e validazione sono condivise con le Special Move; la presentazione
+   a costellazione mantiene i controlli e le Tecniche salvate.
    Le icone definitive arriveranno dopo: per ora ogni famiglia ha un glifo
    astratto, tutti con la stessa scala, lo stesso peso e lo stesso
    trattamento. Le carte useranno EFF_ICON quando ci saranno i disegni.
@@ -2304,59 +2313,39 @@ function bldTiers(label,opts,cur,onPick){
    i valori derivati. Le fasi li leggono e basta.
    ========================================================================== */
 let SMBD={};
+function tbRules(){return {catalogue:TEC_EFF,whitelist:STILE_WHITELIST,precisioneAssoluta:!!(window.GLCPrestige&&GLCPrestige.has(pg,"precisione-assoluta")),nessunoDeiMiei:hasTalent("Nessuno dei Miei"),hasTalent:hasTalent};}
+function tbEvaluate(t){return GLCTechniques.evaluate(pg,t,tbRules());}
+function tbEffectStateLabel(nm){const state=GLCTechniques.states({...TBUILD,eff:[nm]},tbRules())[0];return !state?"":(state.threshold!=null?("Salvezza di "+state.attribute+" · Soglia "+state.threshold+" dal "+TBUILD.die):(state.source?("Salvezza di "+state.attribute+" · Soglia dal "+state.source):state.procedure));}
+function tbEdit(t){TBUILD={...t,eff:Array.isArray(t.eff)?t.eff.slice():(t.eff==null?[]:[String(t.eff)]),sourcePermission:t.sourcePermission?JSON.parse(JSON.stringify(t.sourcePermission)):null,_open:[],_fam:"",_id:t.id||null};}
+function tbEditLegacy(key){const t=pg[key];if(!t||!["t1","t2"].includes(key))return;TBUILD={nome:t.nome||"",desc:t.desc||"",attr:t.attr||"",die:t.die||"d4",fonte:t.fonte||"",stile:t.stile||"",fruitType:t.fruitType||"",forma:t.forma||"Singolo",durata:t.durata||"Un turno",arma:t.arma||"",modulo:t.modulo||"",eff:Array.isArray(t.eff)?t.eff.slice():[],sourcePermission:t.sourcePermission?JSON.parse(JSON.stringify(t.sourcePermission)):null,_open:[],_fam:"",_id:t.smcId||key,_legacyKey:key};}
 function tbCompute(){
- const D={};
- if(TBUILD.forma==="Canzone"&&!isMusicista())TBUILD.forma="Singolo";
- const attrDie=(TBUILD.attr&&pg.attr&&pg.attr[TBUILD.attr])?pg.attr[TBUILD.attr]:"";
- let cap=attrDie?(TEC_RANK[attrDie]||(attrDie.startsWith("d20+")?TEC_RANK.d20:1)):0;const fcap=(TBUILD.fonte==="Frutto"&&fruitDieCap())?(TEC_RANK[fruitDieCap()]||1):0;if(cap&&fcap&&fcap<cap)cap=fcap;
- const dieOpts=cap?TEC_DADI.filter(d=>d!=="d20+"&&(TEC_RANK[d]||1)<=cap):[];
- if(dieOpts.length&&dieOpts.indexOf(TBUILD.die)<0)TBUILD.die=dieOpts[dieOpts.length-1];
- const styles=combStyles();
- if(TBUILD.stile&&styles.indexOf(TBUILD.stile)<0)TBUILD.stile="";
- if(!TBUILD.stile&&styles.length)TBUILD.stile=styles.filter(styleReady)[0]||styles[0];
- const WLS=(TBUILD.fonte==="Stile"&&TBUILD.stile&&STILE_WHITELIST[TBUILD.stile])?STILE_WHITELIST[TBUILD.stile]:null;
- const SB_ANY=stileBlock(),SB=stileBlock(TBUILD.stile),FB=fruttoBlock(),musica=isMusicista();
- const stileOff=!!SB_ANY&&!musica;const soloCanzone=!!SB_ANY&&musica;
- if(TEC_FONTI.indexOf(TBUILD.fonte)<0)TBUILD.fonte="Stile";
- if(TBUILD.fonte==="Frutto"&&FB)TBUILD.fonte="Stile";
- if(TBUILD.fonte==="Stile"&&stileOff&&!FB)TBUILD.fonte="Frutto";
- let ftype=null;
- if(TBUILD.fonte==="Frutto"){if(!TBUILD.fruitType)TBUILD.fruitType=((pg.frutto&&["Paramecia","Logia","Zoan"].indexOf(pg.frutto.tipo)>=0)?pg.frutto.tipo:"Paramecia");ftype=TBUILD.fruitType;}
- const fz=(TBUILD.fonte==="Frutto"&&ftype==="Zoan");
- let forme=TEC_FORME.filter(f=>!(f==="Area"&&fz)&&!(f==="Canzone"&&!musica));
- if(TBUILD.fonte==="Stile"&&soloCanzone)forme=["Canzone"];
- if(WLS){const has=g=>TEC_EFF.some(e=>WLS.indexOf(e[1])>=0&&(g==="sagoma"?e[6]==="sagoma":(e[5]===g||(g==="spost"&&e[0]==="Spostamento"&&e[5]===""))));
-  forme=forme.filter(f=>f==="Area"?has("sagoma"):(f==="Spostamento"?has("spost"):(f==="Difesa"?has("difesa"):(f==="Potenziamento"?has("potenz"):true))));}
- if(TBUILD.forma==="Area"&&fz)TBUILD.forma="Singolo";
- if(forme.indexOf(TBUILD.forma)<0)TBUILD.forma=forme[0]||"Singolo";
- const rank=TEC_RANK[TBUILD.die]||1;const slot=(TBUILD.forma==="Canzone")?1:(TEC_SLOT[TBUILD.die]||1);
- const armi=(TBUILD.fonte==="Stile")?(pg.armi||[]):[];const mods=(TBUILD.fonte==="Stile")?(pg.moduli||[]):[];
- if(TBUILD.arma&&!armi.some(a=>a.id===TBUILD.arma))TBUILD.arma="";
- if(TBUILD.modulo&&!mods.some(m=>m.id===TBUILD.modulo))TBUILD.modulo="";
- if(TBUILD.arma&&TBUILD.modulo)TBUILD.modulo="";
- if(!armi.length&&!mods.length){TBUILD.arma="";TBUILD.modulo="";}
- const WL=(WLS&&TBUILD.forma!=="Canzone")?WLS:null;const wlOk=nm=>!WL||WL.indexOf(nm)>=0;
- const okDie=e=>(TEC_RANK[e[3]]||1)<=rank;
- const okReq=e=>(e[5]===""||(e[5]==="frutto"&&TBUILD.fonte==="Frutto")||(e[5]==="area"&&TBUILD.forma==="Area")||(e[5]==="musicista"&&musica&&TBUILD.forma==="Canzone")||(e[5]==="difesa"&&TBUILD.forma==="Difesa")||(e[5]==="potenz"&&TBUILD.forma==="Potenziamento")||(e[5]==="special"&&isCombSpecial())||(e[5]==="spost"&&TBUILD.forma==="Spostamento"));
- /* pulizia della selezione: identica al motore precedente */
- TBUILD.eff=(TBUILD.eff||[]).filter(nm=>{const e=tecEffObj(nm);return !!e&&wlOk(nm)&&okDie(e)&&okReq(e)&&!effVeto(e);});
- {const seen={};TBUILD.eff=TBUILD.eff.filter(nm=>{const f=grpOf(nm);if(seen[f])return false;seen[f]=1;return true;});}
- while(slotUsed(TBUILD.eff)>slot){let cut=false;for(let k=TBUILD.eff.length-1;k>=0;k--){if(!isSagoma(TBUILD.eff[k])){TBUILD.eff.splice(k,1);cut=true;break;}}if(!cut)break;}
- const effOpen=e=>wlOk(e[1])&&okDie(e)&&okReq(e)&&!effVeto(e);
- const effShown=e=>{if(!effOpen(e))return false;const nm=e[1];if(TBUILD.eff.indexOf(nm)>=0)return true;
-  const famTaken=TBUILD.eff.some(x=>x!==nm&&grpOf(x)===grpOf(nm));const full=!isSagoma(nm)&&slotUsed(TBUILD.eff)>=slot;return !famTaken&&!full;};
- const fams=TEC_FAMS.filter(fam=>{
-  if(fam==="Melodie del Musicista"&&!(musica&&TBUILD.forma==="Canzone"))return false;
-  if(TBUILD.forma==="Canzone"&&fam!=="Melodie del Musicista")return false;
-  return TEC_EFF.some(e=>e[0]===fam&&effShown(e));});
- if(fams.indexOf(TBUILD._fam)<0)TBUILD._fam=fams[0]||"";
- const BLOCK=(TBUILD.fonte==="Frutto")?FB:((TBUILD.forma==="Canzone"&&musica)?"":SB);
+ /* Defaults apply only to an empty new draft. Existing values remain visible
+    when a rule, Attribute, weapon or source has changed. */
+ const styles=combStyles(),musica=isMusicista();
+ if(!TBUILD._id&&!styles.length&&musica&&TBUILD.fonte==="Stile")TBUILD.forma="Canzone";
+ if(!TBUILD._id&&!TBUILD.stile&&TBUILD.fonte==="Stile")TBUILD.stile=styles.find(styleReady)||styles[0]||"";
+ if(!TBUILD._id&&TBUILD.fonte==="Frutto"&&!TBUILD.fruitType)TBUILD.fruitType=(pg.frutto||{}).tipo||"";
+ if(!TBUILD._id&&TBUILD.fonte==="Stile"&&!TBUILD.arma&&!TBUILD.modulo&&["Swordsman","Crusher","Sniper"].includes(TBUILD.stile)){
+  const weapon=(pg.armi||[]).find(a=>GLCTechniques.compatibleWeapon(a,TBUILD.stile));if(weapon)TBUILD.arma=weapon.id;
+ }
+ const result=tbEvaluate(TBUILD),attrDie=(pg.attr||{})[TBUILD.attr]||"",rank=GLCTechniques.rank(TBUILD.die),slot=result.slot;
+ const armi=TBUILD.fonte==="Stile"?(pg.armi||[]).filter(a=>GLCTechniques.compatibleWeapon(a,TBUILD.stile)):[];
+ const mods=TBUILD.fonte==="Stile"&&pg.race==="cyborg"?(pg.moduli||[]):[];
+ const SB=stileBlock(TBUILD.stile),FB=fruttoBlock(),soloCanzone=TBUILD.fonte==="Stile"&&!styles.length&&musica;
+ const blocking=result.errors.find(e=>["combat-role","style","weapon-required","unarmed","fruit-required","fruit-type","song-role"].includes(e.code));
+ const BLOCK=blocking?blocking.text:"";
+ const effOpen=e=>result.available.includes(e[1]);
+ const effShown=e=>{
+  const nm=e[1];if(TBUILD.eff.includes(nm))return true;if(!effOpen(e))return false;
+  const taken=TBUILD.eff.some(x=>x!==nm&&GLCTechniques.group(x,tbRules())===GLCTechniques.group(nm,tbRules()));
+  return !taken&&result.used+GLCTechniques.effectSlots(TBUILD,nm,tbRules())<=slot;
+ };
+ const fams=TEC_FAMS.filter(fam=>TEC_EFF.some(e=>e[0]===fam&&effShown(e))||TBUILD.eff.some(nm=>famOf(nm)===fam));
+ if(!fams.includes(TBUILD._fam))TBUILD._fam=fams[0]||"";
  let stato={s:"ok",m:"Pronta da salvare."};
- if(BLOCK)stato={s:"ko",m:BLOCK.replace(/<[^>]+>/g,"")};
- else if(!TBUILD.attr)stato={s:"wait",m:"Manca l’Attributo."};
- else if(TBUILD.forma==="Area"&&!(TBUILD.eff||[]).some(isSagoma))stato={s:"ko",m:"Serve una sagoma dalla famiglia Area."};
+ if(result.errors.length)stato={s:result.errors.every(e=>e.code==="attribute")?"wait":"ko",m:result.errors[0].text};
  else if(!(TBUILD.nome||"").trim())stato={s:"wait",m:"Manca il nome."};
- Object.assign(D,{attrDie,cap,fcap,dieOpts,rank,slot,styles,SB,FB,musica,stileOff,soloCanzone,ftype,fz,forme,armi,mods,effShown,fams,BLOCK,stato});
+ const D={...result,attrDie,fcap:TBUILD.fonte==="Frutto"?GLCTechniques.rank(fruitDieCap()):0,rank,styles,SB,FB,musica,stileOff:!styles.length&&!musica,soloCanzone,ftype:TBUILD.fruitType,fz:false,forme:soloCanzone?["Canzone"]:result.forms,armi,mods,effOpen,effShown,fams,BLOCK,stato};
  SMBD=D;return D;
 }
 /* ---- 01 · Identità ---- */
@@ -2365,12 +2354,12 @@ function smbStepId(h){
  const nameIn=el("input",{class:"smb-name",type:"text",placeholder:"Nome della Tecnica","aria-label":"Nome della Tecnica"});
  nameIn.value=TBUILD.nome||"";nameIn.oninput=()=>{TBUILD.nome=nameIn.value;tbCompute();bldSummary();};
  h.appendChild(el("div",{class:"smb-f"},[nameIn]));
- h.appendChild(smbChips("Fonte",TEC_FONTI.map(o=>({v:o,l:o,ico:svgIcon(FONTE_ICO[o]||"star",19),off:(o==="Stile")?D.stileOff:!!D.FB,why:(o==="Stile")?D.SB:D.FB})),TBUILD.fonte,v=>bldMutate(()=>{TBUILD.fonte=v;})));
+ h.appendChild(smbChips("Fonte",TEC_FONTI.map(o=>({v:o,l:o,ico:svgIcon(FONTE_ICO[o]||"star",19),off:(o==="Stile")?D.stileOff:!!D.FB,why:(o==="Stile")?D.SB:D.FB})),TBUILD.fonte,v=>bldMutate(()=>{TBUILD.fonte=v;if(v==="Frutto"){TBUILD.fruitType=(pg.frutto||{}).tipo||"";TBUILD.arma="";TBUILD.modulo="";if(TBUILD.forma==="Canzone")TBUILD.forma="Singolo";}})));
  if(TBUILD.fonte==="Stile"&&D.SB&&!(TBUILD.forma==="Canzone"&&D.musica))h.appendChild(bldNote(D.SB+(D.soloCanzone?"<br>Ti resta la <b>Forma Canzone</b>: le Melodie le costruisci in quanto Musicista.":""),D.soloCanzone?"wait":"ko"));
  if(TBUILD.fonte==="Frutto"&&D.FB)h.appendChild(bldNote(D.FB,"ko"));
- if(TBUILD.fonte==="Stile"&&D.styles.length>1&&!(D.soloCanzone||TBUILD.forma==="Canzone"))
-  h.appendChild(smbChips("Stile della Tecnica",D.styles.map(x=>({v:x,l:x,ico:STYLE_IMG[x]?emblem(STYLE_IMG[x],26):svgIcon(STYLE_ICON[x]||"star",19),sub:styleReady(x)?"":"senza strumento"})),TBUILD.stile,v=>bldMutate(()=>{TBUILD.stile=v;})));
- if(TBUILD.fonte==="Frutto")h.appendChild(smbChips("Tipo di Frutto",["Paramecia","Logia","Zoan"].map(o=>({v:o,l:o,ico:svgIcon(STYLE_ICON[o]||"orb",19)})),D.ftype,v=>bldMutate(()=>{TBUILD.fruitType=v;})));
+ if(TBUILD.fonte==="Stile"&&D.styles.length&&(D.styles.length>1||!TBUILD.stile)&&TBUILD.forma!=="Canzone")
+  h.appendChild(smbChips("Stile della Tecnica",D.styles.map(x=>({v:x,l:x,ico:STYLE_IMG[x]?emblem(STYLE_IMG[x],26):svgIcon(STYLE_ICON[x]||"star",19),sub:styleReady(x)?"":"senza strumento"})),TBUILD.stile,v=>bldMutate(()=>{TBUILD.stile=v;TBUILD.modulo="";const weapon=(pg.armi||[]).find(a=>GLCTechniques.compatibleWeapon(a,v));TBUILD.arma=weapon?weapon.id:"";})));
+ if(TBUILD.fonte==="Frutto")h.appendChild(bldNote("<b>Frutto "+((pg.frutto||{}).tipo||"da definire")+".</b> Il tipo e il potere derivano dal Frutto della scheda. Le concessioni specifiche si registrano nelle Fondamenta."));
  if(TBUILD.fonte==="Stile"&&TBUILD.stile==="Crusher"&&TBUILD.forma!=="Canzone")h.appendChild(bldNote("<b>Crusher.</b> Le Tecniche di questo Stile si attivano solo mentre impugni e utilizzi un'arma contundente compatibile."));
  if(TBUILD.fonte==="Stile"&&TBUILD.stile==="Striker"&&TBUILD.forma!=="Canzone")h.appendChild(bldNote("<b>Striker.</b> Le Tecniche di questo Stile si usano esclusivamente a mani nude."));
 }
@@ -2381,14 +2370,16 @@ function smbStepFond(h){
  h.appendChild(smbChips("Forma",D.forme.map(o=>({v:o,l:o,ico:svgIcon(FORMA_ICO[o]||"star",19)})),TBUILD.forma,v=>bldMutate(()=>{TBUILD.forma=v;})));
  if(D.fz)h.appendChild(bldNote("Uno Zoan non fa tecniche ad Area: la sua forza è fisica, usa Singolo o Spostamento."));
  if(TBUILD.forma==="Canzone")h.appendChild(bldNote("<b>Le Canzoni non si tirano.</b> Una sola Melodia per Canzone · sugli alleati l'effetto è automatico · i nemici tirano la Salvezza contro la Soglia del Grado effettivo del tuo strumento · costo: la Stamina della Melodia più la tua azione."));
- if(TBUILD.forma==="Area")h.appendChild(smbChips("Durata della Zona",TEC_DUR.map(d=>({v:d[0],l:d[0],sub:d[3]?("richiede "+d[3]):""})),TBUILD.durata,v=>bldMutate(()=>{TBUILD.durata=v;})));
+ if(TBUILD.fonte==="Frutto"&&(TBUILD.arma||TBUILD.modulo))h.appendChild(el("div",{},[bldNote("Questa Tecnica del Frutto conserva un collegamento a equipaggiamento da correggere.","ko"),el("button",{class:"smb-btn",type:"button",text:"Rimuovi il collegamento dalla Tecnica del Frutto",onclick:()=>bldMutate(()=>{TBUILD.arma="";TBUILD.modulo="";})})]));
+ if(TBUILD.forma==="Area"&&TBUILD.eff.some(nm=>famOf(nm)==="Zona Persistente"))h.appendChild(smbChips("Durata della Zona",TEC_DUR.map(d=>({v:d[0],l:d[0],sub:d[3]?("richiede "+d[3]):"",off:d[3]&&TBUILD.die!==d[3],why:"La durata per la scena richiede d20."})),TBUILD.durata,v=>bldMutate(()=>{TBUILD.durata=v;})));
  if(D.armi.length||D.mods.length){
   const wname=a=>((a.nome&&a.nome.trim())?a.nome.trim():"Arma senza nome");
-  const opts=[{v:"",l:"Niente"}]
+  const required=TBUILD.fonte==="Stile"&&["Swordsman","Crusher","Sniper"].includes(TBUILD.stile)&&TBUILD.forma!=="Canzone";
+  const opts=(required?[]:[{v:"",l:"Niente"}])
    .concat(D.armi.map(a=>({v:"a:"+a.id,l:wname(a),sub:a.grado?("Grado "+a.grado):"",ico:svgIcon(WEAPON_ICO[a.tipo]||"sword",19)})))
    .concat(D.mods.map(m=>({v:"m:"+m.id,l:(m.nome||"Modulo"),sub:(m.stato==="danneggiato")?"danneggiato":(pg.moduloAttivo===m.id?"attivo":"inattivo"),ico:svgIcon("gear",19)})));
   const cur=TBUILD.arma?("a:"+TBUILD.arma):(TBUILD.modulo?("m:"+TBUILD.modulo):"");
-  h.appendChild(smbChips("Con cosa la esegui (facoltativo)",opts,cur,v=>bldMutate(()=>{TBUILD.arma=(v.indexOf("a:")===0)?v.slice(2):"";TBUILD.modulo=(v.indexOf("m:")===0)?v.slice(2):"";})));
+  h.appendChild(smbChips(required?"Arma compatibile obbligatoria":"Con cosa la esegui (facoltativo)",opts,cur,v=>bldMutate(()=>{TBUILD.arma=(v.indexOf("a:")===0)?v.slice(2):"";TBUILD.modulo=(v.indexOf("m:")===0)?v.slice(2):"";})));
   const wa=D.armi.filter(a=>a.id===TBUILD.arma)[0];
   if(wa){const c=weaponCompat(wa);let t="<b>"+wname(wa)+"</b> · "+wa.tipo+" · Grado "+wa.grado+" "+gradeLabel(wa.grado)+"<br>"+c.msg;
    if(wa.eff)t+="<br><b>"+(wa.eff.nome||"Effetto")+"</b>"+(wa.eff.cat?(" · "+wa.eff.cat):"")+(wa.eff.desc?(" — "+wa.eff.desc):"")+"<br><i>Il builder non applica da solo l'effetto dell'arma.</i>";
@@ -2399,12 +2390,35 @@ function smbStepFond(h){
    if(mo.eff&&(mo.eff.cat||mo.eff.testo))t+="<br><b>"+(mo.eff.cat||"effetto")+"</b>"+(mo.eff.tgt?(" · "+mo.eff.tgt):"")+" — "+(mo.eff.testo||"")+"<br><i>Costo e slot non cambiano da qui: lo sconto si applica al tavolo.</i>";
    h.appendChild(bldNote(t,dmg?"ko":(att?"ok":"wait")));}
  }
+ smbPermissions(h);
+}
+function smbPermissions(h){
+ const key=GLCTechniques.sourceKey(pg,TBUILD);
+ if(!key||TBUILD.forma==="Canzone")return;
+ const ordinary=STILE_WHITELIST[TBUILD.stile]||[];
+ const candidates=TEC_EFF.filter(e=>e[0]!=="Melodie del Musicista"&&e[1]!=="Punto di Rottura"&&e[1]!=="Area Ravvicinata"&&(TBUILD.fonte==="Frutto"||!ordinary.includes(e[1].startsWith("Guardia ")?"Guardia":e[1])));
+ const p=TBUILD.sourcePermission||{key:key,basis:"",effects:[]};
+ const box=el("details",{class:"smb-source-permissions"});box.open=TBUILD._permissionsOpen??(TBUILD.fonte==="Frutto"&&!SMBD.permissionValid);box.ontoggle=()=>{TBUILD._permissionsOpen=box.open;};
+ box.appendChild(el("summary",{text:"Concessioni della "+(TBUILD.fonte==="Frutto"?"Scheda del Frutto":"Fonte speciale")+(SMBD.permissionValid?" · registrate":"")}));
+ box.appendChild(el("p",{text:"Registra gli effetti che il Nucleo del Potere, la Scheda o la regola dell’equipaggiamento concedono espressamente, verificati con il GM. Ogni effetto conserva Grado, slot e costo."}));
+ if(TBUILD.fonte==="Frutto"&&(pg.frutto||{}).desc)box.appendChild(el("p",{class:"bl-note",text:"Potere: "+pg.frutto.desc}));
+ if(p.key&&p.key!==key)box.appendChild(bldNote("La Fonte o la sua regola è cambiata. Le concessioni precedenti sono conservate: registra nuovamente quelle valide per questa Fonte.","ko"));
+ const label=el("label",{class:"smb-f"});label.appendChild(el("span",{class:"k",text:"Riferimento e applicazione concessa dalla Scheda / GM"}));
+ const input=el("textarea",{placeholder:"Es. Frutto della cera: crea una protezione solida (Barriera) e una massa adesiva persistente (Prigione)."});input.value=p.basis||"";
+ input.oninput=()=>{if(!TBUILD.sourcePermission)TBUILD.sourcePermission={key:key,basis:"",effects:[]};TBUILD.sourcePermission.basis=input.value;tbCompute();bldSummary();};label.appendChild(input);box.appendChild(label);
+ const picks=el("div",{class:"smb-permission-picks"});
+ candidates.forEach(e=>{const on=SMBD.permissionValid&&(p.effects||[]).includes(e[1]);const button=el("button",{type:"button",class:"smb-btn"+(on?" on":""),"aria-pressed":on?"true":"false",text:(on?"✓ ":"")+e[1],title:e[3]+" · "+e[4]+" ST · "+e[2]});button.onclick=()=>bldMutate(()=>{
+  const current=TBUILD.sourcePermission||{key:key,basis:"",effects:[]};
+  if(!(current.basis||"").trim()){if(BLD)BLD.err="Indica prima la regola o la Scheda che concede questi effetti.";return;}
+  const effects=current.key===key?(current.effects||[]).slice():[];const i=effects.indexOf(e[1]);if(i<0)effects.push(e[1]);else effects.splice(i,1);
+  TBUILD.sourcePermission={key:key,basis:current.basis,effects:effects};
+ });picks.appendChild(button);});box.appendChild(picks);h.appendChild(box);
 }
 /* ---- 03 · Potenza ---- */
 function smbStepPot(h){
  const D=SMBD;
  if(!D.dieOpts.length){h.appendChild(bldNote("Scegli prima l’Attributo: il dado della Tecnica non può superarlo.","wait"));return;}
- h.appendChild(bldTiers("Dado della Tecnica · Dado Danno",D.dieOpts.map(d=>({v:d,l:d,s:(TEC_SLOT[d]||1)+" slot"})),TBUILD.die,v=>bldMutate(()=>{TBUILD.die=v;})));
+ h.appendChild(bldTiers("Dado della Tecnica · Dado Danno",D.dieOpts.map(d=>({v:d,l:d,s:(TBUILD.forma==="Canzone"?1:TEC_SLOT[d])+" slot"})),TBUILD.die,v=>bldMutate(()=>{TBUILD.die=v;})));
  const lim=(D.fcap&&D.fcap<(TEC_RANK[D.attrDie]||1))?("Fino a <b>"+fruitDieCap()+"</b>: il Dado del Frutto è il tetto delle Tecniche del Frutto."):("Fino a <b>"+D.attrDie+"</b>: il dado non supera l'Attributo "+TBUILD.attr+".");
  h.appendChild(bldNote(lim));
  const box=el("div",{class:"bl-derived"});
@@ -2417,7 +2431,9 @@ function smbStepPot(h){
 function smbCounter(){const D=SMBD;return el("span",{class:"c",html:(TBUILD.forma==="Canzone"?"Melodia ":"")+"<b>"+slotUsed(TBUILD.eff)+" / "+D.slot+"</b> slot"});}
 function smbStepEff(h){
  const D=SMBD;const slot=D.slot;
- if(TBUILD.forma==="Area")h.appendChild(bldNote("<b>Area.</b> Una sagoma — non occupa slot, il costo è la sua misura — e al massimo una Gittata. Bersagli a metà danno; gli Stati salvabili usano la Soglia del Grado della Tecnica."));
+ if(TBUILD.forma==="Area")h.appendChild(bldNote("<b>Area.</b> Una sola sagoma senza slot. Area Ravvicinata costa 2 ST, è centrata su di te, usa la Portata effettiva dell’arma e non riceve Gittata. Le altre sagome richiedono una concessione della Fonte. Bersagli a metà danno; gli Stati salvabili usano la Soglia del Grado della Tecnica."));
+ if(!slot&&TBUILD.forma!=="Canzone")h.appendChild(bldNote("<b>0 slot Effetto.</b> A d4 e d6 non puoi inserire effetti che occupano slot. Le sole sagome autorizzate dalla Fonte non occupano slot e conservano Grado e costo."));
+ if(TBUILD.eff.length){const chosen=el("div",{class:"smb-selected-effects"});chosen.appendChild(el("div",{class:"k",text:"Effetti scelti · seleziona per rimuovere"}));TBUILD.eff.forEach(nm=>{const error=SMBD.errors.find(e=>e.effect===nm);chosen.appendChild(el("button",{type:"button",class:"smb-btn"+(error?" warn":""),text:nm+(error?" · da correggere":"")+" ×",title:error?error.text:"Rimuovi "+nm,onclick:()=>bldMutate(()=>{TBUILD.eff=TBUILD.eff.filter(x=>x!==nm);})}));});h.appendChild(chosen);}
  if(!D.fams.length){h.appendChild(bldNote("Con queste scelte non c'è niente da prendere."));return;}
  const main=el("div",{class:"smb-main bl-effmain"});
  const rail=el("div",{class:"smb-rail",role:"tablist","aria-label":"Famiglie di effetti"});main.appendChild(rail);
@@ -2433,7 +2449,7 @@ function smbStepEff(h){
  if(TBUILD._fam==="Zona Persistente")stage.appendChild(bldNote("Con la <b>Forma Area</b> la sagoma decide quanto è grande la zona. Chi può lasciarne una lo decide la finzione, col GM."));
  if(TBUILD._fam==="Potenziamento")stage.appendChild(bldNote("Il Potenziamento non ha il limite di uno per gruppo: gli slot del dado sono l'unico tetto."));
  const grid=el("div",{class:"smb-grid"});stage.appendChild(grid);
- TEC_EFF.filter(e=>e[0]===TBUILD._fam&&D.effShown(e)).forEach((e,idx)=>{
+ TEC_EFF.concat(TEC_EFF_ARCHIVIATI.filter(e=>TBUILD.eff.includes(e[1]))).filter(e=>e[0]===TBUILD._fam&&D.effShown(e)).forEach((e,idx)=>{
   const nm=e[1];const sel=TBUILD.eff.indexOf(nm)>=0;
   const card=el("div",{class:"mcard"+(sel?" sel":""),tabindex:"0",role:"button","aria-pressed":sel?"true":"false","aria-label":nm+" · "+e[3]+" · "+e[4]+" ST"});
   card.style.animationDelay=Math.min(idx,10)*22+"ms";
@@ -2443,16 +2459,18 @@ function smbStepEff(h){
   card.appendChild(el("div",{class:"mc-ico"},[el("span",{class:"fr",html:effGlyph(nm,e[0],26)})]));
   card.appendChild(el("div",{class:"mc-n",text:nm}));
   card.appendChild(el("div",{class:"mc-d",text:e[2]}));
+  const stateLabel=tbEffectStateLabel(nm);if(stateLabel)card.appendChild(el("div",{class:"mc-state",text:stateLabel}));
   if((e[2]||"").length>86){const mb=el("button",{class:"mc-more",type:"button",text:"Mostra tutto"});mb.onclick=ev=>{ev.stopPropagation();const op=card.classList.toggle("open");mb.textContent=op?"Riduci":"Mostra tutto";};card.appendChild(mb);}
   card.appendChild(el("div",{class:"mc-bot"},[el("span",{class:"mc-m",html:"<b>"+e[4]+"</b> ST"+(e[7]?(" · <b>+"+e[7]+"</b>/turno"):"")})]));
   if(sel)card.appendChild(el("div",{class:"mc-seal",html:SMB_SEAL}));
-  const tog=()=>bldMutate(()=>{const ix=TBUILD.eff.indexOf(nm);if(ix<0)TBUILD.eff.push(nm);else TBUILD.eff.splice(ix,1);});
+  const tog=()=>bldMutate(()=>{const ix=TBUILD.eff.indexOf(nm);if(ix<0){const now=tbCompute();if(!now.effOpen(e)||now.used+GLCTechniques.effectSlots(TBUILD,nm,tbRules())>now.slot)return;TBUILD.eff.push(nm);}else TBUILD.eff.splice(ix,1);});
   card.onclick=tog;card.onkeydown=ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();tog();}};
   grid.appendChild(card);});
  h.appendChild(main);
 }
 /* ---- 05 · Riepilogo ---- */
 function smbStepRie(h){
+ if(SMBD.errors.length){const problems=el("div",{class:"bl-err",role:"alert"});problems.appendChild(el("b",{text:"Correggi queste incongruenze prima di salvare:"}));const list=el("ul",{});SMBD.errors.forEach(e=>list.appendChild(el("li",{text:e.text})));problems.appendChild(list);h.appendChild(problems);}
  const plaque=el("div",{class:"plaque"});const pin=el("div",{class:"plaque-in"});plaque.appendChild(pin);smbPlaque(pin,true);h.appendChild(plaque);
  const dw=el("div",{class:"smb-f",style:"margin-top:14px"});
  dw.appendChild(el("div",{class:"k",text:"Descrizione / colore (facoltativo)"}));
@@ -2476,10 +2494,10 @@ function smbPlaque(pin,full){
  pin.appendChild(el("div",{class:"pn"+(nm?"":" empty"),text:nm||"Tecnica senza nome"}));
  pin.appendChild(el("div",{class:"pm",text:smbMeta()}));
  pin.appendChild(el("div",{class:"pdiv"}));
- if(TBUILD.eff.length)TBUILD.eff.forEach(n2=>{const e=tecEffObj(n2);pin.appendChild(el("div",{class:"pe",html:"<b>"+n2+"</b>"+(e&&full?(" — "+e[2]):"")}));});
+ if(TBUILD.eff.length)TBUILD.eff.forEach(n2=>{const e=tecEffObj(n2);pin.appendChild(el("div",{class:"pe",html:"<b>"+n2+"</b>"+(e&&full?(" — "+e[2]):"")}));const stateLabel=full?tbEffectStateLabel(n2):"";if(stateLabel)pin.appendChild(el("div",{class:"pe none",text:stateLabel}));});
  else pin.appendChild(el("div",{class:"pe none",text:TBUILD.forma==="Canzone"?"Nessuna Melodia scelta.":"Nessun effetto scelto."}));
  if(full&&(TBUILD.desc||"").trim()){pin.appendChild(el("div",{class:"pdiv"}));pin.appendChild(el("div",{class:"pe none",text:"“"+TBUILD.desc.trim()+"”"}));}
- pin.appendChild(el("div",{class:"pc"},[el("span",{class:"k",text:(TBUILD.forma==="Canzone"?"Melodia ":"Slot ")+slotUsed(TBUILD.eff)+"/"+(D.slot||1)}),el("span",{class:"v",text:tecCostLabel(TBUILD)})]));
+ pin.appendChild(el("div",{class:"pc"},[el("span",{class:"k",text:(TBUILD.forma==="Canzone"?"Melodia ":"Slot ")+slotUsed(TBUILD.eff)+"/"+(D.slot??0)}),el("span",{class:"v",text:tecCostLabel(TBUILD)})]));
  pin.appendChild(el("div",{class:"bl-state "+D.stato.s,html:(D.stato.s==="ok"?"✓ Valida":(D.stato.s==="wait"?"◌ Incompleta":"✕ Da correggere"))+" <span>"+D.stato.m+"</span>"}));
 }
 function smbSave(){
@@ -2487,9 +2505,12 @@ function smbSave(){
  if(D.BLOCK)return {msg:D.BLOCK,step:0};
  if(!(TBUILD.nome||"").trim())return {msg:"Dai un nome alla Tecnica.",step:0,focus:".smb-name"};
  if(!TBUILD.attr)return {msg:"Scegli l’Attributo di riferimento: il dado della Tecnica non può superarlo.",step:1};
+ if(!D.valid){const problem=D.errors[0];return {msg:problem.text,step:["grade","grade-cap","slots"].includes(problem.code)?2:(["effect","duplicate","family","shape","melody"].includes(problem.code)?3:1)};}
+ if(TBUILD._legacyKey&&(pg.extraTech||[]).some(t=>t.id===TBUILD._id))return {msg:"Una Tecnica costruita usa già questo identificativo. Il profilo storico rimane conservato: verifica la Tecnica esistente prima di convertirlo.",step:4};
  if(TBUILD.forma==="Area"&&!(TBUILD.eff||[]).some(isSagoma)){TBUILD._fam="Area";return {msg:"Una Tecnica ad Area ha bisogno di una sagoma: scegli un cono, una linea o un cerchio nella famiglia Area.",step:3};}
- const t={id:(TBUILD._id||("tec"+Date.now().toString(36)+Math.floor(Math.random()*1000))),nome:TBUILD.nome.trim(),attr:TBUILD.attr,die:TBUILD.die,fonte:TBUILD.fonte,stile:(TBUILD.fonte==="Stile"?(TBUILD.stile||""):""),fruitType:(TBUILD.fonte==="Frutto"?(TBUILD.fruitType||""):""),weapon:"",arma:(TBUILD.fonte==="Stile"?(TBUILD.arma||""):""),modulo:(TBUILD.fonte==="Stile"&&!TBUILD.arma?(TBUILD.modulo||""):""),forma:TBUILD.forma,durata:(TBUILD.forma==="Area"?TBUILD.durata:""),eff:TBUILD.eff.slice(),desc:TBUILD.desc||""};
+ const t={id:(TBUILD._id||("tec"+Date.now().toString(36)+Math.floor(Math.random()*1000))),nome:TBUILD.nome.trim(),attr:TBUILD.attr,die:TBUILD.die,fonte:TBUILD.fonte,stile:(TBUILD.fonte==="Stile"?(TBUILD.stile||""):""),fruitType:(TBUILD.fonte==="Frutto"?(TBUILD.fruitType||""):""),weapon:"",arma:(TBUILD.fonte==="Stile"?(TBUILD.arma||""):""),modulo:(TBUILD.fonte==="Stile"&&!TBUILD.arma?(TBUILD.modulo||""):""),forma:TBUILD.forma,durata:(TBUILD.forma==="Area"?TBUILD.durata:""),eff:TBUILD.eff.slice(),desc:TBUILD.desc||"",sourcePermission:TBUILD.sourcePermission?JSON.parse(JSON.stringify(TBUILD.sourcePermission)):null};
  /* Una Tecnica riaperta si sostituisce al suo posto: niente sparisce se si chiude senza salvare. */
+ if(TBUILD._legacyKey){const key=TBUILD._legacyKey,original=JSON.parse(JSON.stringify(pg[key]));pg.legacyTechArchive=pg.legacyTechArchive||{};pg.legacyTechArchive[key]={...original,paHistory:Object.fromEntries(Object.entries(pg.pa||{}).filter(([k])=>k==="tec:"+key||k==="tec:"+t.id)),migratedTo:t.id,migratedAt:Date.now()};pg[key]={nome:"",desc:"",attr:"",die:"d4"};}
  const ix=(pg.extraTech||[]).findIndex(x=>x&&x.id===t.id);
  if(ix>=0)pg.extraTech[ix]=t;else pg.extraTech.push(t);
  tbReset();closeBuilder();
@@ -2498,7 +2519,7 @@ function smbSave(){
 }
 function builderModal(){
  openBuilder({title:"Signature Move Builder",sub:"Grand Line Chronicles",mark:SMB_MARK,
-  start:TBUILD._id?4:0,
+  start:TBUILD._legacyKey?0:(TBUILD._id?4:0),
   compute:tbCompute,
   steps:[
    {label:"Identità",render:smbStepId,gate:()=>SMBD.BLOCK||""},
@@ -2507,8 +2528,8 @@ function builderModal(){
    {label:"Effetti",render:smbStepEff,right:smbCounter},
    {label:"Riepilogo",render:smbStepRie,extra:()=>[el("button",{class:"smb-btn",type:"button",text:"Svuota",onclick:()=>{if(confirm("Svuotare la Tecnica in costruzione?")){tbReset();bldGo(0);}}})]}],
   summary:h=>{if(window.GLCSignature){GLCSignature.present(h);return;}const p=el("div",{class:"plaque"});const pin=el("div",{class:"plaque-in"});p.appendChild(pin);smbPlaque(pin,false);h.appendChild(p);},
-  mini:()=>(TBUILD.forma==="Canzone"?"Melodia":"Effetti")+" <b>"+slotUsed(TBUILD.eff)+"/"+(SMBD.slot||1)+"</b> · <b>"+tecCostLabel(TBUILD)+"</b>",
-  saveLabel:TBUILD._id?"Salva le modifiche":"Salva la Tecnica",save:smbSave});
+  mini:()=>(TBUILD.forma==="Canzone"?"Melodia":"Effetti")+" <b>"+slotUsed(TBUILD.eff)+"/"+(SMBD.slot??0)+"</b> · <b>"+tecCostLabel(TBUILD)+"</b>",
+  saveLabel:TBUILD._legacyKey?"Converti e salva la Tecnica":(TBUILD._id?"Salva le modifiche":"Salva la Tecnica"),save:smbSave});
 }
 
 /* ==========================================================================
@@ -2792,7 +2813,7 @@ function migrateChar(c){c=Object.assign(blank(),c||{});if(c.role){const MAP={"Me
    .filter(function(k){var p=String(k).split(" · ");return TAL_RITIRATI.indexOf(p[p.length-1])<0;})
    .map(function(k){var p=String(k).split(" · ");if(p[p.length-1]!=="Retaggio Ancestrale / Mitologico")return k;var f=(c.frutto&&((c.frutto.nome||"")+" "+(c.frutto.desc||"")))||"";p[p.length-1]=/mitolog/i.test(f)?"Retaggio Mitologico":"Retaggio Ancestrale";return p.join(" · ");})
    .filter(function(k,i,a){return a.indexOf(k)===i;});
- return window.GLCPrestige?GLCPrestige.normalize(c):c;}
+ if(window.GLCAdvancement)GLCAdvancement.normalize(c);if(window.GLCTratti)GLCTratti.normalize(c);return window.GLCPrestige?GLCPrestige.normalize(c):c;}
 function save(){CT.chars[CT.activeId]=pg;(window.GLCStore||localStorage).setItem(KEY,JSON.stringify(CT));}
 function load(){let raw=null;try{raw=localStorage.getItem(KEY);}catch(e){}let obj=null;if(raw){try{obj=JSON.parse(raw);}catch(e){obj=null;}}if(obj&&obj.chars&&typeof obj.chars==="object"){CT={v:2,activeId:obj.activeId||"",order:Array.isArray(obj.order)?obj.order.slice():[],chars:{}};for(const id in obj.chars)CT.chars[id]=migrateChar(obj.chars[id]);CT.order=CT.order.filter(id=>CT.chars[id]);for(const id in CT.chars)if(CT.order.indexOf(id)<0)CT.order.push(id);if(!CT.chars[CT.activeId])CT.activeId=CT.order[0]||"";}else if(obj){const id=newId();CT={v:2,activeId:id,order:[id],chars:{}};CT.chars[id]=migrateChar(obj);}else{CT={v:2,activeId:"",order:[],chars:{}};}if(!CT.activeId){const id=newId();CT.activeId=id;CT.order=[id];CT.chars[id]=blank();}try{const want=new URLSearchParams(location.search).get("c");if(want&&CT.chars[want])CT.activeId=want;}catch(e){}pg=CT.chars[CT.activeId];}
 function computeAttr(){const r=race();if(!r)return;const ra=racialAttr();ATTRS.forEach(a=>{if(a===ra)pg.attr[a]=r.die;else if(a===pg.d6attr)pg.attr[a]="d6";else if(pg.d6attr)pg.attr[a]="d4";else pg.attr[a]="";});}
@@ -2814,7 +2835,7 @@ function goto(i){step=Math.max(0,Math.min(STEPS.length-1,i));document.querySelec
 function renderRaces(){const c=$("#race-cards");c.innerHTML="";RACES.forEach(r=>c.appendChild(el("div",{class:"card"+(pg.race===r.id?" sel":""),html:'<div class="t">'+r.name+'</div><div class="d">'+(r.attr==="choice"?"Attr. a scelta":(r.attr==="choice2"?"Forza/Tecnica":r.attr))+' '+r.die+' · PV '+r.pv+'</div>',onclick:()=>{pg.race=r.id;afterRaceChange();renderRaces();renderRaceInfo();render();}})));renderRaceInfo();}
 function renderRaceInfo(){const r=race();const elx=$("#race-info");if(!r){elx.innerHTML="";return;}let umano="";if(r.attr==="choice"||r.attr==="choice2"){var _opts=(r.attr==="choice2")?["Forza","Tecnica"]:ATTRS;var _cur=(r.attr==="choice2"&&pg.umanoAttr!=="Forza"&&pg.umanoAttr!=="Tecnica")?"Forza":pg.umanoAttr;umano='<label class="fld">Attributo razziale</label><select id="umano-sel">'+_opts.map(a=>'<option'+(_cur===a?' selected':'')+'>'+a+'</option>').join('')+'</select>';}elx.innerHTML='<div class="infobox"><b>'+r.tech+' (d6):</b> '+r.techDesc+'<br><b>Bonus:</b> '+(r.attr==="choice"?"a scelta":(r.attr==="choice2"?"Forza/Tecnica":r.attr))+' '+r.die+' · <b>PV:</b> '+r.pv+' · <b>Dado Vita:</b> '+r.hp+' · <b>Movimento:</b> '+moveLabel(r.id)+' · <b>Svant.:</b> '+r.sv+'</div>'+umano;const sel=$("#umano-sel");if(sel)sel.onchange=e=>{pg.umanoAttr=e.target.value;computeAttr();render();};}
 function renderAttr(){const elx=$("#attr-area");const r=race();if(!r){elx.innerHTML='<div class="infobox red">Scegli prima una razza (Passo 2).</div>';return;}const ra=racialAttr();const others=ATTRS.filter(a=>a!==ra);if(!others.includes(pg.d6attr))pg.d6attr="";elx.innerHTML='<div class="infobox"><b>'+ra+'</b> riceve <b>'+r.die+'</b>. Scegli quale degli altri prende il <b>d6</b> (gli altri due d4).</div><label class="fld">Attributo con il d6</label><select id="d6-sel"><option value="">— scegli —</option>'+others.map(a=>'<option'+(pg.d6attr===a?' selected':'')+'>'+a+'</option>').join('')+'</select><div class="attrgrid" id="attr-disp"></div>';$("#d6-sel").onchange=e=>{pg.d6attr=e.target.value;computeAttr();renderAttr();render();};const disp=$("#attr-disp");ATTRS.forEach(a=>disp.appendChild(el("div",{class:"attrrow"+(a===ra?" locked":""),html:'<div class="name">'+a+(a===ra?' <span class="sd">(razza)</span>':'')+'</div><div class="die">'+(pg.attr[a]||"—")+'</div>'})));}
-function renderRoles(){const c=$("#role-cards");c.innerHTML="";ROLES.forEach(r=>{const sk=(r.skill==="varia")?"varia per Stile":(r.skill+" (d8)");c.appendChild(el("div",{class:"card"+(pg.role===r.name?" sel":""),html:'<div class="t">'+r.name+'</div><div class="d">Skill: '+sk+'</div>',onclick:()=>{pg.role=r.name;pg.style=firstStyle(r.name);pg.roleSkillChoice=defaultSkillChoice();const sko=roleObj()&&roleObj().skill;if(sko&&pg.skills[sko])delete pg.skills[sko];renderRoles();render();}}));});const ro=roleObj();let info="";if(ro){const T=TALENTS[pg.role];var stSpec=(T.styles&&T.styles[pg.style])||null;var skTxt=ro.skill?('<b>'+ro.skill+'</b> a <b>d8</b>'):'una <b>Skill a tua scelta</b> (selezionala qui sotto) a <b>d8</b>';info='<div class="infobox">Come <b>'+pg.role+'</b> ottieni '+skTxt+'.';if(T&&T.multi){info+='<br><label class="fld" style="margin-top:6px;">Stile</label><select id="style-sel">'+Object.keys(T.styles).map(function(st){return '<option'+(pg.style===st?" selected":"")+'>'+st+'</option>';}).join("")+'</select>';}if(stSpec&&stSpec.skillChoice){var opts=(stSpec.skillChoice==="any")?Object.keys(SKILLS):stSpec.skillChoice;var head=(stSpec.skillChoice==="any")?'<option value="">\u2014 scegli una Skill \u2014</option>':'';info+='<br><label class="fld" style="margin-top:6px;">Skill di Ruolo</label><select id="rsk-sel">'+head+opts.map(function(sk){return '<option'+(pg.roleSkillChoice===sk?" selected":"")+'>'+sk+'</option>';}).join("")+'</select>';}info+="</div>";}$("#role-info").innerHTML=info;const ssl=$("#style-sel");if(ssl)ssl.onchange=function(e){pg.style=e.target.value;pg.roleSkillChoice=defaultSkillChoice();renderRoles();render();};const rks=$("#rsk-sel");if(rks)rks.onchange=function(e){pg.roleSkillChoice=e.target.value;renderRoles();render();};}
+function renderRoles(){const c=$("#role-cards");c.innerHTML="";ROLES.forEach(r=>{const sk=(r.skill==="varia")?"varia per Stile":(r.skill+" (d8)");c.appendChild(el("div",{class:"card"+(pg.role===r.name?" sel":""),html:'<div class="t">'+r.name+'</div><div class="d">Skill: '+sk+'</div>',onclick:()=>{GLCTalents.changeRole(pg,{role:r.name,style:firstStyle(r.name),roleSkillChoice:""},1,{creation:true});pg.roleSkillChoice=defaultSkillChoice();renderRoles();render();}}));});const ro=roleObj();let info="";if(ro){const T=TALENTS[pg.role];var stSpec=(T.styles&&T.styles[pg.style])||null;var skTxt=ro.skill?('<b>'+ro.skill+'</b> a <b>d8</b>'):'una <b>Skill a tua scelta</b> (selezionala qui sotto) a <b>d8</b>';info='<div class="infobox">Come <b>'+pg.role+'</b> ottieni '+skTxt+'.';if(T&&T.multi){info+='<br><label class="fld" style="margin-top:6px;">Stile</label><select id="style-sel">'+Object.keys(T.styles).map(function(st){return '<option'+(pg.style===st?" selected":"")+'>'+st+'</option>';}).join("")+'</select>';}if(stSpec&&stSpec.skillChoice){var opts=(stSpec.skillChoice==="any")?Object.keys(SKILLS):stSpec.skillChoice;var head=(stSpec.skillChoice==="any")?'<option value="">\u2014 scegli una Skill \u2014</option>':'';info+='<br><label class="fld" style="margin-top:6px;">Skill di Ruolo</label><select id="rsk-sel">'+head+opts.map(function(sk){return '<option'+(pg.roleSkillChoice===sk?" selected":"")+'>'+sk+'</option>';}).join("")+'</select>';}info+="</div>";}$("#role-info").innerHTML=info;const ssl=$("#style-sel");if(ssl)ssl.onchange=function(e){const st=e.target.value,spec=TALENTS[pg.role].styles[st];GLCTalents.changeRole(pg,{style:st,roleSkillChoice:Array.isArray(spec.skillChoice)?spec.skillChoice[0]:""},1,{creation:true});renderRoles();render();};const rks=$("#rsk-sel");if(rks)rks.onchange=function(e){GLCTalents.changeRole(pg,{roleSkillChoice:e.target.value},1,{creation:true});renderRoles();render();};}
 function countDie(v){return Object.values(pg.skills).filter(x=>x===v).length;}
 function renderSkills(){const ro=roleObj();const rs=ro?ro.skill:null;const list=$("#skill-list");list.innerHTML="";if(rs)list.appendChild(el("div",{class:"skillrow role",html:'<div><span class="sn">'+rs+'</span> <span class="sd">— '+(SKILLS[rs]||"")+'</span></div><div class="pick"><button class="on" disabled>d8 (Ruolo)</button></div>'}));Object.keys(SKILLS).forEach(name=>{if(name===rs)return;const cur=pg.skills[name]||"";const row=el("div",{class:"skillrow",html:'<div><span class="sn">'+name+'</span> <span class="sd">— '+SKILLS[name]+'</span></div>'});const pick=el("div",{class:"pick"});["0","d4","d6"].forEach(v=>{const b=el("button",{text:v,onclick:()=>setSkill(name,v)});if(cur===v||(v==="0"&&!cur))b.classList.add("on");pick.appendChild(b);});row.appendChild(pick);list.appendChild(row);});updateSkillCounter();}
 function setSkill(name,v){if(v==="0"){delete pg.skills[name];}else{const others=Object.entries(pg.skills).filter(([k])=>k!==name).filter(([,x])=>x===v).length;if(others>=2){const e=$("#skill-counter");e.style.color="#b71c1c";setTimeout(()=>e.style.color="",400);return;}pg.skills[name]=v;}renderSkills();render();}
@@ -2891,7 +2912,7 @@ function miniStepper(die,onCh){return el("span",{class:"step2 mini"},[el("button
 function stepper(die,onCh){return el("span",{class:"step2"},[el("button",{text:"−",onclick:()=>onCh(stepDie(die,-1))}),el("b",{text:die||"—"}),el("button",{text:"+",onclick:()=>onCh(stepDie(die,1))})]);}
 function mutate(fn){fn();renderManage();render();}
 function allTech(){const r=race();const list=[];if(r)list.push({k:"racial",name:r.tech,attr:"—",die:pg.racialDie,fixed:true});if(pg.t1.nome)list.push({k:"t1",name:pg.t1.nome,attr:pg.t1.attr,die:pg.t1.die});if(pg.t2.nome)list.push({k:"t2",name:pg.t2.nome,attr:pg.t2.attr,die:pg.t2.die});pg.extraTech.forEach((t,i)=>list.push({k:"x"+i,name:t.nome,attr:t.attr,die:t.die,idx:i,obj:t}));return list;}
-function setTechDie(t,nd){if(t.k==="racial")pg.racialDie=nd;else if(t.k==="t1")pg.t1.die=nd;else if(t.k==="t2")pg.t2.die=nd;else if(typeof t.idx==="number")pg.extraTech[t.idx].die=nd;}
+function setTechDie(t,nd){if(t.k==="racial")pg.racialDie=nd;}
 function removeTech(t){if(t.k==="t1")pg.t1={nome:"",desc:"",attr:"",die:"d4"};else if(t.k==="t2")pg.t2={nome:"",desc:"",attr:"",die:"d4"};else if(typeof t.idx==="number")pg.extraTech.splice(t.idx,1);}
 function intOrNull(v){if(v===""||v==null)return null;const n=parseInt(v);return isNaN(n)?null:n;}
 function field(label,val,onCh){const w=el("div",{});w.appendChild(el("label",{class:"fld",text:label}));const i=el("input",{type:"text"});i.value=val||"";i.oninput=()=>onCh(i.value);w.appendChild(i);return w;}
@@ -2961,22 +2982,23 @@ function roleIco(rn,stv){const T=TALENTS[rn];if(!T)return "star";const ks=Object
 function roleStyleSpec(rn,stv){const T=TALENTS[rn];if(!T)return null;const ks=Object.keys(T.styles);return T.styles[T.multi?(stv||ks[0]):ks[0]]||null;}
 /* Talenti: acquisiti e sbloccabili, con descrizione. */
 function talentPools(){const got=[],open=[],locked=[];
- const scan=(rn,stv,slot)=>{const T=TALENTS[rn];if(!T)return;const ks=Object.keys(T.styles);const useSt=T.multi?(stv||ks[0]):ks[0];if(!styleVisible(useSt))return;const sty=T.styles[useSt];const keyStyle=T.multi?useSt:rn;const cur=dieRank(roleSkillDieOf(rn,stv,slot));const skName=roleSkillOf(rn,stv,roleChoice(slot))||"Skill di Ruolo";const taken=n=>pg.talents.indexOf(rn+" · "+keyStyle+" · "+n)>=0;
-  (sty.talenti||[]).forEach(tl=>{const key=rn+" · "+keyStyle+" · "+tl.n;const tier=tl.tier||"d8";const o={cur:roleSkillDieOf(rn,stv,slot),skName:skName,key:key,name:tl.n,desc:tl.d,glyph:talentGlyph(tl.n,STYLE_ICON[T.multi?useSt:rn]||"star"),branch:(T.multi?useSt:rn),tier:tier,tierLabel:skName+" "+tier+" · "+TIER_LABEL[tier],ult:tl.t==="ultimate",req:tl.req||"",reqOk:!tl.req||taken(tl.req),src:"role"};
-   o.replacedBy=window.GLCPrestige?GLCPrestige.superseded(pg,key):"";
-   o.inherited=window.GLCPrestige?GLCPrestige.inherited(pg,key):[];
-   if(o.replacedBy){o.superseded=true;locked.push(o);}else if(taken(tl.n)&&cur>=dieRank(tier)&&o.reqOk)got.push(o);else if(cur>=dieRank(tier))open.push(o);else locked.push(o);});};
- if(pg.role)scan(pg.role,pg.style,1);if(pg.role2)scan(pg.role2,pg.style2,2);
- if(pg.frutto&&pg.frutto.has&&FRUIT_TALENTS[pg.frutto.tipo]){const FT=FRUIT_TALENTS[pg.frutto.tipo];const fcur=dieRank(pg.frutto.die||"d4");const ftaken=n=>pg.talents.indexOf("Frutto · "+pg.frutto.tipo+" · "+n)>=0;
-  (FT.talenti||[]).forEach(tl=>{const key="Frutto · "+pg.frutto.tipo+" · "+tl.n;const tier=tl.tier||"d4";const ft=FRUIT_TIERS.find(x=>x[0]===tier)||FRUIT_TIERS[0];const o={cur:pg.frutto.die||"d4",skName:"Dado del Frutto",key:key,name:tl.n,desc:tl.d,glyph:talentGlyph(tl.n,STYLE_ICON[pg.frutto.tipo]||"orb"),branch:"Frutto "+pg.frutto.tipo,tier:tier,tierLabel:"Dado del Frutto "+ft[2]+" · "+ft[1],ult:tl.t==="ultimate",req:tl.req||"",reqOk:!tl.req||/^Zoan /.test(tl.req)||ftaken(tl.req),src:"fruit"};
-   if(ftaken(tl.n))got.push(o);else if(fcur>=dieRank(tier))open.push(o);else locked.push(o);});}
- return {got:got,open:open,locked:locked};}
-function talentDetailModal(o,taken){openModal((o.ult?"⭐ ":"✦ ")+o.name,()=>{const w=el("div",{class:"tdetail"});w.appendChild(el("div",{class:"medring big"+(o.ult&&ultImg(o.branch)?" art":""),html:talentArt(o,o.ult?64:46)}));w.appendChild(el("div",{class:"tdsub",text:o.branch+" · "+(o.ult?(o.src==="fruit"?"Risveglio":"Ultimate"):o.tierLabel)}));if(o.req)w.appendChild(el("div",{class:"tdsub",html:"Richiede: <b>"+o.req+"</b>"+(o.reqOk?"":" <i>(non ancora preso)</i>")}));w.appendChild(el("p",{class:"tddesc",text:o.desc}));if(o.superseded)w.appendChild(el("p",{class:"prg-reason",text:"Evoluto in "+o.replacedBy+". Non utilizzabile separatamente."}));const row=el("div",{class:"addrow"});if(taken)row.appendChild(el("button",{class:"btn sm ghost",text:"Rimuovi talento",onclick:()=>{mutateM(()=>{const ix=pg.talents.indexOf(o.key);if(ix>=0)pg.talents.splice(ix,1);});closeModal();}}));else if(o.reqOk&&!o.superseded&&dieRank(o.cur)>=dieRank(o.tier))row.appendChild(el("button",{class:"btn sm gold",text:"✦ Prendi questo talento",onclick:()=>{mutateM(()=>{if(pg.talents.indexOf(o.key)<0)pg.talents.push(o.key);});closeModal();flyIn('<div class="medring big" style="width:120px;height:120px;margin:0">'+svgIcon(o.glyph,58)+'</div>',()=>byText(".medal .medname",o.name));}}));w.appendChild(row);return w;});}
+ GLCTalents.states(pg).forEach(st=>{const tl=st.definition,fruit=st.src==="fruit",ft=FRUIT_TIERS.find(x=>x[0]===st.tier)||FRUIT_TIERS[0];
+  const o={cur:st.cur,skName:st.skill,key:st.key,name:st.name,desc:tl.d,glyph:talentGlyph(st.name,STYLE_ICON[st.style]||"star"),branch:fruit?("Frutto "+st.style):st.style,tier:st.tier,tierLabel:fruit?("Dado del Frutto "+ft[2]+" · "+ft[1]):(st.skill+" "+st.tier+" · "+TIER_LABEL[st.tier]),ult:tl.t==="ultimate",req:st.req,reqOk:st.eligible,src:st.src,owned:st.owned,replacedBy:st.replacedBy,superseded:!!st.replacedBy,inherited:window.GLCPrestige?GLCPrestige.inherited(pg,st.key):[]};
+  if(st.active)got.push(o);else if(st.available)open.push(o);else locked.push(o);
+ });return {got,open,locked};}
+function chooseOrdinaryTalent(key,take=true){const st=GLCTalents.states(pg).find(t=>t.key===key);GLCAdvancement.chooseTalent(pg,key,take,!!st?.available);}
+function choicesInfo(){const b=GLCAdvancement.talentChoices(pg);return b.remaining+" scelte disponibili · "+b.used+" acquisizioni / "+b.granted+" scelte concesse";}
+function advancementModal(){openModal("Scelte degli Upgrade",()=>{const w=el("div",{class:"upgrade-choices"});w.appendChild(el("p",{text:"Ogni Upgrade concede una scelta condivisa fra Talenti ordinari e Tratti Unici. Le scelte di Prestigio I, III e V restano separate."}));w.appendChild(el("p",{class:"sub",text:choicesInfo()}));
+ w.appendChild(el("button",{class:"btn sm gold",text:"Registra una scelta da Upgrade",onclick:()=>{mutateM(()=>GLCAdvancement.grant(pg));if(TT.open)renderTalentTree(false);}}));
+ const label=el("label",{class:"fld",text:"Scelte complessive concesse dal GM"}),input=el("input",{type:"number",min:String(GLCAdvancement.talentChoices(pg).used),step:"1","aria-label":"Scelte complessive concesse dal GM"});input.value=GLCAdvancement.talentChoices(pg).granted;label.appendChild(input);w.appendChild(label);
+ w.appendChild(el("button",{class:"btn sm ghost",text:"Aggiorna conteggio",onclick:()=>{try{mutateM(()=>GLCAdvancement.setGranted(pg,input.value));if(TT.open)renderTalentTree(false);}catch(error){alert(error.message);}}}));w.appendChild(el("p",{class:"sub",text:"Il conteggio registra scelte già concesse al tavolo. Non assegna P.A., PV o Stamina e non modifica le acquisizioni precedenti."}));w.appendChild(el("button",{class:"gbtn",text:"Tratti Unici e Sinergie",onclick:uniqueTraitsModal}));return w;});}
+function uniqueTraitsModal(){const previousFocus=document.activeElement;const modal=openModal("Tratti Unici e Sinergie",()=>{const host=el("div");GLCTrattiUI.mount(host,{getCharacter:()=>pg,choicesInfo:c=>GLCAdvancement.talentChoices(c),onManageChoices:advancementModal,onChoose:(id,take)=>{const next=JSON.parse(JSON.stringify(pg));GLCTratti.choose(next,id,take);pg=next;CT.chars[CT.activeId]=pg;save();renderManage();render();}});return host;},{xwide:true});modal.setAttribute("role","dialog");modal.setAttribute("aria-modal","true");modal.setAttribute("aria-label","Tratti Unici e Sinergie");modal._onClose=()=>previousFocus?.focus?.();}
+function talentDetailModal(o,taken){openModal((o.ult?"⭐ ":"✦ ")+o.name,()=>{const w=el("div",{class:"tdetail"});w.appendChild(el("div",{class:"medring big"+(o.ult&&ultImg(o.branch)?" art":""),html:talentArt(o,o.ult?64:46)}));w.appendChild(el("div",{class:"tdsub",text:o.branch+" · "+(o.ult?(o.src==="fruit"?"Risveglio":"Ultimate"):o.tierLabel)}));if(o.req)w.appendChild(el("div",{class:"tdsub",html:"Richiede: <b>"+o.req+"</b>"+(o.reqOk?"":" <i>(non ancora preso)</i>")}));w.appendChild(el("p",{class:"tddesc",text:o.desc}));w.appendChild(el("p",{class:"sub",text:choicesInfo()}));w.appendChild(el("button",{class:"gbtn",text:"Scelte degli Upgrade",onclick:advancementModal}));if(o.superseded)w.appendChild(el("p",{class:"prg-reason",text:"Evoluto in "+o.replacedBy+". Non utilizzabile separatamente."}));const row=el("div",{class:"addrow"});if(taken)row.appendChild(el("button",{class:"btn sm ghost",text:"Rimuovi talento",onclick:()=>{mutateM(()=>{chooseOrdinaryTalent(o.key,false);});closeModal();}}));else if(o.reqOk&&!o.superseded&&dieRank(o.cur)>=dieRank(o.tier))row.appendChild(el("button",{class:"btn sm gold",text:"✦ Prendi questo talento",disabled:!GLCAdvancement.canAcquire(pg).allowed,onclick:()=>{mutateM(()=>{chooseOrdinaryTalent(o.key,true);});closeModal();flyIn('<div class="medring big" style="width:120px;height:120px;margin:0">'+svgIcon(o.glyph,58)+'</div>',()=>byText(".medal .medname",o.name));}}));w.appendChild(row);return w;});}
 function unlockTalentsModal(){openModal("✦ Sblocca un talento",()=>{const P=talentPools();const w=el("div",{});w.appendChild(el("div",{class:"sub",html:"Un Talento a ogni Upgrade. Qui vedi solo ciò che il tuo dado ha già aperto; il resto si sblocca salendo con la Skill di Ruolo o col Dado del Frutto. Talenti presi: <b>"+pg.talents.length+"</b>"}));
  if(!P.open.length)w.appendChild(el("div",{class:"medempty",text:pg.role?"Niente da sbloccare per ora: sali con la Skill di Ruolo (o col Dado del Frutto).":"Scegli prima una classe."}));
  const groups={};P.open.forEach(o=>{(groups[o.branch+"|"+o.tierLabel]=groups[o.branch+"|"+o.tierLabel]||[]).push(o);});
- Object.keys(groups).forEach(k=>{const [br,tl]=k.split("|");w.appendChild(el("div",{class:"talfascia",html:((STYLE_IMG[br]||ROLE_IMG[br])?emblem(STYLE_IMG[br]||ROLE_IMG[br],24)+" ":"")+br+" — "+tl}));const g=el("div",{class:"medgrid pick"});groups[k].forEach(o=>{const md=medal(o.glyph,o.name,o.ult?"Ultimate":(o.req?("richiede "+o.req):""),!o.reqOk);md.onclick=()=>talentDetailModal(o,false);g.appendChild(md);});w.appendChild(g);});
- if(P.locked.length){const det=el("details",{class:"tbfam"});det.appendChild(el("summary",{text:"🔒 Ancora bloccati ("+P.locked.length+")"}));const lg={};P.locked.forEach(o=>{(lg[o.branch+"|"+o.tierLabel]=lg[o.branch+"|"+o.tierLabel]||[]).push(o);});Object.keys(lg).forEach(k=>{const [br,tl]=k.split("|");det.appendChild(el("div",{class:"talfascia locked",html:"🔒 "+br+" — "+tl}));const g=el("div",{class:"medgrid pick"});lg[k].forEach(o=>{const md=medal(o.glyph,o.name,o.ult?"Ultimate":"",true);md.onclick=()=>talentDetailModal(o,false);g.appendChild(md);});det.appendChild(g);});w.appendChild(det);}
+ Object.keys(groups).forEach(k=>{const [br,tl]=k.split("|");w.appendChild(el("div",{class:"talfascia",html:((STYLE_IMG[br]||ROLE_IMG[br])?emblem(STYLE_IMG[br]||ROLE_IMG[br],24)+" ":"")+br+" — "+tl}));const g=el("div",{class:"medgrid pick"});groups[k].forEach(o=>{const md=medal(o.glyph,o.name,o.ult?"Ultimate":(o.req?("richiede "+o.req):""),!o.reqOk);md.onclick=()=>talentDetailModal(o,!!o.owned);g.appendChild(md);});w.appendChild(g);});
+ if(P.locked.length){const det=el("details",{class:"tbfam"});det.appendChild(el("summary",{text:"🔒 Ancora bloccati ("+P.locked.length+")"}));const lg={};P.locked.forEach(o=>{(lg[o.branch+"|"+o.tierLabel]=lg[o.branch+"|"+o.tierLabel]||[]).push(o);});Object.keys(lg).forEach(k=>{const [br,tl]=k.split("|");det.appendChild(el("div",{class:"talfascia locked",html:"🔒 "+br+" — "+tl}));const g=el("div",{class:"medgrid pick"});lg[k].forEach(o=>{const md=medal(o.glyph,o.name,o.ult?"Ultimate":"",true);md.onclick=()=>talentDetailModal(o,!!o.owned);g.appendChild(md);});det.appendChild(g);});w.appendChild(det);}
  return w;},{wide:true});}
 /* ==========================================================================
    TALENT TREE · vista dedicata (guida UI v1.0)
@@ -3067,7 +3089,7 @@ function renderTalentTree(recenter){
   b.appendChild(el("span",{class:"tt-tn"},[el("b",{text:s.label}),el("small",{text:(s.fruit?"Dado del Frutto ":((s.sk||"Skill")+" "))+(s.cur||"—")+(s.av?(" · "+s.av+" da prendere"):"")})]));
   b.onclick=()=>{TT.src=s.id;TT.sel="";renderTalentTree(true);};tabs.appendChild(b);});
  head.appendChild(tabs);
- head.appendChild(el("div",{class:"tt-count",html:"Talenti presi <b>"+visibleTalents().length+"</b>"}));
+ head.appendChild(el("button",{class:"tt-count",text:choicesInfo(),onclick:advancementModal}));
  v.appendChild(head);
  if(!S){v.appendChild(el("div",{class:"tt-empty",text:"Scegli prima una classe: gli alberi dei talenti nascono dal Ruolo e dal Frutto."}));return;}
  /* Dossier e fasce: sola presentazione dei valori già calcolati da ttSources. */
@@ -3153,12 +3175,12 @@ function renderTalentTree(recenter){
   pn.appendChild(el("p",{class:"tt-pd",text:sel.desc}));
   if(sel.inherited?.length){const heritage=el("details",{class:"prg-heritage"},[el("summary",{text:"Benefici incorporati dalle versioni precedenti"})]);sel.inherited.forEach(t=>heritage.appendChild(el("p",{text:t.n+": "+t.d})));pn.appendChild(heritage);}
   if((sel.st==="locked"||sel.st==="superseded")&&sel.why)pn.appendChild(el("div",{class:"tt-why",text:sel.why}));
-  const act=el("div",{class:"tt-pa"});
-  if(sel.st==="open")act.appendChild(el("button",{class:"btn sm gold",text:"✦ Prendi questo talento",onclick:()=>{
-   mutate(()=>{if(pg.talents.indexOf(sel.key)<0)pg.talents.push(sel.key);});
+  const act=el("div",{class:"tt-pa"});act.appendChild(el("p",{class:"sub",text:choicesInfo()}));if(!GLCAdvancement.canAcquire(pg).allowed&&!sel.owned)act.appendChild(el("button",{class:"gbtn",text:"Scelte degli Upgrade",onclick:advancementModal}));
+  if(sel.st==="open")act.appendChild(el("button",{class:"btn sm gold",text:"✦ Prendi questo talento",disabled:!GLCAdvancement.canAcquire(pg).allowed,onclick:()=>{
+   mutate(()=>{chooseOrdinaryTalent(sel.key,true);});
    TT.flash=sel.key;renderTalentTree(false);setTimeout(()=>{TT.flash="";},900);}}));
-  if(sel.st==="got")act.appendChild(el("button",{class:"btn sm ghost",text:"Rimuovi talento",onclick:()=>{
-   mutate(()=>{const ix=pg.talents.indexOf(sel.key);if(ix>=0)pg.talents.splice(ix,1);});renderTalentTree(false);}}));
+  if(sel.owned||sel.st==="got")act.appendChild(el("button",{class:"btn sm ghost",text:"Rimuovi talento",onclick:()=>{
+   mutate(()=>{chooseOrdinaryTalent(sel.key,false);});renderTalentTree(false);}}));
   pn.appendChild(act);
   v.appendChild(pn);v.classList.add("with-panel");
  } else {
@@ -3183,14 +3205,14 @@ function renderTalentTree(recenter){
 function classCard(rn,stv,slot){const T=TALENTS[rn];const sty=roleStyleSpec(rn,stv);const sk=roleSkillOf(rn,stv,roleChoice(slot));const die=roleSkillDieOf(rn,stv,slot);const c=el("div",{class:"classcard"});{const k=roleImgKey(rn,stv);c.appendChild(el("div",{class:"cc-ico"+(k?" img":""),html:k?emblem(k,66):svgIcon(roleIco(rn,stv),28)}));}const b=el("div",{class:"cc-body"});b.appendChild(el("div",{class:"cc-k",text:slot===1?"Classe":"Seconda classe · solo Talenti"}));b.appendChild(el("div",{class:"cc-n",text:rn+((T&&T.multi&&stv)?(" · "+stv):"")}));b.appendChild(el("div",{class:"cc-s",html:(sk?("Skill di Ruolo <b>"+sk+"</b>"+(die?(" "+die):"")):"Skill di Ruolo da scegliere")}));if(sty&&sty.tratto)b.appendChild(el("div",{class:"cc-t",html:"<b>Tratto</b> "+sty.tratto}));if(sty&&sty.firma)b.appendChild(el("div",{class:"cc-t",html:"<b>Firma (+4)</b> "+sty.firma}));c.appendChild(b);c.onclick=()=>classPickerModal(slot);return c;}
 function classPickerModal(slot){openModal(slot===1?"⚔️ Scegli la classe":"✦ Seconda classe (solo Talenti)",()=>{const w=el("div",{});const cur=slot===1?pg.role:pg.role2;const curSt=slot===1?pg.style:pg.style2;
  const g=el("div",{class:"classgrid"});if(slot===2){const none=el("div",{class:"classopt"+(!cur?" sel":"")},[el("div",{class:"co-ico",html:"&mdash;"}),el("div",{class:"co-n",text:"Nessuna"}),el("div",{class:"co-s",text:"solo la classe principale"})]);none.onclick=()=>mutateM(()=>{pg.role2=null;pg.style2="";});g.appendChild(none);}
- Object.keys(TALENTS).forEach(rn=>{const T=TALENTS[rn];const o=el("div",{class:"classopt"+(cur===rn?" sel":"")},[el("div",{class:"co-ico",html:ROLE_IMG[rn]?emblem(ROLE_IMG[rn],58):svgIcon(roleIco(rn,cur===rn?curSt:""),30)}),el("div",{class:"co-n",text:rn}),el("div",{class:"co-s",text:T.skill?("Skill: "+T.skill):(T.multi?"Skill per Stile":"")})]);o.onclick=()=>mutateM(()=>{if(slot===1){pg.role=rn;pg.style=firstStyle(rn);pg.roleSkillChoice=defaultSkillChoice();}else{pg.role2=rn;pg.style2=firstStyle(rn);}});g.appendChild(o);});
+ Object.keys(TALENTS).forEach(rn=>{const T=TALENTS[rn];const o=el("div",{class:"classopt"+(cur===rn?" sel":"")},[el("div",{class:"co-ico",html:ROLE_IMG[rn]?emblem(ROLE_IMG[rn],58):svgIcon(roleIco(rn,cur===rn?curSt:""),30)}),el("div",{class:"co-n",text:rn}),el("div",{class:"co-s",text:T.skill?("Skill: "+T.skill):(T.multi?"Skill per Stile":"")})]);o.onclick=()=>mutateM(()=>{GLCTalents.changeRole(pg,{role:rn,style:firstStyle(rn),roleSkillChoice:""},slot);});g.appendChild(o);});
  w.appendChild(g);
  const rn=slot===1?pg.role:pg.role2;
- if(rn&&TALENTS[rn]&&TALENTS[rn].multi){w.appendChild(el("div",{class:"talfascia",text:"Stile di "+rn}));const sg=el("div",{class:"classgrid"});Object.keys(TALENTS[rn].styles).filter(styleVisible).forEach(st=>{const sty=TALENTS[rn].styles[st];const on=(slot===1?pg.style:pg.style2)===st;const o=el("div",{class:"classopt"+(on?" sel":"")},[el("div",{class:"co-ico",html:roleImgKey(rn,st)?emblem(roleImgKey(rn,st),58):svgIcon(STYLE_ICON[st]||"star",30)}),el("div",{class:"co-n",text:st}),el("div",{class:"co-s",text:(sty.tratto||"").split(" — ")[0]})]);o.onclick=()=>mutateM(()=>{if(slot===1){pg.style=st;pg.roleSkillChoice=defaultSkillChoice();}else pg.style2=st;});sg.appendChild(o);});w.appendChild(sg);}
- if(rn){const spec=roleStyleSpec(rn,slot===1?pg.style:pg.style2);if(spec&&spec.skillChoice){const opts=(spec.skillChoice==="any")?Object.keys(SKILLS):spec.skillChoice;w.appendChild(el("label",{class:"fld",text:slot===1?"Skill di Ruolo":"Skill di questa classe"}));const sl=el("select",{},[el("option",{value:"",text:"— scegli —"})].concat(opts.map(s=>el("option",{value:s,text:s}))));sl.value=roleChoice(slot);sl.onchange=()=>mutateM(()=>{if(slot===1)pg.roleSkillChoice=sl.value;else pg.roleSkillChoice2=sl.value;});w.appendChild(sl);}
+ if(rn&&TALENTS[rn]&&TALENTS[rn].multi){w.appendChild(el("div",{class:"talfascia",text:"Stile di "+rn}));const sg=el("div",{class:"classgrid"});Object.keys(TALENTS[rn].styles).filter(styleVisible).forEach(st=>{const sty=TALENTS[rn].styles[st];const on=(slot===1?pg.style:pg.style2)===st;const o=el("div",{class:"classopt"+(on?" sel":"")},[el("div",{class:"co-ico",html:roleImgKey(rn,st)?emblem(roleImgKey(rn,st),58):svgIcon(STYLE_ICON[st]||"star",30)}),el("div",{class:"co-n",text:st}),el("div",{class:"co-s",text:(sty.tratto||"").split(" — ")[0]})]);o.onclick=()=>mutateM(()=>{GLCTalents.changeRole(pg,{style:st,roleSkillChoice:Array.isArray(sty.skillChoice)?sty.skillChoice[0]:""},slot);});sg.appendChild(o);});w.appendChild(sg);}
+ if(rn){const spec=roleStyleSpec(rn,slot===1?pg.style:pg.style2);if(spec&&spec.skillChoice){const opts=(spec.skillChoice==="any")?Object.keys(SKILLS):spec.skillChoice;w.appendChild(el("label",{class:"fld",text:slot===1?"Skill di Ruolo":"Skill di questa classe"}));const sl=el("select",{},[el("option",{value:"",text:"— scegli —"})].concat(opts.map(s=>el("option",{value:s,text:s}))));sl.value=roleChoice(slot);sl.onchange=()=>mutateM(()=>{GLCTalents.changeRole(pg,{roleSkillChoice:sl.value},slot);});w.appendChild(sl);}
   if(slot===2){const sk2=roleSkillOf(rn,pg.style2,roleChoice(2));const d2=roleSkillDieOf(rn,pg.style2,2);
    w.appendChild(el("div",{class:"compat "+(d2?"ok":"wait"),html:d2?("I Talenti di questa classe si aprono con <b>"+sk2+" "+d2+"</b>."):("La Skill di Ruolo a d8 ne resta una sola. I Talenti di questa classe si aprono con <b>"+(sk2||"la sua Skill")+"</b>: allenala fra le Skill e l\'albero si apre da lì.")}));}}
- if(slot===2&&pg.role2)w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm ghost",text:"⇄ Scambia con la classe principale (il d8 passa all'altra)",onclick:()=>mutateM(()=>{const rr=pg.role,sst=pg.style;pg.role=pg.role2;pg.style=pg.style2;pg.role2=rr;pg.style2=sst;})})]));
+ if(slot===2&&pg.role2)w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm ghost",text:"⇄ Scambia con la classe principale (conserva i dadi delle Skill)",onclick:()=>mutateM(()=>{GLCTalents.swapRoles(pg);})})]));
  const cur2=slot===1?pg.role:pg.role2;if(cur2){const sty=roleStyleSpec(cur2,slot===1?pg.style:pg.style2);if(sty){w.appendChild(el("div",{class:"cc-t",style:"margin-top:10px",html:"<b>Tratto</b> "+(sty.tratto||"")}));if(sty.firma)w.appendChild(el("div",{class:"cc-t",html:"<b>Firma (+4)</b> "+sty.firma}));}}
  return w;},{wide:true});}
 /* Il medaglione della Razza sta nell'angolo della foto: la foto è un unico
@@ -3253,9 +3275,22 @@ function instrumentModal(i){openModal("🎼 Strumento",()=>{const a=pg.strumenti
  w.appendChild(field("Effetto speciale (uno solo, lo concede il GM)",a.note,v=>{a.note=v;save();}));
  const det=el("details",{class:"tbfam",style:"margin-top:10px"});det.appendChild(el("summary",{text:"Esempi dal manuale · tocca per usarne uno"}));const eg=el("div",{class:"gcards"});INSTR_ESEMPI.forEach(ex=>{const c=el("div",{class:"gcard click"},[el("div",{class:"gc-ico",html:dieIcon(ex[2],40)}),el("div",{class:"gc-body"},[el("div",{class:"gc-n",text:ex[1]}),el("div",{class:"gc-m",text:ex[0]+" · "+ex[2]+" "+(INSTR_GRADI[ex[2]]||"")}),el("div",{class:"gc-d",text:ex[3]})])]);c.onclick=()=>mutateM(()=>{a.nome=ex[1];a.tipo=ex[0];a.die=ex[2];a.note=ex[3];});eg.appendChild(c);});det.appendChild(eg);w.appendChild(det);
  w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{closeModal();mutate(()=>pg.strumenti.splice(i,1));}})]));return w;});}
-function techModal(t){openModal("✦ "+(t.name||"Tecnica"),()=>{const w=el("div",{});const obj=t.k==="t1"?pg.t1:(t.k==="t2"?pg.t2:null);if(t.fixed){w.appendChild(el("div",{class:"tdsub",text:"Tecnica razziale · "+t.die}));w.appendChild(el("div",{class:"tddesc",html:racialEffect(pg.race,t.die)}));}else if(obj){w.appendChild(field("Nome",obj.nome,v=>{obj.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Attributo · Dado"}));w.appendChild(el("div",{class:"mrow"},[attrSelect(obj.attr,v=>{obj.attr=v;save();}),stepper(obj.die,nd=>mutateM(()=>obj.die=nd))]));w.appendChild(el("label",{class:"fld",text:"Descrizione / Effetti"}));const tx=el("textarea",{});tx.value=obj.desc||"";tx.oninput=()=>{obj.desc=tx.value;save();};w.appendChild(tx);}
- w.appendChild(el("label",{class:"fld",text:"Progressione"}));w.appendChild(paRowM("tec:"+t.k,()=>(t.fixed?pg.racialDie:(obj?obj.die:t.die)),nd=>setTechDie(t,nd)));
- const row=el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}})]);if(!t.fixed)row.appendChild(el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare questa tecnica?")){closeModal();mutate(()=>removeTech(t));}}}));w.appendChild(row);if(window.GLCDetails)GLCDetails.prepare(w,"legacy",obj||t,t);return w;});}
+function techModal(t){openModal("✦ "+(t.name||"Tecnica"),()=>{
+ const w=el("div",{}),obj=t.k==="t1"?pg.t1:(t.k==="t2"?pg.t2:null);
+ if(t.fixed){
+  w.appendChild(el("div",{class:"tdsub",text:"Tecnica razziale · "+t.die}));w.appendChild(el("div",{class:"tddesc",html:racialEffect(pg.race,t.die)}));
+  w.appendChild(el("label",{class:"fld",text:"Progressione razziale"}));w.appendChild(paRowM("tec:"+t.k,()=>pg.racialDie,nd=>setTechDie(t,nd)));
+ }else if(obj){
+  w.appendChild(field("Nome",obj.nome,v=>{obj.nome=v;save();}));
+  w.appendChild(el("p",{class:"tdsub",text:[obj.attr||"Attributo da scegliere",obj.die||"Grado da scegliere"].join(" · ")}));
+  w.appendChild(el("p",{class:"compat wait",text:"Questa Tecnica conserva il profilo iniziale. Fonte, Stile, Grado ed effetti vengono verificati dal Costruttore. Le Tecniche personalizzate non crescono spendendo P.A."}));
+  w.appendChild(el("label",{class:"fld",text:"Descrizione / note conservate"}));const tx=el("textarea",{});tx.value=obj.desc||"";tx.oninput=()=>{obj.desc=tx.value;save();};w.appendChild(tx);
+  w.appendChild(el("button",{class:"btn sm gold",text:"Converti nel Costruttore di Tecniche",onclick:()=>{tbEditLegacy(t.k);closeModal();builderModal();}}));
+ }
+ const row=el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}})]);
+ if(!t.fixed)row.appendChild(el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare questa tecnica?")){closeModal();mutate(()=>removeTech(t));}}}));
+ w.appendChild(row);if(window.GLCDetails)GLCDetails.prepare(w,"legacy",obj||t,t);return w;
+});}
 /* Collegamenti della Tecnica a un'arma o a un modulo: se il riferimento non
    esiste più la Tecnica resta in scheda, con il collegamento segnalato. */
 function tecLinkBox(t){
@@ -3283,10 +3318,9 @@ function tecLinkBox(t){
  }
  return w;
 }
-function extraTechModal(i){openModal("✦ "+(pg.extraTech[i]&&pg.extraTech[i].nome||"Tecnica"),()=>{const t=pg.extraTech[i];if(!t)return el("div");const w=el("div",{});w.appendChild(field("Nome tecnica",t.nome,v=>{t.nome=v;save();}));w.appendChild(el("div",{class:"tdsub",html:(tecSummary(t)||"<i>tecnica libera</i>")+" · <b>"+tecCostLabel(t)+"</b>"}));if(t.eff&&t.eff.length){const ul=el("div",{class:"tddesc"});t.eff.forEach(nm=>{const e=tecEffObj(nm);ul.appendChild(el("div",{html:"<b>"+nm+"</b>"+(e?(" — "+e[2]):"")}));});w.appendChild(ul);}
- w.appendChild(tecLinkBox(t));
- w.appendChild(el("label",{class:"fld",text:"Attributo · Dado (= Dado Danno)"}));w.appendChild(el("div",{class:"mrow"},[attrSelect(t.attr,v=>{t.attr=v;save();}),stepper(t.die,nd=>mutateM(()=>t.die=nd))]));w.appendChild(el("label",{class:"fld",text:"Descrizione / colore"}));const tx=el("textarea",{});tx.value=t.desc||"";tx.oninput=()=>{t.desc=tx.value;save();};w.appendChild(tx);if(!t.id)t.id="tec"+Date.now().toString(36)+Math.floor(Math.random()*1000);w.appendChild(el("label",{class:"fld",text:"Progressione"}));w.appendChild(paRowM("tec:"+t.id,()=>t.die,nd=>t.die=nd));
- w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✎ Modifica nel Signature Move Builder",onclick:()=>{TBUILD={nome:t.nome,attr:t.attr,fonte:t.fonte||"Stile",stile:t.stile||"",forma:t.forma||"Singolo",die:t.die||"d6",durata:t.durata||"Un turno",eff:(t.eff||[]).slice(),desc:t.desc||"",_open:[],_fam:"",_id:t.id||null,fruitType:t.fruitType||"",arma:t.arma||"",modulo:t.modulo||""};closeModal();builderModal();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare questa tecnica?")){closeModal();mutate(()=>pg.extraTech.splice(i,1));}}})]));if(window.GLCDetails)GLCDetails.prepare(w,"signature",t);return w;});}
+function extraTechModal(i){openModal("✦ "+(pg.extraTech[i]?.nome||"Tecnica"),()=>{const t=pg.extraTech[i];if(!t)return el("div");const w=el("div",{});w.appendChild(el("h3",{text:t.nome||"Tecnica"}));w.appendChild(el("p",{text:tecSummary(t)+" · "+tecCostLabel(t)}));const check=tbEvaluate(t);if(!check.valid)w.appendChild(el("div",{class:"compat ko",text:check.errors.map(e=>e.text).join(" ")}));
+ for(const nm of t.eff||[]){const e=tecEffObj(nm);w.appendChild(el("p",{text:nm+(e?(" — "+e[2]):" · effetto da revisionare")}));}w.appendChild(tecLinkBox(t));if(t.desc)w.appendChild(el("p",{text:t.desc}));w.appendChild(el("p",{class:"sub",text:"Le Tecniche Custom non spendono P.A. Modifica il Grado, gli effetti e i collegamenti nel Costruttore, entro i limiti della Fonte e dell’Attributo."}));
+ w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Modifica nel Signature Move Builder",onclick:()=>{tbEdit(t);closeModal();builderModal();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare questa tecnica?")){closeModal();mutate(()=>pg.extraTech.splice(i,1));}}})]));if(window.GLCDetails)GLCDetails.prepare(w,"signature",t);return w;});}
 /* paRow usato dentro le modali: dopo ogni tocco ridisegna anche la modale */
 function paRowM(key,getDie,setDie){const r=paRow(key,getDie,setDie);r.querySelectorAll("button").forEach(b=>{const f=b.onclick;if(f)b.onclick=()=>{f();refreshModal();};});return r;}
 function hakiDieStepper(h){const cap=dieRank(pg.attr?.Spirito||"d4"),box=stepper(h.die,nd=>{if(dieRank(nd)>cap)return;mutateM(()=>{h.die=nd;h.pip=hakiPip(nd);});});const buttons=box.querySelectorAll("button");buttons[0].disabled=dieRank(h.die)<=0;buttons[0].setAttribute("aria-label","Riduci il dado Haki");buttons[1].disabled=dieRank(h.die)>=cap;buttons[1].setAttribute("aria-label","Aumenta il dado Haki");buttons[1].title="Non può superare Spirito "+(pg.attr?.Spirito||"d4");return box;}
@@ -3294,9 +3328,10 @@ function hakiModal(i){openModal(hakiIcon(pg.haki[i],26)+" Haki",()=>{const h=pg.
  w.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",html:"<b style='color:#ffd394;font-size:16px'>"+hakiPipOf(h)+"</b> PIP su "+mx+" · niente dado: o lo hai o non lo hai. Ogni PIP apre il livello corrispondente."}),
   el("span",{class:"step2"},[el("button",{text:"−",onclick:()=>mutateM(()=>{h.die="";h.pip=Math.max(1,hakiPipOf(h)-1);})}),el("b",{text:hakiPipOf(h)+" PIP"}),el("button",{text:"+",onclick:()=>mutateM(()=>{h.die="";h.pip=Math.min(mx,hakiPipOf(h)+1);})})])]));
 }else{w.appendChild(el("label",{class:"fld",text:"Dado · PIP"}));w.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",html:"<b style='color:#ffd394;font-size:16px'>"+hakiPip(h.die)+"</b> PIP · seguono il dado: d6 = 1, d8 = 2, d10 = 3, d12 = 4, d20 = 5"}),hakiDieStepper(h)]));}if(window.GLCPrestigeUI)w.appendChild(GLCPrestigeUI.hakiPanel(h));const hp=hakiPanel(h);if(hp)w.appendChild(hp);w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{closeModal();mutate(()=>pg.haki.splice(i,1));}})]));return w;});}
-function fruitModal(){openModal(imgIcon("frutto",26)+" Frutto del Diavolo",()=>{const w=el("div",{});const f=pg.frutto;w.appendChild(field("Nome del Frutto",f.nome,v=>{f.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Tipo"}));const ts=el("select",{},[el("option",{value:"",text:"— scegli il tipo —"})].concat(["Paramecia","Logia","Zoan"].map(x=>el("option",{value:x,text:x}))));ts.value=f.tipo;ts.onchange=()=>mutateM(()=>f.tipo=ts.value);w.appendChild(ts);w.appendChild(el("label",{class:"fld",text:"Dado del Frutto"}));const fds=el("select",{},["d4","d6","d8","d10","d12","d20"].map(x=>el("option",{value:x,text:x+" · "+({d4:"Appena ingoiato",d6:"Ci hai preso la mano",d8:"Controllo",d10:"Padronanza",d12:"Maestria",d20:"Vetta"}[x])})));fds.value=f.die||"d4";fds.onchange=()=>mutateM(()=>f.die=fds.value);w.appendChild(fds);w.appendChild(el("div",{class:"sub",style:"margin-top:3px",html:"Misura quanto <b>padroneggi</b> il potere. <b>Lo alza il Game Master, non i P.A.</b> Le Tecniche di fonte Frutto non possono superarlo."}));w.appendChild(field("Descrizione / potere",f.desc,v=>{f.desc=v;save();}));w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Rimuovi il Frutto",onclick:()=>{if(confirm("Il pirata non ha più il Frutto?")){closeModal();mutate(()=>pg.frutto.has=false);}}})]));return w;});}
+function fruitModal(){openModal(imgIcon("frutto",26)+" Frutto del Diavolo",()=>{const w=el("div",{});const f=pg.frutto;w.appendChild(field("Nome del Frutto",f.nome,v=>{f.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Tipo"}));const ts=el("select",{},[el("option",{value:"",text:"— scegli il tipo —"})].concat(["Paramecia","Logia","Zoan"].map(x=>el("option",{value:x,text:x}))));ts.value=f.tipo;ts.onchange=()=>mutateM(()=>f.tipo=ts.value);w.appendChild(ts);w.appendChild(el("label",{class:"fld",text:"Dado del Frutto"}));const fds=el("select",{},["d4","d6","d8","d10","d12","d20"].map(x=>el("option",{value:x,text:x+" · "+({d4:"Appena ingoiato",d6:"Ci hai preso la mano",d8:"Controllo",d10:"Padronanza",d12:"Maestria",d20:"Vetta"}[x])})));fds.value=f.die||"d4";fds.onchange=()=>mutateM(()=>f.die=fds.value);w.appendChild(fds);w.appendChild(el("div",{class:"sub",style:"margin-top:3px",html:"Misura quanto <b>padroneggi</b> il potere. <b>Lo alza il Game Master, non i P.A.</b> Le Tecniche di fonte Frutto non possono superarlo."}));if(f.tipo==="Zoan"){const label=el("label",{class:"fld",text:"Natura dello Zoan"}),variant=el("select",{"aria-label":"Natura dello Zoan"});["Ordinario","Ancestrale","Mitologico"].forEach(v=>variant.appendChild(el("option",{value:v,text:v})));variant.value=f.zoanType||f.subtipo||f.tipoZoan||"Ordinario";variant.onchange=()=>mutateM(()=>f.zoanType=variant.value);label.appendChild(variant);w.appendChild(label);w.appendChild(el("p",{class:"sub",text:"Registra la natura stabilita alla creazione del Frutto. I Retaggi non trasformano uno Zoan ordinario in Ancestrale o Mitologico."}));}
+ w.appendChild(field("Descrizione / potere",f.desc,v=>{f.desc=v;save();}));w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Rimuovi il Frutto",onclick:()=>{if(confirm("Il pirata non ha più il Frutto?")){closeModal();mutate(()=>pg.frutto.has=false);}}})]));return w;});}
 function skillPickerModal(){openModal("✦ Aggiungi una Skill (parte a d4)",()=>{const ro=roleObj();const avail=Object.keys(SKILLS).filter(s=>!(ro&&s===ro.skill)&&!(s in pg.skills));const g=el("div",{class:"classgrid"});avail.forEach(s=>{const o=el("div",{class:"classopt"},[el("div",{class:"co-n",text:s}),el("div",{class:"co-s",text:SKILLS[s]})]);o.onclick=()=>{closeModal();mutate(()=>pg.skills[s]="d4");};g.appendChild(o);});return g;},{wide:true});}
-function thresholdsModal(){openModal("⚙ Soglie P.A.",()=>{const w=el("div",{});w.appendChild(el("div",{class:"sub",html:"Quanti <b>P.A.</b> servono per salire di un gradino. Valgono per Attributi, Skill e Tecniche. I valori di partenza sono esempi: il GM li adatta alla durata della campagna (soglie basse = crescita rapida)."}));w.appendChild(el("div",{class:"addrow",style:"margin-top:8px"},[el("button",{class:"gbtn sm",text:"↺ Valori del manuale (10 · 25 · 60 · 150 · 400)",onclick:()=>{pg.paThresh=Object.assign({},PA_THRESH);save();refreshModal();}})]));const tg=el("div",{style:"display:flex;flex-wrap:wrap;gap:10px;margin-top:8px"});[["d4","d4→d6"],["d6","d6→d8"],["d8","d8→d10"],["d10","d10→d12"],["d12","d12→d20"]].forEach(([dk,lab])=>{const cur=(pg.paThresh&&pg.paThresh[dk]!=null)?pg.paThresh[dk]:PA_THRESH[dk];const c=el("div",{style:"text-align:center"});c.appendChild(el("label",{class:"fld",style:"font-size:10px;margin:0",text:lab}));const inp=el("input",{class:"num",inputmode:"numeric",style:"width:70px"});inp.value=cur;inp.oninput=()=>{if(!pg.paThresh)pg.paThresh=Object.assign({},PA_THRESH);pg.paThresh[dk]=inp.value.replace(/[^0-9]/g,"");save();};c.appendChild(inp);tg.appendChild(c);});w.appendChild(tg);w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}})]));return w;});}
+function thresholdsModal(){openModal("⚙ Soglie P.A.",()=>{const w=el("div",{});w.appendChild(el("div",{class:"sub",html:"Quanti <b>P.A.</b> servono per salire di un gradino. Valgono per Attributi, Skill e Tecniche Razziali; le Tecniche Custom non spendono P.A. I valori di partenza sono esempi: il GM li adatta alla durata della campagna (soglie basse = crescita rapida)."}));w.appendChild(el("div",{class:"addrow",style:"margin-top:8px"},[el("button",{class:"gbtn sm",text:"↺ Valori del manuale (10 · 25 · 60 · 150 · 400)",onclick:()=>{pg.paThresh=Object.assign({},PA_THRESH);save();refreshModal();}})]));const tg=el("div",{style:"display:flex;flex-wrap:wrap;gap:10px;margin-top:8px"});[["d4","d4→d6"],["d6","d6→d8"],["d8","d8→d10"],["d10","d10→d12"],["d12","d12→d20"]].forEach(([dk,lab])=>{const cur=(pg.paThresh&&pg.paThresh[dk]!=null)?pg.paThresh[dk]:PA_THRESH[dk];const c=el("div",{style:"text-align:center"});c.appendChild(el("label",{class:"fld",style:"font-size:10px;margin:0",text:lab}));const inp=el("input",{class:"num",inputmode:"numeric",style:"width:70px"});inp.value=cur;inp.oninput=()=>{if(!pg.paThresh)pg.paThresh=Object.assign({},PA_THRESH);pg.paThresh[dk]=inp.value.replace(/[^0-9]/g,"");save();};c.appendChild(inp);tg.appendChild(c);});w.appendChild(tg);w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}})]));return w;});}
 
 /* Il ritratto (con i suoi comandi) vive nel poster in creazione e nella testata in gestione: si sposta il nodo, così drag e zoom restano legati. */
 function placePortrait(where){const po=$("#portrait"),pb=$("#pbar"),poster=$("#poster");if(!po)return;if(where==="head"){const slot=$("#gh-portrait");if(slot){slot.appendChild(po);if(pb)slot.appendChild(pb);}}else if(poster){poster.appendChild(po);if(pb)poster.appendChild(pb);}}
@@ -3489,7 +3524,6 @@ function stileBlock(st){
 }
 function fruttoBlock(){
  if(!(pg.frutto&&pg.frutto.has))return "Nessun Frutto in scheda.";
- if(!isCombattente())return "Anche con un Frutto serve un Ruolo da Combattente: il potere dà cosa fai, non saper combattere.";
  return "";
 }
 /* Stile richiesto per Tipo. Lo Striker combatte solo a mani nude: nessuna arma
@@ -3503,6 +3537,7 @@ function weaponCompat(a){
  if(!puoiPortare(a))return {s:"ko",need:weaponStyleReq(a),msg:"Il tuo Stile non porta armi di questo tipo. Puoi impugnare: <b>"+armiConsentiteLabel()+"</b> — le armi da lancio sono di tutti."};
  var need=weaponStyleReq(a);
  if(!need)return {s:"wait",need:"",msg:(a&&a.tipo==="Ad asta")?"Scegli la <b>modalità dell'asta</b> — tagliente o contundente — per sapere quale Stile serve.":"Scegli il <b>Tipo</b> per verificare lo Stile."};
+ var useError=window.GLCTechniques?GLCTechniques.weaponUseError(pg,a):"";if(useError)return {s:"ko",need:need,msg:useError};
  if(combStyles().indexOf(need)>=0)return {s:"ok",need:need,msg:"Hai lo Stile <b>"+need+"</b>: l'effetto speciale è utilizzabile secondo le sue condizioni."};
  return {s:"ko",need:need,msg:"Non hai lo Stile <b>"+need+"</b>: puoi usare il Grado dell'arma, ma non il suo effetto speciale."};
 }
@@ -3632,10 +3667,10 @@ const MOD_SLOT_RAZZA={d6:1,d8:2,d10:3,d12:4,d20:5};
    approvate voce per voce. Gli Sconti toccano solo ciò che dichiarano. */
 const MOD_CATALOGO=[
  {n:"Braccio a fune",req:"d8",tipo:["Controllo","Mobilità"],arma:false,ico:"rope",fn:"Braccio estensibile: aggancia oggetti e superfici.",cat:"Sconto",tgt:"Attrazione",eff:"Attrazione non occupa slot nelle Tecniche compatibili eseguite con questo modulo.",vinc:"Attrazione resta d8, 1 ST, Forma Spostamento."},
- {n:"Piastra retrattile",req:"d8",tipo:["Difensivo"],arma:false,ico:"shield",fn:"Piastra metallica che si apre a copertura.",cat:"Sconto",tgt:"Guardia",eff:"Guardia non occupa slot nelle Tecniche compatibili.",vinc:"Guardia resta d6, 1 ST, Forma Difesa."},
- {n:"Pinza di contenimento",req:"d8",tipo:["Controllo","Utilità"],arma:false,ico:"wrench",fn:"Pinza per manipolare e afferrare.",cat:"Sconto",tgt:"Presa",eff:"Presa non occupa slot nelle Tecniche compatibili.",vinc:"Presa resta d8, 1 ST, prove contrapposte di Forza."},
+ {n:"Piastra retrattile",req:"d8",tipo:["Difensivo"],arma:false,ico:"shield",fn:"Piastra metallica che si apre a copertura.",cat:"Sconto",tgt:"Guardia",eff:"Guardia non occupa slot nelle Tecniche compatibili.",vinc:"Guardia richiede Forma Difesa e Grado minimo d8: +2 DP/1 ST, d10 +3/2 ST, d12 +4/3 ST, d20 +5/4 ST fino al prossimo turno; le versioni non si sommano."},
+ {n:"Pinza di contenimento",req:"d8",tipo:["Controllo","Utilità"],arma:false,ico:"wrench",fn:"Pinza per manipolare e afferrare.",cat:"Sconto",tgt:"Presa",eff:"Presa non occupa slot nelle Tecniche compatibili.",vinc:"Presa resta d8, 1 ST all’applicazione e all’inizio di ogni turno di mantenimento, con contesa di Forza."},
  {n:"Propulsori dorsali",req:"d10",tipo:["Mobilità"],arma:false,ico:"wind",fn:"Brevi getti propulsivi: spinte, non volo permanente.",cat:"Sconto",tgt:"Scatto",eff:"Scatto non occupa slot nelle Tecniche compatibili.",vinc:"Scatto resta d6, 1 ST, Forma Spostamento."},
- {n:"Cannone a pressione",req:"d10",tipo:["Offensivo","Controllo"],arma:true,ico:"burst",fn:"Spara aria compressa.",cat:"Sconto",tgt:"Proiezione",eff:"Proiezione non occupa slot nelle Tecniche compatibili.",vinc:"Proiezione resta d6, 0 ST; la sagoma ad area non è inclusa."},
+ {n:"Cannone a pressione",req:"d10",tipo:["Offensivo","Controllo"],arma:true,ico:"burst",fn:"Spara aria compressa.",cat:"Sconto",tgt:"Proiezione",eff:"Proiezione non occupa slot nelle Tecniche compatibili.",vinc:"Proiezione resta d6, 1 ST; la sagoma ad area non è inclusa."},
  {n:"Lanciafiamme ventrale",req:"d12",tipo:["Offensivo"],arma:true,ico:"flame",fn:"Proietta combustibile acceso.",cat:"Sconto",tgt:"Terreno Alterato",eff:"Terreno Alterato non occupa slot nelle Tecniche compatibili.",vinc:"Restano costo, durata della zona e la sostanza da preparare."},
  {n:"Emettitore a catena",req:"d12",tipo:["Offensivo"],arma:true,ico:"bolt",fn:"Distribuisce una scarica fra più bersagli.",cat:"Sconto",tgt:"Catena",eff:"Catena non occupa slot nelle Tecniche compatibili.",vinc:"Catena resta d12, 2 ST, tiri separati e danni decrescenti."},
  {n:"Fari integrati",req:"d8",tipo:["Utilità"],arma:false,ico:"lamp",fn:"Illuminano l'ambiente.",cat:"Sconto",tgt:"Accecante",eff:"Accecante non occupa slot nelle Tecniche compatibili.",vinc:"Accecante resta d8, 1 ST, con tiro salvezza: la luce accesa non accieca da sola."},
@@ -3771,7 +3806,7 @@ function moduleSheetModal(i){
 /* La Skill di Ruolo non deve comparire anche fra le Skill allenate: se succede (cambio di Ruolo/Stile), si fonde tenendo il dado più alto. I P.A. hanno la stessa chiave, quindi non si perdono. */
 function dedupeSkills(){try{const ro=roleObj();if(ro&&ro.skill&&Object.prototype.hasOwnProperty.call(pg.skills,ro.skill)){if(dieRank(pg.skills[ro.skill])>dieRank(pg.roleSkillDie))pg.roleSkillDie=pg.skills[ro.skill];delete pg.skills[ro.skill];}}catch(e){}}
 function renderManage(){
- if(window.GLCPrestige)GLCPrestige.normalize(pg);
+ if(window.GLCPrestige)GLCPrestige.normalize(pg);if(window.GLCAdvancement)GLCAdvancement.normalize(pg);
  const m=$("#manage");placePortrait("poster");m.innerHTML="";dedupeSkills();normWeapons();normModules();
  const r=race();if(r&&pg.pvMax==null){pg.pvMax=r.pv;pg.pvCur=r.pv;}
  const ro=roleObj();const P=talentPools();
@@ -3779,7 +3814,7 @@ function renderManage(){
  const top=el("div",{class:"gtop"});
  const tl=el("div",{class:"gt-l"});tl.appendChild(el("div",{class:"scene-eyebrow",text:"Dossier del pirata"}));top.appendChild(tl);tl.appendChild(el("div",{class:"gh-name",text:pg.nome||"Pirata Senza Nome"}));
  const tr=el("div",{class:"gt-r"});const bn=(pg.bounty&&pg.bounty!=="0")?Number(pg.bounty):0;tr.appendChild(el("div",{class:"gh-bounty",html:"฿ "+(bn?bn.toLocaleString("it-IT"):"0")}));tr.appendChild(el("button",{class:"gbtn",text:"✎ Identità",onclick:identityModal}));tr.appendChild(el("button",{class:"gbtn",text:"⚙ Soglie P.A.",title:"Quanti P.A. servono per salire di dado",onclick:thresholdsModal}));tr.appendChild(el("button",{class:"gbtn",text:"☰ Azioni",title:"Stampa, esporta, importa, reset",onclick:actionsModal}));top.appendChild(tr);
- m.appendChild(top);
+ tr.appendChild(el("button",{class:"gbtn",text:"Scelte degli Upgrade",onclick:advancementModal}));m.appendChild(top);
  if(window.GLCPrestigeUI){const prestigeBanner=GLCPrestigeUI.banner();if(prestigeBanner)m.appendChild(prestigeBanner);}
  const g3=el("div",{class:"g3"});m.appendChild(g3);
  /* ================= SINISTRA: scheda ================= */
@@ -3831,13 +3866,14 @@ function renderManage(){
  mid.appendChild(el("div",{class:"stage-fig"},[el("div",{class:"stage-glow","aria-hidden":"true"}),pw,ambition,L]));
  
  const ab=el("div",{class:"slots right"},[el("div",{class:"slots-h",text:"Tecniche"})]);
- allTech().filter(t=>typeof t.idx!=="number").forEach(t=>ab.appendChild(slotTile(t.die,t.name,t.fixed?"razziale":(t.attr||"—"),()=>techModal(t))));
- pg.extraTech.forEach((t,i)=>{if(!t.id)t.id="tec"+Date.now().toString(36)+Math.floor(Math.random()*1000);ab.appendChild(slotTile(t.die,t.nome,[t.fonte,t.forma].filter(Boolean).join(" · ")+" · <b>"+tecCostLabel(t)+"</b>",()=>extraTechModal(i)));});
+ allTech().filter(t=>typeof t.idx!=="number").forEach(t=>ab.appendChild(slotTile(t.die,t.name,t.fixed?"razziale":((t.attr||"—")+" · profilo storico da convertire"),()=>techModal(t))));
+ pg.extraTech.forEach((t,i)=>{if(!t.id)t.id="tec"+Date.now().toString(36)+Math.floor(Math.random()*1000);ab.appendChild(slotTile(t.die,t.nome,[t.fonte,t.forma].filter(Boolean).join(" · ")+" · <b>"+tecCostLabel(t)+"</b>"+(tbEvaluate(t).valid?"":" · da correggere nel Costruttore"),()=>extraTechModal(i)));});
  ab.appendChild(slotAdd("Tecnica",builderModal));
  {ab.appendChild(el("div",{class:"slots-h",text:"Frutto del Diavolo"}));if(pg.frutto&&pg.frutto.has){const f=pg.frutto;ab.appendChild(slotTile(null,f.nome||"Frutto senza nome",(f.tipo||"tipo da scegliere")+" · Dado <b>"+(f.die||"d4")+"</b>",fruitModal,"img:frutto"));}else ab.appendChild(slotAdd("Frutto del Diavolo",()=>{mutate(()=>{pg.frutto.has=true;if(!pg.frutto.die)pg.frutto.die="d4";});flyIn(imgIcon("frutto",120),()=>byText(".slots .slot-n","Frutto senza nome"));setTimeout(fruitModal,950);}));}
  {const n=invItems().length;ab.appendChild(el("div",{class:"slots-h",text:"Zaino"}));ab.appendChild(el("button",{class:"stage-bag",title:"Apri lo zaino · "+n+" oggett"+(n===1?"o":"i"),html:imgIcon("zaino",46)+(n?'<span class="bag-n">'+n+'</span>':'')+'<span class="bag-t">'+(n?(n+" oggett"+(n===1?"o":"i")):"Zaino vuoto")+'</span>',onclick:inventoryModal}));}
  mid.appendChild(ab);
  const strip=el("div",{class:"talstrip"});const sh=el("div",{class:"slots-h",html:"Talenti · "+(P.got.length+(window.GLCPrestige?.acquired(pg).length||0))});strip.appendChild(sh);const row=el("div",{class:"talrow-s"});P.got.forEach(o=>{const md=medal(talentArt(o,o.ult?52:34),o.name,o.ult?(o.src==="fruit"?"Risveglio":"Ultimate"):o.tier,false);md.onclick=()=>openTalentTree(o.branch,o.key);row.appendChild(md);});if(!P.got.length&&!window.GLCPrestige?.acquired(pg).length)row.appendChild(el("div",{class:"medempty",text:"Nessun talento ancora."}));if(window.GLCPrestige)GLCPrestige.acquired(pg).forEach(t=>{const md=medal(svgIcon("star",34),t.name,t.level===6?"Saikyō":"Prestigio",false);md.classList.add("prg-tal-medal");md.onclick=()=>t.path.id==="spirito"?GLCPrestigeUI.open("attr","Spirito"):openTalentTree("prestige:"+t.path.id);row.appendChild(md);});strip.appendChild(row);strip.appendChild(el("div",{class:"talstrip-b"},[el("button",{class:"gbtn"+(P.open.length?" gold":""),text:P.open.length?("✦ Albero dei talenti · "+P.open.length+" da prendere"):"✦ Albero dei talenti",onclick:()=>openTalentTree()})]));C.appendChild(strip);
+ if(window.GLCTrattiUI){const states=GLCTratti.states(pg),box=el("section",{class:"talstrip unique-trait-summary"});box.appendChild(el("div",{class:"slots-h",text:"Tratti Unici · "+states.filter(t=>t.active).length+" attivi"}));box.appendChild(el("p",{class:"sub",text:states.filter(t=>t.available).length+" disponibili dalle Sinergie · "+choicesInfo()}));const row=el("div",{class:"talrow-s"});states.filter(t=>t.acquired).forEach(t=>row.appendChild(el("button",{class:"gbtn",text:t.name+(t.active?"":" · "+(t.superseded?"Evoluto":"inattivo")),onclick:uniqueTraitsModal})));box.appendChild(row);box.appendChild(el("button",{class:"gbtn gold",text:"✦ Tratti Unici e Sinergie",onclick:uniqueTraitsModal}));C.appendChild(box);}
  if(window.GLCMoves)g3.appendChild(GLCMoves.shelf());
  /* ================= DESTRA: zaino / poteri / ciurma ================= */
  const R=el("div",{class:"rpanel"});g3.appendChild(R);
@@ -3963,6 +3999,7 @@ function buildPrintSheet(){
   if(pg.armi&&pg.armi.length){h+='<div class="ps-sec"><div class="ps-h">Equipaggiamento</div>';pg.armi.forEach(function(a){normWeapon(a);var c=weaponCompat(a);h+='<div class="ps-item"><b>'+escp(a.nome||"arma")+'</b> <span class="die">'+escp(a.tipo+(a.asta?(" "+a.asta.toLowerCase()):"")+" \u00b7 Grado "+a.grado+" "+gradeLabel(a.grado))+'</span><div class="ps-d">'+escp([a.attr||"attributo da definire",a.portata||"portata da definire","Stile "+(c.need||"da determinare")+(c.s==="ok"?" \u2713":(c.s==="ko"?" \u2717":""))].join(" \u00b7 "))+'</div>'+(a.eff?('<div class="ps-d2"><b>'+escp(a.eff.nome||"Effetto")+'</b> \u00b7 '+escp([a.eff.cat,a.eff.freq,(a.eff.prezzo&&a.eff.prezzo!=="Nessuno")?(a.eff.prezzo+(a.eff.prezzoDett?(" "+a.eff.prezzoDett):"")):""].filter(Boolean).join(" \u00b7 "))+(a.eff.desc?(" \u2014 "+escp(a.eff.desc)):"")+'</div>'):'')+(a.note?'<div class="ps-d2">'+escp(a.note)+'</div>':'')+'</div>';});h+='</div>';}
   if(pg.strumenti&&pg.strumenti.length){h+='<div class="ps-sec"><div class="ps-h">Strumenti</div>';pg.strumenti.forEach(function(a){var x=instrEff(a);h+='<div class="ps-item"><b>'+escp(a.nome||"strumento")+'</b> <span class="die">'+escp([a.tipo||"Corde",x.grado+(INSTR_GRADI[x.grado]?(" "+INSTR_GRADI[x.grado]):""),"Salvezza "+x.soglia].join(" \u00b7 "))+'</span>'+(x.over?'<div class="ps-d2">usato come '+escp(x.eff)+' finché l\'Arte non arriva a '+escp(x.grado)+'</div>':'')+(a.note?'<div class="ps-d">'+escp(a.note)+'</div>':'')+'</div>';});h+='</div>';}
   if(pg.moduli&&pg.moduli.length){normModules();var _S=moduliSlots();h+='<div class="ps-sec"><div class="ps-h">Corpo Meccanico \u00b7 '+pg.moduli.length+'/'+_S.n+'</div>';pg.moduli.forEach(function(mo){var st=modStateLabel(mo);h+='<div class="ps-tech"><div class="tt"><b>'+escp(mo.nome||"modulo")+'</b> <span class="tg">'+escp(st.t+((mo.arma&&mo.grado)?(" \u00b7 "+mo.grado):""))+'</span></div><div class="ps-d">'+escp([(mo.tipo&&mo.tipo.length?mo.tipo.join(", "):""),"requisito "+mo.req,mo.funzione].filter(Boolean).join(" \u00b7 "))+'</div>'+((mo.eff&&(mo.eff.cat||mo.eff.testo))?('<div class="ps-d2"><b>'+escp(mo.eff.cat||"Effetto")+'</b>'+(mo.eff.tgt?(" \u00b7 "+escp(mo.eff.tgt)):"")+' \u2014 '+escp(mo.eff.testo||"")+'</div>'):'')+((mo.fuel&&mo.fuel.on)?('<div class="ps-d2">Cariche: '+escp((mo.fuel.tipo||"risorsa")+" "+(mo.fuel.cur||0)+"/"+(mo.fuel.max||"\u2014")+(mo.fuel.consumo?(" \u00b7 "+mo.fuel.consumo):""))+'</div>'):'')+'</div>';});h+='</div>';}
+  if(window.GLCTratti&&GLCTratti.acquired(pg).length){h+='<div class="ps-sec"><div class="ps-h">Tratti Unici e Sinergie</div>';GLCTratti.acquired(pg).forEach(t=>{h+='<div class="ps-tech"><div class="tt"><b>'+escp(t.name)+'</b> · '+escp(t.attribute+" + "+t.skill)+(t.active?"":(" · "+(t.superseded?"Evoluto":"inattivo")))+'</div><div class="ps-d">'+escp(t.effects.join(" "))+'</div></div>';});h+='</div>';}
   if(visibleTalents().length){h+='<div class="ps-sec"><div class="ps-h">Talenti</div>';visibleTalents().forEach(function(k){var ti=talentInfo(k);h+='<div class="ps-tech"><div class="tt">\u2726 <b>'+escp(ti.name)+'</b>'+(ti.branch?' <span class="ps-d2">('+escp(ti.branch)+')</span>':'')+(ti.tag?' <span class="ps-d2">'+escp(ti.tag)+'</span>':'')+'</div>'+(ti.desc?'<div class="ps-d">'+escp(ti.desc)+'</div>':'')+'</div>';});h+='</div>';}
   if(window.GLCPrestige){var pr=GLCPrestige.acquired(pg);if(pr.length){h+='<div class="ps-sec"><div class="ps-h">Talenti di Prestigio</div>';pr.forEach(function(t){h+='<div class="ps-tech"><b>'+escp(t.name)+'</b> · '+escp(GLCPrestige.label(t.path.die))+'<div class="ps-d">'+escp(GLCPrestigeView.talentText(pg,t))+'</div></div>';});h+='</div>';}
    var boosts=ATTRS.filter(a=>GLCPrestige.level(pg.attr[a]));if(boosts.length){h+='<div class="ps-sec"><div class="ps-h">Prestigio degli Attributi</div>';boosts.forEach(function(a){h+='<div class="ps-tech"><b>'+escp(a+' · '+pg.attr[a]+' · '+GLCPrestige.label(pg.attr[a]))+'</b>';GLCPrestige.benefits(pg,a).forEach(function(b){h+='<div class="ps-d">'+escp(b.name+': '+b.value+' '+b.unit+'. '+b.detail)+'</div>';});h+='</div>';});h+='</div>';}}
@@ -3970,9 +4007,9 @@ function buildPrintSheet(){
   h+='</div><div class="ps-col">';
   h+='<div class="ps-sec"><div class="ps-h">Tecniche</div>';
   if(r)h+='<div class="ps-tech"><div class="tt"><b>'+escp(r.tech)+'</b> <span class="tg">razziale \u00b7 '+escp(pg.racialDie||"d6")+'</span></div><div class="ps-d">'+escp(r.techDesc)+'</div></div>';
-  if(pg.t1&&pg.t1.nome)h+='<div class="ps-tech"><div class="tt"><b>'+escp(pg.t1.nome)+'</b> <span class="tg">'+escp([pg.t1.attr,pg.t1.die].filter(Boolean).join(" \u00b7 "))+'</span></div>'+(pg.t1.desc?'<div class="ps-d">'+escp(pg.t1.desc)+'</div>':'')+'</div>';
-  if(pg.t2&&pg.t2.nome)h+='<div class="ps-tech"><div class="tt"><b>'+escp(pg.t2.nome)+'</b> <span class="tg">'+escp([pg.t2.attr,pg.t2.die].filter(Boolean).join(" \u00b7 "))+'</span></div>'+(pg.t2.desc?'<div class="ps-d">'+escp(pg.t2.desc)+'</div>':'')+'</div>';
-  (pg.extraTech||[]).forEach(function(t){if(!t.nome&&!(t.eff&&t.eff.length))return;var _fo=(t.fonte==="Frutto"&&t.fruitType)?("Frutto "+t.fruitType):(t.stile?("Stile "+t.stile):(t.fonte||""));if(t.arma){var _wa2=(pg.armi||[]).filter(function(x){return x.id===t.arma;})[0];if(_wa2)_fo+=" \u00b7 arma \u00ab"+((_wa2.nome||"").trim()||"senza nome")+"\u00bb";}var _pa=t.id?(pg.pa["tec:"+t.id]||0):0,_sg=t.die?paSoglia(t.die):null;var meta=[_fo,t.forma,t.attr,t.die].filter(Boolean).join(" · ")+" · "+tecCostLabel(t)+(_sg!=null?(" · "+_pa+"/"+_sg+" PA"):"");h+='<div class="ps-tech"><div class="tt"><b>'+escp(t.nome||"(senza nome)")+'</b> <span class="tg">'+escp(meta)+'</span></div>'+psTecEff(t)+(t.desc?'<div class="ps-d">'+escp(t.desc)+'</div>':'')+'</div>';});
+  if(pg.t1&&pg.t1.nome)h+='<div class="ps-tech"><div class="tt"><b>'+escp(pg.t1.nome)+'</b> <span class="tg">'+escp([pg.t1.attr,pg.t1.die,"Profilo storico · da convertire nel Costruttore"].filter(Boolean).join(" \u00b7 "))+'</span></div>'+(pg.t1.desc?'<div class="ps-d">'+escp(pg.t1.desc)+'</div>':'')+'</div>';
+  if(pg.t2&&pg.t2.nome)h+='<div class="ps-tech"><div class="tt"><b>'+escp(pg.t2.nome)+'</b> <span class="tg">'+escp([pg.t2.attr,pg.t2.die,"Profilo storico · da convertire nel Costruttore"].filter(Boolean).join(" \u00b7 "))+'</span></div>'+(pg.t2.desc?'<div class="ps-d">'+escp(pg.t2.desc)+'</div>':'')+'</div>';
+  (pg.extraTech||[]).forEach(function(t){if(!t.nome&&!(t.eff&&t.eff.length))return;var _fo=(t.fonte==="Frutto"&&t.fruitType)?("Frutto "+t.fruitType):(t.stile?("Stile "+t.stile):(t.fonte||""));if(t.arma){var _wa2=(pg.armi||[]).filter(function(x){return x.id===t.arma;})[0];if(_wa2)_fo+=" \u00b7 arma \u00ab"+((_wa2.nome||"").trim()||"senza nome")+"\u00bb";}var _pa=0,_sg=null;var meta=[_fo,t.forma,t.attr,t.die].filter(Boolean).join(" · ")+" · "+tecCostLabel(t)+(_sg!=null?(" · "+_pa+"/"+_sg+" PA"):"");h+='<div class="ps-tech"><div class="tt"><b>'+escp(t.nome||"(senza nome)")+'</b> <span class="tg">'+escp(meta)+'</span></div>'+(tbEvaluate(t).valid?'':'<div class="ps-d2">Da correggere nel Costruttore: '+escp(tbEvaluate(t).errors.map(e=>e.text).join(' '))+'</div>')+psTecEff(t)+(t.desc?'<div class="ps-d">'+escp(t.desc)+'</div>':'')+'</div>';});
   if(!r&&!(pg.t1&&pg.t1.nome)&&!(pg.t2&&pg.t2.nome)&&!(pg.extraTech&&pg.extraTech.length))h+='<div class="ps-d">Nessuna tecnica.</div>';
   h+='</div>';
   if(pg.haki&&pg.haki.length){h+='<div class="ps-sec"><div class="ps-h">Haki</div>';pg.haki.forEach(function(hk){var unl=hakiUnlocked(hk);var liv=hakiLevel(hk);h+='<div class="ps-tech"><div class="tt"><b>'+escp(hk.name)+'</b> <span class="tg">'+escp((hk.die||"")+(liv?(" \u00b7 "+liv):"")+(hk.pip?(" \u00b7 "+hk.pip+" PIP"):""))+'</span></div>';unl.forEach(function(row){h+='<div class="ps-d"><b>'+escp(row.liv)+':</b> '+escp(row.pass)+(row.act?(' <i>Attiva: '+escp(row.act)+(row.cost?(" ("+row.cost+" PIP)"):"")+'</i>'):'')+'</div>';});h+='</div>';});h+='</div>';}
@@ -3996,9 +4033,10 @@ function printPayload(){
     armi:(pg.armi||[]).map(function(a){normWeapon(a);var c=weaponCompat(a);return {nome:a.nome||"",tipo:a.tipo+(a.asta?(" \u00b7 "+a.asta.toLowerCase()):""),attr:a.attr||"",die:a.grado||"",grado:a.grado||"",gradoLabel:gradeLabel(a.grado),portata:a.portata||"",stile:c.need||"",stileOk:(c.s==="ok"),effNome:(a.eff&&a.eff.nome)||"",effCat:(a.eff&&a.eff.cat)||"",effDesc:(a.eff&&a.eff.desc)||"",effFreq:(a.eff&&a.eff.freq)||"",effPrezzo:(a.eff&&a.eff.prezzo&&a.eff.prezzo!=="Nessuno")?(a.eff.prezzo+(a.eff.prezzoDett?(" "+a.eff.prezzoDett):"")):"",gmOk:!!a.gmOk,note:a.note||""};}),
     inventario:(pg.inventario||[]).map(function(it){return {nome:it.nome||"",qta:(parseInt(it.qta)||0),note:it.note||"",ico:it.ico||""};}),
     haki:(pg.haki||[]).map(function(hk){var unl=hakiUnlocked(hk);return {name:hk.name,die:hk.die||"",pip:hakiPipOf(hk),liv:hakiLevel(hk),rows:unl.map(function(x){return {liv:x.liv,pass:x.pass||"",act:x.act||"",cost:x.cost||""};})};}),
-    tecniche:(pg.extraTech||[]).filter(function(t){return t.nome||(t.eff&&t.eff.length);}).map(function(t){var fo=(t.fonte==="Frutto"&&t.fruitType)?("Frutto "+t.fruitType):(t.stile?("Stile "+t.stile):(t.fonte||""));if(t.arma){var _a=(pg.armi||[]).filter(function(x){return x.id===t.arma;})[0];if(_a)fo+=" \u00b7 arma \u00ab"+((_a.nome||"").trim()||"senza nome")+"\u00bb";}if(t.modulo){var _m=(pg.moduli||[]).filter(function(x){return x.id===t.modulo;})[0];if(_m)fo+=" \u00b7 modulo \u00ab"+(_m.nome||"senza nome")+"\u00bb";}return {nome:t.nome||"",fonte:fo,forma:t.forma||"",attr:t.attr||"",die:t.die||"",durata:t.durata||"",cost:tecCostLabel(t),eff:(t.eff||[]).map(function(nm){var e=tecEffObj(nm);return {n:nm,d:e?e[2]:""};}),desc:t.desc||"",pa:t.id?(pg.pa["tec:"+t.id]||0):0,soglia:t.die?paSoglia(t.die):null};}),
+    tecniche:(pg.extraTech||[]).filter(function(t){return t.nome||(t.eff&&t.eff.length);}).map(function(t){var fo=(t.fonte==="Frutto"&&t.fruitType)?("Frutto "+t.fruitType):(t.stile?("Stile "+t.stile):(t.fonte||""));if(t.arma){var _a=(pg.armi||[]).filter(function(x){return x.id===t.arma;})[0];if(_a)fo+=" \u00b7 arma \u00ab"+((_a.nome||"").trim()||"senza nome")+"\u00bb";}if(t.modulo){var _m=(pg.moduli||[]).filter(function(x){return x.id===t.modulo;})[0];if(_m)fo+=" \u00b7 modulo \u00ab"+(_m.nome||"senza nome")+"\u00bb";}var check=tbEvaluate(t);return {valid:check.valid,issues:check.errors.map(e=>e.text),nome:t.nome||"",fonte:fo,forma:t.forma||"",attr:t.attr||"",die:t.die||"",durata:t.durata||"",cost:tecCostLabel(t),eff:(t.eff||[]).map(function(nm){var e=tecEffObj(nm);return {n:nm,d:e?e[2]:""};}),desc:t.desc||"",pa:0,soglia:null};}),
     pa:{attr:ATTRS.map(function(a){return {name:a,die:pg.attr[a]||"",pa:pg.pa["attr:"+a]||0,soglia:pg.attr[a]?paSoglia(pg.attr[a]):null};}),
         skills:Object.keys(SKILLS).map(function(n){var isRole=ro&&ro.skill===n;var die=isRole?pg.roleSkillDie:(pg.skills[n]||"");return {name:n,die:die,role:!!isRole,pa:pg.pa[n]||0,soglia:die?paSoglia(die):null};}).filter(function(x){return x.die;})}};
+  if(window.GLCTratti){out.tratti=GLCTratti.acquired(pg).map(t=>({id:t.id,name:t.name,attribute:t.attribute,skill:t.skill,active:t.active,status:t.status,desc:t.effects.join(" ")}));out.talentChoices=GLCAdvancement.talentChoices(pg);}
   if(window.GLCPrestige){
    out.talenti=out.talenti.concat(GLCPrestige.acquired(pg).map(t=>({name:t.name,branch:t.path.skill,tag:t.level===6?"Saikyō":"Prestigio",desc:GLCPrestigeView.talentText(pg,t)})));
    out.prestigio=ATTRS.filter(a=>GLCPrestige.level(pg.attr[a])).map(a=>({name:a,die:pg.attr[a],level:GLCPrestige.label(pg.attr[a]),benefits:GLCPrestige.benefits(pg,a)}));
@@ -4013,6 +4051,8 @@ $("#importFile").onchange=e=>{const file=e.target.files[0];if(!file)return;const
 $("#reset").onclick=()=>{if(confirm("Azzerare questo personaggio e ricominciare la sua scheda?")){const id=CT.activeId;CT.chars[id]=blank();pg=CT.chars[id];save();bindInputs();renderCrewBar();setMode("crea");goto(0);render();}};
 $("#prev").onclick=()=>goto(step-1);$("#next").onclick=()=>goto(step+1);
 if(window.GLCPrestige)GLCPrestige.configure(TALENTS);
+GLCTalents.configure({roles:TALENTS,fruits:FRUIT_TALENTS,dice:DICE});
+GLCTratti.configure({resolveSkill:(c,name)=>GLCTalents.skillDie(c,name),talentBudget:(c,request)=>request.take?GLCAdvancement.canAcquire(c):{allowed:true,remaining:GLCAdvancement.talentChoices(c).remaining}});
 (window.GLCSync ? GLCSync.whenReady() : Promise.resolve()).then(function(){
 load();buildStepper();bindInputs();bindPhoto();renderCrewBar();$("#crew-sel").onchange=e=>switchChar(e.target.value);$("#crew-new").onclick=function(){location.href="/crea-il-tuo-pirata/";};$("#crew-del").onclick=deleteChar;goto(0);setMode("gest");render();
 });

@@ -84,9 +84,9 @@ test('Role-level descriptions use that role skill, not another attribute or seco
  h.c.roleSkillDie='d20+d8';st=h.P.states(h.c,h.p.id).find(t=>t.id==='nebbia-pestilenziale');assert.match(h.V.talent(h.c,st).effect,/20 m di raggio/);
  h.c.roleSkillDie='d20+d20';st=h.P.states(h.c,h.p.id).find(t=>t.id==='nebbia-pestilenziale');assert.match(h.V.talent(h.c,st).effect,/100 m di raggio, centro entro 100 m, durata 5 turni/);assert.equal(st.costST,5);
 });
-test('All 52 current talent descriptions exist at every stage and are read-only',()=>{
+test('All 49 playable Role and Spirito talent descriptions exist at every stage and are read-only',()=>{
  const visited=new Set();
- for(const p of setup().context.GLCPrestige.data.paths){
+ for(const p of setup().context.GLCPrestige.data.paths.filter(p=>p.style!=='Inventore')){
   const h=fixture(p.id);for(const die of h.P.data.dice.slice(6)){
    h.c.roleSkillDie=die;Object.keys(h.c.attr).forEach(k=>h.c.attr[k]=die);const before=JSON.stringify(h.c);
    for(const t of [...h.P.states(h.c,p.id),...h.P.states(h.c,'spirito')]){
@@ -96,7 +96,7 @@ test('All 52 current talent descriptions exist at every stage and are read-only'
    }
    h.V.choices(h.c,p.id);h.V.bands(h.c);assert.equal(JSON.stringify(h.c),before);
   }
- }assert.equal(visited.size,52);
+ }assert.equal(visited.size,49);
 });
 test('Spirito shows only its current resistance, Color activation capacity and recovery budget',()=>{
  const h=fixture(),describe=id=>h.V.talentText(h.c,h.P.states(h.c,'spirito').find(t=>t.id===id));

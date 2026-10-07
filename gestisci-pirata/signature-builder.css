@@ -277,3 +277,13 @@
   #bld.smb-constellation,#bld.smb-constellation *,#bld.smb-constellation *::before,#bld.smb-constellation *::after {animation:none!important;transition:none!important;scroll-behavior:auto!important;}
 }
 @media print {#bld.smb-constellation {display:none!important;}}
+/* Source concessions and preserved legacy choices use the existing controls. */
+.smb-source-permissions {margin:18px 0;padding:14px;border:1px solid rgba(202,172,108,.28);border-radius:12px;}
+.smb-source-permissions summary {cursor:pointer;font-weight:700;}
+.smb-source-permissions p {font-size:.88rem;line-height:1.5;}
+.smb-permission-picks,.smb-selected-effects {display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.smb-selected-effects .k {flex-basis:100%;}
+.smb-permission-picks .smb-btn {white-space:normal;}
+.smb-permission-picks .smb-btn.on {background:rgba(202,172,108,.2);border-color:#caac6c;}
+.smb-selected-effects .warn {color:#f0b594;border-color:#ad6a49;}
+.mc-state {font-size:.78rem;line-height:1.4;padding:8px 0;color:#caac6c;}

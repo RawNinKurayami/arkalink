@@ -11,10 +11,26 @@ function fixture(path='striker-atletica',die='d20+d12'){
  const take=id=>{const s=p.states(c,path).find(t=>t.id===id);assert.ok(s?.available,s?.reason||id);p.choose(c,path,id,true);};
  return {...h,p,c,path,take};
 }
-test('All 16 catalogues resolve their real skills and all 49 role talents have valid ordinary prerequisites',()=>{
+test('All 15 active catalogues resolve their real skills and all 46 active role talents have valid ordinary prerequisites',()=>{
  const base=setup(),P=base.context.window.GLCPrestige;
+ // Inventore remains historical manual metadata, while its retired Role path
+ // cannot become a playable path merely because its Meccanica reaches d20.
  assert.equal(P.data.talents.filter(t=>!t.paths.includes('spirito')).length,49);
- for(const path of P.data.paths){const h=fixture(path.id,'d20+d4');assert.equal(h.p.paths(h.c)[0].skill,path.skill);for(const id of path.talents){const state=h.p.states(h.c,path.id).find(t=>t.id===id);assert.equal(state.available,true,path.id+' '+id+': '+state.reason);h.take(id);assert.equal(h.p.has(h.c,id),true);h.p.choose(h.c,path.id,id,false);}}
+ const active=P.data.paths.filter(path=>path.style!=='Inventore');
+ assert.equal(active.length,15);
+ assert.equal(new Set(active.flatMap(path=>path.talents)).size,46);
+ for(const path of active){const h=fixture(path.id,'d20+d4');assert.equal(h.p.paths(h.c)[0].skill,path.skill);for(const id of path.talents){const state=h.p.states(h.c,path.id).find(t=>t.id===id);assert.equal(state.available,true,path.id+' '+id+': '+state.reason);h.take(id);assert.equal(h.p.has(h.c,id),true);h.p.choose(h.c,path.id,id,false);}}
+});
+test('Retired Inventore Role choices remain historical and cannot provide an active Role or consume new Prestige choices',()=>{
+ const h=fixture('inventore','d20+d20'),historical=h.p.data.paths.find(path=>path.id==='inventore');
+ h.c.prestige={choices:{inventore:historical.talents.slice(0,2)}};
+ const stored=JSON.stringify(h.c.prestige);
+ assert.equal(h.p.paths(h.c).length,0);
+ assert.equal(h.p.states(h.c,'inventore').length,0);
+ assert.ok(h.p.acquired(h.c).every(t=>!historical.talents.includes(t.id)));
+ assert.throws(()=>h.p.choose(h.c,'inventore',historical.talents[2],true),/non disponibile/);
+ h.p.normalize(h.c);
+ assert.equal(JSON.stringify(h.c.prestige),stored);
 });
 test('Role choices open only at I, III and V; Saikyo never adds a fourth',()=>{
  const h=fixture('swordsman','d20');for(const [die,count]of [['d20',0],['d20+d4',1],['d20+d6',1],['d20+d8',2],['d20+d10',2],['d20+d12',3],['d20+d20',3]]){h.c.roleSkillDie=die;assert.equal(h.p.slots(die),count);}
@@ -56,7 +72,7 @@ test('Attribute scales respect class compatibility and use all six stages',()=>{
 });
 test('Raffica Senza Fine supports mixed base attacks and techniques, exact ST, no three-attack limit, one Bonus',()=>{
  const h=fixture();h.take('raffica-senza-fine');h.take('potenza-del-titano');const id='prestige:raffica-senza-fine';
- const r=h.resolve({activeTalentId:id,passiveTalentIds:['prestige:potenza-del-titano'],talentUses:{[id]:4},talentTechniqueUses:{[id]:2}});assert.equal(r.status,'ready',errorText(r));assert.equal(r.totals.st,13);assert.equal(r.rows.find(row=>row.id===id).st,12);assert.equal(r.economy.used,1);assert.ok(r.formulas.some(f=>f.text.includes('d20+d12')&&f.text.includes('Potenza del Titano')));
+ const r=h.resolve({activeTalentId:id,passiveTalentIds:['prestige:potenza-del-titano'],talentUses:{[id]:4},talentTechniqueUses:{[id]:2}});assert.equal(r.status,'ready',errorText(r));assert.equal(r.totals.st,10);assert.equal(r.rows.find(row=>row.id===id).st,10);assert.equal(r.economy.used,1);assert.ok(r.formulas.some(f=>f.text.includes('d20+d12')&&f.text.includes('Potenza del Titano')));
  const bad=h.resolve({activeTalentId:id,talentUses:{[id]:3},talentTechniqueUses:{[id]:4}});assert.equal(bad.totals,null);
  h.c.stCur=5;assert.equal(h.resolve({activeTalentId:id,talentUses:{[id]:4}}).status,'unavailable');
 });
@@ -64,8 +80,8 @@ test('Raffica Senza Fine charges increasing extra costs and every complete techn
  for(const die of ['d20+d12','d20+d20']){
   const h=fixture('striker-atletica',die);h.take('raffica-senza-fine');const id='prestige:raffica-senza-fine';
   let r=h.resolve({activeTalentId:id,talentUses:{[id]:4}});
-  assert.equal(r.status,'ready',errorText(r));assert.equal(r.rows.find(row=>row.id===id).st,10);assert.equal(r.totals.st,11);assert.equal(r.economy.used,1);
-  h.c.extraTech[0].eff=['Scatto','Balzo'];
+  assert.equal(r.status,'ready',errorText(r));assert.equal(r.rows.find(row=>row.id===id).st,10);assert.equal(r.totals.st,10);assert.equal(r.economy.used,1);
+  h.c.extraTech[0].eff=['Scatto','Sbilancio'];
   r=h.resolve({activeTalentId:id,talentUses:{[id]:2},talentTechniqueUses:{[id]:2}});
   assert.equal(r.status,'ready',errorText(r));assert.equal(r.rows.find(row=>row.id==='tech:punch').st,2);
   assert.equal(r.rows.find(row=>row.id===id).st,7);assert.equal(r.totals.st,9);assert.equal(r.economy.used,1);
@@ -81,14 +97,18 @@ test('Raffica Senza Fine has no fixed extra cap and cannot add support, Area or 
  }
 });
 test('Maglio pays 3 ST without spending the Bonus, adds two DD and full Forza, and retains parry restrictions',()=>{
- const h=fixture('crusher');h.take('maglio-inarrestabile');h.take('onda-sismica');const r=h.resolve({activeTalentId:'prestige:onda-sismica',passiveTalentIds:['prestige:maglio-inarrestabile']});assert.equal(r.status,'ready',errorText(r));assert.equal(r.economy.used,1);assert.equal(r.totals.st,7);assert.ok(r.formulas.some(f=>f.text.includes('2 × d10 Maglio')&&f.text.includes('d20+d12')));assert.ok(r.formulas.some(f=>f.label.includes('Parata riuscita')));
+ const h=fixture('crusher');h.take('maglio-inarrestabile');h.take('onda-sismica');
+ h.c.armi=[{id:'maul',nome:'Maglio',tipo:'Contundente',grado:'d10',attr:'Forza'}];h.c.extraTech[0].arma='maul';
+ const r=h.resolve({activeTalentId:'prestige:onda-sismica',passiveTalentIds:['prestige:maglio-inarrestabile'],weaponId:'weapon:maul'});assert.equal(r.status,'ready',errorText(r));assert.equal(r.economy.used,1);assert.equal(r.totals.st,6);assert.ok(r.formulas.some(f=>f.text.includes('2 × d10 Maglio')&&f.text.includes('d20+d12')));assert.ok(r.formulas.some(f=>f.label.includes('Parata riuscita')));
 });
 test('Guardia Invalicabile uses full Atletica plus an effective d20 blade, without increasing the physical weapon grade',()=>{
- const h=fixture('swordsman');h.take('guardia-invalicabile');h.take('maestria-assoluta-della-lama');h.c.armi=[{id:'sword',nome:'Lama',tipo:'Lama',grado:'d4'}];Object.assign(h.c.extraTech[1],{stile:'Swordsman',eff:['Parata']});
- const r=h.resolve({baseTechId:'tech:guard',passiveTalentIds:['prestige:guardia-invalicabile','prestige:maestria-assoluta-della-lama'],weaponId:'weapon:sword'});assert.equal(r.status,'ready',errorText(r));assert.equal(r.economy.used,0);assert.ok(r.formulas.some(f=>/d20 arma/.test(f.text)&&/d20\+d12\) Atletica/.test(f.text)));assert.equal(h.c.armi[0].grado,'d4');
+ const h=fixture('swordsman');h.take('guardia-invalicabile');h.take('maestria-assoluta-della-lama');h.c.armi=[{id:'sword',nome:'Lama',tipo:'Lama',grado:'d4',attr:'Forza'}];Object.assign(h.c.extraTech[1],{stile:'Swordsman',forma:'Singolo',eff:[],arma:'sword'});
+ const r=h.resolve({baseTechId:'tech:guard',techniqueUse:'parry',passiveTalentIds:['prestige:guardia-invalicabile','prestige:maestria-assoluta-della-lama'],weaponId:'weapon:sword'});assert.equal(r.status,'ready',errorText(r));assert.equal(r.economy.used,0);assert.ok(r.formulas.some(f=>/d20 arma/.test(f.text)&&/d20\+d12\) Atletica/.test(f.text)));assert.equal(h.c.armi[0].grado,'d4');
 });
 test('Fendente Sovrano keeps full damage and cannot stack the old half-damage version',()=>{
- const h=fixture('swordsman');h.take('fendente-sovrano');const r=h.resolve({passiveTalentIds:['prestige:fendente-sovrano']});assert.equal(r.totals.st,2);assert.ok(r.formulas.filter(f=>f.label==='Danno · fonti').every(f=>!f.text.includes('/ 2')));assert.ok(r.conditions.some(c=>c.text.startsWith('Fendente Sovrano: 300 m')));
+ const h=fixture('swordsman');h.take('fendente-sovrano');
+ h.c.armi=[{id:'blade',nome:'Lama',tipo:'Lama',grado:'d10',attr:'Forza'}];h.c.extraTech[0].arma='blade';
+ const r=h.resolve({passiveTalentIds:['prestige:fendente-sovrano'],weaponId:'weapon:blade'});assert.equal(r.status,'ready',errorText(r));assert.equal(r.totals.st,1);assert.ok(r.formulas.filter(f=>f.label==='Danno · fonti').every(f=>!f.text.includes('/ 2')));assert.ok(r.conditions.some(c=>c.text.startsWith('Fendente Sovrano: 300 m')));
 });
 test('Schianto replaces only its d8 with full Forza after a compatible Projection',()=>{
  const h=fixture();h.c.extraTech[0].eff=['Proiezione','Schianto'];let r=h.resolve({});assert.ok(r.formulas.some(f=>f.label.startsWith('Schianto')&&/sostituisce d8/.test(f.text)));h.c.extraTech[0].eff=['Schianto'];r=h.resolve({});assert.ok(r.formulas.some(f=>f.label.startsWith('Schianto')&&f.text.startsWith('+ d8')));
@@ -144,14 +164,16 @@ test('Stored Prestige duration never survives an inactive Color in the Special M
 });
 test('The real Signature Builder keeps legal damage dice under a Prestige attribute, with normal slots and ST',()=>{
  const h=fixture(),build=require('./helpers/glc-fixture.cjs').installRealBuilder(h.context);
- let result=build({...h.c.extraTech[0],die:'d20',eff:['+1d6 Dado Danno']});assert.equal(result.stato.s,'ok');assert.equal(h.context.TBUILD.die,'d20');assert.equal(result.slot,4);
+ let result=build({...h.c.extraTech[0],die:'d20',eff:['Sbilancio']});assert.equal(result.stato.s,'ok');assert.equal(h.context.TBUILD.die,'d20');assert.equal(result.slot,4);
  assert.equal(h.context.tecCost(h.context.TBUILD).st,1);
- h.c.attr.Forza='d8';result=build({...h.c.extraTech[0],die:'d20'});assert.equal(h.context.TBUILD.die,'d8');assert.equal(result.slot,2);
+ h.c.attr.Forza='d8';result=build({...h.c.extraTech[0],die:'d20'});assert.equal(h.context.TBUILD.die,'d20');assert.equal(result.valid,false);assert.equal(result.stato.s,'ko');assert.ok(result.errors.some(e=>e.code==='grade-cap'));
+ result=build({...h.c.extraTech[0],die:'d8'});assert.equal(result.valid,true);assert.equal(result.stato.s,'ok');assert.equal(result.slot,2);
 });
 test('The real Builder offers Punto di Rottura only with Precisione Assoluta and the specified technique',()=>{
  const h=fixture('striker-acrobazia'),build=require('./helpers/glc-fixture.cjs').installRealBuilder(h.context),t={...h.c.extraTech[0],attr:'Tecnica',eff:['Punto di Rottura']};
- build(t);assert.equal(h.context.TBUILD.eff.length,0);h.take('precisione-assoluta');let result=build(t);assert.equal(result.stato.s,'ok');assert.deepEqual(Array.from(h.context.TBUILD.eff),['Punto di Rottura']);assert.equal(h.context.tecCost(h.context.TBUILD).st,2);
- for(const patch of [{attr:'Forza'},{fonte:'Frutto'},{forma:'Area'}]){build({...t,...patch});assert.ok(!h.context.TBUILD.eff.includes('Punto di Rottura'));}
+ const assertUnavailable=result=>{assert.deepEqual(Array.from(h.context.TBUILD.eff),['Punto di Rottura']);assert.equal(result.valid,false);assert.equal(result.stato.s,'ko');assert.ok(result.errors.some(e=>e.code==='effect'&&e.effect==='Punto di Rottura'));assert.ok(!result.available.includes('Punto di Rottura'));};
+ assertUnavailable(build(t));h.take('precisione-assoluta');let result=build(t);assert.equal(result.valid,true);assert.equal(result.stato.s,'ok');assert.deepEqual(Array.from(h.context.TBUILD.eff),['Punto di Rottura']);assert.ok(result.available.includes('Punto di Rottura'));assert.equal(h.context.tecCost(h.context.TBUILD).st,2);
+ for(const patch of [{attr:'Forza'},{fonte:'Frutto'},{forma:'Area'}])assertUnavailable(build({...t,...patch}));
 });
 test('At Saikyo, optional higher PIP payments preserve the shorter Prestige effects and cannot stack versions',()=>{
  const h=fixture('striker-atletica','d20+d20');h.state(0);h.state(1);

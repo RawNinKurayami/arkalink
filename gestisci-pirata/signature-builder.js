@@ -52,9 +52,9 @@
     values.append(metric('Dado danno', TBUILD.attr ? TBUILD.die : '—'), metric('Costo', tecCostLabel(TBUILD)));
     h.append(values);
     const slots = make('div', 'smb-core-slots');
-    slots.append(make('span', '', (TBUILD.forma === 'Canzone' ? 'Melodia' : 'Slot') + ' ' + slotUsed(TBUILD.eff) + ' / ' + (SMBD.slot || 1)));
+    slots.append(make('span', '', (TBUILD.forma === 'Canzone' ? 'Melodia' : 'Slot') + ' ' + slotUsed(TBUILD.eff) + ' / ' + (SMBD.slot ?? 0)));
     const pips = make('span', 'smb-slot-pips'); pips.setAttribute('aria-hidden', 'true');
-    for (let i = 0; i < (SMBD.slot || 1); i++) pips.append(make('i', i < slotUsed(TBUILD.eff) ? 'filled' : ''));
+    for (let i = 0; i < (SMBD.slot ?? 0); i++) pips.append(make('i', i < slotUsed(TBUILD.eff) ? 'filled' : ''));
     slots.append(pips); h.append(slots);
     const gear = TBUILD.arma ? (pg.armi || []).find(a => a.id === TBUILD.arma) : TBUILD.modulo ? (pg.moduli || []).find(m => m.id === TBUILD.modulo) : null;
     if (gear) h.append(make('p', 'smb-core-gear', gear.nome || (TBUILD.arma ? 'Arma senza nome' : 'Modulo')));

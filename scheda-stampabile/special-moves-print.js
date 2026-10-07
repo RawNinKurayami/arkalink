@@ -7,7 +7,7 @@ const list = value => Array.isArray(value) ? value : [];
 const text = value => value == null ? '' : String(value);
 const copy = value => JSON.parse(JSON.stringify(value));
 const STATUS = {ready:'Ricetta pronta',repair:'Da riparare',costs:'Costi da registrare',unavailable:'Risorse / stato insufficienti',refresh:'Dati di stampa da aggiornare'};
-const KIND = {tech:'Tecnica',talent:'Talento',haki:'Haki',fruit:'Frutto del Diavolo',weapon:'Arma',module:'Modulo'};
+const KIND = {tech:'Tecnica',talent:'Talento',haki:'Haki',fruit:'Frutto del Diavolo',weapon:'Arma',module:'Modulo',instrument:'Strumento musicale'};
 const refreshNotice = 'Apri Azioni → Scheda illustrata (PDF) dalla gestione di questo pirata per aggiornare fonti, formule e costi delle Special Moves.';
 const urls = new Set();
 
@@ -39,21 +39,21 @@ function snapshot(character, owner) {
    const rank = s => s.kind === 'fruit' ? 0 : s.kind === 'haki' ? 1 : s.kind === 'tech' ? 3 : s.kind === 'talent' ? 4 : 2;
    const order = [...new Set([...list(m.sequence), ...[...r.selected].sort((a,b) => rank(a)-rank(b)).map(s => s.id)])];
    const sources = order.map(id => r.selected.find(s => s.id === id)).filter(Boolean).map(s => ({
-    id:s.id,kind:s.kind,name:s.name,subtitle:s.subtitle || '',description:s.desc || '',emblem:s.emblem || '',
+    id:s.id,kind:s.kind,subtype:s.subtype || '',name:s.name,subtitle:s.subtitle || '',description:s.desc || '',emblem:s.emblem || '',
     mode:s.meta?.mode || '',duration:s.kind === 'tech' ? s.raw.durata || '' : ''
    }));
    return {...cardIdentity(input || {}),presentation:copy(m.presentation),status:r.status,
     baseName:r.tech?.name || '',sources,
-    totals:copy(r.totals),rows:copy(r.rows),formulas:copy(r.formulas),conditions:copy(r.conditions),resources:copy(r.resources),
+    totals:copy(r.totals),rows:copy(r.rows),formulas:copy(r.formulas),conditions:copy(r.conditions),resources:copy(r.resources),directSaves:copy(r.directSaves || []),
     pipByColor:Object.entries(r.pipByColor).map(([id,cost]) => ({name:r.sources.find(s => s.id === id)?.name || id,cost})),
-    warnings:[...r.errors.map(e => e.text),...r.unknown.map(s => s.name+': registra i costi approvati dal GM.'),...r.unavailable]
+    warnings:[...r.errors.map(e => e.text),...r.unknown.map(s => s.name+(s.techKind==='legacy'?': converti la Tecnica storica nel Costruttore.':': registra i costi approvati dal GM.')),...r.unavailable]
    };
   } catch (error) {
    // One damaged/imported recipe must not suppress other cards or the original sheet.
    return unresolved(input,'Impossibile preparare questa ricetta. Controlla la carta nella gestione del pirata e riapri la scheda PDF.');
   }
  });
- return {v:3,owner:text(owner),fingerprint:fingerprint(character),generatedAt:Date.now(),cards};
+ return {v:5,owner:text(owner),fingerprint:fingerprint(character),generatedAt:Date.now(),cards};
 }
 function ownerFromStorage() {
  try {
@@ -65,7 +65,7 @@ function ownerFromStorage() {
 }
 function printable(character, payload) {
  const moves = list(character.specialMoves), pack = payload?.specialMoves, owner = ownerFromStorage();
- const fresh = pack?.v === 3 && owner && payload.charId === owner && pack.owner === owner && pack.fingerprint === fingerprint(character) &&
+ const fresh = pack?.v === 5 && owner && payload.charId === owner && pack.owner === owner && pack.fingerprint === fingerprint(character) &&
   Array.isArray(pack.cards) && pack.cards.length === moves.length && pack.cards.every((c,i) => c && c.id === text(moves[i]?.id));
  return {cards:fresh ? pack.cards : moves.map(m => unresolved(m)),generatedAt:fresh ? pack.generatedAt : null};
 }
@@ -156,7 +156,7 @@ function buildCard(card, index, count, character, generatedAt, tasks) {
   paragraph(sequence,'L’ordine è un promemoria: tempi, reazioni e condizioni restano quelli delle fonti.','smp-hint');
   const ol = node('ol','smp-sequence');card.sources.forEach(s => {
    const item = node('li');item.append(node('h4','',s.name));
-   paragraph(item,[KIND[s.kind] || s.kind,s.mode === 'active' ? 'Attivo' : s.mode === 'passive' ? 'Passivo' : '',s.subtitle,s.duration].filter(Boolean).join(' · '),'smp-source-meta');
+   paragraph(item,[s.subtype==='uniqueTrait'?'Tratto Unico · promemoria condizionale':KIND[s.kind] || s.kind,s.mode === 'active' ? 'Attivo' : s.mode === 'passive' ? 'Passivo' : '',s.subtitle,s.duration].filter(Boolean).join(' · '),'smp-source-meta');
    // Full talent/equipment descriptions are already included in resolver conditions.
    if (s.kind === 'tech' || s.kind === 'fruit') paragraph(item,s.description);
    ol.append(item);

@@ -23,13 +23,20 @@ function setup(){
   weaponCompat:()=>({s:'ok'}),weaponStyleReq:()=> 'Striker',moduliVisibili:()=>true,
   modStateLabel:()=>({t:'Attivo'}),
  });
- vm.runInContext(['DICE','HAKI_NAMES','HAKI_PROG','TALENTS','FRUIT_TALENTS','TEC_DUR','TEC_EFF','TEC_EFF_ARCHIVIATI'].map(declaration).join('\n'),context);
+ vm.runInContext(['DICE','HAKI_NAMES','HAKI_PROG','TALENTS','FRUIT_TALENTS','TEC_DUR','TEC_EFF','TEC_EFF_ARCHIVIATI','STILE_WHITELIST'].map(declaration).join('\n'),context);
+ for(const f of ['regole/tecniche.js','regole/talenti.js','regole/avanzamento.js','regole/tratti-data.js','regole/tratti.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context);
+ context.GLCTechniques=context.window.GLCTechniques;
+ context.GLCTalents=context.window.GLCTalents;
+ context.GLCAdvancement=context.window.GLCAdvancement;
+ context.GLCTratti=context.window.GLCTratti;
+ vm.runInContext('GLCTalents.configure({roles:TALENTS,fruits:FRUIT_TALENTS,dice:DICE});',context);
+ vm.runInContext('GLCTratti.configure({resolveSkill:(c,name)=>GLCTalents.skillDie(c,name),talentBudget:(c,r)=>r.take?GLCAdvancement.canAcquire(c):{allowed:true}});',context);
  vm.runInContext(['hakiPip','hakiPipAxis','hakiMaxPip','hakiPipOf','hakiUnlocked','hakiGrade','dieRank','tecEffObj','tecCost'].map(oneLine).join('\n'),context);
  vm.runInContext(`globalThis.rules={TALENTS,FRUIT_TALENTS,HAKI_PROG,HAKI_NAMES};`,context);
  context.pg={role:'Combattente',style:'Striker',roleSkillDie:'d20',attr:{Forza:'d10',Spirito:'d20'},stCur:30,
   talents:['Combattente · Striker · Raffica — Base','Combattente · Striker · Pressione Costante','Combattente · Striker · Guardia del Combattente'],
   extraTech:[{id:'punch',nome:'Pugno di prova',fonte:'Stile',stile:'Striker',forma:'Singolo',attr:'Forza',die:'d10',eff:[],durata:'Un turno'},
-   {id:'guard',nome:'Guardia di prova',fonte:'Stile',stile:'Striker',forma:'Difesa',attr:'Forza',die:'d10',eff:['Contrattacco'],durata:'Un turno'}],
+   {id:'guard',nome:'Guardia di prova',fonte:'Stile',stile:'Striker',forma:'Difesa',attr:'Forza',die:'d10',eff:['Guardia Migliorata'],durata:'Un turno'}],
   haki:context.rules.HAKI_NAMES.map((name,i)=>({name,die:'d20',pip:3,smcId:'color-'+i})),armi:[],moduli:[],frutto:{has:false},specialMoves:[]};
  for(const f of ['regole/prestigio-data.js','regole/prestigio.js','regole/prestigio-presentazione.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context);
  context.GLCPrestige=context.window.GLCPrestige;
@@ -50,10 +57,10 @@ const hasBonusError=r=>r.errors.some(e=>e.code==='bonus');
 
 
 function installRealBuilder(context){
- vm.runInContext(['TEC_FONTI','STILE_WHITELIST','TEC_FORME','TEC_DADI','TEC_RANK','TEC_SLOT','TEC_FAMS','STILI_NASCOSTI'].map(declaration).join('\n'),context);
- vm.runInContext(['isMusicista','isCombSpecial','styleVisible','combStyles','grpOf','isSagoma','slotUsed','fruitDieCap'].map(oneLine).join('\n'),context);
+ vm.runInContext(['TEC_FONTI','TEC_FORME','TEC_DADI','TEC_RANK','TEC_SLOT','TEC_FAMS','STILI_NASCOSTI'].map(declaration).join('\n'),context);
+ vm.runInContext(['isMusicista','isCombSpecial','styleVisible','combStyles','grpOf','isSagoma','slotUsed','fruitDieCap','hasTalent','famOf'].map(oneLine).join('\n'),context);
  vm.runInContext(html.slice(html.indexOf('function effVeto('),html.indexOf('function tecCost(')),context);
- vm.runInContext(html.slice(html.indexOf('function tbCompute('),html.indexOf('/* ---- 01 · Identità ---- */')),context);
+ vm.runInContext(html.slice(html.indexOf('function tbRules('),html.indexOf('/* ---- 01 · Identità ---- */')),context);
  context.styleReady=()=>true;context.stileBlock=()=>'';context.fruttoBlock=()=>'';
  return tech=>{context.TBUILD=JSON.parse(JSON.stringify(tech));return context.tbCompute();};
 }

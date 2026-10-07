@@ -9,7 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
 <link rel="stylesheet" href="special-moves-print.css?v=1">
-<script src="special-moves-print.js?v=4"></script>
+<script src="/regole/tratti-data.js?v=1"></script>
+<script src="/regole/tratti.js?v=1"></script>
+<script src="special-moves-print.js?v=6"></script>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#33261a;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -109,7 +111,7 @@ html,body{overflow-x:visible;}
     <svg width="15" height="15" viewBox="0 0 24 24" stroke="#33261a" stroke-width="1.5" fill="none"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg>
     <div style="font-family:'Marcellus SC',serif;text-transform:uppercase;letter-spacing:3px;font-size:11px">Attributi</div>
     <div style="flex:1;border-top:2px double var(--gold,#c9a24a)"></div>
-    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:9px;color:#6b5a44">Difesa Passiva = numero del dado dell'Attributo razziale + 1 (Forza d8 → 9)</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:9px;color:#6b5a44">Difesa Passiva = dado dell’Attributo razziale + 1 + modificatori applicabili</div>
    </div>
    <div style="font-family:'Cormorant Garamond',serif;font-size:9px;color:#6b5a44;margin-bottom:4px;letter-spacing:.3px">Scala: d4 ‹ d6 ‹ d8 ‹ d10 ‹ d12 ‹ d20 &nbsp;·&nbsp; — = spento. &nbsp;Cerchia un dado per ogni attributo.</div>
    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px">
@@ -319,15 +321,69 @@ html,body{overflow-x:visible;}
   function qd(s){return document.querySelector(s);}
   function setText(id,v){var e=$id(id); if(e) e.textContent=(v==null?'':String(v));}
   var RACES={
-    umano:{name:'Umano',hp:'d6',pv:14,tech:'Volont\u00e0 Incrollabile',techDesc:'A \u226425% PV si aggiunge a qualsiasi tiro; non costa ST.'},
-    uomopesce:{name:'Uomo Pesce / Tritone',hp:'d8',pv:16,tech:'Dominio degli Abissi',techDesc:'In acqua si aggiunge a ogni tiro fisico; respiro subacqueo infinito.'},
-    gigante:{name:'Gigante',hp:'d10',pv:22,tech:'Scala Colossale',techDesc:'Quando la stazza conta si aggiunge al tiro; ogni colpo a segno: Dado Danno +1 gradino.'},
-    mink:{name:'Mink',hp:'d6',pv:14,tech:'Electro + Sulong',techDesc:'Electro: scarica paralizzante (1 ST). Sulong (luna piena): attributi +1 gradino per una scena.'},
-    lunarian:{name:'Lunarian',hp:'d8',pv:16,tech:'Fiamma Immortale',techDesc:'Fiamma accesa: +1 dado in resistenza; spenta: bonus evasione. Si alterna 1x/turno.'},
-    longbraccio:{name:'Longbraccio',hp:'d6',pv:12,tech:'Portata Estesa',techDesc:'Colpisci in mischia da distanza insolita; chi ti attacca ravvicinato ha +2 alla soglia.'},
-    lungagamba:{name:'Lungagamba',hp:'d6',pv:14,tech:'Calcio Colossale',techDesc:'Bonus su calci e salti; 1x/combat salti fuori portata senza tiro.'},
-    cyborg:{name:'Cyborg',hp:'d8',pv:16,tech:'Corpo Meccanico',techDesc:'Installa moduli meccanici nel corpo: 1 slot a d6, 2 a d8, 3 a d10, 4 a d12, 5 a d20.'},
-    tontatta:{name:'Tontatta',hp:'d6',pv:12,tech:'Piccolo Guerriero',techDesc:'Aggiungi il Dado razziale alle prove di Furtivit\u00e0 o Mobilit\u00e0; il primo attacco nemico contro di te arriva in Svantaggio.'}
+    "umano": {
+      "name": "Umano",
+      "hp": "d6",
+      "pv": 14,
+      "tech": "Volontà Incrollabile",
+      "techDesc": "A ≤25% PV si aggiunge a qualsiasi tiro. Non costa ST."
+    },
+    "uomopesce": {
+      "name": "Uomo Pesce / Tritone",
+      "hp": "d8",
+      "pv": 16,
+      "tech": "Dominio degli Abissi",
+      "techDesc": "In acqua si aggiunge a ogni tiro fisico. Respiro subacqueo infinito."
+    },
+    "gigante": {
+      "name": "Gigante",
+      "hp": "d10",
+      "pv": 22,
+      "tech": "Scala Colossale",
+      "techDesc": "Quando la stazza conta si aggiunge al tiro. Ogni colpo a segno: Dado Danno +1 gradino."
+    },
+    "mink": {
+      "name": "Mink",
+      "hp": "d6",
+      "pv": 14,
+      "tech": "Electro + Sulong",
+      "techDesc": "Electro: paralisi, Salvezza di Forza ogni turno contro la Soglia fissata dal suo Grado (1 ST fino a d8, 2 ST a d10 e d12, 3 ST a d20). Sulong: vedendo la luna, attivazione gratuita, Attributi +1 gradino e Vantaggio a ogni tiro per un combattimento; al termine ST 0."
+    },
+    "lunarian": {
+      "name": "Lunarian",
+      "hp": "d8",
+      "pv": 16,
+      "tech": "Fiamma Immortale",
+      "techDesc": "Fiamma ON: Svantaggio al tiro per colpire, riduci il primo danno fisico del round con il Dado Razziale. OFF: −2 Difesa Passiva, aggiungi il Dado Razziale al tiro per colpire. Alternare 1×/turno gratis."
+    },
+    "longbraccio": {
+      "name": "Longbraccio",
+      "hp": "d6",
+      "pv": 12,
+      "tech": "Portata Estesa",
+      "techDesc": "Portata maggiore per i colpi con le braccia; da d8, Salvezza di Forza contro Trascinamento o Proiezione. Da d10 coinvolge più bersagli entro portata, con un tiro per colpire separato per ciascuno."
+    },
+    "lungagamba": {
+      "name": "Lungagamba",
+      "hp": "d6",
+      "pv": 14,
+      "tech": "Calcio Colossale",
+      "techDesc": "Portata maggiore per i calci; da d8, Salvezza di Forza contro Schiantato. Da d10 coinvolge più bersagli entro portata, con un tiro per colpire separato per ciascuno."
+    },
+    "cyborg": {
+      "name": "Cyborg",
+      "hp": "d8",
+      "pv": 16,
+      "tech": "Corpo Meccanico",
+      "techDesc": "Installa moduli meccanici nel corpo: 1 slot a d6, 2 a d8, 3 a d10, 4 a d12, 5 a d20."
+    },
+    "tontatta": {
+      "name": "Tontatta",
+      "hp": "d6",
+      "pv": 12,
+      "tech": "Piccolo Guerriero",
+      "techDesc": "Aggiungi il Dado Razziale alle Prove di Furtività o Mobilità; il primo attacco di ciascun nemico contro di te arriva in Svantaggio."
+    }
   };
   var MOVE={umano:10,cyborg:10,lunarian:10,longbraccio:10,uomopesce:10,tontatta:8,gigante:14,mink:14,lungagamba:16};
   var RACE_ATTR={umano:'choice',uomopesce:'Forza',gigante:'Forza',mink:'Tecnica',lunarian:'Spirito',longbraccio:'Tecnica',lungagamba:'Forza',cyborg:'Forza',tontatta:'choice2'};
@@ -356,6 +412,10 @@ html,body{overflow-x:visible;}
     var M={Dottore:'Medicina',Cuoco:'Cucina',Navigatore:'Navigazione',Archeologo:'Archeologia',Musicista:'Arte',Capitano:'Comunicazione'};
     return M[role]||null;
   }
+  if(window.GLCTratti) GLCTratti.configure({resolveSkill:function(c,name){
+    var primary=roleSkill(c.role,c.style,c.roleSkillChoice);
+    return primary===name?(c.roleSkillDie||'d8'):((c.skills&&c.skills[name])||'');
+  }});
   function roleLabel(pg){
     if(!pg.role) return '';
     var s=pg.role;
@@ -365,6 +425,7 @@ html,body{overflow-x:visible;}
   }
   function circleDie(grp,die){ if(!die) return; var e=qd('.die[data-grp="'+grp+'"][data-die="'+die+'"]'); if(e) e.classList.add('on'); }
   function techRow(t){ var eff=(t.eff&&t.eff.length)?t.eff.join(', '):(t.desc||''); var tipo=t.fonte||'Custom'; if(tipo==='Frutto'&&t.fruitType) tipo='Frutto '+t.fruitType; return {nome:t.nome,attr:(ATTR3[t.attr]||t.attr||'\u2014'),die:t.die||'',tipo:tipo,eff:eff}; }
+  function historicTechRow(t){var row=techRow(t);row.tipo='Profilo storico · da convertire nel Costruttore';if(t.desc&&t.eff&&t.eff.length)row.eff+=' — '+t.desc;return row;}
   function setT(r,c,v){ var e=qd('.tcell[data-trow="'+r+'"][data-tcol="'+c+'"]'); if(e) e.textContent=(v==null?'':String(v)); }
   function setB(r,c,v){ var e=qd('.bcell[data-brow="'+r+'"][data-bcol="'+c+'"]'); if(e) e.textContent=(v==null?'':String(v)); }
   function fillBox(id,text){ var e=$id(id); if(!e||!text) return; e.style.justifyContent='flex-start'; e.innerHTML='<div style="font-family:Cormorant Garamond,serif;font-size:10.5px;color:#33261a;white-space:pre-wrap;line-height:1.5">'+text.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];})+'</div>'; }
@@ -385,7 +446,8 @@ html,body{overflow-x:visible;}
     var pvMax=(pg.pvMax!=null?pg.pvMax:(r.pv!=null?r.pv:'')); var pvCur=(pg.pvCur!=null?pg.pvCur:pvMax);
     setText('f-pvcur',pvCur); setText('f-pvmax',pvMax); setText('f-stcur',(pg.stCur!=null?pg.stCur:6)); setText('f-stmax',(pg.stMax!=null?pg.stMax:6)); setText('f-dadovita',r.hp||'');
     var P=(window.__glcPrint&&window.__glcPrint.charId===(new URLSearchParams(location.search).get('c')||window.__glcPrint.charId))?window.__glcPrint:null;
-    var dp=(P&&P.difesa!=null)?P.difesa:difesaPassiva(pg); setText('f-difesa',dp!=null?dp:'');
+    var baseDP=difesaPassiva(pg);
+    var dp=(P&&P.difesa!=null)?P.difesa:(baseDP!=null?baseDP+(window.GLCTratti?GLCTratti.derivedDP(pg):0):null); setText('f-difesa',dp!=null?dp:'');
     var mv=MOVE[pg.race]; setText('f-move',mv?(mv+' m'):'');
     (pg.haki||[]).forEach(function(h){ var nm=h.name||''; var key=nm.indexOf('Armamento')>=0?'arm':(nm.indexOf('Osservazione')>=0?'obs':(nm.indexOf('Re')>=0?'re':null)); if(!key) return; var max=(key==='re')?3:5; var n=Math.max(0,Math.min(max,parseInt(h.pip)||0)); for(var i=0;i<n;i++){ var p=qd('.pip[data-haki="'+key+'"][data-idx="'+i+'"]'); if(p) p.classList.add('on'); } });
     var rs=roleSkill(pg.role,pg.style,pg.roleSkillChoice);
@@ -394,8 +456,8 @@ html,body{overflow-x:visible;}
     setText('f-rtech-nome',r.tech||''); setText('f-rtech-eff',r.techDesc||'');
     var techs=[];
     if(r.tech) techs.push({nome:r.tech,attr:'\u2014',die:pg.racialDie||'d6',tipo:'Razziale',eff:r.techDesc||''});
-    if(pg.t1&&pg.t1.nome) techs.push(techRow(pg.t1));
-    if(pg.t2&&pg.t2.nome) techs.push(techRow(pg.t2));
+    if(pg.t1&&pg.t1.nome) techs.push(historicTechRow(pg.t1));
+    if(pg.t2&&pg.t2.nome) techs.push(historicTechRow(pg.t2));
     (pg.extraTech||[]).forEach(function(t){ if(t&&t.nome) techs.push(techRow(t)); });
     var costOf={}; if(P) (P.tecniche||[]).forEach(function(t){ costOf[t.nome]=t.cost; });
     (pg.armi||[]).forEach(function(a){ if(a&&a.nome) techs.push({nome:a.nome,attr:(ATTR3[a.attr]||a.attr||'\u2014'),die:a.grado||a.die||'',tipo:'Arma'+(a.tipo?(' \u00b7 '+a.tipo):''),eff:(a.eff&&a.eff.nome)?((a.eff.nome)+(a.eff.cat?(' \u00b7 '+a.eff.cat):'')):(a.note||'')}); });
@@ -411,7 +473,9 @@ html,body{overflow-x:visible;}
     var who=$id('who'); if(who) who.textContent='Scheda di '+(pg.nome&&pg.nome.trim()?pg.nome.trim():'Senza nome');
     var bl=$id('blanklink'); if(bl) bl.style.display='';
   }
-  /* Facciata 3 — generata solo se c'è qualcosa da scrivere: talenti, arsenale, Haki, tecniche per esteso, P.A. Usa il pacchetto salvato da «Gestisci pirata» (window.__glcPrint); senza, si arrangia con i dati grezzi. */
+  /* Facciata 3 — generata solo se c'è qualcosa da scrivere: Talenti, Tratti,
+     arsenale, Haki, tecniche per esteso, P.A. Preferisce il pacchetto del
+     gestionale; i Tratti restano leggibili anche dai soli dati del pirata. */
   function buildPage3(pg,P,extraTechs){
     var secs=[];
     function sec(title,inner){ if(inner) secs.push('<div style="break-inside:avoid;margin-bottom:5mm"><div style="display:flex;align-items:center;gap:8px;margin-bottom:3px"><div style="font-family:\'Marcellus SC\',serif;text-transform:uppercase;letter-spacing:3px;font-size:11px">'+title+'</div><div style="flex:1;border-top:2px double var(--gold,#c9a24a)"></div></div>'+inner+'</div>'); }
@@ -419,9 +483,23 @@ html,body{overflow-x:visible;}
     var tal=P?P.talenti:(pg.talents||[]).map(function(k){var p=String(k).split(' \u00b7 ');return {name:p[p.length-1],branch:p.length>2?p[1]:'',tag:'',desc:''};});
     if(P?.prestigio?.length)sec('Prestigio degli Attributi',P.prestigio.map(function(a){return row(a.name,a.level+' · '+a.die,(a.benefits||[]).map(function(b){return b.name+': '+b.value+' '+b.unit+'. '+b.detail;}).join(' · '));}).join(''));
     if(tal&&tal.length) sec('Talenti',tal.map(function(t){return row(t.name,[t.branch,t.tag].filter(Boolean).join(' \u00b7 '),t.desc);}).join(''));
+    var traits=(P&&Array.isArray(P.tratti))?P.tratti:(window.GLCTratti?GLCTratti.acquired(pg):[]);
+    if(traits.length) sec('Tratti Unici · Sinergie',traits.map(function(t){
+      var definition=window.GLCTratti?GLCTratti.trait(t.id):null;
+      var name=t.name||(definition&&definition.name)||t.id||'Tratto Unico';
+      var status=t.status||(t.superseded?'evolved':t.active===false?'inactive':'acquired');
+      var statusLabel={acquired:'Acquisito · attivo',inactive:'Acquisito · inattivo',evolved:'Acquisito · evoluto'}[status]||'Acquisito';
+      var attribute=t.attribute||(definition&&definition.attribute),skill=t.skill||(definition&&definition.skill);
+      var requirements=t.requirementsText||(definition&&definition.requirementsText)||'';
+      var effects=Array.isArray(t.effects)?t.effects:(definition&&definition.effects)||[];
+      var fullRule=effects.length?effects.join(' '):(t.desc||'');
+      var note=status==='inactive'?'Scelta conservata: il beneficio è inattivo finché i requisiti non sono soddisfatti.':status==='evolved'?'La scelta resta registrata; il suo beneficio è sostituito dall’Evoluzione e non si somma.':'';
+      var meta=[statusLabel,attribute&&skill?attribute+' + '+skill:'',t.limit||(definition&&definition.limit)].filter(Boolean).join(' · ');
+      return row(name,meta,fullRule,[requirements?'Requisiti: '+requirements+'.':'',note].filter(Boolean).join(' '));
+    }).join(''));
     if(extraTechs.length) sec('Tecniche / Armi (segue)',extraTechs.map(function(t){return row(t.nome,[t.tipo,t.attr,t.die].filter(Boolean).join(' \u00b7 '),t.eff);}).join(''));
     var tec=P?P.tecniche:[];
-    if(tec.length) sec('Tecniche costruite — effetti per esteso',tec.map(function(t){var meta=[t.fonte,t.forma,t.attr,t.die,t.durata&&t.durata!=='Un turno'?t.durata:'',t.cost].filter(Boolean).join(' \u00b7 ')+(t.soglia!=null?(' \u00b7 '+t.pa+'/'+t.soglia+' PA'):'');var eff=(t.eff||[]).map(function(e){return e.n+(e.d?(': '+e.d):'');}).join(' \u00b7 ');return row(t.nome||'(senza nome)',meta,eff,t.desc);}).join(''));
+    if(tec.length) sec('Tecniche costruite — effetti per esteso',tec.map(function(t){var meta=[t.fonte,t.forma,t.attr,t.die,t.durata&&t.durata!=='Un turno'?t.durata:'',t.cost,t.valid===false?'Da aggiornare':''].filter(Boolean).join(' \u00b7 ')+(t.soglia!=null?(' \u00b7 '+t.pa+'/'+t.soglia+' PA'):'');var eff=(t.eff||[]).map(function(e){return e.n+(e.d?(': '+e.d):'');}).join(' \u00b7 ');var warning=t.valid===false?('Tecnica da aggiornare'+(Array.isArray(t.issues)&&t.issues.length?': '+t.issues.join(' · '):'.')):'';return row(t.nome||'(senza nome)',meta,eff,[warning,t.desc].filter(Boolean).join(' — '));}).join(''));
     var mods=P?P.moduli:(pg.moduli||[]);
     if(mods.length) sec('Corpo Meccanico \u00b7 Moduli'+(P&&P.moduliSlots?(' \u00b7 '+mods.length+'/'+P.moduliSlots+' slot'):''),mods.map(function(m){var meta=[(m.attivo?'ATTIVO':(m.stato==='danneggiato'?'DANNEGGIATO':'inattivo')),m.tipo,(m.req?('requisito '+m.req):''),(m.grado?('Grado '+m.grado):''),m.fuel].filter(Boolean).join(' \u00b7 ');var d=[m.funzione,(m.effCat?((m.effCat+(m.effTgt?(' \u00b7 '+m.effTgt):''))+(m.eff?(' \u2014 '+m.eff):'')):(m.eff||''))].filter(Boolean).join(' \u2014 ');return row(m.nome||'modulo',meta,d,m.desc);}).join(''));
     var str=P?P.strumenti:(pg.strumenti||[]);
