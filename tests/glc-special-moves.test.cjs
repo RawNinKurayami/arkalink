@@ -459,6 +459,7 @@ test('Colpo Pesante and medical Talent saves use Atletica or Medicina rather tha
   const before=JSON.stringify(p),res=x.resolve({[slot]:slot==='passiveTalentIds'?[id]:id}),save=res.directSaves.find(s=>s.id===id);
   assert.equal(res.status,'ready',errorText(res));assert.equal(save.source,'Medicina');assert.equal(save.die,'d12');assert.equal(save.threshold,7);
   assert.match(save.when,id==='glc-talent-080'?/creatura vivente.*una volta per scontro/:/già Avvelenat[ao].*sotto metà PV/);
+  if(id==='glc-talent-095')assert.ok(x.resolve({techniqueUse:'defense',passiveTalentIds:[id]}).directSaves.every(p=>p.id!==id));
   assert.equal(JSON.stringify(p),before);
  }
 });

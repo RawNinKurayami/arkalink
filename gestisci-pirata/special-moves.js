@@ -583,7 +583,7 @@ function resolve(input) {
   if(t.durata&&!isNormalParry(t,m))conditions.push({id:tech.id,text:'Durata: '+t.durata});
  }
  talentSelected.forEach(s=>conditions.push({id:s.id,text:s.name+': '+s.desc}));
- talentSelected.filter(s=>s.unlocked&&applicable(s,tech,m)).forEach(s=>directSaves.push(...directTalentSaves(s)));
+ if(m.techniqueUse==='normal')talentSelected.filter(s=>s.unlocked&&applicable(s,tech,m)).forEach(s=>directSaves.push(...directTalentSaves(s)));
  if(tech&&m.techniqueUse==='normal'){
   if(t.fonte==='Stile'&&t.stile==='Striker'&&isAttack(t)&&!hasEffect(t,'Punto di Rottura')){
    const source=currentRoleSaveSource({branch:'Striker',roleSlot:pg.role==='Combattente'&&pg.style==='Striker'?1:2});
