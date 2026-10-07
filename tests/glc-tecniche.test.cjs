@@ -195,9 +195,12 @@ test('Read-only validation preserves legacy unknown and retired effects, bad dic
 
 function builderFixture(){
  const c=vm.createContext({window:{GLCPrestige:{has:()=>false}},GLCPrestige:{has:()=>false},GLCTechniques:rules,pg:pirate(),console,
-  styleReady:style=>style==='Striker'||c.pg.armi.some(a=>rules.compatibleWeapon(a,style)),stileBlock:()=>'',fruttoBlock:()=>'',
+  styleReady:style=>style==='Striker'||c.window.GLCFruits.arsenal(c.pg,{purpose:'build'}).some(a=>c.window.GLCTechniques.compatibleWeapon(a,style)),stileBlock:()=>'',fruttoBlock:()=>'',
   DICE:['d4','d6','d8','d10','d12','d20'],isCombattente:()=>true,
   hasTalent:name=>(c.pg.talents||[]).some(k=>k.split(' · ').pop()===name)});
+ for(const name of ['frutti.js','tecniche.js'])vm.runInContext(fs.readFileSync(path.join(root,'regole',name),'utf8'),c);
+ c.GLCFruits=c.window.GLCFruits;c.GLCTechniques=c.window.GLCTechniques;
+ vm.runInContext(html.match(/^function techniqueWeapons\([^\n]+/m)[0],c);
  vm.runInContext(html.slice(html.indexOf('const TEC_FONTI='),html.indexOf('/* ==========================================================================',html.indexOf('function tbReset'))),c);
  // Replace globals supplied by the normal character UI only where needed.
  vm.runInContext('let SMBD={};'+html.slice(html.indexOf('function tbRules(){'),html.indexOf('/* ---- 01 · Identità ---- */')),c);
@@ -246,4 +249,12 @@ test('Legacy custom Technique progression cannot invoke the old PA or global-die
  c.field=(label,value)=>c.el('input',{label,value});c.openModal=(title,render)=>render();c.paRowM=()=>{paCalls++;return c.el('pa');};c.stepper=()=>{dieCalls++;return c.el('die');};
  vm.runInContext(modal,c);c.techModal({k:'t1',name:'T1',fixed:false});c.techModal({k:'t2',name:'T2',fixed:false});
  assert.equal(paCalls,0);assert.equal(dieCalls,0);
+});
+
+test('Fruit validation reports missing or null character Fruit data without crashing or mutating historical input',()=>{
+ const t=Object.freeze(tech('',{fonte:'Frutto',fruitType:'Paramecia',arma:'',eff:Object.freeze([])}));
+ for(const p of [{},{frutto:null},{frutto:{has:false,unknown:'preserved'}}]){
+  if(p.frutto)Object.freeze(p.frutto);Object.freeze(p);const before=JSON.stringify(p);const result=evaluate(p,t);
+  assert.equal(result.valid,false);assert.ok(errorCodes(result).includes('fruit-required'));assert.equal(JSON.stringify(p),before);
+ }
 });

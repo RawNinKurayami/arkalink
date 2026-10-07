@@ -24,7 +24,8 @@ function setup(){
   modStateLabel:()=>({t:'Attivo'}),
  });
  vm.runInContext(['DICE','HAKI_NAMES','HAKI_PROG','TALENTS','FRUIT_TALENTS','TEC_DUR','TEC_EFF','TEC_EFF_ARCHIVIATI','STILE_WHITELIST'].map(declaration).join('\n'),context);
- for(const f of ['regole/cyborg.js','regole/tecniche.js','regole/talenti.js','regole/avanzamento.js','regole/tratti-data.js','regole/tratti.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context);
+ for(const f of ['regole/cyborg.js','regole/frutti.js','regole/tecniche.js','regole/talenti.js','regole/avanzamento.js','regole/tratti-data.js','regole/tratti.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context);
+ context.GLCFruits=context.window.GLCFruits;
  context.GLCCyborg=context.window.GLCCyborg;
  context.GLCTechniques=context.window.GLCTechniques;
  context.GLCTalents=context.window.GLCTalents;
@@ -59,7 +60,7 @@ const hasBonusError=r=>r.errors.some(e=>e.code==='bonus');
 
 function installRealBuilder(context){
  vm.runInContext(['TEC_FONTI','TEC_FORME','TEC_DADI','TEC_RANK','TEC_SLOT','TEC_FAMS','STILI_NASCOSTI'].map(declaration).join('\n'),context);
- vm.runInContext(['isMusicista','isCombSpecial','styleVisible','combStyles','grpOf','isSagoma','slotUsed','fruitDieCap','hasTalent','famOf'].map(oneLine).join('\n'),context);
+ vm.runInContext(['techniqueWeapons','isMusicista','isCombSpecial','styleVisible','combStyles','grpOf','isSagoma','slotUsed','fruitDieCap','hasTalent','famOf'].map(oneLine).join('\n'),context);
  vm.runInContext(html.slice(html.indexOf('function effVeto('),html.indexOf('function tecCost(')),context);
  vm.runInContext(html.slice(html.indexOf('function tbRules('),html.indexOf('/* ---- 01 · Identità ---- */')),context);
  context.styleReady=()=>true;context.stileBlock=()=>'';context.fruttoBlock=()=>'';

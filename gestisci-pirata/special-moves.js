@@ -56,8 +56,10 @@ define('Navigatore','Via di Fuga','passive','move');
 define('Carpentiere','Punto di Rottura','passive','attack');
 define('Musicista','Musica Incrollabile|Contrappunto — Base|Contrappunto — Migliorato|Contrappunto — Maestria|Fiato Lungo|Requiem|Il Canto che Resta|Coro della Ciurma','passive','song');
 define('Musicista','Suonare per i Caduti','active','song');
+define('Paramecia','Riflesso del Potere','passive','reactiveEvent',{action:'reaction'});
 define('Paramecia','Potere Versatile|Dono Passivo|Seconda Natura','passive','any');
 define('Paramecia','Doppio Uso|Potere Istintivo','active','fruit');
+define('Paramecia','Potere Istintivo','passive','fruit',{action:'freeMain'});
 define('Paramecia','Ciò che Resta|Nessuno dei Miei|Portata Naturale|Senza Contraccolpo','passive','fruit');
 define('Paramecia','Forma di Combattimento','active','any',{gm:true});
 define('Paramecia','Risveglio','active','fruit',{gm:true,noCard:true});
@@ -75,6 +77,8 @@ define('Zoan','Corsa Bestiale','passive','move');
 define('Zoan','Resistenza Bestiale','passive','defense');
 define('Zoan','Retaggio Ancestrale|Retaggio Mitologico|Retaggio Ancestrale / Mitologico|Zoan Mitologico / Ancestrale','passive','fruit');
 define('Zoan','Istinto di Sopravvivenza|Trasformazione Istintiva','active','defense');
+define('Zoan','Istinto di Sopravvivenza','passive','reactiveEvent');
+define('Zoan','Trasformazione Istintiva','passive','reactiveEvent',{action:'reaction'});
 define('Zoan','Risveglio','active','physical',{noCard:true});
 define('Sniper','Ricarica Rapida','active','ranged',{action:'bonus'});
 define('Swordsman','Riposta','passive','counter',{costST:1});
@@ -160,16 +164,20 @@ function sources() {
   icon:'star',subtitle:'Tratto Unico · '+t.requirementsText
  }));
  if(pg.frutto?.has){const f=pg.frutto;
-  out.push({id:'fruit:'+f.tipo,kind:'fruit',name:f.nome||f.tipo||'Frutto del Diavolo',raw:f,desc:f.desc||'',emblem:'frutto',subtitle:f.tipo+' · '+f.die});
+  const dossier=window.GLCFruits?.dossier(pg),description=dossier?[f.desc,...dossier.sections.flatMap(s=>[s.title,...s.rows.filter(r=>r.value).map(r=>r.label+': '+r.value+(r.warning?' · '+r.warning:''))]),dossier.notes].filter(Boolean).join('\n'):f.desc||'';
+  out.push({id:'fruit:'+f.tipo,kind:'fruit',name:f.nome||f.tipo||'Frutto del Diavolo',raw:f,desc:description,emblem:'frutto',subtitle:f.tipo+' · '+f.die});
   const tree=FRUIT_TALENTS[f.tipo];if(tree)tree.talenti.forEach(t=>{
    const alias=t.smcAlias||t.n,prefix='Frutto · '+f.tipo+' · ',owned=n=>list(pg.talents).includes(prefix+n);
    if((t.smc||META[f.tipo+'|'+alias])?.noCard)return;
    const state=talentStates.find(x=>x.key===prefix+t.n);
-   if(owned(t.n)||owned(alias)||state?.owned)out.push({id:t.smcId,kind:'talent',fruit:true,name:t.n,alias,raw:t,meta:talentMeta(t.smc||META[f.tipo+'|'+alias],t.d),branch:f.tipo,unlocked:state?state.active:dieRank(f.die)>=dieRank(t.tier||'d4')&&(!t.req||owned(t.req)),desc:t.d,icon:'fruit',emblem:'frutto',subtitle:f.tipo+' · '+t.tier});
+   const project=t.n==='Forma di Combattimento'&&f.formaCombattimento&&window.GLCFruits
+    ?['Progetto corrente della Forma · valori concordati con il GM',...GLCFruits.fields(f,'formaCombattimento',GLCFruits.combat).map(x=>x.label+': '+(x.value||'Da registrare'))].join('\n'):'';
+   if(owned(t.n)||owned(alias)||state?.owned)out.push({id:t.smcId,kind:'talent',fruit:true,name:t.n,alias,raw:t,meta:talentMeta(t.smc||META[f.tipo+'|'+alias],t.d),branch:f.tipo,unlocked:state?state.active:dieRank(f.die)>=dieRank(t.tier||'d4')&&(!t.req||owned(t.req)),desc:[t.d,project].filter(Boolean).join('\n'),icon:'fruit',emblem:'frutto',subtitle:f.tipo+' · '+t.tier});
   });
  }
  list(pg.haki).forEach(h=>{if(h&&hakiUnlocked(h).length)out.push({id:'haki:'+(h.smcId||h.name)+':'+HAKI_NAMES.indexOf(h.name),kind:'haki',name:h.name,raw:h,desc:'',icon:h.name===HAKI_NAMES[0]?'fist':h.name===HAKI_NAMES[1]?'eye':'crown',subtitle:hakiGrade(h)});});
  list(pg.armi).forEach(a=>out.push({id:'weapon:'+a.id,kind:'weapon',name:a.nome||'Arma senza nome',raw:a,icon:WEAPON_ICO[a.tipo]||'sword',desc:a.eff?.desc||'',subtitle:a.tipo+' · '+a.grado}));
+ (window.GLCFruits?.naturalWeapons(pg,{purpose:'use'})||[]).filter(a=>a.id).forEach(a=>out.push({id:'weapon:'+a.id,kind:'weapon',subtype:'naturalWeapon',name:a.nome||'Arma Naturale',raw:a,icon:WEAPON_ICO[a.tipo]||'sword',desc:[a.anatomia,'Forme: '+list(a.forme).join(', '),'Portata: '+a.portata,a.note,'Fuori Arsenale; richiede Artigli e Zanne. Non concede Stili o loro Talenti.'].filter(Boolean).join('\n'),subtitle:a.tipo+' · '+a.grado+' · '+(a.operational?'disponibile':a.errors.concat(a.operationalErrors).join(' · '))}));
  if(typeof isMusicista==='function'&&isMusicista()){
   out.push({id:'instrument:voice',kind:'instrument',name:'La tua voce',raw:{die:'d4'},icon:'music',desc:'Strumento d4 sempre disponibile.',subtitle:'Voce · d4'});
   list(pg.strumenti).forEach(i=>{if(i.smcId)out.push({id:'instrument:'+i.smcId,kind:'instrument',name:i.nome||'Strumento senza nome',raw:i,icon:'music',desc:i.note||'',subtitle:(i.tipo||'Strumento')+' · '+i.die});});
@@ -196,7 +204,7 @@ const isNormalParry=(t,m={})=>isAttack(t)&&t.fonte==='Stile'&&['Swordsman','Crus
 const isDefending=(t,m={})=>isDefense(t)||isActiveDefense(t,m)||isNormalParry(t,m);
 const isPhysical=t=>t?.fonte==='Stile'&&t?.forma!=='Canzone';
 function usableBladeCount(){
- const blades=list(pg.armi).filter(a=>a.tipo==='Lama'&&(!window.GLCTechniques||!window.GLCTechniques.weaponUseError(pg,a))).map(a=>a.moduloId||a.moduleId||a.id);
+ const blades=(window.GLCFruits?window.GLCFruits.arsenal(pg,{purpose:'use'}).filter(w=>!w.natural||w.operational):list(pg.armi)).filter(a=>a.tipo==='Lama'&&(!window.GLCTechniques||!window.GLCTechniques.weaponUseError(pg,a))).map(a=>a.moduloId||a.moduleId||a.id);
  if(window.GLCCyborg)list(pg.moduli).forEach(m=>{
   const state=window.GLCCyborg.evaluate(pg,m,{purpose:'use'}),weapon=window.GLCCyborg.weapon(m);
   if(state.operational&&weapon?.tipo==='Lama')blades.push(m.id);
@@ -336,6 +344,7 @@ function actionPlan(m,ss=sources(),tech=findSource(m.baseTechId,ss)) {
   else if(action==='normal')normal.push({id:s.id,text:s.name});
   else if(action==='bonus'||s.meta?.mode==='active')bonus.push({id:s.id,text:s.name});
  });
+ if(ss.some(s=>selectedIDs(m).includes(s.id)&&s.kind==='talent'&&s.unlocked&&s.meta?.action==='freeMain'&&applicable(s,tech,m))&&!defending){const i=normal.findIndex(n=>n.id===tech?.id);if(i>=0)normal.splice(i,1);}
  list(m.hakiSelections).forEach(selection=>{
   const s=findSource(selection.id,ss);if(s?.kind!=='haki')return;
   const state=hakiState(s),effects=hakiEffects(s,tech,m),chosen=list(selection.effects).map(id=>effects.find(e=>e.id===id)).filter(Boolean);
@@ -426,6 +435,7 @@ function normalizeMove(m={}) {
  if(!m||typeof m!=='object')m={};
  const base=findSource(m.baseTechId);
  if(!m.weaponId&&!m.moduleId&&base?.raw.modulo)m={...m,moduleId:'module:'+base.raw.modulo};
+ if(!m.weaponId&&!m.moduleId&&String(base?.raw.arma||'').startsWith('natural:'))m={...m,weaponId:'weapon:'+base.raw.arma};
  // Cards saved while a 0 ST talent was still active keep it, now among the passive ones.
  if(m.activeTalentId&&findSource(m.activeTalentId,sources())?.meta?.mode==='passive')
   m={...m,passiveTalentIds:[...list(m.passiveTalentIds),m.activeTalentId],activeTalentId:''};
@@ -433,8 +443,8 @@ function normalizeMove(m={}) {
  const barred=noCardIds();
  if(barred.has(m.activeTalentId)||list(m.passiveTalentIds).some(id=>barred.has(id)))
   m={...m,activeTalentId:barred.has(m.activeTalentId)?'':m.activeTalentId,passiveTalentIds:list(m.passiveTalentIds).filter(id=>!barred.has(id))};
- return {id:m.id||uid(),name:String(m.name||''),baseTechId:m.baseTechId||'',techniqueUse:['defense','parry'].includes(m.techniqueUse)?m.techniqueUse:'normal',instrumentId:m.instrumentId||'',activeTalentId:m.activeTalentId||'',
-  passiveTalentIds:uniq(list(m.passiveTalentIds)),hakiSelections:list(m.hakiSelections).filter(h=>h&&typeof h==='object').map(h=>({id:h.id,use:h.use||'offense',effects:uniq(list(h.effects)),activation:h.activation==='prepared'?'prepared':'auto',preparedEffects:uniq(list(h.preparedEffects))})),
+ return {...m,id:m.id||uid(),name:String(m.name||''),baseTechId:m.baseTechId||'',techniqueUse:['defense','parry'].includes(m.techniqueUse)?m.techniqueUse:'normal',instrumentId:m.instrumentId||'',activeTalentId:m.activeTalentId||'',
+  passiveTalentIds:uniq(list(m.passiveTalentIds)),hakiSelections:list(m.hakiSelections).filter(h=>h&&typeof h==='object').map(h=>({...h,id:h.id,use:h.use||'offense',effects:uniq(list(h.effects)),activation:h.activation==='prepared'?'prepared':'auto',preparedEffects:uniq(list(h.preparedEffects))})),
   fruitSelections:uniq(list(m.fruitSelections)),weaponId:m.weaponId||'',moduleId:m.moduleId||'',
   talentUses:m.talentUses||{},talentTechniqueUses:m.talentTechniqueUses||{},conditions:m.conditions||{},sequence:uniq(list(m.sequence)),
   presentation:{subtitle:'',quote:'',quoteZone:'bottom',variant:'dossier',finish:'none',zoom:1,x:50,y:50,...m.presentation},notes:String(m.notes||'')};
@@ -457,6 +467,8 @@ function resolve(input) {
   }else errors.push({id,text:'Fonte non più presente · '+id});
  });
  techniqueProblems(tech,m).forEach(text=>errors.push({id:m.baseTechId,text}));
+ if(t&&window.GLCFruits)unavailable.push(...window.GLCFruits.useProblems(pg,t));
+ if(t&&window.GLCTechniques){const opts=techniqueRules(),area=window.GLCTechniques.areaUpgrade(t,opts),duration=window.GLCTechniques.durationBenefit(t,opts);if(area)conditions.push({id:tech.id,text:area.text});if(duration)conditions.push({id:tech.id,text:duration.text});}
  if(m.techniqueUse==='defense'&&!isAttack(t))errors.push({id:m.baseTechId,text:'La Difesa Attiva con una Tecnica richiede una Tecnica d’attacco compatibile.'});
  if(m.techniqueUse==='parry'&&!isNormalParry(t,m))errors.push({id:m.baseTechId,text:'La Parata con arma richiede una Tecnica di contesto Swordsman o Crusher e un’arma da mischia compatibile.'});
  if(isNormalParry(t,m)&&!recipeWeapon(tech,m,ss))errors.push({id:m.baseTechId,text:'Parata: collega l’arma compatibile effettivamente impugnata.'});
@@ -471,6 +483,7 @@ function resolve(input) {
  if(m.weaponId&&m.moduleId)errors.push({text:'Una Tecnica usa un’arma oppure un modulo, mai entrambi.'});
  selected.filter(s=>['weapon','module'].includes(s.kind)).forEach(s=>{
   if(!compatibleEquipment(s,tech,true))errors.push({id:s.id,text:s.name+': esecutore incompatibile con la Tecnica.'});
+  if(s.subtype==='naturalWeapon'){if(!s.raw.valid)s.raw.errors.forEach(text=>errors.push({id:s.id,text}));else if(!s.raw.operational)s.raw.operationalErrors.forEach(text=>unavailable.push(s.name+': '+text));}
   if(s.kind==='module'&&window.GLCCyborg){
    const check=window.GLCCyborg.evaluate(pg,s.raw,{purpose:'use'});
    if(!check.operational)check.operationalErrors.forEach(e=>unavailable.push(s.name+': '+e.text));
@@ -490,13 +503,13 @@ function resolve(input) {
    let raw=c.st;
    if(t.fonte==='Frutto'){
     if(owns('Nessuno dei Miei')&&hasEffect(t,'Occhio del Ciclone'))notes.push('Occhio del Ciclone gratuito');
-    if(owns('Portata Naturale')){raw-=list(t.eff).filter(n=>tecEffObj(n)?.[6]==='gittata').reduce((v,n)=>v+tecEffObj(n)[4],0);if(hasEffect(t,'Catena'))raw-=1;notes.push('Sconti di Portata Naturale');}
+    if(window.GLCFruits?.has(pg,'Portata Naturale'))notes.push('Portata Naturale: Gittata gratuita e senza slot; Catena −1 ST, già inclusi nel costo');
    }
    c.st=Math.max(0,raw);
    if(t.forma==='Canzone'&&owns('Fiato Lungo')){c.st=Math.max(1,c.st-1);notes.push('Fiato Lungo: −1, minimo 1');}
    if(t.forma==='Canzone'&&(owns('Contrappunto — Maestria')||prestige('orchestra-vivente'))){c.maintenanceST=0;notes.push('Contrappunto: mantenimento gratuito');}
-   if(t.fonte==='Frutto'&&owns('Senza Contraccolpo')){c.st=Math.max(1,c.st-1);notes.push('Senza Contraccolpo: −1, minimo 1');}
-   if(t.fonte==='Frutto'&&owns('Ciò che Resta')){if(t.durata==='Mantieni (+1/turno)')conditions.push({id:s.id,text:'Ciò che Resta: primo turno di mantenimento gratuito; poi '+c.maintenanceST+' ST/turno.'});if(t.durata==='Un turno')conditions.push({id:s.id,text:'Ciò che Resta: durata 3 turni senza sovrapprezzo.'});}
+   if(t.fonte==='Frutto'&&window.GLCFruits?.has(pg,'Senza Contraccolpo'))notes.push('Senza Contraccolpo: −1, minimo 1, già incluso nel costo; ignora solo i Contraccolpi naturali registrati');
+   if(t.fonte==='Frutto'&&window.GLCTalents?.has(pg,'Ciò che Resta')){if(t.durata==='Mantieni (+1/turno)')conditions.push({id:s.id,text:'Ciò che Resta: primo turno di mantenimento gratuito; poi '+c.maintenanceST+' ST/turno.'});if(t.durata==='Un turno'&&t.forma==='Area'&&list(t.eff).some(n=>tecEffObj(n)?.[0]==='Zona Persistente'))conditions.push({id:s.id,text:'Ciò che Resta: durata 3 turni senza sovrapprezzo.'});}
    if(t.fonte==='Frutto'&&owns('Fonte Inesauribile')){if(m.conditions.elementSource){c.st=0;c.maintenanceST=0;notes.push('Fonte Inesauribile: condizione dichiarata');}else conditions.push({id:s.id,text:'Fonte Inesauribile: costo 0 ST solo dentro o a ridosso di una grande fonte del tuo elemento.'});}
    /* Il Risveglio Logia non azzera piu` il costo delle Tecniche: si costruisce
       con la Linea Guida del Risveglio, quindi gli effetti li concorda il GM. */
@@ -636,10 +649,14 @@ function resolve(input) {
    if(list(t.eff).some(n=>['Richiamo','Requiem Beffardo','Ninnananna','Marcia Funebre'].includes(n)))formulas.push({label:'Salvezza · Canzone',text:'Il nemico tira soltanto Spirito contro Soglia '+effective.soglia+' dal Grado effettivo '+effective.eff+' dello strumento '+(instrument?.name||'La tua voce')+'. Arte limita il Grado utilizzabile; il Dado Tecnica non determina questa Soglia.',id:tech.id});
    conditions.push({id:tech.id,text:'Canzone: nessun tiro per colpire, nessuna attivazione della Firma tramite margine +4. Gli alleati ricevono automaticamente gli effetti previsti. La Canzone richiede l’Azione principale.'});
   }
-  if(t.durata&&!isNormalParry(t,m))conditions.push({id:tech.id,text:'Durata: '+t.durata});
+  if(t.durata&&!isNormalParry(t,m))conditions.push({id:tech.id,text:'Durata: '+(window.GLCTechniques?.durationBenefit(t,techniqueRules())?.duration||t.durata)});
  }
  talentSelected.forEach(s=>conditions.push({id:s.id,text:s.name+': '+s.desc}));
  if(owns('Riformarsi Altrove'))formulas.push({label:'Riformarsi Altrove · Reazione',text:'Sequenza distinta: la Tecnica usa la propria Azione e i propri costi nel momento previsto. Riformarsi Altrove impiega una Reazione, 1 volta per scontro, in risposta a un evento immediato e percepibile valutato dal GM: ti ricomponi entro 15 m in un punto visibile e raggiungibile dal tuo elemento, senza Azione principale o Reazioni dovute allo spostamento. Non autorizza questa Tecnica fuori dal tuo turno e non annulla automaticamente un attacco.',id:talentSelected.find(s=>s.alias==='Riformarsi Altrove').id});
+ if(owns('Riflesso del Potere'))conditions.push({id:talentSelected.find(s=>s.alias==='Riflesso del Potere').id,text:'Riflesso del Potere: Reazione distinta, 1 volta per scontro, 0 ST, quando tu o un alleato entro 5 m state per subire un attacco. Tutti i Dadi Danno scendono di un Grado, minimo d4; non modifica tiro per colpire, Stati o altri effetti. Non esegue la Tecnica come Reazione e non applica protezioni automaticamente.'});
+ if(owns('Istinto di Sopravvivenza'))conditions.push({id:talentSelected.find(s=>s.alias==='Istinto di Sopravvivenza').id,text:'Istinto di Sopravvivenza: 1 volta per scontro, quando scenderesti a 0 PV. Resti cosciente con 1 PV temporaneo fino alla fine del prossimo turno, poi scendi a 0 salvo vera guarigione. Nessuna Bonus, Reazione o cura automatica.'});
+ if(owns('Potere Istintivo'))conditions.push({id:talentSelected.find(s=>s.alias==='Potere Istintivo').id,text:'Potere Istintivo: una singola mossa del Frutto non spende l’Azione principale, 1 volta per scena, anche fuori turno. Costi, PIP, mantenimenti e requisiti restano; nessun turno, Movimento, Bonus, Reazione o sequenza aggiuntivi.'});
+ if(owns('Trasformazione Istintiva'))conditions.push({id:talentSelected.find(s=>s.alias==='Trasformazione Istintiva').id,text:'Trasformazione Istintiva: Reazione, 0 ST, 1 volta per scena; effettua solo il cambio di forma prima del pericolo, anche senza sensi. La Tecnica della carta mantiene la propria Azione e i propri costi: la Reazione non la esegue e non attiva altri Talenti.'});
  if(m.techniqueUse==='normal')talentSelected.filter(s=>s.unlocked&&applicable(s,tech,m)).forEach(s=>directSaves.push(...directTalentSaves(s)));
  if(tech&&m.techniqueUse==='normal'){
   if(t.fonte==='Stile'&&t.stile==='Striker'&&isAttack(t)){
@@ -647,7 +664,7 @@ function resolve(input) {
    const flurry=talentSelected.find(s=>s.meta?.quantity&&s.unlocked&&applicable(s,tech,m));
    if(flurry&&(!flurry.prestige||Number(m.talentTechniqueUses[flurry.id]||0)<Number(m.talentUses[flurry.id]??1)))directSaves.push(...strikerSignatureSaves({branch:'Striker',roleSlot:pg.role==='Combattente'&&pg.style==='Striker'?1:2},{id:flurry.id,base:true}));
   }
-  if(t.fonte==='Frutto'&&t.fruitType==='Zoan'&&isAttack(t))directSaves.push(directSaveProfile(tech.id,'Firma · Zoan','Stordito','Forza',{name:'Dado del Frutto',die:pg.frutto?.die||''},'la Firma Zoan si attiva con un colpo pulito di margine +4 in Forma Ibrida e scegli Stordito al posto del Dado Danno aggiuntivo'));
+  if(pg.frutto?.has&&pg.frutto.tipo==='Zoan'&&(!window.GLCFruits||GLCFruits.dice.includes(pg.frutto.die))&&isAttack(t))directSaves.push(directSaveProfile(tech.id,'Firma · Zoan','Stordito','Forza',{name:'Dado del Frutto',die:pg.frutto.die||''},'la Firma Zoan si attiva con un colpo pulito di margine +4 in Forma Ibrida e scegli Stordito al posto del Dado Danno aggiuntivo'));
   if(tech.techKind==='racial'&&pg.race==='mink')directSaves.push(directSaveProfile(tech.id,'Electro','Paralizzato','Forza',{name:'Grado di Electro',die:pg.racialDie||''},'Electro applica la propria Paralisi; conserva durata e costi razziali, e la normale Salvezza ogni turno'));
  }
  directSaves.forEach(profile=>formulas.push({label:'Salvezza condizionale · '+profile.name+' · '+profile.state,

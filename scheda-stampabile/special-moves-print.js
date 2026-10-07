@@ -53,7 +53,7 @@ function snapshot(character, owner) {
    return unresolved(input,'Impossibile preparare questa ricetta. Controlla la carta nella gestione del pirata e riapri la scheda PDF.');
   }
  });
- return {v:7,owner:text(owner),fingerprint:fingerprint(character),generatedAt:Date.now(),cards};
+ return {v:8,owner:text(owner),fingerprint:fingerprint(character),generatedAt:Date.now(),cards};
 }
 function ownerFromStorage() {
  try {
@@ -65,7 +65,7 @@ function ownerFromStorage() {
 }
 function printable(character, payload) {
  const moves = list(character.specialMoves), pack = payload?.specialMoves, owner = ownerFromStorage();
- const fresh = pack?.v === 7 && owner && payload.charId === owner && pack.owner === owner && pack.fingerprint === fingerprint(character) &&
+ const fresh = pack?.v === 8 && owner && payload.charId === owner && pack.owner === owner && pack.fingerprint === fingerprint(character) &&
   Array.isArray(pack.cards) && pack.cards.length === moves.length && pack.cards.every((c,i) => c && c.id === text(moves[i]?.id));
  return {cards:fresh ? pack.cards : moves.map(m => unresolved(m)),generatedAt:fresh ? pack.generatedAt : null};
 }

@@ -150,7 +150,7 @@ test('Print snapshots use the new rule version and propagate action limits and p
  vm.runInContext(fs.readFileSync(printFile,'utf8'),h.context);
  h.context.pg.specialMoves=[h.card({activeTalentId:h.talent('Raffica — Base'),hakiSelections:[h.h(0,{activation:'prepared'})]})];
  const pack=h.context.window.GLCPrintMoves.snapshot(h.context.pg,'qa');
- assert.equal(pack.v,7);assert.equal(pack.cards[0].totals.pip,0);
+ assert.equal(pack.v,8);assert.equal(pack.cards[0].totals.pip,0);
  assert.ok(pack.cards[0].conditions.some(c=>/Economia del turno/.test(c.text)));
  assert.ok(pack.cards[0].conditions.some(c=>/turno precedente/.test(c.text)));
  h.context.pg.specialMoves[0].hakiSelections[0].effects=['act:d20'];
@@ -391,7 +391,7 @@ test('Print snapshots include Unique Trait identity, requirements and limits wit
  const base=h.resolve({});c.specialMoves=[h.card({passiveTalentIds:['trait:non-ancora']})];
  h.context.window.addEventListener=()=>{};vm.runInContext(fs.readFileSync(path.join(root,'scheda-stampabile/special-moves-print.js'),'utf8'),h.context);
  const pack=h.context.window.GLCPrintMoves.snapshot(c,'trait-owner'),card=pack.cards[0],trait=card.sources.find(s=>s.id==='trait:non-ancora');
- assert.equal(pack.v,7);assert.equal(trait.subtype,'uniqueTrait');assert.equal(trait.mode,'passive');
+ assert.equal(pack.v,8);assert.equal(trait.subtype,'uniqueTrait');assert.equal(trait.mode,'passive');
  assert.match(trait.description,/Spirito d20, Sopravvivenza d12/);assert.match(trait.description,/1 volta per scontro/);assert.match(trait.description,/Salvezza di Forza o Spirito/);
  assert.equal(JSON.stringify(card.totals),JSON.stringify(base.totals));assert.equal(JSON.stringify(card.formulas),JSON.stringify(base.formulas));
  delete h.context.window.GLCTratti;const before=JSON.stringify(c),missing=h.moves.resolve(c.specialMoves[0]);
@@ -505,7 +505,7 @@ test('Explicit racial Save annotations use the racial grade and print the origin
  h.context.window.addEventListener=()=>{};
  vm.runInContext(fs.readFileSync(path.join(root,'scheda-stampabile/special-moves-print.js'),'utf8'),h.context);
  const pack=h.context.window.GLCPrintMoves.snapshot(c,'qa');
- assert.equal(pack.v,7);assert.equal(pack.cards[0].directSaves[0].threshold,6);
+ assert.equal(pack.v,8);assert.equal(pack.cards[0].directSaves[0].threshold,6);
  assert.ok(pack.cards[0].formulas.some(f=>f.label==='Salvezza condizionale · Electro · Paralizzato'&&/non applica automaticamente/.test(f.text)));
  assert.equal(JSON.stringify(c),before);
  for(const [race,name] of [['longbraccio','Portata Estesa'],['lungagamba','Calcio Colossale']]){

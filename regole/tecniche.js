@@ -29,11 +29,12 @@
   function sourceKey(pg, t) {
     if (t.fonte === 'Frutto') {
       const fruit = pg.frutto || {};
-      return JSON.stringify(['Frutto', fruit.nome || '', fruit.tipo || '', fruit.desc || '']);
+      const identity=root.GLCFruits?.sourceIdentity(fruit);
+      return JSON.stringify(['Frutto', fruit.nome || '', fruit.tipo || '', fruit.desc || '',...(identity?[identity]:[])]);
     }
-    const weapon = (pg.armi || []).find(w => w.id === t.arma);
+    const weapon = (root.GLCFruits?root.GLCFruits.arsenal(pg):pg.armi || []).find(w => w.id === t.arma);
     const module = (pg.moduli || []).find(m => m.id === t.modulo);
-    if (weapon) return JSON.stringify(['Arma', weapon.id, weapon.tipo, weapon.asta || '', weapon.eff || null]);
+    if (weapon) return weapon.natural?JSON.stringify(['Arma Naturale',weapon.id,weapon.tipo,weapon.asta||'',weapon.anatomia,weapon.forme]):JSON.stringify(['Arma', weapon.id, weapon.tipo, weapon.asta || '', weapon.eff || null]);
     if (module && pg.race === 'cyborg') return JSON.stringify(['Modulo', module.id, module.req, !!module.arma, module.armaTipo || '', module.armaSottotipo || '', module.asta || '', module.attr || '', module.gradoArma || module.grado || '', module.funzioneTipo || '', module.funzione || '', module.parametri || null, module.tecnicheCompatibili || '', module.eff || null]);
     return '';
   }
@@ -41,7 +42,7 @@
     // Modules grant Builder profiles only through a structured Sblocco.
     if (t.modulo) return false;
     const permission = t.sourcePermission;
-    return !!(permission && permission.key && permission.key === sourceKey(pg, t) && String(permission.basis || '').trim() && Array.isArray(permission.effects));
+    return !!(permission && permission.key && permission.key === sourceKey(pg, t) && String(permission.basis || '').trim() && Array.isArray(permission.effects)&&(!permission.requiresTalent||talent(pg,permission.requiresTalent)));
   }
   function granted(pg, t, name) {
     return permissionValid(pg, t) && t.sourcePermission.effects.includes(name);
@@ -83,9 +84,22 @@
     if (!effect) return 'unknown/' + name;
     return effect[0] === 'Potenziamento' ? 'Potenziamento/' + name : effect[0] + (effect[6] ? '/' + effect[6] : '');
   }
+  function areaUpgrade(t,options){
+    if(t.fonte!=='Frutto'||t.forma!=='Area'||!options?.pg||!talent(options.pg,'Portata Naturale'))return null;
+    const paths=[['Soffio','Onda','Marea'],['Solco','Lancia','Squarcio'],['Scoppio','Esplosione','Deflagrazione','Cataclisma']];
+    for(const path of paths){const index=path.findIndex(n=>(Array.isArray(t.eff)?t.eff:[]).includes(n));if(index<0)continue;const base=path[index],name=path[Math.min(index+1,path.length-1)],effect=find(name,options);return {base,name,description:effect?.[2]||'',text:'Portata Naturale: '+base+' → '+name+(base===name?' (massimo della progressione)':'')+'. '+(effect?.[2]||'')+' Restano Grado, requisiti e costo della sagoma di base.'};}
+    return null;
+  }
+  function durationBenefit(t,options){
+    if(t.fonte!=='Frutto'||t.forma!=='Area'||!options?.pg||!talent(options.pg,'Ciò che Resta')||!(Array.isArray(t.eff)?t.eff:[]).some(n=>find(n,options)?.[0]==='Zona Persistente'))return null;
+    if(['Un turno','3 turni'].includes(t.durata||'Un turno'))return {duration:'3 turni',text:'Ciò che Resta: la Zona dura 3 turni senza i 2 ST aggiuntivi. Non rende istantanei o permanenti gli altri effetti.'};
+    if(t.durata==='Mantieni (+1/turno)')return {duration:t.durata,text:'Ciò che Resta: primo turno di mantenimento gratuito; poi paghi il mantenimento ordinario.'};
+    return null;
+  }
   function effectSlots(t, name, options) {
     if (isShape(name, options)) return 0;
     if (name === 'Occhio del Ciclone' && t.fonte === 'Frutto' && options && options.nessunoDeiMiei) return 0;
+    if(t.fonte==='Frutto'&&options?.pg&&talent(options.pg,'Portata Naturale')&&find(name,options)?.[6]==='gittata')return 0;
     const mod = modifiers(t, options);
     return !mod.errors.length && mod.module && mod.module.eff && mod.module.eff.tgt === name ? Math.max(0, 1 - (mod.discountSlots || 0)) : 1;
   }
@@ -95,14 +109,16 @@
       const effect = (list || []).find(e => e[1] === name);
       if (!effect) continue;
       if (name === 'Occhio del Ciclone' && t.fonte === 'Frutto' && options && options.nessunoDeiMiei) continue;
-      st += effect[4]; pt += effect[7] || 0;
+      const naturalRange=t.fonte==='Frutto'&&options?.pg&&talent(options.pg,'Portata Naturale');
+      st += naturalRange&&effect[6]==='gittata'?0:naturalRange&&name==='Catena'?Math.max(0,effect[4]-1):effect[4]; pt += effect[7] || 0;
     }
     if (t.forma === 'Area') {
-      if (t.durata === '3 turni') st += 2;
+      if (t.durata === '3 turni'&&!durationBenefit(t,{...options,catalogue:list||[]})) st += 2;
       if (t.durata === 'Mantieni (+1/turno)') pt += 1;
     }
     const mod = modifiers(t, {...options, catalogue: list || []});
     if (!mod.errors.length && mod.discountST > 0 && st > 0) st = Math.max(1, st - mod.discountST);
+    if(st>0&&t.fonte==='Frutto'&&options?.pg&&talent(options.pg,'Senza Contraccolpo'))st=Math.max(1,st-1);
     return {st, pt};
   }
   function effectError(pg, t, effect, options) {
@@ -137,8 +153,9 @@
     pg = pg || {}; t = t || {}; options = options || {};
     options = {...options, pg, nessunoDeiMiei: options.nessunoDeiMiei == null ? talent(pg, 'Nessuno dei Miei') : options.nessunoDeiMiei};
     const errors = [], add = (code, text, effect) => errors.push({code, text, ...(effect ? {effect} : {})});
-    const song = t.forma === 'Canzone', mine = styles(pg), allowedWeapons = (pg.armi || []).filter(w => compatibleWeapon(w, t.stile));
-    const module = (pg.moduli || []).find(m => m.id === t.modulo), linkedWeapon = (pg.armi || []).find(w => w.id === t.arma);
+    const weapons=root.GLCFruits?root.GLCFruits.arsenal(pg,{purpose:'build'}):pg.armi||[];
+    const song = t.forma === 'Canzone', mine = styles(pg), allowedWeapons = weapons.filter(w => compatibleWeapon(w, t.stile));
+    const module = (pg.moduli || []).find(m => m.id === t.modulo), linkedWeapon = weapons.find(w => w.id === t.arma);
     const compatibleModules = root.GLCCyborg ? (pg.moduli || []).filter(m => root.GLCCyborg.evaluate(pg, m, {purpose: 'build'}).valid && compatibleWeapon(root.GLCCyborg.weapon(m), t.stile)) : [];
     const weapon = linkedWeapon || (module && root.GLCCyborg && root.GLCCyborg.weapon(module)) || null;
     const mod = moduleModifiers(pg, t, options); options.moduleModifiers = mod;
@@ -157,11 +174,13 @@
         }
       }
       if (t.fonte === 'Frutto') {
-        if (!(pg.frutto && pg.frutto.has)) add('fruit-required', 'Il pirata non possiede un Frutto.');
-        else if (!['Paramecia', 'Logia', 'Zoan'].includes(pg.frutto.tipo) || t.fruitType !== pg.frutto.tipo) add('fruit-type', 'La Tecnica deve usare il tipo del Frutto realmente posseduto.');
+        const fruit=pg.frutto||{};
+        if (!fruit.has) add('fruit-required', 'Il pirata non possiede un Frutto.');
+        else if(!DICE.includes(fruit.die))add('fruit-grade','Il Dado del Frutto deve essere da d4 a d20, senza progressione di Prestigio. Il valore storico resta conservato.');
+        else if (!['Paramecia', 'Logia', 'Zoan'].includes(fruit.tipo) || t.fruitType !== fruit.tipo) add('fruit-type', 'La Tecnica deve usare il tipo del Frutto realmente posseduto.');
       }
     }
-    if (t.arma && !linkedWeapon) add('weapon-missing', 'L’arma collegata non è più nell’Arsenale. Il collegamento è conservato finché non lo correggi.');
+    if (t.arma && !linkedWeapon) add('weapon-missing', String(t.arma).startsWith('natural:')?'L’Arma Naturale collegata manca o non rispetta più i requisiti di Artigli e Zanne. Il collegamento resta conservato.':'L’arma collegata non è più nell’Arsenale. Il collegamento è conservato finché non lo correggi.');
     if ((t.arma || module && module.arma) && weapon && t.fonte === 'Stile') {
       const problem = weaponUseError(pg, weapon);
       if (problem) add('weapon-requirements', problem);
@@ -209,10 +228,11 @@
       if (duration === 'Tutta la scena' && t.die !== 'd20') add('duration-grade', 'La durata Tutta la scena richiede una Tecnica d20.');
       if (duration !== 'Un turno' && !effects.some(name => {const e = find(name, options); return e && e[0] === 'Zona Persistente';})) add('persistence', 'Una durata prolungata richiede una Zona Persistente espressamente autorizzata dalla Fonte.');
     }
+    if(options.purpose==='use'&&root.GLCFruits)root.GLCFruits.useProblems(pg,t).forEach(text=>add('fruit-unavailable',text));
     const available = catalogue(options).filter(e => !effectError(pg, t, e, options)).map(e => e[1]);
-    return {valid: errors.length === 0, errors, slot, used, cost: cost(t, catalogue(options), options), states: states(t, options), cap, dieOpts: DICE.filter(d => rank(d) <= cap), available, forms, compatibleWeapons: allowedWeapons, compatibleModules, sourceKey: sourceKey(pg, t), permissionValid: permission, weapon, module, moduleModifiers: mod};
+    return {valid: errors.length === 0, errors, slot, used, cost: cost(t, catalogue(options), options), states: states(t, options), areaUpgrade: areaUpgrade(t,options), durationBenefit: durationBenefit(t,options), cap, dieOpts: DICE.filter(d => rank(d) <= cap), available, forms, compatibleWeapons: allowedWeapons, compatibleModules, sourceKey: sourceKey(pg, t), permissionValid: permission, weapon, module, moduleModifiers: mod};
   }
-  const api = Object.freeze({DICE: Object.freeze(DICE), SLOTS: Object.freeze(SLOTS), rank, plainDie, compatibleWeapon, weaponUseError, sourceKey, permissionValid, moduleModifiers, effectError, effectSlots, group, cost, states, evaluate});
+  const api = Object.freeze({DICE: Object.freeze(DICE), SLOTS: Object.freeze(SLOTS), rank, plainDie, compatibleWeapon, weaponUseError, sourceKey, permissionValid, moduleModifiers, effectError, effectSlots, group, cost, states, areaUpgrade, durationBenefit, evaluate});
   root.GLCTechniques = api;
   if (typeof module === 'object' && module.exports) module.exports = api;
 })(typeof window === 'object' ? window : globalThis);

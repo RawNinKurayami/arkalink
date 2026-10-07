@@ -26,8 +26,8 @@ function fill(race,payload=false,overrides={},payloadOverrides={}){
  const document={getElementById:id=>nodes[id]??={textContent:'',style:{}},querySelector:selector=>selector==='.page'?basePage:selector.startsWith('.tcell')?(cells[selector]??={textContent:''}):null,
   createElement:()=>({style:{},setAttribute(){},innerHTML:''}),addEventListener:(event,callback)=>{listeners[event]=callback;}};
  const context=vm.createContext({window:{},document,location:{search:'?c=test'},localStorage:{getItem:key=>storage[key]||null},URLSearchParams});
- for(const file of ['tratti-data.js','tratti.js'])vm.runInContext(fs.readFileSync(path.join(root,'regole',file),'utf8'),context);
- context.GLCTratti=context.window.GLCTratti;
+ for(const file of ['tratti-data.js','tratti.js','frutti.js'])vm.runInContext(fs.readFileSync(path.join(root,'regole',file),'utf8'),context);
+ context.GLCTratti=context.window.GLCTratti;context.GLCFruits=context.window.GLCFruits;
  const inline=sheet.match(/<script>\s*([\s\S]+?)<\/script>/);
  assert.ok(inline,'Live illustrated print renderer');vm.runInContext(inline[1],context);listeners.DOMContentLoaded();
  nodes._appendix=appendix;nodes._cells=cells;return nodes;
@@ -102,4 +102,22 @@ test('Legacy t1 and t2 profiles are labelled for conversion while retaining thei
  for(const row of [1,2])assert.equal(cell(row,'tipo'),'Profilo storico · da convertire nel Costruttore');
  assert.equal(cell(1,'nome'),'Vecchio Pugno');assert.equal(cell(1,'eff'),'Lacerazione — Ricordo del primo colpo.');
  assert.equal(cell(2,'nome'),'Vecchia Guardia');assert.equal(cell(2,'eff'),'Dedicata al capitano.');
+});
+
+test('Fruit printing uses the complete current Identity and creature dossier even with an obsolete payload',()=>{
+ const frutto={has:true,nome:'Felino corrente',tipo:'Zoan',die:'d8',subtipo:'Ancestrale',forma:'Ibrida',esaurito:true,desc:'Nota storica conservata',identita:{nucleo:'Nucleo corrente',applicazioni:'Artigli e arrampicata',limitazioni:'Solo contatto',contraccolpi:'Affaticamento'},creatura:{specie:'Felino',stazza:'Grande',anatomia:'Zampe e coda'},scelteTalenti:{'glc-talent-256':'Olfatto'},armiNaturali:[{id:'claw',nome:'Artigli naturali',anatomia:'Mani',tipo:'Lama',attr:'Forza',forme:['Ibrida','Bestiale'],portata:'1 m',note:'Mai nello zaino'}]};
+ for(const payload of [false,true]){
+  const nodes=fill('umano',payload,{attr:{Forza:'d8',Tecnica:'d8',Spirito:'d8',Astuzia:'d8'},frutto,talents:['Frutto · Zoan · Artigli e Zanne','Frutto · Zoan · Sensi Animali']},{fruitDossier:{nome:'Frutto precedente',sections:[{title:'Vecchio dossier',rows:[{label:'Nucleo',value:'Dato obsoleto'}]}]}});
+  const print=nodes._appendix.map(n=>n.innerHTML).join('');
+  for(const text of ['Nucleo corrente','Artigli e arrampicata','Solo contatto','Affaticamento','Felino','Mani','Artigli naturali','Armi Naturali · fuori Arsenale','Olfatto','Indisponibile fino al Riposo Lungo'])assert.ok(print.includes(text),text+' payload='+payload);
+  assert.doesNotMatch(print,/Frutto precedente|Dato obsoleto|Vecchio dossier/);assert.match(print,/Descrizione|Nota storica conservata/);
+ }
+});
+
+test('Raw Fruit print checks actual grade, subtype and recursive Talent prerequisites before declaring saved choices active',()=>{
+ const frutto={has:true,nome:'Progetto',tipo:'Paramecia',die:'d12',scelteTalenti:{'glc-talent-236':'Nuova famiglia'},formaCombattimento:{nome:'Forma registrata'},risveglio:{nome:'Risveglio conservato',approvatoGM:true,famiglie:['Dominio']}};
+ let print=fill('umano',false,{frutto,talents:['Frutto · Paramecia · Seconda Natura','Frutto · Paramecia · Forma di Combattimento','Frutto · Paramecia · Risveglio']})._appendix.map(n=>n.innerHTML).join('');
+ assert.match(print,/Seconda Natura/);assert.match(print,/Scelta conservata \/ non utilizzabile/);assert.match(print,/Forma di Combattimento · Talento acquisito e sbloccato/);assert.match(print,/Risveglio · Progetto \/ scelta conservata, Talento non utilizzabile/);
+ print=fill('umano',false,{frutto:{...frutto,tipo:'Zoan',die:'d8',zoanType:'Ordinario',scelteTalenti:{'glc-talent-256':'Vista','glc-talent-266':'Fuoco'}},talents:['Frutto · Zoan · Sensi Animali','Frutto · Zoan · Retaggio Mitologico']})._appendix.map(n=>n.innerHTML).join('');
+ assert.match(print,/Sensi Animali/);assert.match(print,/Vista/);assert.match(print,/Retaggio Mitologico/);assert.match(print,/Scelta conservata \/ non utilizzabile/);
 });

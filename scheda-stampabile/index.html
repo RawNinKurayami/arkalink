@@ -12,7 +12,8 @@
 <script src="/regole/tratti-data.js?v=2"></script>
 <script src="/regole/tratti.js?v=1"></script>
 <script src="/regole/cyborg.js?v=1"></script>
-<script src="special-moves-print.js?v=8"></script>
+<script src="/regole/frutti.js?v=1"></script>
+<script src="special-moves-print.js?v=9"></script>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#33261a;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -525,6 +526,8 @@ html,body{overflow-x:visible;}
     var secs=[];
     function sec(title,inner){ if(inner) secs.push('<div style="break-inside:avoid;margin-bottom:5mm"><div style="display:flex;align-items:center;gap:8px;margin-bottom:3px"><div style="font-family:\'Marcellus SC\',serif;text-transform:uppercase;letter-spacing:3px;font-size:11px">'+title+'</div><div style="flex:1;border-top:2px double var(--gold,#c9a24a)"></div></div>'+inner+'</div>'); }
     var row=function(t,meta,d,d2){ return '<div style="padding:3px 0;border-bottom:1px dotted #b3a07a;break-inside:avoid"><div style="font-size:11px"><b>'+esc(t)+'</b>'+(meta?' <span style="font-family:\'Marcellus SC\',serif;font-size:7.5px;letter-spacing:1px;color:var(--accent,#9a241a)">'+esc(meta)+'</span>':'')+'</div>'+(d?'<div style="font-size:9.5px;line-height:1.4;color:#33261a">'+esc(d)+'</div>':'')+(d2?'<div style="font-size:9px;line-height:1.35;color:#6b5a44;font-style:italic">'+esc(d2)+'</div>':'')+'</div>'; };
+    var fruit=window.GLCFruits?GLCFruits.dossier(pg):null;
+    if(fruit){sec('Frutto del Diavolo · Scheda ufficiale',row(fruit.nome,[fruit.tipo,fruit.die].join(' · '),fruit.desc,fruit.notes)+(fruit.exhausted?row('Indisponibile fino al Riposo Lungo','','Frutto / trasformazioni esauriti.'):''));fruit.sections.forEach(function(section){sec(section.title,section.rows.map(function(r){return row(r.label,r.active===false?'Scelta conservata / non utilizzabile':'',r.value||'Da registrare',r.warning);}).join(''));});if(fruit.missing.length)sec('Frutto · Compilazione progressiva',row('Da concordare / registrare','',fruit.missing.join(' · ')));}
     var racial=printRace(pg.race);
     if(racial.historical)sec('Razza storica · Archivio',row(racial.name,racial.tech+' · '+(pg.racialDie||'d6'),RACE_HISTORY_NOTE,racial.techDesc));
     if(racial.sv)sec('Svantaggio Razziale',row(racial.name,'Prese',racial.sv));
@@ -547,7 +550,7 @@ html,body{overflow-x:visible;}
     }).join(''));
     if(extraTechs.length) sec('Tecniche / Armi (segue)',extraTechs.map(function(t){return row(t.nome,[t.tipo,t.attr,t.die].filter(Boolean).join(' \u00b7 '),t.eff);}).join(''));
     var tec=P?P.tecniche:[];
-    if(tec.length) sec('Tecniche costruite — effetti per esteso',tec.map(function(t){var meta=[t.fonte,t.forma,t.attr,t.die,t.durata&&t.durata!=='Un turno'?t.durata:'',t.cost,t.valid===false?'Da aggiornare':''].filter(Boolean).join(' \u00b7 ')+(t.soglia!=null?(' \u00b7 '+t.pa+'/'+t.soglia+' PA'):'');var eff=(t.eff||[]).map(function(e){return e.n+(e.d?(': '+e.d):'');}).join(' \u00b7 ');var warning=t.valid===false?('Tecnica da aggiornare'+(Array.isArray(t.issues)&&t.issues.length?': '+t.issues.join(' · '):'.')):'';return row(t.nome||'(senza nome)',meta,eff,[warning,t.desc].filter(Boolean).join(' — '));}).join(''));
+    if(tec.length) sec('Tecniche costruite — effetti per esteso',tec.map(function(t){var meta=[t.fonte,t.forma,t.attr,t.die,t.durata&&t.durata!=='Un turno'?t.durata:'',t.cost,t.valid===false?'Da aggiornare':''].filter(Boolean).join(' \u00b7 ')+(t.soglia!=null?(' \u00b7 '+t.pa+'/'+t.soglia+' PA'):'');var eff=(t.eff||[]).map(function(e){return e.n+(e.d?(': '+e.d):'');}).join(' \u00b7 ');var warning=t.valid===false?('Tecnica da aggiornare'+(Array.isArray(t.issues)&&t.issues.length?': '+t.issues.join(' · '):'.')):'';return row(t.nome||'(senza nome)',meta,eff,[warning,t.areaUpgrade,t.desc].filter(Boolean).join(' — '));}).join(''));
     var mods=(P&&Array.isArray(P.moduli)?P.moduli:(pg.moduli||[])).map(function(m){return modulePrintRecord(pg,m);});
     var moduleSlots=P&&P.moduliSlots!=null?P.moduliSlots:window.GLCCyborg?GLCCyborg.slots(pg).n:0;
     var installedModules=P&&P.moduliInstalled!=null?P.moduliInstalled:mods.filter(function(m){return m.installato!==false;}).length;

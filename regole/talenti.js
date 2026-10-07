@@ -41,7 +41,9 @@
       const owned = name => records.has(branch.id + ' · ' + name);
       function eligible(name, visited = []) {
         const t = definitions.get(name);
+        if(branch.src==='fruit'&&!['d4','d6','d8','d10','d12','d20'].includes(branch.die))return false;
         if (!t || visited.includes(name) || rank(branch.die) < rank(t.tier || (branch.src === 'fruit' ? 'd4' : 'd8'))) return false;
+        if(branch.src==='fruit'&&name==='Risveglio'&&root.GLCFruits?.awakeningProblems(c).length)return false;
         if (!t.req) return true;
         if (branch.src === 'fruit' && /^Zoan (Ancestrale|Mitologico)/i.test(t.req)) {
           const nature = c.frutto?.zoanType || c.frutto?.subtipo || c.frutto?.tipoZoan || '';
@@ -52,6 +54,8 @@
       branch.definitions.forEach(definition => {
         const name = definition.n, key = branch.id+' · '+name, valid = eligible(name), taken = owned(name);
         const missing = definition.req && !valid ? [definition.req] : [];
+        if(branch.src==='fruit'&&!['d4','d6','d8','d10','d12','d20'].includes(branch.die))missing.push('Dado del Frutto da d4 a d20, senza Prestigio');
+        if(branch.src==='fruit'&&name==='Risveglio'&&root.GLCFruits)missing.push(...root.GLCFruits.awakeningProblems(c).map(x=>'Risveglio: '+x));
         const ordinaryReplacement = branch.definitions.filter(t => t.n !== name && owned(t.n) && eligible(t.n)
           && t.n.replace(/\s*—\s*(Base|Migliorato|Maestria)$/, '') === name.replace(/\s*—\s*(Base|Migliorato|Maestria)$/, '')
           && /\s*—\s*(Base|Migliorato|Maestria)$/.test(name) && rank(t.tier) > rank(definition.tier))
