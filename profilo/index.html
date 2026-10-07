@@ -160,14 +160,15 @@ function photoStyle(pos){pos=pos||{};var x=(pos.x!=null?pos.x:50),y=(pos.y!=null
   "use strict";
   var KEY="glc_pirata_v4", PKEY="glc_profile_v1";
   var UNAME_MS=14*86400000, unameChangedAt=0, unameCurrent="";
-  var RACE_NAMES={umano:"Umano",uomopesce:"Uomo Pesce / Tritone",gigante:"Gigante",mink:"Mink",lunarian:"Lunarian",longbraccio:"Longbraccio",lungagamba:"Lungagamba",cyborg:"Cyborg"};
+  var RACE_NAMES={umano:"Umano",uomopesce:"Uomo Pesce / Tritone",gigante:"Gigante",mink:"Mink",lunarian:"Lunarian",cyborg:"Cyborg",tontatta:"Tontatta"};
+  var LEGACY_RACE_NAMES={longbraccio:"Longbraccio · Razza storica",longbraccia:"Longbraccio · Razza storica",lungagamba:"Lungagamba · Razza storica"};
   var BLV=[[0,"Sconosciuto"],[10000000,"Pirata Emergente"],[80000000,"Pericoloso"],[200000000,"Famigerato"],[500000000,"Temibile"],[1000000000,"Leggendario"]];
 
   function newId(){return "c_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
   function label(c){return (c&&c.nome&&c.nome.trim())?c.nome.trim():"Senza nome";}
   function bountyLabel(n){var lv=BLV[0][1];for(var i=0;i<BLV.length;i++){if(n>=BLV[i][0])lv=BLV[i][1];}return lv;}
-  function subtitle(c){var b=[];if(c.race&&RACE_NAMES[c.race])b.push(RACE_NAMES[c.race]);if(c.role)b.push(c.role);var n=Number(c.bounty||0);if(n>0)b.push(bountyLabel(n));return b.join("  ·  ")||"Scheda da completare";}
+  function subtitle(c){var b=[],raceName=RACE_NAMES[c.race]||LEGACY_RACE_NAMES[c.race];if(raceName)b.push(raceName);if(c.role)b.push(c.role);var n=Number(c.bounty||0);if(n>0)b.push(bountyLabel(n));return b.join("  ·  ")||"Scheda da completare";}
 
   function syncBind(){if(window.GLCSyncPanel)GLCSyncPanel.mount();}
 

@@ -4,6 +4,7 @@ const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const root=path.join(__dirname,'..');
 const main=fs.readFileSync(path.join(root,'gestisci-pirata/index.html'),'utf8');
 const sheet=fs.readFileSync(path.join(root,'scheda-stampabile/index.html'),'utf8');
+const creator=fs.readFileSync(path.join(root,'crea-il-tuo-pirata/index.html'),'utf8');
 
 function declaration(source,startMarker,endMarker){
  const start=source.indexOf(startMarker),end=source.indexOf(endMarker,start);
@@ -14,7 +15,8 @@ function races(){
  const context=vm.createContext({});
  vm.runInContext(declaration(main,'const RACES=','\n];')+'\nglobalThis.mainRaces=RACES;',context);
  vm.runInContext('(function(){'+declaration(sheet,'var RACES=','\n  };')+'\nglobalThis.printRaces=RACES;})();',context);
- return JSON.parse(JSON.stringify({main:context.mainRaces,print:context.printRaces}));
+ vm.runInContext('(function(){'+declaration(creator,'var RACES=','\n];')+'\nglobalThis.creatorRaces=RACES;})();',context);
+ return JSON.parse(JSON.stringify({main:context.mainRaces,print:context.printRaces,creator:context.creatorRaces}));
 }
 function fill(race,payload=false,overrides={},payloadOverrides={}){
  const character={race,nome:'Stampa di prova',role:'Combattente',style:'Striker',roleSkillDie:'d8',roleSkillChoice:'Atletica',attr:{Forza:'d8',Tecnica:'d8',Spirito:'d8',Astuzia:'d8'},skills:{},talents:[],extraTech:[],armi:[],strumeni:[],moduli:[],haki:[],bonds:[],frutto:{has:false},...overrides};
@@ -24,14 +26,17 @@ function fill(race,payload=false,overrides={},payloadOverrides={}){
  const document={getElementById:id=>nodes[id]??={textContent:'',style:{}},querySelector:selector=>selector==='.page'?basePage:selector.startsWith('.tcell')?(cells[selector]??={textContent:''}):null,
   createElement:()=>({style:{},setAttribute(){},innerHTML:''}),addEventListener:(event,callback)=>{listeners[event]=callback;}};
  const context=vm.createContext({window:{},document,location:{search:'?c=test'},localStorage:{getItem:key=>storage[key]||null},URLSearchParams});
+ for(const file of ['tratti-data.js','tratti.js'])vm.runInContext(fs.readFileSync(path.join(root,'regole',file),'utf8'),context);
+ context.GLCTratti=context.window.GLCTratti;
  const inline=sheet.match(/<script>\s*([\s\S]+?)<\/script>/);
  assert.ok(inline,'Live illustrated print renderer');vm.runInContext(inline[1],context);listeners.DOMContentLoaded();
  nodes._appendix=appendix;nodes._cells=cells;return nodes;
 }
 
 test('The illustrated print sheet shares every racial description and base resource with the live manager',()=>{
- const data=races();assert.equal(data.main.length,9);assert.deepEqual(Object.keys(data.print).sort(),data.main.map(r=>r.id).sort());
+ const data=races();assert.equal(data.main.length,7);assert.deepEqual(Object.keys(data.print).sort(),data.main.map(r=>r.id).sort());
  for(const race of data.main)for(const field of ['name','hp','pv','tech','techDesc'])assert.equal(data.print[race.id][field],race[field],race.id+' '+field);
+ assert.deepEqual(data.creator,data.main,'The separate creator uses the same seven current racial sheets');
 });
 
 test('Raw and payload-backed sheets actually render the updated racial summaries, without the obsolete invented effects',()=>{
@@ -45,8 +50,39 @@ test('Raw and payload-backed sheets actually render the updated racial summaries
  assert.match(lunarian,/Fiamma ON: Svantaggio al tiro per colpire/);assert.match(lunarian,/riduci il primo danno fisico del round con il Dado Razziale/);assert.match(lunarian,/OFF: −2 Difesa Passiva/);assert.match(lunarian,/aggiungi il Dado Razziale al tiro per colpire/);assert.doesNotMatch(lunarian,/dado in resistenza|bonus evasione/);
  const tontatta=fill('tontatta')['f-rtech-eff'].textContent;
  assert.match(tontatta,/il primo attacco di ciascun nemico/);
- const longarm=fill('longbraccio')['f-rtech-eff'].textContent;assert.match(longarm,/contro Trascinamento o Proiezione/);assert.doesNotMatch(longarm,/\+2 alla soglia/);
- const longleg=fill('lungagamba')['f-rtech-eff'].textContent;assert.match(longleg,/contro Schiantato/);assert.doesNotMatch(longleg,/Bonus su calci e salti|senza tiro/);
+});
+
+test('Removed races remain readable as historical characters in raw and payload-backed print, without conversion',()=>{
+ for(const [race,grade,name,movement]of [['longbraccio','d12','Portata Estesa','10 m'],['longbraccia','d10','Portata Estesa','10 m'],['lungagamba','d20','Calcio Colossale','16 m']])for(const payload of [false,true]){
+  const nodes=fill(race,payload,{racialDie:grade,pvMax:31,pvCur:17,note:'Nota conservata.'});
+  assert.match(nodes['f-razza'].textContent,/Razza storica/);assert.equal(nodes['f-rtech-nome'].textContent,name);assert.equal(nodes['f-move'].textContent,movement);assert.equal(nodes['f-pvmax'].textContent,'31');assert.equal(nodes['f-pvcur'].textContent,'17');
+  assert.equal(nodes._cells['.tcell[data-trow="0"][data-tcol="dado"]'].textContent,grade);
+  assert.equal(nodes._cells['.tcell[data-trow="0"][data-tcol="tipo"]'].textContent,'Razziale storica · archivio');
+  assert.match(nodes._appendix.map(n=>n.innerHTML).join(''),/Razza storica rimossa dal regolamento corrente/);
+ }
+});
+
+test('Printed DP uses every ordinary and Prestige Attribute die, independent of stale print payloads',()=>{
+ for(const [die,expected]of [['d4',5],['d6',7],['d8',9],['d10',11],['d12',13],['d20',21],['d20+d4',25],['d20+d6',27],['d20+d8',29],['d20+d10',31],['d20+d12',33],['d20+d20',41]])for(const payload of [false,true]){
+  const nodes=fill('umano',payload,{umanoAttr:'Spirito',attr:{Forza:'d8',Tecnica:'d8',Astuzia:'d8',Spirito:die}},{difesa:21});
+  assert.equal(nodes['f-difesa'].textContent,String(expected),die+' payload='+payload);
+ }
+});
+
+test('Printed DP includes current Trait bonuses once and uses the selected Tontatta Attribute',()=>{
+ const attrs={Forza:'d20+d8',Tecnica:'d20+d20',Astuzia:'d8',Spirito:'d8'};
+ const body={attr:attrs,umanoAttr:'Forza',roleSkillDie:'d12',uniqueTraits:{acquired:['corpo-mostruoso']}};
+ assert.equal(fill('umano',false,body)['f-difesa'].textContent,'31');
+ assert.equal(fill('umano',true,{...body,uniqueTraits:{acquired:['corpo-mostruoso','fortezza-vivente']}},{difesa:27})['f-difesa'].textContent,'33');
+ assert.equal(fill('tontatta',true,{...body,umanoAttr:'Tecnica',uniqueTraits:{acquired:[]}})['f-difesa'].textContent,'41');
+ const rules=fill('tontatta')._appendix.map(n=>n.innerHTML).join('');
+ assert.match(rules,/\+3 al risultato della prova di Forza dell’avversario/);assert.match(rules,/Solo nella contesa per liberarti/);assert.match(rules,/non modifica la presa iniziale né altre prove/);
+});
+
+test('An old Trait name in a print payload yields its current catalog name while the Archaeologist Talent keeps its own name',()=>{
+ const nodes=fill('umano',true,{}, {tratti:[{id:'memoria-del-mondo',name:'Memoria del Mondo',active:true}],talenti:[{name:'Memoria del Mondo',branch:'Archeologo',desc:'Talento separato.'}]});
+ const appendix=nodes._appendix.map(n=>n.innerHTML).join('');
+ assert.match(appendix,/<b>Connessione Storica<\/b>/);assert.match(appendix,/<b>Memoria del Mondo<\/b>/);assert.match(appendix,/Talento separato\./);
 });
 
 test('Printed technique details preserve invalid historical choices with their explicit validation issues',()=>{

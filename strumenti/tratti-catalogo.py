@@ -14,9 +14,14 @@ import unicodedata
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "strumenti/manuale-correzioni.json"
 OUTPUT = ROOT / "regole/tratti-data.js"
+# Editorial names can change without awarding a second Trait or discarding an
+# acquisition. These persisted IDs belong to character saves, not the heading.
+STABLE_IDS = {"Connessione Storica": "memoria-del-mondo"}
 
 
 def identifier(name):
+    if name in STABLE_IDS:
+        return STABLE_IDS[name]
     plain = unicodedata.normalize("NFKD", name)
     plain = "".join(c for c in plain if not unicodedata.combining(c))
     return re.sub(r"[^a-z0-9]+", "-", plain.lower()).strip("-")

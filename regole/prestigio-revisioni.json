@@ -1040,5 +1040,37 @@
   "from": "Saikyō: la riduzione diventa di tre gradini. Il bonus alla Soglia segue il dado aggiuntivo d20 e vale quindi +20.",
   "to": "Saikyō: la riduzione diventa di tre gradini. Per la Salvezza confronta la Soglia propria del veleno con la Soglia minima 21 di Medicina a Saikyō e usa la più alta.",
   "perche": "Revisione delle Salvezze v1.1 del 07/10/2026: fonte graduata con Soglia fissa; prevalenza delle procedure specifiche."
+ },
+ {
+  "source": "introduzione",
+  "after": 7,
+  "blocchi": [
+   {"style": "Heading 3", "text": "Difesa Passiva e Prestigio"},
+   {"style": "Normal", "text": "Se l’Attributo Razziale entra nel Prestigio, anche la Difesa Passiva continua a crescere. La DP usa il Grado completo dell’Attributo Razziale: somma i valori massimi dei dadi che lo compongono e aggiungi +1. Non si effettua un tiro."},
+   {"type": "table", "rows": [["Grado dell’Attributo Razziale", "Difesa Passiva"], ["d20+d4 · Prestigio I", "25"], ["d20+d6 · Prestigio II", "27"], ["d20+d8 · Prestigio III", "29"], ["d20+d10 · Prestigio IV", "31"], ["d20+d12 · Prestigio V", "33"], ["d20+d20 · Saikyō", "41"]]},
+   {"style": "Normal", "text": "Talenti, Tecniche, Haki, Tratti Unici e altri effetti che modificano esplicitamente la Difesa Passiva si applicano dopo il calcolo del valore base."}
+  ],
+  "perche": "Patch di allineamento post-audit v1.0 del 07/10/2026, punto 7 approvato: DP dal Grado completo dell’Attributo Razziale, prima delle Salvezze."
+ },
+ {
+  "source": "haki",
+  "block": 75,
+  "from": "Nell’onda si usa il danno dell’attacco, con i contributi normalmente applicabili, ma non si propagano automaticamente effetti destinati al solo bersaglio principale. Proiezione, Schianto, condizioni della Tecnica e componente interna potenziata dal Ryou non vengono copiati sui bersagli secondari.",
+  "to": "Nell’onda si usa il danno dell’attacco, con i contributi normalmente applicabili, ma non si propagano automaticamente effetti destinati al solo bersaglio principale. Proiezione, Schianto e condizioni della Tecnica rivolte soltanto al bersaglio principale non vengono copiati sui bersagli secondari. Ryou modifica invece il danno totale dell’attacco secondo la propria regola generale: il riferimento al colpo dall’interno è narrativo e non identifica una componente numerica separata.",
+  "perche": "Patch di allineamento post-audit v1.0 del 07/10/2026, punto 8.3 approvato: Esplosione non separa una componente interna di Ryou."
+ },
+ {
+  "source": "haki",
+  "block": 83,
+  "from": "Il Ryou conserva il funzionamento ordinario: raddoppia la componente di danno interno prevista dalla sua regola. Non trasforma automaticamente l’intero attacco in danno interno e non aggira Difesa Passiva, Difesa Attiva o le altre difese normalmente consentite.",
+  "to": "Il Ryou conserva il funzionamento ordinario: calcoli normalmente il danno totale dell’attacco scelto, comprendendo tutti i dadi e i bonus effettivamente applicabili, e lo moltiplichi ×2 una sola volta. Non raddoppiare separatamente le singole componenti per poi moltiplicare nuovamente il risultato. Il riferimento al colpo che agisce dall’interno rimane descrittivo e non crea una categoria meccanica o una componente di danno separata. Ryou non rende il colpo automatico e non impedisce al bersaglio di utilizzare Difesa Passiva, Difesa Attiva, Riduzione del Danno o altre difese normalmente consentite, salvo una regola specifica.",
+  "perche": "Patch di allineamento post-audit v1.0 del 07/10/2026, punto 8.2 approvato: Ryou Persistente raddoppia il danno totale una sola volta e conserva difese, costi, durata e limite di un attacco per turno."
+ },
+ {
+  "source": "haki",
+  "block": 84,
+  "from": "Gli attacchi richiedono le proprie Azioni e gli eventuali costi della Tecnica. Un attacco mancato consuma l’applicazione scelta per quel turno; non concede un secondo tentativo. Il potenziamento non aggiunge attacchi, non si applica a ogni colpo di una Raffica e termina se Armamento viene interrotto.",
+  "to": "Gli attacchi richiedono le proprie Azioni e gli eventuali costi della Tecnica. Un attacco mancato consuma l’applicazione scelta per quel turno e non concede un secondo tentativo. Il potenziamento Ryou Persistente non aggiunge attacchi, non si applica automaticamente a ogni colpo di una Raffica e termina se Armamento viene interrotto.",
+  "perche": "Patch di allineamento post-audit v1.0 del 07/10/2026, punto 8.2 approvato: ripresa esplicita dei limiti del testo sostitutivo completo."
  }
 ]

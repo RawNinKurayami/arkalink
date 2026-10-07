@@ -46,5 +46,41 @@
   "da": "Se la Condizione concede una Salvezza, la Salvezza continua a essere applicata.",
   "a": "Se Ambiente Ostile applica una Condizione che utilizza la normale Salvezza degli Stati, la Soglia è determinata dal Dado del Frutto. Una Scheda del Risveglio può indicare una Soglia propria soltanto quando la specifica Condizione o la natura del potere richiede una regola differente. Poiché il Risveglio richiede normalmente il vertice del Dado del Frutto, un Risveglio Logia d20 utilizza normalmente Soglia 11 per le Condizioni salvabili che non possiedono una regola specifica.",
   "perche": "Revisione delle Salvezze v1.1 del 07/10/2026: fonte graduata con Soglia fissa; prevalenza delle procedure specifiche."
+ },
+ {
+  "blocco": 271,
+  "da": "Forma di Combattimento\nTalento attivo · Azione Bonus\nIl personaggio incanala il Frutto in una modalità particolare per l'intera scena.\nLa Forma concede un bonus costante coerente con il potere e richiede Stamina per essere mantenuta.\nIl valore del bonus e il costo di mantenimento devono essere concordati con il GM: il Talento non stabilisce una quantità numerica universale.\nLa Forma di Combattimento non è una Tecnica. Rappresenta lo stato del personaggio mentre mantiene il potere.",
+  "a": "Forma di Combattimento\nTalento attivo · Azione Bonus\nIl personaggio incanala il Frutto in una modalità particolare per l'intera scena.\nLa Forma concede un beneficio costante coerente con il potere e richiede Stamina per essere mantenuta.\nIl valore del beneficio e il costo di mantenimento vengono definiti insieme al GM secondo la Linea guida · Forma di Combattimento del Capitolo 5.\nLa Forma di Combattimento non è una Tecnica. Rappresenta lo stato del personaggio mentre mantiene il potere.",
+  "perche": "Patch di allineamento post-audit v1.0 del 07/10/2026, punto 9 approvato: procedura ufficiale del Capitolo 5, senza promessa di una tabella futura."
+ },
+ {
+  "escludi_blocchi": [274, 284],
+  "inizio": "Chiarimento necessario",
+  "fine": "Fino ad allora, il Talento non dovrebbe essere considerato completamente chiuso.",
+  "perche": "Patch di allineamento post-audit v1.0 del 07/10/2026, punto 9.1 approvato: rimozione integrale della nota di incompletezza di Forma di Combattimento."
+ },
+ {
+  "blocco": 726,
+  "da": "Il personaggio dissolve il proprio corpo e si ricompone in un punto che può vedere, entro 15 metri.",
+  "a": "Quando si verifica un evento immediato e percepibile al quale il personaggio può ragionevolmente reagire, può utilizzare la propria Reazione per dissolvere il corpo e ricomporsi in un punto che può vedere entro 15 metri.\nRiformarsi Altrove non possiede un singolo trigger universale. Può essere usato in risposta, per esempio, a un attacco dichiarato, a un pericolo improvviso, a un crollo, a un’esplosione, a un movimento ostile o a un altro evento che lasci concretamente spazio a una Reazione. Il Game Master determina caso per caso se l’evento è immediato e percepibile abbastanza da permetterne l’uso.",
+  "perche": "Patch di allineamento post-audit v1.0 del 07/10/2026, punto 10 approvato: Reazione flessibile a un evento immediato e percepibile."
+ },
+ {
+  "blocco": 727,
+  "da": "Lo spostamento non richiede l'Azione principale e non provoca Reazioni dovute allo spostamento.",
+  "a": "Lo spostamento non richiede l’Azione principale e non provoca Reazioni dovute allo spostamento.\nIl punto di arrivo deve essere visibile e realmente raggiungibile dalla manifestazione del Logia; Riformarsi Altrove non permette di attraversare automaticamente condizioni o ostacoli che la natura dell’elemento non consentirebbe di superare.",
+  "perche": "Patch di allineamento post-audit v1.0 del 07/10/2026, punto 10.1 approvato: destinazione visibile e raggiungibile dalla manifestazione elementale."
+ },
+ {
+  "blocco": 725,
+  "da": "Reazione\n1 volta per scontro\n15 metri",
+  "a": "Reazione\n1 volta per scontro\n15 metri\nGrado d10",
+  "perche": "Patch di allineamento post-audit v1.0 del 07/10/2026, punto 10 approvato: esplicitazione del Grado d10 indicato dall’autore nella posizione della capacità."
+ },
+ {
+  "escludi_blocchi": [730, 739],
+  "inizio": "Chiarimento necessario",
+  "fine": "Questo punto deve essere definito prima di considerare definitivo il Talento.",
+  "perche": "Patch di allineamento post-audit v1.0 del 07/10/2026, punto 10.2 approvato: il trigger flessibile è la regola definitiva, senza nota di incompletezza."
  }
 ]

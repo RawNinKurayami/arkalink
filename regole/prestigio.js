@@ -17,6 +17,11 @@ function saveThreshold(die){
  const maximum=die.split('+').reduce((total,d)=>total+Number(d.slice(1)),0);
  return maximum/2+1;
 }
+// DP is fixed: the complete racial Attribute pool contributes its maxima.
+function passiveDefense(die,modifier=0){
+ if(rank(die)<0)return null;
+ return die.split('+').reduce((total,d)=>total+Number(d.slice(1)),0)+1+(Number(modifier)||0);
+}
 const talent=id=>D.talents.find(t=>t.id===id);
 const skillFor=(c,role,style,slot)=>{
  const tree=ordinary[role],s=tree?.styles?.[style]||Object.values(tree?.styles||{})[0];
@@ -165,5 +170,5 @@ function recover(c,distribution){
  c.specialMoveSession??={};c.specialMoveSession.haki??={};updates.forEach(([id,state])=>c.specialMoveSession.haki[id]=state);
  c.prestige??={};c.prestige.session??={};c.prestige.session.riscossaUsed=true;return total;
 }
-root.GLCPrestige={data:D,configure:v=>ordinary=v,rank,level,slots,label,saveThreshold,paths,states,choices,acquired,has,choose,superseded,inherited,normalize,effectiveHakiDie,hakiLevel,hakiRows,benefits,techniqueBenefits,text,recover,hakiId};
+root.GLCPrestige={data:D,configure:v=>ordinary=v,rank,level,slots,label,saveThreshold,passiveDefense,paths,states,choices,acquired,has,choose,superseded,inherited,normalize,effectiveHakiDie,hakiLevel,hakiRows,benefits,techniqueBenefits,text,recover,hakiId};
 })(typeof window!=='undefined'?window:globalThis);

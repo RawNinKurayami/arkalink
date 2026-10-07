@@ -199,9 +199,18 @@ def limiti_sezione(blocchi, numero):
     return inizio, fine
 
 def applica_correzioni(blocchi, correzioni):
+    # Le eliminazioni precedono le sostituzioni: i numeri liberati possono
+    # ospitare sezioni rinumerate senza sovrascrivere il contenuto sbagliato.
+    for numero in correzioni.get('rimuovi_sezioni', []):
+        inizio, fine = limiti_sezione(blocchi, numero)
+        if inizio is None:
+            sys.exit('eliminazione %s: sezione non trovata nel documento.' % numero)
+        del blocchi[inizio:fine]
+        print('sezione %s eliminata' % numero)
+
     for c in correzioni.get('sezioni', []):
         numero = c['sezione']
-        inizio, fine = limiti_sezione(blocchi, numero)
+        inizio, fine = limiti_sezione(blocchi, c.get('sezione_origine', numero))
         if inizio is None:
             if not c.get('dopo'):
                 sys.exit('correzione %s: sezione non trovata nel documento.' % numero)
@@ -306,6 +315,38 @@ def applica_correzioni(blocchi, correzioni):
             sys.exit('sostituzione in %s: «%s» trovata %d volte, mi fermo.'
                      % (s_['sezione'], s_['da'], trovate))
         print('  %s: «%s» \u2192 «%s»' % (s_['sezione'], s_['da'], s_['a']))
+    # I rinvii al Capitolo 3 devono seguire la rinumerazione approvata.
+    # Il sommario e l'indice vengono poi ricavati dai nuovi titoli.
+    rinvii = correzioni.get('rinumerazioni_rinvii', {})
+    for x in blocchi:
+        paragrafi = [x] if x['tipo'] == 'p' else [p for r in x['righe'] for c in r for p in c]
+        for par in paragrafi:
+            for vecchio, nuovo in rinvii.items():
+                pieno = ''.join(p['t'] for p in par['pezzi'])
+                pattern = r'§\s*' + re.escape(vecchio) + r'\b'
+                if not re.search(pattern, pieno):
+                    continue
+                # Un rinvio può attraversare più run del DOCX. Manteniamo
+                # la formattazione del testo circostante mentre sostituiamo
+                # l'intero rinvio, anche in una cella di tabella.
+                stili = [tuple(p['s']) for p in par['pezzi'] for _ in p['t']]
+                testo, nuovi_stili, cursor = [], [], 0
+                for match in re.finditer(pattern, pieno):
+                    testo.append(pieno[cursor:match.start()])
+                    nuovi_stili.extend(stili[cursor:match.start()])
+                    testo.append('§' + nuovo)
+                    nuovi_stili.extend([stili[match.start()]] * (len(nuovo) + 1))
+                    cursor = match.end()
+                testo.append(pieno[cursor:])
+                nuovi_stili.extend(stili[cursor:])
+                pezzi = []
+                for carattere, stile in zip(''.join(testo), nuovi_stili):
+                    if pezzi and pezzi[-1]['s'] == list(stile):
+                        pezzi[-1]['t'] += carattere
+                    else:
+                        pezzi.append({'t': carattere, 's': list(stile)})
+                par['pezzi'] = pezzi
+            par['testo'] = ''.join(p['t'] for p in par['pezzi'])
     return blocchi
 
 b = applica_correzioni(b, correzioni)

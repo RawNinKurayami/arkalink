@@ -240,7 +240,8 @@ class ManualConsistency(unittest.TestCase):
         revised = [v for v in corrections['sezioni'] if v.get('quando') == '2026-10-07']
         self.assertGreaterEqual(len(revised), 15)
         for edit in revised:
-            seed = [env['blocco_p'](f"{edit['sezione']} · Prima", 'Heading2'), env['blocco_p']('Vecchio contenuto')]
+            source_section = edit.get('sezione_origine', edit['sezione'])
+            seed = [env['blocco_p'](f"{source_section} · Prima", 'Heading2'), env['blocco_p']('Vecchio contenuto')]
             # Older substitutions in a replaced section must not undo the revision.
             scoped = {k: [v for v in corrections.get(k, []) if v['sezione'] == edit['sezione']] for k in ['blocchi', 'sostituzioni', 'tabelle']}
             scoped['sezioni'] = [edit]
@@ -327,9 +328,9 @@ class ManualConsistency(unittest.TestCase):
 
     def test_raffica_signature_and_burning_combo_remain_coherent(self):
         striker = self.base.section('sez-4-2')
-        signature = norm(text(subsection(striker, 'Firma · Il colpo sfonda')))
+        signature = norm(text(subsection(striker, 'Firma · Il Colpo Sfonda')))
         self.assertIn('1 volta per turno', signature)
-        self.assertRegex(signature, r'non (?:la )?attivano nuovamente')
+        self.assertIn('non attivano nuovamente la Firma', signature)
         pressure = norm(text(subsection(striker, 'Pressione Costante')))
         broken = norm(text(subsection(striker, 'Guardia Rotta')))
         self.assertIn('almeno due volte nel tuo turno', pressure)
@@ -337,7 +338,7 @@ class ManualConsistency(unittest.TestCase):
         self.assertIn('Vantaggio', broken)
         self.assertIn('non riduce la Difesa Passiva di 2', broken)
         smash = norm(text(subsection(striker, 'Smash Hit · Regole particolari')))
-        self.assertIn('non attivano Pressione Costante, Guardia Rotta o Il colpo sfonda', smash)
+        self.assertIn('non attivano Pressione Costante, Guardia Rotta o Il Colpo Sfonda', smash)
         combo = norm(text(self.base.section('sez-6-4')))
         self.assertLess(combo.index('Azione: esegui Burning Combo'), combo.index('Dopo l\'attacco iniziale, Azione Bonus'))
         self.assertIn('1 ST, 2 ST e 3 ST', combo)
@@ -391,7 +392,7 @@ class ManualConsistency(unittest.TestCase):
         self.assertIn('al momento della preparazione', trap)
         self.assertIn('non modifica retroattivamente le trappole', trap)
         self.assertIn('Salvezza di Forza oppure Tecnica contro la stessa Soglia', trap)
-        signature = norm(text(subsection(self.base.section('sez-4-2'), 'Firma · Il colpo sfonda')))
+        signature = norm(text(subsection(self.base.section('sez-4-2'), 'Firma · Il Colpo Sfonda')))
         self.assertIn('Forza per Stordito, Tecnica per Sbilanciato', signature)
         self.assertIn('Grado attuale della Skill di Ruolo', signature)
 

@@ -5,7 +5,7 @@
       "sezione": "1.4",
       "titolo": "Il Sistema Will of D.",
       "quando": "2026-10-07",
-      "perche": "Tratti Unici e Sinergie v1.2 e Revisione delle Salvezze v1.1 del 07/10/2026.",
+      "perche": "Patch di allineamento manuali post-audit v1.0 approvata il 07/10/2026.",
       "contenuto": [
         {
           "t": "p",
@@ -658,6 +658,10 @@
         {
           "t": "p",
           "testo": "Il Grado della fonte non può essere scelto liberamente fra le statistiche del personaggio: si usa la componente che contiene o genera meccanicamente lo Stato. Se una regola specifica indica una fonte diversa, prevale quella regola."
+        },
+        {
+          "t": "p",
+          "testo": "Quando una Firma o un Talento possiede una regola specifica che identifica come fonte la Tecnica che ha generato l’effetto, prevale quella regola specifica. Il Colpo Sfonda usa quindi la Skill di Ruolo sugli attacchi base e il Grado della Tecnica quando viene attivato da una Tecnica Striker."
         },
         {
           "t": "p",
@@ -1960,10 +1964,805 @@
       ]
     },
     {
+      "sezione": "2.7",
+      "titolo": "Movimento",
+      "quando": "2026-10-07",
+      "perche": "Patch di allineamento manuali post-audit v1.0 approvata il 07/10/2026.",
+      "contenuto": [
+        {
+          "t": "p",
+          "testo": "Il Movimento indica quanti metri un personaggio può percorrere durante il proprio turno.",
+          "pezzi": [
+            {
+              "t": "Il ",
+              "s": []
+            },
+            {
+              "t": "Movimento",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": " indica quanti metri un personaggio può percorrere durante il proprio turno.",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Il valore dipende principalmente dalla Razza e rappresenta elementi come corporatura, lunghezza del passo, agilità naturale e capacità fisiche particolari.",
+          "pezzi": [
+            {
+              "t": "Il valore dipende principalmente dalla ",
+              "s": []
+            },
+            {
+              "t": "Razza",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": " e rappresenta elementi come corporatura, lunghezza del passo, agilità naturale e capacità fisiche particolari.",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "La scheda esprime sempre il Movimento in metri.",
+          "pezzi": [
+            {
+              "t": "La scheda esprime sempre il Movimento in ",
+              "s": []
+            },
+            {
+              "t": "metri",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "h",
+          "testo": "Movimento base delle Razze"
+        },
+        {
+          "t": "tabella",
+          "intestazione": [
+            "Razza",
+            "Movimento",
+            "Movimento speciale"
+          ],
+          "righe": [
+            [
+              "Umano",
+              "10 m",
+              ""
+            ],
+            [
+              "Uomo Pesce / Tritone",
+              "10 m",
+              "20 m in acqua"
+            ],
+            [
+              "Gigante",
+              "14 m",
+              ""
+            ],
+            [
+              "Mink",
+              "14 m",
+              "16 m in Sulong"
+            ],
+            [
+              "Lunarian",
+              "10 m",
+              ""
+            ],
+            [
+              "Cyborg",
+              "10 m",
+              ""
+            ],
+            [
+              "Tontatta",
+              "8 m",
+              ""
+            ]
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Questi valori rappresentano la mobilità naturale della Razza."
+        },
+        {
+          "t": "p",
+          "testo": "Un Gigante copre più terreno grazie alla propria falcata."
+        },
+        {
+          "t": "p",
+          "testo": "Un Tontatta, pur potendo essere estremamente agile, dispone di un corpo molto più piccolo e percorre quindi una distanza inferiore con il proprio Movimento normale."
+        },
+        {
+          "t": "h",
+          "testo": "Movimento durante il turno"
+        },
+        {
+          "t": "p",
+          "testo": "Durante il proprio turno un personaggio può percorrere una distanza complessiva pari al proprio valore di Movimento.",
+          "pezzi": [
+            {
+              "t": "Durante il proprio turno un personaggio può percorrere una distanza complessiva pari al proprio valore di ",
+              "s": []
+            },
+            {
+              "t": "Movimento",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Un personaggio con:"
+        },
+        {
+          "t": "p",
+          "testo": "Movimento 10 m",
+          "pezzi": [
+            {
+              "t": "Movimento 10 m",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "può quindi spostarsi fino a 10 metri."
+        },
+        {
+          "t": "p",
+          "testo": "Non è obbligato a percorrerli tutti."
+        },
+        {
+          "t": "p",
+          "testo": "Può muoversi soltanto di pochi metri, rimanere fermo oppure utilizzare il proprio Movimento in funzione della posizione che vuole raggiungere."
+        },
+        {
+          "t": "p",
+          "testo": "Quando il combattimento lo permette, il Movimento può essere distribuito attorno alle altre azioni del personaggio."
+        },
+        {
+          "t": "p",
+          "testo": "Per esempio, un pirata con Movimento 10 m potrebbe:"
+        },
+        {
+          "t": "p",
+          "testo": "muoversi di 4 m → agire → muoversi degli ultimi 6 m.",
+          "pezzi": [
+            {
+              "t": "muoversi di 4 m → agire → muoversi degli ultimi 6 m.",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "La distanza totale utilizzata rimane comunque:"
+        },
+        {
+          "t": "p",
+          "testo": "10 m",
+          "pezzi": [
+            {
+              "t": "10 m",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "h",
+          "testo": "Non esiste una Corsa universale"
+        },
+        {
+          "t": "p",
+          "testo": "In Grand Line Chronicles non esiste un'azione generica di Corsa che raddoppia automaticamente il Movimento.",
+          "pezzi": [
+            {
+              "t": "In Grand Line Chronicles ",
+              "s": []
+            },
+            {
+              "t": "non esiste un'azione generica di Corsa che raddoppia automaticamente il Movimento",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Il valore indicato sulla scheda rappresenta la quantità di terreno che il personaggio può normalmente coprire durante il proprio turno."
+        },
+        {
+          "t": "p",
+          "testo": "Per superarla deve possedere qualcosa che glielo permetta."
+        },
+        {
+          "t": "p",
+          "testo": "Può trattarsi di:"
+        },
+        {
+          "t": "p",
+          "testo": "Tecniche, Talenti, capacità razziali, trasformazioni, Frutti del Diavolo, Moduli, Haki o altri effetti specifici.",
+          "pezzi": [
+            {
+              "t": "Tecniche, Talenti, capacità razziali, trasformazioni, Frutti del Diavolo, Moduli, Haki o altri effetti specifici.",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Questo rende la mobilità una vera caratteristica della build."
+        },
+        {
+          "t": "p",
+          "testo": "Un personaggio specializzato nello spostamento può raggiungere distanze che un personaggio normale non può coprire semplicemente sacrificando la propria Azione."
+        },
+        {
+          "t": "h",
+          "testo": "Movimento e Spostamento"
+        },
+        {
+          "t": "p",
+          "testo": "È importante distinguere tra Movimento e Spostamento.",
+          "pezzi": [
+            {
+              "t": "È importante distinguere tra ",
+              "s": []
+            },
+            {
+              "t": "Movimento",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": " e ",
+              "s": []
+            },
+            {
+              "t": "Spostamento",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "h3",
+          "testo": "Movimento"
+        },
+        {
+          "t": "p",
+          "testo": "È il valore base presente sulla scheda."
+        },
+        {
+          "t": "p",
+          "testo": "Indica quanti metri il personaggio può percorrere normalmente nel proprio turno."
+        },
+        {
+          "t": "h3",
+          "testo": "Spostamento"
+        },
+        {
+          "t": "p",
+          "testo": "È un movimento concesso da una capacità specifica."
+        },
+        {
+          "t": "p",
+          "testo": "Una Tecnica potrebbe dire:"
+        },
+        {
+          "t": "p",
+          "testo": "Scatto: spostati di 5 m.",
+          "pezzi": [
+            {
+              "t": "Scatto: spostati di 5 m.",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Quei 5 metri derivano dalla Tecnica e seguono le sue regole."
+        },
+        {
+          "t": "p",
+          "testo": "Non aumentano automaticamente il valore di Movimento scritto sulla scheda."
+        },
+        {
+          "t": "p",
+          "testo": "Questo permette a Tecniche e Talenti di creare personaggi realmente più mobili senza dover modificare continuamente la statistica base."
+        },
+        {
+          "t": "h",
+          "testo": "Esempio"
+        },
+        {
+          "t": "p",
+          "testo": "Un Umano possiede:"
+        },
+        {
+          "t": "p",
+          "testo": "Movimento 10 m",
+          "pezzi": [
+            {
+              "t": "Movimento 10 m",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Durante il proprio turno utilizza tutti i 10 metri."
+        },
+        {
+          "t": "p",
+          "testo": "Successivamente attiva una capacità che gli concede:"
+        },
+        {
+          "t": "p",
+          "testo": "Spostamento di 5 m",
+          "pezzi": [
+            {
+              "t": "Spostamento di 5 m",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Può quindi percorrere complessivamente:"
+        },
+        {
+          "t": "p",
+          "testo": "15 m",
+          "pezzi": [
+            {
+              "t": "15 m",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "I primi 10 derivano dal proprio Movimento."
+        },
+        {
+          "t": "p",
+          "testo": "Gli altri 5 derivano dalla capacità."
+        },
+        {
+          "t": "p",
+          "testo": "Il suo Movimento base rimane comunque:"
+        },
+        {
+          "t": "p",
+          "testo": "10 m",
+          "pezzi": [
+            {
+              "t": "10 m",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "h",
+          "testo": "Movimenti speciali delle Razze"
+        },
+        {
+          "t": "p",
+          "testo": "Alcune Razze modificano il proprio Movimento in condizioni particolari."
+        },
+        {
+          "t": "h",
+          "testo": "Uomo Pesce / Tritone"
+        },
+        {
+          "t": "p",
+          "testo": "Sulla terra utilizza:"
+        },
+        {
+          "t": "p",
+          "testo": "10 m",
+          "pezzi": [
+            {
+              "t": "10 m",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "In acqua utilizza:"
+        },
+        {
+          "t": "p",
+          "testo": "20 m",
+          "pezzi": [
+            {
+              "t": "20 m",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "La maggiore velocità acquatica non è uno Spostamento aggiuntivo."
+        },
+        {
+          "t": "p",
+          "testo": "Sostituisce il normale valore di Movimento finché il personaggio si trova nell'ambiente appropriato."
+        },
+        {
+          "t": "h",
+          "testo": "Mink"
+        },
+        {
+          "t": "p",
+          "testo": "Il Mink possiede normalmente:"
+        },
+        {
+          "t": "p",
+          "testo": "14 m",
+          "pezzi": [
+            {
+              "t": "14 m",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Durante Sulong:",
+          "pezzi": [
+            {
+              "t": "Durante ",
+              "s": []
+            },
+            {
+              "t": "Sulong",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ":",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "16 m",
+          "pezzi": [
+            {
+              "t": "16 m",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Anche in questo caso il valore speciale sostituisce temporaneamente quello normale."
+        },
+        {
+          "t": "h",
+          "testo": "Modificare il Movimento"
+        },
+        {
+          "t": "p",
+          "testo": "Alcune capacità possono modificare direttamente il valore di Movimento."
+        },
+        {
+          "t": "p",
+          "testo": "Una regola può, per esempio, dire:"
+        },
+        {
+          "t": "p",
+          "testo": "Movimento +3 m",
+          "pezzi": [
+            {
+              "t": "Movimento +3 m",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "oppure:"
+        },
+        {
+          "t": "p",
+          "testo": "raddoppia il Movimento",
+          "pezzi": [
+            {
+              "t": "raddoppia il Movimento",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "oppure ancora:"
+        },
+        {
+          "t": "p",
+          "testo": "Movimento 20 m per questa scena",
+          "pezzi": [
+            {
+              "t": "Movimento 20 m per questa scena",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Quando questo accade, viene modificato temporaneamente il valore base del personaggio secondo quanto indicato."
+        },
+        {
+          "t": "p",
+          "testo": "È diverso da una capacità che concede semplicemente uno Spostamento aggiuntivo.",
+          "pezzi": [
+            {
+              "t": "È diverso da una capacità che concede semplicemente uno ",
+              "s": []
+            },
+            {
+              "t": "Spostamento aggiuntivo",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "La distinzione è importante."
+        },
+        {
+          "t": "p",
+          "testo": "Se una capacità dice:"
+        },
+        {
+          "t": "p",
+          "testo": "Movimento ×2",
+          "pezzi": [
+            {
+              "t": "Movimento ×2",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "influenza il valore di Movimento."
+        },
+        {
+          "t": "p",
+          "testo": "Se dice:"
+        },
+        {
+          "t": "p",
+          "testo": "spostati di 5 m",
+          "pezzi": [
+            {
+              "t": "spostati di 5 m",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "concede invece soltanto quello spostamento."
+        },
+        {
+          "t": "h",
+          "testo": "Fuori dal combattimento"
+        },
+        {
+          "t": "p",
+          "testo": "Il Movimento in metri è particolarmente utile quando la posizione precisa conta."
+        },
+        {
+          "t": "p",
+          "testo": "Fuori dal combattimento non è necessario misurare ogni secondo di corsa."
+        },
+        {
+          "t": "p",
+          "testo": "Se un personaggio tenta di:"
+        },
+        {
+          "t": "p",
+          "testo": "raggiungere una nave che sta salpando, inseguire qualcuno attraverso una città, fuggire da un edificio che sta crollando o attraversare rapidamente un terreno pericoloso,"
+        },
+        {
+          "t": "p",
+          "testo": "il Game Master può gestire la situazione narrativamente oppure richiedere una prova appropriata."
+        },
+        {
+          "t": "p",
+          "testo": "In questi casi possono diventare importanti capacità come:"
+        },
+        {
+          "t": "p",
+          "testo": "Atletica, Acrobazia, caratteristiche razziali, Talenti o Tecniche di movimento.",
+          "pezzi": [
+            {
+              "t": "Atletica, Acrobazia, caratteristiche razziali, Talenti o Tecniche di movimento.",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Il valore di Movimento rimane un riferimento utile, ma non trasforma ogni inseguimento in una serie di turni da contare metro per metro."
+        },
+        {
+          "t": "h",
+          "testo": "Terreni difficili e movimenti particolari"
+        },
+        {
+          "t": "p",
+          "testo": "Non tutti gli spostamenti avvengono su terreno libero."
+        },
+        {
+          "t": "p",
+          "testo": "Arrampicarsi, nuotare, muoversi tra macerie, attraversare superfici instabili o saltare tra due edifici possono richiedere regole o prove specifiche."
+        },
+        {
+          "t": "p",
+          "testo": "In questi casi il Game Master determina se il Movimento normale sia sufficiente oppure se serva una prova."
+        },
+        {
+          "t": "p",
+          "testo": "Le capacità del personaggio possono modificare queste condizioni."
+        },
+        {
+          "t": "p",
+          "testo": "Un Uomo Pesce, per esempio, affronta l'acqua in modo completamente diverso rispetto alla maggior parte delle altre Razze."
+        },
+        {
+          "t": "p",
+          "testo": "Un Talento potrebbe permettere di ignorare un determinato tipo di terreno."
+        },
+        {
+          "t": "p",
+          "testo": "Una Tecnica potrebbe permettere di superare completamente un ostacolo attraverso uno Spostamento."
+        },
+        {
+          "t": "p",
+          "testo": "Le regole dettagliate verranno approfondite nel capitolo dedicato al combattimento."
+        },
+        {
+          "t": "h",
+          "testo": "Movimento e crescita"
+        },
+        {
+          "t": "p",
+          "testo": "Il Movimento base non aumenta automaticamente con gli Upgrade.",
+          "pezzi": [
+            {
+              "t": "Il Movimento base ",
+              "s": []
+            },
+            {
+              "t": "non aumenta automaticamente con gli Upgrade",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Un personaggio non diventa progressivamente più veloce soltanto perché ha ricevuto più avanzamenti."
+        },
+        {
+          "t": "p",
+          "testo": "La crescita della mobilità passa invece attraverso ciò che il personaggio sviluppa:"
+        },
+        {
+          "t": "p",
+          "testo": "Talenti, Tecniche, trasformazioni, Frutti, Moduli e altre capacità.",
+          "pezzi": [
+            {
+              "t": "Talenti, Tecniche, trasformazioni, Frutti, Moduli e altre capacità.",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Questo mantiene significativa la differenza naturale tra le Razze anche nelle campagne avanzate."
+        }
+      ]
+    },
+    {
       "sezione": "2.8",
       "titolo": "Difesa Passiva e Difesa Attiva",
       "quando": "2026-10-07",
-      "perche": "Tratti Unici e Sinergie v1.2 e Revisione delle Salvezze v1.1 del 07/10/2026.",
+      "perche": "Patch di allineamento manuali post-audit v1.0 approvata il 07/10/2026.",
       "contenuto": [
         {
           "t": "p",
@@ -2077,40 +2876,23 @@
         },
         {
           "t": "h",
-          "testo": "Difesa Passiva = valore del dado dell’Attributo Razziale + 1"
+          "testo": "Difesa Passiva = somma dei valori massimi del Grado dell’Attributo Razziale + 1"
         },
         {
-          "t": "tabella",
-          "intestazione": [
-            "Attributo Razziale",
-            "Difesa Passiva"
-          ],
-          "righe": [
-            [
-              "d4",
-              "5"
-            ],
-            [
-              "d6",
-              "7"
-            ],
-            [
-              "d8",
-              "9"
-            ],
-            [
-              "d10",
-              "11"
-            ],
-            [
-              "d12",
-              "13"
-            ],
-            [
-              "d20",
-              "21"
-            ]
-          ]
+          "t": "h",
+          "testo": "Difesa Passiva e Prestigio"
+        },
+        {
+          "t": "p",
+          "testo": "Quando l’Attributo Razziale entra nel Prestigio, la Difesa Passiva continua a dipendere dal suo Grado completo. Per determinarla, somma i valori massimi di tutti i dadi che compongono il Grado dell’Attributo Razziale e aggiungi +1. Non si effettua alcun tiro."
+        },
+        {
+          "t": "p",
+          "testo": "La tabella completa della Difesa Passiva, compresi i Gradi di Prestigio, è riportata in §6.8."
+        },
+        {
+          "t": "p",
+          "testo": "Esempio: un personaggio con Attributo Razziale d20+d8 possiede DP 29. Se possiede Corpo Mostruoso, la DP diventa 31; con Fortezza Vivente diventa 33. Fortezza Vivente sostituisce il bonus +2 di Corpo Mostruoso con +4 totale: i due valori non si sommano."
         },
         {
           "t": "p",
@@ -2185,14 +2967,6 @@
               "Spirito"
             ],
             [
-              "Longbraccio",
-              "Tecnica"
-            ],
-            [
-              "Lungagamba",
-              "Forza"
-            ],
-            [
               "Cyborg",
               "Forza"
             ],
@@ -2204,7 +2978,7 @@
         },
         {
           "t": "p",
-          "testo": "Se l’Attributo Razziale cresce durante la campagna, aumenta automaticamente anche la Difesa Passiva."
+          "testo": "Se l’Attributo Razziale cresce durante la campagna, aumenta automaticamente anche la Difesa Passiva, anche oltre d20."
         },
         {
           "t": "p",
@@ -4140,6 +4914,761 @@
       ]
     },
     {
+      "sezione": "3.1",
+      "titolo": "Come leggere una Razza",
+      "quando": "2026-10-07",
+      "perche": "Patch di allineamento manuali post-audit v1.0 approvata il 07/10/2026.",
+      "contenuto": [
+        {
+          "t": "p",
+          "testo": "Ogni Razza viene descritta attraverso una serie di elementi comuni."
+        },
+        {
+          "t": "p",
+          "testo": "La sua scheda comprende:"
+        },
+        {
+          "t": "tabella",
+          "intestazione": [
+            "Elemento",
+            "Cosa rappresenta"
+          ],
+          "righe": [
+            [
+              "Attributo Razziale",
+              "l'Attributo naturalmente potenziato dalla Razza"
+            ],
+            [
+              "Dado Razziale",
+              "il Grado iniziale assegnato a quell'Attributo"
+            ],
+            [
+              "PV iniziali",
+              "i Punti Vita alla creazione"
+            ],
+            [
+              "Dado Vita",
+              "determina la crescita dei PV"
+            ],
+            [
+              "Movimento",
+              "metri percorribili normalmente nel turno"
+            ],
+            [
+              "Tecnica Razziale",
+              "capacità innata posseduta dalla Razza"
+            ],
+            [
+              "Svantaggi / Limitazioni",
+              "eventuali debolezze o vincoli specifici"
+            ]
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Questi elementi vengono applicati prima delle successive scelte di costruzione del personaggio."
+        },
+        {
+          "t": "h",
+          "testo": "Attributo Razziale"
+        },
+        {
+          "t": "p",
+          "testo": "Ogni Razza possiede un Attributo Razziale.",
+          "pezzi": [
+            {
+              "t": "Ogni Razza possiede un ",
+              "s": []
+            },
+            {
+              "t": "Attributo Razziale",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Può essere un Attributo specifico, come:"
+        },
+        {
+          "t": "p",
+          "testo": "Forza",
+          "pezzi": [
+            {
+              "t": "Forza",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Tecnica",
+          "pezzi": [
+            {
+              "t": "Tecnica",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Spirito",
+          "pezzi": [
+            {
+              "t": "Spirito",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "oppure, nel caso di alcune Razze, può essere scelto dal giocatore."
+        },
+        {
+          "t": "p",
+          "testo": "Il Dado Razziale stabilisce il valore iniziale di quell'Attributo."
+        },
+        {
+          "t": "p",
+          "testo": "Per esempio, una Razza con:"
+        },
+        {
+          "t": "p",
+          "testo": "Forza d8",
+          "pezzi": [
+            {
+              "t": "Forza d8",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "inizia con Forza d8."
+        },
+        {
+          "t": "p",
+          "testo": "Come visto nel Capitolo 2, gli altri Attributi vengono poi completati durante la creazione del personaggio."
+        },
+        {
+          "t": "h",
+          "testo": "Attributo Razziale e Difesa Passiva"
+        },
+        {
+          "t": "p",
+          "testo": "L'Attributo Razziale ha anche una seconda funzione fondamentale."
+        },
+        {
+          "t": "p",
+          "testo": "Determina la:"
+        },
+        {
+          "t": "h",
+          "testo": "Difesa Passiva"
+        },
+        {
+          "t": "p",
+          "testo": "secondo la formula:"
+        },
+        {
+          "t": "h",
+          "testo": "valore del dado dell'Attributo Razziale + 1"
+        },
+        {
+          "t": "p",
+          "testo": "Per esempio:"
+        },
+        {
+          "t": "mappa",
+          "righe": [
+            [
+              "Forza d8",
+              "Difesa Passiva 9"
+            ],
+            [
+              "Tecnica d10",
+              "Difesa Passiva 11"
+            ]
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Quando l'Attributo Razziale cresce attraverso i P.A., cresce quindi anche la Difesa Passiva."
+        },
+        {
+          "t": "h",
+          "testo": "PV iniziali"
+        },
+        {
+          "t": "p",
+          "testo": "Ogni Razza possiede un valore di PV iniziali.",
+          "pezzi": [
+            {
+              "t": "Ogni Razza possiede un valore di ",
+              "s": []
+            },
+            {
+              "t": "PV iniziali",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Questo rappresenta la resistenza naturale del personaggio alla creazione."
+        },
+        {
+          "t": "p",
+          "testo": "Per esempio, alcune Razze hanno una costituzione relativamente normale, mentre creature dalla struttura fisica molto più imponente possono iniziare con una quantità superiore di Punti Vita."
+        },
+        {
+          "t": "p",
+          "testo": "I PV iniziali vengono utilizzati soltanto come base."
+        },
+        {
+          "t": "p",
+          "testo": "Da quel momento la crescita dipende dal Dado Vita.",
+          "pezzi": [
+            {
+              "t": "Da quel momento la crescita dipende dal ",
+              "s": []
+            },
+            {
+              "t": "Dado Vita",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "h",
+          "testo": "Dado Vita"
+        },
+        {
+          "t": "p",
+          "testo": "Il Dado Vita indica quanti PV Massimi vengono aggiunti a ogni Upgrade.",
+          "pezzi": [
+            {
+              "t": "Il ",
+              "s": []
+            },
+            {
+              "t": "Dado Vita",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": " indica quanti PV Massimi vengono aggiunti a ogni Upgrade.",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Il dado non viene tirato."
+        },
+        {
+          "t": "p",
+          "testo": "Si utilizza sempre metà del suo valore massimo."
+        },
+        {
+          "t": "p",
+          "testo": "Quindi:"
+        },
+        {
+          "t": "mappa",
+          "righe": [
+            [
+              "d6",
+              "+3 PV per Upgrade"
+            ],
+            [
+              "d8",
+              "+4 PV per Upgrade"
+            ],
+            [
+              "d10",
+              "+5 PV per Upgrade"
+            ]
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Il Dado Vita rimane quello determinato dalla Razza."
+        },
+        {
+          "t": "h",
+          "testo": "Movimento"
+        },
+        {
+          "t": "p",
+          "testo": "Ogni Razza possiede un proprio valore di Movimento.",
+          "pezzi": [
+            {
+              "t": "Ogni Razza possiede un proprio valore di ",
+              "s": []
+            },
+            {
+              "t": "Movimento",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Questo indica quanti metri può percorrere normalmente durante il proprio turno."
+        },
+        {
+          "t": "p",
+          "testo": "Alcune Razze possiedono inoltre valori particolari in determinate condizioni."
+        },
+        {
+          "t": "p",
+          "testo": "Per esempio, una Razza potrebbe muoversi più rapidamente:"
+        },
+        {
+          "t": "p",
+          "testo": "in acqua",
+          "pezzi": [
+            {
+              "t": "in acqua",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "oppure:"
+        },
+        {
+          "t": "p",
+          "testo": "durante una trasformazione specifica.",
+          "pezzi": [
+            {
+              "t": "durante una trasformazione specifica.",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Quando una Razza possiede un Movimento speciale, viene indicato direttamente nella sua descrizione."
+        },
+        {
+          "t": "p",
+          "testo": "Come stabilito nel Capitolo 2, non esiste una Corsa universale che raddoppia il Movimento.",
+          "pezzi": [
+            {
+              "t": "Come stabilito nel Capitolo 2, ",
+              "s": []
+            },
+            {
+              "t": "non esiste una Corsa universale che raddoppia il Movimento",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "h",
+          "testo": "Tecnica Razziale"
+        },
+        {
+          "t": "p",
+          "testo": "Ogni Razza possiede una:"
+        },
+        {
+          "t": "h",
+          "testo": "Tecniche Razziali e attacchi"
+        },
+        {
+          "t": "p",
+          "testo": "Quando una Tecnica Razziale modifica un attacco, il suo effetto viene aggiunto all’attacco o alla Tecnica utilizzata e non sostituisce automaticamente l’azione principale."
+        },
+        {
+          "t": "p",
+          "testo": "Il personaggio risolve normalmente l’attacco e applica poi la capacità razziale secondo le sue condizioni e i suoi eventuali costi."
+        },
+        {
+          "t": "p",
+          "testo": "La Tecnica Razziale non concede automaticamente un attacco aggiuntivo o una nuova Azione, salvo che lo dichiari espressamente."
+        },
+        {
+          "t": "h",
+          "testo": "Tecnica Razziale a d6"
+        },
+        {
+          "t": "p",
+          "testo": "La Tecnica Razziale rappresenta una caratteristica innata del corpo, del sangue o della natura di quella Razza."
+        },
+        {
+          "t": "p",
+          "testo": "Non è una delle Tecniche personali create dal giocatore."
+        },
+        {
+          "t": "p",
+          "testo": "Viene ottenuta automaticamente scegliendo la Razza."
+        },
+        {
+          "t": "p",
+          "testo": "Le Tecniche Razziali possono funzionare in modi molto differenti."
+        },
+        {
+          "t": "p",
+          "testo": "Alcune aggiungono il proprio dado a determinati tiri."
+        },
+        {
+          "t": "p",
+          "testo": "Altre modificano il modo in cui il personaggio si muove."
+        },
+        {
+          "t": "p",
+          "testo": "Altre ancora concedono trasformazioni, resistenze o capacità speciali."
+        },
+        {
+          "t": "p",
+          "testo": "La descrizione della singola Razza stabilisce esattamente quando e come la Tecnica può essere utilizzata."
+        },
+        {
+          "t": "h",
+          "testo": "Il dado della Tecnica Razziale"
+        },
+        {
+          "t": "p",
+          "testo": "La Tecnica Razziale parte normalmente da:"
+        },
+        {
+          "t": "h",
+          "testo": "d6"
+        },
+        {
+          "t": "p",
+          "testo": "Quando una capacità dice di:"
+        },
+        {
+          "t": "p",
+          "testo": "aggiungere il Dado Razziale"
+        },
+        {
+          "t": "p",
+          "testo": "fa riferimento al dado della relativa capacità razziale indicato sulla scheda."
+        },
+        {
+          "t": "p",
+          "testo": "La Tecnica Razziale rimane comunque distinta dall'Attributo Razziale.",
+          "pezzi": [
+            {
+              "t": "La Tecnica Razziale rimane comunque distinta dall'",
+              "s": []
+            },
+            {
+              "t": "Attributo Razziale",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Per esempio, una Razza potrebbe possedere:"
+        },
+        {
+          "t": "p",
+          "testo": "Attributo Razziale Forza d8",
+          "pezzi": [
+            {
+              "t": "Attributo Razziale Forza d8",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "e contemporaneamente:"
+        },
+        {
+          "t": "p",
+          "testo": "Tecnica Razziale d6",
+          "pezzi": [
+            {
+              "t": "Tecnica Razziale d6",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Sono due valori differenti con funzioni differenti."
+        },
+        {
+          "t": "h",
+          "testo": "Svantaggi e Limitazioni"
+        },
+        {
+          "t": "p",
+          "testo": "Non tutte le Razze possiedono soltanto benefici."
+        },
+        {
+          "t": "p",
+          "testo": "Alcune hanno:"
+        },
+        {
+          "t": "p",
+          "testo": "Svantaggi",
+          "pezzi": [
+            {
+              "t": "Svantaggi",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "limitazioni fisiche",
+          "pezzi": [
+            {
+              "t": "limitazioni fisiche",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "condizioni ambientali sfavorevoli",
+          "pezzi": [
+            {
+              "t": "condizioni ambientali sfavorevoli",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "oppure regole particolari legate alla propria natura."
+        },
+        {
+          "t": "p",
+          "testo": "Quando una limitazione è presente, fa parte integrante della Razza."
+        },
+        {
+          "t": "p",
+          "testo": "Non è un dettaglio narrativo facoltativo."
+        },
+        {
+          "t": "p",
+          "testo": "Per esempio, una capacità particolarmente potente può essere bilanciata da una condizione ambientale sfavorevole oppure da difficoltà nell'utilizzo di determinati oggetti o strutture."
+        },
+        {
+          "t": "p",
+          "testo": "Se una Razza indica:"
+        },
+        {
+          "t": "p",
+          "testo": "Nessuno",
+          "pezzi": [
+            {
+              "t": "Nessuno",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "non possiede uno Svantaggio razziale generale."
+        },
+        {
+          "t": "h",
+          "testo": "Le capacità razziali e le regole specifiche"
+        },
+        {
+          "t": "p",
+          "testo": "Una regola razziale può modificare una regola generale."
+        },
+        {
+          "t": "p",
+          "testo": "In quel caso vale il principio già stabilito:"
+        },
+        {
+          "t": "p",
+          "testo": "la regola specifica prevale sulla regola generale.",
+          "pezzi": [
+            {
+              "t": "la regola specifica prevale sulla regola generale.",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Se normalmente un personaggio possiede un determinato Movimento, ma la sua Razza stabilisce un valore differente in acqua, utilizza quello razziale."
+        },
+        {
+          "t": "p",
+          "testo": "Se normalmente un attacco segue una certa regola, ma una capacità razziale modifica il Dado Danno, viene applicata la capacità della Razza."
+        },
+        {
+          "t": "p",
+          "testo": "La descrizione di ogni Razza va quindi letta come parte effettiva delle regole del personaggio."
+        },
+        {
+          "t": "h",
+          "testo": "Le sette Razze"
+        },
+        {
+          "t": "p",
+          "testo": "Grand Line Chronicles comprende attualmente:"
+        },
+        {
+          "t": "p",
+          "testo": "Umano",
+          "pezzi": [
+            {
+              "t": "Umano",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Uomo Pesce / Tritone",
+          "pezzi": [
+            {
+              "t": "Uomo Pesce / Tritone",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Gigante",
+          "pezzi": [
+            {
+              "t": "Gigante",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Mink",
+          "pezzi": [
+            {
+              "t": "Mink",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Lunarian",
+          "pezzi": [
+            {
+              "t": "Lunarian",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Cyborg",
+          "pezzi": [
+            {
+              "t": "Cyborg",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Tontatta",
+          "pezzi": [
+            {
+              "t": "Tontatta",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Ognuna utilizza la stessa struttura di base, ma modifica radicalmente alcuni aspetti della costruzione del personaggio."
+        }
+      ]
+    },
+    {
       "sezione": "3.5",
       "titolo": "Mink",
       "quando": "2026-10-07",
@@ -5230,10 +6759,702 @@
       ]
     },
     {
+      "sezione": "3.7",
+      "titolo": "Cyborg",
+      "quando": "2026-10-07",
+      "perche": "Patch di allineamento manuali post-audit v1.0 approvata il 07/10/2026.",
+      "contenuto": [
+        {
+          "t": "p",
+          "testo": "I Cyborg sono individui il cui corpo è stato modificato attraverso innesti e componenti meccanici. La loro particolarità non consiste soltanto nella forza fisica, ma nella possibilità di trasformare il proprio corpo in una piattaforma tecnologica personalizzabile."
+        },
+        {
+          "t": "p",
+          "testo": "Un Cyborg può montare Moduli con funzioni differenti. La quantità di impianti che può ospitare dipende dal Grado della sua Tecnica Razziale, Corpo Meccanico."
+        },
+        {
+          "t": "h",
+          "testo": "Scheda Razza"
+        },
+        {
+          "t": "tabella",
+          "intestazione": [
+            "Caratteristica",
+            "Valore"
+          ],
+          "righe": [
+            [
+              "Attributo Razziale",
+              "Forza"
+            ],
+            [
+              "Grado iniziale dell'Attributo",
+              "d8"
+            ],
+            [
+              "PV iniziali",
+              "16"
+            ],
+            [
+              "Dado Vita",
+              "d8"
+            ],
+            [
+              "Movimento",
+              "10 m"
+            ],
+            [
+              "Tecnica Razziale",
+              "Corpo Meccanico"
+            ],
+            [
+              "Grado iniziale della Tecnica",
+              "d6"
+            ],
+            [
+              "Svantaggio razziale",
+              "Le normali cure biologiche e le cure con Medicina non recuperano PV."
+            ]
+          ]
+        },
+        {
+          "t": "h",
+          "testo": "Attributo Razziale"
+        },
+        {
+          "t": "p",
+          "testo": "L'Attributo Razziale del Cyborg è Forza d8. Rappresenta la potenza della sua struttura fisica, rinforzata da componenti artificiali."
+        },
+        {
+          "t": "p",
+          "testo": "Forza determina anche la Difesa Passiva. Alla creazione:"
+        },
+        {
+          "t": "p",
+          "testo": "8 + 1 = 9",
+          "pezzi": [
+            {
+              "t": "8 + 1 = 9",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Se Forza cresce attraverso i P.A., aumenta anche la Difesa Passiva. Il suo sviluppo è separato da quello di Corpo Meccanico."
+        },
+        {
+          "t": "h",
+          "testo": "Punti Vita e Dado Vita"
+        },
+        {
+          "t": "p",
+          "testo": "Un Cyborg inizia con 16 PV e possiede un Dado Vita d8."
+        },
+        {
+          "t": "p",
+          "testo": "A ogni Upgrade aggiunge metà del valore massimo del Dado Vita, ottenendo +4 PV Massimi."
+        },
+        {
+          "t": "p",
+          "testo": "La progressione è:"
+        },
+        {
+          "t": "p",
+          "testo": "16 → 20 → 24 → 28 → 32..."
+        },
+        {
+          "t": "p",
+          "testo": "Il Dado Vita non viene tirato."
+        },
+        {
+          "t": "h",
+          "testo": "Movimento"
+        },
+        {
+          "t": "p",
+          "testo": "Il Movimento base del Cyborg è 10 m."
+        },
+        {
+          "t": "p",
+          "testo": "La Razza non concede automaticamente una velocità maggiore. Eventuali modifiche al Movimento possono derivare da Moduli o altre capacità che prevedano espressamente questo effetto."
+        },
+        {
+          "t": "h",
+          "testo": "Tecnica Razziale · Corpo Meccanico"
+        },
+        {
+          "t": "p",
+          "testo": "Ogni Cyborg possiede Corpo Meccanico d6."
+        },
+        {
+          "t": "p",
+          "testo": "Corpo Meccanico rappresenta il livello di integrazione tecnologica del personaggio e determina due valori:"
+        },
+        {
+          "t": "p",
+          "testo": "il numero massimo di Moduli installabili;"
+        },
+        {
+          "t": "p",
+          "testo": "la Fascia Tecnologica massima dei Moduli che il corpo può sostenere."
+        },
+        {
+          "t": "p",
+          "testo": "Corpo Meccanico cresce tramite P.A. lungo la normale progressione:"
+        },
+        {
+          "t": "p",
+          "testo": "d6 → d8 → d10 → d12 → d20"
+        },
+        {
+          "t": "tabella",
+          "intestazione": [
+            "Corpo Meccanico",
+            "Slot",
+            "Fascia massima"
+          ],
+          "righe": [
+            [
+              "d6",
+              "1",
+              "d6"
+            ],
+            [
+              "d8",
+              "2",
+              "d8"
+            ],
+            [
+              "d10",
+              "3",
+              "d10"
+            ],
+            [
+              "d12",
+              "4",
+              "d12"
+            ],
+            [
+              "d20",
+              "5",
+              "d20"
+            ]
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Un Cyborg può installare Moduli della propria Fascia Tecnologica o di una Fascia inferiore."
+        },
+        {
+          "t": "p",
+          "testo": "Avere uno slot libero non permette di installare un Modulo di Fascia superiore a Corpo Meccanico."
+        },
+        {
+          "t": "p",
+          "testo": "Sbloccare un nuovo slot non concede automaticamente un nuovo Modulo."
+        },
+        {
+          "t": "h",
+          "testo": "Moduli iniziali"
+        },
+        {
+          "t": "p",
+          "testo": "Alla creazione, il Cyborg riceve:"
+        },
+        {
+          "t": "h",
+          "testo": "2 Moduli completi"
+        },
+        {
+          "t": "p",
+          "testo": "Gratuiti"
+        },
+        {
+          "t": "p",
+          "testo": "Nessun costo di acquisto o costruzione iniziale."
+        },
+        {
+          "t": "p",
+          "testo": "I due Moduli vengono scelti nell'Officina, durante la gestione del pirata. Possono provenire dal catalogo oppure essere progetti concordati con il Game Master."
+        },
+        {
+          "t": "p",
+          "testo": "Alla creazione, Corpo Meccanico parte da d6, ma il Cyborg riceve comunque i due Moduli iniziali previsti dalla Razza. È importante distinguere quindi gli oggetti posseduti dalla capacità di installazione: i due Moduli gratuiti non aumentano automaticamente il numero di slot disponibili."
+        },
+        {
+          "t": "p",
+          "testo": "In particolare, con Corpo Meccanico d6 è disponibile un solo slot. Quando la Tecnica raggiunge d8, gli slot diventano due e il Cyborg può ospitare entrambi i Moduli iniziali."
+        },
+        {
+          "t": "h",
+          "testo": "Sviluppare il corpo"
+        },
+        {
+          "t": "p",
+          "testo": "Quando Corpo Meccanico aumenta di Grado, il Cyborg sblocca nuovi slot."
+        },
+        {
+          "t": "p",
+          "testo": "Gli slot ottenuti successivamente alla creazione arrivano vuoti: per utilizzarli è necessario procurarsi un Modulo, costruirlo e installarlo."
+        },
+        {
+          "t": "p",
+          "testo": "Esempio. Un Cyborg possiede Corpo Meccanico d8 e dispone di due slot. Quando sviluppa la Tecnica a d10, ottiene un terzo slot, ma non riceve gratuitamente un terzo Modulo. Dovrà procurarselo attraverso il gioco."
+        },
+        {
+          "t": "p",
+          "testo": "La progressione razziale determina quindi quanto il corpo può essere ampliato; l'Officina e le risorse della campagna determinano con quali dispositivi verrà ampliato."
+        },
+        {
+          "t": "h",
+          "testo": "Funzionamento dei Moduli"
+        },
+        {
+          "t": "p",
+          "testo": "Un Modulo è un dispositivo meccanico dotato di una funzione definita. Può offrire capacità fisiche, utilità, effetti in combattimento o altre applicazioni previste dal relativo progetto."
+        },
+        {
+          "t": "p",
+          "testo": "Gli effetti non sono concessi genericamente dalla Razza Cyborg: dipendono dai Moduli effettivamente installati e dalle loro regole."
+        },
+        {
+          "t": "p",
+          "testo": "Ogni progetto deve rispettare i requisiti previsti dall'Officina e gli accordi con il Game Master. In particolare, un Modulo può avere requisiti legati al Grado di Corpo Meccanico, condizioni di funzionamento oppure una risorsa energetica propria."
+        },
+        {
+          "t": "p",
+          "testo": "Gli effetti passivi di un Modulo funzionano soltanto quando quel Modulo è attivo. I dettagli sulla costruzione, sull'attivazione, sull'energia e sulle riparazioni vengono trattati nel capitolo Moduli e Tecnologia."
+        },
+        {
+          "t": "h",
+          "testo": "Svantaggio · Corpo Meccanico"
+        },
+        {
+          "t": "p",
+          "testo": "Il corpo di un Cyborg non reagisce alle normali cure biologiche come quello delle Razze organiche."
+        },
+        {
+          "t": "p",
+          "testo": "Una normale cura effettuata attraverso Medicina non recupera PV al Cyborg."
+        },
+        {
+          "t": "p",
+          "testo": "Riposo Breve, Riposo Lungo e Cambusa funzionano normalmente. Anche un effetto che concede direttamente recupero di PV continua a funzionare, salvo che la capacità specifichi di agire esclusivamente attraverso processi biologici."
+        },
+        {
+          "t": "p",
+          "testo": "Fuori dal combattimento, un Meccanico può recuperare i PV del Cyborg attraverso Riparazione di Campo secondo le regole del Manuale del Cyborg."
+        },
+        {
+          "t": "p",
+          "testo": "Recuperare PV e riparare un Modulo sono due interventi distinti."
+        },
+        {
+          "t": "h",
+          "testo": "Attributo e Tecnica Razziale"
+        },
+        {
+          "t": "p",
+          "testo": "Forza e Corpo Meccanico sono due progressioni differenti."
+        },
+        {
+          "t": "p",
+          "testo": "Un Cyborg potrebbe possedere Forza d12 e Corpo Meccanico d8."
+        },
+        {
+          "t": "p",
+          "testo": "In questo caso avrebbe una Difesa Passiva pari a 13, ma soltanto 2 slot per Moduli."
+        },
+        {
+          "t": "p",
+          "testo": "Allo stesso modo, un Cyborg con Forza d8 e Corpo Meccanico d20 avrebbe ancora una Difesa Passiva di 9, ma potrebbe ospitare 5 Moduli."
+        },
+        {
+          "t": "p",
+          "testo": "Il miglioramento della Forza non aumenta automaticamente gli slot, e lo sviluppo di Corpo Meccanico non aumenta automaticamente Forza."
+        }
+      ],
+      "sezione_origine": "3.9"
+    },
+    {
+      "sezione": "3.8",
+      "titolo": "Tontatta",
+      "quando": "2026-10-07",
+      "perche": "Patch di allineamento manuali post-audit v1.0 approvata il 07/10/2026.",
+      "contenuto": [
+        {
+          "t": "p",
+          "testo": "I Tontatta sono una Razza di minuscole dimensioni, ma la loro statura non deve trarre in inganno. Possono sviluppare una forza sorprendente oppure affidarsi a precisione e rapidità, sfruttando il proprio corpo minuto per muoversi senza essere notati e risultare difficili da colpire al primo tentativo."
+        },
+        {
+          "t": "p",
+          "testo": "La loro Tecnica Razziale, Piccolo Guerriero, valorizza questi vantaggi. Le dimensioni ridotte comportano però limitazioni importanti: una presa può diventare difficile da spezzare e l'equipaggiamento comune può essere troppo grande per essere utilizzato."
+        },
+        {
+          "t": "h",
+          "testo": "Scheda Razza"
+        },
+        {
+          "t": "tabella",
+          "intestazione": [
+            "Caratteristica",
+            "Valore"
+          ],
+          "righe": [
+            [
+              "Attributo Razziale",
+              "Forza oppure Tecnica"
+            ],
+            [
+              "Grado iniziale dell'Attributo",
+              "d8"
+            ],
+            [
+              "PV iniziali",
+              "12"
+            ],
+            [
+              "Dado Vita",
+              "d6"
+            ],
+            [
+              "Movimento",
+              "8 m"
+            ],
+            [
+              "Tecnica Razziale",
+              "Piccolo Guerriero"
+            ],
+            [
+              "Grado iniziale della Tecnica",
+              "d6"
+            ],
+            [
+              "Svantaggi",
+              "Prese ed equipaggiamento di taglia incompatibile"
+            ]
+          ]
+        },
+        {
+          "t": "h",
+          "testo": "Attributo Razziale"
+        },
+        {
+          "t": "p",
+          "testo": "Quando crea un Tontatta, il giocatore sceglie il proprio Attributo Razziale tra:"
+        },
+        {
+          "t": "p",
+          "testo": "Forza oppure Tecnica."
+        },
+        {
+          "t": "p",
+          "testo": "L'Attributo scelto parte da d8."
+        },
+        {
+          "t": "p",
+          "testo": "La scelta determina anche quale Attributo viene utilizzato per calcolare la Difesa Passiva."
+        },
+        {
+          "t": "p",
+          "testo": "In entrambi i casi, alla creazione:"
+        },
+        {
+          "t": "p",
+          "testo": "8 + 1 = 9",
+          "pezzi": [
+            {
+              "t": "8 + 1 = 9",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Se il personaggio migliora il proprio Attributo Razziale attraverso i P.A., aumenta anche la Difesa Passiva."
+        },
+        {
+          "t": "p",
+          "testo": "Questa scelta consente di costruire Tontatta differenti: alcuni specializzati nella potenza fisica, altri nella precisione e nel controllo dei movimenti."
+        },
+        {
+          "t": "h",
+          "testo": "Punti Vita"
+        },
+        {
+          "t": "p",
+          "testo": "Un Tontatta inizia con 12 PV e possiede un Dado Vita d6."
+        },
+        {
+          "t": "p",
+          "testo": "A ogni Upgrade aggiunge quindi +3 PV Massimi, senza tirare il dado."
+        },
+        {
+          "t": "p",
+          "testo": "La progressione sarà:"
+        },
+        {
+          "t": "p",
+          "testo": "12 → 15 → 18 → 21 → 24..."
+        },
+        {
+          "t": "h",
+          "testo": "Movimento"
+        },
+        {
+          "t": "p",
+          "testo": "Il Movimento base del Tontatta è:"
+        },
+        {
+          "t": "h",
+          "testo": "8 m"
+        },
+        {
+          "t": "p",
+          "testo": "Questo valore rappresenta la distanza che può percorrere normalmente durante il proprio turno."
+        },
+        {
+          "t": "p",
+          "testo": "Piccolo Guerriero non aumenta automaticamente il Movimento espresso in metri. Eventuali capacità che concedono spostamenti aggiuntivi seguono le proprie regole."
+        },
+        {
+          "t": "h",
+          "testo": "Tecnica Razziale · Piccolo Guerriero"
+        },
+        {
+          "t": "p",
+          "testo": "Ogni Tontatta possiede Piccolo Guerriero, inizialmente a d6."
+        },
+        {
+          "t": "p",
+          "testo": "La Tecnica Razziale può crescere attraverso i P.A. lungo la progressione:"
+        },
+        {
+          "t": "p",
+          "testo": "d6 → d8 → d10 → d12 → d20"
+        },
+        {
+          "t": "p",
+          "testo": "Piccolo Guerriero possiede due benefici distinti: un dado aggiuntivo per determinate prove e una protezione contro il primo attacco di un nemico."
+        },
+        {
+          "t": "h",
+          "testo": "Furtività e Mobilità"
+        },
+        {
+          "t": "p",
+          "testo": "Quando il Tontatta effettua una prova di Furtività o una prova di Mobilità, aggiunge il dado attuale di Piccolo Guerriero al tiro."
+        },
+        {
+          "t": "p",
+          "testo": "Il dado razziale si aggiunge ai dadi normalmente previsti dalla prova: non li sostituisce."
+        },
+        {
+          "t": "h3",
+          "testo": "Esempio"
+        },
+        {
+          "t": "p",
+          "testo": "Un Tontatta possiede:"
+        },
+        {
+          "t": "p",
+          "testo": "Tecnica d10"
+        },
+        {
+          "t": "p",
+          "testo": "Furtività d8"
+        },
+        {
+          "t": "p",
+          "testo": "Piccolo Guerriero d8"
+        },
+        {
+          "t": "p",
+          "testo": "Quando effettua una prova di Furtività appropriata, tira:"
+        },
+        {
+          "t": "h",
+          "testo": "d10 + d8 + d8"
+        },
+        {
+          "t": "p",
+          "testo": "L'ultimo d8 proviene dalla Tecnica Razziale."
+        },
+        {
+          "t": "p",
+          "testo": "Mobilità non è una Skill autonoma e non aumenta il Movimento: il Tontatta percorre normalmente gli 8 metri indicati nella propria scheda e segue le regole generali del Movimento. Il dado di Piccolo Guerriero si aggiunge soltanto quando è richiesta una Prova pertinente a una manovra di mobilità; non occorre tirare per spostarsi normalmente."
+        },
+        {
+          "t": "h",
+          "testo": "Progressione di Piccolo Guerriero"
+        },
+        {
+          "t": "p",
+          "testo": "La progressione aumenta il dado aggiunto alle prove previste. La protezione contro il primo attacco nemico rimane invariata."
+        },
+        {
+          "t": "tabella",
+          "intestazione": [
+            "Grado",
+            "Bonus alle prove di Furtività o Mobilità"
+          ],
+          "righe": [
+            [
+              "d6",
+              "Aggiungi d6"
+            ],
+            [
+              "d8",
+              "Aggiungi d8"
+            ],
+            [
+              "d10",
+              "Aggiungi d10"
+            ],
+            [
+              "d12",
+              "Aggiungi d12"
+            ],
+            [
+              "d20",
+              "Aggiungi d20"
+            ]
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Il Grado della Tecnica Razziale è indipendente dall'Attributo Razziale."
+        },
+        {
+          "t": "p",
+          "testo": "Un Tontatta potrebbe quindi possedere Forza d12 e Piccolo Guerriero d8: la prima determina le normali prove di Forza e la Difesa Passiva, mentre la seconda determina il dado aggiuntivo concesso dalla capacità."
+        },
+        {
+          "t": "h",
+          "testo": "Primo attacco nemico in Svantaggio"
+        },
+        {
+          "t": "p",
+          "testo": "La piccola statura del Tontatta lo rende particolarmente difficile da prendere di mira al primo tentativo."
+        },
+        {
+          "t": "p",
+          "testo": "Il primo attacco effettuato da ciascun nemico contro il Tontatta viene effettuato in Svantaggio."
+        },
+        {
+          "t": "p",
+          "testo": "Questa protezione si applica automaticamente: non richiede Stamina né un'attivazione da parte del personaggio."
+        },
+        {
+          "t": "h3",
+          "testo": "Esempio"
+        },
+        {
+          "t": "p",
+          "testo": "Tre nemici affrontano un Tontatta."
+        },
+        {
+          "t": "p",
+          "testo": "Quando il primo nemico lo attacca per la prima volta, effettua il tiro in Svantaggio. Lo stesso accade al primo attacco del secondo e del terzo nemico."
+        },
+        {
+          "t": "p",
+          "testo": "Se uno di questi avversari attacca nuovamente il Tontatta, non subisce un altro Svantaggio dovuto a Piccolo Guerriero."
+        },
+        {
+          "t": "p",
+          "testo": "La capacità riguarda quindi il primo attacco di ogni nemico, non tutti gli attacchi ricevuti durante il combattimento."
+        },
+        {
+          "t": "h",
+          "testo": "Svantaggio · Prese"
+        },
+        {
+          "t": "p",
+          "testo": "Le piccole dimensioni del Tontatta possono diventare un problema quando un avversario riesce ad afferrarlo."
+        },
+        {
+          "t": "p",
+          "testo": "Quando un Tontatta effettua la contesa di Forza prevista per liberarsi da una Presa, aggiungi +3 al risultato della prova di Forza dell’avversario che lo sta trattenendo."
+        },
+        {
+          "t": "p",
+          "testo": "Il +3 si applica soltanto alla contesa per impedire al Tontatta di liberarsi. Non concede automaticamente una Presa, non modifica il tiro iniziale necessario per afferrarlo e non si applica a prove non collegate alla liberazione dalla Presa."
+        },
+        {
+          "t": "h3",
+          "testo": "Esempio"
+        },
+        {
+          "t": "p",
+          "testo": "Un Tontatta tenta di spezzare una Presa. Il Tontatta ottiene 9 alla propria prova di Forza; l’avversario ottiene 7. Per lo Svantaggio razziale del Tontatta, il risultato dell’avversario diventa 10: la Presa viene mantenuta."
+        },
+        {
+          "t": "h",
+          "testo": "Svantaggio · Equipaggiamento"
+        },
+        {
+          "t": "p",
+          "testo": "Il Tontatta non può utilizzare:"
+        },
+        {
+          "t": "p",
+          "testo": "armi e oggetti di taglia normale o grande."
+        },
+        {
+          "t": "p",
+          "testo": "Questo limite riguarda la compatibilità fisica dell'equipaggiamento."
+        },
+        {
+          "t": "p",
+          "testo": "Un'arma progettata per un essere umano non diventa automaticamente utilizzabile da un Tontatta, anche se il personaggio possiede un Attributo sufficiente a soddisfarne il Grado."
+        },
+        {
+          "t": "p",
+          "testo": "Il personaggio dovrà quindi utilizzare equipaggiamento compatibile con le proprie dimensioni."
+        },
+        {
+          "t": "p",
+          "testo": "La scelta della Razza non concede automaticamente versioni ridotte gratuite degli oggetti."
+        },
+        {
+          "t": "h",
+          "testo": "Dimensioni e vantaggi"
+        },
+        {
+          "t": "p",
+          "testo": "Piccolo Guerriero non conferisce genericamente Vantaggio a tutte le prove o Svantaggio a tutti gli attacchi nemici."
+        },
+        {
+          "t": "p",
+          "testo": "I suoi benefici sono definiti:"
+        },
+        {
+          "t": "p",
+          "testo": "Dado Razziale aggiuntivo nelle prove di Furtività o Mobilità."
+        },
+        {
+          "t": "p",
+          "testo": "Svantaggio al primo attacco effettuato da ciascun nemico contro il Tontatta."
+        },
+        {
+          "t": "p",
+          "testo": "Le dimensioni ridotte non modificano automaticamente la Difesa Passiva, i danni o le normali regole delle azioni."
+        }
+      ],
+      "sezione_origine": "3.10"
+    },
+    {
       "sezione": "4.2",
       "titolo": "Striker",
       "quando": "2026-10-07",
-      "perche": "Tratti Unici e Sinergie v1.2 e Revisione delle Salvezze v1.1 del 07/10/2026.",
+      "perche": "Patch di allineamento manuali post-audit v1.0 approvata il 07/10/2026.",
       "contenuto": [
         {
           "t": "p",
@@ -5299,7 +7520,7 @@
         },
         {
           "t": "p",
-          "testo": "Skill di Ruolo: Atletica oppure Acrobazia, a scelta.Grado iniziale della Skill: d8Equipaggiamento: nessuna arma dell'Arsenale compatibile.Tratto: Mani NudeFirma: Il colpo sfonda",
+          "testo": "Skill di Ruolo: Atletica oppure Acrobazia, a scelta. Grado iniziale della Skill: d8Equipaggiamento: nessuna arma dell'Arsenale compatibile. Tratto: Mani NudeFirma: Il colpo sfonda",
           "pezzi": [
             {
               "t": "Skill di Ruolo:",
@@ -5308,7 +7529,7 @@
               ]
             },
             {
-              "t": " Atletica oppure Acrobazia, a scelta.",
+              "t": " Atletica oppure Acrobazia, a scelta. ",
               "s": []
             },
             {
@@ -5328,7 +7549,7 @@
               ]
             },
             {
-              "t": " nessuna arma dell'Arsenale compatibile.",
+              "t": " nessuna arma dell'Arsenale compatibile. ",
               "s": []
             },
             {
@@ -5419,23 +7640,39 @@
         },
         {
           "t": "h",
-          "testo": "Firma · Il colpo sfonda"
+          "testo": "Firma · Il Colpo Sfonda"
         },
         {
           "t": "p",
-          "testo": "(Sempre attiva · Gratuita · 1 volta per turno)"
+          "testo": "Sempre attiva · Gratuita · 1 volta per turno"
         },
         {
           "t": "p",
-          "testo": "Quando uno Striker ottiene un colpo pulito con margine +4 con un colpo dello Stile, può attivare Il Colpo Sfonda al massimo 1 volta per turno. Il bersaglio subisce Stordito oppure Sbilanciato per 1 turno se fallisce la relativa Salvezza: Forza per Stordito, Tecnica per Sbilanciato. La Soglia è determinata dal Grado attuale della Skill di Ruolo dello Striker (§1.4). Dopo un’attivazione, ulteriori colpi puliti ottenuti dallo stesso Striker durante quel turno non attivano nuovamente la Firma."
+          "testo": "Quando uno Striker ottiene un colpo pulito con margine +4 con un colpo dello Stile, può attivare Il Colpo Sfonda al massimo 1 volta per turno. Il bersaglio subisce Stordito oppure Sbilanciato per 1 turno se fallisce la relativa Salvezza: Forza per Stordito, Tecnica per Sbilanciato."
+        },
+        {
+          "t": "p",
+          "testo": "La fonte della Soglia dipende dal colpo che ha attivato la Firma:"
+        },
+        {
+          "t": "p",
+          "testo": "Attacco base a mani nude: usa il Grado attuale della Skill di Ruolo dello Striker utilizzata per il combattimento."
+        },
+        {
+          "t": "p",
+          "testo": "Tecnica offensiva Striker: usa il Grado della Tecnica che ha prodotto il colpo pulito."
+        },
+        {
+          "t": "p",
+          "testo": "La Soglia viene quindi determinata normalmente attraverso la tabella universale delle Salvezze (§1.4)."
+        },
+        {
+          "t": "p",
+          "testo": "Dopo un’attivazione, ulteriori colpi puliti ottenuti dallo stesso Striker durante quel turno non attivano nuovamente la Firma. La limitazione riguarda soltanto Il Colpo Sfonda: Pressione Costante e Guardia Rotta continuano a verificare normalmente le proprie condizioni."
         },
         {
           "t": "p",
           "testo": "La Firma si applica ai colpi dello Stile e non richiede di essere acquistata come Talento. Il personaggio può utilizzarla fin dalla creazione."
-        },
-        {
-          "t": "p",
-          "testo": "La limitazione riguarda soltanto la Firma. Pressione Costante e Guardia Rotta continuano a verificare normalmente le proprie condizioni."
         },
         {
           "t": "h",
@@ -5512,10 +7749,10 @@
         },
         {
           "t": "p",
-          "testo": "1 volta per turno · Durante il MovimentoPuoi effettuare uno scatto verso un nemico senza provocare Reazioni causate dallo spostamento.Il Talento non stabilisce un numero aggiuntivo di metri: non concede automaticamente un Movimento illimitato.",
+          "testo": "1 volta per turno · Durante il Movimento. Puoi effettuare uno scatto verso un nemico senza provocare Reazioni causate dallo spostamento. Il Talento non stabilisce un numero aggiuntivo di metri: non concede automaticamente un Movimento illimitato.",
           "pezzi": [
             {
-              "t": "1 volta per turno · Durante il MovimentoPuoi effettuare uno scatto verso un nemico senza provocare ",
+              "t": "1 volta per turno · Durante il Movimento. Puoi effettuare uno scatto verso un nemico senza provocare ",
               "s": []
             },
             {
@@ -5525,7 +7762,7 @@
               ]
             },
             {
-              "t": ".Il Talento non stabilisce un numero aggiuntivo di metri: non concede automaticamente un Movimento illimitato.",
+              "t": ". Il Talento non stabilisce un numero aggiuntivo di metri: non concede automaticamente un Movimento illimitato.",
               "s": []
             }
           ]
@@ -5536,10 +7773,10 @@
         },
         {
           "t": "p",
-          "testo": "Controllo · Nessun costo ST indicatoQuando afferri un nemico della tua stazza o inferiore, questo rimane Trattenuto finché non supera una prova di Forza contrapposta alla tua.Finché lo trattieni, il bersaglio non può allontanarsi.",
+          "testo": "Controllo · Nessun costo ST indicato. Quando afferri un nemico della tua stazza o inferiore, questo rimane Trattenuto finché non supera una prova di Forza contrapposta alla tua. Finché lo trattieni, il bersaglio non può allontanarsi.",
           "pezzi": [
             {
-              "t": "Controllo · Nessun costo ST indicatoQuando afferri un nemico della tua stazza o inferiore, questo rimane ",
+              "t": "Controllo · Nessun costo ST indicato. Quando afferri un nemico della tua stazza o inferiore, questo rimane ",
               "s": []
             },
             {
@@ -5549,7 +7786,7 @@
               ]
             },
             {
-              "t": " finché non supera una prova di Forza contrapposta alla tua.Finché lo trattieni, il bersaglio ",
+              "t": " finché non supera una prova di Forza contrapposta alla tua. Finché lo trattieni, il bersaglio ",
               "s": []
             },
             {
@@ -5570,23 +7807,11 @@
         },
         {
           "t": "p",
-          "testo": "(1 volta per scontro)Quando un attacco ti colpisce, puoi ignorare un effetto secondario provocato dal colpo, come Stordito, Sbilanciato o Spinta.**Il danno viene comunque subito normalmente.**Questo Talento non annulla l'attacco e non riduce automaticamente i PV persi.",
-          "pezzi": [
-            {
-              "t": "(1 volta per scontro)Quando un attacco ti colpisce, puoi ignorare ",
-              "s": []
-            },
-            {
-              "t": "un effetto secondario",
-              "s": [
-                "b"
-              ]
-            },
-            {
-              "t": " provocato dal colpo, come Stordito, Sbilanciato o Spinta.**Il danno viene comunque subito normalmente.**Questo Talento non annulla l'attacco e non riduce automaticamente i PV persi.",
-              "s": []
-            }
-          ]
+          "testo": "1 volta per scontro"
+        },
+        {
+          "t": "p",
+          "testo": "Quando un attacco ti colpisce, puoi ignorare un effetto secondario provocato dal colpo, come Stordito, Sbilanciato o Spinta. Il danno viene comunque subito normalmente. Questo Talento non annulla l’attacco e non riduce automaticamente i PV persi."
         },
         {
           "t": "h",
@@ -5626,10 +7851,10 @@
         },
         {
           "t": "p",
-          "testo": "(1 volta per turno)Se colpisci lo stesso bersaglio almeno due volte nel tuo turno, fino all'inizio del tuo prossimo turno quel bersaglio non può effettuare Reazioni contro di te.Il Talento premia le combinazioni riuscite: non si attiva se hai soltanto tentato due attacchi, ma ne hai messo a segno uno.",
+          "testo": "(1 volta per turno) Se colpisci lo stesso bersaglio almeno due volte nel tuo turno, fino all'inizio del tuo prossimo turno quel bersaglio non può effettuare Reazioni contro di te. Il Talento premia le combinazioni riuscite: non si attiva se hai soltanto tentato due attacchi, ma ne hai messo a segno uno.",
           "pezzi": [
             {
-              "t": "(1 volta per turno)Se colpisci lo stesso bersaglio ",
+              "t": "(1 volta per turno) Se colpisci lo stesso bersaglio ",
               "s": []
             },
             {
@@ -5639,7 +7864,7 @@
               ]
             },
             {
-              "t": ", fino all'inizio del tuo prossimo turno quel bersaglio non può effettuare Reazioni contro di te.Il Talento premia le combinazioni riuscite: non si attiva se hai soltanto tentato due attacchi, ma ne hai messo a segno uno.",
+              "t": ", fino all'inizio del tuo prossimo turno quel bersaglio non può effettuare Reazioni contro di te. Il Talento premia le combinazioni riuscite: non si attiva se hai soltanto tentato due attacchi, ma ne hai messo a segno uno.",
               "s": []
             }
           ]
@@ -5650,7 +7875,7 @@
         },
         {
           "t": "p",
-          "testo": "Se prima di colpire ti sei mosso di almeno 5 metri in linea verso il bersaglio, quando il colpo va a segno puoi spingerlo di 3 metri.Il Talento modifica la posizione del bersaglio. Non aggiunge automaticamente un dado al danno.",
+          "testo": "Se prima di colpire ti sei mosso di almeno 5 metri in linea verso il bersaglio, quando il colpo va a segno puoi spingerlo di 3 metri. Il Talento modifica la posizione del bersaglio. Non aggiunge automaticamente un dado al danno.",
           "pezzi": [
             {
               "t": "Se prima di colpire ti sei mosso di almeno ",
@@ -5673,7 +7898,7 @@
               ]
             },
             {
-              "t": ".Il Talento modifica la posizione del bersaglio. Non aggiunge automaticamente un dado al danno.",
+              "t": ". Il Talento modifica la posizione del bersaglio. Non aggiunge automaticamente un dado al danno.",
               "s": []
             }
           ]
@@ -5684,10 +7909,10 @@
         },
         {
           "t": "p",
-          "testo": "(1 volta per turno)Se colpisci lo stesso bersaglio almeno due volte nello stesso turno, il prossimo attacco effettuato contro di lui prima dell'inizio del tuo prossimo turno ottiene Vantaggio.Il beneficio può essere sfruttato anche da un alleato, purché sia il prossimo a effettuare un attacco contro quel bersaglio entro il limite temporale previsto.Guardia Rotta non riduce la Difesa Passiva di 2: il suo effetto è il Vantaggio al prossimo attacco.",
+          "testo": "(1 volta per turno) Se colpisci lo stesso bersaglio almeno due volte nello stesso turno, il prossimo attacco effettuato contro di lui prima dell'inizio del tuo prossimo turno ottiene Vantaggio. Il beneficio può essere sfruttato anche da un alleato, purché sia il prossimo a effettuare un attacco contro quel bersaglio entro il limite temporale previsto. Guardia Rotta non riduce la Difesa Passiva di 2: il suo effetto è il Vantaggio al prossimo attacco.",
           "pezzi": [
             {
-              "t": "(1 volta per turno)Se colpisci lo stesso bersaglio ",
+              "t": "(1 volta per turno) Se colpisci lo stesso bersaglio ",
               "s": []
             },
             {
@@ -5707,7 +7932,7 @@
               ]
             },
             {
-              "t": ".Il beneficio può essere sfruttato anche da un alleato, purché sia il prossimo a effettuare un attacco contro quel bersaglio entro il limite temporale previsto.Guardia Rotta ",
+              "t": ". Il beneficio può essere sfruttato anche da un alleato, purché sia il prossimo a effettuare un attacco contro quel bersaglio entro il limite temporale previsto. Guardia Rotta ",
               "s": []
             },
             {
@@ -5768,10 +7993,10 @@
         },
         {
           "t": "p",
-          "testo": "Prerequisito: Presa di FerroPuoi scagliare un nemico che stai trattenendo fino a 5 metri. Il bersaglio cade Sbilanciato.Se viene lanciato contro un altro nemico, anche il secondo cade Sbilanciato ed entrambi subiscono 1 Dado Danno.Per utilizzare Proiezione devi già trattenere il bersaglio. Non puoi applicarla automaticamente a un nemico libero e distante.",
+          "testo": "Prerequisito: Presa di Ferro. Puoi scagliare un nemico che stai trattenendo fino a 5 metri. Il bersaglio cade Sbilanciato. Se viene lanciato contro un altro nemico, anche il secondo cade Sbilanciato ed entrambi subiscono 1 Dado Danno. Per utilizzare Proiezione devi già trattenere il bersaglio. Non puoi applicarla automaticamente a un nemico libero e distante.",
           "pezzi": [
             {
-              "t": "Prerequisito: Presa di FerroPuoi scagliare un nemico che stai trattenendo fino a ",
+              "t": "Prerequisito: Presa di Ferro. Puoi scagliare un nemico che stai trattenendo fino a ",
               "s": []
             },
             {
@@ -5791,7 +8016,7 @@
               ]
             },
             {
-              "t": ".Se viene lanciato contro un altro nemico, anche il secondo cade Sbilanciato ed entrambi subiscono ",
+              "t": ". Se viene lanciato contro un altro nemico, anche il secondo cade Sbilanciato ed entrambi subiscono ",
               "s": []
             },
             {
@@ -5801,7 +8026,7 @@
               ]
             },
             {
-              "t": ".Per utilizzare Proiezione devi già trattenere il bersaglio. Non puoi applicarla automaticamente a un nemico libero e distante.",
+              "t": ". Per utilizzare Proiezione devi già trattenere il bersaglio. Non puoi applicarla automaticamente a un nemico libero e distante.",
               "s": []
             }
           ]
@@ -5812,7 +8037,7 @@
         },
         {
           "t": "p",
-          "testo": "I tuoi colpi a mani nude infliggono danno pieno contro porte, muri, strutture e oggetti.Questo Talento valorizza la capacità dello Striker di distruggere ostacoli senza utilizzare armi. Non attribuisce automaticamente la stessa proprietà contro qualsiasi riduzione del danno posseduta da un avversario corazzato.",
+          "testo": "I tuoi colpi a mani nude infliggono danno pieno contro porte, muri, strutture e oggetti. Questo Talento valorizza la capacità dello Striker di distruggere ostacoli senza utilizzare armi. Non attribuisce automaticamente la stessa proprietà contro qualsiasi riduzione del danno posseduta da un avversario corazzato.",
           "pezzi": [
             {
               "t": "I tuoi colpi a mani nude infliggono ",
@@ -5825,7 +8050,7 @@
               ]
             },
             {
-              "t": " contro porte, muri, strutture e oggetti.Questo Talento valorizza la capacità dello Striker di distruggere ostacoli senza utilizzare armi. Non attribuisce automaticamente la stessa proprietà contro qualsiasi riduzione del danno posseduta da un avversario corazzato.",
+              "t": " contro porte, muri, strutture e oggetti. Questo Talento valorizza la capacità dello Striker di distruggere ostacoli senza utilizzare armi. Non attribuisce automaticamente la stessa proprietà contro qualsiasi riduzione del danno posseduta da un avversario corazzato.",
               "s": []
             }
           ]
@@ -5836,7 +8061,7 @@
         },
         {
           "t": "p",
-          "testo": "(1 volta per scontro)Quando scendi sotto la metà dei tuoi PV, recuperi immediatamente:"
+          "testo": "(1 volta per scontro) Quando scendi sotto la metà dei tuoi PV, recuperi immediatamente:"
         },
         {
           "t": "h",
@@ -5860,43 +8085,23 @@
         },
         {
           "t": "p",
-          "testo": "(Ultimate)"
-        },
-        {
-          "t": "h",
-          "testo": "5 ST"
+          "testo": "Ultimate · 5 ST · 1 volta per scontro · Richiede il permesso del Game Master."
         },
         {
           "t": "p",
-          "testo": "Costo"
-        },
-        {
-          "t": "h",
-          "testo": "1×"
+          "testo": "Smash Hit è una combinazione totale contro un singolo bersaglio, risolta attraverso quattro tiri per colpire consecutivi."
         },
         {
           "t": "p",
-          "testo": "Per scontro"
+          "testo": "Tutti e quattro i tiri utilizzano: Attributo + Skill di Ruolo dello Striker, con Vantaggio."
         },
         {
           "t": "p",
-          "testo": "Richiede il permesso del Game Master.Smash Hit è una combinazione totale contro un singolo bersaglio, risolta attraverso quattro tiri per colpire consecutivi.Tutti e quattro i tiri utilizzano:**Attributo + Atletica, con Vantaggio.**Ogni colpo riuscito contribuisce a determinare il danno finale della combinazione.",
-          "pezzi": [
-            {
-              "t": "Richiede il permesso del Game Master.Smash Hit è una combinazione totale contro ",
-              "s": []
-            },
-            {
-              "t": "un singolo bersaglio",
-              "s": [
-                "b"
-              ]
-            },
-            {
-              "t": ", risolta attraverso quattro tiri per colpire consecutivi.Tutti e quattro i tiri utilizzano:**Attributo + Atletica, con Vantaggio.**Ogni colpo riuscito contribuisce a determinare il danno finale della combinazione.",
-              "s": []
-            }
-          ]
+          "testo": "La Skill di Ruolo utilizzata è quella scelta per lo Striker: Atletica oppure Acrobazia. La stessa Skill viene utilizzata come Dado Danno della combinazione."
+        },
+        {
+          "t": "p",
+          "testo": "Ogni colpo riuscito contribuisce a determinare il danno finale della combinazione."
         },
         {
           "t": "h",
@@ -5939,23 +8144,11 @@
         },
         {
           "t": "p",
-          "testo": "**Il Dado Danno è Atletica.**Il danno viene tirato una sola volta, al termine della combinazione.Non si tratta di quattro normali attacchi separati: sono quattro tiri utilizzati per risolvere un'unica combinazione.",
-          "pezzi": [
-            {
-              "t": "**Il Dado Danno è Atletica.**Il danno viene tirato ",
-              "s": []
-            },
-            {
-              "t": "una sola volta, al termine della combinazione",
-              "s": [
-                "b"
-              ]
-            },
-            {
-              "t": ".Non si tratta di quattro normali attacchi separati: sono quattro tiri utilizzati per risolvere un'unica combinazione.",
-              "s": []
-            }
-          ]
+          "testo": "Il Dado Danno è il dado della Skill di Ruolo dello Striker utilizzata per Smash Hit. Il danno viene tirato una sola volta al termine della combinazione."
+        },
+        {
+          "t": "p",
+          "testo": "I quattro tiri non sono quattro normali attacchi separati: servono a risolvere un’unica combinazione."
         },
         {
           "t": "h",
@@ -5963,133 +8156,19 @@
         },
         {
           "t": "p",
-          "testo": "Smash Hit funziona interamente secondo le proprie regole. Non applica altre Tecniche, Talenti, la Firma dello Stile o effetti dell'arma, salvo ciò che è indicato espressamente nella sua descrizione."
+          "testo": "Smash Hit funziona interamente secondo le proprie regole. Non applica altre Tecniche, Talenti, la Firma dello Stile o effetti dell’arma, salvo ciò che è indicato espressamente nella sua descrizione. I singoli colpi della combinazione non attivano Pressione Costante, Guardia Rotta o Il Colpo Sfonda."
         },
         {
           "t": "p",
-          "testo": "Questo significa, per esempio, che i singoli colpi della combinazione non attivano Pressione Costante, Guardia Rotta o Il colpo sfonda.",
-          "pezzi": [
-            {
-              "t": "Questo significa, per esempio, che i singoli colpi della combinazione non attivano ",
-              "s": []
-            },
-            {
-              "t": "Pressione Costante",
-              "s": [
-                "b"
-              ]
-            },
-            {
-              "t": ", ",
-              "s": []
-            },
-            {
-              "t": "Guardia Rotta",
-              "s": [
-                "b"
-              ]
-            },
-            {
-              "t": " o ",
-              "s": []
-            },
-            {
-              "t": "Il colpo sfonda",
-              "s": [
-                "b"
-              ]
-            },
-            {
-              "t": ".",
-              "s": []
-            }
-          ]
+          "testo": "Uno Striker con Atletica come Skill di Ruolo usa Atletica per i quattro tiri e per il Dado Danno. Uno Striker con Acrobazia come Skill di Ruolo usa Acrobazia per gli stessi elementi. Non può scegliere liberamente la Skill migliore a ogni utilizzo: usa quella che governa il proprio percorso Striker."
         },
         {
           "t": "p",
-          "testo": "Il Talento utilizza sempre Atletica, sia per i quattro tiri per colpire sia per il Dado Danno.",
-          "pezzi": [
-            {
-              "t": "Il Talento utilizza sempre ",
-              "s": []
-            },
-            {
-              "t": "Atletica",
-              "s": [
-                "b"
-              ]
-            },
-            {
-              "t": ", sia per i quattro tiri per colpire sia per il Dado Danno.",
-              "s": []
-            }
-          ]
+          "testo": "Esempio · Atletica d20: quattro tiri con Attributo + Atletica, tutti con Vantaggio. Con quattro successi, 6d20 danni e Stordito."
         },
         {
           "t": "p",
-          "testo": "Esempio · Smash Hit con Atletica d20Lo Striker effettua quattro tiri consecutivi con Attributo + Atletica, tutti con Vantaggio.Se tutti e quattro vanno a segno, al termine della combinazione infligge:",
-          "pezzi": [
-            {
-              "t": "Esempio · Smash Hit con Atletica d20",
-              "s": [
-                "b"
-              ]
-            },
-            {
-              "t": "Lo Striker effettua quattro tiri consecutivi con Attributo + Atletica, tutti con Vantaggio.Se tutti e quattro vanno a segno, al termine della combinazione infligge:",
-              "s": []
-            }
-          ]
-        },
-        {
-          "t": "h",
-          "testo": "6d20 danni"
-        },
-        {
-          "t": "p",
-          "testo": "Il bersaglio subisce inoltre Stordito.Se soltanto tre colpi vanno a segno, il danno finale è invece 4d20, sempre con Stordito.",
-          "pezzi": [
-            {
-              "t": "Il bersaglio subisce inoltre ",
-              "s": []
-            },
-            {
-              "t": "Stordito",
-              "s": [
-                "b"
-              ]
-            },
-            {
-              "t": ".Se soltanto tre colpi vanno a segno, il danno finale è invece ",
-              "s": []
-            },
-            {
-              "t": "4d20",
-              "s": [
-                "b"
-              ]
-            },
-            {
-              "t": ", sempre con Stordito.",
-              "s": []
-            }
-          ]
-        },
-        {
-          "t": "p",
-          "testo": "Precisazione per gli Striker con Acrobazia come Skill di Ruolo: il Grado di Acrobazia può sbloccare il Talento, ma Smash Hit richiede comunque Atletica per i propri tiri e danni. La scelta iniziale fra Atletica e Acrobazia non modifica questa regola.",
-          "pezzi": [
-            {
-              "t": "Precisazione per gli Striker con Acrobazia come Skill di Ruolo:",
-              "s": [
-                "b"
-              ]
-            },
-            {
-              "t": " il Grado di Acrobazia può sbloccare il Talento, ma Smash Hit richiede comunque Atletica per i propri tiri e danni. La scelta iniziale fra Atletica e Acrobazia non modifica questa regola.",
-              "s": []
-            }
-          ]
+          "testo": "Esempio · Acrobazia d20: quattro tiri con Attributo + Acrobazia, tutti con Vantaggio. Con quattro successi, 6d20 danni e Stordito."
         },
         {
           "t": "h",
@@ -6143,7 +8222,7 @@
       "sezione": "4.3",
       "titolo": "Swordsman",
       "quando": "2026-10-07",
-      "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+      "perche": "Patch di allineamento manuali post-audit v1.0 approvata il 07/10/2026.",
       "contenuto": [
         {
           "t": "p",
@@ -6424,10 +8503,10 @@
         },
         {
           "t": "p",
-          "testo": "(Passivo)Puoi portare con te fino a 2 spade invece della normale singola arma concessa dallo Stile.Attenzione: a questo Grado combatti ancora con una sola spada alla volta.Il Talento permette di possedere e trasportare due lame, ma non concede un secondo attacco né permette ancora di sfruttarle contemporaneamente.Il combattimento con entrambe viene sbloccato da Più Spade · Migliorato.",
+          "testo": "(Passivo) Puoi portare con te fino a 2 spade invece della normale singola arma concessa dallo Stile. Attenzione: a questo Grado combatti ancora con una sola spada alla volta. Il Talento permette di possedere e trasportare due lame, ma non concede un secondo attacco né permette ancora di sfruttarle contemporaneamente. Il combattimento con entrambe viene sbloccato da Più Spade · Migliorato.",
           "pezzi": [
             {
-              "t": "(Passivo)Puoi portare con te ",
+              "t": "(Passivo) Puoi portare con te ",
               "s": []
             },
             {
@@ -6437,7 +8516,7 @@
               ]
             },
             {
-              "t": " invece della normale singola arma concessa dallo Stile.",
+              "t": " invece della normale singola arma concessa dallo Stile. ",
               "s": []
             },
             {
@@ -6447,7 +8526,7 @@
               ]
             },
             {
-              "t": " a questo Grado combatti ancora con una sola spada alla volta.Il Talento permette di possedere e trasportare due lame, ma non concede un secondo attacco né permette ancora di sfruttarle contemporaneamente.Il combattimento con entrambe viene sbloccato da ",
+              "t": " a questo Grado combatti ancora con una sola spada alla volta. Il Talento permette di possedere e trasportare due lame, ma non concede un secondo attacco né permette ancora di sfruttarle contemporaneamente. Il combattimento con entrambe viene sbloccato da ",
               "s": []
             },
             {
@@ -6472,10 +8551,10 @@
         },
         {
           "t": "p",
-          "testo": "1 volta per turnoQuando stai per diventare Stordito oppure Sbilanciato, puoi spendere 1 ST per ignorare quello stato.Il Talento impedisce l'applicazione dello stato scelto, ma non annulla automaticamente i danni dell'attacco che lo ha provocato.Non rende lo Swordsman permanentemente immune a entrambi gli stati: il beneficio richiede l'utilizzo della capacità e il relativo costo.",
+          "testo": "1 volta per turno. Quando stai per diventare Stordito oppure Sbilanciato, puoi spendere 1 ST per ignorare quello stato. Il Talento impedisce l'applicazione dello stato scelto, ma non annulla automaticamente i danni dell'attacco che lo ha provocato. Non rende lo Swordsman permanentemente immune a entrambi gli stati: il beneficio richiede l'utilizzo della capacità e il relativo costo.",
           "pezzi": [
             {
-              "t": "1 volta per turnoQuando stai per diventare ",
+              "t": "1 volta per turno. Quando stai per diventare ",
               "s": []
             },
             {
@@ -6495,7 +8574,7 @@
               ]
             },
             {
-              "t": ", puoi spendere 1 ST per ignorare quello stato.Il Talento impedisce l'applicazione dello stato scelto, ma non annulla automaticamente i danni dell'attacco che lo ha provocato.Non rende lo Swordsman permanentemente immune a entrambi gli stati: il beneficio richiede l'utilizzo della capacità e il relativo costo.",
+              "t": ", puoi spendere 1 ST per ignorare quello stato. Il Talento impedisce l'applicazione dello stato scelto, ma non annulla automaticamente i danni dell'attacco che lo ha provocato. Non rende lo Swordsman permanentemente immune a entrambi gli stati: il beneficio richiede l'utilizzo della capacità e il relativo costo.",
               "s": []
             }
           ]
@@ -6506,10 +8585,10 @@
         },
         {
           "t": "p",
-          "testo": "(1 volta per scontro)Quando fallisci una Parata, puoi ripetere immediatamente il tiro.Devi accettare il secondo risultato, anche se è peggiore del primo.Parata Perfetta non annulla automaticamente un attacco: concede un secondo tentativo di Parata.",
+          "testo": "(1 volta per scontro) Quando fallisci una Parata, puoi ripetere immediatamente il tiro. Devi accettare il secondo risultato, anche se è peggiore del primo. Parata Perfetta non annulla automaticamente un attacco: concede un secondo tentativo di Parata.",
           "pezzi": [
             {
-              "t": "(1 volta per scontro)Quando fallisci una ",
+              "t": "(1 volta per scontro) Quando fallisci una ",
               "s": []
             },
             {
@@ -6519,7 +8598,7 @@
               ]
             },
             {
-              "t": ", puoi ripetere immediatamente il tiro.Devi accettare il secondo risultato, anche se è peggiore del primo.",
+              "t": ", puoi ripetere immediatamente il tiro. Devi accettare il secondo risultato, anche se è peggiore del primo. ",
               "s": []
             },
             {
@@ -6540,10 +8619,10 @@
         },
         {
           "t": "p",
-          "testo": "(1 volta per turno)Quando un tuo colpo con una lama porta un bersaglio sotto la metà dei suoi PV Massimi, il bersaglio diventa:",
+          "testo": "(1 volta per turno) Quando un tuo colpo con una lama porta un bersaglio sotto la metà dei suoi PV Massimi, il bersaglio diventa:",
           "pezzi": [
             {
-              "t": "(1 volta per turno)Quando un tuo colpo con una lama porta un bersaglio ",
+              "t": "(1 volta per turno) Quando un tuo colpo con una lama porta un bersaglio ",
               "s": []
             },
             {
@@ -6564,7 +8643,7 @@
         },
         {
           "t": "p",
-          "testo": "Il Talento si attiva soltanto quando il colpo soddisfa questa condizione.Le conseguenze dello stato Sanguinante seguono le regole degli Stati del capitolo sul Combattimento."
+          "testo": "Il Talento si attiva soltanto quando il colpo soddisfa questa condizione. Le conseguenze dello stato Sanguinante seguono le regole degli Stati del capitolo sul Combattimento."
         },
         {
           "t": "h",
@@ -6580,10 +8659,10 @@
         },
         {
           "t": "p",
-          "testo": "(Attacco extra gratuito)Prerequisito: Più Spade · Base · 1 volta per turnoDopo aver effettuato un attacco con una delle tue spade, puoi effettuare un attacco base extra gratuito con la seconda lama.Questo è il Grado che permette allo Swordsman di sfruttare entrambe le spade nello stesso turno.L'attacco extra deve essere un attacco base: non può essere sostituito liberamente con una Tecnica finché non viene acquisito Più Spade · Maestria.",
+          "testo": "(Attacco extra gratuito) Prerequisito: Più Spade · Base · 1 volta per turno. Dopo aver effettuato un attacco con una delle tue spade, puoi effettuare un attacco base extra gratuito con la seconda lama. Questo è il Grado che permette allo Swordsman di sfruttare entrambe le spade nello stesso turno. L'attacco extra deve essere un attacco base: non può essere sostituito liberamente con una Tecnica finché non viene acquisito Più Spade · Maestria.",
           "pezzi": [
             {
-              "t": "(Attacco extra gratuito)Prerequisito: Più Spade · Base · 1 volta per turnoDopo aver effettuato un attacco con una delle tue spade, puoi effettuare ",
+              "t": "(Attacco extra gratuito) Prerequisito: Più Spade · Base · 1 volta per turno. Dopo aver effettuato un attacco con una delle tue spade, puoi effettuare ",
               "s": []
             },
             {
@@ -6593,7 +8672,7 @@
               ]
             },
             {
-              "t": ".Questo è il Grado che permette allo Swordsman di sfruttare entrambe le spade nello stesso turno.L'attacco extra deve essere un ",
+              "t": ". Questo è il Grado che permette allo Swordsman di sfruttare entrambe le spade nello stesso turno. L'attacco extra deve essere un ",
               "s": []
             },
             {
@@ -6618,10 +8697,10 @@
         },
         {
           "t": "p",
-          "testo": "1 volta per turno · ReazioneQuando un nemico entra nella tua portata in mischia, puoi spendere 1 ST e utilizzare la tua Reazione per effettuare un attacco base con una spada.L'attacco viene effettuato prima che il nemico completi il movimento.Il Talento non concede una Reazione aggiuntiva: utilizza quella normalmente disponibile al personaggio.",
+          "testo": "1 volta per turno · Reazione. Quando un nemico entra nella tua portata in mischia, puoi spendere 1 ST e utilizzare la tua Reazione per effettuare un attacco base con una spada. L'attacco viene effettuato prima che il nemico completi il movimento. Il Talento non concede una Reazione aggiuntiva: utilizza quella normalmente disponibile al personaggio.",
           "pezzi": [
             {
-              "t": "1 volta per turno · ReazioneQuando un nemico entra nella tua portata in mischia, puoi spendere ",
+              "t": "1 volta per turno · Reazione. Quando un nemico entra nella tua portata in mischia, puoi spendere ",
               "s": []
             },
             {
@@ -6641,7 +8720,7 @@
               ]
             },
             {
-              "t": " per effettuare un attacco base con una spada.L'attacco viene effettuato ",
+              "t": " per effettuare un attacco base con una spada. L'attacco viene effettuato ",
               "s": []
             },
             {
@@ -6651,7 +8730,7 @@
               ]
             },
             {
-              "t": ".Il Talento non concede una Reazione aggiuntiva: utilizza quella normalmente disponibile al personaggio.",
+              "t": ". Il Talento non concede una Reazione aggiuntiva: utilizza quella normalmente disponibile al personaggio.",
               "s": []
             }
           ]
@@ -6690,7 +8769,7 @@
         },
         {
           "t": "p",
-          "testo": "Il danno finale della Tecnica viene dimezzato, arrotondando per eccesso.Fendente d'Aria estende quindi la portata di una Tecnica da mischia, ma ne riduce il danno.Non concede gratuitamente un nuovo attacco e non elimina gli eventuali costi della Tecnica utilizzata.",
+          "testo": "Il danno finale della Tecnica viene dimezzato, arrotondando per eccesso. Fendente d'Aria estende quindi la portata di una Tecnica da mischia, ma ne riduce il danno. Non concede gratuitamente un nuovo attacco e non elimina gli eventuali costi della Tecnica utilizzata.",
           "pezzi": [
             {
               "t": "Il danno finale della Tecnica viene ",
@@ -6703,7 +8782,7 @@
               ]
             },
             {
-              "t": ".Fendente d'Aria estende quindi la portata di una Tecnica da mischia, ma ne riduce il danno.Non concede gratuitamente un nuovo attacco e non elimina gli eventuali costi della Tecnica utilizzata.",
+              "t": ". Fendente d'Aria estende quindi la portata di una Tecnica da mischia, ma ne riduce il danno. Non concede gratuitamente un nuovo attacco e non elimina gli eventuali costi della Tecnica utilizzata.",
               "s": []
             }
           ]
@@ -6718,10 +8797,10 @@
         },
         {
           "t": "p",
-          "testo": "1 volta per turnoPrima di effettuare un attacco con una spada, puoi spendere 1 ST.Per quel singolo attacco, considera la Difesa Passiva del bersaglio ridotta di 2.Il modificatore non è permanente e non si applica agli attacchi degli alleati.Esempio: se il bersaglio possiede Difesa Passiva 13, per il tuo attacco con Affilatura viene considerata pari a 11.",
+          "testo": "1 volta per turno. Prima di effettuare un attacco con una spada, puoi spendere 1 ST. Per quel singolo attacco, considera la Difesa Passiva del bersaglio ridotta di 2. Il modificatore non è permanente e non si applica agli attacchi degli alleati. Esempio: se il bersaglio possiede Difesa Passiva 13, per il tuo attacco con Affilatura viene considerata pari a 11.",
           "pezzi": [
             {
-              "t": "1 volta per turnoPrima di effettuare un attacco con una spada, puoi spendere ",
+              "t": "1 volta per turno. Prima di effettuare un attacco con una spada, puoi spendere ",
               "s": []
             },
             {
@@ -6731,7 +8810,7 @@
               ]
             },
             {
-              "t": ".Per quel singolo attacco, considera la ",
+              "t": ". Per quel singolo attacco, considera la ",
               "s": []
             },
             {
@@ -6741,7 +8820,7 @@
               ]
             },
             {
-              "t": ".Il modificatore non è permanente e non si applica agli attacchi degli alleati.",
+              "t": ". Il modificatore non è permanente e non si applica agli attacchi degli alleati. ",
               "s": []
             },
             {
@@ -6780,10 +8859,10 @@
         },
         {
           "t": "p",
-          "testo": "Prerequisito: Più Spade · Migliorato · 1 volta per turnoL'attacco extra con la seconda lama concesso da Più Spade · Migliorato può essere una Tecnica Swordsman anziché un attacco base.Il Talento non aggiunge un terzo attacco: modifica ciò che puoi utilizzare come attacco extra.La Tecnica scelta mantiene i propri requisiti ed eventuali costi.",
+          "testo": "Prerequisito: Più Spade · Migliorato · 1 volta per turno. L'attacco extra con la seconda lama concesso da Più Spade · Migliorato può essere una Tecnica Swordsman anziché un attacco base. Il Talento non aggiunge un terzo attacco: modifica ciò che puoi utilizzare come attacco extra. La Tecnica scelta mantiene i propri requisiti ed eventuali costi.",
           "pezzi": [
             {
-              "t": "Prerequisito: Più Spade · Migliorato · 1 volta per turnoL'attacco extra con la seconda lama concesso da Più Spade · Migliorato può essere una ",
+              "t": "Prerequisito: Più Spade · Migliorato · 1 volta per turno. L'attacco extra con la seconda lama concesso da Più Spade · Migliorato può essere una ",
               "s": []
             },
             {
@@ -6793,7 +8872,7 @@
               ]
             },
             {
-              "t": " anziché un attacco base.Il Talento non aggiunge un terzo attacco: modifica ciò che puoi utilizzare come attacco extra.La Tecnica scelta mantiene i propri requisiti ed eventuali costi.",
+              "t": " anziché un attacco base. Il Talento non aggiunge un terzo attacco: modifica ciò che puoi utilizzare come attacco extra. La Tecnica scelta mantiene i propri requisiti ed eventuali costi.",
               "s": []
             }
           ]
@@ -6816,10 +8895,10 @@
         },
         {
           "t": "p",
-          "testo": "1 volta per scontroSe inizi lo scontro con la lama ancora nel fodero, puoi spendere 2 ST per effettuare il tuo primo attacco prima della normale Iniziativa.Questo attacco viene effettuato con Vantaggio.La capacità richiede che la lama sia inizialmente nel fodero. Non si attiva semplicemente rinfoderandola durante il combattimento.",
+          "testo": "1 volta per scontro. Se inizi lo scontro con la lama ancora nel fodero, puoi spendere 2 ST per effettuare il tuo primo attacco prima della normale Iniziativa. Questo attacco viene effettuato con Vantaggio. La capacità richiede che la lama sia inizialmente nel fodero. Non si attiva semplicemente rinfoderandola durante il combattimento.",
           "pezzi": [
             {
-              "t": "1 volta per scontroSe inizi lo scontro con la lama ancora nel fodero, puoi spendere ",
+              "t": "1 volta per scontro. Se inizi lo scontro con la lama ancora nel fodero, puoi spendere ",
               "s": []
             },
             {
@@ -6839,7 +8918,7 @@
               ]
             },
             {
-              "t": ".Questo attacco viene effettuato con ",
+              "t": ". Questo attacco viene effettuato con ",
               "s": []
             },
             {
@@ -6849,7 +8928,7 @@
               ]
             },
             {
-              "t": ".La capacità richiede che la lama sia inizialmente nel fodero. Non si attiva semplicemente rinfoderandola durante il combattimento.",
+              "t": ". La capacità richiede che la lama sia inizialmente nel fodero. Non si attiva semplicemente rinfoderandola durante il combattimento.",
               "s": []
             }
           ]
@@ -6872,10 +8951,10 @@
         },
         {
           "t": "p",
-          "testo": "(Passivo)La tua lama non può essere normalmente spezzata o danneggiata.Può inoltre effettuare Parate anche contro armi di Grado superiore.Il Talento protegge la lama e amplia ciò che può parare, ma non significa che ogni Parata riesca automaticamente.",
+          "testo": "(Passivo) La tua lama non può essere normalmente spezzata o danneggiata. Può inoltre effettuare Parate anche contro armi di Grado superiore. Il Talento protegge la lama e amplia ciò che può parare, ma non significa che ogni Parata riesca automaticamente.",
           "pezzi": [
             {
-              "t": "(Passivo)La tua lama non può essere ",
+              "t": "(Passivo) La tua lama non può essere ",
               "s": []
             },
             {
@@ -6885,7 +8964,7 @@
               ]
             },
             {
-              "t": ".Può inoltre effettuare Parate anche contro armi di ",
+              "t": ". Può inoltre effettuare Parate anche contro armi di ",
               "s": []
             },
             {
@@ -6895,7 +8974,7 @@
               ]
             },
             {
-              "t": ".Il Talento protegge la lama e amplia ciò che può parare, ma non significa che ogni Parata riesca automaticamente.",
+              "t": ". Il Talento protegge la lama e amplia ciò che può parare, ma non significa che ogni Parata riesca automaticamente.",
               "s": []
             }
           ]
@@ -6934,10 +9013,10 @@
         },
         {
           "t": "p",
-          "testo": "Richiede il permesso del Game Master.Asura concentra tutta la capacità dello Swordsman in un unico colpo.Per colpire effettua un solo tiro composto da:",
+          "testo": "Richiede il permesso del Game Master. Asura concentra tutta la capacità dello Swordsman in un unico colpo. Per colpire effettua un solo tiro composto da:",
           "pezzi": [
             {
-              "t": "Richiede il permesso del Game Master.Asura concentra tutta la capacità dello Swordsman in ",
+              "t": "Richiede il permesso del Game Master. Asura concentra tutta la capacità dello Swordsman in ",
               "s": []
             },
             {
@@ -6947,7 +9026,7 @@
               ]
             },
             {
-              "t": ".Per colpire effettua un solo tiro composto da:",
+              "t": ". Per colpire effettua un solo tiro composto da:",
               "s": []
             }
           ]
@@ -6958,7 +9037,7 @@
         },
         {
           "t": "p",
-          "testo": "Il dado dell'Attributo Tecnica viene quindi tirato due volte e sommato al dado dell'arma.Il danno dipende dal margine ottenuto rispetto alla Difesa Passiva del bersaglio.",
+          "testo": "Il dado dell'Attributo Tecnica viene quindi tirato due volte e sommato al dado dell'arma. Il danno dipende dal margine ottenuto rispetto alla Difesa Passiva del bersaglio.",
           "pezzi": [
             {
               "t": "Il dado dell'Attributo Tecnica viene quindi tirato ",
@@ -6971,7 +9050,7 @@
               ]
             },
             {
-              "t": " al dado dell'arma.Il danno dipende dal margine ottenuto rispetto alla Difesa Passiva del bersaglio.",
+              "t": " al dado dell'arma. Il danno dipende dal margine ottenuto rispetto alla Difesa Passiva del bersaglio.",
               "s": []
             }
           ]
@@ -7038,10 +9117,27 @@
           "testo": "Uno Swordsman possiede:"
         },
         {
-          "t": "lista",
-          "voci": [
-            "Tecnica d20",
-            "Katana d12"
+          "t": "p",
+          "testo": "Tecnica d20",
+          "pezzi": [
+            {
+              "t": "Tecnica d20",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Katana d12",
+          "pezzi": [
+            {
+              "t": "Katana d12",
+              "s": [
+                "b"
+              ]
+            }
           ]
         },
         {
@@ -11387,6 +13483,298 @@
       ]
     },
     {
+      "sezione": "6.5",
+      "titolo": "Movimento e distanze",
+      "quando": "2026-10-07",
+      "perche": "Patch di allineamento manuali post-audit v1.0 approvata il 07/10/2026.",
+      "contenuto": [
+        {
+          "t": "p",
+          "testo": "Le distanze sono espresse in metri."
+        },
+        {
+          "t": "p",
+          "testo": "Non è necessario utilizzare una griglia: il Game Master può descrivere narrativamente le posizioni e ricorrere alle misure quando servono a determinare portata, copertura o possibilità di spostamento."
+        },
+        {
+          "t": "tabella",
+          "intestazione": [
+            "Distanza",
+            "Riferimento"
+          ],
+          "righe": [
+            [
+              "1–2 m",
+              "Combattimento ravvicinato"
+            ],
+            [
+              "5 m",
+              "Alleato nelle vicinanze"
+            ],
+            [
+              "10 m",
+              "Una stanza o una porzione del ponte"
+            ],
+            [
+              "20 m",
+              "Una distanza significativa per il tiro"
+            ],
+            [
+              "50 m e oltre",
+              "Grandi aree e scala di paesaggio"
+            ]
+          ]
+        },
+        {
+          "t": "h3",
+          "testo": "Movimento delle Razze"
+        },
+        {
+          "t": "tabella",
+          "intestazione": [
+            "Razza",
+            "Movimento"
+          ],
+          "righe": [
+            [
+              "Umano",
+              "10 m"
+            ],
+            [
+              "Uomo Pesce / Tritone",
+              "10 m"
+            ],
+            [
+              "Uomo Pesce / Tritone, in acqua",
+              "20 m"
+            ],
+            [
+              "Gigante",
+              "14 m"
+            ],
+            [
+              "Mink",
+              "14 m"
+            ],
+            [
+              "Mink, in Sulong",
+              "16 m"
+            ],
+            [
+              "Lunarian",
+              "10 m"
+            ],
+            [
+              "Cyborg",
+              "10 m"
+            ],
+            [
+              "Tontatta",
+              "8 m"
+            ]
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Non esiste un’Azione Corsa. Rinunciare all’Azione non raddoppia il Movimento."
+        },
+        {
+          "t": "p",
+          "testo": "Il personaggio può superare la propria Velocità soltanto quando una capacità specifica lo consente."
+        },
+        {
+          "t": "h3",
+          "testo": "Arrampicarsi e nuotare"
+        },
+        {
+          "t": "p",
+          "testo": "Arrampicarsi e nuotare richiedono il doppio del Movimento."
+        },
+        {
+          "t": "p",
+          "testo": "Un personaggio con Movimento 10 metri può quindi percorrere 5 metri arrampicandosi."
+        },
+        {
+          "t": "p",
+          "testo": "L’Uomo Pesce non subisce questa penalità quando si muove in acqua."
+        },
+        {
+          "t": "h3",
+          "testo": "Saltare e cadere"
+        },
+        {
+          "t": "p",
+          "testo": "Con una breve rincorsa, un personaggio può saltare in lungo fino a metà del proprio Movimento."
+        },
+        {
+          "t": "p",
+          "testo": "Le cadute iniziano a provocare danni da 3 metri di altezza. Il GM determina le conseguenze in base alla distanza e alla situazione."
+        }
+      ]
+    },
+    {
+      "sezione": "6.6",
+      "titolo": "Portata in mischia",
+      "quando": "2026-10-07",
+      "perche": "Patch di allineamento manuali post-audit v1.0 approvata il 07/10/2026.",
+      "contenuto": [
+        {
+          "t": "p",
+          "testo": "La portata indica la distanza massima alla quale un personaggio può colpire un bersaglio in mischia."
+        },
+        {
+          "t": "tabella",
+          "intestazione": [
+            "Attaccante o arma",
+            "Portata"
+          ],
+          "righe": [
+            [
+              "Mani nude e armi corte",
+              "1 m"
+            ],
+            [
+              "Lance, bastoni e altre armi lunghe",
+              "2 m"
+            ],
+            [
+              "Giganti e Zoan di grande stazza",
+              "2–5 m"
+            ]
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "La portata indicata da un’arma o da una Tecnica specifica prevale sui valori generali."
+        },
+        {
+          "t": "h3",
+          "testo": "Allontanarsi da un nemico"
+        },
+        {
+          "t": "p",
+          "testo": "Quando un personaggio abbandona la portata di un avversario che lo minaccia, quest’ultimo può utilizzare la propria Reazione per effettuare un attacco."
+        },
+        {
+          "t": "p",
+          "testo": "Alcuni Talenti consentono di sganciarsi senza provocare attacchi di Reazione."
+        },
+        {
+          "t": "p",
+          "testo": "Un personaggio Sbilanciato non può effettuare questo attacco se lo stato gli impedisce di utilizzare Reazioni."
+        },
+        {
+          "t": "h3",
+          "testo": "Spostamenti forzati"
+        },
+        {
+          "t": "p",
+          "testo": "Gli spostamenti prodotti da Spinta, Proiezione, Attrazione, Trascinamento o da un’altra capacità che muove forzatamente una creatura non provocano attacchi di Reazione dovuti all’allontanamento."
+        },
+        {
+          "t": "p",
+          "testo": "Se uno spostamento forzato porterebbe una creatura oltre un bordo, fuori da una superficie o in una posizione dalla quale può ragionevolmente tentare di aggrapparsi, il bersaglio può effettuare una Salvezza di Forza."
+        },
+        {
+          "t": "p",
+          "testo": "Se supera la Salvezza, riesce ad afferrarsi o a fermare la caduta quando ciò è materialmente possibile."
+        },
+        {
+          "t": "p",
+          "testo": "Il Game Master stabilisce la Soglia in base alla situazione."
+        }
+      ]
+    },
+    {
+      "sezione": "6.8",
+      "titolo": "Difesa Passiva",
+      "quando": "2026-10-07",
+      "perche": "Patch di allineamento manuali post-audit v1.0 approvata il 07/10/2026.",
+      "contenuto": [
+        {
+          "t": "p",
+          "testo": "La Difesa Passiva (DP) rappresenta la capacità di evitare o resistere a un attacco senza effettuare un tiro difensivo."
+        },
+        {
+          "t": "h",
+          "testo": "Difesa Passiva e Prestigio"
+        },
+        {
+          "t": "p",
+          "testo": "Quando l’Attributo Razziale entra nel Prestigio, la Difesa Passiva continua a dipendere dal suo Grado completo. Per determinarla, somma i valori massimi di tutti i dadi che compongono il Grado dell’Attributo Razziale e aggiungi +1. Non si effettua alcun tiro."
+        },
+        {
+          "t": "p",
+          "testo": "Difesa Passiva = somma dei valori massimi del Grado dell’Attributo Razziale + 1."
+        },
+        {
+          "t": "tabella",
+          "intestazione": [
+            "Attributo Razziale",
+            "Difesa Passiva"
+          ],
+          "righe": [
+            [
+              "d4",
+              "5"
+            ],
+            [
+              "d6",
+              "7"
+            ],
+            [
+              "d8",
+              "9"
+            ],
+            [
+              "d10",
+              "11"
+            ],
+            [
+              "d12",
+              "13"
+            ],
+            [
+              "d20",
+              "21"
+            ],
+            [
+              "d20+d4 · Prestigio I",
+              "25"
+            ],
+            [
+              "d20+d6 · Prestigio II",
+              "27"
+            ],
+            [
+              "d20+d8 · Prestigio III",
+              "29"
+            ],
+            [
+              "d20+d10 · Prestigio IV",
+              "31"
+            ],
+            [
+              "d20+d12 · Prestigio V",
+              "33"
+            ],
+            [
+              "d20+d20 · Saikyō",
+              "41"
+            ]
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "I modificatori espliciti alla Difesa Passiva concessi da Talenti, Tecniche, coperture, Haki, Tratti Unici o altri effetti si applicano dopo aver determinato questo valore base."
+        },
+        {
+          "t": "p",
+          "testo": "Esempio: un personaggio con Attributo Razziale d20+d8 possiede DP 29. Se possiede Corpo Mostruoso, la DP diventa 31; con Fortezza Vivente diventa 33. Fortezza Vivente sostituisce il bonus +2 di Corpo Mostruoso con +4 totale: i due valori non si sommano."
+        }
+      ]
+    },
+    {
       "sezione": "6.10",
       "titolo": "Difesa Attiva e Reazioni",
       "quando": "2026-10-07",
@@ -13268,8 +15656,8 @@
     {
       "sezione": "8.7",
       "titolo": "Haki dell’Armamento",
-      "quando": "2026-09-25",
-      "perche": "Pacchetto di revisione Haki del 23/09/2026: nuova progressione d6-d20, Armamento in difesa solo sulla Difesa Attiva, nuovi effetti d8, d12 e d20.",
+      "quando": "2026-10-07",
+      "perche": "Patch di allineamento manuali post-audit v1.0 approvata il 07/10/2026.",
       "contenuto": [
         {
           "t": "h3",
@@ -13397,13 +15785,20 @@
           "testo": "Quando il personaggio tira il proprio Dado Armamento per determinare il danno, qualsiasi risultato inferiore alla metà del valore massimo del dado viene considerato pari alla metà."
         },
         {
-          "t": "lista",
-          "voci": [
-            "Armamento d8: risultati 1-3 contano come 4.",
-            "Armamento d10: risultati 1-4 contano come 5.",
-            "Armamento d12: risultati 1-5 contano come 6.",
-            "Armamento d20: risultati 1-9 contano come 10."
-          ]
+          "t": "p",
+          "testo": "Armamento d8: risultati 1-3 contano come 4."
+        },
+        {
+          "t": "p",
+          "testo": "Armamento d10: risultati 1-4 contano come 5."
+        },
+        {
+          "t": "p",
+          "testo": "Armamento d12: risultati 1-5 contano come 6."
+        },
+        {
+          "t": "p",
+          "testo": "Armamento d20: risultati 1-9 contano come 10."
         },
         {
           "t": "h3",
@@ -13547,31 +15942,23 @@
         },
         {
           "t": "h3",
-          "testo": "3 PIP"
-        },
-        {
-          "t": "h3",
-          "testo": "Offensivo · Danno interno"
+          "testo": "3 PIP · Offensivo"
         },
         {
           "t": "p",
-          "testo": "Il personaggio concentra l’Armamento all’interno del bersaglio, colpendolo dall’interno."
+          "testo": "L’Armamento penetra le difese esterne e colpisce il bersaglio dall’interno. Questo aspetto è narrativo e descrive la manifestazione del Ryou: non crea una categoria meccanica separata di danno interno."
         },
         {
           "t": "p",
-          "testo": "Quando Ryou viene applicato a un attacco riuscito:"
+          "testo": "Quando applichi Ryou a un attacco fisico compatibile, calcola normalmente il danno totale dell’attacco, comprendendo tutti i dadi e i bonus effettivamente applicabili, quindi moltiplica il risultato ×2."
         },
         {
           "t": "p",
-          "testo": "il danno interno viene raddoppiato ×2"
+          "testo": "Ryou raddoppia il totale una sola volta. Non raddoppiare separatamente le singole componenti per poi moltiplicare nuovamente il risultato."
         },
         {
           "t": "p",
-          "testo": "Il raddoppio viene applicato alla componente di danno interessata da Ryou secondo l’attacco o la Tecnica utilizzata."
-        },
-        {
-          "t": "p",
-          "testo": "Ryou non annulla automaticamente ogni altra capacità del bersaglio e non impedisce al nemico di utilizzare normalmente la propria Difesa Passiva o Difesa Attiva prima che l’attacco venga risolto."
+          "testo": "Ryou non rende il colpo automatico e non impedisce al bersaglio di utilizzare Difesa Passiva, Difesa Attiva, Riduzione del Danno o altre difese normalmente consentite, salvo una regola specifica che stabilisca diversamente."
         }
       ]
     },
@@ -14588,6 +16975,834 @@
       ]
     },
     {
+      "sezione": "9.8",
+      "titolo": "Logia",
+      "quando": "2026-10-07",
+      "perche": "Patch di allineamento manuali post-audit v1.0: riassunto allineato alla Reazione flessibile Riformarsi Altrove del Manuale dei Frutti.",
+      "contenuto": [
+        {
+          "t": "h",
+          "testo": "Logia"
+        },
+        {
+          "t": "h3",
+          "testo": "L'elemento"
+        },
+        {
+          "t": "p",
+          "testo": "I Logia permettono di diventare e controllare un elemento naturale."
+        },
+        {
+          "t": "p",
+          "testo": "La natura dell'elemento influenza permanentemente il corpo del personaggio e le sue possibilità di movimento, attacco e difesa."
+        },
+        {
+          "t": "h3",
+          "testo": "9.8.1 · Tratto: L'Elemento"
+        },
+        {
+          "t": "h3",
+          "testo": "Sempre attivo"
+        },
+        {
+          "t": "p",
+          "testo": "Il personaggio diventa e controlla il proprio elemento."
+        },
+        {
+          "t": "p",
+          "testo": "Può utilizzarlo per colpire, anche a distanza, e i suoi attacchi ne possiedono naturalmente le caratteristiche."
+        },
+        {
+          "t": "h3",
+          "testo": "La natura elementale del Frutto:"
+        },
+        {
+          "t": "p",
+          "testo": "Non costa Stamina."
+        },
+        {
+          "t": "p",
+          "testo": "Non occupa slot Effetto."
+        },
+        {
+          "t": "p",
+          "testo": "Non deve essere acquistata attraverso il Costruttore."
+        },
+        {
+          "t": "p",
+          "testo": "Se il personaggio è fatto di fuoco, i suoi attacchi possiedono naturalmente le caratteristiche del fuoco. Non è necessario comprare separatamente il permesso narrativo di produrlo."
+        },
+        {
+          "t": "h3",
+          "testo": "Intangibilità"
+        },
+        {
+          "t": "p",
+          "testo": "Gli attacchi privi di Haki o Pietra di Mare possono attraversare il corpo elementale."
+        },
+        {
+          "t": "p",
+          "testo": "In base alla natura dell'attacco e alla situazione, possono mancare completamente oppure infliggere danni dimezzati."
+        },
+        {
+          "t": "p",
+          "testo": "Il GM determina quale delle due conseguenze è appropriata."
+        },
+        {
+          "t": "p",
+          "testo": "L'intangibilità appartiene al Tratto iniziale del Logia. Non è necessario raggiungere un Grado avanzato per ottenerla."
+        },
+        {
+          "t": "h3",
+          "testo": "9.8.2 · Firma: L'elemento dilaga"
+        },
+        {
+          "t": "h3",
+          "testo": "Colpo pulito · Margine +4"
+        },
+        {
+          "t": "p",
+          "testo": "Quando ottieni un colpo pulito utilizzando il Frutto, l'elemento si espande su un'intera zona."
+        },
+        {
+          "t": "p",
+          "testo": "La manifestazione dell'effetto deve rispettare la natura dell'elemento e la situazione."
+        },
+        {
+          "t": "p",
+          "testo": "La Firma non assegna automaticamente dimensioni o costi numerici non previsti dalla capacità."
+        },
+        {
+          "t": "h3",
+          "testo": "9.8.3 · d4–d6: Il Dono"
+        },
+        {
+          "t": "h3",
+          "testo": "Sentire l'Elemento"
+        },
+        {
+          "t": "h3",
+          "testo": "Passivo"
+        },
+        {
+          "t": "p",
+          "testo": "Percepisci ciò che entra in contatto con il tuo elemento."
+        },
+        {
+          "t": "p",
+          "testo": "Puoi riconoscere presenza, posizione e movimento di chi si trova al suo interno anche senza poterlo vedere direttamente."
+        },
+        {
+          "t": "p",
+          "testo": "La percezione funziona attraverso:"
+        },
+        {
+          "t": "p",
+          "testo": "il tuo corpo elementale;"
+        },
+        {
+          "t": "p",
+          "testo": "l'elemento che stai producendo;"
+        },
+        {
+          "t": "p",
+          "testo": "l'elemento che stai controllando direttamente."
+        },
+        {
+          "t": "p",
+          "testo": "Una fonte esterna del tuo elemento non diventa automaticamente parte della tua percezione."
+        },
+        {
+          "t": "p",
+          "testo": "Per stabilire un collegamento con una fonte esterna devi almeno:"
+        },
+        {
+          "t": "p",
+          "testo": "poterla vedere.",
+          "pezzi": [
+            {
+              "t": "poterla vedere.",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Una volta portata sotto il tuo controllo, puoi percepire ciò che entra in contatto con essa finché il collegamento rimane valido."
+        },
+        {
+          "t": "p",
+          "testo": "Sentire l'Elemento non permette di percepire automaticamente attraverso tutte le fonti del proprio elemento presenti nella scena o nel mondo."
+        },
+        {
+          "t": "h3",
+          "testo": "Corpo Elementale"
+        },
+        {
+          "t": "h3",
+          "testo": "Passivo"
+        },
+        {
+          "t": "p",
+          "testo": "Aggiungi +1 dado alle prove di fuga, mobilità e liberazione dalla cattura quando sfrutti la natura del tuo corpo elementale."
+        },
+        {
+          "t": "p",
+          "testo": "Il bonus si applica soltanto quando la natura dell’elemento offre realmente un vantaggio. Corpo Elementale non rende immuni a Prese o immobilizzazioni: quella capacità appartiene a Corpo Diffuso."
+        },
+        {
+          "t": "h3",
+          "testo": "Sempre in Forma"
+        },
+        {
+          "t": "h3",
+          "testo": "Passivo"
+        },
+        {
+          "t": "p",
+          "testo": "La tua intangibilità diventa istintiva."
+        },
+        {
+          "t": "p",
+          "testo": "Continua a funzionare anche quando vieni colto di sorpresa, sei addormentato oppure sei privo di sensi."
+        },
+        {
+          "t": "p",
+          "testo": "Restano applicabili le debolezze del Frutto."
+        },
+        {
+          "t": "p",
+          "testo": "Il Talento modifica quando l’intangibilità funziona, non la sua potenza, e non cambia le normali interazioni con Haki, Pietra di Mare e mare."
+        },
+        {
+          "t": "h3",
+          "testo": "Nutrirsi dell'Elemento"
+        },
+        {
+          "t": "h3",
+          "testo": "Passivo"
+        },
+        {
+          "t": "p",
+          "testo": "Quando ti trovi vicino a una fonte viva del tuo elemento, recuperi 1d6 Stamina all'inizio di ogni scena."
+        },
+        {
+          "t": "p",
+          "testo": "La fonte deve essere sufficientemente significativa e coerente con il Frutto."
+        },
+        {
+          "t": "p",
+          "testo": "Un utilizzatore del fuoco potrebbe alimentarsi attraverso un incendio o una fornace. Un utilizzatore del ghiaccio potrebbe sfruttare un ghiacciaio."
+        },
+        {
+          "t": "p",
+          "testo": "Una semplice traccia del proprio elemento non equivale necessariamente a una fonte viva."
+        },
+        {
+          "t": "p",
+          "testo": "Il recupero avviene una sola volta, all’inizio della scena. Una fonte prodotta appositamente dall’utilizzatore non viene considerata valida."
+        },
+        {
+          "t": "h3",
+          "testo": "9.8.4 · d8–d10: Il Controllo"
+        },
+        {
+          "t": "h3",
+          "testo": "Corpo Diffuso"
+        },
+        {
+          "t": "h3",
+          "testo": "Passivo"
+        },
+        {
+          "t": "p",
+          "testo": "Il tuo corpo elementale non può essere afferrato, trattenuto, legato o immobilizzato attraverso mani, corde e catene comuni."
+        },
+        {
+          "t": "p",
+          "testo": "Puoi inoltre attraversare qualsiasi apertura nella quale riuscirebbe a passare il tuo elemento."
+        },
+        {
+          "t": "p",
+          "testo": "Un Logia del fumo, per esempio, potrebbe attraversare le fessure di una porta."
+        },
+        {
+          "t": "p",
+          "testo": "L'Haki e la Pietra di Mare rimangono efficaci. Questo Talento non elimina le debolezze del Frutto."
+        },
+        {
+          "t": "p",
+          "testo": "Non permette di attraversare una parete completamente ermetica: la possibilità dipende dalle proprietà dell’elemento."
+        },
+        {
+          "t": "h3",
+          "testo": "Assorbire"
+        },
+        {
+          "t": "h3",
+          "testo": "Passivo"
+        },
+        {
+          "t": "p",
+          "testo": "Quando subisci un attacco costituito dal tuo stesso elemento, non ricevi i danni."
+        },
+        {
+          "t": "p",
+          "testo": "Al loro posto, recuperi 1d6 Stamina."
+        },
+        {
+          "t": "p",
+          "testo": "Il Talento richiede che l'attacco utilizzi effettivamente l'elemento corrispondente al tuo Frutto."
+        },
+        {
+          "t": "p",
+          "testo": "La semplice affinità non basta: un Logia del fuoco assorbe fuoco, non automaticamente magma, esplosioni o fulmini. La Scheda del Frutto stabilisce ciò che appartiene realmente all’elemento."
+        },
+        {
+          "t": "p",
+          "testo": "Assorbire non può essere sfruttato intenzionalmente attraverso attacchi del personaggio stesso o di un alleato effettuati esclusivamente per generare Stamina."
+        },
+        {
+          "t": "h3",
+          "testo": "Elemento Onnipresente"
+        },
+        {
+          "t": "h3",
+          "testo": "Passivo"
+        },
+        {
+          "t": "p",
+          "testo": "Le tue Tecniche del Frutto non devono più avere origine necessariamente dal tuo corpo."
+        },
+        {
+          "t": "p",
+          "testo": "Possono manifestarsi attraverso una fonte del tuo elemento presente nella scena."
+        },
+        {
+          "t": "p",
+          "testo": "La fonte deve:"
+        },
+        {
+          "t": "p",
+          "testo": "essere realmente costituita dal tuo elemento;"
+        },
+        {
+          "t": "p",
+          "testo": "essere presente nella scena;"
+        },
+        {
+          "t": "p",
+          "testo": "essere visibile nel momento in cui viene utilizzata.",
+          "pezzi": [
+            {
+              "t": "essere visibile nel momento in cui viene utilizzata.",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Quando utilizzi una fonte in questo modo, questa diventa il punto di origine della Tecnica."
+        },
+        {
+          "t": "p",
+          "testo": "Quando rilevante, linea di tiro, coperture, direzione, Area e distanze vengono determinate a partire dalla fonte."
+        },
+        {
+          "t": "p",
+          "testo": "Elemento Onnipresente non concede automaticamente il controllo permanente di tutte le fonti del proprio elemento presenti nella scena."
+        },
+        {
+          "t": "p",
+          "testo": "Il Talento non elimina i costi della Tecnica né i requisiti dei suoi effetti."
+        },
+        {
+          "t": "p",
+          "testo": "Non è possibile utilizzare una fonte nascosta soltanto perché il personaggio sa che esiste."
+        },
+        {
+          "t": "h3",
+          "testo": "Riformarsi Altrove"
+        },
+        {
+          "t": "h3",
+          "testo": "Reazione · Grado d10 · 1 volta per scontro · 15 metri"
+        },
+        {
+          "t": "p",
+          "testo": "Quando si verifica un evento immediato e percepibile al quale il personaggio può ragionevolmente reagire, può utilizzare la propria Reazione per dissolvere il corpo e ricomporsi in un punto che può vedere entro 15 metri."
+        },
+        {
+          "t": "p",
+          "testo": "Riformarsi Altrove non possiede un singolo trigger universale. Può essere usato in risposta, per esempio, a un attacco dichiarato, a un pericolo improvviso, a un crollo, a un’esplosione, a un movimento ostile o a un altro evento che lasci concretamente spazio a una Reazione. Il Game Master determina caso per caso se l’evento è immediato e percepibile abbastanza da permetterne l’uso."
+        },
+        {
+          "t": "p",
+          "testo": "Lo spostamento non richiede l’Azione principale e non provoca Reazioni dovute allo spostamento. Il Talento non consuma l’Azione Bonus: utilizza la Reazione."
+        },
+        {
+          "t": "p",
+          "testo": "Il punto di arrivo deve essere visibile e realmente raggiungibile dalla manifestazione del Logia; Riformarsi Altrove non permette di attraversare automaticamente condizioni o ostacoli che la natura dell’elemento non consentirebbe di superare."
+        },
+        {
+          "t": "h3",
+          "testo": "9.8.5 · d12: La Padronanza"
+        },
+        {
+          "t": "h3",
+          "testo": "Dominio dell'Elemento"
+        },
+        {
+          "t": "h3",
+          "testo": "Passivo"
+        },
+        {
+          "t": "p",
+          "testo": "Il personaggio acquisisce un controllo avanzato sull'elemento già presente nell'ambiente."
+        },
+        {
+          "t": "p",
+          "testo": "Può intervenire sulle sue proprietà e sulla sua distribuzione per modificare le condizioni della scena."
+        },
+        {
+          "t": "p",
+          "testo": "Le applicazioni comprendono la manipolazione del terreno, la creazione o modifica di coperture, l'alimentazione o lo spegnimento di fonti elementali e l'utilizzo delle risorse ambientali."
+        },
+        {
+          "t": "p",
+          "testo": "Il Talento amplia il controllo sull'elemento, ma non assegna automaticamente danni, dimensioni o durate numeriche."
+        },
+        {
+          "t": "p",
+          "testo": "Quando un'applicazione produce un effetto meccanico di combattimento, si utilizzano le regole della Tecnica corrispondente oppure quelle concordate con il Game Master."
+        },
+        {
+          "t": "p",
+          "testo": "Le modifiche puramente narrative possono essere effettuate attraverso il Talento. Dominio dell’Elemento non permette di trasformare altra materia nel proprio elemento."
+        },
+        {
+          "t": "h3",
+          "testo": "Chi Ti Tocca"
+        },
+        {
+          "t": "h3",
+          "testo": "Passivo · Difesa"
+        },
+        {
+          "t": "p",
+          "testo": "La natura del tuo elemento è pericolosa anche per chi riesce a colpirti."
+        },
+        {
+          "t": "p",
+          "testo": "Quando un nemico ti colpisce in mischia a mani nude o utilizzando un'altra parte del proprio corpo, subisce:"
+        },
+        {
+          "t": "h",
+          "testo": "1d6"
+        },
+        {
+          "t": "h3",
+          "testo": "Danni del tuo elemento"
+        },
+        {
+          "t": "p",
+          "testo": "Il danno deve essere coerente con la natura del Frutto: ustioni per il fuoco, congelamento per il ghiaccio e così via."
+        },
+        {
+          "t": "p",
+          "testo": "Il Talento non si applica automaticamente a un nemico che ti colpisce da lontano o attraverso un'arma senza entrare in contatto con il tuo corpo."
+        },
+        {
+          "t": "p",
+          "testo": "Il danno si applica una volta per ogni attacco che produce contatto fisico diretto, indipendentemente dal numero di colpi descritti."
+        },
+        {
+          "t": "p",
+          "testo": "Se il contatto con quell’elemento non può ragionevolmente produrre danno, il Talento può non essere appropriato per quello specifico Logia: il GM non inventa una proprietà dannosa che l’elemento non possiede."
+        },
+        {
+          "t": "h3",
+          "testo": "Fonte Inesauribile"
+        },
+        {
+          "t": "h3",
+          "testo": "Prerequisito: Nutrirsi dell'Elemento"
+        },
+        {
+          "t": "h3",
+          "testo": "Passivo"
+        },
+        {
+          "t": "p",
+          "testo": "Quando ti trovi dentro o immediatamente a ridosso di una grande fonte del tuo elemento, le tue Tecniche del Frutto non costano Stamina."
+        },
+        {
+          "t": "p",
+          "testo": "Il beneficio riguarda le Tecniche del Frutto e richiede che la fonte sia effettivamente disponibile."
+        },
+        {
+          "t": "p",
+          "testo": "Una fonte piccola o puramente decorativa non soddisfa automaticamente la condizione."
+        },
+        {
+          "t": "p",
+          "testo": "Esempio: un Logia del fuoco che combatte all'interno di un grande incendio potrebbe utilizzare gratuitamente le proprie Tecniche del Frutto finché rimane nella condizione richiesta."
+        },
+        {
+          "t": "p",
+          "testo": "Una fonte creata deliberatamente dal personaggio non diventa automaticamente valida. Il beneficio non elimina i costi di Talenti, Haki o altre risorse."
+        },
+        {
+          "t": "h3",
+          "testo": "Forma Perduta"
+        },
+        {
+          "t": "h3",
+          "testo": "Talento attivo · Azione Bonus per l'attivazione"
+        },
+        {
+          "t": "p",
+          "testo": "Il personaggio disperde completamente il proprio corpo nell'elemento."
+        },
+        {
+          "t": "p",
+          "testo": "Può assumere la forma di una nube, di una corrente, di una fiamma diffusa o di un'altra manifestazione coerente."
+        },
+        {
+          "t": "p",
+          "testo": "La trasformazione dura un'intera scena."
+        },
+        {
+          "t": "h3",
+          "testo": "Durante questo stato:"
+        },
+        {
+          "t": "p",
+          "testo": "Non può impugnare o utilizzare oggetti."
+        },
+        {
+          "t": "p",
+          "testo": "Non può effettuare attacchi."
+        },
+        {
+          "t": "p",
+          "testo": "Può muoversi ovunque il proprio elemento possa arrivare."
+        },
+        {
+          "t": "p",
+          "testo": "Può attraversare le barriere non ermetiche."
+        },
+        {
+          "t": "p",
+          "testo": "Non può essere riconosciuto attraverso il suo normale aspetto."
+        },
+        {
+          "t": "p",
+          "testo": "Tornare alla forma ordinaria richiede un'Azione principale."
+        },
+        {
+          "t": "p",
+          "testo": "Forma Perduta è uno stato di dispersione e mobilità, non una Tecnica offensiva. Non permette di attaccare mantenendo contemporaneamente i benefici della dispersione completa."
+        },
+        {
+          "t": "p",
+          "testo": "Muoversi ovunque l’elemento possa arrivare descrive i percorsi possibili, non un movimento illimitato: il personaggio continua a rispettare il proprio Movimento. Durante Forma Perduta non può utilizzare Tecniche offensive."
+        },
+        {
+          "t": "h3",
+          "testo": "9.8.6 · d20: Il Risveglio"
+        },
+        {
+          "t": "h",
+          "testo": "Risveglio · Logia"
+        },
+        {
+          "t": "h3",
+          "testo": "Ultimate"
+        },
+        {
+          "t": "p",
+          "testo": "Requisiti: Dado del Frutto d20, Ambizione e permesso del Game Master."
+        },
+        {
+          "t": "p",
+          "testo": "Il Risveglio rappresenta la massima manifestazione dell'elemento del Logia."
+        },
+        {
+          "t": "p",
+          "testo": "Durante il Risveglio, l'elemento invade e modifica l'ambiente circostante."
+        },
+        {
+          "t": "p",
+          "testo": "Il Risveglio Logia viene costruito utilizzando la normale Linea Guida del Risveglio.",
+          "pezzi": [
+            {
+              "t": "Il Risveglio Logia viene costruito utilizzando la normale ",
+              "s": []
+            },
+            {
+              "t": "Linea Guida del Risveglio",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "h",
+          "testo": "Saturazione Elementale"
+        },
+        {
+          "t": "p",
+          "testo": "Ogni Risveglio Logia possiede necessariamente Saturazione Elementale.",
+          "pezzi": [
+            {
+              "t": "Ogni Risveglio Logia possiede necessariamente ",
+              "s": []
+            },
+            {
+              "t": "Saturazione Elementale",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "L'elemento invade l'Area definita nella Scheda del Risveglio e modifica progressivamente le condizioni dell'ambiente."
+        },
+        {
+          "t": "p",
+          "testo": "La manifestazione concreta dipende dalla natura dell'elemento."
+        },
+        {
+          "t": "p",
+          "testo": "L'Area non possiede una dimensione universale e viene definita durante la costruzione del Risveglio."
+        },
+        {
+          "t": "h",
+          "testo": "Ambiente Ostile"
+        },
+        {
+          "t": "p",
+          "testo": "La Saturazione Elementale rende l'ambiente pericoloso per le creature presenti."
+        },
+        {
+          "t": "p",
+          "testo": "Quando il Risveglio viene progettato vengono definite le Condizioni o conseguenze ambientali appropriate alla natura dell'elemento.",
+          "pezzi": [
+            {
+              "t": "Quando il Risveglio viene progettato vengono definite le ",
+              "s": []
+            },
+            {
+              "t": "Condizioni o conseguenze ambientali appropriate alla natura dell'elemento",
+              "s": [
+                "b"
+              ]
+            },
+            {
+              "t": ".",
+              "s": []
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Possono riguardare, quando coerente:"
+        },
+        {
+          "t": "p",
+          "testo": "visibilità;"
+        },
+        {
+          "t": "p",
+          "testo": "movimento;"
+        },
+        {
+          "t": "p",
+          "testo": "respirazione;"
+        },
+        {
+          "t": "p",
+          "testo": "temperatura;"
+        },
+        {
+          "t": "p",
+          "testo": "percezione;"
+        },
+        {
+          "t": "p",
+          "testo": "altre conseguenze proprie dell'elemento."
+        },
+        {
+          "t": "p",
+          "testo": "Gli effetti vengono stabiliti prima dell'utilizzo e non possono essere cambiati liberamente durante ogni attivazione."
+        },
+        {
+          "t": "p",
+          "testo": "Quando una Condizione concede normalmente una Salvezza, questa continua a essere applicata."
+        },
+        {
+          "t": "h",
+          "testo": "Sviluppo del Risveglio"
+        },
+        {
+          "t": "p",
+          "testo": "Oltre a Saturazione Elementale e Ambiente Ostile, il Risveglio viene sviluppato utilizzando le normali Famiglie:"
+        },
+        {
+          "t": "p",
+          "testo": "Origine",
+          "pezzi": [
+            {
+              "t": "Origine",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Costi / Sconti",
+          "pezzi": [
+            {
+              "t": "Costi / Sconti",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Espansione",
+          "pezzi": [
+            {
+              "t": "Espansione",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Dominio",
+          "pezzi": [
+            {
+              "t": "Dominio",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Difesa",
+          "pezzi": [
+            {
+              "t": "Difesa",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Attacco",
+          "pezzi": [
+            {
+              "t": "Attacco",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Controllo",
+          "pezzi": [
+            {
+              "t": "Controllo",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "I Benefici concreti vengono definiti preventivamente attraverso la Linea Guida del Risveglio."
+        },
+        {
+          "t": "p",
+          "testo": "Il Risveglio dura normalmente:"
+        },
+        {
+          "t": "p",
+          "testo": "1 scena.",
+          "pezzi": [
+            {
+              "t": "1 scena.",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "h3",
+          "testo": "Alla fine:"
+        },
+        {
+          "t": "p",
+          "testo": "la Stamina scende a 0;",
+          "pezzi": [
+            {
+              "t": "la Stamina scende a 0;",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "il personaggio non può utilizzare il Frutto fino al prossimo Riposo Lungo.",
+          "pezzi": [
+            {
+              "t": "il personaggio non può utilizzare il Frutto fino al prossimo Riposo Lungo.",
+              "s": [
+                "b"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "p",
+          "testo": "Terminare volontariamente il Risveglio in anticipo non evita il prezzo previsto."
+        }
+      ]
+    },
+    {
       "sezione": "16.6",
       "titolo": "Gli Upgrade",
       "quando": "2026-10-07",
@@ -14671,7 +17886,7 @@
       "sezione": "16.9",
       "titolo": "Tratti Unici e Sinergie",
       "quando": "2026-10-07",
-      "perche": "Tratti Unici e Sinergie v1.2 e Revisione delle Salvezze v1.1 del 07/10/2026.",
+      "perche": "Patch di allineamento manuali post-audit v1.0 approvata il 07/10/2026.",
       "contenuto": [
         {
           "t": "p",
@@ -14917,7 +18132,7 @@
             [
               "Archeologia",
               "Astuzia + Archeologia",
-              "Memoria del Mondo",
+              "Connessione Storica",
               "Astuzia d12 · Archeologia d10"
             ]
           ],
@@ -15429,7 +18644,7 @@
         },
         {
           "t": "h3",
-          "testo": "Memoria del Mondo"
+          "testo": "Connessione Storica"
         },
         {
           "t": "p",
@@ -15495,76 +18710,6 @@
       "sezione": "3.6",
       "da": "16 → 24 → 32 → 40 → 48...",
       "a": "16 → 20 → 24 → 28 → 32..."
-    },
-    {
-      "sezione": "3.7",
-      "da": "+6 PV Massimi",
-      "a": "+3 PV Massimi"
-    },
-    {
-      "sezione": "3.7",
-      "da": "12 → 18 → 24 → 30 → 36...",
-      "a": "12 → 15 → 18 → 21 → 24..."
-    },
-    {
-      "sezione": "3.8",
-      "da": "+6 PV",
-      "a": "+3 PV"
-    },
-    {
-      "sezione": "3.8",
-      "da": "14 → 20 → 26 → 32 → 38...",
-      "a": "14 → 17 → 20 → 23 → 26..."
-    },
-    {
-      "sezione": "3.10",
-      "da": "A ogni Upgrade aggiunge quindi +6 PV Massimi, senza tirare il dado.",
-      "a": "A ogni Upgrade aggiunge quindi +3 PV Massimi, senza tirare il dado."
-    },
-    {
-      "sezione": "3.10",
-      "da": "12 → 18 → 24 → 30 → 36...",
-      "a": "12 → 15 → 18 → 21 → 24..."
-    },
-    {
-      "sezione": "3.9",
-      "da": "A ogni Upgrade aggiunge il valore massimo del Dado Vita, ottenendo +8 PV Massimi.",
-      "a": "A ogni Upgrade aggiunge metà del valore massimo del Dado Vita, ottenendo +4 PV Massimi."
-    },
-    {
-      "sezione": "3.9",
-      "da": "16 → 24 → 32 → 40 → 48...",
-      "a": "16 → 20 → 24 → 28 → 32..."
-    },
-    {
-      "sezione": "3.1",
-      "da": "Si utilizza sempre il suo valore massimo.",
-      "a": "Si utilizza sempre metà del suo valore massimo."
-    },
-    {
-      "sezione": "3.1",
-      "da": "+6 PV per Upgrade",
-      "a": "+3 PV per Upgrade"
-    },
-    {
-      "sezione": "3.1",
-      "da": "+8 PV per Upgrade",
-      "a": "+4 PV per Upgrade"
-    },
-    {
-      "sezione": "3.1",
-      "da": "+10 PV per Upgrade",
-      "a": "+5 PV per Upgrade"
-    },
-    {
-      "sezione": "3.7",
-      "da": "Il Dado Vita non viene tirato: si aggiunge sempre il suo valore massimo.",
-      "a": "Il Dado Vita non viene tirato: si aggiunge sempre metà del suo valore massimo."
-    },
-    {
-      "sezione": "3.8",
-      "da": "Il Dado Vita non viene tirato. Si utilizza sempre il valore massimo.",
-      "a": "Il Dado Vita non viene tirato. Si utilizza sempre metà del valore massimo."
     },
     {
       "sezione": "8.4",
@@ -15699,80 +18844,16 @@
           "testo": "Rimane attivo finché il personaggio decide di interromperlo oppure finché una capacità o una condizione ne provoca la cessazione."
         }
       ]
-    },
-    {
-      "sezione": "9.8",
-      "quando": "2026-10-04",
-      "perche": "Reintegrazione tolta dal gioco e definizione del Risveglio Logia riscritta (richiesta di Simone del 04/10/2026).",
-      "da": [
-        "Reintegrazione",
-        "Passivo · Difesa",
-        "Quando vieni colpito, il corpo elementale si ricompone.",
-        "L'effetto funziona anche contro attacchi che utilizzano Haki.",
-        "La capacità permette di dimezzare il danno subito oppure di recuperare più rapidamente la propria forma.",
-        "La descrizione del Talento non stabilisce una frequenza numerica né una misura precisa del recupero accelerato. Quest'ultima applicazione deve essere definita con il GM, senza attribuirle automaticamente recuperi di PV o Azioni aggiuntive."
-      ],
-      "a": []
-    },
-    {
-      "sezione": "9.8",
-      "quando": "2026-10-04",
-      "perche": "Reintegrazione tolta dal gioco e definizione del Risveglio Logia riscritta (richiesta di Simone del 04/10/2026).",
-      "da": [
-        "Reintegrazione automatica",
-        "Se il personaggio possiede il Talento Reintegrazione, questo si applica automaticamente durante il Risveglio."
-      ],
-      "a": []
-    },
-    {
-      "sezione": "9.8",
-      "quando": "2026-10-04",
-      "perche": "Reintegrazione tolta dal gioco e definizione del Risveglio Logia riscritta (richiesta di Simone del 04/10/2026).",
-      "da": [
-        "Il Risveglio non sostituisce l'acquisizione degli altri Talenti: Reintegrazione, per esempio, diventa automatica soltanto se il personaggio la possiede già."
-      ],
-      "a": []
-    },
-    {
-      "sezione": "9.8",
-      "quando": "2026-10-04",
-      "perche": "Nuova definizione del Risveglio Logia dettata da Simone il 04/10/2026.",
-      "da": [
-        "Per l'intera scena, l'elemento satura l'ambiente entro un raggio di 50 metri."
-      ],
-      "a": [
-        {
-          "t": "p",
-          "testo": "Durante il Risveglio, l’elemento non rappresenta più soltanto il corpo del personaggio o ciò che egli controlla direttamente."
-        },
-        {
-          "t": "p",
-          "testo": "La sua presenza invade e modifica l’ambiente circostante."
-        },
-        {
-          "t": "p",
-          "testo": "Il Risveglio Logia viene costruito utilizzando la normale Linea Guida del Risveglio."
-        }
-      ]
-    },
-    {
-      "sezione": "9.8",
-      "quando": "2026-10-04",
-      "perche": "Il Risveglio Logia si costruisce con la Linea Guida del Risveglio, non piu` con effetti su misura (dettato da Simone il 04/10/2026).",
-      "da": [
-        "Effetti del Risveglio",
-        "Dominio elementale",
-        "Le Tecniche del Frutto utilizzate all'interno dell'area non costano Stamina.",
-        "Ambiente ostile",
-        "Ogni nemico presente nell'area subisce la natura dell'elemento all'inizio del proprio turno.",
-        "La descrizione del Risveglio non assegna un dado di danno universale a questa conseguenza: l'effetto concreto dipende dall'elemento e dalle sue regole.",
-        "Intangibilità superiore",
-        "L'intangibilità del Logia funziona anche contro l'Haki dell'Armamento.",
-        "Il mare e la Pietra di Mare rimangono efficaci."
-      ],
-      "a": []
     }
   ],
   "tabelle": [],
-  "attenzione": "Dal 04/10/2026 il .docx del Manuale non è più sul disco e il generatore non può girare. Le revisioni di quella data sono state applicate DIRETTAMENTE a manuale/index.html: le rimozioni e le piccole correzioni sono registrate qui sotto e si riapplicano da sole, ma la riscrittura dei Talenti dei Frutti (Paramecia: Riflesso del Potere, Doppio Uso, Forma di Combattimento, Senza Contraccolpo, Risveglio · Logia: Sentire l'Elemento, Elemento Onnipresente, Risveglio · Zoan: Artigli e Zanne, Sensi Animali, Corsa Bestiale, Stazza, Resistenza Bestiale, Retaggio Ancestrale / Mitologico, Trasformazione Istintiva, Risveglio) vive solo nella pagina. Prima di rigenerare dal .docx, recuperare quelle sezioni (9.7, 9.8 e 9.9) dalla pagina attuale o dal commit che le ha introdotte, altrimenti si perdono. Lo stesso vale per la revisione dei costi in Stamina (Colpo Pesante, Tutto o Niente, Colpo Annientante, Slancio, Furia, Mira, Oltre il Limite, Motivetto di Vigore, Assolo Travolgente, Onda d'Urto, Doppio Uso ed Electro): i nuovi valori stanno solo nella pagina, non nel .docx. Vive solo nella pagina anche il blocco «Il Costruttore e i Manuali di Ruolo», aggiunto in apertura del Capitolo 7. Vive solo nella pagina anche la rimozione dell’Inventore del 05/10/2026 (1.1, 4.9 e 4.9.3, 10.13, introduzione del Capitolo 11, 11.1, 11.2, 11.6, 11.10, 11.11, 11.13, 11.14 Progetti speciali al posto di 11.14 e 11.15, rinumerazione di 11.15 e 11.16, 12.16). Vive solo nella pagina anche la sincronizzazione con il Manuale del Cyborg del 05/10/2026 (3.9, Carne e Metallo in 4.9.2, 7.14, 11.15 e quasi tutto il Capitolo 12). Vive solo nella pagina anche la revisione MODIFICHE GLC del 05/10/2026: tutta la 4.6 Dottore (numerazione 4.6.1-4.6.3, Talenti riscritti e passati dalle tabelle ai blocchi come nel Capitano, nuove regole Cura da Campo, Dosi e vie di esposizione, Applicare una tossina, Potenza e durata delle tossine, Nuvole ostacoli e ambiente, Protezione dalle sostanze inalate, Scheda di un preparato, Utilizzare un preparato), le nuove 6.12.1, 6.12.2 e 6.13.1, la cella Rimozione di Sanguinante, Grido di Guerra (4.12) e Mano del Cuoco · Maestria (4.7 e 14.11). Vive solo nella pagina anche la revisione «modifiche glc 2» del 05/10/2026: 6.2.3 Azioni concesse fuori dal turno, una frase in 6.12.1, il Capitano (Firma, Ordini, Occhio del Comandante, Scudo della Ciurma, Voce che Arriva Lontano, Il Piano, Parlamentare, Secondo in Comando, Nessuno Resta Indietro), il Musicista (Requiem, Coro della Ciurma, Marcia Funebre, Suonare per i Caduti, Canzone dell’Anima) e in 7.12 Soglia delle Canzoni, Motivetto di Vigore, Canzoni Sostenute e Portata e ascolto, più la riga di Marcia Funebre nel Catalogo delle Melodie (7.12.1). Vive solo nella pagina anche la revisione dell’Ingegnere del 05/10/2026: in 4.9.1 Firma, Riparazione d’Emergenza, Mani sul Legno · Base, Barricata, Maestro dei Moduli, Ponte d’Arrembaggio, Scafo Rinforzato, Fortificazione, Nave Cresciuta, Lei Non Affonda; in 4.9.2 Gestire un macchinario, Firma, Pronto Intervento, Regolazione Fine (tre versioni), Sabotaggio, Sabotaggio Profondo, Trappola Meccanica, Ingranaggi e Serrature, Tutto a Pieno Carico; Guasto e Distruzione in 11.12; 13.14.5 riscritta; nuova 13.17.2 Miglioramenti permanenti della nave. Vive solo nella pagina anche la revisione «Navigatore, Archeologo, Cuoco e Nave» del 05/10/2026: in 4.8 Firma, Occhio del Cielo, Vento in Poppa, Timoniere Nato · Maestria, Sfruttare la Tempesta, Traversata impossibile; in 4.10 Esame Archeologico, Tempi di traduzione e studio, Studioso, Insegne e Cicatrici, Scrittura Morta · Maestria, Meccanismi Antichi, Trappola Antica, Memoria del Mondo, Dominio dei meccanismi; in 4.7 Servizio in Battaglia e Mano del Cuoco (Base e Maestria); nel capitolo 14 Porzioni (14.2), Beneficio dei pasti (14.4), Dadi concessi dagli ingredienti (14.5), Ingredienti extra e Conservazione (14.6), 14.8 riscritta, Consumare un pasto e Servizio in Battaglia (14.10), riga di Mano del Cuoco in 14.11; nel capitolo 13 la 13.6 riscritta, 13.7.2, Rotta Perfetta in 13.10.1, righe della 13.11 e della 13.19, Manovre aggiuntive (13.12), Cannonate a fasce e Bersaglio (13.14.1), 13.14.6, 13.16.3, 13.21.3 Combattimento misto, 13.23.1 riscritta con Evacuazione e interazioni di 13.23.3–13.23.5, Unità di Stiva, Provviste e Cargo in 13.24.2. Vive solo nella pagina anche l’allineamento del Capitolo 9 al Manuale dei Frutti del Diavolo del 05/10/2026: nota d’apertura del capitolo e rimando in 9.6, chiarimenti aggiunti ai Talenti di 9.7–9.9, Doppio Uso a 2 ST, Retaggio diviso in Retaggio Ancestrale e Retaggio Mitologico, Tratto Zoan con l’Azione principale e Tre Forme con l’Azione Bonus. Il Manuale dei Frutti (strumenti/frutti-manuale.py) importa dal base le sezioni 9.1–9.6 e introduzione, Tratto e Firma di Paramecia e Logia: se cambiano qui, va rigenerato. Vive solo nella pagina anche la frase della 7.8.3 per cui Scatto, Balzo e Inseguire, come Proiezione, sono sempre disponibili anche senza la Forma Spostamento (05/10/2026).\n\nAggiornamento del 07/10/2026: la revisione del Costruttore consolida integralmente 2.8, 4.2–4.5, 6.10, 7.4–7.11, 7.13 e 9.5 nelle correzioni, conservando i passaggi correnti non riscritti. Le precedenti note su quelle sezioni sono superate dai nuovi contenuti. Le altre revisioni descritte sopra richiedono ancora la pagina corrente prima di rigenerare dal DOCX originale, che non è disponibile nel checkout. Le sostituzioni minori della nuova revisione sono applicate anche al manuale HTML. Prestigio, Frutti e Cyborg si rigenerano dai rispettivi JSON. La revisione di Raffica consolida anche §6.4 dal testo web corrente; §4.2 conserva la revisione precedente del Costruttore. Le sezioni consolidate il 07/10/2026 includono Tratti Unici v1.2 e Salvezze v1.1; §16.9 viene inserito dopo §16.8 quando assente nel DOCX originario."
+  "attenzione": "Dal 04/10/2026 il .docx del Manuale non è più sul disco e il generatore non può girare. Le revisioni di quella data sono state applicate DIRETTAMENTE a manuale/index.html: le rimozioni e le piccole correzioni sono registrate qui sotto e si riapplicano da sole, ma la riscrittura dei Talenti dei Frutti (Paramecia: Riflesso del Potere, Doppio Uso, Forma di Combattimento, Senza Contraccolpo, Risveglio · Logia: Sentire l'Elemento, Elemento Onnipresente, Risveglio · Zoan: Artigli e Zanne, Sensi Animali, Corsa Bestiale, Stazza, Resistenza Bestiale, Retaggio Ancestrale / Mitologico, Trasformazione Istintiva, Risveglio) vive solo nella pagina. Prima di rigenerare dal .docx, recuperare quelle sezioni (9.7, 9.8 e 9.9) dalla pagina attuale o dal commit che le ha introdotte, altrimenti si perdono. Lo stesso vale per la revisione dei costi in Stamina (Colpo Pesante, Tutto o Niente, Colpo Annientante, Slancio, Furia, Mira, Oltre il Limite, Motivetto di Vigore, Assolo Travolgente, Onda d'Urto, Doppio Uso ed Electro): i nuovi valori stanno solo nella pagina, non nel .docx. Vive solo nella pagina anche il blocco «Il Costruttore e i Manuali di Ruolo», aggiunto in apertura del Capitolo 7. Vive solo nella pagina anche la rimozione dell’Inventore del 05/10/2026 (1.1, 4.9 e 4.9.3, 10.13, introduzione del Capitolo 11, 11.1, 11.2, 11.6, 11.10, 11.11, 11.13, 11.14 Progetti speciali al posto di 11.14 e 11.15, rinumerazione di 11.15 e 11.16, 12.16). Vive solo nella pagina anche la sincronizzazione con il Manuale del Cyborg del 05/10/2026 (3.9, Carne e Metallo in 4.9.2, 7.14, 11.15 e quasi tutto il Capitolo 12). Vive solo nella pagina anche la revisione MODIFICHE GLC del 05/10/2026: tutta la 4.6 Dottore (numerazione 4.6.1-4.6.3, Talenti riscritti e passati dalle tabelle ai blocchi come nel Capitano, nuove regole Cura da Campo, Dosi e vie di esposizione, Applicare una tossina, Potenza e durata delle tossine, Nuvole ostacoli e ambiente, Protezione dalle sostanze inalate, Scheda di un preparato, Utilizzare un preparato), le nuove 6.12.1, 6.12.2 e 6.13.1, la cella Rimozione di Sanguinante, Grido di Guerra (4.12) e Mano del Cuoco · Maestria (4.7 e 14.11). Vive solo nella pagina anche la revisione «modifiche glc 2» del 05/10/2026: 6.2.3 Azioni concesse fuori dal turno, una frase in 6.12.1, il Capitano (Firma, Ordini, Occhio del Comandante, Scudo della Ciurma, Voce che Arriva Lontano, Il Piano, Parlamentare, Secondo in Comando, Nessuno Resta Indietro), il Musicista (Requiem, Coro della Ciurma, Marcia Funebre, Suonare per i Caduti, Canzone dell’Anima) e in 7.12 Soglia delle Canzoni, Motivetto di Vigore, Canzoni Sostenute e Portata e ascolto, più la riga di Marcia Funebre nel Catalogo delle Melodie (7.12.1). Vive solo nella pagina anche la revisione dell’Ingegnere del 05/10/2026: in 4.9.1 Firma, Riparazione d’Emergenza, Mani sul Legno · Base, Barricata, Maestro dei Moduli, Ponte d’Arrembaggio, Scafo Rinforzato, Fortificazione, Nave Cresciuta, Lei Non Affonda; in 4.9.2 Gestire un macchinario, Firma, Pronto Intervento, Regolazione Fine (tre versioni), Sabotaggio, Sabotaggio Profondo, Trappola Meccanica, Ingranaggi e Serrature, Tutto a Pieno Carico; Guasto e Distruzione in 11.12; 13.14.5 riscritta; nuova 13.17.2 Miglioramenti permanenti della nave. Vive solo nella pagina anche la revisione «Navigatore, Archeologo, Cuoco e Nave» del 05/10/2026: in 4.8 Firma, Occhio del Cielo, Vento in Poppa, Timoniere Nato · Maestria, Sfruttare la Tempesta, Traversata impossibile; in 4.10 Esame Archeologico, Tempi di traduzione e studio, Studioso, Insegne e Cicatrici, Scrittura Morta · Maestria, Meccanismi Antichi, Trappola Antica, Memoria del Mondo, Dominio dei meccanismi; in 4.7 Servizio in Battaglia e Mano del Cuoco (Base e Maestria); nel capitolo 14 Porzioni (14.2), Beneficio dei pasti (14.4), Dadi concessi dagli ingredienti (14.5), Ingredienti extra e Conservazione (14.6), 14.8 riscritta, Consumare un pasto e Servizio in Battaglia (14.10), riga di Mano del Cuoco in 14.11; nel capitolo 13 la 13.6 riscritta, 13.7.2, Rotta Perfetta in 13.10.1, righe della 13.11 e della 13.19, Manovre aggiuntive (13.12), Cannonate a fasce e Bersaglio (13.14.1), 13.14.6, 13.16.3, 13.21.3 Combattimento misto, 13.23.1 riscritta con Evacuazione e interazioni di 13.23.3–13.23.5, Unità di Stiva, Provviste e Cargo in 13.24.2. Vive solo nella pagina anche l’allineamento del Capitolo 9 al Manuale dei Frutti del Diavolo del 05/10/2026: nota d’apertura del capitolo e rimando in 9.6, chiarimenti aggiunti ai Talenti di 9.7–9.9, Doppio Uso a 2 ST, Retaggio diviso in Retaggio Ancestrale e Retaggio Mitologico, Tratto Zoan con l’Azione principale e Tre Forme con l’Azione Bonus. Il Manuale dei Frutti (strumenti/frutti-manuale.py) importa dal base le sezioni 9.1–9.6 e introduzione, Tratto e Firma di Paramecia e Logia: se cambiano qui, va rigenerato. Vive solo nella pagina anche la frase della 7.8.3 per cui Scatto, Balzo e Inseguire, come Proiezione, sono sempre disponibili anche senza la Forma Spostamento (05/10/2026).\n\nAggiornamento del 07/10/2026: la revisione del Costruttore consolida integralmente 2.8, 4.2–4.5, 6.10, 7.4–7.11, 7.13 e 9.5 nelle correzioni, conservando i passaggi correnti non riscritti. Le precedenti note su quelle sezioni sono superate dai nuovi contenuti. Le altre revisioni descritte sopra richiedono ancora la pagina corrente prima di rigenerare dal DOCX originale, che non è disponibile nel checkout. Le sostituzioni minori della nuova revisione sono applicate anche al manuale HTML. Prestigio, Frutti e Cyborg si rigenerano dai rispettivi JSON. La revisione di Raffica consolida anche §6.4 dal testo web corrente; §4.2 conserva la revisione precedente del Costruttore. Le sezioni consolidate il 07/10/2026 includono Tratti Unici v1.2 e Salvezze v1.1; §16.9 viene inserito dopo §16.8 quando assente nel DOCX originario.\n\nPatch post-audit del 07/10/2026: §§1.4, 2.7, 2.8, 3.1, 4.2, 4.3, 6.5, 6.6, 6.8, 8.7 e 16.9 consolidate dal manuale web corrente. Le vecchie §§3.7–3.8 vengono eliminate; Cyborg e Tontatta sono consolidati con la nuova numerazione §§3.7–3.8 e con sezione_origine per individuare §§3.9–3.10 nel DOCX originale. I rinvii numerati vengono aggiornati dopo le correzioni. Non cambia il Manuale del Cyborg dedicato. Il riassunto Logia §9.8 è ora consolidato dalla pagina corrente e allineato alla Reazione flessibile Riformarsi Altrove del manuale dedicato, con evento immediato e percepibile, giudizio del GM e destinazione visibile e raggiungibile dalla manifestazione elementale.",
+  "rimuovi_sezioni": [
+    "3.7",
+    "3.8"
+  ],
+  "rinumerazioni_rinvii": {
+    "3.9": "3.7",
+    "3.10": "3.8"
+  }
 }

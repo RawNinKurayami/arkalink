@@ -66,6 +66,7 @@ define('Logia','Corpo Elementale','passive','move');
 define('Logia','Sempre in Forma|Assorbire|Chi Ti Tocca','passive','defense');
 define('Logia','Elemento Onnipresente|Dominio dell’Elemento|Dominio dell\'Elemento|Fonte Inesauribile','passive','fruit');
 define('Logia','Forma Perduta','active','move');
+define('Logia','Riformarsi Altrove','passive','reactiveEvent',{action:'reaction'});
 define('Logia','Risveglio','active','fruit',{noCard:true});
 define('Zoan','Forma Ibrida','active','physical');
 define('Zoan','Tre Forme','active','physical');
@@ -129,7 +130,7 @@ function sources() {
  const out=[],talentStates=window.GLCTalents?.states(pg)||[];
  list(pg.extraTech).forEach(t=>{if(t?.id)out.push(sourceTech(t,'tech:'+t.id));});
  ['t1','t2'].forEach(k=>{const t=pg[k];if(t?.nome)out.push(sourceTech(t,'tech:'+(t.smcId||k),'legacy'));});
- const r=race();if(r)out.push(sourceTech({nome:r.tech,desc:r.techDesc,die:pg.racialDie,attr:'',fonte:'Razziale',eff:[]},'racial:'+r.id,'racial'));
+ const r=race();if(r)out.push({...sourceTech({nome:r.tech,desc:r.techDesc,die:pg.racialDie,attr:'',fonte:'Razziale',eff:[]},'racial:'+r.id,'racial'),historical:!!r.historical});
  const scan=(role,style,slot)=>{
   const T=TALENTS[role];if(!T)return;const branch=T.multi?(style||Object.keys(T.styles)[0]):Object.keys(T.styles)[0];
   if(!styleVisible(branch))return;
@@ -179,6 +180,10 @@ function sources() {
    desc:[m.funzione,weapon?'Modulo-Arma: '+weapon.tipo+' · '+weapon.attr+' · '+weapon.grado:'Modulo funzionale',m.funzioneInattiva?'Funzione inattiva: '+m.funzioneInattiva:'',m.funzioneAttiva?'Funzione attiva: '+m.funzioneAttiva:'',m.eff?.testo,m.eff?.cond,m.eff?.limiti,m.effLegacy].filter(Boolean).join('\n'),
    subtitle:state?((state.operational?'Attivo · operativo':state.operationalErrors.map(e=>e.text).join(' · '))+' · Fascia '+m.req):(modStateLabel(m).t||m.stato)});
  });
+ out.filter(s=>s.id==='glc-talent-014').forEach(s=>{
+  s.resolution=smashHitProfile(s);
+  s.desc+='\nSkill di Ruolo corrente: '+s.resolution.skill+' '+s.resolution.die+'. Quattro tiri con '+s.resolution.attackFormula+', tutti con Vantaggio; il Dado Danno usa lo stesso pool '+s.resolution.die+'.';
+ });
  return out.filter((s,i,a)=>s.id&&a.findIndex(x=>x.id===s.id)===i);
 }
 const findSource=(id,ss=sources())=>ss.find(s=>s.id===id);
@@ -220,7 +225,7 @@ function applicable(s,tech,move={}) {
   seismic:t.stile==='Crusher'&&t.attr==='Forza'&&isAttack(t)&&!!window.GLCPrestige?.level(pg.attr?.Forza),
   singleRanged:t.stile==='Sniper'&&t.forma==='Singolo'&&!hasEffect(t,'Catena')&&!hasEffect(t,'Rimbalzo'),
   ricochet:t.stile==='Sniper'&&(hasEffect(t,'Catena')||hasEffect(t,'Rimbalzo')),
-  support:true,healing:hasEffect(t,'Cura'),preparato:false,invention:!!move.moduleId,
+  support:true,reactiveEvent:true,healing:hasEffect(t,'Cura'),preparato:false,invention:!!move.moduleId,
   twoBlades:t.stile==='Swordsman'&&isAttack(t)&&usableBladeCount()>=2
  })[m]===true;
 }
@@ -260,6 +265,17 @@ function currentRoleSaveSource(source={}){
 function directSaveProfile(id,name,state,attribute,source,when){
  return {id,name,state,attribute,source:source.name,die:source.die,threshold:window.GLCPrestige?.saveThreshold(source.die)??null,when};
 }
+function strikerSignatureSaves(source={},attack={}){
+ const from=attack.base?currentRoleSaveSource(source):{name:'Grado della Tecnica',die:attack.technique?.die||''};
+ const when='Il Colpo Sfonda si attiva su '+(attack.base?'un attacco base a mani nude':'questa Tecnica offensiva Striker')+' con colpo pulito di margine +4, al massimo una volta per turno fra tutti i colpi, e scegli lo Stato previsto per 1 turno';
+ return [directSaveProfile(attack.id||source.id,'Firma · Il Colpo Sfonda'+(attack.base?' · attacco base':''),'Stordito','Forza',from,when),directSaveProfile(attack.id||source.id,'Firma · Il Colpo Sfonda'+(attack.base?' · attacco base':''),'Sbilanciato','Tecnica',from,when)];
+}
+function smashHitProfile(source){
+ const from=currentRoleSaveSource(source),save=directSaveProfile(source.id,source.name,'Stordito','Forza',from,'Smash Hit ottiene almeno tre colpi riusciti nella sua unica combinazione; i singoli colpi non attivano Pressione Costante, Guardia Rotta o Il Colpo Sfonda');
+ return {skill:from.name,die:from.die,rolls:4,advantage:true,attackFormula:'Attributo scelto + ('+from.die+') '+from.name,
+  damage:[0,1,2,4,6].map((dice,hits)=>({hits,dice,pool:from.die,formula:dice?dice+' × ('+from.die+')':'Nessun danno',state:hits>=3?'Stordito':''})),
+  save,costST:5,uses:1,frequency:'scontro',requiresGM:true,singleCombination:true,excluded:['altre Tecniche','altri Talenti','Firma dello Stile','effetti dell’arma']};
+}
 function directTalentSaves(s){
  if(!s||s.kind!=='talent'||s.subtype==='uniqueTrait')return [];
  const skill=name=>({name,die:window.GLCTalents?.skillDie(pg,name)||pg.skills?.[name]||''});
@@ -270,7 +286,7 @@ function directTalentSaves(s){
   'glc-talent-095':()=>directSaveProfile(s.id,s.name,'Sbilanciato','Tecnica',skill('Medicina'),'Colpo di Grazia colpisce una creatura già Avvelenata e il colpo la porta sotto metà PV; questa Salvezza è distinta da quella della dose'),
   'glc-talent-258':()=>directSaveProfile(s.id,s.name,'Sbilanciato','Tecnica',{name:'Dado del Frutto',die:pg.frutto?.die||''},'Stazza travolge una creatura di Stazza inferiore muovendoti attraverso di lei in Forma Bestiale'),
   // Ultimate use their own execution, and stay outside a normal Technique recipe.
-  'glc-talent-014':()=>directSaveProfile(s.id,s.name,'Stordito','Forza',skill('Atletica'),'Smash Hit applica Stordito con almeno tre colpi riusciti; la fonte resta Atletica anche per uno Striker con Skill di Ruolo Acrobazia'),
+  'glc-talent-014':()=>smashHitProfile(s).save,
   'glc-talent-028':()=>directSaveProfile(s.id,s.name,'Sbilanciato','Tecnica',skill('Atletica'),'l’Onda d’Urto di Cataclisma colpisce il bersaglio, secondo la procedura propria della Ultimate'),
  };
  return profiles[s.id]?[profiles[s.id]()]:[];
@@ -278,7 +294,7 @@ function directTalentSaves(s){
 function techniqueProblems(s,move={}) {
  if(!s||s.kind!=='tech')return ['Scegli una Tecnica esistente.'];
  if(s.techKind!=='built'){
-  if(s.techKind==='racial')return [];
+  if(s.techKind==='racial')return s.historical?['Questa Tecnica Razziale appartiene a una Razza storica rimossa dal regolamento corrente. I dati e i riferimenti della carta sono conservati, ma la capacità non è disponibile per l’esecuzione.']:[];
   const errors=['Questa Tecnica storica richiede la conversione nel Costruttore: scegli Fonte, Stile, Forma e profilo degli effetti. La descrizione libera e un costo registrato non sostituiscono la validazione delle regole.'];
   if(!['d4','d6','d8','d10','d12','d20'].includes(s.raw.die))errors.push('Le Tecniche personalizzate non possono superare d20. Correggi il Grado della Tecnica salvata.');
   if(s.raw.attr&&!pg.attr?.[s.raw.attr])errors.push('Manca l’Attributo della Tecnica salvata.');
@@ -356,7 +372,7 @@ function hakiEffects(s,tech,move={}) {
    if(s.name===HAKI_NAMES[1]&&key==='d8')ok=activeDefense;
    if(s.name===HAKI_NAMES[1]&&key==='d12')ok=defending;
    if(s.name===HAKI_NAMES[2]&&key==='3')ok=isAttack(t)&&isPhysical(t)&&!activeDefense;
-   if(row.prestige)ok=({any:true,defense:defending,attack:isAttack(t)&&isPhysical(t)&&!activeDefense,physical:isAttack(t)&&isPhysical(t)&&!activeDefense,counter:activeDefense})[row.match]===true;
+   if(row.prestige)ok=row.id==='ryou-persistente'?isAttack(t)&&!activeDefense:({any:true,defense:defending,attack:isAttack(t)&&isPhysical(t)&&!activeDefense,physical:isAttack(t)&&isPhysical(t)&&!activeDefense,counter:activeDefense})[row.match]===true;
    if(ok)a.push({id:'act:'+key,mode:'active',name:row.act.split(':')[0],desc:row.act,cost:row.cost||0,row});
   }return a;
  });
@@ -559,6 +575,8 @@ function resolve(input) {
    if(hasEffect(t,'Colpo Annientante'))damage='3 × ('+damage+') · Colpo Annientante';
    if(owns("Fendente d'Aria"))damage='⌈('+damage+') / 2⌉ · Fendente d’Aria';
    if(t.forma==='Area')damage='⌊('+damage+') / 2⌋ · per ogni bersaglio dell’Area';
+   const ryou=m.hakiSelections.find(h=>findSource(h.id,ss)?.name===HAKI_NAMES[0]&&h.effects.includes('act:d20'))||hakiFX('ryou-persistente');
+   if(ryou){const conditionalDamage=owns('Colpo di Grazia')||owns('Forma Ibrida')||owns('Ferocia Crescente')||hasEffect(t,'Esecuzione');damage='2 × ('+damage+(conditionalDamage?' + bonus condizionali al danno effettivamente applicabili':'')+') · Ryou sul totale, una sola volta, solo se è l’attacco fisico compatibile scelto';}
    formulas.push({label:owns('Colpo Mirato')?'Colpo Mirato':'Danno · fonti',text:owns('Colpo Mirato')?'Effetto mirato al posto del danno. Difesa Passiva del bersaglio +2; questa difficoltà non modifica le Salvezze.':damage,id:tech.id});
    const conditional=(label,text,id=tech.id)=>formulas.push({label,text,id});
    if(hasEffect(t,'Carica'))conditional('Carica · condizionale','2 × Dadi Danno, Vantaggio, ignora copertura · al prossimo turno, solo se non vieni colpito.');
@@ -573,8 +591,9 @@ function resolve(input) {
    if(owns('Colpo di Grazia'))conditional('Colpo di Grazia · Avvelenato','+ '+t.die+' Colpo di Grazia, solo contro un bersaglio già Avvelenato.');
    if(owns('Forma Ibrida'))conditional('Forma Ibrida · mischia','+1 dado ai tiri fisici e al Danno in mischia; usa il dado previsto dalla tua forma.');
    if(owns('Ferocia Crescente'))conditional('Ferocia Crescente','+1 dado al Danno in mischia dopo essere sceso sotto metà PV, fino a fine scontro.');
-   const armRyou=m.hakiSelections.some(h=>findSource(h.id,ss)?.name===HAKI_NAMES[0]&&h.effects.includes('act:d20'));
-   if(armRyou||hakiFX('ryou-persistente'))conditional('Ryou · Armamento','Raddoppia ×2 il danno complessivo dell’azione, calcolato una volta sola sul totale. Il bersaglio usa normalmente la propria difesa.');
+   if(ryou){conditional('Ryou · Armamento','Solo su un attacco fisico compatibile: calcola prima il danno totale dell’attacco scelto, con tutti i dadi e bonus effettivamente applicabili, incluse le righe condizionali soltanto quando ne ricorrono i requisiti; poi moltiplica ×2 una sola volta. Non potenzia emissioni elementali o attacchi non fisici. Non moltiplicare nuovamente le singole componenti. Il colpo dall’interno è narrativo, senza una componente numerica separata; il bersaglio conserva Difesa Passiva, Difesa Attiva e Riduzione del Danno.');if(t.fonte==='Frutto')conditions.push({id:tech.id,text:'Ryou: verifica con il GM che questa applicazione del Frutto produca un attacco fisico compatibile. La Fonte Frutto non concede automaticamente questa proprietà; senza la condizione usa il danno ordinario, senza ×2.'});}
+   if(hakiFX('ryou-persistente'))conditional('Ryou Persistente · limite del turno','Un solo attacco fisico compatibile per tuo turno durante la durata. Scegli l’attacco prima del tiro: un mancato consuma l’applicazione del turno. Non aggiunge attacchi e non potenzia automaticamente tutti i colpi della Raffica; paghi le azioni e i costi ordinari. Termina se Armamento viene interrotto.');
+   if(hakiFX('esplosione-haki-superiore'))conditional('Esplosione Haki Superiore · bersagli secondari','Gli altri nemici risolvono le difese contro il tiro originario e, se colpiti, subiscono ⌊D pertinente / 2⌋, poi le proprie riduzioni. Ryou determina il danno totale dell’attacco secondo la sua regola ×2, senza una componente numerica separata. Nessuna seconda copia sul bersaglio principale; Proiezione, Schianto ed effetti riservati al bersaglio principale non si propagano automaticamente.');
   }else if(isDefending(t,m)){
    const parry=isNormalParry(t,m),weapon=recipeWeapon(tech,m,ss);
    const weaponAttr=weapon?.raw.attr,weaponPool=pg.attr?.[weaponAttr];
@@ -620,16 +639,16 @@ function resolve(input) {
   if(t.durata&&!isNormalParry(t,m))conditions.push({id:tech.id,text:'Durata: '+t.durata});
  }
  talentSelected.forEach(s=>conditions.push({id:s.id,text:s.name+': '+s.desc}));
+ if(owns('Riformarsi Altrove'))formulas.push({label:'Riformarsi Altrove · Reazione',text:'Sequenza distinta: la Tecnica usa la propria Azione e i propri costi nel momento previsto. Riformarsi Altrove impiega una Reazione, 1 volta per scontro, in risposta a un evento immediato e percepibile valutato dal GM: ti ricomponi entro 15 m in un punto visibile e raggiungibile dal tuo elemento, senza Azione principale o Reazioni dovute allo spostamento. Non autorizza questa Tecnica fuori dal tuo turno e non annulla automaticamente un attacco.',id:talentSelected.find(s=>s.alias==='Riformarsi Altrove').id});
  if(m.techniqueUse==='normal')talentSelected.filter(s=>s.unlocked&&applicable(s,tech,m)).forEach(s=>directSaves.push(...directTalentSaves(s)));
  if(tech&&m.techniqueUse==='normal'){
-  if(t.fonte==='Stile'&&t.stile==='Striker'&&isAttack(t)&&!hasEffect(t,'Punto di Rottura')){
-   const source=currentRoleSaveSource({branch:'Striker',roleSlot:pg.role==='Combattente'&&pg.style==='Striker'?1:2});
-   const when='la Firma Il Colpo Sfonda si attiva su un colpo pulito con margine +4, al massimo una volta per turno, e scegli lo Stato previsto per 1 turno';
-   directSaves.push(directSaveProfile(tech.id,'Firma · Il Colpo Sfonda','Stordito','Forza',source,when),directSaveProfile(tech.id,'Firma · Il Colpo Sfonda','Sbilanciato','Tecnica',source,when));
+  if(t.fonte==='Stile'&&t.stile==='Striker'&&isAttack(t)){
+   if(!hasEffect(t,'Punto di Rottura'))directSaves.push(...strikerSignatureSaves({}, {id:tech.id,technique:t}));
+   const flurry=talentSelected.find(s=>s.meta?.quantity&&s.unlocked&&applicable(s,tech,m));
+   if(flurry&&(!flurry.prestige||Number(m.talentTechniqueUses[flurry.id]||0)<Number(m.talentUses[flurry.id]??1)))directSaves.push(...strikerSignatureSaves({branch:'Striker',roleSlot:pg.role==='Combattente'&&pg.style==='Striker'?1:2},{id:flurry.id,base:true}));
   }
   if(t.fonte==='Frutto'&&t.fruitType==='Zoan'&&isAttack(t))directSaves.push(directSaveProfile(tech.id,'Firma · Zoan','Stordito','Forza',{name:'Dado del Frutto',die:pg.frutto?.die||''},'la Firma Zoan si attiva con un colpo pulito di margine +4 in Forma Ibrida e scegli Stordito al posto del Dado Danno aggiuntivo'));
   if(tech.techKind==='racial'&&pg.race==='mink')directSaves.push(directSaveProfile(tech.id,'Electro','Paralizzato','Forza',{name:'Grado di Electro',die:pg.racialDie||''},'Electro applica la propria Paralisi; conserva durata e costi razziali, e la normale Salvezza ogni turno'));
-  if(tech.techKind==='racial'&&dieRank(pg.racialDie)>=dieRank('d8')&&['longbraccio','lungagamba'].includes(pg.race))directSaves.push(directSaveProfile(tech.id,tech.name,pg.race==='longbraccio'?'Trascinamento / Proiezione':'Schiantato','Forza',{name:'Tecnica Razziale',die:pg.racialDie||''},pg.race==='longbraccio'?'Portata Estesa applica il proprio Trascinamento o Proiezione da d8; ogni bersaglio mantiene il suo tiro per colpire separato':'Calcio Colossale applica il proprio Schiantato da d8; ogni bersaglio mantiene il suo tiro per colpire separato'));
  }
  directSaves.forEach(profile=>formulas.push({label:'Salvezza condizionale · '+profile.name+' · '+profile.state,
   text:'Quando '+profile.when+': il bersaglio tira soltanto '+profile.attribute+' contro '+(profile.threshold==null?'la Soglia da definire dalla fonte':'Soglia '+profile.threshold)+' da '+profile.source+' ('+(profile.die||'Grado da definire')+'). Un risultato pari o superiore riesce. Questa indicazione non applica automaticamente lo Stato e non modifica la Soglia degli effetti della Tecnica.',id:profile.id}));
@@ -1093,5 +1112,5 @@ function saveCard() {
   if(previousArt&&previousArt!==m.presentation.artId&&!artInUse(previousArt))mediaDelete(previousArt);
  }catch(e){owner.saving=false;owner.error='Carta non salvata: '+e.message+'. La bozza è ancora qui.';renderDialog();}
 }
-window.GLCMoves={shelf:safeShelf,open:openComposer,openCard,close,resolve,sources,art:mediaGet,transaction,ensureReferences,normalizeMove,applicable,compatibleEquipment,hakiState,hakiEffects,sourceCost,costBasis,requiresGM,techniqueProblems,directTalentSaves,metadata:META};
+window.GLCMoves={shelf:safeShelf,open:openComposer,openCard,close,resolve,sources,art:mediaGet,transaction,ensureReferences,normalizeMove,applicable,compatibleEquipment,hakiState,hakiEffects,sourceCost,costBasis,requiresGM,techniqueProblems,directTalentSaves,strikerSignatureSaves,smashHitProfile,metadata:META};
 })();

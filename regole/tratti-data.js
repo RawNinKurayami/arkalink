@@ -2,7 +2,7 @@
 (function(root){'use strict';root.GLCTrattiData={
   "version": 1,
   "source": "Manuale GLC §16.9",
-  "sourceHash": "3344f2d5cfe256d57b960358802de243274b51e88f8c064907516308ab0b70ce",
+  "sourceHash": "58dd993a5087100aac92a52a8f7e264f0600031f7964b91ce78df84543aaa0a7",
   "manual": "/manuale/#sez-16-9",
   "dice": [
     "d4",
@@ -634,7 +634,7 @@
     },
     {
       "id": "memoria-del-mondo",
-      "name": "Memoria del Mondo",
+      "name": "Connessione Storica",
       "skill": "Archeologia",
       "attribute": "Astuzia",
       "attributeDie": "d12",

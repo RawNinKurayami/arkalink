@@ -9,10 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Marcellus+SC&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
 <link rel="stylesheet" href="special-moves-print.css?v=1">
-<script src="/regole/tratti-data.js?v=1"></script>
+<script src="/regole/tratti-data.js?v=2"></script>
 <script src="/regole/tratti.js?v=1"></script>
 <script src="/regole/cyborg.js?v=1"></script>
-<script src="special-moves-print.js?v=7"></script>
+<script src="special-moves-print.js?v=8"></script>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#33261a;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -357,20 +357,6 @@ html,body{overflow-x:visible;}
       "tech": "Fiamma Immortale",
       "techDesc": "Fiamma ON: Svantaggio al tiro per colpire, riduci il primo danno fisico del round con il Dado Razziale. OFF: −2 Difesa Passiva, aggiungi il Dado Razziale al tiro per colpire. Alternare 1×/turno gratis."
     },
-    "longbraccio": {
-      "name": "Longbraccio",
-      "hp": "d6",
-      "pv": 12,
-      "tech": "Portata Estesa",
-      "techDesc": "Portata maggiore per i colpi con le braccia; da d8, Salvezza di Forza contro Trascinamento o Proiezione. Da d10 coinvolge più bersagli entro portata, con un tiro per colpire separato per ciascuno."
-    },
-    "lungagamba": {
-      "name": "Lungagamba",
-      "hp": "d6",
-      "pv": 14,
-      "tech": "Calcio Colossale",
-      "techDesc": "Portata maggiore per i calci; da d8, Salvezza di Forza contro Schiantato. Da d10 coinvolge più bersagli entro portata, con un tiro per colpire separato per ciascuno."
-    },
     "cyborg": {
       "name": "Cyborg",
       "hp": "d8",
@@ -383,12 +369,18 @@ html,body{overflow-x:visible;}
       "hp": "d6",
       "pv": 12,
       "tech": "Piccolo Guerriero",
-      "techDesc": "Aggiungi il Dado Razziale alle Prove di Furtività o Mobilità; il primo attacco di ciascun nemico contro di te arriva in Svantaggio."
+      "techDesc": "Aggiungi il Dado Razziale alle Prove di Furtività o Mobilità; il primo attacco di ciascun nemico contro di te arriva in Svantaggio.",
+      "sv": "Quando tenti di liberarti da una Presa, +3 al risultato della prova di Forza dell’avversario che ti trattiene. Solo nella contesa per liberarti: non modifica la presa iniziale né altre prove. Niente armi/oggetti di taglia normale o grande."
     }
   };
-  var MOVE={umano:10,cyborg:10,lunarian:10,longbraccio:10,uomopesce:10,tontatta:8,gigante:14,mink:14,lungagamba:16};
-  var RACE_ATTR={umano:'choice',uomopesce:'Forza',gigante:'Forza',mink:'Tecnica',lunarian:'Spirito',longbraccio:'Tecnica',lungagamba:'Forza',cyborg:'Forza',tontatta:'choice2'};
-  function difesaPassiva(pg){var ra=RACE_ATTR[pg.race];if(!ra)return null;if(ra==='choice')ra=pg.umanoAttr||'Forza';if(ra==='choice2')ra=(pg.umanoAttr==='Tecnica')?'Tecnica':'Forza';var d=pg.attr&&pg.attr[ra];var n=d?parseInt(String(d).slice(1),10):0;return n?n+1:null;}
+  var LEGACY_RACES={longbraccio:{name:'Longbraccio',hp:'d6',pv:12,tech:'Portata Estesa',techDesc:'Portata maggiore per i colpi con le braccia; da d8, Salvezza di Forza contro Trascinamento o Proiezione. Da d10 coinvolge più bersagli entro portata, con un tiro per colpire separato per ciascuno.',historical:true},lungagamba:{name:'Lungagamba',hp:'d6',pv:14,tech:'Calcio Colossale',techDesc:'Portata maggiore per i calci; da d8, Salvezza di Forza contro Schiantato. Da d10 coinvolge più bersagli entro portata, con un tiro per colpire separato per ciascuno.',historical:true}};
+  var RACE_HISTORY_NOTE='Razza storica rimossa dal regolamento corrente. Il personaggio e i suoi dati sono conservati; questa Razza e la sua Tecnica Razziale non sono disponibili per nuovi personaggi.';
+  function printRace(id){return RACES[id]||LEGACY_RACES[id]||(id==='longbraccia'?LEGACY_RACES.longbraccio:null)||{};}
+  var MOVE={umano:10,cyborg:10,lunarian:10,uomopesce:10,tontatta:8,gigante:14,mink:14};
+  var LEGACY_MOVE={longbraccio:10,longbraccia:10,lungagamba:16};
+  var RACE_ATTR={umano:'choice',uomopesce:'Forza',gigante:'Forza',mink:'Tecnica',lunarian:'Spirito',cyborg:'Forza',tontatta:'choice2'};
+  var LEGACY_RACE_ATTR={longbraccio:'Tecnica',longbraccia:'Tecnica',lungagamba:'Forza'};
+  function difesaPassiva(pg){var ra=RACE_ATTR[pg.race]||LEGACY_RACE_ATTR[pg.race];if(!ra)return null;if(ra==='choice')ra=pg.umanoAttr||'Forza';if(ra==='choice2')ra=(pg.umanoAttr==='Tecnica')?'Tecnica':'Forza';var d=pg.attr&&pg.attr[ra];if(window.GLCPrestige)return GLCPrestige.passiveDefense(d);if(!/^(d(?:4|6|8|10|12|20)|d20\+d(?:4|6|8|10|12|20))$/.test(String(d)))return null;return d.split('+').reduce(function(n,x){return n+Number(x.slice(1));},0)+1;}
   function fillPortrait(pg){
     var pt=$id('f-portrait');
     if(!pt||(!pg.photo&&!pg.sceneBackground))return;
@@ -440,23 +432,23 @@ html,body{overflow-x:visible;}
     }catch(e){ return null; }
   }
   function fill(pg){
-    var r=RACES[pg.race]||{};
-    setText('f-nome',pg.nome||''); setText('f-razza',r.name||''); setText('f-ruolo',roleLabel(pg)); setText('f-livello',pg.upgrade||'');
+    var r=printRace(pg.race);
+    setText('f-nome',pg.nome||''); setText('f-razza',(r.name||'')+(r.historical?' · Razza storica':'')); setText('f-ruolo',roleLabel(pg)); setText('f-livello',pg.upgrade||'');
     var b=pg.bounty; setText('f-bounty',(b&&b!=='0')?Number(b).toLocaleString('it-IT'):''); setText('f-amb',pg.amb||'');
     ['Forza','Tecnica','Spirito','Astuzia'].forEach(function(a){ circleDie('A|'+a,(pg.attr&&pg.attr[a])||''); });
     var pvMax=(pg.pvMax!=null?pg.pvMax:(r.pv!=null?r.pv:'')); var pvCur=(pg.pvCur!=null?pg.pvCur:pvMax);
     setText('f-pvcur',pvCur); setText('f-pvmax',pvMax); setText('f-stcur',(pg.stCur!=null?pg.stCur:6)); setText('f-stmax',(pg.stMax!=null?pg.stMax:6)); setText('f-dadovita',r.hp||'');
     var P=(window.__glcPrint&&window.__glcPrint.charId===(new URLSearchParams(location.search).get('c')||window.__glcPrint.charId))?window.__glcPrint:null;
     var baseDP=difesaPassiva(pg);
-    var dp=(P&&P.difesa!=null)?P.difesa:(baseDP!=null?baseDP+(window.GLCTratti?GLCTratti.derivedDP(pg):0):null); setText('f-difesa',dp!=null?dp:'');
-    var mv=MOVE[pg.race]; setText('f-move',mv?(mv+' m'):'');
+    var dp=baseDP!=null?baseDP+(window.GLCTratti?GLCTratti.derivedDP(pg):0):null; setText('f-difesa',dp!=null?dp:'');
+    var mv=MOVE[pg.race]||LEGACY_MOVE[pg.race]; setText('f-move',mv?(mv+' m'):'');
     (pg.haki||[]).forEach(function(h){ var nm=h.name||''; var key=nm.indexOf('Armamento')>=0?'arm':(nm.indexOf('Osservazione')>=0?'obs':(nm.indexOf('Re')>=0?'re':null)); if(!key) return; var max=(key==='re')?3:5; var n=Math.max(0,Math.min(max,parseInt(h.pip)||0)); for(var i=0;i<n;i++){ var p=qd('.pip[data-haki="'+key+'"][data-idx="'+i+'"]'); if(p) p.classList.add('on'); } });
     var rs=roleSkill(pg.role,pg.style,pg.roleSkillChoice);
     if(rs){ circleDie('S|'+rs,pg.roleSkillDie||'d8'); var dot=qd('.roledot[data-skill="'+rs+'"]'); if(dot) dot.classList.add('on'); }
     Object.keys(pg.skills||{}).forEach(function(n){ circleDie('S|'+n,pg.skills[n]); });
     setText('f-rtech-nome',r.tech||''); setText('f-rtech-eff',r.techDesc||'');
     var techs=[];
-    if(r.tech) techs.push({nome:r.tech,attr:'\u2014',die:pg.racialDie||'d6',tipo:'Razziale',eff:r.techDesc||''});
+    if(r.tech) techs.push({nome:r.tech,attr:'\u2014',die:pg.racialDie||'d6',tipo:r.historical?'Razziale storica · archivio':'Razziale',eff:r.techDesc||''});
     if(pg.t1&&pg.t1.nome) techs.push(historicTechRow(pg.t1));
     if(pg.t2&&pg.t2.nome) techs.push(historicTechRow(pg.t2));
     (pg.extraTech||[]).forEach(function(t){ if(t&&t.nome) techs.push(techRow(t)); });
@@ -533,13 +525,16 @@ html,body{overflow-x:visible;}
     var secs=[];
     function sec(title,inner){ if(inner) secs.push('<div style="break-inside:avoid;margin-bottom:5mm"><div style="display:flex;align-items:center;gap:8px;margin-bottom:3px"><div style="font-family:\'Marcellus SC\',serif;text-transform:uppercase;letter-spacing:3px;font-size:11px">'+title+'</div><div style="flex:1;border-top:2px double var(--gold,#c9a24a)"></div></div>'+inner+'</div>'); }
     var row=function(t,meta,d,d2){ return '<div style="padding:3px 0;border-bottom:1px dotted #b3a07a;break-inside:avoid"><div style="font-size:11px"><b>'+esc(t)+'</b>'+(meta?' <span style="font-family:\'Marcellus SC\',serif;font-size:7.5px;letter-spacing:1px;color:var(--accent,#9a241a)">'+esc(meta)+'</span>':'')+'</div>'+(d?'<div style="font-size:9.5px;line-height:1.4;color:#33261a">'+esc(d)+'</div>':'')+(d2?'<div style="font-size:9px;line-height:1.35;color:#6b5a44;font-style:italic">'+esc(d2)+'</div>':'')+'</div>'; };
+    var racial=printRace(pg.race);
+    if(racial.historical)sec('Razza storica · Archivio',row(racial.name,racial.tech+' · '+(pg.racialDie||'d6'),RACE_HISTORY_NOTE,racial.techDesc));
+    if(racial.sv)sec('Svantaggio Razziale',row(racial.name,'Prese',racial.sv));
     var tal=P?P.talenti:(pg.talents||[]).map(function(k){var p=String(k).split(' \u00b7 ');return {name:p[p.length-1],branch:p.length>2?p[1]:'',tag:'',desc:''};});
     if(P?.prestigio?.length)sec('Prestigio degli Attributi',P.prestigio.map(function(a){return row(a.name,a.level+' · '+a.die,(a.benefits||[]).map(function(b){return b.name+': '+b.value+' '+b.unit+'. '+b.detail;}).join(' · '));}).join(''));
     if(tal&&tal.length) sec('Talenti',tal.map(function(t){return row(t.name,[t.branch,t.tag].filter(Boolean).join(' \u00b7 '),t.desc);}).join(''));
     var traits=(P&&Array.isArray(P.tratti))?P.tratti:(window.GLCTratti?GLCTratti.acquired(pg):[]);
     if(traits.length) sec('Tratti Unici · Sinergie',traits.map(function(t){
       var definition=window.GLCTratti?GLCTratti.trait(t.id):null;
-      var name=t.name||(definition&&definition.name)||t.id||'Tratto Unico';
+      var name=(definition&&definition.name)||t.name||t.id||'Tratto Unico';
       var status=t.status||(t.superseded?'evolved':t.active===false?'inactive':'acquired');
       var statusLabel={acquired:'Acquisito · attivo',inactive:'Acquisito · inattivo',evolved:'Acquisito · evoluto'}[status]||'Acquisito';
       var attribute=t.attribute||(definition&&definition.attribute),skill=t.skill||(definition&&definition.skill);

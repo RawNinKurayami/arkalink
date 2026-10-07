@@ -135,3 +135,20 @@ test('Normalization preserves acquisition order, unknown future Traits and sessi
  assert.equal(T.acquired(c)[0].status,'inactive');assert.equal(T.derivedDP(c),0);
  const imported=JSON.parse(JSON.stringify(c));T.normalize(imported);assert.deepEqual(plain(imported),plain(c));
 });
+
+test('Connessione Storica preserves the acquired Trait ID and choice cost while the ordinary Archeologo Talent retains its separate name',()=>{
+ const {T,c,state}=setup();
+ c.attr.Astuzia='d12';c.skills.Archeologia='d10';c.grantedChoices=2;
+ c.talents=['Archeologo · Archeologo · Memoria del Mondo'];
+ c.uniqueTraits={acquired:['memoria-del-mondo']};
+ const before=JSON.stringify(c);T.normalize(c);
+ const renamed=state('memoria-del-mondo');assert.equal(renamed.name,'Connessione Storica');assert.equal(renamed.active,true);assert.equal(renamed.available,false);
+ assert.equal(renamed.attributeDie,'d12');assert.equal(renamed.skillDie,'d10');
+ assert.match(renamed.effects.join(' '),/collegare un reperto, un luogo o un’iscrizione a informazioni che il personaggio conosce già/);
+ assert.match(renamed.effects.join(' '),/non fornisce conoscenze che il personaggio non possiede/);
+ assert.equal(T.acquired(c).length,1);assert.equal(T.acquisitionBudget(c,'memoria-del-mondo').remaining,0);assert.throws(()=>T.choose(c,'memoria-del-mondo'),/già acquisito/);
+ assert.equal(T.data.traits.filter(t=>t.name==='Memoria del Mondo').length,0);assert.equal(T.data.traits.filter(t=>t.name==='Connessione Storica').length,1);
+ assert.deepEqual(c.talents,['Archeologo · Archeologo · Memoria del Mondo']);assert.equal(JSON.stringify(c),before);
+ const main=fs.readFileSync(path.join(root,'gestisci-pirata/index.html'),'utf8');
+ assert.ok(main.includes('n:"Memoria del Mondo"'),'The ordinary Archeologo Talent keeps its official name.');
+});

@@ -19,7 +19,7 @@ la struttura a capitoli e sezioni è stabilita qui sotto, in STRUTTURA.
     python3 strumenti/frutti-manuale.py                  # rigenera dalle fonti
     python3 strumenti/frutti-manuale.py /percorso/al.docx  # rilegge il documento
 """
-import sys, os, re, json, html, zipfile, ast, unicodedata
+import argparse, sys, os, re, json, html, zipfile, ast, unicodedata
 from xml.etree import ElementTree as ET
 from html.parser import HTMLParser
 
@@ -59,15 +59,29 @@ def leggi_docx(percorso):
                 blocchi.append({'type': 'table', 'rows': righe})
     return blocchi
 
-if len(sys.argv) > 1:
-    blocchi = leggi_docx(os.path.expanduser(sys.argv[1]))
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('docx', nargs='?')
+parser.add_argument('--manual-only', action='store_true', help='Preserve the reader asset.')
+parser.add_argument('--check', action='store_true', help='Verify generated output without writing.')
+args = parser.parse_args()
+if args.docx:
+    assert not args.check, '--check cannot replace the source document'
+    blocchi = leggi_docx(os.path.expanduser(args.docx))
     json.dump(blocchi, open(FONTI, 'w', encoding='utf8'), ensure_ascii=False, indent=1)
     print('fonti aggiornate dal documento:', len(blocchi), 'blocchi')
 blocchi = json.load(open(FONTI, encoding='utf8'))
 
 # Revisioni editoriali arrivate dopo il documento: {blocco, da, a, perche}.
 revisioni = json.load(open(REVISIONI, encoding='utf8')) if os.path.exists(REVISIONI) else []
+esclusi = set()
 for e in revisioni:
+    if 'escludi_blocchi' in e:
+        start, end = e['escludi_blocchi']
+        assert 0 <= start < end <= len(blocchi), e
+        assert blocchi[start].get('text') == e['inizio'], e
+        assert blocchi[end - 1].get('text') == e['fine'], e
+        esclusi.update(range(start, end))
+        continue
     t = blocchi[e['blocco']]
     if t['type'] == 'table':
         assert any(e['da'] in c for r in t['rows'] for c in r), e
@@ -243,6 +257,10 @@ for titolo, corpo in IMPORTI['generali']:
 
 i = 0
 while i < len(blocchi):
+    if i in esclusi:
+        chiudi_citazione()
+        i += 1
+        continue
     b = blocchi[i]
     if b['type'] == 'table':
         cap['corpo'].append(tabella_html(b['rows'], src(i))); i += 1; continue
@@ -289,10 +307,10 @@ while i < len(blocchi):
                           and i + 1 < len(blocchi) and e_voce(blocchi[i + 1])):
         voci, j = [], i
         if b.get('lista'):
-            while j < len(blocchi) and blocchi[j].get('lista'):
+            while j < len(blocchi) and j not in esclusi and blocchi[j].get('lista'):
                 voci.append('<li%s>%s</li>' % (src(j), '<br>'.join(esc(r) for r in blocchi[j]['text'].split('\n')))); j += 1
         else:
-            while j < len(blocchi) and e_voce(blocchi[j]):
+            while j < len(blocchi) and j not in esclusi and e_voce(blocchi[j]):
                 voci.append('<li%s>%s</li>' % (src(j), esc(blocchi[j]['text']))); j += 1
                 if blocchi[j - 1]['text'].endswith('.'):
                     break
@@ -379,7 +397,7 @@ class Testi(HTMLParser):
 def norm(s): return re.sub(r'\s+', ' ', unicodedata.normalize('NFC', s)).strip()
 
 letti = Testi(); letti.feed(uscita)
-attesi = {str(k) for k in range(len(blocchi))}
+attesi = {str(k) for k in range(len(blocchi)) if k not in esclusi}
 assert set(letti.testi) == attesi, (sorted(attesi - set(letti.testi), key=int)[:20], set(letti.testi) - attesi)
 for k in attesi:
     b = blocchi[int(k)]
@@ -388,11 +406,16 @@ for k in attesi:
     letto = norm(''.join(letti.testi[k]).replace('→', ' → '))
     assert letto == atteso, 'testo diverso nel blocco %s: %r / %r' % (k, atteso[:80], letto[:80])
 
-os.makedirs(USCITA, exist_ok=True)
-open(os.path.join(USCITA, 'index.html'), 'w', encoding='utf8').write(uscita)
-open(os.path.join(USCITA, 'reader.js'), 'w', encoding='utf8').write(
-    '/* Generato dall\'interfaccia del manuale base da strumenti/frutti-manuale.py. */\n' + lettore + '\n')
+outputs = {os.path.join(USCITA, 'index.html'): uscita}
+if not args.manual_only:
+    outputs[os.path.join(USCITA, 'reader.js')] = '/* Generato dall\'interfaccia del manuale base da strumenti/frutti-manuale.py. */\n' + lettore + '\n'
+for file, content in outputs.items():
+    if args.check:
+        assert open(file, encoding='utf8').read() == content, 'Generated output differs: ' + os.path.relpath(file, RADICE)
+    else:
+        os.makedirs(os.path.dirname(file), exist_ok=True)
+        open(file, 'w', encoding='utf8').write(content)
 IMPORTATE = len(IMPORTI['generali']) + len(IMPORTI['paramecia'][1]) + len(IMPORTI['logia'][1])
-print('Manuale dei Frutti del Diavolo: %d capitoli, %d sezioni, %d blocchi del documento. '
-      'Testo integrale del documento: True. Sezioni importate dal manuale base: %d. UI: manuale base.'
-      % (len(capitoli), sum(len(c['sezioni']) for c in capitoli), len(blocchi), IMPORTATE))
+print('Manuale dei Frutti del Diavolo: %d capitoli, %d sezioni, %d blocchi correnti, %d esclusi dalle revisioni. '
+      'Copertura del testo corrente: True. Sezioni importate dal manuale base: %d. UI: manuale base.'
+      % (len(capitoli), sum(len(c['sezioni']) for c in capitoli), len(attesi), len(esclusi), IMPORTATE))

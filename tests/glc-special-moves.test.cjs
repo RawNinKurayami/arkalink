@@ -150,7 +150,7 @@ test('Print snapshots use the new rule version and propagate action limits and p
  vm.runInContext(fs.readFileSync(printFile,'utf8'),h.context);
  h.context.pg.specialMoves=[h.card({activeTalentId:h.talent('Raffica — Base'),hakiSelections:[h.h(0,{activation:'prepared'})]})];
  const pack=h.context.window.GLCPrintMoves.snapshot(h.context.pg,'qa');
- assert.equal(pack.v,6);assert.equal(pack.cards[0].totals.pip,0);
+ assert.equal(pack.v,7);assert.equal(pack.cards[0].totals.pip,0);
  assert.ok(pack.cards[0].conditions.some(c=>/Economia del turno/.test(c.text)));
  assert.ok(pack.cards[0].conditions.some(c=>/turno precedente/.test(c.text)));
  h.context.pg.specialMoves[0].hakiSelections[0].effects=['act:d20'];
@@ -391,7 +391,7 @@ test('Print snapshots include Unique Trait identity, requirements and limits wit
  const base=h.resolve({});c.specialMoves=[h.card({passiveTalentIds:['trait:non-ancora']})];
  h.context.window.addEventListener=()=>{};vm.runInContext(fs.readFileSync(path.join(root,'scheda-stampabile/special-moves-print.js'),'utf8'),h.context);
  const pack=h.context.window.GLCPrintMoves.snapshot(c,'trait-owner'),card=pack.cards[0],trait=card.sources.find(s=>s.id==='trait:non-ancora');
- assert.equal(pack.v,6);assert.equal(trait.subtype,'uniqueTrait');assert.equal(trait.mode,'passive');
+ assert.equal(pack.v,7);assert.equal(trait.subtype,'uniqueTrait');assert.equal(trait.mode,'passive');
  assert.match(trait.description,/Spirito d20, Sopravvivenza d12/);assert.match(trait.description,/1 volta per scontro/);assert.match(trait.description,/Salvezza di Forza o Spirito/);
  assert.equal(JSON.stringify(card.totals),JSON.stringify(base.totals));assert.equal(JSON.stringify(card.formulas),JSON.stringify(base.formulas));
  delete h.context.window.GLCTratti;const before=JSON.stringify(c),missing=h.moves.resolve(c.specialMoves[0]);
@@ -422,7 +422,7 @@ test('An authorized Fruit Technique is available to a non-Combattente Role and r
  assert.equal(JSON.stringify(c),before);
 });
 
-test('Direct Striker Talent and Signature saves use the chosen Role Skill, independently of the Technique grade',()=>{
+test('Direct Striker Talents use the chosen Role Skill while Il Colpo Sfonda follows its triggering Technique',()=>{
  const h=liveTechniqueFixture(),c=h.context.pg;
  Object.assign(c,{roleSkillChoice:'Acrobazia',roleSkillDie:'d12',skills:{Atletica:'d20'}});
  c.talents.push('Combattente · Striker · Presa di Ferro','Combattente · Striker · Proiezione');
@@ -434,13 +434,13 @@ test('Direct Striker Talent and Signature saves use the chosen Role Skill, indep
  assert.equal(direct.source,'Acrobazia');assert.equal(direct.die,'d12');assert.equal(direct.threshold,7);assert.equal(direct.attribute,'Tecnica');
  assert.match(direct.when,/già Trattenuta/);assert.match(direct.when,/secondo nemico/);
  assert.equal(r.directSaves.filter(p=>p.name.startsWith('Firma')).length,2);
- assert.ok(r.directSaves.filter(p=>p.name.startsWith('Firma')).every(p=>p.source==='Acrobazia'&&p.threshold===7&&/margine \+4/.test(p.when)&&/una volta per turno/.test(p.when)));
+ assert.ok(r.directSaves.filter(p=>p.name.startsWith('Firma')).every(p=>p.source==='Grado della Tecnica'&&p.threshold===11&&/margine \+4/.test(p.when)&&/una volta per turno/.test(p.when)));
  assert.ok(r.formulas.filter(f=>f.label.startsWith('Salvezza condizionale')).every(f=>/Quando /.test(f.text)&&/non applica automaticamente/.test(f.text)&&/pari o superiore/.test(f.text)));
  assert.equal(JSON.stringify(c),before);
  c.extraTech[0].eff=['Sbilancio'];
  const stateOnly=h.resolve({});assert.equal(stateOnly.status,'ready',errorText(stateOnly));
  assert.ok(stateOnly.formulas.some(f=>f.label==='Salvezza · Sbilancio'&&/Soglia 11/.test(f.text)));
- assert.ok(stateOnly.directSaves.every(p=>p.threshold===7));
+ assert.ok(stateOnly.directSaves.every(p=>p.threshold===11));
 });
 
 test('Colpo Pesante and medical Talent saves use Atletica or Medicina rather than a higher Technique or Attribute',()=>{
@@ -464,13 +464,18 @@ test('Colpo Pesante and medical Talent saves use Atletica or Medicina rather tha
  }
 });
 
-test('Smash Hit always uses Atletica, including an Acrobazia Striker, and its save profile does not enable an Ultimate combo',()=>{
+test('Smash Hit uses the chosen Striker Role Skill for its four rolls, single damage roll and Save, excluding normal combos',()=>{
  const h=liveTechniqueFixture(),c=h.context.pg;
  Object.assign(c,{roleSkillChoice:'Acrobazia',roleSkillDie:'d20',skills:{Atletica:'d6'}});
  c.talents.push('Combattente · Striker · Smash Hit');
  const s=h.moves.sources().find(s=>s.id==='glc-talent-014'),before=JSON.stringify(c),profile=h.moves.directTalentSaves(s)[0];
- assert.equal(profile.source,'Atletica');assert.equal(profile.die,'d6');assert.equal(profile.threshold,4);assert.equal(profile.attribute,'Forza');assert.equal(profile.state,'Stordito');
+ assert.equal(profile.source,'Acrobazia');assert.equal(profile.die,'d20');assert.equal(profile.threshold,11);assert.equal(profile.attribute,'Forza');assert.equal(profile.state,'Stordito');
  assert.match(profile.when,/almeno tre colpi riusciti/);
+ assert.equal(s.resolution.skill,'Acrobazia');assert.equal(s.resolution.rolls,4);assert.equal(s.resolution.advantage,true);assert.equal(s.resolution.singleCombination,true);
+ assert.equal(s.resolution.costST,5);assert.equal(s.resolution.frequency,'scontro');assert.equal(s.resolution.requiresGM,true);
+ assert.deepEqual(Array.from(s.resolution.damage,d=>d.dice),[0,1,2,4,6]);
+ assert.ok(s.resolution.damage.every(d=>d.pool==='d20'&&(d.hits<3?!d.state:d.state==='Stordito')));
+ assert.match(s.resolution.attackFormula,/d20.*Acrobazia/);assert.equal(s.resolution.excluded.length,4);
  const r=h.resolve({activeTalentId:s.id});assert.equal(r.status,'repair');assert.equal(r.totals,null);assert.ok(r.directSaves.every(p=>p.id!==s.id));
  assert.equal(JSON.stringify(c),before);
 });
@@ -500,12 +505,14 @@ test('Explicit racial Save annotations use the racial grade and print the origin
  h.context.window.addEventListener=()=>{};
  vm.runInContext(fs.readFileSync(path.join(root,'scheda-stampabile/special-moves-print.js'),'utf8'),h.context);
  const pack=h.context.window.GLCPrintMoves.snapshot(c,'qa');
- assert.equal(pack.v,6);assert.equal(pack.cards[0].directSaves[0].threshold,6);
+ assert.equal(pack.v,7);assert.equal(pack.cards[0].directSaves[0].threshold,6);
  assert.ok(pack.cards[0].formulas.some(f=>f.label==='Salvezza condizionale · Electro · Paralizzato'&&/non applica automaticamente/.test(f.text)));
  assert.equal(JSON.stringify(c),before);
- for(const [race,name,state] of [['longbraccio','Portata Estesa','Trascinamento / Proiezione'],['lungagamba','Calcio Colossale','Schiantato']]){
-  c.race=race;h.context.race=()=>({id:race,tech:name});c.racialDie='d6';assert.equal(h.resolve({baseTechId:'racial:'+race}).directSaves.length,0);
-  c.racialDie='d8';const result=h.resolve({baseTechId:'racial:'+race});assert.equal(result.directSaves[0].threshold,5);assert.equal(result.directSaves[0].state,state);
+ for(const [race,name] of [['longbraccio','Portata Estesa'],['lungagamba','Calcio Colossale']]){
+  c.race=race;h.context.race=()=>({id:race,tech:name,historical:true});c.racialDie='d8';
+  const recipe=h.card({baseTechId:'racial:'+race}),saved=JSON.stringify(c),result=h.moves.resolve(recipe);
+  assert.equal(result.status,'repair');assert.equal(result.totals,null);assert.equal(result.directSaves.length,0);
+  assert.match(errorText(result),/Razza storica rimossa/);assert.equal(result.move.baseTechId,recipe.baseTechId);assert.equal(JSON.stringify(c),saved);
  }
 });
 
@@ -520,4 +527,143 @@ test('Opposed grips, bleeding and prepared doses do not inherit a graduated Tale
  const r=h.resolve({hakiSelections:[h.h(2,{effects:['act:3']})]});
  assert.ok(r.directSaves.every(p=>!p.name.includes('Re')));assert.ok(r.formulas.filter(f=>f.label.startsWith('Salvezza condizionale')).every(f=>f.id==='tech:punch'));
  const afterState=JSON.stringify(c);h.resolve({hakiSelections:[h.h(2,{effects:['act:3']})]});assert.equal(JSON.stringify(c),afterState);assert.notEqual(afterState,before);
+});
+
+test('Il Colpo Sfonda keeps distinct Technique and basic-attack thresholds in an ordinary Raffica with one shared activation',()=>{
+ for(const secondary of [false,true]){
+  const h=liveTechniqueFixture(),c=h.context.pg;
+  Object.assign(c,{roleSkillChoice:'Acrobazia',roleSkillDie:'d20',skills:{Atletica:'d20+d20'}});
+  if(secondary)Object.assign(c,{role:'Capitano',style:'',role2:'Combattente',style2:'Striker',roleSkillChoice2:'Acrobazia',roleSkillDie:'d20+d20',skills:{Acrobazia:'d20',Atletica:'d20+d20'}});
+  Object.assign(c.extraTech[0],{die:'d8',eff:[]});
+  const before=JSON.stringify(c),r=h.resolve({activeTalentId:'glc-talent-001'});
+  assert.equal(r.status,'ready',errorText(r));assert.equal(r.directSaves.length,4);
+  const initial=r.directSaves.filter(s=>s.id==='tech:punch'),basic=r.directSaves.filter(s=>s.id==='glc-talent-001');
+  assert.ok(initial.every(s=>s.source==='Grado della Tecnica'&&s.die==='d8'&&s.threshold===5));
+  assert.ok(basic.every(s=>s.source==='Acrobazia'&&s.die==='d20'&&s.threshold===11));
+  assert.ok(r.directSaves.every(s=>/al massimo una volta per turno fra tutti i colpi/.test(s.when)));
+  assert.equal(r.totals.st,1);assert.equal(r.economy.normal,1);assert.equal(r.economy.used,1);assert.equal(JSON.stringify(c),before);
+  c.extraTech[0].die='d10';assert.ok(h.resolve({activeTalentId:'glc-talent-001'}).directSaves.filter(s=>s.id==='tech:punch').every(s=>s.threshold===6));
+ }
+});
+
+function postAuditPrestigeFixture(){
+ const h=liveTechniqueFixture(),c=h.context.pg,p=h.context.GLCPrestige;
+ Object.assign(c,{roleSkillChoice:'Acrobazia',roleSkillDie:'d20+d12',attr:{Forza:'d20+d12',Tecnica:'d20+d12',Spirito:'d20+d12'},skills:{Atletica:'d20+d20'},stCur:200});
+ c.talents=h.context.rules.TALENTS.Combattente.styles.Striker.talenti.map(t=>'Combattente · Striker · '+t.n);
+ c.haki[0].die='d20+d12';
+ const take=id=>p.choose(c,'striker-acrobazia',id,true);
+ return {...h,c,p,take};
+}
+
+test('A mixed Prestige Raffica and Punto di Rottura retain Sfonda for their basic extras without propagating the Technique effect',()=>{
+ const h=postAuditPrestigeFixture(),{c}=h;h.take('raffica-senza-fine');h.take('precisione-assoluta');
+ Object.assign(c.extraTech[0],{attr:'Tecnica',eff:['Punto di Rottura']});
+ const id='prestige:raffica-senza-fine',r=h.resolve({activeTalentId:id,talentUses:{[id]:3},talentTechniqueUses:{[id]:2}});
+ assert.equal(r.status,'ready',errorText(r));assert.equal(r.directSaves.length,2);
+ assert.ok(r.directSaves.every(s=>s.id===id&&s.source==='Acrobazia'&&s.die==='d20+d12'&&s.threshold===17));
+ assert.ok(r.directSaves.every(s=>/attacco base a mani nude/.test(s.when)&&/fra tutti i colpi/.test(s.when)));
+ assert.ok(r.conditions.some(s=>/1 attacchi base a mani nude extra e 2 usi extra/.test(s.text)));
+ assert.equal(h.resolve({activeTalentId:id,talentUses:{[id]:2},talentTechniqueUses:{[id]:2}}).directSaves.length,0);
+ c.extraTech[0].eff=[];
+ const normal=h.resolve({activeTalentId:id,talentUses:{[id]:3},talentTechniqueUses:{[id]:2}});
+ assert.equal(normal.directSaves.length,4);assert.ok(normal.directSaves.filter(s=>s.id==='tech:punch').every(s=>s.threshold===6));
+});
+
+test('Smash Hit follows an actual secondary Striker and complete Skill pool, never a stronger unrelated Skill',()=>{
+ const h=liveTechniqueFixture(),c=h.context.pg;
+ Object.assign(c,{role:'Capitano',style:'',roleSkillDie:'d20+d20',role2:'Combattente',style2:'Striker',roleSkillChoice2:'Atletica',skills:{Atletica:'d20+d4',Acrobazia:'d20+d20'}});
+ c.talents.push('Combattente · Striker · Smash Hit');
+ const before=JSON.stringify(c),s=h.moves.sources().find(s=>s.id==='glc-talent-014'),r=h.moves.smashHitProfile(s);
+ assert.equal(r.skill,'Atletica');assert.equal(r.die,'d20+d4');assert.equal(r.save.threshold,13);
+ assert.ok(r.damage.every(d=>d.pool==='d20+d4'));assert.equal(JSON.stringify(c),before);
+ c.roleSkillChoice2='Acrobazia';const alternate=h.moves.sources().find(s=>s.id==='glc-talent-014').resolution;
+ assert.equal(alternate.skill,'Acrobazia');assert.equal(alternate.die,'d20+d20');assert.equal(alternate.save.threshold,21);
+});
+
+test('Ryou doubles the complete attack once, preserving costs, conditions and normal defenses without a numeric internal component',()=>{
+ const h=liveTechniqueFixture(),c=h.context.pg;h.state();
+ Object.assign(c,{style:'Crusher',roleSkillDie:'d20',role2:'Dottore',style2:'Tossicologo',skills:{Medicina:'d12'},armi:[{id:'maul',nome:'Maglio',tipo:'Contundente',attr:'Forza',grado:'d8'}],talents:['Colpo Pesante — Base','Colpo Pesante — Migliorato','Colpo Pesante — Maestria'].map(n=>'Combattente · Crusher · '+n)});
+ c.talents.push('Dottore · Tossicologo · Lama Intinta','Dottore · Tossicologo · Colpo di Grazia');
+ Object.assign(c.extraTech[0],{stile:'Crusher',arma:'maul',die:'d20',eff:[]});
+ // Colpo Pesante is prepared separately: its active Bonus cannot coincide with fresh Ryou.
+ const id='glc-talent-023',r=h.resolve({weaponId:'weapon:maul',passiveTalentIds:['glc-talent-095'],hakiSelections:[h.h(0,{effects:['act:d20']})]});
+ assert.equal(r.status,'ready',errorText(r));assert.equal(r.totals.st,0);assert.equal(r.totals.pip,3);assert.equal(r.economy.used,1);
+ const damage=r.formulas.find(f=>f.label==='Danno · fonti').text;
+ assert.match(damage,/^2 × \(d20 Tecnica \+ d20 Armamento \+ bonus condizionali/);assert.match(damage,/una sola volta, solo se è l’attacco fisico compatibile scelto/);
+ assert.ok(r.formulas.some(f=>f.label==='Colpo di Grazia · Avvelenato'&&/solo contro/.test(f.text)));
+ const rule=r.formulas.find(f=>f.label==='Ryou · Armamento').text;
+ assert.match(rule,/Difesa Passiva, Difesa Attiva e Riduzione del Danno/);assert.match(rule,/narrativo, senza una componente numerica separata/);
+ assert.ok(hasBonusError(h.resolve({weaponId:'weapon:maul',activeTalentId:id,hakiSelections:[h.h(0,{effects:['act:d20']})]})));
+ c.attr.Spirito='d20+d12';c.haki[0].die='d20+d12';const effect='act:prestige-ryou-persistente';h.state(0,{effects:{[effect]:1}});
+ const heavy=h.resolve({weaponId:'weapon:maul',activeTalentId:id,hakiSelections:[h.h(0,{activation:'prepared',effects:[effect],preparedEffects:[effect]})]});
+ assert.equal(heavy.status,'ready',errorText(heavy));assert.equal(heavy.totals.st,2);assert.equal(heavy.totals.pip,0);
+ assert.match(heavy.formulas.find(f=>f.label==='Danno · fonti').text,/^2 × \(d20 Tecnica \+ d20\+d12 Armamento \+ 2 × d20 Colpo Pesante/);
+});
+
+test('Prepared Ryou Persistente doubles one selected Raffica attack and keeps the shared Bonus, duration, costs and miss limit',()=>{
+ const h=postAuditPrestigeFixture(),{c}=h;c.roleSkillChoice='Atletica';['raffica-senza-fine','potenza-del-titano'].forEach(id=>h.p.choose(c,'striker-atletica',id,true));
+ const effect='act:prestige-ryou-persistente';h.state(0,{pipRemaining:0,effects:{[effect]:1}});
+ const before=JSON.stringify(c),r=h.resolve({activeTalentId:'prestige:raffica-senza-fine',passiveTalentIds:['prestige:potenza-del-titano'],talentUses:{'prestige:raffica-senza-fine':3},talentTechniqueUses:{'prestige:raffica-senza-fine':1},hakiSelections:[h.h(0,{activation:'prepared',effects:[effect],preparedEffects:[effect]})]});
+ assert.equal(r.status,'ready',errorText(r));assert.equal(r.totals.st,6);assert.equal(r.totals.pip,0);assert.equal(r.economy.used,1);assert.equal(r.economy.normal,1);
+ assert.ok(r.formulas.some(f=>f.label==='Danno · fonti'&&/^2 × \(d10 Tecnica \+ d20\+d12 Armamento/.test(f.text)));
+ assert.match(r.formulas.find(f=>f.label==='Danno · fonti').text,/Potenza del Titano\)/);
+ const limit=r.formulas.find(f=>f.label==='Ryou Persistente · limite del turno').text;
+ assert.match(limit,/Un solo attacco fisico compatibile per tuo turno/);assert.match(limit,/prima del tiro.*mancato consuma/);assert.match(limit,/non potenzia automaticamente tutti i colpi della Raffica/);assert.match(limit,/Termina se Armamento viene interrotto/);
+ assert.equal(JSON.stringify(c),before);
+ c.specialMoveSession.haki[h.colors[0]].effects[effect]=0;assert.equal(h.resolve(r.move).status,'unavailable');
+});
+
+test('Esplosione Haki Superiore retains its own secondary-target damage and never copies Projection, collision or the main target damage',()=>{
+ const h=postAuditPrestigeFixture(),effect='act:prestige-ryou-persistente';h.state(0,{pipRemaining:5,effects:{[effect]:1}});
+ Object.assign(h.c.extraTech[0],{eff:['Proiezione','Schianto']});
+ const r=h.resolve({hakiSelections:[h.h(0,{activation:'prepared',effects:[effect,'act:prestige-esplosione-haki-superiore'],preparedEffects:[effect]})]});
+ assert.equal(r.status,'ready',errorText(r));assert.equal(r.economy.used,1);
+ const rule=r.formulas.find(f=>f.label==='Esplosione Haki Superiore · bersagli secondari').text;
+ assert.match(rule,/⌊D pertinente \/ 2⌋/);assert.match(rule,/Ryou determina il danno totale.*×2/);assert.match(rule,/Nessuna seconda copia sul bersaglio principale/);assert.match(rule,/Proiezione, Schianto.*non si propagano automaticamente/);
+ assert.ok(r.formulas.some(f=>f.label==='Schianto · collisione'));
+});
+
+test('Ryou base and Persistent use the same conditional physical-attack rule for Fruit sources without declaring every Fruit attack physical',()=>{
+ const h=liveTechniqueFixture(),c=h.context.pg;
+ c.attr.Spirito='d20+d12';c.haki[0].die='d20+d12';c.frutto={has:true,tipo:'Paramecia',nome:'Manifestazione',die:'d10'};
+ const t=c.extraTech[0];Object.assign(t,{fonte:'Frutto',fruitType:'Paramecia',stile:'',eff:[]});
+ t.sourcePermission={key:h.context.GLCTechniques.sourceKey(c,t),basis:'Applicazione concordata del potere, senza classificazione fisica automatica.',effects:[]};
+ h.state();
+ for(const effect of ['act:d20','act:prestige-ryou-persistente']){
+  const before=JSON.stringify(c),r=h.resolve({hakiSelections:[h.h(0,{effects:[effect]})]});
+  assert.equal(r.status,'ready',errorText(r));
+  const damage=r.formulas.find(f=>f.label==='Danno · fonti').text;
+  assert.match(damage,/solo se è l’attacco fisico compatibile scelto/);
+  assert.ok(r.conditions.some(s=>/verifica con il GM.*attacco fisico compatibile/.test(s.text)&&/senza la condizione.*senza ×2/.test(s.text)));
+  assert.match(r.formulas.find(f=>f.label==='Ryou · Armamento').text,/Non potenzia emissioni elementali o attacchi non fisici/);
+  assert.equal(JSON.stringify(c),before);assert.equal(t.physical,undefined);
+ }
+});
+
+test('Riformarsi Altrove unlocks at Logia d10 and uses a separate flexible Reaction without changing Technique timing or applying avoidance',()=>{
+ const h=liveTechniqueFixture(),c=h.context.pg,id='glc-talent-245';
+ c.frutto={has:true,tipo:'Logia',nome:'Elemento',die:'d8'};c.talents.push('Frutto · Logia · Riformarsi Altrove');
+ assert.equal(h.moves.sources().find(s=>s.id===id).unlocked,false);assert.equal(h.resolve({passiveTalentIds:[id]}).status,'repair');
+ c.frutto.die='d10';assert.equal(h.moves.sources().find(s=>s.id===id).unlocked,true);
+ const before=JSON.stringify(c),r=h.resolve({passiveTalentIds:[id]});
+ assert.equal(r.status,'ready',errorText(r));assert.equal(r.economy.normal,1);assert.equal(r.economy.reactions,1);assert.equal(r.economy.used,0);assert.equal(r.rows.find(s=>s.id===id).st,0);
+ const rule=r.formulas.find(f=>f.label==='Riformarsi Altrove · Reazione').text;
+ assert.match(rule,/Sequenza distinta/);assert.match(rule,/evento immediato e percepibile valutato dal GM/);assert.match(rule,/15 m.*visibile e raggiungibile/);assert.match(rule,/Non autorizza questa Tecnica fuori dal tuo turno e non annulla automaticamente un attacco/);
+ assert.equal(JSON.stringify(c),before);
+ Object.assign(c.extraTech[0],{forma:'Spostamento',eff:['Scatto']});const move=h.resolve({passiveTalentIds:[id]});
+ assert.equal(move.status,'ready',errorText(move));assert.equal(move.economy.normal,1);assert.equal(move.economy.reactions,1);assert.equal(move.economy.used,0);
+});
+
+test('Forma di Combattimento is the official custom GM state with a Bonus and registered maintenance, without granting Technique effects',()=>{
+ const h=liveTechniqueFixture(),c=h.context.pg,id='glc-talent-233';
+ c.frutto={has:true,tipo:'Paramecia',nome:'Potere',die:'d12'};c.talents.push('Frutto · Paramecia · Forma di Combattimento');
+ const s=h.moves.sources().find(s=>s.id===id),baseline=h.resolve({});
+ assert.match(s.desc,/Linea guida ufficiale del Capitolo 5/);assert.match(s.desc,/stato mantenuto.*non una Tecnica/);assert.doesNotMatch(s.desc,/incomplet|futura tabella|CHIARIMENTO NECESSARIO/);
+ assert.equal(h.resolve({activeTalentId:id}).status,'costs');
+ c.specialMoveSourceCosts={[id]:{st:0,pip:0,maintenanceST:2,maintenancePIP:0,resource:0,basis:h.moves.costBasis(s)}};
+ const before=JSON.stringify(c),r=h.resolve({activeTalentId:id});
+ assert.equal(r.status,'ready',errorText(r));assert.equal(r.economy.normal,1);assert.equal(r.economy.used,1);assert.equal(r.totals.maintenanceST,2);
+ assert.equal(r.formulas.find(f=>f.label==='Danno · fonti').text,baseline.formulas.find(f=>f.label==='Danno · fonti').text);assert.equal(JSON.stringify(c),before);
+ const guard=h.context.rules.TALENTS.Combattente.styles.Striker.talenti.find(t=>t.smcId==='glc-talent-004');
+ assert.match(guard.d,/danno viene comunque subito normalmente/);assert.match(guard.d,/non annulla l’attacco e non riduce automaticamente i PV/);
 });
