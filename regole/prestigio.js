@@ -117,7 +117,7 @@ function benefits(c,attr){
   add('projection','Proiezione Colossale',D.scales.projection[n],'m','Richiede Proiezione in una Tecnica offensiva in mischia. Con Schianto: un tiro completo di Forza al primo urto, al posto di d8.');
  }
  if(attr==='Tecnica'&&styles.some(s=>['Striker','Swordsman'].includes(s))){
-  add('movement','Spostamento Fulmineo',D.scales.movement[n],'m per turno','Budget condiviso per turno: Scatto 1 ST, Inseguire 2 ST, Balzo 1 ST. Servono gli effetti e i relativi slot nella Tecnica. Il Movimento ordinario è separato.');
+  add('movement','Spostamento Fulmineo',D.scales.movement[n],'m per turno','Budget condiviso per turno: Scatto 1 ST e Balzo 1 ST. Servono gli effetti e i relativi slot nella Tecnica. Il Movimento ordinario è separato.');
   add('jump','Agilità Sovrumana',D.scales.jump[n],'m di altezza','Puoi usare appoggi normalmente impossibili, come pareti e funi.'+(lv>=3?' Puoi eseguire Balzo anche nell’aria.':'')+(lv>=5?' Puoi restare sospeso fino all’inizio del tuo prossimo turno.':'')+' Balzo richiede 1 ST e il suo slot nella Tecnica; ogni metro percorso consuma il budget condiviso.');
  }
  if(['Forza','Tecnica'].includes(attr)&&styles.includes('Swordsman')){

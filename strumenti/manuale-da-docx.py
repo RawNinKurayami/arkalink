@@ -101,13 +101,15 @@ def e_voce(x):
     t = x['testo'].strip()
     return 0 < len(t) <= 72 and not t.endswith(('.', ':', '?', '!', '”'))
 
-def tabella_html(righe):
+def tabella_html(righe, classe=None):
     if not righe: return ''
     def cella(c): return ' '.join(run_html(p['pezzi']) for p in c if p['pezzi']).strip()
     testa = [cella(c) for c in righe[0]]
     corpo = righe[1:]
     intestata = all(t and len(t) < 40 for t in testa) and len(corpo) > 0
-    out = ['<div class="man-tab-wrap"><table class="man-tab">']
+    classi = 'man-tab' + (' ' + html.escape(classe, quote=True) if classe else '')
+    accesso = ' tabindex="0" role="region" aria-label="Catalogo degli effetti"' if classe == 'man-tab-effetti' else ''
+    out = ['<div class="man-tab-wrap"%s><table class="%s">' % (accesso, classi)]
     if intestata:
         out.append('<thead><tr>' + ''.join('<th>' + t + '</th>' for t in testa) + '</tr></thead>')
     else:
@@ -132,10 +134,10 @@ def blocco_p(testo, stile=None):
     return {'tipo': 'p', 'stile': stile, 'lista': None, 'liv': 0,
             'pezzi': [{'t': testo, 's': []}], 'testo': testo}
 
-def blocco_tabella(intestazione, righe):
+def blocco_tabella(intestazione, righe, classe=None):
     def cella(t): return [blocco_p(t)]
     tutte = ([intestazione] if intestazione else []) + righe
-    return {'tipo': 'tbl', 'righe': [[cella(c) for c in r] for r in tutte]}
+    return {'tipo': 'tbl', 'righe': [[cella(c) for c in r] for r in tutte], 'classe': classe}
 
 def blocchi_da_contenuto(voci):
     fuori = []
@@ -156,9 +158,15 @@ def blocchi_da_contenuto(voci):
             for sinistra, destra in v['righe']:
                 fuori.append(blocco_p(sinistra + ' \u2192 ' + destra))
         elif tipo == 'tabella':
-            fuori.append(blocco_tabella(v.get('intestazione'), v['righe']))
+            fuori.append(blocco_tabella(v.get('intestazione'), v['righe'], v.get('classe')))
         else:
             fuori.append(blocco_p(v['testo']))
+        # Le revisioni ricavate dal manuale web possono conservare anche
+        # grassetti e corsivi dei paragrafi non riscritti.
+        if tipo in ('p', 'h', 'h3') and v.get('pezzi'):
+            if ''.join(p['t'] for p in v['pezzi']) != v['testo']:
+                sys.exit('correzione: testo e pezzi formattati non coincidono.')
+            fuori[-1]['pezzi'] = v['pezzi']
     return fuori
 
 def ripulisci(t):
@@ -302,7 +310,7 @@ i = 0
 while i < len(b):
     x = b[i]
     if x['tipo'] == 'tbl':
-        corpo.append(tabella_html(x['righe'])); i += 1; continue
+        corpo.append(tabella_html(x['righe'], x.get('classe'))); i += 1; continue
 
     t = x['testo'].strip()
     stile = x.get('stile')
@@ -421,7 +429,7 @@ PAGINA = '''<!doctype html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-theme.css">
-<link rel="stylesheet" href="manuale.css?v=17">
+<link rel="stylesheet" href="manuale.css?v=18">
 <style>
 /* Il gate del Manuale bloccato resta com'era. */
 #manlock[hidden]{display:none !important;}

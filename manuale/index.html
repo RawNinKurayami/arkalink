@@ -1365,8 +1365,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Ogni combattente può tentare una <b>Difesa Attiva</b> quando viene bersagliato da un attacco.</p>
 <p>La Difesa Attiva utilizza:</p>
 <h3 class="man-sub">1 Reazione</h3>
-<p>Il giocatore deve dichiararla in risposta all’attacco.</p>
-<p>Invece di affidarsi alla propria Difesa Passiva, il personaggio tenta direttamente di superare il risultato ottenuto dall’avversario.</p>
+<p>Il giocatore deve dichiararla quando viene scelto come bersaglio, prima del tiro per colpire dell’attaccante.</p>
+<p>Invece di affidarsi alla propria Difesa Passiva, il personaggio tenta direttamente di raggiungere o superare il tiro dell’avversario.</p>
 <p>La Difesa Attiva è quindi un azzardo.</p>
 <p>Se riesce, l’attacco viene completamente neutralizzato.</p>
 <p>Se fallisce, il colpo va a segno.</p>
@@ -1374,6 +1374,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Il tiro dipende da <b>come il personaggio tenta di difendersi</b>.</p>
 <p>Le due forme base sono:</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Difesa Attiva</b></th><th><b>Tiro</b></th></tr></thead><tbody><tr><td><b>Schivata</b></td><td><b>Tecnica + Acrobazia</b></td></tr><tr><td><b>Blocco</b></td><td><b>Forza + Atletica</b></td></tr></tbody></table></div>
+<h3 class="man-sub">Tecnica d’attacco come Difesa Attiva</h3>
+<p>Oltre a Schivata e Blocco, puoi utilizzare una Tecnica d’attacco compatibile come Difesa Attiva. La scelta viene dichiarata quando sei scelto come bersaglio, prima del tiro per colpire dell’attaccante. Spendi la Reazione e paghi immediatamente tutti i normali costi ST della Tecnica; un fallimento non rimborsa la Stamina. Effettua il normale tiro della Tecnica: Attributo + Dado Tecnica, salvo regole specifiche. Se raggiungi o superi il tiro dell’attaccante, neutralizzi l’attacco; il pareggio favorisce il difensore. La Tecnica usata per difenderti non infligge normalmente danni e non applica automaticamente i propri effetti offensivi. Con il Talento Contraccolpo, soltanto se la difesa supera il tiro avversario infliggi anche il normale Dado Danno della Tecnica. Un pareggio difende ma non infligge danni.</p>
 <p>Il giocatore descrive il proprio approccio prima del tiro.</p>
 <h3 class="man-sub">Schivata</h3>
 <p>Una <b>Schivata</b> rappresenta evitare fisicamente la traiettoria dell’attacco attraverso velocità, coordinazione e controllo del corpo.</p>
@@ -1401,7 +1403,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Se sceglie la Difesa Attiva, utilizza la propria Reazione e il risultato del tiro difensivo sostituisce la Difesa Passiva per quell’attacco.</p>
 <p class="man-guida">Una volta effettuata la scelta non è possibile tornare alla Difesa Passiva dopo aver visto i risultati.</p>
 <h3 class="man-sub">Risolvere la Difesa Attiva</h3>
-<div class="man-mappa"><div class="man-riga"><span>Difesa Attiva ≥ Attacco</span> <i class="man-freccia">→</i> <b>attacco difeso</b></div><div class="man-riga"><span>Attacco > Difesa Attiva</span> <i class="man-freccia">→</i> <b>attacco riuscito</b></div></div>
+<div class="man-mappa"><div class="man-riga"><span>Difesa Attiva ≥ Attacco</span> <i class="man-freccia">→</i> <b>attacco difeso</b></div><div class="man-riga"><span>Attacco &gt; Difesa Attiva</span> <i class="man-freccia">→</i> <b>attacco riuscito</b></div></div>
 <p class="man-guida">Il pareggio favorisce sempre il difensore.</p>
 <p class="man-guida">Se la Difesa Attiva fallisce, la Difesa Passiva non viene utilizzata come seconda protezione.</p>
 <h3 class="man-sub">Esempio: Schivata</h3>
@@ -1438,17 +1440,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Se il tiro fallisce, l’attacco colpisce.</p>
 <p>Questo impedisce alla Difesa Attiva di diventare semplicemente una seconda possibilità gratuita.</p>
 <h3 class="man-sub">Esempio</h3>
-<p>Un personaggio possiede:</p>
-<p><b>Difesa Passiva 11</b></p>
-<p>Un nemico ottiene:</p>
-<p><b>12</b></p>
-<p>Normalmente sarebbe colpito.</p>
-<p>Il giocatore decide di tentare una Difesa Attiva.</p>
-<p>Tira e ottiene:</p>
-<p><b>9</b></p>
-<p>Non può tornare alla propria Difesa Passiva 11.</p>
-<p>Ha scelto di reagire e la reazione è fallita.</p>
-<p>L’attacco colpisce.</p>
+<p>Un personaggio possiede Difesa Passiva 11. Quando il nemico dichiara l’attacco, prima del tiro per colpire, sceglie di tentare una Difesa Attiva e spende la propria Reazione.</p>
+<p>L’attacco ottiene 12; la Difesa Attiva ottiene 9. Il personaggio viene colpito e non può tornare alla Difesa Passiva 11 dopo aver visto i risultati.</p>
 <h3 class="man-sub">La Difesa Attiva non infligge danni</h3>
 <p>Una normale Difesa Attiva serve esclusivamente a:</p>
 <h3 class="man-sub">neutralizzare l’attacco</h3>
@@ -2955,6 +2948,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h3 class="man-sub">Striker</h3>
 <p>(Combattente · Corpo a corpo)</p>
 <p><b>Skill di Ruolo:</b> Atletica oppure Acrobazia, a scelta.<b>Grado iniziale della Skill:</b> d8<b>Equipaggiamento:</b> nessuna arma dell'Arsenale compatibile.<b>Tratto:</b> Mani Nude<b>Firma:</b> Il colpo sfonda</p>
+<h4 class="man-lab">Effetti del Costruttore</h4>
+<p>Lo Striker può utilizzare Sbilancio, Presa, Sfondamento, Proiezione, Scatto, Balzo, Guardia, Furia e Schianto. Non possiede una Forma Area ordinaria di Stile.</p>
 <p>Alla creazione, il giocatore sceglie <b>Atletica d8 oppure Acrobazia d8</b> come Skill di Ruolo. La Skill scelta determina l'accesso ai Gradi dei Talenti dello Striker.</p>
 <h3 class="man-sub">Tratto · Mani Nude</h3>
 <p>(Sempre attivo · Gratuito)</p>
@@ -3001,7 +2996,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>(1 ST per colpo extra)</p>
 <p>Prerequisito: Raffica · MiglioratoPuoi effettuare <b>fino a 3 attacchi base aggiuntivi a mani nude per turno</b>, spendendo 1 ST per ogni attacco extra.Il limite di tre sostituisce quello delle versioni precedenti: non si sommano gli attacchi extra di Base, Migliorato e Maestria.Con l'attacco normale e tutti e tre gli attacchi extra, puoi quindi tentare <b>quattro attacchi a mani nude nello stesso turno</b>, spendendo 3 ST per la Raffica.</p>
 <h3 class="man-sub">Contraccolpo</h3>
-<p>Quando una tua <b>Tecnica con Contrattacco</b> raggiunge o supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata.Il Talento richiede quindi una Tecnica che possieda effettivamente l'effetto Contrattacco: non trasforma qualsiasi Difesa Attiva in un attacco gratuito.</p>
+<p>Quando utilizzi una Tecnica d’attacco Striker compatibile come Difesa Attiva e il risultato della tua difesa supera il tiro dell’attacco nemico, infliggi anche il normale Dado Danno della Tecnica utilizzata. Un pareggio neutralizza l’attacco ma non infligge danni. Contraccolpo non concede una Reazione aggiuntiva e non applica automaticamente gli altri effetti offensivi della Tecnica, salvo regole specifiche.</p>
 <h3 class="man-sub">Proiezione</h3>
 <p>Prerequisito: Presa di FerroPuoi scagliare un nemico che stai trattenendo fino a <b>5 metri</b>. Il bersaglio cade <b>Sbilanciato</b>.Se viene lanciato contro un altro nemico, anche il secondo cade Sbilanciato ed entrambi subiscono <b>1 Dado Danno</b>.Per utilizzare Proiezione devi già trattenere il bersaglio. Non puoi applicarla automaticamente a un nemico libero e distante.</p>
 <h3 class="man-sub">Pugni che Rompono</h3>
@@ -3042,6 +3037,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h3 class="man-sub">Swordsman</h3>
 <p>(Combattente · Lame)</p>
 <p><b>Skill di Ruolo:</b> Atletica<b>Grado iniziale:</b> d8<b>Equipaggiamento:</b> armi di tipo Lama compatibili<b>Tratto:</b> La Guardia<b>Firma:</b> Doppio fendente</p>
+<h4 class="man-lab">Effetti del Costruttore</h4>
+<p>Lo Swordsman può utilizzare Lacerazione, Scatto, Balzo, Guardia, Mira, Catena e Tutto o Niente. Può inoltre costruire Area Ravvicinata (d8, 2 ST): cerchio centrato su di sé, con raggio pari alla Portata effettiva della lama e senza Gittata. Aree a distanza richiedono una capacità che le conceda espressamente.</p>
 <p>Lo Swordsman utilizza <b>Atletica</b> come Skill di riferimento per la progressione dei Talenti.</p>
 <p>Le sue capacità specialistiche richiedono l'uso delle lame e non si applicano automaticamente ad armi contundenti, armi da distanza o attacchi a mani nude.</p>
 <h3 class="man-sub">Tratto · La Guardia</h3>
@@ -3092,13 +3089,13 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h3 class="man-sub">Più Spade · Maestria</h3>
 <p>Prerequisito: Più Spade · Migliorato · 1 volta per turnoL'attacco extra con la seconda lama concesso da Più Spade · Migliorato può essere una <b>Tecnica Swordsman</b> anziché un attacco base.Il Talento non aggiunge un terzo attacco: modifica ciò che puoi utilizzare come attacco extra.La Tecnica scelta mantiene i propri requisiti ed eventuali costi.</p>
 <h3 class="man-sub">Contraccolpo</h3>
-<p>Quando una tua <b>Tecnica con Contrattacco</b> raggiunge o supera l'attacco nemico, infligge anche il danno della Tecnica utilizzata.La capacità richiede una Tecnica che possieda effettivamente l'effetto Contrattacco.Contraccolpo non rende offensiva qualsiasi Parata.</p>
+<p>Quando utilizzi una Tecnica d’attacco Swordsman compatibile come Difesa Attiva e il risultato della tua difesa supera il tiro dell’attacco nemico, infliggi anche il normale Dado Danno della Tecnica utilizzata. Un pareggio neutralizza l’attacco ma non infligge danni. Contraccolpo non concede una Reazione aggiuntiva e non applica automaticamente gli altri effetti offensivi della Tecnica, salvo regole specifiche. Il Talento non trasforma la normale Parata in un attacco.</p>
 <h3 class="man-sub">Sguainata Fulminea</h3>
 <p>(2 ST)</p>
 <p>1 volta per scontroSe inizi lo scontro con la lama ancora nel fodero, puoi spendere <b>2 ST</b> per effettuare il tuo primo attacco <b>prima della normale Iniziativa</b>.Questo attacco viene effettuato con <b>Vantaggio</b>.La capacità richiede che la lama sia inizialmente nel fodero. Non si attiva semplicemente rinfoderandola durante il combattimento.</p>
 <h3 class="man-sub">Riposta</h3>
 <p>(1 ST)</p>
-<p>Prerequisito: ContraccolpoDopo un <b>Contrattacco riuscito</b>, puoi spendere <b>1 ST</b> per effettuare immediatamente un <b>attacco base con la stessa spada</b>.L'attacco concesso da Riposta è distinto dal danno prodotto da Contraccolpo.Riposta non concede un'Azione generica: permette esclusivamente l'attacco base descritto.</p>
+<p>Prerequisito: Contraccolpo. Dopo una Difesa Attiva riuscita eseguita con una Tecnica d’attacco Swordsman compatibile, puoi spendere 1 ST per effettuare immediatamente un attacco base con la stessa spada. Riposta concede un attacco distinto, con il proprio tiro per colpire e le normali difese, anche se la Difesa Attiva è riuscita con un pareggio. Il pareggio non infligge il danno di Contraccolpo. Riposta non concede un’Azione generica.</p>
 <h3 class="man-sub">Lama Indistruttibile</h3>
 <p>(Passivo)La tua lama non può essere <b>normalmente spezzata o danneggiata</b>.Può inoltre effettuare Parate anche contro armi di <b>Grado superiore</b>.Il Talento protegge la lama e amplia ciò che può parare, ma non significa che ogni Parata riesca automaticamente.</p>
 <h3 class="man-sub">d20 · Leggenda</h3>
@@ -3138,6 +3135,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Il suo percorso permette di estendere progressivamente la gittata delle armi, superare gli ostacoli alla mira e interferire con le azioni nemiche. Ai Gradi più elevati, lo Sniper può concentrare una sequenza di colpi su un singolo bersaglio attraverso il Talento Supremo Tempesta di Piombo.</p>
 <h4 class="man-lab">Scheda dello Stile</h4>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Caratteristica</b></th><th><b>Valore</b></th></tr></thead><tbody><tr><td>Ruolo</td><td>Combattente</td></tr><tr><td>Stile</td><td>Sniper</td></tr><tr><td>Skill di Ruolo</td><td>Osservazione</td></tr><tr><td>Grado iniziale</td><td>d8</td></tr><tr><td>Specializzazione</td><td>Attacchi a distanza</td></tr><tr><td>Tratto</td><td>La Distanza</td></tr><tr><td>Firma</td><td>Il punto scoperto</td></tr></tbody></table></div>
+<h4 class="man-lab">Effetti del Costruttore</h4>
+<p>Lo Sniper può utilizzare soltanto Scatto, Lacerazione, Mira, Rimbalzo e Catena. La gittata della Tecnica deriva dall’arma impugnata; Tiro Lungo e le capacità di Prestigio possono superarla. Le munizioni applicano i propri effetti e non fanno parte del Costruttore. Lo Sniper non possiede una Forma Area ordinaria di Stile.</p>
 <p>I Talenti dello Sniper destinati agli attacchi a distanza non si applicano automaticamente agli attacchi corpo a corpo.</p>
 <h4 class="man-lab">Tratto · La Distanza</h4>
 <p>Sempre attivo · Gratuito</p>
@@ -3269,6 +3268,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h4 class="man-lab">Scheda dello Stile</h4>
 <h4 class="man-lab">Crusher</h4>
 <ul class="man-elenco"><li>Combattente · Impatto</li><li>Skill di Ruolo: Atletica</li><li>Grado iniziale: d8</li><li>Equipaggiamento: armi contundenti compatibili</li><li>Tratto: Il Peso del Ferro</li><li>Firma: Impatto Devastante</li></ul>
+<h4 class="man-lab">Effetti del Costruttore</h4>
+<p>Il Crusher può utilizzare Sbilancio, Sfondamento, Proiezione, Guardia, Scudo d’Alleato, Furia, Schianto e Carica. Può inoltre costruire Area Ravvicinata (d8, 2 ST): cerchio centrato sul Crusher, con raggio pari alla Portata effettiva dell’arma contundente e senza Gittata. Aree più ampie richiedono una Fonte o una capacità speciale.</p>
 <p>Le Tecniche dello Stile Crusher possono essere utilizzate soltanto mentre il personaggio impugna e utilizza un’arma contundente compatibile.</p>
 <p>Non si applicano ai colpi a mani nude né agli attacchi con armi incompatibili.</p>
 <h4 class="man-lab">Tratto · Il Peso del Ferro</h4>
@@ -3350,9 +3351,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Tutti i nemici aggiuntivi coinvolti vengono spinti di 3 metri.</p>
 <p>Impatto a Catena amplia il numero massimo di bersagli secondari, senza aumentare automaticamente il danno.</p>
 <h4 class="man-lab">Contraccolpo</h4>
-<p>Passivo</p>
-<p>Quando una tua Tecnica con Contrattacco raggiunge o supera l’attacco nemico, infligge anche il danno della Tecnica utilizzata.</p>
-<p>Il Talento non trasforma qualsiasi Difesa Attiva in un attacco: richiede una Tecnica che possieda effettivamente Contrattacco.</p>
+<p>Passivo. Quando utilizzi una Tecnica d’attacco Crusher compatibile come Difesa Attiva e il risultato della tua difesa supera il tiro dell’attacco nemico, infliggi anche il normale Dado Danno della Tecnica utilizzata. Un pareggio neutralizza l’attacco ma non infligge danni. Contraccolpo non concede una Reazione aggiuntiva e non applica automaticamente gli altri effetti offensivi della Tecnica, salvo regole specifiche. La Tecnica deve essere compatibile con l’arma contundente impugnata.</p>
 <h4 class="man-lab">Baricentro Assoluto</h4>
 <p>Passivo</p>
 <p>Prerequisito: Piedi Piantati.</p>
@@ -4885,19 +4884,13 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p>Esempio: un pirata attacca un nemico con DP 9 e ottiene 14.</p>
 <p>Il margine è +5: l’attacco è un colpo pulito.</p>
 <h2 id="sez-6-10" class="man-sez"><span class="man-sez-n">6.10 ·</span> Difesa Attiva e Reazioni</h2>
-<p>La Difesa Attiva permette al personaggio di rispondere a un attacco nemico attraverso una capacità difensiva.</p>
-<p>Il personaggio utilizza la propria Reazione quando viene attaccato, rispettando i requisiti dell’effetto scelto.</p>
-<h4 class="man-lab">Contrattacco</h4>
-<p>Una Tecnica che possiede l’effetto Contrattacco può essere utilizzata per difendersi.</p>
-<p>Il personaggio effettua il tiro previsto dalla Tecnica.</p>
-<p>Per evitare l’attacco, il risultato del Contrattacco deve raggiungere o superare il tiro dell’avversario.</p>
-<p>Normalmente il Contrattacco impedisce di subire il colpo, ma non infligge danni. Talenti specifici, come Contraccolpo, possono modificare questa regola.</p>
+<p>La Difesa Attiva utilizza la Reazione del personaggio. Deve essere dichiarata quando viene scelto come bersaglio, prima del tiro per colpire dell’attaccante; sostituisce la Difesa Passiva per quell’attacco e non permette di tornare a essa dopo un fallimento.</p>
+<h4 class="man-lab">Tecnica d’attacco come Difesa Attiva</h4>
+<p>Oltre a Schivata e Blocco, puoi utilizzare una Tecnica d’attacco compatibile come Difesa Attiva. La scelta viene dichiarata quando sei scelto come bersaglio, prima del tiro per colpire dell’attaccante. Spendi la Reazione e paghi immediatamente tutti i normali costi ST della Tecnica; un fallimento non rimborsa la Stamina. Effettua il normale tiro della Tecnica: Attributo + Dado Tecnica, salvo regole specifiche. Se raggiungi o superi il tiro dell’attaccante, neutralizzi l’attacco; il pareggio favorisce il difensore. La Tecnica usata per difenderti non infligge normalmente danni e non applica automaticamente i propri effetti offensivi. Con il Talento Contraccolpo, soltanto se la difesa supera il tiro avversario infliggi anche il normale Dado Danno della Tecnica. Un pareggio difende ma non infligge danni.</p>
 <h4 class="man-lab">Parata</h4>
-<p>Un personaggio che impugna un’arma può tentare una Parata.</p>
+<p>Un personaggio che impugna un’arma compatibile può tentare una normale Parata, spendendo la Reazione e rispettando gli eventuali costi e requisiti della capacità utilizzata. Non richiede un effetto Parata nel Costruttore.</p>
 <h4 class="man-lab">Attributo + Dado dell’arma</h4>
-<p>Tiro di Parata</p>
-<p>La Parata riesce se raggiunge o supera il risultato dell’attacco nemico.</p>
-<p>Una Parata riuscita evita il colpo, ma non infligge automaticamente danni.</p>
+<p>La Parata riesce se raggiunge o supera il tiro dell’attacco nemico. Una Parata riuscita evita il colpo, ma non infligge automaticamente danni. Contraccolpo richiede invece una Difesa Attiva eseguita con una Tecnica d’attacco compatibile.</p>
 <p>Le Reazioni sono indipendenti dall’Azione Bonus: un personaggio che ha attivato l’Haki o un Talento nel proprio turno può ancora reagire se dispone della Reazione e soddisfa le condizioni richieste.</p>
 <h2 id="sez-6-11" class="man-sez"><span class="man-sez-n">6.11 ·</span> Danni e Punti Vita</h2>
 <p>Quando un attacco va a segno, il personaggio tira il Dado Danno previsto dall’arma o dalla Tecnica utilizzata.</p>
@@ -5027,7 +5020,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida"><b>Dado Danno:</b> determina il danno base inflitto quando la Tecnica colpisce.</p>
 <p class="man-guida">I due valori crescono insieme.</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Tecnica</b></th><th><b>Tiro per colpire</b></th><th><b>Danno base</b></th></tr></thead><tbody><tr><td>d4</td><td>Attributo + d4</td><td>1d4</td></tr><tr><td>d6</td><td>Attributo + d6</td><td>1d6</td></tr><tr><td>d8</td><td>Attributo + d8</td><td>1d8</td></tr><tr><td>d10</td><td>Attributo + d10</td><td>1d10</td></tr><tr><td>d12</td><td>Attributo + d12</td><td>1d12</td></tr><tr><td>d20</td><td>Attributo + d20</td><td>1d20</td></tr></tbody></table></div>
-<p class="man-guida">Il Dado Danno può essere modificato dagli effetti della Tecnica, dai Talenti e da altre capacità applicabili.</p>
+<p>Il Dado Danno può essere modificato da condizioni specifiche degli effetti, dai Talenti e da altre capacità applicabili. Il Costruttore ordinario non permette di acquistare dadi danno grezzi aggiuntivi.</p>
 <h3 class="man-sub">Limite dell'Attributo</h3>
 <p class="man-guida">Il Grado di una Tecnica <b>non può superare il Grado del suo Attributo</b>.</p>
 <p class="man-guida">Un personaggio con Forza d8 non può possedere una Tecnica basata su Forza di Grado d10.</p>
@@ -5046,58 +5039,40 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Durante la campagna il personaggio può creare ulteriori Tecniche senza un limite numerico universale, purché possieda i requisiti necessari e il Game Master ne approvi l’identità e la compatibilità.</p>
 <p class="man-guida">Anche una nuova Tecnica creata durante la campagna non può superare il Grado dell’Attributo che utilizza.</p>
 <h2 id="sez-7-4" class="man-sez"><span class="man-sez-n">7.4 ·</span> Le Fonti</h2>
-<p class="man-guida">La Fonte determina l'origine della Tecnica.</p>
-<p class="man-guida">Nel Costruttore, le Fonti selezionabili per le Tecniche costruite sono <b>Stile</b> e <b>Frutto</b>.</p>
-<h3 class="man-sub">Fonte · Stile</h3>
-<p class="man-guida">Una Tecnica di Stile deriva dall'addestramento del personaggio e dal suo modo di combattere.</p>
-<p class="man-guida">Lo Stile determina quali effetti possono essere selezionati.</p>
-<p class="man-guida">Le Tecniche dello <b>Striker</b> vengono eseguite esclusivamente a mani nude.</p>
-<p class="man-guida">Le Tecniche del <b>Crusher</b> richiedono un'arma contundente compatibile.</p>
-<p class="man-guida">Swordsman e Sniper seguono i rispettivi requisiti di equipaggiamento e le selezioni previste dal Costruttore.</p>
-<p class="man-guida">Ogni Stile dispone di una propria selezione di effetti compatibili. Avere un dado sufficientemente alto non permette di ignorare queste limitazioni.</p>
-<h3 class="man-sub">Fonte · Frutto</h3>
-<p class="man-guida">Una Tecnica del Frutto rappresenta un'applicazione del potere posseduto dal personaggio.</p>
-<p class="man-guida">Il giocatore determina l'aspetto narrativo dell'effetto, ma deve rispettare il Catalogo e le caratteristiche del Frutto concordate con il GM.</p>
-<p class="man-guida">Uno Zoan, per esempio, non può selezionare la Forma Area nel Costruttore ordinario.</p>
-<p class="man-guida">I Frutti non permettono automaticamente di ignorare i limiti dei dadi, gli slot o i costi in Stamina.</p>
-<h3 class="man-sub">Tecniche razziali e dell'Haki</h3>
-<p class="man-guida">La Tecnica razziale e le capacità dell'Haki rimangono fonti di potere del personaggio, ma non vengono create scegliendo liberamente effetti attraverso le due Fonti del Costruttore ordinario.</p>
-<p class="man-guida">Le loro regole dipendono dalla Razza e dal Colore dell'Haki posseduti.</p>
-<h4 class="man-lab"></h4>
+<p>La Fonte determina l’origine della Tecnica. Le Fonti selezionabili per le Tecniche costruite sono Stile e Frutto.</p>
+<h4 class="man-lab">Fonte · Stile</h4>
+<p>Una Tecnica di Stile deriva dall’addestramento del personaggio e utilizza esclusivamente gli effetti assegnati al proprio Stile (§7.8). Il Grado della Tecnica non amplia automaticamente il catalogo disponibile. Striker combatte a mani nude; Swordsman richiede una lama compatibile; Sniper utilizza un’arma a distanza compatibile; Crusher richiede un’arma contundente compatibile.</p>
+<p>Gli effetti concessi da munizioni, veleni, preparati, bombe, Moduli e altri oggetti appartengono al profilo dell’oggetto realmente utilizzato. Il Costruttore non li crea dal nulla e non sostituisce dosi, Soglie, durate o modalità d’uso degli oggetti consumabili.</p>
+<h4 class="man-lab">Fonte · Frutto</h4>
+<p>Una Tecnica del Frutto rappresenta un’applicazione del potere posseduto dal personaggio. Può accedere a effetti, Aree, Gittate o Zone Persistenti ulteriori soltanto quando il Nucleo del Potere e la Scheda del Frutto rendono realmente possibile quel risultato e ne autorizzano l’utilizzo. Il GM verifica la compatibilità con la Fonte.</p>
+<p>La sola trasformazione di uno Zoan non concede un’Area o una Zona. Eventuali poteri speciali, per esempio di uno Zoan Mitologico, seguono le capacità espressamente definite nella Scheda. Il Frutto non ignora Grado, slot o costi ST, salvo regole specifiche.</p>
+<h4 class="man-lab">Armi e dispositivi speciali</h4>
+<p>Un’arma speciale o un Modulo può concedere espressamente effetti o costruzioni ulteriori quando la sua regola e la sua funzione li rendono possibili. La capacità materiale da sola non amplia il catalogo. Restano dovuti Grado, slot e costi della Tecnica, salvo eccezioni dichiarate.</p>
+<h4 class="man-lab">Tecniche razziali e dell’Haki</h4>
+<p>La Tecnica razziale e le capacità dell’Haki rimangono fonti di potere del personaggio, ma non vengono create scegliendo liberamente effetti attraverso le due Fonti del Costruttore ordinario. Le loro regole dipendono dalla Razza e dal Colore dell’Haki posseduti.</p>
 <h2 id="sez-7-5" class="man-sez"><span class="man-sez-n">7.5 ·</span> Le Forme</h2>
 <p class="man-guida">La <b>Forma</b> determina la funzione principale della Tecnica.</p>
-<p class="man-guida"><b>Singolo</b>Una Tecnica diretta contro un bersaglio.</p>
-<h4 class="man-lab"></h4>
-<p class="man-guida"><b>Area</b>Un effetto che occupa una porzione dello spazio.</p>
-<h4 class="man-lab"></h4>
-<p class="man-guida"><b>Spostamento</b>Una Tecnica dedicata alla mobilità.</p>
-<h4 class="man-lab"></h4>
-<p class="man-guida"><b>Difesa</b>Una Tecnica per proteggersi o reagire.</p>
-<h4 class="man-lab"></h4>
-<p class="man-guida"><b>Potenziamento</b>Un effetto che migliora temporaneamente le capacità del personaggio.</p>
-<h4 class="man-lab"></h4>
-<p class="man-guida"><b>Canzone</b>Una Tecnica esclusiva del Musicista.</p>
-<p class="man-guida">Le Forme Difesa, Spostamento e Canzone utilizzano esclusivamente le rispettive famiglie di effetti.</p>
-<p class="man-guida">La Forma Area richiede una sagoma.</p>
-<p class="man-guida">La Forma Potenziamento utilizza un'Azione principale per applicare i propri effetti. Non deve essere confusa con l'attivazione di un Talento, che utilizza l'Azione Bonus.</p>
-<h4 class="man-lab"></h4>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th>Forma</th><th>Funzione</th></tr></thead><tbody><tr><td>Singolo</td><td>Una Tecnica diretta contro un bersaglio.</td></tr><tr><td>Area</td><td>Una Tecnica che coinvolge una porzione dello spazio, se autorizzata dalla Fonte.</td></tr><tr><td>Spostamento</td><td>Una Tecnica dedicata alla mobilità.</td></tr><tr><td>Difesa</td><td>Una Tecnica per proteggersi.</td></tr><tr><td>Potenziamento</td><td>Una Tecnica che migliora temporaneamente le capacità del personaggio.</td></tr><tr><td>Canzone</td><td>Una Tecnica esclusiva del Musicista.</td></tr></tbody></table></div>
+<p>Le Forme Difesa, Spostamento e Canzone utilizzano esclusivamente le rispettive famiglie di effetti. Proiezione, Scatto e Balzo possono essere inseriti anche in altre Forme compatibili, ma soltanto per gli Stili che li possiedono (§7.8.3).</p>
+<h4 class="man-lab">Area</h4>
+<p>La Forma Area non è una possibilità universale dello Stile. Swordsman e Crusher possono utilizzare soltanto Area Ravvicinata. Striker e Sniper non possiedono una Forma Area ordinaria di Stile.</p>
+<p>Area Ravvicinata richiede Grado minimo d8 e costa 2 ST. È un cerchio centrato sul personaggio, con raggio pari alla Portata effettiva dell’arma utilizzata. Non possiede un raggio proprio e non può ricevere Gittata. La sagoma non occupa slot Effetto; i 2 ST si sommano ai costi degli altri effetti della Tecnica. Un’arma con Portata 5 m genera quindi un’Area di raggio 5 m. Danni e Stati seguono le normali regole dell’Area (§7.9.3).</p>
+<p>Coni, linee, cerchi estesi e Aree a distanza richiedono una Fonte speciale che li autorizzi, come un Frutto, un’arma speciale o un’altra capacità espressa. Bombe, munizioni e preparati ad Area seguono il proprio profilo.</p>
+<h4 class="man-lab">Potenziamento</h4>
+<p>La Forma Potenziamento utilizza un’Azione principale per applicare i propri effetti. Non deve essere confusa con l’attivazione di un Talento o dell’Haki tramite Azione Bonus.</p>
+<h4 class="man-lab">Uso difensivo delle Tecniche d’attacco</h4>
+<p>L’uso di una Tecnica d’attacco compatibile come Difesa Attiva non richiede la Forma Difesa né un effetto Contrattacco. Segue §6.10, con Reazione, costi immediati e normale tiro della Tecnica.</p>
 <h2 id="sez-7-6" class="man-sez"><span class="man-sez-n">7.6 ·</span> Gli slot Effetto</h2>
 <p class="man-guida">Gli slot determinano quanti effetti può contenere una Tecnica.</p>
-<p class="man-guida">Le Tecniche di Grado d4 e d6 possiedono uno slot Effetto ciascuna; d8 e d10 ne possiedono due, d12 tre e d20 quattro. Ulteriori capacità possono prevedere slot aggiuntivi.</p>
-<p class="man-guida">Gli effetti sono selezionabili soltanto se il Grado della Tecnica soddisfa il requisito previsto dalla singola voce del Catalogo.</p>
+<p>Le Tecniche d4 e d6 possiedono 0 slot Effetto; d8 e d10 ne possiedono 2, d12 ne possiede 3 e d20 ne possiede 4. Ulteriori capacità possono prevedere slot aggiuntivi o eccezioni espresse.</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Grado Tecnica</b></th><th><b>Slot Effetto</b></th></tr></thead><tbody><tr><td>d4</td><td>0</td></tr><tr><td>d6</td><td>0</td></tr><tr><td>d8</td><td>2</td></tr><tr><td>d10</td><td>2</td></tr><tr><td>d12</td><td>3</td></tr><tr><td>d20</td><td>4</td></tr></tbody></table></div>
-<p class="man-guida">Una Tecnica può contenere meno effetti del massimo disponibile.</p>
-<p class="man-guida">Non è obbligatorio riempire tutti gli slot.</p>
-<h3 class="man-sub">Sblocco degli effetti</h3>
-<p class="man-guida">Ogni effetto possiede un Grado minimo.</p>
-<p class="man-guida">Per essere selezionato, il Grado della Tecnica deve essere almeno pari a quello richiesto.</p>
-<p class="man-guida">Un effetto con requisito d6 può essere scelto da una Tecnica d6 con uno slot libero; un effetto con requisito d8 non è disponibile alle Tecniche d4 o d6.</p>
-<h3 class="man-sub">Limite per famiglia</h3>
-<p class="man-guida">Di norma, una Tecnica può contenere <b>un solo effetto per famiglia</b>.</p>
-<p class="man-guida">Gli effetti della famiglia Potenziamento rappresentano un'eccezione e seguono le regole specifiche del Costruttore.</p>
-<p class="man-guida">Per la Forma Area si applicano inoltre limiti distinti: una sola sagoma e, facoltativamente, una sola Gittata.</p>
-<p class="man-guida">La sagoma <b>non occupa slot</b>, mentre la Gittata sì.</p>
-<h4 class="man-lab"></h4>
+<p>Una Tecnica può contenere meno effetti del massimo disponibile. Non è obbligatorio riempire tutti gli slot.</p>
+<h4 class="man-lab">Sblocco degli effetti</h4>
+<p>Per selezionare un effetto servono contemporaneamente il Grado minimo, uno slot disponibile e la compatibilità di Stile, Fonte e Forma. Il requisito d6 di un effetto non concede uno slot alla Tecnica.</p>
+<p>Nel catalogo ordinario, anche gli effetti con requisito d6 diventano quindi utilizzabili normalmente dal d8, quando la Tecnica dispone di slot. Una capacità che concede espressamente slot aggiuntivi o rende un effetto privo di slot può stabilire un’eccezione.</p>
+<h4 class="man-lab">Limite per famiglia</h4>
+<p>Di norma, una Tecnica può contenere un solo effetto per famiglia. Gli effetti Potenziamento seguono le regole specifiche del Costruttore.</p>
+<p>Una Tecnica Area utilizza una sola sagoma. La sagoma non occupa slot, ma conserva Grado minimo, costo e autorizzazione della Fonte. Un’Area speciale può avere al massimo una Gittata, che occupa uno slot salvo eccezioni espresse. Area Ravvicinata non può avere Gittata.</p>
 <h2 id="sez-7-7" class="man-sez"><span class="man-sez-n">7.7 ·</span> Costi in Stamina</h2>
 <p class="man-guida">Una Tecnica utilizzata senza potenziamenti non richiede automaticamente Stamina.</p>
 <p class="man-guida">Gli effetti aggiuntivi possiedono costi specifici, espressi in <b>ST</b>.</p>
@@ -5111,108 +5086,76 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Non esistono rimborsi automatici.</p>
 <p class="man-guida">Una risorsa viene restituita soltanto quando una capacità lo dichiara espressamente.</p>
 <h2 id="sez-7-8" class="man-sez"><span class="man-sez-n">7.8 ·</span> Catalogo degli effetti</h2>
-<p class="man-guida">Il Catalogo è organizzato in nove famiglie.</p>
-<p class="man-guida">I Gradi riportati nel Catalogo indicano il requisito minimo del singolo effetto. La Tecnica deve possedere uno slot disponibile e rispettare sia il requisito di Grado sia le compatibilità della propria Forma e Fonte.</p>
-<h4 class="man-lab"></h4>
-<h4 class="man-lab">7.8.1 · Danno</h4>
-<p class="man-guida">Gli effetti Danno modificano la quantità o le condizioni del danno inflitto.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Effetto</b></th><th><b>Grado min.</b></th><th><b>ST</b></th><th><b>Funzionamento</b></th></tr></thead><tbody><tr><td><b>+1d6 Dado Danno</b></td><td>d8</td><td>1</td><td>Aggiunge 1d6 al danno.</td></tr><tr><td><b>+1d8 Dado Danno</b></td><td>d10</td><td>2</td><td>Aggiunge 1d8 al danno.</td></tr><tr><td><b>+1d10 Dado Danno</b></td><td>d12</td><td>2</td><td>Aggiunge 1d10 al danno.</td></tr><tr><td><b>Colpo Pesante</b></td><td>d10</td><td>1</td><td>Il danno non può scendere sotto metà del valore del dado.</td></tr><tr><td><b>Carica</b></td><td>d10</td><td>2</td><td>Salti un turno; se non vieni colpito, nel turno successivo raddoppi i Dadi Danno, attacchi con Vantaggio e ignori la Copertura.</td></tr><tr><td><b>Sovraccarico</b></td><td>d12</td><td>3</td><td>Raddoppi i Dadi Danno, ma subisci 1d10 PV.</td></tr><tr><td><b>Colpo Annientante</b></td><td>d20</td><td>7</td><td>Triplica il danno.</td></tr><tr><td><b>Tutto o Niente</b></td><td>d12</td><td>5</td><td>Se manchi, non puoi difenderti dal prossimo attacco. Con un colpo pulito, il danno viene triplicato.</td></tr></tbody></table></div>
-<p class="man-guida">Il costo di <b>Colpo Annientante è 7 ST</b> nella configurazione del Costruttore di gestione.</p>
+<p>Il Costruttore definisce cosa fa una Tecnica; i Talenti definiscono quanto bene il personaggio combatte nel proprio Stile. Il catalogo ordinario non è universale: ogni Stile utilizza soltanto gli effetti indicati nella propria scheda.</p>
+<p>Il Dado Tecnica determina già il danno base. Non esistono più effetti ordinari che acquistano direttamente +1d6, +1d8 o +1d10 Dado Danno. Talenti, Firme, Haki, Frutti, armi, Moduli e munizioni possono concedere potenza aggiuntiva secondo le proprie regole. Restano le condizioni specifiche di Carica, Tutto o Niente e Schianto.</p>
+<p>I Gradi indicano il requisito minimo; non concedono slot o effetti. Con 0 slot a d4/d6, gli effetti che occupano slot sono normalmente utilizzabili dal d8 (§7.6).</p>
+<h4 class="man-lab">7.8.1 · Danno speciale</h4>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Catalogo degli effetti"><table class="man-tab man-tab-effetti"><thead><tr><th>Effetto</th><th>Grado min.</th><th>Costo</th><th>Stile</th><th>Funzionamento</th></tr></thead><tbody><tr><td>Carica</td><td>d10</td><td>2 ST</td><td>Crusher</td><td>Salti un turno; se non vieni colpito, nel turno successivo raddoppi i Dadi Danno, attacchi con Vantaggio e ignori Copertura.</td></tr><tr><td>Tutto o Niente</td><td>d12</td><td>5 ST</td><td>Swordsman</td><td>Se manchi, non puoi difenderti dal prossimo attacco; con un colpo pulito il danno è triplicato.</td></tr></tbody></table></div>
 <h4 class="man-lab">Carica non è la Corsa</h4>
-<p class="man-guida">L'effetto <i>Carica</i> è una preparazione offensiva specifica. Non introduce un'Azione Corsa e non permette di raddoppiare liberamente il Movimento.</p>
-<p class="man-guida">Il personaggio rinuncia al turno previsto dall'effetto per preparare il colpo successivo. Se viene colpito durante la preparazione, non soddisfa la condizione necessaria per ottenere i benefici.</p>
-<h4 class="man-lab"></h4>
+<p>Carica è una preparazione offensiva: il personaggio rinuncia al turno previsto e deve evitare di essere colpito per ottenere i benefici nel turno successivo. Non introduce un’Azione Corsa e non raddoppia liberamente il Movimento.</p>
 <h4 class="man-lab">7.8.2 · Controllo</h4>
-<p class="man-guida">Gli effetti Controllo modificano le condizioni di un bersaglio e possono limitarne le possibilità di agire.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Effetto</b></th><th><b>Grado min.</b></th><th><b>ST</b></th><th><b>Funzionamento</b></th></tr></thead><tbody><tr><td><b>Sbilancio</b></td><td>d6</td><td>1</td><td>Il bersaglio diventa Sbilanciato e perde la Reazione.</td></tr><tr><td><b>Lacerazione</b></td><td>d6</td><td>1</td><td>Applica Sanguinante.</td></tr><tr><td><b>Veleno</b></td><td>d6</td><td>1</td><td>Applica Avvelenato.</td></tr><tr><td><b>Presa</b></td><td>d8</td><td>1</td><td>Immobilizza il bersaglio finché viene mantenuta la presa; contesa di Forza ogni turno.</td></tr><tr><td><b>Accecante</b></td><td>d8</td><td>1</td><td>Applica Accecato; concede Salvezza.</td></tr><tr><td><b>Terrore</b></td><td>d8</td><td>1</td><td>Applica Atterrito; concede Salvezza.</td></tr><tr><td><b>Sfondamento</b></td><td>d8</td><td>2</td><td>Applica Stordito per un turno; concede Salvezza.</td></tr><tr><td><b>Paralisi</b></td><td>d12</td><td>2</td><td>Applica Paralizzato per un turno; concede Salvezza.</td></tr><tr><td><b>Sopore</b></td><td>d12</td><td>2</td><td>Applica Addormentato; concede Salvezza.</td></tr></tbody></table></div>
-<p class="man-guida">Gli effetti da <b>1 ST</b> tendono a limitare le capacità dell'avversario senza necessariamente impedirgli di agire.</p>
-<p class="man-guida">Gli effetti da <b>2 ST</b> possono impedire al bersaglio di utilizzare il proprio turno, quando la loro descrizione lo prevede.</p>
-<h4 class="man-lab">Terrore</h4>
-<p class="man-guida">Un bersaglio Atterrito non può avvicinarsi alla fonte del Terrore e attacca con Svantaggio.</p>
-<p class="man-guida">Può liberarsi dalla condizione superando una Salvezza in un turno successivo.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Catalogo degli effetti"><table class="man-tab man-tab-effetti"><thead><tr><th>Effetto</th><th>Grado min.</th><th>Costo</th><th>Stile</th><th>Funzionamento</th></tr></thead><tbody><tr><td>Sbilancio</td><td>d6</td><td>1 ST</td><td>Striker, Crusher</td><td>Applica Sbilanciato secondo le regole dello Stato.</td></tr><tr><td>Lacerazione</td><td>d6</td><td>1 ST</td><td>Swordsman, Sniper</td><td>Applica Sanguinante; lo stesso Stato non si cumula con sé stesso.</td></tr><tr><td>Presa</td><td>d8</td><td>1 ST/turno</td><td>Striker</td><td>Immobilizza finché mantenuta fisicamente; contesa di Forza ogni turno.</td></tr><tr><td>Sfondamento</td><td>d8</td><td>2 ST</td><td>Striker, Crusher</td><td>Applica Stordito per 1 turno; concede Salvezza secondo le regole dello Stato.</td></tr></tbody></table></div>
 <h4 class="man-lab">Presa</h4>
-<p class="man-guida">Il bersaglio rimane Immobilizzato finché la presa viene mantenuta.</p>
-<p class="man-guida">Ogni turno viene effettuata la contesa di Forza prevista dall'effetto.</p>
-<p class="man-guida">La Presa richiede che il modo in cui viene eseguita la Tecnica sia coerente con la possibilità di afferrare e trattenere il bersaglio.</p>
-<h4 class="man-lab"></h4>
+<p>Quando la Tecnica applica Presa, spendi 1 ST. Il bersaglio rimane Immobilizzato finché mantieni fisicamente la presa e continui a pagarne il costo. All’inizio di ogni tuo turno successivo, prima di agire, puoi spendere 1 ST per mantenerla; se non lo fai, termina immediatamente. Ogni turno viene inoltre risolta la normale contesa di Forza prevista dall’effetto. La Tecnica deve permettere realmente di afferrare e trattenere il bersaglio.</p>
 <h4 class="man-lab">7.8.3 · Spostamento</h4>
-<p class="man-guida">Gli effetti Spostamento permettono di modificare la posizione del personaggio, di un alleato o di un nemico.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Effetto</b></th><th><b>Grado min.</b></th><th><b>ST</b></th><th><b>Funzionamento</b></th></tr></thead><tbody><tr><td><b>Proiezione</b></td><td>d6</td><td>0</td><td>Spinge il bersaglio di 3 metri.</td></tr><tr><td><b>Attrazione</b></td><td>d8</td><td>1</td><td>Trascina il bersaglio di 3 metri verso di te.</td></tr><tr><td><b>Scatto</b></td><td>d6</td><td>1</td><td>Ti sposti fino a metà del tuo Movimento, prima o dopo il colpo.</td></tr><tr><td><b>Balzo</b></td><td>d6</td><td>1</td><td>Raggiungi una posizione distante o elevata fino a metà del tuo Movimento.</td></tr><tr><td><b>Inseguire</b></td><td>d8</td><td>2</td><td>Segui un bersaglio che si allontana fino al tuo intero Movimento e lo colpisci.</td></tr><tr><td><b>Strattone</b></td><td>d8</td><td>1</td><td>Sposti un alleato entro 3 metri; non consuma le sue risorse né il suo turno.</td></tr><tr><td><b>Scambio</b></td><td>d10</td><td>2</td><td>Scambi la tua posizione con quella di un alleato entro 10 metri.</td></tr></tbody></table></div>
-<p class="man-guida"><b>Proiezione</b>, <b>Scatto</b>, <b>Balzo</b> e <b>Inseguire</b> costituiscono un'eccezione: sono sempre disponibili e possono essere inseriti anche in una Tecnica che non possiede la Forma Spostamento.</p>
-<p class="man-guida">Rappresenta una spinta prodotta come conseguenza del colpo.</p>
-<p class="man-guida"><b>Attrazione</b> richiede un'arma, un oggetto o un potere capace di afferrare e trascinare fisicamente il bersaglio.</p>
-<p class="man-guida">Le distanze di Scatto, Balzo e Inseguire dipendono dal Movimento del personaggio.</p>
-<p class="man-guida">Un personaggio con Movimento 10 metri può utilizzare Scatto per spostarsi fino a 5 metri.</p>
-<h4 class="man-lab"></h4>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Catalogo degli effetti"><table class="man-tab man-tab-effetti"><thead><tr><th>Effetto</th><th>Grado min.</th><th>Costo</th><th>Stile</th><th>Funzionamento</th></tr></thead><tbody><tr><td>Proiezione</td><td>d6</td><td>1 ST</td><td>Striker, Crusher</td><td>Spinge il bersaglio di 3 m.</td></tr><tr><td>Scatto</td><td>d6</td><td>1 ST</td><td>Striker, Swordsman, Sniper</td><td>Ti sposti fino a metà Movimento prima o dopo il colpo.</td></tr><tr><td>Balzo</td><td>d6</td><td>1 ST</td><td>Striker, Swordsman</td><td>Raggiungi una posizione distante o elevata fino a metà Movimento.</td></tr></tbody></table></div>
+<p>Proiezione, Scatto e Balzo possono essere inseriti anche in una Tecnica di un’altra Forma compatibile, soltanto dagli Stili indicati. Non sono effetti disponibili a tutti gli Stili. Ogni effetto occupa il proprio slot, paga il proprio costo e conserva le condizioni necessarie a eseguirlo.</p>
+<p>Scatto e Balzo dipendono dal Movimento del personaggio: con Movimento 10 m la distanza ordinaria è fino a 5 m. Inseguire, Strattone e Scambio sono rimossi. Attrazione richiede una Fonte, un oggetto o una capacità che afferri e trascini realmente il bersaglio.</p>
 <h4 class="man-lab">7.8.4 · Difesa</h4>
-<p class="man-guida">Gli effetti Difesa sono disponibili per le Tecniche con Forma Difesa.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Effetto</b></th><th><b>Grado min.</b></th><th><b>ST</b></th><th><b>Funzionamento</b></th></tr></thead><tbody><tr><td><b>Guardia</b></td><td>d6</td><td>1</td><td>+2 Difesa Passiva fino al tuo prossimo turno.</td></tr><tr><td><b>Barriera</b></td><td>d8</td><td>1</td><td>Concede Copertura a te e agli alleati entro 5 metri.</td></tr><tr><td><b>Scudo d'Alleato</b></td><td>d8</td><td>1</td><td>Trasferisce su di te il colpo diretto a un compagno entro 5 metri.</td></tr><tr><td><b>Contrattacco</b></td><td>d10</td><td>1</td><td>Rispondi con una Tecnica d'attacco come Reazione; se raggiungi o superi il tiro nemico, ti difendi.</td></tr><tr><td><b>Parata</b></td><td>d10</td><td>1</td><td>Utilizzi Attributo + dado dell'arma per parare.</td></tr></tbody></table></div>
-<h4 class="man-lab">Contrattacco</h4>
-<p class="man-guida">Il Contrattacco può essere realizzato utilizzando una Tecnica d'attacco di qualsiasi Stile e Forma compatibile.</p>
-<p class="man-guida">Il tiro di Contrattacco riesce se raggiunge o supera quello dell'avversario.</p>
-<p class="man-guida">Un Contrattacco riuscito non infligge automaticamente danni.</p>
-<p class="man-guida">Un Talento come <i>Contraccolpo</i> può permettere di infliggere anche il danno della Tecnica utilizzata.</p>
-<h4 class="man-lab">Parata</h4>
-<p class="man-guida">La Parata viene eseguita utilizzando un'arma compatibile.</p>
-<p class="man-guida">Non richiede una Tecnica d'attacco specifica: il tiro utilizza l'Attributo appropriato e il dado dell'arma.</p>
-<p class="man-guida">Difesa Attiva e Parata utilizzano la Reazione secondo le regole del combattimento.</p>
-<h4 class="man-lab"></h4>
+<p>Gli effetti Difesa ordinari sono disponibili per la Forma Difesa.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Catalogo degli effetti"><table class="man-tab man-tab-effetti"><thead><tr><th>Effetto</th><th>Grado min.</th><th>Costo</th><th>Stile</th><th>Funzionamento</th></tr></thead><tbody><tr><td>Guardia</td><td>d8–d20</td><td>1–4 ST</td><td>Striker, Swordsman, Crusher</td><td>Aumenta la DP fino all’inizio del prossimo turno secondo la versione scelta.</td></tr><tr><td>Scudo d’Alleato</td><td>d8</td><td>1 ST</td><td>Crusher</td><td>Trasferisce su di te il colpo diretto a un alleato entro 5 m, rispettando le normali condizioni della Difesa.</td></tr></tbody></table></div>
+<h4 class="man-lab">Guardia · progressione per Grado</h4>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Progressione di Guardia"><table class="man-tab man-tab-effetti"><thead><tr><th>Grado minimo</th><th>Versione</th><th>Costo</th><th>Bonus DP</th></tr></thead><tbody><tr><td>d8</td><td>Guardia Base</td><td>1 ST</td><td>+2</td></tr><tr><td>d10</td><td>Guardia Migliorata</td><td>2 ST</td><td>+3</td></tr><tr><td>d12</td><td>Guardia Maestria</td><td>3 ST</td><td>+4</td></tr><tr><td>d20</td><td>Guardia Suprema</td><td>4 ST</td><td>+5</td></tr></tbody></table></div>
+<p>La versione scelta richiede almeno il Grado indicato della Tecnica, entro il limite del suo Attributo. Ogni versione superiore sostituisce la precedente: bonus e costi non si sommano. Guardia occupa uno slot e dura fino all’inizio del tuo prossimo turno.</p>
+<p>Contrattacco e Parata non sono più effetti del Costruttore. Una Tecnica d’attacco compatibile può essere usata direttamente come Difesa Attiva (§6.10); un’arma compatibile permette la normale Parata. Barriera richiede una Fonte o una capacità che generi espressamente quella protezione.</p>
 <h4 class="man-lab">7.8.5 · Potenziamento</h4>
-<p class="man-guida">Le Tecniche di Potenziamento richiedono un'<b>Azione principale</b>.</p>
-<p class="man-guida">I loro effetti vengono applicati per la durata indicata. Non utilizzano l'Azione Bonus riservata ai Talenti attivi e all'attivazione dell'Haki.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Effetto</b></th><th><b>Grado min.</b></th><th><b>ST</b></th><th><b>Funzionamento</b></th></tr></thead><tbody><tr><td><b>Slancio</b></td><td>d6</td><td>2</td><td>Raddoppia la Velocità per la scena.</td></tr><tr><td><b>Furia</b></td><td>d8</td><td>3</td><td>+1 gradino al Dado Danno delle Tecniche, ma DP −2 per la scena.</td></tr><tr><td><b>Mira</b></td><td>d8</td><td>3</td><td>+1 gradino al dado delle Tecniche utilizzato per colpire, per la scena.</td></tr><tr><td><b>Tempra</b></td><td>d10</td><td>2</td><td>DP +2, ma Dado Danno −1 gradino per la scena.</td></tr><tr><td><b>Oltre il Limite</b></td><td>d20</td><td>4</td><td>Aumenta il dado di un gradino oltre il normale tetto del d20 per tre turni.</td></tr></tbody></table></div>
-<h4 class="man-lab">Aumenti temporanei di Grado</h4>
-<p class="man-guida">Quando un effetto aumenta temporaneamente un dado di un Grado, si segue la progressione prevista per la componente modificata.</p>
-<p class="man-guida">Attributi e Skill che possiedono una progressione di Prestigio possono continuare oltre d20:</p>
-<div class="man-mappa"><div class="man-riga"><span>d20</span> <i class="man-freccia">→</i> <b>d20+d4</b></div><div class="man-riga"><span>d20+d4</span> <i class="man-freccia">→</i> <b>d20+d6</b></div><div class="man-riga"><span>d20+d6</span> <i class="man-freccia">→</i> <b>d20+d8</b></div><div class="man-riga"><span>d20+d8</span> <i class="man-freccia">→</i> <b>d20+d10</b></div><div class="man-riga"><span>d20+d10</span> <i class="man-freccia">→</i> <b>d20+d12</b></div><div class="man-riga"><span>d20+d12</span> <i class="man-freccia">→</i> <b>d20+d20</b></div></div>
-<p class="man-guida">L’aumento temporaneo modifica il pool per la durata prevista ma non concede automaticamente nuovi Talenti, capacità o altri benefici di Prestigio che il personaggio non possiede.</p>
-<p class="man-guida">Le Tecniche Custom, le Tecniche Razziali, il Dado del Frutto e le altre componenti che non possiedono una propria progressione di Prestigio hanno normalmente d20 come limite massimo.</p>
-<p class="man-guida">Un effetto che dichiara espressamente di poter superare d20, come Oltre il Limite, costituisce un’eccezione temporanea. In quel caso viene utilizzato il dado successivo della scala superiore esclusivamente per determinare il pool, senza trasformare la Tecnica in una capacità di Prestigio.</p>
-<p class="man-guida">Il Dado del Frutto non acquisisce una progressione di Prestigio e rimane limitato a d20.</p>
-<p class="man-guida">Slancio è un potenziamento specifico e non ripristina la Corsa come Azione generale.</p>
-<p class="man-guida">Il personaggio deve spendere l'Azione e la Stamina richieste per ottenere il beneficio.</p>
-<h4 class="man-lab"></h4>
+<p>Le Tecniche di Potenziamento richiedono un’Azione principale. Gli effetti durano per la scena e non utilizzano l’Azione Bonus riservata ai Talenti attivi e all’Haki.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Catalogo degli effetti"><table class="man-tab man-tab-effetti"><thead><tr><th>Effetto</th><th>Grado min.</th><th>Costo</th><th>Stile</th><th>Funzionamento</th></tr></thead><tbody><tr><td>Furia</td><td>d8</td><td>3 ST</td><td>Striker, Crusher</td><td>Per la scena: +1 gradino al Dado Danno delle Tecniche compatibili; DP −1.</td></tr><tr><td>Mira</td><td>d8</td><td>3 ST</td><td>Swordsman, Sniper</td><td>Per la scena: Vantaggio ai tiri per colpire con le Tecniche compatibili.</td></tr></tbody></table></div>
+<p>Furia aumenta soltanto il Dado Danno delle Tecniche compatibili, entro il normale limite d20: non aumenta il Dado Tecnica per colpire, il Grado della Tecnica o gli slot. Mira concede Vantaggio al tiro per colpire e non aumenta il dado.</p>
+<p>Slancio, Tempra e Oltre il Limite sono rimossi dal Costruttore ordinario. Attributi e Skill con una propria progressione di Prestigio seguono le loro regole; un incremento temporaneo non concede automaticamente nuovi Talenti o benefici di Prestigio.</p>
+<h4 class="man-lab">7.8.6 · Area</h4>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Catalogo degli effetti"><table class="man-tab man-tab-effetti"><thead><tr><th>Effetto</th><th>Grado min.</th><th>Costo</th><th>Stile</th><th>Funzionamento</th></tr></thead><tbody><tr><td>Area Ravvicinata</td><td>d8</td><td>2 ST</td><td>Swordsman, Crusher</td><td>Cerchio centrato su di sé; raggio pari alla Portata effettiva dell’arma. Nessuna Gittata; sagoma senza slot.</td></tr></tbody></table></div>
+<p>Area Ravvicinata richiede Grado minimo d8 e costa 2 ST. È un cerchio centrato sul personaggio, con raggio pari alla Portata effettiva dell’arma utilizzata. Non possiede un raggio proprio e non può ricevere Gittata. La sagoma non occupa slot Effetto; i 2 ST si sommano ai costi degli altri effetti della Tecnica. Un’arma con Portata 5 m genera quindi un’Area di raggio 5 m. Danni e Stati seguono le normali regole dell’Area (§7.9.3).</p>
+<h4 class="man-lab">7.8.7 · Concatenati</h4>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Catalogo degli effetti"><table class="man-tab man-tab-effetti"><thead><tr><th>Effetto</th><th>Grado min.</th><th>Costo</th><th>Stile</th><th>Funzionamento</th></tr></thead><tbody><tr><td>Schianto</td><td>d8</td><td>2 ST</td><td>Striker, Crusher</td><td>Se il bersaglio urta una superficie, un ostacolo o una creatura, subisce +1d8 danni.</td></tr><tr><td>Rimbalzo</td><td>d10</td><td>2 ST</td><td>Sniper</td><td>Secondo bersaglio entro 5 m dal primo; metà danno.</td></tr><tr><td>Catena</td><td>d12</td><td>2 ST</td><td>Swordsman, Sniper</td><td>Fino a tre bersagli in fila: danno pieno, metà, metà del secondo.</td></tr></tbody></table></div>
+<p>Questi effetti occupano slot e seguono le condizioni di §7.11. Aggancio è rimosso.</p>
+<h4 class="man-lab">7.8.8 · Profili per Fonti speciali</h4>
+<p>Accecante, Terrore, Paralisi, Sopore, Attrazione e Barriera sono profili di riferimento: non appartengono al catalogo ordinario di alcuno Stile. Si selezionano soltanto se una Fonte o una capacità li concede espressamente. Gli oggetti consumabili applicano invece il proprio profilo.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Catalogo degli effetti"><table class="man-tab man-tab-effetti"><thead><tr><th>Profilo speciale</th><th>Grado min.</th><th>Costo</th><th>Funzionamento</th></tr></thead><tbody><tr><td>Accecante</td><td>d8</td><td>1 ST</td><td>Applica Accecato; concede Salvezza.</td></tr><tr><td>Terrore</td><td>d8</td><td>1 ST</td><td>Applica Atterrito; concede Salvezza secondo le regole dello Stato.</td></tr><tr><td>Paralisi</td><td>d12</td><td>2 ST</td><td>Applica Paralizzato per 1 turno; concede Salvezza.</td></tr><tr><td>Sopore</td><td>d12</td><td>2 ST</td><td>Applica Addormentato; concede Salvezza.</td></tr><tr><td>Attrazione</td><td>d8</td><td>1 ST</td><td>Trascina il bersaglio di 3 m verso di te, se la Fonte può afferrarlo.</td></tr><tr><td>Barriera</td><td>d8</td><td>1 ST</td><td>Concede Copertura a te e agli alleati entro 5 m, se la Fonte genera la protezione.</td></tr></tbody></table></div>
+<p>Veleno utilizza una dose con effetti, Soglia, durata e modalità d’uso propri. Colpo Pesante, Sovraccarico e Colpo Annientante sono rimossi soltanto come effetti ordinari: i Talenti e le capacità omonime indipendenti mantengono le proprie regole.</p>
 <h2 id="sez-7-9" class="man-sez"><span class="man-sez-n">7.9 ·</span> Tecniche ad Area</h2>
-<p class="man-guida">Le Tecniche con Forma Area colpiscono una porzione dello spazio invece di limitarsi a un singolo bersaglio.</p>
-<p class="man-guida">Per costruirne una è necessario scegliere <b>una sagoma</b>.</p>
-<p class="man-guida">Le sagome disponibili appartengono a tre categorie:</p>
-<p class="man-guida"><b>Cono:</b> si espande a partire da un punto.</p>
-<p class="man-guida"><b>Linea:</b> attraversa uno spazio lungo una direzione.</p>
-<p class="man-guida"><b>Cerchio:</b> occupa un'area intorno al proprio centro.</p>
-<p class="man-guida">La sagoma non occupa uno slot Effetto.</p>
-<h4 class="man-lab">7.9.1 · Sagome</h4>
+<p>La Forma Area coinvolge una porzione dello spazio. L’accesso dipende dallo Stile o da una Fonte speciale e non è universale.</p>
+<h4 class="man-lab">Area Ravvicinata di Stile</h4>
+<p>Swordsman e Crusher possono costruire soltanto Area Ravvicinata attorno alla propria posizione. Striker e Sniper non possiedono una Forma Area ordinaria di Stile.</p>
+<p>Area Ravvicinata richiede Grado minimo d8 e costa 2 ST. È un cerchio centrato sul personaggio, con raggio pari alla Portata effettiva dell’arma utilizzata. Non possiede un raggio proprio e non può ricevere Gittata. La sagoma non occupa slot Effetto; i 2 ST si sommano ai costi degli altri effetti della Tecnica. Un’arma con Portata 5 m genera quindi un’Area di raggio 5 m. Danni e Stati seguono le normali regole dell’Area (§7.9.3).</p>
+<p>Fendente Sovrano non proietta Area Ravvicinata a distanza. Onda Titanica, Onda Sismica e altre propagazioni di Prestigio mantengono sagome, condizioni e costi propri, distinti dalla Forma Area.</p>
+<h4 class="man-lab">Aree speciali</h4>
+<p>Coni, linee, cerchi estesi, Gittate e altri profili ad Area sono disponibili soltanto quando una Fonte speciale li rende possibili e ne autorizza la costruzione. Un Frutto o un’arma speciale può concedere le sagome seguenti secondo la propria descrizione, rispettando Grado, slot e costi. Bombe, munizioni, preparati e altri usabili applicano direttamente il proprio profilo.</p>
+<h4 class="man-lab">7.9.1 · Sagome delle Aree speciali</h4>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Effetto</b></th><th><b>Grado min.</b></th><th><b>ST</b></th><th><b>Area</b></th></tr></thead><tbody><tr><td>Soffio</td><td>d6</td><td>0</td><td>Cono di 5 m</td></tr><tr><td>Onda</td><td>d8</td><td>1</td><td>Cono di 10 m</td></tr><tr><td>Marea</td><td>d12</td><td>3</td><td>Cono di 20 m</td></tr><tr><td>Solco</td><td>d6</td><td>0</td><td>Linea di 10 m, larga circa 1 m</td></tr><tr><td>Lancia</td><td>d10</td><td>2</td><td>Linea di 20 m</td></tr><tr><td>Squarcio</td><td>d12</td><td>4</td><td>Linea di 40 m</td></tr><tr><td>Scoppio</td><td>d8</td><td>1</td><td>Cerchio di raggio 3 m</td></tr><tr><td>Esplosione</td><td>d10</td><td>2</td><td>Cerchio di raggio 5 m</td></tr><tr><td>Deflagrazione</td><td>d12</td><td>4</td><td>Cerchio di raggio 10 m</td></tr><tr><td>Cataclisma</td><td>d20</td><td>6</td><td>Cerchio di raggio 20 m</td></tr></tbody></table></div>
-<p class="man-guida">Una Tecnica può contenere una sola sagoma.</p>
-<p class="man-guida">Il personaggio sceglie quindi se creare, per esempio, un cono oppure un cerchio. Non può combinare liberamente entrambe le sagome nello stesso effetto.</p>
-<h4 class="man-lab"></h4>
-<h4 class="man-lab">7.9.2 · Gittata</h4>
-<p class="man-guida">La Gittata determina quanto lontano può essere collocato il punto d'origine della Tecnica.</p>
+<p>Una Tecnica contiene una sola sagoma, che non occupa slot ma conserva il proprio costo e requisito di Grado. Queste sagome non sostituiscono Area Ravvicinata del catalogo ordinario.</p>
+<h4 class="man-lab">7.9.2 · Gittata delle Aree speciali</h4>
+<p>La Gittata determina quanto lontano può essere collocato il punto d’origine di un’Area speciale autorizzata dalla Fonte.</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Effetto</b></th><th><b>Grado min.</b></th><th><b>ST</b></th><th><b>Distanza</b></th></tr></thead><tbody><tr><td>Gittata Corta</td><td>d6</td><td>1</td><td>Fino a 10 m</td></tr><tr><td>Gittata Media</td><td>d8</td><td>2</td><td>Fino a 20 m</td></tr><tr><td>Gittata Lunga</td><td>d10</td><td>3</td><td>Fino a 40 m</td></tr></tbody></table></div>
-<p class="man-guida">La Gittata è facoltativa, ma occupa uno slot Effetto.</p>
-<p class="man-guida">Senza Gittata, l'area parte dal personaggio e può coinvolgerlo direttamente.</p>
-<h4 class="man-lab">Oltre la Gittata</h4>
-<p class="man-guida">Una Tecnica ad Area può essere utilizzata oltre la propria fascia di distanza, ma la Soglia del tiro aumenta di <b>4</b>.</p>
-<h4 class="man-lab">7.9.3 · Danni e stati ad Area</h4>
-<p class="man-guida">I bersagli interessati dalla Tecnica ad Area subiscono <b>metà del danno</b>.</p>
-<p class="man-guida">Gli stati applicati attraverso l'Area concedono una <b>Salvezza</b>.</p>
-<p class="man-guida">Queste regole si applicano salvo che una capacità specifica stabilisca un'eccezione.</p>
+<p>La Gittata è facoltativa e occupa uno slot Effetto. Senza Gittata, l’Area speciale parte dal personaggio e può coinvolgerlo direttamente. Area Ravvicinata non può ricevere Gittata.</p>
+<p>Soltanto un’Area speciale dotata di Gittata può essere utilizzata oltre la propria fascia di distanza con Soglia aumentata di 4, se compatibile con la Fonte. Questa regola non proietta Area Ravvicinata e non concede una gittata superiore alle armi Sniper: quella deriva dall’arma e dalle capacità che la estendono.</p>
+<h4 class="man-lab">7.9.3 · Danni e Stati ad Area</h4>
+<p>I bersagli interessati dalla Tecnica ad Area subiscono metà del danno. Gli Stati applicati attraverso l’Area concedono una Salvezza. Queste regole valgono anche per Area Ravvicinata, salvo un’eccezione espressa di una capacità specifica.</p>
 <h4 class="man-lab">7.9.4 · Occhio del Ciclone</h4>
-<h3 class="man-sub">Occhio del Ciclone</h3>
-<h4 class="man-lab">(d12)(1 ST)</h4>
-<p class="man-guida">Puoi scegliere quali bersagli <b>non vengono colpiti</b> dalla tua Tecnica ad Area.Permette, per esempio, di utilizzare un'esplosione contro i nemici senza coinvolgere i compagni presenti nell'area.</p>
-<h4 class="man-lab"></h4>
+<p>Profilo speciale: d12, 1 ST, uno slot Effetto salvo eccezioni espresse. Permette di scegliere quali bersagli non vengono colpiti da una Tecnica ad Area già autorizzata. Non concede da solo l’accesso alla Forma Area e non amplia il catalogo ordinario degli Stili. Il Talento Nessuno dei Miei modifica slot, costo e requisito per le Tecniche del Frutto secondo le proprie regole.</p>
 <h2 id="sez-7-10" class="man-sez"><span class="man-sez-n">7.10 ·</span> Zone Persistenti</h2>
 <p class="man-guida">Alcune Tecniche non si esauriscono al momento dell'impatto. Una nube velenosa può rimanere sospesa sul ponte, un incendio può continuare a bruciare oppure una massa di fango può trasformare il terreno in una trappola.</p>
 <p class="man-guida">Questi effetti prendono il nome di Zone Persistenti.</p>
 <p class="man-guida">Una Zona Persistente viene costruita attraverso una Tecnica con Forma Area. Utilizza la sagoma scelta per quella Tecnica e ne eredita le dimensioni.</p>
 <p class="man-guida">Non è possibile assegnare alla Zona una dimensione indipendente da quella dell'Area che la genera.</p>
 <h4 class="man-lab">7.10.1 · Requisiti della Fonte</h4>
-<p class="man-guida">Per creare una Zona Persistente, il personaggio deve possedere una Fonte capace di lasciare qualcosa nell'ambiente.</p>
-<p class="man-guida">La possibilità dipende dalla natura della Tecnica e viene valutata dal Game Master.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Fonte</b></th><th><b>Possibilità</b></th></tr></thead><tbody><tr><td>Logia</td><td>Può generare una Zona attraverso il proprio elemento.</td></tr><tr><td>Paramecia</td><td>Può farlo se il potere crea o altera materia.</td></tr><tr><td>Zoan</td><td>Normalmente non può generare Zone attraverso la sola trasformazione.</td></tr><tr><td>Arma o congegno</td><td>Può produrre una Zona se utilizza un preparato o un dispositivo adatto.</td></tr></tbody></table></div>
-<p class="man-guida">Un Logia del fumo potrebbe creare una Cortina. Un Paramecia che produce sostanze adesive potrebbe generare una Prigione. Un combattente privo di Frutto potrebbe ottenere un risultato analogo attraverso un'apposita bomba.</p>
+<p>Le Zone Persistenti sono effetti di Fonte speciale e non appartengono al catalogo ordinario degli Stili. Per crearne una attraverso una Tecnica, la Fonte deve poter lasciare realmente nell’ambiente materia, energia o una condizione persistente e autorizzare espressamente questo utilizzo.</p>
+<p>Il GM verifica la compatibilità con il potere o con il progetto dell’arma o congegno speciale. La sola disponibilità di un’Area non autorizza una Zona; Grado, slot e costi restano dovuti.</p>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th>Fonte</th><th>Possibilità</th></tr></thead><tbody><tr><td>Logia</td><td>Se l’elemento e la Scheda autorizzano una Zona persistente.</td></tr><tr><td>Paramecia</td><td>Se il potere e la Scheda autorizzano una condizione persistente.</td></tr><tr><td>Zoan</td><td>La sola trasformazione non concede Zone; eventuali poteri speciali richiedono autorizzazione nella Scheda.</td></tr><tr><td>Arma o congegno speciale</td><td>Se la regola e il progetto concedono espressamente una Zona. I consumabili usano il proprio profilo.</td></tr></tbody></table></div>
+<p>Un Logia del fumo potrebbe creare una Cortina; un Paramecia adesivo potrebbe generare una Prigione, se la Scheda autorizza queste applicazioni. Bombe, fumogeni, preparati e veleni che creano una zona applicano direttamente il proprio profilo e non vengono ricostruiti con il Costruttore.</p>
 <p class="man-guida">L'effetto meccanico deve essere compatibile con ciò che la Tecnica produce nella storia.</p>
 <h4 class="man-lab">7.10.2 · Catalogo delle Zone Persistenti</h4>
+<p>Terreno Alterato, Pantano, Cortina e Prigione restano profili di riferimento per Fonti speciali, non opzioni liberamente acquistabili da uno Stile.</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Effetto</b></th><th><b>Grado minimo</b></th><th><b>Costo</b></th><th><b>Funzionamento</b></th></tr></thead><tbody><tr><td>Terreno Alterato</td><td>d8</td><td>2 ST</td><td>Infligge 1d6 danni a chi si trova nella Zona all'inizio del proprio turno.</td></tr><tr><td>Terreno Alterato Lv2</td><td>d10</td><td>3 ST</td><td>Infligge 2d6 danni all'inizio del turno.</td></tr><tr><td>Terreno Alterato Lv3</td><td>d12</td><td>4 ST</td><td>Infligge 3d6 danni all'inizio del turno.</td></tr><tr><td>Pantano</td><td>d8</td><td>1 ST</td><td>Genera Terreno Difficile: Movimento dimezzato e impossibilità di effettuare Carica.</td></tr><tr><td>Cortina</td><td>d8</td><td>1 ST</td><td>Blocca la vista. Chi si trova all'interno e tenta di mirare verso l'esterno viene trattato come Accecato.</td></tr><tr><td>Prigione</td><td>d12</td><td>2 ST</td><td>Trattiene chi si trova nella Zona. Per uscire è necessario superare una Salvezza.</td></tr></tbody></table></div>
 <h4 class="man-lab">Terreno Alterato</h4>
 <p class="man-guida">Terreno Alterato provoca danni all'inizio del turno delle creature che si trovano nella Zona.</p>
@@ -5232,40 +5175,21 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Un personaggio intrappolato deve superare la Salvezza prevista per riuscire a uscire.</p>
 <p class="man-guida">La forma concreta della prigione dipende dalla Tecnica: radici, pietra, ghiaccio, materia adesiva o altri elementi compatibili.</p>
 <h2 id="sez-7-11" class="man-sez"><span class="man-sez-n">7.11 ·</span> Effetti Concatenati</h2>
-<p class="man-guida">Alcune Tecniche sono costruite per collegare un colpo a quello successivo oppure per creare una conseguenza che si manifesta dopo l'impatto.</p>
-<p class="man-guida">Gli effetti Concatenati permettono di rappresentare queste combinazioni.</p>
-<p class="man-guida">Un pugno può proiettare un avversario contro una parete. Un proiettile può rimbalzare su un secondo bersaglio. Un colpo può lasciare un marchio destinato a esplodere successivamente.</p>
-<h3 class="man-sub">Catalogo degli effetti Concatenati</h3>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Effetto</b></th><th><b>Grado minimo</b></th><th><b>Costo</b></th><th><b>Funzionamento</b></th></tr></thead><tbody><tr><td>Aggancio</td><td>d6</td><td>1 ST</td><td>Se il colpo va a segno, il prossimo attacco contro lo stesso bersaglio durante lo scontro ha Vantaggio.</td></tr><tr><td>Schianto</td><td>d8</td><td>1 ST</td><td>Se il bersaglio urta qualcosa o qualcuno, subisce +1d8 danni.</td></tr><tr><td>Rimbalzo</td><td>d10</td><td>2 ST</td><td>Il colpo raggiunge un secondo bersaglio entro 5 metri dal primo, infliggendo metà danno.</td></tr><tr><td>Catena</td><td>d12</td><td>2 ST</td><td>Il colpo può raggiungere fino a tre bersagli in fila, con danni progressivamente ridotti.</td></tr></tbody></table></div>
-<h4 class="man-lab">7.11.1 · Aggancio</h4>
-<p class="man-guida">Quando un attacco con Aggancio colpisce, prepara un'apertura contro il bersaglio.</p>
-<p class="man-guida">Il prossimo attacco effettuato contro quello stesso bersaglio durante lo scontro ottiene Vantaggio.</p>
-<p class="man-guida">Il beneficio riguarda l'attacco successivo, non tutti gli attacchi compiuti contro il nemico.</p>
-<h4 class="man-lab">7.11.2 · Schianto</h4>
-<p class="man-guida">Schianto infligge +1d8 danni quando il bersaglio urta una superficie, un ostacolo o un'altra creatura.</p>
-<p class="man-guida">L'effetto è particolarmente adatto a una Tecnica che possiede anche Proiezione.</p>
+<p>Gli Effetti Concatenati ordinari sono Schianto, Rimbalzo e Catena. Aggancio è rimosso. Il catalogo resta limitato agli Stili indicati.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Catalogo degli effetti"><table class="man-tab man-tab-effetti"><thead><tr><th>Effetto</th><th>Grado min.</th><th>Costo</th><th>Stile</th><th>Funzionamento</th></tr></thead><tbody><tr><td>Schianto</td><td>d8</td><td>2 ST</td><td>Striker, Crusher</td><td>Se il bersaglio urta una superficie, un ostacolo o una creatura, subisce +1d8 danni.</td></tr><tr><td>Rimbalzo</td><td>d10</td><td>2 ST</td><td>Sniper</td><td>Secondo bersaglio entro 5 m dal primo; metà danno.</td></tr><tr><td>Catena</td><td>d12</td><td>2 ST</td><td>Swordsman, Sniper</td><td>Fino a tre bersagli in fila: danno pieno, metà, metà del secondo.</td></tr></tbody></table></div>
+<h4 class="man-lab">7.11.1 · Schianto</h4>
+<p>Schianto (d8, 2 ST, Striker/Crusher) infligge +1d8 danni se il bersaglio urta una superficie, un ostacolo o un’altra creatura. È adatto a una Tecnica che possiede anche Proiezione: il dado aggiuntivo richiede una collisione valida e non è un acquisto generico di danno.</p>
 <h4 class="man-lab">Combinazione · Proiezione + Schianto</h4>
-<h3 class="man-sub">Urto del Porto</h3>
-<h4 class="man-lab">Una Tecnica Crusher di esempio</h4>
-<h4 class="man-lab">Tecnica d8</h4>
-<h4 class="man-lab">1 ST dagli effetti</h4>
-<h4 class="man-lab">Proiezione · 0 ST</h4>
-<p class="man-guida">Il bersaglio viene spinto di 3 metri.</p>
-<h4 class="man-lab">Schianto · 1 ST</h4>
-<p class="man-guida">Se durante la Proiezione il bersaglio urta una parete, un ostacolo o un altro nemico, subisce +1d8 danni.</p>
-<h4 class="man-lab">Risoluzione</h4>
-<p class="man-guida">Il personaggio effettua il normale tiro per colpire. Se l'attacco va a segno, infligge il proprio Dado Danno e applica Proiezione.</p>
-<p class="man-guida">Se il movimento provoca una collisione valida, applica anche il danno di Schianto.</p>
-<p class="man-guida">Proiezione appartiene alla famiglia Spostamento, mentre Schianto appartiene ai Concatenati. La combinazione rispetta quindi il limite ordinario di un effetto per famiglia.</p>
-<h4 class="man-lab">7.11.3 · Rimbalzo</h4>
-<p class="man-guida">Un attacco che colpisce può raggiungere un secondo bersaglio situato entro 5 metri dal primo.</p>
-<p class="man-guida">Il secondo bersaglio riceve metà del danno.</p>
-<p class="man-guida">Rimbalzo non concede la possibilità di scegliere un numero illimitato di bersagli: l'effetto riguarda esclusivamente il secondo.</p>
-<h4 class="man-lab">7.11.4 · Catena</h4>
-<p class="man-guida">Catena permette di raggiungere fino a tre bersagli disposti in fila.</p>
-<p class="man-guida">Si effettua un tiro per colpire ciascuno dei tre bersagli, ma il danno viene tirato una sola volta.</p>
+<h4 class="man-lab">Urto del Porto</h4>
+<p>Tecnica Crusher d8 con Proiezione (1 ST) + Schianto (2 ST): costo totale dagli effetti 3 ST e 2 slot occupati.</p>
+<p>Effettua il normale tiro per colpire. Se il colpo va a segno, infligge il normale Dado Danno e spinge il bersaglio di 3 m. Se la Proiezione provoca una collisione valida, aggiunge 1d8 danni.</p>
+<p>Proiezione appartiene alla famiglia Spostamento, Schianto ai Concatenati. La combinazione rispetta il limite ordinario di un effetto per famiglia e i 2 slot della Tecnica d8.</p>
+<h4 class="man-lab">7.11.2 · Rimbalzo</h4>
+<p>Rimbalzo (d10, 2 ST, Sniper) permette al colpo di raggiungere un secondo bersaglio entro 5 m dal primo, infliggendo metà danno. Non concede bersagli ulteriori; restano le normali condizioni del tiro e della difesa.</p>
+<h4 class="man-lab">7.11.3 · Catena</h4>
+<p>Catena (d12, 2 ST, Swordsman/Sniper) raggiunge fino a tre bersagli in fila. Si effettuano tiri per colpire separati; il danno viene tirato una sola volta.</p>
 <div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Bersaglio</b></th><th><b>Danno ricevuto</b></th></tr></thead><tbody><tr><td>Primo</td><td>Danno pieno</td></tr><tr><td>Secondo</td><td>Metà del danno</td></tr><tr><td>Terzo</td><td>Metà del danno del secondo</td></tr></tbody></table></div>
-<p class="man-guida">Esempio: il tiro di danno produce 16. Il primo bersaglio subisce 16 danni, il secondo 8 e il terzo 4, purché i rispettivi attacchi vadano a segno.</p>
+<p>Esempio: con 16 danni, i bersagli subiscono rispettivamente 16, 8 e 4, purché i rispettivi attacchi vadano a segno. Catena non estende automaticamente la portata dell’arma o della Fonte.</p>
 <h2 id="sez-7-12" class="man-sez"><span class="man-sez-n">7.12 ·</span> Melodie del Musicista</h2>
 <p class="man-guida">Il Musicista possiede una categoria esclusiva di Tecniche: le Canzoni.</p>
 <p class="man-guida">Una Canzone viene costruita scegliendo la Forma Canzone e una Melodia dal relativo Catalogo.</p>
@@ -5335,9 +5259,9 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Gli strumenti particolari possono possedere un ulteriore effetto speciale, definito dal Game Master.</p>
 <h2 id="sez-7-13" class="man-sez"><span class="man-sez-n">7.13 ·</span> Durata delle Tecniche</h2>
 <p class="man-guida">Una Tecnica che produce un effetto persistente deve specificarne la durata.</p>
-<p class="man-guida">Per le Tecniche ad Area, il Costruttore prevede le seguenti opzioni.</p>
-<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Durata</b></th><th><b>Costo aggiuntivo</b></th><th><b>Funzionamento</b></th></tr></thead><tbody><tr><td>Un turno</td><td>0 ST</td><td>La Tecnica mantiene l'effetto per un turno.</td></tr><tr><td>Mantieni</td><td>1 ST per turno</td><td>Il personaggio paga il mantenimento per prolungare l'effetto.</td></tr><tr><td>Tre turni</td><td>2 ST</td><td>L'effetto dura tre turni.</td></tr><tr><td>Tutta la scena</td><td>Nessun sovrapprezzo indicato</td><td>Opzione riservata al requisito d20+ previsto dal Costruttore.</td></tr></tbody></table></div>
-<p class="man-guida">Il requisito d20+ appartiene alle opzioni avanzate del Costruttore e non è un normale Grado iniziale selezionabile.</p>
+<p class="man-guida">Per le Tecniche ad Area, il Costruttore prevede le seguenti opzioni. Regolano la persistenza dell’Area e delle Zone autorizzate dalla Fonte; non sostituiscono le durate specifiche di Guardia, Furia, Mira o il mantenimento per turno di Presa.</p>
+<div class="man-tab-wrap"><table class="man-tab"><thead><tr><th><b>Durata</b></th><th><b>Costo aggiuntivo</b></th><th><b>Funzionamento</b></th></tr></thead><tbody><tr><td>Un turno</td><td>0 ST</td><td>La Tecnica mantiene l'effetto per un turno.</td></tr><tr><td>Mantieni</td><td>1 ST per turno</td><td>Il personaggio paga il mantenimento per prolungare l'effetto.</td></tr><tr><td>Tre turni</td><td>2 ST</td><td>L'effetto dura tre turni.</td></tr><tr><td>Tutta la scena</td><td>Nessun sovrapprezzo indicato</td><td>Opzione riservata alle Tecniche di Grado d20; restano i requisiti della Fonte.</td></tr></tbody></table></div>
+<p class="man-guida">Le Tecniche personalizzate non superano d20. Il requisito della durata «Tutta la scena» è d20 e non concede una progressione di Prestigio alla Tecnica.</p>
 <p class="man-guida">La durata di una Tecnica non modifica automaticamente quella dell'Haki o dei Talenti che le vengono associati attraverso una Special Move.</p>
 <p class="man-guida">Ogni capacità mantiene la propria durata.</p>
 <p class="man-guida">Esempio: una Zona può rimanere attiva per tre turni, mentre un Talento utilizzato insieme alla Tecnica può avere effetto soltanto sull'attacco iniziale. La persistenza della Zona non prolunga il Talento.</p>
@@ -5599,7 +5523,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <h4 class="man-lab">1 PIP</h4>
 <h4 class="man-lab">Difesa</h4>
 <p class="man-guida">Il personaggio anticipa il movimento dell'avversario.</p>
-<p class="man-guida">Aggiunge due dadi del proprio Grado di Osservazione a un tiro di evasione o Contrattacco.</p>
+<p>Aggiunge due dadi del proprio Grado di Osservazione a un tiro difensivo compatibile effettuato per una Schivata oppure per una Difesa Attiva eseguita con una Tecnica d’attacco. Il beneficio non concede automaticamente danni: eventuali danni in risposta richiedono un Talento come Contraccolpo e ne rispettano tutte le condizioni, compreso il superamento del tiro avversario.</p>
 <p class="man-guida">Esempio: con Osservazione d8, Anticipo aggiunge 2d8 al tiro difensivo compatibile.</p>
 <h4 class="man-lab">8.8.3 · d10: Maestro</h4>
 <h4 class="man-lab">3 PIP massimi</h4>
@@ -5795,7 +5719,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">d12 · La Padronanza<br>Il personaggio sviluppa applicazioni avanzate.</p>
 <p class="man-guida">d20 · Il Risveglio<br>Diventa possibile raggiungere la manifestazione più elevata del potere.</p>
 <h2 id="sez-9-5" class="man-sez"><span class="man-sez-n">9.5 ·</span> Costruire le Tecniche del Frutto</h2>
-<p class="man-guida">Le Tecniche del Frutto utilizzano il Costruttore presentato nel Capitolo 7.</p>
+<p>Le Tecniche del Frutto utilizzano il Costruttore del Capitolo 7, ma il Frutto è una Fonte speciale. Gli effetti devono essere coerenti con il Nucleo del Potere e con la Scheda di Identità. Quando la natura del Frutto lo permette, il GM può autorizzare effetti, Aree, Gittate o Zone Persistenti estranei al catalogo ordinario di uno Stile. L’autorizzazione non elimina Grado, slot o costi ST: un Frutto deve poter produrre realmente il risultato.</p>
 <p class="man-guida">Per crearne una, il giocatore seleziona Frutto come Fonte e definisce Attributo, Forma, Grado ed effetti.</p>
 <p class="man-guida">La Tecnica deve rispettare tre condizioni fondamentali:</p>
 <p class="man-guida">Il suo Grado non può superare il Dado dell'Attributo utilizzato.</p>
@@ -5804,8 +5728,8 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Il Game Master verifica la compatibilità narrativa della Tecnica.</p>
 <p class="man-guida">Un Frutto capace di produrre cera può creare barriere e strutture. Non può produrre liberamente fulmini soltanto perché nel Catalogo esiste un effetto adatto a un attacco elettrico.</p>
 <h3 class="man-sub">Tecniche d4 e d6</h3>
-<p class="man-guida">Come stabilito per il regolamento V2, le Tecniche d4 e d6 non dispongono di effetti aggiuntivi.</p>
-<p class="man-guida">Gli effetti del Catalogo diventano disponibili dal Grado d8, rispettando i relativi requisiti.</p>
+<p>Le Tecniche d4 e d6 possiedono 0 slot Effetto e non possono selezionare effetti che occupano slot, salvo una capacità che conceda espressamente un’eccezione.</p>
+<p>Gli effetti che occupano slot diventano normalmente disponibili dal Grado d8, rispettando i relativi requisiti. Le sagome autorizzate dalla Fonte non occupano slot, ma conservano il proprio Grado minimo e costo (§7.9).</p>
 <p class="man-guida">Questo limite riguarda le Tecniche costruite. Non elimina il Tratto naturale del Frutto o le capacità dei Talenti già posseduti.</p>
 <h3 class="man-sub">Costi</h3>
 <p class="man-guida">Le Tecniche del Frutto pagano la Stamina prevista dai propri effetti.</p>
@@ -5891,7 +5815,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">La permanenza naturale della materia indicata nella Scheda del Frutto rimane una proprietà separata.</p>
 <h4 class="man-lab">Nessuno dei Miei</h4>
 <h4 class="man-lab">Passivo</h4>
-<p class="man-guida">L'effetto Occhio del Ciclone diventa più accessibile per le tue Tecniche del Frutto.</p>
+<p>L’effetto Occhio del Ciclone diventa più accessibile per le tue Tecniche del Frutto. Non concede da solo la Forma Area: si applica soltanto a una Tecnica che possiede già un’Area valida secondo la natura del potere e le regole della Fonte.</p>
 <h4 class="man-lab">Quando lo utilizzi:</h4>
 <p class="man-guida">Non occupa slot.</p>
 <p class="man-guida">Non costa Stamina.</p>
@@ -5906,7 +5830,7 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 <p class="man-guida">Gli effetti Gittata delle Tecniche del Frutto sono gratuiti e non occupano slot.</p>
 <p class="man-guida">Le Tecniche ad Area aumentano il proprio raggio di un gradino.</p>
 <p class="man-guida">L'effetto Catena costa 1 ST in meno.</p>
-<p class="man-guida">Il Talento non concede automaticamente Gittata a una Tecnica che ne è priva. Elimina il costo della Gittata effettivamente selezionata.</p>
+<p>Portata Naturale non crea una Gittata, un’Area o Catena che il Frutto non potrebbe produrre. I benefici si applicano soltanto a Tecniche del Frutto già autorizzate dalla Fonte; eliminano il costo della Gittata effettivamente selezionata senza concederla automaticamente.</p>
 <p class="man-guida">Portata Naturale modifica le Tecniche, non la Portata ordinaria della Scheda del Frutto, e non permette utilizzi narrativi gratuiti oltre quella Portata.</p>
 <p class="man-guida">Le Tecniche ad Area aumentano di un gradino della normale progressione delle sagome; Catena non scende sotto il normale minimo applicabile.</p>
 <h4 class="man-lab">Forma di Combattimento</h4>

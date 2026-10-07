@@ -24,7 +24,8 @@ function talent(c,t){
    'Non aggiungerlo nuovamente a Schianto: quello richiede soltanto il proprio tiro di Forza.'),
   'impatto-devastante':()=>sheet(forceArea?'Propaga il colpo alle creature entro '+number(forceArea)+' m di raggio.':'Per propagare il colpo serve Forza in Prestigio.',
    'Dopo un colpo a mani nude o di una Tecnica Striker in mischia riuscito nel tuo turno, scegli un raggio entro il tuo massimo. Gli alleati nell’area devono difendersi; tu sei escluso.',
-   'Stesso tiro per colpire e danno iniziale, attenuato con la distanza. Niente secondo danno al bersaglio iniziale, Schianto o copia automatica degli effetti. Conservi il danno pieno agli oggetti di Pugni che Rompono.'),
+   'Stesso tiro per colpire e danno iniziale, attenuato con la distanza. Niente secondo danno al bersaglio iniziale, Schianto o copia automatica degli effetti. Conservi il danno pieno agli oggetti di Pugni che Rompono.',
+   'Lo Striker non ha Area ordinaria. Onda Titanica propaga un solo impatto; un’Area concessa da una Fonte speciale resta distinta e non moltiplica le origini dell’onda.'),
   'precisione-assoluta':()=>sheet('Puoi inserire Punto di Rottura nelle Tecniche Striker in mischia basate su Tecnica.',
    'L’effetto costa 2 ST e 1 slot. Dichiara una parte raggiungibile prima del tiro: con un colpo pulito (+4), sostituisce lo stato della Firma e conserva il danno.',
    'Mano inutilizzabile oppure Movimento volontario bloccato: fino a un’Azione di recupero o alla fine dello scontro. In alternativa interrompi una presa o danneggi un componente secondo i suoi PS. Una sola funzione neutralizzata per bersaglio.'),
@@ -33,7 +34,8 @@ function talent(c,t){
    'Ogni colpo ha tiro, portata e difese propri. Non concede altre Bonus, Movimento o attivazioni Haki. Le versioni precedenti di Raffica non si sommano.'),
   'fendente-sovrano':()=>sheet('Fendente a distanza con danno pieno. '+blade('slash')+'.',
    'Usa la portata dell’Attributo della Tecnica Swordsman in mischia, eseguita con una lama. Il costo è +1 ST, senza Bonus.',
-   'Restano Forma, bersagli, slot, effetti, ostacoli e difese normali. Gli effetti a contatto richiedono ancora il contatto.'),
+   'Restano Forma, bersagli, slot, effetti, ostacoli e difese normali. Gli effetti a contatto richiedono ancora il contatto.',
+   'Area Ravvicinata (d8, 2 ST) resta centrata su di te, con raggio pari alla Portata effettiva della lama: Fendente Sovrano non la proietta a distanza. Un fendente ad Area a distanza richiede una capacità espressa.'),
   'taglio-colossale':()=>sheet('Recidi un elemento dello scenario: sezione massima '+blade('cut')+'.',
    'Prima del prossimo attacco con lama nel tuo turno, dichiara l’elemento. Se colpisci, aggiungi un tiro completo dell’Attributo del colpo al danno strutturale.',
    'Servono portata valida e danno sufficiente ad azzerare i PS dell’elemento, dopo le resistenze. Il bonus non colpisce automaticamente creature nella sezione; l’Attributo deve essere in Prestigio per questa scala.'),
@@ -48,7 +50,8 @@ function talent(c,t){
    'Se il tiro supera la difesa per colpire ma una Parata riesce: metà del danno, arrotondata per difetto, poi le riduzioni; nessun altro effetto del colpo. Una Schivata riuscita evita tutto.'),
   'onda-sismica':()=>sheet(forceArea?'Cono di 90° fino a '+number(forceArea)+' m: danno attenuato, spinta di 3 m e Sbilanciamento.':'Per generare l’onda serve Forza in Prestigio.',
    'Dopo un colpo contundente di Forza riuscito nel tuo turno: deve trasmettersi a una superficie. Colpisce solo le creature appoggiate alla superficie collegata, compresi gli alleati; tu sei escluso.',
-   'Stesso tiro per colpire e danno iniziale, con fasce calcolate sul raggio massimo. Niente duplicazione sul bersaglio iniziale, Schianto o propagazione degli altri effetti. Le 3 ST sostituiscono il costo dell’onda precedente.'),
+   'Stesso tiro per colpire e danno iniziale, con fasce calcolate sul raggio massimo. Niente duplicazione sul bersaglio iniziale, Schianto o propagazione degli altri effetti. Le 3 ST sostituiscono il costo dell’onda precedente.',
+   'Area Ravvicinata (d8, 2 ST) resta centrata sul Crusher e usa la Portata effettiva dell’arma. Non genera più coni e non aumenta la sagoma di Onda Sismica.'),
   'guardia-frantumata':()=>sheet('Con un colpo contundente pulito, impedisci Parate e blocchi fisici fino alla fine del prossimo turno del bersaglio.',
    'Con un colpo riuscito ma non pulito: la sua prossima Parata o Difesa Attiva entro quella scadenza ha Svantaggio.',
    'Schivata, DP e riduzioni restano valide. Solo il bersaglio diretto; niente attivazione dal danno residuo di un colpo parato o dai bersagli dell’onda.'),
@@ -184,7 +187,7 @@ function haki(c,h,r){
   case 'armatura-totale-superiore':return sheet('Dimezzi i danni di tutti gli attacchi ricevuti '+until+'.','Arrotonda per eccesso, poi applica le riduzioni. Include attacchi con Haki, non automaticamente cadute o pericoli ambientali. Non si somma ad Armatura Totale sullo stesso attacco.');
   case 'esplosione-haki-superiore':return sheet('Esplosione di '+[0,0,20,30,50,100][lv-1]+' m di raggio dal punto raggiunto dal tuo attacco fisico.','I nemici secondari si difendono dallo stesso tiro: se colpiti ricevono metà del danno pertinente, per difetto, poi le riduzioni. Niente seconda copia sul bersaglio principale, Schianto o effetti riservati al singolo bersaglio.');
   case 'ryou-persistente':return sheet('Ryou per '+turns+' turni: raddoppi la componente di danno interno di un attacco fisico per tuo turno.','Scegli l’attacco prima del tiro: anche se manca consuma l’applicazione del turno. Non raddoppia tutto il danno. Dura '+until+' e termina se interrompi Armamento.');
-  case 'anticipo-superiore':return sheet('+3 tiri completi di Osservazione ('+die+') a una Schivata o un Contrattacco.','Dichiara prima del tiro scelto, '+until+'. Paga la Reazione o le risorse normali della difesa. Nessun dado al danno o Reazione aggiuntiva; non si somma ad Anticipo base.');
+  case 'anticipo-superiore':return sheet('+3 tiri completi di Osservazione ('+die+') a una Schivata o una Difesa Attiva con Tecnica d’attacco.','Dichiara prima del tiro scelto, '+until+'. Paga la Reazione e le risorse normali della difesa, inclusi i costi della Tecnica. Non concede danni in risposta: Contraccolpo richiede di superare il tiro avversario, mentre il pareggio difende soltanto. Nessun dado al danno o Reazione aggiuntiva; non si somma ad Anticipo base.');
   case 'previsione-breve-prolungata':return sheet('Gli attacchi fisici normali non ti colpiscono per '+turns+' turni.','Dura '+until+'. Haki e Area restano efficaci. Non protegge automaticamente da cadute, crolli o altri pericoli; termina interrompendo Osservazione.');
   case 'anticipo-offensivo':return sheet('+'+(r.saikyo?3:2)+' tiri completi di Osservazione ('+die+') al tiro per colpire di un solo attacco fisico.','Dichiara prima del tiro. Non aggiunge danni e non garantisce il colpo: le difese restano valide. L’attacco paga le proprie Azioni e Tecniche; non si somma ad Anticipo difensivo sullo stesso tiro.');
   case 'pressione-imperiale':return sheet('Un nemico percepito entro '+number([100,500,1000][lv-1])+' m perde la prossima Azione e interrompe Haki e Tecniche mantenute.','Non può riattivare i Colori fino alla fine del suo secondo turno successivo. Non cancella tutto il turno né i poteri non mantenuti.','Un utilizzo per combattimento, condiviso con Grido dell’Imperatore. Nessuna prova di Spirito aggiunta.');

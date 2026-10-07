@@ -1706,6 +1706,5988 @@
      "testo": "Al Livello Assoluto, l’attivazione dell’Haki del Re costa 1 PIP e Rivestimento del Re ne costa 2: utilizzarli insieme consuma l’intera riserva di 3 PIP. Il personaggio deve quindi recuperare i PIP attraverso un Riposo Breve prima di poter utilizzare nuovamente Rivestimento del Re."
     }
    ]
+  },
+  {
+   "sezione": "2.8",
+   "titolo": "Difesa Passiva e Difesa Attiva",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "La Difesa rappresenta la capacità di un personaggio di evitare, bloccare o resistere agli attacchi.",
+     "pezzi": [
+      {
+       "t": "La ",
+       "s": []
+      },
+      {
+       "t": "Difesa",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " rappresenta la capacità di un personaggio di evitare, bloccare o resistere agli attacchi.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "In Grand Line Chronicles esistono due forme principali di difesa:"
+    },
+    {
+     "t": "p",
+     "testo": "Difesa Passiva, sempre presente e senza alcun costo;",
+     "pezzi": [
+      {
+       "t": "Difesa Passiva",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", sempre presente e senza alcun costo;",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Difesa Attiva, una scelta volontaria che utilizza la Reazione del personaggio.",
+     "pezzi": [
+      {
+       "t": "Difesa Attiva",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", una scelta volontaria che utilizza la ",
+       "s": []
+      },
+      {
+       "t": "Reazione",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " del personaggio.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Le due difese rappresentano approcci diversi."
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Passiva è affidabile e automatica."
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Attiva permette invece di tentare direttamente di neutralizzare un attacco, ma comporta un rischio."
+    },
+    {
+     "t": "h",
+     "testo": "Difesa Passiva"
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Passiva è una Soglia fissa.",
+     "pezzi": [
+      {
+       "t": "La ",
+       "s": []
+      },
+      {
+       "t": "Difesa Passiva",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " è una Soglia fissa.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Non richiede tiri, Azioni, Reazioni o Stamina."
+    },
+    {
+     "t": "p",
+     "testo": "La formula è:"
+    },
+    {
+     "t": "h",
+     "testo": "Difesa Passiva = valore del dado dell’Attributo Razziale + 1"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Attributo Razziale",
+      "Difesa Passiva"
+     ],
+     "righe": [
+      [
+       "d4",
+       "5"
+      ],
+      [
+       "d6",
+       "7"
+      ],
+      [
+       "d8",
+       "9"
+      ],
+      [
+       "d10",
+       "11"
+      ],
+      [
+       "d12",
+       "13"
+      ],
+      [
+       "d20",
+       "21"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Per esempio:"
+    },
+    {
+     "t": "mappa",
+     "righe": [
+      [
+       "Attributo Razziale d8",
+       "Difesa Passiva 9"
+      ],
+      [
+       "Attributo Razziale d12",
+       "Difesa Passiva 13"
+      ]
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "L’Attributo Razziale"
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Passiva utilizza sempre l’Attributo potenziato dalla Razza.",
+     "pezzi": [
+      {
+       "t": "La Difesa Passiva utilizza sempre l’",
+       "s": []
+      },
+      {
+       "t": "Attributo potenziato dalla Razza",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Razza",
+      "Attributo Razziale"
+     ],
+     "righe": [
+      [
+       "Umano",
+       "scelto dal giocatore"
+      ],
+      [
+       "Uomo Pesce / Tritone",
+       "Forza"
+      ],
+      [
+       "Gigante",
+       "Forza"
+      ],
+      [
+       "Mink",
+       "Tecnica"
+      ],
+      [
+       "Lunarian",
+       "Spirito"
+      ],
+      [
+       "Longbraccio",
+       "Tecnica"
+      ],
+      [
+       "Lungagamba",
+       "Forza"
+      ],
+      [
+       "Cyborg",
+       "Forza"
+      ],
+      [
+       "Tontatta",
+       "Forza o Tecnica"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Se l’Attributo Razziale cresce durante la campagna, aumenta automaticamente anche la Difesa Passiva."
+    },
+    {
+     "t": "p",
+     "testo": "Per esempio:"
+    },
+    {
+     "t": "mappa",
+     "righe": [
+      [
+       "d8",
+       "Difesa 9"
+      ],
+      [
+       "d10",
+       "Difesa 11"
+      ],
+      [
+       "d12",
+       "Difesa 13"
+      ],
+      [
+       "d20",
+       "Difesa 21"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Passiva non aumenta automaticamente con il numero di Upgrade."
+    },
+    {
+     "t": "h",
+     "testo": "Attacco contro Difesa Passiva"
+    },
+    {
+     "t": "p",
+     "testo": "Quando un personaggio non utilizza una Difesa Attiva, l’attacco viene confrontato con la sua Difesa Passiva."
+    },
+    {
+     "t": "p",
+     "testo": "Per colpire:"
+    },
+    {
+     "t": "h",
+     "testo": "Attacco > Difesa Passiva"
+    },
+    {
+     "t": "p",
+     "testo": "Se il risultato è uguale alla Difesa:"
+    },
+    {
+     "t": "h",
+     "testo": "la Difesa tiene"
+    },
+    {
+     "t": "p",
+     "testo": "Se è inferiore:"
+    },
+    {
+     "t": "h",
+     "testo": "l’attacco manca"
+    },
+    {
+     "t": "p",
+     "testo": "Contro un bersaglio con:"
+    },
+    {
+     "t": "p",
+     "testo": "Difesa Passiva 9",
+     "pezzi": [
+      {
+       "t": "Difesa Passiva 9",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "avremmo quindi:"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Attacco",
+      "Risultato"
+     ],
+     "righe": [
+      [
+       "8",
+       "manca"
+      ],
+      [
+       "9",
+       "la Difesa tiene"
+      ],
+      [
+       "10",
+       "colpisce, margine +1"
+      ],
+      [
+       "12",
+       "colpisce, margine +3"
+      ],
+      [
+       "13",
+       "colpo con margine +4"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Il margine dell’attacco diventa importante per diverse regole di combattimento, comprese le Firme degli Stili.",
+     "pezzi": [
+      {
+       "t": "Il margine dell’attacco diventa importante per diverse regole di combattimento, comprese le ",
+       "s": []
+      },
+      {
+       "t": "Firme degli Stili",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Difesa Attiva"
+    },
+    {
+     "t": "p",
+     "testo": "Ogni combattente può tentare una Difesa Attiva quando viene bersagliato da un attacco.",
+     "pezzi": [
+      {
+       "t": "Ogni combattente può tentare una ",
+       "s": []
+      },
+      {
+       "t": "Difesa Attiva",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " quando viene bersagliato da un attacco.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Attiva utilizza:"
+    },
+    {
+     "t": "h",
+     "testo": "1 Reazione"
+    },
+    {
+     "t": "p",
+     "testo": "Il giocatore deve dichiararla quando viene scelto come bersaglio, prima del tiro per colpire dell’attaccante."
+    },
+    {
+     "t": "p",
+     "testo": "Invece di affidarsi alla propria Difesa Passiva, il personaggio tenta direttamente di raggiungere o superare il tiro dell’avversario."
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Attiva è quindi un azzardo."
+    },
+    {
+     "t": "p",
+     "testo": "Se riesce, l’attacco viene completamente neutralizzato."
+    },
+    {
+     "t": "p",
+     "testo": "Se fallisce, il colpo va a segno."
+    },
+    {
+     "t": "h",
+     "testo": "Cosa si tira"
+    },
+    {
+     "t": "p",
+     "testo": "Il tiro dipende da come il personaggio tenta di difendersi.",
+     "pezzi": [
+      {
+       "t": "Il tiro dipende da ",
+       "s": []
+      },
+      {
+       "t": "come il personaggio tenta di difendersi",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Le due forme base sono:"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Difesa Attiva",
+      "Tiro"
+     ],
+     "righe": [
+      [
+       "Schivata",
+       "Tecnica + Acrobazia"
+      ],
+      [
+       "Blocco",
+       "Forza + Atletica"
+      ]
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Tecnica d’attacco come Difesa Attiva"
+    },
+    {
+     "t": "p",
+     "testo": "Oltre a Schivata e Blocco, puoi utilizzare una Tecnica d’attacco compatibile come Difesa Attiva. La scelta viene dichiarata quando sei scelto come bersaglio, prima del tiro per colpire dell’attaccante. Spendi la Reazione e paghi immediatamente tutti i normali costi ST della Tecnica; un fallimento non rimborsa la Stamina. Effettua il normale tiro della Tecnica: Attributo + Dado Tecnica, salvo regole specifiche. Se raggiungi o superi il tiro dell’attaccante, neutralizzi l’attacco; il pareggio favorisce il difensore. La Tecnica usata per difenderti non infligge normalmente danni e non applica automaticamente i propri effetti offensivi. Con il Talento Contraccolpo, soltanto se la difesa supera il tiro avversario infliggi anche il normale Dado Danno della Tecnica. Un pareggio difende ma non infligge danni."
+    },
+    {
+     "t": "p",
+     "testo": "Il giocatore descrive il proprio approccio prima del tiro."
+    },
+    {
+     "t": "h",
+     "testo": "Schivata"
+    },
+    {
+     "t": "p",
+     "testo": "Una Schivata rappresenta evitare fisicamente la traiettoria dell’attacco attraverso velocità, coordinazione e controllo del corpo.",
+     "pezzi": [
+      {
+       "t": "Una ",
+       "s": []
+      },
+      {
+       "t": "Schivata",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " rappresenta evitare fisicamente la traiettoria dell’attacco attraverso velocità, coordinazione e controllo del corpo.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Si tira:"
+    },
+    {
+     "t": "h",
+     "testo": "Tecnica + Acrobazia"
+    },
+    {
+     "t": "p",
+     "testo": "Può rappresentare azioni come spostarsi all’ultimo istante, abbassarsi sotto un colpo, ruotare fuori dalla traiettoria o utilizzare agilità e tempismo per non essere raggiunti."
+    },
+    {
+     "t": "h",
+     "testo": "Blocco"
+    },
+    {
+     "t": "p",
+     "testo": "Un Blocco rappresenta affrontare direttamente l’attacco attraverso forza e solidità fisica.",
+     "pezzi": [
+      {
+       "t": "Un ",
+       "s": []
+      },
+      {
+       "t": "Blocco",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " rappresenta affrontare direttamente l’attacco attraverso forza e solidità fisica.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Si tira:"
+    },
+    {
+     "t": "h",
+     "testo": "Forza + Atletica"
+    },
+    {
+     "t": "p",
+     "testo": "Può significare fermare un colpo, contrastare una spinta, usare il proprio corpo per assorbire l’impatto o opporre forza alla forza."
+    },
+    {
+     "t": "p",
+     "testo": "Il modo preciso in cui avviene rimane narrativo, purché sia coerente con la situazione."
+    },
+    {
+     "t": "h",
+     "testo": "Se non possiedi la Skill"
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Attiva è disponibile a tutti i combattenti."
+    },
+    {
+     "t": "p",
+     "testo": "Non è quindi necessario possedere Acrobazia o Atletica per tentarla."
+    },
+    {
+     "t": "p",
+     "testo": "Se il personaggio non possiede la Skill appropriata, utilizza soltanto l’Attributo."
+    },
+    {
+     "t": "p",
+     "testo": "Per esempio, un personaggio senza Acrobazia può comunque tentare una Schivata tirando:"
+    },
+    {
+     "t": "h",
+     "testo": "Tecnica"
+    },
+    {
+     "t": "p",
+     "testo": "Un personaggio senza Atletica può tentare un Blocco tirando:"
+    },
+    {
+     "t": "h",
+     "testo": "Forza"
+    },
+    {
+     "t": "p",
+     "testo": "Naturalmente, possedere e sviluppare la Skill rende la Difesa Attiva molto più efficace."
+    },
+    {
+     "t": "h",
+     "testo": "Dichiarare la Difesa Attiva"
+    },
+    {
+     "t": "p",
+     "testo": "Quando un personaggio viene scelto come bersaglio di un attacco, deve decidere se affidarsi alla propria Difesa Passiva oppure utilizzare una Difesa Attiva prima che venga effettuato il tiro per colpire dell’attaccante."
+    },
+    {
+     "t": "p",
+     "testo": "Il difensore non conosce quindi il risultato dell’attacco nel momento in cui prende questa decisione."
+    },
+    {
+     "t": "p",
+     "testo": "Se sceglie la Difesa Attiva, utilizza la propria Reazione e il risultato del tiro difensivo sostituisce la Difesa Passiva per quell’attacco."
+    },
+    {
+     "t": "p",
+     "testo": "Una volta effettuata la scelta non è possibile tornare alla Difesa Passiva dopo aver visto i risultati."
+    },
+    {
+     "t": "h",
+     "testo": "Risolvere la Difesa Attiva"
+    },
+    {
+     "t": "mappa",
+     "righe": [
+      [
+       "Difesa Attiva ≥ Attacco",
+       "attacco difeso"
+      ],
+      [
+       "Attacco > Difesa Attiva",
+       "attacco riuscito"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Il pareggio favorisce sempre il difensore."
+    },
+    {
+     "t": "p",
+     "testo": "Se la Difesa Attiva fallisce, la Difesa Passiva non viene utilizzata come seconda protezione."
+    },
+    {
+     "t": "h",
+     "testo": "Esempio: Schivata"
+    },
+    {
+     "t": "p",
+     "testo": "Un nemico dichiara l’attacco. Prima del tiro, il bersaglio sceglie di schivare."
+    },
+    {
+     "t": "p",
+     "testo": "Il bersaglio possiede:"
+    },
+    {
+     "t": "p",
+     "testo": "Tecnica d8\nAcrobazia d6",
+     "pezzi": [
+      {
+       "t": "Tecnica d8\nAcrobazia d6",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Spende la propria Reazione. Si tirano quindi attacco e difesa."
+    },
+    {
+     "t": "p",
+     "testo": "L’attacco ottiene:"
+    },
+    {
+     "t": "p",
+     "testo": "14",
+     "pezzi": [
+      {
+       "t": "14",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Il bersaglio tira:"
+    },
+    {
+     "t": "p",
+     "testo": "d8 + d6",
+     "pezzi": [
+      {
+       "t": "d8 + d6",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Se ottiene:"
+    },
+    {
+     "t": "p",
+     "testo": "14 o più → schiva l’attacco"
+    },
+    {
+     "t": "p",
+     "testo": "Se ottiene:"
+    },
+    {
+     "t": "p",
+     "testo": "13 o meno → viene colpito"
+    },
+    {
+     "t": "h",
+     "testo": "Esempio: Blocco"
+    },
+    {
+     "t": "p",
+     "testo": "Un personaggio possiede:"
+    },
+    {
+     "t": "p",
+     "testo": "Forza d10\nAtletica d8",
+     "pezzi": [
+      {
+       "t": "Forza d10\nAtletica d8",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Un nemico dichiara l’attacco e il personaggio sceglie di bloccare prima del tiro."
+    },
+    {
+     "t": "p",
+     "testo": "L’attacco totalizza:"
+    },
+    {
+     "t": "p",
+     "testo": "16",
+     "pezzi": [
+      {
+       "t": "16",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Il personaggio tira:"
+    },
+    {
+     "t": "p",
+     "testo": "d10 + d8",
+     "pezzi": [
+      {
+       "t": "d10 + d8",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Con:"
+    },
+    {
+     "t": "p",
+     "testo": "16 o più → blocco riuscito"
+    },
+    {
+     "t": "p",
+     "testo": "Con:"
+    },
+    {
+     "t": "p",
+     "testo": "15 o meno → blocco fallito"
+    },
+    {
+     "t": "h",
+     "testo": "Difesa Passiva o Difesa Attiva"
+    },
+    {
+     "t": "p",
+     "testo": "Quando un personaggio tenta una Difesa Attiva, sta scegliendo di rischiare."
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Passiva non viene aggiunta al tiro.",
+     "pezzi": [
+      {
+       "t": "La Difesa Passiva ",
+       "s": []
+      },
+      {
+       "t": "non viene aggiunta",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " al tiro.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Non funziona neppure come rete di sicurezza dopo un fallimento."
+    },
+    {
+     "t": "p",
+     "testo": "Se il personaggio decide di utilizzare la propria Reazione per difendersi attivamente:"
+    },
+    {
+     "t": "p",
+     "testo": "il risultato della Difesa Attiva sostituisce la Difesa Passiva per quell’attacco.",
+     "pezzi": [
+      {
+       "t": "il risultato della Difesa Attiva sostituisce la Difesa Passiva per quell’attacco.",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Se il tiro fallisce, l’attacco colpisce."
+    },
+    {
+     "t": "p",
+     "testo": "Questo impedisce alla Difesa Attiva di diventare semplicemente una seconda possibilità gratuita."
+    },
+    {
+     "t": "h",
+     "testo": "Esempio"
+    },
+    {
+     "t": "p",
+     "testo": "Un personaggio possiede Difesa Passiva 11. Quando il nemico dichiara l’attacco, prima del tiro per colpire, sceglie di tentare una Difesa Attiva e spende la propria Reazione."
+    },
+    {
+     "t": "p",
+     "testo": "L’attacco ottiene 12; la Difesa Attiva ottiene 9. Il personaggio viene colpito e non può tornare alla Difesa Passiva 11 dopo aver visto i risultati."
+    },
+    {
+     "t": "h",
+     "testo": "La Difesa Attiva non infligge danni"
+    },
+    {
+     "t": "p",
+     "testo": "Una normale Difesa Attiva serve esclusivamente a:"
+    },
+    {
+     "t": "h",
+     "testo": "neutralizzare l’attacco"
+    },
+    {
+     "t": "p",
+     "testo": "Una Schivata riuscita non colpisce automaticamente il nemico."
+    },
+    {
+     "t": "p",
+     "testo": "Un Blocco riuscito non infligge automaticamente danni."
+    },
+    {
+     "t": "p",
+     "testo": "Anche se il risultato della Difesa supera enormemente quello dell’avversario, la Difesa Attiva base non produce un attacco gratuito."
+    },
+    {
+     "t": "h",
+     "testo": "Talenti e Contrattacchi"
+    },
+    {
+     "t": "p",
+     "testo": "Alcuni Talenti e capacità permettono di sviluppare ulteriormente la Difesa Attiva.",
+     "pezzi": [
+      {
+       "t": "Alcuni ",
+       "s": []
+      },
+      {
+       "t": "Talenti",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " e capacità permettono di sviluppare ulteriormente la Difesa Attiva.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Possono consentire, per esempio, di trasformare una difesa riuscita in un:"
+    },
+    {
+     "t": "p",
+     "testo": "Contrattacco, un effetto di controllo, uno Spostamento o un’altra conseguenza particolare.",
+     "pezzi": [
+      {
+       "t": "Contrattacco",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", un effetto di controllo, uno Spostamento o un’altra conseguenza particolare.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "In questi casi è il Talento a concedere l’effetto aggiuntivo.",
+     "pezzi": [
+      {
+       "t": "In questi casi è il ",
+       "s": []
+      },
+      {
+       "t": "Talento",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " a concedere l’effetto aggiuntivo.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Non è una proprietà della Difesa Attiva base."
+    },
+    {
+     "t": "p",
+     "testo": "Questo permette di creare vere specializzazioni difensive."
+    },
+    {
+     "t": "p",
+     "testo": "Un personaggio può essere semplicemente bravo a evitare i colpi."
+    },
+    {
+     "t": "p",
+     "testo": "Un altro può costruire il proprio stile attorno all’idea di:"
+    },
+    {
+     "t": "p",
+     "testo": "aspettare l’attacco, neutralizzarlo e punire immediatamente l’apertura."
+    },
+    {
+     "t": "h",
+     "testo": "Parate e capacità specifiche"
+    },
+    {
+     "t": "p",
+     "testo": "Tecniche, Talenti, armi, Haki o altre capacità possono fornire metodi differenti di Difesa Attiva."
+    },
+    {
+     "t": "p",
+     "testo": "Una capacità potrebbe, per esempio, permettere una Parata utilizzando una formula differente.",
+     "pezzi": [
+      {
+       "t": "Una capacità potrebbe, per esempio, permettere una ",
+       "s": []
+      },
+      {
+       "t": "Parata",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " utilizzando una formula differente.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Quando una capacità specifica indica quale tiro effettuare, quella formula sostituisce la normale:"
+    },
+    {
+     "t": "p",
+     "testo": "Tecnica + Acrobazia",
+     "pezzi": [
+      {
+       "t": "Tecnica + Acrobazia",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "oppure:"
+    },
+    {
+     "t": "p",
+     "testo": "Forza + Atletica",
+     "pezzi": [
+      {
+       "t": "Forza + Atletica",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "La regola specifica prevale sempre sulla regola generale."
+    },
+    {
+     "t": "h",
+     "testo": "La Reazione è una risorsa"
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Attiva consuma la Reazione del personaggio.",
+     "pezzi": [
+      {
+       "t": "La Difesa Attiva consuma la ",
+       "s": []
+      },
+      {
+       "t": "Reazione",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " del personaggio.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Una volta utilizzata, il personaggio non può spendere nuovamente quella stessa Reazione finché non viene recuperata secondo le normali regole del combattimento."
+    },
+    {
+     "t": "p",
+     "testo": "Questo significa che un personaggio deve scegliere quando vale davvero la pena rischiare."
+    },
+    {
+     "t": "p",
+     "testo": "Può utilizzare la Reazione per fermare il primo attacco che arriva."
+    },
+    {
+     "t": "p",
+     "testo": "Oppure conservarla, temendo qualcosa di più pericoloso poco dopo."
+    },
+    {
+     "t": "p",
+     "testo": "Allo stesso modo, se ha già utilizzato la propria Reazione per un’altra capacità, non può poi ricorrere alla normale Difesa Attiva."
+    },
+    {
+     "t": "p",
+     "testo": "La difesa diventa quindi una decisione tattica e non un tiro automatico effettuato contro ogni attacco."
+    },
+    {
+     "t": "h",
+     "testo": "Modificatori alla Difesa"
+    },
+    {
+     "t": "p",
+     "testo": "Alcune capacità possono modificare temporaneamente la Difesa Passiva:"
+    },
+    {
+     "t": "p",
+     "testo": "Difesa Passiva +2",
+     "pezzi": [
+      {
+       "t": "Difesa Passiva +2",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "oppure:"
+    },
+    {
+     "t": "p",
+     "testo": "Difesa Passiva −2",
+     "pezzi": [
+      {
+       "t": "Difesa Passiva −2",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Altre possono modificare direttamente una Difesa Attiva:"
+    },
+    {
+     "t": "p",
+     "testo": "+1 dado alla Schivata",
+     "pezzi": [
+      {
+       "t": "+1 dado alla Schivata",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "oppure:"
+    },
+    {
+     "t": "p",
+     "testo": "Vantaggio al prossimo Blocco",
+     "pezzi": [
+      {
+       "t": "Vantaggio al prossimo Blocco",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "I due sistemi rimangono distinti."
+    },
+    {
+     "t": "p",
+     "testo": "Un bonus alla Difesa Passiva non modifica automaticamente una Difesa Attiva e viceversa, salvo che una regola lo specifichi."
+    },
+    {
+     "t": "h",
+     "testo": "Crescita difensiva"
+    },
+    {
+     "t": "p",
+     "testo": "Un personaggio può migliorare la propria difesa in modi differenti."
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Passiva cresce aumentando l’Attributo Razziale.",
+     "pezzi": [
+      {
+       "t": "La ",
+       "s": []
+      },
+      {
+       "t": "Difesa Passiva",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " cresce aumentando l’Attributo Razziale.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Attiva migliora invece aumentando gli elementi utilizzati nei suoi tiri.",
+     "pezzi": [
+      {
+       "t": "La ",
+       "s": []
+      },
+      {
+       "t": "Difesa Attiva",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " migliora invece aumentando gli elementi utilizzati nei suoi tiri.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Per esempio:"
+    },
+    {
+     "t": "p",
+     "testo": "Tecnica + Acrobazia",
+     "pezzi": [
+      {
+       "t": "Tecnica + Acrobazia",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "oppure:"
+    },
+    {
+     "t": "p",
+     "testo": "Forza + Atletica",
+     "pezzi": [
+      {
+       "t": "Forza + Atletica",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Questo crea due percorsi difensivi differenti."
+    },
+    {
+     "t": "p",
+     "testo": "Un personaggio può possedere una Difesa Passiva molto alta e affidarsi principalmente a essa."
+    },
+    {
+     "t": "p",
+     "testo": "Un altro può avere una Difesa Passiva inferiore ma investire pesantemente in Tecnica e Acrobazia, trasformandosi in un combattente difficilissimo da colpire quando decide di utilizzare la propria Reazione."
+    },
+    {
+     "t": "h",
+     "testo": "Riassunto"
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Passiva è:",
+     "pezzi": [
+      {
+       "t": "La ",
+       "s": []
+      },
+      {
+       "t": "Difesa Passiva",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " è:",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "valore del dado dell’Attributo Razziale + 1"
+    },
+    {
+     "t": "p",
+     "testo": "Per colpire:"
+    },
+    {
+     "t": "h",
+     "testo": "Attacco > Difesa Passiva"
+    },
+    {
+     "t": "p",
+     "testo": "Il pareggio significa che la Difesa tiene."
+    },
+    {
+     "t": "p",
+     "testo": "Ogni combattente può inoltre utilizzare:"
+    },
+    {
+     "t": "h",
+     "testo": "1 Reazione"
+    },
+    {
+     "t": "p",
+     "testo": "per tentare una Difesa Attiva.",
+     "pezzi": [
+      {
+       "t": "per tentare una ",
+       "s": []
+      },
+      {
+       "t": "Difesa Attiva",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Le formule base sono:"
+    },
+    {
+     "t": "h",
+     "testo": "Schivata = Tecnica + Acrobazia"
+    },
+    {
+     "t": "h",
+     "testo": "Blocco = Forza + Atletica"
+    },
+    {
+     "t": "p",
+     "testo": "Se manca la Skill, si utilizza soltanto l’Attributo."
+    },
+    {
+     "t": "p",
+     "testo": "Per riuscire:"
+    },
+    {
+     "t": "p",
+     "testo": "Difesa Attiva ≥ Attacco"
+    },
+    {
+     "t": "p",
+     "testo": "In caso di pareggio, la Difesa tiene."
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Passiva non protegge nuovamente il personaggio dopo una Difesa Attiva fallita."
+    },
+    {
+     "t": "p",
+     "testo": "La Difesa Attiva base non infligge danni."
+    },
+    {
+     "t": "p",
+     "testo": "Talenti e capacità specifiche possono invece trasformarla in una Parata, un Contrattacco o in altre forme avanzate di difesa.",
+     "pezzi": [
+      {
+       "t": "Talenti e capacità specifiche",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " possono invece trasformarla in una Parata, un Contrattacco o in altre forme avanzate di difesa.",
+       "s": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sezione": "4.2",
+   "titolo": "Striker",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "Lo Striker è un Combattente che ha trasformato il proprio corpo in un'arma. Non utilizza spade, fucili o martelli: combatte attraverso pugni, calci, prese e combinazioni ravvicinate.",
+     "pezzi": [
+      {
+       "t": "Lo ",
+       "s": []
+      },
+      {
+       "t": "Striker",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " è un Combattente che ha trasformato il proprio corpo in un'arma. Non utilizza spade, fucili o martelli: combatte attraverso pugni, calci, prese e combinazioni ravvicinate.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Il suo percorso si sviluppa intorno a tre capacità: attaccare più volte, controllare l'avversario e sfruttare il movimento. Ai Gradi più elevati, queste abilità culminano nello Smash Hit, una combinazione di quattro colpi consecutivi.",
+     "pezzi": [
+      {
+       "t": "Il suo percorso si sviluppa intorno a tre capacità: ",
+       "s": []
+      },
+      {
+       "t": "attaccare più volte, controllare l'avversario e sfruttare il movimento",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ". Ai Gradi più elevati, queste abilità culminano nello ",
+       "s": []
+      },
+      {
+       "t": "Smash Hit",
+       "s": [
+        "i"
+       ]
+      },
+      {
+       "t": ", una combinazione di quattro colpi consecutivi.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Scheda dello Stile"
+    },
+    {
+     "t": "h",
+     "testo": "Striker"
+    },
+    {
+     "t": "p",
+     "testo": "(Combattente · Corpo a corpo)"
+    },
+    {
+     "t": "p",
+     "testo": "Skill di Ruolo: Atletica oppure Acrobazia, a scelta.Grado iniziale della Skill: d8Equipaggiamento: nessuna arma dell'Arsenale compatibile.Tratto: Mani NudeFirma: Il colpo sfonda",
+     "pezzi": [
+      {
+       "t": "Skill di Ruolo:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " Atletica oppure Acrobazia, a scelta.",
+       "s": []
+      },
+      {
+       "t": "Grado iniziale della Skill:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " d8",
+       "s": []
+      },
+      {
+       "t": "Equipaggiamento:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " nessuna arma dell'Arsenale compatibile.",
+       "s": []
+      },
+      {
+       "t": "Tratto:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " Mani Nude",
+       "s": []
+      },
+      {
+       "t": "Firma:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " Il colpo sfonda",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h3",
+     "testo": "Effetti del Costruttore"
+    },
+    {
+     "t": "p",
+     "testo": "Lo Striker può utilizzare Sbilancio, Presa, Sfondamento, Proiezione, Scatto, Balzo, Guardia, Furia e Schianto. Non possiede una Forma Area ordinaria di Stile."
+    },
+    {
+     "t": "p",
+     "testo": "Alla creazione, il giocatore sceglie Atletica d8 oppure Acrobazia d8 come Skill di Ruolo. La Skill scelta determina l'accesso ai Gradi dei Talenti dello Striker.",
+     "pezzi": [
+      {
+       "t": "Alla creazione, il giocatore sceglie ",
+       "s": []
+      },
+      {
+       "t": "Atletica d8 oppure Acrobazia d8",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " come Skill di Ruolo. La Skill scelta determina l'accesso ai Gradi dei Talenti dello Striker.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Tratto · Mani Nude"
+    },
+    {
+     "t": "p",
+     "testo": "(Sempre attivo · Gratuito)"
+    },
+    {
+     "t": "p",
+     "testo": "Lo Striker combatte esclusivamente a mani nude."
+    },
+    {
+     "t": "p",
+     "testo": "Nessuna arma dell'Arsenale è compatibile con lo Stile, inclusi tirapugni e armi improvvisate.",
+     "pezzi": [
+      {
+       "t": "Nessuna arma dell'Arsenale è compatibile con lo Stile",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", inclusi tirapugni e armi improvvisate.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "In cambio, i suoi attacchi a mani nude non sono limitati dal requisito del Grado dell'arma: lo Striker può utilizzare il pieno del proprio Attributo."
+    },
+    {
+     "t": "p",
+     "testo": "Il Tratto comprende inoltre una particolare predisposizione per prese e atterramenti. Questa descrizione non introduce, da sola, un bonus numerico aggiuntivo: gli effetti specifici vengono definiti dalle regole delle prese e dai Talenti acquisiti."
+    },
+    {
+     "t": "h",
+     "testo": "Firma · Il colpo sfonda"
+    },
+    {
+     "t": "p",
+     "testo": "(Sempre attiva · Gratuita)"
+    },
+    {
+     "t": "p",
+     "testo": "Quando uno Striker ottiene un colpo pulito con margine +4, il bersaglio subisce:",
+     "pezzi": [
+      {
+       "t": "Quando uno Striker ottiene un ",
+       "s": []
+      },
+      {
+       "t": "colpo pulito con margine +4",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", il bersaglio subisce:",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Stordito oppure Sbilanciato per 1 turno.",
+     "pezzi": [
+      {
+       "t": "Stordito oppure Sbilanciato per 1 turno.",
+       "s": [
+        "b"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "La Firma si applica ai colpi dello Stile e non richiede di essere acquistata come Talento."
+    },
+    {
+     "t": "p",
+     "testo": "Il personaggio può quindi utilizzare questa capacità fin dalla creazione."
+    },
+    {
+     "t": "h",
+     "testo": "Albero dei Talenti Striker"
+    },
+    {
+     "t": "p",
+     "testo": "I Talenti si sbloccano in base al Grado della Skill di Ruolo scelta alla creazione."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Grado richiesto",
+      "Fascia"
+     ],
+     "righe": [
+      [
+       "d8",
+       "Mozzo"
+      ],
+      [
+       "d10",
+       "Pirata"
+      ],
+      [
+       "d12",
+       "Veterano"
+      ],
+      [
+       "d20",
+       "Leggenda"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Raggiungere un Grado rende i Talenti disponibili, ma non li assegna automaticamente. Ogni Talento deve essere acquisito attraverso la normale progressione degli Upgrade, rispettando gli eventuali prerequisiti."
+    },
+    {
+     "t": "h",
+     "testo": "d8 · Mozzo"
+    },
+    {
+     "t": "p",
+     "testo": "I Talenti iniziali introducono gli attacchi aggiuntivi, il movimento rapido e le prime capacità di controllo e difesa."
+    },
+    {
+     "t": "h",
+     "testo": "Raffica · Base"
+    },
+    {
+     "t": "p",
+     "testo": "(1 ST)"
+    },
+    {
+     "t": "p",
+     "testo": "Attiva · 1 volta per turnoDopo aver effettuato un attacco a mani nude, puoi spendere 1 ST per compiere 1 attacco base aggiuntivo a mani nude.Il secondo colpo è un attacco base: il Talento non concede una seconda Azione con cui utilizzare liberamente un'altra Tecnica.",
+     "pezzi": [
+      {
+       "t": "Attiva · 1 volta per turnoDopo aver effettuato un attacco a mani nude, puoi spendere ",
+       "s": []
+      },
+      {
+       "t": "1 ST",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " per compiere ",
+       "s": []
+      },
+      {
+       "t": "1 attacco base aggiuntivo a mani nude",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Il secondo colpo è un attacco base: il Talento non concede una seconda Azione con cui utilizzare liberamente un'altra Tecnica.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Passo Fulmineo"
+    },
+    {
+     "t": "p",
+     "testo": "(Nessun costo ST indicato)"
+    },
+    {
+     "t": "p",
+     "testo": "1 volta per turno · Durante il MovimentoPuoi effettuare uno scatto verso un nemico senza provocare Reazioni causate dallo spostamento.Il Talento non stabilisce un numero aggiuntivo di metri: non concede automaticamente un Movimento illimitato.",
+     "pezzi": [
+      {
+       "t": "1 volta per turno · Durante il MovimentoPuoi effettuare uno scatto verso un nemico senza provocare ",
+       "s": []
+      },
+      {
+       "t": "Reazioni causate dallo spostamento",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Il Talento non stabilisce un numero aggiuntivo di metri: non concede automaticamente un Movimento illimitato.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Presa di Ferro"
+    },
+    {
+     "t": "p",
+     "testo": "Controllo · Nessun costo ST indicatoQuando afferri un nemico della tua stazza o inferiore, questo rimane Trattenuto finché non supera una prova di Forza contrapposta alla tua.Finché lo trattieni, il bersaglio non può allontanarsi.",
+     "pezzi": [
+      {
+       "t": "Controllo · Nessun costo ST indicatoQuando afferri un nemico della tua stazza o inferiore, questo rimane ",
+       "s": []
+      },
+      {
+       "t": "Trattenuto",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " finché non supera una prova di Forza contrapposta alla tua.Finché lo trattieni, il bersaglio ",
+       "s": []
+      },
+      {
+       "t": "non può allontanarsi",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Guardia del Combattente"
+    },
+    {
+     "t": "p",
+     "testo": "(1 volta per scontro)Quando un attacco ti colpisce, puoi ignorare un effetto secondario provocato dal colpo, come Stordito, Sbilanciato o Spinta.**Il danno viene comunque subito normalmente.**Questo Talento non annulla l'attacco e non riduce automaticamente i PV persi.",
+     "pezzi": [
+      {
+       "t": "(1 volta per scontro)Quando un attacco ti colpisce, puoi ignorare ",
+       "s": []
+      },
+      {
+       "t": "un effetto secondario",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " provocato dal colpo, come Stordito, Sbilanciato o Spinta.**Il danno viene comunque subito normalmente.**Questo Talento non annulla l'attacco e non riduce automaticamente i PV persi.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "d10 · Pirata"
+    },
+    {
+     "t": "p",
+     "testo": "Il secondo Grado permette allo Striker di intensificare le proprie combinazioni e sfruttare i colpi consecutivi per limitare le possibilità dell'avversario."
+    },
+    {
+     "t": "h",
+     "testo": "Raffica · Migliorato"
+    },
+    {
+     "t": "p",
+     "testo": "(1 ST per colpo extra)"
+    },
+    {
+     "t": "p",
+     "testo": "Prerequisito: Raffica · BasePuoi effettuare fino a 2 attacchi base aggiuntivi a mani nude per turno, spendendo 1 ST per ciascuno.I due attacchi extra rappresentano il limite complessivo raggiunto dalla Raffica: non si sommano all'attacco extra della versione Base.Esempio: effettui il tuo attacco normale, poi spendi 2 ST per tentare altri due attacchi base a mani nude.",
+     "pezzi": [
+      {
+       "t": "Prerequisito: Raffica · BasePuoi effettuare ",
+       "s": []
+      },
+      {
+       "t": "fino a 2 attacchi base aggiuntivi a mani nude per turno",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", spendendo 1 ST per ciascuno.I due attacchi extra rappresentano il limite complessivo raggiunto dalla Raffica: non si sommano all'attacco extra della versione Base.",
+       "s": []
+      },
+      {
+       "t": "Esempio:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " effettui il tuo attacco normale, poi spendi 2 ST per tentare altri due attacchi base a mani nude.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Pressione Costante"
+    },
+    {
+     "t": "p",
+     "testo": "(1 volta per turno)Se colpisci lo stesso bersaglio almeno due volte nel tuo turno, fino all'inizio del tuo prossimo turno quel bersaglio non può effettuare Reazioni contro di te.Il Talento premia le combinazioni riuscite: non si attiva se hai soltanto tentato due attacchi, ma ne hai messo a segno uno.",
+     "pezzi": [
+      {
+       "t": "(1 volta per turno)Se colpisci lo stesso bersaglio ",
+       "s": []
+      },
+      {
+       "t": "almeno due volte nel tuo turno",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", fino all'inizio del tuo prossimo turno quel bersaglio non può effettuare Reazioni contro di te.Il Talento premia le combinazioni riuscite: non si attiva se hai soltanto tentato due attacchi, ma ne hai messo a segno uno.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Slancio"
+    },
+    {
+     "t": "p",
+     "testo": "Se prima di colpire ti sei mosso di almeno 5 metri in linea verso il bersaglio, quando il colpo va a segno puoi spingerlo di 3 metri.Il Talento modifica la posizione del bersaglio. Non aggiunge automaticamente un dado al danno.",
+     "pezzi": [
+      {
+       "t": "Se prima di colpire ti sei mosso di almeno ",
+       "s": []
+      },
+      {
+       "t": "5 metri in linea verso il bersaglio",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", quando il colpo va a segno puoi spingerlo di ",
+       "s": []
+      },
+      {
+       "t": "3 metri",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Il Talento modifica la posizione del bersaglio. Non aggiunge automaticamente un dado al danno.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Guardia Rotta"
+    },
+    {
+     "t": "p",
+     "testo": "(1 volta per turno)Se colpisci lo stesso bersaglio almeno due volte nello stesso turno, il prossimo attacco effettuato contro di lui prima dell'inizio del tuo prossimo turno ottiene Vantaggio.Il beneficio può essere sfruttato anche da un alleato, purché sia il prossimo a effettuare un attacco contro quel bersaglio entro il limite temporale previsto.Guardia Rotta non riduce la Difesa Passiva di 2: il suo effetto è il Vantaggio al prossimo attacco.",
+     "pezzi": [
+      {
+       "t": "(1 volta per turno)Se colpisci lo stesso bersaglio ",
+       "s": []
+      },
+      {
+       "t": "almeno due volte nello stesso turno",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", il prossimo attacco effettuato contro di lui prima dell'inizio del tuo prossimo turno ottiene ",
+       "s": []
+      },
+      {
+       "t": "Vantaggio",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Il beneficio può essere sfruttato anche da un alleato, purché sia il prossimo a effettuare un attacco contro quel bersaglio entro il limite temporale previsto.Guardia Rotta ",
+       "s": []
+      },
+      {
+       "t": "non riduce la Difesa Passiva di 2",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ": il suo effetto è il Vantaggio al prossimo attacco.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "d12 · Veterano"
+    },
+    {
+     "t": "p",
+     "testo": "A questo Grado, lo Striker sviluppa combinazioni più lunghe e capacità avanzate legate a contrattacchi, prese e resistenza."
+    },
+    {
+     "t": "h",
+     "testo": "Raffica · Maestria"
+    },
+    {
+     "t": "p",
+     "testo": "(1 ST per colpo extra)"
+    },
+    {
+     "t": "p",
+     "testo": "Prerequisito: Raffica · MiglioratoPuoi effettuare fino a 3 attacchi base aggiuntivi a mani nude per turno, spendendo 1 ST per ogni attacco extra.Il limite di tre sostituisce quello delle versioni precedenti: non si sommano gli attacchi extra di Base, Migliorato e Maestria.Con l'attacco normale e tutti e tre gli attacchi extra, puoi quindi tentare quattro attacchi a mani nude nello stesso turno, spendendo 3 ST per la Raffica.",
+     "pezzi": [
+      {
+       "t": "Prerequisito: Raffica · MiglioratoPuoi effettuare ",
+       "s": []
+      },
+      {
+       "t": "fino a 3 attacchi base aggiuntivi a mani nude per turno",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", spendendo 1 ST per ogni attacco extra.Il limite di tre sostituisce quello delle versioni precedenti: non si sommano gli attacchi extra di Base, Migliorato e Maestria.Con l'attacco normale e tutti e tre gli attacchi extra, puoi quindi tentare ",
+       "s": []
+      },
+      {
+       "t": "quattro attacchi a mani nude nello stesso turno",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", spendendo 3 ST per la Raffica.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Contraccolpo"
+    },
+    {
+     "t": "p",
+     "testo": "Quando utilizzi una Tecnica d’attacco Striker compatibile come Difesa Attiva e il risultato della tua difesa supera il tiro dell’attacco nemico, infliggi anche il normale Dado Danno della Tecnica utilizzata. Un pareggio neutralizza l’attacco ma non infligge danni. Contraccolpo non concede una Reazione aggiuntiva e non applica automaticamente gli altri effetti offensivi della Tecnica, salvo regole specifiche."
+    },
+    {
+     "t": "h",
+     "testo": "Proiezione"
+    },
+    {
+     "t": "p",
+     "testo": "Prerequisito: Presa di FerroPuoi scagliare un nemico che stai trattenendo fino a 5 metri. Il bersaglio cade Sbilanciato.Se viene lanciato contro un altro nemico, anche il secondo cade Sbilanciato ed entrambi subiscono 1 Dado Danno.Per utilizzare Proiezione devi già trattenere il bersaglio. Non puoi applicarla automaticamente a un nemico libero e distante.",
+     "pezzi": [
+      {
+       "t": "Prerequisito: Presa di FerroPuoi scagliare un nemico che stai trattenendo fino a ",
+       "s": []
+      },
+      {
+       "t": "5 metri",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ". Il bersaglio cade ",
+       "s": []
+      },
+      {
+       "t": "Sbilanciato",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Se viene lanciato contro un altro nemico, anche il secondo cade Sbilanciato ed entrambi subiscono ",
+       "s": []
+      },
+      {
+       "t": "1 Dado Danno",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Per utilizzare Proiezione devi già trattenere il bersaglio. Non puoi applicarla automaticamente a un nemico libero e distante.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Pugni che Rompono"
+    },
+    {
+     "t": "p",
+     "testo": "I tuoi colpi a mani nude infliggono danno pieno contro porte, muri, strutture e oggetti.Questo Talento valorizza la capacità dello Striker di distruggere ostacoli senza utilizzare armi. Non attribuisce automaticamente la stessa proprietà contro qualsiasi riduzione del danno posseduta da un avversario corazzato.",
+     "pezzi": [
+      {
+       "t": "I tuoi colpi a mani nude infliggono ",
+       "s": []
+      },
+      {
+       "t": "danno pieno",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " contro porte, muri, strutture e oggetti.Questo Talento valorizza la capacità dello Striker di distruggere ostacoli senza utilizzare armi. Non attribuisce automaticamente la stessa proprietà contro qualsiasi riduzione del danno posseduta da un avversario corazzato.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Secondo Fiato"
+    },
+    {
+     "t": "p",
+     "testo": "(1 volta per scontro)Quando scendi sotto la metà dei tuoi PV, recuperi immediatamente:"
+    },
+    {
+     "t": "h",
+     "testo": "1d6 ST"
+    },
+    {
+     "t": "p",
+     "testo": "Il recupero avviene quando si verifica la condizione prevista dal Talento. Non richiede che il personaggio sia già a 0 ST."
+    },
+    {
+     "t": "h",
+     "testo": "d20 · Leggenda"
+    },
+    {
+     "t": "h",
+     "testo": "Talento Supremo · Smash Hit"
+    },
+    {
+     "t": "h",
+     "testo": "Smash Hit"
+    },
+    {
+     "t": "p",
+     "testo": "(Ultimate)"
+    },
+    {
+     "t": "h",
+     "testo": "5 ST"
+    },
+    {
+     "t": "p",
+     "testo": "Costo"
+    },
+    {
+     "t": "h",
+     "testo": "1×"
+    },
+    {
+     "t": "p",
+     "testo": "Per scontro"
+    },
+    {
+     "t": "p",
+     "testo": "Richiede il permesso del Game Master.Smash Hit è una combinazione totale contro un singolo bersaglio, risolta attraverso quattro tiri per colpire consecutivi.Tutti e quattro i tiri utilizzano:**Attributo + Atletica, con Vantaggio.**Ogni colpo riuscito contribuisce a determinare il danno finale della combinazione.",
+     "pezzi": [
+      {
+       "t": "Richiede il permesso del Game Master.Smash Hit è una combinazione totale contro ",
+       "s": []
+      },
+      {
+       "t": "un singolo bersaglio",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", risolta attraverso quattro tiri per colpire consecutivi.Tutti e quattro i tiri utilizzano:**Attributo + Atletica, con Vantaggio.**Ogni colpo riuscito contribuisce a determinare il danno finale della combinazione.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Esito della combinazione"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Colpi a segno",
+      "Danno finale",
+      "Effetto"
+     ],
+     "righe": [
+      [
+       "0",
+       "Nessuno",
+       "Nessuno"
+      ],
+      [
+       "1",
+       "1 Dado Danno",
+       "Nessuno"
+      ],
+      [
+       "2",
+       "2 Dadi Danno",
+       "Nessuno"
+      ],
+      [
+       "3",
+       "4 Dadi Danno",
+       "Stordito"
+      ],
+      [
+       "4",
+       "6 Dadi Danno",
+       "Stordito"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "**Il Dado Danno è Atletica.**Il danno viene tirato una sola volta, al termine della combinazione.Non si tratta di quattro normali attacchi separati: sono quattro tiri utilizzati per risolvere un'unica combinazione.",
+     "pezzi": [
+      {
+       "t": "**Il Dado Danno è Atletica.**Il danno viene tirato ",
+       "s": []
+      },
+      {
+       "t": "una sola volta, al termine della combinazione",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Non si tratta di quattro normali attacchi separati: sono quattro tiri utilizzati per risolvere un'unica combinazione.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Smash Hit · Regole particolari"
+    },
+    {
+     "t": "p",
+     "testo": "Smash Hit funziona interamente secondo le proprie regole. Non applica altre Tecniche, Talenti, la Firma dello Stile o effetti dell'arma, salvo ciò che è indicato espressamente nella sua descrizione."
+    },
+    {
+     "t": "p",
+     "testo": "Questo significa, per esempio, che i singoli colpi della combinazione non attivano Pressione Costante, Guardia Rotta o Il colpo sfonda.",
+     "pezzi": [
+      {
+       "t": "Questo significa, per esempio, che i singoli colpi della combinazione non attivano ",
+       "s": []
+      },
+      {
+       "t": "Pressione Costante",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", ",
+       "s": []
+      },
+      {
+       "t": "Guardia Rotta",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " o ",
+       "s": []
+      },
+      {
+       "t": "Il colpo sfonda",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento utilizza sempre Atletica, sia per i quattro tiri per colpire sia per il Dado Danno.",
+     "pezzi": [
+      {
+       "t": "Il Talento utilizza sempre ",
+       "s": []
+      },
+      {
+       "t": "Atletica",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", sia per i quattro tiri per colpire sia per il Dado Danno.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Esempio · Smash Hit con Atletica d20Lo Striker effettua quattro tiri consecutivi con Attributo + Atletica, tutti con Vantaggio.Se tutti e quattro vanno a segno, al termine della combinazione infligge:",
+     "pezzi": [
+      {
+       "t": "Esempio · Smash Hit con Atletica d20",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": "Lo Striker effettua quattro tiri consecutivi con Attributo + Atletica, tutti con Vantaggio.Se tutti e quattro vanno a segno, al termine della combinazione infligge:",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "6d20 danni"
+    },
+    {
+     "t": "p",
+     "testo": "Il bersaglio subisce inoltre Stordito.Se soltanto tre colpi vanno a segno, il danno finale è invece 4d20, sempre con Stordito.",
+     "pezzi": [
+      {
+       "t": "Il bersaglio subisce inoltre ",
+       "s": []
+      },
+      {
+       "t": "Stordito",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Se soltanto tre colpi vanno a segno, il danno finale è invece ",
+       "s": []
+      },
+      {
+       "t": "4d20",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", sempre con Stordito.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Precisazione per gli Striker con Acrobazia come Skill di Ruolo: il Grado di Acrobazia può sbloccare il Talento, ma Smash Hit richiede comunque Atletica per i propri tiri e danni. La scelta iniziale fra Atletica e Acrobazia non modifica questa regola.",
+     "pezzi": [
+      {
+       "t": "Precisazione per gli Striker con Acrobazia come Skill di Ruolo:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " il Grado di Acrobazia può sbloccare il Talento, ma Smash Hit richiede comunque Atletica per i propri tiri e danni. La scelta iniziale fra Atletica e Acrobazia non modifica questa regola.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Progressione della Raffica"
+    },
+    {
+     "t": "p",
+     "testo": "La Raffica è il Talento a gradini che definisce lo sviluppo offensivo dello Striker."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Versione",
+      "Requisito",
+      "Attacchi base extra massimi",
+      "Costo"
+     ],
+     "righe": [
+      [
+       "Base",
+       "d8",
+       "1",
+       "1 ST"
+      ],
+      [
+       "Migliorato",
+       "d10 + Base",
+       "2",
+       "1 ST per attacco"
+      ],
+      [
+       "Maestria",
+       "d12 + Migliorato",
+       "3",
+       "1 ST per attacco"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Le versioni non si sommano. Ogni Grado superiore sostituisce il limite precedente.",
+     "pezzi": [
+      {
+       "t": "Le versioni non si sommano.",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " Ogni Grado superiore sostituisce il limite precedente.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Gli attacchi extra sono sempre attacchi base a mani nude. Raffica non concede azioni supplementari con cui utilizzare altre Tecniche.",
+     "pezzi": [
+      {
+       "t": "Gli attacchi extra sono sempre ",
+       "s": []
+      },
+      {
+       "t": "attacchi base a mani nude",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ". Raffica non concede azioni supplementari con cui utilizzare altre Tecniche.",
+       "s": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sezione": "4.3",
+   "titolo": "Swordsman",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "Lo Swordsman è un Combattente specializzato nell'uso delle lame. La sua forza non dipende soltanto dalla qualità della spada, ma dalla capacità di controllarne ogni movimento: attaccare, mantenere la guardia, intercettare un nemico e trovare il momento esatto per colpire.",
+     "pezzi": [
+      {
+       "t": "Lo ",
+       "s": []
+      },
+      {
+       "t": "Swordsman",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " è un Combattente specializzato nell'uso delle lame. La sua forza non dipende soltanto dalla qualità della spada, ma dalla capacità di controllarne ogni movimento: attaccare, mantenere la guardia, intercettare un nemico e trovare il momento esatto per colpire.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Il suo percorso permette di sviluppare il combattimento con due spade, perfezionare le parate e trasformare le Tecniche da mischia in fendenti capaci di raggiungere bersagli più lontani."
+    },
+    {
+     "t": "h",
+     "testo": "Scheda dello Stile"
+    },
+    {
+     "t": "h",
+     "testo": "Swordsman"
+    },
+    {
+     "t": "p",
+     "testo": "(Combattente · Lame)"
+    },
+    {
+     "t": "p",
+     "testo": "Skill di Ruolo: AtleticaGrado iniziale: d8Equipaggiamento: armi di tipo Lama compatibiliTratto: La GuardiaFirma: Doppio fendente",
+     "pezzi": [
+      {
+       "t": "Skill di Ruolo:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " Atletica",
+       "s": []
+      },
+      {
+       "t": "Grado iniziale:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " d8",
+       "s": []
+      },
+      {
+       "t": "Equipaggiamento:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " armi di tipo Lama compatibili",
+       "s": []
+      },
+      {
+       "t": "Tratto:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " La Guardia",
+       "s": []
+      },
+      {
+       "t": "Firma:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " Doppio fendente",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h3",
+     "testo": "Effetti del Costruttore"
+    },
+    {
+     "t": "p",
+     "testo": "Lo Swordsman può utilizzare Lacerazione, Scatto, Balzo, Guardia, Mira, Catena e Tutto o Niente. Può inoltre costruire Area Ravvicinata (d8, 2 ST): cerchio centrato su di sé, con raggio pari alla Portata effettiva della lama e senza Gittata. Aree a distanza richiedono una capacità che le conceda espressamente."
+    },
+    {
+     "t": "p",
+     "testo": "Lo Swordsman utilizza Atletica come Skill di riferimento per la progressione dei Talenti.",
+     "pezzi": [
+      {
+       "t": "Lo Swordsman utilizza ",
+       "s": []
+      },
+      {
+       "t": "Atletica",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " come Skill di riferimento per la progressione dei Talenti.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Le sue capacità specialistiche richiedono l'uso delle lame e non si applicano automaticamente ad armi contundenti, armi da distanza o attacchi a mani nude."
+    },
+    {
+     "t": "h",
+     "testo": "Tratto · La Guardia"
+    },
+    {
+     "t": "p",
+     "testo": "(Sempre attivo · Gratuito)"
+    },
+    {
+     "t": "p",
+     "testo": "Lo Swordsman è specializzato nella Difesa Attiva.",
+     "pezzi": [
+      {
+       "t": "Lo Swordsman è specializzato nella ",
+       "s": []
+      },
+      {
+       "t": "Difesa Attiva",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Grazie alla propria maestria, può inoltre sfruttare gli effetti speciali delle lame di Grado elevato, quando ne soddisfa i requisiti."
+    },
+    {
+     "t": "p",
+     "testo": "Il Tratto non concede da solo un bonus numerico alla Difesa Passiva: i benefici specifici sono quelli previsti dalle regole delle armi e dai Talenti acquisiti."
+    },
+    {
+     "t": "h",
+     "testo": "Firma · Doppio fendente"
+    },
+    {
+     "t": "p",
+     "testo": "(Sempre attiva · Gratuita)"
+    },
+    {
+     "t": "p",
+     "testo": "Quando uno Swordsman ottiene un colpo pulito con margine +4, tira il proprio Dado Danno una volta aggiuntiva e somma il risultato.",
+     "pezzi": [
+      {
+       "t": "Quando uno Swordsman ottiene un ",
+       "s": []
+      },
+      {
+       "t": "colpo pulito con margine +4",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", tira il proprio Dado Danno una volta aggiuntiva e somma il risultato.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h3",
+     "testo": "Esempio"
+    },
+    {
+     "t": "p",
+     "testo": "Uno Swordsman colpisce con una katana il cui Dado Danno è d10.",
+     "pezzi": [
+      {
+       "t": "Uno Swordsman colpisce con una katana il cui Dado Danno è ",
+       "s": []
+      },
+      {
+       "t": "d10",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Se il colpo raggiunge il margine necessario per attivare la Firma, tira un ulteriore d10 e lo aggiunge al danno."
+    },
+    {
+     "t": "p",
+     "testo": "Doppio fendente non costituisce un secondo attacco: è un dado aggiuntivo al danno del colpo già riuscito.",
+     "pezzi": [
+      {
+       "t": "Doppio fendente non costituisce un secondo attacco:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " è un dado aggiuntivo al danno del colpo già riuscito.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Albero dei Talenti Swordsman"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Skill di Ruolo",
+      "Fascia"
+     ],
+     "righe": [
+      [
+       "Atletica d8",
+       "Mozzo"
+      ],
+      [
+       "Atletica d10",
+       "Pirata"
+      ],
+      [
+       "Atletica d12",
+       "Veterano"
+      ],
+      [
+       "Atletica d20",
+       "Leggenda"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Raggiungere un Grado rende disponibili i relativi Talenti. Il personaggio deve comunque acquisirli attraverso gli Upgrade e rispettare gli eventuali prerequisiti."
+    },
+    {
+     "t": "h",
+     "testo": "d8 · Mozzo"
+    },
+    {
+     "t": "p",
+     "testo": "Questa fascia introduce la gestione delle spade, la resistenza agli stati e il perfezionamento della parata."
+    },
+    {
+     "t": "h",
+     "testo": "Più Spade · Base"
+    },
+    {
+     "t": "p",
+     "testo": "(Passivo)Puoi portare con te fino a 2 spade invece della normale singola arma concessa dallo Stile.Attenzione: a questo Grado combatti ancora con una sola spada alla volta.Il Talento permette di possedere e trasportare due lame, ma non concede un secondo attacco né permette ancora di sfruttarle contemporaneamente.Il combattimento con entrambe viene sbloccato da Più Spade · Migliorato.",
+     "pezzi": [
+      {
+       "t": "(Passivo)Puoi portare con te ",
+       "s": []
+      },
+      {
+       "t": "fino a 2 spade",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " invece della normale singola arma concessa dallo Stile.",
+       "s": []
+      },
+      {
+       "t": "Attenzione:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " a questo Grado combatti ancora con una sola spada alla volta.Il Talento permette di possedere e trasportare due lame, ma non concede un secondo attacco né permette ancora di sfruttarle contemporaneamente.Il combattimento con entrambe viene sbloccato da ",
+       "s": []
+      },
+      {
+       "t": "Più Spade · Migliorato",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Postura Imperturbabile"
+    },
+    {
+     "t": "p",
+     "testo": "(1 ST)"
+    },
+    {
+     "t": "p",
+     "testo": "1 volta per turnoQuando stai per diventare Stordito oppure Sbilanciato, puoi spendere 1 ST per ignorare quello stato.Il Talento impedisce l'applicazione dello stato scelto, ma non annulla automaticamente i danni dell'attacco che lo ha provocato.Non rende lo Swordsman permanentemente immune a entrambi gli stati: il beneficio richiede l'utilizzo della capacità e il relativo costo.",
+     "pezzi": [
+      {
+       "t": "1 volta per turnoQuando stai per diventare ",
+       "s": []
+      },
+      {
+       "t": "Stordito",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " oppure ",
+       "s": []
+      },
+      {
+       "t": "Sbilanciato",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", puoi spendere 1 ST per ignorare quello stato.Il Talento impedisce l'applicazione dello stato scelto, ma non annulla automaticamente i danni dell'attacco che lo ha provocato.Non rende lo Swordsman permanentemente immune a entrambi gli stati: il beneficio richiede l'utilizzo della capacità e il relativo costo.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Parata Perfetta"
+    },
+    {
+     "t": "p",
+     "testo": "(1 volta per scontro)Quando fallisci una Parata, puoi ripetere immediatamente il tiro.Devi accettare il secondo risultato, anche se è peggiore del primo.Parata Perfetta non annulla automaticamente un attacco: concede un secondo tentativo di Parata.",
+     "pezzi": [
+      {
+       "t": "(1 volta per scontro)Quando fallisci una ",
+       "s": []
+      },
+      {
+       "t": "Parata",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", puoi ripetere immediatamente il tiro.Devi accettare il secondo risultato, anche se è peggiore del primo.",
+       "s": []
+      },
+      {
+       "t": "Parata Perfetta non annulla automaticamente un attacco:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " concede un secondo tentativo di Parata.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Taglio Netto"
+    },
+    {
+     "t": "p",
+     "testo": "(1 volta per turno)Quando un tuo colpo con una lama porta un bersaglio sotto la metà dei suoi PV Massimi, il bersaglio diventa:",
+     "pezzi": [
+      {
+       "t": "(1 volta per turno)Quando un tuo colpo con una lama porta un bersaglio ",
+       "s": []
+      },
+      {
+       "t": "sotto la metà dei suoi PV Massimi",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", il bersaglio diventa:",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Sanguinante"
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento si attiva soltanto quando il colpo soddisfa questa condizione.Le conseguenze dello stato Sanguinante seguono le regole degli Stati del capitolo sul Combattimento."
+    },
+    {
+     "t": "h",
+     "testo": "d10 · Pirata"
+    },
+    {
+     "t": "p",
+     "testo": "A questo Grado lo Swordsman sviluppa il combattimento con due lame e acquisisce maggior controllo della distanza e della precisione."
+    },
+    {
+     "t": "h",
+     "testo": "Più Spade · Migliorato"
+    },
+    {
+     "t": "p",
+     "testo": "(Attacco extra gratuito)Prerequisito: Più Spade · Base · 1 volta per turnoDopo aver effettuato un attacco con una delle tue spade, puoi effettuare un attacco base extra gratuito con la seconda lama.Questo è il Grado che permette allo Swordsman di sfruttare entrambe le spade nello stesso turno.L'attacco extra deve essere un attacco base: non può essere sostituito liberamente con una Tecnica finché non viene acquisito Più Spade · Maestria.",
+     "pezzi": [
+      {
+       "t": "(Attacco extra gratuito)Prerequisito: Più Spade · Base · 1 volta per turnoDopo aver effettuato un attacco con una delle tue spade, puoi effettuare ",
+       "s": []
+      },
+      {
+       "t": "un attacco base extra gratuito con la seconda lama",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Questo è il Grado che permette allo Swordsman di sfruttare entrambe le spade nello stesso turno.L'attacco extra deve essere un ",
+       "s": []
+      },
+      {
+       "t": "attacco base",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ": non può essere sostituito liberamente con una Tecnica finché non viene acquisito Più Spade · Maestria.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Distanza di Lama"
+    },
+    {
+     "t": "p",
+     "testo": "(1 ST)"
+    },
+    {
+     "t": "p",
+     "testo": "1 volta per turno · ReazioneQuando un nemico entra nella tua portata in mischia, puoi spendere 1 ST e utilizzare la tua Reazione per effettuare un attacco base con una spada.L'attacco viene effettuato prima che il nemico completi il movimento.Il Talento non concede una Reazione aggiuntiva: utilizza quella normalmente disponibile al personaggio.",
+     "pezzi": [
+      {
+       "t": "1 volta per turno · ReazioneQuando un nemico entra nella tua portata in mischia, puoi spendere ",
+       "s": []
+      },
+      {
+       "t": "1 ST",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " e utilizzare la tua ",
+       "s": []
+      },
+      {
+       "t": "Reazione",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " per effettuare un attacco base con una spada.L'attacco viene effettuato ",
+       "s": []
+      },
+      {
+       "t": "prima che il nemico completi il movimento",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Il Talento non concede una Reazione aggiuntiva: utilizza quella normalmente disponibile al personaggio.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Fendente d'Aria"
+    },
+    {
+     "t": "p",
+     "testo": "(+1 ST)"
+    },
+    {
+     "t": "p",
+     "testo": "Spendendo 1 ST aggiuntiva, una tua Tecnica Swordsman da mischia può raggiungere un bersaglio fino a:",
+     "pezzi": [
+      {
+       "t": "Spendendo ",
+       "s": []
+      },
+      {
+       "t": "1 ST aggiuntiva",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", una tua Tecnica Swordsman da mischia può raggiungere un bersaglio fino a:",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "10 m"
+    },
+    {
+     "t": "p",
+     "testo": "Il danno finale della Tecnica viene dimezzato, arrotondando per eccesso.Fendente d'Aria estende quindi la portata di una Tecnica da mischia, ma ne riduce il danno.Non concede gratuitamente un nuovo attacco e non elimina gli eventuali costi della Tecnica utilizzata.",
+     "pezzi": [
+      {
+       "t": "Il danno finale della Tecnica viene ",
+       "s": []
+      },
+      {
+       "t": "dimezzato, arrotondando per eccesso",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Fendente d'Aria estende quindi la portata di una Tecnica da mischia, ma ne riduce il danno.Non concede gratuitamente un nuovo attacco e non elimina gli eventuali costi della Tecnica utilizzata.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Affilatura"
+    },
+    {
+     "t": "p",
+     "testo": "(1 ST)"
+    },
+    {
+     "t": "p",
+     "testo": "1 volta per turnoPrima di effettuare un attacco con una spada, puoi spendere 1 ST.Per quel singolo attacco, considera la Difesa Passiva del bersaglio ridotta di 2.Il modificatore non è permanente e non si applica agli attacchi degli alleati.Esempio: se il bersaglio possiede Difesa Passiva 13, per il tuo attacco con Affilatura viene considerata pari a 11.",
+     "pezzi": [
+      {
+       "t": "1 volta per turnoPrima di effettuare un attacco con una spada, puoi spendere ",
+       "s": []
+      },
+      {
+       "t": "1 ST",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Per quel singolo attacco, considera la ",
+       "s": []
+      },
+      {
+       "t": "Difesa Passiva del bersaglio ridotta di 2",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Il modificatore non è permanente e non si applica agli attacchi degli alleati.",
+       "s": []
+      },
+      {
+       "t": "Esempio:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " se il bersaglio possiede Difesa Passiva 13, per il tuo attacco con Affilatura viene considerata pari a ",
+       "s": []
+      },
+      {
+       "t": "11",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "d12 · Veterano"
+    },
+    {
+     "t": "p",
+     "testo": "Lo Swordsman perfeziona l'uso delle due lame, sviluppa contrattacchi e acquisisce tecniche avanzate di estrazione e difesa dell'arma."
+    },
+    {
+     "t": "h",
+     "testo": "Più Spade · Maestria"
+    },
+    {
+     "t": "p",
+     "testo": "Prerequisito: Più Spade · Migliorato · 1 volta per turnoL'attacco extra con la seconda lama concesso da Più Spade · Migliorato può essere una Tecnica Swordsman anziché un attacco base.Il Talento non aggiunge un terzo attacco: modifica ciò che puoi utilizzare come attacco extra.La Tecnica scelta mantiene i propri requisiti ed eventuali costi.",
+     "pezzi": [
+      {
+       "t": "Prerequisito: Più Spade · Migliorato · 1 volta per turnoL'attacco extra con la seconda lama concesso da Più Spade · Migliorato può essere una ",
+       "s": []
+      },
+      {
+       "t": "Tecnica Swordsman",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " anziché un attacco base.Il Talento non aggiunge un terzo attacco: modifica ciò che puoi utilizzare come attacco extra.La Tecnica scelta mantiene i propri requisiti ed eventuali costi.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Contraccolpo"
+    },
+    {
+     "t": "p",
+     "testo": "Quando utilizzi una Tecnica d’attacco Swordsman compatibile come Difesa Attiva e il risultato della tua difesa supera il tiro dell’attacco nemico, infliggi anche il normale Dado Danno della Tecnica utilizzata. Un pareggio neutralizza l’attacco ma non infligge danni. Contraccolpo non concede una Reazione aggiuntiva e non applica automaticamente gli altri effetti offensivi della Tecnica, salvo regole specifiche. Il Talento non trasforma la normale Parata in un attacco."
+    },
+    {
+     "t": "h",
+     "testo": "Sguainata Fulminea"
+    },
+    {
+     "t": "p",
+     "testo": "(2 ST)"
+    },
+    {
+     "t": "p",
+     "testo": "1 volta per scontroSe inizi lo scontro con la lama ancora nel fodero, puoi spendere 2 ST per effettuare il tuo primo attacco prima della normale Iniziativa.Questo attacco viene effettuato con Vantaggio.La capacità richiede che la lama sia inizialmente nel fodero. Non si attiva semplicemente rinfoderandola durante il combattimento.",
+     "pezzi": [
+      {
+       "t": "1 volta per scontroSe inizi lo scontro con la lama ancora nel fodero, puoi spendere ",
+       "s": []
+      },
+      {
+       "t": "2 ST",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " per effettuare il tuo primo attacco ",
+       "s": []
+      },
+      {
+       "t": "prima della normale Iniziativa",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Questo attacco viene effettuato con ",
+       "s": []
+      },
+      {
+       "t": "Vantaggio",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".La capacità richiede che la lama sia inizialmente nel fodero. Non si attiva semplicemente rinfoderandola durante il combattimento.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Riposta"
+    },
+    {
+     "t": "p",
+     "testo": "(1 ST)"
+    },
+    {
+     "t": "p",
+     "testo": "Prerequisito: Contraccolpo. Dopo una Difesa Attiva riuscita eseguita con una Tecnica d’attacco Swordsman compatibile, puoi spendere 1 ST per effettuare immediatamente un attacco base con la stessa spada. Riposta concede un attacco distinto, con il proprio tiro per colpire e le normali difese, anche se la Difesa Attiva è riuscita con un pareggio. Il pareggio non infligge il danno di Contraccolpo. Riposta non concede un’Azione generica."
+    },
+    {
+     "t": "h",
+     "testo": "Lama Indistruttibile"
+    },
+    {
+     "t": "p",
+     "testo": "(Passivo)La tua lama non può essere normalmente spezzata o danneggiata.Può inoltre effettuare Parate anche contro armi di Grado superiore.Il Talento protegge la lama e amplia ciò che può parare, ma non significa che ogni Parata riesca automaticamente.",
+     "pezzi": [
+      {
+       "t": "(Passivo)La tua lama non può essere ",
+       "s": []
+      },
+      {
+       "t": "normalmente spezzata o danneggiata",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Può inoltre effettuare Parate anche contro armi di ",
+       "s": []
+      },
+      {
+       "t": "Grado superiore",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Il Talento protegge la lama e amplia ciò che può parare, ma non significa che ogni Parata riesca automaticamente.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "d20 · Leggenda"
+    },
+    {
+     "t": "h",
+     "testo": "Talento Supremo · Asura"
+    },
+    {
+     "t": "h",
+     "testo": "Asura"
+    },
+    {
+     "t": "p",
+     "testo": "(Ultimate)"
+    },
+    {
+     "t": "h",
+     "testo": "5 ST"
+    },
+    {
+     "t": "p",
+     "testo": "Costo"
+    },
+    {
+     "t": "h",
+     "testo": "1×"
+    },
+    {
+     "t": "p",
+     "testo": "Per scontro"
+    },
+    {
+     "t": "p",
+     "testo": "Richiede il permesso del Game Master.Asura concentra tutta la capacità dello Swordsman in un unico colpo.Per colpire effettua un solo tiro composto da:",
+     "pezzi": [
+      {
+       "t": "Richiede il permesso del Game Master.Asura concentra tutta la capacità dello Swordsman in ",
+       "s": []
+      },
+      {
+       "t": "un unico colpo",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".Per colpire effettua un solo tiro composto da:",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Tecnica + Tecnica + Grado dell'arma"
+    },
+    {
+     "t": "p",
+     "testo": "Il dado dell'Attributo Tecnica viene quindi tirato due volte e sommato al dado dell'arma.Il danno dipende dal margine ottenuto rispetto alla Difesa Passiva del bersaglio.",
+     "pezzi": [
+      {
+       "t": "Il dado dell'Attributo Tecnica viene quindi tirato ",
+       "s": []
+      },
+      {
+       "t": "due volte e sommato",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " al dado dell'arma.Il danno dipende dal margine ottenuto rispetto alla Difesa Passiva del bersaglio.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "Danno di Asura"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Margine del colpo",
+      "Danno"
+     ],
+     "righe": [
+      [
+       "+0 / +3",
+       "3 Dadi Arma"
+      ],
+      [
+       "+4 / +7",
+       "4 Dadi Arma"
+      ],
+      [
+       "+8 / +11",
+       "5 Dadi Arma"
+      ],
+      [
+       "+12 o più",
+       "6 Dadi Arma"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Il Dado Arma è il Grado dell'arma utilizzata.",
+     "pezzi": [
+      {
+       "t": "Il Dado Arma è il ",
+       "s": []
+      },
+      {
+       "t": "Grado dell'arma utilizzata",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Eccezione di Asura: un margine pari a 0 infligge comunque 3 Dadi Arma, come indicato nella prima fascia della sua tabella. La normale regola del pareggio difeso resta valida per tutti gli altri attacchi."
+    },
+    {
+     "t": "h3",
+     "testo": "Esempio · Katana d12"
+    },
+    {
+     "t": "p",
+     "testo": "Uno Swordsman possiede:"
+    },
+    {
+     "t": "lista",
+     "voci": [
+      "Tecnica d20",
+      "Katana d12"
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Quando utilizza Asura, il suo tiro per colpire è:"
+    },
+    {
+     "t": "h",
+     "testo": "2d20 + d12"
+    },
+    {
+     "t": "p",
+     "testo": "Se supera la Difesa Passiva del bersaglio con un margine di almeno +12, infligge:",
+     "pezzi": [
+      {
+       "t": "Se supera la Difesa Passiva del bersaglio con un margine di almeno ",
+       "s": []
+      },
+      {
+       "t": "+12",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", infligge:",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "testo": "6d12 danni"
+    },
+    {
+     "t": "p",
+     "testo": "Se ottiene invece un margine compreso fra +4 e +7, infligge 4d12 danni.",
+     "pezzi": [
+      {
+       "t": "Se ottiene invece un margine compreso fra +4 e +7, infligge ",
+       "s": []
+      },
+      {
+       "t": "4d12 danni",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ".",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "h3",
+     "testo": "Regole particolari di Asura"
+    },
+    {
+     "t": "p",
+     "testo": "Asura funziona esclusivamente secondo le proprie regole. Durante il suo utilizzo non vengono applicate altre Tecniche, Talenti, la Firma dello Stile o effetti speciali dell'arma, salvo quanto scritto nella descrizione di Asura."
+    },
+    {
+     "t": "p",
+     "testo": "In particolare, Doppio fendente non aggiunge un ulteriore Dado Danno, anche quando Asura raggiunge il margine +4.",
+     "pezzi": [
+      {
+       "t": "In particolare, ",
+       "s": []
+      },
+      {
+       "t": "Doppio fendente non aggiunge un ulteriore Dado Danno",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": ", anche quando Asura raggiunge il margine +4.",
+       "s": []
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Il danno crescente in funzione del margine è già parte dell'effetto di Asura."
+    },
+    {
+     "t": "h",
+     "testo": "Progressione · Più Spade"
+    },
+    {
+     "t": "p",
+     "testo": "Più Spade è il percorso a gradini che sviluppa il combattimento con due lame."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Versione",
+      "Grado",
+      "Effetto"
+     ],
+     "righe": [
+      [
+       "Base",
+       "d8",
+       "Puoi portare fino a 2 spade, ma combatti con una alla volta."
+      ],
+      [
+       "Migliorato",
+       "d10",
+       "Un attacco base extra gratuito con la seconda lama, 1 volta per turno."
+      ],
+      [
+       "Maestria",
+       "d12",
+       "L'attacco extra con la seconda lama può diventare una Tecnica Swordsman."
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Le versioni successive richiedono quelle precedenti."
+    },
+    {
+     "t": "p",
+     "testo": "Migliorato e Maestria non concedono due attacchi extra separati: Maestria potenzia l'attacco extra già ottenuto con Migliorato.",
+     "pezzi": [
+      {
+       "t": "Migliorato e Maestria non concedono due attacchi extra separati:",
+       "s": [
+        "b"
+       ]
+      },
+      {
+       "t": " Maestria potenzia l'attacco extra già ottenuto con Migliorato.",
+       "s": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sezione": "4.4",
+   "titolo": "Sniper",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "Lo Sniper è un Combattente specializzato negli attacchi a distanza. Studia il campo di battaglia, sceglie una posizione favorevole e colpisce i bersagli sfruttando gittata, precisione e tempismo."
+    },
+    {
+     "t": "p",
+     "testo": "Il suo percorso permette di estendere progressivamente la gittata delle armi, superare gli ostacoli alla mira e interferire con le azioni nemiche. Ai Gradi più elevati, lo Sniper può concentrare una sequenza di colpi su un singolo bersaglio attraverso il Talento Supremo Tempesta di Piombo."
+    },
+    {
+     "t": "h3",
+     "testo": "Scheda dello Stile"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Caratteristica",
+      "Valore"
+     ],
+     "righe": [
+      [
+       "Ruolo",
+       "Combattente"
+      ],
+      [
+       "Stile",
+       "Sniper"
+      ],
+      [
+       "Skill di Ruolo",
+       "Osservazione"
+      ],
+      [
+       "Grado iniziale",
+       "d8"
+      ],
+      [
+       "Specializzazione",
+       "Attacchi a distanza"
+      ],
+      [
+       "Tratto",
+       "La Distanza"
+      ],
+      [
+       "Firma",
+       "Il punto scoperto"
+      ]
+     ]
+    },
+    {
+     "t": "h3",
+     "testo": "Effetti del Costruttore"
+    },
+    {
+     "t": "p",
+     "testo": "Lo Sniper può utilizzare soltanto Scatto, Lacerazione, Mira, Rimbalzo e Catena. La gittata della Tecnica deriva dall’arma impugnata; Tiro Lungo e le capacità di Prestigio possono superarla. Le munizioni applicano i propri effetti e non fanno parte del Costruttore. Lo Sniper non possiede una Forma Area ordinaria di Stile."
+    },
+    {
+     "t": "p",
+     "testo": "I Talenti dello Sniper destinati agli attacchi a distanza non si applicano automaticamente agli attacchi corpo a corpo."
+    },
+    {
+     "t": "h3",
+     "testo": "Tratto · La Distanza"
+    },
+    {
+     "t": "p",
+     "testo": "Sempre attivo · Gratuito"
+    },
+    {
+     "t": "p",
+     "testo": "Lo Sniper è specializzato nel combattimento a distanza, al di fuori della mischia, e nella capacità di anticipare gli avversari."
+    },
+    {
+     "t": "p",
+     "testo": "Il Tratto identifica la specializzazione dello Stile, ma non assegna da solo un bonus numerico all’Iniziativa. Gli effetti specifici sulla gittata, sulla mira e sul tempismo vengono concessi dai Talenti acquisiti."
+    },
+    {
+     "t": "h3",
+     "testo": "Firma · Il punto scoperto"
+    },
+    {
+     "t": "p",
+     "testo": "Sempre attiva · Gratuita"
+    },
+    {
+     "t": "p",
+     "testo": "Quando lo Sniper ottiene un colpo pulito con margine +4, individua un punto vulnerabile del bersaglio."
+    },
+    {
+     "t": "p",
+     "testo": "Il suo prossimo colpo contro lo stesso nemico considera la Difesa Passiva del bersaglio ridotta di:"
+    },
+    {
+     "t": "h3",
+     "testo": "−2 Difesa Passiva"
+    },
+    {
+     "t": "p",
+     "testo": "La riduzione riguarda il prossimo colpo dello Sniper contro quel bersaglio. Non costituisce una penalità generale applicabile a tutti gli alleati, a meno che il personaggio non acquisisca Occhio del Falco."
+    },
+    {
+     "t": "p",
+     "testo": "Esempio: uno Sniper ottiene un colpo pulito contro un nemico con Difesa Passiva 13. Il suo prossimo colpo contro lo stesso avversario considera la Difesa Passiva pari a 11."
+    },
+    {
+     "t": "h3",
+     "testo": "Albero dei Talenti Sniper"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Skill di Ruolo",
+      "Fascia"
+     ],
+     "righe": [
+      [
+       "Osservazione d8",
+       "Mozzo"
+      ],
+      [
+       "Osservazione d10",
+       "Pirata"
+      ],
+      [
+       "Osservazione d12",
+       "Veterano"
+      ],
+      [
+       "Osservazione d20",
+       "Leggenda"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Raggiungere il Grado richiesto rende disponibili i Talenti della fascia corrispondente. Ogni Talento deve comunque essere acquisito tramite la normale progressione degli Upgrade, rispettandone i prerequisiti."
+    },
+    {
+     "t": "h3",
+     "testo": "d8 · Mozzo"
+    },
+    {
+     "t": "p",
+     "testo": "I Talenti iniziali permettono allo Sniper di migliorare gittata, ricarica, gestione della copertura e preparazione del tiro."
+    },
+    {
+     "t": "h3",
+     "testo": "Tiro Lungo · Base"
+    },
+    {
+     "t": "p",
+     "testo": "Passivo"
+    },
+    {
+     "t": "p",
+     "testo": "Aumenti di una fascia la gittata utile delle tue armi a distanza compatibili."
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento modifica la gittata dell’arma, non il Movimento del personaggio."
+    },
+    {
+     "t": "p",
+     "testo": "Non assegna un incremento fisso in metri: utilizza le fasce di gittata previste dalle regole dell’equipaggiamento."
+    },
+    {
+     "t": "h3",
+     "testo": "Ricarica Rapida"
+    },
+    {
+     "t": "p",
+     "testo": "1 volta per turno"
+    },
+    {
+     "t": "p",
+     "testo": "Una volta per turno, ricaricare un’arma non richiede l’Azione principale: il Talento utilizza invece l’Azione Bonus, come stabilito nel §10.13."
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento elimina il consumo dell’Azione per una ricarica nel turno. Non concede attacchi aggiuntivi né elimina automaticamente eventuali requisiti particolari dell’arma."
+    },
+    {
+     "t": "h3",
+     "testo": "Occhio Fermo"
+    },
+    {
+     "t": "p",
+     "testo": "Passivo"
+    },
+    {
+     "t": "p",
+     "testo": "Ignori la copertura parziale del bersaglio."
+    },
+    {
+     "t": "p",
+     "testo": "La copertura totale continua invece a impedirti normalmente di colpire."
+    },
+    {
+     "t": "p",
+     "testo": "Occhio Fermo non permette quindi di sparare attraverso qualunque ostacolo: elimina soltanto il beneficio della copertura parziale."
+    },
+    {
+     "t": "h3",
+     "testo": "Appostamento"
+    },
+    {
+     "t": "p",
+     "testo": "Nessun costo ST indicato"
+    },
+    {
+     "t": "p",
+     "testo": "Se trascorri un’Azione intera senza muoverti per prendere la mira su un bersaglio, il tuo prossimo attacco a distanza contro di lui ottiene Vantaggio."
+    },
+    {
+     "t": "p",
+     "testo": "Il beneficio termina quando attacchi, quando ti muovi oppure quando subisci danno prima di effettuare l’attacco."
+    },
+    {
+     "t": "p",
+     "testo": "Esempio: uno Sniper rimane fermo e impiega la propria Azione per prendere la mira su un ufficiale della Marina. Se non si muove e non subisce danni prima di sparare, il suo prossimo attacco a distanza contro quell’ufficiale ha Vantaggio."
+    },
+    {
+     "t": "h3",
+     "testo": "d10 · Pirata"
+    },
+    {
+     "t": "p",
+     "testo": "A questo Grado, lo Sniper acquisisce strumenti per controllare gli spostamenti avversari e colpire obiettivi specifici."
+    },
+    {
+     "t": "h3",
+     "testo": "Tiro Lungo · Migliorato"
+    },
+    {
+     "t": "p",
+     "testo": "Passivo"
+    },
+    {
+     "t": "p",
+     "testo": "Prerequisito: Tiro Lungo · Base."
+    },
+    {
+     "t": "p",
+     "testo": "La gittata utile delle tue armi a distanza aumenta di un’ulteriore fascia."
+    },
+    {
+     "t": "p",
+     "testo": "Questo incremento si aggiunge alla fascia già ottenuta con la versione Base."
+    },
+    {
+     "t": "h3",
+     "testo": "Tiro dall’Ombra"
+    },
+    {
+     "t": "p",
+     "testo": "Nessun costo ST indicato"
+    },
+    {
+     "t": "p",
+     "testo": "Se sei Nascosto e non visto, il primo attacco a distanza effettuato prima di rivelare la tua posizione ottiene Vantaggio."
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento richiede entrambe le condizioni: essere nascosto e non essere visto dal bersaglio."
+    },
+    {
+     "t": "p",
+     "testo": "Non garantisce che il personaggio rimanga nascosto dopo l’attacco."
+    },
+    {
+     "t": "h3",
+     "testo": "Colpo Mirato"
+    },
+    {
+     "t": "p",
+     "testo": "Attacco di precisione"
+    },
+    {
+     "t": "p",
+     "testo": "Invece di infliggere danni, puoi scegliere un obiettivo specifico: un’arma impugnata, una gamba, una corda, un chiavistello oppure un altro elemento plausibile."
+    },
+    {
+     "t": "p",
+     "testo": "Il tiro viene effettuato contro:"
+    },
+    {
+     "t": "h3",
+     "testo": "Difesa Passiva +2"
+    },
+    {
+     "t": "p",
+     "testo": "Se riesce, applichi l’effetto appropriato all’obiettivo scelto al posto del danno."
+    },
+    {
+     "t": "p",
+     "testo": "La conseguenza concreta dipende da ciò che viene colpito e dalla situazione. Colpo Mirato non concede contemporaneamente il normale danno dell’attacco."
+    },
+    {
+     "t": "p",
+     "testo": "Esempio: uno Sniper vuole colpire l’arma impugnata da un nemico con Difesa Passiva 11. Effettua l’attacco contro una soglia di 13. Se riesce, applica l’effetto appropriato al bersaglio scelto invece di infliggere danni."
+    },
+    {
+     "t": "h3",
+     "testo": "Tiro di Copertura"
+    },
+    {
+     "t": "p",
+     "testo": "1 ST · Azione"
+    },
+    {
+     "t": "p",
+     "testo": "Come Azione, spendi 1 ST e scegli una zona entro la gittata della tua arma."
+    },
+    {
+     "t": "p",
+     "testo": "Fino all’inizio del tuo prossimo turno, il primo nemico che si muove allo scoperto in quella zona può essere bersagliato con un attacco a distanza utilizzando la tua Reazione."
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento richiede quindi preparazione e disponibilità della Reazione. Non produce un attacco automatico contro ogni nemico che attraversa la zona."
+    },
+    {
+     "t": "h3",
+     "testo": "d12 · Veterano"
+    },
+    {
+     "t": "p",
+     "testo": "I Talenti avanzati permettono allo Sniper di sfruttare distanze estreme, ostacolare le azioni degli avversari e realizzare traiettorie particolarmente complesse."
+    },
+    {
+     "t": "h3",
+     "testo": "Tiro Lungo · Maestria"
+    },
+    {
+     "t": "p",
+     "testo": "Passivo"
+    },
+    {
+     "t": "p",
+     "testo": "Prerequisito: Tiro Lungo · Migliorato."
+    },
+    {
+     "t": "p",
+     "testo": "Puoi attaccare a gittata estrema, fin dove esiste una linea di vista plausibile."
+    },
+    {
+     "t": "p",
+     "testo": "Questo Talento rappresenta il massimo sviluppo del percorso Tiro Lungo."
+    },
+    {
+     "t": "p",
+     "testo": "La linea di vista rimane un requisito: Maestria non permette, da sola, di colpire bersagli invisibili o completamente nascosti dietro ostacoli."
+    },
+    {
+     "t": "h3",
+     "testo": "Occhio del Falco"
+    },
+    {
+     "t": "p",
+     "testo": "Passivo"
+    },
+    {
+     "t": "p",
+     "testo": "Quando ottieni un colpo pulito con margine +4, la riduzione di −2 alla Difesa Passiva concessa dalla Firma Il punto scoperto diventa utilizzabile da chiunque attacchi quel bersaglio."
+    },
+    {
+     "t": "p",
+     "testo": "L’effetto dura fino alla fine del tuo prossimo turno."
+    },
+    {
+     "t": "p",
+     "testo": "La Firma, normalmente personale, diventa così uno strumento di supporto offensivo per tutta la ciurma."
+    },
+    {
+     "t": "h3",
+     "testo": "Colpo Anticipato"
+    },
+    {
+     "t": "p",
+     "testo": "1 volta per turno · Reazione"
+    },
+    {
+     "t": "p",
+     "testo": "Quando un nemico che stai osservando dichiara un’Azione, puoi attaccarlo come Reazione, prima che la completi."
+    },
+    {
+     "t": "p",
+     "testo": "Se il tuo attacco va a segno, l’Azione dichiarata dal nemico avviene in Svantaggio."
+    },
+    {
+     "t": "p",
+     "testo": "Colpo Anticipato non annulla automaticamente l’Azione dell’avversario: ne penalizza l’esecuzione se l’attacco dello Sniper riesce."
+    },
+    {
+     "t": "h3",
+     "testo": "Colpo Impossibile"
+    },
+    {
+     "t": "p",
+     "testo": "2 ST"
+    },
+    {
+     "t": "p",
+     "testo": "Spendendo 2 ST, puoi tentare un attacco con una traiettoria anomala: un rimbalzo, un passaggio attraverso una feritoia, un angolo oppure un percorso che raggiunge un bersaglio fuori dalla linea di vista diretta."
+    },
+    {
+     "t": "p",
+     "testo": "Deve esistere un percorso plausibile per il colpo."
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento non rende i proiettili capaci di attraversare liberamente muri e ostacoli solidi."
+    },
+    {
+     "t": "h3",
+     "testo": "Respiro Trattenuto"
+    },
+    {
+     "t": "p",
+     "testo": "2 ST · 1 volta per scontro"
+    },
+    {
+     "t": "p",
+     "testo": "Spendendo 2 ST, prepari il tuo prossimo attacco."
+    },
+    {
+     "t": "p",
+     "testo": "Se l’attacco va a segno, viene considerato automaticamente un colpo pulito con margine +4."
+    },
+    {
+     "t": "p",
+     "testo": "Questo permette di attivare la Firma Il punto scoperto senza dover ottenere naturalmente il margine richiesto."
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento non trasforma un attacco mancato in un successo."
+    },
+    {
+     "t": "h3",
+     "testo": "d20 · Leggenda"
+    },
+    {
+     "t": "h3",
+     "testo": "Talento Supremo · Tempesta di Piombo"
+    },
+    {
+     "t": "h3",
+     "testo": "Tempesta di Piombo"
+    },
+    {
+     "t": "p",
+     "testo": "Ultimate"
+    },
+    {
+     "t": "h3",
+     "testo": "5 ST"
+    },
+    {
+     "t": "p",
+     "testo": "Costo"
+    },
+    {
+     "t": "h3",
+     "testo": "1×"
+    },
+    {
+     "t": "p",
+     "testo": "Per scontro"
+    },
+    {
+     "t": "p",
+     "testo": "Richiede il permesso del Game Master."
+    },
+    {
+     "t": "p",
+     "testo": "Scegli un singolo bersaglio ed effettui tre tiri per colpire separati."
+    },
+    {
+     "t": "p",
+     "testo": "Ogni tiro utilizza:"
+    },
+    {
+     "t": "p",
+     "testo": "Attributo + Grado dell’arma"
+    },
+    {
+     "t": "p",
+     "testo": "Ogni colpo riuscito infligge 2 Dadi Arma, per un massimo complessivo di 6 Dadi Arma."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Colpi a segno",
+      "Danno complessivo"
+     ],
+     "righe": [
+      [
+       "0",
+       "Nessuno"
+      ],
+      [
+       "1",
+       "2 Dadi Arma"
+      ],
+      [
+       "2",
+       "4 Dadi Arma"
+      ],
+      [
+       "3",
+       "6 Dadi Arma"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Munizioni fulminee"
+    },
+    {
+     "t": "p",
+     "testo": "Prima di ciascuno dei tre colpi puoi cambiare il tipo di proiettile, scegliendo qualsiasi munizione compatibile che possiedi."
+    },
+    {
+     "t": "p",
+     "testo": "Il cambio non richiede un’Azione né Stamina aggiuntiva. Gli effetti delle munizioni utilizzate si applicano normalmente."
+    },
+    {
+     "t": "p",
+     "testo": "Precisione chirurgica"
+    },
+    {
+     "t": "p",
+     "testo": "Ogni colpo può essere indirizzato verso un punto specifico del bersaglio, senza rinunciare ai 2 Dadi Arma previsti dall’attacco."
+    },
+    {
+     "t": "h3",
+     "testo": "Regole particolari di Tempesta di Piombo"
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento funziona esclusivamente secondo le proprie regole."
+    },
+    {
+     "t": "p",
+     "testo": "Non applica altre Tecniche, Talenti, la Firma dello Stile o effetti speciali dell’arma, salvo quanto indicato espressamente nella descrizione di Tempesta di Piombo."
+    },
+    {
+     "t": "p",
+     "testo": "Gli effetti delle munizioni compatibili sono un’eccezione esplicitamente prevista e continuano ad applicarsi."
+    },
+    {
+     "t": "p",
+     "testo": "I tre colpi sono diretti contro un singolo bersaglio. Non è possibile distribuirli liberamente tra tre nemici differenti."
+    },
+    {
+     "t": "h3",
+     "testo": "Esempio"
+    },
+    {
+     "t": "p",
+     "testo": "Uno Sniper utilizza Tempesta di Piombo con un fucile di Grado d12."
+    },
+    {
+     "t": "p",
+     "testo": "Effettua tre tiri per colpire separati, ciascuno con Attributo + d12."
+    },
+    {
+     "t": "p",
+     "testo": "Se tutti e tre vanno a segno, infligge complessivamente:"
+    },
+    {
+     "t": "h3",
+     "testo": "6d12 danni"
+    },
+    {
+     "t": "p",
+     "testo": "Prima di ogni colpo può selezionare una diversa munizione compatibile tra quelle che possiede, applicandone normalmente gli effetti."
+    },
+    {
+     "t": "p",
+     "testo": "La Firma Il punto scoperto non si attiva durante la sequenza, poiché Tempesta di Piombo segue esclusivamente le proprie regole."
+    },
+    {
+     "t": "h3",
+     "testo": "Progressione · Tiro Lungo"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Versione",
+      "Grado",
+      "Effetto"
+     ],
+     "righe": [
+      [
+       "Base",
+       "d8",
+       "Gittata utile +1 fascia"
+      ],
+      [
+       "Migliorato",
+       "d10",
+       "Un’ulteriore fascia di gittata"
+      ],
+      [
+       "Maestria",
+       "d12",
+       "Gittata estrema, entro una linea di vista plausibile"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Ogni versione richiede la precedente. Gli incrementi delle prime due versioni sono cumulativi."
+    }
+   ]
+  },
+  {
+   "sezione": "4.5",
+   "titolo": "Crusher",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "Il Crusher è un Combattente specializzato nell’utilizzo di armi contundenti. Mazze, martelli, clave e altre armi d’impatto diventano strumenti per abbattere le difese avversarie, spostare i nemici e distruggere gli ostacoli."
+    },
+    {
+     "t": "p",
+     "testo": "Il suo stile si basa su un principio: ogni colpo deve avere un peso."
+    },
+    {
+     "t": "p",
+     "testo": "Il Crusher può sacrificare temporaneamente la propria difesa per aumentare la potenza degli attacchi, oppure mantenere una posizione stabile e respingere chi tenta di sopraffarlo."
+    },
+    {
+     "t": "h3",
+     "testo": "Scheda dello Stile"
+    },
+    {
+     "t": "h3",
+     "testo": "Crusher"
+    },
+    {
+     "t": "lista",
+     "voci": [
+      "Combattente · Impatto",
+      "Skill di Ruolo: Atletica",
+      "Grado iniziale: d8",
+      "Equipaggiamento: armi contundenti compatibili",
+      "Tratto: Il Peso del Ferro",
+      "Firma: Impatto Devastante"
+     ]
+    },
+    {
+     "t": "h3",
+     "testo": "Effetti del Costruttore"
+    },
+    {
+     "t": "p",
+     "testo": "Il Crusher può utilizzare Sbilancio, Sfondamento, Proiezione, Guardia, Scudo d’Alleato, Furia, Schianto e Carica. Può inoltre costruire Area Ravvicinata (d8, 2 ST): cerchio centrato sul Crusher, con raggio pari alla Portata effettiva dell’arma contundente e senza Gittata. Aree più ampie richiedono una Fonte o una capacità speciale."
+    },
+    {
+     "t": "p",
+     "testo": "Le Tecniche dello Stile Crusher possono essere utilizzate soltanto mentre il personaggio impugna e utilizza un’arma contundente compatibile."
+    },
+    {
+     "t": "p",
+     "testo": "Non si applicano ai colpi a mani nude né agli attacchi con armi incompatibili."
+    },
+    {
+     "t": "h3",
+     "testo": "Tratto · Il Peso del Ferro"
+    },
+    {
+     "t": "p",
+     "testo": "Sempre attivo · Gratuito"
+    },
+    {
+     "t": "p",
+     "testo": "Il Crusher sa sfruttare l’inerzia delle armi contundenti, come mazze, martelli, clave, tirapugni e aste utilizzate per colpire d’impatto."
+    },
+    {
+     "t": "p",
+     "testo": "Le armi contundenti di Grado elevato possono sbloccare i propri effetti speciali nelle sue mani."
+    },
+    {
+     "t": "p",
+     "testo": "La compatibilità effettiva dell’equipaggiamento rimane determinata dalle regole dell’Arsenale."
+    },
+    {
+     "t": "p",
+     "testo": "Il Tratto non aumenta automaticamente il Dado Danno: gli incrementi specifici vengono concessi dai Talenti e dalle Tecniche possedute."
+    },
+    {
+     "t": "h3",
+     "testo": "Firma · Impatto Devastante"
+    },
+    {
+     "t": "p",
+     "testo": "Sempre attiva · Gratuita"
+    },
+    {
+     "t": "p",
+     "testo": "Quando ottieni un colpo pulito con margine +4 utilizzando un’arma contundente, il bersaglio viene:"
+    },
+    {
+     "t": "h3",
+     "testo": "Spinto di 3 metri"
+    },
+    {
+     "t": "p",
+     "testo": "Effetto della Firma"
+    },
+    {
+     "t": "p",
+     "testo": "Impatto Devastante non richiede l’acquisizione di un Talento e non comporta un costo aggiuntivo in Stamina."
+    },
+    {
+     "t": "p",
+     "testo": "La spinta non provoca automaticamente lo stato Sbilanciato."
+    },
+    {
+     "t": "h3",
+     "testo": "Albero dei Talenti Crusher"
+    },
+    {
+     "t": "p",
+     "testo": "La Skill di riferimento del Crusher è Atletica."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Atletica",
+      "Fascia"
+     ],
+     "righe": [
+      [
+       "d8",
+       "Mozzo"
+      ],
+      [
+       "d10",
+       "Pirata"
+      ],
+      [
+       "d12",
+       "Veterano"
+      ],
+      [
+       "d20",
+       "Leggenda"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "I Talenti diventano disponibili quando Atletica raggiunge il Grado richiesto. Devono comunque essere acquisiti attraverso gli Upgrade, rispettando gli eventuali prerequisiti."
+    },
+    {
+     "t": "h3",
+     "testo": "d8 · Mozzo"
+    },
+    {
+     "t": "h3",
+     "testo": "Colpo Pesante · Base"
+    },
+    {
+     "t": "p",
+     "testo": "2 ST · 1 volta per turno"
+    },
+    {
+     "t": "p",
+     "testo": "Quando attacchi con un’arma contundente, puoi spendere 2 ST per aggiungere:"
+    },
+    {
+     "t": "p",
+     "testo": "+1 Dado Danno"
+    },
+    {
+     "t": "p",
+     "testo": "In cambio, la tua Difesa Passiva diminuisce di 3 dal momento in cui dichiari l’attacco fino all’inizio del tuo prossimo turno."
+    },
+    {
+     "t": "p",
+     "testo": "La penalità si applica anche se l’attacco manca."
+    },
+    {
+     "t": "p",
+     "testo": "Esempio: un Crusher con Difesa Passiva 11 dichiara Colpo Pesante. La sua Difesa Passiva scende a 8 per la durata prevista, indipendentemente dal risultato del colpo."
+    },
+    {
+     "t": "h3",
+     "testo": "Piedi Piantati"
+    },
+    {
+     "t": "p",
+     "testo": "Passivo"
+    },
+    {
+     "t": "p",
+     "testo": "Finché non ti muovi volontariamente, i tentativi nemici di Spingerti o Sbilanciarti vengono effettuati in Svantaggio."
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento non impedisce automaticamente lo spostamento: rende più difficile riuscirci."
+    },
+    {
+     "t": "h3",
+     "testo": "Colpo di Rimbalzo"
+    },
+    {
+     "t": "p",
+     "testo": "1 ST · Reazione · 1 volta per turno"
+    },
+    {
+     "t": "p",
+     "testo": "Quando un nemico ti manca con un attacco in mischia, puoi spendere 1 ST e utilizzare la tua Reazione per effettuare un attacco base con un’arma contundente."
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento richiede che l’attacco nemico fallisca. Non si attiva quando vieni colpito."
+    },
+    {
+     "t": "h3",
+     "testo": "Demolitore"
+    },
+    {
+     "t": "p",
+     "testo": "Passivo"
+    },
+    {
+     "t": "p",
+     "testo": "I tuoi colpi con armi contundenti infliggono danno pieno contro porte, muri, strutture e oggetti."
+    },
+    {
+     "t": "p",
+     "testo": "Ignori le riduzioni dovute alla semplice durezza dei materiali."
+    },
+    {
+     "t": "p",
+     "testo": "Questo effetto riguarda gli ostacoli materiali e non elimina automaticamente le riduzioni del danno possedute dalle creature."
+    },
+    {
+     "t": "h3",
+     "testo": "d10 · Pirata"
+    },
+    {
+     "t": "h3",
+     "testo": "Colpo Pesante · Migliorato"
+    },
+    {
+     "t": "p",
+     "testo": "2 ST · 1 volta per turno"
+    },
+    {
+     "t": "p",
+     "testo": "Prerequisito: Colpo Pesante · Base."
+    },
+    {
+     "t": "p",
+     "testo": "Quando attacchi con un’arma contundente, puoi spendere 2 ST e ottenere contemporaneamente:"
+    },
+    {
+     "t": "lista",
+     "voci": [
+      "+1 Dado Danno.",
+      "Vantaggio al tiro per colpire."
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "La tua Difesa Passiva diminuisce di 3 dalla dichiarazione dell’attacco fino all’inizio del tuo prossimo turno, anche se manchi."
+    },
+    {
+     "t": "p",
+     "testo": "Questa versione sostituisce Colpo Pesante · Base. Non puoi combinarle per ottenere due Dadi Danno aggiuntivi."
+    },
+    {
+     "t": "h3",
+     "testo": "Onda d’Urto"
+    },
+    {
+     "t": "p",
+     "testo": "1 ST"
+    },
+    {
+     "t": "p",
+     "testo": "Quando colpisci un nemico con un’arma contundente, puoi spendere 1 ST e scegliere un secondo avversario entro 3 metri dal bersaglio principale."
+    },
+    {
+     "t": "p",
+     "testo": "Il secondo nemico viene spinto di 3 metri."
+    },
+    {
+     "t": "p",
+     "testo": "Onda d’Urto non assegna automaticamente danni aggiuntivi al secondo bersaglio: l’effetto previsto è la spinta."
+    },
+    {
+     "t": "h3",
+     "testo": "Rompiguardia"
+    },
+    {
+     "t": "p",
+     "testo": "1 volta per turno"
+    },
+    {
+     "t": "p",
+     "testo": "Quando colpisci un nemico con un’arma contundente, la sua prossima Parata o Difesa Attiva, effettuata prima della fine del suo prossimo turno, avviene in Svantaggio."
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento non riduce la Difesa Passiva del bersaglio."
+    },
+    {
+     "t": "h3",
+     "testo": "Contrappeso"
+    },
+    {
+     "t": "p",
+     "testo": "Reazione · 1 volta per turno"
+    },
+    {
+     "t": "p",
+     "testo": "Quando resisti con successo a un tentativo di Spingerti o Sbilanciarti, puoi utilizzare la tua Reazione per spingere di 3 metri l’avversario che ha tentato di farlo."
+    },
+    {
+     "t": "p",
+     "testo": "La capacità richiede una resistenza riuscita. Non si attiva se il nemico riesce a spostarti o a Sbilanciarti."
+    },
+    {
+     "t": "h3",
+     "testo": "d12 · Veterano"
+    },
+    {
+     "t": "h3",
+     "testo": "Colpo Pesante · Maestria"
+    },
+    {
+     "t": "p",
+     "testo": "2 ST · 1 volta per turno"
+    },
+    {
+     "t": "p",
+     "testo": "Prerequisito: Colpo Pesante · Migliorato."
+    },
+    {
+     "t": "p",
+     "testo": "Quando utilizzi questa versione, ottieni:"
+    },
+    {
+     "t": "lista",
+     "voci": [
+      "Vantaggio al tiro per colpire.",
+      "+2 Dadi Danno.",
+      "Se il colpo va a segno, il bersaglio cade Sbilanciato."
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "In cambio, la tua Difesa Passiva diminuisce di 5 fino al tuo prossimo turno."
+    },
+    {
+     "t": "p",
+     "testo": "Questa versione sostituisce le precedenti: non sommi i bonus di Base, Migliorato e Maestria."
+    },
+    {
+     "t": "p",
+     "testo": "Esempio"
+    },
+    {
+     "t": "p",
+     "testo": "Un Crusher possiede Difesa Passiva 13 e utilizza Colpo Pesante · Maestria."
+    },
+    {
+     "t": "p",
+     "testo": "Spende 2 ST, effettua il tiro con Vantaggio e ottiene +2 Dadi Danno."
+    },
+    {
+     "t": "p",
+     "testo": "La sua Difesa Passiva scende a 8 per la durata prevista."
+    },
+    {
+     "t": "p",
+     "testo": "Se colpisce, il bersaglio cade anche Sbilanciato. Se manca, la penalità difensiva rimane."
+    },
+    {
+     "t": "h3",
+     "testo": "Impatto a Catena"
+    },
+    {
+     "t": "p",
+     "testo": "Potenziamento di Onda d’Urto"
+    },
+    {
+     "t": "p",
+     "testo": "Prerequisito: Onda d’Urto."
+    },
+    {
+     "t": "p",
+     "testo": "Quando utilizzi Onda d’Urto, puoi coinvolgere fino a 3 nemici aggiuntivi entro 3 metri dal bersaglio principale."
+    },
+    {
+     "t": "p",
+     "testo": "Tutti i nemici aggiuntivi coinvolti vengono spinti di 3 metri."
+    },
+    {
+     "t": "p",
+     "testo": "Impatto a Catena amplia il numero massimo di bersagli secondari, senza aumentare automaticamente il danno."
+    },
+    {
+     "t": "h3",
+     "testo": "Contraccolpo"
+    },
+    {
+     "t": "p",
+     "testo": "Passivo. Quando utilizzi una Tecnica d’attacco Crusher compatibile come Difesa Attiva e il risultato della tua difesa supera il tiro dell’attacco nemico, infliggi anche il normale Dado Danno della Tecnica utilizzata. Un pareggio neutralizza l’attacco ma non infligge danni. Contraccolpo non concede una Reazione aggiuntiva e non applica automaticamente gli altri effetti offensivi della Tecnica, salvo regole specifiche. La Tecnica deve essere compatibile con l’arma contundente impugnata."
+    },
+    {
+     "t": "h3",
+     "testo": "Baricentro Assoluto"
+    },
+    {
+     "t": "p",
+     "testo": "Passivo"
+    },
+    {
+     "t": "p",
+     "testo": "Prerequisito: Piedi Piantati."
+    },
+    {
+     "t": "p",
+     "testo": "Finché soddisfi tutte le seguenti condizioni, non puoi essere Spinto né Sbilanciato da effetti fisici:"
+    },
+    {
+     "t": "lista",
+     "voci": [
+      "Rimani cosciente.",
+      "Sei a contatto con il terreno.",
+      "Non ti muovi volontariamente."
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Se una di queste condizioni viene meno, la protezione del Talento non è più applicabile."
+    },
+    {
+     "t": "p",
+     "testo": "Baricentro Assoluto rappresenta il perfezionamento di Piedi Piantati: non concede una generica immunità a qualsiasi effetto o condizione."
+    },
+    {
+     "t": "h3",
+     "testo": "Colpo di Intercettazione"
+    },
+    {
+     "t": "p",
+     "testo": "Reazione · 1 volta per turno"
+    },
+    {
+     "t": "p",
+     "testo": "Quando un nemico entra nella tua portata, puoi utilizzare la Reazione per effettuare un attacco base con un’arma contundente."
+    },
+    {
+     "t": "p",
+     "testo": "Il Talento permette di intercettare l’avversario mentre si avvicina, ma non concede Reazioni aggiuntive."
+    },
+    {
+     "t": "h3",
+     "testo": "d20 · Leggenda"
+    },
+    {
+     "t": "h3",
+     "testo": "Talento Supremo · Cataclisma"
+    },
+    {
+     "t": "h3",
+     "testo": "Cataclisma"
+    },
+    {
+     "t": "p",
+     "testo": "Ultimate"
+    },
+    {
+     "t": "h3",
+     "testo": "5 ST"
+    },
+    {
+     "t": "p",
+     "testo": "Costo"
+    },
+    {
+     "t": "h3",
+     "testo": "1×"
+    },
+    {
+     "t": "p",
+     "testo": "Per scontro"
+    },
+    {
+     "t": "p",
+     "testo": "Richiede il permesso del Game Master."
+    },
+    {
+     "t": "p",
+     "testo": "Cataclisma è un attacco devastante composto da due risoluzioni consecutive: un impatto diretto e un’onda d’urto."
+    },
+    {
+     "t": "h3",
+     "testo": "Prima risoluzione · Impatto"
+    },
+    {
+     "t": "p",
+     "testo": "Effettui un attacco contro un singolo bersaglio utilizzando:"
+    },
+    {
+     "t": "p",
+     "testo": "Attributo + Grado dell’arma"
+    },
+    {
+     "t": "p",
+     "testo": "Se il tiro va a segno, il bersaglio subisce:"
+    },
+    {
+     "t": "h3",
+     "testo": "4 Dadi Arma"
+    },
+    {
+     "t": "h3",
+     "testo": "Seconda risoluzione · Onda d’Urto"
+    },
+    {
+     "t": "p",
+     "testo": "Effettui un nuovo tiro:"
+    },
+    {
+     "t": "p",
+     "testo": "Attributo + Grado dell’arma"
+    },
+    {
+     "t": "p",
+     "testo": "Il risultato viene confrontato con la Difesa Passiva di tutti i bersagli entro 5 metri dal punto d’impatto, compreso il bersaglio principale."
+    },
+    {
+     "t": "p",
+     "testo": "Ogni bersaglio colpito subisce:"
+    },
+    {
+     "t": "p",
+     "testo": "2 Dadi Arma"
+    },
+    {
+     "t": "p",
+     "testo": "Inoltre viene spinto di 5 metri e cade Sbilanciato."
+    },
+    {
+     "t": "h3",
+     "testo": "Danno complessivo"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Bersaglio",
+      "Danno"
+     ],
+     "righe": [
+      [
+       "Principale, colpito soltanto dall’Impatto",
+       "4 Dadi Arma"
+      ],
+      [
+       "Bersaglio colpito dall’Onda d’Urto",
+       "2 Dadi Arma"
+      ],
+      [
+       "Principale, colpito da entrambe le risoluzioni",
+       "6 Dadi Arma"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Cataclisma devasta inoltre l’area circostante. Muri, porte, pavimenti, coperture e altre strutture subiscono le conseguenze dell’impatto secondo la situazione."
+    },
+    {
+     "t": "h3",
+     "testo": "Regole particolari di Cataclisma"
+    },
+    {
+     "t": "p",
+     "testo": "Cataclisma funziona esclusivamente secondo le proprie regole. Non applica altre Tecniche, Talenti, la Firma dello Stile o effetti dell’arma, salvo quanto indicato nella sua descrizione."
+    },
+    {
+     "t": "p",
+     "testo": "Il primo tiro riguarda un solo bersaglio. Il secondo è confrontato separatamente con la Difesa Passiva di tutti i bersagli nell’area prevista."
+    },
+    {
+     "t": "p",
+     "testo": "Il bersaglio principale è incluso nell’Onda d’Urto: può quindi subire entrambi gli effetti, purché entrambi i tiri vadano a segno contro di lui."
+    },
+    {
+     "t": "h3",
+     "testo": "Esempio · Martello d12"
+    },
+    {
+     "t": "p",
+     "testo": "Un Crusher utilizza Cataclisma con un martello di Grado d12."
+    },
+    {
+     "t": "p",
+     "testo": "Il primo attacco colpisce il bersaglio principale, infliggendo 4d12 danni."
+    },
+    {
+     "t": "p",
+     "testo": "Il secondo tiro raggiunge nuovamente lo stesso bersaglio e colpisce altri due nemici entro 5 metri dal punto d’impatto."
+    },
+    {
+     "t": "p",
+     "testo": "Il bersaglio principale subisce altri 2d12 danni, per un totale di 6d12. Gli altri due nemici subiscono 2d12 danni ciascuno."
+    },
+    {
+     "t": "p",
+     "testo": "Tutti i bersagli raggiunti dall’Onda d’Urto vengono inoltre spinti di 5 metri e cadono Sbilanciati."
+    },
+    {
+     "t": "h3",
+     "testo": "Progressione · Colpo Pesante"
+    },
+    {
+     "t": "p",
+     "testo": "Colpo Pesante è il Talento a gradini che definisce il principale compromesso offensivo del Crusher."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Versione",
+      "Beneficio",
+      "Costo",
+      "Penalità difensiva"
+     ],
+     "righe": [
+      [
+       "Base · d8",
+       "+1 Dado Danno",
+       "2 ST",
+       "DP −3"
+      ],
+      [
+       "Migliorato · d10",
+       "+1 Dado Danno, Vantaggio",
+       "2 ST",
+       "DP −3"
+      ],
+      [
+       "Maestria · d12",
+       "+2 Dadi Danno, Vantaggio, Sbilanciato se colpisce",
+       "2 ST",
+       "DP −5"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Tutte e tre le versioni possono essere utilizzate una volta per turno."
+    },
+    {
+     "t": "p",
+     "testo": "Ogni versione superiore richiede la precedente e la sostituisce. Le penalità difensive non si sommano fra loro."
+    },
+    {
+     "t": "p",
+     "testo": "La penalità entra in vigore quando il Crusher dichiara Colpo Pesante e rimane applicabile anche se l’attacco manca."
+    }
+   ]
+  },
+  {
+   "sezione": "6.10",
+   "titolo": "Difesa Attiva e Reazioni",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "La Difesa Attiva utilizza la Reazione del personaggio. Deve essere dichiarata quando viene scelto come bersaglio, prima del tiro per colpire dell’attaccante; sostituisce la Difesa Passiva per quell’attacco e non permette di tornare a essa dopo un fallimento."
+    },
+    {
+     "t": "h3",
+     "testo": "Tecnica d’attacco come Difesa Attiva"
+    },
+    {
+     "t": "p",
+     "testo": "Oltre a Schivata e Blocco, puoi utilizzare una Tecnica d’attacco compatibile come Difesa Attiva. La scelta viene dichiarata quando sei scelto come bersaglio, prima del tiro per colpire dell’attaccante. Spendi la Reazione e paghi immediatamente tutti i normali costi ST della Tecnica; un fallimento non rimborsa la Stamina. Effettua il normale tiro della Tecnica: Attributo + Dado Tecnica, salvo regole specifiche. Se raggiungi o superi il tiro dell’attaccante, neutralizzi l’attacco; il pareggio favorisce il difensore. La Tecnica usata per difenderti non infligge normalmente danni e non applica automaticamente i propri effetti offensivi. Con il Talento Contraccolpo, soltanto se la difesa supera il tiro avversario infliggi anche il normale Dado Danno della Tecnica. Un pareggio difende ma non infligge danni."
+    },
+    {
+     "t": "h3",
+     "testo": "Parata"
+    },
+    {
+     "t": "p",
+     "testo": "Un personaggio che impugna un’arma compatibile può tentare una normale Parata, spendendo la Reazione e rispettando gli eventuali costi e requisiti della capacità utilizzata. Non richiede un effetto Parata nel Costruttore."
+    },
+    {
+     "t": "h3",
+     "testo": "Attributo + Dado dell’arma"
+    },
+    {
+     "t": "p",
+     "testo": "La Parata riesce se raggiunge o supera il tiro dell’attacco nemico. Una Parata riuscita evita il colpo, ma non infligge automaticamente danni. Contraccolpo richiede invece una Difesa Attiva eseguita con una Tecnica d’attacco compatibile."
+    },
+    {
+     "t": "p",
+     "testo": "Le Reazioni sono indipendenti dall’Azione Bonus: un personaggio che ha attivato l’Haki o un Talento nel proprio turno può ancora reagire se dispone della Reazione e soddisfa le condizioni richieste."
+    }
+   ]
+  },
+  {
+   "sezione": "7.4",
+   "titolo": "Le Fonti",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "La Fonte determina l’origine della Tecnica. Le Fonti selezionabili per le Tecniche costruite sono Stile e Frutto."
+    },
+    {
+     "t": "h3",
+     "testo": "Fonte · Stile"
+    },
+    {
+     "t": "p",
+     "testo": "Una Tecnica di Stile deriva dall’addestramento del personaggio e utilizza esclusivamente gli effetti assegnati al proprio Stile (§7.8). Il Grado della Tecnica non amplia automaticamente il catalogo disponibile. Striker combatte a mani nude; Swordsman richiede una lama compatibile; Sniper utilizza un’arma a distanza compatibile; Crusher richiede un’arma contundente compatibile."
+    },
+    {
+     "t": "p",
+     "testo": "Gli effetti concessi da munizioni, veleni, preparati, bombe, Moduli e altri oggetti appartengono al profilo dell’oggetto realmente utilizzato. Il Costruttore non li crea dal nulla e non sostituisce dosi, Soglie, durate o modalità d’uso degli oggetti consumabili."
+    },
+    {
+     "t": "h3",
+     "testo": "Fonte · Frutto"
+    },
+    {
+     "t": "p",
+     "testo": "Una Tecnica del Frutto rappresenta un’applicazione del potere posseduto dal personaggio. Può accedere a effetti, Aree, Gittate o Zone Persistenti ulteriori soltanto quando il Nucleo del Potere e la Scheda del Frutto rendono realmente possibile quel risultato e ne autorizzano l’utilizzo. Il GM verifica la compatibilità con la Fonte."
+    },
+    {
+     "t": "p",
+     "testo": "La sola trasformazione di uno Zoan non concede un’Area o una Zona. Eventuali poteri speciali, per esempio di uno Zoan Mitologico, seguono le capacità espressamente definite nella Scheda. Il Frutto non ignora Grado, slot o costi ST, salvo regole specifiche."
+    },
+    {
+     "t": "h3",
+     "testo": "Armi e dispositivi speciali"
+    },
+    {
+     "t": "p",
+     "testo": "Un’arma speciale o un Modulo può concedere espressamente effetti o costruzioni ulteriori quando la sua regola e la sua funzione li rendono possibili. La capacità materiale da sola non amplia il catalogo. Restano dovuti Grado, slot e costi della Tecnica, salvo eccezioni dichiarate."
+    },
+    {
+     "t": "h3",
+     "testo": "Tecniche razziali e dell’Haki"
+    },
+    {
+     "t": "p",
+     "testo": "La Tecnica razziale e le capacità dell’Haki rimangono fonti di potere del personaggio, ma non vengono create scegliendo liberamente effetti attraverso le due Fonti del Costruttore ordinario. Le loro regole dipendono dalla Razza e dal Colore dell’Haki posseduti."
+    }
+   ]
+  },
+  {
+   "sezione": "7.5",
+   "titolo": "Le Forme",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "La Forma determina la funzione principale della Tecnica."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Forma",
+      "Funzione"
+     ],
+     "righe": [
+      [
+       "Singolo",
+       "Una Tecnica diretta contro un bersaglio."
+      ],
+      [
+       "Area",
+       "Una Tecnica che coinvolge una porzione dello spazio, se autorizzata dalla Fonte."
+      ],
+      [
+       "Spostamento",
+       "Una Tecnica dedicata alla mobilità."
+      ],
+      [
+       "Difesa",
+       "Una Tecnica per proteggersi."
+      ],
+      [
+       "Potenziamento",
+       "Una Tecnica che migliora temporaneamente le capacità del personaggio."
+      ],
+      [
+       "Canzone",
+       "Una Tecnica esclusiva del Musicista."
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Le Forme Difesa, Spostamento e Canzone utilizzano esclusivamente le rispettive famiglie di effetti. Proiezione, Scatto e Balzo possono essere inseriti anche in altre Forme compatibili, ma soltanto per gli Stili che li possiedono (§7.8.3)."
+    },
+    {
+     "t": "h3",
+     "testo": "Area"
+    },
+    {
+     "t": "p",
+     "testo": "La Forma Area non è una possibilità universale dello Stile. Swordsman e Crusher possono utilizzare soltanto Area Ravvicinata. Striker e Sniper non possiedono una Forma Area ordinaria di Stile."
+    },
+    {
+     "t": "p",
+     "testo": "Area Ravvicinata richiede Grado minimo d8 e costa 2 ST. È un cerchio centrato sul personaggio, con raggio pari alla Portata effettiva dell’arma utilizzata. Non possiede un raggio proprio e non può ricevere Gittata. La sagoma non occupa slot Effetto; i 2 ST si sommano ai costi degli altri effetti della Tecnica. Un’arma con Portata 5 m genera quindi un’Area di raggio 5 m. Danni e Stati seguono le normali regole dell’Area (§7.9.3)."
+    },
+    {
+     "t": "p",
+     "testo": "Coni, linee, cerchi estesi e Aree a distanza richiedono una Fonte speciale che li autorizzi, come un Frutto, un’arma speciale o un’altra capacità espressa. Bombe, munizioni e preparati ad Area seguono il proprio profilo."
+    },
+    {
+     "t": "h3",
+     "testo": "Potenziamento"
+    },
+    {
+     "t": "p",
+     "testo": "La Forma Potenziamento utilizza un’Azione principale per applicare i propri effetti. Non deve essere confusa con l’attivazione di un Talento o dell’Haki tramite Azione Bonus."
+    },
+    {
+     "t": "h3",
+     "testo": "Uso difensivo delle Tecniche d’attacco"
+    },
+    {
+     "t": "p",
+     "testo": "L’uso di una Tecnica d’attacco compatibile come Difesa Attiva non richiede la Forma Difesa né un effetto Contrattacco. Segue §6.10, con Reazione, costi immediati e normale tiro della Tecnica."
+    }
+   ]
+  },
+  {
+   "sezione": "7.6",
+   "titolo": "Gli slot Effetto",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "Gli slot determinano quanti effetti può contenere una Tecnica."
+    },
+    {
+     "t": "p",
+     "testo": "Le Tecniche d4 e d6 possiedono 0 slot Effetto; d8 e d10 ne possiedono 2, d12 ne possiede 3 e d20 ne possiede 4. Ulteriori capacità possono prevedere slot aggiuntivi o eccezioni espresse."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Grado Tecnica",
+      "Slot Effetto"
+     ],
+     "righe": [
+      [
+       "d4",
+       "0"
+      ],
+      [
+       "d6",
+       "0"
+      ],
+      [
+       "d8",
+       "2"
+      ],
+      [
+       "d10",
+       "2"
+      ],
+      [
+       "d12",
+       "3"
+      ],
+      [
+       "d20",
+       "4"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Una Tecnica può contenere meno effetti del massimo disponibile. Non è obbligatorio riempire tutti gli slot."
+    },
+    {
+     "t": "h3",
+     "testo": "Sblocco degli effetti"
+    },
+    {
+     "t": "p",
+     "testo": "Per selezionare un effetto servono contemporaneamente il Grado minimo, uno slot disponibile e la compatibilità di Stile, Fonte e Forma. Il requisito d6 di un effetto non concede uno slot alla Tecnica."
+    },
+    {
+     "t": "p",
+     "testo": "Nel catalogo ordinario, anche gli effetti con requisito d6 diventano quindi utilizzabili normalmente dal d8, quando la Tecnica dispone di slot. Una capacità che concede espressamente slot aggiuntivi o rende un effetto privo di slot può stabilire un’eccezione."
+    },
+    {
+     "t": "h3",
+     "testo": "Limite per famiglia"
+    },
+    {
+     "t": "p",
+     "testo": "Di norma, una Tecnica può contenere un solo effetto per famiglia. Gli effetti Potenziamento seguono le regole specifiche del Costruttore."
+    },
+    {
+     "t": "p",
+     "testo": "Una Tecnica Area utilizza una sola sagoma. La sagoma non occupa slot, ma conserva Grado minimo, costo e autorizzazione della Fonte. Un’Area speciale può avere al massimo una Gittata, che occupa uno slot salvo eccezioni espresse. Area Ravvicinata non può avere Gittata."
+    }
+   ]
+  },
+  {
+   "sezione": "7.8",
+   "titolo": "Catalogo degli effetti",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "Il Costruttore definisce cosa fa una Tecnica; i Talenti definiscono quanto bene il personaggio combatte nel proprio Stile. Il catalogo ordinario non è universale: ogni Stile utilizza soltanto gli effetti indicati nella propria scheda."
+    },
+    {
+     "t": "p",
+     "testo": "Il Dado Tecnica determina già il danno base. Non esistono più effetti ordinari che acquistano direttamente +1d6, +1d8 o +1d10 Dado Danno. Talenti, Firme, Haki, Frutti, armi, Moduli e munizioni possono concedere potenza aggiuntiva secondo le proprie regole. Restano le condizioni specifiche di Carica, Tutto o Niente e Schianto."
+    },
+    {
+     "t": "p",
+     "testo": "I Gradi indicano il requisito minimo; non concedono slot o effetti. Con 0 slot a d4/d6, gli effetti che occupano slot sono normalmente utilizzabili dal d8 (§7.6)."
+    },
+    {
+     "t": "h3",
+     "testo": "7.8.1 · Danno speciale"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Effetto",
+      "Grado min.",
+      "Costo",
+      "Stile",
+      "Funzionamento"
+     ],
+     "righe": [
+      [
+       "Carica",
+       "d10",
+       "2 ST",
+       "Crusher",
+       "Salti un turno; se non vieni colpito, nel turno successivo raddoppi i Dadi Danno, attacchi con Vantaggio e ignori Copertura."
+      ],
+      [
+       "Tutto o Niente",
+       "d12",
+       "5 ST",
+       "Swordsman",
+       "Se manchi, non puoi difenderti dal prossimo attacco; con un colpo pulito il danno è triplicato."
+      ]
+     ],
+     "classe": "man-tab-effetti"
+    },
+    {
+     "t": "h3",
+     "testo": "Carica non è la Corsa"
+    },
+    {
+     "t": "p",
+     "testo": "Carica è una preparazione offensiva: il personaggio rinuncia al turno previsto e deve evitare di essere colpito per ottenere i benefici nel turno successivo. Non introduce un’Azione Corsa e non raddoppia liberamente il Movimento."
+    },
+    {
+     "t": "h3",
+     "testo": "7.8.2 · Controllo"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Effetto",
+      "Grado min.",
+      "Costo",
+      "Stile",
+      "Funzionamento"
+     ],
+     "righe": [
+      [
+       "Sbilancio",
+       "d6",
+       "1 ST",
+       "Striker, Crusher",
+       "Applica Sbilanciato secondo le regole dello Stato."
+      ],
+      [
+       "Lacerazione",
+       "d6",
+       "1 ST",
+       "Swordsman, Sniper",
+       "Applica Sanguinante; lo stesso Stato non si cumula con sé stesso."
+      ],
+      [
+       "Presa",
+       "d8",
+       "1 ST/turno",
+       "Striker",
+       "Immobilizza finché mantenuta fisicamente; contesa di Forza ogni turno."
+      ],
+      [
+       "Sfondamento",
+       "d8",
+       "2 ST",
+       "Striker, Crusher",
+       "Applica Stordito per 1 turno; concede Salvezza secondo le regole dello Stato."
+      ]
+     ],
+     "classe": "man-tab-effetti"
+    },
+    {
+     "t": "h3",
+     "testo": "Presa"
+    },
+    {
+     "t": "p",
+     "testo": "Quando la Tecnica applica Presa, spendi 1 ST. Il bersaglio rimane Immobilizzato finché mantieni fisicamente la presa e continui a pagarne il costo. All’inizio di ogni tuo turno successivo, prima di agire, puoi spendere 1 ST per mantenerla; se non lo fai, termina immediatamente. Ogni turno viene inoltre risolta la normale contesa di Forza prevista dall’effetto. La Tecnica deve permettere realmente di afferrare e trattenere il bersaglio."
+    },
+    {
+     "t": "h3",
+     "testo": "7.8.3 · Spostamento"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Effetto",
+      "Grado min.",
+      "Costo",
+      "Stile",
+      "Funzionamento"
+     ],
+     "righe": [
+      [
+       "Proiezione",
+       "d6",
+       "1 ST",
+       "Striker, Crusher",
+       "Spinge il bersaglio di 3 m."
+      ],
+      [
+       "Scatto",
+       "d6",
+       "1 ST",
+       "Striker, Swordsman, Sniper",
+       "Ti sposti fino a metà Movimento prima o dopo il colpo."
+      ],
+      [
+       "Balzo",
+       "d6",
+       "1 ST",
+       "Striker, Swordsman",
+       "Raggiungi una posizione distante o elevata fino a metà Movimento."
+      ]
+     ],
+     "classe": "man-tab-effetti"
+    },
+    {
+     "t": "p",
+     "testo": "Proiezione, Scatto e Balzo possono essere inseriti anche in una Tecnica di un’altra Forma compatibile, soltanto dagli Stili indicati. Non sono effetti disponibili a tutti gli Stili. Ogni effetto occupa il proprio slot, paga il proprio costo e conserva le condizioni necessarie a eseguirlo."
+    },
+    {
+     "t": "p",
+     "testo": "Scatto e Balzo dipendono dal Movimento del personaggio: con Movimento 10 m la distanza ordinaria è fino a 5 m. Inseguire, Strattone e Scambio sono rimossi. Attrazione richiede una Fonte, un oggetto o una capacità che afferri e trascini realmente il bersaglio."
+    },
+    {
+     "t": "h3",
+     "testo": "7.8.4 · Difesa"
+    },
+    {
+     "t": "p",
+     "testo": "Gli effetti Difesa ordinari sono disponibili per la Forma Difesa."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Effetto",
+      "Grado min.",
+      "Costo",
+      "Stile",
+      "Funzionamento"
+     ],
+     "righe": [
+      [
+       "Guardia",
+       "d8–d20",
+       "1–4 ST",
+       "Striker, Swordsman, Crusher",
+       "Aumenta la DP fino all’inizio del prossimo turno secondo la versione scelta."
+      ],
+      [
+       "Scudo d’Alleato",
+       "d8",
+       "1 ST",
+       "Crusher",
+       "Trasferisce su di te il colpo diretto a un alleato entro 5 m, rispettando le normali condizioni della Difesa."
+      ]
+     ],
+     "classe": "man-tab-effetti"
+    },
+    {
+     "t": "h3",
+     "testo": "Guardia · progressione per Grado"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Grado minimo",
+      "Versione",
+      "Costo",
+      "Bonus DP"
+     ],
+     "righe": [
+      [
+       "d8",
+       "Guardia Base",
+       "1 ST",
+       "+2"
+      ],
+      [
+       "d10",
+       "Guardia Migliorata",
+       "2 ST",
+       "+3"
+      ],
+      [
+       "d12",
+       "Guardia Maestria",
+       "3 ST",
+       "+4"
+      ],
+      [
+       "d20",
+       "Guardia Suprema",
+       "4 ST",
+       "+5"
+      ]
+     ],
+     "classe": "man-tab-effetti"
+    },
+    {
+     "t": "p",
+     "testo": "La versione scelta richiede almeno il Grado indicato della Tecnica, entro il limite del suo Attributo. Ogni versione superiore sostituisce la precedente: bonus e costi non si sommano. Guardia occupa uno slot e dura fino all’inizio del tuo prossimo turno."
+    },
+    {
+     "t": "p",
+     "testo": "Contrattacco e Parata non sono più effetti del Costruttore. Una Tecnica d’attacco compatibile può essere usata direttamente come Difesa Attiva (§6.10); un’arma compatibile permette la normale Parata. Barriera richiede una Fonte o una capacità che generi espressamente quella protezione."
+    },
+    {
+     "t": "h3",
+     "testo": "7.8.5 · Potenziamento"
+    },
+    {
+     "t": "p",
+     "testo": "Le Tecniche di Potenziamento richiedono un’Azione principale. Gli effetti durano per la scena e non utilizzano l’Azione Bonus riservata ai Talenti attivi e all’Haki."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Effetto",
+      "Grado min.",
+      "Costo",
+      "Stile",
+      "Funzionamento"
+     ],
+     "righe": [
+      [
+       "Furia",
+       "d8",
+       "3 ST",
+       "Striker, Crusher",
+       "Per la scena: +1 gradino al Dado Danno delle Tecniche compatibili; DP −1."
+      ],
+      [
+       "Mira",
+       "d8",
+       "3 ST",
+       "Swordsman, Sniper",
+       "Per la scena: Vantaggio ai tiri per colpire con le Tecniche compatibili."
+      ]
+     ],
+     "classe": "man-tab-effetti"
+    },
+    {
+     "t": "p",
+     "testo": "Furia aumenta soltanto il Dado Danno delle Tecniche compatibili, entro il normale limite d20: non aumenta il Dado Tecnica per colpire, il Grado della Tecnica o gli slot. Mira concede Vantaggio al tiro per colpire e non aumenta il dado."
+    },
+    {
+     "t": "p",
+     "testo": "Slancio, Tempra e Oltre il Limite sono rimossi dal Costruttore ordinario. Attributi e Skill con una propria progressione di Prestigio seguono le loro regole; un incremento temporaneo non concede automaticamente nuovi Talenti o benefici di Prestigio."
+    },
+    {
+     "t": "h3",
+     "testo": "7.8.6 · Area"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Effetto",
+      "Grado min.",
+      "Costo",
+      "Stile",
+      "Funzionamento"
+     ],
+     "righe": [
+      [
+       "Area Ravvicinata",
+       "d8",
+       "2 ST",
+       "Swordsman, Crusher",
+       "Cerchio centrato su di sé; raggio pari alla Portata effettiva dell’arma. Nessuna Gittata; sagoma senza slot."
+      ]
+     ],
+     "classe": "man-tab-effetti"
+    },
+    {
+     "t": "p",
+     "testo": "Area Ravvicinata richiede Grado minimo d8 e costa 2 ST. È un cerchio centrato sul personaggio, con raggio pari alla Portata effettiva dell’arma utilizzata. Non possiede un raggio proprio e non può ricevere Gittata. La sagoma non occupa slot Effetto; i 2 ST si sommano ai costi degli altri effetti della Tecnica. Un’arma con Portata 5 m genera quindi un’Area di raggio 5 m. Danni e Stati seguono le normali regole dell’Area (§7.9.3)."
+    },
+    {
+     "t": "h3",
+     "testo": "7.8.7 · Concatenati"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Effetto",
+      "Grado min.",
+      "Costo",
+      "Stile",
+      "Funzionamento"
+     ],
+     "righe": [
+      [
+       "Schianto",
+       "d8",
+       "2 ST",
+       "Striker, Crusher",
+       "Se il bersaglio urta una superficie, un ostacolo o una creatura, subisce +1d8 danni."
+      ],
+      [
+       "Rimbalzo",
+       "d10",
+       "2 ST",
+       "Sniper",
+       "Secondo bersaglio entro 5 m dal primo; metà danno."
+      ],
+      [
+       "Catena",
+       "d12",
+       "2 ST",
+       "Swordsman, Sniper",
+       "Fino a tre bersagli in fila: danno pieno, metà, metà del secondo."
+      ]
+     ],
+     "classe": "man-tab-effetti"
+    },
+    {
+     "t": "p",
+     "testo": "Questi effetti occupano slot e seguono le condizioni di §7.11. Aggancio è rimosso."
+    },
+    {
+     "t": "h3",
+     "testo": "7.8.8 · Profili per Fonti speciali"
+    },
+    {
+     "t": "p",
+     "testo": "Accecante, Terrore, Paralisi, Sopore, Attrazione e Barriera sono profili di riferimento: non appartengono al catalogo ordinario di alcuno Stile. Si selezionano soltanto se una Fonte o una capacità li concede espressamente. Gli oggetti consumabili applicano invece il proprio profilo."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Profilo speciale",
+      "Grado min.",
+      "Costo",
+      "Funzionamento"
+     ],
+     "righe": [
+      [
+       "Accecante",
+       "d8",
+       "1 ST",
+       "Applica Accecato; concede Salvezza."
+      ],
+      [
+       "Terrore",
+       "d8",
+       "1 ST",
+       "Applica Atterrito; concede Salvezza secondo le regole dello Stato."
+      ],
+      [
+       "Paralisi",
+       "d12",
+       "2 ST",
+       "Applica Paralizzato per 1 turno; concede Salvezza."
+      ],
+      [
+       "Sopore",
+       "d12",
+       "2 ST",
+       "Applica Addormentato; concede Salvezza."
+      ],
+      [
+       "Attrazione",
+       "d8",
+       "1 ST",
+       "Trascina il bersaglio di 3 m verso di te, se la Fonte può afferrarlo."
+      ],
+      [
+       "Barriera",
+       "d8",
+       "1 ST",
+       "Concede Copertura a te e agli alleati entro 5 m, se la Fonte genera la protezione."
+      ]
+     ],
+     "classe": "man-tab-effetti"
+    },
+    {
+     "t": "p",
+     "testo": "Veleno utilizza una dose con effetti, Soglia, durata e modalità d’uso propri. Colpo Pesante, Sovraccarico e Colpo Annientante sono rimossi soltanto come effetti ordinari: i Talenti e le capacità omonime indipendenti mantengono le proprie regole."
+    }
+   ]
+  },
+  {
+   "sezione": "7.9",
+   "titolo": "Tecniche ad Area",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "La Forma Area coinvolge una porzione dello spazio. L’accesso dipende dallo Stile o da una Fonte speciale e non è universale."
+    },
+    {
+     "t": "h3",
+     "testo": "Area Ravvicinata di Stile"
+    },
+    {
+     "t": "p",
+     "testo": "Swordsman e Crusher possono costruire soltanto Area Ravvicinata attorno alla propria posizione. Striker e Sniper non possiedono una Forma Area ordinaria di Stile."
+    },
+    {
+     "t": "p",
+     "testo": "Area Ravvicinata richiede Grado minimo d8 e costa 2 ST. È un cerchio centrato sul personaggio, con raggio pari alla Portata effettiva dell’arma utilizzata. Non possiede un raggio proprio e non può ricevere Gittata. La sagoma non occupa slot Effetto; i 2 ST si sommano ai costi degli altri effetti della Tecnica. Un’arma con Portata 5 m genera quindi un’Area di raggio 5 m. Danni e Stati seguono le normali regole dell’Area (§7.9.3)."
+    },
+    {
+     "t": "p",
+     "testo": "Fendente Sovrano non proietta Area Ravvicinata a distanza. Onda Titanica, Onda Sismica e altre propagazioni di Prestigio mantengono sagome, condizioni e costi propri, distinti dalla Forma Area."
+    },
+    {
+     "t": "h3",
+     "testo": "Aree speciali"
+    },
+    {
+     "t": "p",
+     "testo": "Coni, linee, cerchi estesi, Gittate e altri profili ad Area sono disponibili soltanto quando una Fonte speciale li rende possibili e ne autorizza la costruzione. Un Frutto o un’arma speciale può concedere le sagome seguenti secondo la propria descrizione, rispettando Grado, slot e costi. Bombe, munizioni, preparati e altri usabili applicano direttamente il proprio profilo."
+    },
+    {
+     "t": "h3",
+     "testo": "7.9.1 · Sagome delle Aree speciali"
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Effetto",
+      "Grado min.",
+      "ST",
+      "Area"
+     ],
+     "righe": [
+      [
+       "Soffio",
+       "d6",
+       "0",
+       "Cono di 5 m"
+      ],
+      [
+       "Onda",
+       "d8",
+       "1",
+       "Cono di 10 m"
+      ],
+      [
+       "Marea",
+       "d12",
+       "3",
+       "Cono di 20 m"
+      ],
+      [
+       "Solco",
+       "d6",
+       "0",
+       "Linea di 10 m, larga circa 1 m"
+      ],
+      [
+       "Lancia",
+       "d10",
+       "2",
+       "Linea di 20 m"
+      ],
+      [
+       "Squarcio",
+       "d12",
+       "4",
+       "Linea di 40 m"
+      ],
+      [
+       "Scoppio",
+       "d8",
+       "1",
+       "Cerchio di raggio 3 m"
+      ],
+      [
+       "Esplosione",
+       "d10",
+       "2",
+       "Cerchio di raggio 5 m"
+      ],
+      [
+       "Deflagrazione",
+       "d12",
+       "4",
+       "Cerchio di raggio 10 m"
+      ],
+      [
+       "Cataclisma",
+       "d20",
+       "6",
+       "Cerchio di raggio 20 m"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Una Tecnica contiene una sola sagoma, che non occupa slot ma conserva il proprio costo e requisito di Grado. Queste sagome non sostituiscono Area Ravvicinata del catalogo ordinario."
+    },
+    {
+     "t": "h3",
+     "testo": "7.9.2 · Gittata delle Aree speciali"
+    },
+    {
+     "t": "p",
+     "testo": "La Gittata determina quanto lontano può essere collocato il punto d’origine di un’Area speciale autorizzata dalla Fonte."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Effetto",
+      "Grado min.",
+      "ST",
+      "Distanza"
+     ],
+     "righe": [
+      [
+       "Gittata Corta",
+       "d6",
+       "1",
+       "Fino a 10 m"
+      ],
+      [
+       "Gittata Media",
+       "d8",
+       "2",
+       "Fino a 20 m"
+      ],
+      [
+       "Gittata Lunga",
+       "d10",
+       "3",
+       "Fino a 40 m"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "La Gittata è facoltativa e occupa uno slot Effetto. Senza Gittata, l’Area speciale parte dal personaggio e può coinvolgerlo direttamente. Area Ravvicinata non può ricevere Gittata."
+    },
+    {
+     "t": "p",
+     "testo": "Soltanto un’Area speciale dotata di Gittata può essere utilizzata oltre la propria fascia di distanza con Soglia aumentata di 4, se compatibile con la Fonte. Questa regola non proietta Area Ravvicinata e non concede una gittata superiore alle armi Sniper: quella deriva dall’arma e dalle capacità che la estendono."
+    },
+    {
+     "t": "h3",
+     "testo": "7.9.3 · Danni e Stati ad Area"
+    },
+    {
+     "t": "p",
+     "testo": "I bersagli interessati dalla Tecnica ad Area subiscono metà del danno. Gli Stati applicati attraverso l’Area concedono una Salvezza. Queste regole valgono anche per Area Ravvicinata, salvo un’eccezione espressa di una capacità specifica."
+    },
+    {
+     "t": "h3",
+     "testo": "7.9.4 · Occhio del Ciclone"
+    },
+    {
+     "t": "p",
+     "testo": "Profilo speciale: d12, 1 ST, uno slot Effetto salvo eccezioni espresse. Permette di scegliere quali bersagli non vengono colpiti da una Tecnica ad Area già autorizzata. Non concede da solo l’accesso alla Forma Area e non amplia il catalogo ordinario degli Stili. Il Talento Nessuno dei Miei modifica slot, costo e requisito per le Tecniche del Frutto secondo le proprie regole."
+    }
+   ]
+  },
+  {
+   "sezione": "7.10",
+   "titolo": "Zone Persistenti",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "Alcune Tecniche non si esauriscono al momento dell'impatto. Una nube velenosa può rimanere sospesa sul ponte, un incendio può continuare a bruciare oppure una massa di fango può trasformare il terreno in una trappola."
+    },
+    {
+     "t": "p",
+     "testo": "Questi effetti prendono il nome di Zone Persistenti."
+    },
+    {
+     "t": "p",
+     "testo": "Una Zona Persistente viene costruita attraverso una Tecnica con Forma Area. Utilizza la sagoma scelta per quella Tecnica e ne eredita le dimensioni."
+    },
+    {
+     "t": "p",
+     "testo": "Non è possibile assegnare alla Zona una dimensione indipendente da quella dell'Area che la genera."
+    },
+    {
+     "t": "h3",
+     "testo": "7.10.1 · Requisiti della Fonte"
+    },
+    {
+     "t": "p",
+     "testo": "Le Zone Persistenti sono effetti di Fonte speciale e non appartengono al catalogo ordinario degli Stili. Per crearne una attraverso una Tecnica, la Fonte deve poter lasciare realmente nell’ambiente materia, energia o una condizione persistente e autorizzare espressamente questo utilizzo."
+    },
+    {
+     "t": "p",
+     "testo": "Il GM verifica la compatibilità con il potere o con il progetto dell’arma o congegno speciale. La sola disponibilità di un’Area non autorizza una Zona; Grado, slot e costi restano dovuti."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Fonte",
+      "Possibilità"
+     ],
+     "righe": [
+      [
+       "Logia",
+       "Se l’elemento e la Scheda autorizzano una Zona persistente."
+      ],
+      [
+       "Paramecia",
+       "Se il potere e la Scheda autorizzano una condizione persistente."
+      ],
+      [
+       "Zoan",
+       "La sola trasformazione non concede Zone; eventuali poteri speciali richiedono autorizzazione nella Scheda."
+      ],
+      [
+       "Arma o congegno speciale",
+       "Se la regola e il progetto concedono espressamente una Zona. I consumabili usano il proprio profilo."
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Un Logia del fumo potrebbe creare una Cortina; un Paramecia adesivo potrebbe generare una Prigione, se la Scheda autorizza queste applicazioni. Bombe, fumogeni, preparati e veleni che creano una zona applicano direttamente il proprio profilo e non vengono ricostruiti con il Costruttore."
+    },
+    {
+     "t": "p",
+     "testo": "L'effetto meccanico deve essere compatibile con ciò che la Tecnica produce nella storia."
+    },
+    {
+     "t": "h3",
+     "testo": "7.10.2 · Catalogo delle Zone Persistenti"
+    },
+    {
+     "t": "p",
+     "testo": "Terreno Alterato, Pantano, Cortina e Prigione restano profili di riferimento per Fonti speciali, non opzioni liberamente acquistabili da uno Stile."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Effetto",
+      "Grado minimo",
+      "Costo",
+      "Funzionamento"
+     ],
+     "righe": [
+      [
+       "Terreno Alterato",
+       "d8",
+       "2 ST",
+       "Infligge 1d6 danni a chi si trova nella Zona all'inizio del proprio turno."
+      ],
+      [
+       "Terreno Alterato Lv2",
+       "d10",
+       "3 ST",
+       "Infligge 2d6 danni all'inizio del turno."
+      ],
+      [
+       "Terreno Alterato Lv3",
+       "d12",
+       "4 ST",
+       "Infligge 3d6 danni all'inizio del turno."
+      ],
+      [
+       "Pantano",
+       "d8",
+       "1 ST",
+       "Genera Terreno Difficile: Movimento dimezzato e impossibilità di effettuare Carica."
+      ],
+      [
+       "Cortina",
+       "d8",
+       "1 ST",
+       "Blocca la vista. Chi si trova all'interno e tenta di mirare verso l'esterno viene trattato come Accecato."
+      ],
+      [
+       "Prigione",
+       "d12",
+       "2 ST",
+       "Trattiene chi si trova nella Zona. Per uscire è necessario superare una Salvezza."
+      ]
+     ]
+    },
+    {
+     "t": "h3",
+     "testo": "Terreno Alterato"
+    },
+    {
+     "t": "p",
+     "testo": "Terreno Alterato provoca danni all'inizio del turno delle creature che si trovano nella Zona."
+    },
+    {
+     "t": "p",
+     "testo": "Il danno dipende dal livello dell'effetto selezionato."
+    },
+    {
+     "t": "p",
+     "testo": "I tre livelli rappresentano alternative della medesima famiglia: non possono essere sommati liberamente per accumularne i danni."
+    },
+    {
+     "t": "p",
+     "testo": "Esempio: una Tecnica crea un cerchio di fiamme con Terreno Alterato Lv2. Un nemico che si trova nella Zona all'inizio del proprio turno subisce 2d6 danni."
+    },
+    {
+     "t": "h3",
+     "testo": "Pantano"
+    },
+    {
+     "t": "p",
+     "testo": "Pantano rende difficile attraversare la Zona."
+    },
+    {
+     "t": "p",
+     "testo": "Il Movimento viene dimezzato e non è possibile effettuare Carica al suo interno."
+    },
+    {
+     "t": "p",
+     "testo": "L'aspetto del terreno dipende dalla Fonte: potrebbe trattarsi di sabbie mobili, ghiaccio irregolare, detriti o una sostanza prodotta da un Frutto."
+    },
+    {
+     "t": "h3",
+     "testo": "Cortina"
+    },
+    {
+     "t": "p",
+     "testo": "Cortina blocca la visibilità."
+    },
+    {
+     "t": "p",
+     "testo": "Chi si trova al suo interno viene trattato come Accecato quando tenta di mirare verso l'esterno."
+    },
+    {
+     "t": "p",
+     "testo": "La Cortina non è automaticamente una barriera fisica: impedire la vista non significa impedire il passaggio."
+    },
+    {
+     "t": "h3",
+     "testo": "Prigione"
+    },
+    {
+     "t": "p",
+     "testo": "Prigione trattiene i bersagli presenti nella Zona."
+    },
+    {
+     "t": "p",
+     "testo": "Un personaggio intrappolato deve superare la Salvezza prevista per riuscire a uscire."
+    },
+    {
+     "t": "p",
+     "testo": "La forma concreta della prigione dipende dalla Tecnica: radici, pietra, ghiaccio, materia adesiva o altri elementi compatibili."
+    }
+   ]
+  },
+  {
+   "sezione": "7.11",
+   "titolo": "Effetti Concatenati",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "Gli Effetti Concatenati ordinari sono Schianto, Rimbalzo e Catena. Aggancio è rimosso. Il catalogo resta limitato agli Stili indicati."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Effetto",
+      "Grado min.",
+      "Costo",
+      "Stile",
+      "Funzionamento"
+     ],
+     "righe": [
+      [
+       "Schianto",
+       "d8",
+       "2 ST",
+       "Striker, Crusher",
+       "Se il bersaglio urta una superficie, un ostacolo o una creatura, subisce +1d8 danni."
+      ],
+      [
+       "Rimbalzo",
+       "d10",
+       "2 ST",
+       "Sniper",
+       "Secondo bersaglio entro 5 m dal primo; metà danno."
+      ],
+      [
+       "Catena",
+       "d12",
+       "2 ST",
+       "Swordsman, Sniper",
+       "Fino a tre bersagli in fila: danno pieno, metà, metà del secondo."
+      ]
+     ],
+     "classe": "man-tab-effetti"
+    },
+    {
+     "t": "h3",
+     "testo": "7.11.1 · Schianto"
+    },
+    {
+     "t": "p",
+     "testo": "Schianto (d8, 2 ST, Striker/Crusher) infligge +1d8 danni se il bersaglio urta una superficie, un ostacolo o un’altra creatura. È adatto a una Tecnica che possiede anche Proiezione: il dado aggiuntivo richiede una collisione valida e non è un acquisto generico di danno."
+    },
+    {
+     "t": "h3",
+     "testo": "Combinazione · Proiezione + Schianto"
+    },
+    {
+     "t": "h3",
+     "testo": "Urto del Porto"
+    },
+    {
+     "t": "p",
+     "testo": "Tecnica Crusher d8 con Proiezione (1 ST) + Schianto (2 ST): costo totale dagli effetti 3 ST e 2 slot occupati."
+    },
+    {
+     "t": "p",
+     "testo": "Effettua il normale tiro per colpire. Se il colpo va a segno, infligge il normale Dado Danno e spinge il bersaglio di 3 m. Se la Proiezione provoca una collisione valida, aggiunge 1d8 danni."
+    },
+    {
+     "t": "p",
+     "testo": "Proiezione appartiene alla famiglia Spostamento, Schianto ai Concatenati. La combinazione rispetta il limite ordinario di un effetto per famiglia e i 2 slot della Tecnica d8."
+    },
+    {
+     "t": "h3",
+     "testo": "7.11.2 · Rimbalzo"
+    },
+    {
+     "t": "p",
+     "testo": "Rimbalzo (d10, 2 ST, Sniper) permette al colpo di raggiungere un secondo bersaglio entro 5 m dal primo, infliggendo metà danno. Non concede bersagli ulteriori; restano le normali condizioni del tiro e della difesa."
+    },
+    {
+     "t": "h3",
+     "testo": "7.11.3 · Catena"
+    },
+    {
+     "t": "p",
+     "testo": "Catena (d12, 2 ST, Swordsman/Sniper) raggiunge fino a tre bersagli in fila. Si effettuano tiri per colpire separati; il danno viene tirato una sola volta."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Bersaglio",
+      "Danno ricevuto"
+     ],
+     "righe": [
+      [
+       "Primo",
+       "Danno pieno"
+      ],
+      [
+       "Secondo",
+       "Metà del danno"
+      ],
+      [
+       "Terzo",
+       "Metà del danno del secondo"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Esempio: con 16 danni, i bersagli subiscono rispettivamente 16, 8 e 4, purché i rispettivi attacchi vadano a segno. Catena non estende automaticamente la portata dell’arma o della Fonte."
+    }
+   ]
+  },
+  {
+   "sezione": "9.5",
+   "titolo": "Costruire le Tecniche del Frutto",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "Le Tecniche del Frutto utilizzano il Costruttore del Capitolo 7, ma il Frutto è una Fonte speciale. Gli effetti devono essere coerenti con il Nucleo del Potere e con la Scheda di Identità. Quando la natura del Frutto lo permette, il GM può autorizzare effetti, Aree, Gittate o Zone Persistenti estranei al catalogo ordinario di uno Stile. L’autorizzazione non elimina Grado, slot o costi ST: un Frutto deve poter produrre realmente il risultato."
+    },
+    {
+     "t": "p",
+     "testo": "Per crearne una, il giocatore seleziona Frutto come Fonte e definisce Attributo, Forma, Grado ed effetti."
+    },
+    {
+     "t": "p",
+     "testo": "La Tecnica deve rispettare tre condizioni fondamentali:"
+    },
+    {
+     "t": "p",
+     "testo": "Il suo Grado non può superare il Dado dell'Attributo utilizzato."
+    },
+    {
+     "t": "p",
+     "testo": "Il suo Grado non può superare il Dado del Frutto."
+    },
+    {
+     "t": "p",
+     "testo": "Gli effetti scelti devono essere coerenti con la natura del potere e con le regole del Costruttore."
+    },
+    {
+     "t": "p",
+     "testo": "Il Game Master verifica la compatibilità narrativa della Tecnica."
+    },
+    {
+     "t": "p",
+     "testo": "Un Frutto capace di produrre cera può creare barriere e strutture. Non può produrre liberamente fulmini soltanto perché nel Catalogo esiste un effetto adatto a un attacco elettrico."
+    },
+    {
+     "t": "h",
+     "testo": "Tecniche d4 e d6"
+    },
+    {
+     "t": "p",
+     "testo": "Le Tecniche d4 e d6 possiedono 0 slot Effetto e non possono selezionare effetti che occupano slot, salvo una capacità che conceda espressamente un’eccezione."
+    },
+    {
+     "t": "p",
+     "testo": "Gli effetti che occupano slot diventano normalmente disponibili dal Grado d8, rispettando i relativi requisiti. Le sagome autorizzate dalla Fonte non occupano slot, ma conservano il proprio Grado minimo e costo (§7.9)."
+    },
+    {
+     "t": "p",
+     "testo": "Questo limite riguarda le Tecniche costruite. Non elimina il Tratto naturale del Frutto o le capacità dei Talenti già posseduti."
+    },
+    {
+     "t": "h",
+     "testo": "Costi"
+    },
+    {
+     "t": "p",
+     "testo": "Le Tecniche del Frutto pagano la Stamina prevista dai propri effetti."
+    },
+    {
+     "t": "p",
+     "testo": "Il fatto di possedere un Frutto non rende automaticamente gratuite tutte le Tecniche che ne derivano."
+    },
+    {
+     "t": "p",
+     "testo": "Talenti specifici possono ridurre o eliminare determinati costi."
+    }
+   ]
+  },
+  {
+   "sezione": "7.13",
+   "titolo": "Durata delle Tecniche",
+   "quando": "2026-10-07",
+   "perche": "Il creatore ribadisce il limite d20 delle Tecniche personalizzate. Il requisito d20+ per la durata della scena viene riallineato a d20, senza concedere progressioni di Prestigio alle Tecniche.",
+   "contenuto": [
+    {
+     "t": "p",
+     "testo": "Una Tecnica che produce un effetto persistente deve specificarne la durata."
+    },
+    {
+     "t": "p",
+     "testo": "Per le Tecniche ad Area, il Costruttore prevede le seguenti opzioni. Regolano la persistenza dell’Area e delle Zone autorizzate dalla Fonte; non sostituiscono le durate specifiche di Guardia, Furia, Mira o il mantenimento per turno di Presa."
+    },
+    {
+     "t": "tabella",
+     "intestazione": [
+      "Durata",
+      "Costo aggiuntivo",
+      "Funzionamento"
+     ],
+     "righe": [
+      [
+       "Un turno",
+       "0 ST",
+       "La Tecnica mantiene l'effetto per un turno."
+      ],
+      [
+       "Mantieni",
+       "1 ST per turno",
+       "Il personaggio paga il mantenimento per prolungare l'effetto."
+      ],
+      [
+       "Tre turni",
+       "2 ST",
+       "L'effetto dura tre turni."
+      ],
+      [
+       "Tutta la scena",
+       "Nessun sovrapprezzo indicato",
+       "Opzione riservata alle Tecniche di Grado d20; restano i requisiti della Fonte."
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "testo": "Le Tecniche personalizzate non superano d20. Il requisito della durata «Tutta la scena» è d20 e non concede una progressione di Prestigio alla Tecnica."
+    },
+    {
+     "t": "p",
+     "testo": "La durata di una Tecnica non modifica automaticamente quella dell'Haki o dei Talenti che le vengono associati attraverso una Special Move."
+    },
+    {
+     "t": "p",
+     "testo": "Ogni capacità mantiene la propria durata."
+    },
+    {
+     "t": "p",
+     "testo": "Esempio: una Zona può rimanere attiva per tre turni, mentre un Talento utilizzato insieme alla Tecnica può avere effetto soltanto sull'attacco iniziale. La persistenza della Zona non prolunga il Talento."
+    }
+   ]
   }
  ],
  "sostituzioni": [
@@ -1828,55 +7810,6 @@
    "sezione": "3.8",
    "da": "Il Dado Vita non viene tirato. Si utilizza sempre il valore massimo.",
    "a": "Il Dado Vita non viene tirato. Si utilizza sempre metà del valore massimo."
-  },
-  {
-   "sezione": "4.2",
-   "quando": "2026-09-25",
-   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
-   "da": "supera l'attacco nemico",
-   "a": "raggiunge o supera l'attacco nemico"
-  },
-  {
-   "sezione": "4.3",
-   "quando": "2026-09-25",
-   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
-   "da": "supera l'attacco nemico",
-   "a": "raggiunge o supera l'attacco nemico"
-  },
-  {
-   "sezione": "4.5",
-   "quando": "2026-09-25",
-   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
-   "da": "supera l’attacco nemico",
-   "a": "raggiunge o supera l’attacco nemico"
-  },
-  {
-   "sezione": "6.10",
-   "quando": "2026-09-25",
-   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
-   "da": "deve superare il tiro dell’avversario",
-   "a": "deve raggiungere o superare il tiro dell’avversario"
-  },
-  {
-   "sezione": "6.10",
-   "quando": "2026-09-25",
-   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
-   "da": "La Parata deve superare il risultato dell’attacco nemico.",
-   "a": "La Parata riesce se raggiunge o supera il risultato dell’attacco nemico."
-  },
-  {
-   "sezione": "7.8",
-   "quando": "2026-09-25",
-   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
-   "da": "se superi il tiro nemico",
-   "a": "se raggiungi o superi il tiro nemico"
-  },
-  {
-   "sezione": "7.8",
-   "quando": "2026-09-25",
-   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
-   "da": "Il tiro deve superare quello dell'avversario.",
-   "a": "Il tiro di Contrattacco riesce se raggiunge o supera quello dell'avversario."
   },
   {
    "sezione": "6.4",
@@ -2012,189 +7945,35 @@
    "a": "Attivare un Colore dell'Haki richiede un'Azione Bonus e consuma 1 PIP dalla riserva di quel Colore. L’eccezione di Prestigio Sintonia dei Colori permette di attivarne due con la stessa Bonus, o tre a Spirito Saikyō: ciascun Colore paga comunque il proprio PIP. Non concede anche l’uso di un effetto attivo Haki nello stesso turno."
   },
   {
-   "sezione": "7.11",
-   "quando": "2026-10-04",
-   "perche": "Tolto il 7.11.4, Catena prende il suo numero: niente buchi nella numerazione.",
-   "da": "7.11.5 · Catena",
-   "a": "7.11.4 · Catena"
+   "sezione": "7.2",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "da": "Il Dado Danno può essere modificato dagli effetti della Tecnica, dai Talenti e da altre capacità applicabili.",
+   "a": "Il Dado Danno può essere modificato da condizioni specifiche degli effetti, dai Talenti e da altre capacità applicabili. Il Costruttore ordinario non permette di acquistare dadi danno grezzi aggiuntivi."
+  },
+  {
+   "sezione": "8.8",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "da": "Aggiunge due dadi del proprio Grado di Osservazione a un tiro di evasione o Contrattacco.",
+   "a": "Aggiunge due dadi del proprio Grado di Osservazione a un tiro difensivo compatibile effettuato per una Schivata oppure per una Difesa Attiva eseguita con una Tecnica d’attacco. Il beneficio non concede automaticamente danni: eventuali danni in risposta richiedono un Talento come Contraccolpo e ne rispettano tutte le condizioni, compreso il superamento del tiro avversario."
+  },
+  {
+   "sezione": "9.7",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "da": "L'effetto Occhio del Ciclone diventa più accessibile per le tue Tecniche del Frutto.",
+   "a": "L’effetto Occhio del Ciclone diventa più accessibile per le tue Tecniche del Frutto. Non concede da solo la Forma Area: si applica soltanto a una Tecnica che possiede già un’Area valida secondo la natura del potere e le regole della Fonte."
+  },
+  {
+   "sezione": "9.7",
+   "quando": "2026-10-07",
+   "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026.",
+   "da": "Il Talento non concede automaticamente Gittata a una Tecnica che ne è priva. Elimina il costo della Gittata effettivamente selezionata.",
+   "a": "Portata Naturale non crea una Gittata, un’Area o Catena che il Frutto non potrebbe produrre. I benefici si applicano soltanto a Tecniche del Frutto già autorizzate dalla Fonte; eliminano il costo della Gittata effettivamente selezionata senza concederla automaticamente."
   }
  ],
  "blocchi": [
-  {
-   "sezione": "2.8",
-   "quando": "2026-09-25",
-   "perche": "Pacchetto di revisione Haki del 23/09/2026: il pareggio favorisce il difensore.",
-   "da": [
-    "Per riuscire:",
-    "Difesa Attiva > Attacco nemico",
-    "Se supera l'attacco:",
-    "il colpo viene neutralizzato.",
-    "Se ottiene lo stesso risultato:",
-    "la difesa fallisce.",
-    "Se ottiene un risultato inferiore:",
-    "la difesa fallisce.",
-    "Quindi:",
-    "Difesa Attiva > Attacco → difeso",
-    "Difesa Attiva ≤ Attacco → colpito",
-    "Il pareggio favorisce sempre l'attaccante."
-   ],
-   "a": [
-    {
-     "t": "p",
-     "testo": "Per riuscire:"
-    },
-    {
-     "t": "p",
-     "testo": "Difesa Attiva ≥ Attacco nemico"
-    },
-    {
-     "t": "p",
-     "testo": "Se raggiunge o supera l’attacco:"
-    },
-    {
-     "t": "p",
-     "testo": "il colpo viene neutralizzato."
-    },
-    {
-     "t": "p",
-     "testo": "Se ottiene un risultato inferiore:"
-    },
-    {
-     "t": "p",
-     "testo": "la difesa fallisce."
-    },
-    {
-     "t": "p",
-     "testo": "Quindi:"
-    },
-    {
-     "t": "mappa",
-     "righe": [
-      [
-       "Difesa Attiva ≥ Attacco nemico",
-       "difeso"
-      ],
-      [
-       "Difesa Attiva < Attacco nemico",
-       "colpito"
-      ]
-     ]
-    },
-    {
-     "t": "p",
-     "testo": "Il pareggio favorisce sempre il difensore."
-    },
-    {
-     "t": "p",
-     "testo": "Se il personaggio tenta una Difesa Attiva e il tiro fallisce, la Difesa Passiva non viene applicata nuovamente: la Difesa Attiva sostituisce la Difesa Passiva per quell’attacco."
-    }
-   ]
-  },
-  {
-   "sezione": "2.8",
-   "quando": "2026-09-25",
-   "perche": "Esempio della Schivata allineato al pareggio difeso.",
-   "da": [
-    "Se ottiene:",
-    "15 o più → schiva l'attacco",
-    "Se ottiene:",
-    "14 o meno → viene colpito"
-   ],
-   "a": [
-    {
-     "t": "p",
-     "testo": "Se ottiene:"
-    },
-    {
-     "t": "mappa",
-     "righe": [
-      [
-       "14 o più",
-       "schiva l’attacco"
-      ]
-     ]
-    },
-    {
-     "t": "p",
-     "testo": "Se ottiene:"
-    },
-    {
-     "t": "mappa",
-     "righe": [
-      [
-       "13 o meno",
-       "viene colpito"
-      ]
-     ]
-    }
-   ]
-  },
-  {
-   "sezione": "2.8",
-   "quando": "2026-09-25",
-   "perche": "Esempio del Blocco allineato al pareggio difeso.",
-   "da": [
-    "Con:",
-    "17 → blocco riuscito",
-    "Con:",
-    "16 → blocco fallito",
-    "Con:",
-    "12 → blocco fallito"
-   ],
-   "a": [
-    {
-     "t": "p",
-     "testo": "Con:"
-    },
-    {
-     "t": "mappa",
-     "righe": [
-      [
-       "16 o più",
-       "blocco riuscito"
-      ]
-     ]
-    },
-    {
-     "t": "p",
-     "testo": "Con:"
-    },
-    {
-     "t": "mappa",
-     "righe": [
-      [
-       "15 o meno",
-       "blocco fallito"
-      ]
-     ]
-    }
-   ]
-  },
-  {
-   "sezione": "2.8",
-   "quando": "2026-09-25",
-   "perche": "Riepilogo finale del paragrafo.",
-   "da": [
-    "Per riuscire:",
-    "Difesa Attiva > Attacco",
-    "In caso di pareggio o risultato inferiore:",
-    "la difesa fallisce."
-   ],
-   "a": [
-    {
-     "t": "p",
-     "testo": "Per riuscire:"
-    },
-    {
-     "t": "p",
-     "testo": "Difesa Attiva ≥ Attacco"
-    },
-    {
-     "t": "p",
-     "testo": "In caso di pareggio, la Difesa tiene."
-    }
-   ]
-  },
   {
    "sezione": "8.5",
    "quando": "2026-09-25",
@@ -2214,19 +7993,6 @@
      "testo": "Rimane attivo finché il personaggio decide di interromperlo oppure finché una capacità o una condizione ne provoca la cessazione."
     }
    ]
-  },
-  {
-   "sezione": "7.11",
-   "quando": "2026-10-04",
-   "perche": "Marchio Esplosivo e Marchio Duraturo tolti dal gioco (richiesta di Simone del 04/10/2026).",
-   "da": [
-    "7.11.4 · Marchio Esplosivo",
-    "La Tecnica lascia un marchio sul bersaglio o sul punto colpito.",
-    "Il marchio può essere fatto detonare in un momento successivo, purché ciò avvenga entro la stessa scena.",
-    "La detonazione utilizza la Forma della Tecnica.",
-    "Il marchio non concede una Forma differente né permette di scegliere una nuova area al momento dell'esplosione."
-   ],
-   "a": []
   },
   {
    "sezione": "9.7",
@@ -2315,13 +8081,6 @@
    "a": []
   }
  ],
- "tabelle": [
-  {
-   "sezione": "7.11",
-   "quando": "2026-10-04",
-   "perche": "Marchio Esplosivo e Marchio Duraturo tolti dal gioco (richiesta di Simone del 04/10/2026).",
-   "togli_riga": "Marchio Esplosivo"
-  }
- ],
- "attenzione": "Dal 04/10/2026 il .docx del Manuale non è più sul disco e il generatore non può girare. Le revisioni di quella data sono state applicate DIRETTAMENTE a manuale/index.html: le rimozioni e le piccole correzioni sono registrate qui sotto e si riapplicano da sole, ma la riscrittura dei Talenti dei Frutti (Paramecia: Riflesso del Potere, Doppio Uso, Forma di Combattimento, Senza Contraccolpo, Risveglio · Logia: Sentire l'Elemento, Elemento Onnipresente, Risveglio · Zoan: Artigli e Zanne, Sensi Animali, Corsa Bestiale, Stazza, Resistenza Bestiale, Retaggio Ancestrale / Mitologico, Trasformazione Istintiva, Risveglio) vive solo nella pagina. Prima di rigenerare dal .docx, recuperare quelle sezioni (9.7, 9.8 e 9.9) dalla pagina attuale o dal commit che le ha introdotte, altrimenti si perdono. Lo stesso vale per la revisione dei costi in Stamina (Colpo Pesante, Tutto o Niente, Colpo Annientante, Slancio, Furia, Mira, Oltre il Limite, Motivetto di Vigore, Assolo Travolgente, Onda d'Urto, Doppio Uso ed Electro): i nuovi valori stanno solo nella pagina, non nel .docx. Vive solo nella pagina anche il blocco «Il Costruttore e i Manuali di Ruolo», aggiunto in apertura del Capitolo 7. Vive solo nella pagina anche la rimozione dell’Inventore del 05/10/2026 (1.1, 4.9 e 4.9.3, 10.13, introduzione del Capitolo 11, 11.1, 11.2, 11.6, 11.10, 11.11, 11.13, 11.14 Progetti speciali al posto di 11.14 e 11.15, rinumerazione di 11.15 e 11.16, 12.16). Vive solo nella pagina anche la sincronizzazione con il Manuale del Cyborg del 05/10/2026 (3.9, Carne e Metallo in 4.9.2, 7.14, 11.15 e quasi tutto il Capitolo 12). Vive solo nella pagina anche la revisione MODIFICHE GLC del 05/10/2026: tutta la 4.6 Dottore (numerazione 4.6.1-4.6.3, Talenti riscritti e passati dalle tabelle ai blocchi come nel Capitano, nuove regole Cura da Campo, Dosi e vie di esposizione, Applicare una tossina, Potenza e durata delle tossine, Nuvole ostacoli e ambiente, Protezione dalle sostanze inalate, Scheda di un preparato, Utilizzare un preparato), le nuove 6.12.1, 6.12.2 e 6.13.1, la cella Rimozione di Sanguinante, Grido di Guerra (4.12) e Mano del Cuoco · Maestria (4.7 e 14.11). Vive solo nella pagina anche la revisione «modifiche glc 2» del 05/10/2026: 6.2.3 Azioni concesse fuori dal turno, una frase in 6.12.1, il Capitano (Firma, Ordini, Occhio del Comandante, Scudo della Ciurma, Voce che Arriva Lontano, Il Piano, Parlamentare, Secondo in Comando, Nessuno Resta Indietro), il Musicista (Requiem, Coro della Ciurma, Marcia Funebre, Suonare per i Caduti, Canzone dell’Anima) e in 7.12 Soglia delle Canzoni, Motivetto di Vigore, Canzoni Sostenute e Portata e ascolto, più la riga di Marcia Funebre nel Catalogo delle Melodie (7.12.1). Vive solo nella pagina anche la revisione dell’Ingegnere del 05/10/2026: in 4.9.1 Firma, Riparazione d’Emergenza, Mani sul Legno · Base, Barricata, Maestro dei Moduli, Ponte d’Arrembaggio, Scafo Rinforzato, Fortificazione, Nave Cresciuta, Lei Non Affonda; in 4.9.2 Gestire un macchinario, Firma, Pronto Intervento, Regolazione Fine (tre versioni), Sabotaggio, Sabotaggio Profondo, Trappola Meccanica, Ingranaggi e Serrature, Tutto a Pieno Carico; Guasto e Distruzione in 11.12; 13.14.5 riscritta; nuova 13.17.2 Miglioramenti permanenti della nave. Vive solo nella pagina anche la revisione «Navigatore, Archeologo, Cuoco e Nave» del 05/10/2026: in 4.8 Firma, Occhio del Cielo, Vento in Poppa, Timoniere Nato · Maestria, Sfruttare la Tempesta, Traversata impossibile; in 4.10 Esame Archeologico, Tempi di traduzione e studio, Studioso, Insegne e Cicatrici, Scrittura Morta · Maestria, Meccanismi Antichi, Trappola Antica, Memoria del Mondo, Dominio dei meccanismi; in 4.7 Servizio in Battaglia e Mano del Cuoco (Base e Maestria); nel capitolo 14 Porzioni (14.2), Beneficio dei pasti (14.4), Dadi concessi dagli ingredienti (14.5), Ingredienti extra e Conservazione (14.6), 14.8 riscritta, Consumare un pasto e Servizio in Battaglia (14.10), riga di Mano del Cuoco in 14.11; nel capitolo 13 la 13.6 riscritta, 13.7.2, Rotta Perfetta in 13.10.1, righe della 13.11 e della 13.19, Manovre aggiuntive (13.12), Cannonate a fasce e Bersaglio (13.14.1), 13.14.6, 13.16.3, 13.21.3 Combattimento misto, 13.23.1 riscritta con Evacuazione e interazioni di 13.23.3–13.23.5, Unità di Stiva, Provviste e Cargo in 13.24.2. Vive solo nella pagina anche l’allineamento del Capitolo 9 al Manuale dei Frutti del Diavolo del 05/10/2026: nota d’apertura del capitolo e rimando in 9.6, chiarimenti aggiunti ai Talenti di 9.7–9.9, Doppio Uso a 2 ST, Retaggio diviso in Retaggio Ancestrale e Retaggio Mitologico, Tratto Zoan con l’Azione principale e Tre Forme con l’Azione Bonus. Il Manuale dei Frutti (strumenti/frutti-manuale.py) importa dal base le sezioni 9.1–9.6 e introduzione, Tratto e Firma di Paramecia e Logia: se cambiano qui, va rigenerato. Vive solo nella pagina anche la frase della 7.8.3 per cui Scatto, Balzo e Inseguire, come Proiezione, sono sempre disponibili anche senza la Forma Spostamento (05/10/2026)."
+ "tabelle": [],
+ "attenzione": "Dal 04/10/2026 il .docx del Manuale non è più sul disco e il generatore non può girare. Le revisioni di quella data sono state applicate DIRETTAMENTE a manuale/index.html: le rimozioni e le piccole correzioni sono registrate qui sotto e si riapplicano da sole, ma la riscrittura dei Talenti dei Frutti (Paramecia: Riflesso del Potere, Doppio Uso, Forma di Combattimento, Senza Contraccolpo, Risveglio · Logia: Sentire l'Elemento, Elemento Onnipresente, Risveglio · Zoan: Artigli e Zanne, Sensi Animali, Corsa Bestiale, Stazza, Resistenza Bestiale, Retaggio Ancestrale / Mitologico, Trasformazione Istintiva, Risveglio) vive solo nella pagina. Prima di rigenerare dal .docx, recuperare quelle sezioni (9.7, 9.8 e 9.9) dalla pagina attuale o dal commit che le ha introdotte, altrimenti si perdono. Lo stesso vale per la revisione dei costi in Stamina (Colpo Pesante, Tutto o Niente, Colpo Annientante, Slancio, Furia, Mira, Oltre il Limite, Motivetto di Vigore, Assolo Travolgente, Onda d'Urto, Doppio Uso ed Electro): i nuovi valori stanno solo nella pagina, non nel .docx. Vive solo nella pagina anche il blocco «Il Costruttore e i Manuali di Ruolo», aggiunto in apertura del Capitolo 7. Vive solo nella pagina anche la rimozione dell’Inventore del 05/10/2026 (1.1, 4.9 e 4.9.3, 10.13, introduzione del Capitolo 11, 11.1, 11.2, 11.6, 11.10, 11.11, 11.13, 11.14 Progetti speciali al posto di 11.14 e 11.15, rinumerazione di 11.15 e 11.16, 12.16). Vive solo nella pagina anche la sincronizzazione con il Manuale del Cyborg del 05/10/2026 (3.9, Carne e Metallo in 4.9.2, 7.14, 11.15 e quasi tutto il Capitolo 12). Vive solo nella pagina anche la revisione MODIFICHE GLC del 05/10/2026: tutta la 4.6 Dottore (numerazione 4.6.1-4.6.3, Talenti riscritti e passati dalle tabelle ai blocchi come nel Capitano, nuove regole Cura da Campo, Dosi e vie di esposizione, Applicare una tossina, Potenza e durata delle tossine, Nuvole ostacoli e ambiente, Protezione dalle sostanze inalate, Scheda di un preparato, Utilizzare un preparato), le nuove 6.12.1, 6.12.2 e 6.13.1, la cella Rimozione di Sanguinante, Grido di Guerra (4.12) e Mano del Cuoco · Maestria (4.7 e 14.11). Vive solo nella pagina anche la revisione «modifiche glc 2» del 05/10/2026: 6.2.3 Azioni concesse fuori dal turno, una frase in 6.12.1, il Capitano (Firma, Ordini, Occhio del Comandante, Scudo della Ciurma, Voce che Arriva Lontano, Il Piano, Parlamentare, Secondo in Comando, Nessuno Resta Indietro), il Musicista (Requiem, Coro della Ciurma, Marcia Funebre, Suonare per i Caduti, Canzone dell’Anima) e in 7.12 Soglia delle Canzoni, Motivetto di Vigore, Canzoni Sostenute e Portata e ascolto, più la riga di Marcia Funebre nel Catalogo delle Melodie (7.12.1). Vive solo nella pagina anche la revisione dell’Ingegnere del 05/10/2026: in 4.9.1 Firma, Riparazione d’Emergenza, Mani sul Legno · Base, Barricata, Maestro dei Moduli, Ponte d’Arrembaggio, Scafo Rinforzato, Fortificazione, Nave Cresciuta, Lei Non Affonda; in 4.9.2 Gestire un macchinario, Firma, Pronto Intervento, Regolazione Fine (tre versioni), Sabotaggio, Sabotaggio Profondo, Trappola Meccanica, Ingranaggi e Serrature, Tutto a Pieno Carico; Guasto e Distruzione in 11.12; 13.14.5 riscritta; nuova 13.17.2 Miglioramenti permanenti della nave. Vive solo nella pagina anche la revisione «Navigatore, Archeologo, Cuoco e Nave» del 05/10/2026: in 4.8 Firma, Occhio del Cielo, Vento in Poppa, Timoniere Nato · Maestria, Sfruttare la Tempesta, Traversata impossibile; in 4.10 Esame Archeologico, Tempi di traduzione e studio, Studioso, Insegne e Cicatrici, Scrittura Morta · Maestria, Meccanismi Antichi, Trappola Antica, Memoria del Mondo, Dominio dei meccanismi; in 4.7 Servizio in Battaglia e Mano del Cuoco (Base e Maestria); nel capitolo 14 Porzioni (14.2), Beneficio dei pasti (14.4), Dadi concessi dagli ingredienti (14.5), Ingredienti extra e Conservazione (14.6), 14.8 riscritta, Consumare un pasto e Servizio in Battaglia (14.10), riga di Mano del Cuoco in 14.11; nel capitolo 13 la 13.6 riscritta, 13.7.2, Rotta Perfetta in 13.10.1, righe della 13.11 e della 13.19, Manovre aggiuntive (13.12), Cannonate a fasce e Bersaglio (13.14.1), 13.14.6, 13.16.3, 13.21.3 Combattimento misto, 13.23.1 riscritta con Evacuazione e interazioni di 13.23.3–13.23.5, Unità di Stiva, Provviste e Cargo in 13.24.2. Vive solo nella pagina anche l’allineamento del Capitolo 9 al Manuale dei Frutti del Diavolo del 05/10/2026: nota d’apertura del capitolo e rimando in 9.6, chiarimenti aggiunti ai Talenti di 9.7–9.9, Doppio Uso a 2 ST, Retaggio diviso in Retaggio Ancestrale e Retaggio Mitologico, Tratto Zoan con l’Azione principale e Tre Forme con l’Azione Bonus. Il Manuale dei Frutti (strumenti/frutti-manuale.py) importa dal base le sezioni 9.1–9.6 e introduzione, Tratto e Firma di Paramecia e Logia: se cambiano qui, va rigenerato. Vive solo nella pagina anche la frase della 7.8.3 per cui Scatto, Balzo e Inseguire, come Proiezione, sono sempre disponibili anche senza la Forma Spostamento (05/10/2026).\n\nAggiornamento del 07/10/2026: la revisione del Costruttore consolida integralmente 2.8, 4.2–4.5, 6.10, 7.4–7.11, 7.13 e 9.5 nelle correzioni, conservando i passaggi correnti non riscritti. Le precedenti note su quelle sezioni sono superate dai nuovi contenuti. Le altre revisioni descritte sopra richiedono ancora la pagina corrente prima di rigenerare dal DOCX originale, che non è disponibile nel checkout. Le sostituzioni minori della nuova revisione sono applicate anche al manuale HTML. Prestigio, Frutti e Cyborg si rigenerano dai rispettivi JSON."
 }

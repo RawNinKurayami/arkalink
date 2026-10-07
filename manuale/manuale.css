@@ -178,6 +178,9 @@ h4.man-lab b{font-weight:inherit;}
 .man-tab tr:last-child td{border-bottom:0;}
 .man-tab tbody tr:nth-child(even){background:rgba(158,43,35,.045);}
 .man-tab td b{color:#000;}
+.man-tab-effetti{min-width:640px;}
+.man-tab-effetti th,.man-tab-effetti td{overflow-wrap:normal;word-break:normal;}
+.man-tab-effetti th,.man-tab-effetti td:nth-child(-n+3){white-space:nowrap;}
 
 .man-somm{display:none;}
 .man-fine{display:block; height:1px;}
@@ -266,6 +269,8 @@ h4.man-lab b{font-weight:inherit;}
   .man-tab-lunga tr{break-inside:avoid;}
   .man-tab-lunga thead{display:table-header-group;}
   .man-tab{font-size:8.6pt;}
+  .man-tab-effetti{min-width:0;}
+  .man-tab-wrap:has(>.man-tab-effetti){column-span:all;overflow:visible;}
   .man-fine{display:none;}
 }
 

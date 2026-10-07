@@ -51,26 +51,18 @@
    },
    {
     "style": "Normal",
-    "text": "Una Tecnica con Forma Area e la propagazione di un impatto sono due meccaniche differenti."
+    "text": "Una Tecnica con Forma Area e la propagazione di un impatto sono meccaniche differenti. Swordsman e Crusher hanno soltanto Area Ravvicinata (d8, 2 ST), centrata sul personaggio con raggio pari alla Portata effettiva dell’arma. Striker e Sniper non possiedono una Forma Area ordinaria di Stile."
    },
    {
     "style": "Normal",
-    "text": "Una Tecnica con Forma Area viene costruita fin dall’origine per coinvolgere una porzione dello spazio e utilizza la propria sagoma. Non rappresenta automaticamente una propagazione della scala di Forza."
+    "text": "Aree diverse richiedono una Fonte speciale che le conceda espressamente. Una Tecnica Area mantiene la propria sagoma, effetti, slot e costi."
    },
    {
     "style": "Normal",
-    "text": "La distruzione ambientale del Prestigio di Forza nasce invece da un singolo impatto fisico identificabile che si scarica sul terreno, su un oggetto o su una struttura."
-   },
-   {
-    "style": "Normal",
-    "text": "Una Tecnica Area non genera un punto d’impatto separato per ogni creatura raggiunta e non moltiplica la scala di distruzione. Se una Tecnica Area produce anche un impatto valido sullo scenario, viene individuato un solo punto d’impatto dal quale risolvere l’eventuale propagazione."
-   },
-   {
-    "style": "Normal",
-    "text": "La Forma Area mantiene la propria sagoma, i propri effetti e i propri costi; la scala di distruzione mantiene separatamente il proprio raggio e le proprie regole."
+    "text": "La distruzione ambientale del Prestigio di Forza nasce da un singolo impatto fisico identificabile sul terreno, un oggetto o una struttura. Un’Area non genera un punto d’impatto per ogni creatura e non moltiplica la scala di distruzione; si risolve un solo punto valido. La scala conserva il proprio raggio e le proprie regole."
    }
   ],
-  "perche": "Revisione del 05/10/2026: la Forma Area e la propagazione di un impatto sono meccaniche distinte."
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
  },
  {
   "source": "combattenti",
@@ -78,18 +70,14 @@
   "blocchi": [
    {
     "style": "Normal",
-    "text": "Ogni attivazione di Onda Titanica utilizza un solo punto d’impatto. Il Talento rappresenta la propagazione di un singolo colpo riuscito e non una Forma Area del Costruttore."
+    "text": "Onda Titanica è un’eccezione concessa dal Talento di Prestigio, non una Forma Area del Costruttore dello Striker. Lo Striker non possiede Tecniche Area ordinarie di Stile. L’onda nasce sempre dalla propagazione di un singolo colpo riuscito e segue esclusivamente il proprio raggio, condizioni e costi."
    },
    {
     "style": "Normal",
-    "text": "Se la Tecnica che genera il colpo possiede già Forma Area, la sua sagoma rimane separata da Onda Titanica. La Tecnica non genera un nuovo centro di propagazione per ciascun bersaglio raggiunto e la sua sagoma non aumenta il raggio di Onda Titanica."
-   },
-   {
-    "style": "Normal",
-    "text": "Allo stesso modo, Onda Titanica non aumenta né sostituisce la sagoma della Tecnica utilizzata."
+    "text": "Un’eventuale Area concessa da una Fonte speciale resta distinta e non moltiplica i punti d’origine né aumenta il raggio di Onda Titanica. Allo stesso modo, l’onda non aumenta né sostituisce la sagoma della Tecnica."
    }
   ],
-  "perche": "Revisione del 05/10/2026: la Forma Area e la propagazione di un impatto sono meccaniche distinte."
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
  },
  {
   "source": "combattenti",
@@ -97,22 +85,14 @@
   "blocchi": [
    {
     "style": "Normal",
-    "text": "Onda Sismica nasce sempre da un singolo impatto valido."
+    "text": "Onda Sismica nasce sempre da un singolo impatto valido e segue la propria sagoma di Prestigio. Area Ravvicinata del Crusher, se presente nella Tecnica, conserva Grado minimo d8 e costo 2 ST, rimane centrata sul personaggio e ha raggio pari alla Portata effettiva dell’arma: non genera più coni, non crea nuovi centri di Onda Sismica e non ne aumenta il raggio."
    },
    {
     "style": "Normal",
-    "text": "Una eventuale Forma Area della Tecnica utilizzata non genera più coni e non crea un nuovo centro di Onda Sismica per ciascun bersaglio raggiunto."
-   },
-   {
-    "style": "Normal",
-    "text": "Se una Tecnica Area viene utilizzata per generare Onda Sismica, deve comunque essere identificabile un singolo punto in cui l’impatto contundente si scarica sulla superficie. Da quel punto viene risolta l’intera onda."
-   },
-   {
-    "style": "Normal",
-    "text": "La sagoma della Tecnica e il cono di Onda Sismica rimangono effetti distinti e non aumentano reciprocamente le proprie dimensioni."
+    "text": "Deve essere identificabile il singolo punto in cui l’impatto contundente si scarica sulla superficie: da quel punto si risolve l’intera onda. Un’Area più ampia concessa da una Fonte speciale resta separata; Area e cono di Prestigio non aumentano reciprocamente le proprie dimensioni."
    }
   ],
-  "perche": "Revisione del 05/10/2026: la Forma Area e la propagazione di un impatto sono meccaniche distinte."
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
  },
  {
   "source": "combattenti",
@@ -124,22 +104,10 @@
    },
    {
     "style": "Normal",
-    "text": "Le Tecniche con Forma Area dello Striker rimangono Tecniche del Costruttore e utilizzano normalmente la propria sagoma."
-   },
-   {
-    "style": "Normal",
-    "text": "In assenza di una capacità, un Talento o un altro effetto che permetta espressamente di estenderne la portata, una Tecnica Area dello Striker rappresenta un’azione fisica eseguita con il proprio corpo e coinvolge lo spazio raggiungibile attorno alla posizione dello Striker."
-   },
-   {
-    "style": "Normal",
-    "text": "Una Forma Area non concede automaticamente la capacità di generare un effetto a distanza e non utilizza la scala di distruzione del Prestigio di Forza."
-   },
-   {
-    "style": "Normal",
-    "text": "Onda Titanica rappresenta invece la propagazione successiva di un singolo colpo e segue le proprie regole indipendentemente dalla Forma della Tecnica che lo ha generato."
+    "text": "Lo Striker non possiede una Forma Area ordinaria nel proprio catalogo di Stile. Onda Titanica è una capacità di Prestigio autonoma che propaga un singolo colpo e non richiede una Tecnica Area. Se una Fonte speciale concede allo Striker un’Area, questa segue il proprio profilo e rimane distinta da Onda Titanica."
    }
   ],
-  "perche": "Revisione del 05/10/2026: la Forma Area e la propagazione di un impatto sono meccaniche distinte."
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
  },
  {
   "source": "combattenti",
@@ -147,10 +115,10 @@
   "blocchi": [
    {
     "style": "Normal",
-    "text": "Una Tecnica Crusher con Forma Area mantiene separatamente la propria sagoma. La Forma Area non aumenta la scala di distruzione e non modifica il cono di Onda Sismica; allo stesso modo, Onda Sismica non aumenta automaticamente l’Area della Tecnica che ha prodotto l’impatto."
+    "text": "Una Tecnica Crusher con Area Ravvicinata conserva Grado minimo d8 e costo 2 ST, mantiene l’Area centrata sul Crusher e usa come raggio la Portata effettiva dell’arma. Non aumenta la scala di distruzione e non modifica il cono di Onda Sismica; allo stesso modo, l’onda non amplia Area Ravvicinata. Aree più ampie richiedono una Fonte speciale e restano separate dall’onda di Prestigio."
    }
   ],
-  "perche": "Revisione del 05/10/2026: la Forma Area e la propagazione di un impatto sono meccaniche distinte."
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
  },
  {
   "source": "combattenti",
@@ -724,5 +692,96 @@
    }
   ],
   "perche": "Revisione del 05/10/2026 (modifiche glc 2, Cuoco): piatti che recuperano sia PV sia ST."
+ },
+ {
+  "source": "combattenti",
+  "block": 58,
+  "from": "Proiezione Colossale non concede un lancio su qualunque attacco base e non aggiunge gratuitamente gli effetti necessari alla Tecnica. Proiezione occupa il proprio slot Effetto e conserva il costo ordinario di 0 ST. Schianto, se presente, occupa un altro slot e conserva il costo ordinario di 1 ST. Questo potenziamento dell’Attributo non aumenta il numero di slot disponibili e non elimina gli altri requisiti di costruzione della Tecnica.",
+  "to": "Proiezione Colossale non concede un lancio su qualunque attacco base e non aggiunge gratuitamente gli effetti necessari alla Tecnica. Proiezione occupa il proprio slot Effetto e conserva il costo ordinario di 1 ST. Schianto, se presente, occupa un altro slot e conserva il costo ordinario di 2 ST. Il potenziamento del Prestigio ha costo aggiuntivo 0 ST, ma non rende gratuita la Tecnica, non aumenta gli slot e non elimina gli altri requisiti.",
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 82,
+  "from": "Il Ruolo stabilisce quali Tecniche puoi utilizzare. Lo Striker impiega le proprie Tecniche; lo Swordsman impiega Tecniche compatibili con la lama. Questo modulo ammette Scatto, Inseguire e Balzo nelle Tecniche Swordsman compatibili, rispettandone Grado, Forma, slot e costi. Il valore di mobilità si legge sempre dall'Attributo Tecnica del personaggio, anche quando il colpo associato utilizza un diverso Attributo consentito dalla mossa.",
+  "to": "Per Striker e Swordsman, questo modulo ammette Scatto e Balzo nelle Tecniche compatibili del proprio Stile, rispettandone Grado, Forma, slot e costi. Sniper e Crusher non ricevono questo pacchetto di mobilità. Il valore di mobilità si legge sempre dall’Attributo Tecnica del personaggio, anche quando il colpo utilizza un diverso Attributo consentito. Inseguire è rimosso dal Costruttore e non fa parte della scala di Prestigio.",
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 86,
+  "from": "Spostamento Fulmineo utilizza la scala con Scatto e Inseguire. Agilità Sovrumana utilizza la scala con Balzo. Tutti questi impieghi condividono un unico budget di spostamento speciale del personaggio: combinarli o possedere più Stili compatibili non raddoppia i metri disponibili.",
+  "to": "Spostamento Fulmineo utilizza la scala esclusivamente con Scatto. Agilità Sovrumana utilizza la scala con Balzo. I due impieghi condividono un unico budget di spostamento speciale: combinarli o possedere più Stili compatibili non raddoppia i metri disponibili.",
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 89,
+  "from": "Il Movimento ordinario del personaggio rimane distinto e segue le proprie regole. Gli effetti che moltiplicano il Movimento, come Slancio, modificano quel valore e non moltiplicano automaticamente il budget di questa scala. Se l’Attributo Tecnica non è ancora in Prestigio, Scatto, Inseguire e Balzo conservano le distanze ordinarie.",
+  "to": "Il Movimento ordinario rimane distinto e segue le proprie regole; non moltiplica automaticamente il budget di questa scala. Se l’Attributo Tecnica non è ancora in Prestigio, Scatto e Balzo conservano le distanze ordinarie.",
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 92,
+  "from": "Tipo: potenziamento passivo del Prestigio di Tecnica. Ruoli: Striker e Swordsman. Costo aggiuntivo: 0 ST. Requisito di impiego: una Tecnica del proprio Ruolo compatibile con Scatto oppure Inseguire. Limite: il budget condiviso di spostamento speciale.",
+  "to": "Tipo: potenziamento passivo del Prestigio di Tecnica. Ruoli: Striker e Swordsman. Costo aggiuntivo: 0 ST. Requisito di impiego: una Tecnica del proprio Stile compatibile con Scatto. Limite: il budget condiviso di spostamento speciale.",
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 93,
+  "from": "Quando utilizzi Scatto o Inseguire, puoi sostituire la distanza ordinaria dell’effetto con una distanza entro il budget disponibile della scala. Puoi distribuire i metri fra più Tecniche nello stesso turno, pagando ogni volta i costi della mossa utilizzata.",
+  "to": "Quando utilizzi Scatto, puoi sostituire la distanza ordinaria dell’effetto con una distanza entro il budget disponibile della scala. Puoi distribuire i metri fra più Tecniche nello stesso turno, pagando ogni volta i costi della mossa utilizzata.",
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 94,
+  "from": "Scatto conserva la possibilità di spostarti prima o dopo il colpo. Inseguire conserva la propria condizione: segui un bersaglio che si allontana e lo colpisci secondo la descrizione della Tecnica. Gli attacchi richiedono i normali tiri e la normale portata dopo che hai raggiunto la posizione utile.",
+  "to": "Scatto conserva la possibilità di spostarti prima o dopo il colpo. Gli attacchi richiedono i normali tiri e la normale portata dopo che hai raggiunto la posizione utile.",
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 96,
+  "from": "Scatto occupa il proprio slot Effetto e conserva il costo ordinario di 1 ST. Inseguire occupa il proprio slot e conserva il costo ordinario di 2 ST. Le Tecniche rispettano i requisiti di Grado e le compatibilità della loro Forma; il potenziamento non assegna effetti o slot gratuiti.",
+  "to": "Scatto occupa il proprio slot Effetto e conserva il costo ordinario di 1 ST. Balzo occupa il proprio slot e conserva il costo ordinario di 1 ST. Le Tecniche rispettano i requisiti di Grado e le compatibilità della Forma; il potenziamento non assegna effetti o slot gratuiti.",
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 206,
+  "from": "La Tecnica conserva Forma, sagoma, effetti, slot e costi. Una Tecnica Singolo continua a colpire un bersaglio; per coinvolgere più creature serve una Forma Area compatibile. Gli effetti che richiedono contatto fisico mantengono quella condizione.",
+  "to": "La Tecnica conserva i propri effetti, slot e costi. Una Tecnica Singolo continua a colpire un solo bersaglio. Area Ravvicinata dello Swordsman conserva Grado minimo d8 e costo 2 ST: non può essere proiettata a distanza tramite Fendente Sovrano, rimane centrata sul personaggio e il raggio è pari alla Portata effettiva della lama. Fendenti ad Area a distanza richiedono una capacità che li conceda espressamente. Gli effetti che richiedono contatto fisico mantengono quella condizione.",
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 360,
+  "from": "Gli effetti occupano i propri slot e conservano i costi ordinari: Proiezione 0 ST, Schianto 1 ST, Scatto 1 ST, Inseguire 2 ST e Balzo 1 ST. Un costo aggiuntivo di 0 ST per il potenziamento non rende gratuita la Tecnica che lo utilizza.",
+  "to": "Gli effetti occupano i propri slot e conservano i costi ordinari: Proiezione 1 ST, Schianto 2 ST, Scatto 1 ST e Balzo 1 ST. Un costo aggiuntivo di 0 ST per il potenziamento non rende gratuita la Tecnica che lo utilizza. Inseguire è rimosso dal Costruttore.",
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 359,
+  "from": "Scatto oppure Inseguire nella Tecnica",
+  "to": "Scatto nella Tecnica",
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
+ },
+ {
+  "source": "haki",
+  "block": 95,
+  "from": "Prepari una lettura del prossimo movimento avversario. Fino all’inizio del tuo turno successivo, puoi aggiungere tre tiri completi di Haki dell’Osservazione a un solo tiro di difesa compatibile, effettuato per una Schivata o per il Contrattacco previsto dalle regole.",
+  "to": "Prepari una lettura del prossimo movimento avversario. Fino all’inizio del tuo turno successivo puoi aggiungere tre tiri completi di Haki dell’Osservazione a un solo tiro difensivo compatibile, effettuato per una Schivata oppure per una Difesa Attiva eseguita con una Tecnica d’attacco.",
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
+ },
+ {
+  "source": "haki",
+  "block": 97,
+  "from": "Devi dichiarare l’impiego sul tiro scelto prima di tirare. La difesa consuma la Reazione o le altre risorse che richiede normalmente. Anticipo Superiore non concede Reazioni aggiuntive e non aumenta i danni dell’eventuale Contrattacco.",
+  "to": "Devi dichiarare l’impiego sul tiro scelto prima di tirare. La difesa consuma normalmente la Reazione e le altre risorse richieste, inclusi i costi della Tecnica. Anticipo Superiore non concede Reazioni aggiuntive, non aumenta il danno e non permette danni in risposta senza una capacità specifica come Contraccolpo: questa infligge il normale Dado Danno soltanto se la difesa supera il tiro avversario; un pareggio difende ma non infligge quel danno.",
+  "perche": "Revisione del Costruttore del 06/10/2026; Guardia e 0 slot d4/d6 approvati dal creatore il 07/10/2026."
  }
 ]
