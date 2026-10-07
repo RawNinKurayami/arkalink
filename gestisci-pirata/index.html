@@ -274,12 +274,14 @@ body.mode-gest .wrap{max-width:1440px;}
 .bond-i{flex:none;display:flex;}.bond-die{flex:none;display:flex;}
 /* modali */
 body.has-modal{overflow:hidden;}
+/* La barra account resta sotto le finestre e i loro comandi di chiusura. */
+body #glc-bar{z-index:40;}
 .gmodal{position:fixed;inset:0;z-index:80;background:rgba(4,3,6,.78);display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:none;}
 .gmbox{width:min(560px,100%);max-height:92vh;display:flex;flex-direction:column;background:#15121a;border:1px solid var(--gold);border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 0 1px rgba(240,164,65,.15);}
 .gmodal.wide .gmbox{width:min(880px,100%);}
 .gmhead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);}
 .gmtitle{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;letter-spacing:.04em;}
-.gmclose{border:1px solid var(--line);background:transparent;color:var(--ink-soft);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;}
+.gmclose{flex:none;display:grid;place-items:center;border:1px solid var(--line);background:transparent;color:var(--ink-soft);width:44px;height:44px;min-width:44px;min-height:44px;border-radius:50%;cursor:pointer;font-size:14px;}
 .gmclose:hover{border-color:var(--red);color:var(--red);}
 .gmbody{padding:14px 18px 18px;overflow:auto;}
 .gmbody .tbuilder{margin:0;}
@@ -531,7 +533,7 @@ footer.foot{text-align:center;margin-top:26px;font-size:12px;color:#a69a86;font-
 .smb-head h2{margin:0;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(23px,3.4vw,31px);line-height:1.05;color:var(--gold-soft);letter-spacing:.01em;}
 .smb-head .hsub{font-family:'Inter',sans-serif;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);margin-top:5px;}
 .smb-head .hrule{position:absolute;left:20px;right:20px;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(240,164,65,.45),transparent);}
-.smb-x{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:rgba(242,233,216,.04);color:var(--ink-soft);cursor:pointer;font-size:14px;transition:.18s;}
+.smb-x{flex:none;width:44px;height:44px;min-width:44px;min-height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(242,233,216,.04);color:var(--ink-soft);cursor:pointer;font-size:14px;transition:.18s;}
 .smb-x:hover{border-color:var(--red);color:var(--red);}
 /* --- corpo --- */
 .smb-body{position:relative;padding:14px 20px 4px;}
