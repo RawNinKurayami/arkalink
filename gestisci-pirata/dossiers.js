@@ -4,7 +4,7 @@
  const make=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n;};
  const icon=(name,size=24)=>{const n=make('span','ds-icon');n.innerHTML=svgIcon(name,size);n.setAttribute('aria-hidden','true');return n;};
  const text=(n)=>n?.textContent?.trim()||'';
- const titles={signature:'Signature Move',legacy:'Tecnica',module:'Modulo installato',weapon:'Arma personale'};
+ const titles={signature:'Signature Move',legacy:'Tecnica',module:'Modulo',weapon:'Arma personale'};
  function section(title,nodes=[],cls=''){
   const s=make('section','ds-section '+cls);
   if(title)s.append(make('h3','ds-section-title',title));
@@ -28,7 +28,7 @@
  function shell(w,kind,item,legacy){
   const old=[...w.children];w.classList.add('ds-root','ds-sheet','ds-'+kind);w.dataset.dsKind=kind;
   const hero=make('aside','ds-hero'),main=make('div','ds-main'),foot=make('footer','ds-command');
-  hero.append(make('div','ds-eyebrow',titles[kind]),seal(kind,item,legacy));
+  hero.append(make('div','ds-eyebrow',kind==='module'?(item.installato===false?'Progetto di Modulo':'Modulo installato'):titles[kind]),seal(kind,item,legacy));
   w.replaceChildren(hero,main,foot);
   return{old,hero,main,foot};
  }
@@ -72,9 +72,10 @@
   const {old,hero,main,foot}=shell(w,'module',mo);
   const sc=old.find(n=>n.classList.contains('sheetcard'));
   if(sc){old.splice(old.indexOf(sc),1);hero.append(sc);}
-  const stats=make('div','ds-stats');stats.append(metric('Requisito',mo.req),metric('Posto',String(i+1)));
-  if(mo.arma)stats.append(metric('Grado',mo.grado||'Da assegnare'));
-  if(mo.fuel?.on)stats.append(metric(mo.fuel.tipo||'Cariche',String(mo.fuel.cur||0)+' / '+(mo.fuel.max||'—')));
+  const installed=mo.installato!==false,stats=make('div','ds-stats');
+  stats.append(metric('Fascia Tecnologica',mo.req),metric('Installazione',installed?'Installato · 1 slot':'Non installato · 0 slot'),metric('Integrità',mo.stato==='danneggiato'?'Danneggiato':'Integro'),metric('Stato operativo',modStateLabel(mo).t));
+  if(mo.arma)stats.append(metric('Grado d’Arma',mo.gradoArma||mo.grado||'Da assegnare'),metric('Attributo Arma',mo.attr||'Da definire'));
+  if(mo.fuel?.on){const cap=window.GLCCyborg?.tiers[mo.req]?.charges;stats.append(metric(mo.fuel.tipo||'Cariche',String(mo.fuel.cur??'—')+' / '+(mo.fuel.max??'—')),metric('Limite Cariche della Fascia',cap!=null?String(cap):'Da definire'));}
   hero.append(stats);
   if(mo.fuel?.on){const g=make('div','ds-energy');g.setAttribute('aria-hidden','true');g.style.setProperty('--ds-fill',Math.max(0,Math.min(100,(Number(mo.fuel.cur)||0)/(Number(mo.fuel.max)||1)*100))+'%');hero.append(g);}
   let current=null;

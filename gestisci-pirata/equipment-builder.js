@@ -14,7 +14,7 @@
   ];
   const moduleNodes = [
     {label:'Concetto',icon:'gear',step:0,hint:'Prima il dispositivo: nome, funzione fisica e ruoli.'},
-    {label:'Struttura',icon:'wrench',step:1,hint:'Definisci l’hardware e il requisito di Corpo Meccanico.'},
+    {label:'Struttura',icon:'wrench',step:1,hint:'Definisci la Fascia Tecnologica e l’eventuale Grado d’Arma, entro la Fascia.'},
     {label:'Effetto',icon:'star',step:2,hint:'Registra ciò che il modulo concede e le sue condizioni.'},
     {label:'Energia',icon:'bolt',step:3,hint:'Configura una risorsa separata, soltanto se il dispositivo la usa.'},
     {label:'Integrità',icon:'shield',step:4,hint:'Indica lo stato del dispositivo e gli accordi per ripararlo.'},
@@ -39,14 +39,16 @@
       {text:o.eff?(o.eff.cat||'Da definire'):'Nessuno',done:!o.eff||!!o.eff.cat},
       {text:o.gmOk?'GM · Approvata':'Scheda arma',done:!!o.gmOk}
     ];
-    const fuel=o.fuel||{},fuelText=fuel.on?String(fuel.cur||0)+' / '+(fuel.max||'—')+' '+(fuel.tipo||'cariche'):'Nessuna carica';
+    const fuel=o.fuel||{},cap=window.GLCCyborg?.tiers[o.req]?.charges,grade=o.gradoArma||o.grado;
+    const fuelText=fuel.on?String(fuel.cur??'—')+' / '+(fuel.max??'—')+' '+(fuel.tipo||'Cariche')+(cap?' · limite '+cap:''):'Nessuna carica';
+    const fuelReady=!fuel.on||(fuel.max!=null&&fuel.cur!=null&&typeof fuel.max!=='boolean'&&typeof fuel.cur!=='boolean'&&fuel.max!==''&&fuel.cur!==''&&Number.isInteger(Number(fuel.max))&&Number(fuel.max)>0&&(!cap||Number(fuel.max)<=cap)&&Number.isInteger(Number(fuel.cur))&&Number(fuel.cur)>=0&&Number(fuel.cur)<=Number(fuel.max));
     return [
-      {text:(o.tipo||[]).join(' · ')||'Funzione fisica',done:!!(o.nome&&o.funzione)},
-      {text:o.req+(o.arma?' · Arma '+(o.grado||'—'): ' · Funzionale'),done:!o.arma||!!o.grado},
+      {text:(o.tipo||[]).join(' · ')||'Funzione fisica',done:!!(o.nome&&(o.funzioneAttiva||o.funzione))},
+      {text:'Fascia '+(o.req||'—')+(o.arma?' · Grado d’Arma '+(grade||'—'): ' · Funzionale'),done:!!o.req&&(!o.arma||!!grade)},
       {text:o.eff?(o.eff.cat||'Da definire'):'Nessuno',done:!o.eff||!!o.eff.cat},
-      {text:fuelText,done:!fuel.on||!!fuel.max},
+      {text:fuelText,done:fuelReady,warn:!fuelReady},
       {text:o.stato==='danneggiato'?'Danneggiato':'Integro',done:o.stato!=='danneggiato',warn:o.stato==='danneggiato'},
-      {text:'Scheda progetto',done:BLD.step===5}
+      {text:o.installato===false?'Progetto · 0 slot':'Installato · 1 slot',done:BLD.step===5}
     ];
   }
   function prepareNavigation(v,kind){
@@ -129,7 +131,7 @@
       o.tipo.forEach(role=>{const s=make('span','eq-role-seal');s.append(symbol(roleIcons[role]||'gear',14),make('span','',role));roles.append(s);});
       attached.append(roles);
     }
-    const stamp=make('span','eq-core-label',kind==='weapon'?'Arma personale':'Progetto personale');card.querySelector('.eq-n').before(stamp);
+    const stamp=make('span','eq-core-label',kind==='weapon'?'Arma personale':o.installato===false?'Progetto personale':'Modulo installato');card.querySelector('.eq-n').before(stamp);
     const fn=card.querySelector('.eq-f');if(fn)fn.title=fn.textContent;
     const name=card.querySelector('.eq-n');name.title=name.textContent;
     const meta=card.querySelector('.eq-m');meta.title=meta.textContent;
@@ -206,7 +208,7 @@
     }
     const gauge=stage.querySelector('.eq-energy-preview');
     if(gauge){
-      const f=o.fuel;gauge.replaceChildren(symbol('bolt',23),make('b','',String(f.cur||0)+' / '+(f.max||'—')),make('span','',f.tipo||'Cariche'));
+      const f=o.fuel,cap=window.GLCCyborg?.tiers[o.req]?.charges;gauge.replaceChildren(symbol('bolt',23),make('b','',String(f.cur??'—')+' / '+(f.max??'—')),make('span','',(f.tipo||'Cariche')+(cap?' · limite di Fascia '+cap:'')));
     }
     const final=kind==='weapon'?3:5;
     if(BLD.step===final&&!stage.querySelector('.eq-edit-links')){

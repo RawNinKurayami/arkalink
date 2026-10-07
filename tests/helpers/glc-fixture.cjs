@@ -24,14 +24,15 @@ function setup(){
   modStateLabel:()=>({t:'Attivo'}),
  });
  vm.runInContext(['DICE','HAKI_NAMES','HAKI_PROG','TALENTS','FRUIT_TALENTS','TEC_DUR','TEC_EFF','TEC_EFF_ARCHIVIATI','STILE_WHITELIST'].map(declaration).join('\n'),context);
- for(const f of ['regole/tecniche.js','regole/talenti.js','regole/avanzamento.js','regole/tratti-data.js','regole/tratti.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context);
+ for(const f of ['regole/cyborg.js','regole/tecniche.js','regole/talenti.js','regole/avanzamento.js','regole/tratti-data.js','regole/tratti.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),context);
+ context.GLCCyborg=context.window.GLCCyborg;
  context.GLCTechniques=context.window.GLCTechniques;
  context.GLCTalents=context.window.GLCTalents;
  context.GLCAdvancement=context.window.GLCAdvancement;
  context.GLCTratti=context.window.GLCTratti;
  vm.runInContext('GLCTalents.configure({roles:TALENTS,fruits:FRUIT_TALENTS,dice:DICE});',context);
  vm.runInContext('GLCTratti.configure({resolveSkill:(c,name)=>GLCTalents.skillDie(c,name),talentBudget:(c,r)=>r.take?GLCAdvancement.canAcquire(c):{allowed:true}});',context);
- vm.runInContext(['hakiPip','hakiPipAxis','hakiMaxPip','hakiPipOf','hakiUnlocked','hakiGrade','dieRank','tecEffObj','tecCost'].map(oneLine).join('\n'),context);
+ vm.runInContext(['hakiPip','hakiPipAxis','hakiMaxPip','hakiPipOf','hakiUnlocked','hakiGrade','dieRank','tecEffObj','hasTalent','tbRules','tecCost'].map(oneLine).join('\n'),context);
  vm.runInContext(`globalThis.rules={TALENTS,FRUIT_TALENTS,HAKI_PROG,HAKI_NAMES};`,context);
  context.pg={role:'Combattente',style:'Striker',roleSkillDie:'d20',attr:{Forza:'d10',Spirito:'d20'},stCur:30,
   talents:['Combattente · Striker · Raffica — Base','Combattente · Striker · Pressione Costante','Combattente · Striker · Guardia del Combattente'],

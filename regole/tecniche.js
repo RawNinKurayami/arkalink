@@ -34,10 +34,12 @@
     const weapon = (pg.armi || []).find(w => w.id === t.arma);
     const module = (pg.moduli || []).find(m => m.id === t.modulo);
     if (weapon) return JSON.stringify(['Arma', weapon.id, weapon.tipo, weapon.asta || '', weapon.eff || null]);
-    if (module && pg.race === 'cyborg') return JSON.stringify(['Modulo', module.id, module.funzione || '', module.eff || null]);
+    if (module && pg.race === 'cyborg') return JSON.stringify(['Modulo', module.id, module.req, !!module.arma, module.armaTipo || '', module.armaSottotipo || '', module.asta || '', module.attr || '', module.gradoArma || module.grado || '', module.funzioneTipo || '', module.funzione || '', module.parametri || null, module.tecnicheCompatibili || '', module.eff || null]);
     return '';
   }
   function permissionValid(pg, t) {
+    // Modules grant Builder profiles only through a structured Sblocco.
+    if (t.modulo) return false;
     const permission = t.sourcePermission;
     return !!(permission && permission.key && permission.key === sourceKey(pg, t) && String(permission.basis || '').trim() && Array.isArray(permission.effects));
   }
@@ -47,6 +49,17 @@
   const catalogue = options => (options && options.catalogue) || [];
   const find = (name, options) => catalogue(options).find(e => e[1] === name);
   const isShape = (name, options) => { const e = find(name, options); return !!e && e[6] === 'sagoma'; };
+  function moduleModifiers(pg, t, options) {
+    if (!t.modulo || !root.GLCCyborg) return {discountST: 0, discountSlots: 0, unlocks: [], errors: []};
+    return root.GLCCyborg.techModifiers(pg, t, catalogue(options));
+  }
+  function modifiers(t, options) {
+    return options && options.moduleModifiers || options && options.pg && moduleModifiers(options.pg, t, options) || {discountST: 0, discountSlots: 0, unlocks: [], errors: []};
+  }
+  function moduleGrants(pg, t, name, options) {
+    const mod = modifiers(t, {...options, pg});
+    return !mod.errors.length && (mod.unlocks || []).includes(name);
+  }
   function states(t, options) {
     const profiles = {
       Sbilancio: ['Sbilanciato', 'Tecnica'], Sfondamento: ['Stordito', 'Forza'],
@@ -73,7 +86,8 @@
   function effectSlots(t, name, options) {
     if (isShape(name, options)) return 0;
     if (name === 'Occhio del Ciclone' && t.fonte === 'Frutto' && options && options.nessunoDeiMiei) return 0;
-    return 1;
+    const mod = modifiers(t, options);
+    return !mod.errors.length && mod.module && mod.module.eff && mod.module.eff.tgt === name ? Math.max(0, 1 - (mod.discountSlots || 0)) : 1;
   }
   function cost(t, list, options) {
     let st = 0, pt = 0;
@@ -87,6 +101,8 @@
       if (t.durata === '3 turni') st += 2;
       if (t.durata === 'Mantieni (+1/turno)') pt += 1;
     }
+    const mod = modifiers(t, {...options, catalogue: list || []});
+    if (!mod.errors.length && mod.discountST > 0 && st > 0) st = Math.max(1, st - mod.discountST);
     return {st, pt};
   }
   function effectError(pg, t, effect, options) {
@@ -115,14 +131,17 @@
     if (t.fonte === 'Frutto') return granted(pg, t, name) || name === 'Occhio del Ciclone' && options.nessunoDeiMiei ? '' : 'La Scheda del Frutto deve autorizzare espressamente questo effetto.';
     const ordinary = (options.whitelist || {})[t.stile] || [];
     const ordinaryName = name.startsWith('Guardia ') ? 'Guardia' : name;
-    return ordinary.includes(ordinaryName) || granted(pg, t, name) ? '' : 'Questo effetto non appartiene al catalogo dello Stile e richiede una concessione specifica della Fonte.';
+    return ordinary.includes(ordinaryName) || granted(pg, t, name) || moduleGrants(pg, t, name, options) ? '' : 'Questo effetto non appartiene al catalogo dello Stile e richiede una concessione specifica della Fonte.';
   }
   function evaluate(pg, t, options) {
     pg = pg || {}; t = t || {}; options = options || {};
-    options = {...options, nessunoDeiMiei: options.nessunoDeiMiei == null ? talent(pg, 'Nessuno dei Miei') : options.nessunoDeiMiei};
+    options = {...options, pg, nessunoDeiMiei: options.nessunoDeiMiei == null ? talent(pg, 'Nessuno dei Miei') : options.nessunoDeiMiei};
     const errors = [], add = (code, text, effect) => errors.push({code, text, ...(effect ? {effect} : {})});
     const song = t.forma === 'Canzone', mine = styles(pg), allowedWeapons = (pg.armi || []).filter(w => compatibleWeapon(w, t.stile));
-    const weapon = (pg.armi || []).find(w => w.id === t.arma), module = (pg.moduli || []).find(m => m.id === t.modulo);
+    const module = (pg.moduli || []).find(m => m.id === t.modulo), linkedWeapon = (pg.armi || []).find(w => w.id === t.arma);
+    const compatibleModules = root.GLCCyborg ? (pg.moduli || []).filter(m => root.GLCCyborg.evaluate(pg, m, {purpose: 'build'}).valid && compatibleWeapon(root.GLCCyborg.weapon(m), t.stile)) : [];
+    const weapon = linkedWeapon || (module && root.GLCCyborg && root.GLCCyborg.weapon(module)) || null;
+    const mod = moduleModifiers(pg, t, options); options.moduleModifiers = mod;
     if (!['Stile', 'Frutto'].includes(t.fonte)) add('source', 'Scegli una Fonte valida: Stile o Frutto.');
     if (song) {
       if (!hasRole(pg, 'Musicista') || t.fonte !== 'Stile') add('song-role', 'La Forma Canzone è riservata al Musicista e usa Fonte Stile.');
@@ -130,9 +149,9 @@
       if (t.fonte === 'Stile') {
         if (!hasRole(pg, 'Combattente')) add('combat-role', 'Per costruire Tecniche di Stile serve un Ruolo da Combattente.');
         if (!mine.includes(t.stile)) add('style', 'Scegli uno Stile di Combattente posseduto.');
-        if (t.stile === 'Striker' && t.arma) add('unarmed', 'Lo Striker costruisce e utilizza Tecniche esclusivamente a mani nude.');
+        if (t.stile === 'Striker' && (t.arma || module && module.arma)) add('unarmed', 'Lo Striker costruisce e utilizza Tecniche esclusivamente a mani nude.');
         if (['Swordsman', 'Crusher', 'Sniper'].includes(t.stile)) {
-          if (!allowedWeapons.length) add('weapon-required', 'Lo Stile ' + t.stile + ' richiede un’arma compatibile: senza arma non puoi costruire Tecniche di questo Stile.');
+          if (!allowedWeapons.length && !compatibleModules.length) add('weapon-required', 'Lo Stile ' + t.stile + ' richiede un’arma compatibile: senza arma non puoi costruire Tecniche di questo Stile.');
           else if (!weapon) add('weapon-link', 'Scegli l’arma compatibile con cui eseguire la Tecnica.');
           else if (!compatibleWeapon(weapon, t.stile)) add('weapon-style', 'L’arma selezionata non è compatibile con lo Stile ' + t.stile + '.');
         }
@@ -142,12 +161,19 @@
         else if (!['Paramecia', 'Logia', 'Zoan'].includes(pg.frutto.tipo) || t.fruitType !== pg.frutto.tipo) add('fruit-type', 'La Tecnica deve usare il tipo del Frutto realmente posseduto.');
       }
     }
-    if (t.arma && !weapon) add('weapon-missing', 'L’arma collegata non è più nell’Arsenale. Il collegamento è conservato finché non lo correggi.');
-    if (t.arma && weapon && t.fonte === 'Stile') {
+    if (t.arma && !linkedWeapon) add('weapon-missing', 'L’arma collegata non è più nell’Arsenale. Il collegamento è conservato finché non lo correggi.');
+    if ((t.arma || module && module.arma) && weapon && t.fonte === 'Stile') {
       const problem = weaponUseError(pg, weapon);
       if (problem) add('weapon-requirements', problem);
     }
     if (t.modulo && (!module || pg.race !== 'cyborg')) add('module-missing', 'Il Modulo collegato non è disponibile sul Corpo Meccanico del pirata.');
+    else if (t.modulo && !root.GLCCyborg) add('module-engine', 'Aggiorna la pagina per convalidare il Modulo collegato con le regole Cyborg.');
+    else if (t.modulo && module) {
+      const check = root.GLCCyborg.evaluate(pg, module, {purpose: options.purpose || 'build'});
+      check.errors.forEach(e => add(e.code, e.text));
+      if (options.purpose === 'use' && !check.operational) check.operationalErrors.forEach(e => add(e.code, e.text));
+      (mod.errors || []).forEach(e => add(e.code, e.text));
+    }
     if (t.arma && t.modulo) add('gear-conflict', 'Una Tecnica collega un’arma oppure un Modulo, non entrambi.');
     if (t.fonte === 'Frutto' && (t.arma || t.modulo)) add('fruit-gear', 'Le concessioni di un’arma o di un Modulo non sostituiscono la Scheda del Frutto.');
     if (!ATTRIBUTES.includes(t.attr)) add('attribute', 'Scegli l’Attributo di riferimento.');
@@ -159,12 +185,12 @@
     const area = !song && (t.fonte === 'Stile' && ['Swordsman', 'Crusher'].includes(t.stile) || specialArea);
     const sourceAllows = e => {
       const name = e[1].startsWith('Guardia ') ? 'Guardia' : e[1];
-      return t.fonte === 'Stile' && ((options.whitelist || {})[t.stile] || []).includes(name) || granted(pg, t, e[1]);
+      return t.fonte === 'Stile' && ((options.whitelist || {})[t.stile] || []).includes(name) || granted(pg, t, e[1]) || moduleGrants(pg, t, e[1], options);
     };
     const forms = ['Singolo', ...(area ? ['Area'] : []), ...['Spostamento', 'Difesa', 'Potenziamento'].filter(form => catalogue(options).some(e => e[0] === form && sourceAllows(e))), ...(hasRole(pg, 'Musicista') && t.fonte === 'Stile' ? ['Canzone'] : [])];
     if (!forms.includes(t.forma)) add('form', t.forma === 'Area' ? 'Questo Stile o questa Fonte non concede una Forma Area.' : 'Scegli una Forma valida per la Fonte.');
     if (t.eff != null && !Array.isArray(t.eff)) add('effects-data', 'La lista degli effetti salvata non è valida: riaprila e correggila nel Costruttore.');
-    const effects = Array.isArray(t.eff) ? t.eff : [], used = effects.reduce((sum, name) => sum + effectSlots(t, name, options), 0), slot = song ? 1 : (SLOTS[t.die] ?? 0);
+    const effects = Array.isArray(t.eff) ? t.eff : [], rawUsed = effects.reduce((sum, name) => sum + effectSlots(t, name, options), 0), used = !mod.errors.length && mod.targetKind === 'technique' ? Math.max(0, rawUsed - (mod.discountSlots || 0)) : rawUsed, slot = song ? 1 : (SLOTS[t.die] ?? 0);
     if (used > slot) add('slots', 'Gli effetti occupano ' + used + ' slot; la Tecnica ne possiede ' + slot + '.');
     const groups = new Set(), names = new Set();
     for (const name of effects) {
@@ -184,9 +210,9 @@
       if (duration !== 'Un turno' && !effects.some(name => {const e = find(name, options); return e && e[0] === 'Zona Persistente';})) add('persistence', 'Una durata prolungata richiede una Zona Persistente espressamente autorizzata dalla Fonte.');
     }
     const available = catalogue(options).filter(e => !effectError(pg, t, e, options)).map(e => e[1]);
-    return {valid: errors.length === 0, errors, slot, used, cost: cost(t, catalogue(options), options), states: states(t, options), cap, dieOpts: DICE.filter(d => rank(d) <= cap), available, forms, compatibleWeapons: allowedWeapons, sourceKey: sourceKey(pg, t), permissionValid: permission, weapon, module};
+    return {valid: errors.length === 0, errors, slot, used, cost: cost(t, catalogue(options), options), states: states(t, options), cap, dieOpts: DICE.filter(d => rank(d) <= cap), available, forms, compatibleWeapons: allowedWeapons, compatibleModules, sourceKey: sourceKey(pg, t), permissionValid: permission, weapon, module, moduleModifiers: mod};
   }
-  const api = Object.freeze({DICE: Object.freeze(DICE), SLOTS: Object.freeze(SLOTS), rank, plainDie, compatibleWeapon, weaponUseError, sourceKey, permissionValid, effectError, effectSlots, group, cost, states, evaluate});
+  const api = Object.freeze({DICE: Object.freeze(DICE), SLOTS: Object.freeze(SLOTS), rank, plainDie, compatibleWeapon, weaponUseError, sourceKey, permissionValid, moduleModifiers, effectError, effectSlots, group, cost, states, evaluate});
   root.GLCTechniques = api;
   if (typeof module === 'object' && module.exports) module.exports = api;
 })(typeof window === 'object' ? window : globalThis);

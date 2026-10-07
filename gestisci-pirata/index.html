@@ -1549,18 +1549,20 @@ body.has-bld{overflow:hidden;}
 <script src="/regole/talenti.js?v=1"></script>
 <script src="/regole/tratti-data.js?v=1"></script>
 <script src="/regole/tratti.js?v=1"></script>
-<script src="/regole/tecniche.js?v=1"></script>
+<script src="/regole/cyborg.js?v=1"></script>
+<script src="/regole/tecniche.js?v=2"></script>
+<script src="/gestisci-pirata/cyborg-care.js?v=1"></script>
 <link rel="stylesheet" href="tratti-ui.css?v=1">
 <script src="tratti-ui.js?v=1"></script>
 <script src="prestigio-ui.js?v=3"></script>
-<script src="special-moves.js?v=22"></script>
+<script src="special-moves.js?v=23"></script>
 <link rel="stylesheet" href="card-view.css?v=6">
 <script src="card-export.js?v=4" defer></script>
 <script src="card-view.js?v=7" defer></script>
 <script src="signature-builder.js?v=2"></script>
-<script src="equipment-builder.js?v=1"></script>
-<script src="dossiers.js?v=2"></script>
-<script src="/scheda-stampabile/special-moves-print.js?v=6"></script>
+<script src="equipment-builder.js?v=2"></script>
+<script src="dossiers.js?v=3"></script>
+<script src="/scheda-stampabile/special-moves-print.js?v=7"></script>
 <script>
 "use strict";
 const RACES=[
@@ -1571,7 +1573,7 @@ const RACES=[
  {id:"lunarian",name:"Lunarian",attr:"Spirito",die:"d8",pv:16,hp:"d8",tech:"Fiamma Immortale",techDesc:"Fiamma ON: Svantaggio al tiro per colpire, riduci il primo danno fisico del round con il Dado Razziale. OFF: −2 Difesa Passiva, aggiungi il Dado Razziale al tiro per colpire. Alternare 1×/turno gratis.",sv:"Taglia automatica 50M"},
  {id:"longbraccio",name:"Longbraccio",attr:"Tecnica",die:"d8",pv:12,hp:"d6",tech:"Portata Estesa",techDesc:"Portata maggiore per i colpi con le braccia; da d8, Salvezza di Forza contro Trascinamento o Proiezione. Da d10 coinvolge più bersagli entro portata, con un tiro per colpire separato per ciascuno.",sv:"Nessuno"},
  {id:"lungagamba",name:"Lungagamba",attr:"Forza",die:"d8",pv:14,hp:"d6",tech:"Calcio Colossale",techDesc:"Portata maggiore per i calci; da d8, Salvezza di Forza contro Schiantato. Da d10 coinvolge più bersagli entro portata, con un tiro per colpire separato per ciascuno.",sv:"Nessuno"},
- {id:"cyborg",name:"Cyborg",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Corpo Meccanico",techDesc:"Installa moduli meccanici nel corpo: 1 slot a d6, 2 a d8, 3 a d10, 4 a d12, 5 a d20.",sv:"Curabile solo da un meccanico"},
+ {id:"cyborg",name:"Cyborg",attr:"Forza",die:"d8",pv:16,hp:"d8",tech:"Corpo Meccanico",techDesc:"Slot e Fascia massima: d6 = 1, d8 = 2, d10 = 3, d12 = 4, d20 = 5. Un solo Modulo attivo; nessun Prestigio per Corpo Meccanico.",sv:"Le normali cure biologiche con Medicina non recuperano PV. Riposi, cibo e recuperi diretti di PV funzionano; il Meccanico può effettuare Riparazione di Campo."},
  {id:"tontatta",name:"Tontatta",attr:"choice2",die:"d8",pv:12,hp:"d6",tech:"Piccolo Guerriero",techDesc:"Aggiungi il Dado Razziale alle Prove di Furtività o Mobilità; il primo attacco di ciascun nemico contro di te arriva in Svantaggio.",sv:"Presa: +3 difficoltà per liberarti · niente armi/oggetti di taglia normale o grande"}
 ];
 const TALENTS={
@@ -1837,7 +1839,7 @@ const RACE_EFF={
  gigante:function(d){return "Quando la stazza conta, aggiungi <b>"+d+"</b> al tiro (non ai tiri per colpire né ai danni). Ogni colpo a segno: Dado Danno +1 gradino. — <i>Svantaggio: niente navi/edifici standard.</i>";},
  uomopesce:function(d){return "In acqua aggiungi <b>"+d+"</b> a ogni tiro fisico. Respiro subacqueo infinito. — <i>Svantaggio: Svantaggio a ogni tiro su terra arida.</i>";},
  mink:function(d){var t={d6:"Electro — paralisi 1 turno",d8:"Electro — paralisi 2 turni",d10:"Electro — paralisi 3 turni",d12:"Electro — paralisi 3 turni + 1d6 danni/turno",d20:"Electro — paralisi 3 turni + 1d8 danni/turno"};/* Il costo di Electro sale con il Grado della Tecnica Razziale. */var st={d6:1,d8:1,d10:2,d12:2,d20:3}[d]||1;return (t[d]||t.d6)+" (Salvezza di Forza contro Soglia "+GLCPrestige.saveThreshold(d in t?d:"d6")+" ogni turno · "+st+" ST, fissata all’applicazione). <b>Sulong</b>: vedendo la luna, attivazione gratuita; Attributi +1 gradino e Vantaggio a ogni tiro per un combattimento. L’aumento temporaneo non sblocca nuove capacità. — <i>Svantaggio: dopo il Sulong resti a 0 Stamina.</i>";},
- cyborg:function(d){var n={d6:1,d8:2,d10:3,d12:4,d20:5};var k=n[d]||1;return "Corpo Meccanico: installa <b>"+k+"</b> modul"+(k>1?"i":"o")+" (concordati col GM). — <i>Svantaggio: curabile solo da un meccanico (o da te se sei meccanico).</i>";},
+ cyborg:function(d){var n={d6:1,d8:2,d10:3,d12:4,d20:5};var k=n[d];return k?"Corpo Meccanico: <b>"+k+" slot</b>, Moduli fino alla Fascia <b>"+d+"</b>. Un solo Modulo attivo; cambio gratuito una volta nel proprio turno. Nessun Prestigio. Le normali cure biologiche con Medicina non recuperano PV; riposi, cibo e recuperi diretti funzionano. <a href='/manuale-cyborg/'>Manuale Cyborg</a>":"Corpo Meccanico: il Grado storico <b>"+String(d).replace(/[<>&]/g,"")+"</b> richiede una revisione. La progressione ordinaria è d6 → d8 → d10 → d12 → d20, senza Prestigio. Il valore salvato è conservato.";},
  lunarian:function(d){return "<b>Fiamma ON</b> (malus: Svantaggio al tiro per colpire): riduci il primo danno fisico subito ogni round di <b>"+d+"</b>. <b>Fiamma OFF</b> (malus: −2 Difesa Passiva): aggiungi <b>"+d+"</b> al tiro per colpire ogni round. — <i>Svantaggio: taglia automatica 50M.</i>";},
  lungagamba:function(d){var t={d6:"la portata dei tuoi calci è maggiore",d8:"il nemico supera una salvezza di Forza o è Schiantato",d10:"colpisci fino a 2 nemici vicini (salvezza Forza o Schiantati)",d12:"colpisci fino a 3 nemici (salvezza Forza o Schiantati)",d20:"colpisci fino a 4 nemici (salvezza Forza o Schiantati)"};return "Calcio Colossale: "+(t[d]||t.d6)+". — <i>Svantaggio: nessuno.</i>";},
  longbraccio:function(d){var t={d6:"la portata dei tuoi attacchi con le braccia è maggiore",d8:"il nemico supera una salvezza di Forza o subisce Trascinamento/Proiezione",d10:"colpisci fino a 2 nemici vicini (salvezza Forza o Trascinamento/Proiezione)",d12:"colpisci fino a 3 nemici (salvezza Forza o Trascinamento/Proiezione)",d20:"colpisci fino a 4 nemici (salvezza Forza o Trascinamento/Proiezione)"};return "Portata Estesa: "+(t[d]||t.d6)+". — <i>Svantaggio: nessuno.</i>";},
@@ -2105,7 +2107,7 @@ function dieRank(d){var k=DICE.indexOf(d);return k<0?-1:k;}
 function famOf(nm){const e=tecEffObj(nm);return e?e[0]:"";}
 function grpOf(nm){const e=tecEffObj(nm);if(!e)return "";if(e[0]==="Potenziamento")return e[0]+"/"+e[1];return e[0]+(e[6]?("/"+e[6]):"");}
 function isSagoma(nm){const e=tecEffObj(nm);return !!(e&&e[6]==="sagoma");}
-function slotUsed(list){return (list||[]).reduce((n,nm)=>n+(isSagoma(nm)?0:(nm==="Occhio del Ciclone"&&TBUILD.fonte==="Frutto"&&hasTalent("Nessuno dei Miei")?0:1)),0);}
+function slotUsed(list){return tbEvaluate({...TBUILD,eff:list||[]}).used;}
 function fruitDieCap(){try{return (pg&&pg.frutto&&pg.frutto.has)?(pg.frutto.die||"d4"):"";}catch(e){return "";}}
 /* Stili tolti dal sito (Special dal 19/09/2026, Inventore dal 05/10/2026): i
    loro dati e talenti restano qui nel codice per eventuali modifiche, ma non
@@ -2127,7 +2129,7 @@ function effVeto(e){ // regole trasversali: restituisce il motivo del blocco, o 
   if(e[1]==="Marcia Funebre"&&!hasTalent("Marcia Funebre"))return "Richiede il Talento Marcia Funebre";
   return "";
 }
-function tecCost(t){let st=0,pt=0;(t.eff||[]).forEach(nm=>{const e=tecEffObj(nm);if(e&&!(nm==="Occhio del Ciclone"&&t.fonte==="Frutto"&&hasTalent("Nessuno dei Miei"))){st+=e[4];if(e[7])pt+=e[7];}});const d=t.forma==="Area"?TEC_DUR.find(x=>x[0]===t.durata):null;if(d){st+=d[1];pt+=d[2];}return{st:st,pt:pt};}
+function tecCost(t){return GLCTechniques.cost(t,TEC_EFF,tbRules());}
 function tecCostLabel(t){const c=tecCost(t);return c.st+" ST"+(c.pt?(" +"+c.pt+"/turno"):"");}
 function tecSummary(t){const a=[];if(t.fonte)a.push(t.fonte==="Frutto"&&t.fruitType?("Frutto "+t.fruitType):(t.stile?("Stile "+t.stile):t.fonte));if(t.forma)a.push(t.forma);if(t.die)a.push(t.die);if(t.durata&&t.forma==="Area"&&t.durata!=="Un turno")a.push(t.durata);let s=a.join(" · ");if(t.eff&&t.eff.length)s+=" — "+t.eff.join(", ");return s;}
 const FAM_SHORT={"Melodie del Musicista":"Melodie","Zona Persistente":"Zona pers.","Potenziamento":"Potenz.","Concatenati":"Concat.","Spostamento":"Spost."};
@@ -2313,7 +2315,7 @@ function bldTiers(label,opts,cur,onPick){
    i valori derivati. Le fasi li leggono e basta.
    ========================================================================== */
 let SMBD={};
-function tbRules(){return {catalogue:TEC_EFF,whitelist:STILE_WHITELIST,precisioneAssoluta:!!(window.GLCPrestige&&GLCPrestige.has(pg,"precisione-assoluta")),nessunoDeiMiei:hasTalent("Nessuno dei Miei"),hasTalent:hasTalent};}
+function tbRules(){return {pg:pg,catalogue:TEC_EFF,whitelist:STILE_WHITELIST,precisioneAssoluta:!!(window.GLCPrestige&&GLCPrestige.has(pg,"precisione-assoluta")),nessunoDeiMiei:hasTalent("Nessuno dei Miei"),hasTalent:hasTalent};}
 function tbEvaluate(t){return GLCTechniques.evaluate(pg,t,tbRules());}
 function tbEffectStateLabel(nm){const state=GLCTechniques.states({...TBUILD,eff:[nm]},tbRules())[0];return !state?"":(state.threshold!=null?("Salvezza di "+state.attribute+" · Soglia "+state.threshold+" dal "+TBUILD.die):(state.source?("Salvezza di "+state.attribute+" · Soglia dal "+state.source):state.procedure));}
 function tbEdit(t){TBUILD={...t,eff:Array.isArray(t.eff)?t.eff.slice():(t.eff==null?[]:[String(t.eff)]),sourcePermission:t.sourcePermission?JSON.parse(JSON.stringify(t.sourcePermission)):null,_open:[],_fam:"",_id:t.id||null};}
@@ -2327,10 +2329,11 @@ function tbCompute(){
  if(!TBUILD._id&&TBUILD.fonte==="Frutto"&&!TBUILD.fruitType)TBUILD.fruitType=(pg.frutto||{}).tipo||"";
  if(!TBUILD._id&&TBUILD.fonte==="Stile"&&!TBUILD.arma&&!TBUILD.modulo&&["Swordsman","Crusher","Sniper"].includes(TBUILD.stile)){
   const weapon=(pg.armi||[]).find(a=>GLCTechniques.compatibleWeapon(a,TBUILD.stile));if(weapon)TBUILD.arma=weapon.id;
+  else {const module=cyborgModulesForStyle(TBUILD.stile)[0];if(module)TBUILD.modulo=module.id;}
  }
  const result=tbEvaluate(TBUILD),attrDie=(pg.attr||{})[TBUILD.attr]||"",rank=GLCTechniques.rank(TBUILD.die),slot=result.slot;
  const armi=TBUILD.fonte==="Stile"?(pg.armi||[]).filter(a=>GLCTechniques.compatibleWeapon(a,TBUILD.stile)):[];
- const mods=TBUILD.fonte==="Stile"&&pg.race==="cyborg"?(pg.moduli||[]):[];
+ const mods=TBUILD.fonte==="Stile"&&pg.race==="cyborg"?(pg.moduli||[]).filter(m=>cyborgModulesForStyle(TBUILD.stile).some(x=>x.id===m.id)||m.id===TBUILD.modulo):[];
  const SB=stileBlock(TBUILD.stile),FB=fruttoBlock(),soloCanzone=TBUILD.fonte==="Stile"&&!styles.length&&musica;
  const blocking=result.errors.find(e=>["combat-role","style","weapon-required","unarmed","fruit-required","fruit-type","song-role"].includes(e.code));
  const BLOCK=blocking?blocking.text:"";
@@ -2338,7 +2341,7 @@ function tbCompute(){
  const effShown=e=>{
   const nm=e[1];if(TBUILD.eff.includes(nm))return true;if(!effOpen(e))return false;
   const taken=TBUILD.eff.some(x=>x!==nm&&GLCTechniques.group(x,tbRules())===GLCTechniques.group(nm,tbRules()));
-  return !taken&&result.used+GLCTechniques.effectSlots(TBUILD,nm,tbRules())<=slot;
+  return !taken&&tbEvaluate({...TBUILD,eff:[...TBUILD.eff,nm]}).used<=slot;
  };
  const fams=TEC_FAMS.filter(fam=>TEC_EFF.some(e=>e[0]===fam&&effShown(e))||TBUILD.eff.some(nm=>famOf(nm)===fam));
  if(!fams.includes(TBUILD._fam))TBUILD._fam=fams[0]||"";
@@ -2358,7 +2361,7 @@ function smbStepId(h){
  if(TBUILD.fonte==="Stile"&&D.SB&&!(TBUILD.forma==="Canzone"&&D.musica))h.appendChild(bldNote(D.SB+(D.soloCanzone?"<br>Ti resta la <b>Forma Canzone</b>: le Melodie le costruisci in quanto Musicista.":""),D.soloCanzone?"wait":"ko"));
  if(TBUILD.fonte==="Frutto"&&D.FB)h.appendChild(bldNote(D.FB,"ko"));
  if(TBUILD.fonte==="Stile"&&D.styles.length&&(D.styles.length>1||!TBUILD.stile)&&TBUILD.forma!=="Canzone")
-  h.appendChild(smbChips("Stile della Tecnica",D.styles.map(x=>({v:x,l:x,ico:STYLE_IMG[x]?emblem(STYLE_IMG[x],26):svgIcon(STYLE_ICON[x]||"star",19),sub:styleReady(x)?"":"senza strumento"})),TBUILD.stile,v=>bldMutate(()=>{TBUILD.stile=v;TBUILD.modulo="";const weapon=(pg.armi||[]).find(a=>GLCTechniques.compatibleWeapon(a,v));TBUILD.arma=weapon?weapon.id:"";})));
+  h.appendChild(smbChips("Stile della Tecnica",D.styles.map(x=>({v:x,l:x,ico:STYLE_IMG[x]?emblem(STYLE_IMG[x],26):svgIcon(STYLE_ICON[x]||"star",19),sub:styleReady(x)?"":"senza strumento"})),TBUILD.stile,v=>bldMutate(()=>{TBUILD.stile=v;TBUILD.modulo="";const weapon=(pg.armi||[]).find(a=>GLCTechniques.compatibleWeapon(a,v));TBUILD.arma=weapon?weapon.id:"";if(!weapon){const module=cyborgModulesForStyle(v)[0];if(module)TBUILD.modulo=module.id;}})));
  if(TBUILD.fonte==="Frutto")h.appendChild(bldNote("<b>Frutto "+((pg.frutto||{}).tipo||"da definire")+".</b> Il tipo e il potere derivano dal Frutto della scheda. Le concessioni specifiche si registrano nelle Fondamenta."));
  if(TBUILD.fonte==="Stile"&&TBUILD.stile==="Crusher"&&TBUILD.forma!=="Canzone")h.appendChild(bldNote("<b>Crusher.</b> Le Tecniche di questo Stile si attivano solo mentre impugni e utilizzi un'arma contundente compatibile."));
  if(TBUILD.fonte==="Stile"&&TBUILD.stile==="Striker"&&TBUILD.forma!=="Canzone")h.appendChild(bldNote("<b>Striker.</b> Le Tecniche di questo Stile si usano esclusivamente a mani nude."));
@@ -2385,14 +2388,16 @@ function smbStepFond(h){
    if(wa.eff)t+="<br><b>"+(wa.eff.nome||"Effetto")+"</b>"+(wa.eff.cat?(" · "+wa.eff.cat):"")+(wa.eff.desc?(" — "+wa.eff.desc):"")+"<br><i>Il builder non applica da solo l'effetto dell'arma.</i>";
    h.appendChild(bldNote(t,c.s));}
   const mo=D.mods.filter(m=>m.id===TBUILD.modulo)[0];
-  if(mo){const att=pg.moduloAttivo===mo.id,dmg=mo.stato==="danneggiato";
-   let t="<b>"+(mo.nome||"Modulo")+"</b> · "+(dmg?"danneggiato: la Tecnica non è eseguibile finché non lo ripari.":(att?"attivo.":"inattivo: per eseguirla devi attivarlo (un'azione, salvo talenti)."));
-   if(mo.eff&&(mo.eff.cat||mo.eff.testo))t+="<br><b>"+(mo.eff.cat||"effetto")+"</b>"+(mo.eff.tgt?(" · "+mo.eff.tgt):"")+" — "+(mo.eff.testo||"")+"<br><i>Costo e slot non cambiano da qui: lo sconto si applica al tavolo.</i>";
+  if(mo){const check=GLCCyborg.evaluate(pg,mo,{catalogue:TEC_EFF}),att=check.operational,dmg=mo.stato==="danneggiato";
+   let t="<b>"+(mo.nome||"Modulo")+"</b> · "+(dmg?"danneggiato: la Tecnica non è eseguibile finché non lo ripari.":(att?"attivo.":"inattivo: per eseguirla devi attivarlo. Un cambio gratuito nel tuo turno, senza Azioni."));
+   if(!check.valid)t+="<br>"+check.errors.map(e=>typeof e==="string"?e:e.text).join(" · ");
+   if(mo.eff&&(mo.eff.cat||mo.eff.testo))t+="<br>"+modReadBack(mo)+"<br><i>Sblocco e Sconto si applicano soltanto alla capacità registrata e mantengono i requisiti della Tecnica.</i>";
    h.appendChild(bldNote(t,dmg?"ko":(att?"ok":"wait")));}
  }
  smbPermissions(h);
 }
 function smbPermissions(h){
+ if(TBUILD.modulo){h.appendChild(bldNote("<b>Effetti del Modulo.</b> Le concessioni derivano dal suo unico Effetto Speciale strutturato. Registra Sblocco o Sconto nella scheda del dispositivo; la sola descrizione non concede effetti."));return;}
  const key=GLCTechniques.sourceKey(pg,TBUILD);
  if(!key||TBUILD.forma==="Canzone")return;
  const ordinary=STILE_WHITELIST[TBUILD.stile]||[];
@@ -2607,27 +2612,72 @@ function weaponModal(i,step){
    · 05 Integrità · 06 Riepilogo. Prima cosa sia il dispositivo, poi le regole.
    ========================================================================== */
 function modReadBack(mo){
- if(!mo.eff||!(mo.eff.cat||mo.eff.testo))return "Nessun effetto speciale: conta solo la funzione fisica.";
- const E=mo.eff;let s=(E.cat||"Effetto");
- if((E.cat==="Sconto"||E.cat==="Sblocco")&&E.tgt)s+=" su «"+E.tgt+"»";
- if(E.cat==="Passiva")s+=" (solo con il modulo attivo)";
- return s+": "+(E.testo||"testo da scrivere")+(E.cond?(" — "+E.cond):"")+".";
+ if(!mo.eff)return mo.effLegacy?"Effetto storico da rivedere: "+mo.effLegacy+". Il testo conservato non concede nuovi benefici automaticamente.":"Nessun Effetto Speciale.";
+ if(typeof mo.eff!=="object"||Array.isArray(mo.eff))return "Effetto storico da rivedere: la scheda consente al massimo un Effetto Speciale.";
+ const E=mo.eff,base=E.cat==="Maledizione"?E.base:E.cat;let s=E.cat||"Effetto da definire";
+ if(base==="Sconto")s+=" · «"+(E.tgt||"bersaglio da scegliere")+"»: −"+(Number(E.scontoST)||0)+" ST / −"+(Number(E.scontoSlot)||0)+" slot (minimo 1 ST, 0 slot)";
+ if(base==="Sblocco")s+=" · "+(Array.isArray(E.sblocchi)?E.sblocchi.join(" / "):E.tgt||"effetto da scegliere");
+ if(base==="Passiva")s+=" · "+(E.modello||"modello da scegliere")+" · "+(E.parametro||"ambito da definire")+(E.modello==="Ottimizzazione"?" +"+(Number(E.aumento)||0)+"%":"");
+ if(base==="Reazione")s+=" · "+(E.trigger||"Trigger da definire")+" · "+(E.utilizzi||1)+"/"+(E.freq||"frequenza da scegliere")+(E.emergenza?" · Attivazione d’emergenza":"");
+ if(E.cat==="Maledizione")s+=" · prezzo: "+(E.prezzo||"da definire");
+ return s+(E.testo?". "+E.testo:"")+(E.cond?" — "+E.cond:"")+(E.limiti?". Limiti: "+E.limiti:"")+". Solo installato, integro e attivo.";
 }
 function moduleCard(mo,h){
- const st=modStateLabel(mo);
+ const st=modStateLabel(mo),grade=mo.gradoArma||mo.grado,check=modEvaluate(mo,"project");
  const card=el("div",{class:"eqcard mod"});
- card.appendChild(el("div",{class:"eq-top"},[el("span",{class:"eq-ico",html:svgIcon("gear",30)}),(mo.arma&&mo.grado)?el("span",{class:"eq-grade",html:dieIcon(mo.grado,46)+'<small>'+gradeLabel(mo.grado)+'</small>'}):el("span",{class:"pill "+st.c,text:st.t})]));
+ card.appendChild(el("div",{class:"eq-top"},[el("span",{class:"eq-ico",html:svgIcon("gear",30)}),(mo.arma&&grade)?el("span",{class:"eq-grade",html:dieIcon(grade,46)+'<small>'+gradeLabel(grade)+'</small>'}):el("span",{class:"pill "+st.c,text:st.t})]));
  card.appendChild(el("div",{class:"eq-n",text:mo.nome||"Modulo"}));
- card.appendChild(el("div",{class:"eq-m",text:[(mo.tipo&&mo.tipo.length?mo.tipo.join(" · "):"tipo da definire"),"requisito "+mo.req,mo.arma?"arma":"funzionale"].join(" · ")}));
- if(mo.funzione)card.appendChild(el("div",{class:"eq-f",text:mo.funzione}));
+ card.appendChild(el("div",{class:"eq-m",text:[(mo.tipo&&mo.tipo.length?mo.tipo.join(" · "):"categoria da definire"),"Fascia "+mo.req,mo.arma?(mo.armaSottotipo||mo.armaTipo||"Modulo-Arma")+" · "+(mo.attr||"Attributo da definire"):"Funzionale",st.t].join(" · ")}));
+ if(mo.funzioneAttiva||mo.funzione)card.appendChild(el("div",{class:"eq-f",text:mo.funzioneAttiva||mo.funzione}));
+ if(mo.funzioneInattiva)card.appendChild(el("div",{class:"sub",text:"Da inattivo: "+mo.funzioneInattiva}));
  card.appendChild(el("div",{class:"eq-div"}));
  card.appendChild(el("div",{class:"eq-e",text:modReadBack(mo)}));
  if(mo.fuel&&mo.fuel.on){const mx=Number(mo.fuel.max)||0,cu=Number(mo.fuel.cur)||0;
   card.appendChild(el("div",{class:"eq-gauge",html:'<span>'+(mo.fuel.tipo||"Cariche")+' '+cu+'/'+(mx||"—")+'</span><i style="width:'+(mx?Math.min(100,cu/mx*100):0)+'%"></i>'}));}
  const S=moduliSlots();
- card.appendChild(el("div",{class:"eq-slots",html:"Slot "+(pg.moduli||[]).length+"/"+S.n+" "+Array.from({length:S.n},(x,k)=>'<i class="'+(k<(pg.moduli||[]).length?"on":"")+'"></i>').join("")}));
+ card.appendChild(el("div",{class:"eq-slots",html:"Slot installati "+S.used+"/"+S.n+" "+Array.from({length:S.n},(x,k)=>'<i class="'+(k<S.used?"on":"")+'"></i>').join("")}));
  card.appendChild(el("div",{class:"bl-state "+(mo.stato==="danneggiato"?"ko":"ok"),html:(mo.stato==="danneggiato"?"✕ Danneggiato":"✓ Integro")}));
  h.appendChild(card);
+ if(!check.valid)h.appendChild(el("div",{class:"compat ko",text:check.errors.map(e=>e.text).join(" ")}));
+}
+function modNumber(h,label,obj,key,maximum){const w=el("div",{class:"smb-f"}),n=el("input",{type:"number",min:"0",max:maximum==null?undefined:String(maximum),step:"1","aria-label":label});n.value=obj[key]??0;n.oninput=()=>{obj[key]=n.value===""?"":Number(n.value);save();bldSummary();};w.appendChild(el("label",{class:"fld",text:label+(maximum==null?"":" · massimo "+maximum)}));w.appendChild(n);h.appendChild(w);}
+function modEffectFields(h,mo){
+ const E=mo.eff,T=MOD_FASCE[mo.req]||MOD_FASCE.d6,base=E.cat==="Maledizione"?E.base:E.cat;
+ if(E.cat==="Maledizione"){
+  h.appendChild(selField("Beneficio ampliato",["","Sconto","Sblocco","Passiva","Reazione"],E.base,v=>bldMutate(()=>{E.base=v;})));
+  h.appendChild(selField("Prezzo meccanico",["","Consumo raddoppiato","+1 ST per utilizzo","Surriscaldamento","Danno da sovraccarico","Vulnerabilità operativa specifica"],E.prezzo,v=>bldMutate(()=>{E.prezzo=v;})));
+  h.appendChild(bldNote("Una sola estensione coerente: Sblocco fino a due effetti collegati; Sconto su una piccola famiglia; Passiva su due condizioni correlate; Reazione +1 uso per scontro. Restano i limiti ordinari di Azioni e Reazioni."));
+ }
+ if(base==="Sconto"){
+  h.appendChild(field("Effetto o capacità precisa interessata",E.tgt,v=>{E.tgt=v;save();bldSummary();}));
+  modNumber(h,"Riduzione ST",E,"scontoST",T.sconto);modNumber(h,"Riduzione slot",E,"scontoSlot",Math.floor(T.sconto/2));
+  h.appendChild(bldNote(T.sconto+" Punti Sconto: ogni ST costa 1 punto; da d8 ogni slot costa 2 punti. Il costo della capacità resta almeno 1 ST, gli slot possono arrivare a 0. Lo Sconto non sblocca capacità."));
+ }
+ if(base==="Sblocco"){
+  if(!Array.isArray(E.sblocchi))E.sblocchi=[];
+  const max=E.cat==="Maledizione"?2:1;
+  h.appendChild(bldNote("Scegli "+(max===1?"un solo effetto":"fino a due effetti strettamente collegati")+" di Grado minimo non superiore alla Fascia. Forma, Slot, ST e prerequisiti restano obbligatori."));
+  const choices=TEC_EFF.filter(e=>GLCTechniques.rank(e[3])<=GLCTechniques.rank(mo.req));
+  const chips=el("div",{class:"smb-chips"});choices.forEach(e=>{const on=E.sblocchi.includes(e[1]);chips.appendChild(el("button",{type:"button",class:"chipp"+(on?" on":""),text:e[1],"aria-pressed":String(on),disabled:!on&&E.sblocchi.length>=max,onclick:()=>bldMutate(()=>{if(on)E.sblocchi=E.sblocchi.filter(n=>n!==e[1]);else if(E.sblocchi.length<max)E.sblocchi.push(e[1]);E.tgt=E.sblocchi[0]||"";})}));});h.appendChild(chips);
+  E.sblocchi.filter(n=>!choices.some(e=>e[1]===n)).forEach(n=>h.appendChild(el("button",{class:"smb-btn",text:"Rimuovi sblocco da rivedere: "+n,onclick:()=>bldMutate(()=>{E.sblocchi=E.sblocchi.filter(x=>x!==n);})})));
+ }
+ if(base==="Passiva"){
+  h.appendChild(selField("Modello di Passiva",[""].concat(MOD_PASSIVE),E.modello,v=>bldMutate(()=>{E.modello=v;})));
+  h.appendChild(field(E.modello==="Ottimizzazione"?"Un solo parametro della Funzione":"Tipo specifico di Prova, penalità o interferenza",E.parametro,v=>{E.parametro=v;save();bldSummary();}));
+  if(E.modello==="Ottimizzazione")modNumber(h,"Aumento percentuale",E,"aumento",T.aumento);
+  h.appendChild(bldNote("Ottimizzazione d6; Stabilizzazione d8; Compensazione d10; Resistenza Specializzata d12; Sistema Leggendario d20. Nessuna immunità generale o azione extra."));
+ }
+ if(base==="Reazione"){
+  h.appendChild(field("Trigger specifico",E.trigger,v=>{E.trigger=v;save();bldSummary();}));
+  h.appendChild(selField("Frequenza",["","scontro","round"],E.freq,v=>bldMutate(()=>{E.freq=v;})));
+  modNumber(h,"Utilizzi nella frequenza",E,"utilizzi",(mo.req==="d8"?2:1)+(E.cat==="Maledizione"&&E.freq==="scontro"?1:0));
+  h.appendChild(el("button",{class:"chipp"+(E.usaAzione?" on":""),type:"button",text:"Richiama una Funzione normalmente da Azione · d12+",onclick:()=>bldMutate(()=>{E.usaAzione=!E.usaAzione;})}));
+  h.appendChild(el("button",{class:"chipp"+(E.emergenza?" on":""),type:"button",text:"Attivazione d’emergenza · solo d20",disabled:mo.req!=="d20"&&!E.emergenza,onclick:()=>bldMutate(()=>{E.emergenza=!E.emergenza;})}));
+  h.appendChild(bldNote("d6: 1/scontro; d8: 2/scontro; d10+: 1/round. Usa la normale Reazione e paga Energia/ST. Da d12 può richiamare una funzione da Azione con Trigger specifico."));
+ }
+ h.appendChild(taField("Descrizione del solo beneficio",E.testo,v=>{E.testo=v;save();bldSummary();}));
+ h.appendChild(field("Condizioni",E.cond,v=>{E.cond=v;save();bldSummary();}));
+ h.appendChild(field("Limiti e requisiti",E.limiti,v=>{E.limiti=v;save();bldSummary();}));
 }
 function moduleModal(i,step){
  if(!pg.moduli[i])return;
@@ -2639,56 +2689,70 @@ function moduleModal(i,step){
      const mo=M();
      h.appendChild(field("Nome",mo.nome,v=>{mo.nome=v;save();bldSummary();}));
      h.appendChild(taField("Funzione fisica",mo.funzione,v=>{mo.funzione=v;save();bldSummary();},"Cosa fa concretamente il dispositivo, senza bonus meccanici."));
+     h.appendChild(selField("Funzione Principale",[""].concat(MOD_FUNZIONI),mo.funzioneTipo,v=>bldMutate(()=>{mo.funzioneTipo=v;})));
+     h.appendChild(selField("Uso della Funzione",["Operativa","Continua"],mo.funzioneUso,v=>bldMutate(()=>{mo.funzioneUso=v;})));
+     h.appendChild(taField("Funzione attiva",mo.funzioneAttiva,v=>{mo.funzioneAttiva=v;save();bldSummary();},"Operativa: normalmente 1 Azione. Continua: opera finché il Modulo è attivo."));
+     h.appendChild(taField("Funzione inattiva",mo.funzioneInattiva,v=>{mo.funzioneInattiva=v;save();bldSummary();},"Solo proprietà fisiche non operative. Se vuota, il Modulo inattivo non concede benefici."));
+     h.appendChild(field("Tecniche fisicamente compatibili",mo.tecnicheCompatibili,v=>{mo.tecnicheCompatibili=v;save();bldSummary();}));
+     h.appendChild(field("Limiti del progetto",mo.limiti,v=>{mo.limiti=v;save();bldSummary();}));
      h.appendChild(el("div",{class:"smb-f"},[el("div",{class:"k",text:"Ruolo (più di uno se serve)"})]));
      const tg=el("div",{class:"smb-chips"});MOD_TIPI.forEach(t=>{const on=mo.tipo.indexOf(t)>=0;const c=el("button",{type:"button",class:"chipp"+(on?" on":""),"aria-pressed":on?"true":"false",text:t});c.onclick=()=>bldMutate(()=>{const k=mo.tipo.indexOf(t);if(k<0)mo.tipo.push(t);else mo.tipo.splice(k,1);});tg.appendChild(c);});h.appendChild(tg);
      if(mo.rivedi&&(mo.effLegacy||mo.funzione))h.appendChild(el("div",{},[bldNote("<b>Da completare.</b> Questo modulo viene dalla vecchia scheda"+(mo.effLegacy?(": il testo «"+mo.effLegacy+"» è conservato"):"")+".","wait"),el("button",{class:"iconbtn",type:"button",text:"✓ L'ho completato",onclick:()=>bldMutate(()=>{mo.rivedi=false;})})]));}},
    {label:"Struttura",render:h=>{
      const mo=M();
      h.appendChild(el("div",{class:"smb-f"},[el("div",{class:"k",text:"Utilizzabile come arma?"})]));
-     h.appendChild(optCards([{v:"si",l:"Sì",s:"ha un Grado"},{v:"no",l:"No",s:"solo funzionale"}],mo.arma?"si":"no",v=>bldMutate(()=>{mo.arma=(v==="si");if(!mo.arma)mo.grado="";}),"two"));
-     if(mo.arma)h.appendChild(bldTiers("Grado (regole delle armi)",WEAPON_GRADI.map(g=>({v:g[0],l:g[1]})),mo.grado,g=>bldMutate(()=>{mo.grado=g;})));
-     h.appendChild(bldTiers("Requisito razziale · Corpo Meccanico",MOD_REQ.map(d=>({v:d,l:MOD_SLOT_RAZZA[d]+" slot"})),mo.req,v=>bldMutate(()=>{mo.req=v;})));
-     if(hasCorpoMeccanico()){const ok=(MOD_SLOT_RAZZA[pg.racialDie]||0)>=(MOD_SLOT_RAZZA[mo.req]||9);
-      h.appendChild(bldNote(ok?("Il tuo Corpo Meccanico è <b>"+(pg.racialDie||"—")+"</b>: questa tecnologia ti è accessibile."):("Il tuo Corpo Meccanico è <b>"+(pg.racialDie||"—")+"</b> e il progetto ne chiede <b>"+mo.req+"</b>: serve l'assenso del GM."),ok?"ok":"ko"));}}},
+     h.appendChild(optCards([{v:"si",l:"Modulo-Arma",s:"Grado e Attributo propri"},{v:"no",l:"Funzionale",s:"nessun danno automatico"}],mo.arma?"si":"no",v=>bldMutate(()=>{mo.arma=v==="si";}),"two"));
+     h.appendChild(bldTiers("Fascia Tecnologica",MOD_REQ.map(d=>({v:d,l:MOD_SLOT_RAZZA[d]+" slot Corpo Meccanico"})),mo.req,v=>bldMutate(()=>{mo.req=v;})));
+     if(mo.arma){
+      h.appendChild(selField("Tipo d’arma",["","Lama","Contundente","Ad asta","A distanza","Da lancio"],mo.armaTipo,v=>bldMutate(()=>{mo.armaTipo=v;})));
+      if(mo.armaTipo==="A distanza")h.appendChild(selField("Arma a distanza",["","Pistola","Fucile","Cannone"],mo.armaSottotipo,v=>bldMutate(()=>{mo.armaSottotipo=v;})));
+      if(mo.armaTipo==="Ad asta")h.appendChild(selField("Modalità dell’asta",["","Tagliente","Contundente"],mo.asta,v=>bldMutate(()=>{mo.asta=v;})));
+      h.appendChild(selField("Attributo dell’arma",["","Forza","Tecnica"],mo.attr,v=>bldMutate(()=>{mo.attr=v;})));
+      h.appendChild(bldTiers("Grado d’Arma · non superiore alla Fascia",TEC_DADI.map(d=>({v:d,l:d})),mo.gradoArma,g=>bldMutate(()=>{mo.gradoArma=g;mo.grado=g;})));
+      h.appendChild(field("Portata / gittata dell’arma",mo.portata,v=>{mo.portata=v;save();bldSummary();}));
+     }
+     const T=MOD_FASCE[mo.req]||MOD_FASCE.d6,keys={Manipolatore:["portata","carico"],Propulsore:["spostamento"],Sensore:["sensori"],Emissione:["area"]}[mo.funzioneTipo]||[];
+     keys.forEach(k=>modNumber(h,{portata:"Portata funzionale (m)",carico:"Carico operativo (kg)",spostamento:"Spostamento (m)",sensori:"Raggio del Sensore (m)",area:"Raggio dell’Emissione (m)"}[k],mo.parametri,k,T[k]));
+     h.appendChild(bldNote("Limiti "+mo.req+": portata "+T.portata+" m; Spostamento "+T.spostamento+" m; carico "+T.carico+" kg; Sensori "+T.sensori+" m; Area "+T.area+" m. Una sola Funzione Principale."));
+     if(mo.funzioneTipo==="Corazza")h.appendChild(bldNote("Corazza "+mo.req+": riduzione −"+T.corazza+" danno fisico, dopo i dimezzamenti, minimo danno 0. Solo quando attiva."));
+     if(mo.funzioneTipo==="Scudo")h.appendChild(bldNote("Scudo/Barriera: Copertura Parziale DP +2, senza sommare coperture identiche. La Fascia aumenta il gruppo protetto, non il bonus."));
+     if(mo.funzioneTipo==="Propulsore")h.appendChild(bldNote("Un impiego per turno; si aggiunge al Movimento. d6 spinta senza volo, d8 tratto aereo con atterraggio, da d10 volo finché operativo. Energia sempre dovuta."));
+     if(hasCorpoMeccanico()){const ok=MOD_REQ.indexOf(pg.racialDie)>=MOD_REQ.indexOf(mo.req)&&MOD_REQ.includes(pg.racialDie);
+      h.appendChild(bldNote(ok?"Corpo Meccanico "+pg.racialDie+": Fascia accessibile.":"Corpo Meccanico "+(pg.racialDie||"—")+": non puoi installare questa Fascia. Uno slot libero non elimina il requisito.",ok?"ok":"ko"));}}},
    {label:"Effetto",render:h=>{
      const mo=M();
      h.appendChild(optCards([{v:"no",l:"Nessuno",s:"solo funzionale"},{v:"si",l:"Un effetto",s:"una categoria"}],mo.eff?"si":"no",v=>bldMutate(()=>{mo.eff=(v==="si")?(mo.eff||modEffEmpty()):null;}),"two"));
      if(mo.eff){const E=mo.eff;
+      if(typeof E!=="object"||Array.isArray(E)){h.appendChild(bldNote("La scheda storica dell’Effetto deve essere rivista. Massimo un Effetto Speciale: il contenuto resta archiviato quando avvii la revisione.","ko"));h.appendChild(el("button",{class:"smb-btn",text:"Registra un solo Effetto",onclick:()=>bldMutate(()=>{mo.effArchive=JSON.parse(JSON.stringify(E));mo.eff=modEffEmpty();})}));return;}
       h.appendChild(el("div",{class:"smb-f"},[el("div",{class:"k",text:"Categoria"})]));
       h.appendChild(optCards(EFF_CATS.map(k=>({v:k,l:k,i:EFF_CAT_ICO[k]})),E.cat,k=>bldMutate(()=>{E.cat=k;})));
       if(E.cat){
        h.appendChild(bldNote(EFF_CAT_HINT[E.cat]));
-       if(E.cat==="Sconto"||E.cat==="Sblocco"){const opts=[""].concat(TEC_EFF.map(e=>e[1]));h.appendChild(selField("Effetto del Signature Move Builder",opts,E.tgt,v=>bldMutate(()=>{E.tgt=v;})));
-        if(E.tgt){const e=tecEffObj(E.tgt);if(e)h.appendChild(bldNote("<b>"+e[1]+"</b> ("+e[0]+") — da <b>"+e[3]+"</b>, "+e[4]+" ST. "+e[2]));}}
-       h.appendChild(taField(E.cat==="Sconto"?"Cosa viene ridotto, esattamente":"Cosa concede, esattamente",E.testo,v=>{E.testo=v;save();bldSummary();}));
-       h.appendChild(field("Condizioni",E.cond,v=>{E.cond=v;save();bldSummary();}));
-       h.appendChild(field("Limiti / requisiti che restano",E.limiti,v=>{E.limiti=v;save();}));
-       if(E.cat==="Passiva")h.appendChild(bldNote("Una Passiva funziona soltanto mentre questo modulo è attivo."));}}}},
+       modEffectFields(h,mo);}}}},
    {label:"Energia",render:h=>{
      const mo=M();
      h.appendChild(optCards([{v:"no",l:"Nessuna carica",s:"non alimentato"},{v:"si",l:"Cariche",s:"risorsa a parte"}],mo.fuel.on?"si":"no",v=>bldMutate(()=>{mo.fuel.on=(v==="si");}),"two"));
      if(mo.fuel.on){
       h.appendChild(field("Tipo di risorsa",mo.fuel.tipo,v=>{mo.fuel.tipo=v;save();bldSummary();}));
-      const num=(lab,k)=>{const n=el("input",{type:"number",style:"width:96px"});n.value=mo.fuel[k]||"";n.oninput=()=>{mo.fuel[k]=n.value;save();bldSummary();};return el("div",{class:"mrow"},[el("span",{class:"lab",text:lab}),n]);};
-      h.appendChild(num("Capacità massima","max"));h.appendChild(num("Cariche attuali","cur"));
-      h.appendChild(field("Consumo",mo.fuel.consumo,v=>{mo.fuel.consumo=v;save();}));
+      const max=(MOD_FASCE[mo.req]||MOD_FASCE.d6).cariche;modNumber(h,"Capacità di Cariche",mo.fuel,"max",max);modNumber(h,"Cariche attuali",mo.fuel,"cur",Number(mo.fuel.max)||max);modNumber(h,"Consumo per utilizzo",mo.fuel,"consumo");
       h.appendChild(field("Ricarica",mo.fuel.ricarica,v=>{mo.fuel.ricarica=v;save();}));
       h.appendChild(field("Rischi da sovraccarico",mo.fuel.rischi,v=>{mo.fuel.rischi=v;save();}));
-      h.appendChild(bldNote("Non esiste una scala universale di cariche, e la Stamina delle Tecniche si paga comunque a parte."));}}},
+      h.appendChild(bldNote("Cariche massime per Fascia: 3 / 4 / 5 / 6 / 8. Un uso normale consuma 1; la Tecnica paga anche la propria ST. Ricarica completa: 10 minuti fuori dal combattimento con risorsa disponibile; il Riposo non ricarica."));}}},
    {label:"Integrità",render:h=>{
      const mo=M();
-     h.appendChild(optCards([{v:"integro",l:"Integro",s:"operativo"},{v:"danneggiato",l:"Danneggiato",s:"non funziona"}],mo.stato,v=>bldMutate(()=>{mo.stato=v;}),"two"));
+     h.appendChild(bldNote("Integrità: "+(mo.stato==="danneggiato"?"Danneggiato":"Integro")+". Installazione: "+(mo.installato?"Installato":"Non installato")+". Attivazione: "+modStateLabel(mo).t+". Gestisci questi stati dalla Scheda operativa."));
      h.appendChild(bldNote("Il GM può danneggiare un modulo come conseguenza narrativa di un colpo, o per un sovraccarico previsto dalla sua scheda. Non esistono soglie automatiche di PV."));
      h.appendChild(taField("Note di riparazione",mo.note,v=>{mo.note=v;save();},"Competenza richiesta, materiali, officina, accordi col GM."));}},
    {label:"Riepilogo",render:h=>{
      const mo=M();moduleCard(mo,h);
      const miss=[];if(!(mo.nome||"").trim())miss.push("il nome");if(!mo.funzione)miss.push("la funzione fisica");if(mo.arma&&!mo.grado)miss.push("il Grado");if(mo.eff&&!mo.eff.cat)miss.push("la categoria dell'effetto");
      if(miss.length)h.appendChild(bldNote("Manca ancora "+miss.join(", ")+": il progetto resta salvato, completalo quando lo decidete al tavolo.","wait"));
-     h.appendChild(bldNote("Salvare il progetto non è installarlo: l'installazione passa da requisiti, materiali, tempo e mano competente, e la decide il GM."));},
+     h.appendChild(modWorkshopInfo(mo));
+     h.appendChild(bldNote("Salvare un progetto non lo installa. Installazione e riparazione richiedono i propri tempi, strumenti e requisiti; non avvengono durante un Riposo."));},
     extra:()=>[el("button",{class:"smb-btn",type:"button",text:"Scheda operativa",onclick:()=>{const k=i;closeBuilder();moduleSheetModal(k);}})]}],
   summary:h=>{if(M())moduleCard(M(),h);if(window.GLCEquipment)GLCEquipment.present("module",pg.moduli[i],h);},
   mini:()=>{const mo=M();return mo?("<b>"+(mo.nome||"Modulo")+"</b> · "+(mo.eff&&mo.eff.cat?mo.eff.cat:"funzionale")):"";},
-  saveLabel:"Salva progetto",save:()=>{closeBuilder();return null;}});
+  saveLabel:"Salva progetto",save:()=>{const result=modEvaluate(M(),"project");if(!result.valid)return {msg:result.errors.map(e=>e.text).join("\n")};closeBuilder();return null;}});
 }
 
 const ATTRS=["Forza","Tecnica","Spirito","Astuzia"];
@@ -2771,7 +2835,7 @@ const racialAttr=()=>{const r=race();if(!r)return null;if(r.attr==="choice2")ret
 function stepDie(d,dir){let i=DICE.indexOf(d);if(i<0)i=0;i=Math.max(0,Math.min(DICE.length-1,i+dir));return DICE[i];}
 function paSoglia(d){const t=(pg.paThresh&&pg.paThresh[d]!=null&&pg.paThresh[d]!=="")?pg.paThresh[d]:PA_THRESH[d];return(t!=null&&t!=="")?(parseInt(t)||0):null;}
 function bountyLevel(n){let lv=BOUNTY_LV[0][1];for(const[t,l]of BOUNTY_LV){if(n>=t)lv=l;}return lv;}
-function el(t,p,kids){const e=document.createElement(t);if(p)for(const k in p){if(k==="class")e.className=p[k];else if(k==="html")e.innerHTML=p[k];else if(k==="text")e.textContent=p[k];else if(k.slice(0,2)==="on")e[k.toLowerCase()]=p[k];else e.setAttribute(k,p[k]);}if(kids!=null)(Array.isArray(kids)?kids:[kids]).forEach(c=>{if(c==null)return;e.appendChild(typeof c==="string"?document.createTextNode(c):c);});return e;}
+function el(t,p,kids){const e=document.createElement(t);if(p)for(const k in p){if(k==="class")e.className=p[k];else if(k==="html")e.innerHTML=p[k];else if(k==="text")e.textContent=p[k];else if(k.slice(0,2)==="on")e[k.toLowerCase()]=p[k];else if(typeof p[k]==="boolean"&&["disabled","checked","selected","hidden","multiple","required","readonly","autofocus"].includes(k)){if(p[k])e.setAttribute(k,"");}else e.setAttribute(k,p[k]);}if(kids!=null)(Array.isArray(kids)?kids:[kids]).forEach(c=>{if(c==null)return;e.appendChild(typeof c==="string"?document.createTextNode(c):c);});return e;}
 
 function migrateChar(c){c=Object.assign(blank(),c||{});if(c.role){const MAP={"Medico":"Dottore","Carpentiere / Ingegnere":"Ingegnere","Cecchino / Vedetta":"Combattente","Cannoniere":"Combattente"};if(MAP[c.role])c.role=MAP[c.role];if(TALENTS[c.role]&&TALENTS[c.role].multi&&!c.style)c.style=firstStyle(c.role);}if(!Array.isArray(c.talents))c.talents=[];
  if(Array.isArray(c.moduli))c.moduli.forEach(function(mo){if(mo&&!mo.die)mo.die="d6";});
@@ -2912,7 +2976,7 @@ function miniStepper(die,onCh){return el("span",{class:"step2 mini"},[el("button
 function stepper(die,onCh){return el("span",{class:"step2"},[el("button",{text:"−",onclick:()=>onCh(stepDie(die,-1))}),el("b",{text:die||"—"}),el("button",{text:"+",onclick:()=>onCh(stepDie(die,1))})]);}
 function mutate(fn){fn();renderManage();render();}
 function allTech(){const r=race();const list=[];if(r)list.push({k:"racial",name:r.tech,attr:"—",die:pg.racialDie,fixed:true});if(pg.t1.nome)list.push({k:"t1",name:pg.t1.nome,attr:pg.t1.attr,die:pg.t1.die});if(pg.t2.nome)list.push({k:"t2",name:pg.t2.nome,attr:pg.t2.attr,die:pg.t2.die});pg.extraTech.forEach((t,i)=>list.push({k:"x"+i,name:t.nome,attr:t.attr,die:t.die,idx:i,obj:t}));return list;}
-function setTechDie(t,nd){if(t.k==="racial")pg.racialDie=nd;}
+function setTechDie(t,nd){if(t.k==="racial"&&(pg.race!=="cyborg"||["d6","d8","d10","d12","d20"].includes(nd)))pg.racialDie=nd;}
 function removeTech(t){if(t.k==="t1")pg.t1={nome:"",desc:"",attr:"",die:"d4"};else if(t.k==="t2")pg.t2={nome:"",desc:"",attr:"",die:"d4"};else if(typeof t.idx==="number")pg.extraTech.splice(t.idx,1);}
 function intOrNull(v){if(v===""||v==null)return null;const n=parseInt(v);return isNaN(n)?null:n;}
 function field(label,val,onCh){const w=el("div",{});w.appendChild(el("label",{class:"fld",text:label}));const i=el("input",{type:"text"});i.value=val||"";i.oninput=()=>onCh(i.value);w.appendChild(i);return w;}
@@ -2922,7 +2986,7 @@ function vcell(label,kids){return el("div",{class:"vc"},[el("label",{text:label}
 function attrSelect(val,onCh){const s=el("select",{},[el("option",{value:"",text:"— attributo —"})].concat(ATTRS.map(a=>el("option",{value:a,text:a}))));s.value=val||"";s.onchange=()=>onCh(s.value);return s;}
 
 function paRow(key,getDie,setDie){
- const n=pg.pa[key]||0,die=getDie(),sg=paSoglia(die);const next=die?stepDie(die,1):"";const ready=(sg!=null&&n>=sg&&next&&next!==die);
+ const n=pg.pa[key]||0,die=getDie(),cyborgCap=key==="tec:racial"&&pg.race==="cyborg"&&(!["d6","d8","d10","d12"].includes(die)),sg=cyborgCap?null:paSoglia(die);const next=die&&!cyborgCap?stepDie(die,1):"";const ready=(sg!=null&&n>=sg&&next&&next!==die);
  const pct=(sg!=null&&sg>0)?Math.max(0,Math.min(100,n/sg*100)):100;
  const bar=el("div",{class:"pbarw"},[el("div",{class:"pbarf",style:"width:"+pct+"%"})]);
  const cnt=el("span",{class:"pacnt",title:sg==null&&dieRank(die)>=5&&dieRank(die)<11?"Prestigio: registra il dado assegnato dal GM con i controlli − e +. Nessuna soglia P.A. ufficiale è stata specificata.":"",html:sg==null&&!key.startsWith("tec:")&&dieRank(die)>=5&&dieRank(die)<11?("<b>"+n+"</b> P.A. · Prestigio GM"):("<b>"+n+"</b> / "+(sg!=null?sg:"max")+" P.A.")});
@@ -3280,6 +3344,11 @@ function techModal(t){openModal("✦ "+(t.name||"Tecnica"),()=>{
  if(t.fixed){
   w.appendChild(el("div",{class:"tdsub",text:"Tecnica razziale · "+t.die}));w.appendChild(el("div",{class:"tddesc",html:racialEffect(pg.race,t.die)}));
   w.appendChild(el("label",{class:"fld",text:"Progressione razziale"}));w.appendChild(paRowM("tec:"+t.k,()=>pg.racialDie,nd=>setTechDie(t,nd)));
+  if(pg.race==="cyborg"&&!["d6","d8","d10","d12","d20"].includes(pg.racialDie)){
+   w.appendChild(el("p",{class:"compat ko",text:"Il Grado storico è conservato. Scegli il Grado ordinario concordato al tavolo per correggere Corpo Meccanico; i P.A. e i Moduli restano salvati."}));
+   const correction=el("select",{"aria-label":"Correggi il Grado di Corpo Meccanico"},[el("option",{value:"",text:"— scegli il Grado corretto —"}),...["d6","d8","d10","d12","d20"].map(d=>el("option",{value:d,text:d}))]);
+   correction.onchange=()=>{if(correction.value)mutateM(()=>setTechDie(t,correction.value));};w.appendChild(correction);
+  }
  }else if(obj){
   w.appendChild(field("Nome",obj.nome,v=>{obj.nome=v;save();}));
   w.appendChild(el("p",{class:"tdsub",text:[obj.attr||"Attributo da scegliere",obj.die||"Grado da scegliere"].join(" · ")}));
@@ -3313,8 +3382,8 @@ function tecLinkBox(t){
  if(t.modulo){
   const mo=(pg.moduli||[]).filter(x=>x.id===t.modulo)[0];
   if(!mo)w.appendChild(el("div",{class:"compat ko",html:"Collegamento non più valido: il modulo non è più installato. La Tecnica resta salvata: riaprila nel Signature Move Builder per collegarne un altro."}));
-  else{const att=pg.moduloAttivo===mo.id,dmg=mo.stato==="danneggiato";
-   w.appendChild(el("div",{class:"compat "+(dmg?"ko":(att?"ok":"wait")),html:"Modulo <b>"+(mo.nome||"senza nome")+"</b> · "+(dmg?"danneggiato: la Tecnica non è utilizzabile finché non lo ripari.":(att?"attivo: la Tecnica è utilizzabile.":"inattivo: per usarla devi attivare il modulo."))}));}
+  else{const check=GLCCyborg.evaluate(pg,mo,{catalogue:TEC_EFF}),use=GLCTechniques.evaluate(pg,t,{...tbRules(),purpose:"use"});
+   w.appendChild(el("div",{class:"compat "+(use.valid?"ok":"ko"),text:"Modulo «"+(mo.nome||"senza nome")+"» · "+(use.valid?"attivo: la Tecnica è utilizzabile.":use.errors.map(e=>e.text).join(" "))}));}
  }
  return w;
 }
@@ -3505,11 +3574,16 @@ function hasWeaponType(types){
 }
 function styleReady(st){
  if(st==="Striker")return true;
+ if(cyborgModulesForStyle(st).length)return true;
  if(st==="Swordsman")return hasWeaponType(["Lama"]);
  if(st==="Crusher")return hasWeaponType(["Contundente"]);
  if(st==="Sniper")return hasWeaponType(["A distanza","Da lancio"]);
  if(st==="Special")return ((pg.moduli||[]).length>0)||hasWeaponType(["Speciale"]);
  return false;
+}
+function cyborgModulesForStyle(st){
+ if(!window.GLCCyborg||pg.race!=="cyborg")return [];
+ return (pg.moduli||[]).filter(m=>{const check=GLCCyborg.evaluate(pg,m,{catalogue:TEC_EFF});if(!check.valid||!check.installed||m.stato==="danneggiato")return false;const w=GLCCyborg.weapon(m);return st==="Striker"?!m.arma:(["Swordsman","Crusher","Sniper"].includes(st)?!!w&&GLCTechniques.compatibleWeapon(w,st):!m.arma);});
 }
 /* "" = si può costruire; altrimenti il motivo, da mostrare.
    Il requisito è di ogni Stile, non della somma: chi porta Crusher e Special
@@ -3648,36 +3722,29 @@ function arsenaleModal(){
  },{wide:true});
 }
 
-/* ==========================================================================
-   CORPO MECCANICO · MODULI  (specifiche 17/09/2026)
-   Un modulo è un dispositivo installato nel corpo: una funzione fisica e un
-   solo effetto speciale, nelle stesse cinque categorie delle armi. Non è una
-   Tecnica: le Tecniche restano nel costruttore, con Fonte Stile.
-   Slot: Corpo Meccanico (dado razziale) + Arsenale Modulare (talento Special)
-   si SOMMANO, fino a un massimo di 9.
-   Un solo modulo attivo per volta; le funzioni fisiche dei moduli integri
-   restano disponibili anche se il modulo non è attivo, le Passive no.
-   Scelta documentata: se il modulo attivo si danneggia resta selezionato ma
-   segnalato non operativo — non lo deseleziona il sito, lo decide il tavolo.
-   ========================================================================== */
+/* Corpo Meccanico · progetti, installazione e stato operativo separati.
+   I dati storici restano nella scheda; la validazione non li corregge. */
 const MOD_TIPI=["Offensivo","Difensivo","Controllo","Mobilità","Utilità"];
 const MOD_REQ=["d6","d8","d10","d12","d20"];
 const MOD_SLOT_RAZZA={d6:1,d8:2,d10:3,d12:4,d20:5};
-/* Catalogo illustrativo: PROPOSTE emerse in progettazione, non ancora
-   approvate voce per voce. Gli Sconti toccano solo ciò che dichiarano. */
+const MOD_FASCE={d6:{portata:3,spostamento:5,carico:100,sensori:10,area:1,corazza:1,cariche:3,sconto:1,aumento:25,soglia:8,ore:8,materiali:"≈ 1.000 ฿",commissione:"5.000 ฿",installazione:"30 minuti",riparazione:"10 minuti"},d8:{portata:5,spostamento:10,carico:250,sensori:25,area:2,corazza:2,cariche:4,sconto:2,aumento:50,soglia:10,ore:16,materiali:"≈ 5.000 ฿",commissione:"15.000 ฿",installazione:"1 ora",riparazione:"20 minuti"},d10:{portata:10,spostamento:20,carico:500,sensori:50,area:3,corazza:3,cariche:5,sconto:3,aumento:75,soglia:12,ore:24,materiali:"≈ 15.000 ฿",commissione:"35.000 ฿",installazione:"2 ore",riparazione:"30 minuti"},d12:{portata:20,spostamento:30,carico:2000,sensori:100,area:5,corazza:4,cariche:6,sconto:4,aumento:100,soglia:16,ore:48,materiali:"≈ 40.000 ฿",commissione:"85.000 ฿",installazione:"4 ore",riparazione:"1 ora"},d20:{portata:50,spostamento:50,carico:10000,sensori:300,area:10,corazza:6,cariche:8,sconto:5,aumento:150,soglia:20,ore:96,materiali:"100.000 ฿+",commissione:"200.000 ฿+",installazione:"8 ore",riparazione:"2 ore"}};
+const MOD_FUNZIONI=["Manipolatore","Corazza","Scudo","Propulsore","Sensore","Strumento","Emissione","Arma","Personalizzata"];
+const MOD_PASSIVE=["Ottimizzazione","Stabilizzazione","Compensazione","Resistenza Specializzata","Sistema Leggendario"];
+/* Capitolo 13: dieci schede pronte; un progetto non occupa slot. */
 const MOD_CATALOGO=[
- {n:"Braccio a fune",req:"d8",tipo:["Controllo","Mobilità"],arma:false,ico:"rope",fn:"Braccio estensibile: aggancia oggetti e superfici.",cat:"Sconto",tgt:"Attrazione",eff:"Attrazione non occupa slot nelle Tecniche compatibili eseguite con questo modulo.",vinc:"Attrazione resta d8, 1 ST, Forma Spostamento."},
- {n:"Piastra retrattile",req:"d8",tipo:["Difensivo"],arma:false,ico:"shield",fn:"Piastra metallica che si apre a copertura.",cat:"Sconto",tgt:"Guardia",eff:"Guardia non occupa slot nelle Tecniche compatibili.",vinc:"Guardia richiede Forma Difesa e Grado minimo d8: +2 DP/1 ST, d10 +3/2 ST, d12 +4/3 ST, d20 +5/4 ST fino al prossimo turno; le versioni non si sommano."},
- {n:"Pinza di contenimento",req:"d8",tipo:["Controllo","Utilità"],arma:false,ico:"wrench",fn:"Pinza per manipolare e afferrare.",cat:"Sconto",tgt:"Presa",eff:"Presa non occupa slot nelle Tecniche compatibili.",vinc:"Presa resta d8, 1 ST all’applicazione e all’inizio di ogni turno di mantenimento, con contesa di Forza."},
- {n:"Propulsori dorsali",req:"d10",tipo:["Mobilità"],arma:false,ico:"wind",fn:"Brevi getti propulsivi: spinte, non volo permanente.",cat:"Sconto",tgt:"Scatto",eff:"Scatto non occupa slot nelle Tecniche compatibili.",vinc:"Scatto resta d6, 1 ST, Forma Spostamento."},
- {n:"Cannone a pressione",req:"d10",tipo:["Offensivo","Controllo"],arma:true,ico:"burst",fn:"Spara aria compressa.",cat:"Sconto",tgt:"Proiezione",eff:"Proiezione non occupa slot nelle Tecniche compatibili.",vinc:"Proiezione resta d6, 1 ST; la sagoma ad area non è inclusa."},
- {n:"Lanciafiamme ventrale",req:"d12",tipo:["Offensivo"],arma:true,ico:"flame",fn:"Proietta combustibile acceso.",cat:"Sconto",tgt:"Terreno Alterato",eff:"Terreno Alterato non occupa slot nelle Tecniche compatibili.",vinc:"Restano costo, durata della zona e la sostanza da preparare."},
- {n:"Emettitore a catena",req:"d12",tipo:["Offensivo"],arma:true,ico:"bolt",fn:"Distribuisce una scarica fra più bersagli.",cat:"Sconto",tgt:"Catena",eff:"Catena non occupa slot nelle Tecniche compatibili.",vinc:"Catena resta d12, 2 ST, tiri separati e danni decrescenti."},
- {n:"Fari integrati",req:"d8",tipo:["Utilità"],arma:false,ico:"lamp",fn:"Illuminano l'ambiente.",cat:"Sconto",tgt:"Accecante",eff:"Accecante non occupa slot nelle Tecniche compatibili.",vinc:"Accecante resta d8, 1 ST, con tiro salvezza: la luce accesa non accieca da sola."},
- {n:"Vano attrezzi",req:"d8",tipo:["Utilità"],arma:false,ico:"box",fn:"Contiene utensili incorporati, sempre con te.",cat:"",tgt:"",eff:"",vinc:"Nessun effetto speciale approvato: il vantaggio «niente penalità senza strumenti» non è un effetto del costruttore. Da concordare col GM."}];
+ {n:"Braccio Utensile",req:"d6",tipo:["Utilità","Controllo"],ico:"wrench",modello:"Manipolatore",fn:"Manipolatore 3 m; integra un singolo utensile comune.",parametri:{portata:3},eff:null},
+ {n:"Piastre Toraciche",req:"d6",tipo:["Difensivo"],ico:"shield",modello:"Corazza",fn:"Corazza: riduzione −1 danno fisico.",parametri:{corazza:1},eff:null},
+ {n:"Braccio Telescopico",req:"d8",tipo:["Controllo","Utilità"],ico:"rope",modello:"Manipolatore",fn:"Manipolatore 5 m, carico 250 kg.",parametri:{portata:5,carico:250},eff:{cat:"Sblocco",sblocchi:["Attrazione"],tgt:"Attrazione",testo:"Attrazione attraverso il braccio; restano Forma, Grado, Slot, ST e requisiti."}},
+ {n:"Occhio Termico",req:"d8",tipo:["Utilità"],ico:"lamp",modello:"Sensore",fn:"Rileva fonti di calore entro 25 m.",parametri:{sensori:25},eff:{cat:"Passiva",modello:"Stabilizzazione",parametro:"Prove di rilevamento termico",testo:"Vantaggio alle Prove di rilevamento termico."}},
+ {n:"Jet Heel",req:"d10",tipo:["Mobilità"],ico:"wind",modello:"Propulsore",fn:"Spostamento 20 m e Volo d10, una volta per turno.",parametri:{spostamento:20},cariche:5,eff:{cat:"Passiva",modello:"Ottimizzazione",parametro:"spostamento",aumento:75,testo:"Ottimizzazione del solo Spostamento (+75%)."}},
+ {n:"Cannone a Pressione",req:"d10",tipo:["Offensivo"],ico:"burst",modello:"Arma",arma:true,armaTipo:"Cannone",gradoArma:"d10",fn:"Modulo-Arma a distanza d10.",cariche:5,eff:{cat:"Sconto",tgt:"+1 Dado Danno",scontoST:3,scontoSlot:0,testo:"Sconto sul costo di +1 Dado Danno, soltanto se una capacità specifica concede realmente l’effetto."}},
+ {n:"Guardia Automatica",req:"d12",tipo:["Difensivo"],ico:"shield",modello:"Scudo",fn:"Scudo: DP +2; protegge utilizzatore + fino a 3 alleati entro 3 m.",eff:{cat:"Reazione",trigger:"Un alleato entro 3 m è bersagliato",freq:"round",utilizzi:1,testo:"Applica lo Scudo all’alleato bersagliato."}},
+ {n:"Bobina Magnetica",req:"d12",tipo:["Controllo"],ico:"bolt",modello:"Manipolatore",fn:"Manipola oggetti metallici entro 20 m, fino a 2 t.",parametri:{portata:20,carico:2000},cariche:6,eff:{cat:"Sblocco",sblocchi:["Attrazione"],tgt:"Attrazione",testo:"Attrazione su bersagli metallici compatibili; restano tutti i requisiti della Tecnica."}},
+ {n:"Motore Fenice",req:"d20",tipo:["Mobilità"],ico:"flame",modello:"Propulsore",fn:"Spostamento 50 m e Volo d20, una volta per turno.",parametri:{spostamento:50},cariche:8,eff:{cat:"Reazione",trigger:"Una minaccia richiede uno spostamento d’emergenza",freq:"round",utilizzi:1,emergenza:true,testo:"Usa la propulsione come Reazione, con Attivazione d’emergenza."}},
+ {n:"Occhio dell’Orizzonte",req:"d20",tipo:["Utilità"],ico:"lamp",modello:"Sensore",fn:"Sensore specializzato fino a 300 m.",parametri:{sensori:300},eff:{cat:"Passiva",modello:"Resistenza Specializzata",parametro:"Interferenze ordinarie del sensore",testo:"Protegge la funzione da interferenze ordinarie specifiche del sensore."}}];
 function newModId(){return "mod"+Date.now().toString(36)+Math.floor(Math.random()*1000);}
-function modEffEmpty(){return {cat:"",tgt:"",testo:"",cond:"",limiti:""};}
-function modFuelEmpty(){return {on:false,tipo:"",max:"",cur:"",consumo:"",ricarica:"",rischi:""};}
+function modEffEmpty(){return {cat:"",tgt:"",scontoST:0,scontoSlot:0,sblocchi:[],modello:"",parametro:"",aumento:0,trigger:"",freq:"",emergenza:false,base:"",prezzo:"",testo:"",cond:"",limiti:""};}
+function modFuelEmpty(){return {on:false,tipo:"",max:"",cur:"",consumo:1,ricarica:"10 minuti fuori dal combattimento, con la risorsa necessaria",rischi:""};}
 /* I moduli vecchi avevano solo Dado, Effetti e Note: non bastano a ricostruire
    Grado, categoria e requisito. Si conservano com'erano e si segnalano. */
 function normModule(mo){
@@ -3687,6 +3754,13 @@ function normModule(mo){
  if(!Array.isArray(mo.tipo))mo.tipo=mo.tipo?[String(mo.tipo)]:[];
  if(mo.arma==null)mo.arma=false;
  if(mo.grado==null)mo.grado="";
+ if(mo.gradoArma==null)mo.gradoArma=mo.grado||"";
+ if(mo.installato==null)mo.installato=true;
+ if(mo.funzioneTipo==null)mo.funzioneTipo=mo.funzioneModello||"";
+ if(mo.funzioneUso==null)mo.funzioneUso="Operativa";
+ if(mo.funzioneAttiva==null)mo.funzioneAttiva=mo.funzione||mo.desc||"";
+ if(mo.funzioneInattiva==null)mo.funzioneInattiva="";
+ if(!mo.parametri)mo.parametri={};
  if(!mo.req)mo.req="d6";
  if(mo.funzione==null){mo.funzione=mo.desc||"";if((mo.eff&&typeof mo.eff==="string")||mo.desc)mo.rivedi=true;}
  if(typeof mo.eff==="string"){mo.effLegacy=mo.eff;mo.eff=null;}
@@ -3696,53 +3770,63 @@ function normModule(mo){
  if(mo.note==null)mo.note="";
  return mo;
 }
-function normModules(){if(!Array.isArray(pg.moduli))pg.moduli=[];pg.moduli.forEach(normModule);
- if(pg.moduloAttivo&&!pg.moduli.some(m=>m.id===pg.moduloAttivo))pg.moduloAttivo="";}
+function normModules(){if(!Array.isArray(pg.moduli))pg.moduli=[];pg.moduli.forEach(normModule);}
 function hasCorpoMeccanico(){return pg.race==="cyborg";}
 function modSlotsRazza(){return hasCorpoMeccanico()?(MOD_SLOT_RAZZA[pg.racialDie]||0):0;}
-function modSlotsTalento(){
- if(!isCombSpecial())return 0;
- if(hasTalent("Arsenale Modulare — Maestria"))return 4;
- if(hasTalent("Arsenale Modulare — Migliorato"))return 3;
- if(hasTalent("Arsenale Modulare — Base")||hasTalent("Arsenale Modulare"))return 2;
- return 0;
-}
-/* Le due fonti si sommano, tetto 9. */
-function moduliSlots(){
- var razza=modSlotsRazza(),tal=modSlotsTalento();
- var grado=tal===4?"Maestria":(tal===3?"Migliorato":(tal===2?"Base":""));
- return {n:Math.min(9,razza+tal),razza:razza,talento:tal,grado:grado,src:(razza&&tal)?"entrambe":(tal?"talento":(razza?"razza":""))};
-}
-function moduliVisibili(){return hasCorpoMeccanico()||isCombSpecial();}
+function modSlotsTalento(){return 0;}
+/* Progressione V2: slot razziali; le acquisizioni Legacy restano conservate. */
+function moduliSlots(){const R=window.GLCCyborg?GLCCyborg.slots(pg):null;return {n:R?(R.n??R.total??R):modSlotsRazza(),razza:modSlotsRazza(),talento:0,src:hasCorpoMeccanico()?"razza":"",used:(pg.moduli||[]).filter(m=>m.installato!==false).length};}
+function moduliVisibili(){return hasCorpoMeccanico()||(pg.moduli||[]).length>0;}
 function modAttivo(){normModules();return (pg.moduli||[]).find(m=>m.id===pg.moduloAttivo)||null;}
 function modStateLabel(mo){
+ if(mo.installato===false)return {t:"Progetto · non installato",c:""};
  if(mo.stato==="danneggiato")return {t:"Danneggiato",c:"warn"};
- if(pg.moduloAttivo===mo.id)return {t:"Attivo",c:"good"};
+ if(pg.moduloAttivo===mo.id){const check=modEvaluate(mo,"project");return check.operational?{t:"Attivo",c:"good"}:{t:"Non operativo · da verificare",c:"warn"};}
  return {t:"Inattivo",c:""};
 }
 function modTecniche(mo){return (pg.extraTech||[]).filter(t=>t.modulo===mo.id);}
+function modEvaluate(mo,purpose){return window.GLCCyborg?GLCCyborg.evaluate(pg,mo,{purpose:purpose||"project",catalogue:TEC_EFF}):{valid:false,operational:false,errors:[{code:"engine",text:"Il regolamento dei Moduli non è disponibile: ricarica la pagina."}]};}
+function modAction(action,...args){
+ if(!window.GLCCyborg||typeof GLCCyborg[action]!=="function"){alert("Il regolamento dei Moduli non è disponibile: ricarica la pagina.");return false;}
+ try{const result=GLCCyborg[action](pg,...args);mutateM();if(result.overloadDie)alert("Danno da sovraccarico: tira 1"+result.overloadDie+" e applica il risultato ai PV del Cyborg.");return true;}catch(e){alert(Array.isArray(e.errors)?e.errors.map(x=>x.text).join("\n"):e.message);return false;}
+}
+function modWorkshopInfo(mo){const T=MOD_FASCE[mo.req];return bldNote(T?"Officina · Meccanica minima "+mo.req+"; Prova Astuzia + Meccanica, Soglia "+T.soglia+"; "+T.ore+" ore. Materiali di riferimento "+T.materiali+", scelti dal GM. Commissione esterna "+T.commissione+" (lavoro, materiali ordinari e installazione). Installazione: "+T.installazione+". Riparazione Modulo: "+T.riparazione+" fuori dal combattimento, con strumenti e ricambi; nessun recupero PV.":"Scegli una Fascia Tecnologica valida.");}
+function modNewProject(d){
+ const data=d||{},T=MOD_FASCE[data.req||"d6"]||MOD_FASCE.d6;
+ return normModule({id:newModId(),nome:data.nome||data.n||"Nuovo modulo",req:data.req||"d6",tipo:(data.tipo||[]).slice(),installato:false,stato:"integro",arma:!!data.arma,armaTipo:data.armaTipo==="Cannone"?"A distanza":data.armaTipo||"",armaSottotipo:data.armaSottotipo||(data.armaTipo==="Cannone"?"Cannone":""),attr:data.attr||"",gradoArma:data.gradoArma||"",grado:data.gradoArma||"",funzioneTipo:data.funzioneTipo||data.modello||"",funzioneUso:data.funzioneUso||(["Corazza","Scudo","Sensore"].includes(data.funzioneTipo||data.modello)?"Continua":"Operativa"),funzione:data.funzione||data.fn||"",funzioneAttiva:data.funzioneAttiva||data.fn||"",funzioneInattiva:data.funzioneInattiva||data.inattiva||"",parametri:JSON.parse(JSON.stringify(data.parametri||{})),eff:data.eff?JSON.parse(JSON.stringify(data.eff)):null,fuel:data.fuel?JSON.parse(JSON.stringify(data.fuel)):{...modFuelEmpty(),on:!!data.cariche,tipo:data.cariche?"Cariche":"",max:data.cariche||T.cariche,cur:data.cariche||T.cariche},note:"",tecnicheCompatibili:data.tecnicheCompatibili||"",limiti:data.limiti||""});
+}
+function modCombatControls(h){
+ const state=pg.cyborgCombat||{},active=state.inCombat;
+ h.appendChild(el("div",{class:"hintbox",text:active?"Scontro in corso · "+(state.ownTurn?"il tuo turno":"fuori dal tuo turno")+" · cambio gratuito "+(state.switched?"già usato":"disponibile nel tuo turno"):"Fuori dal combattimento: scegli liberamente il Modulo attivo."}));
+ const controls=el("div",{class:"addrow"});
+ if(!active)controls.appendChild(el("button",{class:"btn sm",text:"Inizio scontro",onclick:()=>modAction("startCombat")}));
+ else{
+  controls.appendChild(el("button",{class:"btn sm",text:"Inizio del mio turno",disabled:!!state.ownTurn,onclick:()=>modAction("beginTurn")}));
+  controls.appendChild(el("button",{class:"btn sm",text:"Fine del mio turno",disabled:!state.ownTurn,onclick:()=>modAction("endTurn")}));
+  controls.appendChild(el("button",{class:"btn sm",text:"Fine scontro",onclick:()=>modAction("endCombat")}));
+ }
+ h.appendChild(controls);
+}
 /* ---- plancia: apertura dell'officina ---- */
 function officinaModal(){
  openModal("⚙ Officina · progetti",function(){
-  normModules();const S=moduliSlots();const liberi=S.n-(pg.moduli||[]).length;
+  normModules();const S=moduliSlots();const liberi=S.n-S.used;
   const w=el("div",{});
-  w.appendChild(el("div",{class:"compat "+(liberi>0?"ok":"ko"),html:"Slot: <b>"+(pg.moduli||[]).length+" / "+S.n+"</b> ("+(S.razza?("razziali "+S.razza):"nessuno razziale")+(S.talento?(" + Arsenale Modulare "+S.talento):"")+") · liberi <b>"+Math.max(0,liberi)+"</b>"+(liberi>0?"":" — libera uno slot prima di installare un altro impianto.")}));
-  w.appendChild(el("div",{class:"hintbox",html:"Prima di installare: <b>progetto → requisiti → materiali, costo e tempo stabiliti dal GM → officina e mano competente → intervento</b>. Il sito registra il dispositivo, non decide prezzi né durate. Alla creazione il Cyborg riceve i suoi due moduli senza costi."}));
-  w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Progetto personalizzato",onclick:()=>{if(liberi<=0){alert("Nessuno slot libero.");return;}const mo=normModule({nome:"Nuovo modulo",funzione:"",req:(pg.racialDie&&MOD_SLOT_RAZZA[pg.racialDie])?pg.racialDie:"d6",note:"Da concordare col GM."});closeModal();mutate(()=>pg.moduli.push(mo));flyIn(svgIcon("gear",120),()=>byText(".slots .slot-n","Nuovo modulo"));setTimeout(()=>moduleModal(pg.moduli.length-1),700);}})]));
-  w.appendChild(el("div",{class:"slots-h",text:"Catalogo · proposte da approvare col GM"}));
+  w.appendChild(el("div",{class:"compat "+(liberi>0?"ok":"ko"),html:"Moduli installati: <b>"+S.used+" / "+S.n+"</b> · liberi <b>"+Math.max(0,liberi)+"</b>. I progetti non installati non occupano slot."}));
+  w.appendChild(el("div",{class:"hintbox",text:"Corpo Meccanico determina slot e Fascia massima. Un progetto può essere conservato prima dell’installazione; per installarlo servono uno slot libero, Corpo Meccanico sufficiente, dispositivo completo e strumenti. La costruzione o la commissione seguono il Capitolo 10."}));
+  modCombatControls(w);
+  w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"+ Progetto personalizzato",onclick:()=>{const mo=modNewProject({req:MOD_REQ.includes(pg.racialDie)?pg.racialDie:"d6"});closeModal();mutate(()=>pg.moduli.push(mo));moduleModal(pg.moduli.length-1);}})]));
+  w.appendChild(el("div",{class:"slots-h",text:"Catalogo · 10 Moduli pronti (Manuale §13)"}));
   const list=el("div",{class:"catlist"});
   MOD_CATALOGO.forEach(d=>{
-   const okReq=!hasCorpoMeccanico()||(MOD_SLOT_RAZZA[pg.racialDie]||0)>=(MOD_SLOT_RAZZA[d.req]||9);
+   const okReq=hasCorpoMeccanico()&&(MOD_SLOT_RAZZA[pg.racialDie]||0)>=(MOD_SLOT_RAZZA[d.req]||9);
    const card=el("div",{class:"catcard"});
    card.appendChild(el("div",{class:"cn",html:svgIcon(d.ico,18)+" "+d.n+(okReq?"":' <span class="pill warn">⚿ richiede '+d.req+'</span>')}));
-   card.appendChild(el("div",{class:"cm",text:d.tipo.join(" · ")+" · requisito razziale "+d.req+" · "+(d.arma?"utilizzabile come arma":"solo funzionale, nessun Grado")}));
-   card.appendChild(el("div",{class:"cd",html:d.fn+"<br>"+(d.cat?("<b>"+d.cat+"</b> — "+d.eff):"<b>Nessun effetto approvato.</b>")+"<br><i>"+d.vinc+"</i>"}));
-   card.appendChild(el("div",{},[el("span",{class:"pill warn",text:"Proposta"})]));
+   card.appendChild(el("div",{class:"cm",text:d.tipo.join(" · ")+" · Fascia "+d.req+" · "+(d.arma?"Modulo-Arma "+d.gradoArma:"Funzionale")}));
+   card.appendChild(el("div",{class:"cd",text:d.fn+" "+(d.eff?modReadBack({eff:d.eff}):"Nessun Effetto Speciale.")+(d.cariche?" "+d.cariche+" Cariche.":" Energia: Nessuna.")}));
+   card.appendChild(el("div",{},[el("span",{class:"pill",text:"Crea progetto"})]));
    card.onclick=()=>{
-    if(liberi<=0){alert("Nessuno slot libero: libera uno slot prima di installare.");return;}
-    if(!okReq&&!confirm("Il tuo Corpo Meccanico è "+(pg.racialDie||"—")+" e il progetto chiede "+d.req+". Installarlo comunque, d'accordo col GM?"))return;
-    const mo=normModule({nome:d.n,tipo:d.tipo.slice(),arma:d.arma,req:d.req,funzione:d.fn,eff:d.cat?{cat:d.cat,tgt:d.tgt,testo:d.eff,cond:"",limiti:d.vinc}:null,note:d.cat?"Scheda di catalogo: proposta da approvare col GM.":d.vinc});
-    closeModal();mutate(()=>pg.moduli.push(mo));flyIn(svgIcon(d.ico,120),()=>byText(".slots .slot-n",d.n));setTimeout(()=>moduleSheetModal(pg.moduli.length-1),700);
+    const mo=modNewProject(d);closeModal();mutate(()=>pg.moduli.push(mo));moduleSheetModal(pg.moduli.length-1);
    };
    list.appendChild(card);
   });
@@ -3754,16 +3838,21 @@ function officinaModal(){
 function moduleSheetModal(i){
  openModal("⚙ Modulo",function(){
   normModules();const mo=pg.moduli[i];if(!mo)return el("div");
-  const w=el("div",{});const st=modStateLabel(mo);const att=pg.moduloAttivo===mo.id;
+  const w=el("div",{});const st=modStateLabel(mo);const att=pg.moduloAttivo===mo.id,grade=mo.gradoArma||mo.grado,check=modEvaluate(mo,"project"),runtime=modEvaluate(mo,"use");
   const sc=el("div",{class:"sheetcard"});
   sc.appendChild(el("div",{class:"sc-n",text:mo.nome||"Modulo"}));
-  sc.appendChild(el("div",{class:"sc-m",html:"Slot "+(i+1)+" · "+(mo.tipo.length?mo.tipo.join(" · "):"tipo da definire")+" · requisito "+mo.req+(mo.arma&&mo.grado?(" · Grado "+mo.grado+" "+gradeLabel(mo.grado)):(mo.arma?" · Grado da assegnare":""))}));
+  sc.appendChild(el("div",{class:"sc-m",text:(mo.installato?"Installato · 1 slot":"Progetto · 0 slot")+" · "+(mo.tipo.length?mo.tipo.join(" · "):"categoria da definire")+" · Fascia "+mo.req+(mo.arma?" · Grado d’Arma "+(grade||"da definire")+" · "+(mo.attr||"Attributo da scegliere"):"")}));
   sc.appendChild(el("div",{},[el("span",{class:"pill "+st.c,text:st.t}),mo.rivedi?el("span",{class:"pill warn",text:"Da completare"}):null]));
   w.appendChild(sc);
+  if(!check.valid)w.appendChild(el("div",{class:"compat ko",text:check.errors.map(e=>e.text).join(" ")}));
+  if(mo.eff&&mo.eff.tgt==="+1 Dado Danno")w.appendChild(el("div",{class:"hintbox",text:"Lo Sconto del Catalogo non concede +1 Dado Danno. Quel beneficio si applica solo se una capacità specifica lo autorizza; gli effetti DD ritirati non vengono reinseriti nel Costruttore."}));
+  modCombatControls(w);
   if(att&&mo.stato==="danneggiato")w.appendChild(el("div",{class:"compat ko",html:"È il modulo <b>selezionato</b>, ma è danneggiato: funzione, effetto e Tecniche collegate non sono utilizzabili finché non lo ripari."}));
-  w.appendChild(el("div",{class:"slots-h",text:"Funzione fisica"}));
+  w.appendChild(el("div",{class:"slots-h",text:"Funzione Principale · "+(mo.funzioneTipo||"da definire")}));
   w.appendChild(el("div",{class:"sub",text:mo.funzione||"—"}));
-  if(mo.funzione)w.appendChild(el("div",{class:"hintbox",text:"Resta disponibile anche quando il modulo non è attivo, finché è integro. Non concede azioni extra e non applica da sola l'effetto meccanico."}));
+  w.appendChild(el("div",{class:"sub",text:"Attiva ("+(mo.funzioneUso||"Operativa")+"): "+(mo.funzioneAttiva||"Da definire")}));
+  w.appendChild(el("div",{class:"sub",text:"Inattiva: "+(mo.funzioneInattiva||"Nessun beneficio registrato")}));
+  w.appendChild(el("div",{class:"hintbox",text:"La Funzione attiva, l’Effetto Speciale e le Tecniche collegate richiedono un Modulo installato, integro e attivo. Una funzione operativa usa normalmente 1 Azione; i Propulsori rispettano il proprio impiego per turno."}));
   w.appendChild(el("div",{class:"slots-h",text:"Effetto speciale"}));
   if(mo.eff&&(mo.eff.cat||mo.eff.testo)){
    w.appendChild(el("div",{class:"sub",html:"<b>"+(mo.eff.cat||"categoria da scegliere")+"</b>"+(mo.eff.tgt?(" · bersaglio: "+mo.eff.tgt):"")+"<br>"+(mo.eff.testo||"—")+(mo.eff.cond?("<br><i>"+mo.eff.cond+"</i>"):"")+(mo.eff.limiti?("<br><i>"+mo.eff.limiti+"</i>"):"")}));
@@ -3773,8 +3862,8 @@ function moduleSheetModal(i){
    w.appendChild(el("div",{class:"slots-h",text:"Cariche"}));
    const row=el("div",{class:"mrow"});
    row.appendChild(el("span",{class:"lab",text:(mo.fuel.tipo||"Carica")+" "+(mo.fuel.cur||0)+" / "+(mo.fuel.max||"—")}));
-   const btns=el("span",{class:"step2"},[el("button",{text:"−",onclick:()=>mutateM(()=>{mo.fuel.cur=Math.max(0,(Number(mo.fuel.cur)||0)-1);})}),el("b",{text:String(mo.fuel.cur||0)}),el("button",{text:"+",onclick:()=>mutateM(()=>{var mx=Number(mo.fuel.max)||999;mo.fuel.cur=Math.min(mx,(Number(mo.fuel.cur)||0)+1);})})]);
-   row.appendChild(btns);w.appendChild(row);
+   w.appendChild(row);
+   w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm",text:"Ricarica · 10 minuti",onclick:()=>{if(confirm("Hai completato 10 minuti fuori dal combattimento e possiedi la risorsa necessaria? La ricarica non è inclusa nel Riposo."))modAction("recharge",mo.id,{resourceAvailable:true});}})]));
    if(mo.fuel.consumo)w.appendChild(el("div",{class:"sub",text:"Consumo: "+mo.fuel.consumo}));
    if(mo.fuel.ricarica)w.appendChild(el("div",{class:"sub",text:"Ricarica: "+mo.fuel.ricarica}));
    w.appendChild(el("div",{class:"hintbox",text:"Le cariche sono una risorsa a parte dalla Stamina: se una Tecnica costa ST e il dispositivo una carica, si pagano entrambe."}));
@@ -3782,22 +3871,27 @@ function moduleSheetModal(i){
   const tecs=modTecniche(mo);
   w.appendChild(el("div",{class:"slots-h",text:"Tecniche collegate"}));
   if(tecs.length)tecs.forEach(t=>{
-   var bad=(mo.stato==="danneggiato")?"Modulo danneggiato":(att?"Disponibile":"Modulo inattivo");
-   var bc=(mo.stato==="danneggiato")?"warn":(att?"good":"");
+   var bad=mo.installato===false?"Modulo non installato":mo.stato==="danneggiato"?"Modulo danneggiato":runtime.operational?"Disponibile":"Modulo non operativo";
+   var bc=runtime.operational?"good":"warn";
    w.appendChild(el("div",{class:"slot click"},[el("div",{class:"slot-i",html:dieIcon(t.die,30)}),el("div",{class:"slot-b"},[el("div",{class:"slot-n",text:t.nome}),el("div",{class:"slot-m",html:[t.fonte,t.forma].filter(Boolean).join(" · ")+' · <span class="pill '+bc+'">'+bad+"</span>"})])]));
   });
   else w.appendChild(el("div",{class:"sub",text:"Nessuna: nel Signature Move Builder puoi collegare una Tecnica a questo modulo."}));
   if(mo.note)w.appendChild(el("div",{class:"hintbox",text:mo.note}));
   const row1=el("div",{class:"addrow"});
-  if(mo.stato==="integro")row1.appendChild(el("button",{class:"btn sm"+(att?"":" gold"),text:att?"È il modulo attivo":"Attiva",onclick:()=>{if(att)return;mutateM(()=>{pg.moduloAttivo=mo.id;});}}));
-  else row1.appendChild(el("button",{class:"btn sm gold",text:"Ripara",onclick:()=>mutateM(()=>{mo.stato="integro";})}));
+  if(mo.installato===false)row1.appendChild(el("button",{class:"btn sm gold",text:"Installa",onclick:()=>{const T=MOD_FASCE[mo.req];if(confirm("Dispositivo completo, strumenti disponibili e intervento di "+(T?T.installazione:"tempo da definire")+" concluso fuori dal combattimento? Non può coincidere con un Riposo."))modAction("install",mo.id,true);}}));
+  else if(mo.stato==="integro")row1.appendChild(el("button",{class:"btn sm"+(att?"":" gold"),text:att?"È il modulo attivo":"Attiva",disabled:att,onclick:()=>modAction("activate",mo.id)}));
+  if(mo.stato==="danneggiato")row1.appendChild(el("button",{class:"btn sm gold",text:"Ripara · "+((MOD_FASCE[mo.req]||{}).riparazione||"tempo da definire"),onclick:()=>{if(confirm("Riparazione completata fuori dal combattimento, con strumenti e ricambi adeguati? Non recupera PV e non attiva automaticamente il Modulo."))modAction("repair",mo.id);}}));
+  if(runtime.operational)row1.appendChild(el("button",{class:"btn sm",text:"Usa funzione"+(runtime.energy?.enabled?" · "+runtime.energy.cost+" Cariche":""),onclick:()=>modAction("use",mo.id)}));
+  if(mo.eff&&(mo.eff.cat==="Reazione"||mo.eff.cat==="Maledizione"&&mo.eff.base==="Reazione"))row1.appendChild(el("button",{class:"btn sm",text:"Usa Reazione",onclick:()=>{if(confirm("Il Trigger della scheda si è verificato e hai la normale Reazione disponibile?"))modAction("use",mo.id,{reaction:true,reactionAvailable:true,emergency:!!mo.eff.emergenza&&!att});}}));
   row1.appendChild(el("button",{class:"btn sm",text:"Modifica",onclick:()=>moduleModal(i)}));
   w.appendChild(row1);
   const row2=el("div",{class:"addrow"});
-  if(mo.stato==="integro")row2.appendChild(el("button",{class:"iconbtn",text:"⚠ Segna danneggiato",title:"Il GM può danneggiare un modulo come conseguenza narrativa",onclick:()=>mutateM(()=>{mo.stato="danneggiato";})}));
-  if(att)row2.appendChild(el("button",{class:"iconbtn",text:"Disattiva",onclick:()=>mutateM(()=>{pg.moduloAttivo="";})}));
-  row2.appendChild(el("button",{class:"iconbtn",text:"✕ Rimuovi",onclick:()=>{const n=modTecniche(mo).length;if(!confirm("Rimuovere «"+(mo.nome||"modulo")+"»?"+(n?(" "+n+" Tecnic"+(n===1?"a":"he")+" resteranno in scheda, con il collegamento da aggiornare."):" Lo slot torna libero.")))return;closeModal();mutate(()=>{if(pg.moduloAttivo===mo.id)pg.moduloAttivo="";pg.moduli.splice(i,1);});}}));
+  if(mo.stato==="integro")row2.appendChild(el("button",{class:"iconbtn",text:"⚠ Segna danneggiato",title:"Solo una conseguenza o capacità che colpisce direttamente il Modulo",onclick:()=>modAction("damage",mo.id)}));
+  if(att)row2.appendChild(el("button",{class:"iconbtn",text:"Disattiva",onclick:()=>modAction("deactivate",mo.id)}));
+  if(mo.installato!==false)row2.appendChild(el("button",{class:"iconbtn",text:"Disinstalla",onclick:()=>modAction("install",mo.id,false)}));
+  row2.appendChild(el("button",{class:"iconbtn",text:"✕ Rimuovi",onclick:()=>{const n=modTecniche(mo).length;if(!confirm("Rimuovere «"+(mo.nome||"modulo")+"»?"+(n?(" "+n+" Tecnic"+(n===1?"a":"he")+" resteranno in scheda, con il collegamento da aggiornare."):" Lo slot torna libero.")))return;if(mo.installato!==false&&!modAction("install",mo.id,false))return;closeModal();mutate(()=>{pg.moduli.splice(i,1);});}}));
   w.appendChild(row2);
+  w.appendChild(modWorkshopInfo(mo));
   w.appendChild(el("div",{class:"hintbox",text:"Una volta per turno puoi cambiare gratuitamente il modulo attivo, senza spendere Azione, Azione Bonus, Movimento o Reazione. Fuori dal tuo turno serve una capacità che lo permetta."}));
   if(window.GLCDetails)GLCDetails.prepare(w,"module",mo,i);return w;
  });
@@ -3823,6 +3917,7 @@ function renderManage(){
  const bar=(k,cur,max,setCur,setMax,cls)=>{const pct=(max&&max>0)?Math.max(0,Math.min(100,(cur||0)/max*100)):0;const b=el("div",{class:"lbar "+cls},[el("div",{class:"lbar-k",text:k}),el("div",{class:"lbar-t"},[el("div",{class:"lbar-f",style:"width:"+pct+"%"})]),el("div",{class:"lbar-v"},[numSmall(cur,v=>{setCur(intOrNull(v));save();render();}),el("span",{class:"vsep",text:"/"}),numSmall(max,v=>{setMax(intOrNull(v));save();render();})])]);return b;};
  V.appendChild(bar("Punti Vita",pg.pvCur,pg.pvMax,v=>pg.pvCur=v,v=>pg.pvMax=v,"pv"));
  V.appendChild(bar("Stamina",pg.stCur,pg.stMax,v=>pg.stCur=v,v=>pg.stMax=v,"st"));
+ if(window.GLCCyborgCare)GLCCyborgCare.render(V);
  {const dp=difesaPassiva();const mini=el("div",{class:"lmini"});[["Difesa",dp!=null?String(dp):"—"],["Movim.",r?(raceMove(r.id).m+" m"):"—"],["Dado Vita",r?r.hp:"—"],["Legami",(legamiTotal()?(legamiTotal()+(legamiBest()?(" · "+legamiBest()):"")):"0")]].forEach(([k,v])=>mini.appendChild(el("div",{class:"lm"},[el("div",{class:"lm-k",text:k}),el("div",{class:"lm-v",text:v})])));V.appendChild(mini);}
  const lsec=(title,kids,right)=>{const s=el("div",{class:"lsec"});const h=el("div",{class:"lsec-h"},[el("h3",{text:title})]);if(right)h.appendChild(right);s.appendChild(h);kids.forEach(k=>{if(k)s.appendChild(k);});return s;};
  const attrs=[];ATTRS.forEach(a=>attrs.push(progRow(pg.attr[a],a,(a===racialAttr()?"razziale":""),miniStepper(pg.attr[a],nd=>mutate(()=>pg.attr[a]=nd)),paRow("attr:"+a,()=>pg.attr[a],nd=>pg.attr[a]=nd))));
@@ -3853,13 +3948,12 @@ function renderManage(){
    eq.appendChild(slotAdd("Arma · apri l'Arsenale",arsenaleModal));
   }}
  if(isMusicista()){eq.appendChild(el("div",{class:"slots-h",text:"Strumenti"}));eq.appendChild(slotTile("d4","La tua voce","Voce · <b>d4</b> Base · sempre con te",null));(pg.strumenti||[]).forEach((a,i)=>eq.appendChild(slotTile(instrEff(a).grado,a.nome||"Strumento",instrMeta(a),()=>instrumentModal(i))));eq.appendChild(slotAdd("Strumento",()=>{mutate(()=>{if(!pg.strumenti)pg.strumenti=[];pg.strumenti.push({nome:"Nuovo strumento",tipo:"Corde",die:"d6",note:""});});flyIn(dieIcon("d6",120),()=>byText(".slots .slot-n","Nuovo strumento"));setTimeout(()=>instrumentModal(pg.strumenti.length-1),950);}));}
- if(moduliVisibili()){const S=moduliSlots();if(S.n>0){
-  const used=(pg.moduli||[]).length;
-  eq.appendChild(el("div",{class:"slots-h",html:(hasCorpoMeccanico()?("Corpo Meccanico · <b>"+(pg.racialDie||"d8")+"</b>"):"Arsenale Modulare")+" · "+used+"/"+S.n}));
-  (pg.moduli||[]).forEach((mo,i)=>{const st=modStateLabel(mo);eq.appendChild(slotTile(mo.arma&&mo.grado?mo.grado:null,mo.nome||"Modulo",'<span class="pill '+st.c+'">'+st.t+"</span> "+(mo.tipo&&mo.tipo.length?mo.tipo.join(" · "):"modulo")+(mo.fuel&&mo.fuel.on?(" · "+(mo.fuel.cur||0)+"/"+(mo.fuel.max||"—")):""),()=>moduleSheetModal(i),(mo.arma&&mo.grado)?null:"gear"));});
-  if(used<S.n)eq.appendChild(slotAdd("Slot libero · Officina",officinaModal));
-  else eq.appendChild(el("div",{class:"slot add",onclick:officinaModal},[el("div",{class:"slot-i",html:'<span class="gc-em">'+svgIcon("gear",20)+"</span>"}),el("div",{class:"slot-b"},[el("div",{class:"slot-n",text:"Officina"})])]));
- }}
+ if(moduliVisibili()){const S=moduliSlots(),used=S.used;
+  eq.appendChild(el("div",{class:"slots-h",html:"Corpo Meccanico · <b>"+(pg.racialDie||"—")+"</b> · installati "+used+"/"+S.n}));
+  (pg.moduli||[]).forEach((mo,i)=>{const st=modStateLabel(mo),grade=mo.gradoArma||mo.grado;eq.appendChild(slotTile(mo.arma&&grade?grade:null,mo.nome||"Modulo",'<span class="pill '+st.c+'">'+st.t+"</span> "+(mo.tipo&&mo.tipo.length?mo.tipo.join(" · "):"modulo")+(mo.fuel&&mo.fuel.on?(" · "+(mo.fuel.cur??0)+"/"+(mo.fuel.max||"—")):""),()=>moduleSheetModal(i),(mo.arma&&grade)?null:"gear"));});
+  eq.appendChild(slotAdd("Officina · progetti e Moduli",officinaModal));
+  const cycle=el("div",{class:"mod-combat-controls"});modCombatControls(cycle);eq.appendChild(cycle);
+ }
  {eq.appendChild(el("div",{class:"slots-h",text:"Haki"}));pg.haki.forEach((h,i)=>{const liv=hakiLevel(h);eq.appendChild(slotTile(null,h.name.replace("Haki ",""),(hakiPipAxis(h)?("<b>"+hakiPipOf(h)+" PIP</b>"):("<b>"+(h.die||"—")+"</b> · "+hakiPipOf(h)+" PIP"))+(liv?(" · "+liv):""),()=>hakiModal(i),"img:"+(IMG_ICON[h.name]||"haki-armamento")));});const hakiFree=HAKI_NAMES.filter(n=>!pg.haki.some(h=>h.name===n));if(hakiFree.length)eq.appendChild(slotAdd("Risveglia Haki",()=>{const nm=hakiFree[0];mutate(()=>pg.haki.push(HAKI_PROG[nm]?.axis==="pip"?{name:nm,die:"",pip:1}:{name:nm,die:"d6",pip:hakiPip("d6")}));flyIn(imgIcon(IMG_ICON[nm],120),()=>byText(".slots .slot-n",nm.replace("Haki ","")));setTimeout(()=>hakiModal(pg.haki.length-1),950);}));}
  if(window.GLCPrestige)pg.haki.forEach(h=>{if(!GLCPrestige.hakiLevel(pg,h))return;const tile=Array.from(eq.querySelectorAll(".slot")).find(n=>n.querySelector(".slot-n")?.textContent===h.name.replace("Haki ",""));if(tile)tile.classList.add("prg-haki-slot");});
  mid.appendChild(eq);
@@ -3998,7 +4092,7 @@ function buildPrintSheet(){
   h+='</table></div>';
   if(pg.armi&&pg.armi.length){h+='<div class="ps-sec"><div class="ps-h">Equipaggiamento</div>';pg.armi.forEach(function(a){normWeapon(a);var c=weaponCompat(a);h+='<div class="ps-item"><b>'+escp(a.nome||"arma")+'</b> <span class="die">'+escp(a.tipo+(a.asta?(" "+a.asta.toLowerCase()):"")+" \u00b7 Grado "+a.grado+" "+gradeLabel(a.grado))+'</span><div class="ps-d">'+escp([a.attr||"attributo da definire",a.portata||"portata da definire","Stile "+(c.need||"da determinare")+(c.s==="ok"?" \u2713":(c.s==="ko"?" \u2717":""))].join(" \u00b7 "))+'</div>'+(a.eff?('<div class="ps-d2"><b>'+escp(a.eff.nome||"Effetto")+'</b> \u00b7 '+escp([a.eff.cat,a.eff.freq,(a.eff.prezzo&&a.eff.prezzo!=="Nessuno")?(a.eff.prezzo+(a.eff.prezzoDett?(" "+a.eff.prezzoDett):"")):""].filter(Boolean).join(" \u00b7 "))+(a.eff.desc?(" \u2014 "+escp(a.eff.desc)):"")+'</div>'):'')+(a.note?'<div class="ps-d2">'+escp(a.note)+'</div>':'')+'</div>';});h+='</div>';}
   if(pg.strumenti&&pg.strumenti.length){h+='<div class="ps-sec"><div class="ps-h">Strumenti</div>';pg.strumenti.forEach(function(a){var x=instrEff(a);h+='<div class="ps-item"><b>'+escp(a.nome||"strumento")+'</b> <span class="die">'+escp([a.tipo||"Corde",x.grado+(INSTR_GRADI[x.grado]?(" "+INSTR_GRADI[x.grado]):""),"Salvezza "+x.soglia].join(" \u00b7 "))+'</span>'+(x.over?'<div class="ps-d2">usato come '+escp(x.eff)+' finché l\'Arte non arriva a '+escp(x.grado)+'</div>':'')+(a.note?'<div class="ps-d">'+escp(a.note)+'</div>':'')+'</div>';});h+='</div>';}
-  if(pg.moduli&&pg.moduli.length){normModules();var _S=moduliSlots();h+='<div class="ps-sec"><div class="ps-h">Corpo Meccanico \u00b7 '+pg.moduli.length+'/'+_S.n+'</div>';pg.moduli.forEach(function(mo){var st=modStateLabel(mo);h+='<div class="ps-tech"><div class="tt"><b>'+escp(mo.nome||"modulo")+'</b> <span class="tg">'+escp(st.t+((mo.arma&&mo.grado)?(" \u00b7 "+mo.grado):""))+'</span></div><div class="ps-d">'+escp([(mo.tipo&&mo.tipo.length?mo.tipo.join(", "):""),"requisito "+mo.req,mo.funzione].filter(Boolean).join(" \u00b7 "))+'</div>'+((mo.eff&&(mo.eff.cat||mo.eff.testo))?('<div class="ps-d2"><b>'+escp(mo.eff.cat||"Effetto")+'</b>'+(mo.eff.tgt?(" \u00b7 "+escp(mo.eff.tgt)):"")+' \u2014 '+escp(mo.eff.testo||"")+'</div>'):'')+((mo.fuel&&mo.fuel.on)?('<div class="ps-d2">Cariche: '+escp((mo.fuel.tipo||"risorsa")+" "+(mo.fuel.cur||0)+"/"+(mo.fuel.max||"\u2014")+(mo.fuel.consumo?(" \u00b7 "+mo.fuel.consumo):""))+'</div>'):'')+'</div>';});h+='</div>';}
+  if(pg.moduli&&pg.moduli.length){normModules();var _S=GLCCyborg.slots(pg);h+='<div class="ps-sec"><div class="ps-h">Corpo Meccanico · '+_S.used+'/'+_S.n+' installati</div>';pg.moduli.forEach(function(mo){var record=modPrintRecord(mo);h+='<div class="ps-tech"><div class="tt"><b>'+escp(record.nome||"modulo")+'</b> <span class="tg">'+escp((record.installato?"Installato":"Non installato")+" · "+record.stato+" · "+(record.attivo?"Attivo":"Inattivo"))+'</span></div><div class="ps-d">'+escp([record.tipo,"Fascia "+record.req,record.grado?("Arma "+record.grado+" · "+(mo.armaTipo||"tipo da definire")+" · "+(mo.attr||"Attributo da definire")):"Funzionale"].filter(Boolean).join(" · "))+'</div><div class="ps-d">Funzione attiva: '+escp(record.funzioneAttiva||"—")+'</div><div class="ps-d2">Funzione inattiva: '+escp(record.funzioneInattiva||"nessun beneficio meccanico")+'</div><div class="ps-d2">'+escp(record.eff)+'</div>'+(record.fuel?'<div class="ps-d2">Cariche: '+escp(record.fuel+" · consumo "+(mo.fuel?.consumo||1)+" · ricarica: "+(mo.fuel?.ricarica||"10 minuti fuori combattimento, con risorse disponibili"))+'</div>':'')+(record.issues.length?'<div class="ps-d2">Da correggere: '+escp(record.issues.join(" "))+'</div>':'')+(record.desc?'<div class="ps-d2">'+escp(record.desc)+'</div>':'')+'</div>';});h+='</div>';}
   if(window.GLCTratti&&GLCTratti.acquired(pg).length){h+='<div class="ps-sec"><div class="ps-h">Tratti Unici e Sinergie</div>';GLCTratti.acquired(pg).forEach(t=>{h+='<div class="ps-tech"><div class="tt"><b>'+escp(t.name)+'</b> · '+escp(t.attribute+" + "+t.skill)+(t.active?"":(" · "+(t.superseded?"Evoluto":"inattivo")))+'</div><div class="ps-d">'+escp(t.effects.join(" "))+'</div></div>';});h+='</div>';}
   if(visibleTalents().length){h+='<div class="ps-sec"><div class="ps-h">Talenti</div>';visibleTalents().forEach(function(k){var ti=talentInfo(k);h+='<div class="ps-tech"><div class="tt">\u2726 <b>'+escp(ti.name)+'</b>'+(ti.branch?' <span class="ps-d2">('+escp(ti.branch)+')</span>':'')+(ti.tag?' <span class="ps-d2">'+escp(ti.tag)+'</span>':'')+'</div>'+(ti.desc?'<div class="ps-d">'+escp(ti.desc)+'</div>':'')+'</div>';});h+='</div>';}
   if(window.GLCPrestige){var pr=GLCPrestige.acquired(pg);if(pr.length){h+='<div class="ps-sec"><div class="ps-h">Talenti di Prestigio</div>';pr.forEach(function(t){h+='<div class="ps-tech"><b>'+escp(t.name)+'</b> · '+escp(GLCPrestige.label(t.path.die))+'<div class="ps-d">'+escp(GLCPrestigeView.talentText(pg,t))+'</div></div>';});h+='</div>';}
@@ -4023,12 +4117,17 @@ function buildPrintSheet(){
 }
 $("#printSheet").onclick=function(){buildPrintSheet();window.print();};
 /* Pacchetto di stampa: tutto ciò che la Scheda illustrata non sa calcolare da sola (descrizioni dei talenti, livelli Haki, costi delle Tecniche, P.A.). */
+function modPrintRecord(m){
+ const assessment=GLCCyborg.evaluate(pg,m,{catalogue:TEC_EFF,purpose:"project"});
+ return {...JSON.parse(JSON.stringify(m)),nome:m.nome||"",stato:m.stato||"integro",installato:m.installato!==false,attivo:assessment.active,tipo:(m.tipo||[]).join(", "),req:m.req||"",grado:m.arma?(m.gradoArma||m.grado||""):"",funzione:m.funzione||"",funzioneAttiva:m.funzioneAttiva||m.funzione||"",funzioneInattiva:m.funzioneInattiva||"",effData:m.eff?JSON.parse(JSON.stringify(m.eff)):null,effCat:m.eff?.cat||"",effTgt:m.eff?.tgt||"",eff:modReadBack(m),fuelData:m.fuel?JSON.parse(JSON.stringify(m.fuel)):null,fuel:m.fuel?.on?((m.fuel.tipo||"cariche")+" "+(m.fuel.cur??0)+"/"+(m.fuel.max??"—")):"",assessment,issues:assessment.errors.map(e=>typeof e==="string"?e:e.text),desc:m.note||""};
+}
 function printPayload(){
   var r=race(),ro=roleObj();
   normWeapons();normModules();var out={v:1,charId:CT.activeId,ts:Date.now(),nome:pg.nome||"",difesa:difesaPassiva(),move:r?raceMove(r.id):null,fruttoDie:(pg.frutto&&pg.frutto.has)?(pg.frutto.die||"d4"):"",
     talenti:visibleTalents().map(function(k){var ti=talentInfo(k);return {name:ti.name,branch:ti.branch||"",tag:ti.tag||"",desc:ti.desc||""};}),
-    moduli:(pg.moduli||[]).map(function(m){return {nome:m.nome||"",stato:m.stato||"integro",attivo:(pg.moduloAttivo===m.id),tipo:(m.tipo||[]).join(", "),req:m.req||"",grado:(m.arma&&m.grado)?m.grado:"",funzione:m.funzione||"",effCat:(m.eff&&m.eff.cat)||"",effTgt:(m.eff&&m.eff.tgt)||"",eff:(m.eff&&m.eff.testo)||m.effLegacy||"",fuel:(m.fuel&&m.fuel.on)?((m.fuel.tipo||"cariche")+" "+(m.fuel.cur||0)+"/"+(m.fuel.max||"\u2014")):"",desc:m.note||""};}),
+    moduli:(pg.moduli||[]).map(modPrintRecord),
     moduliSlots:moduliVisibili()?moduliSlots().n:0,
+    moduliInstalled:GLCCyborg.slots(pg).used,
     strumenti:(pg.strumenti||[]).map(function(a){var x=instrEff(a);return {nome:a.nome||"",die:a.die||"",tipo:a.tipo||"Corde",grado:INSTR_GRADI[x.grado]||"",eff:x.eff,soglia:x.soglia,over:x.over,note:a.note||""};}),
     armi:(pg.armi||[]).map(function(a){normWeapon(a);var c=weaponCompat(a);return {nome:a.nome||"",tipo:a.tipo+(a.asta?(" \u00b7 "+a.asta.toLowerCase()):""),attr:a.attr||"",die:a.grado||"",grado:a.grado||"",gradoLabel:gradeLabel(a.grado),portata:a.portata||"",stile:c.need||"",stileOk:(c.s==="ok"),effNome:(a.eff&&a.eff.nome)||"",effCat:(a.eff&&a.eff.cat)||"",effDesc:(a.eff&&a.eff.desc)||"",effFreq:(a.eff&&a.eff.freq)||"",effPrezzo:(a.eff&&a.eff.prezzo&&a.eff.prezzo!=="Nessuno")?(a.eff.prezzo+(a.eff.prezzoDett?(" "+a.eff.prezzoDett):"")):"",gmOk:!!a.gmOk,note:a.note||""};}),
     inventario:(pg.inventario||[]).map(function(it){return {nome:it.nome||"",qta:(parseInt(it.qta)||0),note:it.note||"",ico:it.ico||""};}),

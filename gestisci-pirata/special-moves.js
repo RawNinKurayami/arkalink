@@ -173,7 +173,12 @@ function sources() {
   out.push({id:'instrument:voice',kind:'instrument',name:'La tua voce',raw:{die:'d4'},icon:'music',desc:'Strumento d4 sempre disponibile.',subtitle:'Voce · d4'});
   list(pg.strumenti).forEach(i=>{if(i.smcId)out.push({id:'instrument:'+i.smcId,kind:'instrument',name:i.nome||'Strumento senza nome',raw:i,icon:'music',desc:i.note||'',subtitle:(i.tipo||'Strumento')+' · '+i.die});});
  }
- list(pg.moduli).forEach(m=>out.push({id:'module:'+m.id,kind:'module',name:m.nome||'Modulo senza nome',raw:m,icon:'gear',desc:[m.funzione,m.eff?.testo,m.eff?.cond,m.eff?.limiti,m.effLegacy].filter(Boolean).join('\n'),subtitle:modStateLabel(m).t||m.stato}));
+ list(pg.moduli).forEach(m=>{
+  const state=window.GLCCyborg?.evaluate(pg,m,{purpose:'use'}),weapon=window.GLCCyborg?.weapon(m);
+  out.push({id:'module:'+m.id,kind:'module',name:m.nome||'Modulo senza nome',raw:m,icon:'gear',
+   desc:[m.funzione,weapon?'Modulo-Arma: '+weapon.tipo+' · '+weapon.attr+' · '+weapon.grado:'Modulo funzionale',m.funzioneInattiva?'Funzione inattiva: '+m.funzioneInattiva:'',m.funzioneAttiva?'Funzione attiva: '+m.funzioneAttiva:'',m.eff?.testo,m.eff?.cond,m.eff?.limiti,m.effLegacy].filter(Boolean).join('\n'),
+   subtitle:state?((state.operational?'Attivo · operativo':state.operationalErrors.map(e=>e.text).join(' · '))+' · Fascia '+m.req):(modStateLabel(m).t||m.stato)});
+ });
  return out.filter((s,i,a)=>s.id&&a.findIndex(x=>x.id===s.id)===i);
 }
 const findSource=(id,ss=sources())=>ss.find(s=>s.id===id);
@@ -185,6 +190,14 @@ const isActiveDefense=(t,m={})=>isAttack(t)&&m.techniqueUse==='defense';
 const isNormalParry=(t,m={})=>isAttack(t)&&t.fonte==='Stile'&&['Swordsman','Crusher'].includes(t.stile)&&m.techniqueUse==='parry';
 const isDefending=(t,m={})=>isDefense(t)||isActiveDefense(t,m)||isNormalParry(t,m);
 const isPhysical=t=>t?.fonte==='Stile'&&t?.forma!=='Canzone';
+function usableBladeCount(){
+ const blades=list(pg.armi).filter(a=>a.tipo==='Lama'&&(!window.GLCTechniques||!window.GLCTechniques.weaponUseError(pg,a))).map(a=>a.moduloId||a.moduleId||a.id);
+ if(window.GLCCyborg)list(pg.moduli).forEach(m=>{
+  const state=window.GLCCyborg.evaluate(pg,m,{purpose:'use'}),weapon=window.GLCCyborg.weapon(m);
+  if(state.operational&&weapon?.tipo==='Lama')blades.push(m.id);
+ });
+ return new Set(blades.filter(Boolean)).size;
+}
 function applicable(s,tech,move={}) {
  const t=tech?.raw;if(!t||!s?.meta||!s.unlocked)return false;
  if(s.subtype==='uniqueTrait')return !!window.GLCTratti?.has(pg,s.raw.id);
@@ -195,7 +208,7 @@ function applicable(s,tech,move={}) {
  if(s.prestige&&s.raw.id==='guardia-invalicabile'&&!parry)return false;
  if(parry&&!['parry','defense','successfulDefense','any','blade','physical'].includes(m))return false;
  if(s.branch==='Musicista'&&s.alias==='Requiem'&&!hasEffect(t,'Requiem Beffardo'))return false;
- if(s.branch==='Tossicologo'&&s.alias==='Lama Intinta'&&(!isAttack(t)||t.stile==='Striker'||!move.weaponId))return false;
+ if(s.branch==='Tossicologo'&&s.alias==='Lama Intinta'&&(!isAttack(t)||t.stile==='Striker'||!recipeWeapon(tech,move)))return false;
  return ({any:true,attack:isAttack(t),physical:isPhysical(t)||t.fruitType==='Zoan',
   unarmed:t.stile==='Striker'&&isAttack(t),blunt:t.stile==='Crusher'&&isAttack(t),
   blade:t.stile==='Swordsman'&&isMelee(t),ranged:t.stile==='Sniper'&&isAttack(t),
@@ -208,12 +221,17 @@ function applicable(s,tech,move={}) {
   singleRanged:t.stile==='Sniper'&&t.forma==='Singolo'&&!hasEffect(t,'Catena')&&!hasEffect(t,'Rimbalzo'),
   ricochet:t.stile==='Sniper'&&(hasEffect(t,'Catena')||hasEffect(t,'Rimbalzo')),
   support:true,healing:hasEffect(t,'Cura'),preparato:false,invention:!!move.moduleId,
-  twoBlades:t.stile==='Swordsman'&&isAttack(t)&&list(pg.armi).filter(a=>a.tipo==='Lama').length>=2
+  twoBlades:t.stile==='Swordsman'&&isAttack(t)&&usableBladeCount()>=2
  })[m]===true;
 }
 function compatibleEquipment(s,tech,ignoreState=false) {
  const t=tech?.raw;if(!t||t.fonte!=='Stile'||t.forma==='Canzone')return false;
- if(s.kind==='weapon')return t.stile!=='Striker'&&weaponCompat(s.raw).s==='ok'&&weaponStyleReq(s.raw)===t.stile;
+ if(s.kind==='weapon')return window.GLCTechniques?window.GLCTechniques.compatibleWeapon(s.raw,t.stile)&&!window.GLCTechniques.weaponUseError(pg,s.raw):t.stile!=='Striker'&&weaponCompat(s.raw).s==='ok'&&weaponStyleReq(s.raw)===t.stile;
+ if(s.kind==='module'&&window.GLCCyborg){
+  const check=window.GLCCyborg.evaluate(pg,s.raw,{purpose:ignoreState?'build':'use'}),weapon=window.GLCCyborg.weapon(s.raw);
+  return check.valid&&(ignoreState||check.operational)&&!(t.stile==='Striker'&&s.raw.arma)&&
+   (!['Swordsman','Crusher','Sniper'].includes(t.stile)||!!weapon&&window.GLCTechniques.compatibleWeapon(weapon,t.stile));
+ }
  if(s.kind==='module')return moduliVisibili() && !(t.stile==='Striker'&&s.raw.arma) &&
   (!s.raw.eff?.tgt||hasEffect(t,s.raw.eff.tgt)) &&
   (ignoreState||(s.raw.stato!=='danneggiato'&&pg.moduloAttivo===s.raw.id));
@@ -221,7 +239,18 @@ function compatibleEquipment(s,tech,ignoreState=false) {
 }
 function techniqueRules(){
  const owned=name=>window.GLCTalents?window.GLCTalents.has(pg,name,{includeInherited:true}):list(pg.talents).some(key=>String(key).split(' · ').pop()===name);
- return {catalogue:TEC_EFF,whitelist:STILE_WHITELIST,precisioneAssoluta:!!window.GLCPrestige?.has(pg,'precisione-assoluta'),nessunoDeiMiei:owned('Nessuno dei Miei')};
+ return {pg,catalogue:TEC_EFF,whitelist:STILE_WHITELIST,precisioneAssoluta:!!window.GLCPrestige?.has(pg,'precisione-assoluta'),nessunoDeiMiei:owned('Nessuno dei Miei')};
+}
+function techniqueDraft(s,move={}){
+ const draft=copy(s?.raw||{});
+ if(move.weaponId){draft.arma=move.weaponId.replace(/^weapon:/,'');draft.modulo='';}
+ else if(move.moduleId){draft.modulo=move.moduleId.replace(/^module:/,'');draft.arma='';}
+ return draft;
+}
+function recipeWeapon(tech,move={},ss=sources()){
+ const module=findSource(move.moduleId||(!move.weaponId&&tech?.raw.modulo?'module:'+tech.raw.modulo:''),ss);
+ const virtual=module&&window.GLCCyborg?.weapon(module.raw);
+ return virtual?{...module,raw:virtual}:findSource(move.weaponId,ss);
 }
 function currentRoleSaveSource(source={}){
  const slot=source.roleSlot||((source.branch===pg.style2&&pg.role2==='Combattente')?2:1);
@@ -257,9 +286,7 @@ function techniqueProblems(s,move={}) {
   return errors;
  }
  if(window.GLCTechniques){
-  const draft=copy(s.raw);
-  if(move.weaponId)draft.arma=move.weaponId.replace(/^weapon:/,'');
-  if(move.moduleId)draft.modulo=move.moduleId.replace(/^module:/,'');
+  const draft=techniqueDraft(s,move);
   return window.GLCTechniques.evaluate(pg,draft,techniqueRules()).errors.map(e=>e.text);
  }
  // Reuse the existing validator on a temporary draft, restoring BOTH globals.
@@ -351,10 +378,13 @@ function requiresGM(s) {
  if(s.kind==='tech')return s.techKind!=='built' && !(s.techKind==='racial'&&pg.race==='umano');
  if(s.kind==='talent')return !!s.meta?.gm;
  if(s.kind==='weapon')return !!s.raw.eff&&(s.raw.eff.prezzo!=='Nessuno'||s.raw.eff.cat==='Sconto');
- if(s.kind==='module')return !!(s.raw.eff?.testo||s.raw.effLegacy||s.raw.fuel?.on);
+ if(s.kind==='module'){
+  const check=window.GLCCyborg?.evaluate(pg,s.raw,{purpose:'build'});
+  return check?!!check.legacyUnresolved||!check.structuredKnown:!!(s.raw.eff?.testo||s.raw.effLegacy||s.raw.fuel?.on);
+ }
  return false;
 }
-function sourceCost(s) {
+function sourceCost(s,move={}) {
  if(requiresGM(s)){
   const stored=pg.specialMoveSourceCosts?.[s.id],c=costFields(stored);
   if(!c||stored.basis!==costBasis(s))return null;
@@ -362,7 +392,8 @@ function sourceCost(s) {
   return c;
  }
  const c={st:0,pip:0,maintenanceST:0,maintenancePIP:0,resource:0};
- if(s.kind==='tech'&&s.techKind==='built'){const v=window.GLCTechniques?window.GLCTechniques.cost(s.raw,TEC_EFF,techniqueRules()):tecCost(s.raw);c.st=v.st;c.maintenanceST=v.pt;}
+ if(s.kind==='tech'&&s.techKind==='built'){const t=techniqueDraft(s,move),v=window.GLCTechniques?window.GLCTechniques.cost(t,TEC_EFF,techniqueRules()):tecCost(t);c.st=v.st;c.maintenanceST=v.pt;}
+ if(s.kind==='module'&&window.GLCCyborg){const check=window.GLCCyborg.evaluate(pg,s.raw,{purpose:'use'});c.st=check.cost.st;c.resource=check.cost.resource;}
  if(s.prestige)c.st=s.raw.costST;
  else if(s.kind==='talent'&&Number.isInteger(s.meta?.costST))c.st=s.meta.costST;
  else if(s.kind==='talent'&&s.meta?.mode==='active'){
@@ -377,6 +408,8 @@ function noCardIds() {
 }
 function normalizeMove(m={}) {
  if(!m||typeof m!=='object')m={};
+ const base=findSource(m.baseTechId);
+ if(!m.weaponId&&!m.moduleId&&base?.raw.modulo)m={...m,moduleId:'module:'+base.raw.modulo};
  // Cards saved while a 0 ST talent was still active keep it, now among the passive ones.
  if(m.activeTalentId&&findSource(m.activeTalentId,sources())?.meta?.mode==='passive')
   m={...m,passiveTalentIds:[...list(m.passiveTalentIds),m.activeTalentId],activeTalentId:''};
@@ -392,7 +425,7 @@ function normalizeMove(m={}) {
 }
 function selectedIDs(m) {return uniq([m.baseTechId,m.activeTalentId,...list(m.passiveTalentIds),...list(m.fruitSelections),...list(m.hakiSelections).map(h=>h.id),m.weaponId,m.moduleId,m.instrumentId].filter(Boolean));}
 function resolve(input) {
- const m=normalizeMove(input),ss=sources(),tech=findSource(m.baseTechId,ss),t=tech?.raw;
+ const m=normalizeMove(input),ss=sources(),tech=findSource(m.baseTechId,ss),t=tech&&techniqueDraft(tech,m);
  const errors=[],unavailable=[],unknown=[],rows=[],conditions=[],formulas=[],resources=[],directSaves=[];
  const selected=selectedIDs(m).map(id=>findSource(id,ss)).filter(Boolean);
  const economy=actionPlan(m,ss,tech);errors.push(...economy.errors);
@@ -410,7 +443,7 @@ function resolve(input) {
  techniqueProblems(tech,m).forEach(text=>errors.push({id:m.baseTechId,text}));
  if(m.techniqueUse==='defense'&&!isAttack(t))errors.push({id:m.baseTechId,text:'La Difesa Attiva con una Tecnica richiede una Tecnica d’attacco compatibile.'});
  if(m.techniqueUse==='parry'&&!isNormalParry(t,m))errors.push({id:m.baseTechId,text:'La Parata con arma richiede una Tecnica di contesto Swordsman o Crusher e un’arma da mischia compatibile.'});
- if(isNormalParry(t,m)&&!findSource(m.weaponId,ss))errors.push({id:m.baseTechId,text:'Parata: collega l’arma compatibile effettivamente impugnata.'});
+ if(isNormalParry(t,m)&&!recipeWeapon(tech,m,ss))errors.push({id:m.baseTechId,text:'Parata: collega l’arma compatibile effettivamente impugnata.'});
  if(m.instrumentId&&t?.forma!=='Canzone')errors.push({id:m.instrumentId,text:'Lo strumento musicale si collega soltanto a una Canzone.'});
  let st=0,pip=0,maintenanceST=0,maintenancePIP=0;const pipByColor={};
  const talentSelected=selected.filter(s=>s.kind==='talent');
@@ -422,14 +455,17 @@ function resolve(input) {
  if(m.weaponId&&m.moduleId)errors.push({text:'Una Tecnica usa un’arma oppure un modulo, mai entrambi.'});
  selected.filter(s=>['weapon','module'].includes(s.kind)).forEach(s=>{
   if(!compatibleEquipment(s,tech,true))errors.push({id:s.id,text:s.name+': esecutore incompatibile con la Tecnica.'});
-  if(s.kind==='module' && (s.raw.stato==='danneggiato'||pg.moduloAttivo!==s.raw.id))unavailable.push(s.name+': '+(s.raw.stato==='danneggiato'?'danneggiato':'inattivo · attivalo dalla scheda del modulo'));
+  if(s.kind==='module'&&window.GLCCyborg){
+   const check=window.GLCCyborg.evaluate(pg,s.raw,{purpose:'use'});
+   if(!check.operational)check.operationalErrors.forEach(e=>unavailable.push(s.name+': '+e.text));
+  }else if(s.kind==='module' && (s.raw.stato==='danneggiato'||pg.moduloAttivo!==s.raw.id))unavailable.push(s.name+': '+(s.raw.stato==='danneggiato'?'danneggiato':'inattivo · attivalo dalla scheda del modulo'));
  });
  const aliases=talentSelected.map(s=>s.alias),owns=n=>aliases.includes(n),prestige=id=>talentSelected.find(s=>s.prestige&&s.raw.id===id);
  talentSelected.filter(s=>s.prestige&&s.raw.limit).forEach(s=>{if((Number(pg.prestige?.session?.uses?.[s.raw.id])||0)>=s.raw.limit)unavailable.push(s.name+': utilizzi disponibili esauriti.');});
  const reactions=talentSelected.filter(s=>s.meta?.action==='reaction');
  if(reactions.length)conditions.push({id:reactions[0].id,text:'Questa risposta impiega la tua Reazione disponibile; non concede una Reazione aggiuntiva né un’Azione extra.'});
  selected.filter(s=>s.kind!=='haki'&&s.kind!=='fruit').forEach(s=>{
-  let c=sourceCost(s);if(!c){unknown.push(s);return;}c={...c};
+  let c=sourceCost(s,m);if(!c){unknown.push(s);return;}c={...c};
   const notes=[];
   if(s.prestige&&s.meta.quantity){const q=Number(m.talentUses[s.id]??1);if(!Number.isSafeInteger(q)||q<1||!Number.isSafeInteger(rafficaCost(q)))errors.push({id:s.id,text:'Raffica: indica un numero intero positivo di attacchi extra.'});else{c.st=rafficaCost(q);notes.push(q+' attacchi extra · costi progressivi da 1 a '+q+' ST · 1 Bonus complessiva');}}
   else if(s.kind==='talent'&&s.meta?.quantity){const max=s.alias.includes('Maestria')?3:s.alias.includes('Migliorato')?2:1;const q=Number(m.talentUses[s.id]??1);if(!Number.isSafeInteger(q)||q<1||q>max)errors.push({id:s.id,text:'Raffica: indica da 1 a '+max+' attacchi base extra, con un numero intero.'});else{c.st=rafficaCost(q);notes.push(q+' attacch'+(q===1?'o':'i')+' base extra · costi progressivi da 1 a '+q+' ST · 1×/turno');}conditions.push({id:s.id,text:'Raffica ordinaria: gli extra sono sempre attacchi base a mani nude, non altri usi della Tecnica. Paga prima di ciascun attacco; un mancato consuma ST ma non interrompe la sequenza. Puoi fermarti dopo qualunque extra; Il Colpo Sfonda si attiva al massimo una volta per turno.'});}
@@ -452,7 +488,8 @@ function resolve(input) {
   if(c.pip||c.maintenancePIP){const hs=findSource(c.pipSourceId,ss);if(!hs||hs.kind!=='haki'){unknown.push(s);return;}pipByColor[hs.id]=(pipByColor[hs.id]||0)+c.pip;}
   st+=c.st;pip+=c.pip;maintenanceST+=c.maintenanceST;maintenancePIP+=c.maintenancePIP;
   rows.push({id:s.id,name:s.name,...c,note:notes.join(' · ')});
-  if(s.kind==='module'&&s.raw.fuel?.on){const f=s.raw.fuel;resources.push({id:s.id,name:f.tipo||'Risorsa modulo',cost:c.resource,available:number(f.cur),text:clean(f.consumo||'')});if(number(f.cur)<c.resource)unavailable.push(s.name+': '+(f.tipo||'risorse')+' insufficienti.');}
+  if(s.kind==='module'&&window.GLCCyborg){const energy=window.GLCCyborg.evaluate(pg,s.raw,{purpose:'use'}).energy;if(energy.enabled)resources.push({id:s.id,name:energy.type||'Cariche modulo',cost:energy.cost,available:energy.current,max:energy.max,text:'Cariche e ST si pagano separatamente. Il consumo avviene soltanto con l’azione esplicita nella scheda del modulo.'});}
+  else if(s.kind==='module'&&s.raw.fuel?.on){const f=s.raw.fuel;resources.push({id:s.id,name:f.tipo||'Risorsa modulo',cost:c.resource,available:number(f.cur),text:clean(f.consumo||'')});if(number(f.cur)<c.resource)unavailable.push(s.name+': '+(f.tipo||'risorse')+' insufficienti.');}
   if(s.kind==='weapon'&&s.raw.eff?.prezzo==='Una carica')resources.push({id:s.id,name:'Carica arma',cost:1,available:null,text:'Gestisci il consumo nella scheda dell’arma.'});
  });
  const techniqueRow=rows.find(row=>row.id===m.baseTechId);
@@ -539,7 +576,7 @@ function resolve(input) {
    const armRyou=m.hakiSelections.some(h=>findSource(h.id,ss)?.name===HAKI_NAMES[0]&&h.effects.includes('act:d20'));
    if(armRyou||hakiFX('ryou-persistente'))conditional('Ryou · Armamento','Raddoppia ×2 il danno complessivo dell’azione, calcolato una volta sola sul totale. Il bersaglio usa normalmente la propria difesa.');
   }else if(isDefending(t,m)){
-   const parry=isNormalParry(t,m),weapon=findSource(m.weaponId,ss);
+   const parry=isNormalParry(t,m),weapon=recipeWeapon(tech,m,ss);
    const weaponAttr=weapon?.raw.attr,weaponPool=pg.attr?.[weaponAttr];
    let defense=parry?(weaponPool||'Attributo arma da definire')+' '+(weaponAttr||'')+' + '+(prestige('maestria-assoluta-della-lama')?'d20':weapon?.raw.grado||'Grado arma da collegare')+' arma':isActiveDefense(t,m)?roll:'Effetto difensivo della Tecnica';
    const activeDefense=isActiveDefense(t,m)||parry,guard=parry?'':list(t.eff).find(n=>/^Guardia(?: Migliorata| Maestria| Suprema)?$/.test(n));
@@ -556,7 +593,7 @@ function resolve(input) {
    if(guard||corazza)formulas.push({label:'Difesa Passiva',text:'Difesa Passiva attuale'+(guard?' + '+guardBonus+' '+guard+' (fino all’inizio del prossimo turno)':'')+(corazza?' + 4 Corazza d’Armamento (2 turni)':''),id:tech.id});
    if(!activeDefense&&!guard&&!corazza)formulas.push({label:'Difesa',text:defense,id:tech.id});
    if(owns('Contraccolpo')&&activeDefense&&!parry)formulas.push({label:'Contraccolpo',text:t.die+' Dado Danno della Tecnica · soltanto se la Difesa Attiva supera strettamente l’attacco nemico. Il pareggio evita il colpo senza contro-danno; nessun altro effetto offensivo automatico.',id:tech.id});
-   if(owns('Riposta')&&activeDefense&&!parry){const w=findSource(m.weaponId,ss)||findSource('weapon:'+t.arma,ss);formulas.push({label:'Riposta · attacco separato',text:'Dopo una Difesa Attiva riuscita con la Tecnica, anche in pareggio, puoi spendere 1 ST per un attacco base separato: '+(pg.attr?.[w?.raw.attr]||'Attributo arma da definire')+' '+(w?.raw.attr||'')+' + '+(prestige('maestria-assoluta-della-lama')?'d20':w?.raw.grado||'Grado arma compatibile')+' arma per colpire; un Dado Arma di danno. Non garantisce il colpo e non ripete automaticamente la Tecnica.',id:tech.id});}
+   if(owns('Riposta')&&activeDefense&&!parry){const w=recipeWeapon(tech,m,ss)||findSource('weapon:'+t.arma,ss);formulas.push({label:'Riposta · attacco separato',text:'Dopo una Difesa Attiva riuscita con la Tecnica, anche in pareggio, puoi spendere 1 ST per un attacco base separato: '+(pg.attr?.[w?.raw.attr]||'Attributo arma da definire')+' '+(w?.raw.attr||'')+' + '+(prestige('maestria-assoluta-della-lama')?'d20':w?.raw.grado||'Grado arma compatibile')+' arma per colpire; un Dado Arma di danno. Non garantisce il colpo e non ripete automaticamente la Tecnica.',id:tech.id});}
   }else formulas.push({label:t.forma||'Risoluzione',text:t.forma==='Canzone'?'Effetto sugli alleati; Salvezza per i nemici secondo la Melodia.':t.forma==='Potenziamento'?'Spendi un’Azione principale e il costo della Tecnica. Il beneficio dura per la scena e lascia libera la Bonus.':tech.techKind==='racial'?t.desc:roll+' · applica gli effetti della Tecnica',id:tech.id});
   if(window.GLCPrestige){
    const b=window.GLCPrestige.techniqueBenefits(pg,t);

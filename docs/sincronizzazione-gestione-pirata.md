@@ -10,6 +10,8 @@ cataloghi dei Talenti, i prerequisiti, le Special Moves e le due stampe.
 Moves. Gli effetti ordinari sono i 17 del manuale, con le liste per Striker,
 Swordsman, Crusher e Sniper. Gli ultimi tre richiedono un'arma compatibile
 presente in scheda e il collegamento all'arma effettivamente utilizzata.
+Un Modulo-Arma integrato compatibile segue le stesse condizioni fisiche:
+si veda [la sincronizzazione Cyborg](sincronizzazione-cyborg.md).
 I due modi delle armi ad asta mantengono le rispettive compatibilità.
 L'arma registra Forza oppure Tecnica e un Grado fisico da d4 a d20: il
 pirata deve possedere quell'Attributo almeno al Grado dell'arma. Il Grado

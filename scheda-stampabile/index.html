@@ -11,7 +11,8 @@
 <link rel="stylesheet" href="special-moves-print.css?v=1">
 <script src="/regole/tratti-data.js?v=1"></script>
 <script src="/regole/tratti.js?v=1"></script>
-<script src="special-moves-print.js?v=6"></script>
+<script src="/regole/cyborg.js?v=1"></script>
+<script src="special-moves-print.js?v=7"></script>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#33261a;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -375,7 +376,7 @@ html,body{overflow-x:visible;}
       "hp": "d8",
       "pv": 16,
       "tech": "Corpo Meccanico",
-      "techDesc": "Installa moduli meccanici nel corpo: 1 slot a d6, 2 a d8, 3 a d10, 4 a d12, 5 a d20."
+      "techDesc": "Slot e Fascia massima: d6 = 1, d8 = 2, d10 = 3, d12 = 4, d20 = 5. Un solo Modulo attivo; nessun Prestigio per Corpo Meccanico."
     },
     "tontatta": {
       "name": "Tontatta",
@@ -473,6 +474,58 @@ html,body{overflow-x:visible;}
     var who=$id('who'); if(who) who.textContent='Scheda di '+(pg.nome&&pg.nome.trim()?pg.nome.trim():'Senza nome');
     var bl=$id('blanklink'); if(bl) bl.style.display='';
   }
+  function modulePrintRecord(pg,m){
+    if(m.assessment)return m;
+    var raw=JSON.parse(JSON.stringify(m));
+    if(typeof raw.tipo==='string')raw.tipo=raw.tipo.split(/\s*,\s*/).filter(Boolean);
+    if(raw.effData)raw.eff=raw.effData;
+    if(raw.fuelData)raw.fuel=raw.fuelData;
+    var assessment=window.GLCCyborg?GLCCyborg.evaluate(pg,raw,{purpose:'project'}):null;
+    return Object.assign({},m,{assessment:assessment,installato:assessment?assessment.installed:m.installato!==false,attivo:assessment?assessment.active:pg.moduloAttivo===m.id,effData:raw.eff&&typeof raw.eff==='object'?raw.eff:null,fuelData:raw.fuel&&typeof raw.fuel==='object'?raw.fuel:null});
+  }
+  function moduleEffectText(m){
+    var e=m.effData||(m.eff&&typeof m.eff==='object'?m.eff:null);
+    if(!e)return typeof m.eff==='string'?m.eff:(m.effLegacy||'Nessun Effetto Speciale.');
+    var base=e.cat==='Maledizione'?e.base:e.cat,parts=[e.cat+(e.cat==='Maledizione'&&base?' · '+base:'')];
+    if(base==='Sconto')parts.push('Bersaglio: '+(e.tgt||'da registrare'),[e.scontoST!=null?'−'+e.scontoST+' ST':'',e.scontoSlot!=null?'−'+e.scontoSlot+' Slot Effetto':''].filter(Boolean).join(' · '));
+    if(base==='Sblocco')parts.push('Sblocco: '+(Array.isArray(e.sblocchi)?e.sblocchi.join(', '):'da registrare'));
+    if(base==='Passiva')parts.push(e.modello||'Modello da registrare',e.parametro?'Parametro: '+e.parametro:'',e.aumento!=null?'Aumento: +'+e.aumento+'%':'');
+    if(base==='Reazione'){
+      var frequency=e.freq&&typeof e.freq==='object'?e.freq.periodo:e.freq,uses=e.utilizzi??e.uses??(e.freq&&typeof e.freq==='object'?e.freq.n:null);
+      var period=['combat','scontro','combattimento'].includes(frequency)?'scontro':['round','turno'].includes(frequency)?'round':frequency;
+      parts.push('Trigger: '+(e.trigger||'da registrare'),period?(uses!=null?uses+' volta/e per ':'Frequenza: ')+period:'Frequenza da registrare',e.emergenza?'Attivazione d’emergenza':'');
+    }
+    if(e.cat==='Maledizione')parts.push('Prezzo: '+(typeof e.prezzo==='object'?[e.prezzo.tipo,e.prezzo.condizione].filter(Boolean).join(' · '):e.prezzo||'da registrare'));
+    parts.push(e.testo||'',e.cond?'Condizioni: '+e.cond:'',e.limiti?'Limiti: '+e.limiti:'');
+    return parts.filter(Boolean).join(' · ');
+  }
+  function moduleFunctionLimits(m){
+    var a=m.assessment,l=a&&a.limits;if(!l)return '';
+    var kind=m.funzioneTipo||(a&&a.functionType),keys={Corazza:['corazza'],Scudo:['scudoDP','scudoAlleati','scudoRaggio'],Propulsore:['spostamento'],Manipolatore:['portata','carico'],Sensore:['sensori'],Emissione:['area']}[kind]||Object.keys(m.parametri||{});
+    var labels={corazza:'riduzione danno fisico',scudoDP:'Copertura Parziale DP',scudoAlleati:'alleati protetti',scudoRaggio:'raggio protetto',spostamento:'spostamento',portata:'portata funzionale',carico:'carico',sensori:'raggio sensori',area:'area funzionale'};
+    var values=keys.filter(function(k){return labels[k]&&l[k]!=null;}).map(function(k){var value=l[k];return labels[k]+': '+(k==='corazza'?'−':k==='scudoDP'?'+':'')+value+(k==='carico'?' kg':['scudoRaggio','spostamento','portata','sensori','area'].includes(k)?' m':'');});
+    if(kind==='Scudo'&&l.scudoAlleati===null)values.push('alleati entro il raggio protetto');
+    if(kind==='Propulsore'&&l.volo)values.push(l.volo);
+    if(kind==='Strumento'&&l.strumento)values.push(l.strumento);
+    return values.length?'Limiti massimi della Funzione: '+values.join(' · ')+'.':'';
+  }
+  function modulePrintRow(row,m){
+    var a=m.assessment,installed=m.installato!==false,active=!!m.attivo;
+    var meta=[installed?'Installato':'Non installato',m.stato==='danneggiato'?'Danneggiato':'Integro',active?'Attivo':'Inattivo',Array.isArray(m.tipo)?m.tipo.join(', '):m.tipo,m.req?'Fascia Tecnologica '+m.req:'Fascia da registrare',m.arma?'Modulo-Arma'+((m.gradoArma||m.grado)?' · Grado d’Arma '+(m.gradoArma||m.grado):''):'Funzionale',m.armaTipo,m.arma&&m.attr?'Attributo '+m.attr:''].filter(Boolean).join(' · ');
+    var functionType=m.funzioneTipo||(a&&a.functionType)||'',functionUse=m.funzioneUso||(a&&a.functionUse)||'';
+    var details=[functionType?'Funzione: '+functionType+(functionUse?' · '+functionUse:''):'',m.funzione?'Funzione fisica: '+m.funzione:'','Funzione attiva: '+(m.funzioneAttiva||m.funzione||'da registrare'),'Funzione inattiva: '+(m.funzioneInattiva||'nessun beneficio meccanico registrato'),moduleFunctionLimits(m),'Effetto Speciale: '+moduleEffectText(m)];
+    var fuel=m.fuelData||(m.fuel&&typeof m.fuel==='object'?m.fuel:null),energy=a&&a.energy;
+    if(fuel&&fuel.on||energy&&energy.enabled){
+      var type=energy?energy.type:fuel.tipo||'Cariche',current=energy?energy.current:fuel.cur,maximum=energy?energy.max:fuel.max;
+      details.push('Energia: '+type+' · '+(current??'da registrare')+'/'+(maximum??'da registrare')+' Cariche'+(a&&a.limits?' · capacità massima di Fascia '+a.limits.charges:''),fuel&&fuel.consumo!=null?'Consumo per utilizzo: '+fuel.consumo+(energy?' · costo effettivo '+energy.cost+' Cariche':''):'',fuel&&fuel.mantenimento?'Mantenimento: '+fuel.mantenimento:'','Ricarica: '+(fuel&&fuel.ricarica||'10 minuti fuori combattimento con la risorsa necessaria. Il Riposo non ricarica le Cariche.'));
+    }else details.push(typeof m.fuel==='string'&&m.fuel?'Energia: '+m.fuel:'Energia: Nessuna.');
+    if(a&&a.cost&&a.cost.st)details.push('Costo aggiuntivo del Modulo: '+a.cost.st+' ST per utilizzo.');
+    if(m.tecnicheCompatibili)details.push('Tecniche compatibili: '+(Array.isArray(m.tecnicheCompatibili)?m.tecnicheCompatibili.join(', '):m.tecnicheCompatibili));
+    if(m.limiti)details.push('Limiti: '+m.limiti);
+    var issues=Array.isArray(m.issues)?m.issues:(a&&Array.isArray(a.errors)?a.errors.map(function(e){return e.text;}):[]);
+    var notes=[a?(a.operational?'Funzione attiva disponibile.':'Funzione attiva non disponibile: '+a.reason):'',issues.length?'Scheda da aggiornare: '+issues.join(' · '):'',m.desc||m.note||''].filter(Boolean).join(' ');
+    return row(m.nome||'Modulo',meta,details.filter(Boolean).join(' — '),notes);
+  }
   /* Facciata 3 — generata solo se c'è qualcosa da scrivere: Talenti, Tratti,
      arsenale, Haki, tecniche per esteso, P.A. Preferisce il pacchetto del
      gestionale; i Tratti restano leggibili anche dai soli dati del pirata. */
@@ -500,8 +553,10 @@ html,body{overflow-x:visible;}
     if(extraTechs.length) sec('Tecniche / Armi (segue)',extraTechs.map(function(t){return row(t.nome,[t.tipo,t.attr,t.die].filter(Boolean).join(' \u00b7 '),t.eff);}).join(''));
     var tec=P?P.tecniche:[];
     if(tec.length) sec('Tecniche costruite — effetti per esteso',tec.map(function(t){var meta=[t.fonte,t.forma,t.attr,t.die,t.durata&&t.durata!=='Un turno'?t.durata:'',t.cost,t.valid===false?'Da aggiornare':''].filter(Boolean).join(' \u00b7 ')+(t.soglia!=null?(' \u00b7 '+t.pa+'/'+t.soglia+' PA'):'');var eff=(t.eff||[]).map(function(e){return e.n+(e.d?(': '+e.d):'');}).join(' \u00b7 ');var warning=t.valid===false?('Tecnica da aggiornare'+(Array.isArray(t.issues)&&t.issues.length?': '+t.issues.join(' · '):'.')):'';return row(t.nome||'(senza nome)',meta,eff,[warning,t.desc].filter(Boolean).join(' — '));}).join(''));
-    var mods=P?P.moduli:(pg.moduli||[]);
-    if(mods.length) sec('Corpo Meccanico \u00b7 Moduli'+(P&&P.moduliSlots?(' \u00b7 '+mods.length+'/'+P.moduliSlots+' slot'):''),mods.map(function(m){var meta=[(m.attivo?'ATTIVO':(m.stato==='danneggiato'?'DANNEGGIATO':'inattivo')),m.tipo,(m.req?('requisito '+m.req):''),(m.grado?('Grado '+m.grado):''),m.fuel].filter(Boolean).join(' \u00b7 ');var d=[m.funzione,(m.effCat?((m.effCat+(m.effTgt?(' \u00b7 '+m.effTgt):''))+(m.eff?(' \u2014 '+m.eff):'')):(m.eff||''))].filter(Boolean).join(' \u2014 ');return row(m.nome||'modulo',meta,d,m.desc);}).join(''));
+    var mods=(P&&Array.isArray(P.moduli)?P.moduli:(pg.moduli||[])).map(function(m){return modulePrintRecord(pg,m);});
+    var moduleSlots=P&&P.moduliSlots!=null?P.moduliSlots:window.GLCCyborg?GLCCyborg.slots(pg).n:0;
+    var installedModules=P&&P.moduliInstalled!=null?P.moduliInstalled:mods.filter(function(m){return m.installato!==false;}).length;
+    if(mods.length)sec('Corpo Meccanico · Moduli · '+installedModules+'/'+moduleSlots+' slot installati',mods.map(function(m){return modulePrintRow(row,m);}).join(''));
     var str=P?P.strumenti:(pg.strumenti||[]);
     if(str.length) sec('Strumenti del Musicista',str.map(function(a){return row(a.nome||'strumento',[a.tipo||'Corde',(a.die||'')+(a.grado?(' '+a.grado):''),(a.soglia?('Salvezza '+a.soglia):''),(a.over?'usato come '+(a.eff||'Grado di Arte'):'')].filter(Boolean).join(' \u00b7 '),a.note);}).join(''));
     var armi=P?P.armi:(pg.armi||[]);
