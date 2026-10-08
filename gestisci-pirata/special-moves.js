@@ -111,12 +111,13 @@ function transaction(change, owner=CT.activeId) {
  pg=next;CT=state;
  return next;
 }
+const isInstrumentRecord=i=>!!i&&typeof i==='object'&&!Array.isArray(i);
 function ensureReferences() {
- const needs=['t1','t2'].some(k=>pg[k]?.nome&&!pg[k].smcId) || list(pg.haki).some(h=>!h.smcId) || list(pg.strumenti).some(i=>!i.smcId);
+ const needs=['t1','t2'].some(k=>pg[k]?.nome&&!pg[k].smcId) || list(pg.haki).some(h=>!h.smcId) || list(pg.strumenti).some(i=>isInstrumentRecord(i)&&!i.smcId);
  if(needs)transaction(p=>{
   ['t1','t2'].forEach(k=>{if(p[k]?.nome&&!p[k].smcId)p[k].smcId=k;});
   list(p.haki).forEach(h=>{if(!h.smcId)h.smcId=uid();});
-  list(p.strumenti).forEach(i=>{if(!i.smcId)i.smcId=uid();});
+  list(p.strumenti).forEach(i=>{if(isInstrumentRecord(i)&&!i.smcId)i.smcId=uid();});
  });
 }
 function sourceIcon(s,size=24) {
@@ -126,9 +127,10 @@ function sourceIcon(s,size=24) {
  return svgIcon(s.icon||'star',size);
 }
 function sourceTech(t,id,kind='built') {
+ const song=t.fonte==='Stile'&&t.forma==='Canzone';
  return {id,kind:'tech',techKind:kind,name:t.nome||'Tecnica senza nome',raw:t,
-  desc:t.desc||'',icon:FORMA_ICO[t.forma]||'burst',emblem:t.fonte==='Frutto'?'frutto':STYLE_IMG[t.stile],
-  subtitle:[t.fonte,t.stile||t.fruitType,t.forma,t.die].filter(Boolean).join(' · ')};
+  desc:t.desc||'',icon:song?'music':FORMA_ICO[t.forma]||'burst',emblem:song?ROLE_IMG.Musicista:t.fonte==='Frutto'?'frutto':STYLE_IMG[t.stile],
+  subtitle:[t.fonte,song?'Musicista':t.stile||t.fruitType,t.forma,t.die].filter(Boolean).join(' · ')};
 }
 function sources() {
  const out=[],talentStates=window.GLCTalents?.states(pg)||[];
@@ -179,8 +181,9 @@ function sources() {
  list(pg.armi).forEach(a=>out.push({id:'weapon:'+a.id,kind:'weapon',name:a.nome||'Arma senza nome',raw:a,icon:WEAPON_ICO[a.tipo]||'sword',desc:a.eff?.desc||'',subtitle:a.tipo+' · '+a.grado}));
  (window.GLCFruits?.naturalWeapons(pg,{purpose:'use'})||[]).filter(a=>a.id).forEach(a=>out.push({id:'weapon:'+a.id,kind:'weapon',subtype:'naturalWeapon',name:a.nome||'Arma Naturale',raw:a,icon:WEAPON_ICO[a.tipo]||'sword',desc:[a.anatomia,'Forme: '+list(a.forme).join(', '),'Portata: '+a.portata,a.note,'Fuori Arsenale; richiede Artigli e Zanne. Non concede Stili o loro Talenti.'].filter(Boolean).join('\n'),subtitle:a.tipo+' · '+a.grado+' · '+(a.operational?'disponibile':a.errors.concat(a.operationalErrors).join(' · '))}));
  if(typeof isMusicista==='function'&&isMusicista()){
-  out.push({id:'instrument:voice',kind:'instrument',name:'La tua voce',raw:{die:'d4'},icon:'music',desc:'Strumento d4 sempre disponibile.',subtitle:'Voce · d4'});
-  list(pg.strumenti).forEach(i=>{if(i.smcId)out.push({id:'instrument:'+i.smcId,kind:'instrument',name:i.nome||'Strumento senza nome',raw:i,icon:'music',desc:i.note||'',subtitle:(i.tipo||'Strumento')+' · '+i.die});});
+  if(window.GLCMelodies)window.GLCMelodies.instruments(pg).forEach(i=>out.push({id:i.id,kind:'instrument',name:i.name,raw:i.raw,icon:'music',desc:[i.amplification,i.raw?.note,...i.errors].filter(Boolean).join(' '),subtitle:i.type+' · '+i.grade+(i.over?' usato come '+i.effective:'')}));
+  else {out.push({id:'instrument:voice',kind:'instrument',name:'La tua voce',raw:{die:'d4'},icon:'music',desc:'Strumento d4 sempre disponibile.',subtitle:'Voce · d4'});
+   list(pg.strumenti).forEach(i=>{if(isInstrumentRecord(i)&&i.smcId)out.push({id:'instrument:'+i.smcId,kind:'instrument',name:i.nome||'Strumento senza nome',raw:i,icon:'music',desc:i.note||'',subtitle:(i.tipo||'Strumento')+' · '+i.die});});}
  }
  list(pg.moduli).forEach(m=>{
   const state=window.GLCCyborg?.evaluate(pg,m,{purpose:'use'}),weapon=window.GLCCyborg?.weapon(m);
@@ -256,6 +259,7 @@ function techniqueRules(){
 }
 function techniqueDraft(s,move={}){
  const draft=copy(s?.raw||{});
+ if(draft.forma==='Canzone')return {...draft,arma:'',modulo:'',weapon:'',instrumentId:move.instrumentId||draft.instrumentId||'instrument:voice',songContext:{...(draft.songContext||{}),...(move.songContext||{})}};
  if(move.weaponId){draft.arma=move.weaponId.replace(/^weapon:/,'');draft.modulo='';}
  else if(move.moduleId){draft.modulo=move.moduleId.replace(/^module:/,'');draft.arma='';}
  return draft;
@@ -434,8 +438,8 @@ function noCardIds() {
 function normalizeMove(m={}) {
  if(!m||typeof m!=='object')m={};
  const base=findSource(m.baseTechId);
- if(!m.weaponId&&!m.moduleId&&base?.raw.modulo)m={...m,moduleId:'module:'+base.raw.modulo};
- if(!m.weaponId&&!m.moduleId&&String(base?.raw.arma||'').startsWith('natural:'))m={...m,weaponId:'weapon:'+base.raw.arma};
+ if(base?.raw.forma!=='Canzone'&&!m.weaponId&&!m.moduleId&&base?.raw.modulo)m={...m,moduleId:'module:'+base.raw.modulo};
+ if(base?.raw.forma!=='Canzone'&&!m.weaponId&&!m.moduleId&&String(base?.raw.arma||'').startsWith('natural:'))m={...m,weaponId:'weapon:'+base.raw.arma};
  // Cards saved while a 0 ST talent was still active keep it, now among the passive ones.
  if(m.activeTalentId&&findSource(m.activeTalentId,sources())?.meta?.mode==='passive')
   m={...m,passiveTalentIds:[...list(m.passiveTalentIds),m.activeTalentId],activeTalentId:''};
@@ -443,13 +447,13 @@ function normalizeMove(m={}) {
  const barred=noCardIds();
  if(barred.has(m.activeTalentId)||list(m.passiveTalentIds).some(id=>barred.has(id)))
   m={...m,activeTalentId:barred.has(m.activeTalentId)?'':m.activeTalentId,passiveTalentIds:list(m.passiveTalentIds).filter(id=>!barred.has(id))};
- return {...m,id:m.id||uid(),name:String(m.name||''),baseTechId:m.baseTechId||'',techniqueUse:['defense','parry'].includes(m.techniqueUse)?m.techniqueUse:'normal',instrumentId:m.instrumentId||'',activeTalentId:m.activeTalentId||'',
+ return {...m,id:m.id||uid(),name:String(m.name||''),baseTechId:m.baseTechId||'',techniqueUse:['defense','parry'].includes(m.techniqueUse)?m.techniqueUse:'normal',instrumentId:m.instrumentId||(base?.raw.forma==='Canzone'?base.raw.instrumentId||'instrument:voice':''),songContext:m.songContext&&typeof m.songContext==='object'?{...m.songContext}:{},activeTalentId:m.activeTalentId||'',
   passiveTalentIds:uniq(list(m.passiveTalentIds)),hakiSelections:list(m.hakiSelections).filter(h=>h&&typeof h==='object').map(h=>({...h,id:h.id,use:h.use||'offense',effects:uniq(list(h.effects)),activation:h.activation==='prepared'?'prepared':'auto',preparedEffects:uniq(list(h.preparedEffects))})),
   fruitSelections:uniq(list(m.fruitSelections)),weaponId:m.weaponId||'',moduleId:m.moduleId||'',
   talentUses:m.talentUses||{},talentTechniqueUses:m.talentTechniqueUses||{},conditions:m.conditions||{},sequence:uniq(list(m.sequence)),
   presentation:{subtitle:'',quote:'',quoteZone:'bottom',variant:'dossier',finish:'none',zoom:1,x:50,y:50,...m.presentation},notes:String(m.notes||'')};
 }
-function selectedIDs(m) {return uniq([m.baseTechId,m.activeTalentId,...list(m.passiveTalentIds),...list(m.fruitSelections),...list(m.hakiSelections).map(h=>h.id),m.weaponId,m.moduleId,m.instrumentId].filter(Boolean));}
+function selectedIDs(m) {const song=findSource(m.baseTechId)?.raw.forma==='Canzone';return uniq([m.baseTechId,m.activeTalentId,...list(m.passiveTalentIds),...list(m.fruitSelections),...list(m.hakiSelections).map(h=>h.id),...(song?[]:[m.weaponId,m.moduleId]),m.instrumentId].filter(Boolean));}
 function resolve(input) {
  const m=normalizeMove(input),ss=sources(),tech=findSource(m.baseTechId,ss),t=tech&&techniqueDraft(tech,m);
  const errors=[],unavailable=[],unknown=[],rows=[],conditions=[],formulas=[],resources=[],directSaves=[];
@@ -467,7 +471,7 @@ function resolve(input) {
   }else errors.push({id,text:'Fonte non più presente · '+id});
  });
  techniqueProblems(tech,m).forEach(text=>errors.push({id:m.baseTechId,text}));
- if(t&&window.GLCFruits)unavailable.push(...window.GLCFruits.useProblems(pg,t));
+ if(t&&t.forma!=='Canzone'&&window.GLCFruits)unavailable.push(...window.GLCFruits.useProblems(pg,t));
  if(t&&window.GLCTechniques){const opts=techniqueRules(),area=window.GLCTechniques.areaUpgrade(t,opts),duration=window.GLCTechniques.durationBenefit(t,opts);if(area)conditions.push({id:tech.id,text:area.text});if(duration)conditions.push({id:tech.id,text:duration.text});}
  if(m.techniqueUse==='defense'&&!isAttack(t))errors.push({id:m.baseTechId,text:'La Difesa Attiva con una Tecnica richiede una Tecnica d’attacco compatibile.'});
  if(m.techniqueUse==='parry'&&!isNormalParry(t,m))errors.push({id:m.baseTechId,text:'La Parata con arma richiede una Tecnica di contesto Swordsman o Crusher e un’arma da mischia compatibile.'});
@@ -480,7 +484,7 @@ function resolve(input) {
   if(s.meta?.mode==='active'&&s.id!==m.activeTalentId)errors.push({id:s.id,text:s.name+': deve occupare lo slot del Talento attivo.'});
   if(s.meta?.mode==='passive'&&s.id===m.activeTalentId)errors.push({id:s.id,text:s.name+': è un Talento passivo.'});
  });
- if(m.weaponId&&m.moduleId)errors.push({text:'Una Tecnica usa un’arma oppure un modulo, mai entrambi.'});
+ if(t?.forma!=='Canzone'&&m.weaponId&&m.moduleId)errors.push({text:'Una Tecnica usa un’arma oppure un modulo, mai entrambi.'});
  selected.filter(s=>['weapon','module'].includes(s.kind)).forEach(s=>{
   if(!compatibleEquipment(s,tech,true))errors.push({id:s.id,text:s.name+': esecutore incompatibile con la Tecnica.'});
   if(s.subtype==='naturalWeapon'){if(!s.raw.valid)s.raw.errors.forEach(text=>errors.push({id:s.id,text}));else if(!s.raw.operational)s.raw.operationalErrors.forEach(text=>unavailable.push(s.name+': '+text));}
@@ -506,8 +510,7 @@ function resolve(input) {
     if(window.GLCFruits?.has(pg,'Portata Naturale'))notes.push('Portata Naturale: Gittata gratuita e senza slot; Catena −1 ST, già inclusi nel costo');
    }
    c.st=Math.max(0,raw);
-   if(t.forma==='Canzone'&&owns('Fiato Lungo')){c.st=Math.max(1,c.st-1);notes.push('Fiato Lungo: −1, minimo 1');}
-   if(t.forma==='Canzone'&&(owns('Contrappunto — Maestria')||prestige('orchestra-vivente'))){c.maintenanceST=0;notes.push('Contrappunto: mantenimento gratuito');}
+   if(t.forma==='Canzone'&&window.GLCMelodies)notes.push(...window.GLCMelodies.evaluate(pg,t).notes);
    if(t.fonte==='Frutto'&&window.GLCFruits?.has(pg,'Senza Contraccolpo'))notes.push('Senza Contraccolpo: −1, minimo 1, già incluso nel costo; ignora solo i Contraccolpi naturali registrati');
    if(t.fonte==='Frutto'&&window.GLCTalents?.has(pg,'Ciò che Resta')){if(t.durata==='Mantieni (+1/turno)')conditions.push({id:s.id,text:'Ciò che Resta: primo turno di mantenimento gratuito; poi '+c.maintenanceST+' ST/turno.'});if(t.durata==='Un turno'&&t.forma==='Area'&&list(t.eff).some(n=>tecEffObj(n)?.[0]==='Zona Persistente'))conditions.push({id:s.id,text:'Ciò che Resta: durata 3 turni senza sovrapprezzo.'});}
    if(t.fonte==='Frutto'&&owns('Fonte Inesauribile')){if(m.conditions.elementSource){c.st=0;c.maintenanceST=0;notes.push('Fonte Inesauribile: condizione dichiarata');}else conditions.push({id:s.id,text:'Fonte Inesauribile: costo 0 ST solo dentro o a ridosso di una grande fonte del tuo elemento.'});}
@@ -632,11 +635,10 @@ function resolve(input) {
    b.forEach(x=>{if(x.id==='projection'&&hasEffect(t,'Proiezione')||x.id==='movement'&&list(t.eff).some(n=>['Scatto','Inseguire','Balzo'].includes(n))||x.id==='jump'&&hasEffect(t,'Balzo')||x.id==='range'&&t.stile==='Sniper'||x.id==='slash'&&prestige('fendente-sovrano')||x.id==='cut'&&prestige('taglio-colossale'))conditions.push({id:tech.id,text:x.name+': '+x.value+' '+x.unit+'. '+x.detail});});
    if(t.stile==='Sniper'&&owns('Colpo Impossibile')){const geometry=window.GLCPrestige.benefits(pg,'Astuzia').find(x=>x.id==='deviations');if(geometry)conditions.push({id:tech.id,text:geometry.name+': '+geometry.value+' '+geometry.unit+'. '+geometry.detail});}
    if(prestige('fendente-sovrano')&&!b.some(x=>x.id==='slash'))conditions.push({id:tech.id,text:'Fendente Sovrano: 10 m di portata con Attributo non ancora in Prestigio; danno pieno e +1 ST.'});
-   if(prestige('risonanza-leggendaria')&&t.forma==='Canzone')formulas.push({label:'Risonanza Leggendaria',text:(prestige('risonanza-leggendaria').raw.level===6?'3':'2')+' × dadi di recupero ST, dadi bonus alle prove e importo degli sconti ST della Melodia ordinaria. Sconto con minimo 1 ST; non moltiplica PIP, Vantaggio, portata, bersagli o Ultimate.',id:prestige('risonanza-leggendaria').id});
   }
-  if(!isNormalParry(t,m))list(t.eff).forEach(n=>{const e=tecEffObj(n);if(e)conditions.push({id:tech.id,text:n+': '+e[2]});});
+  if(!isNormalParry(t,m)&&t.forma!=='Canzone')list(t.eff).forEach(n=>{const e=tecEffObj(n);if(e)conditions.push({id:tech.id,text:n+': '+e[2]});});
   const saveAttributes={Sbilancio:'Tecnica',Sfondamento:'Forza',Accecante:'Tecnica',Terrore:'Spirito',Paralisi:'Forza',Sopore:'Spirito',Prigione:'l’Attributo coerente con la Prigione'};
-  const saving=window.GLCTechniques?.states?window.GLCTechniques.states(t,techniqueRules()).filter(x=>x.threshold):list(t.eff).filter(n=>saveAttributes[n]).map(effect=>({effect,attribute:saveAttributes[effect],threshold:window.GLCPrestige?.saveThreshold(t.die)}));
+  const saving=t.forma==='Canzone'?[]:window.GLCTechniques?.states?window.GLCTechniques.states(t,techniqueRules()).filter(x=>x.threshold):list(t.eff).filter(n=>saveAttributes[n]).map(effect=>({effect,attribute:saveAttributes[effect],threshold:window.GLCPrestige?.saveThreshold(t.die)}));
   if(saving.length&&!isActiveDefense(t,m)&&!isNormalParry(t,m)){
    saving.forEach(state=>formulas.push({label:'Salvezza · '+state.effect,text:'Il bersaglio tira soltanto '+state.attribute+' contro Soglia '+state.threshold+' dal Grado '+t.die+' della Tecnica. Un risultato pari o superiore riesce.',id:tech.id}));
    conditions.push({id:tech.id,text:'La fonte non tira per la Salvezza. Se lo Stato persiste, ripeti a fine turno del bersaglio con la Soglia originaria di questa applicazione, salvo una procedura specifica.'});
@@ -644,12 +646,15 @@ function resolve(input) {
   if(hasEffect(t,'Presa')&&!isNormalParry(t,m))conditions.push({id:tech.id,text:'Presa: contesa di Forza ogni turno, senza Salvezza graduata. Paghi 1 ST quando la applichi e 1 ST all’inizio di ogni tuo turno successivo, prima di agire; senza pagamento o presa fisica termina.'});
   if(hasEffect(t,'Lacerazione')&&!isNormalParry(t,m))conditions.push({id:tech.id,text:'Sanguinante: non concede Salvezza automatica; lo Stato non si cumula con se stesso e termina con Medicina o una cura appropriata.'});
   if(t.forma==='Canzone'){
-   const instrument=findSource(m.instrumentId,ss),effective=instrument&&typeof instrEff==='function'?instrEff(instrument.raw):{eff:'d4',soglia:3};
-   if(!instrument&&m.instrumentId)errors.push({id:m.instrumentId,text:'Lo strumento selezionato non è più disponibile: scegli uno strumento posseduto o la voce.'});
-   if(list(t.eff).some(n=>['Richiamo','Requiem Beffardo','Ninnananna','Marcia Funebre'].includes(n)))formulas.push({label:'Salvezza · Canzone',text:'Il nemico tira soltanto Spirito contro Soglia '+effective.soglia+' dal Grado effettivo '+effective.eff+' dello strumento '+(instrument?.name||'La tua voce')+'. Arte limita il Grado utilizzabile; il Dado Tecnica non determina questa Soglia.',id:tech.id});
-   conditions.push({id:tech.id,text:'Canzone: nessun tiro per colpire, nessuna attivazione della Firma tramite margine +4. Gli alleati ricevono automaticamente gli effetti previsti. La Canzone richiede l’Azione principale.'});
+   if(window.GLCMelodies){const song=window.GLCMelodies.evaluate(pg,t);
+    conditions.push({id:tech.id,text:song.melody.name+': '+song.melody.description},{id:tech.id,text:song.actionText},{id:tech.id,text:'Portata: '+song.range+' m; i bersagli devono realmente sentire la musica. Nessuna linea di vista necessaria, nessun attraversamento di ostacoli che bloccano il suono o trasmissione automatica via lumacofono.'},{id:tech.id,text:song.maintenance.text},...song.notes.map(text=>({id:tech.id,text})),...song.warnings.map(text=>({id:tech.id,text})));
+    if(song.duration)conditions.push({id:tech.id,text:'Durata della Melodia: '+song.duration});
+    if(song.melody.sustained)conditions.push({id:tech.id,text:'Massimo '+song.maxSustained+' Canzoni Sostenute contemporaneamente.'},{id:tech.id,text:song.termination});
+    if(song.saving)formulas.push({label:'Salvezza · Canzone',text:song.saving.text+' Arte limita il Grado utilizzabile dello strumento; il Dado Tecnica non determina questa Soglia.',id:tech.id});
+    if(tech.raw.arma||tech.raw.modulo||tech.raw.weapon||m.weaponId||m.moduleId)conditions.push({id:tech.id,text:'I collegamenti storici ad armi o Moduli restano conservati e non eseguono la Canzone, non ne limitano l’uso e non aggiungono bonus, cariche o costi.'});
+   }else errors.push({id:tech.id,text:'Aggiorna la pagina per caricare le regole condivise delle Melodie.'});
   }
-  if(t.durata&&!isNormalParry(t,m))conditions.push({id:tech.id,text:'Durata: '+(window.GLCTechniques?.durationBenefit(t,techniqueRules())?.duration||t.durata)});
+  if(t.durata&&t.forma!=='Canzone'&&!isNormalParry(t,m))conditions.push({id:tech.id,text:'Durata: '+(window.GLCTechniques?.durationBenefit(t,techniqueRules())?.duration||t.durata)});
  }
  talentSelected.forEach(s=>conditions.push({id:s.id,text:s.name+': '+s.desc}));
  if(owns('Riformarsi Altrove'))formulas.push({label:'Riformarsi Altrove · Reazione',text:'Sequenza distinta: la Tecnica usa la propria Azione e i propri costi nel momento previsto. Riformarsi Altrove impiega una Reazione, 1 volta per scontro, in risposta a un evento immediato e percepibile valutato dal GM: ti ricomponi entro 15 m in un punto visibile e raggiungibile dal tuo elemento, senza Azione principale o Reazioni dovute allo spostamento. Non autorizza questa Tecnica fuori dal tuo turno e non annulla automaticamente un attacco.',id:talentSelected.find(s=>s.alias==='Riformarsi Altrove').id});
@@ -951,13 +956,26 @@ function stepTechnique(work) {
  work.append(note('La Tecnica è la base meccanica. I suoi dati restano collegati alla scheda e si aggiornano insieme a lei.'));
  const ss=sources().filter(s=>s.kind==='tech');if(!ss.length){work.append(note('Non hai ancora Tecniche: creane una dal Signature Move Builder e torna qui.'));return;}
  const grid=node('div','smc-options');ss.forEach(s=>{
-  const cost=sourceCost(s),suffix=(cost?cost.st+' ST'+(cost.maintenanceST?' · +'+cost.maintenanceST+' ST/turno':''):'Costi GM da registrare')+' · '+(list(s.raw.eff).join(' · ')||s.desc||'Senza effetti aggiuntivi');
-  grid.append(optionCard(s,UI.draft.baseTechId===s.id,()=>changeDraft(m=>{m.baseTechId=s.id;m.weaponId=s.raw.arma?'weapon:'+s.raw.arma:'';m.moduleId=s.raw.modulo?'module:'+s.raw.modulo:'';if(!isAttack(s.raw))m.techniqueUse='normal';if(s.raw.forma!=='Canzone')m.instrumentId='';}),true,suffix));
+  const cost=sourceCost(s),song=s.raw.forma==='Canzone'&&window.GLCMelodies?.evaluate(pg,s.raw),suffix=(song?song.cost.label:cost?cost.st+' ST'+(cost.maintenanceST?' · +'+cost.maintenanceST+' ST/turno':''):'Costi GM da registrare')+' · '+(list(s.raw.eff).join(' · ')||s.desc||'Senza effetti aggiuntivi');
+  grid.append(optionCard(s,UI.draft.baseTechId===s.id,()=>changeDraft(m=>{m.baseTechId=s.id;if(s.raw.forma!=='Canzone'){m.weaponId=s.raw.arma?'weapon:'+s.raw.arma:'';m.moduleId=s.raw.modulo?'module:'+s.raw.modulo:'';m.instrumentId='';}else m.instrumentId=s.raw.instrumentId||m.instrumentId||'instrument:voice';if(!isAttack(s.raw))m.techniqueUse='normal';}),true,suffix));
  });work.append(grid);
  const chosen=findSource(UI.draft.baseTechId);if(chosen&&chosen.techKind!=='legacy'&&requiresGM(chosen))work.append(gmCostEditor(chosen));
  if(isAttack(chosen?.raw))work.append(selectField('Impiego della Tecnica',UI.draft.techniqueUse,[['normal','Attacco · Azione principale'],['defense','Difesa Attiva con la Tecnica · Reazione'],...(chosen.raw.fonte==='Stile'&&['Swordsman','Crusher'].includes(chosen.raw.stile)?[['parry','Parata con arma · Reazione, senza effetti della Tecnica']]:[])],v=>changeDraft(m=>{m.techniqueUse=v;m.hakiSelections.forEach(h=>{if(findSource(h.id)?.name===HAKI_NAMES[0])h.use=v==='normal'?'offense':'defense';});})));
  if(UI.draft.techniqueUse==='parry')work.append(note('Parata con arma: la Tecnica selezionata fornisce solo il contesto dello Stile e dell’Attributo. La Parata usa l’arma collegata, non esegue gli effetti della Tecnica e non ne paga il costo.'));
- if(chosen?.raw.forma==='Canzone')work.append(selectField('Strumento della Canzone',UI.draft.instrumentId||'instrument:voice',sources().filter(s=>s.kind==='instrument').map(s=>[s.id,s.name+' · '+(typeof instrEff==='function'?instrEff(s.raw).eff:s.raw.die)]),v=>changeDraft(m=>m.instrumentId=v)));
+ if(chosen?.raw.forma==='Canzone'&&window.GLCMelodies){
+  work.append(selectField('Strumento della Canzone',UI.draft.instrumentId||chosen.raw.instrumentId||'instrument:voice',window.GLCMelodies.instruments(pg).map(i=>[i.id,i.name+' · '+i.type+' · '+(i.effective||i.grade+' · da revisionare')]),v=>changeDraft(m=>m.instrumentId=v)));
+  const context={...(chosen.raw.songContext||{}),...(UI.draft.songContext||{})},melody=window.GLCMelodies.get(list(chosen.raw.eff)[0]);
+  function contextNumber(key,label){work.append(field(label,context[key]??'',value=>changeDraft(m=>{m.songContext={...(m.songContext||{})};if(value==='')delete m.songContext[key];else m.songContext[key]=Number(value);},false),'number',{min:0,max:999,step:1,placeholder:'Non registrato: costo del primo utilizzo','aria-label':label}));}
+  if(melody?.name==='Motivetto di Vigore')contextNumber('motivettoPreviousTargets','Bersagli diversi già beneficiati dai tuoi Motivetti nella scena');
+  if(melody?.name==='Assolo Travolgente')contextNumber('assoloPreviousUses','Utilizzi precedenti di Assolo nella scena');
+  function contextFlag(key,text){work.append(button((context[key]?'✓ ':'')+text,()=>changeDraft(m=>{m.songContext={...(m.songContext||{}),[key]:!context[key]};}),'smc-effect',{'aria-pressed':String(!!context[key])}));}
+  const profile=window.GLCMelodies.evaluate(pg,chosen.raw,{instrumentId:UI.draft.instrumentId,context});
+  if(profile.instrument.type==='Percussioni'&&melody?.target==='allies')contextFlag('entireCrew','Questa Melodia coinvolge l’intera ciurma che può sentirla');
+  if(window.GLCMelodies.has(pg,'Coro della Ciurma'))contextFlag('coroActive','Almeno due compagni coscienti cantano o suonano realmente con me');
+  if(melody?.name==='Requiem Beffardo'&&window.GLCPrestige?.has(pg,'requiem-sovrano'))contextFlag('requiemSovrano','Uso Requiem Sovrano: esecuzione e costo sostitutivi');
+  work.append(note(profile.cost.label+' · '+profile.instrument.amplification));
+  [...profile.notes,...profile.warnings].forEach(text=>work.append(note(text)));
+ }
  const issues=resolve(UI.draft).errors.filter(e=>e.id===UI.draft.baseTechId);issues.forEach(e=>work.append(note(e.text,'smc-warning')));
 }
 function selectTalent(s) {

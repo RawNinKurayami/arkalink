@@ -1146,6 +1146,8 @@ body.has-bld{overflow:hidden;}
  body.mode-gest header.top .cb-sel{flex:1;min-width:115px;max-width:none;}
  body.mode-gest header.top .cb-link{flex-basis:100%;margin:5px 0 0;font-size:10px;}
  body.mode-gest .layout{margin-top:22px;}
+ body.mode-gest .layout{grid-template-columns:minmax(0,1fr);}
+ body.mode-gest .layout>.form-panel{min-width:0;}
  body.mode-gest #manage .gtop{gap:20px;margin-bottom:22px;}
  body.mode-gest #manage .gt-l{flex-basis:100%;}
  body.mode-gest #manage .gh-name{font-size:55px;}
@@ -1553,19 +1555,20 @@ body.has-bld{overflow:hidden;}
 <script src="/regole/tratti.js?v=1"></script>
 <script src="/regole/cyborg.js?v=1"></script>
 <script src="/regole/frutti.js?v=1"></script>
-<script src="/regole/tecniche.js?v=3"></script>
+<script src="/regole/melodie.js?v=1"></script>
+<script src="/regole/tecniche.js?v=4"></script>
 <script src="/gestisci-pirata/cyborg-care.js?v=1"></script>
 <link rel="stylesheet" href="tratti-ui.css?v=1">
 <script src="tratti-ui.js?v=1"></script>
 <script src="prestigio-ui.js?v=3"></script>
-<script src="special-moves.js?v=25"></script>
+<script src="special-moves.js?v=26"></script>
 <link rel="stylesheet" href="card-view.css?v=6">
 <script src="card-export.js?v=4" defer></script>
 <script src="card-view.js?v=7" defer></script>
-<script src="signature-builder.js?v=2"></script>
+<script src="signature-builder.js?v=3"></script>
 <script src="equipment-builder.js?v=2"></script>
 <script src="dossiers.js?v=3"></script>
-<script src="/scheda-stampabile/special-moves-print.js?v=9"></script>
+<script src="/scheda-stampabile/special-moves-print.js?v=10"></script>
 <script>
 "use strict";
 const RACES=[
@@ -2047,7 +2050,7 @@ const TEC_EFF=[
 ["Potenziamento","Furia","Azione principale; per la scena: +1 gradino al Dado Danno delle Tecniche compatibili, massimo d20; DP −1. Non aumenta il Dado Tecnica o gli slot.","d8",3,"potenz"],
 ["Potenziamento","Mira","Azione principale; per la scena: Vantaggio ai tiri per colpire delle Tecniche compatibili. Non aumenta il dado.","d8",3,"potenz"],
 ["Melodie del Musicista","Motivetto di Vigore","un alleato che ti sente recupera 1d6 ST · ognuno ne beneficia 1×/scena · nella scena costa +1 ST per ogni bersaglio diverso già servito","d6",2,"musicista"],
-["Melodie del Musicista","Richiamo","ogni nemico entro 20 m che ti sente deve attaccare te in questo turno, o tira in Svantaggio contro chiunque altro (Salvezza)","d6",1,"musicista"],
+["Melodie del Musicista","Richiamo","ogni nemico entro 20 m che ti sente deve attaccare te, oppure attacca altri bersagli con Svantaggio (Salvezza)","d6",1,"musicista"],
 ["Melodie del Musicista","Marcia di Guerra","Sostenuta: finché suoni, un alleato scelto ha +1d4 agli attacchi","d6",2,"musicista","",1],
 ["Melodie del Musicista","Controcanto","spezzi paura e malie: annulli Terrore, Sopore o charme sugli alleati","d8",1,"musicista"],
 ["Melodie del Musicista","Requiem Beffardo","il nemico ha Svantaggio al suo prossimo tiro (Salvezza)","d8",1,"musicista"],
@@ -2138,8 +2141,11 @@ function effVeto(e){ // regole trasversali: restituisce il motivo del blocco, o 
   return "";
 }
 function tecCost(t){return GLCTechniques.cost(t,TEC_EFF,tbRules());}
-function tecCostLabel(t){const c=tecCost(t);return c.st+" ST"+(c.pt?(" +"+c.pt+"/turno"):"");}
-function tecSummary(t){const a=[];if(t.fonte)a.push(t.fonte==="Frutto"&&t.fruitType?("Frutto "+t.fruitType):(t.stile?("Stile "+t.stile):t.fonte));if(t.forma)a.push(t.forma);if(t.die)a.push(t.die);if(t.durata&&t.forma==="Area"&&t.durata!=="Un turno")a.push(t.durata);let s=a.join(" · ");if(t.eff&&t.eff.length)s+=" — "+t.eff.join(", ");return s;}
+function songProfile(t,options){return t.forma==="Canzone"&&window.GLCMelodies?GLCMelodies.evaluate(pg,t,options):null;}
+function tecCostLabel(t){const song=songProfile(t);if(song)return song.cost.label;const c=tecCost(t);return c.st+" ST"+(c.pt?(" +"+c.pt+"/turno"):"");}
+function songDetails(t){const song=songProfile(t);if(!song)return [];return [song.instrument.valid?song.instrument.name+" · "+song.instrument.type+" · Grado effettivo "+song.instrument.effective+" (Arte "+song.instrument.arte+") · Soglia ordinaria "+song.instrument.threshold:song.instrument.name+" · Grado storico da verificare",song.saving?.text,song.range?"Portata "+song.range+" m · deve sentirti":null,song.duration?"Durata: "+song.duration:null,song.actionText,song.maintenance.text,song.termination,...song.notes,...song.warnings].filter(Boolean);}
+function techniqueSourceLabel(t){return t.forma==="Canzone"?"Musicista":t.fonte==="Frutto"&&t.fruitType?("Frutto "+t.fruitType):t.stile?("Stile "+t.stile):(t.fonte||"");}
+function tecSummary(t){const a=[];if(t.fonte)a.push(techniqueSourceLabel(t));if(t.forma)a.push(t.forma);if(t.die)a.push(t.die);if(t.durata&&t.forma==="Area"&&t.durata!=="Un turno")a.push(t.durata);let s=a.join(" · ");if(t.eff&&t.eff.length)s+=" — "+t.eff.join(", ");return s;}
 const FAM_SHORT={"Melodie del Musicista":"Melodie","Zona Persistente":"Zona pers.","Potenziamento":"Potenz.","Concatenati":"Concat.","Spostamento":"Spost."};
 let TBUILD={nome:"",attr:"",fonte:"Stile",stile:"",forma:"Singolo",die:"d6",durata:"Un turno",eff:[],desc:"",_open:[],_fam:"",_id:null,fruitType:"",arma:"",modulo:""};
 function tbReset(){TBUILD={nome:"",attr:"",fonte:"Stile",stile:"",forma:"Singolo",die:"d6",durata:"Un turno",eff:[],desc:"",_open:[],_fam:"",_id:null,fruitType:"",arma:"",modulo:""};}
@@ -2325,23 +2331,24 @@ function bldTiers(label,opts,cur,onPick){
 let SMBD={};
 function tbRules(){return {pg:pg,catalogue:TEC_EFF,whitelist:STILE_WHITELIST,precisioneAssoluta:!!(window.GLCPrestige&&GLCPrestige.has(pg,"precisione-assoluta")),nessunoDeiMiei:hasTalent("Nessuno dei Miei"),hasTalent:hasTalent};}
 function tbEvaluate(t){return GLCTechniques.evaluate(pg,t,tbRules());}
-function tbEffectStateLabel(nm){const state=GLCTechniques.states({...TBUILD,eff:[nm]},tbRules())[0];return !state?"":(state.threshold!=null?("Salvezza di "+state.attribute+" · Soglia "+state.threshold+" dal "+TBUILD.die):(state.source?("Salvezza di "+state.attribute+" · Soglia dal "+state.source):state.procedure));}
+function tbEffectStateLabel(nm){if(TBUILD.forma==="Canzone"){const song=songProfile({...TBUILD,eff:[nm]});return song?.saving?.text||"";}const state=GLCTechniques.states({...TBUILD,eff:[nm]},tbRules())[0];return !state?"":(state.threshold!=null?("Salvezza di "+state.attribute+" · Soglia "+state.threshold+" dal "+TBUILD.die):(state.source?("Salvezza di "+state.attribute+" · Soglia dal "+state.source):state.procedure));}
+function tbSetForma(forma){TBUILD.forma=forma;if(forma==="Canzone"&&!TBUILD._id){TBUILD.arma="";TBUILD.modulo="";TBUILD.weapon="";TBUILD.stile="";}}
 function tbEdit(t){TBUILD={...t,eff:Array.isArray(t.eff)?t.eff.slice():(t.eff==null?[]:[String(t.eff)]),sourcePermission:t.sourcePermission?JSON.parse(JSON.stringify(t.sourcePermission)):null,_open:[],_fam:"",_id:t.id||null};}
-function tbEditLegacy(key){const t=pg[key];if(!t||!["t1","t2"].includes(key))return;TBUILD={nome:t.nome||"",desc:t.desc||"",attr:t.attr||"",die:t.die||"d4",fonte:t.fonte||"",stile:t.stile||"",fruitType:t.fruitType||"",forma:t.forma||"Singolo",durata:t.durata||"Un turno",arma:t.arma||"",modulo:t.modulo||"",eff:Array.isArray(t.eff)?t.eff.slice():[],sourcePermission:t.sourcePermission?JSON.parse(JSON.stringify(t.sourcePermission)):null,_open:[],_fam:"",_id:t.smcId||key,_legacyKey:key};}
+function tbEditLegacy(key){const t=pg[key];if(!t||!["t1","t2"].includes(key))return;TBUILD={nome:t.nome||"",desc:t.desc||"",attr:t.attr||"",die:t.die||"d4",fonte:t.fonte||"",stile:t.stile||"",fruitType:t.fruitType||"",forma:t.forma||"Singolo",durata:t.durata||"Un turno",arma:t.arma||"",modulo:t.modulo||"",instrumentId:t.instrumentId||"",songContext:t.songContext?JSON.parse(JSON.stringify(t.songContext)):undefined,eff:Array.isArray(t.eff)?t.eff.slice():[],sourcePermission:t.sourcePermission?JSON.parse(JSON.stringify(t.sourcePermission)):null,_open:[],_fam:"",_id:t.smcId||key,_legacyKey:key};}
 function tbCompute(){
  /* Defaults apply only to an empty new draft. Existing values remain visible
     when a rule, Attribute, weapon or source has changed. */
  const styles=combStyles(),musica=isMusicista();
  if(!TBUILD._id&&!styles.length&&musica&&TBUILD.fonte==="Stile")TBUILD.forma="Canzone";
- if(!TBUILD._id&&!TBUILD.stile&&TBUILD.fonte==="Stile")TBUILD.stile=styles.find(styleReady)||styles[0]||"";
+ if(!TBUILD._id&&!TBUILD.stile&&TBUILD.fonte==="Stile"&&TBUILD.forma!=="Canzone")TBUILD.stile=styles.find(styleReady)||styles[0]||"";
  if(!TBUILD._id&&TBUILD.fonte==="Frutto"&&!TBUILD.fruitType)TBUILD.fruitType=(pg.frutto||{}).tipo||"";
- if(!TBUILD._id&&TBUILD.fonte==="Stile"&&!TBUILD.arma&&!TBUILD.modulo&&["Swordsman","Crusher","Sniper"].includes(TBUILD.stile)){
+ if(!TBUILD._id&&TBUILD.forma!=="Canzone"&&TBUILD.fonte==="Stile"&&!TBUILD.arma&&!TBUILD.modulo&&["Swordsman","Crusher","Sniper"].includes(TBUILD.stile)){
   const weapon=techniqueWeapons().find(a=>GLCTechniques.compatibleWeapon(a,TBUILD.stile));if(weapon)TBUILD.arma=weapon.id;
   else {const module=cyborgModulesForStyle(TBUILD.stile)[0];if(module)TBUILD.modulo=module.id;}
  }
  const result=tbEvaluate(TBUILD),attrDie=(pg.attr||{})[TBUILD.attr]||"",rank=GLCTechniques.rank(TBUILD.die),slot=result.slot;
- const armi=TBUILD.fonte==="Stile"?techniqueWeapons().filter(a=>GLCTechniques.compatibleWeapon(a,TBUILD.stile)):[];
- const mods=TBUILD.fonte==="Stile"&&pg.race==="cyborg"?(pg.moduli||[]).filter(m=>cyborgModulesForStyle(TBUILD.stile).some(x=>x.id===m.id)||m.id===TBUILD.modulo):[];
+ const armi=TBUILD.forma!=="Canzone"&&TBUILD.fonte==="Stile"?techniqueWeapons().filter(a=>GLCTechniques.compatibleWeapon(a,TBUILD.stile)):[];
+ const mods=TBUILD.forma!=="Canzone"&&TBUILD.fonte==="Stile"&&pg.race==="cyborg"?(pg.moduli||[]).filter(m=>cyborgModulesForStyle(TBUILD.stile).some(x=>x.id===m.id)||m.id===TBUILD.modulo):[];
  const SB=stileBlock(TBUILD.stile),FB=fruttoBlock(),soloCanzone=TBUILD.fonte==="Stile"&&!styles.length&&musica;
  const blocking=result.errors.find(e=>["combat-role","style","weapon-required","unarmed","fruit-required","fruit-type","song-role"].includes(e.code));
  const BLOCK=blocking?blocking.text:"";
@@ -2366,6 +2373,7 @@ function smbStepId(h){
  nameIn.value=TBUILD.nome||"";nameIn.oninput=()=>{TBUILD.nome=nameIn.value;tbCompute();bldSummary();};
  h.appendChild(el("div",{class:"smb-f"},[nameIn]));
  h.appendChild(smbChips("Fonte",TEC_FONTI.map(o=>({v:o,l:o,ico:svgIcon(FONTE_ICO[o]||"star",19),off:(o==="Stile")?D.stileOff:!!D.FB,why:(o==="Stile")?D.SB:D.FB})),TBUILD.fonte,v=>bldMutate(()=>{TBUILD.fonte=v;if(v==="Frutto"){TBUILD.fruitType=(pg.frutto||{}).tipo||"";TBUILD.arma="";TBUILD.modulo="";if(TBUILD.forma==="Canzone")TBUILD.forma="Singolo";}})));
+ if(TBUILD.fonte==="Stile"&&D.musica)h.appendChild(smbChips("Tipo di Tecnica",[{v:"Canzone",l:"Canzone del Musicista",ico:svgIcon("music",19)},{v:"Combattimento",l:"Tecnica di combattimento",ico:svgIcon("sword",19),off:!D.styles.length,why:"Richiede un Ruolo da Combattente"}],TBUILD.forma==="Canzone"?"Canzone":"Combattimento",v=>bldMutate(()=>{tbSetForma(v==="Canzone"?"Canzone":"Singolo");})));
  if(TBUILD.fonte==="Stile"&&D.SB&&!(TBUILD.forma==="Canzone"&&D.musica))h.appendChild(bldNote(D.SB+(D.soloCanzone?"<br>Ti resta la <b>Forma Canzone</b>: le Melodie le costruisci in quanto Musicista.":""),D.soloCanzone?"wait":"ko"));
  if(TBUILD.fonte==="Frutto"&&D.FB)h.appendChild(bldNote(D.FB,"ko"));
  if(TBUILD.fonte==="Stile"&&D.styles.length&&(D.styles.length>1||!TBUILD.stile)&&TBUILD.forma!=="Canzone")
@@ -2378,9 +2386,17 @@ function smbStepId(h){
 function smbStepFond(h){
  const D=SMBD;
  h.appendChild(smbChips("Attributo",ATTRS.map(a=>({v:a,l:a,ico:dieIcon((pg.attr&&pg.attr[a])||"",26)})),TBUILD.attr,v=>bldMutate(()=>{TBUILD.attr=(TBUILD.attr===v)?"":v;})));
- h.appendChild(smbChips("Forma",D.forme.map(o=>({v:o,l:o,ico:svgIcon(FORMA_ICO[o]||"star",19)})),TBUILD.forma,v=>bldMutate(()=>{TBUILD.forma=v;})));
+ h.appendChild(smbChips("Forma",D.forme.map(o=>({v:o,l:o,ico:svgIcon(FORMA_ICO[o]||"star",19)})),TBUILD.forma,v=>bldMutate(()=>{tbSetForma(v);})));
  if(D.fz)h.appendChild(bldNote("Uno Zoan non fa tecniche ad Area: la sua forza è fisica, usa Singolo o Spostamento."));
- if(TBUILD.forma==="Canzone")h.appendChild(bldNote("<b>Le Canzoni non si tirano.</b> Una sola Melodia per Canzone · sugli alleati l'effetto è automatico · i nemici tirano la Salvezza contro la Soglia del Grado effettivo del tuo strumento · costo: la Stamina della Melodia più la tua azione."));
+ if(TBUILD.forma==="Canzone"){
+  h.appendChild(bldNote("<b>Le Canzoni non si tirano.</b> Una sola Melodia per Canzone · sugli alleati l'effetto è automatico · i nemici tirano la Salvezza contro la Soglia del Grado effettivo dello strumento. Lo strumento non è un'arma e non richiede lo Stile del secondo Ruolo."));
+  if(window.GLCMelodies){const instruments=GLCMelodies.instruments(pg),cur=TBUILD.instrumentId||"instrument:voice";
+   h.appendChild(smbChips("Strumento della Canzone",instruments.map(x=>({v:x.id,l:x.name,sub:x.type+" · "+(x.valid?x.effective+" · Soglia "+x.threshold:"Grado storico da verificare"),off:!x.valid,why:x.errors.join(" ")})),cur,v=>bldMutate(()=>{TBUILD.instrumentId=v;})));
+   const song=songProfile(TBUILD);h.appendChild(bldNote(song.instrument.amplification));
+   if(!song.instrument.valid)h.appendChild(bldNote(song.instrument.errors.join(" "),"ko"));
+  }
+  if(TBUILD.arma||TBUILD.modulo||TBUILD.weapon)h.appendChild(bldNote("Il collegamento storico all'arma o al Modulo è conservato nei dati: non esegue la Canzone e non le concede bonus o requisiti."));
+ }
  if(TBUILD.fonte==="Frutto"&&(TBUILD.arma||TBUILD.modulo))h.appendChild(el("div",{},[bldNote("Questa Tecnica del Frutto conserva un collegamento a equipaggiamento da correggere.","ko"),el("button",{class:"smb-btn",type:"button",text:"Rimuovi il collegamento dalla Tecnica del Frutto",onclick:()=>bldMutate(()=>{TBUILD.arma="";TBUILD.modulo="";})})]));
  if(TBUILD.forma==="Area"&&TBUILD.eff.some(nm=>famOf(nm)==="Zona Persistente"))h.appendChild(smbChips("Durata della Zona",TEC_DUR.map(d=>({v:d[0],l:d[0],sub:d[3]?("richiede "+d[3]):"",off:d[3]&&TBUILD.die!==d[3],why:"La durata per la scena richiede d20."})),TBUILD.durata,v=>bldMutate(()=>{TBUILD.durata=v;})));
  if(D.armi.length||D.mods.length){
@@ -2405,6 +2421,7 @@ function smbStepFond(h){
  smbPermissions(h);
 }
 function smbPermissions(h){
+ if(TBUILD.forma==="Canzone")return;
  if(TBUILD.modulo){h.appendChild(bldNote("<b>Effetti del Modulo.</b> Le concessioni derivano dal suo unico Effetto Speciale strutturato. Registra Sblocco o Sconto nella scheda del dispositivo; la sola descrizione non concede effetti."));return;}
  const key=GLCTechniques.sourceKey(pg,TBUILD);
  if(!key||TBUILD.forma==="Canzone")return;
@@ -2439,7 +2456,7 @@ function smbPermissions(h){
 function smbStepPot(h){
  const D=SMBD;
  if(!D.dieOpts.length){h.appendChild(bldNote("Scegli prima l’Attributo: il dado della Tecnica non può superarlo.","wait"));return;}
- h.appendChild(bldTiers("Dado della Tecnica · Dado Danno",D.dieOpts.map(d=>({v:d,l:d,s:(TBUILD.forma==="Canzone"?1:TEC_SLOT[d])+" slot"})),TBUILD.die,v=>bldMutate(()=>{TBUILD.die=v;})));
+ h.appendChild(bldTiers(TBUILD.forma==="Canzone"?"Grado della Canzone · accesso alle Melodie":"Dado della Tecnica · Dado Danno",D.dieOpts.map(d=>({v:d,l:d,s:(TBUILD.forma==="Canzone"?1:TEC_SLOT[d])+" slot"})),TBUILD.die,v=>bldMutate(()=>{TBUILD.die=v;})));
  const lim=(D.fcap&&D.fcap<(TEC_RANK[D.attrDie]||1))?("Fino a <b>"+fruitDieCap()+"</b>: il Dado del Frutto è il tetto delle Tecniche del Frutto."):("Fino a <b>"+D.attrDie+"</b>: il dado non supera l'Attributo "+TBUILD.attr+".");
  h.appendChild(bldNote(lim));
  const box=el("div",{class:"bl-derived"});
@@ -2448,10 +2465,23 @@ function smbStepPot(h){
  box.appendChild(el("div",{class:"bl-dv"},[el("b",{text:TBUILD.forma==="Canzone"?"1":"1"}),el("span",{text:TBUILD.forma==="Canzone"?"Melodia per Canzone":"effetto per gruppo"})]));
  h.appendChild(box);
 }
+/* Contesto dichiarato della singola esecuzione: nessun consumo automatico
+   né registro condiviso della scena. Le ricette storiche mantengono i campi extra. */
+function smbSongContext(h){
+ const song=songProfile(TBUILD);if(!song)return;const name=(TBUILD.eff||[])[0],context=TBUILD.songContext||{};
+ const countKey=name==="Motivetto di Vigore"?"motivettoPreviousTargets":name==="Assolo Travolgente"?"assoloPreviousUses":"";
+ if(countKey){const label=countKey==="motivettoPreviousTargets"?"Bersagli diversi già serviti nella scena":"Utilizzi precedenti di Assolo nella scena",box=el("label",{class:"smb-f",text:label}),input=el("input",{type:"number",min:"0",step:"1",placeholder:"Non dichiarato: costo base","aria-label":label});input.value=context[countKey]??"";input.onchange=()=>bldMutate(()=>{TBUILD.songContext={...TBUILD.songContext};if(input.value==="")delete TBUILD.songContext[countKey];else TBUILD.songContext[countKey]=Number(input.value);});box.appendChild(input);h.appendChild(box);h.appendChild(bldNote("Il conteggio riguarda questa esecuzione: aggiornalo quando cambia la scena. Non viene incrementato automaticamente."));}
+ const flag=(label,key)=>{const input=el("input",{type:"checkbox","aria-label":label});input.checked=context[key]===true;const box=el("label",{class:"smb-f"},[input," "+label]);input.onchange=()=>bldMutate(()=>{TBUILD.songContext={...TBUILD.songContext,[key]:input.checked};});h.appendChild(box);};
+ if(["Assolo Travolgente","Controcanto"].includes(name)&&song.instrument.type==="Percussioni")flag("Coinvolge effettivamente l’intera ciurma · sconto Percussioni","entireCrew");
+ if(hasTalent("Coro della Ciurma"))flag("Coro: almeno due compagni coscienti partecipano davvero all’esecuzione","coroActive");
+ if(name==="Requiem Beffardo"&&window.GLCPrestige&&GLCPrestige.has(pg,"requiem-sovrano"))flag("Usa Requiem Sovrano · sostituisce Requiem Beffardo · "+songProfile({...TBUILD,songContext:{...context,requiemSovrano:true}}).cost.label,"requiemSovrano");
+ song.notes.forEach(text=>h.appendChild(bldNote(text)));
+}
 /* ---- 04 · Effetti ---- */
 function smbCounter(){const D=SMBD;return el("span",{class:"c",html:(TBUILD.forma==="Canzone"?"Melodia ":"")+"<b>"+slotUsed(TBUILD.eff)+" / "+D.slot+"</b> slot"});}
 function smbStepEff(h){
  const D=SMBD;const slot=D.slot;
+ if(TBUILD.forma==="Canzone")smbSongContext(h);
  if(D.areaUpgrade)h.appendChild(bldNote(D.areaUpgrade.text));
  if(D.durationBenefit)h.appendChild(bldNote(D.durationBenefit.text));
  if(TBUILD.forma==="Area")h.appendChild(bldNote("<b>Area.</b> Una sola sagoma senza slot. Area Ravvicinata costa 2 ST, è centrata su di te, usa la Portata effettiva dell’arma e non riceve Gittata. Le altre sagome richiedono una concessione della Fonte. Bersagli a metà danno; gli Stati salvabili usano la Soglia del Grado della Tecnica."));
@@ -2474,18 +2504,19 @@ function smbStepEff(h){
  const grid=el("div",{class:"smb-grid"});stage.appendChild(grid);
  TEC_EFF.concat(TEC_EFF_ARCHIVIATI.filter(e=>TBUILD.eff.includes(e[1]))).filter(e=>e[0]===TBUILD._fam&&D.effShown(e)).forEach((e,idx)=>{
   const nm=e[1];const sel=TBUILD.eff.indexOf(nm)>=0;
-  const card=el("div",{class:"mcard"+(sel?" sel":""),tabindex:"0",role:"button","aria-pressed":sel?"true":"false","aria-label":nm+" · "+e[3]+" · "+e[4]+" ST"});
+  const melody=TBUILD.forma==="Canzone"?songProfile({...TBUILD,eff:[nm]}):null;
+  const card=el("div",{class:"mcard"+(sel?" sel":""),tabindex:"0",role:"button","aria-pressed":sel?"true":"false","aria-label":nm+" · "+e[3]+" · "+(melody?melody.cost.label:e[4]+" ST")});
   card.style.animationDelay=Math.min(idx,10)*22+"ms";
   const top=el("div",{class:"mc-top"});
   top.appendChild(el("span",{class:"mc-fam",text:(e[6]==="sagoma")?"Sagoma":((e[6]==="gittata")?"Gittata":"")}));
   top.appendChild(el("span",{class:"mc-die",text:e[3]}));card.appendChild(top);
   card.appendChild(el("div",{class:"mc-ico"},[el("span",{class:"fr",html:effGlyph(nm,e[0],26)})]));
   card.appendChild(el("div",{class:"mc-n",text:nm}));
-  card.appendChild(el("div",{class:"mc-d",text:e[2]}));
+  card.appendChild(el("div",{class:"mc-d",text:melody?melody.melody.description:e[2]}));
   const stateLabel=tbEffectStateLabel(nm);if(stateLabel)card.appendChild(el("div",{class:"mc-state",text:stateLabel}));
   if((e[2]||"").length>86){const mb=el("button",{class:"mc-more",type:"button",text:"Mostra tutto"});mb.onclick=ev=>{ev.stopPropagation();const op=card.classList.toggle("open");mb.textContent=op?"Riduci":"Mostra tutto";};card.appendChild(mb);}
   const rangeFree=TBUILD.fonte==="Frutto"&&hasTalent("Portata Naturale");const effectST=rangeFree&&e[6]==="gittata"?0:rangeFree&&nm==="Catena"?Math.max(0,e[4]-1):e[4];
-  card.appendChild(el("div",{class:"mc-bot"},[el("span",{class:"mc-m",html:"<b>"+effectST+"</b> ST"+(e[7]?(" · <b>+"+e[7]+"</b>/turno"):"")})]));
+  card.appendChild(el("div",{class:"mc-bot"},[el("span",{class:"mc-m",html:melody?escp(melody.cost.label):("<b>"+effectST+"</b> ST"+(e[7]?(" · <b>+"+e[7]+"</b>/turno"):""))})]));
   if(sel)card.appendChild(el("div",{class:"mc-seal",html:SMB_SEAL}));
   const tog=()=>bldMutate(()=>{const ix=TBUILD.eff.indexOf(nm);if(ix<0){const now=tbCompute();if(!now.effOpen(e)||now.used+GLCTechniques.effectSlots(TBUILD,nm,tbRules())>now.slot)return;TBUILD.eff.push(nm);}else TBUILD.eff.splice(ix,1);});
   card.onclick=tog;card.onkeydown=ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();tog();}};
@@ -2503,11 +2534,11 @@ function smbStepRie(h){
 }
 function smbMeta(){
  const meta=[];
- if(TBUILD.fonte)meta.push(TBUILD.fonte==="Frutto"&&TBUILD.fruitType?("Frutto "+TBUILD.fruitType):(TBUILD.stile&&TBUILD.fonte==="Stile"?("Stile "+TBUILD.stile):TBUILD.fonte));
- if(TBUILD.forma)meta.push(TBUILD.forma);if(TBUILD.die&&TBUILD.attr)meta.push(TBUILD.die);if(TBUILD.attr)meta.push(TBUILD.attr);
+ if(TBUILD.fonte)meta.push(techniqueSourceLabel(TBUILD));
+ if(TBUILD.forma)meta.push(TBUILD.forma);if(TBUILD.forma==="Canzone"&&songProfile(TBUILD))meta.push(songProfile(TBUILD).instrument.name);if(TBUILD.die&&TBUILD.attr)meta.push(TBUILD.die);if(TBUILD.attr)meta.push(TBUILD.attr);
  if(TBUILD.forma==="Area"&&TBUILD.durata&&TBUILD.durata!=="Un turno")meta.push(TBUILD.durata);
- if(TBUILD.arma){const wa=techniqueWeapons().filter(x=>x.id===TBUILD.arma)[0];if(wa)meta.push("arma « "+((wa.nome||"").trim()||"senza nome")+" »");}
- if(TBUILD.modulo){const mo=(pg.moduli||[]).filter(x=>x.id===TBUILD.modulo)[0];if(mo)meta.push("modulo « "+(mo.nome||"senza nome")+" »");}
+ if(TBUILD.forma!=="Canzone"&&TBUILD.arma){const wa=techniqueWeapons().filter(x=>x.id===TBUILD.arma)[0];if(wa)meta.push("arma « "+((wa.nome||"").trim()||"senza nome")+" »");}
+ if(TBUILD.forma!=="Canzone"&&TBUILD.modulo){const mo=(pg.moduli||[]).filter(x=>x.id===TBUILD.modulo)[0];if(mo)meta.push("modulo « "+(mo.nome||"senza nome")+" »");}
  return meta.join(" · ");
 }
 function smbPlaque(pin,full){
@@ -2518,8 +2549,9 @@ function smbPlaque(pin,full){
  pin.appendChild(el("div",{class:"pn"+(nm?"":" empty"),text:nm||"Tecnica senza nome"}));
  pin.appendChild(el("div",{class:"pm",text:smbMeta()}));
  pin.appendChild(el("div",{class:"pdiv"}));
- if(TBUILD.eff.length)TBUILD.eff.forEach(n2=>{const e=tecEffObj(n2);pin.appendChild(el("div",{class:"pe",html:"<b>"+n2+"</b>"+(e&&full?(" — "+e[2]):"")}));const stateLabel=full?tbEffectStateLabel(n2):"";if(stateLabel)pin.appendChild(el("div",{class:"pe none",text:stateLabel}));});
+ if(TBUILD.eff.length)TBUILD.eff.forEach(n2=>{const e=tecEffObj(n2),song=songProfile(TBUILD);pin.appendChild(el("div",{class:"pe",html:"<b>"+escp(n2)+"</b>"+(e&&full?(" — "+escp(song?song.melody.description:e[2])):"")}));const stateLabel=full?tbEffectStateLabel(n2):"";if(stateLabel)pin.appendChild(el("div",{class:"pe none",text:stateLabel}));});
  else pin.appendChild(el("div",{class:"pe none",text:TBUILD.forma==="Canzone"?"Nessuna Melodia scelta.":"Nessun effetto scelto."}));
+ if(TBUILD.forma==="Canzone")songDetails(TBUILD).forEach(text=>pin.appendChild(el("div",{class:"pe none",text})));
  if(D.areaUpgrade)pin.appendChild(el("div",{class:"pe none",text:D.areaUpgrade.text}));
  if(D.durationBenefit)pin.appendChild(el("div",{class:"pe none",text:D.durationBenefit.text}));
  if(full&&(TBUILD.desc||"").trim()){pin.appendChild(el("div",{class:"pdiv"}));pin.appendChild(el("div",{class:"pe none",text:"“"+TBUILD.desc.trim()+"”"}));}
@@ -2534,11 +2566,14 @@ function smbSave(){
  if(!D.valid){const problem=D.errors[0];return {msg:problem.text,step:["grade","grade-cap","slots"].includes(problem.code)?2:(["effect","duplicate","family","shape","melody"].includes(problem.code)?3:1)};}
  if(TBUILD._legacyKey&&(pg.extraTech||[]).some(t=>t.id===TBUILD._id))return {msg:"Una Tecnica costruita usa già questo identificativo. Il profilo storico rimane conservato: verifica la Tecnica esistente prima di convertirlo.",step:4};
  if(TBUILD.forma==="Area"&&!(TBUILD.eff||[]).some(isSagoma)){TBUILD._fam="Area";return {msg:"Una Tecnica ad Area ha bisogno di una sagoma: scegli un cono, una linea o un cerchio nella famiglia Area.",step:3};}
- const t={id:(TBUILD._id||("tec"+Date.now().toString(36)+Math.floor(Math.random()*1000))),nome:TBUILD.nome.trim(),attr:TBUILD.attr,die:TBUILD.die,fonte:TBUILD.fonte,stile:(TBUILD.fonte==="Stile"?(TBUILD.stile||""):""),fruitType:(TBUILD.fonte==="Frutto"?(TBUILD.fruitType||""):""),weapon:"",arma:(TBUILD.fonte==="Stile"?(TBUILD.arma||""):""),modulo:(TBUILD.fonte==="Stile"&&!TBUILD.arma?(TBUILD.modulo||""):""),forma:TBUILD.forma,durata:(TBUILD.forma==="Area"?TBUILD.durata:""),eff:TBUILD.eff.slice(),desc:TBUILD.desc||"",sourcePermission:TBUILD.sourcePermission?JSON.parse(JSON.stringify(TBUILD.sourcePermission)):null};
- /* Una Tecnica riaperta si sostituisce al suo posto: niente sparisce se si chiude senza salvare. */
- if(TBUILD._legacyKey){const key=TBUILD._legacyKey,original=JSON.parse(JSON.stringify(pg[key]));pg.legacyTechArchive=pg.legacyTechArchive||{};pg.legacyTechArchive[key]={...original,paHistory:Object.fromEntries(Object.entries(pg.pa||{}).filter(([k])=>k==="tec:"+key||k==="tec:"+t.id)),migratedTo:t.id,migratedAt:Date.now()};pg[key]={nome:"",desc:"",attr:"",die:"d4"};}
- const ix=(pg.extraTech||[]).findIndex(x=>x&&x.id===t.id);
- if(ix>=0)pg.extraTech[ix]=t;else pg.extraTech.push(t);
+ const original=TBUILD._legacyKey?pg[TBUILD._legacyKey]:(pg.extraTech||[]).find(x=>x&&x.id===TBUILD._id)||{};
+ const t={...JSON.parse(JSON.stringify(original)),id:(TBUILD._id||("tec"+Date.now().toString(36)+Math.floor(Math.random()*1000))),nome:TBUILD.nome.trim(),attr:TBUILD.attr,die:TBUILD.die,fonte:TBUILD.fonte,stile:(TBUILD.fonte==="Stile"?(TBUILD.stile||""):""),fruitType:(TBUILD.fonte==="Frutto"?(TBUILD.fruitType||""):""),weapon:TBUILD.forma==="Canzone"?(TBUILD.weapon||original.weapon||""):"",instrumentId:TBUILD.forma==="Canzone"?(TBUILD.instrumentId||"instrument:voice"):(original.instrumentId||""),songContext:TBUILD.songContext?JSON.parse(JSON.stringify(TBUILD.songContext)):original.songContext,arma:(TBUILD.fonte==="Stile"?(TBUILD.arma||""):""),modulo:(TBUILD.fonte==="Stile"&&(!TBUILD.arma||TBUILD.forma==="Canzone")?(TBUILD.modulo||""):""),forma:TBUILD.forma,durata:(TBUILD.forma==="Area"?TBUILD.durata:TBUILD.forma==="Canzone"?(original.durata||""):""),eff:TBUILD.eff.slice(),desc:TBUILD.desc||"",sourcePermission:TBUILD.sourcePermission?JSON.parse(JSON.stringify(TBUILD.sourcePermission)):null};
+ /* Una scrittura fallita conserva Scheda, equipaggio, ricetta e draft. */
+ try{musicistaTransaction(next=>{
+  if(TBUILD._legacyKey){const key=TBUILD._legacyKey,stored=JSON.parse(JSON.stringify(next[key]));next.legacyTechArchive=next.legacyTechArchive||{};next.legacyTechArchive[key]={...stored,paHistory:Object.fromEntries(Object.entries(next.pa||{}).filter(([k])=>k==="tec:"+key||k==="tec:"+t.id)),migratedTo:t.id,migratedAt:Date.now()};next[key]={nome:"",desc:"",attr:"",die:"d4"};}
+  if(t.forma==="Canzone"&&t.instrumentId.startsWith("instrument:index:")){const index=Number(t.instrumentId.slice("instrument:index:".length)),instrument=(next.strumenti||[])[index];if(!instrument)throw Error("Lo strumento scelto non è più in scheda.");if(!instrument.smcId)instrument.smcId=newId();t.instrumentId="instrument:"+instrument.smcId;}
+  next.extraTech=next.extraTech||[];const ix=next.extraTech.findIndex(x=>x&&x.id===t.id);if(ix>=0)next.extraTech[ix]=t;else next.extraTech.push(t);
+ });}catch(error){return {msg:"Impossibile salvare la Tecnica: "+error.message,step:4};}
  tbReset();closeBuilder();
  flyIn(dieIcon(t.die,120),()=>byText(".slots.right .slot-n",t.nome));
  return null;
@@ -2876,7 +2911,7 @@ function migrateChar(c){c=Object.assign(blank(),c||{});if(c.role){const MAP={"Me
  });
  /* La Fonte Arma non esiste più: un'arma esegue le Tecniche, non le genera.
     Le Tecniche salvate diventano di Stile e conservano l'arma come collegamento. */
- if(Array.isArray(c.extraTech))c.extraTech.forEach(function(t){if(t&&t.arma&&t.modulo)t.modulo="";});
+ if(Array.isArray(c.extraTech))c.extraTech.forEach(function(t){if(t&&t.forma!=="Canzone"&&t.arma&&t.modulo)t.modulo="";});
  if(Array.isArray(c.extraTech)){var _wi=0;c.extraTech.forEach(function(t){
   if(!t||t.fonte!=="Arma")return;
   t.fonte="Stile";
@@ -2891,7 +2926,7 @@ function migrateChar(c){c=Object.assign(blank(),c||{});if(c.role){const MAP={"Me
   if(hakiPipAxis(h)){h.die="";h.pip=Math.max(1,Math.min(hakiMaxPip(h),parseInt(h.pip)||1));}
   else if(h.die)h.pip=hakiPip(h.die);});
  if(Array.isArray(c.bonds))c.bonds.forEach(function(b){if(b&&!b.die){var n=parseInt(b.pip)||0;b.die=n<=0?"d4":(["d4","d4","d6","d8","d10","d12"][n]||"d20");}});
- if(Array.isArray(c.strumenti))c.strumenti.forEach(function(a){if(a&&!a.tipo)a.tipo="Corde";});
+ if(Array.isArray(c.strumenti))c.strumenti.forEach(function(a){if(a&&typeof a==="object"&&!Array.isArray(a)&&!a.tipo)a.tipo="Corde";});
  if(!Array.isArray(c.inventario))c.inventario=[];
  c.inventario.forEach(function(it){if(it&&it.ico&&INV_MIGRATE[it.ico])it.ico=INV_MIGRATE[it.ico];});
  c.talents=c.talents.map(function(k){var p=String(k).split(" · ");var n=p[p.length-1];if(TAL_RENAME[n]){p[p.length-1]=TAL_RENAME[n];return p.join(" · ");}return k;})
@@ -3348,19 +3383,22 @@ const INSTR_ESEMPI=[
  ["Voce","Ugola di Sirena","d12","Chi ti sente cantare per la prima volta in una scena deve superare la Salvezza anche solo per smettere di ascoltarti."],
  ["Voce","Il Canto di Joy","d20","Mitico. Se ne racconta uno solo, e non si sa se sia mai esistito. Chi lo sente non dimentica: la tua Canzone resta addosso a chi l'ha ascoltata anche dopo la fine della scena, e il Game Master decide per quanto."]
 ];
-function arteDie(){const ro=roleObj();if(ro&&ro.skill==="Arte")return pg.roleSkillDie||"d8";return pg.skills.Arte||"d4";}
-/* Il Grado effettivo è il minore fra il Grado dello strumento e Arte.
- * La Soglia delle Canzoni deriva dalla scala delle Salvezze del Grado effettivo. */
-function instrEff(a){const g=a.die||"d4";const arte=arteDie();const over=dieRank(g)>dieRank(arte);const eff=over?arte:g;return {grado:g,eff:eff,over:over,arte:arte,soglia:GLCPrestige.saveThreshold(eff)??3};}
-function instrMeta(a){const x=instrEff(a);return (a.tipo||"Corde")+" · "+(x.over?("<b>"+x.grado+"</b> usato come "+x.eff+" (Arte "+x.arte+")"):("<b>"+x.grado+"</b> "+(INSTR_GRADI[x.grado]||"")))+" · Salvezza "+x.soglia;}
-function instrumentModal(i){openModal("🎼 Strumento",()=>{const a=pg.strumenti[i];if(!a)return el("div");if(!a.tipo)a.tipo="Corde";const x=instrEff(a);const w=el("div",{});
- w.appendChild(field("Nome strumento",a.nome,v=>{a.nome=v;save();}));
- w.appendChild(el("label",{class:"fld",text:"Tipo · come amplifica"}));const tg=el("div",{class:"classgrid"});Object.keys(INSTR_TIPI).forEach(t=>{const o=el("div",{class:"classopt"+(a.tipo===t?" sel":"")},[el("div",{class:"co-ico",html:svgIcon(INSTR_ICON[t],26)}),el("div",{class:"co-n",text:t}),el("div",{class:"co-s",text:INSTR_TIPI[t]})]);o.onclick=()=>mutateM(()=>a.tipo=t);tg.appendChild(o);});w.appendChild(tg);
- w.appendChild(el("label",{class:"fld",text:"Grado"}));w.appendChild(el("div",{class:"mrow"},[el("span",{class:"sub",html:"<b style='color:#ffd394'>"+(INSTR_GRADI[x.grado]||"")+"</b> · la Salvezza contro le tue Canzoni ha Soglia <b style='color:#ffd394'>"+x.soglia+"</b>"}),stepper(a.die||"d4",nd=>mutateM(()=>a.die=nd))]));
- if(x.over)w.appendChild(el("div",{class:"sub",style:"color:#e0a36b;margin-top:4px",html:"Il Grado non può superare la tua <b>Arte ("+x.arte+")</b>: finché non ci arrivi, questo strumento lo suoni come un <b>"+x.eff+"</b>."}));
- w.appendChild(field("Effetto speciale (uno solo, lo concede il GM)",a.note,v=>{a.note=v;save();}));
- const det=el("details",{class:"tbfam",style:"margin-top:10px"});det.appendChild(el("summary",{text:"Esempi dal manuale · tocca per usarne uno"}));const eg=el("div",{class:"gcards"});INSTR_ESEMPI.forEach(ex=>{const c=el("div",{class:"gcard click"},[el("div",{class:"gc-ico",html:dieIcon(ex[2],40)}),el("div",{class:"gc-body"},[el("div",{class:"gc-n",text:ex[1]}),el("div",{class:"gc-m",text:ex[0]+" · "+ex[2]+" "+(INSTR_GRADI[ex[2]]||"")}),el("div",{class:"gc-d",text:ex[3]})])]);c.onclick=()=>mutateM(()=>{a.nome=ex[1];a.tipo=ex[0];a.die=ex[2];a.note=ex[3];});eg.appendChild(c);});det.appendChild(eg);w.appendChild(det);
- w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{closeModal();mutate(()=>pg.strumenti.splice(i,1));}})]));return w;});}
+function arteDie(){return window.GLCTalents?GLCTalents.skillDie(pg,"Arte")||"d4":pg.role==="Musicista"?pg.roleSkillDie||"d8":(pg.skills||{}).Arte||"d4";}
+function instrEff(a){const profile=window.GLCMelodies?GLCMelodies.instrumentProfile(pg,a,0):null;if(profile)return {...profile,grado:profile.grade,eff:profile.effective,soglia:profile.threshold};const g=a?.die||"d4",arte=arteDie(),legacy=!a||typeof a!=="object"||Array.isArray(a)||!TEC_DADI.includes(g),over=dieRank(g)>dieRank(arte),eff=legacy?"":over?arte:g;return {grado:g,eff,over,arte,legacy,soglia:eff?GLCPrestige.saveThreshold(eff)??3:null};}
+function instrMeta(a){const x=instrEff(a);return (a?.tipo||"Corde")+" · "+(x.legacy||x.valid===false?x.grado+" · storico, da verificare":x.over?("<b>"+x.grado+"</b> usato come "+x.eff+" (Arte "+x.arte+")"):("<b>"+x.grado+"</b> "+(INSTR_GRADI[x.grado]||"")))+(x.legacy||x.valid===false?"":" · Salvezza "+x.soglia);}
+function musicistaTransaction(change){const next=JSON.parse(JSON.stringify(pg)),state=JSON.parse(JSON.stringify(CT));change(next);state.chars[state.activeId]=next;(window.GLCStore||localStorage).setItem(KEY,JSON.stringify(state));pg=next;CT=state;return next;}
+function instrumentChange(i,change,refresh){try{musicistaTransaction(next=>{const a=(next.strumenti||[])[i];if(!a)throw Error("Lo strumento non è più in scheda.");change(a,next);});}catch(error){alert("Impossibile salvare lo strumento: "+error.message);return false;}if(refresh){renderManage();render();refreshModal();}return true;}
+function addInstrument(){try{musicistaTransaction(next=>{next.strumenti=next.strumenti||[];next.strumenti.push({smcId:newId(),nome:"Nuovo strumento",tipo:"Corde",die:"d6",note:""});});}catch(error){alert("Impossibile salvare lo strumento: "+error.message);return;}renderManage();render();flyIn(dieIcon("d6",120),()=>byText(".slots .slot-n","Nuovo strumento"));setTimeout(()=>instrumentModal(pg.strumenti.length-1),950);}
+function instrumentModal(i){openModal("🎼 Strumento",()=>{const a=(pg.strumenti||[])[i];if(!a||typeof a!=="object"||Array.isArray(a))return el("div",{class:"compat ko",text:"Strumento storico non valido: il dato è conservato, ma non concede effetti musicali. Usa la voce o uno strumento valido."});const x=instrEff(a),w=el("div",{});
+ w.appendChild(field("Nome strumento",a.nome,v=>instrumentChange(i,next=>{next.nome=v;})));
+ w.appendChild(el("label",{class:"fld",text:"Tipo · come amplifica"}));const tg=el("div",{class:"classgrid"});Object.keys(INSTR_TIPI).forEach(t=>{const o=el("div",{class:"classopt"+((a.tipo||"Corde")===t?" sel":"")},[el("div",{class:"co-ico",html:svgIcon(INSTR_ICON[t],26)}),el("div",{class:"co-n",text:t}),el("div",{class:"co-s",text:INSTR_TIPI[t]})]);o.onclick=()=>instrumentChange(i,next=>{next.tipo=t;},true);tg.appendChild(o);});w.appendChild(tg);
+ const grades=el("label",{class:"fld",text:"Grado dello strumento"}),select=el("select",{"aria-label":"Grado dello strumento"});Object.keys(INSTR_GRADI).forEach(d=>select.appendChild(el("option",{value:d,text:d+" · "+INSTR_GRADI[d]})));if(x.legacy)select.appendChild(el("option",{value:x.grado,text:x.grado+" · valore storico conservato",disabled:true}));select.value=x.grado;select.onchange=()=>{if(Object.hasOwn(INSTR_GRADI,select.value)&&!instrumentChange(i,next=>{next.die=select.value;},true))select.value=(pg.strumenti||[])[i]?.die||"d4";};grades.appendChild(select);w.appendChild(grades);
+ if(x.legacy)w.appendChild(el("p",{class:"compat ko",text:"Grado storico conservato: il manuale prevede strumenti da d4 a d20. Questo valore non concede una Soglia ordinaria; scegli un Grado consentito concordato con il GM."}));
+ else if(x.valid===false)w.appendChild(el("p",{class:"compat ko",text:x.errors.join(" ")}));
+ else{w.appendChild(el("p",{class:"sub",text:"Grado effettivo "+x.eff+" · Arte "+x.arte+" · Salvezza delle Canzoni: Soglia "+x.soglia}));if(x.over)w.appendChild(el("p",{class:"sub",text:"Lo strumento resta "+x.grado+", ma lo usi come "+x.eff+" finché Arte non raggiunge il suo Grado."}));}
+ w.appendChild(field("Effetto speciale (uno solo, da concordare con il GM)",a.note,v=>instrumentChange(i,next=>{next.note=v;})));
+ const det=el("details",{class:"tbfam",style:"margin-top:10px"});det.appendChild(el("summary",{text:"Proposte personalizzate da concordare con il GM"}));det.appendChild(el("p",{class:"sub",text:"Questi esempi non sono capacità del manuale: gli effetti speciali richiedono una concessione specifica del GM e non vengono applicati automaticamente. Eventuali eccezioni a costi, Salvezze o Incoscienza richiedono tale concessione."}));const eg=el("div",{class:"gcards"});INSTR_ESEMPI.forEach(ex=>{const c=el("div",{class:"gcard click"},[el("div",{class:"gc-ico",html:dieIcon(ex[2],40)}),el("div",{class:"gc-body"},[el("div",{class:"gc-n",text:ex[1]}),el("div",{class:"gc-m",text:ex[0]+" · "+ex[2]+" "+(INSTR_GRADI[ex[2]]||"")}),el("div",{class:"gc-d",text:ex[3]})])]);c.onclick=()=>instrumentChange(i,next=>{next.nome=ex[1];next.tipo=ex[0];next.die=ex[2];next.note=ex[3];},true);eg.appendChild(c);});det.appendChild(eg);w.appendChild(det);
+ w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(instrumentChange(i,(_,next)=>next.strumenti.splice(i,1))){closeModal();renderManage();render();}}})]));return w;});}
 function techModal(t){openModal("✦ "+(t.name||"Tecnica"),()=>{
  const w=el("div",{}),obj=t.k==="t1"?pg.t1:(t.k==="t2"?pg.t2:null);
  if(t.fixed){
@@ -3386,6 +3424,7 @@ function techModal(t){openModal("✦ "+(t.name||"Tecnica"),()=>{
    esiste più la Tecnica resta in scheda, con il collegamento segnalato. */
 function tecLinkBox(t){
  const w=el("div",{});
+ if(t.forma==="Canzone"){songDetails(t).forEach(text=>w.appendChild(el("p",{class:"sub",text})));if(t.arma||t.modulo||t.weapon)w.appendChild(el("p",{class:"compat wait",text:"Collegamento storico all'arma o al Modulo conservato: la Canzone usa soltanto la voce o lo strumento scelto, senza bonus o requisiti di quell'equipaggiamento."}));return w;}
  if(t.weapon){
   const a=(pg.armi||[]).filter(x=>((x.nome&&x.nome.trim())||"Arma senza nome")===t.weapon)[0];
   if(!a)w.appendChild(el("div",{class:"compat ko",html:"Collegamento non più valido: l'arma <b>"+t.weapon+"</b> non è più in scheda. La Tecnica resta salvata: riaprila nel Signature Move Builder per scegliere un'altra arma."}));
@@ -3410,7 +3449,7 @@ function tecLinkBox(t){
  return w;
 }
 function extraTechModal(i){openModal("✦ "+(pg.extraTech[i]?.nome||"Tecnica"),()=>{const t=pg.extraTech[i];if(!t)return el("div");const w=el("div",{});w.appendChild(el("h3",{text:t.nome||"Tecnica"}));w.appendChild(el("p",{text:tecSummary(t)+" · "+tecCostLabel(t)}));const check=tbEvaluate(t);if(!check.valid)w.appendChild(el("div",{class:"compat ko",text:check.errors.map(e=>e.text).join(" ")}));
- for(const nm of t.eff||[]){const e=tecEffObj(nm);w.appendChild(el("p",{text:nm+(e?(" — "+e[2]):" · effetto da revisionare")}));}w.appendChild(tecLinkBox(t));if(t.desc)w.appendChild(el("p",{text:t.desc}));w.appendChild(el("p",{class:"sub",text:"Le Tecniche Custom non spendono P.A. Modifica il Grado, gli effetti e i collegamenti nel Costruttore, entro i limiti della Fonte e dell’Attributo."}));
+ for(const nm of t.eff||[]){const e=tecEffObj(nm);w.appendChild(el("p",{text:nm+(e?(" — "+(songProfile(t)?.melody.description||e[2])):" · effetto da revisionare")}));}w.appendChild(tecLinkBox(t));if(t.desc)w.appendChild(el("p",{text:t.desc}));w.appendChild(el("p",{class:"sub",text:"Le Tecniche Custom non spendono P.A. Modifica il Grado, gli effetti e i collegamenti nel Costruttore, entro i limiti della Fonte e dell’Attributo."}));
  w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Modifica nel Signature Move Builder",onclick:()=>{tbEdit(t);closeModal();builderModal();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{if(confirm("Eliminare questa tecnica?")){closeModal();mutate(()=>pg.extraTech.splice(i,1));}}})]));if(window.GLCDetails)GLCDetails.prepare(w,"signature",t);return w;});}
 /* paRow usato dentro le modali: dopo ogni tocco ridisegna anche la modale */
 function paRowM(key,getDie,setDie){const r=paRow(key,getDie,setDie);r.querySelectorAll("button").forEach(b=>{const f=b.onclick;if(f)b.onclick=()=>{f();refreshModal();};});return r;}
@@ -4014,7 +4053,7 @@ function renderManage(){
    pg.armi.forEach((a,i)=>eq.appendChild(wTile(i)));
    eq.appendChild(slotAdd("Arma · apri l'Arsenale",arsenaleModal));
   }}
- if(isMusicista()){eq.appendChild(el("div",{class:"slots-h",text:"Strumenti"}));eq.appendChild(slotTile("d4","La tua voce","Voce · <b>d4</b> Base · sempre con te",null));(pg.strumenti||[]).forEach((a,i)=>eq.appendChild(slotTile(instrEff(a).grado,a.nome||"Strumento",instrMeta(a),()=>instrumentModal(i))));eq.appendChild(slotAdd("Strumento",()=>{mutate(()=>{if(!pg.strumenti)pg.strumenti=[];pg.strumenti.push({nome:"Nuovo strumento",tipo:"Corde",die:"d6",note:""});});flyIn(dieIcon("d6",120),()=>byText(".slots .slot-n","Nuovo strumento"));setTimeout(()=>instrumentModal(pg.strumenti.length-1),950);}));}
+ if(isMusicista()){eq.appendChild(el("div",{class:"slots-h",text:"Strumenti"}));eq.appendChild(slotTile("d4","La tua voce","Voce · <b>d4</b> Base · sempre con te",null));(pg.strumenti||[]).forEach((a,i)=>eq.appendChild(slotTile(instrEff(a).grado,a?.nome||"Strumento storico",instrMeta(a),()=>instrumentModal(i))));eq.appendChild(slotAdd("Strumento",addInstrument));}
  if(moduliVisibili()){const S=moduliSlots(),used=S.used;
   eq.appendChild(el("div",{class:"slots-h",html:"Corpo Meccanico · <b>"+(pg.racialDie||"—")+"</b> · installati "+used+"/"+S.n}));
   (pg.moduli||[]).forEach((mo,i)=>{const st=modStateLabel(mo),grade=mo.gradoArma||mo.grado;eq.appendChild(slotTile(mo.arma&&grade?grade:null,mo.nome||"Modulo",'<span class="pill '+st.c+'">'+st.t+"</span> "+(mo.tipo&&mo.tipo.length?mo.tipo.join(" · "):"modulo")+(mo.fuel&&mo.fuel.on?(" · "+(mo.fuel.cur??0)+"/"+(mo.fuel.max||"—")):""),()=>moduleSheetModal(i),(mo.arma&&grade)?null:"gear"));});
@@ -4112,7 +4151,7 @@ function talentInfo(key){
   if(window.GLCPrestige){var prev=GLCPrestige.inherited(pg,key);if(prev.length)desc+="\n\nBenefici incorporati: "+prev.map(t=>t.n+": "+t.d).join("\n");}
   return {name:name,branch:branch,desc:desc,tag:tag};
 }
-function psTecEff(t){if(!t.eff||!t.eff.length)return "";return '<div class="ps-eff">'+t.eff.map(function(nm){var e=tecEffObj(nm);return e?('<b>'+escp(nm)+':</b> '+escp(e[2])):escp(nm);}).join('<br>')+'</div>'+((tbEvaluate(t).areaUpgrade)?'<div class="ps-d2">'+escp(tbEvaluate(t).areaUpgrade.text)+'</div>':'')+(tbEvaluate(t).durationBenefit?'<div class="ps-d2">'+escp(tbEvaluate(t).durationBenefit.text)+'</div>':'');}
+function psTecEff(t){const song=songProfile(t);if(song)return '<div class="ps-eff">'+(t.eff||[]).map(nm=>{const e=tecEffObj(nm);return '<b>'+escp(nm)+':</b> '+escp(song.melody.name===nm?song.melody.description:e?e[2]:"Effetto storico da verificare");}).join("<br>")+'</div>'+songDetails(t).map(text=>'<div class="ps-d2">'+escp(text)+'</div>').join("");if(!t.eff||!t.eff.length)return "";return '<div class="ps-eff">'+t.eff.map(function(nm){var e=tecEffObj(nm);return e?('<b>'+escp(nm)+':</b> '+escp(e[2])):escp(nm);}).join('<br>')+'</div>'+((tbEvaluate(t).areaUpgrade)?'<div class="ps-d2">'+escp(tbEvaluate(t).areaUpgrade.text)+'</div>':'')+(tbEvaluate(t).durationBenefit?'<div class="ps-d2">'+escp(tbEvaluate(t).durationBenefit.text)+'</div>':'');}
 function fruitDossierHTML(c){const d=window.GLCFruits?.dossier(c);if(!d)return '';return '<div class="ps-sec"><div class="ps-h">Frutto del Diavolo · Scheda ufficiale</div><div class="ps-d">'+escp([d.nome,d.tipo,d.die,d.desc].filter(Boolean).join(' · '))+'</div>'+d.sections.map(s=>'<h4>'+escp(s.title)+'</h4>'+s.rows.map(r=>'<div class="ps-d"><b>'+escp(r.label)+':</b> '+escp(r.value||'Da registrare')+(r.active===false?' · scelta conservata / non utilizzabile':'')+(r.warning?' · '+escp(r.warning):'')+'</div>').join('')).join('')+'<div class="ps-d2">'+escp(d.notes)+(d.missing.length?' Da registrare: '+escp(d.missing.join(' · ')):'')+(d.exhausted?' Frutto / trasformazioni indisponibili fino al Riposo Lungo.':'')+'</div></div>';}
 function buildPrintSheet(){
   var host=document.getElementById("print-sheet"); if(!host) return;
@@ -4160,7 +4199,7 @@ function buildPrintSheet(){
   });
   h+='</table></div>';
   if(pg.armi&&pg.armi.length){h+='<div class="ps-sec"><div class="ps-h">Equipaggiamento</div>';pg.armi.forEach(function(a){normWeapon(a);var c=weaponCompat(a);h+='<div class="ps-item"><b>'+escp(a.nome||"arma")+'</b> <span class="die">'+escp(a.tipo+(a.asta?(" "+a.asta.toLowerCase()):"")+" \u00b7 Grado "+a.grado+" "+gradeLabel(a.grado))+'</span><div class="ps-d">'+escp([a.attr||"attributo da definire",a.portata||"portata da definire","Stile "+(c.need||"da determinare")+(c.s==="ok"?" \u2713":(c.s==="ko"?" \u2717":""))].join(" \u00b7 "))+'</div>'+(a.eff?('<div class="ps-d2"><b>'+escp(a.eff.nome||"Effetto")+'</b> \u00b7 '+escp([a.eff.cat,a.eff.freq,(a.eff.prezzo&&a.eff.prezzo!=="Nessuno")?(a.eff.prezzo+(a.eff.prezzoDett?(" "+a.eff.prezzoDett):"")):""].filter(Boolean).join(" \u00b7 "))+(a.eff.desc?(" \u2014 "+escp(a.eff.desc)):"")+'</div>'):'')+(a.note?'<div class="ps-d2">'+escp(a.note)+'</div>':'')+'</div>';});h+='</div>';}
-  if(pg.strumenti&&pg.strumenti.length){h+='<div class="ps-sec"><div class="ps-h">Strumenti</div>';pg.strumenti.forEach(function(a){var x=instrEff(a);h+='<div class="ps-item"><b>'+escp(a.nome||"strumento")+'</b> <span class="die">'+escp([a.tipo||"Corde",x.grado+(INSTR_GRADI[x.grado]?(" "+INSTR_GRADI[x.grado]):""),"Salvezza "+x.soglia].join(" \u00b7 "))+'</span>'+(x.over?'<div class="ps-d2">usato come '+escp(x.eff)+' finché l\'Arte non arriva a '+escp(x.grado)+'</div>':'')+(a.note?'<div class="ps-d">'+escp(a.note)+'</div>':'')+'</div>';});h+='</div>';}
+  if(pg.strumenti&&pg.strumenti.length){h+='<div class="ps-sec"><div class="ps-h">Strumenti</div>';pg.strumenti.forEach(function(a){var x=instrEff(a);h+='<div class="ps-item"><b>'+escp(a?.nome||"strumento storico")+'</b> <span class="die">'+escp([a?.tipo||"Tipo da verificare",x.grado+(INSTR_GRADI[x.grado]?(" "+INSTR_GRADI[x.grado]):""),x.legacy||x.valid===false?"Strumento storico da verificare":"Salvezza "+x.soglia].join(" \u00b7 "))+'</span>'+(x.over?'<div class="ps-d2">usato come '+escp(x.eff)+' finché l\'Arte non arriva a '+escp(x.grado)+'</div>':'')+(a?.note?'<div class="ps-d">'+escp(a.note)+'</div>':'')+'</div>';});h+='</div>';}
   if(pg.moduli&&pg.moduli.length){normModules();var _S=GLCCyborg.slots(pg);h+='<div class="ps-sec"><div class="ps-h">Corpo Meccanico · '+_S.used+'/'+_S.n+' installati</div>';pg.moduli.forEach(function(mo){var record=modPrintRecord(mo);h+='<div class="ps-tech"><div class="tt"><b>'+escp(record.nome||"modulo")+'</b> <span class="tg">'+escp((record.installato?"Installato":"Non installato")+" · "+record.stato+" · "+(record.attivo?"Attivo":"Inattivo"))+'</span></div><div class="ps-d">'+escp([record.tipo,"Fascia "+record.req,record.grado?("Arma "+record.grado+" · "+(mo.armaTipo||"tipo da definire")+" · "+(mo.attr||"Attributo da definire")):"Funzionale"].filter(Boolean).join(" · "))+'</div><div class="ps-d">Funzione attiva: '+escp(record.funzioneAttiva||"—")+'</div><div class="ps-d2">Funzione inattiva: '+escp(record.funzioneInattiva||"nessun beneficio meccanico")+'</div><div class="ps-d2">'+escp(record.eff)+'</div>'+(record.fuel?'<div class="ps-d2">Cariche: '+escp(record.fuel+" · consumo "+(mo.fuel?.consumo||1)+" · ricarica: "+(mo.fuel?.ricarica||"10 minuti fuori combattimento, con risorse disponibili"))+'</div>':'')+(record.issues.length?'<div class="ps-d2">Da correggere: '+escp(record.issues.join(" "))+'</div>':'')+(record.desc?'<div class="ps-d2">'+escp(record.desc)+'</div>':'')+'</div>';});h+='</div>';}
   if(window.GLCTratti&&GLCTratti.acquired(pg).length){h+='<div class="ps-sec"><div class="ps-h">Tratti Unici e Sinergie</div>';GLCTratti.acquired(pg).forEach(t=>{h+='<div class="ps-tech"><div class="tt"><b>'+escp(t.name)+'</b> · '+escp(t.attribute+" + "+t.skill)+(t.active?"":(" · "+(t.superseded?"Evoluto":"inattivo")))+'</div><div class="ps-d">'+escp(t.effects.join(" "))+'</div></div>';});h+='</div>';}
   if(visibleTalents().length){h+='<div class="ps-sec"><div class="ps-h">Talenti</div>';visibleTalents().forEach(function(k){var ti=talentInfo(k);h+='<div class="ps-tech"><div class="tt">\u2726 <b>'+escp(ti.name)+'</b>'+(ti.branch?' <span class="ps-d2">('+escp(ti.branch)+')</span>':'')+(ti.tag?' <span class="ps-d2">'+escp(ti.tag)+'</span>':'')+'</div>'+(ti.desc?'<div class="ps-d">'+escp(ti.desc)+'</div>':'')+'</div>';});h+='</div>';}
@@ -4172,7 +4211,7 @@ function buildPrintSheet(){
   if(r)h+='<div class="ps-tech"><div class="tt"><b>'+escp(r.tech)+'</b> <span class="tg">razziale \u00b7 '+escp(pg.racialDie||"d6")+'</span></div><div class="ps-d">'+escp(r.techDesc)+'</div></div>';
   if(pg.t1&&pg.t1.nome)h+='<div class="ps-tech"><div class="tt"><b>'+escp(pg.t1.nome)+'</b> <span class="tg">'+escp([pg.t1.attr,pg.t1.die,"Profilo storico · da convertire nel Costruttore"].filter(Boolean).join(" \u00b7 "))+'</span></div>'+(pg.t1.desc?'<div class="ps-d">'+escp(pg.t1.desc)+'</div>':'')+'</div>';
   if(pg.t2&&pg.t2.nome)h+='<div class="ps-tech"><div class="tt"><b>'+escp(pg.t2.nome)+'</b> <span class="tg">'+escp([pg.t2.attr,pg.t2.die,"Profilo storico · da convertire nel Costruttore"].filter(Boolean).join(" \u00b7 "))+'</span></div>'+(pg.t2.desc?'<div class="ps-d">'+escp(pg.t2.desc)+'</div>':'')+'</div>';
-  (pg.extraTech||[]).forEach(function(t){if(!t.nome&&!(t.eff&&t.eff.length))return;var _fo=(t.fonte==="Frutto"&&t.fruitType)?("Frutto "+t.fruitType):(t.stile?("Stile "+t.stile):(t.fonte||""));if(t.arma){var _wa2=techniqueWeapons().filter(function(x){return x.id===t.arma;})[0];if(_wa2)_fo+=" \u00b7 arma \u00ab"+((_wa2.nome||"").trim()||"senza nome")+"\u00bb";}var _pa=0,_sg=null;var meta=[_fo,t.forma,t.attr,t.die].filter(Boolean).join(" · ")+" · "+tecCostLabel(t)+(_sg!=null?(" · "+_pa+"/"+_sg+" PA"):"");h+='<div class="ps-tech"><div class="tt"><b>'+escp(t.nome||"(senza nome)")+'</b> <span class="tg">'+escp(meta)+'</span></div>'+(tbEvaluate(t).valid?'':'<div class="ps-d2">Da correggere nel Costruttore: '+escp(tbEvaluate(t).errors.map(e=>e.text).join(' '))+'</div>')+psTecEff(t)+(t.desc?'<div class="ps-d">'+escp(t.desc)+'</div>':'')+'</div>';});
+  (pg.extraTech||[]).forEach(function(t){if(!t.nome&&!(t.eff&&t.eff.length))return;var _fo=techniqueSourceLabel(t);if(t.forma!=="Canzone"&&t.arma){var _wa2=techniqueWeapons().filter(function(x){return x.id===t.arma;})[0];if(_wa2)_fo+=" \u00b7 arma \u00ab"+((_wa2.nome||"").trim()||"senza nome")+"\u00bb";}var _pa=0,_sg=null;var meta=[_fo,t.forma,t.attr,t.die].filter(Boolean).join(" · ")+" · "+tecCostLabel(t)+(_sg!=null?(" · "+_pa+"/"+_sg+" PA"):"");h+='<div class="ps-tech"><div class="tt"><b>'+escp(t.nome||"(senza nome)")+'</b> <span class="tg">'+escp(meta)+'</span></div>'+(tbEvaluate(t).valid?'':'<div class="ps-d2">Da correggere nel Costruttore: '+escp(tbEvaluate(t).errors.map(e=>e.text).join(' '))+'</div>')+psTecEff(t)+(t.desc?'<div class="ps-d">'+escp(t.desc)+'</div>':'')+'</div>';});
   if(!r&&!(pg.t1&&pg.t1.nome)&&!(pg.t2&&pg.t2.nome)&&!(pg.extraTech&&pg.extraTech.length))h+='<div class="ps-d">Nessuna tecnica.</div>';
   h+='</div>';
   if(pg.haki&&pg.haki.length){h+='<div class="ps-sec"><div class="ps-h">Haki</div>';pg.haki.forEach(function(hk){var unl=hakiUnlocked(hk);var liv=hakiLevel(hk);h+='<div class="ps-tech"><div class="tt"><b>'+escp(hk.name)+'</b> <span class="tg">'+escp((hk.die||"")+(liv?(" \u00b7 "+liv):"")+(hk.pip?(" \u00b7 "+hk.pip+" PIP"):""))+'</span></div>';unl.forEach(function(row){h+='<div class="ps-d"><b>'+escp(row.liv)+':</b> '+escp(row.pass)+(row.act?(' <i>Attiva: '+escp(row.act)+(row.cost?(" ("+row.cost+" PIP)"):"")+'</i>'):'')+'</div>';});h+='</div>';});h+='</div>';}
@@ -4197,11 +4236,11 @@ function printPayload(){
     moduli:(pg.moduli||[]).map(modPrintRecord),
     moduliSlots:moduliVisibili()?moduliSlots().n:0,
     moduliInstalled:GLCCyborg.slots(pg).used,
-    strumenti:(pg.strumenti||[]).map(function(a){var x=instrEff(a);return {nome:a.nome||"",die:a.die||"",tipo:a.tipo||"Corde",grado:INSTR_GRADI[x.grado]||"",eff:x.eff,soglia:x.soglia,over:x.over,note:a.note||""};}),
+    strumenti:(pg.strumenti||[]).map(function(a){var x=instrEff(a);return {nome:a?.nome||"Strumento storico",die:a?.die||"",tipo:a?.tipo||"Tipo da verificare",grado:INSTR_GRADI[x.grado]||"",eff:x.eff,soglia:x.soglia,over:x.over,legacy:x.legacy,issues:x.errors||[],note:a?.note||""};}),
     armi:(pg.armi||[]).map(function(a){normWeapon(a);var c=weaponCompat(a);return {nome:a.nome||"",tipo:a.tipo+(a.asta?(" \u00b7 "+a.asta.toLowerCase()):""),attr:a.attr||"",die:a.grado||"",grado:a.grado||"",gradoLabel:gradeLabel(a.grado),portata:a.portata||"",stile:c.need||"",stileOk:(c.s==="ok"),effNome:(a.eff&&a.eff.nome)||"",effCat:(a.eff&&a.eff.cat)||"",effDesc:(a.eff&&a.eff.desc)||"",effFreq:(a.eff&&a.eff.freq)||"",effPrezzo:(a.eff&&a.eff.prezzo&&a.eff.prezzo!=="Nessuno")?(a.eff.prezzo+(a.eff.prezzoDett?(" "+a.eff.prezzoDett):"")):"",gmOk:!!a.gmOk,note:a.note||""};}),
     inventario:(pg.inventario||[]).map(function(it){return {nome:it.nome||"",qta:(parseInt(it.qta)||0),note:it.note||"",ico:it.ico||""};}),
     haki:(pg.haki||[]).map(function(hk){var unl=hakiUnlocked(hk);return {name:hk.name,die:hk.die||"",pip:hakiPipOf(hk),liv:hakiLevel(hk),rows:unl.map(function(x){return {liv:x.liv,pass:x.pass||"",act:x.act||"",cost:x.cost||""};})};}),
-    tecniche:(pg.extraTech||[]).filter(function(t){return t.nome||(t.eff&&t.eff.length);}).map(function(t){var fo=(t.fonte==="Frutto"&&t.fruitType)?("Frutto "+t.fruitType):(t.stile?("Stile "+t.stile):(t.fonte||""));if(t.arma){var _a=techniqueWeapons().filter(function(x){return x.id===t.arma;})[0];if(_a)fo+=" \u00b7 arma \u00ab"+((_a.nome||"").trim()||"senza nome")+"\u00bb";}if(t.modulo){var _m=(pg.moduli||[]).filter(function(x){return x.id===t.modulo;})[0];if(_m)fo+=" \u00b7 modulo \u00ab"+(_m.nome||"senza nome")+"\u00bb";}var check=tbEvaluate(t);return {valid:check.valid,issues:check.errors.map(e=>e.text),areaUpgrade:[check.areaUpgrade?.text,check.durationBenefit?.text].filter(Boolean).join(" "),nome:t.nome||"",fonte:fo,forma:t.forma||"",attr:t.attr||"",die:t.die||"",durata:check.durationBenefit?.duration||t.durata||"",cost:tecCostLabel(t),eff:(t.eff||[]).map(function(nm){var e=tecEffObj(nm);return {n:nm,d:e?e[2]:""};}),desc:t.desc||"",pa:0,soglia:null};}),
+    tecniche:(pg.extraTech||[]).filter(function(t){return t.nome||(t.eff&&t.eff.length);}).map(function(t){var fo=techniqueSourceLabel(t);if(t.forma!=="Canzone"&&t.arma){var _a=techniqueWeapons().filter(function(x){return x.id===t.arma;})[0];if(_a)fo+=" \u00b7 arma \u00ab"+((_a.nome||"").trim()||"senza nome")+"\u00bb";}if(t.forma!=="Canzone"&&t.modulo){var _m=(pg.moduli||[]).filter(function(x){return x.id===t.modulo;})[0];if(_m)fo+=" \u00b7 modulo \u00ab"+(_m.nome||"senza nome")+"\u00bb";}var check=tbEvaluate(t),song=songProfile(t);return {id:t.id||"",instrumentId:t.instrumentId||"",songProfile:song?JSON.parse(JSON.stringify(song)):null,valid:check.valid,issues:check.errors.map(e=>e.text),areaUpgrade:[check.areaUpgrade?.text,check.durationBenefit?.text].filter(Boolean).join(" "),nome:t.nome||"",fonte:fo,forma:t.forma||"",attr:t.attr||"",die:t.die||"",durata:song?song.duration:check.durationBenefit?.duration||t.durata||"",cost:tecCostLabel(t),eff:(t.eff||[]).map(function(nm){var e=tecEffObj(nm);return {n:nm,d:song?.melody.name===nm?song.melody.description:e?e[2]:""};}),desc:t.desc||"",pa:0,soglia:null};}),
     pa:{attr:ATTRS.map(function(a){return {name:a,die:pg.attr[a]||"",pa:pg.pa["attr:"+a]||0,soglia:pg.attr[a]?paSoglia(pg.attr[a]):null};}),
         skills:Object.keys(SKILLS).map(function(n){var isRole=ro&&ro.skill===n;var die=isRole?pg.roleSkillDie:(pg.skills[n]||"");return {name:n,die:die,role:!!isRole,pa:pg.pa[n]||0,soglia:die?paSoglia(die):null};}).filter(function(x){return x.die;})}};
   if(window.GLCTratti){out.tratti=GLCTratti.acquired(pg).map(t=>({id:t.id,name:t.name,attribute:t.attribute,skill:t.skill,active:t.active,status:t.status,desc:t.effects.join(" ")}));out.talentChoices=GLCAdvancement.talentChoices(pg);}

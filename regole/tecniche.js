@@ -51,10 +51,12 @@
   const find = (name, options) => catalogue(options).find(e => e[1] === name);
   const isShape = (name, options) => { const e = find(name, options); return !!e && e[6] === 'sagoma'; };
   function moduleModifiers(pg, t, options) {
+    if (t.forma === 'Canzone') return {discountST:0,discountSlots:0,unlocks:[],errors:[]};
     if (!t.modulo || !root.GLCCyborg) return {discountST: 0, discountSlots: 0, unlocks: [], errors: []};
     return root.GLCCyborg.techModifiers(pg, t, catalogue(options));
   }
   function modifiers(t, options) {
+    if (t.forma === 'Canzone') return {discountST:0,discountSlots:0,unlocks:[],errors:[]};
     return options && options.moduleModifiers || options && options.pg && moduleModifiers(options.pg, t, options) || {discountST: 0, discountSlots: 0, unlocks: [], errors: []};
   }
   function moduleGrants(pg, t, name, options) {
@@ -62,6 +64,10 @@
     return !mod.errors.length && (mod.unlocks || []).includes(name);
   }
   function states(t, options) {
+    if (t.forma==='Canzone' && root.GLCMelodies && options?.pg) {
+      const song=root.GLCMelodies.evaluate(options.pg,t,options),s= song.saving;
+      return s?[{effect:(t.eff||[])[0],state:s.state,attribute:s.attribute,threshold:s.threshold,source:s.source,procedure:s.text}]:[];
+    }
     const profiles = {
       Sbilancio: ['Sbilanciato', 'Tecnica'], Sfondamento: ['Stordito', 'Forza'],
       Accecante: ['Accecato', 'Tecnica'], Terrore: ['Atterrito', 'Spirito'],
@@ -104,6 +110,7 @@
     return !mod.errors.length && mod.module && mod.module.eff && mod.module.eff.tgt === name ? Math.max(0, 1 - (mod.discountSlots || 0)) : 1;
   }
   function cost(t, list, options) {
+    if (t.forma==='Canzone' && root.GLCMelodies && options?.pg) {const c=root.GLCMelodies.evaluate(options.pg,t,options).cost;return {st:c.st,pt:c.pt};}
     let st = 0, pt = 0;
     for (const name of Array.isArray(t.eff) ? t.eff : []) {
       const effect = (list || []).find(e => e[1] === name);
@@ -180,20 +187,20 @@
         else if (!['Paramecia', 'Logia', 'Zoan'].includes(fruit.tipo) || t.fruitType !== fruit.tipo) add('fruit-type', 'La Tecnica deve usare il tipo del Frutto realmente posseduto.');
       }
     }
-    if (t.arma && !linkedWeapon) add('weapon-missing', String(t.arma).startsWith('natural:')?'L’Arma Naturale collegata manca o non rispetta più i requisiti di Artigli e Zanne. Il collegamento resta conservato.':'L’arma collegata non è più nell’Arsenale. Il collegamento è conservato finché non lo correggi.');
-    if ((t.arma || module && module.arma) && weapon && t.fonte === 'Stile') {
+    if (!song && t.arma && !linkedWeapon) add('weapon-missing', String(t.arma).startsWith('natural:')?'L’Arma Naturale collegata manca o non rispetta più i requisiti di Artigli e Zanne. Il collegamento resta conservato.':'L’arma collegata non è più nell’Arsenale. Il collegamento è conservato finché non lo correggi.');
+    if (!song && (t.arma || module && module.arma) && weapon && t.fonte === 'Stile') {
       const problem = weaponUseError(pg, weapon);
       if (problem) add('weapon-requirements', problem);
     }
-    if (t.modulo && (!module || pg.race !== 'cyborg')) add('module-missing', 'Il Modulo collegato non è disponibile sul Corpo Meccanico del pirata.');
-    else if (t.modulo && !root.GLCCyborg) add('module-engine', 'Aggiorna la pagina per convalidare il Modulo collegato con le regole Cyborg.');
-    else if (t.modulo && module) {
+    if (!song && t.modulo && (!module || pg.race !== 'cyborg')) add('module-missing', 'Il Modulo collegato non è disponibile sul Corpo Meccanico del pirata.');
+    else if (!song && t.modulo && !root.GLCCyborg) add('module-engine', 'Aggiorna la pagina per convalidare il Modulo collegato con le regole Cyborg.');
+    else if (!song && t.modulo && module) {
       const check = root.GLCCyborg.evaluate(pg, module, {purpose: options.purpose || 'build'});
       check.errors.forEach(e => add(e.code, e.text));
       if (options.purpose === 'use' && !check.operational) check.operationalErrors.forEach(e => add(e.code, e.text));
       (mod.errors || []).forEach(e => add(e.code, e.text));
     }
-    if (t.arma && t.modulo) add('gear-conflict', 'Una Tecnica collega un’arma oppure un Modulo, non entrambi.');
+    if (!song && t.arma && t.modulo) add('gear-conflict', 'Una Tecnica collega un’arma oppure un Modulo, non entrambi.');
     if (t.fonte === 'Frutto' && (t.arma || t.modulo)) add('fruit-gear', 'Le concessioni di un’arma o di un Modulo non sostituiscono la Scheda del Frutto.');
     if (!ATTRIBUTES.includes(t.attr)) add('attribute', 'Scegli l’Attributo di riferimento.');
     if (!DICE.includes(t.die)) add('grade', 'Le Tecniche personalizzate hanno Grado da d4 a d20, senza progressione di Prestigio.');
@@ -228,9 +235,11 @@
       if (duration === 'Tutta la scena' && t.die !== 'd20') add('duration-grade', 'La durata Tutta la scena richiede una Tecnica d20.');
       if (duration !== 'Un turno' && !effects.some(name => {const e = find(name, options); return e && e[0] === 'Zona Persistente';})) add('persistence', 'Una durata prolungata richiede una Zona Persistente espressamente autorizzata dalla Fonte.');
     }
-    if(options.purpose==='use'&&root.GLCFruits)root.GLCFruits.useProblems(pg,t).forEach(text=>add('fruit-unavailable',text));
+    const songProfile=song&&root.GLCMelodies?root.GLCMelodies.evaluate(pg,t,options):null;
+    if(songProfile)songProfile.errors.forEach(text=>{if(!errors.some(e=>e.text===text))add('song-profile',text);});
+    if(options.purpose==='use'&&root.GLCFruits&&!song)root.GLCFruits.useProblems(pg,t).forEach(text=>add('fruit-unavailable',text));
     const available = catalogue(options).filter(e => !effectError(pg, t, e, options)).map(e => e[1]);
-    return {valid: errors.length === 0, errors, slot, used, cost: cost(t, catalogue(options), options), states: states(t, options), areaUpgrade: areaUpgrade(t,options), durationBenefit: durationBenefit(t,options), cap, dieOpts: DICE.filter(d => rank(d) <= cap), available, forms, compatibleWeapons: allowedWeapons, compatibleModules, sourceKey: sourceKey(pg, t), permissionValid: permission, weapon, module, moduleModifiers: mod};
+    return {valid: errors.length === 0, errors, slot, used, cost: cost(t, catalogue(options), options), states: states(t, options), songProfile, areaUpgrade: areaUpgrade(t,options), durationBenefit: durationBenefit(t,options), cap, dieOpts: DICE.filter(d => rank(d) <= cap), available, forms, compatibleWeapons: allowedWeapons, compatibleModules, sourceKey: sourceKey(pg, t), permissionValid: permission, weapon, module, moduleModifiers: mod};
   }
   const api = Object.freeze({DICE: Object.freeze(DICE), SLOTS: Object.freeze(SLOTS), rank, plainDie, compatibleWeapon, weaponUseError, sourceKey, permissionValid, moduleModifiers, effectError, effectSlots, group, cost, states, areaUpgrade, durationBenefit, evaluate});
   root.GLCTechniques = api;

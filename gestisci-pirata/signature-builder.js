@@ -25,12 +25,13 @@
     plaque.append(pin); smbPlaque(pin, false); h.append(plaque);
   }
   function sourceName() {
+    if (TBUILD.fonte === 'Stile' && TBUILD.forma === 'Canzone') return 'Musicista';
     return TBUILD.fonte === 'Frutto'
       ? ((pg.frutto && pg.frutto.nome) || ('Frutto ' + (TBUILD.fruitType || '')))
       : (TBUILD.stile || (SMBD.musica ? 'Musicista' : 'Stile'));
   }
   function sourceIcon(size) {
-    const key = TBUILD.fonte === 'Frutto' ? TBUILD.fruitType : (TBUILD.stile || (SMBD.musica ? 'Musicista' : ''));
+    const key = TBUILD.fonte === 'Stile' && TBUILD.forma === 'Canzone' ? 'Musicista' : TBUILD.fonte === 'Frutto' ? TBUILD.fruitType : (TBUILD.stile || (SMBD.musica ? 'Musicista' : ''));
     return STYLE_IMG[key] ? emblem(STYLE_IMG[key], size) : svgIcon(STYLE_ICON[key] || FONTE_ICO[TBUILD.fonte] || 'star', Math.round(size * .6));
   }
   function metric(label, value) {
@@ -49,15 +50,16 @@
     form.append(icon('', svgIcon(FORMA_ICO[TBUILD.forma] || 'star', 15)), document.createTextNode(TBUILD.forma));
     h.append(form);
     const values = make('dl', 'smb-core-values');
-    values.append(metric('Dado danno', TBUILD.attr ? TBUILD.die : '—'), metric('Costo', tecCostLabel(TBUILD)));
+    values.append(metric(TBUILD.forma === 'Canzone' ? 'Grado' : 'Dado danno', TBUILD.attr ? TBUILD.die : '—'), metric('Costo', tecCostLabel(TBUILD)));
     h.append(values);
     const slots = make('div', 'smb-core-slots');
     slots.append(make('span', '', (TBUILD.forma === 'Canzone' ? 'Melodia' : 'Slot') + ' ' + slotUsed(TBUILD.eff) + ' / ' + (SMBD.slot ?? 0)));
     const pips = make('span', 'smb-slot-pips'); pips.setAttribute('aria-hidden', 'true');
     for (let i = 0; i < (SMBD.slot ?? 0); i++) pips.append(make('i', i < slotUsed(TBUILD.eff) ? 'filled' : ''));
     slots.append(pips); h.append(slots);
-    const gear = TBUILD.arma ? (pg.armi || []).find(a => a.id === TBUILD.arma) : TBUILD.modulo ? (pg.moduli || []).find(m => m.id === TBUILD.modulo) : null;
-    if (gear) h.append(make('p', 'smb-core-gear', gear.nome || (TBUILD.arma ? 'Arma senza nome' : 'Modulo')));
+    const song = TBUILD.forma === 'Canzone' && typeof songProfile === 'function' ? songProfile(TBUILD) : null;
+    const gear = song ? song.instrument : TBUILD.arma ? (pg.armi || []).find(a => a.id === TBUILD.arma) : TBUILD.modulo ? (pg.moduli || []).find(m => m.id === TBUILD.modulo) : null;
+    if (gear) h.append(make('p', 'smb-core-gear', song ? gear.name : gear.nome || (TBUILD.arma ? 'Arma senza nome' : 'Modulo')));
   }
   function updateNodes(v) {
     const complete = [!!(TBUILD.nome || '').trim() && !SMBD.BLOCK, !!TBUILD.attr && !SMBD.BLOCK,

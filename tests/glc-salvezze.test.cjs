@@ -30,6 +30,7 @@ test('Prestige graduated saves use the full source pool and the approved inclusi
 
 test('Instrument thresholds use the actual Arte limit and update without changing the instrument or character',()=>{
  const h=setup(),c=h.context.pg;
+ Object.assign(c,{role:'Musicista',style:'Musicista'});
  h.context.roleObj=()=>({skill:'Arte'});
  for(const name of ['arteDie','instrEff','instrMeta']){
   const line=html.match(new RegExp('^function '+name+'\\([^\\n]+','m'));
@@ -53,7 +54,7 @@ test('Instrument thresholds use the actual Arte limit and update without changin
   assert.equal(x.eff,'d20');assert.equal(x.soglia,11);assert.equal(x.over,false);
   assert.equal(JSON.stringify([c,instrument]),before);
  }
- h.context.roleObj=()=>({skill:'Comunicazione'});c.roleSkillDie='d20+d20';c.skills={Arte:'d8'};
+ h.context.roleObj=()=>({skill:'Comunicazione'});Object.assign(c,{role:'Capitano',style:'Capitano'});c.roleSkillDie='d20+d20';c.skills={Arte:'d8'};
  x=h.context.instrEff({die:'d8'});assert.equal(x.soglia,5);
  const instrument={die:'d10'},before=JSON.stringify([c,instrument]);x=h.context.instrEff(instrument);
  assert.equal(x.over,true);assert.equal(x.eff,'d8');assert.equal(x.soglia,5);

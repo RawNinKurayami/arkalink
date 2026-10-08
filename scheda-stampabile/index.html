@@ -13,7 +13,8 @@
 <script src="/regole/tratti.js?v=1"></script>
 <script src="/regole/cyborg.js?v=1"></script>
 <script src="/regole/frutti.js?v=1"></script>
-<script src="special-moves-print.js?v=9"></script>
+<script src="/regole/melodie.js?v=1"></script>
+<script src="special-moves-print.js?v=10"></script>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#bcb6a6;font-family:'Cormorant Garamond',serif;color:#33261a;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -420,6 +421,27 @@ html,body{overflow-x:visible;}
   function circleDie(grp,die){ if(!die) return; var e=qd('.die[data-grp="'+grp+'"][data-die="'+die+'"]'); if(e) e.classList.add('on'); }
   function techRow(t){ var eff=(t.eff&&t.eff.length)?t.eff.join(', '):(t.desc||''); var tipo=t.fonte||'Custom'; if(tipo==='Frutto'&&t.fruitType) tipo='Frutto '+t.fruitType; return {nome:t.nome,attr:(ATTR3[t.attr]||t.attr||'\u2014'),die:t.die||'',tipo:tipo,eff:eff}; }
   function historicTechRow(t){var row=techRow(t);row.tipo='Profilo storico · da convertire nel Costruttore';if(t.desc&&t.eff&&t.eff.length)row.eff+=' — '+t.desc;return row;}
+  function profileText(value){if(value==null)return '';if(Array.isArray(value))return value.map(profileText).filter(Boolean).join(' · ');if(typeof value==='object')return value.text||value.description||value.label||'';return String(value);}
+  function instrumentPrintText(a){return [a.name||'Strumento',a.type||'',a.grade?'Grado '+a.grade:'',a.effective?'effettivo '+a.effective:'',a.arte?'Arte '+a.arte:'',a.threshold!=null?'Salvezza '+a.threshold:''].filter(Boolean).join(' · ');}
+  function melodyPrintRecord(pg,t){
+    var p=window.GLCMelodies?GLCMelodies.evaluate(pg,t):null;
+    var names=Array.isArray(t.eff)?t.eff:[],details=p?[p.instrument?instrumentPrintText(p.instrument):'',p.range!=null?'Portata '+p.range+' m':'',profileText(p.actionText),profileText(p.saving),profileText(p.maintenance&&p.maintenance.text),profileText(p.termination),profileText(p.notes),profileText(p.warnings)].filter(Boolean).join(' · '):'Apri la gestione del pirata per aggiornare il profilo della Canzone.';
+    return {id:t.id||t.smcId||'',nome:t.nome||'',fonte:'Musicista',forma:'Canzone',attr:t.attr||'',die:t.die||'',durata:p?p.duration||'':'',cost:p&&p.cost?p.cost.label||'':'',valid:p?p.valid:false,issues:p?(p.errors||[]).map(profileText):['Profilo della Canzone da aggiornare.'],eff:names.map(function(n){return {n:n,d:p&&p.melody&&p.melody.name===n?p.melody.description||'':''};}),desc:t.desc||'',songDetails:details};
+  }
+  function currentPrintedTechniques(pg,P){
+    var songs=(Array.isArray(pg.extraTech)?pg.extraTech:[]).filter(function(t){return t&&t.forma==='Canzone'&&(t.nome||(Array.isArray(t.eff)&&t.eff.length));}),used={},out=[];
+    (P&&Array.isArray(P.tecniche)?P.tecniche:[]).forEach(function(t){
+      if(!t)return;
+      if(t.forma!=='Canzone'&&!t.songProfile){out.push(t);return;}
+      var index=songs.findIndex(function(s,i){return !used[i]&&(t.id?(s.id||s.smcId)===t.id:s.nome===t.nome);});
+      if(index>=0){used[index]=true;out.push(melodyPrintRecord(pg,songs[index]));}
+    });
+    songs.forEach(function(t,i){if(!used[i])out.push(melodyPrintRecord(pg,t));});return out;
+  }
+  function currentPrintedInstruments(pg,P){
+    if(window.GLCMelodies&&(pg.role==='Musicista'||pg.role2==='Musicista'||Array.isArray(pg.strumenti)&&pg.strumenti.length))return GLCMelodies.instruments(pg).map(function(a){return {nome:a.name,profile:a,note:a.raw&&a.raw.note||''};});
+    return P&&Array.isArray(P.strumenti)?P.strumenti:(Array.isArray(pg.strumenti)?pg.strumenti:[]);
+  }
   function setT(r,c,v){ var e=qd('.tcell[data-trow="'+r+'"][data-tcol="'+c+'"]'); if(e) e.textContent=(v==null?'':String(v)); }
   function setB(r,c,v){ var e=qd('.bcell[data-brow="'+r+'"][data-bcol="'+c+'"]'); if(e) e.textContent=(v==null?'':String(v)); }
   function fillBox(id,text){ var e=$id(id); if(!e||!text) return; e.style.justifyContent='flex-start'; e.innerHTML='<div style="font-family:Cormorant Garamond,serif;font-size:10.5px;color:#33261a;white-space:pre-wrap;line-height:1.5">'+text.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];})+'</div>'; }
@@ -452,11 +474,11 @@ html,body{overflow-x:visible;}
     if(r.tech) techs.push({nome:r.tech,attr:'\u2014',die:pg.racialDie||'d6',tipo:r.historical?'Razziale storica · archivio':'Razziale',eff:r.techDesc||''});
     if(pg.t1&&pg.t1.nome) techs.push(historicTechRow(pg.t1));
     if(pg.t2&&pg.t2.nome) techs.push(historicTechRow(pg.t2));
-    (pg.extraTech||[]).forEach(function(t){ if(t&&t.nome) techs.push(techRow(t)); });
+    (pg.extraTech||[]).forEach(function(t){ if(t&&t.nome){var compact=techRow(t);if(t.forma==='Canzone'){var song=melodyPrintRecord(pg,t);compact.tipo='Musicista · Canzone';compact.eff=[(t.eff||[]).join(', '),song.durata,song.desc].filter(Boolean).join(' · ');compact.cost=song.cost;}techs.push(compact);} });
     var costOf={}; if(P) (P.tecniche||[]).forEach(function(t){ costOf[t.nome]=t.cost; });
     (pg.armi||[]).forEach(function(a){ if(a&&a.nome) techs.push({nome:a.nome,attr:(ATTR3[a.attr]||a.attr||'\u2014'),die:a.grado||a.die||'',tipo:'Arma'+(a.tipo?(' \u00b7 '+a.tipo):''),eff:(a.eff&&a.eff.nome)?((a.eff.nome)+(a.eff.cat?(' \u00b7 '+a.eff.cat):'')):(a.note||'')}); });
-    (pg.strumenti||[]).forEach(function(a){ if(a&&a.nome) techs.push({nome:a.nome,attr:'\u2014',die:a.die||'',tipo:'Strumento \u00b7 '+(a.tipo||'Corde'),eff:a.note||''}); });
-    techs.slice(0,9).forEach(function(t,i){ setT(i,'nome',t.nome); setT(i,'attr',t.attr); setT(i,'dado',t.die); setT(i,'tipo',t.tipo); setT(i,'eff',t.eff); setT(i,'st',costOf[t.nome]||''); });
+    currentPrintedInstruments(pg,P).forEach(function(a){if(a&&a.nome){var x=a.profile;techs.push({nome:a.nome,attr:'\u2014',die:x?x.effective:a.die||'',tipo:'Strumento · '+(x?x.type:a.tipo||'Corde'),eff:x?[instrumentPrintText(x),a.note].filter(Boolean).join(' · '):a.note||''});}});
+    techs.slice(0,9).forEach(function(t,i){ setT(i,'nome',t.nome); setT(i,'attr',t.attr); setT(i,'dado',t.die); setT(i,'tipo',t.tipo); setT(i,'eff',t.eff); setT(i,'st',t.cost!=null?t.cost:costOf[t.nome]||''); });
     if(pg.frutto&&pg.frutto.has){ var f=qd('.frtipo[data-tipo="'+(pg.frutto.tipo||'')+'"]'); if(f) f.classList.add('on'); setText('f-frutto-nome',pg.frutto.nome||''); setText('f-frutto-eff',pg.frutto.desc||''); setText('f-frutto-die',pg.frutto.die||'d4'); }
     buildPage3(pg,P,techs.length>9?techs.slice(9):[]);
     var bonds=(pg.bonds||[]).filter(function(x){return (x.nome&&x.nome.trim())||x.die||x.pip;});
@@ -549,14 +571,14 @@ html,body{overflow-x:visible;}
       return row(name,meta,fullRule,[requirements?'Requisiti: '+requirements+'.':'',note].filter(Boolean).join(' '));
     }).join(''));
     if(extraTechs.length) sec('Tecniche / Armi (segue)',extraTechs.map(function(t){return row(t.nome,[t.tipo,t.attr,t.die].filter(Boolean).join(' \u00b7 '),t.eff);}).join(''));
-    var tec=P?P.tecniche:[];
-    if(tec.length) sec('Tecniche costruite — effetti per esteso',tec.map(function(t){var meta=[t.fonte,t.forma,t.attr,t.die,t.durata&&t.durata!=='Un turno'?t.durata:'',t.cost,t.valid===false?'Da aggiornare':''].filter(Boolean).join(' \u00b7 ')+(t.soglia!=null?(' \u00b7 '+t.pa+'/'+t.soglia+' PA'):'');var eff=(t.eff||[]).map(function(e){return e.n+(e.d?(': '+e.d):'');}).join(' \u00b7 ');var warning=t.valid===false?('Tecnica da aggiornare'+(Array.isArray(t.issues)&&t.issues.length?': '+t.issues.join(' · '):'.')):'';return row(t.nome||'(senza nome)',meta,eff,[warning,t.areaUpgrade,t.desc].filter(Boolean).join(' — '));}).join(''));
+    var tec=currentPrintedTechniques(pg,P);
+    if(tec.length) sec('Tecniche costruite — effetti per esteso',tec.map(function(t){var meta=[t.fonte,t.forma,t.attr,t.die,t.durata&&t.durata!=='Un turno'?t.durata:'',t.cost,t.valid===false?'Da aggiornare':''].filter(Boolean).join(' \u00b7 ')+(t.soglia!=null?(' \u00b7 '+t.pa+'/'+t.soglia+' PA'):'');var eff=(t.eff||[]).map(function(e){return e.n+(e.d?(': '+e.d):'');}).join(' \u00b7 ');var warning=t.valid===false?('Tecnica da aggiornare'+(Array.isArray(t.issues)&&t.issues.length?': '+t.issues.join(' · '):'.')):'';return row(t.nome||'(senza nome)',meta,eff,[warning,t.areaUpgrade,t.songDetails,t.desc].filter(Boolean).join(' — '));}).join(''));
     var mods=(P&&Array.isArray(P.moduli)?P.moduli:(pg.moduli||[])).map(function(m){return modulePrintRecord(pg,m);});
     var moduleSlots=P&&P.moduliSlots!=null?P.moduliSlots:window.GLCCyborg?GLCCyborg.slots(pg).n:0;
     var installedModules=P&&P.moduliInstalled!=null?P.moduliInstalled:mods.filter(function(m){return m.installato!==false;}).length;
     if(mods.length)sec('Corpo Meccanico · Moduli · '+installedModules+'/'+moduleSlots+' slot installati',mods.map(function(m){return modulePrintRow(row,m);}).join(''));
-    var str=P?P.strumenti:(pg.strumenti||[]);
-    if(str.length) sec('Strumenti del Musicista',str.map(function(a){return row(a.nome||'strumento',[a.tipo||'Corde',(a.die||'')+(a.grado?(' '+a.grado):''),(a.soglia?('Salvezza '+a.soglia):''),(a.over?'usato come '+(a.eff||'Grado di Arte'):'')].filter(Boolean).join(' \u00b7 '),a.note);}).join(''));
+    var str=currentPrintedInstruments(pg,P);
+    if(str.length) sec('Strumenti del Musicista',str.map(function(a){if(a.profile){var x=a.profile;return row(a.nome||'strumento',instrumentPrintText(x),profileText(x.amplification),[a.note,(x.errors||[]).map(profileText).join(' · ')].filter(Boolean).join(' — '));}return row(a.nome||'strumento',[a.tipo||'Corde',(a.die||'')+(a.grado?(' '+a.grado):''),(a.soglia?('Salvezza '+a.soglia):''),(a.over?'usato come '+(a.eff||'Grado di Arte'):'')].filter(Boolean).join(' \u00b7 '),a.note);}).join(''));
     var armi=P?P.armi:(pg.armi||[]);
     if(armi.length) sec('Arsenale \u2014 dettaglio',armi.map(function(a){var meta=[a.tipo,a.attr,(a.grado?('Grado '+a.grado+(a.gradoLabel?(' '+a.gradoLabel):'')):a.die),a.portata,(a.stile?('Stile '+a.stile+(a.stileOk?' \u2713':' \u2717')):''),(a.gmOk?'approvata dal GM':'')].filter(Boolean).join(' \u00b7 ');var d=a.effNome?((a.effNome+(a.effCat?(' \u00b7 '+a.effCat):'')+(a.effFreq?(' \u00b7 '+a.effFreq):'')+(a.effPrezzo?(' \u00b7 prezzo: '+a.effPrezzo):''))+(a.effDesc?(' \u2014 '+a.effDesc):'')):'Nessun effetto speciale';return row(a.nome||'arma',meta,d,a.note);}).join(''));
     var inv=P?(P.inventario||[]):(pg.inventario||[]);

@@ -198,13 +198,17 @@ function builderFixture(){
   styleReady:style=>style==='Striker'||c.window.GLCFruits.arsenal(c.pg,{purpose:'build'}).some(a=>c.window.GLCTechniques.compatibleWeapon(a,style)),stileBlock:()=>'',fruttoBlock:()=>'',
   DICE:['d4','d6','d8','d10','d12','d20'],isCombattente:()=>true,
   hasTalent:name=>(c.pg.talents||[]).some(k=>k.split(' · ').pop()===name)});
- for(const name of ['frutti.js','tecniche.js'])vm.runInContext(fs.readFileSync(path.join(root,'regole',name),'utf8'),c);
- c.GLCFruits=c.window.GLCFruits;c.GLCTechniques=c.window.GLCTechniques;
+ for(const name of ['frutti.js','melodie.js','tecniche.js'])vm.runInContext(fs.readFileSync(path.join(root,'regole',name),'utf8'),c);
+ c.GLCFruits=c.window.GLCFruits;c.GLCMelodies=c.window.GLCMelodies;c.GLCTechniques=c.window.GLCTechniques;
  vm.runInContext(html.match(/^function techniqueWeapons\([^\n]+/m)[0],c);
  vm.runInContext(html.slice(html.indexOf('const TEC_FONTI='),html.indexOf('/* ==========================================================================',html.indexOf('function tbReset'))),c);
  // Replace globals supplied by the normal character UI only where needed.
  vm.runInContext('let SMBD={};'+html.slice(html.indexOf('function tbRules(){'),html.indexOf('/* ---- 01 · Identità ---- */')),c);
  vm.runInContext(html.slice(html.indexOf('function smbSave(){'),html.indexOf('function builderModal(){')),c);
+ vm.runInContext(html.match(/^function musicistaTransaction\([^\n]+/m)[0],c);
+ c.KEY='fixture';c.window.GLCStore={setItem:()=>{}};
+ let ct={activeId:'fixture',order:['fixture'],chars:{}};
+ Object.defineProperty(c,'CT',{get:()=>({...ct,chars:{...ct.chars,fixture:c.pg}}),set:value=>{ct=value}});
  return c;
 }
 test('The actual Builder neither discards stale effects nor lowers a saved die and blocks saving the forged profile',()=>{

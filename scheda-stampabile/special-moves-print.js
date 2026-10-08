@@ -38,10 +38,13 @@ function snapshot(character, owner) {
    const r = window.GLCMoves.resolve(input), m = r.move;
    const rank = s => s.kind === 'fruit' ? 0 : s.kind === 'haki' ? 1 : s.kind === 'tech' ? 3 : s.kind === 'talent' ? 4 : 2;
    const order = [...new Set([...list(m.sequence), ...[...r.selected].sort((a,b) => rank(a)-rank(b)).map(s => s.id)])];
-   const sources = order.map(id => r.selected.find(s => s.id === id)).filter(Boolean).map(s => ({
-    id:s.id,kind:s.kind,subtype:s.subtype || '',name:s.name,subtitle:s.subtitle || '',description:s.desc || '',emblem:s.emblem || '',
-    mode:s.meta?.mode || '',duration:s.kind === 'tech' ? s.raw.durata || '' : ''
-   }));
+   const sources = order.map(id => r.selected.find(s => s.id === id)).filter(Boolean).map(s => {
+    const song = s.kind === 'tech' && s.raw.forma === 'Canzone' && window.GLCMelodies
+     ? window.GLCMelodies.evaluate(character,s.raw,{instrumentId:m.instrumentId || s.raw.instrumentId,context:m.songContext}) : null;
+    const description = song ? [song.melody.name+': '+song.melody.description,song.instrument.name,song.range?'Portata: '+song.range+' m; i bersagli devono sentirti.':'',song.actionText,song.maintenance.text,...song.notes,...song.warnings].filter(Boolean).join('\n') : s.desc || '';
+    return {id:s.id,kind:s.kind,subtype:s.subtype || '',name:s.name,subtitle:s.subtitle || '',description,emblem:s.emblem || '',
+     mode:s.meta?.mode || '',duration:song ? song.duration : s.kind === 'tech' ? s.raw.durata || '' : ''};
+   });
    return {...cardIdentity(input || {}),presentation:copy(m.presentation),status:r.status,
     baseName:r.tech?.name || '',sources,
     totals:copy(r.totals),rows:copy(r.rows),formulas:copy(r.formulas),conditions:copy(r.conditions),resources:copy(r.resources),directSaves:copy(r.directSaves || []),
@@ -53,7 +56,7 @@ function snapshot(character, owner) {
    return unresolved(input,'Impossibile preparare questa ricetta. Controlla la carta nella gestione del pirata e riapri la scheda PDF.');
   }
  });
- return {v:8,owner:text(owner),fingerprint:fingerprint(character),generatedAt:Date.now(),cards};
+ return {v:9,owner:text(owner),fingerprint:fingerprint(character),generatedAt:Date.now(),cards};
 }
 function ownerFromStorage() {
  try {
@@ -65,7 +68,7 @@ function ownerFromStorage() {
 }
 function printable(character, payload) {
  const moves = list(character.specialMoves), pack = payload?.specialMoves, owner = ownerFromStorage();
- const fresh = pack?.v === 8 && owner && payload.charId === owner && pack.owner === owner && pack.fingerprint === fingerprint(character) &&
+ const fresh = pack?.v === 9 && owner && payload.charId === owner && pack.owner === owner && pack.fingerprint === fingerprint(character) &&
   Array.isArray(pack.cards) && pack.cards.length === moves.length && pack.cards.every((c,i) => c && c.id === text(moves[i]?.id));
  return {cards:fresh ? pack.cards : moves.map(m => unresolved(m)),generatedAt:fresh ? pack.generatedAt : null};
 }

@@ -25,12 +25,14 @@ function fill(race,payload=false,overrides={},payloadOverrides={}){
  const basePage={style:{}},wrap={querySelector:()=>basePage,appendChild:n=>appendix.push(n)};basePage.parentNode=wrap;
  const document={getElementById:id=>nodes[id]??={textContent:'',style:{}},querySelector:selector=>selector==='.page'?basePage:selector.startsWith('.tcell')?(cells[selector]??={textContent:''}):null,
   createElement:()=>({style:{},setAttribute(){},innerHTML:''}),addEventListener:(event,callback)=>{listeners[event]=callback;}};
- const context=vm.createContext({window:{},document,location:{search:'?c=test'},localStorage:{getItem:key=>storage[key]||null},URLSearchParams});
- for(const file of ['tratti-data.js','tratti.js','frutti.js'])vm.runInContext(fs.readFileSync(path.join(root,'regole',file),'utf8'),context);
- context.GLCTratti=context.window.GLCTratti;context.GLCFruits=context.window.GLCFruits;
+ const freeze=value=>{if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};
+ const printJSON={parse:raw=>{const value=JSON.parse(raw);if(value&&value.chars&&value.chars.test){nodes._character=value.chars.test;nodes._characterBefore=JSON.stringify(value.chars.test);freeze(value);}return value;},stringify:JSON.stringify};
+ let writes=0;const context=vm.createContext({window:{},document,location:{search:'?c=test'},localStorage:{getItem:key=>storage[key]||null,setItem(){writes++;throw Error('Read-only print storage');}},URLSearchParams,JSON:printJSON});
+ for(const file of ['tratti-data.js','tratti.js','frutti.js','melodie.js'])vm.runInContext(fs.readFileSync(path.join(root,'regole',file),'utf8'),context);
+ context.GLCTratti=context.window.GLCTratti;context.GLCFruits=context.window.GLCFruits;context.GLCMelodies=context.window.GLCMelodies;
  const inline=sheet.match(/<script>\s*([\s\S]+?)<\/script>/);
  assert.ok(inline,'Live illustrated print renderer');vm.runInContext(inline[1],context);listeners.DOMContentLoaded();
- nodes._appendix=appendix;nodes._cells=cells;return nodes;
+ nodes._appendix=appendix;nodes._cells=cells;nodes._writes=writes;nodes._melodies=context.GLCMelodies;return nodes;
 }
 
 test('The illustrated print sheet shares every racial description and base resource with the live manager',()=>{
@@ -120,4 +122,66 @@ test('Raw Fruit print checks actual grade, subtype and recursive Talent prerequi
  assert.match(print,/Seconda Natura/);assert.match(print,/Scelta conservata \/ non utilizzabile/);assert.match(print,/Forma di Combattimento · Talento acquisito e sbloccato/);assert.match(print,/Risveglio · Progetto \/ scelta conservata, Talento non utilizzabile/);
  print=fill('umano',false,{frutto:{...frutto,tipo:'Zoan',die:'d8',zoanType:'Ordinario',scelteTalenti:{'glc-talent-256':'Vista','glc-talent-266':'Fuoco'}},talents:['Frutto · Zoan · Sensi Animali','Frutto · Zoan · Retaggio Mitologico']})._appendix.map(n=>n.innerHTML).join('');
  assert.match(print,/Sensi Animali/);assert.match(print,/Vista/);assert.match(print,/Retaggio Mitologico/);assert.match(print,/Scelta conservata \/ non utilizzabile/);
+});
+
+function song(overrides={}){return {id:'song-current',nome:'Canzone corrente',fonte:'Stile',stile:'Swordsman',forma:'Canzone',attr:'Spirito',die:'d12',eff:['Inno della Ciurma'],durata:'Durata storica da ignorare',arma:'spada-storica',modulo:'modulo-storico',instrumentId:'instrument:drum',desc:'Dedica conservata.',future:{keep:'song-unknown'},...overrides};}
+function printBody(nodes){return nodes._appendix.map(n=>n.innerHTML).join('');}
+function cell(nodes,row,column){return nodes._cells['.tcell[data-trow="'+row+'"][data-tcol="'+column+'"]'].textContent;}
+function assertReadOnlyPrint(nodes){assert.equal(JSON.stringify(nodes._character),nodes._characterBefore);assert.equal(nodes._writes,0);}
+
+test('Current Songs render shared duration and net cost in raw, empty and stale print payloads without changing historical data',()=>{
+ const technique=song(),character={role:'Musicista',style:'Musicista',roleSkillDie:'d12',attr:{Forza:'d12',Tecnica:'d12',Spirito:'d12',Astuzia:'d12'},extraTech:[technique],strumenti:[{smcId:'drum',nome:'Tamburo corrente',tipo:'Percussioni',die:'d12',note:'Progetto concordato corrente.',future:{keep:true}}],future:{keep:'character-unknown'}};
+ const obsolete={id:technique.id,nome:'Canzone obsoleta',fonte:'Stile Swordsman',forma:'Canzone',durata:'Durata payload obsoleta',cost:'99 ST',eff:[{n:'Effetto obsoleto',d:'Descrizione obsoleta.'}],desc:'Nota obsoleta.'};
+ for(const [payload,pack]of [[false,{}],[true,{}],[true,{tecniche:[obsolete],strumenti:[{nome:'Strumento obsoleto',tipo:'Corde',die:'d4',soglia:99,note:'Progetto obsoleto.'}]}]]){
+  const nodes=fill('umano',payload,character,pack),printed=printBody(nodes),profile=nodes._melodies.evaluate(nodes._character,technique);
+  assert.equal(cell(nodes,1,'tipo'),'Musicista · Canzone');assert.equal(cell(nodes,1,'st'),'4 ST');assert.equal(cell(nodes,1,'st'),profile.cost.label);
+  assert.ok(printed.includes(profile.duration));for(const text of ['Inno della Ciurma','Canzone corrente','Tamburo corrente','Progetto concordato corrente.','Dedica conservata.'])assert.ok(printed.includes(text),text);
+  assert.doesNotMatch(printed,/99 ST|Durata storica da ignorare|Durata payload obsoleta|Canzone obsoleta|Strumento obsoleto|Progetto obsoleto|Descrizione obsoleta/);
+  assertReadOnlyPrint(nodes);assert.equal(nodes._character.extraTech[0].durata,'Durata storica da ignorare');assert.equal(nodes._character.extraTech[0].arma,'spada-storica');assert.equal(nodes._character.future.keep,'character-unknown');assert.equal(nodes._character.strumenti[0].future.keep,true);
+ }
+});
+
+test('Song recomputation leaves non-musical payload rules and detailed Talent, Trait and Fruit sections intact',()=>{
+ const martial={nome:'Tecnica separata',fonte:'Stile Striker',forma:'Singolo',attr:'Forza',die:'d8',cost:'3 ST',eff:[{n:'Impatto',d:'Effetto marziale conservato.'}],desc:'Nota marziale.',valid:false,issues:['Requisito marziale da verificare.']};
+ const nodes=fill('umano',true,{role:'Musicista',roleSkillDie:'d12',extraTech:[song()],strumenti:[{smcId:'drum',nome:'Tamburo',tipo:'Percussioni',die:'d12'}],frutto:{has:true,nome:'Frutto presente',tipo:'Paramecia',die:'d8',identita:{nucleo:'Identità del Frutto conservata'}}},{tecniche:[martial],talenti:[{name:'Talento dettagliato',branch:'Archeologo',desc:'Regola del Talento conservata.'}],tratti:[{id:'memoria-del-mondo',name:'Memoria del Mondo',active:true}]});
+ const printed=printBody(nodes);for(const text of ['Tecnica separata','3 ST','Effetto marziale conservato.','Nota marziale.','Requisito marziale da verificare.','Talento dettagliato','Regola del Talento conservata.','Connessione Storica','Identità del Frutto conservata','Canzone corrente'])assert.ok(printed.includes(text),text);
+ assertReadOnlyPrint(nodes);
+});
+
+test('Raw and payload-backed musical print uses current secondary Arte and preserves invalid instrument grades with warnings',()=>{
+ for(const payload of [false,true]){
+  const technique=song({die:'d8',eff:['Requiem Beffardo'],instrumentId:'instrument:flute'});
+  let nodes=fill('umano',payload,{role:'Combattente',style:'Swordsman',role2:'Musicista',roleSkillDie:'d20',skills:{Arte:'d8'},extraTech:[technique],strumenti:[{smcId:'flute',nome:'Flauto corrente',tipo:'Fiati',die:'d12',note:'Nota del flauto.'}]},{tecniche:[],strumenti:[{nome:'Flauto obsoleto',eff:'d20',soglia:9}]});
+  let printed=printBody(nodes);assert.match(printed,/Arte d8/);assert.match(printed,/effettivo d8/);assert.match(printed,/Salvezza 5/);assert.doesNotMatch(printed,/Flauto obsoleto|Salvezza 9/);assertReadOnlyPrint(nodes);
+  nodes=fill('umano',payload,{role:'Musicista',roleSkillDie:'d20+d4',extraTech:[technique],strumenti:[{smcId:'flute',nome:'Flauto storico',tipo:'Fiati',die:'d20+d4',note:'Nota storica da mantenere.',future:{keep:7}}]});
+  printed=printBody(nodes);assert.match(printed,/d20\+d4/);assert.match(printed,/Da aggiornare/);assert.match(printed,/Nota storica da mantenere\./);assert.equal(nodes._character.strumenti[0].die,'d20+d4');assert.equal(nodes._character.strumenti[0].future.keep,7);assertReadOnlyPrint(nodes);
+ }
+});
+
+test('Printed Song costs change with current instrument and Talent eligibility instead of a previous payload approval',()=>{
+ const technique=song({eff:['Motivetto di Vigore'],die:'d6'}),talents=['Musicista · Musicista · Fiato Lungo'];
+ const body={role:'Musicista',roleSkillDie:'d12',extraTech:[technique],talents,strumenti:[{smcId:'drum',nome:'Strumento modificabile',tipo:'Fiati',die:'d12'}]};
+ let nodes=fill('umano',true,body,{tecniche:[{...technique,cost:'77 ST'}]});assert.equal(cell(nodes,1,'st'),'1 ST · primo utilizzo');assertReadOnlyPrint(nodes);
+ nodes=fill('umano',true,{...body,roleSkillDie:'d8'},{tecniche:[{...technique,cost:'77 ST'}]});assert.equal(cell(nodes,1,'st'),'2 ST · primo utilizzo');assertReadOnlyPrint(nodes);
+ nodes=fill('umano',false,{...body,talents:[],strumenti:[{...body.strumenti[0],tipo:'Corde'}]});assert.equal(cell(nodes,1,'st'),'1 ST · primo utilizzo');assertReadOnlyPrint(nodes);
+});
+
+test('Illustrated Song profiles include current Contrappunto maintenance and flag lost Talent prerequisites instead of trusting payload validity',()=>{
+ const technique=song({die:'d6',eff:['Marcia di Guerra']}),body={role:'Musicista',roleSkillDie:'d12',extraTech:[technique],strumenti:[{smcId:'drum',nome:'Mantice corrente',tipo:'Mantice',die:'d12'}],talents:['Contrappunto — Base','Contrappunto — Migliorato','Contrappunto — Maestria'].map(n=>'Musicista · Musicista · '+n)};
+ for(const payload of [false,true]){
+  let nodes=fill('umano',payload,body,{tecniche:[{...technique,valid:true,cost:'99 ST +9 ST/turno'}]}),printed=printBody(nodes);
+  assert.equal(cell(nodes,1,'st'),'2 ST');assert.match(printed,/mantenimento gratuito in ST/);assert.match(printed,/senza impegnare l’Azione grazie a Contrappunto/);assertReadOnlyPrint(nodes);
+  nodes=fill('umano',payload,{...body,talents:['Musicista · Musicista · Contrappunto — Maestria']});printed=printBody(nodes);
+  assert.match(cell(nodes,1,'st'),/^2 ST \+1 ST\/turno/);assert.match(printed,/primi due turni/);assert.match(printed,/e l’Azione del Musicista/);assertReadOnlyPrint(nodes);
+  const funeral=song({eff:['Marcia Funebre']});nodes=fill('umano',payload,{...body,attr:{Spirito:'d12'},extraTech:[funeral],talents:['Musicista · Musicista · Marcia Funebre']},{tecniche:[{...funeral,valid:true,cost:'99 ST'}]});printed=printBody(nodes);
+  assert.match(printed,/Da aggiornare/);assert.match(printed,/Richiede il Talento acquisito e utilizzabile Marcia Funebre/);assertReadOnlyPrint(nodes);
+ }
+});
+
+test('Explicit Requiem Sovrano print uses its replacement duration, cost, range and full Arte save from current raw data',()=>{
+ const technique=song({die:'d8',eff:['Requiem Beffardo'],songContext:{requiemSovrano:true,future:'kept'}}),body={role:'Musicista',roleSkillDie:'d20+d4',attr:{Spirito:'d20+d4'},extraTech:[technique],strumenti:[{smcId:'drum',nome:'Strumento corrente',tipo:'Fiati',die:'d12'}],talents:['Musicista · Musicista · Requiem'],prestige:{choices:{musicista:['requiem-sovrano']}}};
+ for(const payload of [false,true]){
+  const nodes=fill('umano',payload,body,{tecniche:[{...technique,durata:'Durata precedente',cost:'99 ST',eff:[{n:'Requiem Beffardo',d:'Vecchia regola precedente'}]}]}),printed=printBody(nodes);
+  assert.equal(cell(nodes,1,'st'),'4 ST');assert.match(printed,/Requiem Sovrano/);assert.match(printed,/Fino all’inizio del tuo turno successivo/);assert.match(printed,/Portata 50 m/);assert.match(printed,/Soglia 13 da Arte completa \(d20\+d4\)/);assert.doesNotMatch(printed,/Durata precedente|Vecchia regola precedente|99 ST/);assert.equal(nodes._character.extraTech[0].songContext.future,'kept');assertReadOnlyPrint(nodes);
+ }
 });
