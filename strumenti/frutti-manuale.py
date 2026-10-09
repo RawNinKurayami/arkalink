@@ -359,6 +359,35 @@ pagina = pagina.replace('Manuale<br>del gioco', 'Manuale<br>dei Frutti del Diavo
                .replace('Edizione 2.0 · dalla creazione del pirata alla rotta della ciurma.',
                         'Linee guida ufficiali · Scheda di Identità, Talenti, Forma di Combattimento e Risveglio.')
 
+# Collegamenti alle schede vuote: soltanto interfaccia, fuori dai blocchi normativi.
+strumenti_marker = '  <div class="man-strumenti">\n'
+assert pagina.count(strumenti_marker) == 1, 'Testata del manuale non univoca'
+pagina = pagina.replace(strumenti_marker, strumenti_marker +
+    '    <a class="man-btn frutti-schede-trigger" href="#schede-frutto" '
+    'title="Scheda Frutto · PDF" aria-label="Scheda Frutto · PDF">'
+    '<span aria-hidden="true">▤</span><span class="man-etichetta"> Scheda Frutto · PDF</span></a>\n', 1)
+frontespizio_marker = ('      <p class="sotto">Linee guida ufficiali · Scheda di Identità, Talenti, '
+                      'Forma di Combattimento e Risveglio.</p>\n    </div>')
+assert pagina.count(frontespizio_marker) == 1, 'Frontespizio del manuale non univoco'
+schede = '''
+      <section class="frutti-schede" id="schede-frutto" aria-labelledby="schede-frutto-titolo">
+        <h2 id="schede-frutto-titolo">La scheda del tuo Frutto</h2>
+        <p>Schede A4 vuote da compilare a mano. Scegli il tipo, apri il PDF e stampa soltanto le pagine che ti servono.</p>
+        <div class="frutti-schede-lista">
+          <a class="frutti-scheda" href="/manuale-frutti/schede/frutto-paramecia.pdf" target="_blank" rel="noopener" aria-label="Apri la scheda Paramecia, PDF A4 di 5 pagine, in una nuova scheda">
+            <span class="frutti-scheda-tipo">Paramecia</span><span class="frutti-scheda-formato">A4 · 5 pagine</span><span class="frutti-scheda-apri">Apri PDF <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="frutti-scheda" href="/manuale-frutti/schede/frutto-logia.pdf" target="_blank" rel="noopener" aria-label="Apri la scheda Logia, PDF A4 di 5 pagine, in una nuova scheda">
+            <span class="frutti-scheda-tipo">Logia</span><span class="frutti-scheda-formato">A4 · 5 pagine</span><span class="frutti-scheda-apri">Apri PDF <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="frutti-scheda" href="/manuale-frutti/schede/frutto-zoan.pdf" target="_blank" rel="noopener" aria-label="Apri la scheda Zoan, PDF A4 di 5 pagine, in una nuova scheda">
+            <span class="frutti-scheda-tipo">Zoan</span><span class="frutti-scheda-formato">A4 · 5 pagine</span><span class="frutti-scheda-apri">Apri PDF <span aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+      </section>'''
+pagina = pagina.replace(frontespizio_marker,
+                        frontespizio_marker[:-len('\n    </div>')] + schede + '\n    </div>', 1)
+
 testa = modello[:modello.index('<style>')]
 testa = testa.replace('<title>Manuale · Grand Line Chronicles</title>',
                       '<title>Manuale dei Frutti del Diavolo · Grand Line Chronicles</title>')
@@ -366,7 +395,7 @@ testa = re.sub(r'<meta name="description"[^>]+>',
                '<meta name="description" content="Il manuale dei Frutti del Diavolo: Scheda di Identità, '
                'Talenti di Paramecia, Logia e Zoan, Forma di Combattimento e Risveglio.">', testa)
 testa = re.sub(r'href="manuale\.css\?v=\d+"', 'href="/manuale/manuale.css?v=20"', testa)
-testa += ('<link rel="stylesheet" href="frutti.css?v=2">\n'
+testa += ('<link rel="stylesheet" href="frutti.css?v=3">\n'
           '<script src="reader.js?v=1" defer></script>\n</head>\n'
           '<body class="manuale-frutti">\n<div class="glc-bg" aria-hidden="true"></div>\n')
 uscita = testa + pagina + '\n</body>\n</html>\n'
