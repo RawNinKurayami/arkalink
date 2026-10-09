@@ -14,6 +14,7 @@
 <script src="/glc-auth.js?v=4"></script>
 <script src="/glc-atlas-store.js?v=1"></script>
 <script src="/glc-map.js?v=3"></script>
+<script src="/glc-art.js?v=1"></script>
 <style>
 :root{--abyss:#060607;--vellum:#f2e9d8;--paper:#15121a;--ink:#f1ece0;--ink-soft:#a69a86;--gold:#f0a441;--gold2:#ffd394;--seal:#e23131;--foam:#a69a86;--line:rgba(240,164,65,.22);}
 *{box-sizing:border-box;}
@@ -84,6 +85,7 @@ h2.sec{font-family:'Cormorant Garamond',Georgia,serif;color:var(--vellum);font-s
 .detail h3.dt{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;color:#f2e9d8;margin:0;}
 .muted{color:var(--ink-soft);font-size:.95rem;}
 label.fld{display:block;font-family:'Inter',sans-serif;letter-spacing:.05em;text-transform:uppercase;font-size:10px;color:var(--ink-soft);margin:10px 0 4px;}
+.mode-campaign .campaign-card-mark img{display:block;object-fit:contain;filter:drop-shadow(0 3px 7px #0008)}.mode-campaign .campaign-name{padding-right:58px}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-portals.css?v=1">
@@ -185,7 +187,7 @@ function renderCampaigns(){
   var grid=el("div",{class:"clist"});
   CAMPS.forEach(function(c){
     var card=el("button",{type:"button","aria-pressed":String(SELECTED===c.id),class:"ccard "+(c._role==="gm"?"gm":"")+(SELECTED===c.id?" sel":""),onClick:function(){SELECTED=c.id;renderDetail(c);renderCampaigns();window.scrollTo({top:Math.max(0,document.getElementById("detailWrap").getBoundingClientRect().top+window.scrollY-24),behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});}});
-    card.appendChild(el("span",{class:"campaign-card-mark","aria-hidden":"true",text:"⚓"}));
+    card.appendChild(el("span",{class:"campaign-card-mark","aria-hidden":"true",html:GLCArt.html(c._role==='gm'?'ruolo-capitano':'legame',52)}));
     card.appendChild(el("span",{class:"campaign-name",text:c.name}));
     card.appendChild(el("span",{class:"badge "+(c._role==="gm"?"gm":"pl"),text:c._role==="gm"?"Game Master":"Giocatore"}));
     card.appendChild(el("div",{class:"meta",text:"Entra nella campagna ↗"}));

@@ -218,3 +218,12 @@
 @media(prefers-reduced-motion:reduce){
  .gmodal.ds-dialog *,.gmodal.ds-dialog *::before,.gmodal.ds-dialog *::after {animation:none!important;transition:none!important;scroll-behavior:auto!important;}
 }
+
+/* Shared artwork for the existing catalogue and inventory controls. */
+.gmodal.ds-dialog .catalogue-art{float:left;width:54px;height:54px;margin:0 12px 8px 0;}
+.gmodal.ds-dialog .catalogue-art img,.gmodal.ds-dialog .invico img{object-fit:contain;max-width:100%;}
+.gmodal.ds-dialog .catcard:has(.catalogue-art)::after{content:'';display:block;clear:both;}
+.gmodal.ds-dialog .inv-item-art{text-align:center;margin:0 auto 18px;}
+.gmodal.ds-dialog .inv-item-art img{object-fit:contain;}
+.gmodal.ds-dialog .icobtn{min-width:44px;min-height:44px;}
+.gmodal.ds-dialog .icobtn:focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px;}

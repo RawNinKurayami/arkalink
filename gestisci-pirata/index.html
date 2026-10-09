@@ -1446,8 +1446,23 @@ body.has-bld{overflow:hidden;}
 </style>
 <link rel="stylesheet" href="special-moves.css?v=2">
 <link rel="stylesheet" href="signature-builder.css?v=2">
-<link rel="stylesheet" href="equipment-builder.css?v=1">
-<link rel="stylesheet" href="dossiers.css?v=1">
+<link rel="stylesheet" href="equipment-builder.css?v=2">
+<link rel="stylesheet" href="dossiers.css?v=2">
+<style id="glc-equipment-art">
+/* Companion emblems retain a separate, readable die in every equipment slot. */
+.slot-i.slot-art{width:38px;height:38px;gap:3px;}
+.slot-i.slot-art.slot-art-die{width:71px;}
+.slot-art>img{width:38px;height:38px;object-fit:contain;flex:none;}
+.slot-die{display:inline-flex;align-items:center;flex:none;}
+body.mode-gest #manage .slot-i.slot-art{width:38px;height:38px;}
+body.mode-gest #manage .slot-i.slot-art.slot-art-die{width:71px;}
+body.mode-gest #manage .slot-art .slot-die .dieic{width:30px;height:30px;}
+@media(max-width:640px){
+ body.mode-gest #manage .slot-i.slot-art.slot-art-die{width:63px;}
+ body.mode-gest #manage .slot-art>img{width:32px;height:32px;}
+ body.mode-gest #manage .slot-art .slot-die .dieic{width:28px;height:28px;}
+}
+</style>
 <script src="/glc-images.js?v=1"></script>
 </head>
 <body>
@@ -1561,13 +1576,14 @@ body.has-bld{overflow:hidden;}
 <link rel="stylesheet" href="tratti-ui.css?v=1">
 <script src="tratti-ui.js?v=1"></script>
 <script src="prestigio-ui.js?v=3"></script>
-<script src="special-moves.js?v=26"></script>
+<script src="/glc-art.js?v=1"></script>
+<script src="special-moves.js?v=27"></script>
 <link rel="stylesheet" href="card-view.css?v=6">
 <script src="card-export.js?v=4" defer></script>
 <script src="card-view.js?v=7" defer></script>
-<script src="signature-builder.js?v=3"></script>
+<script src="signature-builder.js?v=4"></script>
 <script src="equipment-builder.js?v=2"></script>
-<script src="dossiers.js?v=3"></script>
+<script src="dossiers.js?v=4"></script>
 <script src="/scheda-stampabile/special-moves-print.js?v=10"></script>
 <script>
 "use strict";
@@ -1927,6 +1943,10 @@ const BOND_DICE=["0","d4","d6","d8","d10","d12","d20"];
 function hakiPip(die){return ({d4:0,d6:1,d8:2,d10:3,d12:4,d20:5})[String(die||"").replace(/\+.*/,"")]||(String(die||"").indexOf("d20")===0?5:0);}
 function bondStep(d,dir){let i=BOND_DICE.indexOf(d);if(i<0)i=0;return BOND_DICE[Math.max(0,Math.min(BOND_DICE.length-1,i+dir))];}
 function imgIcon(name,size){size=size||24;return '<img class="icimg" src="/img/icons/'+name+'.png" width="'+size+'" height="'+size+'" alt="" draggable="false">';}
+/* Presentation helpers: the saved equipment and technique records are unchanged. */
+function illustratedIcon(key,size,fallback){return window.GLCArt?window.GLCArt.html(key,size):svgIcon(fallback||"star",size);}
+function techniqueArtKey(t){if(t.fixed||t.historical){const r=race();if(r&&RACE_IMG[r.id])return RACE_IMG[r.id];}return t.fonte==="Frutto"?"frutto":t.forma==="Canzone"?ROLE_IMG.Musicista:(STYLE_IMG[t.stile]||ROLE_IMG[t.stile]||"tecnica");}
+function techniqueArt(t,size){const key=techniqueArtKey(t);return window.GLCArt?window.GLCArt.html(key,size):key==="tecnica"?svgIcon("burst",size):emblem(key,size);}
 /* Emblemi illustrati di Razze, Ruoli e Stili (originali in img/icone-originali).
    Dove non c'è un disegno proprio — l'Infermeria, per ora — vale quello del Ruolo. */
 const RACE_IMG={umano:"razza-umano",uomopesce:"razza-uomopesce",gigante:"razza-gigante",mink:"razza-mink",lunarian:"razza-lunarian",longbraccio:"razza-longbraccio",lungagamba:"razza-lungagamba",cyborg:"razza-cyborg",tontatta:"razza-tontatta"};
@@ -1951,6 +1971,8 @@ function emblem(key,size){return key?imgIcon(key,size).replace('class="icimg"','
 function hakiIcon(h,size){return imgIcon(IMG_ICON[h&&h.name]||"haki-armamento",size);}
 const STYLE_ICON={Striker:"fist",Crusher:"hammer",Swordsman:"sword",Sniper:"target",Special:"gear",Infermeria:"medkit",Tossicologo:"poison",Chimico:"flask",Cuoco:"pot",Navigatore:"compass",Carpentiere:"anchor",Meccanico:"gear",Inventore:"wrench",Archeologo:"scroll",Musicista:"music",Capitano:"crown",Paramecia:"orb",Logia:"flame",Zoan:"paw"};
 const INV_ICONS=["box","bag","coin","key","map","scroll","book","potion","bottle","food","bandage","medkit","bomb","arrow","sword","shield","rope","hammer","gear","candle","shell","gem","compass","boat"];
+const INV_ICON_LABELS={box:"Contenitore",bag:"Borsa",coin:"Monete",key:"Chiave",map:"Mappa",scroll:"Pergamena",book:"Libro",potion:"Pozione",bottle:"Bottiglia",food:"Provviste",bandage:"Bende",medkit:"Kit medico",bomb:"Bomba",arrow:"Munizioni",sword:"Lama",shield:"Scudo",rope:"Corda",hammer:"Martello",gear:"Componenti",candle:"Luce",shell:"Conchiglia",gem:"Preziosi",compass:"Bussola",boat:"Nave"};
+function inventoryArt(ico,size){return window.GLCArt?window.GLCArt.html(window.GLCArt.inventoryKey(ico),size):svgIcon(ICONS[ico]?ico:"box",size);}
 const INV_MIGRATE={"📦":"box","⚔️":"sword","🛡":"shield","🧪":"potion","💊":"bandage","🍖":"food","🗺️":"map","📜":"scroll","💰":"coin","🔑":"key","🎒":"bag","🧭":"compass","🔮":"gem","💣":"bomb","🪙":"coin","🍶":"bottle","🔧":"gear","🪢":"rope","🕯️":"candle","🐚":"shell"};
 /* Glifo per i medaglioni dei talenti: parole chiave del nome, altrimenti l'icona dello Stile. */
 const GLYPH_KW=[[/spad|lama|fendent|taglio|sguain|riposta|affilat/i,"sword"],[/parat|guardia|scudo|postura|barricat|fortific|protezione|incass|tempra/i,"shield"],[/tiro|colpo|mira|appost|cecchin|occhio del falco|ricarica/i,"target"],[/pugn|presa|raffica|proiezion|slancio|striker/i,"fist"],[/passo|corsa|scatto|fulmin|velocit|fuga|ritirata/i,"wind"],[/cur|chirurg|rianim|medic|diagnos|sala operat|intervento|erbe/i,"medkit"],[/velen|tossin|nube|dardo|dose|antidot|profilass|marea nera/i,"poison"],[/reagent|reazion|esplos|carica|innesco|miscela|polver|distill|officina mobile/i,"flask"],[/cucin|piatt|cuoco|banchett|ricett|bancone|stomaco|dispensa|servizio|secondo fuoco/i,"pot"],[/timon|rotta|fondale|tempesta|vento|cartograf|mai perduto|navig/i,"compass"],[/scafo|legno|nave|riparaz|cantiere|moduli|ponte|carpent|affonda/i,"anchor"],[/meccan|ingranagg|sabotag|batteria|macchin|regolazione|trappola|carne e metallo|pieno carico/i,"gear"],[/invent|prototip|brevett|arma su misura|sovraccar|ricalibr|colpo di genio|munizion|smanetton|improvvis/i,"wrench"],[/calco|rovin|scrittura|poneglyph|antiquar|studios|memoria|custode|meccanismi antichi|trappola antica|insegne|terreno conosciuto|voce delle pietre/i,"scroll"],[/music|canzon|canto|coro|contrappunt|requiem|marcia|ritmo|fiato|suonare|leggenda in musica|intratten/i,"music"],[/grido|ordine|comand|parlament|piano|ciurma|secondo in comando|arrembagg|nessuno resta|voce che arriva/i,"crown"],[/arsenal|modul|congegn|innesto|scarica|bombard|portata amplif|autoripar|doppio innesco|cambio rapido|pieno regime/i,"burst"],[/intangib|element|corpo diffuso|assorbire|riformarsi|forma perduta|fonte inesaur|chi ti tocca|nutrirsi/i,"flame"],[/forma ibrida|istinto|zanne|artigli|sensi|bestial|stazza|ferocia|zoan|richiamo|trasformazione/i,"paw"],[/risveglio/i,"star"],[/potere|dono|riflesso|doppio uso|ciò che resta|nessuno dei miei|marchio|portata naturale|forma di combat|contraccolpo|istintivo|seconda natura/i,"orb"]];
@@ -2391,7 +2413,7 @@ function smbStepFond(h){
  if(TBUILD.forma==="Canzone"){
   h.appendChild(bldNote("<b>Le Canzoni non si tirano.</b> Una sola Melodia per Canzone · sugli alleati l'effetto è automatico · i nemici tirano la Salvezza contro la Soglia del Grado effettivo dello strumento. Lo strumento non è un'arma e non richiede lo Stile del secondo Ruolo."));
   if(window.GLCMelodies){const instruments=GLCMelodies.instruments(pg),cur=TBUILD.instrumentId||"instrument:voice";
-   h.appendChild(smbChips("Strumento della Canzone",instruments.map(x=>({v:x.id,l:x.name,sub:x.type+" · "+(x.valid?x.effective+" · Soglia "+x.threshold:"Grado storico da verificare"),off:!x.valid,why:x.errors.join(" ")})),cur,v=>bldMutate(()=>{TBUILD.instrumentId=v;})));
+   h.appendChild(smbChips("Strumento della Canzone",instruments.map(x=>({v:x.id,l:x.name,ico:window.GLCArt?window.GLCArt.html(ROLE_IMG.Musicista,28):"",sub:x.type+" · "+(x.valid?x.effective+" · Soglia "+x.threshold:"Grado storico da verificare"),off:!x.valid,why:x.errors.join(" ")})),cur,v=>bldMutate(()=>{TBUILD.instrumentId=v;})));
    const song=songProfile(TBUILD);h.appendChild(bldNote(song.instrument.amplification));
    if(!song.instrument.valid)h.appendChild(bldNote(song.instrument.errors.join(" "),"ko"));
   }
@@ -2403,8 +2425,8 @@ function smbStepFond(h){
   const wname=a=>((a.nome&&a.nome.trim())?a.nome.trim():"Arma senza nome");
   const required=TBUILD.fonte==="Stile"&&["Swordsman","Crusher","Sniper"].includes(TBUILD.stile)&&TBUILD.forma!=="Canzone";
   const opts=(required?[]:[{v:"",l:"Niente"}])
-   .concat(D.armi.map(a=>({v:"a:"+a.id,l:wname(a),sub:a.grado?("Grado "+a.grado):"",ico:svgIcon(WEAPON_ICO[a.tipo]||"sword",19)})))
-   .concat(D.mods.map(m=>({v:"m:"+m.id,l:(m.nome||"Modulo"),sub:(m.stato==="danneggiato")?"danneggiato":(pg.moduloAttivo===m.id?"attivo":"inattivo"),ico:svgIcon("gear",19)})));
+   .concat(D.armi.map(a=>({v:"a:"+a.id,l:wname(a),sub:a.grado?("Grado "+a.grado):"",ico:window.GLCArt?window.GLCArt.html(window.GLCArt.weaponKey(a),28):svgIcon(WEAPON_ICO[a.tipo]||"sword",19)})))
+   .concat(D.mods.map(m=>({v:"m:"+m.id,l:(m.nome||"Modulo"),sub:(m.stato==="danneggiato")?"danneggiato":(pg.moduloAttivo===m.id?"attivo":"inattivo"),ico:window.GLCArt?window.GLCArt.html(window.GLCArt.moduleKey(m),28):svgIcon("gear",19)})));
   const cur=TBUILD.arma?("a:"+TBUILD.arma):(TBUILD.modulo?("m:"+TBUILD.modulo):"");
   h.appendChild(smbChips(required?"Arma compatibile obbligatoria":"Con cosa la esegui (facoltativo)",opts,cur,v=>bldMutate(()=>{TBUILD.arma=(v.indexOf("a:")===0)?v.slice(2):"";TBUILD.modulo=(v.indexOf("m:")===0)?v.slice(2):"";})));
   const wa=D.armi.filter(a=>a.id===TBUILD.arma)[0];
@@ -2602,7 +2624,7 @@ const EFF_CAT_ICO={Sconto:"coin",Sblocco:"key",Passiva:"shield",Reazione:"bolt",
 function weaponCard(a,h){
  const c=weaponCompat(a);
  const card=el("div",{class:"eqcard"});
- card.appendChild(el("div",{class:"eq-top"},[el("span",{class:"eq-ico",html:svgIcon(WEAPON_ICO[a.tipo]||"sword",30)}),el("span",{class:"eq-grade",html:dieIcon(a.grado,46)+'<small>'+gradeLabel(a.grado)+'</small>'})]));
+ card.appendChild(el("div",{class:"eq-top"},[el("span",{class:"eq-ico",html:window.GLCArt?window.GLCArt.html(window.GLCArt.weaponKey(a),64):svgIcon(WEAPON_ICO[a.tipo]||"sword",30)}),el("span",{class:"eq-grade",html:dieIcon(a.grado,46)+'<small>'+gradeLabel(a.grado)+'</small>'})]));
  card.appendChild(el("div",{class:"eq-n",text:(a.nome||"").trim()||"Arma senza nome"}));
  card.appendChild(el("div",{class:"eq-m",text:[a.tipo+(a.asta?(" "+a.asta.toLowerCase()):""),a.attr||"attributo da definire",a.portata||"portata da definire"].join(" · ")}));
  card.appendChild(el("div",{class:"eq-div"}));
@@ -2621,7 +2643,7 @@ function weaponModal(i,step){
      h.appendChild(field("Nome dell'arma",a.nome,v=>{a.nome=v;save();bldSummary();}));
      const ok=tipiPerArma(i);const tipi=ok.slice();if(tipi.indexOf(a.tipo)<0)tipi.push(a.tipo);
      h.appendChild(el("div",{class:"smb-f"},[el("div",{class:"k",text:"Tipo"})]));
-     h.appendChild(optCards(tipi.map(t=>({v:t,l:t,i:WEAPON_ICO[t],s:(ok.indexOf(t)<0)?"fuori dai tuoi posti":(t==="Da lancio"?"di tutti gli Stili":(WEAPON_STILE[t]&&styleVisible(WEAPON_STILE[t])?WEAPON_STILE[t]:""))})),a.tipo,t=>bldMutate(()=>{a.tipo=t;const mo=astaPerArma(i);if(t!=="Ad asta")a.asta="";else if(mo.indexOf(a.asta)<0)a.asta=mo[0]||"";})));
+     h.appendChild(optCards(tipi.map(t=>({v:t,l:t,i:WEAPON_ICO[t],art:window.GLCArt?.weaponKey(t),s:(ok.indexOf(t)<0)?"fuori dai tuoi posti":(t==="Da lancio"?"di tutti gli Stili":(WEAPON_STILE[t]&&styleVisible(WEAPON_STILE[t])?WEAPON_STILE[t]:""))})),a.tipo,t=>bldMutate(()=>{a.tipo=t;const mo=astaPerArma(i);if(t!=="Ad asta")a.asta="";else if(mo.indexOf(a.asta)<0)a.asta=mo[0]||"";})));
      if(weaponSlotsList())h.appendChild(bldNote("Ogni Stile porta una sola arma, del suo tipo o da lancio: compaiono i Tipi che trovano posto accanto alle altre armi."));}},
    {label:"Struttura",render:h=>{
      const a=A();
@@ -2681,7 +2703,7 @@ function modReadBack(mo){
 function moduleCard(mo,h){
  const st=modStateLabel(mo),grade=mo.gradoArma||mo.grado,check=modEvaluate(mo,"project");
  const card=el("div",{class:"eqcard mod"});
- card.appendChild(el("div",{class:"eq-top"},[el("span",{class:"eq-ico",html:svgIcon("gear",30)}),(mo.arma&&grade)?el("span",{class:"eq-grade",html:dieIcon(grade,46)+'<small>'+gradeLabel(grade)+'</small>'}):el("span",{class:"pill "+st.c,text:st.t})]));
+ card.appendChild(el("div",{class:"eq-top"},[el("span",{class:"eq-ico",html:window.GLCArt?window.GLCArt.html(window.GLCArt.moduleKey(mo),64):svgIcon("gear",30)}),(mo.arma&&grade)?el("span",{class:"eq-grade",html:dieIcon(grade,46)+'<small>'+gradeLabel(grade)+'</small>'}):el("span",{class:"pill "+st.c,text:st.t})]));
  card.appendChild(el("div",{class:"eq-n",text:mo.nome||"Modulo"}));
  card.appendChild(el("div",{class:"eq-m",text:[(mo.tipo&&mo.tipo.length?mo.tipo.join(" · "):"categoria da definire"),"Fascia "+mo.req,mo.arma?(mo.armaSottotipo||mo.armaTipo||"Modulo-Arma")+" · "+(mo.attr||"Attributo da definire"):"Funzionale",st.t].join(" · ")}));
  if(mo.funzioneAttiva||mo.funzione)card.appendChild(el("div",{class:"eq-f",text:mo.funzioneAttiva||mo.funzione}));
@@ -3511,16 +3533,16 @@ function placePortrait(where){const po=$("#portrait"),pb=$("#pbar"),poster=$("#p
 function actionsModal(){const act=document.querySelector(".actions");if(!act)return;const home=act.parentNode;openModal("☰ Stampa, esporta, importa",()=>{act.classList.add("gactions");return act;});MODAL._onClose=()=>{act.classList.remove("gactions");home.appendChild(act);};}
 /* ===== INVENTARIO ===== */
 function invItems(){if(!Array.isArray(pg.inventario))pg.inventario=[];return pg.inventario;}
-function itemModal(i){openModal("🎒 Oggetto",()=>{const it=invItems()[i];if(!it)return el("div");const w=el("div",{});const ic=el("div",{class:"icopick"});INV_ICONS.forEach(x=>{const b=el("button",{type:"button",class:"icobtn"+(it.ico===x?" on":""),html:svgIcon(x,20),onclick:()=>{it.ico=x;save();refreshModal();}});ic.appendChild(b);});w.appendChild(el("label",{class:"fld",text:"Icona"}));w.appendChild(ic);w.appendChild(field("Nome",it.nome,v=>{it.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Quantità"}));w.appendChild(el("div",{class:"mrow",style:"justify-content:flex-start"},[el("button",{class:"pabtn",text:"−",onclick:()=>{it.qta=Math.max(0,(parseInt(it.qta)||0)-1);save();refreshModal();}}),el("b",{class:"panum",style:"font-size:18px;min-width:34px",text:String(it.qta!=null?it.qta:1)}),el("button",{class:"pabtn",text:"+",onclick:()=>{it.qta=(parseInt(it.qta)||0)+1;save();refreshModal();}})]));w.appendChild(el("label",{class:"fld",text:"Note / effetto"}));const tx=el("textarea",{});tx.value=it.note||"";tx.oninput=()=>{it.note=tx.value;save();};w.appendChild(tx);w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();inventoryModal();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{closeModal();mutate(()=>invItems().splice(i,1));inventoryModal();}})]));return w;});}
+function itemModal(i){openModal(imgIcon("zaino",30)+" Oggetto",()=>{const it=invItems()[i];if(!it)return el("div");const w=el("div",{});w.appendChild(el("div",{class:"inv-item-art",html:inventoryArt(it.ico,84),"aria-hidden":"true"}));const ic=el("div",{class:"icopick"});INV_ICONS.forEach(x=>{const b=el("button",{type:"button",class:"icobtn"+(it.ico===x?" on":""),html:svgIcon(x,24),title:INV_ICON_LABELS[x],"aria-label":INV_ICON_LABELS[x],"aria-pressed":String(it.ico===x),onclick:()=>{it.ico=x;save();refreshModal();}});ic.appendChild(b);});w.appendChild(el("label",{class:"fld",text:"Icona"}));w.appendChild(ic);w.appendChild(field("Nome",it.nome,v=>{it.nome=v;save();}));w.appendChild(el("label",{class:"fld",text:"Quantità"}));w.appendChild(el("div",{class:"mrow",style:"justify-content:flex-start"},[el("button",{class:"pabtn",text:"−",onclick:()=>{it.qta=Math.max(0,(parseInt(it.qta)||0)-1);save();refreshModal();}}),el("b",{class:"panum",style:"font-size:18px;min-width:34px",text:String(it.qta!=null?it.qta:1)}),el("button",{class:"pabtn",text:"+",onclick:()=>{it.qta=(parseInt(it.qta)||0)+1;save();refreshModal();}})]));w.appendChild(el("label",{class:"fld",text:"Note / effetto"}));const tx=el("textarea",{});tx.value=it.note||"";tx.oninput=()=>{it.note=tx.value;save();};w.appendChild(tx);w.appendChild(el("div",{class:"addrow"},[el("button",{class:"btn sm gold",text:"Fatto",onclick:()=>{closeModal();renderManage();render();inventoryModal();}}),el("button",{class:"iconbtn",text:"✕ Elimina",onclick:()=>{closeModal();mutate(()=>invItems().splice(i,1));inventoryModal();}})]));return w;});}
 let INV_Q="";
 function inventoryModal(){openModal(imgIcon("zaino",30)+" Zaino · "+invItems().length+" oggett"+(invItems().length===1?"o":"i"),()=>invPanel(),{wide:true});}
 function invPanel(){const w=el("div",{class:"inv"});const bar=el("div",{class:"invbar"});const q=el("input",{type:"text",placeholder:"Cerca nello zaino…"});q.value=INV_Q;q.oninput=()=>{INV_Q=q.value.toLowerCase();renderGrid();};bar.appendChild(q);bar.appendChild(el("button",{class:"gbtn sm",text:"+ Oggetto",onclick:()=>{mutate(()=>invItems().push({id:"it"+Date.now().toString(36),nome:"Nuovo oggetto",qta:1,note:"",ico:"box"}));refreshModal();flyIn('<span class="gc-em" style="color:#ffd394">'+svgIcon("box",90)+'</span>',()=>{const l=document.querySelectorAll(".gmodal .invtile");return l[l.length-1];});setTimeout(()=>itemModal(invItems().length-1),950);}}));w.appendChild(bar);const grid=el("div",{class:"invgrid"});w.appendChild(grid);
- function renderGrid(){grid.innerHTML="";const items=invItems();let n=0;items.forEach((it,i)=>{if(INV_Q&&((it.nome||"")+" "+(it.note||"")).toLowerCase().indexOf(INV_Q)<0)return;n++;const t=el("div",{class:"invtile",title:(it.nome||"")+(it.note?(" — "+it.note):"")},[el("div",{class:"invico",html:svgIcon(ICONS[it.ico]?it.ico:"box",28)}),el("div",{class:"invn",text:it.nome||"oggetto"}),(parseInt(it.qta)||0)!==1?el("div",{class:"invq",text:"×"+(parseInt(it.qta)||0)}):null]);t.onclick=()=>itemModal(i);grid.appendChild(t);});if(!n)grid.appendChild(el("div",{class:"medempty",text:items.length?"Nessun oggetto trovato.":"Lo zaino è vuoto."}));}
+ function renderGrid(){grid.innerHTML="";const items=invItems();let n=0;items.forEach((it,i)=>{if(INV_Q&&((it.nome||"")+" "+(it.note||"")).toLowerCase().indexOf(INV_Q)<0)return;n++;const t=el("div",{class:"invtile",title:(it.nome||"")+(it.note?(" — "+it.note):"")},[el("div",{class:"invico",html:inventoryArt(it.ico,48)}),el("div",{class:"invn",text:it.nome||"oggetto"}),(parseInt(it.qta)||0)!==1?el("div",{class:"invq",text:"×"+(parseInt(it.qta)||0)}):null]);t.onclick=()=>itemModal(i);grid.appendChild(t);});if(!n)grid.appendChild(el("div",{class:"medempty",text:items.length?"Nessun oggetto trovato.":"Lo zaino è vuoto."}));}
  renderGrid();return w;}
 
 /* ===== GESTIONE: character UI a tre colonne ===== */
 let RTAB="skill";
-function slotTile(die,name,meta,onClick,ico){const t=el("div",{class:"slot"+(onClick?" click":"")},[el("div",{class:"slot-i",html:(ico&&ico.indexOf("img:")===0)?imgIcon(ico.slice(4),32):(die?dieIcon(die,34):('<span class="gc-em">'+svgIcon(ico||"star",22)+'</span>'))}),el("div",{class:"slot-b"},[el("div",{class:"slot-n",text:name||"(senza nome)"}),meta?el("div",{class:"slot-m",html:meta}):null])]);if(onClick)t.onclick=onClick;return t;}
+function slotTile(die,name,meta,onClick,ico,artKey){const visual=artKey?(illustratedIcon(artKey,38,ico)+(die?'<span class="slot-die">'+dieIcon(die,30)+'</span>':"")):(ico&&ico.indexOf("img:")===0)?imgIcon(ico.slice(4),32):(die?dieIcon(die,34):('<span class="gc-em">'+svgIcon(ico||"star",22)+'</span>'));const t=el("div",{class:"slot"+(onClick?" click":"")},[el("div",{class:"slot-i"+(artKey?" slot-art"+(die?" slot-art-die":""):""),html:visual}),el("div",{class:"slot-b"},[el("div",{class:"slot-n",text:name||"(senza nome)"}),meta?el("div",{class:"slot-m",html:meta}):null])]);if(onClick)t.onclick=onClick;return t;}
 function slotAdd(text,onClick){const t=el("div",{class:"slot add"},[el("div",{class:"slot-i",html:'<span class="gc-em">'+svgIcon("plus",20)+'</span>'}),el("div",{class:"slot-b"},[el("div",{class:"slot-n",text:text})])]);t.onclick=onClick;return t;}
 /* ==========================================================================
    ARSENALE · ARMI  (catalogo d4 approvato 18/09/2026 + editor in 3 passaggi)
@@ -3768,7 +3790,7 @@ function optCards(opts,cur,onPick,cls){
  opts.forEach(o=>{
   const val=o.v,lab=o.l,sub=o.s,ico=o.i;
   const c=el("div",{class:"optc"+(cur===val?" sel":"")});
-  if(ico)c.appendChild(el("div",{class:"oi",html:svgIcon(ico,22)}));
+  if(ico||o.art)c.appendChild(el("div",{class:"oi",html:o.art&&window.GLCArt?window.GLCArt.html(o.art,40):svgIcon(ico,22)}));
   c.appendChild(el("div",{class:"od",text:lab}));
   if(sub)c.appendChild(el("div",{class:"ol",text:sub}));
   c.onclick=()=>onPick(val);
@@ -3817,6 +3839,7 @@ function arsenaleModal(){
     const modi=["Tagliente","Contundente"].filter(m=>canAddWeapon("Ad asta",m));
     list.appendChild(el("div",{class:"slots-h",html:r[1]+" · "+(r[1]==="Ad asta"?("modalità: "+modi.join(" o ").toLowerCase()):(r[1]==="Da lancio"?"di tutti gli Stili":("Stile "+need+(have?" <span class='pill good'>lo hai</span>":""))))}));}
    const card=el("div",{class:"catcard"});
+   if(window.GLCArt)card.appendChild(el("div",{class:"catalogue-art",html:window.GLCArt.html(window.GLCArt.weaponKey(r[1]),50),"aria-hidden":"true"}));
    card.appendChild(el("div",{class:"cn",text:r[0]}));
    card.appendChild(el("div",{class:"cm",text:"d4 · Base · "+(r[2]||"portata da definire")+" · nessun effetto"}));
    card.onclick=()=>{const _as=(r[1]==="Ad asta")?(canAddWeapon(r[1],"Tagliente")?"Tagliente":"Contundente"):"";const a=normWeapon({nome:r[0],tipo:r[1],grado:"d4",attr:"",portata:r[2],asta:_as,note:"",eff:null});closeModal();mutate(()=>pg.armi.push(a));flyIn(svgIcon(WEAPON_ICO[r[1]]||"sword",120),()=>byText(".slots .slot-n",r[0]));setTimeout(()=>weaponModal(pg.armi.length-1),700);};
@@ -3926,6 +3949,7 @@ function officinaModal(){
   MOD_CATALOGO.forEach(d=>{
    const okReq=hasCorpoMeccanico()&&(MOD_SLOT_RAZZA[pg.racialDie]||0)>=(MOD_SLOT_RAZZA[d.req]||9);
    const card=el("div",{class:"catcard"});
+   if(window.GLCArt)card.appendChild(el("div",{class:"catalogue-art",html:window.GLCArt.html(window.GLCArt.moduleKey(d),50),"aria-hidden":"true"}));
    card.appendChild(el("div",{class:"cn",html:svgIcon(d.ico,18)+" "+d.n+(okReq?"":' <span class="pill warn">⚿ richiede '+d.req+'</span>')}));
    card.appendChild(el("div",{class:"cm",text:d.tipo.join(" · ")+" · Fascia "+d.req+" · "+(d.arma?"Modulo-Arma "+d.gradoArma:"Funzionale")}));
    card.appendChild(el("div",{class:"cd",text:d.fn+" "+(d.eff?modReadBack({eff:d.eff}):"Nessun Effetto Speciale.")+(d.cariche?" "+d.cariche+" Cariche.":" Energia: Nessuna.")}));
@@ -3978,7 +4002,7 @@ function moduleSheetModal(i){
   if(tecs.length)tecs.forEach(t=>{
    var bad=mo.installato===false?"Modulo non installato":mo.stato==="danneggiato"?"Modulo danneggiato":runtime.operational?"Disponibile":"Modulo non operativo";
    var bc=runtime.operational?"good":"warn";
-   w.appendChild(el("div",{class:"slot click"},[el("div",{class:"slot-i",html:dieIcon(t.die,30)}),el("div",{class:"slot-b"},[el("div",{class:"slot-n",text:t.nome}),el("div",{class:"slot-m",html:[t.fonte,t.forma].filter(Boolean).join(" · ")+' · <span class="pill '+bc+'">'+bad+"</span>"})])]));
+   w.appendChild(el("div",{class:"slot click"},[el("div",{class:"slot-i"+(window.GLCArt?" slot-art slot-art-die":""),html:(window.GLCArt?techniqueArt(t,38):"")+dieIcon(t.die,30)}),el("div",{class:"slot-b"},[el("div",{class:"slot-n",text:t.nome}),el("div",{class:"slot-m",html:[t.fonte,t.forma].filter(Boolean).join(" · ")+' · <span class="pill '+bc+'">'+bad+"</span>"})])]));
   });
   else w.appendChild(el("div",{class:"sub",text:"Nessuna: nel Signature Move Builder puoi collegare una Tecnica a questo modulo."}));
   if(mo.note)w.appendChild(el("div",{class:"hintbox",text:mo.note}));
@@ -4036,7 +4060,7 @@ function renderManage(){
  const mid=el("div",{class:"stage-mid"});C.appendChild(mid);
  const eq=el("div",{class:"slots"},[cls,el("div",{class:"slots-h",text:"Equipaggiamento"})]);
  {const A=arsenale();
-  const wTile=i=>{const a=pg.armi[i];return slotTile(a.grado,a.nome||"Arma",weaponMeta(a)+(A.over.indexOf(i)>=0?' · <span class="pill warn">oltre il limite</span>':""),()=>window.GLCDetails?GLCDetails.weapon(i):weaponModal(i),WEAPON_ICO[a.tipo]);};
+  const wTile=i=>{const a=pg.armi[i];return slotTile(a.grado,a.nome||"Arma",weaponMeta(a)+(A.over.indexOf(i)>=0?' · <span class="pill warn">oltre il limite</span>':""),()=>window.GLCDetails?GLCDetails.weapon(i):weaponModal(i),WEAPON_ICO[a.tipo],window.GLCArt?.weaponKey(a));};
   if(A.limit){
    /* un posto per Stile, e con Più Spade · Base il posto della seconda lama */
    eq.appendChild(el("div",{class:"slots-h",text:"Armi · "+Math.min(A.n,A.cap)+"/"+A.cap}));
@@ -4053,10 +4077,10 @@ function renderManage(){
    pg.armi.forEach((a,i)=>eq.appendChild(wTile(i)));
    eq.appendChild(slotAdd("Arma · apri l'Arsenale",arsenaleModal));
   }}
- if(isMusicista()){eq.appendChild(el("div",{class:"slots-h",text:"Strumenti"}));eq.appendChild(slotTile("d4","La tua voce","Voce · <b>d4</b> Base · sempre con te",null));(pg.strumenti||[]).forEach((a,i)=>eq.appendChild(slotTile(instrEff(a).grado,a?.nome||"Strumento storico",instrMeta(a),()=>instrumentModal(i))));eq.appendChild(slotAdd("Strumento",addInstrument));}
+ if(isMusicista()){eq.appendChild(el("div",{class:"slots-h",text:"Strumenti"}));eq.appendChild(slotTile("d4","La tua voce","Voce · <b>d4</b> Base · sempre con te",null,"music",ROLE_IMG.Musicista));(pg.strumenti||[]).forEach((a,i)=>eq.appendChild(slotTile(instrEff(a).grado,a?.nome||"Strumento storico",instrMeta(a),()=>instrumentModal(i),"music",ROLE_IMG.Musicista)));eq.appendChild(slotAdd("Strumento",addInstrument));}
  if(moduliVisibili()){const S=moduliSlots(),used=S.used;
   eq.appendChild(el("div",{class:"slots-h",html:"Corpo Meccanico · <b>"+(pg.racialDie||"—")+"</b> · installati "+used+"/"+S.n}));
-  (pg.moduli||[]).forEach((mo,i)=>{const st=modStateLabel(mo),grade=mo.gradoArma||mo.grado;eq.appendChild(slotTile(mo.arma&&grade?grade:null,mo.nome||"Modulo",'<span class="pill '+st.c+'">'+st.t+"</span> "+(mo.tipo&&mo.tipo.length?mo.tipo.join(" · "):"modulo")+(mo.fuel&&mo.fuel.on?(" · "+(mo.fuel.cur??0)+"/"+(mo.fuel.max||"—")):""),()=>moduleSheetModal(i),(mo.arma&&grade)?null:"gear"));});
+  (pg.moduli||[]).forEach((mo,i)=>{const st=modStateLabel(mo),grade=mo.gradoArma||mo.grado;eq.appendChild(slotTile(mo.arma&&grade?grade:null,mo.nome||"Modulo",'<span class="pill '+st.c+'">'+st.t+"</span> "+(mo.tipo&&mo.tipo.length?mo.tipo.join(" · "):"modulo")+(mo.fuel&&mo.fuel.on?(" · "+(mo.fuel.cur??0)+"/"+(mo.fuel.max||"—")):""),()=>moduleSheetModal(i),"gear",window.GLCArt?.moduleKey(mo)));});
   eq.appendChild(slotAdd("Officina · progetti e Moduli",officinaModal));
   const cycle=el("div",{class:"mod-combat-controls"});modCombatControls(cycle);eq.appendChild(cycle);
  }
@@ -4066,8 +4090,8 @@ function renderManage(){
  mid.appendChild(el("div",{class:"stage-fig"},[el("div",{class:"stage-glow","aria-hidden":"true"}),pw,ambition,L]));
  
  const ab=el("div",{class:"slots right"},[el("div",{class:"slots-h",text:"Tecniche"})]);
- allTech().filter(t=>typeof t.idx!=="number").forEach(t=>ab.appendChild(slotTile(t.die,t.name,t.historical?"razziale storica · archivio":t.fixed?"razziale":((t.attr||"—")+" · profilo storico da convertire"),()=>techModal(t))));
- pg.extraTech.forEach((t,i)=>{if(!t.id)t.id="tec"+Date.now().toString(36)+Math.floor(Math.random()*1000);ab.appendChild(slotTile(t.die,t.nome,[t.fonte,t.forma].filter(Boolean).join(" · ")+" · <b>"+tecCostLabel(t)+"</b>"+(tbEvaluate(t).valid?"":" · da correggere nel Costruttore"),()=>extraTechModal(i)));});
+ allTech().filter(t=>typeof t.idx!=="number").forEach(t=>ab.appendChild(slotTile(t.die,t.name,t.historical?"razziale storica · archivio":t.fixed?"razziale":((t.attr||"—")+" · profilo storico da convertire"),()=>techModal(t),"burst",techniqueArtKey(t))));
+ pg.extraTech.forEach((t,i)=>{if(!t.id)t.id="tec"+Date.now().toString(36)+Math.floor(Math.random()*1000);ab.appendChild(slotTile(t.die,t.nome,[t.fonte,t.forma].filter(Boolean).join(" · ")+" · <b>"+tecCostLabel(t)+"</b>"+(tbEvaluate(t).valid?"":" · da correggere nel Costruttore"),()=>extraTechModal(i),"burst",techniqueArtKey(t)));});
  ab.appendChild(slotAdd("Tecnica",builderModal));
  {ab.appendChild(el("div",{class:"slots-h",text:"Frutto del Diavolo"}));if(pg.frutto&&pg.frutto.has){const f=pg.frutto;ab.appendChild(slotTile(null,f.nome||"Frutto senza nome",(f.tipo||"tipo da scegliere")+" · Dado <b>"+(f.die||"d4")+"</b>",fruitModal,"img:frutto"));}else ab.appendChild(slotAdd("Frutto del Diavolo",()=>{mutate(()=>{pg.frutto.has=true;if(!pg.frutto.die)pg.frutto.die="d4";});flyIn(imgIcon("frutto",120),()=>byText(".slots .slot-n","Frutto senza nome"));setTimeout(fruitModal,950);}));}
  {const n=invItems().length;ab.appendChild(el("div",{class:"slots-h",text:"Zaino"}));ab.appendChild(el("button",{class:"stage-bag",title:"Apri lo zaino · "+n+" oggett"+(n===1?"o":"i"),html:imgIcon("zaino",46)+(n?'<span class="bag-n">'+n+'</span>':'')+'<span class="bag-t">'+(n?(n+" oggett"+(n===1?"o":"i")):"Zaino vuoto")+'</span>',onclick:inventoryModal}));}

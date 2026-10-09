@@ -100,9 +100,10 @@ select.txt{width:100%; font-family:'Inter',sans-serif; font-size:17px; color:var
 @media(max-width:600px){.refrow{grid-template-columns:1fr;}}
 </style>
 <script src="/glc-images.js?v=1"></script>
+<script src="/glc-art.js?v=1"></script>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-portals.css?v=1">
-<link rel="stylesheet" href="atelier.css?v=1">
+<link rel="stylesheet" href="atelier.css?v=2">
 </head>
 <body class="mode-atelier premium-portal">
 <div class="portal-topbar"><a class="portal-brand" href="/grand-line-chronicles/"><span aria-hidden="true">⚓</span><span>Grand Line Chronicles</span></a><nav class="portal-links" aria-label="Navigazione del porto"><a href="/nave-portale/">Nave</a><a href="/portale-officina-cambusa/" aria-current="page">Officina &amp; Cambusa</a><a href="/profilo/">Il tuo profilo ↗</a></nav><span id="glc-login-slot"></span></div>
@@ -116,9 +117,9 @@ select.txt{width:100%; font-family:'Inter',sans-serif; font-size:17px; color:var
   </div>
 
   <div class="tabs" id="tabs">
-    <button class="tab" data-tab="officina" aria-selected="true"><span class="tab-number" aria-hidden="true">01</span>Officina</button>
-    <button class="tab" data-tab="cambusa" aria-selected="false"><span class="tab-number" aria-hidden="true">02</span>Cambusa</button>
-    <button class="tab" data-tab="mercante" aria-selected="false"><span class="tab-number" aria-hidden="true">03</span>Mercante</button>
+    <button class="tab" data-tab="officina" aria-selected="true"><img class="atelier-tab-art" src="/img/icons/ruolo-ingegnere.png" width="28" height="28" alt="" draggable="false"><span class="tab-number" aria-hidden="true">01</span>Officina</button>
+    <button class="tab" data-tab="cambusa" aria-selected="false"><img class="atelier-tab-art" src="/img/icons/ruolo-cuoco.png" width="28" height="28" alt="" draggable="false"><span class="tab-number" aria-hidden="true">02</span>Cambusa</button>
+    <button class="tab" data-tab="mercante" aria-selected="false"><img class="atelier-tab-art" src="/img/icons/tesoro.png" width="28" height="28" alt="" draggable="false"><span class="tab-number" aria-hidden="true">03</span>Mercante</button>
   </div>
 
   <section class="panel active" data-tab="officina" id="p-officina"></section>
@@ -246,7 +247,7 @@ function flash(msg){var f=el("div",{text:msg,style:"position:fixed;left:50%;bott
 function itemCard(o,opts){
   opts=opts||{};
   var pic=el("div",{class:"pic"});
-  if(o.img){ pic.style.backgroundImage="url('"+o.img+"')"; pic.textContent=""; } else { pic.classList.add('empty-art');pic.appendChild(el('img',{src:'/img/icons/'+(opts.diaryKind==='piatto'?'ruolo-cuoco':opts.price?'zaino':'ruolo-ingegnere')+'.png',alt:'',loading:'lazy'})); }
+  if(o.img){ pic.style.backgroundImage="url('"+o.img+"')"; pic.textContent=""; } else { pic.classList.add('empty-art');pic.innerHTML=GLCArt.html(GLCArt.categoryKey(Object.assign({},o,{tipo:o.tipo||opts.diaryKind})),88); }
   var description=o.descrizione||o.desc||'',lines=description.split('\n'),lead=lines.shift(),detail=null;
   if(lines.length){detail=el('details',{class:'card-details'},[el('summary',{text:'Dettagli e regole'}),el('p',{text:lines.join('\n')})]);}
   var acts=el("div",{class:"iacts"});
@@ -297,7 +298,7 @@ async function renderOfficina(){
     var f_desc=el("textarea",{class:"txt",placeholder:"Effetto / descrizione"});
     var f_cat=el("input",{class:"txt",placeholder:"Categoria (es. Preparati del medico)"});
     var f_img=""; var editingDati=null;
-    var prev=el("div",{class:"imgprev",text:"⚙"});
+    var prev=el("div",{class:"imgprev",html:GLCArt.html('ruolo-ingegnere',64)});
     var file=el("input",{type:"file",accept:"image/*"});
     file.onchange=function(){ resizeImg(file.files[0],function(d){ f_img=d; if(d){prev.style.backgroundImage="url('"+d+"')";prev.textContent="";} }); };
     var editingId=null;
@@ -311,7 +312,7 @@ async function renderOfficina(){
       var res=await saveOfficial(row);
       saveBtn.disabled=false; saveBtn.textContent=editingId?"Aggiorna":"Salva nel catalogo";
       if(res.error){ alert("Errore nel salvataggio: "+res.error.message+"\n\nVerifica di aver eseguito il setup SQL della tabella «catalogo» e di essere loggato con l'email admin."); return; }
-      f_nome.value=""; f_desc.value=""; f_cat.value=""; f_img=""; prev.style.backgroundImage=""; prev.textContent="⚙"; editingId=null; editingDati=null; formTitle.textContent="Aggiungi un oggetto ufficiale"; saveBtn.textContent="Salva nel catalogo";
+      f_nome.value=""; f_desc.value=""; f_cat.value=""; f_img=""; prev.style.backgroundImage=""; prev.innerHTML=GLCArt.html('ruolo-ingegnere',64); editingId=null; editingDati=null; formTitle.textContent="Aggiungi un oggetto ufficiale"; saveBtn.textContent="Salva nel catalogo";
       flash("Catalogo aggiornato ✓");
       loadCatalog();
     }});
@@ -325,7 +326,7 @@ async function renderOfficina(){
       el("div",{},[saveBtn])
     ]);
     p.appendChild(form);
-    window.__startEdit=function(o){ editingId=o.id; editingDati=(o.dati&&typeof o.dati==="object")?JSON.parse(JSON.stringify(o.dati)):{}; f_nome.value=o.nome||""; f_desc.value=o.descrizione||""; f_cat.value=(o.dati&&o.dati.categoria)||""; f_img=o.img||""; if(o.img){prev.style.backgroundImage="url('"+o.img+"')";prev.textContent="";}else{prev.style.backgroundImage="";prev.textContent="⚙";} formTitle.textContent="Modifica oggetto ufficiale"; saveBtn.textContent="Aggiorna"; form.scrollIntoView({behavior:"smooth"}); };
+    window.__startEdit=function(o){ editingId=o.id; editingDati=(o.dati&&typeof o.dati==="object")?JSON.parse(JSON.stringify(o.dati)):{}; f_nome.value=o.nome||""; f_desc.value=o.descrizione||""; f_cat.value=(o.dati&&o.dati.categoria)||""; f_img=o.img||""; if(o.img){prev.style.backgroundImage="url('"+o.img+"')";prev.textContent="";}else{prev.style.backgroundImage="";prev.innerHTML=GLCArt.html('ruolo-ingegnere',64);} formTitle.textContent="Modifica oggetto ufficiale"; saveBtn.textContent="Aggiorna"; form.scrollIntoView({behavior:"smooth"}); };
   }
 
   p.appendChild(el("div",{class:"sec-head",style:"margin-top:30px"},[el("h2",{text:"I miei oggetti"})]));
@@ -337,13 +338,13 @@ async function renderOfficina(){
   var m_nome=el("input",{class:"txt",placeholder:"Nome dell'oggetto"});
   var m_desc=el("textarea",{class:"txt",placeholder:"Effetto / descrizione"});
   var m_img="";
-  var m_prev=el("div",{class:"imgprev",text:"⚙"});
+  var m_prev=el("div",{class:"imgprev",html:GLCArt.html('ruolo-ingegnere',64)});
   var m_file=el("input",{type:"file",accept:"image/*"});
   m_file.onchange=function(){ resizeImg(m_file.files[0],function(d){ m_img=d; if(d){m_prev.style.backgroundImage="url('"+d+"')";m_prev.textContent="";} }); };
   var m_add=el("button",{class:"btn",text:"Aggiungi ai miei oggetti",onClick:function(){
     var nome=m_nome.value.trim(); if(!nome){m_nome.focus();return;}
     var o=readOI(); o.items.push({id:newId("mo_"),nome:nome,desc:m_desc.value.trim(),img:m_img||""}); try{writeOI(o);}catch(e){alert("Spazio insufficiente. Alleggerisci l’immagine: gli oggetti precedenti sono rimasti invariati.");return;}
-    m_nome.value=""; m_desc.value=""; m_img=""; m_prev.style.backgroundImage=""; m_prev.textContent="⚙";
+    m_nome.value=""; m_desc.value=""; m_img=""; m_prev.style.backgroundImage=""; m_prev.innerHTML=GLCArt.html('ruolo-ingegnere',64);
     renderMine(mygrid); flash("Oggetto aggiunto ✓");
   }});
   p.appendChild(el("div",{class:"formcard",id:"officina-create"},[
@@ -488,7 +489,7 @@ function renderCambusa(){
     var d_nome=el("input",{class:"txt",placeholder:"Nome del piatto"});
     var d_desc=el("textarea",{class:"txt",placeholder:"Esiti / descrizione"});
     var d_cat=el("input",{class:"txt",placeholder:"Categoria (es. Carne, Dolci\u2026)"});
-    var d_img=""; var d_dati=null; var d_prev=el("div",{class:"imgprev",text:"\ud83c\udf72"}); var d_file=el("input",{type:"file",accept:"image/*"});
+    var d_img=""; var d_dati=null; var d_prev=el("div",{class:"imgprev",html:GLCArt.html('provviste',64)}); var d_file=el("input",{type:"file",accept:"image/*"});
     d_file.onchange=function(){resizeImg(d_file.files[0],function(x){d_img=x;if(x){d_prev.style.backgroundImage="url('"+x+"')";d_prev.textContent="";}});};
     var d_edit=null; var d_title=el("h3",{text:"Aggiungi un piatto ufficiale"});
     var d_save=el("button",{class:"btn",text:"Salva nel catalogo",onClick:async function(){
@@ -499,12 +500,12 @@ function renderCambusa(){
       var row={id:d_edit||newId("p_"),tipo:"piatto",nome:nome,descrizione:d_desc.value.trim(),dati:dBase,img:d_img||"",updated_at:new Date().toISOString()};
       var res=await saveOfficial(row); d_save.disabled=false; d_save.textContent=d_edit?"Aggiorna":"Salva nel catalogo";
       if(res.error){alert("Errore: "+res.error.message);return;}
-      d_nome.value="";d_desc.value="";d_cat.value="";d_img="";d_dati=null;d_prev.style.backgroundImage="";d_prev.textContent="\ud83c\udf72";d_edit=null;d_title.textContent="Aggiungi un piatto ufficiale";d_save.textContent="Salva nel catalogo";
+      d_nome.value="";d_desc.value="";d_cat.value="";d_img="";d_dati=null;d_prev.style.backgroundImage="";d_prev.innerHTML=GLCArt.html('provviste',64);d_edit=null;d_title.textContent="Aggiungi un piatto ufficiale";d_save.textContent="Salva nel catalogo";
       flash("Catalogo aggiornato \u2713"); loadDishes();
     }});
     var dform=el("div",{class:"formcard"},[d_title,el("label",{class:"lab",text:"Nome"}),d_nome,el("label",{class:"lab",text:"Esiti / descrizione"}),d_desc,el("label",{class:"lab",text:"Categoria"}),d_cat,el("label",{class:"lab",text:"Immagine"}),el("div",{class:"imgrow"},[d_prev,imageUpload(d_file)]),el("div",{},[d_save])]);
     p.appendChild(dform);
-    window.__startEditDish=function(o){d_edit=o.id;d_dati=(o.dati&&typeof o.dati==="object")?JSON.parse(JSON.stringify(o.dati)):{};d_nome.value=o.nome||"";d_desc.value=o.descrizione||"";d_cat.value=(o.dati&&o.dati.categoria)||"";d_img=o.img||"";if(o.img){d_prev.style.backgroundImage="url('"+o.img+"')";d_prev.textContent="";}else{d_prev.style.backgroundImage="";d_prev.textContent="\ud83c\udf72";}d_title.textContent="Modifica piatto ufficiale";d_save.textContent="Aggiorna";dform.scrollIntoView({behavior:"smooth"});};
+    window.__startEditDish=function(o){d_edit=o.id;d_dati=(o.dati&&typeof o.dati==="object")?JSON.parse(JSON.stringify(o.dati)):{};d_nome.value=o.nome||"";d_desc.value=o.descrizione||"";d_cat.value=(o.dati&&o.dati.categoria)||"";d_img=o.img||"";if(o.img){d_prev.style.backgroundImage="url('"+o.img+"')";d_prev.textContent="";}else{d_prev.style.backgroundImage="";d_prev.innerHTML=GLCArt.html('provviste',64);}d_title.textContent="Modifica piatto ufficiale";d_save.textContent="Aggiorna";dform.scrollIntoView({behavior:"smooth"});};
   }
   p.appendChild(el("div",{class:"sec-head",style:"margin-top:30px"},[el("h2",{text:"Crea il tuo piatto"})]));
   p.appendChild(el("p",{class:"hint",text:"Scegli un nome e gli ingredienti: ognuno aggiunge il suo bonus. Il piatto finisce tra i tuoi e si pu\u00f2 inserire nel diario."}));
@@ -513,7 +514,7 @@ function renderCambusa(){
   var ingWrap=el("div",{class:"ingpick"});
   INGR_NOTE.forEach(function(ing,idx){
     var cb=el("input",{type:"checkbox",id:"ing_"+idx});
-    ingWrap.appendChild(el("label",{class:"ingopt",for:"ing_"+idx},[cb,el("span",{class:"io-nm",text:ing.nome}),el("span",{class:"io-bn",text:ing.bonus}),el("span",{class:"io-rare",text:ing.cat+" \u00b7 "+ing.rarita})]));
+    ingWrap.appendChild(el("label",{class:"ingopt",for:"ing_"+idx},[cb,el("span",{class:"io-nm"},[el("span",{class:"io-art","aria-hidden":"true",html:GLCArt.html(GLCArt.categoryKey(ing.cat),32)}),el("span",{text:ing.nome})]),el("span",{class:"io-bn",text:ing.bonus}),el("span",{class:"io-rare",text:ing.cat+" \u00b7 "+ing.rarita})]));
   });
   var cust_nome=el("input",{class:"txt",placeholder:"Ingrediente extra (facoltativo)"});
   var cust_bonus=el("input",{class:"txt",placeholder:"\u2026e il suo bonus"});
@@ -579,7 +580,7 @@ function renderMercante(){
     var i_cat=el("input",{class:"txt",placeholder:"Categoria (es. Metalli e leghe)"});
     var i_prezzo=el("input",{class:"txt",type:"number",min:"0",placeholder:"Prezzo in ฿ (vuoto = non acquistabile)"});
     var i_fascia=el("select",{class:"txt"}); ING_FASCE.forEach(function(f){i_fascia.appendChild(el("option",{value:f,text:f}));});
-    var i_img=""; var i_dati=null; var i_prev=el("div",{class:"imgprev",text:"🪙"}); var i_file=el("input",{type:"file",accept:"image/*"});
+    var i_img=""; var i_dati=null; var i_prev=el("div",{class:"imgprev",html:GLCArt.html('materiali',64)}); var i_file=el("input",{type:"file",accept:"image/*"});
     i_file.onchange=function(){resizeImg(i_file.files[0],function(x){i_img=x;if(x){i_prev.style.backgroundImage="url('"+x+"')";i_prev.textContent="";}});};
     var i_edit=null; var i_title=el("h3",{text:"Aggiungi un ingrediente"});
     var i_save=el("button",{class:"btn",text:"Salva nel catalogo",onClick:async function(){
@@ -591,12 +592,12 @@ function renderMercante(){
       var row={id:i_edit||newId("i_"),tipo:"ingrediente",nome:nome,descrizione:i_desc.value.trim(),dati:base,img:i_img||"",updated_at:new Date().toISOString()};
       var res=await saveOfficial(row); i_save.disabled=false; i_save.textContent=i_edit?"Aggiorna":"Salva nel catalogo";
       if(res.error){alert("Errore: "+res.error.message);return;}
-      i_nome.value="";i_desc.value="";i_cat.value="";i_prezzo.value="";i_fascia.value="Comune";i_img="";i_dati=null;i_prev.style.backgroundImage="";i_prev.textContent="🪙";i_edit=null;i_title.textContent="Aggiungi un ingrediente";i_save.textContent="Salva nel catalogo";
+      i_nome.value="";i_desc.value="";i_cat.value="";i_prezzo.value="";i_fascia.value="Comune";i_img="";i_dati=null;i_prev.style.backgroundImage="";i_prev.innerHTML=GLCArt.html('materiali',64);i_edit=null;i_title.textContent="Aggiungi un ingrediente";i_save.textContent="Salva nel catalogo";
       flash("Catalogo aggiornato ✓"); loadIngredienti();
     }});
     var iform=el("div",{class:"formcard"},[i_title,el("label",{class:"lab",text:"Nome"}),i_nome,el("label",{class:"lab",text:"Note / dove si trova"}),i_desc,el("label",{class:"lab",text:"Categoria"}),i_cat,el("label",{class:"lab",text:"Prezzo (฿)"}),i_prezzo,el("label",{class:"lab",text:"Fascia"}),i_fascia,el("label",{class:"lab",text:"Immagine"}),el("div",{class:"imgrow"},[i_prev,imageUpload(i_file)]),el("div",{},[i_save])]);
     p.appendChild(iform);
-    window.__startEditIng=function(o){i_edit=o.id;i_dati=(o.dati&&typeof o.dati==="object")?JSON.parse(JSON.stringify(o.dati)):{};i_nome.value=o.nome||"";i_desc.value=o.descrizione||"";i_cat.value=(o.dati&&o.dati.categoria)||"";i_prezzo.value=(o.dati&&o.dati.prezzo!=null)?o.dati.prezzo:"";i_fascia.value=(o.dati&&o.dati.fascia)||"Comune";i_img=o.img||"";if(o.img){i_prev.style.backgroundImage="url('"+o.img+"')";i_prev.textContent="";}else{i_prev.style.backgroundImage="";i_prev.textContent="🪙";}i_title.textContent="Modifica ingrediente";i_save.textContent="Aggiorna";iform.scrollIntoView({behavior:"smooth"});};
+    window.__startEditIng=function(o){i_edit=o.id;i_dati=(o.dati&&typeof o.dati==="object")?JSON.parse(JSON.stringify(o.dati)):{};i_nome.value=o.nome||"";i_desc.value=o.descrizione||"";i_cat.value=(o.dati&&o.dati.categoria)||"";i_prezzo.value=(o.dati&&o.dati.prezzo!=null)?o.dati.prezzo:"";i_fascia.value=(o.dati&&o.dati.fascia)||"Comune";i_img=o.img||"";if(o.img){i_prev.style.backgroundImage="url('"+o.img+"')";i_prev.textContent="";}else{i_prev.style.backgroundImage="";i_prev.innerHTML=GLCArt.html('materiali',64);}i_title.textContent="Modifica ingrediente";i_save.textContent="Aggiorna";iform.scrollIntoView({behavior:"smooth"});};
   }
   loadIngredienti();
 }

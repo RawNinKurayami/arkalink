@@ -31,8 +31,7 @@
       : (TBUILD.stile || (SMBD.musica ? 'Musicista' : 'Stile'));
   }
   function sourceIcon(size) {
-    const key = TBUILD.fonte === 'Stile' && TBUILD.forma === 'Canzone' ? 'Musicista' : TBUILD.fonte === 'Frutto' ? TBUILD.fruitType : (TBUILD.stile || (SMBD.musica ? 'Musicista' : ''));
-    return STYLE_IMG[key] ? emblem(STYLE_IMG[key], size) : svgIcon(STYLE_ICON[key] || FONTE_ICO[TBUILD.fonte] || 'star', Math.round(size * .6));
+    return techniqueArt(TBUILD, size);
   }
   function metric(label, value) {
     const n = make('div', 'smb-core-metric');

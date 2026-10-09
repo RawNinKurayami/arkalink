@@ -12,6 +12,7 @@
 <script>window.GLC={saveKey:["glc_bestiario_v1","glc_scontro_v1"],gate:true,profileUrl:"/profilo/"};</script>
 <script src="/glc-sync.js?v=2"></script>
 <script src="/glc-auth.js?v=4"></script>
+<script src="/glc-art.js?v=1"></script>
 <style>
 :root{--abyss:#060607;--vellum:#f2e9d8;--ink:#f1ece0;--ink-soft:#a69a86;--gold:#f0a441;--gold-bright:#ffd394;--seal:#e23131;--foam:#a69a86;--line:rgba(240,164,65,.22);}
 *{box-sizing:border-box;}
@@ -123,7 +124,7 @@ input.in:focus,select.in:focus{outline:none;border-color:var(--gold);box-shadow:
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-portals.css?v=1">
-<link rel="stylesheet" href="/plancia-master/plancia.css?v=1">
+<link rel="stylesheet" href="/plancia-master/plancia.css?v=2">
 </head>
 <body class="premium-portal mode-master">
 <a class="gm-skip" href="#tabs">Vai agli strumenti del Master</a>
@@ -223,11 +224,14 @@ function statCell(label,get,set){
 }
 function buildBeast(b){
   var card=el("div",{class:"beast"});
-  card.appendChild(el("div",{class:"gm-dossier-mark","aria-hidden":"true",html:"<svg><use href='#gm-foe'/></svg><span>Dossier avversario</span>"}));
+  var mark=el("div",{class:"gm-dossier-mark","aria-hidden":"true"});
+  function renderMark(){var key={Marine:'arma-distanza',Pirata:'arma-lama',Bestia:'razza-mink','Re del Mare':'razza-uomopesce',PNG:'razza-umano',Boss:'haki-re'}[b.tipo]||'ruolo-combattente';mark.innerHTML=GLCArt.html(key,36)+'<span>Dossier avversario</span>';}
+  renderMark();card.appendChild(mark);
   var nm=el("input",{class:"bnome",type:"text","aria-label":"Nome avversario"});nm.value=b.nome||"";nm.oninput=function(){b.nome=nm.value;saveB();fillAddSel();};
   card.appendChild(el("div",{class:"bh"},[nm,el("button",{class:"x",text:"Elimina",onClick:function(){if(!confirm("Eliminare «"+(b.nome||"")+"» dal bestiario?"))return;best=best.filter(function(x){return x!==b;});saveB();renderBeast();fillAddSel();}})]));
   // tipo + minaccia
   var tSel=el("select",{class:"in","aria-label":"Tipo avversario"});TIPI.forEach(function(t){tSel.appendChild(el("option",{value:t,text:t}));});tSel.value=b.tipo;tSel.onchange=function(){b.tipo=tSel.value;saveB();applyFilter();};
+  tSel.addEventListener('change',renderMark);
   var mSel=el("select",{class:"in","aria-label":"Minaccia avversario"});MINACCE.forEach(function(m){mSel.appendChild(el("option",{value:m,text:m}));});mSel.value=b.minaccia;mSel.onchange=function(){b.minaccia=mSel.value;saveB();applyFilter();fillAddSel();};
   card.appendChild(el("div",{class:"rowsel"},[tSel,mSel]));
   // attributi

@@ -12,12 +12,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
 <script src="/glc-ui.js"></script>
+<script src="/glc-art.js?v=1"></script>
 <script src="/regole/prestigio-data.js?v=9"></script>
 <script src="/regole/prestigio.js?v=7"></script>
 <script src="/regole/talenti.js?v=2"></script>
 <script src="/regole/nave-talenti.js?v=1"></script>
 <script src="/regole/nave.js?v=1"></script>
-<script src="/nave-portale/nave-ui.js?v=1"></script>
+<script src="/nave-portale/nave-ui.js?v=2"></script>
 <style>
 :root{--ink:#f1ece0;--ink-soft:#a69a86;--red:#e23131;--red-br:#ff5240;--gold:#f0a441;--gold-2:#ffd394;--paper:#15121a;--paper-2:#1a1622;--line:rgba(240,164,65,.22);--sea:#3d6a8f;--shadow:rgba(0,0,0,.40);--ok:#7fc796;--warn:#e0b84e;--bad:#e23131;}
 *{box-sizing:border-box;}html,body{margin:0;padding:0;}
@@ -181,7 +182,7 @@ body.premium-portal .gmclose{width:44px;height:44px;min-width:44px;position:rela
 <script src="/glc-auth.js?v=4"></script>
 <script src="/glc-images.js?v=1"></script>
 <link rel="stylesheet" href="/glc-portals.css?v=1">
-<link rel="stylesheet" href="scena-nave.css?v=6">
+<link rel="stylesheet" href="scena-nave.css?v=7">
 </head>
 <body class="mode-nave premium-portal">
 <div class="portal-topbar"><a class="portal-brand" href="/grand-line-chronicles/"><span aria-hidden="true">⚓</span><span>Grand Line Chronicles</span></a><nav class="portal-links" aria-label="Navigazione del porto"><a href="/nave-portale/" aria-current="page">Nave</a><a href="/portale-officina-cambusa/">Officina &amp; Cambusa</a><a href="/profilo/">Il tuo profilo ↗</a></nav></div>
@@ -333,6 +334,7 @@ function flyIn(iconHtml,findTarget){try{const fx=mkEl("div",{class:"flyico",html
 let RTAB="Battaglia";
 const STAT_DEFS=[["scafo","Scafo","Resistenza: dà i Punti Struttura"],["vele","Vele","Velocità, manovre, iniziativa"],["artiglieria","Artiglieria","Potenza dei cannoni"],["struttura","Struttura","Slot per i moduli"]];
 const STAT_ICON={scafo:"boat",vele:"wind",artiglieria:"bomb",struttura:"anchor"};
+const COMPONENT_ICON={albero:"wind",timone:"helm",batteria:"bomb",stiva:"box",macchine:"gear",scafo:"boat"};
 const STATION_ICON={capitano:"crown",timoniere:"helm",cannoniere:"target",vedetta:"eye",ingegnere:"hammer",combattente:"sword"};
 /* Le icone illustrate dei Ruoli: le stesse della scheda del pirata. */
 const STATION_IMG={capitano:"ruolo-capitano",timoniere:"ruolo-navigatore",cannoniere:"stile-sniper",vedetta:"haki-osservazione",ingegnere:"ruolo-ingegnere",combattente:"ruolo-combattente"};
@@ -426,14 +428,14 @@ function renderShip(){
  C.appendChild(mkEl("div",{class:"stagenote",html:svgIcon("compass",14)+" Traversata: "+GLCShip.profile(S,'traversata',characters()).dice.map(esc).join(' + ')}));
  C.appendChild(mkEl('button',{class:'gbtn',text:'Navigazione e traversata',onclick:()=>shipManoeuvreModal('traversata')}));
  const modsH=mkEl("div",{class:"slots-h",html:"Moduli · "+slotsUsed()+"/"+slotsTot()+" slot"});C.appendChild(modsH);
- const mods=mkEl('div',{class:'mods'});S.moduli.forEach((m,i)=>mods.appendChild(slotTile('<span class="gc-em">'+svgIcon('gear',22)+'</span>',m.nome,esc(m.slot)+' slot · '+esc(m.eff||''),()=>moduleModal(i))));mods.appendChild(slotAdd('Catalogo Moduli',catalogModal));C.appendChild(mods);
+ const mods=mkEl('div',{class:'mods'});S.moduli.forEach((m,i)=>mods.appendChild(slotTile(GLCArt.html(GLCArt.moduleKey(m),36),m.nome,esc(m.slot)+' slot · '+esc(m.eff||''),()=>moduleModal(i))));mods.appendChild(slotAdd('Catalogo Moduli',catalogModal));C.appendChild(mods);
  C.appendChild(mkEl("div",{class:"slots-h",html:"Danni · in Critica un d6 decide cosa si rompe"}));
- const chips=mkEl("div",{class:"row"});DESTRUCT.forEach((d,i)=>{chips.appendChild(mkEl("button",{type:"button","aria-pressed":String(!!S.distrutti[d.key]),class:"chip"+(S.distrutti[d.key]?" broken":""),title:d.eff,text:(i+1)+" · "+d.nome,onclick:()=>{toggleDestruct(d.key);renderShip();}}));});C.appendChild(chips);
+ const chips=mkEl("div",{class:"row"});DESTRUCT.forEach((d,i)=>{chips.appendChild(mkEl("button",{type:"button","aria-pressed":String(!!S.distrutti[d.key]),class:"chip ship-component"+(S.distrutti[d.key]?" broken":""),title:d.eff,html:svgIcon(COMPONENT_ICON[d.key],18)+'<span>'+esc((i+1)+" · "+d.nome)+'</span>',onclick:()=>{toggleDestruct(d.key);renderShip();}}));});C.appendChild(chips);
  C.appendChild(shipDamageSettings());
  /* ---- destra ---- */
  g3.appendChild(L);
  const R=mkEl("div",{class:"rpanel"});g3.appendChild(R);
- const rt=mkEl("div",{class:"gtabs"});["Battaglia","Cantiere","Diario"].forEach(k=>rt.appendChild(mkEl("button",{class:"gtab"+(RTAB===k?" on":""),text:k,onclick:()=>{RTAB=k;renderShip();}})));R.appendChild(rt);
+ const rt=mkEl("div",{class:"gtabs"});["Battaglia","Cantiere","Diario"].forEach(k=>rt.appendChild(mkEl("button",{class:"gtab"+(RTAB===k?" on":""),html:svgIcon({Battaglia:'sword',Cantiere:'hammer',Diario:'scroll'}[k],18)+'<span>'+k+'</span>',onclick:()=>{RTAB=k;renderShip();}})));R.appendChild(rt);
  if(RTAB==="Battaglia"||RTAB==='Stampa'){
   R.appendChild(sec('Battaglia navale',[shipBattlePanel()]));
   R.appendChild(sec('Talenti dei membri alle postazioni',[shipCrewTalents()]));
@@ -442,7 +444,7 @@ function renderShip(){
   const up=mkEl('div',{class:'gcards one'});STAT_DEFS.forEach(([k,nm])=>{const[next,sog]=targetSoglia(S.stats[k]);if(!next){up.appendChild(gcard(dieIcon(S.stats[k],40),nm,'limite ordinario d12',''));return;}const req=(UPG_MATS[k]&&UPG_MATS[k][next])||[];up.appendChild(gcard(dieIcon(next,40),nm+' → '+next,'Soglia '+sog+' · '+carpPoolStr(),matLine(req),()=>shipUpgradeModal(k,next,sog,req)));});
   R.appendChild(sec("Potenziamenti",[mkEl("div",{class:"ship-warning",text:"Soglie e ore seguono il Manuale. Ricette materiali, prezzi e conseguenze dettagliate storiche sono configurazioni di campagna da concordare con il GM. I controlli dei dadi registrano correzioni manuali; non consumano materiali né completano progetti."}),up,mkEl('button',{class:'btn ghost',text:'Miglioramenti permanenti completati',onclick:shipImprovementsModal})]));
   const rip=mkEl("div",{class:"gcards one"});REPAIRS.forEach(r=>rip.appendChild(gcard('<span class="gc-em">'+svgIcon("hammer",24)+'</span>',r.t,r.ore+" ore · soglia <b>"+r.s+"</b>",matLine(r.mat||[]),()=>repairModal(r))));R.appendChild(sec("Riparazioni",[rip]));
-  const mag=mkEl("div",{class:"matgrid"});MATERIALS.forEach(m=>{const q=S.magazzino[m.id]||0;const t=mkEl("div",{class:"mattile"+(q?"":" zero"),title:m.rar+" · reperimento soglia "+m.soglia+(m.costo?(" · ~"+m.costo.toLocaleString("it-IT")+" ฿"):" · narrativo")+" · "+m.note},[mkEl("div",{class:"matq",text:String(q)}),mkEl("div",{class:"matn",text:m.nome}),mkEl("div",{class:"matb"},[mkEl("button",{class:"pabtn",text:"−",onclick:()=>{S.magazzino[m.id]=Math.max(0,q-1);save();renderShip();}}),mkEl("button",{class:"pabtn",text:"+",onclick:()=>{S.magazzino[m.id]=q+1;save();renderShip();}})])]);mag.appendChild(t);});
+  const mag=mkEl("div",{class:"matgrid"});MATERIALS.forEach(m=>{const q=S.magazzino[m.id]||0;const t=mkEl("div",{class:"mattile"+(q?"":" zero"),title:m.rar+" · reperimento soglia "+m.soglia+(m.costo?(" · ~"+m.costo.toLocaleString("it-IT")+" ฿"):" · narrativo")+" · "+m.note},[mkEl("div",{class:"mat-art","aria-hidden":"true",html:GLCArt.html(m.id==='meccanica'?'modulo':m.id==='ferramenta'?'stile-carpentiere':'materiali',44)}),mkEl("div",{class:"matq",text:String(q)}),mkEl("div",{class:"matn",text:m.nome}),mkEl("div",{class:"matb"},[mkEl("button",{class:"pabtn",text:"−",onclick:()=>{S.magazzino[m.id]=Math.max(0,q-1);save();renderShip();}}),mkEl("button",{class:"pabtn",text:"+",onclick:()=>{S.magazzino[m.id]=q+1;save();renderShip();}})])]);mag.appendChild(t);});
   R.appendChild(sec("Magazzino",[mkEl("div",{class:"sub",style:"margin:-4px 0 8px",text:"In porto si comprano in Berry; in giro si trovano col Reperimento."}),mag]));
  }
  if(RTAB==="Diario"||RTAB==='Stampa'){

@@ -129,7 +129,7 @@ function sourceIcon(s,size=24) {
 function sourceTech(t,id,kind='built') {
  const song=t.fonte==='Stile'&&t.forma==='Canzone';
  return {id,kind:'tech',techKind:kind,name:t.nome||'Tecnica senza nome',raw:t,
-  desc:t.desc||'',icon:song?'music':FORMA_ICO[t.forma]||'burst',emblem:song?ROLE_IMG.Musicista:t.fonte==='Frutto'?'frutto':STYLE_IMG[t.stile],
+  desc:t.desc||'',icon:song?'music':FORMA_ICO[t.forma]||'burst',emblem:song?ROLE_IMG.Musicista:t.fonte==='Frutto'?'frutto':(STYLE_IMG[t.stile]||ROLE_IMG[t.stile]||'tecnica'),
   subtitle:[t.fonte,song?'Musicista':t.stile||t.fruitType,t.forma,t.die].filter(Boolean).join(' · ')};
 }
 function sources() {
@@ -178,16 +178,16 @@ function sources() {
   });
  }
  list(pg.haki).forEach(h=>{if(h&&hakiUnlocked(h).length)out.push({id:'haki:'+(h.smcId||h.name)+':'+HAKI_NAMES.indexOf(h.name),kind:'haki',name:h.name,raw:h,desc:'',icon:h.name===HAKI_NAMES[0]?'fist':h.name===HAKI_NAMES[1]?'eye':'crown',subtitle:hakiGrade(h)});});
- list(pg.armi).forEach(a=>out.push({id:'weapon:'+a.id,kind:'weapon',name:a.nome||'Arma senza nome',raw:a,icon:WEAPON_ICO[a.tipo]||'sword',desc:a.eff?.desc||'',subtitle:a.tipo+' · '+a.grado}));
- (window.GLCFruits?.naturalWeapons(pg,{purpose:'use'})||[]).filter(a=>a.id).forEach(a=>out.push({id:'weapon:'+a.id,kind:'weapon',subtype:'naturalWeapon',name:a.nome||'Arma Naturale',raw:a,icon:WEAPON_ICO[a.tipo]||'sword',desc:[a.anatomia,'Forme: '+list(a.forme).join(', '),'Portata: '+a.portata,a.note,'Fuori Arsenale; richiede Artigli e Zanne. Non concede Stili o loro Talenti.'].filter(Boolean).join('\n'),subtitle:a.tipo+' · '+a.grado+' · '+(a.operational?'disponibile':a.errors.concat(a.operationalErrors).join(' · '))}));
+ list(pg.armi).forEach(a=>out.push({id:'weapon:'+a.id,kind:'weapon',name:a.nome||'Arma senza nome',raw:a,icon:WEAPON_ICO[a.tipo]||'sword',emblem:window.GLCArt?.weaponKey(a),desc:a.eff?.desc||'',subtitle:a.tipo+' · '+a.grado}));
+ (window.GLCFruits?.naturalWeapons(pg,{purpose:'use'})||[]).filter(a=>a.id).forEach(a=>out.push({id:'weapon:'+a.id,kind:'weapon',subtype:'naturalWeapon',name:a.nome||'Arma Naturale',raw:a,icon:WEAPON_ICO[a.tipo]||'sword',emblem:window.GLCArt?.weaponKey(a),desc:[a.anatomia,'Forme: '+list(a.forme).join(', '),'Portata: '+a.portata,a.note,'Fuori Arsenale; richiede Artigli e Zanne. Non concede Stili o loro Talenti.'].filter(Boolean).join('\n'),subtitle:a.tipo+' · '+a.grado+' · '+(a.operational?'disponibile':a.errors.concat(a.operationalErrors).join(' · '))}));
  if(typeof isMusicista==='function'&&isMusicista()){
-  if(window.GLCMelodies)window.GLCMelodies.instruments(pg).forEach(i=>out.push({id:i.id,kind:'instrument',name:i.name,raw:i.raw,icon:'music',desc:[i.amplification,i.raw?.note,...i.errors].filter(Boolean).join(' '),subtitle:i.type+' · '+i.grade+(i.over?' usato come '+i.effective:'')}));
-  else {out.push({id:'instrument:voice',kind:'instrument',name:'La tua voce',raw:{die:'d4'},icon:'music',desc:'Strumento d4 sempre disponibile.',subtitle:'Voce · d4'});
-   list(pg.strumenti).forEach(i=>{if(isInstrumentRecord(i)&&i.smcId)out.push({id:'instrument:'+i.smcId,kind:'instrument',name:i.nome||'Strumento senza nome',raw:i,icon:'music',desc:i.note||'',subtitle:(i.tipo||'Strumento')+' · '+i.die});});}
+  if(window.GLCMelodies)window.GLCMelodies.instruments(pg).forEach(i=>out.push({id:i.id,kind:'instrument',name:i.name,raw:i.raw,icon:'music',emblem:ROLE_IMG.Musicista,desc:[i.amplification,i.raw?.note,...i.errors].filter(Boolean).join(' '),subtitle:i.type+' · '+i.grade+(i.over?' usato come '+i.effective:'')}));
+  else {out.push({id:'instrument:voice',kind:'instrument',name:'La tua voce',raw:{die:'d4'},icon:'music',emblem:ROLE_IMG.Musicista,desc:'Strumento d4 sempre disponibile.',subtitle:'Voce · d4'});
+   list(pg.strumenti).forEach(i=>{if(isInstrumentRecord(i)&&i.smcId)out.push({id:'instrument:'+i.smcId,kind:'instrument',name:i.nome||'Strumento senza nome',raw:i,icon:'music',emblem:ROLE_IMG.Musicista,desc:i.note||'',subtitle:(i.tipo||'Strumento')+' · '+i.die});});}
  }
  list(pg.moduli).forEach(m=>{
   const state=window.GLCCyborg?.evaluate(pg,m,{purpose:'use'}),weapon=window.GLCCyborg?.weapon(m);
-  out.push({id:'module:'+m.id,kind:'module',name:m.nome||'Modulo senza nome',raw:m,icon:'gear',
+  out.push({id:'module:'+m.id,kind:'module',name:m.nome||'Modulo senza nome',raw:m,icon:'gear',emblem:window.GLCArt?.moduleKey(m),
    desc:[m.funzione,weapon?'Modulo-Arma: '+weapon.tipo+' · '+weapon.attr+' · '+weapon.grado:'Modulo funzionale',m.funzioneInattiva?'Funzione inattiva: '+m.funzioneInattiva:'',m.funzioneAttiva?'Funzione attiva: '+m.funzioneAttiva:'',m.eff?.testo,m.eff?.cond,m.eff?.limiti,m.effLegacy].filter(Boolean).join('\n'),
    subtitle:state?((state.operational?'Attivo · operativo':state.operationalErrors.map(e=>e.text).join(' · '))+' · Fascia '+m.req):(modStateLabel(m).t||m.stato)});
  });

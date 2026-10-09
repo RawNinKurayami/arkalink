@@ -19,10 +19,9 @@
   const n=make('div','ds-seal');n.setAttribute('aria-hidden','true');
   let html='',glyph=kind==='module'?'gear':kind==='weapon'?(WEAPON_ICO[item.tipo]||'sword'):'star';
   if(kind==='signature'){
-   const key=item.fonte==='Frutto'?'frutto':(STYLE_IMG[item.stile]||ROLE_IMG[item.stile]);
-   html=key?emblem(key,100):svgIcon(STYLE_ICON[item.stile]||STYLE_ICON[item.fruitType]||'star',58);
+   html=techniqueArt(item,100);
   }else if(kind==='legacy'&&legacy?.fixed){const r=race();html=r&&RACE_IMG[r.id]?emblem(RACE_IMG[r.id],100):svgIcon('star',58);}
-  else html=svgIcon(glyph,58);
+  else html=window.GLCArt?window.GLCArt.html(kind==='weapon'?window.GLCArt.weaponKey(item):kind==='module'?window.GLCArt.moduleKey(item):'tecnica',100):svgIcon(glyph,58);
   n.innerHTML=html;return n;
  }
  function shell(w,kind,item,legacy){
@@ -113,7 +112,7 @@
    }else main.append(section('Effetto speciale',[make('p','ds-empty','Nessun effetto speciale registrato.')],'ds-primary'));
    if(a.note)main.append(section(a.rivedi?'Note · da rivedere':'Note',[make('p','ds-text',a.note)]));
    const linked=weaponTecniche(a),list=make('div','ds-linked');
-   linked.forEach(t=>{const entry=make('div','ds-linked-item');entry.append(icon('star',18),make('strong','',t.nome||'Tecnica senza nome'),make('span','',t.die||'—'));list.append(entry);});
+   linked.forEach(t=>{const entry=make('div','ds-linked-item');const art=make('span','ds-icon');art.setAttribute('aria-hidden','true');art.innerHTML=techniqueArt(t,28);entry.append(art,make('strong','',t.nome||'Tecnica senza nome'),make('span','',t.die||'—'));list.append(entry);});
    if(!linked.length)list.append(make('p','ds-empty','Nessuna Tecnica collegata.'));
    main.append(section('Tecniche collegate',[list]));
    const row=make('div','addrow');const done=make('button','btn sm','Fatto'),edit=make('button','btn sm gold','Modifica arma');done.type=edit.type='button';done.onclick=closeModal;edit.onclick=()=>{closeModal();weaponModal(i);};row.append(done,edit);foot.append(row);

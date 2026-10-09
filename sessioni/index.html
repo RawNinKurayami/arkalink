@@ -14,6 +14,7 @@
 <script src="/glc-auth.js?v=4"></script>
 <script src="/glc-atlas-store.js?v=1"></script>
 <script src="/glc-map.js?v=3"></script>
+<script src="/glc-art.js?v=1"></script>
 <style>
 :root{
   --abyss:#060607; --abyss-2:#0b0b0d; --vellum:#f2e9d8; --vellum-2:#e9d6ae;
@@ -52,6 +53,7 @@ textarea.txt{min-height:74px; resize:vertical;}
 .linked{margin-top:12px; display:flex; align-items:center; gap:12px; background:rgba(242,233,216,.06); border:1px dashed var(--line); border-radius:12px; padding:11px 12px;}
 .linked .av{width:46px; height:46px; border-radius:50%; flex:0 0 46px; display:grid; place-items:center; background:radial-gradient(circle at 35% 30%,#d8b65f,#9c7a22); color:#3a2c12; font-size:20px; overflow:hidden;}
 .linked .av img{width:100%; height:100%; object-fit:cover;}
+.mode-session .linked .av.session-art{background:none;overflow:visible;border-radius:0}.mode-session .linked .av.session-art img{object-fit:contain}.mode-session .entry .badge.session-entry-art{display:grid;place-items:center;background:none;padding:0;border:0;flex:0 0 38px}.mode-session .entry .badge.session-entry-art img{object-fit:contain}.mode-session .voyage-jumps a{display:inline-flex;align-items:center;gap:8px}.mode-session .voyage-jumps a img{object-fit:contain;flex:none}
 .linked .nm{font-weight:700; color:#4a371d; font-size:18px;}
 .linked .sb{color:var(--ink-soft); font-size:14px;}
 .muted{color:var(--ink-soft);}
@@ -143,6 +145,7 @@ function readCT(){
 }
 function charName(c){return (c&&c.nome&&c.nome.trim())?c.nome.trim():"Senza nome";}
 function charSub(c){var b=[];if(c){if(c.role)b.push(c.role);var n=Number(c.bounty||0);if(n>0)b.push(n.toLocaleString("it-IT")+" ฿");}return b.join("  ·  ");}
+function sessionCharacterArt(c){var key=GLCArt.categoryKey(c.style);if(key==='materiali')key=GLCArt.categoryKey(c.role);return GLCArt.html(key==='materiali'?'ruolo-combattente':key,46);}
 
 /* ---------- container NAVI (lettura) ---------- */
 var NKEY="glc_nave_v1";
@@ -232,8 +235,8 @@ function render(){
   hero.appendChild(el("div",{class:"session-seal","aria-hidden":"true",html:'<img src="/img/icons/legame.png" alt=""><span>Il viaggio continua</span>'}));
   app.appendChild(hero);
   var jumps=el("nav",{class:"voyage-jumps","aria-label":"Nella sessione"});
-  [["session-notebook","Diario di bordo"],["session-map","Atlante"],["session-log","Registro"]].forEach(function(x){jumps.appendChild(el("a",{href:"#"+x[0],text:x[1]}));});
-  jumps.appendChild(el("a",{href:"/tavolo-tattico/?s="+encodeURIComponent(SID),text:"Tavolo tattico del GM ↗"}));
+  [["session-notebook","Diario di bordo","tecnica"],["session-map","Atlante","ruolo-navigatore"],["session-log","Registro","legame"]].forEach(function(x){jumps.appendChild(el("a",{href:"#"+x[0]},[el("span",{"aria-hidden":"true",html:GLCArt.html(x[2],24)}),el("span",{text:x[1]})]));});
+  jumps.appendChild(el("a",{href:"/tavolo-tattico/?s="+encodeURIComponent(SID)},[el("span",{"aria-hidden":"true",html:GLCArt.html('ruolo-combattente',24)}),el("span",{text:"Tavolo tattico del GM ↗"})]));
   app.appendChild(jumps);
   var desk=el("div",{class:"session-desk"});app.appendChild(desk);
 
@@ -255,7 +258,7 @@ function render(){
   if(s.persId && ct.chars[s.persId]){
     var c=ct.chars[s.persId];
     var av=el("div",{class:"av"});
-    if(c.photo){ var pim=el("img",{src:c.photo,alt:""}); pim.style.cssText=photoStyle(c.photoPos); av.style.overflow="hidden"; av.appendChild(pim); } else { av.textContent="⚓"; }
+    if(c.photo){ var pim=el("img",{src:c.photo,alt:""}); pim.style.cssText=photoStyle(c.photoPos); av.style.overflow="hidden"; av.appendChild(pim); } else { av.classList.add('session-art');av.innerHTML=sessionCharacterArt(c); }
     cCard.appendChild(el("div",{class:"linked"},[av,el("div",{},[el("div",{class:"nm",text:charName(c)}),el("div",{class:"sb",text:charSub(c)||"Scheda da completare"})])]));
     cCard.appendChild(el("a",{class:"session-open",href:"/gestisci-pirata/?c="+encodeURIComponent(s.persId),text:"Apri la scheda ↗"}));
   } else if(!ct.order.length){
@@ -276,7 +279,7 @@ function render(){
   nCard.appendChild(nSel);
   if(s.shipId && nt.ships[s.shipId]){
     var sh=nt.ships[s.shipId];
-    nCard.appendChild(el("div",{class:"linked"},[el("div",{class:"av",text:"⛵"}),el("div",{},[el("div",{class:"nm",text:shipName(sh)}),el("div",{class:"sb",text:shipSub(sh)||"Nave da completare"})])]));
+    nCard.appendChild(el("div",{class:"linked"},[el("div",{class:"av session-art",html:GLCArt.html('nave',46)}),el("div",{},[el("div",{class:"nm",text:shipName(sh)}),el("div",{class:"sb",text:shipSub(sh)||"Nave da completare"})])]));
     nCard.appendChild(el("a",{class:"session-open",href:"/nave-portale/?n="+encodeURIComponent(s.shipId),text:"Sali a bordo ↗"}));
   } else if(!nt.order.length){
     nCard.appendChild(el("div",{class:"linked muted",html:"Crea prima una nave dal <a href='/profilo/' style='color:#7a4;font-weight:700'>profilo</a>."}));
@@ -307,7 +310,7 @@ function render(){
     dCard.appendChild(el("div",{class:"empty",text:"Ancora nessuna voce. Scrivi la prima nota qui sotto."}));
   } else {
     s.diary.slice().reverse().forEach(function(en){
-      var icon = en.kind==="oggetto"?"⚙":(en.kind==="piatto"?"🍲":"📝");
+      var icon = {oggetto:'ruolo-ingegnere',piatto:'provviste',ingrediente:'materiali',nota:'tecnica'}[en.kind]||'tecnica';
       var when = en.ts? new Date(en.ts).toLocaleString("it-IT",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}) : "";
       var del=el("button",{class:"del",text:"Elimina",onClick:function(){
         if(!confirm("Eliminare questa voce dal diario?"))return;
@@ -315,7 +318,7 @@ function render(){
         ss.diary=(ss.diary||[]).filter(function(x){return x.id!==en.id;}); writeST(st2); render();
       }});
       dCard.appendChild(el("div",{class:"entry"},[
-        el("div",{class:"badge "+(en.kind||"nota"),text:icon}),
+        el("div",{class:"badge session-entry-art "+(en.kind||"nota"),html:GLCArt.html(icon,38)}),
         el("div",{class:"body"},[
           el("div",{class:"et",text:en.titolo||"(senza titolo)"}),
           en.desc?el("div",{class:"ed",text:en.desc}):null,
