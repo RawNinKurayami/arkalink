@@ -1573,8 +1573,8 @@ body.mode-gest #manage .slot-art .slot-die .dieic{width:30px;height:30px;}
 <script src="/regole/melodie.js?v=1"></script>
 <script src="/regole/tecniche.js?v=4"></script>
 <script src="/gestisci-pirata/cyborg-care.js?v=1"></script>
-<link rel="stylesheet" href="tratti-ui.css?v=1">
-<script src="tratti-ui.js?v=1"></script>
+<link rel="stylesheet" href="tratti-ui.css?v=2">
+<script src="tratti-ui.js?v=3"></script>
 <script src="prestigio-ui.js?v=3"></script>
 <script src="/glc-art.js?v=1"></script>
 <script src="special-moves.js?v=27"></script>
@@ -3130,12 +3130,30 @@ function talentPools(){const got=[],open=[],locked=[];
  });return {got,open,locked};}
 function chooseOrdinaryTalent(key,take=true){const st=GLCTalents.states(pg).find(t=>t.key===key);GLCAdvancement.chooseTalent(pg,key,take,!!st?.available);}
 function choicesInfo(){const b=GLCAdvancement.talentChoices(pg);return b.remaining+" scelte disponibili · "+b.used+" acquisizioni / "+b.granted+" scelte concesse";}
-function advancementModal(){openModal("Scelte degli Upgrade",()=>{const w=el("div",{class:"upgrade-choices"});w.appendChild(el("p",{text:"Ogni Upgrade concede una scelta condivisa fra Talenti ordinari e Tratti Unici. Le scelte di Prestigio I, III e V restano separate."}));w.appendChild(el("p",{class:"sub",text:choicesInfo()}));
- w.appendChild(el("button",{class:"btn sm gold",text:"Registra una scelta da Upgrade",onclick:()=>{mutateM(()=>GLCAdvancement.grant(pg));if(TT.open)renderTalentTree(false);}}));
- const label=el("label",{class:"fld",text:"Scelte complessive concesse dal GM"}),input=el("input",{type:"number",min:String(GLCAdvancement.talentChoices(pg).used),step:"1","aria-label":"Scelte complessive concesse dal GM"});input.value=GLCAdvancement.talentChoices(pg).granted;label.appendChild(input);w.appendChild(label);
- w.appendChild(el("button",{class:"btn sm ghost",text:"Aggiorna conteggio",onclick:()=>{try{mutateM(()=>GLCAdvancement.setGranted(pg,input.value));if(TT.open)renderTalentTree(false);}catch(error){alert(error.message);}}}));w.appendChild(el("p",{class:"sub",text:"Il conteggio registra scelte già concesse al tavolo. Non assegna P.A., PV o Stamina e non modifica le acquisizioni precedenti."}));w.appendChild(el("button",{class:"gbtn",text:"Tratti Unici e Sinergie",onclick:uniqueTraitsModal}));return w;});}
-function uniqueTraitsModal(){const previousFocus=document.activeElement;const modal=openModal("Tratti Unici e Sinergie",()=>{const host=el("div");GLCTrattiUI.mount(host,{getCharacter:()=>pg,choicesInfo:c=>GLCAdvancement.talentChoices(c),onManageChoices:advancementModal,onChoose:(id,take)=>{const next=JSON.parse(JSON.stringify(pg));GLCTratti.choose(next,id,take);pg=next;CT.chars[CT.activeId]=pg;save();renderManage();render();}});return host;},{xwide:true});modal.setAttribute("role","dialog");modal.setAttribute("aria-modal","true");modal.setAttribute("aria-label","Tratti Unici e Sinergie");modal._onClose=()=>previousFocus?.focus?.();}
-function talentDetailModal(o,taken){openModal((o.ult?"⭐ ":"✦ ")+o.name,()=>{const w=el("div",{class:"tdetail"});w.appendChild(el("div",{class:"medring big"+(o.ult&&ultImg(o.branch)?" art":""),html:talentArt(o,o.ult?64:46)}));w.appendChild(el("div",{class:"tdsub",text:o.branch+" · "+(o.ult?(o.src==="fruit"?"Risveglio":"Ultimate"):o.tierLabel)}));if(o.req)w.appendChild(el("div",{class:"tdsub",html:"Richiede: <b>"+o.req+"</b>"+(o.reqOk?"":" <i>(non ancora preso)</i>")}));w.appendChild(el("p",{class:"tddesc",text:o.desc}));w.appendChild(el("p",{class:"sub",text:choicesInfo()}));w.appendChild(el("button",{class:"gbtn",text:"Scelte degli Upgrade",onclick:advancementModal}));if(o.superseded)w.appendChild(el("p",{class:"prg-reason",text:"Evoluto in "+o.replacedBy+". Non utilizzabile separatamente."}));const row=el("div",{class:"addrow"});if(taken)row.appendChild(el("button",{class:"btn sm ghost",text:"Rimuovi talento",onclick:()=>{mutateM(()=>{chooseOrdinaryTalent(o.key,false);});closeModal();}}));else if(o.reqOk&&!o.superseded&&dieRank(o.cur)>=dieRank(o.tier))row.appendChild(el("button",{class:"btn sm gold",text:"✦ Prendi questo talento",disabled:!GLCAdvancement.canAcquire(pg).allowed,onclick:()=>{mutateM(()=>{chooseOrdinaryTalent(o.key,true);});closeModal();flyIn('<div class="medring big" style="width:120px;height:120px;margin:0">'+svgIcon(o.glyph,58)+'</div>',()=>byText(".medal .medname",o.name));}}));w.appendChild(row);return w;});}
+function updateUpgradeChoices(value){
+ if(value===undefined)GLCAdvancement.grant(pg);else GLCAdvancement.setGranted(pg,value);
+ render();if(TT.open)renderTalentTree(false);
+ if(MODAL&&!MODAL.classList.contains("ut-modal"))refreshModal();
+ document.querySelectorAll(".ut-upgrade").forEach(control=>control.refresh?.());
+ return GLCAdvancement.talentChoices(pg);
+}
+function upgradeChoiceControl(){return GLCTrattiUI.upgradeControl({choicesInfo:()=>GLCAdvancement.talentChoices(pg),onGrant:()=>updateUpgradeChoices(),onSet:value=>updateUpgradeChoices(value)});}
+/* Kept as a compatibility entry point; registration now lives on the sheet. */
+function advancementModal(){const control=document.querySelector(".ut-upgrade-grant");if(control){control.scrollIntoView({block:"nearest"});control.focus();}}
+function uniqueTraitsModal(selected){
+ const previousFocus=document.activeElement;let tree;
+ const modal=openModal("Tratti Unici e Sinergie",()=>{
+  tree?.destroy();const host=el("div",{class:"ut-host"});
+  tree=GLCTrattiUI.mount(host,{getCharacter:()=>pg,selected:typeof selected==="string"?selected:"",onClose:closeModal,
+   choicesInfo:c=>GLCAdvancement.talentChoices(c),onGrantChoice:()=>updateUpgradeChoices(),onSetChoices:value=>updateUpgradeChoices(value),
+   onChoose:(id,take)=>{const next=JSON.parse(JSON.stringify(pg));GLCTratti.choose(next,id,take);pg=next;CT.chars[CT.activeId]=pg;save();renderManage();render();}});
+  return host;
+ },{bare:true});
+ modal.classList.add("ut-modal");modal.setAttribute("role","dialog");modal.setAttribute("aria-modal","true");modal.setAttribute("aria-label","Tratti Unici e Sinergie");
+ modal._onClose=()=>{tree?.destroy();const target=previousFocus?.isConnected?previousFocus:document.getElementById("unique-traits-open");target?.focus?.({preventScroll:true});};
+ modal.querySelector(".ut-back")?.focus({preventScroll:true});
+}
+function talentDetailModal(o,taken){openModal((o.ult?"⭐ ":"✦ ")+o.name,()=>{const w=el("div",{class:"tdetail"});w.appendChild(el("div",{class:"medring big"+(o.ult&&ultImg(o.branch)?" art":""),html:talentArt(o,o.ult?64:46)}));w.appendChild(el("div",{class:"tdsub",text:o.branch+" · "+(o.ult?(o.src==="fruit"?"Risveglio":"Ultimate"):o.tierLabel)}));if(o.req)w.appendChild(el("div",{class:"tdsub",html:"Richiede: <b>"+o.req+"</b>"+(o.reqOk?"":" <i>(non ancora preso)</i>")}));w.appendChild(el("p",{class:"tddesc",text:o.desc}));w.appendChild(upgradeChoiceControl());if(o.superseded)w.appendChild(el("p",{class:"prg-reason",text:"Evoluto in "+o.replacedBy+". Non utilizzabile separatamente."}));const row=el("div",{class:"addrow"});if(taken)row.appendChild(el("button",{class:"btn sm ghost",text:"Rimuovi talento",onclick:()=>{mutateM(()=>{chooseOrdinaryTalent(o.key,false);});closeModal();}}));else if(o.reqOk&&!o.superseded&&dieRank(o.cur)>=dieRank(o.tier))row.appendChild(el("button",{class:"btn sm gold",text:"✦ Prendi questo talento",disabled:!GLCAdvancement.canAcquire(pg).allowed,onclick:()=>{mutateM(()=>{chooseOrdinaryTalent(o.key,true);});closeModal();flyIn('<div class="medring big" style="width:120px;height:120px;margin:0">'+svgIcon(o.glyph,58)+'</div>',()=>byText(".medal .medname",o.name));}}));w.appendChild(row);return w;});}
 function unlockTalentsModal(){openModal("✦ Sblocca un talento",()=>{const P=talentPools();const w=el("div",{});w.appendChild(el("div",{class:"sub",html:"Un Talento a ogni Upgrade. Qui vedi solo ciò che il tuo dado ha già aperto; il resto si sblocca salendo con la Skill di Ruolo o col Dado del Frutto. Talenti presi: <b>"+pg.talents.length+"</b>"}));
  if(!P.open.length)w.appendChild(el("div",{class:"medempty",text:pg.role?"Niente da sbloccare per ora: sali con la Skill di Ruolo (o col Dado del Frutto).":"Scegli prima una classe."}));
  const groups={};P.open.forEach(o=>{(groups[o.branch+"|"+o.tierLabel]=groups[o.branch+"|"+o.tierLabel]||[]).push(o);});
@@ -3231,7 +3249,7 @@ function renderTalentTree(recenter){
   b.appendChild(el("span",{class:"tt-tn"},[el("b",{text:s.label}),el("small",{text:(s.fruit?"Dado del Frutto ":((s.sk||"Skill")+" "))+(s.cur||"—")+(s.av?(" · "+s.av+" da prendere"):"")})]));
   b.onclick=()=>{TT.src=s.id;TT.sel="";renderTalentTree(true);};tabs.appendChild(b);});
  head.appendChild(tabs);
- head.appendChild(el("button",{class:"tt-count",text:choicesInfo(),onclick:advancementModal}));
+ head.appendChild(upgradeChoiceControl());
  v.appendChild(head);
  if(!S){v.appendChild(el("div",{class:"tt-empty",text:"Scegli prima una classe: gli alberi dei talenti nascono dal Ruolo e dal Frutto."}));return;}
  /* Dossier e fasce: sola presentazione dei valori già calcolati da ttSources. */
@@ -3317,7 +3335,7 @@ function renderTalentTree(recenter){
   pn.appendChild(el("p",{class:"tt-pd",text:sel.desc}));
   if(sel.inherited?.length){const heritage=el("details",{class:"prg-heritage"},[el("summary",{text:"Benefici incorporati dalle versioni precedenti"})]);sel.inherited.forEach(t=>heritage.appendChild(el("p",{text:t.n+": "+t.d})));pn.appendChild(heritage);}
   if((sel.st==="locked"||sel.st==="superseded")&&sel.why)pn.appendChild(el("div",{class:"tt-why",text:sel.why}));
-  const act=el("div",{class:"tt-pa"});act.appendChild(el("p",{class:"sub",text:choicesInfo()}));if(!GLCAdvancement.canAcquire(pg).allowed&&!sel.owned)act.appendChild(el("button",{class:"gbtn",text:"Scelte degli Upgrade",onclick:advancementModal}));
+  const act=el("div",{class:"tt-pa"});act.appendChild(el("p",{class:"sub",text:choicesInfo()}));
   if(sel.st==="open")act.appendChild(el("button",{class:"btn sm gold",text:"✦ Prendi questo talento",disabled:!GLCAdvancement.canAcquire(pg).allowed,onclick:()=>{
    mutate(()=>{chooseOrdinaryTalent(sel.key,true);});
    TT.flash=sel.key;renderTalentTree(false);setTimeout(()=>{TT.flash="";},900);}}));
@@ -4037,7 +4055,7 @@ function renderManage(){
  const top=el("div",{class:"gtop"});
  const tl=el("div",{class:"gt-l"});tl.appendChild(el("div",{class:"scene-eyebrow",text:"Dossier del pirata"}));top.appendChild(tl);tl.appendChild(el("div",{class:"gh-name",text:pg.nome||"Pirata Senza Nome"}));
  const tr=el("div",{class:"gt-r"});const bn=(pg.bounty&&pg.bounty!=="0")?Number(pg.bounty):0;tr.appendChild(el("div",{class:"gh-bounty",html:"฿ "+(bn?bn.toLocaleString("it-IT"):"0")}));tr.appendChild(el("button",{class:"gbtn",text:"✎ Identità",onclick:identityModal}));tr.appendChild(el("button",{class:"gbtn",text:"⚙ Soglie P.A.",title:"Quanti P.A. servono per salire di dado",onclick:thresholdsModal}));tr.appendChild(el("button",{class:"gbtn",text:"☰ Azioni",title:"Stampa, esporta, importa, reset",onclick:actionsModal}));top.appendChild(tr);
- tr.appendChild(el("button",{class:"gbtn",text:"Scelte degli Upgrade",onclick:advancementModal}));m.appendChild(top);
+ tr.appendChild(upgradeChoiceControl());m.appendChild(top);
  if(r?.historical)m.appendChild(el("div",{class:"compat ko",text:RACE_HISTORY_NOTE}));
  if(window.GLCPrestigeUI){const prestigeBanner=GLCPrestigeUI.banner();if(prestigeBanner)m.appendChild(prestigeBanner);}
  const g3=el("div",{class:"g3"});m.appendChild(g3);
@@ -4097,7 +4115,7 @@ function renderManage(){
  {const n=invItems().length;ab.appendChild(el("div",{class:"slots-h",text:"Zaino"}));ab.appendChild(el("button",{class:"stage-bag",title:"Apri lo zaino · "+n+" oggett"+(n===1?"o":"i"),html:imgIcon("zaino",46)+(n?'<span class="bag-n">'+n+'</span>':'')+'<span class="bag-t">'+(n?(n+" oggett"+(n===1?"o":"i")):"Zaino vuoto")+'</span>',onclick:inventoryModal}));}
  mid.appendChild(ab);
  const strip=el("div",{class:"talstrip"});const sh=el("div",{class:"slots-h",html:"Talenti · "+(P.got.length+(window.GLCPrestige?.acquired(pg).length||0))});strip.appendChild(sh);const row=el("div",{class:"talrow-s"});P.got.forEach(o=>{const md=medal(talentArt(o,o.ult?52:34),o.name,o.ult?(o.src==="fruit"?"Risveglio":"Ultimate"):o.tier,false);md.onclick=()=>openTalentTree(o.branch,o.key);row.appendChild(md);});if(!P.got.length&&!window.GLCPrestige?.acquired(pg).length)row.appendChild(el("div",{class:"medempty",text:"Nessun talento ancora."}));if(window.GLCPrestige)GLCPrestige.acquired(pg).forEach(t=>{const md=medal(svgIcon("star",34),t.name,t.level===6?"Saikyō":"Prestigio",false);md.classList.add("prg-tal-medal");md.onclick=()=>t.path.id==="spirito"?GLCPrestigeUI.open("attr","Spirito"):openTalentTree("prestige:"+t.path.id);row.appendChild(md);});strip.appendChild(row);strip.appendChild(el("div",{class:"talstrip-b"},[el("button",{class:"gbtn"+(P.open.length?" gold":""),text:P.open.length?("✦ Albero dei talenti · "+P.open.length+" da prendere"):"✦ Albero dei talenti",onclick:()=>openTalentTree()})]));C.appendChild(strip);
- if(window.GLCTrattiUI){const states=GLCTratti.states(pg),box=el("section",{class:"talstrip unique-trait-summary"});box.appendChild(el("div",{class:"slots-h",text:"Tratti Unici · "+states.filter(t=>t.active).length+" attivi"}));box.appendChild(el("p",{class:"sub",text:states.filter(t=>t.available).length+" disponibili dalle Sinergie · "+choicesInfo()}));const row=el("div",{class:"talrow-s"});states.filter(t=>t.acquired).forEach(t=>row.appendChild(el("button",{class:"gbtn",text:t.name+(t.active?"":" · "+(t.superseded?"Evoluto":"inattivo")),onclick:uniqueTraitsModal})));box.appendChild(row);box.appendChild(el("button",{class:"gbtn gold",text:"✦ Tratti Unici e Sinergie",onclick:uniqueTraitsModal}));C.appendChild(box);}
+ if(window.GLCTrattiUI)C.appendChild(GLCTrattiUI.summary(pg,{onOpen:uniqueTraitsModal}));
  if(window.GLCMoves)g3.appendChild(GLCMoves.shelf());
  /* ================= DESTRA: zaino / poteri / ciurma ================= */
  const R=el("div",{class:"rpanel"});g3.appendChild(R);
