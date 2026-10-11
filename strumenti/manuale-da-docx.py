@@ -665,6 +665,8 @@ pagina = (PAGINA
           .replace('SOMM', '\n'.join(somm))
           .replace('CORPO', corpo)
           .replace('BLOCCATO', 'false'))
+from manuale_copertine import applica_copertina
+pagina = applica_copertina(pagina, 'base')
 open(os.path.join(REPO, 'manuale/index.html'), 'w', encoding='utf8').write(pagina)
 print('scritta la pagina:', len(pagina), 'caratteri')
 

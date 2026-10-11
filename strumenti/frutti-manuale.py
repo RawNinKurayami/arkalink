@@ -399,6 +399,8 @@ testa += ('<link rel="stylesheet" href="frutti.css?v=3">\n'
           '<script src="reader.js?v=1" defer></script>\n</head>\n'
           '<body class="manuale-frutti">\n<div class="glc-bg" aria-hidden="true"></div>\n')
 uscita = testa + pagina + '\n</body>\n</html>\n'
+from manuale_copertine import applica_copertina
+uscita = applica_copertina(uscita, 'frutti')
 
 
 # ------------------------------------------- controllo: il documento c'è tutto

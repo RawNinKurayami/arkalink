@@ -12,8 +12,10 @@
 <link rel="stylesheet" href="/manuale/manuale.css?v=20">
 <link rel="stylesheet" href="frutti.css?v=3">
 <script src="reader.js?v=1" defer></script>
+<link rel="stylesheet" href="/manuali/copertine.css?v=1">
 </head>
-<body class="manuale-frutti">
+<body class="manuale-frutti" data-manuale-copertina="frutti">
+<div class="man-cover-bg" aria-hidden="true"><img src="/img/copertine/manuale-dei-frutti-del-diavolo.webp" alt="" width="1024" height="1536" decoding="async"></div>
 <div class="glc-bg" aria-hidden="true"></div>
 <header class="man-top">
   <a class="man-marchio" href="/grand-line-chronicles/"><span class="anc">⚓</span><span>Grand Line Chronicles</span></a>
@@ -114,9 +116,16 @@
   <div class="man-libro" id="man-libro">
     <main class="man-foglio" id="man-foglio">
     <div class="man-frontespizio">
+      <figure class="man-copertina">
+        <picture>
+          <source media="screen" type="image/webp" srcset="/img/copertine/manuale-dei-frutti-del-diavolo.webp">
+          <img src="/img/copertine/manuale-dei-frutti-del-diavolo.jpg" alt="Copertina del Manuale dei Frutti del Diavolo" width="1024" height="1536" fetchpriority="high">
+        </picture>
+      </figure>
       <p class="occhiello">Grand Line Chronicles</p>
       <h1>Manuale<br>dei Frutti del Diavolo</h1>
       <p class="sotto">Linee guida ufficiali · Scheda di Identità, Talenti, Forma di Combattimento e Risveglio.</p>
+      <a class="man-pdf-download" href="/manuale-frutti/manuale.pdf" download aria-label="Scarica Manuale dei Frutti del Diavolo con copertina in PDF">Scarica il manuale · PDF <span aria-hidden="true">↓</span></a>
       <section class="frutti-schede" id="schede-frutto" aria-labelledby="schede-frutto-titolo">
         <h2 id="schede-frutto-titolo">La scheda del tuo Frutto</h2>
         <p>Schede A4 vuote da compilare a mano. Scegli il tipo, apri il PDF e stampa soltanto le pagine che ti servono.</p>

@@ -12,8 +12,10 @@
 <link rel="stylesheet" href="/manuale/manuale.css?v=20">
 <link rel="stylesheet" href="prestigio.css?v=2">
 <script src="reader.js?v=2" defer></script>
+<link rel="stylesheet" href="/manuali/copertine.css?v=1">
 </head>
-<body class="manuale-prestigio">
+<body class="manuale-prestigio" data-manuale-copertina="prestigio">
+<div class="man-cover-bg" aria-hidden="true"><img src="/img/copertine/manuale-del-prestigio.webp" alt="" width="1024" height="1536" decoding="async"></div>
 <div class="glc-bg" aria-hidden="true"></div>
 <header class="man-top">
   <a class="man-marchio" href="/grand-line-chronicles/"><span class="anc">⚓</span><span>Grand Line Chronicles</span></a>
@@ -64,9 +66,16 @@
   <div class="man-libro" id="man-libro">
     <main class="man-foglio" id="man-foglio"><span id="contenuto" aria-hidden="true"></span>
     <div class="man-frontespizio">
+      <figure class="man-copertina">
+        <picture>
+          <source media="screen" type="image/webp" srcset="/img/copertine/manuale-del-prestigio.webp">
+          <img src="/img/copertine/manuale-del-prestigio.jpg" alt="Copertina del Manuale del Prestigio" width="1024" height="1536" fetchpriority="high">
+        </picture>
+      </figure>
       <p class="occhiello">Grand Line Chronicles</p>
       <h1>Manuale<br>del Prestigio</h1>
       <p class="sotto">Espansione ufficiale · Attributi, Talenti di Ruolo, Spirito e Haki, oltre il d20 fino a Saikyō.</p>
+      <a class="man-pdf-download" href="/manuale-prestigio/manuale.pdf" download aria-label="Scarica Manuale del Prestigio con copertina in PDF">Scarica il manuale · PDF <span aria-hidden="true">↓</span></a>
     </div>
 
     <p class="man-guida">Le evoluzioni dei Talenti di Ruolo sostituiscono le versioni precedenti come scelte utilizzabili. I prerequisiti acquisiti e i benefici incorporati restano validi. Gli effetti Haki conservano invece le alternative base espressamente previste.</p>

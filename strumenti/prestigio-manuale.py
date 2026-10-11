@@ -146,6 +146,8 @@ base_head=re.sub(r'<meta name="description"[^>]+>', '<meta name="description" co
 base_head=base_head.replace('href="manuale.css?', 'href="/manuale/manuale.css?')
 head=base_head+'<link rel="stylesheet" href="prestigio.css?v=2">\n<script src="reader.js?v=2" defer></script>\n</head>\n<body class="manuale-prestigio">\n<div class="glc-bg" aria-hidden="true"></div>\n'
 out=head+shell+'\n</body>\n</html>\n'
+from manuale_copertine import applica_copertina
+out = applica_copertina(out, 'prestigio')
 
 # Exact normative-text check, independent of the heading/list/table markup.
 class SourceText(HTMLParser):

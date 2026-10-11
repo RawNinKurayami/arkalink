@@ -226,6 +226,8 @@ testa += ('<link rel="stylesheet" href="cyborg.css?v=1">\n'
           '<script src="reader.js?v=1" defer></script>\n</head>\n'
           '<body class="manuale-cyborg">\n<div class="glc-bg" aria-hidden="true"></div>\n')
 uscita = testa + pagina + '\n</body>\n</html>\n'
+from manuale_copertine import applica_copertina
+uscita = applica_copertina(uscita, 'cyborg')
 
 
 # ------------------------------------------- controllo: il testo deve esserci tutto

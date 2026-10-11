@@ -1,0 +1,69 @@
+/* Artwork approvati: decorazione della lettura e prima pagina di stampa. */
+.man-cover-bg{display:none;}
+.man-copertina{margin:0;}
+.man-copertina picture,.man-copertina img{display:block;width:100%;}
+.man-copertina img{height:auto;}
+.man-pdf-download{display:inline-flex;align-items:center;justify-content:space-between;gap:22px;
+  justify-self:start;text-decoration:none;font:600 11px/1.5 var(--ui);letter-spacing:.04em;
+  color:var(--inchiostro);padding:13px 18px;border:1px solid var(--filo);border-radius:8px;
+  background:var(--carta);transition:background .18s,border-color .18s;}
+.man-pdf-download:hover{border-color:var(--rosso);background:var(--carta-alta);}
+.man-pdf-download:focus-visible{outline:2px solid var(--rosso);outline-offset:4px;}
+.man-pdf-download span{font-size:18px;color:var(--rosso);}
+
+@media screen{
+  body[data-manuale-copertina]{isolation:isolate;}
+  .man-cover-bg{display:block;position:fixed;inset:0;z-index:-1;pointer-events:none;
+    overflow:hidden;background:#08090d;}
+  .man-cover-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 38%;
+    opacity:.2;filter:saturate(.65);}
+  .man-cover-bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,#08090d70,#08090d38 50%,#08090d70),linear-gradient(0deg,#08090dc9,transparent 70%);}
+  body[data-manuale-copertina]>.glc-bg{display:none;}
+  body[data-manuale-copertina] .man-libro{background:color-mix(in srgb,var(--carta-alta) 96%,transparent);
+    border-color:var(--filo);box-shadow:0 20px 90px #0006;}
+  .man-frontespizio{display:grid;grid-template-columns:minmax(160px,220px) minmax(0,1fr);
+    column-gap:clamp(24px,5vw,56px);align-items:center;padding-bottom:38px;}
+  .man-frontespizio>.man-copertina{grid-column:1;grid-row:1 / 5;align-self:start;
+    border-radius:3px 8px 8px 3px;overflow:hidden;box-shadow:4px 5px 0 #ffffff0c,12px 16px 35px #0007;
+    border:1px solid #ffffff19;}
+  .man-frontespizio>.occhiello,.man-frontespizio>h1,.man-frontespizio>.sotto,.man-frontespizio>.man-pdf-download{grid-column:2;}
+  .man-frontespizio>.occhiello{align-self:end;}
+  .man-frontespizio>h1{font-size:clamp(40px,5.2vw,72px);}
+  .man-frontespizio>.sotto{align-self:start;}
+  .man-frontespizio>.man-pdf-download{align-self:start;margin-top:20px;}
+  .man-frontespizio>.frutti-schede{grid-column:1 / -1;}
+}
+@media screen and (max-width:900px){
+  body[data-manuale-copertina] .man-libro{background:color-mix(in srgb,var(--carta) 96%,transparent);
+    padding:20px clamp(16px,4vw,28px) 32px;border:1px solid var(--filo);border-top:0;}
+  body[data-manuale-copertina] .man-scena{padding:0 clamp(8px,2vw,16px) 32px;}
+  .man-frontespizio{column-gap:24px;grid-template-columns:minmax(130px,180px) minmax(0,1fr);}
+  .man-frontespizio>h1{font-size:clamp(34px,5.2vw,50px);}
+  .man-pdf-download{font-size:10px;gap:12px;padding:12px;}
+}
+@media screen and (max-width:580px){
+  .man-frontespizio{grid-template-columns:minmax(0,1fr);row-gap:0;text-align:center;padding-top:8px;}
+  .man-frontespizio>.man-copertina{grid-column:1;grid-row:auto;width:min(66%,230px);justify-self:center;margin:0 0 28px;}
+  .man-frontespizio>.occhiello,.man-frontespizio>h1,.man-frontespizio>.sotto,.man-frontespizio>.man-pdf-download{grid-column:1;}
+  .man-frontespizio>h1{font-size:clamp(40px,10vw,60px);}
+  .man-frontespizio>.man-pdf-download{justify-self:center;}
+  .man-cover-bg img{opacity:.14;}
+}
+@media(prefers-reduced-motion:reduce){.man-pdf-download{transition:none;}}
+
+/* Prima pagina A4 dedicata, entro i margini di stampa del manuale.
+   Non imporre una larghezza A4 dentro il foglio: Chromium ridimensionerebbe
+   tutto il documento. L'artwork resta intero, senza crop o stretching. */
+@media print{
+  .man-cover-bg,.man-pdf-download{display:none!important;}
+  .man-frontespizio{display:block!important;break-before:auto;break-after:page;
+    page-break-before:auto;page-break-after:always;width:100%;height:258mm;
+    min-height:0!important;padding:0!important;margin:0!important;border:0!important;
+    background:#101015!important;overflow:hidden;print-color-adjust:exact;-webkit-print-color-adjust:exact;}
+  .man-frontespizio>:not(.man-copertina){display:none!important;}
+  .man-frontespizio>.man-copertina{display:block!important;margin:0!important;padding:0!important;
+    width:100%;height:258mm;border:0!important;border-radius:0!important;box-shadow:none!important;}
+  .man-copertina picture{width:100%;height:100%;}
+  .man-copertina img{width:100%;height:100%;object-fit:contain;object-position:center;}
+}
