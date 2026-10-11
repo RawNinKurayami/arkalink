@@ -1,0 +1,2110 @@
+{
+  "version": 1,
+  "categoria": "Ingredienti",
+  "valuta": "Berry",
+  "regole": "Prezzi per la quantità indicata. Le Prove di reperimento sono indicative, si tirano solo nell’incertezza e non sostituiscono combattimenti o spedizioni. Il GM determina disponibilità e quantità. Dispensa del Cuoco si applica soltanto a chi possiede il Talento. Nessun ingrediente concede bonus ulteriori rispetto alla propria scheda.",
+  "ingredienti": [
+    {
+      "id": "seedc_carne_rossa_pregiata",
+      "tipo": "ingrediente",
+      "nome": "Carne rossa pregiata",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Carne",
+        "prezzo": 900,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Macellerie dei porti mercantili e allevamenti selezionati",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Arrosto del Capitano"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Carne · 1 dose di ricetta per una porzione\nPrezzo: 900 Berry (฿)\nDove: Macellerie dei porti mercantili e allevamenti selezionati\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Arrosto del Capitano"
+    },
+    {
+      "id": "seedc_carne_di_selvaggina",
+      "tipo": "ingrediente",
+      "nome": "Carne di selvaggina",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Carne",
+        "prezzo": 450,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Foreste e praterie delle isole abitate; mercati dei cacciatori",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "caccia",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Il tiro individua il luogo o la preda: non sostituisce un combattimento, una spedizione o la cattura quando necessari."
+        },
+        "alias": [],
+        "usato_in": [
+          "Stufato di battaglia"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Carne · 1 dose di ricetta per una porzione\nPrezzo: 450 Berry (฿)\nDove: Foreste e praterie delle isole abitate; mercati dei cacciatori\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Il tiro individua il luogo o la preda: non sostituisce un combattimento, una spedizione o la cattura quando necessari.\nUsato in: Stufato di battaglia"
+    },
+    {
+      "id": "seedc_costolette",
+      "tipo": "ingrediente",
+      "nome": "Costolette",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Carne",
+        "prezzo": 350,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Macellerie, allevamenti e mercati dei villaggi",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Costolette alla brace"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Carne · 1 dose di ricetta per una porzione\nPrezzo: 350 Berry (฿)\nDove: Macellerie, allevamenti e mercati dei villaggi\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Costolette alla brace"
+    },
+    {
+      "id": "seedc_carne_mista",
+      "tipo": "ingrediente",
+      "nome": "Carne mista",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Carne",
+        "prezzo": 250,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Macellerie e mercati di qualsiasi porto",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Spiedini misti"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Carne · 1 dose di ricetta per una porzione\nPrezzo: 250 Berry (฿)\nDove: Macellerie e mercati di qualsiasi porto\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Spiedini misti"
+    },
+    {
+      "id": "seedc_carne_salata_e_stagionata",
+      "tipo": "ingrediente",
+      "nome": "Carne salata e stagionata",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Carne",
+        "prezzo": 300,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Botteghe di provviste, navi mercantili e porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Carne secca da traversata"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Carne · 1 dose di ricetta per una porzione\nPrezzo: 300 Berry (฿)\nDove: Botteghe di provviste, navi mercantili e porti\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Carne secca da traversata"
+    },
+    {
+      "id": "seedc_ossa_di_carne",
+      "tipo": "ingrediente",
+      "nome": "Ossa di carne",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Carne",
+        "prezzo": 60,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Macellerie e cucine dei porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Zuppa del Guerriero"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Carne · 1 dose di ricetta per una porzione\nPrezzo: 60 Berry (฿)\nDove: Macellerie e cucine dei porti\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Zuppa del Guerriero"
+    },
+    {
+      "id": "seedc_ossa_di_selvaggina",
+      "tipo": "ingrediente",
+      "nome": "Ossa di selvaggina",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Carne",
+        "prezzo": 120,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Cacciatori delle isole boschive e mercati della selvaggina",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "caccia",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Il tiro individua il luogo o la preda: non sostituisce un combattimento, una spedizione o la cattura quando necessari."
+        },
+        "alias": [],
+        "usato_in": [
+          "Brodo di ossa lunghe"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Carne · 1 dose di ricetta per una porzione\nPrezzo: 120 Berry (฿)\nDove: Cacciatori delle isole boschive e mercati della selvaggina\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Il tiro individua il luogo o la preda: non sostituisce un combattimento, una spedizione o la cattura quando necessari.\nUsato in: Brodo di ossa lunghe"
+    },
+    {
+      "id": "seedc_pesce_spada",
+      "tipo": "ingrediente",
+      "nome": "Pesce spada",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Pesce",
+        "prezzo": 800,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Mercati del pesce dei porti; acque aperte dei Mari Blu e della Grand Line",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "pesca",
+          "prova": "Tecnica + Sopravvivenza",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Zuppa di mare imperiale"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Pesce · 1 dose di ricetta per una porzione\nPrezzo: 800 Berry (฿)\nDove: Mercati del pesce dei porti; acque aperte dei Mari Blu e della Grand Line\nRarità: Comune\nReperimento: Tecnica + Sopravvivenza · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Zuppa di mare imperiale"
+    },
+    {
+      "id": "seedc_gamberi_giganti",
+      "tipo": "ingrediente",
+      "nome": "Gamberi giganti",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Pesce",
+        "prezzo": 1800,
+        "fascia": "Corrente",
+        "rarita": "Non comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Porti della Grand Line e baie tropicali con fauna di grandi dimensioni",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "pesca",
+          "prova": "Tecnica + Sopravvivenza",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Zuppa di mare imperiale"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Pesce · 1 dose di ricetta per una porzione\nPrezzo: 1.800 Berry (฿)\nDove: Porti della Grand Line e baie tropicali con fauna di grandi dimensioni\nRarità: Non comune\nReperimento: Tecnica + Sopravvivenza · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Zuppa di mare imperiale"
+    },
+    {
+      "id": "seedc_pesce_abissale_raro",
+      "tipo": "ingrediente",
+      "nome": "Pesce abissale raro",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Pesce",
+        "prezzo": 12000,
+        "fascia": "Buono",
+        "rarita": "Raro",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Fornitori specializzati della Grand Line; fosse marine e acque profonde",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "pesca abissale",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 16,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Il tiro individua il luogo o la preda: non sostituisce un combattimento, una spedizione o la cattura quando necessari."
+        },
+        "alias": [],
+        "usato_in": [
+          "Sashimi del New World"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Pesce · 1 dose di ricetta per una porzione\nPrezzo: 12.000 Berry (฿)\nDove: Fornitori specializzati della Grand Line; fosse marine e acque profonde\nRarità: Raro\nReperimento: Astuzia + Esplorazione · Soglia 16\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Il tiro individua il luogo o la preda: non sostituisce un combattimento, una spedizione o la cattura quando necessari.\nUsato in: Sashimi del New World"
+    },
+    {
+      "id": "seedc_calamaro_del_grand_line",
+      "tipo": "ingrediente",
+      "nome": "Calamaro del Grand Line",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Pesce",
+        "prezzo": 2500,
+        "fascia": "Corrente",
+        "rarita": "Non comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Mercati dei porti della Grand Line e correnti al largo delle isole",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "pesca",
+          "prova": "Tecnica + Sopravvivenza",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Fritto di calamaro gigante"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Pesce · 1 dose di ricetta per una porzione\nPrezzo: 2.500 Berry (฿)\nDove: Mercati dei porti della Grand Line e correnti al largo delle isole\nRarità: Non comune\nReperimento: Tecnica + Sopravvivenza · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Fritto di calamaro gigante"
+    },
+    {
+      "id": "seedc_pesce_volante_fresco",
+      "tipo": "ingrediente",
+      "nome": "Pesce volante fresco",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Pesce",
+        "prezzo": 500,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Mercati costieri e banchi di pesci volanti nei Mari Blu",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "pesca",
+          "prova": "Tecnica + Sopravvivenza",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Carpaccio di pesce volante"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Pesce · 1 dose di ricetta per una porzione\nPrezzo: 500 Berry (฿)\nDove: Mercati costieri e banchi di pesci volanti nei Mari Blu\nRarità: Comune\nReperimento: Tecnica + Sopravvivenza · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Carpaccio di pesce volante"
+    },
+    {
+      "id": "seedc_pesce_comune",
+      "tipo": "ingrediente",
+      "nome": "Pesce comune",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Pesce",
+        "prezzo": 250,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Pescatori dei villaggi, coste e acque prossime ai porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "pesca",
+          "prova": "Tecnica + Sopravvivenza",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Pesce alla griglia"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Pesce · 1 dose di ricetta per una porzione\nPrezzo: 250 Berry (฿)\nDove: Pescatori dei villaggi, coste e acque prossime ai porti\nRarità: Comune\nReperimento: Tecnica + Sopravvivenza · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Pesce alla griglia"
+    },
+    {
+      "id": "seedc_alghe_rare",
+      "tipo": "ingrediente",
+      "nome": "Alghe rare",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 3500,
+        "fascia": "Corrente",
+        "rarita": "Raro",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Scogliere sommerse della Grand Line; mercanti di prodotti marini",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta subacquea",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 16,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Richiede accesso effettivo al fondale e mezzi adatti; il successo non concede capacità di respirazione subacquea."
+        },
+        "alias": [],
+        "usato_in": [
+          "Zuppa di mare imperiale"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose di ricetta per una porzione\nPrezzo: 3.500 Berry (฿)\nDove: Scogliere sommerse della Grand Line; mercanti di prodotti marini\nRarità: Raro\nReperimento: Astuzia + Esplorazione · Soglia 16\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Richiede accesso effettivo al fondale e mezzi adatti; il successo non concede capacità di respirazione subacquea.\nUsato in: Zuppa di mare imperiale"
+    },
+    {
+      "id": "seedc_patate",
+      "tipo": "ingrediente",
+      "nome": "Patate",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 80,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Orti, aziende agricole e mercati dei villaggi",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Stufato di battaglia"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose di ricetta per una porzione\nPrezzo: 80 Berry (฿)\nDove: Orti, aziende agricole e mercati dei villaggi\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Stufato di battaglia"
+    },
+    {
+      "id": "seedc_cipolla",
+      "tipo": "ingrediente",
+      "nome": "Cipolla",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 60,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Orti e mercati dei villaggi",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [
+          "Cipolle"
+        ],
+        "usato_in": [
+          "Stufato di battaglia",
+          "Brodo di ossa lunghe"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose di ricetta per una porzione\nPrezzo: 60 Berry (฿)\nDove: Orti e mercati dei villaggi\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nNomi equivalenti: Cipolle\nUsato in: Stufato di battaglia, Brodo di ossa lunghe"
+    },
+    {
+      "id": "seedc_cipollotto",
+      "tipo": "ingrediente",
+      "nome": "Cipollotto",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 50,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Orti costieri e banchi di ortaggi",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Ramen del porto"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose di ricetta per una porzione\nPrezzo: 50 Berry (฿)\nDove: Orti costieri e banchi di ortaggi\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Ramen del porto"
+    },
+    {
+      "id": "seedc_verdure_grigliate",
+      "tipo": "ingrediente",
+      "nome": "Verdure grigliate",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 180,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Cucine, taverne e banchi di cibo dei porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Spiedini misti"
+        ],
+        "fonte": "Cambusa · ricette ufficiali",
+        "nota": "Usato come ingrediente, non conferisce da solo i recuperi o i bonus di un piatto completo."
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose di ricetta per una porzione\nPrezzo: 180 Berry (฿)\nDove: Cucine, taverne e banchi di cibo dei porti\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato come ingrediente, non conferisce da solo i recuperi o i bonus di un piatto completo.\nUsato in: Spiedini misti"
+    },
+    {
+      "id": "seedc_verdure_di_radice",
+      "tipo": "ingrediente",
+      "nome": "Verdure di radice",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 100,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Orti, campagne e mercati agricoli",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [
+          "Verdure radice"
+        ],
+        "usato_in": [
+          "Curry di verdure",
+          "Zuppa del Guerriero"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose di ricetta per una porzione\nPrezzo: 100 Berry (฿)\nDove: Orti, campagne e mercati agricoli\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nNomi equivalenti: Verdure radice\nUsato in: Curry di verdure, Zuppa del Guerriero"
+    },
+    {
+      "id": "seedc_funghi_sottomarini",
+      "tipo": "ingrediente",
+      "nome": "Funghi sottomarini",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 2200,
+        "fascia": "Corrente",
+        "rarita": "Non comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Baie della Grand Line, giardini subacquei e mercanti uomopesce",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta subacquea",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Richiede accesso effettivo al fondale e mezzi adatti; il successo non concede capacità di respirazione subacquea."
+        },
+        "alias": [],
+        "usato_in": [
+          "Vellutata di funghi marini"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose di ricetta per una porzione\nPrezzo: 2.200 Berry (฿)\nDove: Baie della Grand Line, giardini subacquei e mercanti uomopesce\nRarità: Non comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Richiede accesso effettivo al fondale e mezzi adatti; il successo non concede capacità di respirazione subacquea.\nUsato in: Vellutata di funghi marini"
+    },
+    {
+      "id": "seedc_verdure_miste_di_stagione",
+      "tipo": "ingrediente",
+      "nome": "Verdure miste di stagione",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 120,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Mercati agricoli, orti e villaggi",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Minestrone del Grandline"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose di ricetta per una porzione\nPrezzo: 120 Berry (฿)\nDove: Mercati agricoli, orti e villaggi\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Minestrone del Grandline"
+    },
+    {
+      "id": "seedc_legumi",
+      "tipo": "ingrediente",
+      "nome": "Legumi",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 80,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Botteghe di provviste e mercati agricoli",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Minestrone del Grandline"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose di ricetta per una porzione\nPrezzo: 80 Berry (฿)\nDove: Botteghe di provviste e mercati agricoli\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Minestrone del Grandline"
+    },
+    {
+      "id": "seedc_foglie_rare",
+      "tipo": "ingrediente",
+      "nome": "Foglie rare",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 2500,
+        "fascia": "Corrente",
+        "rarita": "Raro",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Foreste tropicali della Grand Line e raccoglitori specializzati",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Insalata esotica"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose di ricetta per una porzione\nPrezzo: 2.500 Berry (฿)\nDove: Foreste tropicali della Grand Line e raccoglitori specializzati\nRarità: Raro\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Insalata esotica"
+    },
+    {
+      "id": "seedc_fiori_commestibili",
+      "tipo": "ingrediente",
+      "nome": "Fiori commestibili",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 350,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Giardini delle isole temperate e mercanti di erbe alimentari",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Insalata esotica"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose di ricetta per una porzione\nPrezzo: 350 Berry (฿)\nDove: Giardini delle isole temperate e mercanti di erbe alimentari\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Insalata esotica"
+    },
+    {
+      "id": "seedc_semi",
+      "tipo": "ingrediente",
+      "nome": "Semi",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 60,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Mercati agricoli, botteghe di provviste e piante delle isole",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Insalata esotica"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose di ricetta per una porzione\nPrezzo: 60 Berry (฿)\nDove: Mercati agricoli, botteghe di provviste e piante delle isole\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Insalata esotica"
+    },
+    {
+      "id": "seedc_aglio",
+      "tipo": "ingrediente",
+      "nome": "Aglio",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 50,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Orti e mercati dei villaggi",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Brodo di ossa lunghe"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose di ricetta per una porzione\nPrezzo: 50 Berry (฿)\nDove: Orti e mercati dei villaggi\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Brodo di ossa lunghe"
+    },
+    {
+      "id": "seedc_cocco",
+      "tipo": "ingrediente",
+      "nome": "Cocco",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Frutta",
+        "prezzo": 250,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Isole tropicali, piantagioni costiere e mercati del Sud",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Curry di verdure"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Frutta · 1 dose di ricetta per una porzione\nPrezzo: 250 Berry (฿)\nDove: Isole tropicali, piantagioni costiere e mercati del Sud\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Curry di verdure"
+    },
+    {
+      "id": "seedc_limone",
+      "tipo": "ingrediente",
+      "nome": "Limone",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Frutta",
+        "prezzo": 100,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Frutteti delle isole temperate e mercati dei porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Carpaccio di pesce volante"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Frutta · 1 dose di ricetta per una porzione\nPrezzo: 100 Berry (฿)\nDove: Frutteti delle isole temperate e mercati dei porti\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Carpaccio di pesce volante"
+    },
+    {
+      "id": "seedc_frutta_tropicale_mista",
+      "tipo": "ingrediente",
+      "nome": "Frutta tropicale mista",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Frutta",
+        "prezzo": 350,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Isole calde, mercati del South Blue e porti tropicali della Grand Line",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Macedonia tropicale"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Frutta · 1 dose di ricetta per una porzione\nPrezzo: 350 Berry (฿)\nDove: Isole calde, mercati del South Blue e porti tropicali della Grand Line\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Macedonia tropicale"
+    },
+    {
+      "id": "seedc_frutta_rara",
+      "tipo": "ingrediente",
+      "nome": "Frutta rara",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Frutta",
+        "prezzo": 5000,
+        "fascia": "Corrente",
+        "rarita": "Non comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Frutteti isolati della Grand Line e mercanti di frutta su ordinazione",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Succo energetico"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Frutta · 1 dose di ricetta per una porzione\nPrezzo: 5.000 Berry (฿)\nDove: Frutteti isolati della Grand Line e mercanti di frutta su ordinazione\nRarità: Non comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Succo energetico"
+    },
+    {
+      "id": "seedc_frutta_di_stagione",
+      "tipo": "ingrediente",
+      "nome": "Frutta di stagione",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Frutta",
+        "prezzo": 200,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Frutteti e mercati di qualsiasi isola fertile",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Marmellata artigianale"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Frutta · 1 dose di ricetta per una porzione\nPrezzo: 200 Berry (฿)\nDove: Frutteti e mercati di qualsiasi isola fertile\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Marmellata artigianale"
+    },
+    {
+      "id": "seedc_frutto_esotico",
+      "tipo": "ingrediente",
+      "nome": "Frutto esotico",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Frutta",
+        "prezzo": 6000,
+        "fascia": "Buono",
+        "rarita": "Non comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Isole climatiche della Grand Line e fornitori dei grandi porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Budino del Grand Line"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Frutta · 1 dose di ricetta per una porzione\nPrezzo: 6.000 Berry (฿)\nDove: Isole climatiche della Grand Line e fornitori dei grandi porti\nRarità: Non comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Budino del Grand Line"
+    },
+    {
+      "id": "seedc_razioni_secche",
+      "tipo": "ingrediente",
+      "nome": "Razioni secche",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 120,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Empori di bordo, navi mercantili e botteghe dei porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Carne secca da traversata",
+          "Brodo veloce da razioni"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 120 Berry (฿)\nDove: Empori di bordo, navi mercantili e botteghe dei porti\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Carne secca da traversata, Brodo veloce da razioni"
+    },
+    {
+      "id": "seedc_farina",
+      "tipo": "ingrediente",
+      "nome": "Farina",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 60,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Mulini, empori e mercati dei villaggi",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Fritto di calamaro gigante",
+          "Biscotti da traversata"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 60 Berry (฿)\nDove: Mulini, empori e mercati dei villaggi\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Fritto di calamaro gigante, Biscotti da traversata"
+    },
+    {
+      "id": "seedc_farina_pregiata",
+      "tipo": "ingrediente",
+      "nome": "Farina pregiata",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 250,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Mulini selezionati e botteghe dei porti mercantili",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Torta del Capitano"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 250 Berry (฿)\nDove: Mulini selezionati e botteghe dei porti mercantili\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Torta del Capitano"
+    },
+    {
+      "id": "seedc_panna",
+      "tipo": "ingrediente",
+      "nome": "Panna",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 200,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Caseifici e mercati dei villaggi con allevamenti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Vellutata di funghi marini"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 200 Berry (฿)\nDove: Caseifici e mercati dei villaggi con allevamenti\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Vellutata di funghi marini"
+    },
+    {
+      "id": "seedc_noce_moscata",
+      "tipo": "ingrediente",
+      "nome": "Noce moscata",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 180,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Botteghe di spezie e mercati delle isole tropicali",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Vellutata di funghi marini"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 180 Berry (฿)\nDove: Botteghe di spezie e mercati delle isole tropicali\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Vellutata di funghi marini"
+    },
+    {
+      "id": "seedc_zucchero_di_canna",
+      "tipo": "ingrediente",
+      "nome": "Zucchero di canna",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 100,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Piantagioni tropicali, mulini e botteghe di provviste",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Marmellata artigianale"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 100 Berry (฿)\nDove: Piantagioni tropicali, mulini e botteghe di provviste\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Marmellata artigianale"
+    },
+    {
+      "id": "seedc_zucchero_raro",
+      "tipo": "ingrediente",
+      "nome": "Zucchero raro",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 2800,
+        "fascia": "Corrente",
+        "rarita": "Raro",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Botteghe di dolci dei grandi porti; produttori delle isole della Grand Line",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Torta del Capitano"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 2.800 Berry (฿)\nDove: Botteghe di dolci dei grandi porti; produttori delle isole della Grand Line\nRarità: Raro\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Torta del Capitano"
+    },
+    {
+      "id": "seedc_crema",
+      "tipo": "ingrediente",
+      "nome": "Crema",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 250,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Pasticcerie e cucine dei porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Torta del Capitano",
+          "Budino del Grand Line"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 250 Berry (฿)\nDove: Pasticcerie e cucine dei porti\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Torta del Capitano, Budino del Grand Line"
+    },
+    {
+      "id": "seedc_uova",
+      "tipo": "ingrediente",
+      "nome": "Uova",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 80,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Allevamenti, pollai e mercati agricoli",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Torta del Capitano",
+          "Budino del Grand Line",
+          "Ramen del porto"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 80 Berry (฿)\nDove: Allevamenti, pollai e mercati agricoli\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Torta del Capitano, Budino del Grand Line, Ramen del porto"
+    },
+    {
+      "id": "seedc_caramello",
+      "tipo": "ingrediente",
+      "nome": "Caramello",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 150,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Pasticcerie e botteghe di dolci dei villaggi",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Budino del Grand Line"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 150 Berry (฿)\nDove: Pasticcerie e botteghe di dolci dei villaggi\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Budino del Grand Line"
+    },
+    {
+      "id": "seedc_pasta_frolla",
+      "tipo": "ingrediente",
+      "nome": "Pasta frolla",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 200,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Panifici, pasticcerie e cucine dei porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Pasticcini alla marmellata"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 200 Berry (฿)\nDove: Panifici, pasticcerie e cucine dei porti\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Pasticcini alla marmellata"
+    },
+    {
+      "id": "seedc_marmellata_artigianale",
+      "tipo": "ingrediente",
+      "nome": "Marmellata artigianale",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 250,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Conserve dei villaggi e botteghe di provviste",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Pasticcini alla marmellata"
+        ],
+        "fonte": "Cambusa · ricette ufficiali",
+        "nota": "Usato come ingrediente, non conferisce da solo i recuperi o i bonus di un piatto completo."
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 250 Berry (฿)\nDove: Conserve dei villaggi e botteghe di provviste\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato come ingrediente, non conferisce da solo i recuperi o i bonus di un piatto completo.\nUsato in: Pasticcini alla marmellata"
+    },
+    {
+      "id": "seedc_zucchero",
+      "tipo": "ingrediente",
+      "nome": "Zucchero",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 80,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Botteghe di provviste e mercati dei villaggi",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Biscotti da traversata"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 80 Berry (฿)\nDove: Botteghe di provviste e mercati dei villaggi\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Biscotti da traversata"
+    },
+    {
+      "id": "seedc_burro",
+      "tipo": "ingrediente",
+      "nome": "Burro",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 120,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Caseifici e mercati dei villaggi con allevamenti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Biscotti da traversata"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 120 Berry (฿)\nDove: Caseifici e mercati dei villaggi con allevamenti\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Biscotti da traversata"
+    },
+    {
+      "id": "seedc_vaniglia",
+      "tipo": "ingrediente",
+      "nome": "Vaniglia",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 450,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Piantagioni tropicali e botteghe di spezie",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Biscotti da traversata"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 450 Berry (฿)\nDove: Piantagioni tropicali e botteghe di spezie\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Biscotti da traversata"
+    },
+    {
+      "id": "seedc_brodo",
+      "tipo": "ingrediente",
+      "nome": "Brodo",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 100,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Cucine, taverne e botteghe di provviste dei porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Stufato di battaglia"
+        ],
+        "fonte": "Cambusa · ricette ufficiali",
+        "nota": "Usato come ingrediente, non conferisce da solo i recuperi o i bonus di un piatto completo."
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 100 Berry (฿)\nDove: Cucine, taverne e botteghe di provviste dei porti\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato come ingrediente, non conferisce da solo i recuperi o i bonus di un piatto completo.\nUsato in: Stufato di battaglia"
+    },
+    {
+      "id": "seedc_brodo_di_carne",
+      "tipo": "ingrediente",
+      "nome": "Brodo di carne",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 160,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Macellerie, cucine e taverne dei porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Ramen del porto"
+        ],
+        "fonte": "Cambusa · ricette ufficiali",
+        "nota": "Usato come ingrediente, non conferisce da solo i recuperi o i bonus di un piatto completo."
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 160 Berry (฿)\nDove: Macellerie, cucine e taverne dei porti\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato come ingrediente, non conferisce da solo i recuperi o i bonus di un piatto completo.\nUsato in: Ramen del porto"
+    },
+    {
+      "id": "seedc_noodles",
+      "tipo": "ingrediente",
+      "nome": "Noodles",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 140,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Mercati alimentari e botteghe di pasta dei porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Ramen del porto"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 140 Berry (฿)\nDove: Mercati alimentari e botteghe di pasta dei porti\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Ramen del porto"
+    },
+    {
+      "id": "seedc_acqua",
+      "tipo": "ingrediente",
+      "nome": "Acqua",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Dispensa",
+        "prezzo": 10,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Pozzi e fontane potabili, porti e mercanti di provviste",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 4,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Brodo veloce da razioni"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Dispensa · 1 dose di ricetta per una porzione\nPrezzo: 10 Berry (฿)\nDove: Pozzi e fontane potabili, porti e mercanti di provviste\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 4\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Brodo veloce da razioni"
+    },
+    {
+      "id": "seedc_erbe",
+      "tipo": "ingrediente",
+      "nome": "Erbe",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Condimenti",
+        "prezzo": 40,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Orti, prati delle isole temperate e banchi di erbe da cucina",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Arrosto del Capitano",
+          "Pesce alla griglia",
+          "Minestrone del Grandline",
+          "Brodo di ossa lunghe"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 dose di ricetta per una porzione\nPrezzo: 40 Berry (฿)\nDove: Orti, prati delle isole temperate e banchi di erbe da cucina\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Arrosto del Capitano, Pesce alla griglia, Minestrone del Grandline, Brodo di ossa lunghe"
+    },
+    {
+      "id": "seedc_sale_marino",
+      "tipo": "ingrediente",
+      "nome": "Sale marino",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Condimenti",
+        "prezzo": 20,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Saline costiere, botteghe di provviste e porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [
+          "Sale"
+        ],
+        "usato_in": [
+          "Arrosto del Capitano",
+          "Carpaccio di pesce volante",
+          "Brodo veloce da razioni"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 dose di ricetta per una porzione\nPrezzo: 20 Berry (฿)\nDove: Saline costiere, botteghe di provviste e porti\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nNomi equivalenti: Sale\nUsato in: Arrosto del Capitano, Carpaccio di pesce volante, Brodo veloce da razioni"
+    },
+    {
+      "id": "seedc_spezie_esotiche",
+      "tipo": "ingrediente",
+      "nome": "Spezie esotiche",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Condimenti",
+        "prezzo": 1200,
+        "fascia": "Corrente",
+        "rarita": "Non comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Porti mercantili e isole tropicali della Grand Line",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Costolette alla brace"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 dose di ricetta per una porzione\nPrezzo: 1.200 Berry (฿)\nDove: Porti mercantili e isole tropicali della Grand Line\nRarità: Non comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Costolette alla brace"
+    },
+    {
+      "id": "seedi_miele",
+      "tipo": "ingrediente",
+      "nome": "Miele",
+      "dati": {
+        "categoria": "Ingredienti",
+        "prezzo": 700,
+        "fascia": "Comune",
+        "usato_in": [
+          "Tonico del chirurgo",
+          "Sali energetici",
+          "Febbrifugo",
+          "Pillole di guaranà",
+          "Calmante",
+          "Costolette alla brace",
+          "Succo energetico"
+        ],
+        "acquistabile": true,
+        "famiglia": "Condimenti",
+        "rarita": "Comune",
+        "unita": "1 vasetto (250 g; circa 5 dosi di ricetta)",
+        "dove": "Apicoltori, mercati dei villaggi e alveari delle isole temperate",
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "fonte": "Cambusa · ricette ufficiali",
+        "categorie_secondarie": [
+          "Erboristeria e medicina"
+        ]
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 vasetto (250 g; circa 5 dosi di ricetta)\nPrezzo: 700 Berry (฿)\nDove: Apicoltori, mercati dei villaggi e alveari delle isole temperate\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Tonico del chirurgo, Sali energetici, Febbrifugo, Pillole di guaranà, Calmante, Costolette alla brace, Succo energetico"
+    },
+    {
+      "id": "seedc_salsa",
+      "tipo": "ingrediente",
+      "nome": "Salsa",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Condimenti",
+        "prezzo": 70,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Cucine, taverne e botteghe di alimentari",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Spiedini misti"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 dose di ricetta per una porzione\nPrezzo: 70 Berry (฿)\nDove: Cucine, taverne e botteghe di alimentari\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Spiedini misti"
+    },
+    {
+      "id": "seedc_wasabi",
+      "tipo": "ingrediente",
+      "nome": "Wasabi",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Condimenti",
+        "prezzo": 400,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Orti umidi e freschi; mercanti delle isole temperate",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Sashimi del New World"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 dose di ricetta per una porzione\nPrezzo: 400 Berry (฿)\nDove: Orti umidi e freschi; mercanti delle isole temperate\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Sashimi del New World"
+    },
+    {
+      "id": "seedc_salsa_di_soia",
+      "tipo": "ingrediente",
+      "nome": "Salsa di soia",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Condimenti",
+        "prezzo": 100,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Botteghe di condimenti e mercati alimentari dei porti",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Sashimi del New World"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 dose di ricetta per una porzione\nPrezzo: 100 Berry (฿)\nDove: Botteghe di condimenti e mercati alimentari dei porti\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Sashimi del New World"
+    },
+    {
+      "id": "seedc_spezie",
+      "tipo": "ingrediente",
+      "nome": "Spezie",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Condimenti",
+        "prezzo": 60,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Botteghe di provviste e mercati dei villaggi",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [
+          "Spezie base"
+        ],
+        "usato_in": [
+          "Fritto di calamaro gigante",
+          "Brodo veloce da razioni"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 dose di ricetta per una porzione\nPrezzo: 60 Berry (฿)\nDove: Botteghe di provviste e mercati dei villaggi\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nNomi equivalenti: Spezie base\nUsato in: Fritto di calamaro gigante, Brodo veloce da razioni"
+    },
+    {
+      "id": "seedi_olio",
+      "tipo": "ingrediente",
+      "nome": "Olio",
+      "dati": {
+        "categoria": "Ingredienti",
+        "prezzo": 400,
+        "fascia": "Comune",
+        "usato_in": [
+          "Lanterna segnaletica",
+          "Lame gemelle bilanciate",
+          "Pesce alla griglia"
+        ],
+        "acquistabile": true,
+        "famiglia": "Condimenti",
+        "rarita": "Comune",
+        "unita": "1 bottiglia (250 ml; circa 10 dosi di ricetta)",
+        "dove": "Frantoi, empori e mercati di qualsiasi porto",
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "fonte": "Cambusa · ricette ufficiali",
+        "categorie_secondarie": [
+          "Corde, tessuti e cuoio"
+        ],
+        "nota": "Per la Cucina si usa olio alimentare: un lubrificante tecnico non è un sostituto. Gli altri impieghi dell’Officina restano registrati."
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 bottiglia (250 ml; circa 10 dosi di ricetta)\nPrezzo: 400 Berry (฿)\nDove: Frantoi, empori e mercati di qualsiasi porto\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nPer la Cucina si usa olio alimentare: un lubrificante tecnico non è un sostituto. Gli altri impieghi dell’Officina restano registrati.\nUsato in: Lanterna segnaletica, Lame gemelle bilanciate, Pesce alla griglia"
+    },
+    {
+      "id": "seedc_spezie_del_sud",
+      "tipo": "ingrediente",
+      "nome": "Spezie del Sud",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Condimenti",
+        "prezzo": 450,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "South Blue, piantagioni tropicali e mercati di spezie",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Curry di verdure"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 dose di ricetta per una porzione\nPrezzo: 450 Berry (฿)\nDove: South Blue, piantagioni tropicali e mercati di spezie\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Curry di verdure"
+    },
+    {
+      "id": "seedc_menta",
+      "tipo": "ingrediente",
+      "nome": "Menta",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Condimenti",
+        "prezzo": 40,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Orti, sponde di acqua dolce e banchi di erbe",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 8,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Macedonia tropicale"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 dose di ricetta per una porzione\nPrezzo: 40 Berry (฿)\nDove: Orti, sponde di acqua dolce e banchi di erbe\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 8\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Macedonia tropicale"
+    },
+    {
+      "id": "seedc_sciroppo",
+      "tipo": "ingrediente",
+      "nome": "Sciroppo",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Condimenti",
+        "prezzo": 120,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Botteghe di dolci, conserve e mercati alimentari",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "acquisto",
+          "prova": null,
+          "soglia": null,
+          "nota": "Acquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM."
+        },
+        "alias": [],
+        "usato_in": [
+          "Macedonia tropicale"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 dose di ricetta per una porzione\nPrezzo: 120 Berry (฿)\nDove: Botteghe di dolci, conserve e mercati alimentari\nRarità: Comune\nAcquisto ordinario: nessuna Prova. Una lavorazione o la ricerca di un fornitore fuori dai mercati ordinari è definita dal GM.\nUsato in: Macedonia tropicale"
+    },
+    {
+      "id": "seedc_erbe_toniche",
+      "tipo": "ingrediente",
+      "nome": "Erbe toniche",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Condimenti",
+        "prezzo": 800,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Erboristi, altopiani e foreste delle isole temperate",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Succo energetico"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 dose di ricetta per una porzione\nPrezzo: 800 Berry (฿)\nDove: Erboristi, altopiani e foreste delle isole temperate\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Succo energetico"
+    },
+    {
+      "id": "seedc_spezie_forti",
+      "tipo": "ingrediente",
+      "nome": "Spezie forti",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Condimenti",
+        "prezzo": 250,
+        "fascia": "Comune",
+        "rarita": "Comune",
+        "unita": "1 dose di ricetta per una porzione",
+        "dove": "Mercati di spezie e coltivazioni delle isole calde",
+        "acquistabile": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Zuppa del Guerriero"
+        ],
+        "fonte": "Cambusa · ricette ufficiali"
+      },
+      "img": "",
+      "descrizione": "Condimenti · 1 dose di ricetta per una porzione\nPrezzo: 250 Berry (฿)\nDove: Mercati di spezie e coltivazioni delle isole calde\nRarità: Comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nUsato in: Zuppa del Guerriero"
+    },
+    {
+      "id": "seedc_carne_di_bananawani",
+      "tipo": "ingrediente",
+      "nome": "Carne di Bananawani",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Carne",
+        "prezzo": 15000,
+        "fascia": "Buono",
+        "rarita": "Raro",
+        "unita": "1 dose per una porzione",
+        "dove": "Alabasta e isole calde; cacciatori e macellai specializzati",
+        "acquistabile": true,
+        "bonus": "+1d6 PV extra a qualsiasi esito",
+        "extra": true,
+        "reperimento": {
+          "metodo": "caccia",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 16,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Il tiro individua il luogo o la preda: non sostituisce un combattimento, una spedizione o la cattura quando necessari."
+        },
+        "alias": [],
+        "usato_in": [
+          "Ingrediente Extra per ricette compatibili di Carne"
+        ],
+        "fonte": "Cambusa · ingredienti notevoli"
+      },
+      "img": "",
+      "descrizione": "Carne · 1 dose per una porzione\nPrezzo: 15.000 Berry (฿)\nDove: Alabasta e isole calde; cacciatori e macellai specializzati\nRarità: Raro\nReperimento: Astuzia + Esplorazione · Soglia 16\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Il tiro individua il luogo o la preda: non sostituisce un combattimento, una spedizione o la cattura quando necessari.\nBonus: +1d6 PV extra a qualsiasi esito\nUn solo Ingrediente Extra per preparazione; gli ingredienti obbligatori non contano in questo limite.\nUsato in: Ingrediente Extra per ricette compatibili di Carne"
+    },
+    {
+      "id": "seedc_carne_di_sea_king",
+      "tipo": "ingrediente",
+      "nome": "Carne di Sea King",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Carne",
+        "prezzo": 8000,
+        "fascia": "Buono",
+        "rarita": "Non comune",
+        "unita": "1 dose per una porzione",
+        "dove": "Grand Line, rotte dei Sea King e mercati dei cacciatori di grandi prede",
+        "acquistabile": true,
+        "bonus": "+1d4 PV e +1 ST a qualsiasi esito",
+        "extra": true,
+        "reperimento": {
+          "metodo": "caccia",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 16,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Il tiro individua il luogo o la preda: non sostituisce un combattimento, una spedizione o la cattura quando necessari."
+        },
+        "alias": [],
+        "usato_in": [
+          "Ingrediente Extra per ricette compatibili di Carne"
+        ],
+        "fonte": "Cambusa · ingredienti notevoli"
+      },
+      "img": "",
+      "descrizione": "Carne · 1 dose per una porzione\nPrezzo: 8.000 Berry (฿)\nDove: Grand Line, rotte dei Sea King e mercati dei cacciatori di grandi prede\nRarità: Non comune\nReperimento: Astuzia + Esplorazione · Soglia 16\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Il tiro individua il luogo o la preda: non sostituisce un combattimento, una spedizione o la cattura quando necessari.\nBonus: +1d4 PV e +1 ST a qualsiasi esito\nUn solo Ingrediente Extra per preparazione; gli ingredienti obbligatori non contano in questo limite.\nUsato in: Ingrediente Extra per ricette compatibili di Carne"
+    },
+    {
+      "id": "seedc_carne_di_laboon",
+      "tipo": "ingrediente",
+      "nome": "Carne di Laboon",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Carne",
+        "prezzo": 500000,
+        "fascia": "Non acquistabile",
+        "rarita": "Leggendario",
+        "unita": "1 dose per una porzione",
+        "dove": "Ingresso della Grand Line, presso i Promontori Gemelli; ingrediente unico, ottenibile soltanto in un’avventura definita dal GM",
+        "acquistabile": false,
+        "bonus": "+2d8 PV e +4 ST — solo al Critico",
+        "extra": true,
+        "reperimento": {
+          "metodo": "ricerca narrativa",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 25,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Ingrediente Extra per ricette compatibili di Carne"
+        ],
+        "fonte": "Cambusa · ingredienti notevoli",
+        "nota": "500.000 Berry è il valore indicativo di una dose, non un prezzo di vendita. Nessun tiro produce automaticamente questo ingrediente unico; disponibilità e ottenimento sono decisi dal GM."
+      },
+      "img": "",
+      "descrizione": "Carne · 1 dose per una porzione\nValore indicativo: 500.000 Berry (฿)\nDove: Ingresso della Grand Line, presso i Promontori Gemelli; ingrediente unico, ottenibile soltanto in un’avventura definita dal GM\nRarità: Leggendario\nReperimento: Astuzia + Esplorazione · Soglia 25\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nBonus: +2d8 PV e +4 ST — solo al Critico\nUn solo Ingrediente Extra per preparazione; gli ingredienti obbligatori non contano in questo limite.\n500.000 Berry è il valore indicativo di una dose, non un prezzo di vendita. Nessun tiro produce automaticamente questo ingrediente unico; disponibilità e ottenimento sono decisi dal GM.\nUsato in: Ingrediente Extra per ricette compatibili di Carne"
+    },
+    {
+      "id": "seedc_pesce_volante_del_nord",
+      "tipo": "ingrediente",
+      "nome": "Pesce Volante del Nord",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Pesce",
+        "prezzo": 2500,
+        "fascia": "Corrente",
+        "rarita": "Non comune",
+        "unita": "1 dose per una porzione",
+        "dove": "Oceani freddi, Drum Island e mercati del North Blue",
+        "acquistabile": true,
+        "bonus": "+1 dado bonus se fresco",
+        "extra": true,
+        "reperimento": {
+          "metodo": "pesca",
+          "prova": "Tecnica + Sopravvivenza",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Ingrediente Extra per ricette compatibili di Pesce"
+        ],
+        "fonte": "Cambusa · ingredienti notevoli"
+      },
+      "img": "",
+      "descrizione": "Pesce · 1 dose per una porzione\nPrezzo: 2.500 Berry (฿)\nDove: Oceani freddi, Drum Island e mercati del North Blue\nRarità: Non comune\nReperimento: Tecnica + Sopravvivenza · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nBonus: +1 dado bonus se fresco\nUn solo Ingrediente Extra per preparazione; gli ingredienti obbligatori non contano in questo limite.\nUsato in: Ingrediente Extra per ricette compatibili di Pesce"
+    },
+    {
+      "id": "seedc_calamaro_del_profondo",
+      "tipo": "ingrediente",
+      "nome": "Calamaro del Profondo",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Pesce",
+        "prezzo": 18000,
+        "fascia": "Pregiato",
+        "rarita": "Raro",
+        "unita": "1 dose per una porzione",
+        "dove": "Abissi della Grand Line; fornitori di pesca abissale su ordinazione",
+        "acquistabile": true,
+        "bonus": "+1d4 ST extra a Critico/Successo",
+        "extra": true,
+        "reperimento": {
+          "metodo": "pesca abissale",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 20,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Il tiro individua il luogo o la preda: non sostituisce un combattimento, una spedizione o la cattura quando necessari."
+        },
+        "alias": [],
+        "usato_in": [
+          "Ingrediente Extra per ricette compatibili di Pesce"
+        ],
+        "fonte": "Cambusa · ingredienti notevoli"
+      },
+      "img": "",
+      "descrizione": "Pesce · 1 dose per una porzione\nPrezzo: 18.000 Berry (฿)\nDove: Abissi della Grand Line; fornitori di pesca abissale su ordinazione\nRarità: Raro\nReperimento: Astuzia + Esplorazione · Soglia 20\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Il tiro individua il luogo o la preda: non sostituisce un combattimento, una spedizione o la cattura quando necessari.\nBonus: +1d4 ST extra a Critico/Successo\nUn solo Ingrediente Extra per preparazione; gli ingredienti obbligatori non contano in questo limite.\nUsato in: Ingrediente Extra per ricette compatibili di Pesce"
+    },
+    {
+      "id": "seedc_alga_poneglyph",
+      "tipo": "ingrediente",
+      "nome": "Alga Poneglyph",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 150000,
+        "fascia": "Raro",
+        "rarita": "Leggendario",
+        "unita": "1 dose per una porzione",
+        "dove": "Fondali di isole storiche e siti antichi della Grand Line; rarissimi contatti di esploratori",
+        "acquistabile": true,
+        "bonus": "Bonus del Critico raddoppiato",
+        "extra": true,
+        "reperimento": {
+          "metodo": "raccolta subacquea",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 25,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Richiede accesso effettivo al fondale e mezzi adatti; il successo non concede capacità di respirazione subacquea."
+        },
+        "alias": [],
+        "usato_in": [
+          "Ingrediente Extra per ricette compatibili di Verdura"
+        ],
+        "fonte": "Cambusa · ingredienti notevoli",
+        "nota": "Il prezzo è indicativo: la vendita richiede un’offerta narrativa e l’autorizzazione del GM. Una Prova non crea una scorta disponibile."
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose per una porzione\nPrezzo: 150.000 Berry (฿)\nDove: Fondali di isole storiche e siti antichi della Grand Line; rarissimi contatti di esploratori\nRarità: Leggendario\nReperimento: Astuzia + Esplorazione · Soglia 25\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Richiede accesso effettivo al fondale e mezzi adatti; il successo non concede capacità di respirazione subacquea.\nBonus: Bonus del Critico raddoppiato\nUn solo Ingrediente Extra per preparazione; gli ingredienti obbligatori non contano in questo limite.\nIl prezzo è indicativo: la vendita richiede un’offerta narrativa e l’autorizzazione del GM. Una Prova non crea una scorta disponibile.\nUsato in: Ingrediente Extra per ricette compatibili di Verdura"
+    },
+    {
+      "id": "seedc_fungo_marino_luminoso",
+      "tipo": "ingrediente",
+      "nome": "Fungo marino luminoso",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Verdura",
+        "prezzo": 12000,
+        "fascia": "Buono",
+        "rarita": "Raro",
+        "unita": "1 dose per una porzione",
+        "dove": "Caverne sottomarine della Grand Line e raccoglitori uomopesce",
+        "acquistabile": true,
+        "bonus": "+2 ST a qualsiasi esito",
+        "extra": true,
+        "reperimento": {
+          "metodo": "raccolta subacquea",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 16,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Richiede accesso effettivo al fondale e mezzi adatti; il successo non concede capacità di respirazione subacquea."
+        },
+        "alias": [],
+        "usato_in": [
+          "Ingrediente Extra per ricette compatibili di Verdura"
+        ],
+        "fonte": "Cambusa · ingredienti notevoli"
+      },
+      "img": "",
+      "descrizione": "Verdura · 1 dose per una porzione\nPrezzo: 12.000 Berry (฿)\nDove: Caverne sottomarine della Grand Line e raccoglitori uomopesce\nRarità: Raro\nReperimento: Astuzia + Esplorazione · Soglia 16\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni. Richiede accesso effettivo al fondale e mezzi adatti; il successo non concede capacità di respirazione subacquea.\nBonus: +2 ST a qualsiasi esito\nUn solo Ingrediente Extra per preparazione; gli ingredienti obbligatori non contano in questo limite.\nUsato in: Ingrediente Extra per ricette compatibili di Verdura"
+    },
+    {
+      "id": "seedc_frutto_knock_cola",
+      "tipo": "ingrediente",
+      "nome": "Frutto Knock Cola",
+      "dati": {
+        "categoria": "Ingredienti",
+        "famiglia": "Frutta",
+        "prezzo": 6000,
+        "fascia": "Buono",
+        "rarita": "Non comune",
+        "unita": "1 dose per una porzione",
+        "dove": "Dressrosa e isole vicine; coltivatori locali e mercanti di frutta della Grand Line",
+        "acquistabile": true,
+        "bonus": "+1d6 ST (nessun recupero PV)",
+        "extra": true,
+        "reperimento": {
+          "metodo": "raccolta",
+          "prova": "Astuzia + Esplorazione",
+          "soglia": 12,
+          "nota": "Prova indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni."
+        },
+        "alias": [],
+        "usato_in": [
+          "Ingrediente Extra per ricette compatibili di Frutta"
+        ],
+        "fonte": "Cambusa · ingredienti notevoli"
+      },
+      "img": "",
+      "descrizione": "Frutta · 1 dose per una porzione\nPrezzo: 6.000 Berry (฿)\nDove: Dressrosa e isole vicine; coltivatori locali e mercanti di frutta della Grand Line\nRarità: Non comune\nReperimento: Astuzia + Esplorazione · Soglia 12\nProva indicativa solo se il reperimento è incerto; il GM stabilisce disponibilità, quantità e condizioni.\nBonus: +1d6 ST (nessun recupero PV)\nUn solo Ingrediente Extra per preparazione; gli ingredienti obbligatori non contano in questo limite.\nUsato in: Ingrediente Extra per ricette compatibili di Frutta"
+    }
+  ]
+}
