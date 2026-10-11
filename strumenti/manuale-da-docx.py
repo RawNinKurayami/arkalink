@@ -493,13 +493,16 @@ body.manlocked .man-top,body.manlocked .man-wrap{filter:blur(6px);pointer-events
 #manlock .mlb{font:600 11px 'Manrope',sans-serif;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(240,164,65,.4);background:transparent;color:#ffd394;border-radius:999px;padding:10px 16px;cursor:pointer;text-decoration:none;}
 #manlock .mlb.gold{background:linear-gradient(180deg,#ffd394,#f0a441);color:#1b1206;border-color:transparent;}
 </style>
+<link rel="stylesheet" href="/glc-brand.css?v=1">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png?v=2">
 </head>
 <body>
 <div class="glc-bg" aria-hidden="true"></div>
 GATE
 
 <header class="man-top">
-  <a class="man-marchio" href="/grand-line-chronicles/"><span class="anc">⚓</span><span>Grand Line Chronicles</span></a>
+  <a class="man-marchio glc-brand-link" href="/grand-line-chronicles/" aria-label="Grand Line Chronicles — Home"><img class="glc-title-logo" src="/img/brand/glc-logo.png" alt="Grand Line Chronicles" width="210" height="70"></a>
   <div class="man-strumenti">
     <button class="man-btn" id="man-apri-indice" type="button" aria-expanded="false" title="Indice" aria-label="Indice">☰<span class="man-etichetta"> Indice</span></button>
     <button class="man-btn" id="man-stampa" type="button" title="Stampa o salva in PDF" aria-label="Stampa o salva in PDF">⎙<span class="man-etichetta"> Stampa · PDF</span></button>

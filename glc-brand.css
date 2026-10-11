@@ -1,0 +1,17 @@
+/* Official GLC artwork: only navigation and footer brands are styled here. */
+.glc-brand-link{display:inline-flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none;max-width:100%;line-height:1;letter-spacing:normal}
+.glc-brand-link .glc-title-logo{display:block;width:210px;height:auto;max-width:none;object-fit:contain;flex:none}
+.glc-brand-link:focus-visible{outline:2px solid #ffd394;outline-offset:5px;border-radius:4px}
+.man-top .glc-brand-link .glc-title-logo{width:162px}
+.man-top .glc-brand-link{overflow:visible}
+footer .glc-brand-link .glc-title-logo{width:156px}
+.glc-footer-section{display:block;margin-top:8px;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+header.top .home-link .glc-title-logo{width:240px}
+footer.foot:has(>.glc-brand-link){display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+@media(max-width:760px){
+ .glc-brand-link .glc-title-logo{width:156px}
+ .glc-brand-link{gap:8px}
+ .man-top .glc-brand-link .glc-title-logo{width:clamp(96px,33vw,144px)}
+ header.top .home-link .glc-title-logo{width:210px}
+ footer.foot:has(>.glc-brand-link){justify-content:center;text-align:center}
+}

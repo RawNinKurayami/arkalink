@@ -604,9 +604,9 @@
       var head=document.head||document.getElementsByTagName("head")[0];
       if(head && !document.querySelector('link[rel="manifest"]')){
         function add(tag,attrs){ var e=document.createElement(tag); for(var k in attrs){ e.setAttribute(k,attrs[k]); } head.appendChild(e); }
-        add("link",{rel:"manifest",href:"/manifest.webmanifest"});
+        add("link",{rel:"manifest",href:"/manifest.webmanifest?v=2"});
         add("meta",{name:"theme-color",content:"#0a1920"});
-        add("link",{rel:"apple-touch-icon",href:"/icons/apple-touch-icon-180.png"});
+        add("link",{rel:"apple-touch-icon",href:"/icons/apple-touch-icon-180.png?v=2"});
         add("meta",{name:"apple-mobile-web-app-capable",content:"yes"});
         add("meta",{name:"apple-mobile-web-app-status-bar-style",content:"black-translucent"});
         add("meta",{name:"apple-mobile-web-app-title",content:"GLC"});
