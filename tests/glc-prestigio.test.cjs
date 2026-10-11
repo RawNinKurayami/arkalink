@@ -43,7 +43,20 @@ test('Attribute, role skill, secondary skill and Haki progression stay independe
 });
 test('Double Striker and its two possible role skills cannot multiply talent choices',()=>{
  const h=fixture();h.c.role2='Combattente';h.c.style2='Striker';h.c.roleSkillChoice2='Acrobazia';h.c.skills.Acrobazia='d20+d20';assert.equal(h.p.paths(h.c).length,1);
- assert.equal(h.p.data.paths.find(p=>p.id==='striker-acrobazia').talents.length,2);
+ assert.equal(h.p.data.paths.find(p=>p.id==='striker-acrobazia').talents.length,4);
+});
+test('Striker has the same four Prestige talents with either Skill and preserves both historical choice keys',()=>{
+ const a=fixture('striker-atletica'),b=fixture('striker-acrobazia');
+ assert.deepEqual(Array.from(a.p.states(a.c,a.path),t=>t.id),Array.from(b.p.states(b.c,b.path),t=>t.id));
+ a.c.prestige={choices:{'striker-atletica':['potenza-del-titano'],'striker-acrobazia':['precisione-assoluta']}};
+ a.c.roleSkillChoice='Acrobazia';a.c.skills.Acrobazia=a.c.roleSkillDie;
+ assert.ok(a.p.has(a.c,'potenza-del-titano'));assert.ok(a.p.has(a.c,'precisione-assoluta'));
+ a.p.choose(a.c,'striker-acrobazia','raffica-senza-fine',true);
+ assert.equal(a.p.acquired(a.c).filter(t=>t.path.id.startsWith('striker-')).length,3);
+ assert.throws(()=>a.p.choose(a.c,'striker-acrobazia','impatto-devastante',true),/Scelte esaurite/);
+ a.p.choose(a.c,'striker-atletica','precisione-assoluta',false);
+ assert.ok(!a.p.has(a.c,'precisione-assoluta'));assert.ok(a.p.has(a.c,'potenza-del-titano'));
+ assert.throws(()=>a.p.choose(a.c,'striker-inesistente','precisione-assoluta',true),/Percorso o talento non disponibile/);
 });
 test('Stored choices survive a downgrade but cannot grant locked benefits; restoring prerequisites reactivates them',()=>{
  const h=fixture();h.take('potenza-del-titano');h.take('raffica-senza-fine');h.c.roleSkillDie='d20+d4';assert.equal(h.p.acquired(h.c).length,1);assert.equal(h.p.choices(h.c,h.path).length,2);

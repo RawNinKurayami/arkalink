@@ -98,6 +98,7 @@ select.txt{width:100%; font-family:'Inter',sans-serif; font-size:17px; color:var
 .refrow .rf-bd{color:var(--ink-soft);font-size:14px;}
 .refrow .rf-bn{color:#ffd394;font-size:15px;}
 @media(max-width:600px){.refrow{grid-template-columns:1fr;}}
+.ingredient-links{margin:12px 0}.ingredient-links>div{display:flex;flex-wrap:wrap;gap:6px}.ingredient-links a{text-decoration:none;font-size:12px}#cambusa-create .txt{max-width:100%;box-sizing:border-box}#cambusa-create [hidden]{display:none!important}
 </style>
 <script src="/glc-images.js?v=1"></script>
 <script src="/glc-art.js?v=1"></script>
@@ -141,6 +142,7 @@ select.txt{width:100%; font-family:'Inter',sans-serif; font-size:17px; color:var
   </div>
 </div>
 
+<script src="/regole/cambusa.js?v=1"></script>
 <script>
 function el(t,a,kids){var e=document.createElement(t);a=a||{};for(var k in a){if(k==="text")e.textContent=a[k];else if(k==="html")e.innerHTML=a[k];else if(k==="onClick")e.onclick=a[k];else e.setAttribute(k,a[k]);}(kids||[]).forEach(function(c){if(c)e.appendChild(c);});return e;}
 function fmtBerry(n){return n==null?"—":String(n).replace(/\B(?=(\d{3})+(?!\d))/g,".");}
@@ -257,6 +259,7 @@ function itemCard(o,opts){
     acts.appendChild(el("button",{class:"ibtn del",text:"Elimina",onClick:function(){opts.onDelete&&opts.onDelete(o);}}));
   }
   if(opts.mine){
+    if(opts.onEdit)acts.appendChild(el("button",{class:"ibtn ghost",text:o.recipe?"Modifica ricetta":"Completa scheda",onClick:function(){opts.onEdit(o);}}));
     acts.appendChild(el("button",{class:"ibtn del",text:"Elimina",onClick:function(){opts.onDelete&&opts.onDelete(o);}}));
   }
   return el("div",{class:"item"},[pic,el("div",{class:"ib"},[
@@ -264,7 +267,7 @@ function itemCard(o,opts){
     el("div",{class:"inm",text:o.nome||"Senza nome"}),
     (opts.price&&o.dati)?el("div",{class:"iprice",text:(o.dati.acquistabile===false)?"⛔ non acquistabile":(fmtBerry(o.dati.prezzo)+" ฿ · "+(o.dati.fascia||""))}):null,
     el("div",{class:"idesc",text:lead}),detail,
-    acts
+    ingredientLinks(o),acts
   ])]);
 }
 
@@ -275,6 +278,7 @@ async function renderOfficina(){
 
   p.appendChild(el("div",{class:"sec-head"},[el("h2",{text:"Catalogo ufficiale"})]));
   p.appendChild(el("p",{class:"hint",text:isAdmin?"Sei l'amministratore: puoi creare, modificare ed eliminare gli oggetti ufficiali (con immagine). Tutti i giocatori li vedranno.":"Oggetti ufficiali creati dal Capitano. Puoi aggiungerli al diario di una tua sessione."}));
+  p.appendChild(el("p",{class:"hint",text:"Capolavoro · se scegli Tempo, sottrai metà delle ore conteggiate per il progetto: tornano disponibili per altre lavorazioni. Un progetto da 16 ore ne consuma 8 e lascia libere le altre 8, senza ricostruire una cronologia precisa."}));
   var fbar=el("div",{class:"filterbar"});
   var fsearch=el("input",{class:"txt",id:"cat-search",placeholder:"Cerca per nome o effetto\u2026"}); fsearch.value=OFF_FILTER.text||"";
   fsearch.oninput=function(){ OFF_FILTER.text=fsearch.value.toLowerCase(); renderCatGrid(); };
@@ -450,6 +454,7 @@ async function loadDishes(){
     sel.value=DISH_FILTER.cat||"";
   }
   renderDishGrid();
+  refreshRecipeReferences();
 }
 function renderDishGrid(){
   var grid=document.getElementById("dishgrid"); if(!grid) return;
@@ -467,8 +472,42 @@ function renderMyDishes(grid){
   grid.innerHTML="";
   var o=readMP();
   if(!o.dishes.length){grid.appendChild(el("div",{class:"empty-note",text:"Non hai ancora piatti tuoi. Creane uno qui sopra."}));return;}
-  o.dishes.forEach(function(it){grid.appendChild(itemCard(it,{mine:true,icon:"\ud83c\udf72",diaryKind:"piatto",onDelete:function(x){if(!confirm("Eliminare \u00ab"+(x.nome||"")+"\u00bb?"))return;var oo=readMP();oo.dishes=oo.dishes.filter(function(y){return y.id!==x.id;});writeMP(oo);renderMyDishes(grid);}}));});
+  o.dishes.forEach(function(it){grid.appendChild(itemCard(it,{mine:true,icon:"\ud83c\udf72",diaryKind:"piatto",onEdit:function(x){window.__editPersonalRecipe(x);},onDelete:function(x){if(!confirm("Eliminare \u00ab"+(x.nome||"")+"\u00bb?"))return;var oo=readMP();oo.dishes=oo.dishes.filter(function(y){return y.id!==x.id;});writeMP(oo);renderMyDishes(grid);}}));});
 }
+function recipeReferences(){var map=new Map();SEED_PIATTI.concat(DISH_ROWS||[]).forEach(function(x){map.set(x.id,x);});return Array.from(map.values());}
+function refreshRecipeReferences(){var select=document.getElementById('recipe-reference');if(!select)return;var value=select.value;select.innerHTML='';select.appendChild(el('option',{value:'',text:'— Scegli la ricetta ufficiale di riferimento —'}));recipeReferences().forEach(function(x){select.appendChild(el('option',{value:x.id,text:x.nome+' · Soglia '+((x.dati||{}).soglia||'da concordare')}));});select.value=value;}
+function openMerchantIngredient(name){ING_FILTER={text:name.toLowerCase(),cat:'',fascia:''};selectTab('mercante');var input=document.getElementById('ing-search');if(input)input.value=name;['ing-cat','ing-fascia'].forEach(function(id){var x=document.getElementById(id);if(x)x.value='';});renderIngGrid();document.getElementById('p-mercante').scrollIntoView({block:'start'});}
+function ingredientLinks(item){var names=GLCCambusa.ingredients(item);if(!names.length)return null;return el('div',{class:'ingredient-links'},[el('span',{class:'lab',text:'Materiali e ingredienti · Mercante'}),el('div',{},names.map(function(name){return el('a',{class:'ibtn ghost',href:'/portale-officina-cambusa/?tab=mercante&ingrediente='+encodeURIComponent(name),text:name+' ↗',onClick:function(event){event.preventDefault();openMerchantIngredient(name);}});} ))]);}
+function personalRecipeBuilder(p){
+ var controls={},editing=null,reference=el('select',{class:'txt',id:'recipe-reference'}),form=el('div',{class:'formcard',id:'cambusa-create'}),status=el('p',{class:'hint',role:'status','aria-live':'polite'});
+ form.appendChild(el('h3',{text:'Scheda della ricetta'}));
+ form.appendChild(el('p',{class:'hint',text:'Parti da una ricetta ufficiale di potenza simile. Registra Soglia, tempo e i quattro esiti prima del tiro. I benefici dei Talenti del Cuoco non si aggiungono gratuitamente; i valori originali richiedono l’accordo del GM.'}));
+ function field(key,label,tag,attrs){var id='recipe-'+key,input=el(tag||'input',Object.assign({class:'txt',id:id},attrs||{}));form.appendChild(el('label',{class:'lab',for:id,text:label}));form.appendChild(input);controls[key]=input;return input;}
+ field('nome','Nome del piatto');form.appendChild(el('label',{class:'lab',for:'recipe-reference',text:'Ricetta ufficiale di riferimento'}));form.appendChild(reference);
+ var cat=field('categoria','Categoria','select');cat.appendChild(el('option',{value:'',text:'— Categoria —'}));GLCCambusa.categories.forEach(function(c){cat.appendChild(el('option',{value:c,text:c}));});
+ field('ingredienti','Ingredienti richiesti dalla ricetta','textarea',{rows:2});
+ field('soglia','Soglia','input',{type:'number',min:1,step:1});field('tempo','Tempo di preparazione (es. 30 minuti)');
+ ['critico','successo','stentato','fallimento'].forEach(function(k){field(k,k[0].toUpperCase()+k.slice(1)+' · PV, ST ed eventuali condizioni');});
+ field('bonus','Bonus propri della ricetta concordati con il GM','textarea',{rows:2});
+ var extra=field('extra','Ingrediente Extra · al massimo uno','select');extra.appendChild(el('option',{value:'',text:'Nessun Ingrediente Extra'}));INGR_NOTE.forEach(function(x,i){extra.appendChild(el('option',{value:String(i),text:x.nome+' · '+x.bonus}));});extra.appendChild(el('option',{value:'custom',text:'Ingrediente personalizzato concordato con il GM'}));
+ var custom=el('div',{});form.appendChild(custom);var customName=el('input',{class:'txt',id:'recipe-extra-name'}),customBonus=el('textarea',{class:'txt',id:'recipe-extra-bonus',rows:2});custom.appendChild(el('label',{class:'lab',for:'recipe-extra-name',text:'Nome dell’Ingrediente Extra'}));custom.appendChild(customName);custom.appendChild(el('label',{class:'lab',for:'recipe-extra-bonus',text:'Beneficio e condizioni concordati'}));custom.appendChild(customBonus);custom.hidden=true;extra.onchange=function(){custom.hidden=extra.value!=='custom';};
+ var approved=el('input',{type:'checkbox',id:'recipe-approved'});form.appendChild(el('label',{class:'ingopt',for:'recipe-approved'},[approved,el('span',{text:'Valori già concordati con il GM'})]));
+ function refData(row){var d=row.dati||{};controls.categoria.value=d.categoria||'';controls.ingredienti.value=d.ingredienti||'';controls.soglia.value=d.soglia||'';controls.tempo.value=d.tempo||'';[['critico','crit','Critico'],['successo','succ','Successo'],['stentato','stent','Stentato'],['fallimento','fall','Fallimento']].forEach(function(x){var outcome=d[x[1]];controls[x[0]].value=outcome?(outcome.pv+' PV / '+outcome.st+' ST'):((row.descrizione||'').match(new RegExp(x[2]+': ([^\\n]+)'))||[])[1]||'';});}
+ reference.onchange=function(){var row=recipeReferences().find(function(x){return x.id===reference.value;});if(row)refData(row);approved.checked=false;};
+ function reset(){editing=null;reference.value='';Object.keys(controls).forEach(function(k){controls[k].value='';});extra.value='';custom.hidden=true;customName.value='';customBonus.value='';approved.checked=false;save.textContent='Registra ricetta';}
+ var save=el('button',{class:'btn',text:'Registra ricetta',onClick:function(){
+  var draft={};Object.keys(controls).forEach(function(k){draft[k]=controls[k].value;});draft.gmApproved=approved.checked;
+  if(extra.value==='custom')draft.extra={nome:customName.value,bonus:customBonus.value};else if(extra.value!==''){var ing=INGR_NOTE[Number(extra.value)];draft.extra={nome:ing.nome,bonus:ing.bonus};}
+  var result=GLCCambusa.create(draft,recipeReferences().find(function(x){return x.id===reference.value;}));
+  if(!result.valid){status.textContent=result.errors.join(' ');return;}
+  var store=readMP(),row=Object.assign({},editing||{id:newId('mp_'),img:''},{nome:draft.nome.trim(),cat:draft.categoria,desc:result.description,recipe:result.recipe});
+  if(editing){var index=store.dishes.findIndex(function(x){return x.id===editing.id;});if(index<0){status.textContent='La ricetta non è più presente. Ricarica prima di salvarla.';return;}store.dishes[index]=row;}else store.dishes.push(row);
+  try{writeMP(store);}catch(error){status.textContent='Spazio insufficiente: le ricette precedenti sono rimaste invariate.';return;}
+  reset();status.textContent='Ricetta registrata. '+(row.recipe.gmApproved?'Valori concordati con il GM.':'Bozza da approvare prima della Prova.');renderMyDishes(document.getElementById('mydishgrid'));
+ }});form.appendChild(status);form.appendChild(el('div',{class:'iacts'},[save,el('button',{class:'ibtn ghost',text:'Nuova ricetta',onClick:function(){reset();status.textContent='';}})]));p.appendChild(form);refreshRecipeReferences();
+ window.__editPersonalRecipe=function(item){reset();editing=JSON.parse(JSON.stringify(item));var r=item.recipe||{};reference.value=r.referenceId||'';controls.nome.value=item.nome||'';Object.keys(controls).filter(function(k){return k!=='nome'&&k!=='extra';}).forEach(function(k){controls[k].value=r[k]??'';});controls.categoria.value=r.categoria||item.cat||'';if(!item.recipe){controls.bonus.value=item.desc||'';status.textContent='Scheda precedente conservata: scegli il riferimento e completa i campi mancanti prima di salvarla.';}if(r.extra){extra.value='custom';custom.hidden=false;customName.value=r.extra.nome;customBonus.value=r.extra.bonus;}approved.checked=r.gmApproved===true;save.textContent='Aggiorna ricetta';form.scrollIntoView({block:'start'});controls.nome.focus();};
+}
+
 function renderCambusa(){
   var p=document.getElementById("p-cambusa"); p.innerHTML="";
   p.appendChild(el("nav",{class:"atelier-localnav","aria-label":"Sezioni Cambusa"},[el("a",{href:"#dishgrid",text:"Ricettario"}),el("a",{href:"#mydishgrid",text:"I miei piatti"}),el("a",{href:"#cambusa-create",text:"＋ Crea piatto"})]));
@@ -508,37 +547,7 @@ function renderCambusa(){
     window.__startEditDish=function(o){d_edit=o.id;d_dati=(o.dati&&typeof o.dati==="object")?JSON.parse(JSON.stringify(o.dati)):{};d_nome.value=o.nome||"";d_desc.value=o.descrizione||"";d_cat.value=(o.dati&&o.dati.categoria)||"";d_img=o.img||"";if(o.img){d_prev.style.backgroundImage="url('"+o.img+"')";d_prev.textContent="";}else{d_prev.style.backgroundImage="";d_prev.innerHTML=GLCArt.html('provviste',64);}d_title.textContent="Modifica piatto ufficiale";d_save.textContent="Aggiorna";dform.scrollIntoView({behavior:"smooth"});};
   }
   p.appendChild(el("div",{class:"sec-head",style:"margin-top:30px"},[el("h2",{text:"Crea il tuo piatto"})]));
-  p.appendChild(el("p",{class:"hint",text:"Scegli un nome e gli ingredienti: ognuno aggiunge il suo bonus. Il piatto finisce tra i tuoi e si pu\u00f2 inserire nel diario."}));
-  var b_nome=el("input",{class:"txt",placeholder:"Nome del piatto"});
-  var b_cat=el("select",{class:"txt"}); b_cat.appendChild(el("option",{value:"",text:"\u2014 categoria (facoltativa) \u2014"})); ["Carne","Pesce","Verdura","Frutta","Dolci","Brodo"].forEach(function(c){b_cat.appendChild(el("option",{value:c,text:c}));});
-  var ingWrap=el("div",{class:"ingpick"});
-  INGR_NOTE.forEach(function(ing,idx){
-    var cb=el("input",{type:"checkbox",id:"ing_"+idx});
-    ingWrap.appendChild(el("label",{class:"ingopt",for:"ing_"+idx},[cb,el("span",{class:"io-nm"},[el("span",{class:"io-art","aria-hidden":"true",html:GLCArt.html(GLCArt.categoryKey(ing.cat),32)}),el("span",{text:ing.nome})]),el("span",{class:"io-bn",text:ing.bonus}),el("span",{class:"io-rare",text:ing.cat+" \u00b7 "+ing.rarita})]));
-  });
-  var cust_nome=el("input",{class:"txt",placeholder:"Ingrediente extra (facoltativo)"});
-  var cust_bonus=el("input",{class:"txt",placeholder:"\u2026e il suo bonus"});
-  var makeBtn=el("button",{class:"btn",text:"Crea piatto",onClick:function(){
-    var nome=b_nome.value.trim(); if(!nome){b_nome.focus();return;}
-    var chosen=[]; INGR_NOTE.forEach(function(ing,idx){var c=document.getElementById("ing_"+idx); if(c&&c.checked)chosen.push(ing);});
-    var lines=[]; if(b_cat.value)lines.push("Categoria: "+b_cat.value);
-    var names=chosen.map(function(x){return x.nome;}); if(cust_nome.value.trim())names.push(cust_nome.value.trim());
-    if(names.length)lines.push("Ingredienti: "+names.join(", "));
-    var bonuses=chosen.map(function(x){return "\u2022 "+x.nome+": "+x.bonus;});
-    if(cust_nome.value.trim()&&cust_bonus.value.trim())bonuses.push("\u2022 "+cust_nome.value.trim()+": "+cust_bonus.value.trim());
-    if(bonuses.length){lines.push("Bonus degli ingredienti:"); lines.push(bonuses.join("\n"));}
-    if(!names.length)lines.push("(nessun ingrediente selezionato)");
-    var o=readMP(); o.dishes.push({id:newId("mp_"),nome:nome,desc:lines.join("\n"),img:"",cat:b_cat.value}); writeMP(o);
-    b_nome.value=""; b_cat.value=""; cust_nome.value=""; cust_bonus.value=""; INGR_NOTE.forEach(function(ing,idx){var c=document.getElementById("ing_"+idx);if(c)c.checked=false;});
-    renderMyDishes(document.getElementById("mydishgrid")); flash("Piatto creato \u2713");
-  }});
-  p.appendChild(el("div",{class:"formcard",id:"cambusa-create"},[
-    el("label",{class:"lab",text:"Nome del piatto"}), b_nome,
-    el("label",{class:"lab",text:"Categoria"}), b_cat,
-    el("label",{class:"lab",text:"Ingredienti (ognuno col suo bonus)"}), ingWrap,
-    el("div",{class:"imgrow",style:"margin-top:6px"},[cust_nome,cust_bonus]),
-    el("div",{},[makeBtn])
-  ]));
+  personalRecipeBuilder(p);
   p.appendChild(el("div",{class:"sec-head",style:"margin-top:30px"},[el("h2",{text:"I miei piatti"})]));
   var mygrid=el("div",{class:"grid",id:"mydishgrid"}); p.appendChild(mygrid); renderMyDishes(mygrid);
   p.appendChild(el("div",{class:"sec-head",style:"margin-top:30px"},[el("h2",{text:"Ingredienti"})]));
@@ -662,6 +671,7 @@ async function init(){
   }catch(e){}
   $("#adminflag").innerHTML = isAdmin ? '<span class="adminflag">⚓ Modalità Capitano (admin)</span>' : "";
   renderOfficina();
+  var query=new URLSearchParams(location.search);if(query.get("tab")==="mercante"){if(query.get("ingrediente"))ING_FILTER={text:query.get("ingrediente").toLowerCase(),cat:"",fascia:""};selectTab("mercante");}
 }
 
 document.addEventListener("DOMContentLoaded",function(){

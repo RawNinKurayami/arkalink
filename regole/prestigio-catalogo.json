@@ -31,6 +31,7 @@
       "talents": [
         "potenza-del-titano",
         "impatto-devastante",
+        "precisione-assoluta",
         "raffica-senza-fine"
       ]
     },
@@ -40,6 +41,8 @@
       "style": "Striker",
       "skill": "Acrobazia",
       "talents": [
+        "potenza-del-titano",
+        "impatto-devastante",
         "precisione-assoluta",
         "raffica-senza-fine"
       ]
@@ -207,7 +210,8 @@
       "id": "potenza-del-titano",
       "name": "Potenza del Titano",
       "paths": [
-        "striker-atletica"
+        "striker-atletica",
+        "striker-acrobazia"
       ],
       "requires": [],
       "replaces": [],
@@ -260,7 +264,8 @@
       "id": "impatto-devastante",
       "name": "Onda Titanica",
       "paths": [
-        "striker-atletica"
+        "striker-atletica",
+        "striker-acrobazia"
       ],
       "requires": [
         "Pugni che Rompono"
@@ -332,6 +337,7 @@
       "id": "precisione-assoluta",
       "name": "Precisione Assoluta",
       "paths": [
+        "striker-atletica",
         "striker-acrobazia"
       ],
       "requires": [],
@@ -3481,7 +3487,7 @@
         {
           "type": "p",
           "style": "Normal",
-     "text": "Nell’onda si usa il danno dell’attacco, con i contributi normalmente applicabili, ma non si propagano automaticamente effetti destinati al solo bersaglio principale. Proiezione, Schianto e condizioni della Tecnica rivolte soltanto al bersaglio principale non vengono copiati sui bersagli secondari. Ryou modifica invece il danno totale dell’attacco secondo la propria regola generale: il riferimento al colpo dall’interno è narrativo e non identifica una componente numerica separata."
+          "text": "Nell’onda si usa il danno dell’attacco, con i contributi normalmente applicabili, ma non si propagano automaticamente effetti destinati al solo bersaglio principale. Proiezione, Schianto e condizioni della Tecnica rivolte soltanto al bersaglio principale non vengono copiati sui bersagli secondari. Ryou modifica invece il danno totale dell’attacco secondo la propria regola generale: il riferimento al colpo dall’interno è narrativo e non identifica una componente numerica separata."
         },
         {
           "type": "p",
@@ -3534,12 +3540,12 @@
         {
           "type": "p",
           "style": "Normal",
-     "text": "Il Ryou conserva il funzionamento ordinario: calcoli normalmente il danno totale dell’attacco scelto, comprendendo tutti i dadi e i bonus effettivamente applicabili, e lo moltiplichi ×2 una sola volta. Non raddoppiare separatamente le singole componenti per poi moltiplicare nuovamente il risultato. Il riferimento al colpo che agisce dall’interno rimane descrittivo e non crea una categoria meccanica o una componente di danno separata. Ryou non rende il colpo automatico e non impedisce al bersaglio di utilizzare Difesa Passiva, Difesa Attiva, Riduzione del Danno o altre difese normalmente consentite, salvo una regola specifica."
+          "text": "Il Ryou conserva il funzionamento ordinario: calcoli normalmente il danno totale dell’attacco scelto, comprendendo tutti i dadi e i bonus effettivamente applicabili, e lo moltiplichi ×2 una sola volta. Non raddoppiare separatamente le singole componenti per poi moltiplicare nuovamente il risultato. Il riferimento al colpo che agisce dall’interno rimane descrittivo e non crea una categoria meccanica o una componente di danno separata. Ryou non rende il colpo automatico e non impedisce al bersaglio di utilizzare Difesa Passiva, Difesa Attiva, Riduzione del Danno o altre difese normalmente consentite, salvo una regola specifica."
         },
         {
           "type": "p",
           "style": "Normal",
-     "text": "Gli attacchi richiedono le proprie Azioni e gli eventuali costi della Tecnica. Un attacco mancato consuma l’applicazione scelta per quel turno e non concede un secondo tentativo. Il potenziamento Ryou Persistente non aggiunge attacchi, non si applica automaticamente a ogni colpo di una Raffica e termina se Armamento viene interrotto."
+          "text": "Gli attacchi richiedono le proprie Azioni e gli eventuali costi della Tecnica. Un attacco mancato consuma l’applicazione scelta per quel turno e non concede un secondo tentativo. Il potenziamento Ryou Persistente non aggiunge attacchi, non si applica automaticamente a ogni colpo di una Raffica e termina se Armamento viene interrotto."
         },
         {
           "type": "p",

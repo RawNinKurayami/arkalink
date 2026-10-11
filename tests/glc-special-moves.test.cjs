@@ -10,6 +10,40 @@ const html=fs.readFileSync(process.env.GLC_MOVES_HTML||path.join(root,'gestisci-
 const source=fs.readFileSync(process.env.GLC_MOVES_SOURCE||path.join(root,'gestisci-pirata/special-moves.js'),'utf8');
 const {setup,errorText,hasBonusError}=require('./helpers/glc-fixture.cjs');
 
+test('Haki already active survives zero PIP at paid and free maintenance, but new lightning remains unavailable',()=>{
+ for(const die of ['d6','d12']){
+  const h=setup();h.context.pg.haki[0].die=die;h.state(0,{pipRemaining:0});
+  const r=h.resolve({hakiSelections:[h.h(0,{activation:'prepared'})]});
+  assert.equal(r.status,'ready',errorText(r));assert.equal(r.totals.maintenanceST,die==='d6'?1:0);
+  assert.ok(h.moves.hakiState(h.moves.sources().find(s=>s.id===h.colors[0])).active);
+  if(die==='d12')assert.equal(h.resolve({hakiSelections:[h.h(0,{activation:'prepared',effects:['act:d10']})]}).status,'unavailable');
+ }
+});
+test('Ordinary Armatura Totale must be prepared before defense and can be consumed with no PIP remaining',()=>{
+ const h=setup();h.context.pg.haki[0].die='d8';h.state(0,{pipRemaining:0,effects:{'act:d8':1}});
+ const choice=h.h(0,{use:'defense',activation:'prepared',effects:['act:d8'],preparedEffects:['act:d8']});
+ const r=h.resolve({techniqueUse:'defense',hakiSelections:[choice]});
+ assert.equal(r.errors.length,0,errorText(r));assert.equal(r.status,'ready');assert.equal(r.totals.pip,0);assert.equal(r.economy.used,0);
+ assert.ok(r.conditions.some(x=>/un solo attacco/.test(x.text)));
+ h.state(0,{pipRemaining:1,effects:{'act:d8':0}});
+ assert.equal(h.resolve({techniqueUse:'defense',hakiSelections:[choice]}).status,'unavailable');
+ const fresh=h.resolve({techniqueUse:'defense',hakiSelections:[{...choice,preparedEffects:[]}]});assert.match(errorText(fresh),/preparata nel proprio turno/);
+ const ownTurn=h.resolve({baseTechId:'tech:guard',hakiSelections:[{...choice,preparedEffects:[]}]});
+ assert.equal(ownTurn.status,'ready',errorText(ownTurn));assert.equal(ownTurn.economy.used,1);assert.equal(ownTurn.totals.pip,1);
+});
+
+test('Onda d’Urto adds the official 2 ST cost to a compatible Crusher attack without changing its technique cost',()=>{
+ const h=setup();h.context.pg.style='Crusher';h.context.pg.attr.Forza='d20';
+ const row=h.context.rules.TALENTS.Combattente.styles.Crusher.talenti.find(t=>t.n==='Onda d\'Urto');
+ h.context.pg.talents=['Combattente · Crusher · '+row.n];
+ h.context.pg.armi=[{id:'hammer',nome:'Martello',tipo:'Contundente',grado:'d10',attr:'Forza',portata:'2 m'}];
+ Object.assign(h.context.pg.extraTech[0],{stile:'Crusher',arma:'hammer'});
+ const s=h.moves.sources().find(s=>s.name===row.n),before=JSON.stringify(h.context.pg);
+ const r=h.resolve({weaponId:'weapon:hammer',activeTalentId:s.id});
+ assert.equal(r.status,'ready',errorText(r));assert.equal(r.rows.find(x=>x.id===s.id).st,2);assert.equal(r.totals.st,2);
+ assert.equal(r.rows.find(x=>x.id==='tech:punch').st,0);assert.equal(r.economy.used,1);assert.equal(JSON.stringify(h.context.pg),before);
+});
+
 test('Ordinary Raffica charges 1, 3 or 6 ST cumulatively while extras remain basic attacks',()=>{
  const chain=['Raffica — Base','Raffica — Migliorato','Raffica — Maestria'];
  for(let tier=0;tier<chain.length;tier++){

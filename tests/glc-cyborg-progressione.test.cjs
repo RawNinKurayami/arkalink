@@ -10,17 +10,17 @@ function setup(die){
  vm.runInContext('const DICE=["d4","d6","d8","d10","d12","d20","d20+d4"];\n'+declarations+'\n'+main.slice(main.indexOf('function paRow('),main.indexOf('/* Riga di progressione:',main.indexOf('function paRow('))),context);
  return context;
 }
-test('Custom PA thresholds cannot advance Corpo Meccanico beyond d20 or spend its PA',()=>{
- const c=setup('d20'),row=c.paRow('tec:racial',()=>c.pg.racialDie,nd=>c.setTechDie({k:'racial'},nd)),advance=row.kids.at(-1);
- assert.equal(advance.disabled,true);assert.equal(advance.onclick,undefined);
+test('Racial techniques never offer PA controls or consume historical PA, even under custom thresholds',()=>{
+ const c=setup('d20'),row=c.paRow('tec:racial',()=>c.pg.racialDie,nd=>c.setTechDie({k:'racial'},nd));
+ assert.equal(row.kids.length,0);assert.match(row.text,/non ricevono né spendono P.A./);
  c.setTechDie({k:'racial'},'d20+d4');assert.equal(c.pg.racialDie,'d20');assert.equal(c.pg.pa['tec:racial'],99);
 });
-test('The actual ordinary racial advancement still increases Corpo Meccanico and spends only its threshold',()=>{
- const c=setup('d8'),row=c.paRow('tec:racial',()=>c.pg.racialDie,nd=>c.setTechDie({k:'racial'},nd)),advance=row.kids.at(-1);
- assert.equal(advance.disabled,false);advance.onclick();assert.equal(c.pg.racialDie,'d10');assert.equal(c.pg.pa['tec:racial'],39);
+test('A GM-granted racial grade can still be recorded without spending PA or changing modules',()=>{
+ const c=setup('d8');c.pg.moduli=[{id:'kept',req:'d8'}];const old=JSON.stringify(c.pg.moduli);
+ c.setTechDie({k:'racial'},'d10');assert.equal(c.pg.racialDie,'d10');assert.equal(c.pg.pa['tec:racial'],99);assert.equal(JSON.stringify(c.pg.moduli),old);
 });
 test('A historical Prestige racial value is preserved for review with advancement disabled',()=>{
  const c=setup('d20+d4'),before=JSON.stringify(c.pg),row=c.paRow('tec:racial',()=>c.pg.racialDie,nd=>c.setTechDie({k:'racial'},nd));
- assert.equal(row.kids.at(-1).disabled,true);assert.equal(JSON.stringify(c.pg),before);
+ assert.equal(row.kids.length,0);assert.equal(JSON.stringify(c.pg),before);
  c.setTechDie({k:'racial'},'d20');assert.equal(c.pg.racialDie,'d20');assert.equal(c.pg.pa['tec:racial'],99);
 });

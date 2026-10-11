@@ -34,7 +34,9 @@ for e in sorted(aggiunte,key=lambda e:-e['after']):
  sources[e['source']][e['after']+1:e['after']+1]=blocchi
 def shift(src,i):
  return i+sum(len(e['blocchi']) for e in aggiunte if e['source']==src and e['after']+1<=i)
-def slug(s):return re.sub(r'[^a-z0-9]+','-',unicodedata.normalize('NFKD',s).encode('ascii','ignore').decode().lower()).strip('-')
+def slug(s):
+ s={'Striker · Talenti di Prestigio comuni':'Striker con Skill di Ruolo Atletica','Striker · Precisione':'Striker con Skill di Ruolo Acrobazia','Striker · Raffica':'Talento comune ai due percorsi dello Striker'}.get(s,s)
+ return re.sub(r'[^a-z0-9]+','-',unicodedata.normalize('NFKD',s).encode('ascii','ignore').decode().lower()).strip('-')
 def section(src,name):
  blocks=sources[src];start=next(i for i,b in enumerate(blocks) if b.get('text')==name and b.get('style','').startswith('Heading'))
  level=int(blocks[start]['style'][-1]);end=next((i for i in range(start+1,len(blocks)) if blocks[i].get('style','').startswith('Heading') and int(blocks[i]['style'][-1])<=level),len(blocks))

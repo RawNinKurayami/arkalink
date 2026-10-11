@@ -44,9 +44,9 @@ function ownsOrdinary(c,p,name,visited=[]){
  if(!def||!list(c.talents).includes(prefix(p)+name)||rank(p.die)<rank(def.tier||'d8'))return false;
  return !def.req||ownsOrdinary(c,p,def.req,[...visited,name]);
 }
-function choices(c,key){return unique(list(key==='spirito'?c.prestige?.spirit:c.prestige?.choices?.[key]).filter(x=>typeof x==='string'));}
+function choices(c,key){const values=key==='spirito'?list(c.prestige?.spirit):key.startsWith('striker-')?['striker-atletica','striker-acrobazia'].flatMap(k=>list(c.prestige?.choices?.[k])):list(c.prestige?.choices?.[key]);return unique(values.filter(x=>typeof x==='string'));}
 function states(c,key){
- const p=key==='spirito'?{id:key,die:c.attr?.Spirito,skill:'Spirito',talents:D.talents.filter(t=>t.paths.includes(key)).map(t=>t.id)}:paths(c).find(p=>p.id===key);
+ const p=key==='spirito'?{id:key,die:c.attr?.Spirito,skill:'Spirito',talents:D.talents.filter(t=>t.paths.includes(key)).map(t=>t.id)}:paths(c).find(p=>p.id===key||(['striker-atletica','striker-acrobazia'].includes(key)&&p.style==='Striker'));
  if(!p)return [];
  const chosen=choices(c,key),limit=slots(p.die),eligible=chosen.filter(id=>p.talents.includes(id)&&talent(id).requires.every(n=>ownsOrdinary(c,p,n))).slice(0,limit);
  return p.talents.map(id=>{
@@ -66,7 +66,7 @@ function choose(c,key,id,take){
  if(take&&!st.available)throw Error(st.reason||'Talento già acquisito.');
  c.prestige??={};c.prestige.choices??={};
  const next=take?unique([...choices(c,key),id]):choices(c,key).filter(x=>x!==id);
- if(key==='spirito')c.prestige.spirit=next;else c.prestige.choices[key]=next;
+ if(key==='spirito')c.prestige.spirit=next;else if(key.startsWith('striker-')){c.prestige.choices['striker-atletica']=next;c.prestige.choices['striker-acrobazia']=next;}else c.prestige.choices[key]=next;
 }
 function superseded(c,key){
  const parts=String(key).split(' · '),name=parts.slice(2).join(' · '),p=paths(c).find(p=>p.role===parts[0]&&p.style===parts[1]);

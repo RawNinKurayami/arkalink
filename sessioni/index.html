@@ -236,7 +236,6 @@ function render(){
   app.appendChild(hero);
   var jumps=el("nav",{class:"voyage-jumps","aria-label":"Nella sessione"});
   [["session-notebook","Diario di bordo","tecnica"],["session-map","Atlante","ruolo-navigatore"],["session-log","Registro","legame"]].forEach(function(x){jumps.appendChild(el("a",{href:"#"+x[0]},[el("span",{"aria-hidden":"true",html:GLCArt.html(x[2],24)}),el("span",{text:x[1]})]));});
-  jumps.appendChild(el("a",{href:"/tavolo-tattico/?s="+encodeURIComponent(SID)},[el("span",{"aria-hidden":"true",html:GLCArt.html('ruolo-combattente',24)}),el("span",{text:"Tavolo tattico del GM ↗"})]));
   app.appendChild(jumps);
   var desk=el("div",{class:"session-desk"});app.appendChild(desk);
 

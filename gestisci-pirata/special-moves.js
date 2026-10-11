@@ -333,7 +333,7 @@ function hakiState(s) {
  const max=hakiPipAxis(s.raw)?hakiPipOf(s.raw):Math.min(hakiPip(window.GLCPrestige?.effectiveHakiDie(pg,s.raw)||s.raw.die),HAKI_PROG[s.name]?.max||5);
  const v=pg.specialMoveSession?.haki?.[s.id]||{};
  const effects={};
- hakiUnlocked(s.raw).forEach(row=>{if(row.durationTurns>1){const id='act:'+row.k;effects[id]=row.prestige&&!v.active?0:Math.max(0,Math.min(row.durationTurns,Math.floor(number(v.effects?.[id],0))));}});
+ hakiUnlocked(s.raw).forEach(row=>{if(row.durationTurns>1||row.preparable){const id='act:'+row.k;effects[id]=(row.prestige||row.preparable)&&!v.active?0:Math.max(0,Math.min(row.durationTurns,Math.floor(number(v.effects?.[id],0))));}});
  return {active:v.active===true,pipRemaining:Math.max(0,Math.min(max,number(v.pipRemaining,max))),turns:Math.max(0,number(v.turns,0)),effects,max};
 }
 /* Each use has one shared Bonus Action. Preparation is a requirement, not an
@@ -356,10 +356,11 @@ function actionPlan(m,ss=sources(),tech=findSource(m.baseTechId,ss)) {
   const preparedEffects=[];
   list(selection.preparedEffects).forEach(id=>{
    const effect=chosen.find(e=>e.id===id);
-   if(!effect||effect.mode!=='active'||!(effect.row.durationTurns>1))errors.push({id:s.id,text:s.name+': questo effetto non può essere conservato da un turno precedente ('+id+').'});
+   if(!effect||effect.mode!=='active'||!(effect.row.durationTurns>1||effect.row.preparable))errors.push({id:s.id,text:s.name+': questo effetto non può essere conservato da un turno precedente ('+id+').'});
    else preparedEffects.push(effect);
   });
   const fresh=chosen.filter(e=>e.mode==='active'&&!preparedEffects.includes(e));
+  if(defending&&fresh.some(e=>e.row.singleHit))errors.push({id:s.id,text:'Armatura Totale va preparata nel proprio turno con 1 Bonus e 1 PIP: seleziona l’effetto già preparato prima della difesa.'});
   if(activation)bonus.push({id:s.id,text:'Attivazione '+s.name,activation:true});
   fresh.forEach(e=>bonus.push({id:s.id,text:e.name}));
   haki.push({source:s,selection,state,chosen,preparedEffects,fresh,prepared,activation});
@@ -555,7 +556,7 @@ function resolve(input) {
   }else if(activation)conditions.push({id:s.id,text:'In questo turno: attiva '+s.name+' con 1 Azione Bonus e 1 PIP, incluso nel costo.'});
   plan.preparedEffects.forEach(e=>{
    const remaining=session.effects[e.id]||0;
-   conditions.push({id:s.id,text:e.name+': preparato in un turno precedente con 1 Azione Bonus e '+e.cost+' PIP. Durata originale '+e.row.durationTurns+' turni; residui registrati '+remaining+'. Non ripaga PIP e non occupa la Bonus di questa mossa. Non rinnova la durata.'});
+   conditions.push({id:s.id,text:e.row.singleHit?'Armatura Totale già preparata: nessuna nuova Bonus o spesa PIP. Dimezza un solo attacco; togli Pronta dopo l’uso o se interrompi Armamento.':e.name+': preparato in un turno precedente con 1 Azione Bonus e '+e.cost+' PIP. Durata originale '+e.row.durationTurns+' turni; residui registrati '+remaining+'. Non ripaga PIP e non occupa la Bonus di questa mossa. Non rinnova la durata.'});
    if(!remaining)unavailable.push(e.name+': effetto preparato assente o scaduto. Registra i turni residui nello stato del combattimento.');
   });
   if(s.name===HAKI_NAMES[2]&&chosen.some(e=>['act:2','act:prestige-pressione-imperiale'].includes(e.id))&&pg.prestige?.session?.emperorUsed)unavailable.push('Grido / Pressione Imperiale: utilizzo condiviso già speso in questo combattimento.');
@@ -1015,10 +1016,12 @@ function hakiLiveControls(work) {
  sources().filter(s=>s.kind==='haki').forEach(s=>{
   const state=hakiState(s),group=node('div','smc-live-haki');group.append(iconNode(s,26),node('b','',s.name));
   const update=patch=>liveChange(p=>{p.specialMoveSession=p.specialMoveSession||{};p.specialMoveSession.haki=p.specialMoveSession.haki||{};p.specialMoveSession.haki[s.id]={...state,...patch};delete p.specialMoveSession.haki[s.id].max;});
-  group.append(button(state.active?'Attivo ✓':'Inattivo',()=>update({active:!state.active,turns:0,effects:state.active?Object.fromEntries(Object.entries(state.effects).map(([id,n])=>[id,id.startsWith('act:prestige-')?0:n])):state.effects}),'smc-button',{'aria-pressed':String(state.active),'data-smc-focus':'live-'+s.id}));
+  group.append(button(state.active?'Attivo ✓':'Inattivo',()=>update({active:!state.active,turns:0,effects:state.active?Object.fromEntries(Object.entries(state.effects).map(([id,n])=>[id,(id==='act:d8'||id.startsWith('act:prestige-'))?0:n])):state.effects}),'smc-button',{'aria-pressed':String(state.active),'data-smc-focus':'live-'+s.id}));
   const remaining=field('PIP rimasti / '+state.max,state.pipRemaining,()=>{},'number',{min:0,max:state.max,step:1,'data-smc-focus':'pip-'+s.id});remaining.querySelector('input').onchange=e=>{const v=Number(e.target.value);if(Number.isInteger(v)&&v>=0&&v<=state.max)update({pipRemaining:v});else {e.target.value=state.pipRemaining;announce('Inserisci PIP fra 0 e '+state.max,true);}};group.append(remaining);
-  hakiUnlocked(s.raw).filter(row=>row.act&&row.durationTurns>1).forEach(row=>{
-   const id='act:'+row.k,turns=field(row.act.split(':')[0]+' · turni residui',state.effects[id],()=>{},'number',{min:0,max:row.durationTurns,step:1,'data-smc-focus':'duration-'+s.id+'-'+id});
+  hakiUnlocked(s.raw).filter(row=>row.act&&(row.durationTurns>1||row.preparable)).forEach(row=>{
+   const id='act:'+row.k;
+   if(row.singleHit){group.append(button(state.effects[id]?'Armatura Totale pronta ✓':'Armatura Totale da preparare',()=>update({effects:{...state.effects,[id]:state.effects[id]?0:1}}),'smc-button',{'aria-pressed':String(!!state.effects[id]),'data-smc-focus':'duration-'+s.id+'-'+id}));group.append(note('Registra la preparazione già pagata nel tuo turno. Togli Pronta dopo il primo attacco che ti colpisce o se interrompi Armamento.'));return;}
+   const turns=field(row.act.split(':')[0]+' · turni residui',state.effects[id],()=>{},'number',{min:0,max:row.durationTurns,step:1,'data-smc-focus':'duration-'+s.id+'-'+id});
    turns.classList.add('smc-live-duration');turns.querySelector('input').onchange=e=>{const value=Number(e.target.value);if(e.target.value!==''&&Number.isInteger(value)&&value>=0&&value<=row.durationTurns)update({effects:{...state.effects,[id]:value}});else{e.target.value=state.effects[id];announce('Inserisci i turni rimasti, da 0 a '+row.durationTurns+'.',true);}};group.append(turns);
   });
   /* Dal d12 l'Armamento non chiede più ST: non c'è più un conto di turni gratuiti da tenere. */
@@ -1042,7 +1045,7 @@ function stepPowers(work) {
     if(selected.activation==='prepared')block.append(note('Preparazione: attiva questo Colore in un turno precedente, pagando 1 PIP e la Bonus. Nel turno della mossa applichi il mantenimento; i costi preparatori non si pagano di nuovo.'));
     if(s.name===HAKI_NAMES[0])block.append(selectField('Impiego dell’Armamento',selected.use,isDefending(tech?.raw,m)?[['defense',isActiveDefense(tech?.raw,m)?'Difesa Attiva · aggiungi il dado al tiro':'Difesa · effetti Haki, senza dado alla Difesa Passiva']]:[['offense','Offesa · aggiungi il dado al danno']],v=>changeDraft(d=>d.hakiSelections.find(h=>h.id===s.id).use=v)));
     hakiEffects(s,tech,m).forEach(e=>{
-     const on=selected.effects.includes(e.id),prepared=list(selected.preparedEffects).includes(e.id),persistent=e.mode==='active'&&e.row.durationTurns>1;
+     const on=selected.effects.includes(e.id),prepared=list(selected.preparedEffects).includes(e.id),persistent=e.mode==='active'&&(e.row.durationTurns>1||e.row.preparable);
      const candidate={...m,hakiSelections:m.hakiSelections.map(h=>h.id===s.id?{...h,effects:[...h.effects,e.id]}:h)};
      const blocked=!on&&e.mode==='active'&&actionPlan(candidate,ss,tech).used>1;
      const line=button('',()=>changeDraft(d=>{const h=d.hakiSelections.find(h=>h.id===s.id);h.effects=on?h.effects.filter(x=>x!==e.id):[...h.effects,e.id];if(on)h.preparedEffects=list(h.preparedEffects).filter(x=>x!==e.id);}),
@@ -1051,7 +1054,7 @@ function stepPowers(work) {
      if(blocked)block.append(note('Bonus già occupata: questo effetto non può essere attivato nella stessa mossa.','smc-effect-hint'));
      if(persistent&&!on)block.append(button('Usa l’effetto già preparato · '+e.name,()=>changeDraft(d=>{const h=d.hakiSelections.find(h=>h.id===s.id);h.effects=[...h.effects,e.id];h.preparedEffects=[...list(h.preparedEffects),e.id];h.activation='prepared';}),'smc-link',{'data-smc-focus':'prepare-'+s.id+'-'+e.id}));
      if(on&&persistent)block.append(selectField('Uso di '+e.name,prepared?'prepared':'now',[
-      ['now','Attiva in questo turno · 1 Bonus + '+e.cost+' PIP'],['prepared','Già preparato · deve avere turni residui']
+      ['now','Attiva in questo turno · 1 Bonus + '+e.cost+' PIP'],['prepared',e.row.singleHit?'Già preparata · deve risultare Pronta':'Già preparato · deve avere turni residui']
      ],v=>changeDraft(d=>{const h=d.hakiSelections.find(h=>h.id===s.id);h.preparedEffects=v==='prepared'?uniq([...list(h.preparedEffects),e.id]):list(h.preparedEffects).filter(x=>x!==e.id);if(v==='prepared')h.activation='prepared';})));
     });
    }work.append(block);

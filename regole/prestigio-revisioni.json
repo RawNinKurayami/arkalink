@@ -1045,10 +1045,51 @@
   "source": "introduzione",
   "after": 7,
   "blocchi": [
-   {"style": "Heading 3", "text": "Difesa Passiva e Prestigio"},
-   {"style": "Normal", "text": "Se l’Attributo Razziale entra nel Prestigio, anche la Difesa Passiva continua a crescere. La DP usa il Grado completo dell’Attributo Razziale: somma i valori massimi dei dadi che lo compongono e aggiungi +1. Non si effettua un tiro."},
-   {"type": "table", "rows": [["Grado dell’Attributo Razziale", "Difesa Passiva"], ["d20+d4 · Prestigio I", "25"], ["d20+d6 · Prestigio II", "27"], ["d20+d8 · Prestigio III", "29"], ["d20+d10 · Prestigio IV", "31"], ["d20+d12 · Prestigio V", "33"], ["d20+d20 · Saikyō", "41"]]},
-   {"style": "Normal", "text": "Talenti, Tecniche, Haki, Tratti Unici e altri effetti che modificano esplicitamente la Difesa Passiva si applicano dopo il calcolo del valore base."}
+   {
+    "style": "Heading 3",
+    "text": "Difesa Passiva e Prestigio"
+   },
+   {
+    "style": "Normal",
+    "text": "Se l’Attributo Razziale entra nel Prestigio, anche la Difesa Passiva continua a crescere. La DP usa il Grado completo dell’Attributo Razziale: somma i valori massimi dei dadi che lo compongono e aggiungi +1. Non si effettua un tiro."
+   },
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Grado dell’Attributo Razziale",
+      "Difesa Passiva"
+     ],
+     [
+      "d20+d4 · Prestigio I",
+      "25"
+     ],
+     [
+      "d20+d6 · Prestigio II",
+      "27"
+     ],
+     [
+      "d20+d8 · Prestigio III",
+      "29"
+     ],
+     [
+      "d20+d10 · Prestigio IV",
+      "31"
+     ],
+     [
+      "d20+d12 · Prestigio V",
+      "33"
+     ],
+     [
+      "d20+d20 · Saikyō",
+      "41"
+     ]
+    ]
+   },
+   {
+    "style": "Normal",
+    "text": "Talenti, Tecniche, Haki, Tratti Unici e altri effetti che modificano esplicitamente la Difesa Passiva si applicano dopo il calcolo del valore base."
+   }
   ],
   "perche": "Patch di allineamento post-audit v1.0 del 07/10/2026, punto 7 approvato: DP dal Grado completo dell’Attributo Razziale, prima delle Salvezze."
  },
@@ -1072,5 +1113,47 @@
   "from": "Gli attacchi richiedono le proprie Azioni e gli eventuali costi della Tecnica. Un attacco mancato consuma l’applicazione scelta per quel turno; non concede un secondo tentativo. Il potenziamento non aggiunge attacchi, non si applica a ogni colpo di una Raffica e termina se Armamento viene interrotto.",
   "to": "Gli attacchi richiedono le proprie Azioni e gli eventuali costi della Tecnica. Un attacco mancato consuma l’applicazione scelta per quel turno e non concede un secondo tentativo. Il potenziamento Ryou Persistente non aggiunge attacchi, non si applica automaticamente a ogni colpo di una Raffica e termina se Armamento viene interrotto.",
   "perche": "Patch di allineamento post-audit v1.0 del 07/10/2026, punto 8.2 approvato: ripresa esplicita dei limiti del testo sostitutivo completo."
+ },
+ {
+  "source": "combattenti",
+  "block": 150,
+  "from": "Striker con Skill di Ruolo Atletica",
+  "to": "Striker · Talenti di Prestigio comuni",
+  "perche": "Decisioni ufficiali del creatore, 11/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 169,
+  "from": "Striker con Skill di Ruolo Acrobazia",
+  "to": "Striker · Precisione",
+  "perche": "Decisioni ufficiali del creatore, 11/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 170,
+  "from": "Precisione Assoluta è un Talento del percorso Striker e richiede una scelta sbloccata da Acrobazia. Il Prestigio dell'Attributo Tecnica concede la mobilità, ma non assegna automaticamente questo Talento e non rende Punto di Rottura disponibile allo Swordsman.",
+  "to": "Lo Striker dispone dello stesso catalogo di quattro Talenti di Prestigio sia scegliendo Atletica sia scegliendo Acrobazia: Potenza del Titano, Onda Titanica, Precisione Assoluta e Raffica Senza Fine. Le scelte si sbloccano con la Skill di Ruolo scelta ai Prestigi I, III e V. La Skill non divide i Talenti in percorsi separati e non concede scelte aggiuntive; restano validi i requisiti di ogni Talento. I potenziamenti di Forza e Tecnica restano legati ai rispettivi Attributi.",
+  "perche": "Decisioni ufficiali del creatore, 11/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 187,
+  "from": "Talento comune ai due percorsi dello Striker",
+  "to": "Striker · Raffica",
+  "perche": "Decisioni ufficiali del creatore, 11/10/2026."
+ },
+ {
+  "source": "combattenti",
+  "block": 189,
+  "from": "Raffica Senza Fine è un’opzione comune ai percorsi Forza e Atletica e Tecnica e Acrobazia. La sua acquisizione utilizza la Skill di Ruolo del rispettivo percorso e segue il normale numero di scelte di Prestigio disponibili.",
+  "to": "Raffica Senza Fine appartiene al catalogo comune dello Striker. La sua acquisizione utilizza Atletica oppure Acrobazia, secondo la Skill di Ruolo scelta, e una delle normali scelte di Prestigio disponibili.",
+  "perche": "Decisioni ufficiali del creatore, 11/10/2026."
+ },
+ {
+  "source": "haki",
+  "block": 26,
+  "from": "I PIP pagano l’attivazione e gli effetti attivi. Portare una riserva a zero non spegne da solo un Colore già attivo: il suo uso ordinario resta possibile finché viene mantenuto. Senza PIP sufficienti non si possono però attivare altri effetti a pagamento.",
+  "to": "I PIP pagano l’attivazione e gli effetti attivi. Portare una riserva a zero non spegne da solo un Colore già attivo: il suo uso ordinario resta possibile finché viene mantenuto. Senza PIP sufficienti non si possono però attivare altri effetti a pagamento. Se il mantenimento richiede ST, devi continuare a pagarle; se è gratuito, il Colore già attivato resta attivo senza spendere ST, anche a 0 PIP. A 0 PIP non puoi accendere un Colore spento. Gli effetti già pagati conservano soltanto la durata e gli utilizzi previsti dalla loro descrizione.",
+  "perche": "Decisioni ufficiali del creatore, 11/10/2026."
  }
 ]

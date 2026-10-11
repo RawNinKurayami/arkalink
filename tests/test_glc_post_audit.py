@@ -92,9 +92,13 @@ class PostAuditManuals(unittest.TestCase):
         self.assertNotIn('scontrose', striker)
         self.assertNotIn('vantaggio.ogni', striker)
 
-    def test_cyborg_manual_is_byte_identical_to_pre_patch_backup(self):
-        self.assertEqual(hashlib.sha256((ROOT / 'manuale-cyborg/index.html').read_bytes()).hexdigest(),
-                         '722f196ba4666ddc06a0990fcd3f0d158e52b9b25e0d368030840792fa7e4710')
+    def test_cyborg_normative_chapters_are_unchanged_independently_of_cover(self):
+        document = Document('manuale-cyborg/index.html')
+        chapters = [n for n in document.nodes if n.attrs.get('class') == 'man-cap']
+        self.assertEqual(len(chapters), 16)
+        body = ''.join(n.text() for n in chapters)
+        self.assertEqual(hashlib.sha256(body.encode()).hexdigest(), 'b8bab5b027798a958badf67ee5dc52c0d876e89a58dd7612e7a1d6a85987da34')
+
 
 
 if __name__ == '__main__':

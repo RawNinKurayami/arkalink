@@ -123,7 +123,7 @@ INTRO_CAP = NOTA_BASE.sub('', BASE[_a:BASE.index('<h2 id="sez-9-1"', _a)]).strip
 IMPORTI = {
     'generali': [('Ottenere un Frutto del Diavolo', base_sezione('9.1')),
                  ('I tre tipi di Frutto', base_sezione('9.2')),
-                 ('Le tre debolezze', base_sezione('9.3')),
+                 ('Debolezze e interazioni', base_sezione('9.3')),
                  ('Il Dado del Frutto', base_sezione('9.4')),
                  ('Costruire le Tecniche del Frutto', base_sezione('9.5')),
                  ('I Talenti del Frutto', base_sezione('9.6'))],
@@ -185,6 +185,7 @@ def livello(stile, testo, capitolo, in_risveglio):
 esc = html.escape
 
 def ancora(t):
+    t = 'Le tre debolezze' if t == 'Debolezze e interazioni' else t
     t = unicodedata.normalize('NFKD', t).encode('ascii', 'ignore').decode().lower()
     return re.sub(r'[^a-z0-9]+', '-', t).strip('-')
 
