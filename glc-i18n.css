@@ -1,0 +1,20 @@
+/* A small language control uses the current GLC visual language. */
+.glc-language{display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid rgba(240,164,65,.3);border-radius:999px;background:#09090ce6;flex:none;vertical-align:middle}
+.glc-language button{font:700 10px/1 'Manrope','Inter',system-ui,sans-serif;letter-spacing:.06em;border:0;background:transparent;color:#c2b9a9;padding:10px 9px;min-height:32px;min-width:32px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.glc-language button[aria-pressed="true"]{background:#ffd394;color:#21180e}
+.glc-language button:hover{color:#fff}.glc-language button[aria-pressed="true"]:hover{color:#21180e}
+.glc-language button:focus-visible{outline:2px solid #ffd394;outline-offset:3px}
+.glc-language-host{flex-wrap:wrap}.glc-language-floating{position:fixed;bottom:14px;right:14px;z-index:8999;box-shadow:0 4px 18px #0008}
+.home-nav .glc-language{align-self:center}.pr-top nav{display:flex;align-items:center;gap:14px}.man-strumenti{align-items:center}
+html[data-glc-language-pending] main:not(.man-foglio),html[data-glc-language-pending] .wrap{visibility:hidden}
+.man-copertina,.pr-book-art{position:relative}
+.glc-cover-en{position:absolute;inset:auto 0 0;min-height:12%;padding:5% 4% 3%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(0deg,#070707 85%,#07070700);color:#fff;pointer-events:none;box-sizing:border-box}
+.glc-cover-en strong{font:700 clamp(11px,1.7vw,21px)/1.15 Georgia,serif;letter-spacing:.1em;text-transform:uppercase;text-wrap:balance;max-width:95%}
+.glc-cover-en small{font:600 7px/1.5 system-ui,sans-serif;letter-spacing:.45em;margin-top:7px;color:#fff}
+html[lang="en"] body.mode-gest #manage .gh-bounty::before{content:"BOUNTY"}
+html[lang="en"] body.mode-gest #manage .stage-cls .cc-body::after{content:"Details ↗"}
+html[lang="en"] .mode-master .cbt.turn .ini::after{content:"TURN"}
+html[lang="en"] .mode-master .empty::before{content:"THE SCENE AWAITS"}
+html[lang="en"] .gh-bounty:before{content:"SHIP’S TREASURY"}
+@media(max-width:480px){.man-top.glc-language-host{row-gap:8px}.man-strumenti{gap:4px;flex-wrap:wrap;justify-content:flex-end}.man-strumenti .glc-language button{padding:8px 7px;min-width:28px;min-height:28px}.pr-top{flex-wrap:wrap;gap:8px}.home-nav{flex-wrap:wrap}}
+@media print{.glc-language{display:none!important}html[data-glc-language-pending] main,html[data-glc-language-pending] .wrap{visibility:visible}.man-copertina>.glc-cover-en{display:flex!important;bottom:0;min-height:12%;background:linear-gradient(0deg,#070707 85%,#07070700)!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}.man-copertina .glc-cover-en strong{font-size:23pt!important;color:white!important}.man-copertina .glc-cover-en small{font-size:8pt!important;color:white!important}}

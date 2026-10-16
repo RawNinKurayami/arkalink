@@ -1,0 +1,1392 @@
+[
+  {
+    "id": "a04b9024b03500b8ccb8",
+    "it": "Attributi, Skill e Tecniche utilizzano la stessa scala ordinaria di avanzamento. Il Manuale del Prestigio estende Attributi e Skill oltre d20: d20+d4, d20+d6, d20+d8, d20+d10, d20+d12 e d20+d20 (Saikyō). Ogni progressione resta indipendente. Il catalogo ordinario delle Tecniche conserva i propri Gradi, slot, costi e requisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "73b5807698b350e608fa",
+    "it": "Scala di progressione",
+    "kind": "html"
+  },
+  {
+    "id": "93b9521db377875b6a1a",
+    "it": "Un avanzamento aumenta il dado di un gradino.",
+    "kind": "html"
+  },
+  {
+    "id": "f924786d0fe71e082ef3",
+    "it": "Non è possibile passare direttamente da d4 a d10 pagando soltanto il costo dell'ultimo passaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "856f7eb1425f7b9c0c8e",
+    "it": "Quando aumenta il dado di una Skill, quel miglioramento si applica a tutte le Prove che utilizzano la Skill.",
+    "kind": "html"
+  },
+  {
+    "id": "9417496d649337a0cb96",
+    "it": "Le Tecniche non possiedono P.A. propri. Per le Custom: il loro Grado può essere aumentato quando il Grado dell’Attributo associato lo permette.",
+    "kind": "html"
+  },
+  {
+    "id": "1f01861ffc1b5050e854",
+    "it": "Quando aumenta il Grado di una Tecnica, crescono il suo Dado Tecnica, il Dado Danno e gli Slot disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "cd9bc19cbb3b5b6f0b93",
+    "it": "L'aumento del dado non aggiunge automaticamente nuovi effetti alla Tecnica: il personaggio deve modificarla attraverso il Costruttore, rispettandone i requisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "3a959f0da45055dc235c",
+    "it": "<span class=\"man-sez-n\">16.2 ·</span> I Punti Abilità",
+    "kind": "html"
+  },
+  {
+    "id": "21766762c4eea1b6ee95",
+    "it": "I P.A. rappresentano la padronanza acquisita attraverso l'esperienza e l'allenamento.",
+    "kind": "html"
+  },
+  {
+    "id": "9b7ae3f4c0c893af6313",
+    "it": "Vengono distribuiti fra Attributi, Skill e le eventuali capacità che dichiarano espressamente di utilizzare P.A.",
+    "kind": "html"
+  },
+  {
+    "id": "7816747c5fc9d743d118",
+    "it": "Le Tecniche, sia razziali sia Custom, non accumulano e non spendono P.A. propri.",
+    "kind": "html"
+  },
+  {
+    "id": "d0a1f82fbb5240f53215",
+    "it": "Ogni Attributo e ogni Skill possiede una progressione individuale.",
+    "kind": "html"
+  },
+  {
+    "id": "b392bc98d92ceba4d140",
+    "it": "Un pirata può quindi avere molti P.A. accumulati in Atletica e pochi in Navigazione.",
+    "kind": "html"
+  },
+  {
+    "id": "34c96ea473cc73a448cc",
+    "it": "I P.A. non rappresentano Berry e non possono essere utilizzati per comprare armi, materiali o Moduli.",
+    "kind": "html"
+  },
+  {
+    "id": "685497e3d96eb8aff448",
+    "it": "<b>Come si ottengono?</b>",
+    "kind": "html"
+  },
+  {
+    "id": "098e74faac25ba7057d5",
+    "it": "Esistono due fonti.",
+    "kind": "html"
+  },
+  {
+    "id": "f506999fb6b0582e0ec8",
+    "it": "Esperienza durante la storia. Utilizzare una Skill in situazioni significative può farle accumulare P.A. Il Game Master determina quanti assegnarne.",
+    "kind": "html"
+  },
+  {
+    "id": "2e20fdcb16ce3fce50a5",
+    "it": "Ricompensa dell&#x27;Upgrade. Quando concede un Upgrade, il Game Master assegna anche una quantità di P.A. che il giocatore può distribuire liberamente tra Attributi e Skill. Le Tecniche razziali e Custom non ricevono P.A.",
+    "kind": "html"
+  },
+  {
+    "id": "a2aab5efe5077224b7a8",
+    "it": "Non esiste una quantità fissa di P.A. per ogni tiro riuscito. La loro assegnazione deve riflettere il ritmo della campagna, senza obbligare i giocatori a ripetere continuamente Prove irrilevanti per accumulare punti.",
+    "kind": "html"
+  },
+  {
+    "id": "2a2afc506f18a8949791",
+    "it": "<span class=\"man-sez-n\">16.3 ·</span> Le soglie di avanzamento",
+    "kind": "html"
+  },
+  {
+    "id": "eae50c4bbb4ee7807813",
+    "it": "Per aumentare un dado, il personaggio deve accumulare il numero di P.A. richiesto dal passaggio successivo.",
+    "kind": "html"
+  },
+  {
+    "id": "8e4d4778e73d6da70ede",
+    "it": "<b>Passaggio</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7ffcc09b6274670769aa",
+    "it": "<b>P.A. necessari</b>",
+    "kind": "html"
+  },
+  {
+    "id": "19d3728f530aea926fec",
+    "it": "Questi sono i valori di riferimento del manuale. Il Game Master può modificarli in base alla durata prevista della campagna.",
+    "kind": "html"
+  },
+  {
+    "id": "3a40199c5d4c56f33ec4",
+    "it": "Le soglie dei P.A. si applicano ad Attributi, Skill e alle capacità che dichiarano espressamente di utilizzare i Punti Abilità.",
+    "kind": "html"
+  },
+  {
+    "id": "92fcf0d2c09e4754a537",
+    "it": "Non si applicano alle Tecniche Custom.",
+    "kind": "html"
+  },
+  {
+    "id": "dc25f4d32a49665bbebc",
+    "it": "<b>Spendere i P.A.</b>",
+    "kind": "html"
+  },
+  {
+    "id": "a271e64e7a31b7b81520",
+    "it": "Quando un personaggio possiede abbastanza P.A. su una capacità, può spenderli per aumentare il suo dado di un gradino.",
+    "kind": "html"
+  },
+  {
+    "id": "59c4f7c8663301eeeb8f",
+    "it": "I punti necessari vengono sottratti dalla progressione di quella capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "d2d82670ce60a133b1c2",
+    "it": "Eventuali P.A. rimanenti vengono conservati.",
+    "kind": "html"
+  },
+  {
+    "id": "2a82cf7e46561482bd5e",
+    "it": "Esempio · Migliorare una Skill",
+    "kind": "html"
+  },
+  {
+    "id": "6f8846b82b0f7bf1d536",
+    "it": "Un pirata possiede Atletica d6 e ha accumulato 32 P.A. su quella Skill.",
+    "kind": "html"
+  },
+  {
+    "id": "4ead3732a30c798ac565",
+    "it": "Per raggiungere d8 ne servono 25.",
+    "kind": "html"
+  },
+  {
+    "id": "9612942b28a46ee9ed11",
+    "it": "PRIMA",
+    "kind": "html"
+  },
+  {
+    "id": "38da28b76936bea1fee8",
+    "it": "Atletica d6",
+    "kind": "html"
+  },
+  {
+    "id": "d654c23fa8093cb1aee2",
+    "it": "DOPO",
+    "kind": "html"
+  },
+  {
+    "id": "fd5463795f68e685d1a7",
+    "it": "Atletica d8",
+    "kind": "html"
+  },
+  {
+    "id": "4fa74b5f60685dad809b",
+    "it": "7 P.A. rimasti",
+    "kind": "html"
+  },
+  {
+    "id": "b6b51cd8e757c7ee8bb5",
+    "it": "Il personaggio ha raggiunto il nuovo Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "8ef9cc9c3c4d06e208d2",
+    "it": "Per passare successivamente da d8 a d10 dovrà arrivare alla nuova Soglia di 60 P.A.",
+    "kind": "html"
+  },
+  {
+    "id": "4611513dc824bf2075d8",
+    "it": "I P.A. già spesi non vengono recuperati se il personaggio decide di allenare una capacità differente.",
+    "kind": "html"
+  },
+  {
+    "id": "a970eaad068c559649e6",
+    "it": "<span class=\"man-sez-n\">16.4 ·</span> Migliorare gli Attributi",
+    "kind": "html"
+  },
+  {
+    "id": "2974a50f02171527191f",
+    "it": "I quattro Attributi sono:",
+    "kind": "html"
+  },
+  {
+    "id": "cee83c40634e1155bebe",
+    "it": "<b>Ambito</b>",
+    "kind": "html"
+  },
+  {
+    "id": "0d03c84be8376dd077aa",
+    "it": "Potenza fisica e resistenza.",
+    "kind": "html"
+  },
+  {
+    "id": "2738059b986e8c34291e",
+    "it": "Precisione, coordinazione ed esecuzione.",
+    "kind": "html"
+  },
+  {
+    "id": "e60aa85fb812ac5a0131",
+    "it": "Volontà e determinazione.",
+    "kind": "html"
+  },
+  {
+    "id": "718412306a0270bb1aad",
+    "it": "Ragionamento, strategia e prontezza mentale.",
+    "kind": "html"
+  },
+  {
+    "id": "b8ab419e1b244b7eda41",
+    "it": "Gli Attributi aumentano spendendo P.A. secondo le normali soglie.",
+    "kind": "html"
+  },
+  {
+    "id": "3c9c1a6e5a55a9c51dde",
+    "it": "Non aumentano automaticamente quando il personaggio riceve un Upgrade.",
+    "kind": "html"
+  },
+  {
+    "id": "0683697b7c3f3167cbd9",
+    "it": "Il giocatore deve scegliere di investirvi una parte dei propri P.A.",
+    "kind": "html"
+  },
+  {
+    "id": "156cbd7ff6138e48aa19",
+    "it": "Questa scelta comporta una rinuncia: i punti spesi in Forza non possono essere utilizzati contemporaneamente per aumentare una Skill o una Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "22277614588180ccfb91",
+    "it": "Attributi e Tecniche",
+    "kind": "html"
+  },
+  {
+    "id": "67f8eedf6964c99d1ab6",
+    "it": "Il Grado dell’Attributo determina il massimo Grado raggiungibile dalle Tecniche che lo utilizzano.",
+    "kind": "html"
+  },
+  {
+    "id": "c1236966a1246501c59b",
+    "it": "Quando un Attributo aumenta, le Tecniche collegate non aumentano automaticamente: il giocatore può decidere quali portare al nuovo Grado e quali mantenere a un Grado inferiore.",
+    "kind": "html"
+  },
+  {
+    "id": "0712b0efe7e04938c04b",
+    "it": "Questo aumento non richiede P.A. aggiuntivi per la Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "aa298c849f74757e3499",
+    "it": "Per esempio, un personaggio possiede Tecnica d6 e una Tecnica personale d6. Se l’Attributo Tecnica sale a d8, il giocatore può portare quella Tecnica personale a d8: la Tecnica ottiene il Dado Tecnica, il Dado Danno e gli Slot previsti dal nuovo Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "990133238f93d871bfc5",
+    "it": "<span class=\"man-sez-n\">16.5 ·</span> Migliorare le Tecniche",
+    "kind": "html"
+  },
+  {
+    "id": "3e2ddfc0d641b8d5b730",
+    "it": "Le Tecniche razziali e Custom non crescono attraverso Punti Abilità propri.",
+    "kind": "html"
+  },
+  {
+    "id": "6c989c5128714669c0f6",
+    "it": "Il suo limite è determinato dall’Attributo utilizzato.",
+    "kind": "html"
+  },
+  {
+    "id": "634153090544bfdfc549",
+    "it": "Quando quel limite aumenta, il giocatore può aumentare volontariamente il Grado della Tecnica fino al nuovo massimo disponibile.",
+    "kind": "html"
+  },
+  {
+    "id": "add0e58700c4f728a6a9",
+    "it": "Migliorare una Tecnica:",
+    "kind": "html"
+  },
+  {
+    "id": "eb40c40df8bb599a693d",
+    "it": "aumenta il Dado Tecnica;",
+    "kind": "html"
+  },
+  {
+    "id": "d58c3c71fdb0ebccb342",
+    "it": "aumenta il Dado Danno;",
+    "kind": "html"
+  },
+  {
+    "id": "82226c0405a849a188e0",
+    "it": "aumenta gli Slot Effetto disponibili;",
+    "kind": "html"
+  },
+  {
+    "id": "ef7ee258bf144bd43de2",
+    "it": "rende accessibili gli effetti del nuovo Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "06b296a75d025c2cbf10",
+    "it": "Una Tecnica non è obbligata a raggiungere il massimo consentito.",
+    "kind": "html"
+  },
+  {
+    "id": "6e0d150350c2813656da",
+    "it": "Aumentare il Grado non aggiunge automaticamente nuovi effetti: la Tecnica deve essere modificata attraverso il Costruttore.",
+    "kind": "html"
+  },
+  {
+    "id": "4cc8b688f29ec87938a0",
+    "it": "<span class=\"man-sez-n\">16.6 ·</span> Gli Upgrade",
+    "kind": "html"
+  },
+  {
+    "id": "50e038a63b822ec25bc9",
+    "it": "Un Upgrade rappresenta un momento decisivo della crescita del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "e6e449d6810dd15673ed",
+    "it": "Tratti Unici e Upgrade",
+    "kind": "html"
+  },
+  {
+    "id": "8ddcda7b458381c53963",
+    "it": "Quando un Attributo e una Skill raggiungono i requisiti di una Sinergia, il relativo Tratto Unico diventa disponibile. Lo sblocco non equivale all’acquisizione. Un Tratto Unico disponibile può essere acquisito utilizzando la normale scelta di Talento concessa da un Upgrade. Se più Tratti vengono sbloccati contemporaneamente, diventano tutti disponibili, ma ciascuno deve essere acquisito separatamente (§16.9).",
+    "kind": "html"
+  },
+  {
+    "id": "fed8a54d510d275cab8d",
+    "it": "Può essere concesso alla conclusione di un arco narrativo, dopo un'impresa importante o in seguito a un evento che cambia profondamente il pirata.",
+    "kind": "html"
+  },
+  {
+    "id": "30ccea339cde74b408ed",
+    "it": "Non viene assegnato automaticamente dopo un numero prestabilito di combattimenti.",
+    "kind": "html"
+  },
+  {
+    "id": "5bc67799d833343ed05c",
+    "it": "È il Game Master a stabilire quando la storia giustifica un Upgrade.",
+    "kind": "html"
+  },
+  {
+    "id": "27a8a1c5d741a926b3ee",
+    "it": "<span class=\"man-sez-n\">16.7 ·</span> Il ritmo della campagna",
+    "kind": "html"
+  },
+  {
+    "id": "88734f029357272d0cd3",
+    "it": "Il numero totale di Upgrade non è fisso.",
+    "kind": "html"
+  },
+  {
+    "id": "83cb53e24f6e8b3c91eb",
+    "it": "Il Game Master lo stabilisce considerando la durata della campagna e i principali momenti di crescita della ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "431cd2e34306d0ee53bd",
+    "it": "In una campagna lunga, gli Upgrade possono essere distribuiti attraverso molti archi narrativi e accompagnati da quantità più contenute di P.A.",
+    "kind": "html"
+  },
+  {
+    "id": "0e7a3a86a1600817c2de",
+    "it": "In una campagna breve, il GM può concedere più P.A. a ogni Upgrade, permettendo ai personaggi di raggiungere Gradi elevati in un numero inferiore di sessioni.",
+    "kind": "html"
+  },
+  {
+    "id": "42f1bbd8f9ec5e090b68",
+    "it": "Le soglie dei P.A. possono essere adattate all'inizio della campagna e sono modificabili nella gestione del pirata.",
+    "kind": "html"
+  },
+  {
+    "id": "a88978238bf0b8878170",
+    "it": "È importante che i giocatori conoscano il ritmo previsto: investire 400 P.A. per raggiungere d20 è una scelta differente in una campagna destinata a durare anni rispetto a una storia di poche sessioni.",
+    "kind": "html"
+  },
+  {
+    "id": "7cc2fae995ea609432c2",
+    "it": "<span class=\"man-sez-n\">16.8 ·</span> Registrare la crescita",
+    "kind": "html"
+  },
+  {
+    "id": "ef0108fae52e9d6e86d1",
+    "it": "La gestione del pirata permette di tenere traccia dei P.A., dei dadi, degli Upgrade e dei Talenti acquisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "1f985f335c806e785ca5",
+    "it": "Sinergie nella crescita",
+    "kind": "html"
+  },
+  {
+    "id": "1de27499e508b0d5b5b5",
+    "it": "Quando aumenta il Grado di un Attributo o di una Skill, verifica se il nuovo valore soddisfa i requisiti di una o più Sinergie. I Tratti che soddisfano i requisiti vengono registrati come disponibili. Un Tratto viene registrato come acquisito soltanto dopo aver speso una scelta valida. Se un Tratto è un’Evoluzione, il nuovo beneficio sostituisce quello precedente e non si somma ad esso (§16.9).",
+    "kind": "html"
+  },
+  {
+    "id": "4c8aa30bdbc94b5e0547",
+    "it": "Quando un personaggio avanza, occorre aggiornare i valori interessati e verificare se il nuovo dado rende disponibili ulteriori opzioni nell'Albero dei Talenti o nel Costruttore di Tecniche.",
+    "kind": "html"
+  },
+  {
+    "id": "731317a2e1aee4bcbdd8",
+    "it": "L'apertura di nuove opzioni non equivale alla loro acquisizione automatica. Le scelte dei Talenti di Prestigio si aprono ai Prestigi I, III e V della Skill di Ruolo; a Saikyō migliorano i talenti posseduti senza una quarta scelta. Spirito dispone di tre scelte separate. I potenziamenti degli altri Attributi seguono la rispettiva compatibilità e non consumano scelte di Ruolo.",
+    "kind": "html"
+  },
+  {
+    "id": "fe4871095c10e5a63f4c",
+    "it": "Una Tecnica può raggiungere d12 senza avere ancora selezionato effetti d12. Una Skill di Ruolo può raggiungere d20 senza che il personaggio abbia ottenuto l'Ultimate.",
+    "kind": "html"
+  },
+  {
+    "id": "628fa6d5b30375e0de61",
+    "it": "La scheda deve rappresentare ciò che il pirata ha effettivamente imparato, non tutto ciò che sarebbe teoricamente in grado di imparare. Quando si acquisisce una versione evoluta di un Talento di Ruolo, anche nella progressione ordinaria, la versione precedente non è più utilizzabile separatamente. Rimane acquisita come prerequisito e conserva soltanto i benefici incorporati nell’evoluzione; bonus, costi e limiti non si sommano. Per gli effetti Haki restano invece le alternative base espressamente previste dal Manuale del Prestigio.",
+    "kind": "html"
+  },
+  {
+    "id": "f4c96f2f3a91d17d9546",
+    "it": "<i>«Non importa quanto sia lontana la prossima isola. Finché c'è un sogno da inseguire e una ciurma con cui dividere il mare, il viaggio continua.»</i>",
+    "kind": "html"
+  },
+  {
+    "id": "172b92de3307cc17e82b",
+    "it": "<span class=\"man-sez-n\">16.9 ·</span> Tratti Unici e Sinergie",
+    "kind": "html"
+  },
+  {
+    "id": "575e7f6930ca2f35df70",
+    "it": "I Tratti Unici valorizzano lo sviluppo delle sedici Skill attraverso Sinergie fra Attributo e Skill. Sono distinti dai Talenti di Ruolo e si sbloccano automaticamente al raggiungimento dei requisiti indicati.",
+    "kind": "html"
+  },
+  {
+    "id": "fa6e43cb6fe144da4999",
+    "it": "16.9.1 · Sinergie",
+    "kind": "html"
+  },
+  {
+    "id": "4141ba6417d366d2b3e6",
+    "it": "Una Sinergia è una combinazione specifica fra un Attributo e una Skill. Ogni Tratto Unico indica direttamente la coppia e i Gradi necessari per renderlo disponibile.",
+    "kind": "html"
+  },
+  {
+    "id": "8f7b5d5630bad83e1bfa",
+    "it": "16.9.2 · Sblocco e acquisizione",
+    "kind": "html"
+  },
+  {
+    "id": "549e7e8d98fb18590bf3",
+    "it": "Quando l’Attributo e la Skill raggiungono entrambi i Gradi richiesti, il Tratto Unico viene sbloccato automaticamente. Non sono richieste imprese narrative, autorizzazioni speciali del Game Master o contatori di utilizzo.",
+    "kind": "html"
+  },
+  {
+    "id": "368e460dacd540ef45d5",
+    "it": "Sbloccare un Tratto Unico non significa acquisirlo automaticamente. Un Tratto Unico sbloccato può essere acquisito utilizzando la normale scelta di Talento concessa da un Upgrade.",
+    "kind": "html"
+  },
+  {
+    "id": "d28e6de05532b43e3b5e",
+    "it": "Una Skill non deve essere Skill di Ruolo per partecipare a una Sinergia. Un Grado superiore soddisfa automaticamente un requisito inferiore. Se più Tratti vengono sbloccati contemporaneamente, diventano tutti disponibili; ciascuno deve essere acquisito separatamente.",
+    "kind": "html"
+  },
+  {
+    "id": "317388a8f41d0e9f13a7",
+    "it": "16.9.3 · Cumulo ed Evoluzioni",
+    "kind": "html"
+  },
+  {
+    "id": "8bdf001d17a931e9ced9",
+    "it": "I Tratti Unici sono cumulabili fra loro, anche quando utilizzano lo stesso Attributo o la stessa Skill. Se un Tratto è indicato come Evoluzione di un altro, il nuovo valore sostituisce quello precedente invece di sommarsi.",
+    "kind": "html"
+  },
+  {
+    "id": "df4e066e54a8c5f31fec",
+    "it": "I normali limiti di Vantaggio e Svantaggio continuano ad applicarsi. I Tratti non concedono Azioni, Azioni Bonus o Reazioni aggiuntive salvo indicazione espressa.",
+    "kind": "html"
+  },
+  {
+    "id": "55f775be2e626da50b8a",
+    "it": "16.9.4 · Rapporto con i Talenti",
+    "kind": "html"
+  },
+  {
+    "id": "4b369020b03328af3361",
+    "it": "Un Tratto Unico non deve riprodurre integralmente l’effetto di un Talento, di una Firma, di un Tratto di Ruolo, di una capacità razziale, di un effetto Haki o di una capacità di Prestigio già esistente, salvo eccezioni espressamente ammesse nel catalogo. Se una revisione futura crea una sovrapposizione diretta, viene modificato il Tratto Unico. È espressamente ammessa la sovrapposizione di Ombra Perfetta con Tiro dall’Ombra dello Sniper.",
+    "kind": "html"
+  },
+  {
+    "id": "b378d424feeb1f8a529e",
+    "it": "16.9.5 · Catalogo rapido",
+    "kind": "html"
+  },
+  {
+    "id": "2337ea5048c4fb039086",
+    "it": "Catalogo dei Tratti Unici",
+    "kind": "attribute"
+  },
+  {
+    "id": "583815de7d58b95d04a2",
+    "it": "Sinergia",
+    "kind": "html"
+  },
+  {
+    "id": "d6bddaee39f72e416729",
+    "it": "Tratto Unico",
+    "kind": "html"
+  },
+  {
+    "id": "2c02ba1379fe6d63daed",
+    "it": "Requisiti",
+    "kind": "html"
+  },
+  {
+    "id": "e16bd302979356cf6707",
+    "it": "Corpo Mostruoso",
+    "kind": "html"
+  },
+  {
+    "id": "ed8a1bbc6bc2fa43187a",
+    "it": "Forza d12 · Atletica d10",
+    "kind": "html"
+  },
+  {
+    "id": "81600144469f0ab84e2c",
+    "it": "Fortezza Vivente",
+    "kind": "html"
+  },
+  {
+    "id": "4a8601e991a5592696a4",
+    "it": "Forza d20 · Atletica d12 · Corpo Mostruoso acquisito",
+    "kind": "html"
+  },
+  {
+    "id": "4a3a04726b2ffede4491",
+    "it": "Riflessi Sovrumani",
+    "kind": "html"
+  },
+  {
+    "id": "3417c7ed7b6781cd2298",
+    "it": "Tecnica d12 · Acrobazia d10",
+    "kind": "html"
+  },
+  {
+    "id": "fc393868d20794d7df7a",
+    "it": "Passo Fantasma",
+    "kind": "html"
+  },
+  {
+    "id": "b2d9ca03d3a4ac777f36",
+    "it": "Tecnica d20 · Acrobazia d12",
+    "kind": "html"
+  },
+  {
+    "id": "b2e7426606b6d5c0b748",
+    "it": "Astuzia + Osservazione",
+    "kind": "html"
+  },
+  {
+    "id": "6f8588369247ff3ee5dc",
+    "it": "Occhio dell’Avversario",
+    "kind": "html"
+  },
+  {
+    "id": "45fe7dfc913ada336ede",
+    "it": "Astuzia d12 · Osservazione d10",
+    "kind": "html"
+  },
+  {
+    "id": "4bd275e3422c78e0e6b8",
+    "it": "Predatore di Aperture",
+    "kind": "html"
+  },
+  {
+    "id": "ae6fe7efbc0986ffc129",
+    "it": "Astuzia d12 · Osservazione d12",
+    "kind": "html"
+  },
+  {
+    "id": "732286b9dcaedc73a775",
+    "it": "Spirito + Osservazione",
+    "kind": "html"
+  },
+  {
+    "id": "880d0c58e320c8d6f9ff",
+    "it": "Mente Inespugnabile",
+    "kind": "html"
+  },
+  {
+    "id": "df58c4559b7e584b6f57",
+    "it": "Spirito d12 · Osservazione d10",
+    "kind": "html"
+  },
+  {
+    "id": "fdf87b21c8bcd4542d4c",
+    "it": "Tecnica + Furtività",
+    "kind": "html"
+  },
+  {
+    "id": "cea1f56e57c019b01f42",
+    "it": "Passo Silenzioso",
+    "kind": "html"
+  },
+  {
+    "id": "18b1088965c3b8be2313",
+    "it": "Tecnica d12 · Furtività d10",
+    "kind": "html"
+  },
+  {
+    "id": "9e33f8316169a641bf50",
+    "it": "Astuzia + Furtività",
+    "kind": "html"
+  },
+  {
+    "id": "262bd8e8732aa40922db",
+    "it": "Ombra Perfetta",
+    "kind": "html"
+  },
+  {
+    "id": "8b58f19687f20f5964a8",
+    "it": "Astuzia d12 · Furtività d12",
+    "kind": "html"
+  },
+  {
+    "id": "409bf3be09756ea12e69",
+    "it": "Forza + Sopravvivenza",
+    "kind": "html"
+  },
+  {
+    "id": "ffdf21b02382807a44c3",
+    "it": "Tempra Selvaggia",
+    "kind": "html"
+  },
+  {
+    "id": "ff955000c91b10a2e73e",
+    "it": "Forza d12 · Sopravvivenza d10",
+    "kind": "html"
+  },
+  {
+    "id": "379b67e09412cb87da17",
+    "it": "Spirito + Sopravvivenza",
+    "kind": "html"
+  },
+  {
+    "id": "ec563074ad4802be3998",
+    "it": "Non Ancora",
+    "kind": "html"
+  },
+  {
+    "id": "7ef5cd0d64b1a69dbb25",
+    "it": "Spirito d20 · Sopravvivenza d12",
+    "kind": "html"
+  },
+  {
+    "id": "dee2a2d9927878ea8dcb",
+    "it": "Astuzia + Comunicazione",
+    "kind": "html"
+  },
+  {
+    "id": "c6a2abb2b475b13f9662",
+    "it": "Lingua d’Argento",
+    "kind": "html"
+  },
+  {
+    "id": "4756fbeb6049974f4cb2",
+    "it": "Astuzia d12 · Comunicazione d10",
+    "kind": "html"
+  },
+  {
+    "id": "68321a3359b440fda873",
+    "it": "Spirito + Comunicazione",
+    "kind": "html"
+  },
+  {
+    "id": "c83cecfce230e1ad099a",
+    "it": "Presenza Schiacciante",
+    "kind": "html"
+  },
+  {
+    "id": "19c6ab3ef7ef72888b5f",
+    "it": "Spirito d12 · Comunicazione d12",
+    "kind": "html"
+  },
+  {
+    "id": "cda828b64539c21c9adb",
+    "it": "Astuzia + Medicina",
+    "kind": "html"
+  },
+  {
+    "id": "34d19176d45c83909318",
+    "it": "Occhio Clinico",
+    "kind": "html"
+  },
+  {
+    "id": "558f8371faf727e6858c",
+    "it": "Astuzia d12 · Medicina d10",
+    "kind": "html"
+  },
+  {
+    "id": "28676da9bbc2675e452b",
+    "it": "Tecnica + Medicina",
+    "kind": "html"
+  },
+  {
+    "id": "fbcac0ef09ad0b67b2ec",
+    "it": "Mano Chirurgica",
+    "kind": "html"
+  },
+  {
+    "id": "dab1fef895adddabd617",
+    "it": "Tecnica d12 · Medicina d12",
+    "kind": "html"
+  },
+  {
+    "id": "395a91d1ccbab96a7a66",
+    "it": "Genio Meccanico",
+    "kind": "html"
+  },
+  {
+    "id": "5e9a95be2d6696b7fee0",
+    "it": "Astuzia d12 · Meccanica d10",
+    "kind": "html"
+  },
+  {
+    "id": "c35ff62ac2a4a2b26bda",
+    "it": "Tecnica + Meccanica",
+    "kind": "html"
+  },
+  {
+    "id": "3e90bffec0a1270bebfe",
+    "it": "Mano da Orologiaio",
+    "kind": "html"
+  },
+  {
+    "id": "6fe7b383047391fd9bcf",
+    "it": "Tecnica d12 · Meccanica d12",
+    "kind": "html"
+  },
+  {
+    "id": "9e40395d7a67cc4065bc",
+    "it": "Astuzia + Navigazione",
+    "kind": "html"
+  },
+  {
+    "id": "c0ba06d2538043c79196",
+    "it": "Senso della Rotta",
+    "kind": "html"
+  },
+  {
+    "id": "382b6f843eda6ed2c465",
+    "it": "Astuzia d12 · Navigazione d10",
+    "kind": "html"
+  },
+  {
+    "id": "2d44110438f76c0de3f4",
+    "it": "Spirito + Navigazione",
+    "kind": "html"
+  },
+  {
+    "id": "ffdd6cb284d20820b16a",
+    "it": "Nessun Mare Mi Ferma",
+    "kind": "html"
+  },
+  {
+    "id": "fb2a900ac414c4f2fba4",
+    "it": "Spirito d12 · Navigazione d12",
+    "kind": "html"
+  },
+  {
+    "id": "ee7a56a02aea4038dfdb",
+    "it": "Astuzia + Esplorazione",
+    "kind": "html"
+  },
+  {
+    "id": "e06d77d26077f0f641d3",
+    "it": "Orientamento Perfetto",
+    "kind": "html"
+  },
+  {
+    "id": "2737269f9aca11ede12d",
+    "it": "Astuzia d12 · Esplorazione d10",
+    "kind": "html"
+  },
+  {
+    "id": "53a5d157f4400ab793c2",
+    "it": "Tecnica + Esplorazione",
+    "kind": "html"
+  },
+  {
+    "id": "10e9862f02474cd8ea0a",
+    "it": "Passo dell’Esploratore",
+    "kind": "html"
+  },
+  {
+    "id": "c96c3cb57d45dadff10d",
+    "it": "Tecnica d12 · Esplorazione d12",
+    "kind": "html"
+  },
+  {
+    "id": "8d742d02506f46aa3888",
+    "it": "Astuzia + Natura",
+    "kind": "html"
+  },
+  {
+    "id": "9b0f57a005d4c6cb83dd",
+    "it": "Istinto Naturalista",
+    "kind": "html"
+  },
+  {
+    "id": "8496afcb0e5d781ea8c4",
+    "it": "Astuzia d12 · Natura d10",
+    "kind": "html"
+  },
+  {
+    "id": "89c99024fcfa2020d2e6",
+    "it": "Tecnica + Artigianato",
+    "kind": "html"
+  },
+  {
+    "id": "d9781600bf8ff0c876ec",
+    "it": "Maestro Artigiano",
+    "kind": "html"
+  },
+  {
+    "id": "4994c6e8f5d94d7dd0f1",
+    "it": "Tecnica d12 · Artigianato d10",
+    "kind": "html"
+  },
+  {
+    "id": "b9b2dd7d5386d55368a0",
+    "it": "Astuzia + Artigianato",
+    "kind": "html"
+  },
+  {
+    "id": "f1bd9274b2ecee7163cf",
+    "it": "Inventore",
+    "kind": "html"
+  },
+  {
+    "id": "0b2e4885c497c1d7ff48",
+    "it": "Astuzia d12 · Artigianato d10",
+    "kind": "html"
+  },
+  {
+    "id": "450cc1c6264731cb1a2a",
+    "it": "Forza + Carpenteria",
+    "kind": "html"
+  },
+  {
+    "id": "725fa8c45b7855e7607d",
+    "it": "Mano Pesante",
+    "kind": "html"
+  },
+  {
+    "id": "7f1e9f3b2f969b8ee846",
+    "it": "Forza d12 · Carpenteria d10",
+    "kind": "html"
+  },
+  {
+    "id": "fa0145b80110268fd142",
+    "it": "Occhio Strutturale",
+    "kind": "html"
+  },
+  {
+    "id": "88dcc6f832da62fb7358",
+    "it": "Astuzia d12 · Carpenteria d10",
+    "kind": "html"
+  },
+  {
+    "id": "69dd147d920d108ec657",
+    "it": "Astuzia + Cucina",
+    "kind": "html"
+  },
+  {
+    "id": "057e67a4cfc71d83e3d5",
+    "it": "Palato Assoluto",
+    "kind": "html"
+  },
+  {
+    "id": "edfb766fc54eed244d63",
+    "it": "Astuzia d12 · Cucina d10",
+    "kind": "html"
+  },
+  {
+    "id": "7fa263b2b45b16237074",
+    "it": "Cucina dell’Anima",
+    "kind": "html"
+  },
+  {
+    "id": "c4baa4e3d0d0b3fe9592",
+    "it": "Spirito d12 · Cucina d12",
+    "kind": "html"
+  },
+  {
+    "id": "60cc8e6bf4f984961892",
+    "it": "Tecnica + Arte",
+    "kind": "html"
+  },
+  {
+    "id": "e7a6552213754a27419d",
+    "it": "Mano Perfetta",
+    "kind": "html"
+  },
+  {
+    "id": "efcb3bdf68e986fa22ab",
+    "it": "Tecnica d12 · Arte d10",
+    "kind": "html"
+  },
+  {
+    "id": "ab64f5ecc1f547bfbaf1",
+    "it": "Spirito + Arte",
+    "kind": "html"
+  },
+  {
+    "id": "5e51c4a3080d49f83d0a",
+    "it": "Presenza Scenica",
+    "kind": "html"
+  },
+  {
+    "id": "9abb75d442fb98ed9c7a",
+    "it": "Spirito d12 · Arte d10",
+    "kind": "html"
+  },
+  {
+    "id": "1cf169e7baf7d5b5ce26",
+    "it": "Astuzia + Archeologia",
+    "kind": "html"
+  },
+  {
+    "id": "c5b244b1346a6316bf7f",
+    "it": "Connessione Storica",
+    "kind": "html"
+  },
+  {
+    "id": "c27046fb9c766cd11d23",
+    "it": "Astuzia d12 · Archeologia d10",
+    "kind": "html"
+  },
+  {
+    "id": "2346c323a7d8ff1045ca",
+    "it": "16.9.6 · Catalogo dettagliato",
+    "kind": "html"
+  },
+  {
+    "id": "3c037cddad932358d65b",
+    "it": "Tipo: Passivo · Requisiti: Forza d12, Atletica d10",
+    "kind": "html"
+  },
+  {
+    "id": "4ef810263b3194ea9815",
+    "it": "La tua Difesa Passiva aumenta di +2.",
+    "kind": "html"
+  },
+  {
+    "id": "13522cc3b528628f70f8",
+    "it": "Il bonus si somma agli altri modificatori alla Difesa Passiva applicabili.",
+    "kind": "html"
+  },
+  {
+    "id": "0a9b8ddf7c2eec2ece69",
+    "it": "Tipo: Passivo · Evoluzione di Corpo Mostruoso · Requisiti: Forza d20, Atletica d12, Corpo Mostruoso acquisito",
+    "kind": "html"
+  },
+  {
+    "id": "247485687e649cf6c129",
+    "it": "Il bonus alla Difesa Passiva concesso da Corpo Mostruoso diventa +4.",
+    "kind": "html"
+  },
+  {
+    "id": "c25dd141599957bb60a6",
+    "it": "Il +4 sostituisce il precedente +2 e non si somma ad esso.",
+    "kind": "html"
+  },
+  {
+    "id": "4378ef3340ffa9afad74",
+    "it": "Tipo: Passivo · Requisiti: Tecnica d12, Acrobazia d10 · Limite: 1 volta per round",
+    "kind": "html"
+  },
+  {
+    "id": "afe06e9bfdede6e00430",
+    "it": "Quando un attacco contro di te manca la tua Difesa Passiva, puoi spostarti immediatamente di 2 m.",
+    "kind": "html"
+  },
+  {
+    "id": "52b10c44c4c456239cd9",
+    "it": "Lo spostamento fa parte del Tratto, non utilizza la Reazione e non provoca attacchi di Reazione dovuti all’allontanamento.",
+    "kind": "html"
+  },
+  {
+    "id": "8355a07a01d23fc48729",
+    "it": "Tipo: Passivo · Requisiti: Tecnica d20, Acrobazia d12",
+    "kind": "html"
+  },
+  {
+    "id": "8cb98df4103b214b7645",
+    "it": "Quando una tua Difesa Attiva riesce, puoi spostarti immediatamente fino a metà del tuo Movimento.",
+    "kind": "html"
+  },
+  {
+    "id": "b9791ebd6f3dbe386d1e",
+    "it": "Lo spostamento fa parte del Tratto e non provoca attacchi di Reazione dovuti all’allontanamento.",
+    "kind": "html"
+  },
+  {
+    "id": "128a5dd51e0296a849de",
+    "it": "Tipo: Passivo · Requisiti: Astuzia d12, Osservazione d10 · Limite: 1 volta per round",
+    "kind": "html"
+  },
+  {
+    "id": "826f86742d68219931eb",
+    "it": "Dopo che una creatura che puoi vedere effettua un attacco, ottieni +2 alla prossima Difesa Attiva effettuata contro quella creatura prima dell’inizio del tuo prossimo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "8d7dfd731d084627a4b2",
+    "it": "Il bonus si applica al risultato della Difesa Attiva, non alla Difesa Passiva.",
+    "kind": "html"
+  },
+  {
+    "id": "57ba027a3cba1f5bfbcb",
+    "it": "Tipo: Passivo · Requisiti: Astuzia d12, Osservazione d12 · Limite: 1 volta per turno",
+    "kind": "html"
+  },
+  {
+    "id": "14df08ace87c04383405",
+    "it": "Quando un nemico consuma la propria Reazione, il tuo prossimo attacco contro di lui prima della fine del turno ottiene Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "11cd528ba51ad0b4a55a",
+    "it": "Tipo: Passivo · Requisiti: Spirito d12, Osservazione d10",
+    "kind": "html"
+  },
+  {
+    "id": "139f79845d81bfc198d9",
+    "it": "Ottieni Vantaggio alle Salvezze di Spirito effettuate per resistere a paura, intimidazione o coercizione mentale.",
+    "kind": "html"
+  },
+  {
+    "id": "cb8e4cd4462c5a212a33",
+    "it": "Il Tratto non crea una Salvezza contro effetti che non ne prevedono una.",
+    "kind": "html"
+  },
+  {
+    "id": "6c52b03b1706573a8e0e",
+    "it": "Tipo: Passivo · Requisiti: Tecnica d12, Furtività d10",
+    "kind": "html"
+  },
+  {
+    "id": "45a1e114908253c6f901",
+    "it": "Quando una Prova di Furtività viene richiesta mentre ti stai muovendo a non più di metà del tuo Movimento, effettui la Prova con Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "4de7f8a1229da04a7769",
+    "it": "Tipo: Passivo · Requisiti: Astuzia d12, Furtività d12",
+    "kind": "html"
+  },
+  {
+    "id": "1b6c4093015a08144e02",
+    "it": "Quando effettui un attacco contro una creatura che non ti ha individuato, quell’attacco ottiene Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "4bd9df8188e40f395381",
+    "it": "Limite: 1 volta per turno.",
+    "kind": "html"
+  },
+  {
+    "id": "a28f4608f6ebba5219b7",
+    "it": "Tipo: Passivo · Requisiti: Forza d12, Sopravvivenza d10",
+    "kind": "html"
+  },
+  {
+    "id": "e49ccf02e00ffc980b2b",
+    "it": "Ottieni Vantaggio alle Salvezze richieste da caldo, freddo, esposizione e altri pericoli ambientali di natura fisica.",
+    "kind": "html"
+  },
+  {
+    "id": "43ee59529054be119e7e",
+    "it": "Il Tratto non annulla automaticamente gli effetti ambientali che non prevedono una Salvezza.",
+    "kind": "html"
+  },
+  {
+    "id": "27f129484bee58b8bfee",
+    "it": "Tipo: Passivo · Requisiti: Spirito d20, Sopravvivenza d12 · Limite: 1 volta per scontro",
+    "kind": "html"
+  },
+  {
+    "id": "9c832a5f208aa1d8e25e",
+    "it": "Quando fallisci una Salvezza di Forza o Spirito contro uno Stato, puoi aumentare il risultato ottenuto di +2 dopo aver visto il tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "b8fa319bb0b1c61be177",
+    "it": "Se il nuovo risultato raggiunge la Soglia, la Salvezza riesce.",
+    "kind": "html"
+  },
+  {
+    "id": "031ce3866c48e57a6010",
+    "it": "Tipo: Passivo · Requisiti: Astuzia d12, Comunicazione d10 · Limite: 1 volta per scena",
+    "kind": "html"
+  },
+  {
+    "id": "8ace11a550e2935d7b49",
+    "it": "Quando fallisci una Prova di Comunicazione effettuata per convincere, trattare o ingannare, puoi ripetere il tiro completo.",
+    "kind": "html"
+  },
+  {
+    "id": "ea7b5d34466ce6b76e64",
+    "it": "Devi accettare il secondo risultato.",
+    "kind": "html"
+  },
+  {
+    "id": "99670a2fde5f79e0c6f6",
+    "it": "Tipo: Passivo · Requisiti: Spirito d12, Comunicazione d12",
+    "kind": "html"
+  },
+  {
+    "id": "e736dc6fdee05bafbd42",
+    "it": "Effettui con Vantaggio le Prove di Comunicazione utilizzate per comandare o intimidire.",
+    "kind": "html"
+  },
+  {
+    "id": "5cba9cfacb192555f538",
+    "it": "Tipo: Passivo · Requisiti: Astuzia d12, Medicina d10 · Limite: 1 volta per scena",
+    "kind": "html"
+  },
+  {
+    "id": "aaddc346602ff14031e3",
+    "it": "Quando ottieni un successo con margine +4 in una Prova di Medicina effettuata su una creatura, la tua prossima Prova di Medicina sulla stessa creatura nella scena ottiene Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "8f0d2f45e54c50aa4736",
+    "it": "Il beneficio termina dopo la Prova oppure alla fine della scena.",
+    "kind": "html"
+  },
+  {
+    "id": "36ae0b22ba2a94118e14",
+    "it": "Tipo: Passivo · Requisiti: Tecnica d12, Medicina d12 · Limite: 1 volta per intervento",
+    "kind": "html"
+  },
+  {
+    "id": "f2bed9f9ed5e82d290d3",
+    "it": "Quando un effetto medico che utilizzi richiede di tirare uno o più dadi per determinare PV recuperati, puoi ritirare uno di quei dadi.",
+    "kind": "html"
+  },
+  {
+    "id": "c3f65029515764a458bb",
+    "it": "Devi accettare il nuovo risultato.",
+    "kind": "html"
+  },
+  {
+    "id": "e4aea2ea199b04b8fee3",
+    "it": "Tipo: Passivo · Requisiti: Astuzia d12, Meccanica d10",
+    "kind": "html"
+  },
+  {
+    "id": "5e138e84501f7f88dd70",
+    "it": "Effettui con Vantaggio le Prove di Meccanica utilizzate per individuare un guasto o comprendere il funzionamento di un macchinario.",
+    "kind": "html"
+  },
+  {
+    "id": "3fff0a104d28fcb66f46",
+    "it": "Tipo: Passivo · Requisiti: Tecnica d12, Meccanica d12",
+    "kind": "html"
+  },
+  {
+    "id": "86a478f94a046db21287",
+    "it": "Quando una Prova di Meccanica utilizza Tecnica come Attributo, aggiungi +2 al risultato della Prova.",
+    "kind": "html"
+  },
+  {
+    "id": "11e5ec2055424c8f7839",
+    "it": "Il bonus si applica soltanto alle Prove di Meccanica realmente basate su Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "c6c2ff837b4ac5a4f75b",
+    "it": "Tipo: Passivo · Requisiti: Astuzia d12, Navigazione d10 · Limite: 1 volta per traversata",
+    "kind": "html"
+  },
+  {
+    "id": "18965f637769ccff6996",
+    "it": "Quando fallisci una Prova di Navigazione, puoi ripetere il tiro completo.",
+    "kind": "html"
+  },
+  {
+    "id": "cb353e75f6bb3e5fe9c8",
+    "it": "Tipo: Passivo · Requisiti: Spirito d12, Navigazione d12 · Limite: 1 volta per traversata",
+    "kind": "html"
+  },
+  {
+    "id": "8e042c2343a1c57551ae",
+    "it": "Quando fallisci una Prova di Navigazione con margine compreso tra -1 e -3, puoi considerare il margine pari a 0.",
+    "kind": "html"
+  },
+  {
+    "id": "a26302c92903855a7d69",
+    "it": "La Prova viene quindi trattata come un successo al limite.",
+    "kind": "html"
+  },
+  {
+    "id": "a39631f1cccd283e699c",
+    "it": "Tipo: Passivo · Requisiti: Astuzia d12, Esplorazione d10",
+    "kind": "html"
+  },
+  {
+    "id": "fb435925c05d72f52b8d",
+    "it": "Effettui con Vantaggio le Prove di Esplorazione utilizzate per orientarti, ritrovare un percorso oppure determinare una direzione.",
+    "kind": "html"
+  },
+  {
+    "id": "c5a7850dd850dd35a61e",
+    "it": "Tipo: Passivo · Requisiti: Tecnica d12, Esplorazione d12 · Limite: 1 volta per turno",
+    "kind": "html"
+  },
+  {
+    "id": "735a4dac2b5dc784d979",
+    "it": "Puoi ignorare fino a 3 m di Terreno Difficile naturale ai fini del Movimento.",
+    "kind": "html"
+  },
+  {
+    "id": "7c848897b42d2fcd31be",
+    "it": "Il tratto di terreno ignorato viene percorso come terreno normale. Il Terreno Difficile rimanente segue le regole ordinarie.",
+    "kind": "html"
+  },
+  {
+    "id": "5adaef575029ccfd75db",
+    "it": "Tipo: Passivo · Requisiti: Astuzia d12, Natura d10",
+    "kind": "html"
+  },
+  {
+    "id": "bd34bd83444b37e7c2f6",
+    "it": "Effettui con Vantaggio le Prove di Natura utilizzate per riconoscere animali, piante, fenomeni climatici o pericoli naturali.",
+    "kind": "html"
+  },
+  {
+    "id": "bb1b2b637a871ef7afc9",
+    "it": "Tipo: Passivo · Requisiti: Tecnica d12, Artigianato d10",
+    "kind": "html"
+  },
+  {
+    "id": "b17b14d39ba9c11e7df2",
+    "it": "Quando ottieni un successo con margine +4 in una Prova di Artigianato effettuata per realizzare un oggetto, il tempo richiesto per quella realizzazione viene dimezzato.",
+    "kind": "html"
+  },
+  {
+    "id": "5921eb9a3a0f6b0d1d93",
+    "it": "Il Tratto non riduce materiali, costi o requisiti dell’oggetto.",
+    "kind": "html"
+  },
+  {
+    "id": "1014f6e9ed2d695c81a3",
+    "it": "Tipo: Passivo · Requisiti: Astuzia d12, Artigianato d10",
+    "kind": "html"
+  },
+  {
+    "id": "2c4536062b2d7741193a",
+    "it": "Effettui con Vantaggio le Prove di Artigianato utilizzate per progettare o modificare un oggetto.",
+    "kind": "html"
+  },
+  {
+    "id": "9dd33ec4b8d9bf34deb1",
+    "it": "Tipo: Passivo · Requisiti: Forza d12, Carpenteria d10",
+    "kind": "html"
+  },
+  {
+    "id": "03e766a960ab68fd6c89",
+    "it": "Effettui con Vantaggio le Prove di Carpenteria nelle quali spostare, mantenere in posizione o lavorare componenti pesanti costituisce la difficoltà principale dell’intervento.",
+    "kind": "html"
+  },
+  {
+    "id": "57044fd31eeab6de1bd7",
+    "it": "Tipo: Passivo · Requisiti: Astuzia d12, Carpenteria d10",
+    "kind": "html"
+  },
+  {
+    "id": "bfd04ee998e0453cfc6f",
+    "it": "Effettui con Vantaggio le Prove di Carpenteria utilizzate per individuare danni, cedimenti o punti deboli di una struttura.",
+    "kind": "html"
+  },
+  {
+    "id": "4d85748adc59d3925893",
+    "it": "Tipo: Passivo · Requisiti: Astuzia d12, Cucina d10",
+    "kind": "html"
+  },
+  {
+    "id": "0bdcbe86cba2e282dd27",
+    "it": "Effettui con Vantaggio le Prove di Cucina utilizzate per identificare ingredienti, alterazioni o errori di preparazione.",
+    "kind": "html"
+  },
+  {
+    "id": "6be10dad333d7bc299cd",
+    "it": "Tipo: Passivo · Requisiti: Spirito d12, Cucina d12",
+    "kind": "html"
+  },
+  {
+    "id": "4c05a9e9cfe5f87f5a67",
+    "it": "Quando un piatto preparato da te recupera Stamina, ogni creatura che ne riceve il recupero ottiene +1 ST aggiuntiva.",
+    "kind": "html"
+  },
+  {
+    "id": "1ed5ae1701d21c7c2f07",
+    "it": "Una creatura può ricevere questo bonus una sola volta dallo stesso pasto.",
+    "kind": "html"
+  },
+  {
+    "id": "154b4b5aaa5a59a603d2",
+    "it": "Tipo: Passivo · Requisiti: Tecnica d12, Arte d10",
+    "kind": "html"
+  },
+  {
+    "id": "a8a747b4c530588a1b71",
+    "it": "Quando una Prova di Arte utilizza Tecnica come Attributo, effettui la Prova con Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "9430794e9f1d640ff21d",
+    "it": "Tipo: Passivo · Requisiti: Spirito d12, Arte d10",
+    "kind": "html"
+  },
+  {
+    "id": "29dd2f335f2c85a7a17c",
+    "it": "Quando ottieni un successo con margine +4 in una Prova di Arte davanti a un pubblico, la prima Prova di Comunicazione che effettui verso quello stesso pubblico nella scena ottiene Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "6705ad2ed6085eb5d3da",
+    "it": "Tipo: Passivo · Requisiti: Astuzia d12, Archeologia d10",
+    "kind": "html"
+  },
+  {
+    "id": "0b143d6e9cc7a94b328a",
+    "it": "Effettui con Vantaggio le Prove di Archeologia utilizzate per collegare un reperto, un luogo o un’iscrizione a informazioni che il personaggio conosce già.",
+    "kind": "html"
+  },
+  {
+    "id": "1564ddd3be5cb7c26309",
+    "it": "Il Tratto non fornisce conoscenze che il personaggio non possiede.",
+    "kind": "html"
+  },
+  {
+    "id": "9f3e617636499479c591",
+    "it": "16.9.7 · Rinvio al Prestigio",
+    "kind": "html"
+  },
+  {
+    "id": "ec1131793a5604d3c100",
+    "it": "Le Sinergie non ottengono nuovi Tratti ai singoli Gradi intermedi del Prestigio. Quando entrambe le componenti della stessa Sinergia raggiungono Saikyō, quella coppia può rendere disponibile un solo Tratto Unico di Prestigio, secondo le regole del Manuale del Prestigio. Il catalogo dei Tratti Unici di Prestigio verrà definito separatamente; questa regola non assegna automaticamente un nuovo effetto.",
+    "kind": "html"
+  }
+]

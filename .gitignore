@@ -8,3 +8,7 @@ _forgia-src/dist/
 **/.env*
 !**/.env.example
 **/*.tsbuildinfo
+
+# Python build and verification caches
+__pycache__/
+*.py[cod]

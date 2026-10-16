@@ -1,0 +1,2252 @@
+[
+  {
+    "id": "a7c8da866fdd912aed69",
+    "it": "Se una formula utilizza più copie dello stesso dado di riferimento, la riduzione modifica il Grado di quel riferimento. Per esempio, 3 Dadi Arma d10 diventano 3d8.",
+    "kind": "html"
+  },
+  {
+    "id": "0245463a5ecc1d0016d1",
+    "it": "La riduzione dura per il periodo indicato dall’effetto che la provoca.",
+    "kind": "html"
+  },
+  {
+    "id": "5781bd476829010715d4",
+    "it": "Il dado racconta la competenza",
+    "kind": "html"
+  },
+  {
+    "id": "f0dc1536f6bc79a97603",
+    "it": "Immaginiamo due pirati che cercano di raggiungere la cima di una torre.",
+    "kind": "html"
+  },
+  {
+    "id": "1a68be1f7f5217563fa3",
+    "it": "Il primo è forte ma poco allenato nel movimento acrobatico.",
+    "kind": "html"
+  },
+  {
+    "id": "7a17301087f35b912a91",
+    "it": "Il secondo possiede un controllo del corpo eccezionale.",
+    "kind": "html"
+  },
+  {
+    "id": "c9b0700e87fda90dab6d",
+    "it": "Potrebbero tentare la stessa azione, ma non necessariamente utilizzando gli stessi strumenti.",
+    "kind": "html"
+  },
+  {
+    "id": "b9193d3e24fcb1dbe100",
+    "it": "Uno potrebbe affidarsi alla forza delle braccia.",
+    "kind": "html"
+  },
+  {
+    "id": "10e21ca854d000baf212",
+    "it": "L’altro potrebbe sfruttare equilibrio e tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "f29d1a2a8f7dec7fba8d",
+    "it": "Il sistema non cerca quindi di imporre un’unica soluzione corretta.",
+    "kind": "html"
+  },
+  {
+    "id": "c100c12bf391bcd42e23",
+    "it": "Cerca di rappresentare <b>come</b> il personaggio affronta il problema.",
+    "kind": "html"
+  },
+  {
+    "id": "264f6de466cb89d18f75",
+    "it": "Questa distinzione diventa ancora più importante quando entrano in gioco Ruoli, Talenti e Tecniche.",
+    "kind": "html"
+  },
+  {
+    "id": "1d937d038b5a2d20848c",
+    "it": "Due personaggi con valori simili possono comportarsi in maniera completamente diversa perché hanno costruito capacità differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "ca2de8bce5a41f2dba7f",
+    "it": "Superare una difficoltà",
+    "kind": "html"
+  },
+  {
+    "id": "1df896f3ab7febace2e0",
+    "it": "Quando una prova non è direttamente contrapposta a un altro personaggio, il Game Master può stabilire una <b>Soglia</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "c04acdd6bcfa21ec6cc7",
+    "it": "Il risultato del tiro viene confrontato con quella difficoltà.",
+    "kind": "html"
+  },
+  {
+    "id": "c339b1842cba8f7f1bfa",
+    "it": "Una situazione semplice richiede una Soglia relativamente bassa.",
+    "kind": "html"
+  },
+  {
+    "id": "ac536c0c5eb4ad13b4c4",
+    "it": "Un’impresa rischiosa richiede una Soglia maggiore.",
+    "kind": "html"
+  },
+  {
+    "id": "c3096489a4850d60b6e1",
+    "it": "Azioni straordinarie possono richiedere capacità altrettanto straordinarie.",
+    "kind": "html"
+  },
+  {
+    "id": "69e160f91d0f89150642",
+    "it": "La Soglia non rappresenta quanto il Game Master desidera che il personaggio fallisca.",
+    "kind": "html"
+  },
+  {
+    "id": "feb650fe7f4562e97c18",
+    "it": "Rappresenta quanto è difficile ciò che sta tentando di fare.",
+    "kind": "html"
+  },
+  {
+    "id": "cb422daa78d391bfca53",
+    "it": "Le prove contrapposte",
+    "kind": "html"
+  },
+  {
+    "id": "96f78626b4d5f60406a7",
+    "it": "Quando due personaggi agiscono direttamente l’uno contro l’altro, entrambi possono entrare nella risoluzione.",
+    "kind": "html"
+  },
+  {
+    "id": "8ea208bb50d3e6a77394",
+    "it": "Un pirata prova ad afferrare qualcuno che vuole liberarsi.",
+    "kind": "html"
+  },
+  {
+    "id": "ac3adee67e29746ca1c2",
+    "it": "Due combattenti cercano di anticiparsi.",
+    "kind": "html"
+  },
+  {
+    "id": "21935a23e30652ca846d",
+    "it": "Un personaggio tenta di ingannare qualcuno che sta cercando di capire le sue intenzioni.",
+    "kind": "html"
+  },
+  {
+    "id": "6baf0acd435582776968",
+    "it": "In queste situazioni non esiste necessariamente una difficoltà immobile.",
+    "kind": "html"
+  },
+  {
+    "id": "7510a701d22dfc10b39d",
+    "it": "Esiste <b>un’altra volontà dall’altra parte del tiro</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "d36d856ca85b2aac9b0f",
+    "it": "Le regole specifiche stabiliscono quali dadi vengono utilizzati e come viene determinato il vincitore del confronto.",
+    "kind": "html"
+  },
+  {
+    "id": "a2dea476f4274f9ecb0f",
+    "it": "Il combattimento utilizza questa stessa filosofia, ma con procedure più precise.",
+    "kind": "html"
+  },
+  {
+    "id": "cfcda04868c81bb39a1a",
+    "it": "Salvezze",
+    "kind": "html"
+  },
+  {
+    "id": "340d8f05cb3661cf7657",
+    "it": "Una Salvezza rappresenta il tentativo di resistere, evitare o liberarsi da un effetto. Quando la capacità indica l’Attributo da utilizzare, si usa quell’Attributo; altrimenti il Game Master sceglie quello più coerente.",
+    "kind": "html"
+  },
+  {
+    "id": "bddeffcf4101bc089613",
+    "it": "Lo Stato stabilisce l’Attributo della Salvezza; la fonte stabilisce la Soglia. Quando l’effetto proviene da una fonte che possiede un Grado, la fonte non tira dadi: il suo Grado determina una Soglia fissa. Il bersaglio tira soltanto il proprio Attributo completo, compreso l’eventuale dado di Prestigio, e riesce se il risultato raggiunge o supera la Soglia.",
+    "kind": "html"
+  },
+  {
+    "id": "44f3fd0419cea4174f3a",
+    "it": "Grado della fonte",
+    "kind": "html"
+  },
+  {
+    "id": "597709a303bf65225d32",
+    "it": "Soglia",
+    "kind": "html"
+  },
+  {
+    "id": "5236d9c193a7c45ee7cd",
+    "it": "Salvezze e Prestigio",
+    "kind": "html"
+  },
+  {
+    "id": "9211d1ae369a5c107e93",
+    "it": "Una fonte che ha raggiunto il Prestigio usa il proprio Grado completo per determinare la Soglia fissa. La progressione e le regole del Prestigio sono descritte nel Manuale del Prestigio.",
+    "kind": "html"
+  },
+  {
+    "id": "9dba83a254ee351b75d2",
+    "it": "d20+d4 · Prestigio I",
+    "kind": "html"
+  },
+  {
+    "id": "acf970ab48400a3a7bf5",
+    "it": "d20+d6 · Prestigio II",
+    "kind": "html"
+  },
+  {
+    "id": "48c9e9c48ceaac89409c",
+    "it": "d20+d8 · Prestigio III",
+    "kind": "html"
+  },
+  {
+    "id": "238b39df45a030c92475",
+    "it": "d20+d10 · Prestigio IV",
+    "kind": "html"
+  },
+  {
+    "id": "ddaa874da9e8399b2186",
+    "it": "d20+d12 · Prestigio V",
+    "kind": "html"
+  },
+  {
+    "id": "34973de02020a719bc38",
+    "it": "d20+d20 · Saikyō",
+    "kind": "html"
+  },
+  {
+    "id": "fc74b83d00e1fb2f9c11",
+    "it": "Determinare la fonte",
+    "kind": "html"
+  },
+  {
+    "id": "1bdb4add5da2415f13f7",
+    "it": "Fonte",
+    "kind": "html"
+  },
+  {
+    "id": "cce99800a1cc9495ae2d",
+    "it": "Grado usato per la Soglia",
+    "kind": "html"
+  },
+  {
+    "id": "f2ff0c813daa91c701af",
+    "it": "Effetto inserito in una Tecnica",
+    "kind": "html"
+  },
+  {
+    "id": "15d12a402cb36f318409",
+    "it": "Grado della Tecnica che contiene l’effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "d58d60d6e395844f8c6c",
+    "it": "Tecnica Razziale",
+    "kind": "html"
+  },
+  {
+    "id": "451b1acf691632876509",
+    "it": "Grado attuale della Tecnica Razziale.",
+    "kind": "html"
+  },
+  {
+    "id": "3b225b69921cc4bbce16",
+    "it": "Talento o Firma che applica direttamente uno Stato",
+    "kind": "html"
+  },
+  {
+    "id": "afa54a0cfc16b931cf66",
+    "it": "Grado attuale della Skill che governa il Talento o la Firma, salvo indicazione specifica; nel Prestigio si usa il pool completo della Skill.",
+    "kind": "html"
+  },
+  {
+    "id": "70ac8c42b6e7e856b2da",
+    "it": "Effetto di un Frutto non contenuto in una Tecnica",
+    "kind": "html"
+  },
+  {
+    "id": "c2437e0ba6aebbae0cb3",
+    "it": "Dado del Frutto. Un effetto inserito in una Tecnica del Frutto usa invece il Grado della Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "9e3d60b30155988b9a95",
+    "it": "Effetto diretto dell’Haki",
+    "kind": "html"
+  },
+  {
+    "id": "6cf79c7a1a7b1cbab90e",
+    "it": "Grado del Colore che produce l’effetto, quando quel Colore possiede un Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "3a2d197f95cdb29ca8be",
+    "it": "Effetto speciale di un’arma",
+    "kind": "html"
+  },
+  {
+    "id": "d54744dca38a6fcb1fcd",
+    "it": "Grado effettivamente utilizzabile dell’arma, salvo Soglia propria dell’effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "c349f35dea95e719bb0a",
+    "it": "Canzone del Musicista",
+    "kind": "html"
+  },
+  {
+    "id": "0cd9e56b7ca10f1e9752",
+    "it": "Grado effettivamente utilizzabile dello strumento, salvo evoluzione di Prestigio specifica.",
+    "kind": "html"
+  },
+  {
+    "id": "605638e96af270109994",
+    "it": "Oggetto, preparato, veleno o dispositivo con Soglia propria",
+    "kind": "html"
+  },
+  {
+    "id": "9aa2e99fb4d6a0d06a25",
+    "it": "Soglia scritta nella scheda: la regola specifica prevale.",
+    "kind": "html"
+  },
+  {
+    "id": "cf4619dfb7b193efcc71",
+    "it": "Effetto ambientale senza Grado",
+    "kind": "html"
+  },
+  {
+    "id": "63081f4197e345875cf4",
+    "it": "Soglia stabilita dalla regola o dal Game Master prima del tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "74a7152ffa0004a81f9e",
+    "it": "Il Grado della fonte non può essere scelto liberamente fra le statistiche del personaggio: si usa la componente che contiene o genera meccanicamente lo Stato. Se una regola specifica indica una fonte diversa, prevale quella regola.",
+    "kind": "html"
+  },
+  {
+    "id": "b8de7a7e809553ac5296",
+    "it": "Quando una Firma o un Talento possiede una regola specifica che identifica come fonte la Tecnica che ha generato l’effetto, prevale quella regola specifica. Il Colpo Sfonda usa quindi la Skill di Ruolo sugli attacchi base e il Grado della Tecnica quando viene attivato da una Tecnica Striker.",
+    "kind": "html"
+  },
+  {
+    "id": "3c9d227f1027190f1a18",
+    "it": "Una Soglia propria, una prova contrapposta o una procedura specifica prevalgono sulla tabella generale. Veleni, sostanze, vincoli fisici e condizioni ambientali conservano la procedura della propria scheda o quella stabilita dal Game Master prima del tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "7d8d48d87bb321e6eb03",
+    "it": "Se un effetto concede una Salvezza senza specificarne il momento, la prima Salvezza viene effettuata quando lo Stato viene applicato. Se lo Stato permane, il bersaglio può ripeterla alla fine di ciascun proprio turno, salvo indicazione differente. La Soglia rimane quella determinata dalla fonte originale finché quello specifico effetto continua a essere la causa dello Stato. Le nuove applicazioni seguono le normali regole sugli Stati ripetuti e sulle durate (§6.13).",
+    "kind": "html"
+  },
+  {
+    "id": "1e95ec088a88bea0e5c0",
+    "it": "Il margine conta",
+    "kind": "html"
+  },
+  {
+    "id": "88ed9ea34b675285e642",
+    "it": "In Grand Line Chronicles non conta soltanto riuscire o fallire.",
+    "kind": "html"
+  },
+  {
+    "id": "3e8ad8c5748c0ccb7bd3",
+    "it": "In molte situazioni conta anche <b>di quanto</b> il risultato supera il valore necessario.",
+    "kind": "html"
+  },
+  {
+    "id": "1d216952b4c26bccaa00",
+    "it": "Una vittoria minima e una vittoria schiacciante non devono necessariamente produrre lo stesso risultato.",
+    "kind": "html"
+  },
+  {
+    "id": "93155354cad052d06d4f",
+    "it": "Questa differenza è chiamata <b>Margine</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "c4d4a8e6bfbf3522f4a5",
+    "it": "Il Margine può attivare effetti aggiuntivi, capacità particolari o risultati migliori.",
+    "kind": "html"
+  },
+  {
+    "id": "cc66206dbe8c805a4f1a",
+    "it": "Nel combattimento assume un’importanza speciale, perché alcune capacità reagiscono direttamente alla qualità del colpo.",
+    "kind": "html"
+  },
+  {
+    "id": "cfca3a718b0bc1885130",
+    "it": "Vantaggio e Svantaggio",
+    "kind": "html"
+  },
+  {
+    "id": "d6938629a93b5e3ac2c5",
+    "it": "Alcune situazioni possono rendere un’azione particolarmente favorevole oppure particolarmente difficile.",
+    "kind": "html"
+  },
+  {
+    "id": "83ff19c0f3e001e0fae0",
+    "it": "Il sistema utilizza <b>Vantaggio</b> e <b>Svantaggio</b> per rappresentare queste condizioni senza trasformarle in una cascata di piccoli modificatori.",
+    "kind": "html"
+  },
+  {
+    "id": "6df2af79e50b872c58d9",
+    "it": "Posizione, Talenti, preparazione, condizioni del campo e altre capacità possono concederli.",
+    "kind": "html"
+  },
+  {
+    "id": "a8c1e6f0f5ea928dc722",
+    "it": "Non indicano semplicemente che un personaggio “è più forte”.",
+    "kind": "html"
+  },
+  {
+    "id": "6148e4b29394e4227323",
+    "it": "Indicano che, <b>in quel preciso momento</b>, le circostanze stanno lavorando a suo favore o contro di lui.",
+    "kind": "html"
+  },
+  {
+    "id": "873fe4c1788e8fd7f964",
+    "it": "Le regole dettagliate su come vengono tirati e combinati sono descritte nel capitolo dedicato alle regole fondamentali.",
+    "kind": "html"
+  },
+  {
+    "id": "7b24c9f221aad2d3b15d",
+    "it": "Risolvere Vantaggio e Svantaggio",
+    "kind": "html"
+  },
+  {
+    "id": "7e9b7566bf64e77e9230",
+    "it": "Vantaggio e Svantaggio si applicano all’intero pool di dadi del tiro indicato dall’effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "1d39eeae757a385ae7ce",
+    "it": "Con Vantaggio, costruisci normalmente il pool completo, tiralo due volte e conserva il totale più alto.",
+    "kind": "html"
+  },
+  {
+    "id": "8a51c57cb2949bf92d7e",
+    "it": "Con Svantaggio, costruisci normalmente il pool completo, tiralo due volte e conserva il totale più basso.",
+    "kind": "html"
+  },
+  {
+    "id": "af93a4adc07d7f06762f",
+    "it": "Non si ritira quindi un singolo dado del pool: viene ripetuto l’intero tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "c8a0c289d8624bdaa66d",
+    "it": "Più fonti di Vantaggio non producono ulteriori tiri. Allo stesso modo, più fonti di Svantaggio non si accumulano.",
+    "kind": "html"
+  },
+  {
+    "id": "ab657fdf1b810140a97d",
+    "it": "Se sullo stesso tiro sono presenti sia Vantaggio sia Svantaggio, i due effetti si annullano e il tiro viene effettuato normalmente.",
+    "kind": "html"
+  },
+  {
+    "id": "afa4b319b493ec922f23",
+    "it": "Una sola scala, molti sistemi",
+    "kind": "html"
+  },
+  {
+    "id": "98df82b88dc02a5bd54c",
+    "it": "La forza del Sistema Will of D. sta nella sua continuità.",
+    "kind": "html"
+  },
+  {
+    "id": "e2301a411a09ad76062f",
+    "it": "Lo stesso linguaggio che descrive una Skill descrive anche una Tecnica, un’arma, l’Haki o il potere di un Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "704701a9124de29e6892",
+    "it": "Quando un personaggio cresce, non entra improvvisamente in un secondo sistema di gioco.",
+    "kind": "html"
+  },
+  {
+    "id": "a21ea822d99d30665af9",
+    "it": "Continua a utilizzare gli stessi dadi, ma li combina in modi sempre più sofisticati.",
+    "kind": "html"
+  },
+  {
+    "id": "753f797e780cbdd84762",
+    "it": "Un nuovo giocatore può quindi iniziare imparando una cosa molto semplice:",
+    "kind": "html"
+  },
+  {
+    "id": "a78ad41e03882b692512",
+    "it": "<b>più grande è il dado, maggiore è il livello della capacità che rappresenta.</b>",
+    "kind": "html"
+  },
+  {
+    "id": "dc87ac9b41eb3dba667b",
+    "it": "Tutto il resto nasce da lì.",
+    "kind": "html"
+  },
+  {
+    "id": "3a943931e157214f2240",
+    "it": "<span class=\"man-sez-n\">1.5 ·</span> Dadi e Gradi",
+    "kind": "html"
+  },
+  {
+    "id": "81ffd290f1d4267aa889",
+    "it": "Grand Line Chronicles utilizza una scala unica per rappresentare quanto una capacità sia sviluppata:",
+    "kind": "html"
+  },
+  {
+    "id": "d643cf9bd8a9ea892495",
+    "it": "Ogni dado corrisponde a un <b>Grado</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "3e46581bcde3b158c778",
+    "it": "<b>Dado</b>",
+    "kind": "html"
+  },
+  {
+    "id": "bd4fe6dd379736194593",
+    "it": "<b>Grado</b>",
+    "kind": "html"
+  },
+  {
+    "id": "d3dd09ac0358a0e04fc5",
+    "it": "<b>Significato</b>",
+    "kind": "html"
+  },
+  {
+    "id": "4aa663c3deff12fcca8e",
+    "it": "<b>Base</b>",
+    "kind": "html"
+  },
+  {
+    "id": "8c657619186dd99229e9",
+    "it": "Conoscenza o capacità ancora elementare",
+    "kind": "html"
+  },
+  {
+    "id": "20baa06df231dfa8bb9e",
+    "it": "<b>Competente</b>",
+    "kind": "html"
+  },
+  {
+    "id": "06baaee92c7d32508964",
+    "it": "Padronanza sufficiente per utilizzare la capacità con sicurezza",
+    "kind": "html"
+  },
+  {
+    "id": "977ceb16b56846941c2c",
+    "it": "<b>Esperto</b>",
+    "kind": "html"
+  },
+  {
+    "id": "486e928a6bfc380d1223",
+    "it": "Specializzazione ormai evidente",
+    "kind": "html"
+  },
+  {
+    "id": "fa6940185ea6f4a2a9a1",
+    "it": "<b>Maestro</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e83a2cfa957d78fcbaa8",
+    "it": "Capacità affinata a un livello eccezionale",
+    "kind": "html"
+  },
+  {
+    "id": "35157f010d781f912929",
+    "it": "<b>Leggenda</b>",
+    "kind": "html"
+  },
+  {
+    "id": "5058841207091519b26c",
+    "it": "Livello raggiunto da pochissimi",
+    "kind": "html"
+  },
+  {
+    "id": "7be29df38fc4cbc79f4a",
+    "it": "<b>Mitico</b>",
+    "kind": "html"
+  },
+  {
+    "id": "9043a9d1d4e5595fbb87",
+    "it": "Capacità fuori scala, propria delle figure più straordinarie",
+    "kind": "html"
+  },
+  {
+    "id": "cc4d7f990a17ea1522ed",
+    "it": "Il dado e il Grado indicano quindi la stessa posizione nella progressione.",
+    "kind": "html"
+  },
+  {
+    "id": "035800e46a204bfd7e3f",
+    "it": "Scrivere <b>Tecnica d10</b> significa che quella Tecnica è di Grado <b>Maestro</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "ec9760b4b2fae3c43fcb",
+    "it": "Un’arma <b>d12</b> è un’arma di Grado <b>Leggenda</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "e809ae2f87128710ba5f",
+    "it": "Un Attributo <b>d20</b> ha raggiunto il Grado <b>Mitico</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "c27c1aa5eb2c07489ea1",
+    "it": "Questo linguaggio viene utilizzato in tutto il gioco.",
+    "kind": "html"
+  },
+  {
+    "id": "e1076bab222049247329",
+    "it": "Leggere un dado",
+    "kind": "html"
+  },
+  {
+    "id": "3dfaf1b9221eb5599463",
+    "it": "La lettera <b>d</b> significa semplicemente <i>dado</i>.",
+    "kind": "html"
+  },
+  {
+    "id": "864591d3fbb691034024",
+    "it": "Il numero indica quante facce possiede.",
+    "kind": "html"
+  },
+  {
+    "id": "ff854f5f5473514021a2",
+    "it": "d4 significa quindi un dado a quattro facce.",
+    "kind": "html"
+  },
+  {
+    "id": "8c88e59506b25a6703af",
+    "it": "d10 un dado a dieci facce.",
+    "kind": "html"
+  },
+  {
+    "id": "cad9b2de0703bdb42b9c",
+    "it": "d20 un dado a venti facce.",
+    "kind": "html"
+  },
+  {
+    "id": "9a71de611e0ceba028da",
+    "it": "Quando una regola chiede di tirare più dadi, questi vengono scritti uno accanto all’altro oppure indicando quante copie dello stesso dado devono essere lanciate.",
+    "kind": "html"
+  },
+  {
+    "id": "1ad355cae410c115a454",
+    "it": "Per esempio:",
+    "kind": "html"
+  },
+  {
+    "id": "2d3847559e9477682ae2",
+    "it": "significa tirare un dado a venti facce e un dado a dodici facce e sommare i risultati.",
+    "kind": "html"
+  },
+  {
+    "id": "49b447c331b837a1f147",
+    "it": "significa tirare tre dadi a otto facce.",
+    "kind": "html"
+  },
+  {
+    "id": "89837c84c22aad37e50d",
+    "it": "Il modo in cui questi dadi vengono ottenuti dipende dalla regola che sta risolvendo l’azione.",
+    "kind": "html"
+  },
+  {
+    "id": "9a3ad5cd820dcf68210d",
+    "it": "Il Grado non è un livello del personaggio",
+    "kind": "html"
+  },
+  {
+    "id": "853c562ef6704dcc2aab",
+    "it": "Un personaggio non è semplicemente “di livello d10”.",
+    "kind": "html"
+  },
+  {
+    "id": "d9917236a9d42994ab3d",
+    "it": "Ogni sua componente può trovarsi a un Grado differente.",
+    "kind": "html"
+  },
+  {
+    "id": "17ab7d0aeca4ac860efb",
+    "it": "Un pirata potrebbe possedere:",
+    "kind": "html"
+  },
+  {
+    "id": "1118a37b1dcdfe31d2d6",
+    "it": "Forza d12;",
+    "kind": "html"
+  },
+  {
+    "id": "5bfedd160b4aca9b2d62",
+    "it": "Tecnica d20;",
+    "kind": "html"
+  },
+  {
+    "id": "69447812ec4657aacb80",
+    "it": "una Skill d10;",
+    "kind": "html"
+  },
+  {
+    "id": "c4f97794645658dc67c6",
+    "it": "un’arma d12;",
+    "kind": "html"
+  },
+  {
+    "id": "77f4483be456ae3254cb",
+    "it": "Haki dell’Armamento d8;",
+    "kind": "html"
+  },
+  {
+    "id": "b178d4cd9fa4ce851164",
+    "it": "una Tecnica d20.",
+    "kind": "html"
+  },
+  {
+    "id": "5a8df5fa33febdbd8367",
+    "it": "Questo permette di costruire personaggi fortemente specializzati senza obbligare ogni loro capacità a crescere nello stesso momento.",
+    "kind": "html"
+  },
+  {
+    "id": "9f095e9a5105024ee258",
+    "it": "Un grande spadaccino può essere mediocre in Medicina.",
+    "kind": "html"
+  },
+  {
+    "id": "f69568155cbdbf8ad0e8",
+    "it": "Un Navigatore eccezionale può possedere capacità combattive modeste.",
+    "kind": "html"
+  },
+  {
+    "id": "1d4bf5605895fd634fff",
+    "it": "Un pirata può raggiungere livelli straordinari con il proprio Haki senza essere altrettanto sviluppato in ogni altro campo.",
+    "kind": "html"
+  },
+  {
+    "id": "b6d923fa8ab3022f667b",
+    "it": "La scheda racconta quindi <b>dove si trova la forza del personaggio</b>, non soltanto quanto è potente nel complesso.",
+    "kind": "html"
+  },
+  {
+    "id": "e378c4c4f5ff0edb7604",
+    "it": "Salire di Grado",
+    "kind": "html"
+  },
+  {
+    "id": "96c9f51c414b7dd5d161",
+    "it": "La progressione segue sempre lo stesso ordine:",
+    "kind": "html"
+  },
+  {
+    "id": "a430b3bcb5837387644e",
+    "it": "Quando una capacità aumenta di <b>un Grado</b>, passa al dado immediatamente successivo della scala.",
+    "kind": "html"
+  },
+  {
+    "id": "e517876864614419b282",
+    "it": "oppure:",
+    "kind": "html"
+  },
+  {
+    "id": "22abead9c31081d46dae",
+    "it": "Non esistono Gradi intermedi tra questi valori.",
+    "kind": "html"
+  },
+  {
+    "id": "4046c4ab8c6f96184077",
+    "it": "Il passaggio da d12 a d20 è quindi un singolo avanzamento nella scala del sistema, anche se il dado numericamente aumenta molto più degli altri.",
+    "kind": "html"
+  },
+  {
+    "id": "fed9e2b1aa65cf89d54a",
+    "it": "Questo salto rappresenta intenzionalmente il passaggio dalla dimensione della <b>Leggenda</b> a quella del <b>Mitico</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "251b8cf2f1544a682a40",
+    "it": "Il d20 non è semplicemente “un dado più grande”",
+    "kind": "html"
+  },
+  {
+    "id": "8a8d7edf66af2d25b5de",
+    "it": "I primi cinque Gradi descrivono una crescita progressiva.",
+    "kind": "html"
+  },
+  {
+    "id": "c1e978c88316529c47ac",
+    "it": "Il <b>d20</b> rappresenta invece l’ingresso nella fascia più estrema del sistema.",
+    "kind": "html"
+  },
+  {
+    "id": "f3dd3b8935d50de045b3",
+    "it": "È il punto in cui iniziano ad apparire capacità pensate per personaggi che possono cambiare radicalmente l’esito di uno scontro, dominare intere situazioni o utilizzare le forme più avanzate dei propri poteri.",
+    "kind": "html"
+  },
+  {
+    "id": "8eba282218acb89114c6",
+    "it": "Per questo molte parti di Grand Line Chronicles riservano al Grado d20 effetti, Talenti o capacità specifiche.",
+    "kind": "html"
+  },
+  {
+    "id": "646281313adf9935d143",
+    "it": "Raggiungere d20 non significa però diventare automaticamente imbattibili.",
+    "kind": "html"
+  },
+  {
+    "id": "f641770d64c4a0778b92",
+    "it": "Un personaggio continua a dipendere da:",
+    "kind": "html"
+  },
+  {
+    "id": "aaa81bd99de4dba3a854",
+    "it": "quali capacità ha effettivamente sviluppato;",
+    "kind": "html"
+  },
+  {
+    "id": "4aa4f684bdd3193461a7",
+    "it": "quali risorse possiede;",
+    "kind": "html"
+  },
+  {
+    "id": "934fc8ec565e7e1b65e0",
+    "it": "quali Talenti ha scelto;",
+    "kind": "html"
+  },
+  {
+    "id": "63365681441c28097cee",
+    "it": "come utilizza le proprie Tecniche;",
+    "kind": "html"
+  },
+  {
+    "id": "86d99f01ef2faf3913df",
+    "it": "quali strumenti ha a disposizione;",
+    "kind": "html"
+  },
+  {
+    "id": "3263c56539cf71bc6f2e",
+    "it": "cosa sta facendo l’avversario.",
+    "kind": "html"
+  },
+  {
+    "id": "92989b58c19df46bac56",
+    "it": "Il Grado misura la potenza di una componente.",
+    "kind": "html"
+  },
+  {
+    "id": "05cf634312c733f6e28f",
+    "it": "Non decide da solo l’esito della scena.",
+    "kind": "html"
+  },
+  {
+    "id": "55eb9ece3fa9e9a48a65",
+    "it": "Gradi e requisiti",
+    "kind": "html"
+  },
+  {
+    "id": "c63830acf02e224596e2",
+    "it": "In alcune parti del gioco il Grado non determina soltanto quale dado tirare.",
+    "kind": "html"
+  },
+  {
+    "id": "0806cd461ad00dbe5990",
+    "it": "Può anche rappresentare un <b>requisito</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "f225a065e21df5d8f289",
+    "it": "Un’arma può richiedere che l’Attributo utilizzato abbia raggiunto un determinato Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "cf041facb1dda6ae587b",
+    "it": "Un Talento può diventare disponibile soltanto da una certa fascia.",
+    "kind": "html"
+  },
+  {
+    "id": "6a343c22b4abe596b47e",
+    "it": "Una capacità può sbloccarsi quando Haki, Frutto o altra caratteristica raggiungono un preciso gradino.",
+    "kind": "html"
+  },
+  {
+    "id": "0d1ad95484f1fe163990",
+    "it": "In questi casi il dado diventa anche una misura della preparazione necessaria per utilizzare qualcosa correttamente.",
+    "kind": "html"
+  },
+  {
+    "id": "9a6ef82f609f6c14fc7e",
+    "it": "Le singole sezioni del manuale indicano sempre quando esiste un requisito di questo tipo.",
+    "kind": "html"
+  },
+  {
+    "id": "b75ad9c0a0b1d2d019ce",
+    "it": "Una scala comune",
+    "kind": "html"
+  },
+  {
+    "id": "635b35455c9463ac4521",
+    "it": "Utilizzare la stessa progressione in sistemi diversi permette di leggere rapidamente una scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "363cd3ac144dd7e30601",
+    "it": "Se vedi:",
+    "kind": "html"
+  },
+  {
+    "id": "b6c8148444fde019ab79",
+    "it": "<b>d6</b>, sai che quella capacità è ancora relativamente contenuta.",
+    "kind": "html"
+  },
+  {
+    "id": "96abb5b67e4950df6b86",
+    "it": "<b>d12</b>, sai di trovarti davanti a qualcosa di eccezionale.",
+    "kind": "html"
+  },
+  {
+    "id": "7f3ed325fc6951c70e64",
+    "it": "Se compare:",
+    "kind": "html"
+  },
+  {
+    "id": "d4990075a5b2717bc5dd",
+    "it": "<b>d20</b>, quella componente è entrata nella fascia Mitica.",
+    "kind": "html"
+  },
+  {
+    "id": "aae8b9eff9042854bd0f",
+    "it": "Questo vale indipendentemente dal fatto che si stia parlando di un Attributo, una Skill, una Tecnica, un’arma, Haki o un altro sistema che utilizza i Gradi.",
+    "kind": "html"
+  },
+  {
+    "id": "3033c4640c66aec54fbc",
+    "it": "È uno dei principi fondamentali di Grand Line Chronicles:",
+    "kind": "html"
+  },
+  {
+    "id": "71204d7ef57d878cccfc",
+    "it": "<b>impari una scala una volta, poi la ritrovi in tutto il gioco.</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e150ce53193d61e3915d",
+    "it": "<span class=\"man-sez-n\">1.6 ·</span> La Regola d’Oro",
+    "kind": "html"
+  },
+  {
+    "id": "988c1303e326bdcddc71",
+    "it": "Grand Line Chronicles offre regole per risolvere azioni, combattimenti, capacità, Tecniche, Haki, equipaggiamento e gran parte delle situazioni che possono emergere durante una sessione.",
+    "kind": "html"
+  },
+  {
+    "id": "8480e344733bf0045c29",
+    "it": "Ma nessun regolamento può prevedere ogni idea che nascerà al tavolo.",
+    "kind": "html"
+  },
+  {
+    "id": "a5785a38cb9a6083f4be",
+    "it": "Prima o poi qualcuno proverà qualcosa che non è scritto in nessuna tabella.",
+    "kind": "html"
+  },
+  {
+    "id": "4c3e1365f3465c8c0c85",
+    "it": "Quando succede, entra in gioco la <b>Regola d’Oro</b>:",
+    "kind": "html"
+  },
+  {
+    "id": "fe70b3881a9192371c6a",
+    "it": "<b>se una situazione non è coperta chiaramente dalle regole, si usa la soluzione più semplice e coerente con ciò che sta accadendo nella scena.</b>",
+    "kind": "html"
+  },
+  {
+    "id": "d86f4220f720e8d1c83b",
+    "it": "Lo scopo non è trovare la regola perfetta.",
+    "kind": "html"
+  },
+  {
+    "id": "5627dfd9c0e3a239a833",
+    "it": "È permettere al gioco di continuare senza spezzare il ritmo.",
+    "kind": "html"
+  },
+  {
+    "id": "5ca9a2d5d8d466ead58c",
+    "it": "Prima la situazione, poi la regola",
+    "kind": "html"
+  },
+  {
+    "id": "47fed2baacbf02c58651",
+    "it": "Quando un giocatore descrive un’azione, il tavolo dovrebbe partire da ciò che il personaggio sta realmente tentando di fare.",
+    "kind": "html"
+  },
+  {
+    "id": "ec0d2afba5cbd37efa58",
+    "it": "Solo dopo si cerca la meccanica più adatta.",
+    "kind": "html"
+  },
+  {
+    "id": "dea5653bd2bcd7a76012",
+    "it": "Se una regola già esiste e descrive chiaramente quella situazione, si utilizza quella.",
+    "kind": "html"
+  },
+  {
+    "id": "37d4b381e8631be717c5",
+    "it": "Se più regole sembrano applicabili, si sceglie quella che rappresenta meglio l’azione.",
+    "kind": "html"
+  },
+  {
+    "id": "6d915f717bf970e2bcad",
+    "it": "Se nessuna regola è adatta, il Game Master può costruire una risoluzione utilizzando gli strumenti fondamentali del sistema:",
+    "kind": "html"
+  },
+  {
+    "id": "fcfefb528b86a95252c4",
+    "it": "Attributi;",
+    "kind": "html"
+  },
+  {
+    "id": "307698109590b50afc95",
+    "it": "Skill;",
+    "kind": "html"
+  },
+  {
+    "id": "4229b99b4f79e679d1eb",
+    "it": "Soglie;",
+    "kind": "html"
+  },
+  {
+    "id": "20da3170860b78b12974",
+    "it": "prove contrapposte;",
+    "kind": "html"
+  },
+  {
+    "id": "a88114794447af312865",
+    "it": "Vantaggio e Svantaggio;",
+    "kind": "html"
+  },
+  {
+    "id": "5bf67e49482c98dc40e1",
+    "it": "risorse;",
+    "kind": "html"
+  },
+  {
+    "id": "d7006cc6b96a1575970d",
+    "it": "conseguenze narrative.",
+    "kind": "html"
+  },
+  {
+    "id": "f28f1cadf681baaca9b7",
+    "it": "La soluzione dovrebbe essere abbastanza semplice da poter essere spiegata al tavolo in pochi secondi.",
+    "kind": "html"
+  },
+  {
+    "id": "799cad370f1b29df0954",
+    "it": "Non aggiungere complessità senza motivo",
+    "kind": "html"
+  },
+  {
+    "id": "db300a6b0fdb1f2495fe",
+    "it": "Quando nasce una situazione nuova, la risposta non dovrebbe essere creare immediatamente una nuova sottoregola.",
+    "kind": "html"
+  },
+  {
+    "id": "2cc447b3c1dd37e6c256",
+    "it": "Se un problema può essere risolto con una normale prova, quella è spesso la soluzione migliore.",
+    "kind": "html"
+  },
+  {
+    "id": "3ba41057fc71ed6dd1fb",
+    "it": "Se può essere rappresentato con Vantaggio o Svantaggio, non serve necessariamente inventare un modificatore.",
+    "kind": "html"
+  },
+  {
+    "id": "e07522ecac05ab01eae2",
+    "it": "Se una capacità esistente descrive già qualcosa di molto simile, può essere usata come riferimento.",
+    "kind": "html"
+  },
+  {
+    "id": "d9b0ddb7d20d08bc6465",
+    "it": "Il sistema deve sostenere la scena, non rallentarla.",
+    "kind": "html"
+  },
+  {
+    "id": "29ff9f7fd15859a2abae",
+    "it": "La coerenza conta",
+    "kind": "html"
+  },
+  {
+    "id": "5c3aa82207ba578f3b5f",
+    "it": "La Regola d’Oro non significa che situazioni identiche debbano essere risolte in modo completamente diverso ogni volta.",
+    "kind": "html"
+  },
+  {
+    "id": "5fc0fbc19c21284ef770",
+    "it": "Quando il tavolo prende una decisione su una situazione non prevista, è utile ricordarla e applicare la stessa logica quando quella circostanza si ripresenta.",
+    "kind": "html"
+  },
+  {
+    "id": "c410c2b2efd4b55b6145",
+    "it": "Questo crea una continuità naturale.",
+    "kind": "html"
+  },
+  {
+    "id": "1582d2ae5a92fb010722",
+    "it": "I giocatori imparano progressivamente come funziona il mondo e possono prendere decisioni sapendo cosa aspettarsi.",
+    "kind": "html"
+  },
+  {
+    "id": "e1503101dbcf5c581206",
+    "it": "Il GM non modifica una regola a metà azione",
+    "kind": "html"
+  },
+  {
+    "id": "442dc0533f6ea4d3177a",
+    "it": "Quando una capacità ha una regola chiara, quella regola dovrebbe essere conosciuta prima che il giocatore decida di utilizzarla.",
+    "kind": "html"
+  },
+  {
+    "id": "015de8885a4c5bc73918",
+    "it": "Cambiare il funzionamento di una Tecnica, di un Talento o di un’altra capacità dopo che il giocatore ha già speso una risorsa rende difficile prendere decisioni consapevoli.",
+    "kind": "html"
+  },
+  {
+    "id": "a48952d6f5fc6202cb00",
+    "it": "Se emerge un problema durante la sessione, il GM può prendere una decisione temporanea per far proseguire la scena.",
+    "kind": "html"
+  },
+  {
+    "id": "ac33ad4a680221ec314d",
+    "it": "La questione può poi essere discussa a fine sessione e, se necessario, chiarita per le partite successive.",
+    "kind": "html"
+  },
+  {
+    "id": "fefd732fd8e1cf7f5cf0",
+    "it": "Le capacità fanno ciò che dicono",
+    "kind": "html"
+  },
+  {
+    "id": "b89d5a25187ef53a93d4",
+    "it": "Quando una regola descrive un effetto preciso, non è necessario cercare significati nascosti.",
+    "kind": "html"
+  },
+  {
+    "id": "24eacf8fe2e54ef8929b",
+    "it": "Se una Tecnica spinge un bersaglio di 3 metri, lo spinge di 3 metri.",
+    "kind": "html"
+  },
+  {
+    "id": "37aee66b1cd6354ea694",
+    "it": "Se un Talento si attiva una volta per turno, non può attivarsi una seconda volta nello stesso turno salvo che un’altra regola lo permetta esplicitamente.",
+    "kind": "html"
+  },
+  {
+    "id": "9089a35b16d93b93608b",
+    "it": "Se una capacità richiede una condizione, quella condizione deve essere soddisfatta.",
+    "kind": "html"
+  },
+  {
+    "id": "e9ca9a27de3174bf27e3",
+    "it": "Questo principio permette alle combinazioni di capacità di funzionare senza che ogni interazione debba essere riscritta singolarmente.",
+    "kind": "html"
+  },
+  {
+    "id": "8b8a742a8d5aba01df31",
+    "it": "Le eccezioni devono essere dichiarate.",
+    "kind": "html"
+  },
+  {
+    "id": "b5ef81cc78c071bbbe40",
+    "it": "Le regole specifiche prevalgono su quelle generali",
+    "kind": "html"
+  },
+  {
+    "id": "2618d0b1371f42dc5eba",
+    "it": "Grand Line Chronicles utilizza molte capacità che modificano le regole normali.",
+    "kind": "html"
+  },
+  {
+    "id": "5b27a487e477bb9d84ef",
+    "it": "Quando una regola specifica contraddice una regola generale, prevale quella specifica.",
+    "kind": "html"
+  },
+  {
+    "id": "1a87ecd7194711a58dfa",
+    "it": "Per esempio, se normalmente una determinata azione richiede una Reazione ma un Talento dice esplicitamente che può essere effettuata senza spenderla, si applica il Talento.",
+    "kind": "html"
+  },
+  {
+    "id": "cc0702fb2b239df4d112",
+    "it": "Se una capacità permette di ignorare una difesa che normalmente sarebbe valida, quella capacità costituisce un’eccezione alla regola generale.",
+    "kind": "html"
+  },
+  {
+    "id": "a3a273c2ad00d36a2fe4",
+    "it": "Questa gerarchia evita di dover ripetere ogni volta tutte le regole che una capacità modifica.",
+    "kind": "html"
+  },
+  {
+    "id": "fd8f84d3685a214c6452",
+    "it": "In caso di dubbio",
+    "kind": "html"
+  },
+  {
+    "id": "913f05dc0c2a46642f59",
+    "it": "Quando una situazione resta ambigua anche dopo aver consultato le regole, il GM prende una decisione per quella scena.",
+    "kind": "html"
+  },
+  {
+    "id": "57d4f373d3e8067afa00",
+    "it": "La decisione dovrebbe rispettare tre principi:",
+    "kind": "html"
+  },
+  {
+    "id": "c3781c0177555a605cc8",
+    "it": "<b>Coerenza<br></b>La soluzione deve avere senso rispetto alla situazione e alle regole già esistenti.",
+    "kind": "html"
+  },
+  {
+    "id": "ee851ec8d6fe4e4d53ab",
+    "it": "<b>Semplicità<br></b>Deve essere abbastanza rapida da non bloccare la sessione.",
+    "kind": "html"
+  },
+  {
+    "id": "c9fa97b4472ded46f510",
+    "it": "<b>Trasparenza<br></b>I giocatori devono sapere come verrà risolta prima di impegnare risorse importanti, quando possibile.",
+    "kind": "html"
+  },
+  {
+    "id": "0f3626af3d8cf6846ebc",
+    "it": "La Regola d’Oro non serve a sostituire il regolamento.",
+    "kind": "html"
+  },
+  {
+    "id": "3f1f1b121e46cb36b691",
+    "it": "Serve a coprire lo spazio inevitabile tra ciò che il manuale può prevedere e ciò che i giocatori riusciranno a inventare.",
+    "kind": "html"
+  },
+  {
+    "id": "18fa2ee59592569f039c",
+    "it": "Perché in Grand Line Chronicles esiste sempre la possibilità che qualcuno tenti qualcosa che nessuno aveva pensato di scrivere.",
+    "kind": "html"
+  },
+  {
+    "id": "b3b96fa61013251519be",
+    "it": "E di solito è proprio lì che la sessione diventa interessante.",
+    "kind": "html"
+  },
+  {
+    "id": "7f0037151af0bc9dfea1",
+    "it": "Capitolo 2 ·",
+    "kind": "html"
+  },
+  {
+    "id": "400db744ad46eaf7cc98",
+    "it": "Creare il proprio Pirata",
+    "kind": "html"
+  },
+  {
+    "id": "8685ee46c1f9dd4df099",
+    "it": "Creare un personaggio in <b>Grand Line Chronicles</b> significa decidere chi è prima ancora di stabilire quanto sia forte.",
+    "kind": "html"
+  },
+  {
+    "id": "bed1796ba18ec3460838",
+    "it": "La scheda nasce a strati. Ogni scelta aggiunge qualcosa di diverso: identità, origine, capacità, ruolo nella ciurma, modo di combattere e possibilità di crescita.",
+    "kind": "html"
+  },
+  {
+    "id": "cd5121875088c614cd40",
+    "it": "Il primo passo è il più importante.",
+    "kind": "html"
+  },
+  {
+    "id": "ec723cd72ca01f2742cc",
+    "it": "<span class=\"man-sez-n\">2.1 ·</span> L’Ambizione",
+    "kind": "html"
+  },
+  {
+    "id": "827e04a98bd2053743e7",
+    "it": "Ogni pirata ha un sogno.",
+    "kind": "html"
+  },
+  {
+    "id": "d3583e1302bb45baf59f",
+    "it": "In <b>Grand Line Chronicles</b>, questo sogno prende il nome di <b>Ambizione</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "81354c1c905d4432f31b",
+    "it": "L’Ambizione rappresenta ciò che spinge il personaggio a salpare, attraversare mari pericolosi, affrontare avversari superiori e continuare ad avanzare quando sarebbe più semplice fermarsi.",
+    "kind": "html"
+  },
+  {
+    "id": "286c1012bf93305db5e9",
+    "it": "Può essere qualcosa di enorme:",
+    "kind": "html"
+  },
+  {
+    "id": "8a64791230808e75dbe4",
+    "it": "«Diventerò il più grande spadaccino del mondo.»",
+    "kind": "html"
+  },
+  {
+    "id": "119bec2a81f094efb6c7",
+    "it": "oppure qualcosa di profondamente personale:",
+    "kind": "html"
+  },
+  {
+    "id": "2fcecc0526494cb531f7",
+    "it": "«Troverò mio fratello.»",
+    "kind": "html"
+  },
+  {
+    "id": "92fe5f6bc0c5c64b0021",
+    "it": "Può riguardare libertà, conoscenza, vendetta, potere, scoperta, protezione, gloria, la propria ciurma o qualsiasi altro obiettivo abbastanza importante da dare una direzione alla vita del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "11e3ffa8c404a908250e",
+    "it": "Nel creatore del personaggio, l’Ambizione è semplicemente:",
+    "kind": "html"
+  },
+  {
+    "id": "a49d0369f2396e2b2ab9",
+    "it": "<b>il sogno che spinge il pirata.</b>",
+    "kind": "html"
+  },
+  {
+    "id": "499825cc40c164b6088b",
+    "it": "L’Ambizione non è una statistica",
+    "kind": "html"
+  },
+  {
+    "id": "eeaf7c3f1c757b884756",
+    "it": "L’Ambizione non possiede un dado e non concede automaticamente bonus numerici.",
+    "kind": "html"
+  },
+  {
+    "id": "2bf68bf6cbfe712a0282",
+    "it": "Non aumenta Attributi, Skill, PV o Stamina semplicemente perché è scritta sulla scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "923e153a3b0947846575",
+    "it": "Il suo valore nasce da <b>come il personaggio la vive durante l’avventura</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "670007ea48fc10d7aec7",
+    "it": "Un’Ambizione ignorata rimane soltanto una frase.",
+    "kind": "html"
+  },
+  {
+    "id": "f7e37276717819c34226",
+    "it": "Un’Ambizione che influenza decisioni, rischi e sacrifici diventa invece parte concreta del gioco.",
+    "kind": "html"
+  },
+  {
+    "id": "4f7af8966f52e1f1f64a",
+    "it": "Agire secondo la propria Ambizione",
+    "kind": "html"
+  },
+  {
+    "id": "6093d5eb34d7982f6f1b",
+    "it": "Quando un personaggio compie un’azione importante perché guidato dalla propria Ambizione, il <b>Game Master può decidere di ricompensarlo</b>, se ritiene che la situazione sia narrativamente coerente e significativa.",
+    "kind": "html"
+  },
+  {
+    "id": "3083bb4b4e4d63aa54b0",
+    "it": "Questa ricompensa <b>non è automatica</b> e non segue una formula fissa.",
+    "kind": "html"
+  },
+  {
+    "id": "30c9a6d43564019174ed",
+    "it": "Il GM può concedere, a seconda della situazione:",
+    "kind": "html"
+  },
+  {
+    "id": "2394688e2ac817f40845",
+    "it": "un bonus a una prova;",
+    "kind": "html"
+  },
+  {
+    "id": "31d8b229e708e70698b2",
+    "it": "Vantaggio;",
+    "kind": "html"
+  },
+  {
+    "id": "4de721bcbf250ed7aa82",
+    "it": "una risorsa o un recupero;",
+    "kind": "html"
+  },
+  {
+    "id": "eca730616e1df1a247f0",
+    "it": "una ricompensa aggiuntiva;",
+    "kind": "html"
+  },
+  {
+    "id": "95ca5ca5cc8c6673a126",
+    "it": "un’opportunità narrativa;",
+    "kind": "html"
+  },
+  {
+    "id": "e6ebb0e390700fa6455d",
+    "it": "un beneficio temporaneo;",
+    "kind": "html"
+  },
+  {
+    "id": "8d54698dc12d36ba0916",
+    "it": "oppure qualsiasi altro effetto coerente con ciò che sta accadendo.",
+    "kind": "html"
+  },
+  {
+    "id": "563d22216facc356b89b",
+    "it": "L’obiettivo non è premiare ogni volta che un giocatore pronuncia la propria Ambizione.",
+    "kind": "html"
+  },
+  {
+    "id": "2b22fa43cf915a1ebe33",
+    "it": "La ricompensa dovrebbe arrivare quando il personaggio <b>agisce realmente in funzione di essa</b>, soprattutto quando quella scelta comporta un rischio, un sacrificio o una conseguenza significativa.",
+    "kind": "html"
+  },
+  {
+    "id": "fa6a85d3a608b632a26d",
+    "it": "Un personaggio con l’Ambizione:",
+    "kind": "html"
+  },
+  {
+    "id": "7909c4d310d588185c7e",
+    "it": "<b>«Costruirò la nave più veloce della Grand Line.»</b>",
+    "kind": "html"
+  },
+  {
+    "id": "4b1d70a80f54f27c64a4",
+    "it": "potrebbe decidere di affrontare una zona estremamente pericolosa pur di recuperare un materiale unico necessario al proprio progetto.",
+    "kind": "html"
+  },
+  {
+    "id": "c17b0b15d22fa4a79eff",
+    "it": "Se il GM considera quella scelta un momento importante del suo percorso, può decidere di concedergli qualcosa in cambio.",
+    "kind": "html"
+  },
+  {
+    "id": "08a0a89a1fd564e98620",
+    "it": "L’Ambizione diventa così uno strumento attraverso cui <b>narrazione e meccaniche possono incontrarsi</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "a86a5c8d12c2a6214826",
+    "it": "L’Ambizione guida la storia",
+    "kind": "html"
+  },
+  {
+    "id": "c3a33a3eec8320ee4c09",
+    "it": "L’Ambizione aiuta il giocatore a capire cosa conta davvero per il proprio personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "12221868fbe92c6865d1",
+    "it": "Aiuta anche il Game Master a costruire situazioni che abbiano un significato personale per la ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "9998414ea14977c8b08e",
+    "it": "Un luogo, un personaggio o un oggetto possono avere un valore completamente diverso quando entrano in contatto con il sogno di qualcuno.",
+    "kind": "html"
+  },
+  {
+    "id": "495e874b1accbbf4f204",
+    "it": "Per questo l’Ambizione può influenzare:",
+    "kind": "html"
+  },
+  {
+    "id": "5044c73a3b181193984f",
+    "it": "<b>eventi, ricompense, incontri, opportunità e sviluppo narrativo.</b>",
+    "kind": "html"
+  },
+  {
+    "id": "5881074d940ea863966d",
+    "it": "Non obbliga però il Game Master a costruire l’intera campagna attorno ai sogni dei personaggi.",
+    "kind": "html"
+  },
+  {
+    "id": "873871d9bf23e9178738",
+    "it": "È una bussola, non una rotaia.",
+    "kind": "html"
+  },
+  {
+    "id": "215060839700e3fac7a1",
+    "it": "Scrivere una buona Ambizione",
+    "kind": "html"
+  },
+  {
+    "id": "6e703c5ffbeda1064abe",
+    "it": "Una buona Ambizione dovrebbe essere abbastanza chiara da permettere al tavolo di capire cosa desidera il personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "eade407e7ef89a258e1a",
+    "it": "«Voglio diventare forte» è molto generico.",
+    "kind": "html"
+  },
+  {
+    "id": "db94e5752c8d36ccac39",
+    "it": "«Voglio diventare abbastanza forte da sconfiggere l’uomo che ha distrutto il mio villaggio» crea immediatamente una direzione.",
+    "kind": "html"
+  },
+  {
+    "id": "59fed620955bde217cbf",
+    "it": "«Voglio esplorare il mondo» funziona.",
+    "kind": "html"
+  },
+  {
+    "id": "054968f101956af2fd2b",
+    "it": "«Disegnerò una mappa completa della Grand Line» offre però un obiettivo ancora più riconoscibile.",
+    "kind": "html"
+  },
+  {
+    "id": "c22b358ce1d0c3afaaef",
+    "it": "Non serve che l’Ambizione sia facile da raggiungere.",
+    "kind": "html"
+  },
+  {
+    "id": "04dd39f179a38c3a4e68",
+    "it": "Può essere il motore di un’intera campagna.",
+    "kind": "html"
+  },
+  {
+    "id": "f6c4a9bc70d4dcba0e42",
+    "it": "Ambizione e Background",
+    "kind": "html"
+  },
+  {
+    "id": "a1d88278dd5cb00a7e5d",
+    "it": "Il <b>Background</b> racconta da dove arriva il personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "926d7ba54653d46ee117",
+    "it": "L’<b>Ambizione</b> racconta dove vuole andare.",
+    "kind": "html"
+  },
+  {
+    "id": "e3d4bf5fcdfdde94d0ea",
+    "it": "Le due cose possono essere direttamente collegate.",
+    "kind": "html"
+  },
+  {
+    "id": "7ed87c36dff97bf6f015",
+    "it": "<b>Background:</b> cresciuto in un villaggio distrutto da una tempesta.",
+    "kind": "html"
+  },
+  {
+    "id": "51650ba52440c1893713",
+    "it": "<b>Ambizione:<br></b>«Costruirò una nave capace di attraversare qualsiasi mare.»",
+    "kind": "html"
+  },
+  {
+    "id": "ab4e0a84ecddcf3a5871",
+    "it": "Oppure possono essere completamente indipendenti.",
+    "kind": "html"
+  },
+  {
+    "id": "3dcd127fc2c304cbb406",
+    "it": "<b>Background:</b> figlio di una famiglia di mercanti.",
+    "kind": "html"
+  },
+  {
+    "id": "47cf36e524471039105e",
+    "it": "<b>Ambizione:<br></b>«Scoprirò se esiste davvero un’isola nel cielo.»",
+    "kind": "html"
+  },
+  {
+    "id": "78f6e76908c407730818",
+    "it": "Entrambe le possibilità sono valide.",
+    "kind": "html"
+  },
+  {
+    "id": "c4bff4f0e01ecb28f8d0",
+    "it": "L’Ambizione può cambiare",
+    "kind": "html"
+  },
+  {
+    "id": "32f9cd3b4d73cf142ca6",
+    "it": "Un personaggio può cambiare durante il viaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "b74efee224c57262e8bd",
+    "it": "Può raggiungere il proprio sogno, perderlo, scoprire che non era ciò che desiderava davvero oppure trovare qualcosa di ancora più importante.",
+    "kind": "html"
+  },
+  {
+    "id": "7eaf44c955d2ada9c56b",
+    "it": "In questi casi anche l’Ambizione può evolvere.",
+    "kind": "html"
+  },
+  {
+    "id": "8fa4a131b8092666d5a3",
+    "it": "Raggiungerla non significa necessariamente abbandonare il personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "77d75129d9bdedb19b52",
+    "it": "Può rappresentare la fine di un capitolo e l’inizio del successivo.",
+    "kind": "html"
+  },
+  {
+    "id": "d613c8e74e657da0d750",
+    "it": "In Grand Line Chronicles, l’Ambizione non serve soltanto a spiegare <b>perché un pirata è salpato</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "fb8ede7fde5166018e64",
+    "it": "Serve a ricordare <b>perché continua a navigare</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "42825f207fa870577a69",
+    "it": "<span class=\"man-sez-n\">2.2 ·</span> Procedura di creazione",
+    "kind": "html"
+  },
+  {
+    "id": "dabe50b1c91b8bf5b0f0",
+    "it": "Creare un pirata in <b>Grand Line Chronicles</b> significa costruirlo un elemento alla volta, partendo da chi è e arrivando a ciò che sa fare.",
+    "kind": "html"
+  },
+  {
+    "id": "d067ca138e30c32979d2",
+    "it": "Il creatore guidato segue <b>otto passaggi</b>:",
+    "kind": "html"
+  },
+  {
+    "id": "dd410203c190408a74e6",
+    "it": "<b>Concetto → Razza → Attributi → Ruolo → Skill → Tecniche → Frutto → Salva</b>",
+    "kind": "html"
+  },
+  {
+    "id": "5299908d48f8fe609480",
+    "it": "Non serve conoscere già tutte le regole del gioco. Ogni passaggio definisce una parte precisa del personaggio e prepara quello successivo.",
+    "kind": "html"
+  },
+  {
+    "id": "5e2447e4caf911e8d6dc",
+    "it": "Passo 1 · Concetto",
+    "kind": "html"
+  },
+  {
+    "id": "f3277301431db5a3e6a6",
+    "it": "Prima vengono le fondamenta narrative.",
+    "kind": "html"
+  },
+  {
+    "id": "5a5de571f7d96c790eff",
+    "it": "Qui si definiscono:",
+    "kind": "html"
+  },
+  {
+    "id": "e76b8297220b173c87a7",
+    "it": "<b>Nome<br></b>Come viene chiamato il personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "d847256145c42ff5dde9",
+    "it": "<b>Background<br></b>Da dove arriva, cosa gli è successo e quali eventi lo hanno portato fino all’inizio dell’avventura.",
+    "kind": "html"
+  },
+  {
+    "id": "3ea4aca74134f094700e",
+    "it": "<b>Ambizione<br></b>Il sogno che lo spinge a continuare il viaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "b5b629ee42a747ec87d0",
+    "it": "Nome e Background non assegnano automaticamente bonus meccanici. L’Ambizione, invece, può diventare rilevante durante la campagna quando il personaggio agisce in maniera significativa per perseguirla, come descritto nel paragrafo precedente.",
+    "kind": "html"
+  },
+  {
+    "id": "5e3b1efefb078f186a99",
+    "it": "Questo primo passo risponde alla domanda:",
+    "kind": "html"
+  },
+  {
+    "id": "a35058d389b45a49d6b0",
+    "it": "<b>Chi è il tuo pirata?</b>",
+    "kind": "html"
+  },
+  {
+    "id": "89a401d429c1f7337375",
+    "it": "Passo 2 · Razza",
+    "kind": "html"
+  },
+  {
+    "id": "fa6480cb0c1f7a53afb8",
+    "it": "La Razza stabilisce alcune delle caratteristiche fisiche e innate del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "0c1a2d47870445cf7b74",
+    "it": "Ogni Razza può determinare elementi come:",
+    "kind": "html"
+  },
+  {
+    "id": "f0f4aa18b86a7a2f4407",
+    "it": "Attributo razziale;",
+    "kind": "html"
+  },
+  {
+    "id": "89a04e13555ca42b63c0",
+    "it": "dado razziale;",
+    "kind": "html"
+  },
+  {
+    "id": "667fa232e703e140fff0",
+    "it": "PV iniziali;",
+    "kind": "html"
+  },
+  {
+    "id": "5e61e7a496119a47c96e",
+    "it": "Dado Vita;",
+    "kind": "html"
+  },
+  {
+    "id": "6b590502650722e41c57",
+    "it": "Movimento;",
+    "kind": "html"
+  },
+  {
+    "id": "e7d809bf35b6ec0e2287",
+    "it": "Tecnica razziale;",
+    "kind": "html"
+  },
+  {
+    "id": "30bc29808a607b5a0067",
+    "it": "capacità particolari;",
+    "kind": "html"
+  },
+  {
+    "id": "ae6c217991e82e3429d7",
+    "it": "eventuali limitazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "63b0935b8d122fe37645",
+    "it": "Un Umano, un Mink, un Gigante e un Uomo Pesce non rappresentano semplicemente quattro aspetti estetici differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "8501492f85534905ed69",
+    "it": "Entrano nel gioco con caratteristiche diverse e interagiscono con il mondo in maniera differente.",
+    "kind": "html"
+  },
+  {
+    "id": "98bcaf390c58f5f3e49a",
+    "it": "La scelta della Razza non determina però il mestiere o il modo di combattere del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "db4def640df793060c0a",
+    "it": "Un Uomo Pesce può essere un Cuoco.",
+    "kind": "html"
+  },
+  {
+    "id": "d054c8f37987d4069573",
+    "it": "Un Gigante può essere un Navigatore.",
+    "kind": "html"
+  },
+  {
+    "id": "98187ea9e894d847b648",
+    "it": "Un Umano può diventare uno Striker.",
+    "kind": "html"
+  },
+  {
+    "id": "09ac7c7ab1cc1d84e20a",
+    "it": "Razza e Ruolo sono due componenti separate.",
+    "kind": "html"
+  },
+  {
+    "id": "4e765b3db49d279e3d67",
+    "it": "Passo 3 · Attributi",
+    "kind": "html"
+  },
+  {
+    "id": "e8983ebc36722b4e5102",
+    "it": "Gli <b>Attributi</b> rappresentano le capacità fondamentali del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "31ba28d565283afc0e91",
+    "it": "Definiscono quanto è sviluppato in diversi aspetti e partecipano a moltissimi tiri del sistema.",
+    "kind": "html"
+  },
+  {
+    "id": "da7fc4cf6d0ab7c135d6",
+    "it": "Durante la creazione vengono assegnati i dadi iniziali agli Attributi secondo le regole previste dal creatore.",
+    "kind": "html"
+  },
+  {
+    "id": "70060090f3fab81fc2b5",
+    "it": "La Razza può influenzare uno di essi attraverso il proprio <b>Attributo razziale</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "f5a762b15635abcfaaa4",
+    "it": "Gli Attributi non descrivono ciò che il personaggio ha imparato a fare.",
+    "kind": "html"
+  },
+  {
+    "id": "cd14e67b26bff1cb20b2",
+    "it": "Descrivono la base su cui costruisce quelle capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "c7f8534fffd7f99478a9",
+    "it": "Una grande Forza non rende automaticamente qualcuno un esperto di Atletica.",
+    "kind": "html"
+  },
+  {
+    "id": "b99b8565ceca6156759a",
+    "it": "Una Tecnica elevata non gli concede automaticamente ogni capacità che richiede precisione.",
+    "kind": "html"
+  },
+  {
+    "id": "09d5fe36d83264e66cc4",
+    "it": "Per questo Attributi e Skill rimangono separati.",
+    "kind": "html"
+  },
+  {
+    "id": "c802909f5a35b63df21e",
+    "it": "Passo 4 · Ruolo",
+    "kind": "html"
+  },
+  {
+    "id": "a8972563b2c75a0bda0c",
+    "it": "Il <b>Ruolo</b> rappresenta ciò che il personaggio porta alla ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "3af226e5c3b75f97709f",
+    "it": "Può indicare il suo modo di combattere, il mestiere che svolge a bordo oppure entrambe le cose.",
+    "kind": "html"
+  },
+  {
+    "id": "dbd870c83cd55893d329",
+    "it": "Grand Line Chronicles permette di costruire personaggi con <b>due Ruoli</b>, consentendo combinazioni come:",
+    "kind": "html"
+  },
+  {
+    "id": "909b83f6f6b60aa82f98",
+    "it": "<b>Combattente + Cuoco</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3f5afb226f44c972f36e",
+    "it": "<b>Navigatore + Capitano</b>",
+    "kind": "html"
+  },
+  {
+    "id": "2e01c3a218261e895e10",
+    "it": "<b>Dottore + Combattente</b>",
+    "kind": "html"
+  },
+  {
+    "id": "6063a809ce62cd643bb4",
+    "it": "e molte altre.",
+    "kind": "html"
+  },
+  {
+    "id": "808f9aa35610ebe07dba",
+    "it": "Alcuni Ruoli possiedono inoltre degli <b>Stili</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "a9f250b46ebf4dec5e13",
+    "it": "Il Combattente, per esempio, non descrive da solo come il personaggio affronta uno scontro. È lo Stile a definirne la specializzazione.",
+    "kind": "html"
+  },
+  {
+    "id": "1484b39a6ad3eea46fd7",
+    "it": "Allo stesso modo, altri Ruoli possono possedere differenti percorsi interni.",
+    "kind": "html"
+  },
+  {
+    "id": "a15801362cc647e7a345",
+    "it": "Il Ruolo assegna anche una <b>Skill di Ruolo</b>, che rappresenta la competenza principale legata a quella professione o specializzazione.",
+    "kind": "html"
+  },
+  {
+    "id": "e45471ec5adf960585cd",
+    "it": "Razza dice <b>cosa sei</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "657d8d0d6cebc0aba065",
+    "it": "Ruolo dice <b>che posto occupi nella ciurma</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "22c8c65a3bfd22cd5545",
+    "it": "Passo 5 · Skill",
+    "kind": "html"
+  },
+  {
+    "id": "60f4ee43f0236f5c08da",
+    "it": "Le <b>Skill</b> rappresentano ciò che il personaggio ha imparato a fare.",
+    "kind": "html"
+  },
+  {
+    "id": "bc656c448189465f83bc",
+    "it": "Navigazione, Atletica, Medicina, Cucina, Acrobazia, Archeologia e le altre Skill permettono di distinguere personaggi che potrebbero avere Attributi simili ma esperienze completamente differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "8e9dab7582a77366e07a",
+    "it": "Il Ruolo fornisce già la propria Skill caratteristica.",
+    "kind": "html"
+  },
+  {
+    "id": "05114780f1176cfbde5d",
+    "it": "Durante la creazione vengono poi definite le altre competenze del personaggio secondo le possibilità offerte dal creatore.",
+    "kind": "html"
+  },
+  {
+    "id": "cfeb8a99464f79e67963",
+    "it": "Quando una prova utilizza una Skill, questa viene normalmente combinata con l’Attributo appropriato previsto dalla situazione.",
+    "kind": "html"
+  },
+  {
+    "id": "a141b819f6848d8378af",
+    "it": "Gli Attributi rappresentano quindi <b>la capacità di base</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "cbc24eb6f14da0769fe1",
+    "it": "Le Skill rappresentano <b>l’addestramento</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "06bf87106654fb4a0684",
+    "it": "Passo 6 · Tecniche",
+    "kind": "html"
+  },
+  {
+    "id": "0c77e038f8263df217bb",
+    "it": "Le <b>Tecniche</b> sono azioni caratteristiche del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "acfbc91260b7dd356fdf",
+    "it": "Non rappresentano semplicemente un attacco più forte.",
+    "kind": "html"
+  },
+  {
+    "id": "605cbd8a1cb920056405",
+    "it": "Possono essere colpi, manovre difensive, spostamenti, potenziamenti, capacità ad area o altre azioni costruite attraverso il sistema delle Tecniche.",
+    "kind": "html"
+  },
+  {
+    "id": "48d0962271831dfee63f",
+    "it": "Ogni personaggio possiede inoltre la propria <b>Tecnica razziale</b>, legata alla Razza scelta.",
+    "kind": "html"
+  },
+  {
+    "id": "7c4ce9710953ab28f34f",
+    "it": "Durante la creazione vengono definite le prime Tecniche personali del pirata.",
+    "kind": "html"
+  },
+  {
+    "id": "74f2aff0d1eb3ce74ac4",
+    "it": "In seguito potranno essere sviluppate, migliorate e utilizzate come base per combinazioni molto più avanzate, comprese le <b>Special Moves</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "98b5b4027ca36e28b26f",
+    "it": "Le Tecniche verranno trattate in un capitolo dedicato.",
+    "kind": "html"
+  },
+  {
+    "id": "dc249f476533fdd5f917",
+    "it": "Passo 7 · Frutto del Diavolo",
+    "kind": "html"
+  },
+  {
+    "id": "6b1758501f317731ecfc",
+    "it": "Un <b>Frutto del Diavolo è opzionale</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "6b186a636cf72cc5b56d",
+    "it": "Non ogni personaggio ne possiede uno e non è necessario averne uno per raggiungere i livelli più alti del gioco.",
+    "kind": "html"
+  },
+  {
+    "id": "4ac385bcb66cfae4db52",
+    "it": "Se il personaggio ha mangiato un Frutto, durante questo passaggio vengono definite le informazioni necessarie al suo potere.",
+    "kind": "html"
+  },
+  {
+    "id": "705d987a3f4dd9afe15f",
+    "it": "Il Frutto introduce possibilità uniche, ma anche debolezze specifiche.",
+    "kind": "html"
+  },
+  {
+    "id": "2bbf2a26284cf930b85b",
+    "it": "La sua presenza deve inoltre essere concordata con il <b>Game Master</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "25bb1624608593781283",
+    "it": "Un personaggio senza Frutto salta semplicemente questo passaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "503ed547cfc6a26723b7",
+    "it": "Haki e Frutto non rappresentano la stessa forma di progressione e verranno spiegati separatamente nei rispettivi capitoli.",
+    "kind": "html"
+  },
+  {
+    "id": "75e9554448ffd601de40",
+    "it": "Passo 8 · Salva",
+    "kind": "html"
+  },
+  {
+    "id": "8eaf266da7211c05af7a",
+    "it": "Completate le scelte iniziali, il personaggio viene salvato e diventa una scheda utilizzabile.",
+    "kind": "html"
+  },
+  {
+    "id": "9aff27077f99307f47e6",
+    "it": "Da questo momento non è più soltanto un personaggio in fase di creazione.",
+    "kind": "html"
+  },
+  {
+    "id": "6e6cf4b0acb0081e8d97",
+    "it": "Entra nel sistema di gestione di Grand Line Chronicles, dove potrà crescere durante la campagna.",
+    "kind": "html"
+  },
+  {
+    "id": "bd73f4f2c878a6d79327",
+    "it": "La sua scheda raccoglierà progressivamente:",
+    "kind": "html"
+  },
+  {
+    "id": "986814ccfd5e0f684cb9",
+    "it": "Attributi, Skill, PV, Stamina, Talenti, Tecniche, armi, Haki, eventuale Frutto del Diavolo, equipaggiamento, Special Moves e tutte le altre capacità ottenute durante il viaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "690dc58df08c6ab10460",
+    "it": "La creazione stabilisce quindi <b>il punto di partenza</b>, non il personaggio definitivo.",
+    "kind": "html"
+  },
+  {
+    "id": "14001c68273cd4ba82e0",
+    "it": "Dotazione iniziale",
+    "kind": "html"
+  },
+  {
+    "id": "19b77fa9442fd228c85e",
+    "it": "Grand Line Chronicles non utilizza una dotazione iniziale universale.",
+    "kind": "html"
+  },
+  {
+    "id": "404e993407d7bce48e9b",
+    "it": "Berry, armi, equipaggiamento, strumenti professionali, munizioni, materiali, medicine e altre risorse disponibili alla creazione dipendono dalla campagna.",
+    "kind": "html"
+  },
+  {
+    "id": "1d7d1a2e85153ca055ed",
+    "it": "Il Game Master stabilisce la dotazione iniziale in base al punto di partenza dell’avventura, alle risorse della ciurma e al tono della campagna.",
+    "kind": "html"
+  },
+  {
+    "id": "546d0f29ec666594a025",
+    "it": "Ciò che viene calcolato automaticamente",
+    "kind": "html"
+  },
+  {
+    "id": "72957356f89113b8db3c",
+    "it": "Non ogni valore deve essere scelto manualmente.",
+    "kind": "html"
+  },
+  {
+    "id": "7070d8f48dd2be718b0f",
+    "it": "Alcune statistiche derivano direttamente dalle decisioni precedenti.",
+    "kind": "html"
+  },
+  {
+    "id": "7d3270eaa3de15b32345",
+    "it": "La Razza, per esempio, contribuisce a definire <b>PV iniziali, Dado Vita e Movimento</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "65e3df13933464a4630c",
+    "it": "Ogni pirata inizia inoltre con <b>6 Stamina</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "b9f2a925532fc4144237",
+    "it": "Altri valori vengono determinati dalle regole associate ad Attributi, Razza, Ruoli e capacità possedute.",
+    "kind": "html"
+  },
+  {
+    "id": "9defa34edf04a5ca2eec",
+    "it": "Il creatore si occupa di raccogliere queste informazioni nella scheda, così che il giocatore possa concentrarsi sulle decisioni che definiscono realmente il personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "ba858f40c28dae38c110",
+    "it": "<span class=\"man-sez-n\">2.3 ·</span> Gli Attributi",
+    "kind": "html"
+  },
+  {
+    "id": "ce40d66be63fe620a88d",
+    "it": "In Grand Line Chronicles sono quattro:",
+    "kind": "html"
+  },
+  {
+    "id": "c389bb27340ced948d98",
+    "it": "<b>Attributo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "92754f740359e1667ab7",
+    "it": "<b>Rappresenta</b>",
+    "kind": "html"
+  },
+  {
+    "id": "dbfefeeccdb4f13624b9",
+    "it": "<b>Esempi d’uso</b>",
+    "kind": "html"
+  },
+  {
+    "id": "672b61fda3663e0522a4",
+    "it": "<b>Forza</b>",
+    "kind": "html"
+  },
+  {
+    "id": "916b878df2ac290c7b87",
+    "it": "Potenza fisica, muscoli, resistenza",
+    "kind": "html"
+  },
+  {
+    "id": "f637b7ab5a0039a81cee",
+    "it": "Colpi pesanti, sollevare, spingere, incassare",
+    "kind": "html"
+  },
+  {
+    "id": "5605d594dfb9c9ad7590",
+    "it": "<b>Tecnica</b>",
+    "kind": "html"
+  },
+  {
+    "id": "b7ee263d0e98cb4d9638",
+    "it": "Precisione, velocità, controllo",
+    "kind": "html"
+  },
+  {
+    "id": "0a9d7700f2476bf1157a",
+    "it": "Colpi tecnici, movimenti precisi, uso raffinato delle capacità",
+    "kind": "html"
+  },
+  {
+    "id": "e7ce3c7c18a50ccdce7f",
+    "it": "<b>Spirito</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f1a68eb867e03be65cb0",
+    "it": "Volontà, presenza, forza interiore",
+    "kind": "html"
+  },
+  {
+    "id": "c0209cb2e0aac9fc2fee",
+    "it": "Haki, resistere alla paura, imporsi sugli altri",
+    "kind": "html"
+  },
+  {
+    "id": "f556c3535a557bb86c30",
+    "it": "<b>Astuzia</b>",
+    "kind": "html"
+  },
+  {
+    "id": "eb8789ea10b6a668ca9e",
+    "it": "Ingegno, pianificazione, capacità di adattamento",
+    "kind": "html"
+  },
+  {
+    "id": "08aa412cc3ce2985eb48",
+    "it": "Navigare, escogitare soluzioni, ingannare, pianificare",
+    "kind": "html"
+  },
+  {
+    "id": "6427919971526591ba60",
+    "it": "Gli Attributi non rappresentano professioni o addestramenti specifici.",
+    "kind": "html"
+  },
+  {
+    "id": "55124b6ddc0c02cdf54a",
+    "it": "Per questo esistono le <b>Skill</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "0faa7804938364b663de",
+    "it": "Un personaggio può avere una grande Astuzia senza essere un Navigatore esperto, così come può avere una Forza straordinaria senza possedere una grande Atletica.",
+    "kind": "html"
+  },
+  {
+    "id": "288a49c7f90dd234a8cd",
+    "it": "Quando un’azione richiede entrambe le componenti, Attributo e Skill possono lavorare insieme.",
+    "kind": "html"
+  },
+  {
+    "id": "30e36a231487e5608dc1",
+    "it": "Forza",
+    "kind": "html"
+  },
+  {
+    "id": "8ad09fa05038cdd31443",
+    "it": "<b>Forza</b> rappresenta la potenza fisica del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "6c7831f4714d86f49306",
+    "it": "Entra in gioco quando conta quanto riesce a spingere, sollevare, colpire o resistere attraverso il proprio corpo.",
+    "kind": "html"
+  },
+  {
+    "id": "7054f1202b527a7524dc",
+    "it": "Può essere utilizzata per:",
+    "kind": "html"
+  },
+  {
+    "id": "1b70bc959c1df022d248",
+    "it": "attacchi basati sulla potenza;",
+    "kind": "html"
+  },
+  {
+    "id": "dca8eeb39b38da63307b",
+    "it": "lotta fisica;",
+    "kind": "html"
+  },
+  {
+    "id": "b3c0394122de2310aab7",
+    "it": "sollevare o trascinare pesi;",
+    "kind": "html"
+  },
+  {
+    "id": "2d0c1c22eabc60fde16b",
+    "it": "sfondare ostacoli;",
+    "kind": "html"
+  },
+  {
+    "id": "0aa3cff50a4fc206c9f2",
+    "it": "resistere attraverso la propria tempra;",
+    "kind": "html"
+  },
+  {
+    "id": "03679a0ef0cf4664d1f0",
+    "it": "utilizzare armi o capacità che richiedono grande forza.",
+    "kind": "html"
+  }
+]

@@ -109,6 +109,10 @@ select.txt{width:100%; font-family:'Inter',sans-serif; font-size:17px; color:var
 <link rel="stylesheet" href="/glc-brand.css?v=1">
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=2">
 <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png?v=2">
+<!-- GLC LANGUAGE START -->
+<link rel="stylesheet" href="/glc-i18n.css?v=1">
+<script src="/glc-i18n.js?v=1"></script>
+<!-- GLC LANGUAGE END -->
 </head>
 <body class="mode-atelier premium-portal">
 <div class="portal-topbar"><a class="portal-brand glc-brand-link" href="/grand-line-chronicles/" aria-label="Grand Line Chronicles — Home"><img class="glc-title-logo" src="/img/brand/glc-logo.png" alt="Grand Line Chronicles" width="210" height="70"></a><nav class="portal-links" aria-label="Navigazione del porto"><a href="/nave-portale/">Nave</a><a href="/portale-officina-cambusa/" aria-current="page">Officina &amp; Cambusa</a><a href="/profilo/">Il tuo profilo ↗</a></nav><span id="glc-login-slot"></span></div>
@@ -149,7 +153,7 @@ select.txt{width:100%; font-family:'Inter',sans-serif; font-size:17px; color:var
 <script src="/regole/cambusa.js?v=1"></script>
 <script>
 function el(t,a,kids){var e=document.createElement(t);a=a||{};for(var k in a){if(k==="text")e.textContent=a[k];else if(k==="html")e.innerHTML=a[k];else if(k==="onClick")e.onclick=a[k];else e.setAttribute(k,a[k]);}(kids||[]).forEach(function(c){if(c)e.appendChild(c);});return e;}
-function fmtBerry(n){return n==null?"—":String(n).replace(/\B(?=(\d{3})+(?!\d))/g,".");}
+function fmtBerry(n){return n==null?"—":String(n).replace(/\B(?=(\d{3})+(?!\d))/g,window.GLCI18n?.language==="en"?",":".");}
 function $(s){return document.querySelector(s);}
 function esc(s){return (s||"").replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
 
@@ -271,9 +275,9 @@ function itemCard(o,opts){
   }
   return el("div",{class:"item"},[pic,el("div",{class:"ib"},[
     el("div",{class:"item-category",text:(o.dati&&o.dati.categoria)||o.cat||(opts.diaryKind==="piatto"?"Ricettario":opts.price?"Provviste":"Officina")}),
-    el("div",{class:"inm",text:o.nome||"Senza nome"}),
+    el("div",{class:"inm",translate:opts.mine?"no":"yes",text:o.nome||"Senza nome"}),
     (opts.price&&o.dati)?el("div",{class:"iprice",text:(o.dati.acquistabile===false)?"⛔ non acquistabile":(fmtBerry(o.dati.prezzo)+" ฿ · "+(o.dati.fascia||""))}):null,
-    el("div",{class:"idesc",text:lead}),facts,
+    el("div",{class:"idesc",translate:opts.mine&&!o.recipe?"no":"yes",text:lead}),facts,
     food&&d.bonus?el('div',{class:'ingredient-extra',text:'Ingrediente Extra · '+d.bonus}):null,detail,
     ingredientLinks(o),acts
   ])]);
@@ -394,6 +398,9 @@ async function loadCatalog(){
   }
   renderCatGrid();
 }
+function catalogueSearch(row){
+  return [row.nome||"",row.descrizione||""].map(function(value){return window.GLCI18n?GLCI18n.searchText(value):value;}).join(" ").toLowerCase();
+}
 function renderCatGrid(){
   var grid=$("#catgrid"); if(!grid) return;
   grid.innerHTML="";
@@ -401,7 +408,7 @@ function renderCatGrid(){
   var t=(OFF_FILTER.text||"").trim(), c=OFF_FILTER.cat||"";
   var rows=CAT_ROWS.filter(function(o){
     if(c){ if(((o.dati&&o.dati.categoria)||"")!==c) return false; }
-    if(t){ if((((o.nome||"")+" "+(o.descrizione||"")).toLowerCase()).indexOf(t)<0) return false; }
+    if(t){ if(catalogueSearch(o).indexOf(t)<0) return false; }
     return true;
   });
   if(!rows.length){ grid.appendChild(el("div",{class:"empty-note",text:"Nessun oggetto trovato con questi filtri."})); return; }
@@ -469,7 +476,7 @@ function renderDishGrid(){
   grid.innerHTML="";
   if(!DISH_ROWS.length){grid.appendChild(el("div",{class:"empty-note",text:isAdmin?"Nessun piatto ufficiale. Importa dal manuale o aggiungine.":"Il Capitano non ha ancora pubblicato piatti."}));return;}
   var t=(DISH_FILTER.text||"").trim(), c=DISH_FILTER.cat||"";
-  var rows=DISH_ROWS.filter(function(o){ if(c){if(((o.dati&&o.dati.categoria)||"")!==c)return false;} if(t){if((((o.nome||"")+" "+(o.descrizione||"")).toLowerCase()).indexOf(t)<0)return false;} return true; });
+  var rows=DISH_ROWS.filter(function(o){ if(c){if(((o.dati&&o.dati.categoria)||"")!==c)return false;} if(t){if(catalogueSearch(o).indexOf(t)<0)return false;} return true; });
   if(!rows.length){grid.appendChild(el("div",{class:"empty-note",text:"Nessun piatto trovato con questi filtri."}));return;}
   rows.forEach(function(o){grid.appendChild(itemCard(o,{admin:isAdmin,icon:"\ud83c\udf72",diaryKind:"piatto",
     onEdit:function(x){window.__startEditDish&&window.__startEditDish(x);},
@@ -655,7 +662,7 @@ function renderIngGrid(){
   var rows=ING_ROWS.filter(function(o){
     if(c&&merchantCategories(o).indexOf(c)<0)return false;
     if(f&&((o.dati&&o.dati.fascia)||"")!==f)return false;
-    if(t&&(((o.nome||"")+" "+(o.descrizione||"")).toLowerCase()).indexOf(t)<0)return false;
+    if(t&&catalogueSearch(o).indexOf(t)<0)return false;
     return true;
   });
   if(!rows.length){grid.appendChild(el("div",{class:"empty-note",text:"Nessun ingrediente trovato con questi filtri."}));return;}

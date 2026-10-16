@@ -21,8 +21,13 @@ const root = path.resolve(option('--root', path.join(path.dirname(fileURLToPath(
 const overlay = option('--overlay', null);
 const output = path.resolve(option('--output', root));
 const qa = option('--qa-dir', null);
+const lang = option('--lang', 'it');
+if(!['it','en'].includes(lang)) throw new Error('--lang must be it or en');
+const prefix = lang==='en' ? '/en' : '';
 const origin = 'https://manuali.arkalink.test';
-const manuals = ['manuale', 'manuale-prestigio', 'manuale-cyborg', 'manuale-frutti'];
+const availableManuals = ['manuale', 'manuale-prestigio', 'manuale-cyborg', 'manuale-frutti'];
+const manuals = option('--manuals', availableManuals.join(',')).split(',');
+if(manuals.some(folder=>!availableManuals.includes(folder))) throw new Error('Unknown manual in --manuals');
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.jpg':'image/jpeg', '.webp':'image/webp', '.png':'image/png', '.pdf':'application/pdf' };
 const browser = await chromium.launch({ headless:true, ...(option('--chrome', null) ? { executablePath:option('--chrome') } : {}) });
 const context = await browser.newContext({ viewport:{width:1440,height:1000}, reducedMotion:'reduce', acceptDownloads:true });
@@ -53,6 +58,7 @@ const consoleErrors = [];
 page.on('pageerror', error => consoleErrors.push(String(error)));
 async function open(url) {
   await page.goto(origin + url, {waitUntil:'load',timeout:30000});
+  await page.waitForFunction(() => !window.GLCI18n || window.GLCI18n.ready());
   await page.evaluate(() => document.fonts.ready);
   await page.locator('img').evaluateAll(images => Promise.all(images.map(image => image.complete ? null : new Promise(resolve => {image.onload=resolve;image.onerror=resolve;}))));
 }
@@ -60,7 +66,7 @@ const report = [];
 try {
   if (qa) {
     await mkdir(qa, {recursive:true});
-    await open('/manuali/');
+    await open('/manuali/?lang='+lang);
     await page.screenshot({path:path.join(qa,'biblioteca-desktop.png'),fullPage:true});
     report.push({page:'biblioteca',width:1440,covers:await page.locator('.pr-book-art img').count(),overflow:await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)});
     for (const width of [768,390,320]) {
@@ -71,7 +77,7 @@ try {
     await page.setViewportSize({width:1440,height:1000});
   }
   for (const folder of manuals) {
-    await open(`/${folder}/`);
+    await open(`${prefix}/${folder}/?lang=${lang}`);
     const before = await page.evaluate(() => ({images:[...document.querySelectorAll('img')].map(i=>({source:i.currentSrc,loaded:i.complete && i.naturalWidth>0})),cover:document.querySelector('.man-copertina img').currentSrc,overflow:document.documentElement.scrollWidth>innerWidth,chapters:document.querySelectorAll('.man-cap').length}));
     if (before.images.some(image => !image.loaded)) throw new Error(`Immagine non caricata: ${folder}`);
     if (qa) {
@@ -95,10 +101,14 @@ try {
     }
     await page.emulateMedia({media:'print'});
     // La source WebP è riservata allo schermo; la stampa usa la JPEG completa.
+    await page.waitForFunction(() => {
+      const image=document.querySelector('.man-copertina img');
+      return image?.currentSrc.endsWith('.jpg') && image.complete && image.naturalWidth>0;
+    });
     await page.locator('.man-copertina img').evaluate(image => image.decode());
     const printCover = await page.locator('.man-copertina img').evaluate(image => ({source:image.currentSrc,width:image.getBoundingClientRect().width,height:image.getBoundingClientRect().height}));
     if (!printCover.source.endsWith('.jpg')) throw new Error('Stampa senza asset a piena qualità');
-    const target = path.join(output,folder,'manuale.pdf');
+    const target = path.join(output,lang==='en'?'en':'',folder,'manuale.pdf');
     await mkdir(path.dirname(target), {recursive:true});
     await page.pdf({path:target,printBackground:true,preferCSSPageSize:true,displayHeaderFooter:false,tagged:true,outline:true});
     const finish = spawnSync(option('--python','python3'), [path.join(path.dirname(fileURLToPath(import.meta.url)),'rifinisci-manuale-pdf.py'),target], {encoding:'utf8'});

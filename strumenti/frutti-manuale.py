@@ -438,6 +438,8 @@ for k in attesi:
     letto = norm(''.join(letti.testi[k]).replace('→', ' → '))
     assert letto == atteso, 'testo diverso nel blocco %s: %r / %r' % (k, atteso[:80], letto[:80])
 
+from localizzazione import install_language
+uscita = install_language(uscita, 'manuale-frutti')
 outputs = {os.path.join(USCITA, 'index.html'): uscita}
 if not args.manual_only:
     outputs[os.path.join(USCITA, 'reader.js')] = '/* Generato dall\'interfaccia del manuale base da strumenti/frutti-manuale.py. */\n' + lettore + '\n'

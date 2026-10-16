@@ -1,0 +1,1282 @@
+[
+  {
+    "id": "bb6d8946b72fd0a2fc54",
+    "it": "Il valore massimo del dado aggiuntivo è 4, 6, 8, 10, 12 o 20, secondo il Prestigio della Skill. Questo valore è un bonus fisso: non richiede un tiro. Le normali prove di preparazione, riparazione, attacco e difesa mantengono invece la formula prevista dalla capacità utilizzata.",
+    "kind": "html"
+  },
+  {
+    "id": "ad1b61cb9c7b92aa25df",
+    "it": "I moltiplicatori si applicano alla componente descritta dal Talento. Il triplo a Saikyō sostituisce il doppio e non si moltiplica nuovamente per due. PV, ST e PS recuperati non possono superare i rispettivi massimi, salvo un aumento del massimo espressamente previsto, come Nave Leggendaria.",
+    "kind": "html"
+  },
+  {
+    "id": "660235b2e773a42b0db2",
+    "it": "La Difesa Attiva riesce quando eguaglia o supera il tiro per colpire. I normali tiri per colpire, le Salvezze e le difese restano necessari se un Talento non li modifica espressamente. Recuperare ST attraverso cibo o musica non recupera automaticamente PIP dell’Haki.",
+    "kind": "html"
+  },
+  {
+    "id": "746cadfd11206acb610e",
+    "it": "<span class=\"man-sez-n\">5.5</span><span data-prestigio-source=\"ruoli:23\">Preparazione e Ultimates</span>",
+    "kind": "html"
+  },
+  {
+    "id": "d58183fd51f1e064a3e8",
+    "it": "Piatti, preparati, antidoti, carte nautiche e lavori di cantiere devono essere effettivamente preparati. Un Talento di servizio o attivazione usa ciò che il personaggio possiede già. Costruzioni e ristrutturazioni complete richiedono materiali, strumenti e i tempi del progetto.",
+    "kind": "html"
+  },
+  {
+    "id": "bdd6d4806f8f8c5d6564",
+    "it": "Non viene introdotta alcuna evoluzione di Prestigio delle Ultimates. All’Arrembaggio, Canzone dell’Anima, Marea Nera, Nessuno Muore Sotto la Mia Mano, Reazione a Catena, Tutto a Pieno Carico, Lei Non Affonda, La Rotta che Nessuno Conosce, La Voce delle Pietre e Il Banchetto Leggendario conservano regole, costi e requisiti ordinari.",
+    "kind": "html"
+  },
+  {
+    "id": "580e63f79b99744e0e95",
+    "it": "I potenziamenti di questo documento si applicano alle capacità ordinarie e non potenziano automaticamente queste Ultimates.",
+    "kind": "html"
+  },
+  {
+    "id": "c557e483d969438f44d5",
+    "it": "Capitolo 06",
+    "kind": "html"
+  },
+  {
+    "id": "4d761d21ceb31b3b70d2",
+    "it": "Skill di Ruolo: Comunicazione. I Talenti potenziano ordini, incoraggiamento e preparazione tattica. I potenziamenti comuni di Spirito seguono il proprio percorso.",
+    "kind": "html"
+  },
+  {
+    "id": "9ae6138d5c2ff6be2a69",
+    "it": "<span class=\"man-sez-n\">6.1</span><span data-prestigio-source=\"ruoli:29\">Ordine Sovrano</span>",
+    "kind": "html"
+  },
+  {
+    "id": "b2337ee7cdfe2bc8730c",
+    "it": "Evolve: Ordine del Capitano — Maestria. Attivazione: Azione Bonus. Costo: 3 ST. Limite: 3 ordini per combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "76e0b5cb2eda4737e1ad",
+    "it": "Scegli un alleato che possa vederti o sentirti. Il compagno esegue immediatamente un Movimento e un’Azione fuori dal proprio turno, conservando il Vantaggio previsto dalla Maestria. L’intervento non consuma il suo normale turno.",
+    "kind": "html"
+  },
+  {
+    "id": "18a54bb38aebf8f80406",
+    "it": "L’alleato paga i costi delle Tecniche e delle altre capacità che utilizza. Il Talento non concede un’Azione Bonus aggiuntiva. Il limite di tre ordini sostituisce quello di due della Maestria ed è condiviso con gli ordini ordinari.",
+    "kind": "html"
+  },
+  {
+    "id": "e174b925dbf894ef5e28",
+    "it": "Saikyō: spendendo 4 ST, impartisci lo stesso ordine a due alleati. Ciascuno ottiene il proprio Movimento e la propria Azione con i benefici della Maestria. L’ordine conta come un solo utilizzo dei tre disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "66bf5edd1b4787b89003",
+    "it": "<span class=\"man-sez-n\">6.2</span><span data-prestigio-source=\"ruoli:34\">Grido Leggendario</span>",
+    "kind": "html"
+  },
+  {
+    "id": "32fe478647a9637a0e7b",
+    "it": "Evolve: Grido di Guerra. Attivazione: Azione Bonus. Costo: 3 ST. Limite: una volta per combattimento, condiviso con Grido di Guerra.",
+    "kind": "html"
+  },
+  {
+    "id": "97f1711875b9fafe393e",
+    "it": "Gli alleati che ti sentono rimuovono uno Stato negativo rimovibile, come nella capacità ordinaria. Al loro prossimo tiro aggiungono il risultato di un tuo tiro completo di Comunicazione, sostituendo il normale dado bonus di Grido di Guerra.",
+    "kind": "html"
+  },
+  {
+    "id": "5de8b8a3e0add12c9dc7",
+    "it": "Tiri Comunicazione una sola volta, senza aggiungere Spirito. Tutti i compagni interessati ricevono lo stesso risultato. Il bonus si applica al tiro della prova, compreso un tiro per colpire pertinente, e non si aggiunge direttamente ai danni.",
+    "kind": "html"
+  },
+  {
+    "id": "9cb12b769f1035d03952",
+    "it": "Saikyō: spendendo 5 ST, lo stesso risultato si applica ai prossimi due tiri di ciascun alleato, anziché a uno. Il limite resta una volta per combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "38a704e2aa9c22051ed4",
+    "it": "<span class=\"man-sez-n\">6.3</span><span data-prestigio-source=\"ruoli:39\">Il Piano Perfetto</span>",
+    "kind": "html"
+  },
+  {
+    "id": "9ba6d8a838521c90d5d7",
+    "it": "Evolve: Il Piano. Attivazione: preparazione dello scontro. Riserva: 6 ridadi condivisi.",
+    "kind": "html"
+  },
+  {
+    "id": "914b2f86d183ce8f7f1e",
+    "it": "Quando prepari uno scontro secondo le condizioni di Il Piano, la ciurma dispone di sei ridadi condivisi, anziché quattro. Ogni punto conserva il normale uso previsto per un ridadi.",
+    "kind": "html"
+  },
+  {
+    "id": "aa7ec2e784f6346bfb49",
+    "it": "Puoi impiegare la stessa riserva per una Contromossa. Quando percepisci la dichiarazione di un attacco nemico, prima del tiro per colpire, spendi la tua Reazione e due ridadi. Scegli due alleati raggiunti dai tuoi comandi, includendo eventualmente te stesso: ciascuno si muove immediatamente fino alla propria Velocità senza provocare attacchi di Reazione dovuti al disimpegno.",
+    "kind": "html"
+  },
+  {
+    "id": "c3edcb6fa6cbce233489",
+    "it": "Chi esce effettivamente dalla portata o dall’area dell’attacco evita di esserne coinvolto. Chi resta nel suo raggio d’azione risolve normalmente le difese. La Contromossa usa la riserva condivisa e non crea punti aggiuntivi.",
+    "kind": "html"
+  },
+  {
+    "id": "55d6f29b23867806a105",
+    "it": "Saikyō: la riserva diventa otto ridadi e una Contromossa può spostare tre personaggi. Il costo resta una Reazione e due punti della stessa riserva.",
+    "kind": "html"
+  },
+  {
+    "id": "0670ad8fce8baf9b62b3",
+    "it": "Capitolo 07",
+    "kind": "html"
+  },
+  {
+    "id": "bfeb12faf486541edf04",
+    "it": "Skill di Ruolo: Arte. Ogni Canzone resta una Tecnica con una sola Melodia. L’esecuzione mantiene le normali regole: benefici agli alleati e Salvezze dei nemici quando previste.",
+    "kind": "html"
+  },
+  {
+    "id": "70fbd4204a4e6412c5e7",
+    "it": "<span class=\"man-sez-n\">7.1</span><span data-prestigio-source=\"ruoli:47\">Orchestra Vivente</span>",
+    "kind": "html"
+  },
+  {
+    "id": "4711a6e4a66df3d30948",
+    "it": "Evolve: Contrappunto — Maestria. Tipo: passivo. Costo aggiuntivo: nessuno.",
+    "kind": "html"
+  },
+  {
+    "id": "db4eec23800efebc04aa",
+    "it": "Puoi mantenere tre Canzoni attive contemporaneamente, conservando il mantenimento gratuito in ST della Maestria.",
+    "kind": "html"
+  },
+  {
+    "id": "c713155c0cbf51fa5e7c",
+    "it": "Con una sola Azione puoi intonare due Canzoni distinte. Paghi il costo di attivazione di entrambe; Fiato Lungo si applica separatamente a ciascuna. Le Canzoni conservano bersagli, portate, durate ed effetti propri.",
+    "kind": "html"
+  },
+  {
+    "id": "f797487598ecda665420",
+    "it": "Copie della stessa Melodia non sommano lo stesso beneficio sul medesimo bersaglio. Possono essere dedicate a bersagli differenti. Orchestra Vivente non unisce due Melodie in una sola Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "f2eafb46187e7677634e",
+    "it": "Le Canzoni Sostenute continuano a richiedere che il Musicista sia materialmente in grado di suonare e che i bersagli possano sentirlo. Orchestra Vivente modifica il numero di Canzoni e la loro attivazione, ma non permette di mantenerle durante Incoscienza, perdita dello strumento o altre condizioni che rendano materialmente impossibile l’esecuzione.",
+    "kind": "html"
+  },
+  {
+    "id": "444fe4e32cd6e8fa0c07",
+    "it": "Saikyō: puoi mantenere quattro Canzoni attive contemporaneamente. L’attivazione di due Canzoni con una sola Azione conserva il funzionamento descritto.",
+    "kind": "html"
+  },
+  {
+    "id": "6a0608174ccf7305a08e",
+    "it": "<span class=\"man-sez-n\">7.2</span><span data-prestigio-source=\"ruoli:54\">Risonanza Leggendaria</span>",
+    "kind": "html"
+  },
+  {
+    "id": "04e211e1043b02d459ca",
+    "it": "Tipo: passivo sulle Canzoni ordinarie. Costo aggiuntivo: nessuno.",
+    "kind": "html"
+  },
+  {
+    "id": "59fea719f84bd49869aa",
+    "it": "Le tue Canzoni raddoppiano il numero dei dadi di recupero della ST e dei dadi bonus alle prove degli alleati. Raddoppiano inoltre l’importo degli sconti in ST sulle Tecniche, rispettando il minimo di 1 ST quando previsto.",
+    "kind": "html"
+  },
+  {
+    "id": "233e92142628a0791a5c",
+    "it": "Saikyō: questi valori diventano tripli rispetto alla Melodia ordinaria, sostituendo il raddoppio.",
+    "kind": "html"
+  },
+  {
+    "id": "0e3c59f6df262ad226fa",
+    "it": "Melodia",
+    "kind": "html"
+  },
+  {
+    "id": "5bee1c1e60887720f531",
+    "it": "Con Risonanza Leggendaria",
+    "kind": "html"
+  },
+  {
+    "id": "78a32a604a3a6f06a8fd",
+    "it": "A Saikyō",
+    "kind": "html"
+  },
+  {
+    "id": "f70f5e13e606c46262a5",
+    "it": "Motivetto del Vigore",
+    "kind": "html"
+  },
+  {
+    "id": "459972f3408fa041a918",
+    "it": "Recupero di 2d6 ST",
+    "kind": "html"
+  },
+  {
+    "id": "3dd90d3ccf709c199ac9",
+    "it": "Recupero di 3d6 ST",
+    "kind": "html"
+  },
+  {
+    "id": "d9db75dd56f087bde780",
+    "it": "Marcia di Guerra",
+    "kind": "html"
+  },
+  {
+    "id": "d76e05074e9d2a112006",
+    "it": "+2d4 al tiro per colpire previsto",
+    "kind": "html"
+  },
+  {
+    "id": "358369c1916c4b51e80a",
+    "it": "+3d4 al tiro per colpire previsto",
+    "kind": "html"
+  },
+  {
+    "id": "c9488e51bced9e4d2581",
+    "it": "Crescendo",
+    "kind": "html"
+  },
+  {
+    "id": "f3418c40b394d9c088b4",
+    "it": "Sconto di 4 ST sulla Tecnica prevista",
+    "kind": "html"
+  },
+  {
+    "id": "bf7d153a79e16484abe9",
+    "it": "Sconto di 6 ST sulla Tecnica prevista",
+    "kind": "html"
+  },
+  {
+    "id": "71bf79f334376dc718f9",
+    "it": "Vantaggio, ridadi, portata, numero di bersagli, costi di attivazione e sconti in PIP mantengono il loro valore ordinario. Il Talento modifica soltanto i benefici numerici descritti; non modifica l’effetto dell’Ultimate Canzone dell’Anima.",
+    "kind": "html"
+  },
+  {
+    "id": "a7de348a7e018d45c31a",
+    "it": "Risonanza Leggendaria aumenta il recupero di Motivetto del Vigore a 2d6, oppure 3d6 a Saikyō, ma non modifica il limite di una volta per scena per ciascun beneficiario.",
+    "kind": "html"
+  },
+  {
+    "id": "1b8562a99069d048f873",
+    "it": "<span class=\"man-sez-n\">7.3</span><span data-prestigio-source=\"ruoli:61\">Requiem Sovrano</span>",
+    "kind": "html"
+  },
+  {
+    "id": "6e1f5e11968777e3adf4",
+    "it": "Evolve: Requiem. Attivazione: Azione. Costo: 4 ST. Portata: raggio di 50 m.",
+    "kind": "html"
+  },
+  {
+    "id": "b37222be6321a0ae8e8f",
+    "it": "Intoni una versione superiore di Requiem. Tutti i nemici entro il raggio che possono sentirti effettuano una Salvezza di Spirito. La Soglia è determinata dal Grado di Prestigio attuale di Arte secondo la tabella universale delle Salvezze e Prestigio (§1.1). La Soglia dello strumento non viene sommata al valore di Prestigio.",
+    "kind": "html"
+  },
+  {
+    "id": "5a2735d561d91e2aae93",
+    "it": "Chi fallisce subisce Svantaggio a tutti i tiri fino all’inizio del tuo turno successivo. Requiem Sovrano non infligge danni diretti e non richiede un tiro per colpire. Non utilizza separatamente Requiem Beffardo: questa forma ne sostituisce l’esecuzione quando viene utilizzata.",
+    "kind": "html"
+  },
+  {
+    "id": "29a4cface6e5c9ed0142",
+    "it": "Saikyō: costo 5 ST e raggio 500 metri. Se possiedi Coro della Ciurma e almeno due compagni partecipano realmente al canto, la portata raddoppia normalmente fino a 1.000 metri.",
+    "kind": "html"
+  },
+  {
+    "id": "18fb810ba34118d63d2a",
+    "it": "Anche a queste distanze i bersagli devono essere realmente in grado di sentire la musica: il raggio non permette alla Canzone di attraversare automaticamente ostacoli che bloccano completamente il suono.",
+    "kind": "html"
+  },
+  {
+    "id": "90376f075145cb55098c",
+    "it": "Capitolo 08",
+    "kind": "html"
+  },
+  {
+    "id": "f72695264df5d4ff32ea",
+    "it": "Tossicologo",
+    "kind": "html"
+  },
+  {
+    "id": "6a829fb3b09f7167bc2c",
+    "it": "Ruolo: Dottore. Skill di Ruolo: Medicina. Il catalogo potenzia tossine, diffusione dei veleni e interventi con antidoti preparati.",
+    "kind": "html"
+  },
+  {
+    "id": "e4e09090516028cbec8f",
+    "it": "<span class=\"man-sez-n\">8.1</span><span data-prestigio-source=\"ruoli:69\">Tossine Sovrane</span>",
+    "kind": "html"
+  },
+  {
+    "id": "38a31163e849d029249a",
+    "it": "Evolve: Tossine Raffinate — Maestria. Tipo: passivo sui tuoi veleni.",
+    "kind": "html"
+  },
+  {
+    "id": "42ea22ad64a9e6b4e7f5",
+    "it": "Quando una tua dose classificata come Veleno richiede una Salvezza, confronta la Soglia registrata nella scheda del veleno con la Soglia di Prestigio corrispondente al tuo Grado attuale di Medicina. Usa la più alta delle due. Questo beneficio sostituisce il normale +2 di Tossine Raffinate — Base e non si somma a esso.",
+    "kind": "html"
+  },
+  {
+    "id": "1de00ecb4ec9ca6f2485",
+    "it": "Soglia minima con Tossine Sovrane",
+    "kind": "html"
+  },
+  {
+    "id": "3803cbc263f922998ddc",
+    "it": "Quando un bersaglio fallisce la Salvezza, riduci un Attributo a tua scelta di due gradini fino alla somministrazione di un antidoto efficace. La riduzione segue la progressione dei dadi, compresi i gradini di Prestigio, e non può portare l’Attributo sotto d4.",
+    "kind": "html"
+  },
+  {
+    "id": "fcf6c79112e975d28ec6",
+    "it": "Applicazioni ripetute sullo stesso Attributo non sommano le riduzioni.",
+    "kind": "html"
+  },
+  {
+    "id": "c5800a7f14d8273900af",
+    "it": "Saikyō: la riduzione diventa di tre gradini. Per la Salvezza confronta la Soglia propria del veleno con la Soglia minima 21 di Medicina a Saikyō e usa la più alta.",
+    "kind": "html"
+  },
+  {
+    "id": "494be3fa267e914f375b",
+    "it": "<span class=\"man-sez-n\">8.2</span><span data-prestigio-source=\"ruoli:76\">Nebbia Pestilenziale</span>",
+    "kind": "html"
+  },
+  {
+    "id": "acdfc408c40e65a9b587",
+    "it": "Evolve: Nube Tossica. Attivazione: Azione. Costo: 4 ST. Durata: 3 turni. Posizionamento del centro: entro 20 m.",
+    "kind": "html"
+  },
+  {
+    "id": "17b346684b97c8f37e8a",
+    "it": "Nebbia Pestilenziale utilizza e consuma una dose preparata di Veleno compatibile con Inalazione, come Nube Tossica. L’Azione comprende la dispersione della sostanza e non richiede un tiro per colpire.",
+    "kind": "html"
+  },
+  {
+    "id": "5defb02974ee2be273b0",
+    "it": "Il punto d’origine deve essere visibile e materialmente raggiungibile dalla sostanza; ostacoli solidi impediscono di collocarlo oltre di essi.",
+    "kind": "html"
+  },
+  {
+    "id": "d1a39d27d3a7be06703a",
+    "it": "Quando la nube compare, le creature già presenti effettuano immediatamente la normale Salvezza. Successivamente effettuano la Salvezza quando entrano nella nube o iniziano il turno al suo interno. Se falliscono, diventano Avvelenate e Accecate secondo le normali regole di Nube Tossica.",
+    "kind": "html"
+  },
+  {
+    "id": "d6182fd8850face369c7",
+    "it": "Il raggio massimo dipende dalla Medicina:",
+    "kind": "html"
+  },
+  {
+    "id": "813e7e34a5ab61fb2df2",
+    "it": "Raggio massimo della nube",
+    "kind": "html"
+  },
+  {
+    "id": "a44f8b4233f37bff38d4",
+    "it": "d20+d4 oppure d20+d6",
+    "kind": "html"
+  },
+  {
+    "id": "3d65c07014192f438c8e",
+    "it": "d20+d8 oppure d20+d10",
+    "kind": "html"
+  },
+  {
+    "id": "746e006886cfcf4802ef",
+    "it": "Se possiedi Tossine Sovrane, usa la Soglia effettiva del veleno dopo l’eventuale sostituzione con la Soglia minima di Prestigio di Medicina. In caso di Salvezza fallita, applichi anche la riduzione dell’Attributo. Gli alleati esposti effettuano normalmente la Salvezza. Profilassi protegge soltanto chi è stato preventivamente trattato contro quella tossina.",
+    "kind": "html"
+  },
+  {
+    "id": "43d2a7c6b6d394a41460",
+    "it": "Si applicano normalmente le regole relative a pareti, ventilazione, acqua, maschere e protezioni respiratorie.",
+    "kind": "html"
+  },
+  {
+    "id": "0c96b5396a9d44c22ec2",
+    "it": "Saikyō: costo 5 ST, centro entro 100 m, durata 5 turni e raggio massimo 100 m.",
+    "kind": "html"
+  },
+  {
+    "id": "ff3ff1a7937a9a18cb32",
+    "it": "<span class=\"man-sez-n\">8.3</span><span data-prestigio-source=\"ruoli:86\">Antidoto Perfetto</span>",
+    "kind": "html"
+  },
+  {
+    "id": "0a04d869ff3ac4348ba9",
+    "it": "Prerequisiti: Maestro Antidoti e Antidoto Istantaneo. Attivazione: Reazione. Costo: 3 ST. Limite: 3 utilizzi per combattimento. Portata: un alleato entro 5 m.",
+    "kind": "html"
+  },
+  {
+    "id": "8a7a57f88c59bb9c01dd",
+    "it": "Somministri una dose di antidoto preparata da te. L’intervento neutralizza tutti i veleni attivi sul bersaglio, rimuove gli stati causati da quelle sostanze e ripristina gli Attributi ridotti dalle tossine.",
+    "kind": "html"
+  },
+  {
+    "id": "fd525e4277a7ba832657",
+    "it": "Devi possedere e consumare la dose. I tre utilizzi sostituiscono quello di Antidoto Istantaneo e sono condivisi con la sua forma ordinaria. I PV già persi restano persi.",
+    "kind": "html"
+  },
+  {
+    "id": "49fcffc28c64330282c4",
+    "it": "La distanza rappresenta quanto lontano puoi raggiungere il bersaglio con la Reazione. Il percorso deve essere praticabile e devi poter somministrare fisicamente la dose.",
+    "kind": "html"
+  },
+  {
+    "id": "d3c1669bb438b3c8b448",
+    "it": "Saikyō: la portata diventa 10 m. Il bersaglio è inoltre immune, per il resto del combattimento, alle tossine appena neutralizzate.",
+    "kind": "html"
+  },
+  {
+    "id": "ddac4106c88a972badef",
+    "it": "Capitolo 09",
+    "kind": "html"
+  },
+  {
+    "id": "5f670c6d1f3b6fd6661b",
+    "it": "Infermiere",
+    "kind": "html"
+  },
+  {
+    "id": "da367de7fd42498fbf35",
+    "it": "Ruolo: Dottore, Stile Infermeria. Skill di Ruolo: Medicina. Il catalogo potenzia cure da campo, rianimazione e diagnosi del corpo.",
+    "kind": "html"
+  },
+  {
+    "id": "9004eab935548f80c571",
+    "it": "<span class=\"man-sez-n\">9.1</span><span data-prestigio-source=\"ruoli:94\">Chirurgia Leggendaria</span>",
+    "kind": "html"
+  },
+  {
+    "id": "7cca57a85f19b15cd761",
+    "it": "Evolve: Mani da Chirurgo — Maestria. Tipo: passivo sulle Cure da Campo riuscite.",
+    "kind": "html"
+  },
+  {
+    "id": "7504d1a504cc7b953a5f",
+    "it": "Le tue Cure da Campo restituiscono il doppio dei PV normalmente recuperati. Calcola prima il recupero ordinario, compresi tutti i bonus applicabili, quindi raddoppia il totale.",
+    "kind": "html"
+  },
+  {
+    "id": "bc5c01ea284cc034ab44",
+    "it": "La rimozione di uno Stato negativo rimovibile concessa da Mani da Chirurgo — Maestria diventa la rimozione di due Stati negativi rimovibili.",
+    "kind": "html"
+  },
+  {
+    "id": "c523fd33cdaa48b89d25",
+    "it": "Restano necessari:",
+    "kind": "html"
+  },
+  {
+    "id": "0a6cd1a79732da4a832f",
+    "it": "La normale Prova di Cura da Campo.",
+    "kind": "html"
+  },
+  {
+    "id": "71459702073e73046511",
+    "it": "I materiali.",
+    "kind": "html"
+  },
+  {
+    "id": "b8b54aab0321e153e50d",
+    "it": "L’accesso fisico al paziente.",
+    "kind": "html"
+  },
+  {
+    "id": "dea1a8f7a621799d191c",
+    "it": "Il normale limite delle Cure da Campo sullo stesso paziente.",
+    "kind": "html"
+  },
+  {
+    "id": "70edc3c469064a15cc75",
+    "it": "Mani da Chirurgo — Migliorato continua a determinare il numero di pazienti curabili con una sola Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "ab1bb6f90b91d99bf780",
+    "it": "Saikyō: il recupero diventa triplo rispetto alla Cura da Campo ordinaria e puoi rimuovere fino a tre Stati negativi rimovibili. La quantità di ST recuperata da altri benefici non viene moltiplicata.",
+    "kind": "html"
+  },
+  {
+    "id": "e164ab8d4626cbef7acf",
+    "it": "<span class=\"man-sez-n\">9.2</span><span data-prestigio-source=\"ruoli:105\">Intervento Prodigioso</span>",
+    "kind": "html"
+  },
+  {
+    "id": "8984437290d9d7257080",
+    "it": "Evolve: Intervento Immediato. Richiede anche: Specialista in Rianimazione. Attivazione: Reazione. Costo: 3 ST. Limite: 3 utilizzi per combattimento. Portata: un alleato entro 10 m.",
+    "kind": "html"
+  },
+  {
+    "id": "cc1152eba95a6c5a110c",
+    "it": "Quando un alleato ancora in vita raggiunge 0 PV, puoi utilizzare la Reazione per raggiungerlo e intervenire immediatamente. Lo spostamento necessario fa parte della Reazione, ma il percorso deve essere praticabile e devi poter raggiungere fisicamente il paziente.",
+    "kind": "html"
+  },
+  {
+    "id": "4cb3cc3314ad8bdc782c",
+    "it": "Lo Stabilizzi e gli restituisci PV pari al risultato di un tiro completo di Medicina, fino ai suoi PV Massimi. Questo recupero sostituisce l’1d4 di Specialista in Rianimazione e non si somma a esso. Il tiro quantifica il recupero e non costituisce una seconda Prova di riuscita. L’alleato torna cosciente grazie ai PV recuperati.",
+    "kind": "html"
+  },
+  {
+    "id": "1970fe5e9936e2ba46aa",
+    "it": "Questa è una rianimazione distinta dalla Cura da Campo:",
+    "kind": "html"
+  },
+  {
+    "id": "7574e870107fc6897cf6",
+    "it": "Non consuma il limite delle Cure da Campo sul paziente.",
+    "kind": "html"
+  },
+  {
+    "id": "aae0a9b0cec1e8e01a5d",
+    "it": "Non riceve il moltiplicatore di Chirurgia Leggendaria.",
+    "kind": "html"
+  },
+  {
+    "id": "f071b7151daeaafd0dac",
+    "it": "I tre utilizzi sostituiscono quello di Intervento Immediato e sono condivisi con la sua forma ordinaria.",
+    "kind": "html"
+  },
+  {
+    "id": "ae30afd0301279154d7b",
+    "it": "Saikyō: puoi intervenire entro 20 m, mantenendo costo, limite e formula del recupero.",
+    "kind": "html"
+  },
+  {
+    "id": "e06ebb345617192bdb94",
+    "it": "<span class=\"man-sez-n\">9.3</span><span data-prestigio-source=\"ruoli:114\">Diagnosi Assoluta</span>",
+    "kind": "html"
+  },
+  {
+    "id": "0a602c10864bb929d2a1",
+    "it": "Evolve: Diagnosi. Attivazione: Azione Bonus. Costo: 3 ST. Bersaglio: un nemico vivente che puoi vedere.",
+    "kind": "html"
+  },
+  {
+    "id": "5c186903b248a0b08cad",
+    "it": "Effettui la normale prova di Medicina contro la Difesa Passiva del bersaglio. Se riesci, individui una debolezza del suo corpo e puoi comunicarla ai compagni.",
+    "kind": "html"
+  },
+  {
+    "id": "befd20c91784b0e4ef72",
+    "it": "Fino all’inizio del tuo secondo turno successivo, gli attacchi che sfruttano concretamente quella debolezza considerano soltanto metà della Riduzione del Danno fissa del bersaglio, arrotondata per difetto. Difesa Passiva, Difesa Attiva e gli altri effetti difensivi continuano ad applicarsi.",
+    "kind": "html"
+  },
+  {
+    "id": "845f9d9232c9af288822",
+    "it": "Puoi avere una sola Diagnosi Assoluta attiva. Resta il Vantaggio ordinario di Diagnosi per il primo alleato che sfrutta la debolezza nello scontro.",
+    "kind": "html"
+  },
+  {
+    "id": "446dfdf0ce24290c9d13",
+    "it": "Saikyō: gli attacchi che sfruttano la debolezza ignorano tutta la Riduzione del Danno fissa, nella stessa finestra di durata. Le altre difese mantengono il proprio funzionamento.",
+    "kind": "html"
+  },
+  {
+    "id": "e4984fd902fecf0581a9",
+    "it": "Capitolo 10",
+    "kind": "html"
+  },
+  {
+    "id": "44629ce4c3fea75b521b",
+    "it": "Chimico",
+    "kind": "html"
+  },
+  {
+    "id": "668ab5c651b36cda868e",
+    "it": "Ruolo: Dottore. Skill di Ruolo: Medicina. Il catalogo potenzia danno iniziale, composizione e dispersione dei preparati.",
+    "kind": "html"
+  },
+  {
+    "id": "b40beace67c01456d303",
+    "it": "<span class=\"man-sez-n\">10.1</span><span data-prestigio-source=\"ruoli:122\">Reazioni Catastrofiche</span>",
+    "kind": "html"
+  },
+  {
+    "id": "94757efd6a0c0a3bb68d",
+    "it": "Evolve: Reazioni Violente — Maestria. Tipo: passivo sui preparati offensivi.",
+    "kind": "html"
+  },
+  {
+    "id": "96545a65d7d9fbf5d798",
+    "it": "Il danno iniziale prodotto da un tuo preparato diventa doppio rispetto a quello ordinario, includendo il dado aggiuntivo già concesso da Reazioni Violente — Base.",
+    "kind": "html"
+  },
+  {
+    "id": "664c6d3f8d4d039bb040",
+    "it": "Calcoli il danno una sola volta, applichi il moltiplicatore e poi risolvi le normali difese e riduzioni. Gli stati mantengono il loro funzionamento. Bruciature e altri danni successivi all’impatto iniziale non vengono moltiplicati.",
+    "kind": "html"
+  },
+  {
+    "id": "ba341cca5b78d8794806",
+    "it": "Per danno iniziale si intende il Dado Danno registrato nella scheda del preparato, compreso il dado aggiuntivo di Reazioni Violente — Base. Bruciatura e altri danni successivi non fanno parte del danno iniziale e non vengono moltiplicati.",
+    "kind": "html"
+  },
+  {
+    "id": "23910ba14cecdeeed6f2",
+    "it": "Saikyō: il danno iniziale diventa triplo rispetto a quello ordinario, sostituendo il raddoppio.",
+    "kind": "html"
+  },
+  {
+    "id": "c765b3379d1c8b9ef9c3",
+    "it": "<span class=\"man-sez-n\">10.2</span><span data-prestigio-source=\"ruoli:128\">Sintesi Perfetta</span>",
+    "kind": "html"
+  },
+  {
+    "id": "d7ee2c0f37f8fb7e7129",
+    "it": "Prerequisiti: Reagenti Reattivi e Reazioni Violente — Maestria. Tipo: passivo durante la preparazione.",
+    "kind": "html"
+  },
+  {
+    "id": "c5e444df3501c403ea48",
+    "it": "Entrambi i preparati devono possedere una scheda completa e devono essere effettivamente preparabili dal Chimico.",
+    "kind": "html"
+  },
+  {
+    "id": "40aaf01ece90adc027cc",
+    "it": "Puoi combinare due famiglie differenti di reagenti in una sola dose, utilizzando gli ingredienti richiesti da entrambe. Il composto riceve gli effetti distinti delle due componenti.",
+    "kind": "html"
+  },
+  {
+    "id": "40d12c7975139e4c60a0",
+    "it": "Esplosivo e incendiario: esplosione, Sbilanciato e bruciatura, secondo gli effetti dei preparati utilizzati.",
+    "kind": "html"
+  },
+  {
+    "id": "430fac8fdba66517c11d",
+    "it": "Acido e fumogeno: corrosione e Accecato, secondo gli effetti dei preparati utilizzati.",
+    "kind": "html"
+  },
+  {
+    "id": "08e09cb5fd76a1261159",
+    "it": "Per il danno iniziale si utilizza una sola volta quello della componente più potente: i danni completi delle due componenti non vengono sommati. Copie dello stesso stato non si sommano. Ogni componente conserva la propria durata.",
+    "kind": "html"
+  },
+  {
+    "id": "7ce13962e15ad52d7c11",
+    "it": "L’area ordinaria del composto utilizza il raggio minore fra quelli delle componenti. L’uso richiede una sola Azione ordinaria e consuma la dose combinata. Reazioni Catastrofiche si applica al danno iniziale risultante se possiedi quel Talento.",
+    "kind": "html"
+  },
+  {
+    "id": "798a733402e4b0c8aa3f",
+    "it": "Saikyō: puoi combinare tre famiglie differenti nella stessa dose, mantenendo le medesime regole di danno, area e durata.",
+    "kind": "html"
+  },
+  {
+    "id": "ced2f350c5c43b5b262f",
+    "it": "<span class=\"man-sez-n\">10.3</span><span data-prestigio-source=\"ruoli:137\">Dispersione Sovrana</span>",
+    "kind": "html"
+  },
+  {
+    "id": "11ae01f251d57cdc139d",
+    "it": "Prerequisiti: Lancio Preciso e Reazioni Violente — Migliorato. Attivazione: Azione Bonus, prima dell’uso. Costo: 3 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "f3983026951f1c428323",
+    "it": "Prepari la diffusione di un preparato capace di agire ad area. Per quell’utilizzo puoi scegliere un raggio fino al massimo indicato da Medicina e lanciare il preparato entro 30 m.",
+    "kind": "html"
+  },
+  {
+    "id": "5843b9555b9356cba0f7",
+    "it": "Raggio massimo totale",
+    "kind": "html"
+  },
+  {
+    "id": "81c744e015875f11890a",
+    "it": "Questi sono raggi totali, già comprensivi del raddoppio di Reazioni Violente — Migliorato. Lancio Preciso continua a determinare i bersagli che puoi escludere. Danni, stati e Salvezze seguono le regole del preparato.",
+    "kind": "html"
+  },
+  {
+    "id": "50b9f3ba5f4ce967108b",
+    "it": "L’Azione Bonus prepara l’effetto: devi comunque utilizzare l’Azione ordinaria per lanciare il preparato e consumare la dose.",
+    "kind": "html"
+  },
+  {
+    "id": "501480689efa4ae071b7",
+    "it": "Si applicano le normali regole di utilizzo dei preparati ad Area. Il punto d’origine deve essere visibile e raggiungibile dal lancio; pareti e ostacoli solidi impediscono di collocarlo oltre di essi. La dose viene consumata normalmente.",
+    "kind": "html"
+  },
+  {
+    "id": "162385cb74288ec3d50d",
+    "it": "Lancio Preciso continua a permettere di escludere i bersagli previsti. Dispersione Sovrana non modifica il danno o gli Stati del preparato: modifica soltanto la sua capacità di diffusione e la Portata di lancio.",
+    "kind": "html"
+  },
+  {
+    "id": "e42bd873489811da7424",
+    "it": "Saikyō: il raggio massimo è 100 m e puoi lanciare il preparato entro 100 m. Il costo dell’Azione Bonus resta 3 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "df038e39c6a1531192fb",
+    "it": "Capitolo 11",
+    "kind": "html"
+  },
+  {
+    "id": "a61b9fe06139819b3da0",
+    "it": "Meccanico",
+    "kind": "html"
+  },
+  {
+    "id": "a444c627b34666220b15",
+    "it": "Ruolo: Ingegnere. Skill di Ruolo: Meccanica. Il catalogo potenzia la gestione simultanea dei macchinari, la ricostruzione e la manomissione dei sistemi.",
+    "kind": "html"
+  },
+  {
+    "id": "573ce5843cf5cc90c7ef",
+    "it": "<span class=\"man-sez-n\">11.1</span><span data-prestigio-source=\"ruoli:169\">Regia Meccanica</span>",
+    "kind": "html"
+  },
+  {
+    "id": "d5c0d116804b400a46b5",
+    "it": "Evolve: Regolazione Fine — Maestria. Tipo: passivo.",
+    "kind": "html"
+  },
+  {
+    "id": "b574af9971d8d284c067",
+    "it": "Con una sola Azione puoi gestire quattro macchinari, anziché due. Devi poter raggiungere i loro comandi oppure utilizzare una postazione che li colleghi realmente.",
+    "kind": "html"
+  },
+  {
+    "id": "ebd00a8c8c4f78402073",
+    "it": "Ogni macchina conserva i propri tiri, consumi e munizioni. La seconda attivazione concessa dalla Firma o da Regolazione Fine — Maestria resta applicabile; due effetti che concedono una seconda attivazione allo stesso macchinario non lo portano a quattro.",
+    "kind": "html"
+  },
+  {
+    "id": "e127e9df6d25878cab07",
+    "it": "In battaglia navale si tratta delle attivazioni dei sistemi gestiti, non di quattro manovre complete della nave. Il Talento gestisce macchinari e non concede Azioni aggiuntive ai personaggi che li utilizzano o li ospitano.",
+    "kind": "html"
+  },
+  {
+    "id": "20328a77340e22e02ec2",
+    "it": "Ogni attivazione aggiuntiva paga separatamente munizioni, carburante, energia e altri consumi del macchinario. Regia Meccanica non rende autonomi i dispositivi e non concede manovre navali ulteriori.",
+    "kind": "html"
+  },
+  {
+    "id": "d9bd6dd98193bda3b887",
+    "it": "Saikyō: puoi gestire otto macchinari con la stessa Azione, mantenendo le condizioni descritte.",
+    "kind": "html"
+  },
+  {
+    "id": "ab18d6477f817f7715ed",
+    "it": "<span class=\"man-sez-n\">11.2</span><span data-prestigio-source=\"ruoli:176\">Ricostruzione Prodigiosa</span>",
+    "kind": "html"
+  },
+  {
+    "id": "4c3c595443fcc8d71b18",
+    "it": "Prerequisiti: Pronto Intervento e Carne e Metallo. Attivazione: Azione. Costo: 3 ST. Limite: 3 utilizzi per combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "620a3d515c3dbb29eb26",
+    "it": "Con attrezzi, ricambi e una Prova di riparazione riuscita puoi intervenire anche su un dispositivo Distrutto, superando il normale limite di Pronto Intervento. Effettui uno dei seguenti interventi:",
+    "kind": "html"
+  },
+  {
+    "id": "6624d7b923f806e0176c",
+    "it": "Macchinario: rimetti completamente in funzione un congegno o Modulo danneggiato oppure distrutto, disponendo dei componenti necessari.",
+    "kind": "html"
+  },
+  {
+    "id": "85ec0b0177881aeee5ca",
+    "it": "Cyborg ancora in vita: ripristini PV pari alla somma di due tiri completi di Meccanica e rimetti in funzione un suo Modulo danneggiato o distrutto.",
+    "kind": "html"
+  },
+  {
+    "id": "f382b2bad6d7dca890b3",
+    "it": "I PV recuperati non possono superare il massimo. Un Cyborg a 0 PV torna cosciente se l’intervento gli restituisce PV. Questi interventi hanno il proprio limite di tre utilizzi per combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "5b7ecf066c74d46f3124",
+    "it": "Gli interventi sul corpo e sui Moduli di un Cyborg seguono comunque le definizioni e le condizioni del Manuale del Cyborg.",
+    "kind": "html"
+  },
+  {
+    "id": "58cd5ecc83bbe444de23",
+    "it": "Saikyō: il recupero del Cyborg è pari a tre tiri completi di Meccanica e puoi ripristinare due Moduli nello stesso intervento, anziché uno.",
+    "kind": "html"
+  },
+  {
+    "id": "997de45d98737fe3b55b",
+    "it": "<span class=\"man-sez-n\">11.3</span><span data-prestigio-source=\"ruoli:184\">Dominio delle Macchine</span>",
+    "kind": "html"
+  },
+  {
+    "id": "5fbf302af657d1331b53",
+    "it": "Evolve: Sabotaggio Profondo. Attivazione: Azione. Costo: 3 ST. Prova: Meccanica.",
+    "kind": "html"
+  },
+  {
+    "id": "80dda51848b91e041c89",
+    "it": "Raggiungi un punto di comando o un collegamento del sistema e intervieni sui suoi meccanismi. Con una prova riuscita scegli fino a tre macchinari collegati e decidi se:",
+    "kind": "html"
+  },
+  {
+    "id": "0f3b2519d561856198c7",
+    "it": "Metterli fuori uso per il resto della battaglia, come Sabotaggio Profondo.",
+    "kind": "html"
+  },
+  {
+    "id": "619c555bff0aad7492ce",
+    "it": "Prenderne il controllo per il resto della scena.",
+    "kind": "html"
+  },
+  {
+    "id": "0b1753b72ff77e20c5cf",
+    "it": "Per utilizzare una macchina conquistata devi spendere l’Azione richiesta e rispettarne munizioni, energia e funzionamento. La manomissione non comprende un’attivazione gratuita dei macchinari.",
+    "kind": "html"
+  },
+  {
+    "id": "dd5907ccfbea552d7e2f",
+    "it": "Per recuperare il controllo, un avversario deve raggiungere il sistema, spendere un’Azione e ottenere una prova di Meccanica che eguagli o superi il risultato della tua manomissione.",
+    "kind": "html"
+  },
+  {
+    "id": "684624901796bd946602",
+    "it": "Dominio delle Macchine utilizza le normali regole di accesso fisico stabilite da Sabotaggio: il Meccanico deve poter raggiungere realmente un comando, collegamento o punto di controllo del sistema.",
+    "kind": "html"
+  },
+  {
+    "id": "80b6b2823f05ee2f3077",
+    "it": "Saikyō: puoi coinvolgere tutti i macchinari appartenenti allo stesso sistema collegato, come una batteria completa, gli impianti di una nave o una rete di macchine industriali. Resta necessario intervenire realmente sul sistema.",
+    "kind": "html"
+  },
+  {
+    "id": "c3fbe541a1593a5592e0",
+    "it": "Capitolo 12",
+    "kind": "html"
+  },
+  {
+    "id": "b1a1fb5e131758447ced",
+    "it": "Carpentiere",
+    "kind": "html"
+  },
+  {
+    "id": "06722c66dbcbddbfb138",
+    "it": "Ruolo: Ingegnere. Skill di Ruolo: Carpenteria. Il catalogo potenzia riparazioni navali, opere di cantiere e resistenza dello scafo.",
+    "kind": "html"
+  },
+  {
+    "id": "2b8ef8d1134463b4e23e",
+    "it": "<span class=\"man-sez-n\">12.1</span><span data-prestigio-source=\"ruoli:195\">Ricostruzione Leggendaria</span>",
+    "kind": "html"
+  },
+  {
+    "id": "06331300462bb6a21db3",
+    "it": "Evolve: Mani sul Legno — Maestria. Attivazione: Azione. Costo: 3 ST. Limite: 3 utilizzi per battaglia navale.",
+    "kind": "html"
+  },
+  {
+    "id": "206b3f1b981a629a094d",
+    "it": "Effettui una Riparazione d’Emergenza. Se riesce:",
+    "kind": "html"
+  },
+  {
+    "id": "e75ff5ac54b69317444b",
+    "it": "Calcola normalmente i PS recuperati.",
+    "kind": "html"
+  },
+  {
+    "id": "0afdf72af89ad6c65dfe",
+    "it": "Aggiungi Mani sul Legno — Base.",
+    "kind": "html"
+  },
+  {
+    "id": "3817b69645dd6c8659df",
+    "it": "Applica l’eventuale raddoppio della Firma La Riparazione che Tiene.",
+    "kind": "html"
+  },
+  {
+    "id": "e5bb34c03295dd33a505",
+    "it": "Raddoppia infine il totale ottenuto grazie a Ricostruzione Leggendaria.",
+    "kind": "html"
+  },
+  {
+    "id": "8618b1dc047e7bd724f5",
+    "it": "Inoltre puoi rimettere in funzione un Modulo Distrutto, oltre agli effetti già consentiti da Mani sul Legno — Migliorato.",
+    "kind": "html"
+  },
+  {
+    "id": "f76e1335c436b503bc3b",
+    "it": "Servono normalmente i materiali necessari e il recupero non può superare i PS Massimi.",
+    "kind": "html"
+  },
+  {
+    "id": "fe8f1748940adaa00b0b",
+    "it": "Il limite di tre utilizzi è condiviso con il ripristino ordinario di Mani sul Legno — Maestria e sostituisce il precedente limite di una volta.",
+    "kind": "html"
+  },
+  {
+    "id": "67a05d13db170faadd40",
+    "it": "Saikyō: il moltiplicatore finale diventa ×3 e puoi ripristinare due Moduli Distrutti nello stesso intervento.",
+    "kind": "html"
+  },
+  {
+    "id": "f4a1d6623eb0727d1666",
+    "it": "<span class=\"man-sez-n\">12.2</span><span data-prestigio-source=\"ruoli:206\">Nave Leggendaria</span>",
+    "kind": "html"
+  },
+  {
+    "id": "89e37e0cba719b0003f4",
+    "it": "Prerequisito: Nave Cresciuta. Attivazione: completamento di una costruzione o di una ristrutturazione completa in cantiere.",
+    "kind": "html"
+  },
+  {
+    "id": "347289741061548e170f",
+    "it": "La nave sulla quale completi il lavoro ottiene +50% ai PS massimi, arrotondando per eccesso, e due slot Modulo aggiuntivi complessivi, comprendendo quello già concesso da Maestro dei Moduli.",
+    "kind": "html"
+  },
+  {
+    "id": "dd51eccbc505054ba2aa",
+    "it": "Il beneficio si applica una sola volta per nave. Gli slot devono essere riempiti con Moduli realmente costruiti e installati. La capacità della nave non concede Moduli gratuiti.",
+    "kind": "html"
+  },
+  {
+    "id": "32dc474ded3e86dca178",
+    "it": "Nave Leggendaria costituisce un miglioramento permanente della nave e segue le normali regole dei Miglioramenti Permanenti. Non si trasferisce su un’altra nave se il Carpentiere cambia equipaggio o imbarcazione.",
+    "kind": "html"
+  },
+  {
+    "id": "cfd7bcc96b321f8f34a5",
+    "it": "Saikyō: il bonus diventa +100% ai PS massimi e gli slot aggiuntivi complessivi diventano tre. Questa forma sostituisce i valori precedenti.",
+    "kind": "html"
+  },
+  {
+    "id": "546d921004a857dc7bd1",
+    "it": "Aumento dei PS massimi",
+    "kind": "html"
+  },
+  {
+    "id": "5a868e07392eddc21660",
+    "it": "Slot Modulo aggiuntivi totali",
+    "kind": "html"
+  },
+  {
+    "id": "b940dbde1ee7721219bf",
+    "it": "Prestigi prima di Saikyō",
+    "kind": "html"
+  },
+  {
+    "id": "0e063922184ba5d7acb9",
+    "it": "2, compreso Maestro dei Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "2763d7a04e896ef5d392",
+    "it": "3, compreso Maestro dei Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "eb09dffda4b2607bf4f3",
+    "it": "Esempio: una nave che avrebbe 80 PS massimi arriva a 120 PS, oppure a 160 PS a Saikyō.",
+    "kind": "html"
+  },
+  {
+    "id": "0fe7d42a37f5270c21a7",
+    "it": "Il lavoro richiede materiali, strumenti e i tempi del progetto, che possono essere giorni o settimane. Barricata conserva il proprio uso ordinario entro 5 m. Ponti enormi, muraglie e fortificazioni richiedono un vero lavoro di costruzione.",
+    "kind": "html"
+  },
+  {
+    "id": "78d1880eaf72b157f1b4",
+    "it": "<span class=\"man-sez-n\">12.3</span><span data-prestigio-source=\"ruoli:215\">Scafo Inespugnabile</span>",
+    "kind": "html"
+  },
+  {
+    "id": "edf3ec612a3696938bcc",
+    "it": "Evolve: Scafo Rinforzato. Tipo: passivo, dopo aver completato i lavori di rinforzo.",
+    "kind": "html"
+  },
+  {
+    "id": "a1629b7830c258c05264",
+    "it": "La nave sulla quale hai realizzato i rinforzi subisce metà dei danni allo Scafo provocati da cannonate, speronamenti e altri impatti fisici, arrotondando per eccesso.",
+    "kind": "html"
+  },
+  {
+    "id": "7118a953219fa22483fc",
+    "it": "Questo beneficio sostituisce la riduzione di un gradino dei Dadi Danno delle cannonate concessa da Scafo Rinforzato.",
+    "kind": "html"
+  },
+  {
+    "id": "8649ba0f3554e9a1891d",
+    "it": "Saikyō: la nave subisce un quarto di quei danni, arrotondando per eccesso, anziché metà.",
+    "kind": "html"
+  },
+  {
+    "id": "65edaecd1d60fe55a102",
+    "it": "Esempio: una cannonata da 40 PS infligge 20 PS, oppure 10 PS a Saikyō.",
+    "kind": "html"
+  },
+  {
+    "id": "91431c223466380599f0",
+    "it": "Capitolo 13",
+    "kind": "html"
+  },
+  {
+    "id": "551118d52fe9250e4360",
+    "it": "Skill di Ruolo: Navigazione. Il catalogo potenzia evasione navale, pianificazione delle traversate e qualità delle carte nautiche.",
+    "kind": "html"
+  },
+  {
+    "id": "ecb8e156ae95a586b5c9",
+    "it": "<span class=\"man-sez-n\">13.1</span><span data-prestigio-source=\"ruoli:223\">Timoniere Leggendario</span>",
+    "kind": "html"
+  },
+  {
+    "id": "3ccca50a2c7a3e1aa11e",
+    "it": "Evolve: Timoniere Nato — Maestria. Attivazione: Reazione. Costo: 3 ST. Limite: 3 utilizzi per battaglia navale.",
+    "kind": "html"
+  },
+  {
+    "id": "0241f9916371086e0e44",
+    "it": "Quando una salva di artiglieria sta per colpire la tua nave, esegui una manovra evasiva e annulli tutti i colpi appartenenti a quella salva. Devi essere al timone e la nave deve essere in grado di manovrare.",
+    "kind": "html"
+  },
+  {
+    "id": "96a4e526baf8b0d31f6a",
+    "it": "Attacchi separati richiedono utilizzi separati. Il limite di tre utilizzi è condiviso con Timoniere Nato — Migliorato e sostituisce quello precedente di una volta.",
+    "kind": "html"
+  },
+  {
+    "id": "27d8e387ddd5a46e6a46",
+    "it": "Saikyō: dopo aver evitato la salva puoi anche guadagnare o perdere una fascia di distanza, secondo le normali possibilità di movimento della nave. Lo spostamento fa parte della Reazione.",
+    "kind": "html"
+  },
+  {
+    "id": "101b876fa27902b9b10b",
+    "it": "<span class=\"man-sez-n\">13.2</span><span data-prestigio-source=\"ruoli:228\">Rotta Sovrana</span>",
+    "kind": "html"
+  },
+  {
+    "id": "08c2f66d72f2103f9fb2",
+    "it": "Prerequisiti: Rotta Maestra e Rotta Impossibile. Tipo: passivo durante la pianificazione della traversata.",
+    "kind": "html"
+  },
+  {
+    "id": "8ac69b1d0ca6c3b77461",
+    "it": "Quando prepari una traversata verso una destinazione che hai già raggiunto, combini correnti, venti e passaggi per completare il viaggio in metà del tempo ordinario.",
+    "kind": "html"
+  },
+  {
+    "id": "684e87a9f9bc6c4264f2",
+    "it": "Restano le normali prove di traversata e gli eventuali pericoli del percorso. Il Talento modifica il tempo del viaggio e non sostituisce il suo svolgimento.",
+    "kind": "html"
+  },
+  {
+    "id": "bf8a9b00387509ffcfb5",
+    "it": "Saikyō: il tempo scende a un quarto di quello ordinario, anziché metà.",
+    "kind": "html"
+  },
+  {
+    "id": "70909f5a62ba328e0bbe",
+    "it": "Esempio: una traversata normalmente lunga otto giorni richiede quattro giorni, oppure due giorni a Saikyō.",
+    "kind": "html"
+  },
+  {
+    "id": "3564ab56add71a9f0d51",
+    "it": "<span class=\"man-sez-n\">13.3</span><span data-prestigio-source=\"ruoli:234\">Cartografia Leggendaria</span>",
+    "kind": "html"
+  },
+  {
+    "id": "a87763d702469ad69448",
+    "it": "Evolve: Cartografo. Tipo: passivo durante la realizzazione delle carte.",
+    "kind": "html"
+  },
+  {
+    "id": "2d3c892d09ff0170bdfb",
+    "it": "Le carte nautiche che realizzi concedono come bonus un tiro completo del tuo dado Navigazione, sostituendo il normale +d8 di Cartografo. Il dado viene registrato quando completi la carta.",
+    "kind": "html"
+  },
+  {
+    "id": "ae176d4d5853fd2cf6ed",
+    "it": "Navigazione alla realizzazione",
+    "kind": "html"
+  },
+  {
+    "id": "922cb35cb62c4c4e4770",
+    "it": "Bonus della carta",
+    "kind": "html"
+  },
+  {
+    "id": "6875c44eff7716968597",
+    "it": "Il beneficio vale per le prove che utilizzano effettivamente quella carta e può essere sfruttato anche da un altro navigatore.",
+    "kind": "html"
+  },
+  {
+    "id": "707fa35a1acfcee733df",
+    "it": "Una carta già completata mantiene il proprio dado. Per migliorarla devi aggiornarla attraverso un nuovo lavoro cartografico. A Saikyō una carta realizzata o aggiornata da te concede +d20+d20.",
+    "kind": "html"
+  },
+  {
+    "id": "cfd5943ddb5a10366b4b",
+    "it": "Capitolo 14",
+    "kind": "html"
+  },
+  {
+    "id": "7605effb0dcc2a4042cc",
+    "it": "Skill di Ruolo: Archeologia. Il catalogo potenzia lettura delle iscrizioni, conoscenze applicabili alle scoperte e uso dei meccanismi esistenti.",
+    "kind": "html"
+  },
+  {
+    "id": "01c741d28c39de627789",
+    "it": "<span class=\"man-sez-n\">14.1</span><span data-prestigio-source=\"ruoli:242\">Lettura Assoluta</span>",
+    "kind": "html"
+  },
+  {
+    "id": "532cbadcd858acea70fc",
+    "it": "Evolve: Scrittura Morta — Maestria. Tipo: passivo.",
+    "kind": "html"
+  },
+  {
+    "id": "35818cfb1461c08cfa09",
+    "it": "Quando riesci in una prova di traduzione ottieni la traduzione completa e il dettaglio nascosto previsto dalla Firma, anche senza raggiungere il margine +4.",
+    "kind": "html"
+  },
+  {
+    "id": "fc4c77fb4bd15df8b2ce",
+    "it": "Per studiare una singola iscrizione o stele leggibile, compreso un Poneglyph, ti serve al massimo un’ora. Se il lavoro richiederebbe normalmente meno tempo, resta quello inferiore. Archivi e testi composti da molte iscrizioni richiedono lo studio delle singole parti.",
+    "kind": "html"
+  },
+  {
+    "id": "196266eb34869cb7a226",
+    "it": "Saikyō: il tempo massimo per una singola iscrizione scende a dieci minuti.",
+    "kind": "html"
+  },
+  {
+    "id": "f3a8e3b97278c1e88040",
+    "it": "<span class=\"man-sez-n\">14.2</span><span data-prestigio-source=\"ruoli:247\">Archivio Vivente</span>",
+    "kind": "html"
+  },
+  {
+    "id": "62c3566f3aa9696a18e9",
+    "it": "Evolve: Memoria del Mondo. Attivazione: cinque minuti di esame. Limite: una volta per scena.",
+    "kind": "html"
+  },
+  {
+    "id": "03004268466292358605",
+    "it": "Esaminando un luogo antico, un reperto o una struttura puoi ottenere risposte concrete a due delle seguenti domande, a tua scelta:",
+    "kind": "html"
+  },
+  {
+    "id": "e717fa0d2b4d38d73201",
+    "it": "Qual era la sua funzione originaria?",
+    "kind": "html"
+  },
+  {
+    "id": "a677d098592b74aa8317",
+    "it": "Quale pericolo o difesa è documentato dalle testimonianze presenti?",
+    "kind": "html"
+  },
+  {
+    "id": "de6f27906f4a81da17e0",
+    "it": "Qual è il modo corretto di accedervi, utilizzarlo o disattivarlo?",
+    "kind": "html"
+  },
+  {
+    "id": "cb1775a3bc59a677877a",
+    "it": "Le risposte derivano dalla storia del soggetto e dalle tracce conservate: iscrizioni, architettura, simboli, materiali e conoscenze già acquisite. Sono informazioni utilizzabili nell’esplorazione.",
+    "kind": "html"
+  },
+  {
+    "id": "c79291844eb62dd791a1",
+    "it": "Puoi scoprire, per esempio, che una sala era destinata alle esecuzioni, che il pavimento aziona un contrappeso o che una porta si apre attraverso un preciso ordine di simboli.",
+    "kind": "html"
+  },
+  {
+    "id": "e330989bb8e1103418b0",
+    "it": "Saikyō: ottieni risposta a tutte e tre le domande nello stesso esame, mantenendo tempo e limite descritti.",
+    "kind": "html"
+  },
+  {
+    "id": "75cac8f5dff0f5b341f6",
+    "it": "<span class=\"man-sez-n\">14.3</span><span data-prestigio-source=\"ruoli:256\">Maestro dei Meccanismi Antichi</span>",
+    "kind": "html"
+  },
+  {
+    "id": "6c3438b0b161edfc907e",
+    "it": "Prerequisiti: Meccanismi Antichi e Trappola Antica. Attivazione: Reazione. Costo: 2 ST. Limite: 3 utilizzi per combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "696d8d6f2daa2f260545",
+    "it": "Quando una creatura raggiunge il punto d’attivazione di una trappola, oppure un meccanismo antico sta per scattare, puoi intervenire immediatamente per attivarlo, bloccarne l’attivazione o invertirne il funzionamento, se il dispositivo lo permette.",
+    "kind": "html"
+  },
+  {
+    "id": "d2b5c9bc14aba27aced3",
+    "it": "Devi aver identificato il meccanismo e poter raggiungere il comando o un collegamento utilizzabile, come una leva, una fune, un innesco o un pannello. Si applicano gli effetti, i danni e le Salvezze già previsti dal dispositivo.",
+    "kind": "html"
+  },
+  {
+    "id": "c442fa91a44b2a159fc0",
+    "it": "Saikyō: puoi azionare due meccanismi collegati con la stessa Reazione, pagando una sola volta il costo e consumando un solo utilizzo.",
+    "kind": "html"
+  },
+  {
+    "id": "c348f5304762f2f7337c",
+    "it": "Puoi così chiudere una porta mentre attivi la trappola davanti a essa oppure arrestare un contrappeso e aprire il passaggio che libera.",
+    "kind": "html"
+  },
+  {
+    "id": "1629d6a251f4b03740a1",
+    "it": "Capitolo 15",
+    "kind": "html"
+  },
+  {
+    "id": "2d5bd6fda2d9a3be0384",
+    "it": "Skill di Ruolo: Cucina. Il catalogo potenzia l’efficacia dei piatti e il servizio di porzioni realmente preparate. La cucina mantiene ingredienti, tempi, prova Spirito + Cucina ed esito della ricetta.",
+    "kind": "html"
+  },
+  {
+    "id": "d44998d7b872892b40c5",
+    "it": "<span class=\"man-sez-n\">15.1</span><span data-prestigio-source=\"ruoli:264\">Nutrimento Leggendario</span>",
+    "kind": "html"
+  },
+  {
+    "id": "f5684567475377c8af96",
+    "it": "Evolve: Mano del Cuoco — Maestria. Tipo: passivo sui piatti ordinari.",
+    "kind": "html"
+  },
+  {
+    "id": "c3501744bd948488b2ed",
+    "it": "I tuoi piatti restituiscono il doppio dei PV e della ST normalmente recuperati. Calcoli prima il recupero ordinario, compresi Mano del Cuoco — Base e gli ingredienti utilizzati, poi raddoppi il risultato.",
+    "kind": "html"
+  },
+  {
+    "id": "5ea0f4ff547e939c0363",
+    "it": "Se il piatto recupera entrambe le risorse, Nutrimento Leggendario moltiplica entrambe. Non aggiunge una risorsa che la ricetta non recupera.",
+    "kind": "html"
+  },
+  {
+    "id": "cfe483a96138d376fbca",
+    "it": "I tuoi piatti rimuovono inoltre fino a due Stati negativi rimovibili, anziché quello previsto da Mano del Cuoco — Maestria. Ogni piatto continua a recuperare soltanto le risorse previste dalla propria ricetta e conserva il normale numero di destinatari.",
+    "kind": "html"
+  },
+  {
+    "id": "537136572c6c4df5b42b",
+    "it": "Saikyō: il recupero diventa triplo rispetto al piatto ordinario e gli Stati negativi rimovibili diventano tre.",
+    "kind": "html"
+  },
+  {
+    "id": "a72dee0ee3d56ba156a0",
+    "it": "Esempio: un piatto che normalmente restituisce 12 PV e 4 ST ne restituisce 24 e 8, oppure 36 e 12 a Saikyō.",
+    "kind": "html"
+  },
+  {
+    "id": "c2db106307988e0af5c6",
+    "it": "<span class=\"man-sez-n\">15.2</span><span data-prestigio-source=\"ruoli:271\">Servizio Sovrano</span>",
+    "kind": "html"
+  },
+  {
+    "id": "09f024962ebf45b56867",
+    "it": "Evolve: Servizio in Battaglia. Attivazione: Azione Bonus. Costo: 3 ST. Bersagli: fino a tre personaggi coscienti entro 10 m, compreso eventualmente te stesso.",
+    "kind": "html"
+  },
+  {
+    "id": "98268dddff094a323edb",
+    "it": "Servi porzioni già preparate. I destinatari consumano immediatamente il cibo e ricevono gli effetti del piatto senza spendere un’Azione.",
+    "kind": "html"
+  }
+]

@@ -1,0 +1,1592 @@
+[
+  {
+    "id": "24e6a1ce4646e47a9bd6",
+    "it": "Alla creazione, Corpo Meccanico parte da d6, ma il Cyborg riceve comunque i due Moduli iniziali previsti dalla Razza. È importante distinguere quindi gli oggetti posseduti dalla capacità di installazione: i due Moduli gratuiti non aumentano automaticamente il numero di slot disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "e6a2602e6bbaad97c4f3",
+    "it": "In particolare, con Corpo Meccanico d6 è disponibile un solo slot. Quando la Tecnica raggiunge d8, gli slot diventano due e il Cyborg può ospitare entrambi i Moduli iniziali.",
+    "kind": "html"
+  },
+  {
+    "id": "beaa7835d189df22e4cc",
+    "it": "Sviluppare il corpo",
+    "kind": "html"
+  },
+  {
+    "id": "da7eb9d90d74abf57919",
+    "it": "Quando Corpo Meccanico aumenta di Grado, il Cyborg sblocca nuovi slot.",
+    "kind": "html"
+  },
+  {
+    "id": "143cebc67cfcaa0cff19",
+    "it": "Gli slot ottenuti successivamente alla creazione arrivano vuoti: per utilizzarli è necessario procurarsi un Modulo, costruirlo e installarlo.",
+    "kind": "html"
+  },
+  {
+    "id": "4a63e185f2d5dc6430db",
+    "it": "Esempio. Un Cyborg possiede Corpo Meccanico d8 e dispone di due slot. Quando sviluppa la Tecnica a d10, ottiene un terzo slot, ma non riceve gratuitamente un terzo Modulo. Dovrà procurarselo attraverso il gioco.",
+    "kind": "html"
+  },
+  {
+    "id": "e0a5c17f4e72f7cc0106",
+    "it": "La progressione razziale determina quindi quanto il corpo può essere ampliato; l'Officina e le risorse della campagna determinano con quali dispositivi verrà ampliato.",
+    "kind": "html"
+  },
+  {
+    "id": "5dabd99d042bc87d07b8",
+    "it": "Funzionamento dei Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "efe579a87e3ecdbce3e4",
+    "it": "Un Modulo è un dispositivo meccanico dotato di una funzione definita. Può offrire capacità fisiche, utilità, effetti in combattimento o altre applicazioni previste dal relativo progetto.",
+    "kind": "html"
+  },
+  {
+    "id": "9c6b232312ae66579a9d",
+    "it": "Gli effetti non sono concessi genericamente dalla Razza Cyborg: dipendono dai Moduli effettivamente installati e dalle loro regole.",
+    "kind": "html"
+  },
+  {
+    "id": "35ea153adc18b7d3e298",
+    "it": "Ogni progetto deve rispettare i requisiti previsti dall'Officina e gli accordi con il Game Master. In particolare, un Modulo può avere requisiti legati al Grado di Corpo Meccanico, condizioni di funzionamento oppure una risorsa energetica propria.",
+    "kind": "html"
+  },
+  {
+    "id": "afe88276a22f78dd927b",
+    "it": "Gli effetti passivi di un Modulo funzionano soltanto quando quel Modulo è attivo. I dettagli sulla costruzione, sull'attivazione, sull'energia e sulle riparazioni vengono trattati nel capitolo Moduli e Tecnologia.",
+    "kind": "html"
+  },
+  {
+    "id": "73d75d38d3496b708ee4",
+    "it": "Svantaggio · Corpo Meccanico",
+    "kind": "html"
+  },
+  {
+    "id": "4e0f0d8f8dfce56ee223",
+    "it": "Il corpo di un Cyborg non reagisce alle normali cure biologiche come quello delle Razze organiche.",
+    "kind": "html"
+  },
+  {
+    "id": "13c528a2793fec23554f",
+    "it": "Una normale cura effettuata attraverso Medicina non recupera PV al Cyborg.",
+    "kind": "html"
+  },
+  {
+    "id": "ea8430f491a20a4fab22",
+    "it": "Riposo Breve, Riposo Lungo e Cambusa funzionano normalmente. Anche un effetto che concede direttamente recupero di PV continua a funzionare, salvo che la capacità specifichi di agire esclusivamente attraverso processi biologici.",
+    "kind": "html"
+  },
+  {
+    "id": "782adde1a11b8c03dd7a",
+    "it": "Fuori dal combattimento, un Meccanico può recuperare i PV del Cyborg attraverso Riparazione di Campo secondo le regole del Manuale del Cyborg.",
+    "kind": "html"
+  },
+  {
+    "id": "82dcfa33c717e77cc975",
+    "it": "Recuperare PV e riparare un Modulo sono due interventi distinti.",
+    "kind": "html"
+  },
+  {
+    "id": "1c87a8e9b590e6580844",
+    "it": "Forza e Corpo Meccanico sono due progressioni differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "4bd0a13abad4d6d95f50",
+    "it": "Un Cyborg potrebbe possedere Forza d12 e Corpo Meccanico d8.",
+    "kind": "html"
+  },
+  {
+    "id": "dd1a3cd357f42eb808fe",
+    "it": "In questo caso avrebbe una Difesa Passiva pari a 13, ma soltanto 2 slot per Moduli.",
+    "kind": "html"
+  },
+  {
+    "id": "4ca988d37f60139cd884",
+    "it": "Allo stesso modo, un Cyborg con Forza d8 e Corpo Meccanico d20 avrebbe ancora una Difesa Passiva di 9, ma potrebbe ospitare 5 Moduli.",
+    "kind": "html"
+  },
+  {
+    "id": "2ccdf1f8b980ab9f13dd",
+    "it": "Il miglioramento della Forza non aumenta automaticamente gli slot, e lo sviluppo di Corpo Meccanico non aumenta automaticamente Forza.",
+    "kind": "html"
+  },
+  {
+    "id": "726fb91a8893e10711af",
+    "it": "<span class=\"man-sez-n\">3.8 ·</span> Tontatta",
+    "kind": "html"
+  },
+  {
+    "id": "86c84ce2fe29e6960eef",
+    "it": "I Tontatta sono una Razza di minuscole dimensioni, ma la loro statura non deve trarre in inganno. Possono sviluppare una forza sorprendente oppure affidarsi a precisione e rapidità, sfruttando il proprio corpo minuto per muoversi senza essere notati e risultare difficili da colpire al primo tentativo.",
+    "kind": "html"
+  },
+  {
+    "id": "8b7c4a753945c53abcab",
+    "it": "La loro Tecnica Razziale, Piccolo Guerriero, valorizza questi vantaggi. Le dimensioni ridotte comportano però limitazioni importanti: una presa può diventare difficile da spezzare e l'equipaggiamento comune può essere troppo grande per essere utilizzato.",
+    "kind": "html"
+  },
+  {
+    "id": "675b8a08183986bed71b",
+    "it": "Forza oppure Tecnica",
+    "kind": "html"
+  },
+  {
+    "id": "982018ad4f95420250bf",
+    "it": "Piccolo Guerriero",
+    "kind": "html"
+  },
+  {
+    "id": "4020c384cbaa9e76f1ca",
+    "it": "Svantaggi",
+    "kind": "html"
+  },
+  {
+    "id": "01da718c837b396a0bbd",
+    "it": "Prese ed equipaggiamento di taglia incompatibile",
+    "kind": "html"
+  },
+  {
+    "id": "447a18529f5062895556",
+    "it": "Quando crea un Tontatta, il giocatore sceglie il proprio Attributo Razziale tra:",
+    "kind": "html"
+  },
+  {
+    "id": "db01877eb6b02134252c",
+    "it": "Forza oppure Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "f20becd2d559207d945a",
+    "it": "L'Attributo scelto parte da d8.",
+    "kind": "html"
+  },
+  {
+    "id": "543cf901f74e31026182",
+    "it": "La scelta determina anche quale Attributo viene utilizzato per calcolare la Difesa Passiva.",
+    "kind": "html"
+  },
+  {
+    "id": "bacfb3bcaaa6df8f394b",
+    "it": "In entrambi i casi, alla creazione:",
+    "kind": "html"
+  },
+  {
+    "id": "15e7cecc5bd4de58c2d2",
+    "it": "Se il personaggio migliora il proprio Attributo Razziale attraverso i P.A., aumenta anche la Difesa Passiva.",
+    "kind": "html"
+  },
+  {
+    "id": "d09c0a864bc9fda77693",
+    "it": "Questa scelta consente di costruire Tontatta differenti: alcuni specializzati nella potenza fisica, altri nella precisione e nel controllo dei movimenti.",
+    "kind": "html"
+  },
+  {
+    "id": "31b33be975c68367732c",
+    "it": "Un Tontatta inizia con 12 PV e possiede un Dado Vita d6.",
+    "kind": "html"
+  },
+  {
+    "id": "124b9d505a047b67bb2a",
+    "it": "A ogni Upgrade aggiunge quindi +3 PV Massimi, senza tirare il dado.",
+    "kind": "html"
+  },
+  {
+    "id": "d71bfefdd84697e24749",
+    "it": "La progressione sarà:",
+    "kind": "html"
+  },
+  {
+    "id": "1bba988c7938fa91feb8",
+    "it": "Il Movimento base del Tontatta è:",
+    "kind": "html"
+  },
+  {
+    "id": "8d441f4343534615e374",
+    "it": "Questo valore rappresenta la distanza che può percorrere normalmente durante il proprio turno.",
+    "kind": "html"
+  },
+  {
+    "id": "215ef21d0940a7f5984d",
+    "it": "Piccolo Guerriero non aumenta automaticamente il Movimento espresso in metri. Eventuali capacità che concedono spostamenti aggiuntivi seguono le proprie regole.",
+    "kind": "html"
+  },
+  {
+    "id": "3608d3fdfe9fafde7b4c",
+    "it": "Tecnica Razziale · Piccolo Guerriero",
+    "kind": "html"
+  },
+  {
+    "id": "fcdfe534c7d260f2f0ae",
+    "it": "Ogni Tontatta possiede Piccolo Guerriero, inizialmente a d6.",
+    "kind": "html"
+  },
+  {
+    "id": "31292f4661a466f0a5fe",
+    "it": "La Tecnica Razziale non accumula né spende P.A. Il suo Grado viene registrato secondo gli sviluppi concessi dal GM durante la campagna, lungo la progressione:",
+    "kind": "html"
+  },
+  {
+    "id": "545554c94d29ba08315a",
+    "it": "Piccolo Guerriero possiede due benefici distinti: un dado aggiuntivo per determinate prove e una protezione contro il primo attacco di un nemico.",
+    "kind": "html"
+  },
+  {
+    "id": "ebe0740c10465127779d",
+    "it": "Furtività e Mobilità",
+    "kind": "html"
+  },
+  {
+    "id": "e53be5c6453c18930062",
+    "it": "Quando il Tontatta effettua una prova di Furtività o una prova di Mobilità, aggiunge il dado attuale di Piccolo Guerriero al tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "21a53cca0aa30392ef57",
+    "it": "Il dado razziale si aggiunge ai dadi normalmente previsti dalla prova: non li sostituisce.",
+    "kind": "html"
+  },
+  {
+    "id": "3766a5968595ee2f1473",
+    "it": "Un Tontatta possiede:",
+    "kind": "html"
+  },
+  {
+    "id": "a10531774c9d33a775a6",
+    "it": "Tecnica d10",
+    "kind": "html"
+  },
+  {
+    "id": "f1ed79b391fce878d9ee",
+    "it": "Furtività d8",
+    "kind": "html"
+  },
+  {
+    "id": "0384f80e739842168544",
+    "it": "Piccolo Guerriero d8",
+    "kind": "html"
+  },
+  {
+    "id": "c448fe78d9af257ded6d",
+    "it": "Quando effettua una prova di Furtività appropriata, tira:",
+    "kind": "html"
+  },
+  {
+    "id": "4db35e354e20467d8e15",
+    "it": "L'ultimo d8 proviene dalla Tecnica Razziale.",
+    "kind": "html"
+  },
+  {
+    "id": "5804e40418447af0c505",
+    "it": "Mobilità non è una Skill autonoma e non aumenta il Movimento: il Tontatta percorre normalmente gli 8 metri indicati nella propria scheda e segue le regole generali del Movimento. Il dado di Piccolo Guerriero si aggiunge soltanto quando è richiesta una Prova pertinente a una manovra di mobilità; non occorre tirare per spostarsi normalmente.",
+    "kind": "html"
+  },
+  {
+    "id": "3008142c69582b4a4a0d",
+    "it": "Progressione di Piccolo Guerriero",
+    "kind": "html"
+  },
+  {
+    "id": "65c1f8ae4a156ad777a5",
+    "it": "La progressione aumenta il dado aggiunto alle prove previste. La protezione contro il primo attacco nemico rimane invariata.",
+    "kind": "html"
+  },
+  {
+    "id": "ee8293634ffb0a291ede",
+    "it": "<b>Bonus alle prove di Furtività o Mobilità</b>",
+    "kind": "html"
+  },
+  {
+    "id": "4cadd1568fc02603efd7",
+    "it": "Aggiungi d6",
+    "kind": "html"
+  },
+  {
+    "id": "ac38ca147b00e5a6f4c8",
+    "it": "Aggiungi d8",
+    "kind": "html"
+  },
+  {
+    "id": "942022a2c5df3f41a6d9",
+    "it": "Aggiungi d10",
+    "kind": "html"
+  },
+  {
+    "id": "23a50d6cdd1f807eae39",
+    "it": "Aggiungi d12",
+    "kind": "html"
+  },
+  {
+    "id": "f9d08e4e8eaa5fe717ef",
+    "it": "Aggiungi d20",
+    "kind": "html"
+  },
+  {
+    "id": "58443b26d88d1556bca3",
+    "it": "Il Grado della Tecnica Razziale è indipendente dall'Attributo Razziale.",
+    "kind": "html"
+  },
+  {
+    "id": "12b31a6bddb5aa6b7c44",
+    "it": "Un Tontatta potrebbe quindi possedere Forza d12 e Piccolo Guerriero d8: la prima determina le normali prove di Forza e la Difesa Passiva, mentre la seconda determina il dado aggiuntivo concesso dalla capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "184f4a5c1997e71c832f",
+    "it": "Primo attacco nemico in Svantaggio",
+    "kind": "html"
+  },
+  {
+    "id": "27c6b4dba2fc4cf551b3",
+    "it": "La piccola statura del Tontatta lo rende particolarmente difficile da prendere di mira al primo tentativo.",
+    "kind": "html"
+  },
+  {
+    "id": "819c111b026c953bbde8",
+    "it": "Il primo attacco effettuato da ciascun nemico contro il Tontatta viene effettuato in Svantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "55b5c2560af814dcd6ce",
+    "it": "Questa protezione si applica automaticamente: non richiede Stamina né un'attivazione da parte del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "1705d00f8aa65337fe51",
+    "it": "Tre nemici affrontano un Tontatta.",
+    "kind": "html"
+  },
+  {
+    "id": "7a45c3870eaa5d466285",
+    "it": "Quando il primo nemico lo attacca per la prima volta, effettua il tiro in Svantaggio. Lo stesso accade al primo attacco del secondo e del terzo nemico.",
+    "kind": "html"
+  },
+  {
+    "id": "708e08ba00a9c69da9f1",
+    "it": "Se uno di questi avversari attacca nuovamente il Tontatta, non subisce un altro Svantaggio dovuto a Piccolo Guerriero.",
+    "kind": "html"
+  },
+  {
+    "id": "f3fd08ee431f7ea930fc",
+    "it": "La capacità riguarda quindi il primo attacco di ogni nemico, non tutti gli attacchi ricevuti durante il combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "c8980bad4fe0e5d4929a",
+    "it": "Svantaggio · Prese",
+    "kind": "html"
+  },
+  {
+    "id": "a3cb5f0a55b1bc7e2c9e",
+    "it": "Le piccole dimensioni del Tontatta possono diventare un problema quando un avversario riesce ad afferrarlo.",
+    "kind": "html"
+  },
+  {
+    "id": "d5d45f94ec61e94f14ba",
+    "it": "Quando un Tontatta effettua la contesa di Forza prevista per liberarsi da una Presa, aggiungi +3 al risultato della prova di Forza dell’avversario che lo sta trattenendo.",
+    "kind": "html"
+  },
+  {
+    "id": "394e0461755e84a0646d",
+    "it": "Il +3 si applica soltanto alla contesa per impedire al Tontatta di liberarsi. Non concede automaticamente una Presa, non modifica il tiro iniziale necessario per afferrarlo e non si applica a prove non collegate alla liberazione dalla Presa.",
+    "kind": "html"
+  },
+  {
+    "id": "f3977d2ae352cb6ed3a9",
+    "it": "Un Tontatta tenta di spezzare una Presa. Il Tontatta ottiene 9 alla propria prova di Forza; l’avversario ottiene 7. Per lo Svantaggio razziale del Tontatta, il risultato dell’avversario diventa 10: la Presa viene mantenuta.",
+    "kind": "html"
+  },
+  {
+    "id": "fdf1109049ff74a427d9",
+    "it": "Svantaggio · Equipaggiamento",
+    "kind": "html"
+  },
+  {
+    "id": "99aaa94a72a9639ef758",
+    "it": "Il Tontatta non può utilizzare:",
+    "kind": "html"
+  },
+  {
+    "id": "507f7a3b0cd8d606a2c3",
+    "it": "armi e oggetti di taglia normale o grande.",
+    "kind": "html"
+  },
+  {
+    "id": "9d963a441b2b710e4e22",
+    "it": "Questo limite riguarda la compatibilità fisica dell'equipaggiamento.",
+    "kind": "html"
+  },
+  {
+    "id": "344caad235758afc6663",
+    "it": "Un'arma progettata per un essere umano non diventa automaticamente utilizzabile da un Tontatta, anche se il personaggio possiede un Attributo sufficiente a soddisfarne il Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "89e26d8ee9f395a6e814",
+    "it": "Il personaggio dovrà quindi utilizzare equipaggiamento compatibile con le proprie dimensioni.",
+    "kind": "html"
+  },
+  {
+    "id": "8dcc93078ce904d75c27",
+    "it": "La scelta della Razza non concede automaticamente versioni ridotte gratuite degli oggetti.",
+    "kind": "html"
+  },
+  {
+    "id": "1a00badfa2d0383363aa",
+    "it": "Dimensioni e vantaggi",
+    "kind": "html"
+  },
+  {
+    "id": "d709c1ea5d513be36526",
+    "it": "Piccolo Guerriero non conferisce genericamente Vantaggio a tutte le prove o Svantaggio a tutti gli attacchi nemici.",
+    "kind": "html"
+  },
+  {
+    "id": "c5d12d1859433a885e63",
+    "it": "I suoi benefici sono definiti:",
+    "kind": "html"
+  },
+  {
+    "id": "09ff86b6d09a3cf53472",
+    "it": "Dado Razziale aggiuntivo nelle prove di Furtività o Mobilità.",
+    "kind": "html"
+  },
+  {
+    "id": "4a71c6284b26b54f7c68",
+    "it": "Svantaggio al primo attacco effettuato da ciascun nemico contro il Tontatta.",
+    "kind": "html"
+  },
+  {
+    "id": "f584f640ca9132005d3c",
+    "it": "Le dimensioni ridotte non modificano automaticamente la Difesa Passiva, i danni o le normali regole delle azioni.",
+    "kind": "html"
+  },
+  {
+    "id": "68c35087b7d8748f4b70",
+    "it": "Capitolo 4 ·",
+    "kind": "html"
+  },
+  {
+    "id": "b60462f821ceae434737",
+    "it": "Ruoli e Stili",
+    "kind": "html"
+  },
+  {
+    "id": "0e9a4e5dde3c73fc9b6d",
+    "it": "Una ciurma non è composta soltanto da combattenti. C'è chi traccia la rotta, chi cura i feriti, chi mantiene la nave in condizioni di navigare e chi riesce a tenere unito l'equipaggio quando tutto sembra perduto.",
+    "kind": "html"
+  },
+  {
+    "id": "05c0e5372d95c2eb7703",
+    "it": "In Grand Line Chronicles, il Ruolo rappresenta la specializzazione principale del personaggio. Alcuni Ruoli comprendono più Stili, che permettono di scegliere un percorso preciso all'interno della stessa professione.",
+    "kind": "html"
+  },
+  {
+    "id": "3fd0f88b04f2c06eeaf7",
+    "it": "Questo capitolo descrive come funzionano Ruoli e Stili, quali Skill sono associate a ciascuno e come accedere ai relativi Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "a6f22564a85c2c1cb460",
+    "it": "<span class=\"man-sez-n\">4.1 ·</span> Combattente",
+    "kind": "html"
+  },
+  {
+    "id": "bbdfcb34fa80cb1c9992",
+    "it": "Il Combattente è il personaggio che ha fatto dello scontro la propria specializzazione. Può affidarsi al proprio corpo, alle lame, alle armi da distanza oppure alla forza devastante delle armi contundenti pesanti.",
+    "kind": "html"
+  },
+  {
+    "id": "9f069dd2445b7224a5de",
+    "it": "Scegliere Combattente non significa ottenere automaticamente tutte queste capacità. Il giocatore deve selezionare uno Stile, che determina la Skill di Ruolo, il percorso di Talenti e le condizioni di utilizzo delle capacità specialistiche.",
+    "kind": "html"
+  },
+  {
+    "id": "dc15572af1681b57a0c0",
+    "it": "Creazione del Combattente",
+    "kind": "html"
+  },
+  {
+    "id": "9109abda69151ef8b8a1",
+    "it": "Quando scegli Combattente come Ruolo Principale, selezioni uno dei quattro Stili disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "7dd884fdedba2082f6f3",
+    "it": "<b>Stile</b>",
+    "kind": "html"
+  },
+  {
+    "id": "18b372a388f0acb53705",
+    "it": "<b>Specializzazione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "d01ba5a1a2fb6d7b50da",
+    "it": "<b>Skill di Ruolo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "d29a06495a12b792c29d",
+    "it": "Striker",
+    "kind": "html"
+  },
+  {
+    "id": "9222fc690c85ec6eda10",
+    "it": "Combattimento a mani nude",
+    "kind": "html"
+  },
+  {
+    "id": "2a4cf8047e48e4b31d72",
+    "it": "Atletica oppure Acrobazia",
+    "kind": "html"
+  },
+  {
+    "id": "c2512bb0eac03f7d3476",
+    "it": "Combattimento con le lame",
+    "kind": "html"
+  },
+  {
+    "id": "3d46249e7981482f0ae8",
+    "it": "Sniper",
+    "kind": "html"
+  },
+  {
+    "id": "e6f0de0414bcbc675264",
+    "it": "Combattimento a distanza",
+    "kind": "html"
+  },
+  {
+    "id": "a194f7268877317c2fd0",
+    "it": "Osservazione",
+    "kind": "html"
+  },
+  {
+    "id": "3ae914d990c70171b46a",
+    "it": "Crusher",
+    "kind": "html"
+  },
+  {
+    "id": "eae12be1b2f198cd15d1",
+    "it": "Armi contundenti pesanti",
+    "kind": "html"
+  },
+  {
+    "id": "cf81e568a57db9caa4e6",
+    "it": "La Skill associata allo Stile scelto parte da d8.",
+    "kind": "html"
+  },
+  {
+    "id": "ae251bcc22024e89849d",
+    "it": "Nel caso dello Striker, il giocatore sceglie una sola Skill tra Atletica e Acrobazia. Non riceve entrambe a d8.",
+    "kind": "html"
+  },
+  {
+    "id": "f5238a99094be19f60f0",
+    "it": "I quattro Stili",
+    "kind": "html"
+  },
+  {
+    "id": "b594641ed9263d02911b",
+    "it": "Atletica o Acrobazia",
+    "kind": "html"
+  },
+  {
+    "id": "e2203dcb0a58d1b029c5",
+    "it": "Combattente a mani nude, specializzato in pugni, calci, prese e combinazioni ravvicinate.",
+    "kind": "html"
+  },
+  {
+    "id": "d3f4214023b7cb5790cd",
+    "it": "Combattente specializzato nell'uso delle lame, nelle tecniche di taglio e nelle parate.",
+    "kind": "html"
+  },
+  {
+    "id": "fcade37873e220c5d48e",
+    "it": "Combattente specializzato nella precisione, nel posizionamento e negli attacchi a distanza.",
+    "kind": "html"
+  },
+  {
+    "id": "eabf1f98d045a1eb6dc6",
+    "it": "Combattente che sfrutta armi contundenti pesanti per infliggere colpi devastanti e controllare lo scontro attraverso l'impatto.",
+    "kind": "html"
+  },
+  {
+    "id": "76aa6c2dfea4a69fd05e",
+    "it": "Striker · Il corpo come arma",
+    "kind": "html"
+  },
+  {
+    "id": "f181efff3aea2bec731e",
+    "it": "Lo Striker combatte senza utilizzare armi. Il suo Stile è costruito intorno agli attacchi a mani nude e alle possibilità offerte dal combattimento ravvicinato.",
+    "kind": "html"
+  },
+  {
+    "id": "0a3a72063890232d93cd",
+    "it": "La sua Skill di Ruolo può essere Atletica oppure Acrobazia, a scelta del giocatore.",
+    "kind": "html"
+  },
+  {
+    "id": "eb5d625e2a7e229f6bc4",
+    "it": "Questa decisione determina quale delle due Skill parte da d8 e viene utilizzata come riferimento per i requisiti dei Talenti dello Stile.",
+    "kind": "html"
+  },
+  {
+    "id": "8005e88c85081a626911",
+    "it": "Lo Striker può sviluppare capacità come Raffica, dedicata agli attacchi consecutivi, e Passo Fulmineo, legato allo spostamento rapido. Il percorso comprende inoltre Talenti basati su prese, difesa e contrattacco.",
+    "kind": "html"
+  },
+  {
+    "id": "af9c8b2fadf51823f8e6",
+    "it": "Restrizione fondamentale: le Tecniche e i Talenti che richiedono lo Stile Striker non possono essere applicati agli attacchi effettuati con armi.",
+    "kind": "html"
+  },
+  {
+    "id": "e617ad30fb1ac40f7da5",
+    "it": "Una Tecnica creata per lo Striker deve rispettare questa identità.",
+    "kind": "html"
+  },
+  {
+    "id": "40c1cf1c47a087092e62",
+    "it": "Swordsman · La via della lama",
+    "kind": "html"
+  },
+  {
+    "id": "e2e61820efe69dc120d4",
+    "it": "Lo Swordsman è specializzato nell'utilizzo delle armi di tipo Lama.",
+    "kind": "html"
+  },
+  {
+    "id": "a2a5aa27ad672a8d2179",
+    "it": "La sua Skill di Ruolo è:",
+    "kind": "html"
+  },
+  {
+    "id": "03fa218c2be2f2c3209a",
+    "it": "Atletica d8.",
+    "kind": "html"
+  },
+  {
+    "id": "f9865ee95f0fb03929c9",
+    "it": "Lo Stile comprende capacità che sviluppano il combattimento con una o più lame, le parate e le tecniche di taglio.",
+    "kind": "html"
+  },
+  {
+    "id": "923df7e7b686f985b0d9",
+    "it": "I suoi Talenti possono modificare il modo in cui il personaggio utilizza le lame, ma ogni effetto mantiene i requisiti indicati nella propria descrizione.",
+    "kind": "html"
+  },
+  {
+    "id": "cb1adb1eb0b854e16460",
+    "it": "Restrizione fondamentale: un Talento Swordsman che richiede una lama non può essere trasferito a un'arma contundente, a un'arma da distanza o a un attacco a mani nude.",
+    "kind": "html"
+  },
+  {
+    "id": "b1e28ea525e0d61f62bb",
+    "it": "Il semplice possesso di una spada, inoltre, non concede automaticamente i Talenti dello Swordsman: è necessario averli acquisiti tramite la progressione.",
+    "kind": "html"
+  },
+  {
+    "id": "5aa83da4b9b883d44b17",
+    "it": "Sniper · Precisione e distanza",
+    "kind": "html"
+  },
+  {
+    "id": "d598118299538d92a6bd",
+    "it": "Lo Sniper è il Combattente specializzato negli attacchi a distanza.",
+    "kind": "html"
+  },
+  {
+    "id": "e2067399b7592da2418e",
+    "it": "Osservazione d8.",
+    "kind": "html"
+  },
+  {
+    "id": "2c85e64749474b0b3a9d",
+    "it": "Il suo percorso comprende Talenti legati alla gittata, alla mira, all'appostamento e alla capacità di sfruttare la posizione sul campo di battaglia.",
+    "kind": "html"
+  },
+  {
+    "id": "f35bfc1c2856ff3639c6",
+    "it": "Uno Sniper può naturalmente difendersi o compiere azioni fisiche come qualsiasi altro personaggio. La sua specializzazione, però, si applica agli attacchi che soddisfano i requisiti dei relativi Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "2525b76bdf2f59acf428",
+    "it": "Restrizione fondamentale: i benefici dello Sniper destinati agli attacchi a distanza non si trasferiscono automaticamente ai colpi corpo a corpo.",
+    "kind": "html"
+  },
+  {
+    "id": "5cf34b29de18108ef4a1",
+    "it": "Crusher · La potenza dell'impatto",
+    "kind": "html"
+  },
+  {
+    "id": "e46c98be85decc909ebf",
+    "it": "Il Crusher è specializzato nell'utilizzo di armi contundenti pesanti.",
+    "kind": "html"
+  },
+  {
+    "id": "179f6c4e852d0c638725",
+    "it": "Lo Stile è costruito intorno a colpi particolarmente potenti, controllo dell'equilibrio e capacità di sfruttare l'impatto dell'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "7425a2b894c4a24978da",
+    "it": "Fra i suoi Talenti figura Colpo Pesante, che permette di aumentare la pressione offensiva pagando un costo maggiore in Stamina e accettando una riduzione delle proprie capacità difensive durante il turno, secondo il Grado e la descrizione del Talento posseduto.",
+    "kind": "html"
+  },
+  {
+    "id": "c53701d21e0fae0ae7c5",
+    "it": "Il percorso comprende anche capacità legate alla stabilità, alla demolizione e alle onde d'urto.",
+    "kind": "html"
+  },
+  {
+    "id": "245dc53211ae24de8ceb",
+    "it": "Restrizione fondamentale: le Tecniche e i Talenti specifici del Crusher richiedono armi contundenti pesanti compatibili. Non possono essere applicati indiscriminatamente a spade, armi da distanza o attacchi a mani nude.",
+    "kind": "html"
+  },
+  {
+    "id": "45a5fe96bdad833dc957",
+    "it": "Lo Stile e le Tecniche",
+    "kind": "html"
+  },
+  {
+    "id": "09c9c3bdfca625688765",
+    "it": "Quando un Combattente crea una Tecnica collegata al proprio Stile, deve rispettarne i requisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "06c934363cdacf55e263",
+    "it": "Una Tecnica Striker viene progettata per il combattimento a mani nude; una Tecnica Crusher per l'utilizzo di un'arma contundente pesante.",
+    "kind": "html"
+  },
+  {
+    "id": "8291bb3e80f65d294442",
+    "it": "Questo non impedisce a un personaggio di utilizzare altre capacità, quando ne possiede i requisiti. Significa però che scegliere uno Stile non autorizza ad applicarne i benefici a qualsiasi attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "820f32c57776ec71bbcd",
+    "it": "La descrizione di ogni Talento specifica il proprio funzionamento, eventuali costi in Stamina e le condizioni necessarie per utilizzarlo.",
+    "kind": "html"
+  },
+  {
+    "id": "175adbb7e89be2565c65",
+    "it": "Progressione del Combattente",
+    "kind": "html"
+  },
+  {
+    "id": "f9000fd7af3fa02cd2c7",
+    "it": "I quattro Stili seguono la normale progressione dei Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "3ebc95cbc97b4041874a",
+    "it": "<b>Grado della Skill associata</b>",
+    "kind": "html"
+  },
+  {
+    "id": "1ad41acfc672076c87e2",
+    "it": "<b>Talenti accessibili</b>",
+    "kind": "html"
+  },
+  {
+    "id": "37ddf5881a07b3b86e96",
+    "it": "Primo Grado",
+    "kind": "html"
+  },
+  {
+    "id": "620df88406ba704a4c13",
+    "it": "Secondo Grado",
+    "kind": "html"
+  },
+  {
+    "id": "fcfc3354d20990994f84",
+    "it": "Terzo Grado",
+    "kind": "html"
+  },
+  {
+    "id": "431c226976ae09c4a859",
+    "it": "Quarto Grado",
+    "kind": "html"
+  },
+  {
+    "id": "e18c3ea962a043635965",
+    "it": "Sviluppare la Skill rende disponibili i Talenti corrispondenti, ma non li assegna automaticamente. Il personaggio deve acquisirli rispettando le regole degli Upgrade e gli eventuali prerequisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "b965a806e6adba91399b",
+    "it": "Esempio: uno Sniper con Osservazione d8 può accedere ai Talenti Sniper di primo Grado. Quando Osservazione raggiunge d10, soddisfa anche il requisito di Grado dei Talenti successivi.",
+    "kind": "html"
+  },
+  {
+    "id": "d327623844b3277a2088",
+    "it": "Un Crusher, invece, utilizza Atletica come Skill di riferimento per il proprio percorso.",
+    "kind": "html"
+  },
+  {
+    "id": "6ebbdc718e0efcabfd9b",
+    "it": "Combattente e Doppio Ruolo",
+    "kind": "html"
+  },
+  {
+    "id": "2ef235abe099afeede8b",
+    "it": "Il Combattente può essere scelto come Ruolo Principale oppure Secondario secondo le normali regole del Doppio Ruolo.",
+    "kind": "html"
+  },
+  {
+    "id": "e84701724c5174765382",
+    "it": "Se viene acquisito come Ruolo Secondario, non concede automaticamente una nuova Skill d8.",
+    "kind": "html"
+  },
+  {
+    "id": "f4d94e7122cf5c6a7148",
+    "it": "Per accedere ai Talenti dello Stile scelto, il personaggio deve possedere il Grado richiesto nella Skill associata.",
+    "kind": "html"
+  },
+  {
+    "id": "8b2e82e05531561048f7",
+    "it": "Avere accesso a più percorsi non elimina inoltre le restrizioni dei singoli Stili: un Talento Crusher continua a richiedere l'equipaggiamento previsto, anche se il personaggio possiede altri Ruoli.",
+    "kind": "html"
+  },
+  {
+    "id": "88b887c4a5f4c468559b",
+    "it": "<span class=\"man-sez-n\">4.2 ·</span> Striker",
+    "kind": "html"
+  },
+  {
+    "id": "f64645cc4363c74c3758",
+    "it": "Lo <b>Striker</b> è un Combattente che ha trasformato il proprio corpo in un'arma. Non utilizza spade, fucili o martelli: combatte attraverso pugni, calci, prese e combinazioni ravvicinate.",
+    "kind": "html"
+  },
+  {
+    "id": "0c15a12fbc404a05c373",
+    "it": "Il suo percorso si sviluppa intorno a tre capacità: <b>attaccare più volte, controllare l'avversario e sfruttare il movimento</b>. Ai Gradi più elevati, queste abilità culminano nello <i>Smash Hit</i>, una combinazione di quattro colpi consecutivi.",
+    "kind": "html"
+  },
+  {
+    "id": "a19efb90cc6dd582e2ad",
+    "it": "Scheda dello Stile",
+    "kind": "html"
+  },
+  {
+    "id": "33943cb0678ec69b25f7",
+    "it": "(Combattente · Corpo a corpo)",
+    "kind": "html"
+  },
+  {
+    "id": "a8a340ff550455621b64",
+    "it": "<b>Skill di Ruolo:</b> Atletica oppure Acrobazia, a scelta. <b>Grado iniziale della Skill:</b> d8<b>Equipaggiamento:</b> nessuna arma dell'Arsenale compatibile. <b>Tratto:</b> Mani Nude<b>Firma:</b> Il colpo sfonda",
+    "kind": "html"
+  },
+  {
+    "id": "104d61d7d5b712106e6a",
+    "it": "Effetti del Costruttore",
+    "kind": "html"
+  },
+  {
+    "id": "7ed69f3de6ffd70cb56a",
+    "it": "Lo Striker può utilizzare Sbilancio, Presa, Sfondamento, Proiezione, Scatto, Balzo, Guardia, Furia e Schianto. Non possiede una Forma Area ordinaria di Stile.",
+    "kind": "html"
+  },
+  {
+    "id": "b3305326b16d62c0d28f",
+    "it": "Alla creazione, il giocatore sceglie <b>Atletica d8 oppure Acrobazia d8</b> come Skill di Ruolo. La Skill scelta determina l'accesso ai Gradi dei Talenti dello Striker.",
+    "kind": "html"
+  },
+  {
+    "id": "d18b22ce82c0e6d5e734",
+    "it": "Tratto · Mani Nude",
+    "kind": "html"
+  },
+  {
+    "id": "d2d4dcb0690eaf3971fe",
+    "it": "(Sempre attivo · Gratuito)",
+    "kind": "html"
+  },
+  {
+    "id": "8adacb7fa301aa66fb32",
+    "it": "Lo Striker combatte esclusivamente a mani nude.",
+    "kind": "html"
+  },
+  {
+    "id": "47d022c86c7a336cbaa5",
+    "it": "<b>Nessuna arma dell'Arsenale è compatibile con lo Stile</b>, inclusi tirapugni e armi improvvisate.",
+    "kind": "html"
+  },
+  {
+    "id": "e917cc1f667ad96fadff",
+    "it": "In cambio, i suoi attacchi a mani nude non sono limitati dal requisito del Grado dell'arma: lo Striker può utilizzare il pieno del proprio Attributo.",
+    "kind": "html"
+  },
+  {
+    "id": "482a26aaad4a0be9f4bb",
+    "it": "Il Tratto comprende inoltre una particolare predisposizione per prese e atterramenti. Questa descrizione non introduce, da sola, un bonus numerico aggiuntivo: gli effetti specifici vengono definiti dalle regole delle prese e dai Talenti acquisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "cee8b2f7c7954378eb77",
+    "it": "Firma · Il Colpo Sfonda",
+    "kind": "html"
+  },
+  {
+    "id": "eafc75a9f5a3c27ad8b2",
+    "it": "Sempre attiva · Gratuita · 1 volta per turno",
+    "kind": "html"
+  },
+  {
+    "id": "e7994d6527b26da09593",
+    "it": "Quando uno Striker ottiene un colpo pulito con margine +4 con un colpo dello Stile, può attivare Il Colpo Sfonda al massimo 1 volta per turno. Il bersaglio subisce Stordito oppure Sbilanciato per 1 turno se fallisce la relativa Salvezza: Forza per Stordito, Tecnica per Sbilanciato.",
+    "kind": "html"
+  },
+  {
+    "id": "b9de5fb38d7d25a219d1",
+    "it": "La fonte della Soglia dipende dal colpo che ha attivato la Firma:",
+    "kind": "html"
+  },
+  {
+    "id": "59ce770cffbb06643129",
+    "it": "Attacco base a mani nude: usa il Grado attuale della Skill di Ruolo dello Striker utilizzata per il combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "4650629a1eb3585c8874",
+    "it": "Tecnica offensiva Striker: usa il Grado della Tecnica che ha prodotto il colpo pulito.",
+    "kind": "html"
+  },
+  {
+    "id": "686bd6dc9a0844b2d659",
+    "it": "La Soglia viene quindi determinata normalmente attraverso la tabella universale delle Salvezze (§1.4).",
+    "kind": "html"
+  },
+  {
+    "id": "a5a2dc35f76c1f747892",
+    "it": "Dopo un’attivazione, ulteriori colpi puliti ottenuti dallo stesso Striker durante quel turno non attivano nuovamente la Firma. La limitazione riguarda soltanto Il Colpo Sfonda: Pressione Costante e Guardia Rotta continuano a verificare normalmente le proprie condizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "c7a7b548f09a54c8200a",
+    "it": "La Firma si applica ai colpi dello Stile e non richiede di essere acquistata come Talento. Il personaggio può utilizzarla fin dalla creazione.",
+    "kind": "html"
+  },
+  {
+    "id": "222b5a6393e2e8b91577",
+    "it": "Albero dei Talenti Striker",
+    "kind": "html"
+  },
+  {
+    "id": "3a95d76fa00bddab7eb3",
+    "it": "I Talenti si sbloccano in base al Grado della Skill di Ruolo scelta alla creazione.",
+    "kind": "html"
+  },
+  {
+    "id": "50c8a418bb57f8fe8956",
+    "it": "<b>Grado richiesto</b>",
+    "kind": "html"
+  },
+  {
+    "id": "650f0f025b64137575da",
+    "it": "<b>Fascia</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7517526c21c89667deb7",
+    "it": "Mozzo",
+    "kind": "html"
+  },
+  {
+    "id": "c97fe2e2b6d2bc6e8403",
+    "it": "Pirata",
+    "kind": "html"
+  },
+  {
+    "id": "900b605b9aad4e701f22",
+    "it": "Veterano",
+    "kind": "html"
+  },
+  {
+    "id": "3c03abf42485c7224d17",
+    "it": "Leggenda",
+    "kind": "html"
+  },
+  {
+    "id": "3cbff9c74330d9601289",
+    "it": "Raggiungere un Grado rende i Talenti disponibili, ma non li assegna automaticamente. Ogni Talento deve essere acquisito attraverso la normale progressione degli Upgrade, rispettando gli eventuali prerequisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "a9704a7ce97a7631aabe",
+    "it": "d8 · Mozzo",
+    "kind": "html"
+  },
+  {
+    "id": "bb318645e6726ffbbb4c",
+    "it": "I Talenti iniziali introducono gli attacchi aggiuntivi, il movimento rapido e le prime capacità di controllo e difesa.",
+    "kind": "html"
+  },
+  {
+    "id": "ef0e9f4adee42fb96930",
+    "it": "Raffica · Base",
+    "kind": "html"
+  },
+  {
+    "id": "8590a2889aa57f5b26fb",
+    "it": "(1 ST)",
+    "kind": "html"
+  },
+  {
+    "id": "69bf77908a414f72cf7b",
+    "it": "Attiva · Azione Bonus · 1 volta per turno",
+    "kind": "html"
+  },
+  {
+    "id": "f7fc9d86ee8b3103a08b",
+    "it": "Dopo aver effettuato un attacco a mani nude, puoi spendere 1 ST e la tua Azione Bonus per compiere immediatamente 1 attacco base aggiuntivo a mani nude. L’attacco iniziale può essere un attacco base oppure una Tecnica offensiva Striker compatibile eseguita a mani nude. L’attacco aggiuntivo concesso da Raffica è sempre un attacco base: il Talento non concede una seconda Azione con cui utilizzare liberamente un’altra Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "58867ed6cf5e4f61bad9",
+    "it": "La Stamina viene pagata prima di effettuare l’attacco extra. Se l’attacco manca, la ST rimane spesa.",
+    "kind": "html"
+  },
+  {
+    "id": "64ad0da57ade40273015",
+    "it": "Passo Fulmineo",
+    "kind": "html"
+  },
+  {
+    "id": "676738b8fa3add22ca34",
+    "it": "(Nessun costo ST indicato)",
+    "kind": "html"
+  },
+  {
+    "id": "30dab8d5d29219981167",
+    "it": "1 volta per turno · Durante il Movimento. Puoi effettuare uno scatto verso un nemico senza provocare <b>Reazioni causate dallo spostamento</b>. Il Talento non stabilisce un numero aggiuntivo di metri: non concede automaticamente un Movimento illimitato.",
+    "kind": "html"
+  },
+  {
+    "id": "82f5f3b229e2d7ab4682",
+    "it": "Presa di Ferro",
+    "kind": "html"
+  },
+  {
+    "id": "6c07f09842c2b963351f",
+    "it": "Controllo · Nessun costo ST indicato. Quando afferri un nemico della tua stazza o inferiore, questo rimane <b>Trattenuto</b> finché non supera una prova di Forza contrapposta alla tua. Finché lo trattieni, il bersaglio <b>non può allontanarsi</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "eb9be4b29be74480a509",
+    "it": "Guardia del Combattente",
+    "kind": "html"
+  },
+  {
+    "id": "02e03f5caddbf1e7f032",
+    "it": "1 volta per scontro",
+    "kind": "html"
+  },
+  {
+    "id": "d5acd77526e009878e9b",
+    "it": "Quando un attacco ti colpisce, puoi ignorare un effetto secondario provocato dal colpo, come Stordito, Sbilanciato o Spinta. Il danno viene comunque subito normalmente. Questo Talento non annulla l’attacco e non riduce automaticamente i PV persi.",
+    "kind": "html"
+  },
+  {
+    "id": "1552d1d62b8e77a51aae",
+    "it": "d10 · Pirata",
+    "kind": "html"
+  },
+  {
+    "id": "1bfbb82f1fae1077991a",
+    "it": "Il secondo Grado permette allo Striker di intensificare le proprie combinazioni e sfruttare i colpi consecutivi per limitare le possibilità dell'avversario.",
+    "kind": "html"
+  },
+  {
+    "id": "4d2712512633a41e4ba5",
+    "it": "Raffica · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "0783a5a039a64371ef97",
+    "it": "(1 + 2 ST; massimo 3 ST)",
+    "kind": "html"
+  },
+  {
+    "id": "93782c5d348528b46ae5",
+    "it": "Prerequisito: Raffica · Base · Attiva · Azione Bonus · 1 volta per turno",
+    "kind": "html"
+  },
+  {
+    "id": "114e642b5dca12145538",
+    "it": "Puoi effettuare fino a 2 attacchi base aggiuntivi a mani nude nello stesso turno. Il primo attacco extra costa 1 ST; se desideri effettuare anche il secondo, paghi altre 2 ST prima di tentarlo.",
+    "kind": "html"
+  },
+  {
+    "id": "1057609f6ad8759824ad",
+    "it": "La sequenza completa costa 3 ST. Puoi fermarti dopo il primo attacco extra e spendere soltanto 1 ST. Un attacco mancato consuma la ST pagata ma non interrompe la Raffica e non impedisce di acquistare il successivo, purché tu disponga della Stamina necessaria.",
+    "kind": "html"
+  },
+  {
+    "id": "da3a234982c40ce03c54",
+    "it": "Il limite di 2 attacchi extra sostituisce Raffica · Base: le versioni non si sommano.",
+    "kind": "html"
+  },
+  {
+    "id": "323064366f17ca62f36e",
+    "it": "Pressione Costante",
+    "kind": "html"
+  },
+  {
+    "id": "8d7b1dcccf1aaa3a4abc",
+    "it": "(1 volta per turno) Se colpisci lo stesso bersaglio <b>almeno due volte nel tuo turno</b>, fino all'inizio del tuo prossimo turno quel bersaglio non può effettuare Reazioni contro di te. Il Talento premia le combinazioni riuscite: non si attiva se hai soltanto tentato due attacchi, ma ne hai messo a segno uno.",
+    "kind": "html"
+  },
+  {
+    "id": "4c34e301e8fd383716ce",
+    "it": "Slancio",
+    "kind": "html"
+  },
+  {
+    "id": "c1c211fe04dd8fd9e80e",
+    "it": "Se prima di colpire ti sei mosso di almeno <b>5 metri in linea verso il bersaglio</b>, quando il colpo va a segno puoi spingerlo di <b>3 metri</b>. Il Talento modifica la posizione del bersaglio. Non aggiunge automaticamente un dado al danno.",
+    "kind": "html"
+  },
+  {
+    "id": "61e83e5bb901083926a5",
+    "it": "Guardia Rotta",
+    "kind": "html"
+  },
+  {
+    "id": "0515e785ae8c3a74130a",
+    "it": "(1 volta per turno) Se colpisci lo stesso bersaglio <b>almeno due volte nello stesso turno</b>, il prossimo attacco effettuato contro di lui prima dell'inizio del tuo prossimo turno ottiene <b>Vantaggio</b>. Il beneficio può essere sfruttato anche da un alleato, purché sia il prossimo a effettuare un attacco contro quel bersaglio entro il limite temporale previsto. Guardia Rotta <b>non riduce la Difesa Passiva di 2</b>: il suo effetto è il Vantaggio al prossimo attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "75b76f79b0c6708a0bc3",
+    "it": "d12 · Veterano",
+    "kind": "html"
+  },
+  {
+    "id": "47daf47a0f5d8423de8b",
+    "it": "A questo Grado, lo Striker sviluppa combinazioni più lunghe e capacità avanzate legate a contrattacchi, prese e resistenza.",
+    "kind": "html"
+  },
+  {
+    "id": "39f6540fdb282de2adb1",
+    "it": "Raffica · Maestria",
+    "kind": "html"
+  },
+  {
+    "id": "be56de263595bea6ed68",
+    "it": "(1 + 2 + 3 ST; massimo 6 ST)",
+    "kind": "html"
+  },
+  {
+    "id": "cc96d0e76e7fdd80d257",
+    "it": "Prerequisito: Raffica · Migliorato · Attiva · Azione Bonus · 1 volta per turno",
+    "kind": "html"
+  },
+  {
+    "id": "cf93f6070d40c8d7934a",
+    "it": "Puoi effettuare fino a 3 attacchi base aggiuntivi a mani nude nello stesso turno. Il primo attacco extra costa 1 ST, il secondo 2 ST e il terzo 3 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "63a02136fe073e3c2fdb",
+    "it": "La sequenza completa costa 6 ST. Puoi interromperla volontariamente dopo qualsiasi attacco extra. Un attacco mancato consuma la ST pagata ma non interrompe la sequenza.",
+    "kind": "html"
+  },
+  {
+    "id": "04d54bf4c0549e93e769",
+    "it": "Il limite di 3 attacchi extra sostituisce le versioni precedenti. Con l’attacco iniziale e tutti e tre gli attacchi extra, puoi tentare fino a quattro attacchi a mani nude nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "140b66c32f2797491465",
+    "it": "Contraccolpo",
+    "kind": "html"
+  },
+  {
+    "id": "2c967a31fe93e3a9399b",
+    "it": "Quando utilizzi una Tecnica d’attacco Striker compatibile come Difesa Attiva e il risultato della tua difesa supera il tiro dell’attacco nemico, infliggi anche il normale Dado Danno della Tecnica utilizzata. Un pareggio neutralizza l’attacco ma non infligge danni. Contraccolpo non concede una Reazione aggiuntiva e non applica automaticamente gli altri effetti offensivi della Tecnica, salvo regole specifiche.",
+    "kind": "html"
+  },
+  {
+    "id": "a021efe3ed6dfac19586",
+    "it": "Proiezione",
+    "kind": "html"
+  },
+  {
+    "id": "78e51052c7866360186e",
+    "it": "Prerequisito: Presa di Ferro. Puoi scagliare un nemico che stai trattenendo fino a <b>5 metri</b>. Il bersaglio cade <b>Sbilanciato</b>. Se viene lanciato contro un altro nemico, anche il secondo cade Sbilanciato ed entrambi subiscono <b>1 Dado Danno</b>. Per utilizzare Proiezione devi già trattenere il bersaglio. Non puoi applicarla automaticamente a un nemico libero e distante.",
+    "kind": "html"
+  },
+  {
+    "id": "269ff51e5de99820ab2b",
+    "it": "Pugni che Rompono",
+    "kind": "html"
+  },
+  {
+    "id": "d9beabe912b8ca196830",
+    "it": "I tuoi colpi a mani nude infliggono <b>danno pieno</b> contro porte, muri, strutture e oggetti. Questo Talento valorizza la capacità dello Striker di distruggere ostacoli senza utilizzare armi. Non attribuisce automaticamente la stessa proprietà contro qualsiasi riduzione del danno posseduta da un avversario corazzato.",
+    "kind": "html"
+  },
+  {
+    "id": "01f354e1b46ecff6f2a6",
+    "it": "Secondo Fiato",
+    "kind": "html"
+  },
+  {
+    "id": "a22adcf71dd16debf368",
+    "it": "(1 volta per scontro) Quando scendi sotto la metà dei tuoi PV, recuperi immediatamente:",
+    "kind": "html"
+  },
+  {
+    "id": "a0627a13a9360e5b307e",
+    "it": "1d6 ST",
+    "kind": "html"
+  },
+  {
+    "id": "be0310600b6b321d710e",
+    "it": "Il recupero avviene quando si verifica la condizione prevista dal Talento. Non richiede che il personaggio sia già a 0 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "7d4d1d09b631df67fcd8",
+    "it": "d20 · Leggenda",
+    "kind": "html"
+  },
+  {
+    "id": "1b89c820a290e72efff8",
+    "it": "Talento Supremo · Smash Hit",
+    "kind": "html"
+  },
+  {
+    "id": "293a1a1d41487ed8ebab",
+    "it": "Smash Hit",
+    "kind": "html"
+  },
+  {
+    "id": "43575607aa73c7d2980d",
+    "it": "Ultimate · 5 ST · 1 volta per scontro · Richiede il permesso del Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "9bf2ee3d874611026952",
+    "it": "Smash Hit è una combinazione totale contro un singolo bersaglio, risolta attraverso quattro tiri per colpire consecutivi.",
+    "kind": "html"
+  },
+  {
+    "id": "81827911e3b95ecfefd8",
+    "it": "Tutti e quattro i tiri utilizzano: Attributo + Skill di Ruolo dello Striker, con Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "9e25291d28f51412da3c",
+    "it": "La Skill di Ruolo utilizzata è quella scelta per lo Striker: Atletica oppure Acrobazia. La stessa Skill viene utilizzata come Dado Danno della combinazione.",
+    "kind": "html"
+  },
+  {
+    "id": "f36612449d45fb993aab",
+    "it": "Ogni colpo riuscito contribuisce a determinare il danno finale della combinazione.",
+    "kind": "html"
+  },
+  {
+    "id": "61db79e987f09b7b740d",
+    "it": "Esito della combinazione",
+    "kind": "html"
+  },
+  {
+    "id": "8ee1b312e3df138820f1",
+    "it": "Colpi a segno",
+    "kind": "html"
+  },
+  {
+    "id": "88a722d1903879c83925",
+    "it": "Danno finale",
+    "kind": "html"
+  },
+  {
+    "id": "aa201262e9a77f0ab3f5",
+    "it": "Nessuno",
+    "kind": "html"
+  },
+  {
+    "id": "7a7e5e4f918d9061fafe",
+    "it": "1 Dado Danno",
+    "kind": "html"
+  },
+  {
+    "id": "739bb9ba1f533a53f329",
+    "it": "2 Dadi Danno",
+    "kind": "html"
+  },
+  {
+    "id": "44b9338e808a6aa3c381",
+    "it": "4 Dadi Danno",
+    "kind": "html"
+  },
+  {
+    "id": "a4e1ecbf85cc3909eac3",
+    "it": "Stordito",
+    "kind": "html"
+  },
+  {
+    "id": "857d031d69b46c410c47",
+    "it": "6 Dadi Danno",
+    "kind": "html"
+  },
+  {
+    "id": "d038383e50c624ac2d2f",
+    "it": "Il Dado Danno è il dado della Skill di Ruolo dello Striker utilizzata per Smash Hit. Il danno viene tirato una sola volta al termine della combinazione.",
+    "kind": "html"
+  },
+  {
+    "id": "448775b6320953661a89",
+    "it": "I quattro tiri non sono quattro normali attacchi separati: servono a risolvere un’unica combinazione.",
+    "kind": "html"
+  },
+  {
+    "id": "46af3f729242e99e58b3",
+    "it": "Smash Hit · Regole particolari",
+    "kind": "html"
+  },
+  {
+    "id": "26feea0b6721b072c207",
+    "it": "Smash Hit funziona interamente secondo le proprie regole. Non applica altre Tecniche, Talenti, la Firma dello Stile o effetti dell’arma, salvo ciò che è indicato espressamente nella sua descrizione. I singoli colpi della combinazione non attivano Pressione Costante, Guardia Rotta o Il Colpo Sfonda.",
+    "kind": "html"
+  },
+  {
+    "id": "ac402d6a0a4e9eb82b86",
+    "it": "Uno Striker con Atletica come Skill di Ruolo usa Atletica per i quattro tiri e per il Dado Danno. Uno Striker con Acrobazia come Skill di Ruolo usa Acrobazia per gli stessi elementi. Non può scegliere liberamente la Skill migliore a ogni utilizzo: usa quella che governa il proprio percorso Striker.",
+    "kind": "html"
+  },
+  {
+    "id": "66b3ca006a50f4b018f3",
+    "it": "Esempio · Atletica d20: quattro tiri con Attributo + Atletica, tutti con Vantaggio. Con quattro successi, 6d20 danni e Stordito.",
+    "kind": "html"
+  },
+  {
+    "id": "bf2eea6e2f91ecf9344e",
+    "it": "Esempio · Acrobazia d20: quattro tiri con Attributo + Acrobazia, tutti con Vantaggio. Con quattro successi, 6d20 danni e Stordito.",
+    "kind": "html"
+  },
+  {
+    "id": "700ce6924eba0cda7a73",
+    "it": "Progressione della Raffica",
+    "kind": "html"
+  },
+  {
+    "id": "0448430a9c049f73e918",
+    "it": "La Raffica è il Talento a gradini che definisce lo sviluppo offensivo dello Striker.",
+    "kind": "html"
+  },
+  {
+    "id": "9c81f743999d7561cac8",
+    "it": "Progressione di Raffica",
+    "kind": "attribute"
+  },
+  {
+    "id": "2d0cee23a3b35eee14ff",
+    "it": "<b>Versione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "8a666e6af9c59e94c820",
+    "it": "<b>Requisito</b>",
+    "kind": "html"
+  },
+  {
+    "id": "4fde8a7ad465f7ee4abe",
+    "it": "<b>Extra max</b>",
+    "kind": "html"
+  },
+  {
+    "id": "30be4c38bd268934b14d",
+    "it": "<b>Costo progressivo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e5c03e3aa9057a416960",
+    "it": "<b>Costo massimo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7b47361aad19bb483aea",
+    "it": "Base",
+    "kind": "html"
+  },
+  {
+    "id": "0a878b251f982123ab11",
+    "it": "1 ST",
+    "kind": "html"
+  },
+  {
+    "id": "43790d36e2f1dd3e411b",
+    "it": "Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "58b00167a2d22799bb7c",
+    "it": "d10 + Base",
+    "kind": "html"
+  },
+  {
+    "id": "4d12f2dc2d34bb9327bc",
+    "it": "3 ST",
+    "kind": "html"
+  },
+  {
+    "id": "a9051486bb3ae3269e65",
+    "it": "Maestria",
+    "kind": "html"
+  },
+  {
+    "id": "434bf42375e901ea264a",
+    "it": "d12 + Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "5037a8d94e34dd3ebccc",
+    "it": "Le versioni non si sommano. Ogni Grado superiore sostituisce il limite precedente. Gli attacchi extra sono sempre attacchi base a mani nude. Il giocatore paga ciascun costo prima di tentare il relativo attacco e può fermare volontariamente la sequenza in qualunque momento. Un attacco mancato non interrompe la Raffica. L’intera sequenza usa l’unica Azione Bonus del turno e non concede Azioni principali o Azioni Bonus supplementari.",
+    "kind": "html"
+  },
+  {
+    "id": "d67d20238f0d76d9fa87",
+    "it": "<span class=\"man-sez-n\">4.3 ·</span> Swordsman",
+    "kind": "html"
+  },
+  {
+    "id": "339e6410c7d2b78e9e15",
+    "it": "Lo <b>Swordsman</b> è un Combattente specializzato nell'uso delle lame. La sua forza non dipende soltanto dalla qualità della spada, ma dalla capacità di controllarne ogni movimento: attaccare, mantenere la guardia, intercettare un nemico e trovare il momento esatto per colpire.",
+    "kind": "html"
+  },
+  {
+    "id": "04a75215854777351933",
+    "it": "Il suo percorso permette di sviluppare il combattimento con due spade, perfezionare le parate e trasformare le Tecniche da mischia in fendenti capaci di raggiungere bersagli più lontani.",
+    "kind": "html"
+  },
+  {
+    "id": "cbc687fb57fdd70bce15",
+    "it": "(Combattente · Lame)",
+    "kind": "html"
+  },
+  {
+    "id": "385e90c5e80ea34c654a",
+    "it": "<b>Skill di Ruolo:</b> Atletica<b>Grado iniziale:</b> d8<b>Equipaggiamento:</b> armi di tipo Lama compatibili<b>Tratto:</b> La Guardia<b>Firma:</b> Doppio fendente",
+    "kind": "html"
+  },
+  {
+    "id": "7985ee0f1a188bc20924",
+    "it": "Lo Swordsman può utilizzare Lacerazione, Scatto, Balzo, Guardia, Mira, Catena e Tutto o Niente. Può inoltre costruire Area Ravvicinata (d8, 2 ST): cerchio centrato su di sé, con raggio pari alla Portata effettiva della lama e senza Gittata. Aree a distanza richiedono una capacità che le conceda espressamente.",
+    "kind": "html"
+  },
+  {
+    "id": "6073a284a83b78192c6f",
+    "it": "Lo Swordsman utilizza <b>Atletica</b> come Skill di riferimento per la progressione dei Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "7e49c685e6e0e1eafb90",
+    "it": "Le sue capacità specialistiche richiedono l'uso delle lame e non si applicano automaticamente ad armi contundenti, armi da distanza o attacchi a mani nude.",
+    "kind": "html"
+  },
+  {
+    "id": "5aee30f6023f2dc56f78",
+    "it": "Tratto · La Guardia",
+    "kind": "html"
+  },
+  {
+    "id": "22765160df278635a058",
+    "it": "Lo Swordsman è specializzato nella <b>Difesa Attiva</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "85dcdc0ef28511f23489",
+    "it": "Grazie alla propria maestria, può inoltre sfruttare gli effetti speciali delle lame di Grado elevato, quando ne soddisfa i requisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "04f7870e942314987075",
+    "it": "Il Tratto non concede da solo un bonus numerico alla Difesa Passiva: i benefici specifici sono quelli previsti dalle regole delle armi e dai Talenti acquisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "6a360b63e5c1278f7d86",
+    "it": "Firma · Doppio fendente",
+    "kind": "html"
+  },
+  {
+    "id": "4655dc50e52e1803be4f",
+    "it": "(Sempre attiva · Gratuita)",
+    "kind": "html"
+  },
+  {
+    "id": "3aef0d5a8bf6113b463b",
+    "it": "Quando uno Swordsman ottiene un <b>colpo pulito con margine +4</b>, tira il proprio Dado Danno una volta aggiuntiva e somma il risultato.",
+    "kind": "html"
+  },
+  {
+    "id": "cb618c8a55f4154b71aa",
+    "it": "Uno Swordsman colpisce con una katana il cui Dado Danno è <b>d10</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "2c2a860de00e34ed4ae3",
+    "it": "Se il colpo raggiunge il margine necessario per attivare la Firma, tira un ulteriore d10 e lo aggiunge al danno.",
+    "kind": "html"
+  },
+  {
+    "id": "02d77e7d020b5bf7db33",
+    "it": "<b>Doppio fendente non costituisce un secondo attacco:</b> è un dado aggiuntivo al danno del colpo già riuscito.",
+    "kind": "html"
+  },
+  {
+    "id": "05b09d2b489e67b37b2e",
+    "it": "Albero dei Talenti Swordsman",
+    "kind": "html"
+  },
+  {
+    "id": "92e02bbc95f89d2499d7",
+    "it": "<b>Atletica d10</b>",
+    "kind": "html"
+  },
+  {
+    "id": "6778c95d3c57574ead3c",
+    "it": "<b>Atletica d12</b>",
+    "kind": "html"
+  },
+  {
+    "id": "b55ec93982783514bd8e",
+    "it": "<b>Atletica d20</b>",
+    "kind": "html"
+  },
+  {
+    "id": "983c38e09c7a5573a8c6",
+    "it": "Raggiungere un Grado rende disponibili i relativi Talenti. Il personaggio deve comunque acquisirli attraverso gli Upgrade e rispettare gli eventuali prerequisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "5f26655d2e264cfba131",
+    "it": "Questa fascia introduce la gestione delle spade, la resistenza agli stati e il perfezionamento della parata.",
+    "kind": "html"
+  },
+  {
+    "id": "4c26cda109dade955c04",
+    "it": "Più Spade · Base",
+    "kind": "html"
+  },
+  {
+    "id": "ecefcbf594f70ce14703",
+    "it": "(Passivo) Puoi portare con te <b>fino a 2 spade</b> invece della normale singola arma concessa dallo Stile. <b>Attenzione:</b> a questo Grado combatti ancora con una sola spada alla volta. Il Talento permette di possedere e trasportare due lame, ma non concede un secondo attacco né permette ancora di sfruttarle contemporaneamente. Il combattimento con entrambe viene sbloccato da <b>Più Spade · Migliorato</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "bbcfbf1164459c30085a",
+    "it": "Postura Imperturbabile",
+    "kind": "html"
+  }
+]

@@ -670,6 +670,8 @@ pagina = (PAGINA
           .replace('BLOCCATO', 'false'))
 from manuale_copertine import applica_copertina
 pagina = applica_copertina(pagina, 'base')
+from localizzazione import install_language
+pagina = install_language(pagina, 'manuale')
 open(os.path.join(REPO, 'manuale/index.html'), 'w', encoding='utf8').write(pagina)
 print('scritta la pagina:', len(pagina), 'caratteri')
 

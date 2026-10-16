@@ -16,7 +16,7 @@
     try{const u=new URL(value,location.origin);if(u.origin===location.origin&&u.pathname.startsWith('/img/'))return u.href;if(u.protocol==='https:'&&!u.username&&!u.password)return u.href;}catch(_){}
     return '';
   }
-  function date(value){const d=new Date(value);return Number.isNaN(d.getTime())?'Bozza':d.toLocaleDateString('it-IT',{day:'numeric',month:'long',year:'numeric'});}
+  function date(value){const d=new Date(value);return Number.isNaN(d.getTime())?'Bozza':d.toLocaleDateString(window.GLCI18n?GLCI18n.locale:'it-IT',{day:'numeric',month:'long',year:'numeric'});}
   function cover(item){const src=imageURL(item.thumbnail||item.cover);if(!src)return node('div','news-cover news-fallback','✧');const img=node('img','news-cover');img.src=src;img.alt='';img.loading='lazy';img.decoding='async';img.addEventListener('error',()=>img.replaceWith(node('div','news-cover news-fallback','✧')),{once:true});return img;}
   function card(item){
     const a=node('a','news-card');a.href='/notizie/?id='+encodeURIComponent(item.id);a.append(cover(item));

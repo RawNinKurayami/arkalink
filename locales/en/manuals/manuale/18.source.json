@@ -1,0 +1,2412 @@
+[
+  {
+    "id": "72f99e5fdd3baa6d9a91",
+    "it": "Il componente indicato subisce la conseguenza prevista.",
+    "kind": "html"
+  },
+  {
+    "id": "3bec038e7056786d0551",
+    "it": "Rimanere in condizione Critica non provoca nuovi tiri automatici ogni round.",
+    "kind": "html"
+  },
+  {
+    "id": "98f6a8ca1a4dbd942bc9",
+    "it": "Se la nave viene riparata sopra la soglia Critica e successivamente vi entra nuovamente a causa di nuovi danni, effettua un nuovo tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "4061f6401978aaf179f3",
+    "it": "Un Colpo Pulito contro lo scafo non danneggia automaticamente un componente.",
+    "kind": "html"
+  },
+  {
+    "id": "e70596e009bf17a931bf",
+    "it": "Un attacco può colpire direttamente un componente soltanto se:",
+    "kind": "html"
+  },
+  {
+    "id": "24660b6cda9093ca644b",
+    "it": "Una capacità lo permette espressamente.",
+    "kind": "html"
+  },
+  {
+    "id": "1f5276e12dace4d1058a",
+    "it": "Il componente è materialmente esposto e il Game Master ritiene possibile prenderlo di mira.",
+    "kind": "html"
+  },
+  {
+    "id": "02a29da83fa5ce5bbb26",
+    "it": "Componente già danneggiato",
+    "kind": "html"
+  },
+  {
+    "id": "d967a8b5c7c0aaef6b21",
+    "it": "Se il d6 indica un componente già danneggiato, ritira una volta.",
+    "kind": "html"
+  },
+  {
+    "id": "ad0a82e367c8e54e862a",
+    "it": "Se anche il secondo risultato indica un componente già fuori uso, il Game Master può:",
+    "kind": "html"
+  },
+  {
+    "id": "413daf972cb86e0f1611",
+    "it": "Peggiorarne la condizione in modo coerente.",
+    "kind": "html"
+  },
+  {
+    "id": "f2553629f6d767705f54",
+    "it": "Oppure applicare il danno a un altro componente esposto.",
+    "kind": "html"
+  },
+  {
+    "id": "c87ac5fbd01b375e4082",
+    "it": "Riduzione dei PS Massimi",
+    "kind": "html"
+  },
+  {
+    "id": "c818527a92185a4c2a49",
+    "it": "Se un danno riduce i PS Massimi della nave e i PS Attuali superano il nuovo massimo, i PS Attuali scendono immediatamente al nuovo valore massimo.",
+    "kind": "html"
+  },
+  {
+    "id": "6d71a13001bde07004f4",
+    "it": "Se erano già inferiori, rimangono invariati.",
+    "kind": "html"
+  },
+  {
+    "id": "72775366ae3c7c4dd348",
+    "it": "<span class=\"man-sez-n\">13.7 ·</span> Le postazioni dell'equipaggio",
+    "kind": "html"
+  },
+  {
+    "id": "0871fb6581fd01806a61",
+    "it": "Durante una battaglia navale, i personaggi assumono delle postazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "2355acfe87cc22da3656",
+    "it": "Ogni postazione utilizza un Attributo specifico e contribuisce a un aspetto della navigazione o del combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "4ac9153a49d6bd732541",
+    "it": "<b>Postazione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "30bd11e305e1c87284f4",
+    "it": "<b>Compito</b>",
+    "kind": "html"
+  },
+  {
+    "id": "233b7f659864155a2353",
+    "it": "<b>Capitano</b>",
+    "kind": "html"
+  },
+  {
+    "id": "6955c75a4ce9fc4309d0",
+    "it": "Coordinare e sostenere gli alleati.",
+    "kind": "html"
+  },
+  {
+    "id": "fc240d48876780e25e3f",
+    "it": "<b>Timoniere</b>",
+    "kind": "html"
+  },
+  {
+    "id": "79abe0ed0e1e3bc10970",
+    "it": "Navigazione e manovre.",
+    "kind": "html"
+  },
+  {
+    "id": "8a94b6d156b453354045",
+    "it": "<b>Cannoniere</b>",
+    "kind": "html"
+  },
+  {
+    "id": "6047cc483aedd7b5580a",
+    "it": "Utilizzo dell'Artiglieria.",
+    "kind": "html"
+  },
+  {
+    "id": "0ad35b394b1b8799d450",
+    "it": "<b>Vedetta</b>",
+    "kind": "html"
+  },
+  {
+    "id": "da91a829de9c31103064",
+    "it": "Individuare pericoli e imboscate.",
+    "kind": "html"
+  },
+  {
+    "id": "afe2fdf544ea70c468ac",
+    "it": "<b>Ingegnere</b>",
+    "kind": "html"
+  },
+  {
+    "id": "8e694d58e7deb983752e",
+    "it": "Riparazioni e gestione tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "c6e2112a0403b8fb465e",
+    "it": "<b>Combattente di bordo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "8b38ee51026fd79a2fcf",
+    "it": "Arrembaggio e difesa della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "f331fdb8ecd4ca21b034",
+    "it": "La postazione deve essere assegnata a un membro della ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "76549b1f7461aa9e6e76",
+    "it": "I benefici dei Talenti di Ruolo si applicano soltanto quando vengono soddisfatte le rispettive condizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "1fa97df33f6e8a0289f6",
+    "it": "Un Navigatore esperto non concede automaticamente il proprio dado Navigazione alle manovre se non è al timone o se non possiede la capacità che permette di farlo.",
+    "kind": "html"
+  },
+  {
+    "id": "f34c3c07e7794da991ce",
+    "it": "13.7.1 · Formula delle manovre",
+    "kind": "html"
+  },
+  {
+    "id": "f12f898d2c0e43ec9694",
+    "it": "Le manovre utilizzano normalmente:",
+    "kind": "html"
+  },
+  {
+    "id": "f0da19f312227fad2841",
+    "it": "Tiro di manovra",
+    "kind": "html"
+  },
+  {
+    "id": "da248eae367ddca2af95",
+    "it": "Dado Nave + Attributo",
+    "kind": "html"
+  },
+  {
+    "id": "4fe908d538c8fb45a903",
+    "it": "La statistica della nave e l'Attributo dipendono dalla postazione.",
+    "kind": "html"
+  },
+  {
+    "id": "a7e4bab2a1ee5071d1dc",
+    "it": "Per esempio, una cannonata utilizza Artiglieria e Tecnica del Cannoniere.",
+    "kind": "html"
+  },
+  {
+    "id": "0d1518af34b010891fa2",
+    "it": "Una Manovra Evasiva utilizza Vele e Astuzia del Timoniere.",
+    "kind": "html"
+  },
+  {
+    "id": "85db7753e943a2991339",
+    "it": "Le capacità che aggiungono dadi alla formula vengono applicate separatamente.",
+    "kind": "html"
+  },
+  {
+    "id": "9a03aad2e296cf37c13e",
+    "it": "13.7.2 · Equipaggio e Manovre",
+    "kind": "html"
+  },
+  {
+    "id": "58e1b463e9a8c4124d45",
+    "it": "Una postazione indica chi può effettuare la Prova richiesta dalla Manovra.",
+    "kind": "html"
+  },
+  {
+    "id": "250b72d1bf51598a4d2e",
+    "it": "La presenza di più marinai alla stessa postazione non moltiplica automaticamente il numero di Manovre della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "fd456b049e1a384ecbea",
+    "it": "I membri PNG dell’equipaggio possono:",
+    "kind": "html"
+  },
+  {
+    "id": "b702b4da0f4a88714259",
+    "it": "Occupare postazioni lasciate libere.",
+    "kind": "html"
+  },
+  {
+    "id": "a2c528097382aa28676c",
+    "it": "Effettuare i tiri previsti dalla loro scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "8733b8618d67567c258a",
+    "it": "Eseguire una Manovra disponibile della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "64478c9a2c0fdabd3471",
+    "it": "Gli eventuali «uno o due tiri per turno» concessi dalla scheda di un equipaggio PNG indicano quante Prove quel gruppo può sostenere nell’ambito delle attività consentite, non quante Manovre navali aggiuntive la nave ottiene.",
+    "kind": "html"
+  },
+  {
+    "id": "59bb05849c34ef31bbca",
+    "it": "Un personaggio può trovarsi in grado di raggiungere più postazioni, ma con una sola Azione principale può normalmente eseguirne soltanto una.",
+    "kind": "html"
+  },
+  {
+    "id": "16b708df56f24b517a22",
+    "it": "Occorrono Manovre disponibili e Azioni disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "a725dee0bb036485d376",
+    "it": "Cannoni",
+    "kind": "html"
+  },
+  {
+    "id": "11c55db211ee61e2b2ff",
+    "it": "Il dado Artiglieria rappresenta la potenza complessiva della batteria utilizzata per quella Cannonata, non il numero esatto di cannoni fisici presenti sul ponte.",
+    "kind": "html"
+  },
+  {
+    "id": "dd754f0a61b38f90e1ab",
+    "it": "Una capacità che fa «agire un cannone due volte» si riferisce al sistema di Artiglieria o al Modulo effettivamente utilizzato, non moltiplica automaticamente la Cannonata per ogni cannone decorativo presente sulla nave.",
+    "kind": "html"
+  },
+  {
+    "id": "3dc2489ccaf6c889228b",
+    "it": "<span class=\"man-sez-n\">13.8 ·</span> La Navigazione",
+    "kind": "html"
+  },
+  {
+    "id": "42f3a22b757824aedb54",
+    "it": "Navigare non significa soltanto procedere nella direzione desiderata.",
+    "kind": "html"
+  },
+  {
+    "id": "6d8369d715202834ccb6",
+    "it": "La ciurma deve trovare una rotta, sfruttare il vento, riconoscere i pericoli e mantenere la nave operativa per tutta la traversata.",
+    "kind": "html"
+  },
+  {
+    "id": "354405fcecae514cf501",
+    "it": "Il Navigatore è il personaggio responsabile di queste attività.",
+    "kind": "html"
+  },
+  {
+    "id": "c7cf0cc0fe68f4711386",
+    "it": "13.8.1 · Il tiro di traversata",
+    "kind": "html"
+  },
+  {
+    "id": "f12aa1a7f39c11a4cd1b",
+    "it": "La traversata utilizza il dado Vele della nave e l'Astuzia del Timoniere.",
+    "kind": "html"
+  },
+  {
+    "id": "51b0ce4f79c8d71234bb",
+    "it": "Tiro di traversata",
+    "kind": "html"
+  },
+  {
+    "id": "3d5d948b68bc2cad5ffa",
+    "it": "Vele + Astuzia",
+    "kind": "html"
+  },
+  {
+    "id": "20e466a087289a4fd348",
+    "it": "Gli strumenti nautici e i Talenti compatibili possono aggiungere dadi.",
+    "kind": "html"
+  },
+  {
+    "id": "c039542765c2b55926da",
+    "it": "Il GM stabilisce la Soglia in base alla rotta, al clima e ai pericoli.",
+    "kind": "html"
+  },
+  {
+    "id": "ba5e7b41326b2a68ad42",
+    "it": "Non è necessario effettuare un tiro per ogni ora di navigazione.",
+    "kind": "html"
+  },
+  {
+    "id": "14c9e250454bf3987650",
+    "it": "Una Prova può rappresentare una parte significativa del viaggio oppure un singolo passaggio particolarmente difficile.",
+    "kind": "html"
+  },
+  {
+    "id": "9b6aaca51c57e9caf5c1",
+    "it": "13.8.2 · Il Navigatore al timone",
+    "kind": "html"
+  },
+  {
+    "id": "98991a3b3973923bb97d",
+    "it": "Il Talento Mano al Timone permette di aggiungere il dado Navigazione alla traversata.",
+    "kind": "html"
+  },
+  {
+    "id": "2af2cfcaa227dcec27af",
+    "it": "Eventuali strumenti possono aggiungere ulteriori dadi secondo le loro descrizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "cfe0a00feec8dcdb7556",
+    "it": "<span class=\"man-sez-n\">13.9 ·</span> Gli strumenti di navigazione",
+    "kind": "html"
+  },
+  {
+    "id": "1f6e7e1ae29ab060c7d7",
+    "it": "Gli strumenti nautici possono migliorare la traversata.",
+    "kind": "html"
+  },
+  {
+    "id": "d0602df0cf043741f6c2",
+    "it": "Il loro effetto dipende dalla qualità e dalla destinazione d'uso.",
+    "kind": "html"
+  },
+  {
+    "id": "5a82571d87288983f04f",
+    "it": "<b>Strumento</b>",
+    "kind": "html"
+  },
+  {
+    "id": "6e43e1b4210cdb92c6fd",
+    "it": "<b>Bussola standard</b>",
+    "kind": "html"
+  },
+  {
+    "id": "9bf318aae017e7fa6bb0",
+    "it": "+d4 ai tiri di Navigazione nei Mari Blu.",
+    "kind": "html"
+  },
+  {
+    "id": "d5161bce2eb9b6668664",
+    "it": "<b>Log Pose artigianale</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3970232647e3bc174478",
+    "it": "+d6 ai tiri di Navigazione nella Grand Line.",
+    "kind": "html"
+  },
+  {
+    "id": "6cce0fc13449a90b11a4",
+    "it": "<b>Carta nautica aggiornata</b>",
+    "kind": "html"
+  },
+  {
+    "id": "0908e37c02975b060849",
+    "it": "+d6 al prossimo tiro sulla rotta rappresentata.",
+    "kind": "html"
+  },
+  {
+    "id": "b7248f6cbd5c5b1342ba",
+    "it": "<b>Carta nautica dettagliata</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3201e04fcfa3412f2579",
+    "it": "+d8 ai tiri sulla rotta; riutilizzabile per tre traversate.",
+    "kind": "html"
+  },
+  {
+    "id": "6087cff08543efba543b",
+    "it": "<b>Eternal Pose artigianale</b>",
+    "kind": "html"
+  },
+  {
+    "id": "a8913d485a4a8a92bebc",
+    "it": "+d10 ai tiri verso l'isola impostata.",
+    "kind": "html"
+  },
+  {
+    "id": "314e8c9a1f66646ec373",
+    "it": "Gli strumenti devono essere utilizzabili nella regione attraversata.",
+    "kind": "html"
+  },
+  {
+    "id": "031969fae1446645612b",
+    "it": "Una bussola ordinaria non sostituisce un Log Pose nella Grand Line.",
+    "kind": "html"
+  },
+  {
+    "id": "7f4c9f7618b0645df1ef",
+    "it": "13.9.1 · Log Pose",
+    "kind": "html"
+  },
+  {
+    "id": "9cabbaf90fc36c63cf6f",
+    "it": "Il Log Pose permette di seguire il campo magnetico di un'isola.",
+    "kind": "html"
+  },
+  {
+    "id": "16e05587c5994243d682",
+    "it": "Una volta raggiunta la destinazione, deve essere calibrato secondo le condizioni previste dal dispositivo e dalla rotta.",
+    "kind": "html"
+  },
+  {
+    "id": "ab3f523232d03947b8b6",
+    "it": "Il modello artigianale del catalogo richiede 2d6 giorni di calibrazione.",
+    "kind": "html"
+  },
+  {
+    "id": "359dc5fbf50b07b162c6",
+    "it": "Questo valore appartiene al modello specifico e non costituisce automaticamente il tempo universale di ogni Log Pose esistente.",
+    "kind": "html"
+  },
+  {
+    "id": "90a6970eb6bea136796b",
+    "it": "13.9.2 · Eternal Pose",
+    "kind": "html"
+  },
+  {
+    "id": "9958c8c34484232338d5",
+    "it": "L'Eternal Pose indica permanentemente una singola isola.",
+    "kind": "html"
+  },
+  {
+    "id": "1597f7ebf0f0d5cdd561",
+    "it": "Non richiede calibrazione durante il viaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "703e75ff8c9b2b72617b",
+    "it": "Non è però uno strumento che permette di scegliere liberamente qualsiasi destinazione: la sua direzione rimane quella per cui è stato preparato.",
+    "kind": "html"
+  },
+  {
+    "id": "563913ccc4f685bb5e58",
+    "it": "<span class=\"man-sez-n\">13.10 ·</span> Pericoli durante la traversata",
+    "kind": "html"
+  },
+  {
+    "id": "e00ccef3f727e9ae141c",
+    "it": "Il GM determina quali ostacoli si presentano durante la navigazione.",
+    "kind": "html"
+  },
+  {
+    "id": "68fa97e16012febe1dd4",
+    "it": "Possono comprendere tempeste, correnti imprevedibili, secche, nebbia, creature marine o altri pericoli.",
+    "kind": "html"
+  },
+  {
+    "id": "45504100afd6182f6fe7",
+    "it": "Una Prova di Navigazione permette di affrontarli, ma le conseguenze dipendono dalla situazione.",
+    "kind": "html"
+  },
+  {
+    "id": "17876afda75c35754bbf",
+    "it": "Il sistema non prevede una tabella universale che imponga un incontro casuale a ogni traversata.",
+    "kind": "html"
+  },
+  {
+    "id": "f383cff187a16c3b8ae6",
+    "it": "13.10.1 · Il margine della Prova",
+    "kind": "html"
+  },
+  {
+    "id": "c8e02d830ee79eddb047",
+    "it": "Il margine indica quanto bene la ciurma ha affrontato la rotta.",
+    "kind": "html"
+  },
+  {
+    "id": "76b217255c7095b6cfb1",
+    "it": "<b>Inferiore a −3</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3a5b5bf1c70536445d50",
+    "it": "Fallimento grave",
+    "kind": "html"
+  },
+  {
+    "id": "530b82d2f80e1fb7cbf3",
+    "it": "Fallimento parziale",
+    "kind": "html"
+  },
+  {
+    "id": "ef5e1344ea4b8415247e",
+    "it": "Stentato",
+    "kind": "html"
+  },
+  {
+    "id": "fb9582cf88466fb27b70",
+    "it": "<b>+4 o superiore</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e3f52c70e54b778d9fce",
+    "it": "Successo pieno",
+    "kind": "html"
+  },
+  {
+    "id": "3be5dd787a108f97657a",
+    "it": "Un successo permette di superare il tratto interessato.",
+    "kind": "html"
+  },
+  {
+    "id": "cd69064028f44d2870b3",
+    "it": "Un fallimento può provocare una complicazione coerente con il viaggio, come una deviazione, un ritardo, un danno alla nave o l'esposizione a un pericolo.",
+    "kind": "html"
+  },
+  {
+    "id": "c896fb6658a78e862acd",
+    "it": "Non esiste un danno fisso da fallimento della traversata. Il GM deve determinare la conseguenza in base all'ostacolo affrontato.",
+    "kind": "html"
+  },
+  {
+    "id": "99392465ba478b59e0ac",
+    "it": "Firma del Navigatore · Rotta Perfetta",
+    "kind": "html"
+  },
+  {
+    "id": "f234028dbc40a22d6729",
+    "it": "<span class=\"man-sez-n\">13.11 ·</span> I Talenti del Navigatore in mare",
+    "kind": "html"
+  },
+  {
+    "id": "8d32e1109ecd274572cf",
+    "it": "Alcuni Talenti modificano il modo in cui la ciurma affronta la traversata.",
+    "kind": "html"
+  },
+  {
+    "id": "727481a6b8d81057e532",
+    "it": "<b>Talento</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3888ee5fe279768ffd26",
+    "it": "<b>Occhio del Cielo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e8669321e45474bf91b1",
+    "it": "Prevedi il clima con Vantaggio; se anticipi un pericolo atmosferico, il GM ne indica natura, provenienza e una conseguenza concreta.",
+    "kind": "html"
+  },
+  {
+    "id": "d52aeec541bf31ef4bc3",
+    "it": "<b>Rotta Maestra</b>",
+    "kind": "html"
+  },
+  {
+    "id": "28a787d09099a4111ac9",
+    "it": "Anticipi un pericolo durante la pianificazione della rotta, anche senza ottenere un margine +4.",
+    "kind": "html"
+  },
+  {
+    "id": "5d49d5af20973458e1c6",
+    "it": "<b>Cartografo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7219dac625c2c2969ac6",
+    "it": "Le tue carte valgono come carte dettagliate: +d8 e riutilizzabili.",
+    "kind": "html"
+  },
+  {
+    "id": "716a703edcc716e6d0cf",
+    "it": "<b>Sondare il Fondale</b>",
+    "kind": "html"
+  },
+  {
+    "id": "edd5f65a87a03401dbcc",
+    "it": "Sfrutti secche e bassi fondali per percorrere passaggi inaccessibili alle navi più grandi.",
+    "kind": "html"
+  },
+  {
+    "id": "5a6384c8a9b3bee5fb69",
+    "it": "<b>Rotta Impossibile</b>",
+    "kind": "html"
+  },
+  {
+    "id": "703cab46a9f020254208",
+    "it": "Attraversi percorsi estremi che altre navi devono aggirare.",
+    "kind": "html"
+  },
+  {
+    "id": "2b8b740e77c178b83e92",
+    "it": "<b>Sfruttare la Tempesta</b>",
+    "kind": "html"
+  },
+  {
+    "id": "8ef6e1c94263f48e65be",
+    "it": "Al timone, tu e la nave ignorate le penalità a Navigazione e Manovre dovute a pioggia, nebbia naturale, mare grosso, vento forte e tempesta; gli effetti fisici restano.",
+    "kind": "html"
+  },
+  {
+    "id": "79309ddc57bbe5bac443",
+    "it": "<b>Mai Perduto</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e06b6a42b76580dcbea1",
+    "it": "Sai sempre dove ti trovi e ritrovi i luoghi già visitati.",
+    "kind": "html"
+  },
+  {
+    "id": "9bc083221cb70642b74b",
+    "it": "Queste capacità non richiedono automaticamente di introdurre una nuova statistica navale.",
+    "kind": "html"
+  },
+  {
+    "id": "12fe6cc630c06e4ab432",
+    "it": "Modificano le Prove, le conseguenze e le possibilità della traversata secondo le proprie descrizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "356355c4c5e24fd8f2f5",
+    "it": "<span class=\"man-sez-n\">13.12 ·</span> Il combattimento navale",
+    "kind": "html"
+  },
+  {
+    "id": "b7ab5b7a3547ab96509b",
+    "it": "Quando due navi entrano in conflitto, si utilizzano le statistiche navali.",
+    "kind": "html"
+  },
+  {
+    "id": "09bd5e8e10c032cc1e7e",
+    "it": "L'unità di riferimento non è più il singolo personaggio, ma la nave con il proprio equipaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "6f2bd3059a632de77747",
+    "it": "Una manovra per turno",
+    "kind": "html"
+  },
+  {
+    "id": "d83321543581aeefa909",
+    "it": "Ogni nave compie normalmente una manovra durante il proprio turno navale.",
+    "kind": "html"
+  },
+  {
+    "id": "d233b6be1c976c133021",
+    "it": "I Talenti che concedono esplicitamente manovre aggiuntive costituiscono un'eccezione.",
+    "kind": "html"
+  },
+  {
+    "id": "e370d7f6dad425d58de0",
+    "it": "Durante il combattimento, la ciurma sceglie se attaccare, evitare le cannonate, speronare, fuggire oppure effettuare una riparazione d'emergenza.",
+    "kind": "html"
+  },
+  {
+    "id": "552ab2729a8bb675a8a5",
+    "it": "Le singole postazioni determinano chi effettua la Prova.",
+    "kind": "html"
+  },
+  {
+    "id": "5a3fba3d5140254575c5",
+    "it": "Manovre aggiuntive e Azioni dell’equipaggio",
+    "kind": "html"
+  },
+  {
+    "id": "d555713e908d751af155",
+    "it": "Una capacità che concede una Manovra aggiuntiva alla nave aumenta il numero massimo di Manovre navali che la nave può effettuare in quel round.",
+    "kind": "html"
+  },
+  {
+    "id": "6755fcc8189c66d1a4da",
+    "it": "Non concede però automaticamente un’Azione aggiuntiva ai personaggi.",
+    "kind": "html"
+  },
+  {
+    "id": "126c091a061b23bcdebe",
+    "it": "Ogni Manovra deve essere eseguita da un personaggio o da un membro dell’equipaggio che:",
+    "kind": "html"
+  },
+  {
+    "id": "182e6d6c6465f509e028",
+    "it": "Occupi una postazione compatibile.",
+    "kind": "html"
+  },
+  {
+    "id": "525fdc1c1e55948a0dfa",
+    "it": "Possa realmente eseguire la Manovra.",
+    "kind": "html"
+  },
+  {
+    "id": "1aca1ec50918888bc64f",
+    "it": "Disponga dell’Azione necessaria, salvo che la capacità dica espressamente il contrario.",
+    "kind": "html"
+  },
+  {
+    "id": "3bd28beb303780067fdc",
+    "it": "Se due personaggi occupano postazioni differenti, ciascuno può quindi spendere la propria Azione per eseguire una delle Manovre disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "4150d8a8ccb53a78482a",
+    "it": "Un singolo personaggio non può utilizzare due Manovre nello stesso round soltanto perché la nave ne possiede due, se non dispone anche delle Azioni necessarie.",
+    "kind": "html"
+  },
+  {
+    "id": "9cce49fd7227d3f12fe0",
+    "it": "Una capacità che concede un tiro aggiuntivo non equivale invece a una Manovra aggiuntiva. Il tiro modifica o completa la Manovra indicata dalla capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "8db931fe3c4f3d927102",
+    "it": "<span class=\"man-sez-n\">13.13 ·</span> Le distanze navali",
+    "kind": "html"
+  },
+  {
+    "id": "0170220373665cf109f7",
+    "it": "Le battaglie navali utilizzano quattro fasce.",
+    "kind": "html"
+  },
+  {
+    "id": "e81729588a990b95b8c8",
+    "it": "<b>Accostati</b>",
+    "kind": "html"
+  },
+  {
+    "id": "17bae6fb76b2b960a51d",
+    "it": "Arrembaggio e combattimento personale.",
+    "kind": "html"
+  },
+  {
+    "id": "496c32c95e6f714413fb",
+    "it": "<b>Sotto tiro</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3375aedcbc95d64675c6",
+    "it": "Cannonate a piena efficacia.",
+    "kind": "html"
+  },
+  {
+    "id": "2f3a0eb7f04fb3fe4f21",
+    "it": "<b>In vista</b>",
+    "kind": "html"
+  },
+  {
+    "id": "65482ae06e9acd1c7af7",
+    "it": "Cannonate a lunga gittata.",
+    "kind": "html"
+  },
+  {
+    "id": "8f78da386cb0b4279e6a",
+    "it": "<b>All'orizzonte</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f5da92bd56a3424db2f5",
+    "it": "Inseguimento e navigazione.",
+    "kind": "html"
+  },
+  {
+    "id": "ec1d4c71983d8d438a68",
+    "it": "Una manovra permette normalmente di guadagnare o perdere una fascia di distanza, quando la situazione lo consente.",
+    "kind": "html"
+  },
+  {
+    "id": "343d0c5381e464875614",
+    "it": "La distanza in metri rimane importante per determinare le possibilità di un personaggio che attacca direttamente un'altra nave attraverso una Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "0f6129b3a3808e3aea30",
+    "it": "Le fasce navali non aumentano automaticamente la portata delle armi personali.",
+    "kind": "html"
+  },
+  {
+    "id": "ecf534d69b099ffd21b7",
+    "it": "<span class=\"man-sez-n\">13.14 ·</span> Le manovre navali",
+    "kind": "html"
+  },
+  {
+    "id": "c615721e549f904a9893",
+    "it": "Le cinque manovre fondamentali sono Cannonate, Manovra Evasiva, Speronamento, Fuga e Riparazione d'Emergenza.",
+    "kind": "html"
+  },
+  {
+    "id": "99e3e5012f025bc2a906",
+    "it": "Le Soglie di riferimento sono normalmente 8, salvo le differenti distanze di tiro o altre condizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "cf1b88bfb6c9185a0cad",
+    "it": "13.14.1 · Cannonate",
+    "kind": "html"
+  },
+  {
+    "id": "c93eea325997b0fae235",
+    "it": "Cannonate",
+    "kind": "html"
+  },
+  {
+    "id": "3dd0ea8a39b502a5f50c",
+    "it": "Offensiva",
+    "kind": "html"
+  },
+  {
+    "id": "0099c7d3a89780d34ce3",
+    "it": "Postazione: Cannoniere.",
+    "kind": "html"
+  },
+  {
+    "id": "6e4a17c3d9cb0dcf5405",
+    "it": "Tiro: Artiglieria + Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "5dad4837603a45dcc8e9",
+    "it": "Danno: 1 Dado Artiglieria, salvo Moduli o capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "cfd331dab0f7912ac475",
+    "it": "oltre 20 m fino a 200 m",
+    "kind": "html"
+  },
+  {
+    "id": "aa851728bc0a8fa03359",
+    "it": "oltre 200 m fino a 600 m",
+    "kind": "html"
+  },
+  {
+    "id": "f4b6c6717c85b9c29d8f",
+    "it": "<b>All’orizzonte</b>",
+    "kind": "html"
+  },
+  {
+    "id": "2ffe581f11be89a1d61d",
+    "it": "oltre 600 m",
+    "kind": "html"
+  },
+  {
+    "id": "63a9e21bd07e4d957b78",
+    "it": "Normalmente fuori portata",
+    "kind": "html"
+  },
+  {
+    "id": "066151577afba8da00f4",
+    "it": "In vista rappresenta il tiro a lunga gittata e applica quindi il normale aumento di +4 rispetto alla Soglia ordinaria 8.",
+    "kind": "html"
+  },
+  {
+    "id": "2e11921e61328a68fcc4",
+    "it": "Oltre 600 metri una Cannonata non è normalmente possibile salvo che un Modulo o una capacità conceda espressamente una gittata superiore.",
+    "kind": "html"
+  },
+  {
+    "id": "a8a44e68852309185b57",
+    "it": "Se il tiro supera o raggiunge la Soglia richiesta, la cannonata colpisce.",
+    "kind": "html"
+  },
+  {
+    "id": "3185134959b15dc990df",
+    "it": "La nave nemica perde un numero di PS pari al risultato del dado Artiglieria.",
+    "kind": "html"
+  },
+  {
+    "id": "f21c6d365affc76a26c5",
+    "it": "Esempio: una nave con Artiglieria d8 colpisce un avversario.",
+    "kind": "html"
+  },
+  {
+    "id": "34e1af233fd819af3a27",
+    "it": "Il Cannoniere tira 1d8 per determinare il danno. Ottiene 6.",
+    "kind": "html"
+  },
+  {
+    "id": "41f6446655608425c3c8",
+    "it": "La nave nemica perde 6 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "4ce84dc0ba8e382fe26f",
+    "it": "Eventuali Moduli, come una batteria pesante, possono modificare il danno quando vengono utilizzati.",
+    "kind": "html"
+  },
+  {
+    "id": "6bb27a44462edecd0b92",
+    "it": "Bersaglio",
+    "kind": "html"
+  },
+  {
+    "id": "f766dd2f294c32fc00ac",
+    "it": "Una Cannonata ordinaria prende come bersaglio la nave, non un singolo personaggio sul ponte.",
+    "kind": "html"
+  },
+  {
+    "id": "64b6d91640482bc2db6a",
+    "it": "Mirare deliberatamente a una persona richiede una situazione in cui il bersaglio sia realmente identificabile ed esposto e viene risolto come attacco contro un personaggio, non come normale Cannonata contro i PS.",
+    "kind": "html"
+  },
+  {
+    "id": "ad7f3a08f4e1e488d778",
+    "it": "13.14.2 · Manovra Evasiva",
+    "kind": "html"
+  },
+  {
+    "id": "b74849c9524226596a66",
+    "it": "Manovra Evasiva",
+    "kind": "html"
+  },
+  {
+    "id": "0445c8c2777e776ed001",
+    "it": "Difensiva",
+    "kind": "html"
+  },
+  {
+    "id": "96fc84374bb45586661f",
+    "it": "Postazione: Timoniere.",
+    "kind": "html"
+  },
+  {
+    "id": "5bcfffe5d3a33038f77d",
+    "it": "Tiro: Vele + Astuzia.",
+    "kind": "html"
+  },
+  {
+    "id": "ad5fb6574e3e75bac6ad",
+    "it": "Successo: la Soglia della prossima cannonata nemica contro la nave aumenta di 4.",
+    "kind": "html"
+  },
+  {
+    "id": "e216eee4f544486d262f",
+    "it": "La Manovra Evasiva non rende la nave permanentemente più difficile da colpire.",
+    "kind": "html"
+  },
+  {
+    "id": "b295d8d1a58c83694466",
+    "it": "Il beneficio riguarda la prossima cannonata contro di essa.",
+    "kind": "html"
+  },
+  {
+    "id": "63fb173b97415904aece",
+    "it": "Timoniere Nato",
+    "kind": "html"
+  },
+  {
+    "id": "b8df6df3d15b774cd2ba",
+    "it": "Il Navigatore può migliorare la Manovra Evasiva attraverso i propri Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "943dd6d0febf5f2da5b8",
+    "it": "<b>Timoniere Nato · Base</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3e7b6699b53a6788a03a",
+    "it": "Aggiunge il dado Navigazione alle manovre di evasione.",
+    "kind": "html"
+  },
+  {
+    "id": "b868acb5ffb051e9f4fa",
+    "it": "<b>Timoniere Nato · Migliorato</b>",
+    "kind": "html"
+  },
+  {
+    "id": "fe8d12b312c4f92bed48",
+    "it": "Una volta per battaglia navale, annulla completamente una cannonata in arrivo.",
+    "kind": "html"
+  },
+  {
+    "id": "9388b37c24e166bc4d80",
+    "it": "<b>Timoniere Nato · Maestria</b>",
+    "kind": "html"
+  },
+  {
+    "id": "6dbb1bded2f305121939",
+    "it": "La nave può manovrare e sparare nello stesso turno senza penalità.",
+    "kind": "html"
+  },
+  {
+    "id": "a97497982cc05ab90330",
+    "it": "L'annullamento della cannonata è un effetto specifico del Talento migliorato, non una conseguenza automatica di ogni Manovra Evasiva.",
+    "kind": "html"
+  },
+  {
+    "id": "1653128271bf9e0b5f3c",
+    "it": "13.14.3 · Speronamento",
+    "kind": "html"
+  },
+  {
+    "id": "06e30c3ef994a027d37f",
+    "it": "Speronamento",
+    "kind": "html"
+  },
+  {
+    "id": "70a18a1983bc9e82cfbe",
+    "it": "Postazione: Capitano.",
+    "kind": "html"
+  },
+  {
+    "id": "59c7d9a7e2b4fa01397d",
+    "it": "Tiro: Scafo + Forza.",
+    "kind": "html"
+  },
+  {
+    "id": "51586fa1c8e65261c6a9",
+    "it": "Danno inflitto: risultato del dado Scafo.",
+    "kind": "html"
+  },
+  {
+    "id": "c174360cda2373b8c490",
+    "it": "Contraccolpo: la propria nave perde comunque 1d4 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "0f40740265e7e20a0a96",
+    "it": "Lo Speronamento richiede che le navi siano in una posizione che consenta materialmente la collisione.",
+    "kind": "html"
+  },
+  {
+    "id": "87fad4f801a07c441e86",
+    "it": "Il tiro determina se la manovra riesce.",
+    "kind": "html"
+  },
+  {
+    "id": "48dd0fe7b8464af63a33",
+    "it": "In caso di successo, la nave nemica subisce il danno dello Scafo.",
+    "kind": "html"
+  },
+  {
+    "id": "939046fd02a8d361cedd",
+    "it": "La nave che sperona perde comunque 1d4 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "5d72143e10447c9bf251",
+    "it": "Sperone d'acciaio",
+    "kind": "html"
+  },
+  {
+    "id": "45a1dd634eae09676492",
+    "it": "Il Modulo Sperone d'acciaio aumenta di un gradino il danno da Speronamento.",
+    "kind": "html"
+  },
+  {
+    "id": "51f2897307794003a206",
+    "it": "Il beneficio appartiene al Modulo: non si applica alle navi che ne sono prive.",
+    "kind": "html"
+  },
+  {
+    "id": "f87631e7d6e8bcd63f13",
+    "it": "13.14.4 · Fuga",
+    "kind": "html"
+  },
+  {
+    "id": "dc4a2d7c9d57d05d193b",
+    "it": "Fuga",
+    "kind": "html"
+  },
+  {
+    "id": "61b6e07934ef457792b7",
+    "it": "Manovra",
+    "kind": "html"
+  },
+  {
+    "id": "8a87d8aaf178d937154c",
+    "it": "Fallimento: il nemico ottiene una cannonata d'opportunità.",
+    "kind": "html"
+  },
+  {
+    "id": "dff9b95d13a153a67e96",
+    "it": "La Fuga permette di tentare di allontanarsi dall'avversario.",
+    "kind": "html"
+  },
+  {
+    "id": "f1e5a236605a338d9b00",
+    "it": "Il risultato determina se la nave riesce a guadagnare distanza oppure rimane esposta.",
+    "kind": "html"
+  },
+  {
+    "id": "c5f19d096f0cb5b2ae58",
+    "it": "Se la manovra fallisce, la nave nemica ottiene la cannonata d'opportunità prevista.",
+    "kind": "html"
+  },
+  {
+    "id": "61bbba3aa42903cf1a30",
+    "it": "Non viene introdotto un attacco personale di Reazione: la cannonata d'opportunità è un effetto della manovra navale.",
+    "kind": "html"
+  },
+  {
+    "id": "b06fa5272bb9b5ec1e3e",
+    "it": "13.14.5 · Riparazione d'Emergenza",
+    "kind": "html"
+  },
+  {
+    "id": "eb727f63265084571abf",
+    "it": "Riparazione d'Emergenza",
+    "kind": "html"
+  },
+  {
+    "id": "374d2e55e8c11a4d7bab",
+    "it": "Supporto · Battaglia navale",
+    "kind": "html"
+  },
+  {
+    "id": "6fa30201d439ff3dd96c",
+    "it": "Postazione: Ingegnere.",
+    "kind": "html"
+  },
+  {
+    "id": "ab29eee52f8bf1b23247",
+    "it": "Requisito: Riparazione d’Emergenza del Carpentiere oppure altra capacità che permetta espressamente una riparazione dello scafo in battaglia.",
+    "kind": "html"
+  },
+  {
+    "id": "e6afe4b7c6bb911b25d1",
+    "it": "Prova: Struttura + Astuzia.",
+    "kind": "html"
+  },
+  {
+    "id": "708cfb94a36a4a0aed0b",
+    "it": "Soglia: 8.",
+    "kind": "html"
+  },
+  {
+    "id": "f6f8c7c3d246d7e36cee",
+    "it": "La Riparazione d’Emergenza rappresenta una manovra navale e utilizza l’Azione del Carpentiere che la esegue.",
+    "kind": "html"
+  },
+  {
+    "id": "b85dcd2b64eb8905fbd4",
+    "it": "Servono strumenti e materiali di riparazione disponibili a bordo.",
+    "kind": "html"
+  },
+  {
+    "id": "8e8f46c9b169aebe7b8e",
+    "it": "Se la Prova riesce, la nave recupera 1 Dado Carpenteria in PS.",
+    "kind": "html"
+  },
+  {
+    "id": "1d53fbb62482e4d7df08",
+    "it": "Il recupero non può superare i PS Massimi.",
+    "kind": "html"
+  },
+  {
+    "id": "0ba7797c9d838daf192d",
+    "it": "Se il risultato della Prova supera la Soglia di almeno +4, può attivarsi la Firma La Riparazione che Tiene.",
+    "kind": "html"
+  },
+  {
+    "id": "23d0bdcfb5edf1766542",
+    "it": "Utilizzare Riparazione d’Emergenza conta normalmente come la manovra della nave per quel turno, salvo capacità che concedano manovre ulteriori.",
+    "kind": "html"
+  },
+  {
+    "id": "2211b226266b4d74e6fe",
+    "it": "Le riparazioni ordinarie fuori dalla battaglia continuano invece a utilizzare le tabelle del Cantiere e non vengono sostituite da questa procedura.",
+    "kind": "html"
+  },
+  {
+    "id": "1019afc540f8e0b0d17a",
+    "it": "13.14.6 · Personaggi, navi e due scale di danno",
+    "kind": "html"
+  },
+  {
+    "id": "70c1c371872d24b59668",
+    "it": "PV e PS rappresentano due scale differenti, ma utilizzano gli stessi valori numerici quando un attacco può realmente danneggiare il proprio bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "6e74655afb88e98ffb87",
+    "it": "Attacco personale contro una nave.",
+    "kind": "html"
+  },
+  {
+    "id": "d28489d4ed9bf6aadd95",
+    "it": "Un personaggio può infliggere PS soltanto se la propria arma, Tecnica o capacità è materialmente in grado di danneggiare una struttura navale.",
+    "kind": "text"
+  },
+  {
+    "id": "13eab2be3fa2e7a567f1",
+    "it": "Se può farlo, il danno viene tirato normalmente e il risultato viene sottratto ai PS in rapporto 1:1.",
+    "kind": "html"
+  },
+  {
+    "id": "e2f79f8b302d8cb63edb",
+    "it": "Un colpo incapace di danneggiare seriamente legno, metallo o la struttura interessata può non infliggere PS anche se sarebbe perfettamente efficace contro una creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "1bff616589c1fb0c6a56",
+    "it": "Cannonata contro un personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "e41f789b0024cd6537d3",
+    "it": "Una Cannonata ordinaria contro la nave non infligge automaticamente PV ai personaggi sul ponte.",
+    "kind": "text"
+  },
+  {
+    "id": "fd7942167884e1052392",
+    "it": "Se un singolo colpo di artiglieria prende realmente di mira un personaggio, effettua Artiglieria + Tecnica contro la sua normale Difesa e, se colpisce, infligge 1 Dado Artiglieria in PV.",
+    "kind": "html"
+  },
+  {
+    "id": "e87850dd02935cdb1be8",
+    "it": "Copertura, Difesa Attiva e capacità in grado di intercettare il colpo funzionano normalmente quando compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "19055c24fd5d06937199",
+    "it": "Danno allo scafo e persone.",
+    "kind": "html"
+  },
+  {
+    "id": "dfbb0edebd7bedbe19cd",
+    "it": "Perdere PS non infligge automaticamente la stessa quantità di PV all’equipaggio.",
+    "kind": "text"
+  },
+  {
+    "id": "5c34205232e258e93c4f",
+    "it": "Esplosioni, schegge, crolli e altri pericoli possono tuttavia produrre conseguenze separate sui personaggi, determinate dalla fonte concreta dell’attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "fe80558149790ff344e7",
+    "it": "<span class=\"man-sez-n\">13.15 ·</span> Esempio di battaglia navale",
+    "kind": "html"
+  },
+  {
+    "id": "eb0746acef97024f25c1",
+    "it": "Due navi si incontrano in mare aperto.",
+    "kind": "html"
+  },
+  {
+    "id": "072246c09e944cc31706",
+    "it": "La nave dei personaggi possiede:",
+    "kind": "html"
+  },
+  {
+    "id": "7096e6ab22735123eda6",
+    "it": "La Stella del Nord",
+    "kind": "html"
+  },
+  {
+    "id": "0b46cf2a04c90d7d4b25",
+    "it": "Nave di esempio",
+    "kind": "html"
+  },
+  {
+    "id": "8c77af810f1c3b46303d",
+    "it": "SCAFO",
+    "kind": "html"
+  },
+  {
+    "id": "805390aaf3675b42a81d",
+    "it": "VELE",
+    "kind": "html"
+  },
+  {
+    "id": "61abb1887f5c5c6a6c76",
+    "it": "ARTIGLIERIA",
+    "kind": "html"
+  },
+  {
+    "id": "f46a11796e8f33170c5e",
+    "it": "STRUTTURA",
+    "kind": "html"
+  },
+  {
+    "id": "1b73f8a517e6a2d3d3cb",
+    "it": "Punti Struttura: 40/40.",
+    "kind": "html"
+  },
+  {
+    "id": "9107eaa24985131610be",
+    "it": "Slot Moduli: 2.",
+    "kind": "html"
+  },
+  {
+    "id": "a63d6355687eb8d59745",
+    "it": "La nave nemica apre il fuoco.",
+    "kind": "html"
+  },
+  {
+    "id": "dcfd433904058ff7d300",
+    "it": "Il Navigatore decide di effettuare una Manovra Evasiva.",
+    "kind": "html"
+  },
+  {
+    "id": "d02688ceb4edc339e20a",
+    "it": "Tira Vele d6 + Astuzia d8 e ottiene un totale di 11.",
+    "kind": "html"
+  },
+  {
+    "id": "88041dcd7e98232f2cb4",
+    "it": "La Soglia ordinaria è 8: la manovra riesce con margine +3.",
+    "kind": "html"
+  },
+  {
+    "id": "b486892f3ea9f91e5099",
+    "it": "La prossima cannonata nemica contro la Stella del Nord avrà Soglia aumentata di 4.",
+    "kind": "html"
+  },
+  {
+    "id": "49f5981720f38e692c01",
+    "it": "Quando la nave nemica spara, la difficoltà è quindi maggiore.",
+    "kind": "html"
+  },
+  {
+    "id": "646a7c12955e89273c07",
+    "it": "Al turno successivo, la ciurma decide di utilizzare le proprie cannonate.",
+    "kind": "html"
+  },
+  {
+    "id": "917925d5adab57bbce60",
+    "it": "Il Cannoniere tira Artiglieria d6 + Tecnica d8.",
+    "kind": "html"
+  },
+  {
+    "id": "a22995fb04b051cca0f9",
+    "it": "Se raggiunge la Soglia richiesta dalla distanza, il colpo va a segno e infligge il risultato del dado Artiglieria.",
+    "kind": "html"
+  },
+  {
+    "id": "0bba873c4f68f71d1ca8",
+    "it": "Se la Stella del Nord possedesse Vento in Poppa, potrebbe ottenere una manovra aggiuntiva per round quando le condizioni del Talento sono soddisfatte.",
+    "kind": "html"
+  },
+  {
+    "id": "ce65bd5fd609e7c3fef9",
+    "it": "<span class=\"man-sez-n\">13.16 ·</span> I Moduli della nave",
+    "kind": "html"
+  },
+  {
+    "id": "5d8befe0c0b9860bccd2",
+    "it": "La nave può essere migliorata installando Moduli.",
+    "kind": "html"
+  },
+  {
+    "id": "9b1180bedff6e64b19f4",
+    "it": "Questi dispositivi sono distinti dai Moduli corporei del Capitolo 12.",
+    "kind": "html"
+  },
+  {
+    "id": "4ef24b4e6e706e4f792f",
+    "it": "Un Modulo navale occupa un certo numero di slot della nave e conferisce una proprietà specifica.",
+    "kind": "html"
+  },
+  {
+    "id": "efa6302c1107d9b69b12",
+    "it": "Può migliorare l'Artiglieria, aumentare la resistenza, sostenere le manovre o fornire attrezzature all'equipaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "5aabc7d71dadff9e4a09",
+    "it": "13.16.1 · Slot Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "de048bc65e8e10280b83",
+    "it": "Gli slot dipendono dalla statistica Struttura.",
+    "kind": "html"
+  },
+  {
+    "id": "e65434d9096feed61ecb",
+    "it": "<b>Struttura</b>",
+    "kind": "html"
+  },
+  {
+    "id": "5f714b9cdd884f659734",
+    "it": "Ogni Modulo indica quanti slot occupa.",
+    "kind": "html"
+  },
+  {
+    "id": "30810bd5ab22bb731dec",
+    "it": "Non tutti i Moduli richiedono un solo slot.",
+    "kind": "html"
+  },
+  {
+    "id": "356db03c7851b7d4c38b",
+    "it": "Un'Officina di bordo, per esempio, ne occupa due.",
+    "kind": "html"
+  },
+  {
+    "id": "83554f8214f3ae79f758",
+    "it": "Regola degli slot",
+    "kind": "html"
+  },
+  {
+    "id": "cd6ff2b5d04627e1dd98",
+    "it": "Non puoi installare un Modulo se il suo costo in slot supera la capacità ancora disponibile.",
+    "kind": "html"
+  },
+  {
+    "id": "810e011af23894a5a555",
+    "it": "Un miglioramento della statistica Struttura può aumentare gli slot della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "1c26eea36190068b59f7",
+    "it": "13.16.2 · Proprietà dei Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "f5e6d912f289bf0e9e27",
+    "it": "I Moduli navali possiedono effetti definiti dalla propria scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "b9e5eb05ba08043cd2fb",
+    "it": "Alcuni esempi:",
+    "kind": "html"
+  },
+  {
+    "id": "c12378591aa3bf2ad0a1",
+    "it": "<b>Modulo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "cf012f4c28808b893496",
+    "it": "<b>Cannoni gemelli</b>",
+    "kind": "html"
+  },
+  {
+    "id": "b0af87eed3425d092fbf",
+    "it": "Una cannonata extra per scena.",
+    "kind": "html"
+  },
+  {
+    "id": "ae29e9c7b91ed4ec832d",
+    "it": "<b>Scafo corazzato</b>",
+    "kind": "html"
+  },
+  {
+    "id": "01fd03d2f0f0f31ded3c",
+    "it": "Riduce di 2 i danni subiti dalle cannonate.",
+    "kind": "html"
+  },
+  {
+    "id": "bdfd0dcad99b77a7cd63",
+    "it": "<b>Timone gemello</b>",
+    "kind": "html"
+  },
+  {
+    "id": "686bb8a50a936bca9e17",
+    "it": "+1 dado alla Manovra Evasiva.",
+    "kind": "html"
+  },
+  {
+    "id": "b6578b173099894aa33e",
+    "it": "<b>Cabina del navigatore</b>",
+    "kind": "html"
+  },
+  {
+    "id": "0b2c1c0447d9d4da6a64",
+    "it": "+1 dado ai tiri di Navigazione.",
+    "kind": "html"
+  },
+  {
+    "id": "82771bd21eef2176ea35",
+    "it": "<b>Officina di bordo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "63c30c262b6743b528f1",
+    "it": "Riparazioni: −25% ore e +1 dado.",
+    "kind": "html"
+  },
+  {
+    "id": "53eff66577ef196eb8ad",
+    "it": "<b>Compartimenti stagni</b>",
+    "kind": "html"
+  },
+  {
+    "id": "658d67c37458ba7017ed",
+    "it": "La nave affonda soltanto a −10 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "9b6d41a5d041ca673d95",
+    "it": "Il catalogo completo rimane nel Portale della Nave.",
+    "kind": "html"
+  },
+  {
+    "id": "5ee85dbcf7e332fef369",
+    "it": "Installare un Modulo non modifica automaticamente le statistiche della nave, salvo che l'effetto lo preveda espressamente.",
+    "kind": "html"
+  },
+  {
+    "id": "2b3e0b52780464ded8dd",
+    "it": "13.16.3 · Scheda completa di un Modulo navale",
+    "kind": "html"
+  },
+  {
+    "id": "bd56a11628b4c16e6a0d",
+    "it": "Ogni Modulo navale deve indicare in modo esplicito:",
+    "kind": "html"
+  },
+  {
+    "id": "4bd202bc50ec32e6727a",
+    "it": "Nome · Slot · Attivazione · Bersaglio o sistema interessato · Valore numerico · Durata o frequenza · Eventuali consumi · Limitazioni",
+    "kind": "html"
+  },
+  {
+    "id": "68a5a1468ff28ed99455",
+    "it": "Formule come «+1 dado», «+iniziativa», «+cargo» o «fuga automatica» devono essere completate prima dell’utilizzo.",
+    "kind": "html"
+  },
+  {
+    "id": "1ec71c2bd1a3ebf42935",
+    "it": "Un bonus in dadi deve indicare quale dado viene aggiunto e a quale Prova.",
+    "kind": "html"
+  },
+  {
+    "id": "1ad24e4766a2f8c95ddd",
+    "it": "Un bonus al Cargo deve indicare quante Unità di Stiva vengono aggiunte.",
+    "kind": "html"
+  },
+  {
+    "id": "78179cb81cafea51014a",
+    "it": "Un bonus all’Iniziativa deve indicare il valore oppure il dado aggiunto.",
+    "kind": "html"
+  },
+  {
+    "id": "954915fc551839a12639",
+    "it": "Una Manovra automatica deve specificare quale Manovra sostituisce e quali condizioni continua a dover rispettare.",
+    "kind": "html"
+  },
+  {
+    "id": "74fa68015c890def0064",
+    "it": "«Fuga automatica», per esempio, significa che non è richiesta la normale Prova di Fuga; non permette di attraversare terraferma, una barriera fisica, una nave che blocca completamente il passaggio o un’altra condizione che renda materialmente impossibile allontanarsi.",
+    "kind": "html"
+  },
+  {
+    "id": "e8ad3f019611e42e2857",
+    "it": "<span class=\"man-sez-n\">13.17 ·</span> Il Cantiere",
+    "kind": "html"
+  },
+  {
+    "id": "b2cde68306f87fd88b3e",
+    "it": "Il Cantiere permette di riparare la nave e migliorarne le statistiche.",
+    "kind": "html"
+  },
+  {
+    "id": "41ecd9ecf647f4481f2c",
+    "it": "Le quattro statistiche vengono potenziate separatamente.",
+    "kind": "html"
+  },
+  {
+    "id": "fe8cba59123a7a31e592",
+    "it": "Il miglioramento richiede materiali, una Prova e una Soglia appropriata.",
+    "kind": "html"
+  },
+  {
+    "id": "e1edc6bdf715bea37182",
+    "it": "La Prova ordinaria utilizza:",
+    "kind": "html"
+  },
+  {
+    "id": "48180b0aed859b95ff46",
+    "it": "Prova di Cantiere",
+    "kind": "html"
+  },
+  {
+    "id": "a8031ccfb4fdf9541536",
+    "it": "Astuzia + Carpenteria",
+    "kind": "html"
+  },
+  {
+    "id": "93194af00b6f3cbceeb2",
+    "it": "I materiali necessari dipendono dalla statistica che viene migliorata e dal nuovo Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "0e45c20fc18eff235c62",
+    "it": "13.17.1 · Migliorare una statistica",
+    "kind": "html"
+  },
+  {
+    "id": "f7a758636b3a3812dced",
+    "it": "<b>Miglioramento</b>",
+    "kind": "html"
+  },
+  {
+    "id": "43883924a89f85f5e850",
+    "it": "Quando il progetto riesce, la statistica interessata aumenta di un gradino.",
+    "kind": "html"
+  },
+  {
+    "id": "3c8593f95098d71802e9",
+    "it": "Esempio: la ciurma vuole migliorare Vele da d6 a d8.",
+    "kind": "html"
+  },
+  {
+    "id": "cbda4479cfd7de31fb1a",
+    "it": "Il progetto richiede Soglia 10 e i materiali previsti per il nuovo Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "e561b0124f9f588eda53",
+    "it": "L'Ingegnere effettua Astuzia + Carpenteria.",
+    "kind": "html"
+  },
+  {
+    "id": "e3247374dcbde545df7c",
+    "it": "Se riesce, Vele passa a d8.",
+    "kind": "html"
+  },
+  {
+    "id": "202dbbbb318afd731ba1",
+    "it": "L'aumento non modifica automaticamente Scafo, Artiglieria o Struttura.",
+    "kind": "html"
+  },
+  {
+    "id": "257b4f5b5986af7ea6e0",
+    "it": "13.17.2 · Miglioramenti permanenti della nave",
+    "kind": "html"
+  },
+  {
+    "id": "671eee43b26ef89b8cd0",
+    "it": "Quando un Talento del Carpentiere modifica permanentemente una nave attraverso un lavoro strutturale, il beneficio appartiene alla nave, non al personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "e6c109b1c880b8de2a1d",
+    "it": "Una volta completato il lavoro:",
+    "kind": "html"
+  },
+  {
+    "id": "a67b46c9a23c44945317",
+    "it": "Il Carpentiere non deve rimanere a bordo perché il beneficio continui a funzionare.",
+    "kind": "html"
+  },
+  {
+    "id": "a7d5dedfe8865b192976",
+    "it": "Vendere la nave trasferisce anche i suoi miglioramenti.",
+    "kind": "html"
+  },
+  {
+    "id": "af8ba6366f017592bfec",
+    "it": "Cambiare nave non trasferisce automaticamente i miglioramenti sulla nuova.",
+    "kind": "html"
+  },
+  {
+    "id": "6d6f4426fe11912901a6",
+    "it": "La perdita o distruzione definitiva della nave comporta la perdita dei relativi miglioramenti.",
+    "kind": "html"
+  },
+  {
+    "id": "dfb97078083f3c0ea729",
+    "it": "Due personaggi che possiedono lo stesso Talento non possono applicare più volte alla stessa nave un beneficio che dichiara di essere unico.",
+    "kind": "html"
+  },
+  {
+    "id": "943e6e14fc33619a5c60",
+    "it": "Le statistiche navali mantengono il normale massimo di d12, salvo che una capacità dichiari espressamente di poterlo superare.",
+    "kind": "html"
+  },
+  {
+    "id": "70cd8b35e624b87d2ace",
+    "it": "Riparare o restaurare la stessa nave conserva normalmente i miglioramenti già installati. Se l’imbarcazione viene completamente ricostruita come una nave nuova, viene trattata come un nuovo scafo.",
+    "kind": "html"
+  },
+  {
+    "id": "5a4540fda314216eefd3",
+    "it": "<span class=\"man-sez-n\">13.18 ·</span> Riparazioni navali",
+    "kind": "html"
+  },
+  {
+    "id": "178b6946d811bdb62e50",
+    "it": "Le riparazioni possono riguardare lo scafo oppure un componente specifico.",
+    "kind": "html"
+  },
+  {
+    "id": "18087c8d4bf19e81358b",
+    "it": "La scheda dell'intervento indica ore, Soglia, materiali, risultato del successo e conseguenze di un fallimento grave.",
+    "kind": "html"
+  },
+  {
+    "id": "1a0a0d50d47d1f6e09ab",
+    "it": "13.18.1 · Riparare lo scafo",
+    "kind": "html"
+  },
+  {
+    "id": "0f0c302a48e4933c62d6",
+    "it": "<b>Intervento</b>",
+    "kind": "html"
+  },
+  {
+    "id": "a9988c2b86d622bde066",
+    "it": "<b>Ore</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e95a8849f665b0a3ddcd",
+    "it": "<b>Danno lieve, 1–10 PS</b>",
+    "kind": "html"
+  },
+  {
+    "id": "cedd213b1231956cfcc1",
+    "it": "<b>Condizione Danneggiata</b>",
+    "kind": "html"
+  },
+  {
+    "id": "6cd903b435d4d2ec222a",
+    "it": "<b>Condizione Grave</b>",
+    "kind": "html"
+  },
+  {
+    "id": "fdf8153b00737a5849ea",
+    "it": "<b>Condizione Critica</b>",
+    "kind": "html"
+  },
+  {
+    "id": "14396765644bd8b6d897",
+    "it": "La riparazione ordinaria richiede il lavoro e i materiali previsti.",
+    "kind": "html"
+  },
+  {
+    "id": "b1f00c6820dda3a51ff9",
+    "it": "Un danno lieve permette di recuperare i PS persi secondo la relativa scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "7f26ec7ef64ad50c3115",
+    "it": "Con margine +4, la riparazione del danno lieve recupera anche 2 PS aggiuntivi, senza superare il massimo.",
+    "kind": "html"
+  },
+  {
+    "id": "c4ddeba34545a6303653",
+    "it": "Per gli interventi sulle condizioni, la scheda indica il miglioramento dello stato e, quando previsto, recuperi aggiuntivi di PS.",
+    "kind": "html"
+  },
+  {
+    "id": "241c7e2647a9e6304426",
+    "it": "Il GM deve registrare PS e condizione in modo coerente, poiché quest'ultima deriva dalla percentuale di PS rimasti.",
+    "kind": "html"
+  },
+  {
+    "id": "a48a29791101623a0895",
+    "it": "13.18.2 · Riparare i componenti",
+    "kind": "html"
+  },
+  {
+    "id": "09ce767db0d62919df5e",
+    "it": "<b>Albero maestro</b>",
+    "kind": "html"
+  },
+  {
+    "id": "109d74a2b7189475827e",
+    "it": "Ripristina il dado pieno di Vele.",
+    "kind": "html"
+  },
+  {
+    "id": "c89616f6df419780a7e6",
+    "it": "<b>Timone</b>",
+    "kind": "html"
+  },
+  {
+    "id": "b3a7edaac2db787934aa",
+    "it": "Ripristina le normali manovre.",
+    "kind": "html"
+  },
+  {
+    "id": "94b5a91675840689e760",
+    "it": "<b>Batteria cannoni</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e43597810ebdb424d37d",
+    "it": "Ripristina il dado pieno di Artiglieria.",
+    "kind": "html"
+  },
+  {
+    "id": "4473c28d5293eddc88fd",
+    "it": "<b>Stiva</b>",
+    "kind": "html"
+  },
+  {
+    "id": "69b4ccc3936cdfceb110",
+    "it": "Interrompe le conseguenze della stiva danneggiata.",
+    "kind": "html"
+  },
+  {
+    "id": "8898e536ae4705f76230",
+    "it": "<b>Sala macchine</b>",
+    "kind": "html"
+  },
+  {
+    "id": "03a55c9c16fe44e86339",
+    "it": "Ripristina il movimento normale.",
+    "kind": "html"
+  },
+  {
+    "id": "e238fae7563b0584fa5b",
+    "it": "<b>Scafo sotto la linea</b>",
+    "kind": "html"
+  },
+  {
+    "id": "de924ec90e2db3ac0313",
+    "it": "Ripristina il massimo ordinario dei PS.",
+    "kind": "html"
+  },
+  {
+    "id": "d700c1555b410a60e6ae",
+    "it": "I materiali richiesti sono indicati nella scheda di riparazione del Portale della Nave.",
+    "kind": "html"
+  },
+  {
+    "id": "a76385022b2204a01e50",
+    "it": "Un fallimento grave può peggiorare il danno: per esempio, una riparazione fallita alla batteria dei cannoni può provocare un'esplosione che infligge 1d6 PS alla nave.",
+    "kind": "html"
+  },
+  {
+    "id": "aa9b92a08b536515eaa4",
+    "it": "Le conseguenze dipendono dall'intervento specifico.",
+    "kind": "html"
+  },
+  {
+    "id": "b9ec82887d46f51a5d17",
+    "it": "<span class=\"man-sez-n\">13.19 ·</span> I Talenti degli Ingegneri in battaglia navale",
+    "kind": "html"
+  },
+  {
+    "id": "1a8098f9fe56343cbe41",
+    "it": "I Talenti degli Ingegneri possono modificare radicalmente la capacità della nave di resistere ai danni.",
+    "kind": "html"
+  },
+  {
+    "id": "35aecc08bd695c3543a3",
+    "it": "<b>Riparazione d'Emergenza</b>",
+    "kind": "html"
+  },
+  {
+    "id": "c4765479fa355b412a3f",
+    "it": "Con la manovra Riparazione d'Emergenza la nave recupera 1 Dado Carpenteria in PS.",
+    "kind": "html"
+  },
+  {
+    "id": "a805cd0b9289d1e69722",
+    "it": "<b>Mani sul Legno · Base</b>",
+    "kind": "html"
+  },
+  {
+    "id": "2206a34f1ed21a76c56f",
+    "it": "Le Riparazioni d'Emergenza recuperano +1 Dado Carpenteria in PS.",
+    "kind": "html"
+  },
+  {
+    "id": "d9ee546fcd4a79231e3a",
+    "it": "<b>Mani sul Legno · Migliorato</b>",
+    "kind": "html"
+  },
+  {
+    "id": "6da440dcfba60ea33b7b",
+    "it": "Con la stessa Azione ripari lo scafo e un Modulo danneggiato.",
+    "kind": "html"
+  },
+  {
+    "id": "e0c03ec561fb5c5c733b",
+    "it": "<b>Mani sul Legno · Maestria</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7219cb6dd49ab229d623",
+    "it": "Una volta per battaglia ripristini un Modulo distrutto.",
+    "kind": "html"
+  },
+  {
+    "id": "f671f415221cf605c1b8",
+    "it": "<b>Scafo Rinforzato</b>",
+    "kind": "html"
+  },
+  {
+    "id": "dc81d36ee3cde76cbed9",
+    "it": "I Dadi Danno delle cannonate subite dalla nave scendono di un gradino.",
+    "kind": "html"
+  },
+  {
+    "id": "d6f52946a2548f5d915d",
+    "it": "<b>Cantiere Viaggiante</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7a6292dd295da56466aa",
+    "it": "Ripari e potenzi la nave in mare aperto, in metà tempo.",
+    "kind": "html"
+  },
+  {
+    "id": "e1674ea84c3638b6a2dc",
+    "it": "<b>Maestro dei Moduli</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e1cd081c570e492965bb",
+    "it": "La nave ottiene uno slot Modulo aggiuntivo.",
+    "kind": "html"
+  },
+  {
+    "id": "23d590676bd38c62ffbf",
+    "it": "Questi benefici richiedono il possesso dei rispettivi Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "9bff77b0440eb6841b05",
+    "it": "L'Ingegnere non li ottiene automaticamente soltanto perché occupa la postazione tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "f040290d30bed3172f9b",
+    "it": "<span class=\"man-sez-n\">13.20 ·</span> L'arrembaggio",
+    "kind": "html"
+  },
+  {
+    "id": "253396728361672e1640",
+    "it": "Quando le navi raggiungono la fascia Accostati, la ciurma può tentare di salire a bordo dell'imbarcazione nemica.",
+    "kind": "html"
+  },
+  {
+    "id": "1c5d525520b774418379",
+    "it": "L'arrembaggio collega il combattimento navale al combattimento personale.",
+    "kind": "html"
+  },
+  {
+    "id": "c78f0443bb47ff3d9f6e",
+    "it": "I personaggi utilizzano le regole del Capitolo 6 una volta iniziato lo scontro sui ponti.",
+    "kind": "html"
+  },
+  {
+    "id": "5c1e679f20431f2f7068",
+    "it": "13.20.1 · Preparare l'arrembaggio",
+    "kind": "html"
+  },
+  {
+    "id": "735e065b8049d82a37d4",
+    "it": "La ciurma deve creare una possibilità concreta di passaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "2cc6fe89dc991048ed4b",
+    "it": "Può avvicinarsi, utilizzare rampini oppure sfruttare un Modulo appropriato.",
+    "kind": "html"
+  },
+  {
+    "id": "a4117431bac9a2fafb14",
+    "it": "Gli Arpioni d'abbordaggio concedono +1 dado all'arrembaggio e permettono di trattenere la nave nemica.",
+    "kind": "html"
+  },
+  {
+    "id": "729ed9fbe81ff6d6ace0",
+    "it": "Il Talento Ponte d'Arrembaggio del Carpentiere permette invece di predisporre passerelle e rampini attraverso un'Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "02e88c68acaf62c25f35",
+    "it": "La ciurma può attraversarli senza effettuare tiri e senza provocare attacchi di Reazione durante il passaggio previsto dal Talento.",
+    "kind": "html"
+  },
+  {
+    "id": "2be674287fe340d0e61d",
+    "it": "13.20.2 · Combattimento sui ponti",
+    "kind": "html"
+  },
+  {
+    "id": "4485bf211a7d545ab45f",
+    "it": "Una volta a bordo, ogni personaggio utilizza le normali regole personali.",
+    "kind": "html"
+  },
+  {
+    "id": "9d7cf44b988164e7abcd",
+    "it": "Il Movimento dipende dalla Razza, non dal dado Vele.",
+    "kind": "html"
+  },
+  {
+    "id": "7101119c955eaac6736f",
+    "it": "Un pirata può utilizzare Tecniche, Talenti, Haki e Special Moves rispettando la propria economia delle Azioni.",
+    "kind": "html"
+  },
+  {
+    "id": "26cd39d11d307a8fb8a5",
+    "it": "La manovra navale non concede automaticamente un'Azione aggiuntiva a ogni combattente.",
+    "kind": "html"
+  },
+  {
+    "id": "e1891d1029a62f0c530a",
+    "it": "Il GM gestisce la sequenza tra le azioni della nave e quelle dei personaggi in base alla situazione.",
+    "kind": "html"
+  },
+  {
+    "id": "490540aed971672755d3",
+    "it": "<span class=\"man-sez-n\">13.21 ·</span> Ordine del combattimento navale",
+    "kind": "html"
+  },
+  {
+    "id": "82e9280c0ac61728371e",
+    "it": "Quando due navi si affrontano, il combattimento viene organizzato in round navali.",
+    "kind": "html"
+  },
+  {
+    "id": "00f7e6f0242e2f011ec1",
+    "it": "Ogni nave possiede un proprio turno e può effettuare normalmente una manovra per round. I Talenti e i Moduli che concedono espressamente manovre aggiuntive costituiscono un'eccezione.",
+    "kind": "html"
+  },
+  {
+    "id": "dddc2330f762838972b1",
+    "it": "13.21.1 · Iniziativa navale",
+    "kind": "html"
+  },
+  {
+    "id": "ddfb894bd0b25f6771a0",
+    "it": "All'inizio dello scontro, il Timoniere di ogni nave effettua un tiro:",
+    "kind": "html"
+  },
+  {
+    "id": "0ad2c5f8ecbb138f1d08",
+    "it": "Iniziativa della nave",
+    "kind": "html"
+  },
+  {
+    "id": "cd43002efa659de83e60",
+    "it": "La nave con il risultato più alto agisce per prima.",
+    "kind": "html"
+  },
+  {
+    "id": "64ee83b5e7f842bc4c0b",
+    "it": "Questa formula utilizza le caratteristiche già associate all'iniziativa e alle manovre navali.",
+    "kind": "html"
+  },
+  {
+    "id": "5d7ac7b56c5ff4feea60",
+    "it": "In caso di parità, il GM stabilisce quale nave agisce per prima considerando la posizione e la situazione iniziale. Non è previsto un modificatore numerico aggiuntivo.",
+    "kind": "html"
+  },
+  {
+    "id": "9c91bd4c15278e1ec139",
+    "it": "L'ordine rimane invariato durante lo scontro, salvo effetti specifici.",
+    "kind": "html"
+  },
+  {
+    "id": "909bc5f14ac1c0fadf7f",
+    "it": "13.21.2 · Il turno della nave",
+    "kind": "html"
+  },
+  {
+    "id": "a7c8b46cb5f69ba9e00a",
+    "it": "Durante il proprio turno, la ciurma sceglie una manovra e assegna la sua esecuzione alla postazione appropriata.",
+    "kind": "html"
+  },
+  {
+    "id": "b23dcaac89780b99044b",
+    "it": "La procedura è la seguente:",
+    "kind": "html"
+  },
+  {
+    "id": "56d184dc044e2d090d06",
+    "it": "Dichiarare la manovra. La ciurma sceglie Cannonate, Manovra Evasiva, Speronamento, Fuga oppure Riparazione d'Emergenza.",
+    "kind": "html"
+  },
+  {
+    "id": "d7a027f77f7584f9addc",
+    "it": "Individuare la postazione. Il personaggio incaricato utilizza l'Attributo richiesto.",
+    "kind": "html"
+  },
+  {
+    "id": "6a6f776ffb9841269ef7",
+    "it": "Effettuare il tiro. Si sommano il dado della statistica navale e quello dell'Attributo, applicando gli eventuali bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "f0d86b2631cc3da6b616",
+    "it": "Risolvere l'effetto. Si applicano danni, spostamenti, riparazioni o altri risultati previsti.",
+    "kind": "html"
+  },
+  {
+    "id": "f771889a8f5bb0e30b01",
+    "it": "Passare alla nave successiva. La ciurma attende il prossimo round per scegliere un'altra manovra, salvo eccezioni.",
+    "kind": "html"
+  },
+  {
+    "id": "a85cad2cdf7c74bdd99c",
+    "it": "La presenza di più personaggi alle postazioni non concede una manovra aggiuntiva a ciascuno.",
+    "kind": "html"
+  },
+  {
+    "id": "8cd0baee71214db73204",
+    "it": "Un Cannoniere e un Timoniere possono essere entrambi pronti, ma la nave sceglie normalmente una sola manovra.",
+    "kind": "html"
+  },
+  {
+    "id": "6dbb069dd372b0db6285",
+    "it": "Eccezione: Timoniere Nato · Maestria permette di manovrare e sparare nello stesso turno senza penalità. Altre capacità possono concedere ulteriori eccezioni secondo la propria descrizione.",
+    "kind": "html"
+  },
+  {
+    "id": "fb69d671e6e61d6c12cc",
+    "it": "13.21.3 · Combattimento misto",
+    "kind": "html"
+  },
+  {
+    "id": "5d61404ac8602e0282eb",
+    "it": "Quando le navi combattono a distanza e nessun personaggio è direttamente coinvolto in uno scontro personale, si utilizza normalmente il turno della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "dc7cdd329b52e3a97250",
+    "it": "Quando iniziano contemporaneamente:",
+    "kind": "html"
+  },
+  {
+    "id": "7b17e17e425a20df397b",
+    "it": "Arrembaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "be379643d8a5d5318faa",
+    "it": "Combattimenti sul ponte.",
+    "kind": "html"
+  },
+  {
+    "id": "3efb1f86842ee6a0b679",
+    "it": "Spostamenti fra navi.",
+    "kind": "html"
+  },
+  {
+    "id": "35d4119ddfd421962b28",
+    "it": "Attacchi personali contro equipaggi o strutture.",
+    "kind": "html"
+  },
+  {
+    "id": "0328fd619bb5f636ffff",
+    "it": "la scena passa a una Iniziativa personale comune.",
+    "kind": "html"
+  },
+  {
+    "id": "74d3fde0d72318802e37",
+    "it": "Tutti i personaggi effettuano normalmente <b>Tecnica + Astuzia</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "85fb991a722cb396ea33",
+    "it": "Ogni round di combattimento personale conta anche come un round navale.",
+    "kind": "html"
+  },
+  {
+    "id": "88629c291d8c581ee8a6",
+    "it": "All’interno di quel round ogni nave conserva normalmente 1 Manovra navale, più eventuali Manovre aggiuntive concesse da Talenti o Moduli.",
+    "kind": "html"
+  },
+  {
+    "id": "e1201cff45a9e508024c",
+    "it": "Una Manovra viene eseguita durante il turno personale del personaggio che occupa la postazione appropriata e utilizza la sua Azione principale.",
+    "kind": "html"
+  },
+  {
+    "id": "63ef2377cb3572af8e20",
+    "it": "Il personaggio non riceve un’Azione aggiuntiva perché sta operando una postazione.",
+    "kind": "html"
+  },
+  {
+    "id": "881951e655d38ea6644d",
+    "it": "Effetti che durano «un turno» o «un round», compreso Haki, Stati e mantenimenti, utilizzano il normale round personale.",
+    "kind": "html"
+  },
+  {
+    "id": "4bfa9df33151bf9ec776",
+    "it": "Una capacità che permette di saltare, muoversi o intervenire fra due navi viene quindi risolta nel normale turno del personaggio oppure attraverso la Reazione indicata dalla capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "14e074fe045d0ff33e49",
+    "it": "Per navi controllate principalmente da PNG, il Game Master può utilizzare un unico turno dell’equipaggio per risolvere la Manovra navale senza dover assegnare una Iniziativa individuale a ogni marinaio.",
+    "kind": "html"
+  },
+  {
+    "id": "88f39c95ad8ea4cb8706",
+    "it": "<span class=\"man-sez-n\">13.22 ·</span> Avvicinamento e inseguimento",
+    "kind": "html"
+  },
+  {
+    "id": "acacc191835c7f476088",
+    "it": "Una battaglia navale non è necessariamente uno scambio statico di cannonate.",
+    "kind": "html"
+  },
+  {
+    "id": "37e7378f21f958bea15c",
+    "it": "Una nave può tentare di raggiungerne un'altra per abbordarla. Un'altra può cercare di sottrarsi al combattimento, sfruttando il vento e la propria manovrabilità.",
+    "kind": "html"
+  },
+  {
+    "id": "a269b61a808c108db379",
+    "it": "Le distanze vengono rappresentate attraverso le quattro fasce navali.",
+    "kind": "html"
+  },
+  {
+    "id": "a0a760462c2a0fd1b694",
+    "it": "Fasce di distanza",
+    "kind": "html"
+  },
+  {
+    "id": "13329ecdd7897aa85cc4",
+    "it": "Accostati · 0–20 m<br>Le navi sono sufficientemente vicine per tentare l'arrembaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "0a654362df0ca0d2d83f",
+    "it": "Sotto tiro · Fino a 200 m<br>Le cannonate possono essere effettuate a distanza ordinaria.",
+    "kind": "html"
+  },
+  {
+    "id": "b5900ac559ece4357943",
+    "it": "In vista · Fino a 600 m<br>Le cannonate richiedono maggiore precisione.",
+    "kind": "html"
+  },
+  {
+    "id": "12fedb445cb858970e8a",
+    "it": "All'orizzonte · Oltre 600 m<br>Le navi sono distanti. La scena è principalmente un inseguimento.",
+    "kind": "html"
+  },
+  {
+    "id": "5cf57a63a896d67ccbf9",
+    "it": "13.22.1 · Cambiare fascia",
+    "kind": "html"
+  },
+  {
+    "id": "f1e99101180f121bfc0b",
+    "it": "Una manovra di movimento riuscita permette normalmente di modificare la distanza di una fascia.",
+    "kind": "html"
+  },
+  {
+    "id": "4430e800b2a5f0becc40",
+    "it": "Una nave che si avvicina può passare da In vista a Sotto tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "f9918b660f875008751d",
+    "it": "Una nave che fugge può passare da Sotto tiro a In vista.",
+    "kind": "html"
+  },
+  {
+    "id": "faeeed223098f6842618",
+    "it": "La manovra non permette di attraversare automaticamente più fasce nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "5578e19e065a8326bd26",
+    "it": "Un Talento o un Modulo può modificare questo limite quando lo prevede espressamente.",
+    "kind": "html"
+  },
+  {
+    "id": "da938e2d3aef98ee24e3",
+    "it": "13.22.2 · Inseguimento tra due navi",
+    "kind": "html"
+  },
+  {
+    "id": "84e8c0cb4748552da378",
+    "it": "Quando una nave tenta di fuggire e l'altra vuole impedirglielo, entrambe effettuano una Prova contrapposta:",
+    "kind": "html"
+  },
+  {
+    "id": "bb077ad53d27c30890aa",
+    "it": "<b>Vele + Astuzia</b>",
+    "kind": "html"
+  },
+  {
+    "id": "5e127ae2269b0ed1108f",
+    "it": "La nave in fuga utilizza il proprio Timoniere. L'inseguitrice utilizza il proprio Timoniere per mantenere il contatto.",
+    "kind": "html"
+  },
+  {
+    "id": "4c31ea0d2908a2ccd169",
+    "it": "Il risultato più alto determina chi riesce a imporre la propria manovra.",
+    "kind": "html"
+  },
+  {
+    "id": "6b884209fa898724f3da",
+    "it": "<b>Vince la nave in fuga</b>",
+    "kind": "html"
+  },
+  {
+    "id": "025dc40779c67a3f7069",
+    "it": "La distanza aumenta di una fascia.",
+    "kind": "html"
+  },
+  {
+    "id": "02e87453695b9274c6e9",
+    "it": "<b>Vince l'inseguitrice</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f866bd0201027621ea80",
+    "it": "La fuga viene impedita; la distanza non aumenta.",
+    "kind": "html"
+  },
+  {
+    "id": "19bd9cadb683c0e0df5a",
+    "it": "<b>Parità</b>",
+    "kind": "html"
+  },
+  {
+    "id": "80a2f76c76cbb8978a90",
+    "it": "Le navi mantengono la fascia attuale.",
+    "kind": "html"
+  },
+  {
+    "id": "cbb35c64abf8b5ff3b2e",
+    "it": "Questa procedura rende esplicita la risoluzione delle manovre contrapposte, che non aveva ancora una formula dedicata.",
+    "kind": "html"
+  },
+  {
+    "id": "66219205e9f06016c3cd",
+    "it": "Cannonata d'opportunità",
+    "kind": "html"
+  },
+  {
+    "id": "6ee7eab5f9a5d0541443",
+    "it": "Se la Fuga fallisce, la nave inseguitrice ottiene la cannonata d'opportunità prevista dalla manovra.",
+    "kind": "html"
+  },
+  {
+    "id": "1a82477814f5ee35a179",
+    "it": "La cannonata può essere effettuata soltanto se la nave nemica si trova a una distanza raggiungibile dall'Artiglieria.",
+    "kind": "html"
+  },
+  {
+    "id": "0a0a1b9cae224915cce8",
+    "it": "La cannonata d'opportunità non permette di colpire automaticamente una nave ormai fuori portata.",
+    "kind": "html"
+  },
+  {
+    "id": "2f34b3b79c2fe1628042",
+    "it": "13.22.3 · Terminare un inseguimento",
+    "kind": "html"
+  },
+  {
+    "id": "31712ef40d8470f7d5a7",
+    "it": "Raggiungere la fascia All'orizzonte non conclude necessariamente l'inseguimento: le due navi potrebbero ancora vedersi.",
+    "kind": "html"
+  },
+  {
+    "id": "722f23045540931b3926",
+    "it": "Il GM determina quando il contatto viene definitivamente perso, considerando visibilità, condizioni del mare, strumenti di navigazione e possibilità reali di proseguire.",
+    "kind": "html"
+  },
+  {
+    "id": "4e1085669153b527c936",
+    "it": "Non è previsto un numero fisso di round necessario per scomparire all'orizzonte.",
+    "kind": "html"
+  },
+  {
+    "id": "098a320a254397917338",
+    "it": "Una nave immobilizzata non può guadagnare distanza attraverso una normale manovra di Fuga. Se la Sala macchine è distrutta o un altro danno impedisce il movimento attivo, la ciurma deve risolvere prima quel problema oppure sfruttare una capacità che permetta espressamente di muoversi.",
+    "kind": "html"
+  },
+  {
+    "id": "4b514d0365dd02ec7919",
+    "it": "<span class=\"man-sez-n\">13.23 ·</span> Affondamento e salvataggio",
+    "kind": "html"
+  },
+  {
+    "id": "c4434c5ff9b21a354ec3",
+    "it": "Quando la nave raggiunge 0 Punti Struttura, entra nello stato Affondata.",
+    "kind": "html"
+  },
+  {
+    "id": "cd83f4e09d77ce4c2c6b",
+    "it": "Non può più continuare normalmente la navigazione o il combattimento.",
+    "kind": "html"
+  }
+]

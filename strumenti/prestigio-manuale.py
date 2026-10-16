@@ -150,6 +150,8 @@ head=base_head+'<link rel="stylesheet" href="prestigio.css?v=2">\n<script src="r
 out=head+shell+'\n</body>\n</html>\n'
 from manuale_copertine import applica_copertina
 out = applica_copertina(out, 'prestigio')
+from localizzazione import install_language
+out = install_language(out, 'manuale-prestigio')
 
 # Exact normative-text check, independent of the heading/list/table markup.
 class SourceText(HTMLParser):

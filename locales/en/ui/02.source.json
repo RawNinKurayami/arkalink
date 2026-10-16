@@ -1,0 +1,878 @@
+[
+  {
+    "id": "2d2dd57f9bc2da40707f",
+    "it": "come Azione spendi 1 ST e scegli una zona entro la tua gittata: fino all'inizio del tuo prossimo turno, il primo nemico che si muove allo scoperto in quella zona può essere bersagliato con un attacco a distanza come Reazione.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "aac49774cde308c009d3",
+    "it": "Tiro Lungo — Maestria",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5a73353d85aa66533e2b",
+    "it": "puoi attaccare a gittata estrema, fin dove esiste una linea di vista plausibile.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b30f1450feb6a84d77c4",
+    "it": "su colpo pulito (+4), il −2 alla Difesa Passiva della Firma vale per chiunque attacchi quel bersaglio, fino alla fine del tuo prossimo turno.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "993a80feae622eff3152",
+    "it": "1×/turno, quando un nemico che stai osservando dichiara un'Azione puoi attaccarlo come Reazione prima che la completi. Se colpisci, quell'Azione avviene in Svantaggio.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "71c23da6b9a3973a086c",
+    "it": "spendi 2 ST per tentare traiettorie anomale — rimbalzi, feritoie, angoli — o bersagli fuori dalla linea di vista diretta, se esiste un percorso plausibile.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0aedfc976b37e93c819d",
+    "it": "1×/scontro, 2 ST: se il prossimo attacco va a segno conta automaticamente come colpo pulito (+4).",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "cd811ed978a06e414844",
+    "it": "1×/scontro, 5 ST, solo col permesso del GM. Scegli un singolo bersaglio ed effettui 3 tiri per colpire separati, ognuno con Attributo + Grado dell’arma; ogni colpo riuscito infligge 2 Dadi Arma, fino a 6 complessivi. Prima di ciascun colpo puoi cambiare il proiettile con una munizione compatibile che possiedi, senza Azione né ST aggiuntiva: i suoi effetti si applicano normalmente. Ogni colpo può mirare a un punto specifico senza rinunciare ai 2 Dadi Danno. Non applica altre Tecniche, Talenti, Firma dello Stile o effetti speciali dell’arma; gli effetti delle munizioni sono l’eccezione espressamente prevista.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a644d56f84ea99930b57",
+    "it": "Arsenale Unico — cyborg o inventore con armi non convenzionali, concordate col Capitano. Nessun altro combatte con quello con cui combatte lui.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "04200dbb07ad0710cf00",
+    "it": "Il modulo si scatena — sul +4 scateni l'effetto del tuo modulo: esplosione, stato, scarica.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "eaea4d53dfa961c65e58",
+    "it": "Arsenale Modulare — Base",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5122073863792a51a64a",
+    "it": "un set di moduli concordati: ne usi uno come Tecnica e li cambi liberamente. 2 moduli.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5dbe0f0c13da5319f6ef",
+    "it": "Cambio Rapido",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "452388700dcd8e5b4181",
+    "it": "cambiare modulo non ti costa l'azione: lo fai una volta per turno, anche in mezzo a una sequenza di colpi.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ab354d25c39f7df53acd",
+    "it": "Innesto Corporeo",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "46d1eb1ffb17468810b8",
+    "it": "i tuoi moduli sono parte di te: non puoi essere disarmato e nessuno te li porta via mentre dormi. Il rovescio: non puoi prestarli a nessuno, e passare un controllo è complicato.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e3ab8765d5ee0c7b99a1",
+    "it": "Modulo di Protezione",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "891eb4f70073b021dea8",
+    "it": "uno dei tuoi moduli può essere schierato in difesa: come reazione riduci di un dado i danni di un attacco che colpisce te o un alleato entro 5 metri.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "19432a3faa4d38c6277d",
+    "it": "Arsenale Modulare — Migliorato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "d2be5446d71238cf3290",
+    "it": "3 moduli.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "2cdd54367ed3a0fb02bf",
+    "it": "Congegno Tattico",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c05cd565250f4fdebedc",
+    "it": "come azione piazzi un congegno in una zona — torretta, mina, rete, barriera — che resta attivo qualche turno e agisce da solo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e8a4cea9b05c67e9195c",
+    "it": "Doppio Innesco",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "eff519754eebf872e00a",
+    "it": "spendendo 2 ST usi due moduli nella stessa azione: un tiro per colpire, ma entrambi gli effetti si applicano se va a segno.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7521320dcf6077cc7729",
+    "it": "Portata Amplificata",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7b68fd07ea80f5b39d3f",
+    "it": "raddoppia la gittata di qualsiasi modulo a distanza, e quelli da contatto raggiungono 5 metri.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "3c44e45e5e19df369b7e",
+    "it": "Arsenale Modulare — Maestria",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "79e897f3bd4680d5cc71",
+    "it": "4 moduli.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "619cce92ea0ef3ff8276",
+    "it": "Bombardamento ad Area",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "81790e6040d7396e7408",
+    "it": "quando scatta la Firma l'effetto investe un'intera zona: tutti i nemici raggruppati. L'unico vero attacco ad area fra gli Stili.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0111f8670745820a6909",
+    "it": "Congegni Multipli",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "48981de4650ffa709f19",
+    "it": "puoi tenere due congegni attivi contemporaneamente, e spostarne uno già piazzato come parte del tuo movimento.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e9281c7223272c0360e9",
+    "it": "Scarica a Catena",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "20f1c72b21bf2419caf9",
+    "it": "l'effetto di un tuo modulo salta a un secondo bersaglio entro 5 metri dal primo, a metà potenza. Con Bombardamento ad Area il salto parte dal bordo della zona.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e00b4cd510fb4bf05421",
+    "it": "Autoriparazione",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "2a138929498ab7d24b51",
+    "it": "1×/scontro, come azione, rimetti a posto ciò che si è rotto: recuperi 1d8 PV e un modulo danneggiato torna operativo. Senza parti meccaniche nel corpo funziona sull'equipaggiamento: stessa resa, altra scena.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "12de57d1db02647a3bef",
+    "it": "Pieno Regime",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "8af54fdc5810b4704524",
+    "it": "scateni tutto l'arsenale in un turno: un tiro per colpire e un tiro di Danno per ciascun modulo che possiedi.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "bd2f1cdb04785296a016",
+    "it": "La Corsia — sei l'unico a bordo che fa vere Cure da Campo. Chiunque abbia Medicina presta primo soccorso, fa diagnosi, stabilizza e usa strumenti e preparati medici; restituire PV con una cura spetta a te. Cura da Campo: azione, paziente che raggiungi fisicamente, materiale medico e Astuzia + Medicina contro Soglia 8; se riesce, un tiro completo di Medicina dice quanti PV recupera, mai oltre il massimo. Una per paziente per scontro; chi è a 0 PV e torna sopra si rialza cosciente. Sui Cyborg non funziona.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f37a1a0e8f215965cbd6",
+    "it": "La mano che non trema — con margine +4 nella Prova di una Cura da Campo riuscita, il paziente recupera anche 1d6 ST e si libera da uno Stato negativo rimovibile a scelta. Conta il margine della Prova, non il tiro dei PV.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "423f8f76e5c90db19257",
+    "it": "cercando ingredienti medici, aggiungi il dado Medicina al Reperimento (Astuzia + Esplorazione + Medicina).",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "71497128a2de7ce6ec01",
+    "it": "stabilizzando con successo un compagno a 0 PV gli ridai anche 1d4 PV: se torna sopra 0 è cosciente. Resta una Stabilizzazione, non una Cura da Campo, e non consuma il limite del paziente.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "098e003eea49cbee367d",
+    "it": "Mani da Chirurgo — Base",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0373f81ef02650354a0c",
+    "it": "quando una tua Cura da Campo riesce aggiungi un dado Medicina ai PV recuperati. Vale solo sul recupero, non sulla Prova.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ac51c03423e81bdf2248",
+    "it": "come azione studi un nemico vivente e tiri Medicina contro la sua Difesa Passiva: se riesci il GM ti rivela una sua debolezza, e il primo alleato che sfrutta quell'informazione nello stesso scontro tira con Vantaggio.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "70364c488cbaea99bcf5",
+    "it": "quando una tua Cura da Campo riesce il paziente recupera anche 1d6 ST, dopo i PV.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "663c342bd8c63128423f",
+    "it": "lo stesso compagno può ricevere le tue Cure da Campo due volte per scontro invece di una; ogni intervento chiede la sua azione, la sua Prova e i suoi materiali.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "53c77b616fd78db7dcef",
+    "it": "Mani da Chirurgo — Migliorato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "42afba9321c5277b01b0",
+    "it": "con la stessa azione fai una Cura da Campo su due compagni che raggiungi fisicamente: Prova e PV separati, materiali per entrambi, e ciascuno consuma il proprio utilizzo dello scontro.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "53a725bacbe81309f383",
+    "it": "come reazione, quando un compagno ancora in vita entro 5 metri scende a 0 PV lo raggiungi e lo stabilizzi. Lo spostamento fa parte della reazione, ma il percorso dev'essere praticabile e devi arrivare fisicamente a lui: niente cure attraverso muri, porte chiuse o grate. Con Specialista in Rianimazione gli ridai anche 1d4 PV; non consuma il limite delle Cure da Campo. 1×/scontro.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b7519eab75e3e99dfc25",
+    "it": "Mani da Chirurgo — Maestria",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "1c468bca99cdb68ec125",
+    "it": "quando una tua Cura da Campo riesce rimuovi anche uno Stato negativo rimovibile dal paziente. Non elimina la causa fisica, ambientale o chimica che continua ad applicarlo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "fba3aacc00d1f2fb0515",
+    "it": "conosci il corpo meglio di chi lo usa: i tuoi attacchi in mischia contro creature viventi possono colpire un punto nervoso e il bersaglio subisce Sbilanciato oltre al danno. 1×/scontro, richiede un colpo andato a segno.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a55755f84907aec9748c",
+    "it": "dal fiato e dalla postura capisci quanto è ferito un nemico che vedi (illeso, segnato, grave, sul punto di cedere): nessun tiro, nessuna azione. E quando uno sta per crollare lo vedi prima: il primo alleato che lo attacca in quel round tira con Vantaggio.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "d1d5e79c12844bc78061",
+    "it": "con tempo, luce e una superficie pulita tratti le Conseguenze Persistenti fisiche: fratture, proiettili o corpi estranei, ferite profonde, lesioni che una Cura da Campo non risolve. Se l'esito è incerto, Astuzia + Medicina contro la Soglia della Conseguenza (o una normale Soglia del GM). Non rigenera parti del corpo perdute e non cura malattie o veleni.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "aa7e3bdd98d61e4d74a2",
+    "it": "finché sei sulla nave e in salute, un riposo breve sotto la tua sorveglianza riporta PV e ST della ciurma ai massimi, come il recupero di un riposo lungo. Dopo il recupero aggiungi 2 ST, spendibili anche oltre il normale massimo senza aumentarlo permanentemente. Non ripristina le capacità che richiedono un riposo lungo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5db91e58d3e93f9460f0",
+    "it": "1×/scena, 5 ST: tutti gli alleati entro 10 metri recuperano PV pari al doppio del proprio Dado Vita e si liberano da tutti gli Stati negativi rimovibili; un compagno a 0 PV si rialza con metà dei propri PV massimi. Non spezza vincoli fisici, non neutralizza sostanze ancora attive e non toglie Conseguenze Persistenti. Richiede l'Ambizione del Dottore e il permesso del GM.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f2b65245e277ea7ab485",
+    "it": "Il Laboratorio — prepari, riconosci e usi veleni, sedativi e antidoti, sempre in dosi. Ogni sostanza ha la sua scheda: Soglia, effetto, durata, via di esposizione (ferita, contatto, inalazione, ingestione) e trattamento. Applicare una dose a un'arma, un proiettile, un dardo o del cibo: azione, Astuzia + Medicina contro Soglia 8; se fallisci la dose è persa. Poi l'attacco va risolto normalmente e il bersaglio tira la Salvezza (di norma Forza contro la Soglia del veleno). Ripetere la stessa sostanza ne rinnova la durata, le riduzioni sullo stesso Attributo non si sommano e nessuna tossina porta un Attributo sotto d4.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5571256ec32d3bae0cbe",
+    "it": "La dose giusta — con margine +4 nella Prova di Medicina con cui applichi una tossina o un sedativo, la prima Salvezza contro quella dose si tira con Svantaggio. Non cambia effetti, Stati, durata o Attributi; se la dose non viene usata entro la scena, il beneficio svanisce.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e543832eed844cf9dc12",
+    "it": "Vantaggio a qualsiasi estrazione di veleno.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7e7fd45ea37fe7139d61",
+    "it": "la Soglia delle Salvezze contro i tuoi sedativi sale di +2. Vale solo per le sostanze classificate come Sedativi.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "45510c24111e5dde2f9c",
+    "it": "Tossine Raffinate — Base",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "fd529bb9f324a660eeca",
+    "it": "la Soglia delle Salvezze contro i tuoi veleni sale di +2.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "4a46d39c431ffed0fe84",
+    "it": "come Azione Bonus intingi una dose in un’arma, una munizione o un altro vettore (Astuzia + Medicina contro Soglia 8). Una Tecnica si avvelena solo se passa davvero per un’arma, un proiettile o un ago: un pugno o un’onda d’urto no. Il primo colpo compatibile a segno espone il bersaglio e consuma la dose; se manchi, la dose resta sul vettore. Al massimo due vettori intinti contemporaneamente per scontro.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "1ae432bf32f596787f31",
+    "it": "dimezzi la Soglia per preparare l'antidoto di un veleno che hai già identificato. Identificarlo e preparare l'antidoto restano due passaggi distinti.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "41236adbe8ed4649f68c",
+    "it": "sei immune alle sostanze classificate come Veleno: le riconosci al gusto e le maneggi senza subirne gli effetti. Non copre sedativi che non siano anche Veleno, acidi, malattie, gas che agiscono solo fisicamente o oscurano la vista, né farmaci e preparati benefici.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b88dd39a99c580ae4922",
+    "it": "Tossine Raffinate — Migliorato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f22b3fc1bec18366d712",
+    "it": "raddoppia la durata numerica dei tuoi veleni (2 turni diventano 4). Non tocca durate come «per la scena» o «fino all'antidoto».",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e764115f62e555a4c1a8",
+    "it": "come azione, entro 10 metri: un dardo con una dose di Sedativo (via ferita), senza arma separata e senza tiro per colpire, ma con una traiettoria libera. Il bersaglio tira Forza contro la Soglia del Sedativo: se fallisce dorme fino a 10 round o finché subisce danni, senza ritentare la Salvezza a ogni turno. La dose si consuma comunque. Non fa rumore, non lascia morti. 1×/scontro.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f635b2ff16290cf4ed77",
+    "it": "Tossine Raffinate — Maestria",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "eab6c7fca6129fa15879",
+    "it": "chi fallisce la Salvezza contro un tuo veleno perde anche un gradino in un Attributo a tua scelta finché non riceve un antidoto efficace. Mai sotto d4; le applicazioni ripetute non sommano riduzioni sullo stesso Attributo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ae982d511e2a536f746d",
+    "it": "come Azione, 3 ST e una dose di Veleno inalabile: senza tiro per colpire la disperdi in un punto visibile e raggiungibile entro 10 metri, mai oltre pareti o porte chiuse. Nube di raggio 5 metri per 3 turni: chi è presente quando compare, vi entra per la prima volta nel proprio turno o vi inizia il turno tira Forza contro la Soglia della dose, modificata dai Talenti. Se fallisce è Avvelenato per la normale durata del veleno e Accecato finché resta nella nube. Uscire termina solo Accecato. Non copia gli altri effetti speciali della dose. Il vento forte la disperde; sott’acqua non funziona; una maschera filtrante ferma il veleno, non l’oscuramento visivo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c6736904bb18bd9a5113",
+    "it": "contro un bersaglio già Avvelenato i tuoi attacchi infliggono +1 dado di danno, e se il colpo lo porterebbe sotto metà PV subisce anche Sbilanciato.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a15040eafcd6cb0122c6",
+    "it": "come reazione, quando un compagno entro 5 metri viene esposto a un veleno o a uno Stato di una sostanza che hai identificato, lo raggiungi (percorso praticabile) e gli dai un antidoto già preparato: neutralizza quella sostanza e gli Stati che causa. La dose si consuma. 1×/scontro.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b7b97ae193690d4cf397",
+    "it": "prima di una missione tratti la ciurma contro un veleno o una malattia che hai già identificato: una dose a testa, con materiali e costo dell'antidoto corrispondente. Per tutta l'avventura i trattati sono immuni a quella sostanza, e solo a quella. Chi non c'era al trattamento, peggio per lui.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c30ec3be27884ce14070",
+    "it": "1×/scena, azione, 5 ST e una dose di Veleno inalabile: la tossina si sprigiona da te per 15 metri, in un colpo solo, senza passare pareti o porte chiuse. Tutti gli esposti tirano Forza contro la Soglia del veleno: chi fallisce è Avvelenato, Sbilanciato e perde un gradino in un Attributo a tua scelta per la scena (mai sotto d4, senza sommare). Chi hai trattato con Profilassi è immune, gli altri alleati tirano come i nemici; tu sei al sicuro solo con Immunità Acquisita. Richiede l'Ambizione del Tossicologo e il permesso del GM.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "82564af52738dba9d64c",
+    "it": "La Distilleria — trasformi reagenti grezzi in preparati da usare o vendere, sempre partendo da una scheda: famiglia, uso, portata, danno, area, Salvezza, effetto, durata, Soglia, tempo, materiali e dosi. La Soglia dice quanto è difficile prepararlo, non quanto fa male. Usarlo consuma una dose e di norma un'azione; si lancia fino a 10 metri. A bersaglio singolo tiri Tecnica + Medicina contro la Difesa Passiva (se manchi la dose è persa); ad area scegli un punto visibile e chi è dentro tira la Salvezza, alleati compresi.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "afdf63b8c0dc1705f95d",
+    "it": "La reazione dilaga — con margine +4 nella Prova di preparazione scegli: Diffusione (un preparato offensivo a bersaglio singolo diventa un'area di raggio 3 metri, a metà danno e con Salvezza per gli Stati) oppure Produzione Aggiuntiva (una seconda dose identica, senza ingredienti in più).",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "393041fd125525546520",
+    "it": "produci la famiglia riservata: incendiari, acidi, fumogeni, esplosivi.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "4ddafbf38122b34c511c",
+    "it": "sostituisci un ingrediente mancante con un ripiego coerente, a Soglia +2. Non vale per componenti unici o dichiarati indispensabili.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5f781a41888fccea11e4",
+    "it": "Reazioni Violente — Base",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "987d56ee22c34be7bfb2",
+    "it": "se un tuo preparato offensivo ha un Dado Danno, aggiungi un altro dado uguale al danno iniziale (1d8 diventa 2d8). Dove non c'è danno, non ne crea.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ba83182b7b3cd3f0ae13",
+    "it": "lanci i preparati fino a 15 metri invece di 10, e da un'area puoi escludere tante creature quanto metà del massimo del tuo dado Medicina (d8: 4, d12: 6) — i tuoi compagni, di solito.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "dd5be29d3bcf74ef2104",
+    "it": "un quarto di tempo in meno per ogni dose, e due preparati nello stesso blocco di lavoro: materiali, Soglia e Prova restano separati, il blocco finisce col più lungo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "73ca8aad09d450344323",
+    "it": "produci a lotti fino a 3 dosi identiche (2 dosi: ×1,5 il tempo; 3 dosi: ×2), con materiali e Prova per ciascuna. Dove c'è vera domanda i tuoi preparati valgono il 20% in più, prima delle trattative.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "cedf89820963060d8cd8",
+    "it": "Reazioni Violente — Migliorato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ca40dc6546ca106dfd44",
+    "it": "raddoppia il raggio dei tuoi preparati che hanno già un'area (3 metri diventano 6, anche quella creata da La reazione dilaga). Non ne crea una e non allunga il lancio.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "41a8d94a17a4344a3794",
+    "it": "come azione, 2 ST: con gli ingredienti che hai addosso prepari subito una dose di un preparato che conosci, con la normale Prova contro la sua Soglia; se fallisci perdi materiali e ST. La dose è pronta ma non usata: serve un'altra azione per lanciarla, ed entro la scena. 2×/scontro.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "505655ec14171860fa22",
+    "it": "Reazioni Violente — Maestria",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "38d9d45d46f707ce51f2",
+    "it": "i tuoi preparati offensivi aggiungono l'effetto della loro famiglia: incendiario → bruciatura, 1d4 PV a inizio turno per 2 turni · acido → corrosione, Difesa Passiva −2 per 2 turni · fumogeno → Accecato fino alla fine del turno successivo · esplosivo → Sbilanciato. Si resiste con la Salvezza del preparato o, se manca, con quella dello Stato.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "9778df7acf7882ff23aa",
+    "it": "come azione piazzi e armi una carica scegliendo l'innesco: timer (il round esatto), contatto, strappo o manuale, che fai detonare con una reazione entro 30 metri. Due cariche armate alla volta. Chi la raggiunge può tentare di disinnescarla con un'azione: Astuzia + Meccanica o Medicina contro la Soglia della carica.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6802fdc19bc34ba7660b",
+    "it": "un esplosivo piazzato contro una struttura le toglie il suo normale danno strutturale in PS. In battaglia navale lo piazzi su un modulo raggiungibile e scegli: lo scafo (danno ai PS della nave) o il modulo, che con almeno 1 danno passa da Integro a Danneggiato, o da Danneggiato a Distrutto. Una sola carica non distrugge un modulo integro.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "acb6202ba37b1017f151",
+    "it": "non ti serve più la distilleria: lavori sul ponte, in una grotta, in una locanda. I preparati ti riescono ovunque, senza penalità.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ed5acb0d5e4cb4dc9bec",
+    "it": "hai contatti nei porti: trovi reagenti rari e compratori per i tuoi lotti, anche quando la merce è illegale.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "4951525c7c558107e042",
+    "it": "1×/scena, azione, 5 ST: fino a 5 tuoi preparati detonabili già piazzati entro 15 metri esplodono insieme, ognuno dal suo posto e con i suoi danni, area, Soglia, Stati ed effetti. Ogni creatura risolve difese e Salvezze di ciò che la raggiunge, alleati compresi. Niente dosi gratis: esplode solo ciò che hai davvero preparato. Richiede l'Ambizione del Chimico e il permesso del GM.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "32016e34ff08b4a3b159",
+    "it": "Il Cuore e il Motore — la ciurma si regge su di lui: i piatti ambiziosi (Soglia 10-12) riescono solo a lui, nessun altro a bordo può metterci mano.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "2fe4b21a3d49284e887f",
+    "it": "L'Apice — sul Critico (+4) in un tiro di Cucina: capolavoro, il piatto rende al massimo e scatta anche il Bonus di categoria.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6b80f360c7f4f2bece34",
+    "it": "cercando o pescando ingredienti, aggiungi il dado Cucina al tiro.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7e5e246dcf86859252ef",
+    "it": "i tuoi piatti non falliscono mai del tutto: rendono come lo Stentato.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "1bbb77562a86650bc958",
+    "it": "Mano del Cuoco — Base",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0da602b561c4ebd2f4d0",
+    "it": "i tuoi piatti restituiscono +1 dado di quello che restituiscono (PV o Stamina). Se un piatto dà entrambe, scegli in preparazione una sola risorsa a cui aggiungere il dado.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a9826ca147259a88d273",
+    "it": "come azione servi una porzione già preparata a un compagno cosciente entro 5 metri: consegna e consumo stanno nella tua azione, lui non spende la sua. Non ti sposti, serve un passaggio libero e il compagno deve poter mangiare: chi è Incosciente non ne beneficia. Non cucini in mezzo alla rissa — servi quello che avevi preparato prima.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "d3d0213473c78b2117f2",
+    "it": "il Bonus di categoria scatta già su un Successo, non solo sul Critico.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5775a7660e12fa972f97",
+    "it": "un piatto del Catalogo è il tuo cavallo di battaglia: lo cucini a Soglia ridotta di 2.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "3493d5842485fef81209",
+    "it": "Mano del Cuoco — Migliorato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5797ed3a0de72a0f4252",
+    "it": "da un tuo piatto mangiano due compagni invece di uno: l'esito vale per entrambi.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "947cacc7a82fa4c0d4ff",
+    "it": "quello che richiederebbe ore lo tiri fuori in minuti: puoi preparare un piatto durante una pausa breve, non solo con un blocco di lavoro completo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "74075780e1f6b5c25740",
+    "it": "Mano del Cuoco — Maestria",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e508391b00c31a3c83d9",
+    "it": "i tuoi piatti rimuovono anche uno Stato negativo rimovibile da chi li consuma. Il pasto non elimina la causa fisica, ambientale o chimica che continua ad applicarlo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b915f3cce226a0f7d8c4",
+    "it": "come reazione, quando un compagno entro 5 metri scende sotto metà PV gli lanci una razione: recupera subito 1d6 Stamina e riparte. 1×/scontro.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "421157d2597c2a4a52de",
+    "it": "prima di uno scontro che hai potuto preparare cucini per tutta la ciurma: l'esito che ottieni vale per ogni compagno che si siede a mangiare.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "d2e825bec66a45b701eb",
+    "it": "ti basta un fuoco e una superficie: monti una cucina da campo ovunque, senza penalità per mancanza di attrezzatura.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "d3dca08ba4225acb0450",
+    "it": "ti basta assaggiare un piatto una volta per rifarlo: qualunque cosa abbiate mangiato in un porto o alla tavola di un nemico, da domani è nel tuo repertorio.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "556eb7b189bd37197e8a",
+    "it": "1 volta per avventura, con ore, ingredienti veri e una ciurma che si siede a tavola. Non tiri: il piatto vale come Critico per ogni compagno e gli effetti di PV e Stamina sono raddoppiati. Fino a fine avventura chi ha mangiato ha +2 Stamina massima e il primo colpo che lo porterebbe a 0 PV lo lascia a 1. Richiede l'Ambizione del Cuoco e il permesso del GM.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "13d77c3a0d3d6c787d21",
+    "it": "La Strada sul Mare — trasforma il mare da nemico a strada: il suo lavoro regala dadi bonus alla traversata.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "99fe9c11060cfcaf2aac",
+    "it": "Rotta Perfetta — con margine +4 in una Prova di Navigazione legata a una traversata: la ciurma conserva 1d6 di Rotta fino alla destinazione, da aggiungere (dichiarandolo prima del tiro) a una Prova successiva dello stesso viaggio — una corrente, una tempesta, una secca, un imprevisto; uno solo alla volta. E il GM ti rivela un pericolo reale più avanti sulla rotta. Se la traversata si chiude con un solo tiro, il dado resta inutilizzato ma l'informazione vale.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5beab9ec45cce3b7e32e",
+    "it": "quando sei tu al timone, aggiungi il dado Navigazione alla traversata (Vele + Astuzia + Navigazione).",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "10b50c54760a1dc507eb",
+    "it": "prevedi il clima con Vantaggio. Se anticipi un pericolo atmosferico, il GM ti dice almeno di che si tratta, da dove arriva e una conseguenza concreta: la ciurma si prepara — evita la penalità della sorpresa, assicura carico e vele, cambia rotta o predispone una manovra. La tempesta però arriva lo stesso.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b134b6b4c52a599fe619",
+    "it": "Timoniere Nato — Base",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6dd3a6be544d57e4b43e",
+    "it": "in battaglia navale la nave aggiunge il tuo dado Navigazione alle manovre di evasione.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "edab43e2ddd2280c69fd",
+    "it": "conosci l'acqua sotto la chiglia: porti la nave in secche, canali stretti e bassi fondali dove uno scafo più grande non può seguirti — e un inseguitore più grosso rischia di incagliarsi.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c0edd16278bd111fa8a7",
+    "it": "tracciando la rotta anticipi sempre un pericolo del percorso, anche senza Critico.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "96f79137cf4c3f43ea85",
+    "it": "le tue carte nautiche valgono come dettagliate (+d8, riutilizzabili) e si vendono a peso d'oro nei porti.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c63c14ffcc6a8ce1830e",
+    "it": "Timoniere Nato — Migliorato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "eadf4dbad66e42e83bc5",
+    "it": "1 volta per battaglia navale puoi annullare del tutto una cannonata in arrivo: la nave non è dove il nemico credeva.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c5f8b5afc4291ed7b93e",
+    "it": "finché sei al timone e ci sono vele da sfruttare, la nave può fare una Manovra navale in più per round. Non dà azioni in più: la seconda Manovra la esegue un membro dell'equipaggio che ha ancora la sua Azione e sta alla postazione giusta.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a16d6f6b255d8fa1b531",
+    "it": "Timoniere Nato — Maestria",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "27b797ee410333065278",
+    "it": "la nave può manovrare e sparare nello stesso round senza penalità: ti infili, colpisci ed esci. Manovra al timone e Cannonata restano due Manovre, eseguite dalle loro postazioni con le Azioni di chi ci sta.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "d231f48809c4274cd840",
+    "it": "porti la nave dove nessun altro oserebbe: vortici, banchi di nebbia, zone magnetiche, correnti contrarie, secche. Dove gli altri devono aggirare, tu passi.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f70376a52731fd2501bd",
+    "it": "quando sei al timone, tu e la nave ignorate le penalità a Navigazione e Manovre dovute a pioggia, nebbia naturale, mare grosso, vento forte e tempesta — i nemici no. Gli effetti fisici restano: una vela si può strappare, un'onda può spazzare il ponte. Se ci porti dentro i nemici apposta, tirano con Svantaggio le Prove che quel tempo ostacola.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "382e50514b49349b7f37",
+    "it": "non ti perdi mai: sai sempre dove sei, da dove sei venuto e dov'è il mare aperto, anche sottocoperta e al buio. E ritrovi qualunque luogo in cui sei già stato una volta.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b872f52ae0e39991b24c",
+    "it": "entrando in un posto sconosciuto individui l'uscita: tu e chi ti segue la percorrete a velocità piena, senza perdervi e senza tiri.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "4f03d8dfb49da8a560e3",
+    "it": "1 volta per avventura. In mare: verso una destinazione che conosci o puoi identificare (carta, Log Pose, Eternal Pose) e raggiungibile via mare, la nave arriva senza Prove di Navigazione, incontri casuali o deviazioni; tempeste e correnti non la fermano. Il viaggio dura comunque il suo tempo e consuma provviste, e non si passa sulla terraferma. In battaglia navale: la nave esce dalla linea di tiro nemica e si ripresenta dove non dovrebbe, il nemico perde il turno e tu spari per primo. Richiede l'Ambizione del Navigatore e il permesso del GM.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a29396b5e9f27c8d9992",
+    "it": "La Skill del Ruolo parte a d8 e dipende dallo Stile.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "457be4fc5eecb88a19aa",
+    "it": "Legno e Scafo — tiene la nave a galla e la fa crescere; in battaglia la sua postazione è la riparazione: finché lui è in piedi, la nave non è mai finita.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "9e457bb36762be54119b",
+    "it": "La riparazione che tiene — con margine +4 nella Prova di Riparazione d'Emergenza raddoppi i PS recuperati, dopo aver contato anche i dadi in più dei Talenti. Raddoppia solo i PS, non gli altri effetti.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0bc53753965965e43b5c",
+    "it": "in battaglia navale, come tua azione, fai la manovra Riparazione d'Emergenza: Struttura + Astuzia contro Soglia 8, con attrezzi e materiali a bordo. Se riesce la nave recupera 1 Dado Carpenteria in PS, mai oltre il massimo. Conta come la manovra della nave per quel turno.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b3a8889306f769c3a728",
+    "it": "cercando legname e materiali da costruzione, aggiungi il dado Carpenteria al Reperimento.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "9ab8dee0b526c92415d3",
+    "it": "Mani sul Legno — Base",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "3828e2ec9e0edd8fdc7d",
+    "it": "le tue Riparazioni d'Emergenza ridanno +1 Dado Carpenteria in PS: 2 dadi invece di uno.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "8d921c54c56f0af5f376",
+    "it": "come azione, con assi, casse, lamiere o relitti già lì intorno monti un riparo entro 5 metri, largo circa 3 metri: fino a tre persone dietro hanno Copertura Parziale (Difesa Passiva +2), o Completa se il GM lo ritiene. Si può sfondare come qualunque oggetto. Senza materiali, niente barricata.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "4b955c62d4d7c4ce54d1",
+    "it": "ripari e potenzi la nave in mare aperto, senza porto, e in metà tempo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b0ba814d23beff9af99a",
+    "it": "con un adattamento strutturale la nave su cui lavori guadagna uno slot modulo in più, per sempre: resta alla nave anche se tu scendi. Non si somma fra più Carpentieri e non regala il modulo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f59d4c0d5a133f04f3b4",
+    "it": "Mani sul Legno — Migliorato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7f03ab9ddb6b93c560ce",
+    "it": "con la stessa azione ripari lo scafo e rimetti in sesto un modulo danneggiato.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "00cc5ac796d0280ff668",
+    "it": "Ponte d'Arrembaggio",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  }
+]

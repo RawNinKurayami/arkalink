@@ -8,6 +8,8 @@ The layout is vector-based and uses PDF standard fonts; no external assets.
 from pathlib import Path
 import argparse
 import math
+import json
+import re
 
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
@@ -26,6 +28,21 @@ MUTED = HexColor('#5a5961')
 RULE = HexColor('#c6c2b8')
 PALE = HexColor('#f5f2eb')
 WHITE = HexColor('#ffffff')
+LANG = 'it'
+TRANSLATIONS = {}
+
+def tr(value):
+    if LANG != 'en':
+        return value
+    if value in TRANSLATIONS:
+        return TRANSLATIONS[value]
+    if value.startswith('CONDIZIONE '):
+        return value.replace('CONDIZIONE ', 'CONDITION ', 1)
+    if value.startswith('cap. '):
+        return value.replace('cap. ', 'ch. ', 1)
+    if value == '§§ 1.4-1.6; capp. 4, 7, 8':
+        return '§§ 1.4-1.6; chs. 4, 7, 8'
+    return value
 
 
 def wrap(text, width, font='Helvetica', size=8):
@@ -47,12 +64,13 @@ def wrap(text, width, font='Helvetica', size=8):
 class Sheet:
     def __init__(self, path, kind):
         self.c = canvas.Canvas(str(path), pagesize=A4, pageCompression=1, invariant=1)
-        self.c.setTitle('Scheda del Frutto del Diavolo - ' + kind)
+        self.c.setTitle(tr('Scheda del Frutto del Diavolo - ') + kind)
         self.c.setAuthor('Grand Line Chronicles')
-        self.c.setSubject('Scheda A4 vuota per il giocatore. Manuale dei Frutti del Diavolo.')
+        self.c.setSubject(tr('Scheda A4 vuota per il giocatore. Manuale dei Frutti del Diavolo.'))
         self.kind, self.page = kind, 0
 
     def text(self, x, y, value, font='Helvetica', size=9, color=INK):
+        value = tr(value)
         assert M - 1 <= x and x + stringWidth(value, font, size) <= W - M + 1, ('text outside margins', value)
         assert 20 <= y <= H - 25, ('text outside page', value, y)
         self.c.setFillColor(color)
@@ -60,7 +78,7 @@ class Sheet:
         self.c.drawString(x, H - y, value)
 
     def para(self, x, y, value, width, size=8.2, color=MUTED, leading=11):
-        for line in wrap(value, width, size=size):
+        for line in wrap(tr(value), width, size=size):
             self.text(x, y, line, size=size, color=color)
             y += leading
         return y
@@ -102,13 +120,13 @@ class Sheet:
     def start(self, title, subtitle, ref):
         self.page += 1
         self.text(M, 34, 'GRAND LINE CHRONICLES', 'Helvetica-Bold', 9, GOLD)
-        self.text(M, 53, 'FRUTTI DEL DIAVOLO  /  ' + self.kind.upper(), size=8, color=MUTED)
+        self.text(M, 53, tr('FRUTTI DEL DIAVOLO') + '  /  ' + self.kind.upper(), size=8, color=MUTED)
         self.text(M, 83, title, 'Times-Bold', 28)
         self.text(M, 101, subtitle, size=8.5, color=MUTED)
         self.seal()
         self.line(M, 113, W - M, 113, GOLD, 1)
         self.line(M, H - 43, W - M, H - 43, GOLD, .7)
-        self.text(M, H - 29, 'MANUALE DEI FRUTTI  /  ' + ref, size=7.3, color=MUTED)
+        self.text(M, H - 29, tr('MANUALE DEI FRUTTI') + '  /  ' + tr(ref), size=7.3, color=MUTED)
         page = f'{self.page:02d} / 05'
         self.text(W - M - stringWidth(page, 'Helvetica-Bold', 8), H - 29, page, 'Helvetica-Bold', 8, GOLD)
 
@@ -121,7 +139,7 @@ class Sheet:
             self.rect(x, y, w, h)
         pad = 10 if tint else 0
         tx, tw = x + pad, w - pad * 2
-        self.text(tx, y + 13, title.upper(), 'Helvetica-Bold', 8.2, GOLD)
+        self.text(tx, y + 13, tr(title).upper(), 'Helvetica-Bold', 8.2, GOLD)
         start = y + 24
         if hint:
             start = self.para(tx, start, hint, tw, size=7.5, leading=10) + 3
@@ -161,7 +179,7 @@ class Sheet:
         self.rect(M, y, CW, 25)
         x = M
         for label, w in cols:
-            for j, line in enumerate(wrap(label, w - 12, 'Helvetica-Bold', 7.3)):
+            for j, line in enumerate(wrap(tr(label), w - 12, 'Helvetica-Bold', 7.3)):
                 self.text(x + 6, y + 12 + j * 8, line, 'Helvetica-Bold', 7.3, GOLD)
             x += w
         bottom = y + 25 + rows * row_h
@@ -248,7 +266,7 @@ class Sheet:
         price = 'Durata normale: 1 scena. Al termine: ST 0 e Frutto inutilizzabile fino al Riposo Lungo.'
         if self.kind == 'Zoan':
             price = 'Durata normale: 1 scena. Al termine: ST 0 e trasformazioni Zoan indisponibili fino al Riposo Lungo.'
-        self.note(740, price + ' Terminare prima non evita il prezzo. Il progetto deve essere definito prima dell’acquisizione.', 40)
+        self.note(740, tr(price) + tr(' Terminare prima non evita il prezzo. Il progetto deve essere definito prima dell’acquisizione.'), 40)
         self.finish()
 
     def logia_environment(self):
@@ -286,9 +304,15 @@ class Sheet:
 
 
 def main():
+    global LANG, TRANSLATIONS
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output-dir', type=Path, default=ROOT / 'manuale-frutti' / 'schede')
+    parser.add_argument('--lang', choices=['it', 'en'], default='it')
+    parser.add_argument('--output-dir', type=Path)
     args = parser.parse_args()
+    LANG = args.lang
+    if LANG == 'en':
+        TRANSLATIONS = json.loads((ROOT / 'locales/en/fruit-sheets.json').read_text())
+    args.output_dir = args.output_dir or ROOT / ('en/manuale-frutti/schede' if LANG == 'en' else 'manuale-frutti/schede')
     args.output_dir.mkdir(parents=True, exist_ok=True)
     for kind in ['Paramecia', 'Logia', 'Zoan']:
         path = args.output_dir / f'frutto-{kind.lower()}.pdf'

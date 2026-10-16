@@ -1,0 +1,2072 @@
+[
+  {
+    "id": "a2c33d05f5df241421bc",
+    "it": "Questo stato non implica che tutti i personaggi a bordo muoiano istantaneamente.",
+    "kind": "html"
+  },
+  {
+    "id": "73c9783b67562838fabe",
+    "it": "Il GM descrive le conseguenze in base alla natura del danno: una nave potrebbe spezzarsi durante uno Speronamento, imbarcare acqua attraverso una falla oppure perdere progressivamente la capacità di galleggiare.",
+    "kind": "html"
+  },
+  {
+    "id": "d7333cf4c49ac3ce076e",
+    "it": "13.23.1 · Quando la nave raggiunge la soglia di affondamento",
+    "kind": "html"
+  },
+  {
+    "id": "3724e9fdad72bb0dee1c",
+    "it": "Quando una nave raggiunge la propria soglia di affondamento, il Game Master dichiara immediatamente quale tipo di cedimento si sta verificando.",
+    "kind": "html"
+  },
+  {
+    "id": "4fa158db3928c45e6845",
+    "it": "Cedimento lento · 3 round.",
+    "kind": "html"
+  },
+  {
+    "id": "4f72c885d8bd60e8e886",
+    "it": "La nave imbarca acqua o perde gradualmente galleggiabilità. La ciurma ha tre round completi per evacuare o tentare un intervento.",
+    "kind": "text"
+  },
+  {
+    "id": "54e5c8a7939be4011e4d",
+    "it": "Cedimento rapido · 1 round.",
+    "kind": "html"
+  },
+  {
+    "id": "ec0bf1e18fc77e91bd37",
+    "it": "Una falla grave o un cedimento strutturale lascia un solo round completo prima della perdita della nave.",
+    "kind": "text"
+  },
+  {
+    "id": "fccf29aae87808d8e5a1",
+    "it": "Cedimento catastrofico · immediato.",
+    "kind": "html"
+  },
+  {
+    "id": "7d8621f49897578f7da9",
+    "it": "La nave viene spezzata, esplode o perde istantaneamente la capacità di restare a galla. I personaggi possono utilizzare soltanto le Reazioni o le capacità che dichiarano di poter intervenire in quel momento.",
+    "kind": "text"
+  },
+  {
+    "id": "915f39de00a615baf4df",
+    "it": "Il GM sceglie il profilo in base alla causa del danno e deve comunicarlo chiaramente quando la nave raggiunge la soglia.",
+    "kind": "html"
+  },
+  {
+    "id": "de2a3b30961b9373041a",
+    "it": "Una riparazione che riporta la nave sopra la propria soglia di affondamento prima del cedimento può arrestare il processo, se la causa fisica lo permette.",
+    "kind": "html"
+  },
+  {
+    "id": "c04c7914c9a41ed3d347",
+    "it": "13.23.2 · Abbandonare la nave",
+    "kind": "html"
+  },
+  {
+    "id": "525e9f1e453b0d44eb1e",
+    "it": "Se l'affondamento lascia tempo per reagire, i personaggi possono tentare di salvarsi.",
+    "kind": "html"
+  },
+  {
+    "id": "113992a85b70e144c5db",
+    "it": "Le possibilità dipendono dagli strumenti disponibili e dalla situazione.",
+    "kind": "html"
+  },
+  {
+    "id": "3a7346b62d72223f7d77",
+    "it": "Una scialuppa può permettere di lasciare l'imbarcazione. Un personaggio potrebbe raggiungere una nave vicina, aggrapparsi a un relitto oppure utilizzare una Tecnica di mobilità.",
+    "kind": "html"
+  },
+  {
+    "id": "df1bb63af2c5a177cd0a",
+    "it": "Quando l'esito è incerto, il GM richiede una Prova appropriata, come Atletica, Acrobazia o un'altra Skill pertinente.",
+    "kind": "html"
+  },
+  {
+    "id": "960c4f9ac13e4251b04c",
+    "it": "Le distanze e il Movimento seguono le regole ordinarie.",
+    "kind": "html"
+  },
+  {
+    "id": "2c7123d275533a133588",
+    "it": "I possessori dei Frutti del Diavolo rimangono soggetti alla propria debolezza al mare. Non possono ignorarla soltanto perché stanno tentando di abbandonare una nave.",
+    "kind": "html"
+  },
+  {
+    "id": "66eefafc21b922f7609d",
+    "it": "Evacuazione",
+    "kind": "html"
+  },
+  {
+    "id": "6024b796a23fb8e5a60f",
+    "it": "Durante ogni round disponibile, un personaggio può utilizzare normalmente Movimento e Azione per:",
+    "kind": "html"
+  },
+  {
+    "id": "7170e2b5a32c91f1ae63",
+    "it": "Raggiungere una scialuppa.",
+    "kind": "html"
+  },
+  {
+    "id": "9697e48a2a9ffaacb8d4",
+    "it": "Liberare un compagno.",
+    "kind": "html"
+  },
+  {
+    "id": "7f7a520f198bac57243c",
+    "it": "Recuperare un oggetto.",
+    "kind": "html"
+  },
+  {
+    "id": "88c3cf08270a629b6ef1",
+    "it": "Saltare su un’altra nave.",
+    "kind": "html"
+  },
+  {
+    "id": "8c2ec1c1c131a257650e",
+    "it": "Tentare una riparazione.",
+    "kind": "html"
+  },
+  {
+    "id": "eabcfb978765a429a47d",
+    "it": "Utilizzare una capacità di mobilità.",
+    "kind": "html"
+  },
+  {
+    "id": "8ab2563bebd0b5b3b916",
+    "it": "I passeggeri che non vengono gestiti individualmente vengono evacuati attraverso le azioni della ciurma e le risorse disponibili; se l’esito è incerto il GM richiede una Prova appropriata.",
+    "kind": "html"
+  },
+  {
+    "id": "5721ad07dd8af3a12c62",
+    "it": "13.23.3 · Compartimenti stagni",
+    "kind": "html"
+  },
+  {
+    "id": "68abb4ba8ed9d631e25d",
+    "it": "Modulo · Compartimenti stagni",
+    "kind": "html"
+  },
+  {
+    "id": "b5077ee9410fc2184346",
+    "it": "La nave resiste oltre la soglia ordinaria di 0 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "bba091daf68c40affeb1",
+    "it": "Affonda soltanto quando raggiunge −10 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "eab8be50d30882304760",
+    "it": "Il Modulo modifica esclusivamente la soglia di affondamento.",
+    "kind": "html"
+  },
+  {
+    "id": "edacf7eb724821b13c08",
+    "it": "Non restituisce PS e non ripara automaticamente le parti danneggiate.",
+    "kind": "html"
+  },
+  {
+    "id": "87ecbe674acd0a3bb179",
+    "it": "Una nave a −4 PS con Compartimenti stagni non è integra: è gravemente compromessa, ma il Modulo le permette di rimanere a galla fino alla soglia prevista.",
+    "kind": "html"
+  },
+  {
+    "id": "b332df78a9a73359c921",
+    "it": "La soglia di affondamento diventa −10 PS. Da 0 a −9 PS la nave è ancora a galla ma rimane in condizioni Critiche e gravemente compromessa.",
+    "kind": "html"
+  },
+  {
+    "id": "cdf79a4ebfa143681996",
+    "it": "13.23.4 · Polena vivente",
+    "kind": "html"
+  },
+  {
+    "id": "b857fa6ce1ddc0a801c9",
+    "it": "Il Modulo Polena vivente permette alla nave di resistere a un colpo fatale.",
+    "kind": "html"
+  },
+  {
+    "id": "f1171cb28633aa105130",
+    "it": "Una volta per avventura, quando un colpo la porterebbe alla soglia di affondamento, rimane a 1 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "d28b691c621e151e132e",
+    "it": "Il beneficio si applica al singolo colpo fatale.",
+    "kind": "html"
+  },
+  {
+    "id": "291f470eb1d7f8a97e45",
+    "it": "Non protegge automaticamente la nave da tutti gli attacchi successivi.",
+    "kind": "html"
+  },
+  {
+    "id": "14f1c75c980da24106ca",
+    "it": "Polena vivente impedisce un singolo colpo fatale e lascia la nave a 1 PS. Non avvia l’affondamento. Se un colpo successivo la porta nuovamente alla soglia, si applicano le normali regole.",
+    "kind": "html"
+  },
+  {
+    "id": "239323544d5d3496def5",
+    "it": "<b>13.23.5 · Ultimate del Carpentiere: Lei Non Affonda</b>",
+    "kind": "html"
+  },
+  {
+    "id": "0959df3c85f4a5437900",
+    "it": "Frequenza: una volta per battaglia navale.",
+    "kind": "html"
+  },
+  {
+    "id": "479ecb91e83f8b3f5be1",
+    "it": "Quando la nave scenderebbe a 0 PS o meno:",
+    "kind": "html"
+  },
+  {
+    "id": "7dbe6f482f8f3bbdeffe",
+    "it": "Rimane a galla con 1 PS e, fino alla fine della battaglia, non può scendere sotto 1 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "e3c95c6f1afe939d24f4",
+    "it": "Può continuare a effettuare le manovre che la situazione rende possibili.",
+    "kind": "html"
+  },
+  {
+    "id": "79cc76dc88f9d47a6255",
+    "it": "Tutti i Moduli Distrutti tornano temporaneamente operativi.",
+    "kind": "html"
+  },
+  {
+    "id": "4a1d7a85553a2888abbe",
+    "it": "Se attiva, prevale finché dura: la nave rimane a 1 PS e non entra nel processo di affondamento fino alla fine della battaglia.",
+    "kind": "html"
+  },
+  {
+    "id": "ae4384fe200fac3db81a",
+    "it": "Al termine della battaglia",
+    "kind": "html"
+  },
+  {
+    "id": "5f91558c76a25a3c9d41",
+    "it": "La nave rimane a 1 PS, in condizioni Critiche; i Moduli tornano alla loro reale condizione precedente e serve un vero Cantiere per le riparazioni strutturali.",
+    "kind": "html"
+  },
+  {
+    "id": "594980406c1448cf1572",
+    "it": "L’Ultimate non costituisce una riparazione permanente. La descrizione completa è nel Talento del Carpentiere (§ 4.9.1).",
+    "kind": "html"
+  },
+  {
+    "id": "a49b5d7bfff25d7a2bc4",
+    "it": "<span class=\"man-sez-n\">13.24 ·</span> Traversate e risorse",
+    "kind": "html"
+  },
+  {
+    "id": "b8920b9e97d4f5bdbe8d",
+    "it": "Un viaggio sulla Grand Line può richiedere poche ore oppure intere settimane.",
+    "kind": "html"
+  },
+  {
+    "id": "d08a5d8718f178d561e5",
+    "it": "La sua durata dipende dalla rotta, dalle condizioni del mare, dalla nave e dalle capacità del Navigatore.",
+    "kind": "html"
+  },
+  {
+    "id": "ba5e304ea34313f22fe6",
+    "it": "Il sistema non assegna una velocità universale in chilometri al giorno per ogni Grado di Vele.",
+    "kind": "html"
+  },
+  {
+    "id": "b57dd979283d77c95b19",
+    "it": "13.24.1 · Stabilire la durata del viaggio",
+    "kind": "html"
+  },
+  {
+    "id": "34e2cda91883c1e9296c",
+    "it": "Prima della partenza, il Game Master comunica alla ciurma una stima della traversata, quando i personaggi dispongono delle informazioni necessarie.",
+    "kind": "html"
+  },
+  {
+    "id": "fa5bff982e52e55f01a3",
+    "it": "La stima considera la distanza, la rotta, le condizioni climatiche, le caratteristiche della nave e gli strumenti disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "e5b02d10d269b0c79e6e",
+    "it": "Il Navigatore può utilizzare la Skill Navigazione per valutare le condizioni del percorso.",
+    "kind": "html"
+  },
+  {
+    "id": "d798f01eca023419bbea",
+    "it": "Un Log Pose permette di identificare la direzione della destinazione, ma non elimina automaticamente tempeste, correnti o altri ostacoli.",
+    "kind": "html"
+  },
+  {
+    "id": "10374521e8060f15a0bd",
+    "it": "Dividere il viaggio in tratte",
+    "kind": "html"
+  },
+  {
+    "id": "7b7ec2e2b286b9e5669f",
+    "it": "Una traversata lunga può essere suddivisa in più tratte significative.",
+    "kind": "html"
+  },
+  {
+    "id": "4f28d681af28c226dda5",
+    "it": "Esempio · Viaggio verso un'isola",
+    "kind": "html"
+  },
+  {
+    "id": "7b7e76f89e5292f4f7ab",
+    "it": "Partenza dal porto<br>La ciurma prepara la nave e prende il mare.",
+    "kind": "html"
+  },
+  {
+    "id": "47cd78601733ec32cf94",
+    "it": "Attraversamento della corrente<br>Il Navigatore affronta un tratto pericoloso con una Prova.",
+    "kind": "html"
+  },
+  {
+    "id": "0370beb68f12336429cc",
+    "it": "Navigazione in mare aperto<br>La traversata procede normalmente finché non emerge un nuovo ostacolo.",
+    "kind": "html"
+  },
+  {
+    "id": "c1a9743ae3ab4b28e686",
+    "it": "Avvicinamento all'isola<br>La ciurma deve riconoscere l'approdo e superare gli eventuali pericoli costieri.",
+    "kind": "html"
+  },
+  {
+    "id": "6f927f28d1969a4e6628",
+    "it": "Non occorre tirare i dadi per ogni giornata tranquilla.",
+    "kind": "html"
+  },
+  {
+    "id": "8dce4f2175704b88b1c5",
+    "it": "Le Prove vengono richieste quando il risultato può modificare significativamente il viaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "ba1e72cb7d49366b6113",
+    "it": "13.24.2 · Provviste e cargo",
+    "kind": "html"
+  },
+  {
+    "id": "4c5eed3f6d167741c4eb",
+    "it": "Le provviste vengono registrate nel Diario di bordo, insieme al cargo e alle altre risorse della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "08c36c899995e930210b",
+    "it": "Comprendono ciò che la ciurma ha effettivamente imbarcato per affrontare la traversata.",
+    "kind": "html"
+  },
+  {
+    "id": "a17a32b4047df9396659",
+    "it": "Per evitare una contabilità eccessiva, il GM può registrare le scorte in relazione alla durata prevista del viaggio e verificare se rimangono sufficienti quando la traversata subisce un ritardo significativo.",
+    "kind": "html"
+  },
+  {
+    "id": "0d77feb5a73203af01ff",
+    "it": "La quantità di provviste iniziali deve essere concordata prima della partenza, non determinata retroattivamente soltanto per mettere in difficoltà i giocatori.",
+    "kind": "html"
+  },
+  {
+    "id": "f107b9c4a78fa2a9bdc5",
+    "it": "Unità di Stiva",
+    "kind": "html"
+  },
+  {
+    "id": "a4c2fd6c9bf403ba2b7d",
+    "it": "La Stiva utilizza Unità astratte per rappresentare cargo, botti, casse, materiali e provviste ingombranti.",
+    "kind": "html"
+  },
+  {
+    "id": "61348062e39ba197a0c0",
+    "it": "La capacità ordinaria dipende da Struttura:",
+    "kind": "html"
+  },
+  {
+    "id": "26785992353be64b1022",
+    "it": "<b>Unità di Stiva</b>",
+    "kind": "html"
+  },
+  {
+    "id": "9a0ac23a1abfcd7b4945",
+    "it": "Piccoli oggetti personali, armi portate dai personaggi e normale equipaggiamento individuale non occupano Unità di Stiva.",
+    "kind": "html"
+  },
+  {
+    "id": "5b367bcc7c1789b5b898",
+    "it": "Un’Unità rappresenta approssimativamente una cassa, un barile o un quantitativo equivalente di carico.",
+    "kind": "html"
+  },
+  {
+    "id": "fb896ec417aab9094ac4",
+    "it": "Provviste",
+    "kind": "html"
+  },
+  {
+    "id": "b2588035dd10bfaf16c8",
+    "it": "Un’Unità di Provviste sostiene fino a 5 persone per una settimana.",
+    "kind": "html"
+  },
+  {
+    "id": "e10bcd403eca3e5404a2",
+    "it": "Equipaggio e passeggeri vengono sommati per determinare il consumo.",
+    "kind": "html"
+  },
+  {
+    "id": "897543cf0e39382509eb",
+    "it": "Esempio: una nave con 10 persone consuma 2 Unità di Provviste per settimana.",
+    "kind": "html"
+  },
+  {
+    "id": "67027c1feaa7c99aa377",
+    "it": "Le frazioni vengono arrotondate per eccesso alla fine di ogni settimana di viaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "5d7de0f4b8b4e7794d67",
+    "it": "Una capacità che riduce il consumo delle provviste modifica questo valore prima dell’arrotondamento.",
+    "kind": "html"
+  },
+  {
+    "id": "661de00799e72d83fe6d",
+    "it": "Cargo e Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "22b291022a3972d3d7be",
+    "it": "Le Unità di Stiva e gli slot Modulo sono risorse completamente separate.",
+    "kind": "html"
+  },
+  {
+    "id": "fae99415423d55fdfe2f",
+    "it": "Gli slot Modulo rappresentano la capacità strutturale della nave di ospitare installazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "f4690b358ae3dd8c43f0",
+    "it": "Le Unità di Stiva rappresentano lo spazio disponibile per trasportare risorse e merci.",
+    "kind": "html"
+  },
+  {
+    "id": "151a3f7de68c875778b5",
+    "it": "Installare un Modulo non occupa automaticamente Unità di Stiva salvo che la sua scheda lo dichiari.",
+    "kind": "html"
+  },
+  {
+    "id": "6c46177bac582f08e29c",
+    "it": "Stiva ampliata",
+    "kind": "html"
+  },
+  {
+    "id": "2cd1501058abf90aa88a",
+    "it": "Il Modulo Stiva ampliata permette di trasportare una maggiore quantità di cargo e provviste.",
+    "kind": "html"
+  },
+  {
+    "id": "bb864e613f0d10631911",
+    "it": "Non produce automaticamente nuove scorte.",
+    "kind": "html"
+  },
+  {
+    "id": "5b2e107a1e9987804eee",
+    "it": "Il beneficio aumenta la capacità di trasporto della nave; le risorse devono comunque essere acquistate o procurate.",
+    "kind": "html"
+  },
+  {
+    "id": "61a5ff457c1322e145c7",
+    "it": "Stiva Ampliata deve indicare espressamente quante Unità aggiunge. Una dicitura generica come «aumenta il cargo» non è sufficiente per una scheda utilizzabile.",
+    "kind": "html"
+  },
+  {
+    "id": "a787b2cfc523c77ca341",
+    "it": "13.24.3 · Ritardi e imprevisti",
+    "kind": "html"
+  },
+  {
+    "id": "1371f8414d9db80c6f91",
+    "it": "Un fallimento durante una Prova di Navigazione può modificare la traversata.",
+    "kind": "html"
+  },
+  {
+    "id": "24e7f0157ffc524d0f16",
+    "it": "Il GM sceglie una conseguenza coerente con l'ostacolo affrontato: un ritardo, una deviazione, un danno alla nave oppure l'esposizione a un nuovo pericolo.",
+    "kind": "html"
+  },
+  {
+    "id": "571605977f22a750ef8b",
+    "it": "Il fallimento non deve necessariamente provocare tutte queste conseguenze contemporaneamente.",
+    "kind": "html"
+  },
+  {
+    "id": "cdec05a46772688b73ff",
+    "it": "Se la nave subisce danni, questi vengono gestiti attraverso i Punti Struttura e le condizioni dello scafo.",
+    "kind": "html"
+  },
+  {
+    "id": "a84b74232b65c023d5fc",
+    "it": "Se il viaggio si prolunga, il GM aggiorna la durata stimata e verifica la disponibilità delle provviste.",
+    "kind": "html"
+  },
+  {
+    "id": "7dfcdb00e8d22b905ea5",
+    "it": "13.24.4 · Esaurimento delle scorte",
+    "kind": "html"
+  },
+  {
+    "id": "20adf6c55cd94121f525",
+    "it": "Quando le provviste finiscono, la ciurma deve trovare una soluzione attraverso le risorse e le capacità disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "d9c8a7aaba2ef5e3a776",
+    "it": "Può tentare di pescare, cercare cibo su un'isola, raggiungere un porto oppure utilizzare Talenti appropriati.",
+    "kind": "html"
+  },
+  {
+    "id": "551c2143e85f13e13d72",
+    "it": "Le Prove di Sopravvivenza, Natura ed Esplorazione possono essere utilizzate quando pertinenti.",
+    "kind": "html"
+  },
+  {
+    "id": "4d89f100b27e3318677f",
+    "it": "L'esaurimento delle provviste non infligge automaticamente una quantità fissa di danni: il regolamento non definisce ancora una progressione numerica universale per fame e disidratazione.",
+    "kind": "html"
+  },
+  {
+    "id": "b8f6bd48a6dd2b5f35fb",
+    "it": "Il GM descrive le conseguenze e utilizza le regole di sopravvivenza concordate per la campagna, tenendo conto delle possibilità concrete della ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "5fb18197e58810f12996",
+    "it": "Capitolo 14 ·",
+    "kind": "html"
+  },
+  {
+    "id": "3de96467fc7d0db407ef",
+    "it": "Cambusa e Cucina",
+    "kind": "html"
+  },
+  {
+    "id": "0218ee1f31229a212df7",
+    "it": "Una ciurma può possedere una nave formidabile e armi leggendarie, ma dopo giorni di navigazione, combattimenti e notti senza riposo, persino il pirata più resistente ha bisogno di un pasto caldo.",
+    "kind": "html"
+  },
+  {
+    "id": "4df6e08d0e6f3064c132",
+    "it": "In Grand Line Chronicles, la Cucina permette di trasformare gli ingredienti in piatti capaci di recuperare Punti Vita (PV) e Stamina (ST). I risultati dipendono dalla ricetta e dall'abilità di chi la prepara.",
+    "kind": "html"
+  },
+  {
+    "id": "5a23a2aaa7a47ad7959b",
+    "it": "Il Cuoco è lo specialista di questo sistema: può affrontare ricette più ambiziose, migliorare i benefici dei pasti e preparare banchetti per l'intera ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "45f278ae030cb8d12dcf",
+    "it": "Il ricettario completo rimane nella Cambusa digitale. Questo capitolo contiene soltanto le regole necessarie per utilizzarlo e creare nuovi piatti.",
+    "kind": "html"
+  },
+  {
+    "id": "139a752ff07e8bcc1f01",
+    "it": "<span class=\"man-sez-n\">14.1 ·</span> La Prova di Cucina",
+    "kind": "html"
+  },
+  {
+    "id": "074e63003cf51c234d1c",
+    "it": "Preparare un piatto richiede una Prova che utilizza:",
+    "kind": "html"
+  },
+  {
+    "id": "a931bc10b7065a129e40",
+    "it": "Prova di preparazione",
+    "kind": "html"
+  },
+  {
+    "id": "4e4a67876088ccb479b8",
+    "it": "Spirito + Cucina",
+    "kind": "html"
+  },
+  {
+    "id": "b84dcd97219fc87f40bf",
+    "it": "Il risultato viene confrontato con la Soglia della ricetta.",
+    "kind": "html"
+  },
+  {
+    "id": "461886ae6f3571fa593f",
+    "it": "Ogni piatto indica la propria Soglia. Ricette semplici possono essere preparate con ingredienti ordinari, mentre quelle più ambiziose richiedono maggiore esperienza e materie prime particolari.",
+    "kind": "html"
+  },
+  {
+    "id": "adefe83a182fd33d2958",
+    "it": "<b>Tipo di preparazione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "4cd4fff4af77d65d0c30",
+    "it": "Ricetta semplice",
+    "kind": "html"
+  },
+  {
+    "id": "d6daefa8c4f6540dbd3c",
+    "it": "Ricetta ordinaria",
+    "kind": "html"
+  },
+  {
+    "id": "b310bd0f28e3844ea51f",
+    "it": "Ricetta ambiziosa",
+    "kind": "html"
+  },
+  {
+    "id": "41f97a1b4a10e9f90a7a",
+    "it": "Ricetta particolarmente ambiziosa",
+    "kind": "html"
+  },
+  {
+    "id": "fb94d9a6901f6c9bfa8c",
+    "it": "Questi valori rappresentano le Soglie presenti nel ricettario, non una regola che obbliga ogni nuova ricetta a utilizzare soltanto questi quattro numeri.",
+    "kind": "html"
+  },
+  {
+    "id": "8f3c0c7fb52078c8fbb5",
+    "it": "Il Game Master può approvare ricette con requisiti differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "9cf90d3b9d97801ad3d4",
+    "it": "Il ruolo del Cuoco",
+    "kind": "html"
+  },
+  {
+    "id": "60b8e02864afec352066",
+    "it": "Il Tratto Il Cuore e il Motore riserva al Cuoco i piatti ambiziosi, generalmente quelli con Soglia 10–12.",
+    "kind": "html"
+  },
+  {
+    "id": "315d3ae562fc58719e4d",
+    "it": "Un personaggio che possiede la Skill Cucina, ma non il Ruolo Cuoco, può cimentarsi nelle preparazioni accessibili alle proprie competenze.",
+    "kind": "html"
+  },
+  {
+    "id": "932239c14c52ea3e24fb",
+    "it": "Possedere un dado elevato in Cucina non elimina automaticamente questa distinzione tra Skill e Tratto di Ruolo.",
+    "kind": "html"
+  },
+  {
+    "id": "86b23b7a675e1047f107",
+    "it": "<span class=\"man-sez-n\">14.2 ·</span> Preparare un piatto",
+    "kind": "html"
+  },
+  {
+    "id": "bbb1d0e5480be3d4dc87",
+    "it": "Prima di effettuare la Prova, il giocatore sceglie una ricetta e verifica di avere gli ingredienti e le condizioni necessari.",
+    "kind": "html"
+  },
+  {
+    "id": "3eccfe5405635918fd8a",
+    "it": "Scegli la ricetta. Individua un piatto ufficiale oppure utilizza una ricetta personalizzata approvata dal GM.",
+    "kind": "html"
+  },
+  {
+    "id": "36a59567bda590204d16",
+    "it": "Verifica gli ingredienti. La Cambusa deve disporre delle materie prime richieste.",
+    "kind": "html"
+  },
+  {
+    "id": "ef00a1fbdbdc03934d41",
+    "it": "Dedica il tempo necessario. La preparazione deve avvenire in condizioni compatibili con la ricetta e con gli eventuali Talenti posseduti.",
+    "kind": "html"
+  },
+  {
+    "id": "6b9b5a0930f25bd828dd",
+    "it": "Effettua la Prova. Tira Spirito + Cucina contro la Soglia del piatto.",
+    "kind": "html"
+  },
+  {
+    "id": "6f94a0f9fc9b1f769d2d",
+    "it": "Registra il risultato. Il piatto preparato conserva l'esito ottenuto, che determina i benefici quando viene consumato.",
+    "kind": "html"
+  },
+  {
+    "id": "2329c7ea7f90c02837db",
+    "it": "Un piatto viene preparato prima di essere servito. Non è possibile dichiarare durante un combattimento di aver cucinato una ricetta che non era stata preparata.",
+    "kind": "html"
+  },
+  {
+    "id": "ece260d7219b813f2f3d",
+    "it": "Il Talento Servizio in Battaglia permette di servire un piatto già pronto durante lo scontro, non di cucinarlo istantaneamente.",
+    "kind": "html"
+  },
+  {
+    "id": "e693f09c1f0bbef833b0",
+    "it": "Porzioni",
+    "kind": "html"
+  },
+  {
+    "id": "752a03909be3722093c3",
+    "it": "Le quantità di ingredienti indicate da una ricetta rappresentano normalmente gli ingredienti necessari per una porzione.",
+    "kind": "html"
+  },
+  {
+    "id": "5af9205b7d69db3c51df",
+    "it": "Preparare più porzioni moltiplica proporzionalmente gli ingredienti richiesti.",
+    "kind": "html"
+  },
+  {
+    "id": "2ffa8208b68713d065e6",
+    "it": "La Prova può essere effettuata una sola volta per un lotto dello stesso piatto preparato contemporaneamente; tutte le porzioni di quel lotto conservano lo stesso esito.",
+    "kind": "html"
+  },
+  {
+    "id": "66694d21b8ad6d85ffee",
+    "it": "Mano del Cuoco · Migliorato costituisce un’eccezione: una singola porzione preparata dal Cuoco può beneficiare due compagni.",
+    "kind": "html"
+  },
+  {
+    "id": "fa263991b316df24420d",
+    "it": "Banchetto di Guerra richiede comunque ingredienti sufficienti per nutrire effettivamente la ciurma, ma utilizza una sola Prova di preparazione per l’intero banchetto.",
+    "kind": "html"
+  },
+  {
+    "id": "182de534ddc9689810f1",
+    "it": "<span class=\"man-sez-n\">14.3 ·</span> I quattro esiti della Cucina",
+    "kind": "html"
+  },
+  {
+    "id": "96708a5de6c6186c9a33",
+    "it": "Il valore della Prova viene confrontato con la Soglia per determinare il margine.",
+    "kind": "html"
+  },
+  {
+    "id": "df20a2a518ad203a1c64",
+    "it": "Ogni ricetta riporta quattro risultati possibili.",
+    "kind": "html"
+  },
+  {
+    "id": "574d493cb70b1f612401",
+    "it": "Margine negativo",
+    "kind": "html"
+  },
+  {
+    "id": "af8f90f571cc629f4f86",
+    "it": "Fallimento",
+    "kind": "html"
+  },
+  {
+    "id": "8dc3f8b9537e92e16696",
+    "it": "Il piatto produce il beneficio indicato nella voce Fallimento della ricetta. Può non recuperare nulla, ma alcune ricette conservano un effetto minimo.",
+    "kind": "html"
+  },
+  {
+    "id": "307c008400f5c3394f24",
+    "it": "Margine 0",
+    "kind": "html"
+  },
+  {
+    "id": "f20bf5f658f858efc803",
+    "it": "La preparazione riesce al limite e produce il beneficio ridotto riportato nella ricetta.",
+    "kind": "html"
+  },
+  {
+    "id": "0cd2c5eeb0107484611d",
+    "it": "Margine +1 / +3",
+    "kind": "html"
+  },
+  {
+    "id": "b3f7bc60340948db8ca4",
+    "it": "Il piatto produce il proprio beneficio ordinario.",
+    "kind": "html"
+  },
+  {
+    "id": "c19be2e5b9539b763d0b",
+    "it": "Margine +4 o superiore",
+    "kind": "html"
+  },
+  {
+    "id": "7e4c4e816a0feb0ebe97",
+    "it": "Critico",
+    "kind": "html"
+  },
+  {
+    "id": "547b09e55363f0e651a2",
+    "it": "Il piatto raggiunge il risultato massimo previsto dalla ricetta. Per il Cuoco si attiva inoltre la Firma L'Apice.",
+    "kind": "html"
+  },
+  {
+    "id": "99abb630c5e1c6630219",
+    "it": "Il Critico dipende dal margine di almeno +4, non dal semplice fatto di ottenere il risultato massimo su un singolo dado.",
+    "kind": "html"
+  },
+  {
+    "id": "ab17dab4197cf7e61605",
+    "it": "Il Fallimento non è sempre identico",
+    "kind": "html"
+  },
+  {
+    "id": "8635c8af65c8eaec8abc",
+    "it": "È la scheda del piatto a stabilire gli effetti di ogni esito.",
+    "kind": "html"
+  },
+  {
+    "id": "f536148b5bb64ad7de7f",
+    "it": "Alcune ricette indicano nessun recupero in caso di fallimento. Altre possono conservare un piccolo beneficio.",
+    "kind": "html"
+  },
+  {
+    "id": "7e01700eff7e3f040bfb",
+    "it": "Il GM non deve sostituire la voce Fallimento della ricetta con una penalità inventata.",
+    "kind": "html"
+  },
+  {
+    "id": "411c14d33e223a2817b6",
+    "it": "<span class=\"man-sez-n\">14.4 ·</span> Recuperare PV e Stamina",
+    "kind": "html"
+  },
+  {
+    "id": "36a160b8cb4edc888be8",
+    "it": "I piatti possono recuperare PV, ST oppure entrambe le risorse.",
+    "kind": "html"
+  },
+  {
+    "id": "09268aec1790d05c63da",
+    "it": "La quantità dipende dall'esito ottenuto durante la preparazione.",
+    "kind": "html"
+  },
+  {
+    "id": "79aa58d7ba17fbd9a993",
+    "it": "<b>PV</b>",
+    "kind": "html"
+  },
+  {
+    "id": "aa3f63348c045a76f17c",
+    "it": "Il personaggio recupera i Punti Vita indicati.",
+    "kind": "html"
+  },
+  {
+    "id": "dcc622054e9af14033aa",
+    "it": "Il personaggio recupera la Stamina indicata.",
+    "kind": "html"
+  },
+  {
+    "id": "32ce0d28c0aa0a3ab02f",
+    "it": "<b>PV e ST</b>",
+    "kind": "html"
+  },
+  {
+    "id": "47074add794c9fddc8b6",
+    "it": "Si applicano entrambi i recuperi riportati nella ricetta.",
+    "kind": "html"
+  },
+  {
+    "id": "5590bfed5bea0b1fc4bc",
+    "it": "Il recupero non può superare il valore massimo ordinario della risorsa, salvo che una capacità specifichi espressamente di aumentarne il massimo.",
+    "kind": "html"
+  },
+  {
+    "id": "143ee9f91e5ba83e5173",
+    "it": "Un piatto che restituisce 4 ST non aumenta permanentemente la Stamina massima del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "3b53400f84113903b5d2",
+    "it": "Un Talento come Il Banchetto Leggendario, invece, può modificare esplicitamente quel limite.",
+    "kind": "html"
+  },
+  {
+    "id": "d66c28dad20a9dfab3c1",
+    "it": "Una ricetta, risultati differenti",
+    "kind": "html"
+  },
+  {
+    "id": "ddf77720ccb31d10abdd",
+    "it": "Un piatto potrebbe riportare:",
+    "kind": "html"
+  },
+  {
+    "id": "a2a15da9013d026f400b",
+    "it": "<b>Critico</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3d65ea826e81d2e71074",
+    "it": "<b>Successo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "4bdde789ef74dab049b2",
+    "it": "<b>Stentato</b>",
+    "kind": "html"
+  },
+  {
+    "id": "454ad74786bb6019c5af",
+    "it": "<b>Fallimento</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f56b9cfaeb2742d413fd",
+    "it": "Nessuna",
+    "kind": "html"
+  },
+  {
+    "id": "4ca6bdb8b553ca622df3",
+    "it": "Questo è un esempio di struttura tratto dal ricettario, non una tabella universale applicabile a ogni piatto.",
+    "kind": "html"
+  },
+  {
+    "id": "40968ba49a0894600281",
+    "it": "Un piatto a base di frutta, per esempio, potrebbe recuperare soprattutto Stamina, mentre altre ricette potrebbero privilegiare i PV.",
+    "kind": "html"
+  },
+  {
+    "id": "4a87975779fca2b314c5",
+    "it": "Beneficio dei pasti",
+    "kind": "html"
+  },
+  {
+    "id": "f930356c3b54210ba42e",
+    "it": "Un personaggio può ottenere il recupero di PV e ST di un solo pasto ordinario per scena.",
+    "kind": "html"
+  },
+  {
+    "id": "ce031cb01bd38a6d9c3f",
+    "it": "Consumare ulteriori piatti nella stessa scena è possibile narrativamente, ma non concede nuovamente recuperi di PV o ST.",
+    "kind": "html"
+  },
+  {
+    "id": "0a9541a5f7a84893601b",
+    "it": "Il limite si azzera quando inizia una nuova scena significativa oppure dopo un Riposo.",
+    "kind": "html"
+  },
+  {
+    "id": "88009e360e45756e9284",
+    "it": "Le capacità che dichiarano espressamente di poter servire un nuovo pasto durante lo scontro — come Secondo Fuoco Leggendario — costituiscono un’eccezione e producono i propri effetti secondo la loro descrizione.",
+    "kind": "html"
+  },
+  {
+    "id": "66220191f2f8ded1a206",
+    "it": "Due piatti che concedono lo stesso bonus temporaneo non sommano lo stesso beneficio: si utilizza il valore maggiore.",
+    "kind": "html"
+  },
+  {
+    "id": "a7e9c0458ed2aba38d40",
+    "it": "Bonus differenti possono coesistere quando le loro regole lo permettono.",
+    "kind": "html"
+  },
+  {
+    "id": "a80ccf53febfecbed296",
+    "it": "<span class=\"man-sez-n\">14.5 ·</span> Le categorie dei piatti",
+    "kind": "html"
+  },
+  {
+    "id": "b7677a34651e4aa9e91c",
+    "it": "La Cambusa organizza le ricette in categorie.",
+    "kind": "html"
+  },
+  {
+    "id": "245b4c36439543c1540e",
+    "it": "Ogni categoria descrive una famiglia di preparazioni e permette di individuare più facilmente gli ingredienti adatti.",
+    "kind": "html"
+  },
+  {
+    "id": "a762dd3286c56a63cbb1",
+    "it": "<b>Categoria</b>",
+    "kind": "html"
+  },
+  {
+    "id": "48a33f4ff4d3f352c001",
+    "it": "<b>Caratteristiche</b>",
+    "kind": "html"
+  },
+  {
+    "id": "33e73c02babe4e44845a",
+    "it": "<b>Carne</b>",
+    "kind": "html"
+  },
+  {
+    "id": "331109205bb4cdfa79ad",
+    "it": "Preparazioni sostanziose a base di carne.",
+    "kind": "html"
+  },
+  {
+    "id": "7b02ec37f34753ba11cc",
+    "it": "<b>Pesce</b>",
+    "kind": "html"
+  },
+  {
+    "id": "2e1e383f03c43a9246c9",
+    "it": "Piatti a base di pesce e prodotti del mare.",
+    "kind": "html"
+  },
+  {
+    "id": "bc6647333b1f80b9f0ec",
+    "it": "<b>Verdura</b>",
+    "kind": "html"
+  },
+  {
+    "id": "eec5c0a85ab8c07c8c90",
+    "it": "Preparazioni vegetali, zuppe e contorni.",
+    "kind": "html"
+  },
+  {
+    "id": "679300d0ffbabf373dc4",
+    "it": "<b>Frutta</b>",
+    "kind": "html"
+  },
+  {
+    "id": "ff702fee3ff9704614b8",
+    "it": "Frutta fresca, macedonie e bevande.",
+    "kind": "html"
+  },
+  {
+    "id": "ff7ff1d901bf3c19b53c",
+    "it": "<b>Dolci</b>",
+    "kind": "html"
+  },
+  {
+    "id": "b3f9bf941dac8acebdf6",
+    "it": "Dessert e preparazioni zuccherate.",
+    "kind": "html"
+  },
+  {
+    "id": "d7f8cb70339c827258e6",
+    "it": "<b>Brodo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "03c65ddd9a654615e53a",
+    "it": "Brodi, zuppe leggere e preparazioni liquide.",
+    "kind": "html"
+  },
+  {
+    "id": "6cd150f0ce09aff9d3ca",
+    "it": "Gli ingredienti esotici costituiscono inoltre una categoria di approvvigionamento particolare.",
+    "kind": "html"
+  },
+  {
+    "id": "f66853c8ff02a74abf51",
+    "it": "La categoria non determina da sola quanti PV o quanta ST recupera un piatto. Sono sempre i valori della ricetta a stabilirlo.",
+    "kind": "html"
+  },
+  {
+    "id": "d05a550222374b8598f2",
+    "it": "Bonus di categoria",
+    "kind": "html"
+  },
+  {
+    "id": "11bc62ef7c656e1d99f6",
+    "it": "Alcuni ingredienti e categorie possono fornire benefici supplementari.",
+    "kind": "html"
+  },
+  {
+    "id": "e50c275fe867db322463",
+    "it": "Il riferimento della Cambusa prevede, tra gli altri, questi casi:",
+    "kind": "html"
+  },
+  {
+    "id": "7c6fe19bb90eaa3113af",
+    "it": "<b>Condizione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "a9fce57af5750608cc1a",
+    "it": "<b>Beneficio riportato</b>",
+    "kind": "html"
+  },
+  {
+    "id": "35481bcfe2157c3e630d",
+    "it": "<b>Pesce fresco</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f6cfa06e95610783436d",
+    "it": "+1 dado bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "fc4f0da757744b4c9b64",
+    "it": "<b>Frutta tropicale fresca</b>",
+    "kind": "html"
+  },
+  {
+    "id": "2bc70e6245b4df735a50",
+    "it": "+1 ST all'esito.",
+    "kind": "html"
+  },
+  {
+    "id": "08e05818d0594086afc2",
+    "it": "<b>Ingredienti esotici</b>",
+    "kind": "html"
+  },
+  {
+    "id": "9555afd11a786ee0142c",
+    "it": "+1 dado bonus e bonus aumentati.",
+    "kind": "html"
+  },
+  {
+    "id": "c26823f27a3ff6a296d5",
+    "it": "Per i benefici che non specificano a quale tiro o recupero aggiungere il dado, il GM deve definirne l'applicazione prima della preparazione.",
+    "kind": "html"
+  },
+  {
+    "id": "1d3d019d1aaba892c52c",
+    "it": "Non si deve presumere che «+1 dado bonus» significhi automaticamente +1 Dado Vita, +1 Dado Danno oppure +1 dado a qualsiasi Prova.",
+    "kind": "html"
+  },
+  {
+    "id": "656195f509e1629bae55",
+    "it": "La ricetta e la descrizione dell'ingrediente rimangono il riferimento principale.",
+    "kind": "html"
+  },
+  {
+    "id": "1000196e7b58c46d1dc9",
+    "it": "Dadi concessi dagli ingredienti",
+    "kind": "html"
+  },
+  {
+    "id": "14a6c9741d15294def74",
+    "it": "Un dado concesso da un ingrediente non viene mai aggiunto alla Prova di Cucina salvo che la scheda dica espressamente che modifica la Prova.",
+    "kind": "html"
+  },
+  {
+    "id": "edaf6420ec5b0ddfbbf2",
+    "it": "Se modifica un recupero, deve indicare quale risorsa modifica e quale dado viene aggiunto.",
+    "kind": "html"
+  },
+  {
+    "id": "87232648a611432d299f",
+    "it": "<span class=\"man-sez-n\">14.6 ·</span> Gli ingredienti speciali",
+    "kind": "html"
+  },
+  {
+    "id": "739d2558d2fb11d799ee",
+    "it": "Alcuni ingredienti possiedono proprietà che modificano il risultato del piatto.",
+    "kind": "html"
+  },
+  {
+    "id": "4ded61a8c801c70a74f6",
+    "it": "Il bonus viene applicato secondo le condizioni indicate dall'ingrediente.",
+    "kind": "html"
+  },
+  {
+    "id": "e6f832d302056578899e",
+    "it": "Esempi di ingredienti notevoli",
+    "kind": "html"
+  },
+  {
+    "id": "d70f4071dae6d8291cff",
+    "it": "Carne di Bananawani",
+    "kind": "html"
+  },
+  {
+    "id": "8415aabe43d17dcc2e48",
+    "it": "+1d6 PV extra a qualsiasi esito.",
+    "kind": "html"
+  },
+  {
+    "id": "cffbd29cb434462ec69f",
+    "it": "Carne di Sea King",
+    "kind": "html"
+  },
+  {
+    "id": "2dcdb64170a73aae34d5",
+    "it": "Non comune",
+    "kind": "html"
+  },
+  {
+    "id": "3c438b92e3b803e608d0",
+    "it": "+1d4 PV e +1 ST a qualsiasi esito.",
+    "kind": "html"
+  },
+  {
+    "id": "af0db8d52739a05e44f7",
+    "it": "Calamaro del Profondo",
+    "kind": "html"
+  },
+  {
+    "id": "4e95256f2b32022203fd",
+    "it": "+1d4 ST extra soltanto con Critico o Successo.",
+    "kind": "html"
+  },
+  {
+    "id": "cd7b1785430e5e3ed2bb",
+    "it": "Fungo marino luminoso",
+    "kind": "html"
+  },
+  {
+    "id": "f28fe915fea929ceff7c",
+    "it": "+2 ST a qualsiasi esito.",
+    "kind": "html"
+  },
+  {
+    "id": "0a4585dcf3b31829990e",
+    "it": "La dicitura «a qualsiasi esito» include anche il Fallimento, quando l'ingrediente può effettivamente essere utilizzato nella ricetta.",
+    "kind": "html"
+  },
+  {
+    "id": "b4274adaad1d6e3364fe",
+    "it": "Un ingrediente che funziona soltanto con Successo o Critico non concede invece il proprio beneficio su uno Stentato.",
+    "kind": "html"
+  },
+  {
+    "id": "409ec2d9da534a5a5bd8",
+    "it": "I bonus degli ingredienti non cancellano i requisiti necessari per procurarseli.",
+    "kind": "html"
+  },
+  {
+    "id": "3aa4e9d9d6de608d4f8d",
+    "it": "Una creatura marina rara potrebbe richiedere una spedizione di pesca, mentre un ingrediente leggendario potrebbe essere disponibile soltanto su un'isola particolare.",
+    "kind": "html"
+  },
+  {
+    "id": "e2934c7da0ed1ea1bf96",
+    "it": "Ingredienti extra",
+    "kind": "html"
+  },
+  {
+    "id": "ab5170ae26f0be1391d1",
+    "it": "Una preparazione può utilizzare normalmente un solo Ingrediente Extra, oltre agli ingredienti richiesti dalla ricetta.",
+    "kind": "html"
+  },
+  {
+    "id": "f295922e954fe546aab8",
+    "it": "Gli ingredienti obbligatori della ricetta non contano ai fini di questo limite.",
+    "kind": "html"
+  },
+  {
+    "id": "ac55646b936465fecad9",
+    "it": "Un Ingrediente Extra viene consumato durante la preparazione e applica esclusivamente il beneficio indicato nella propria scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "182ff474731831499ca8",
+    "it": "Due copie dello stesso Ingrediente Extra non possono essere utilizzate per sommare più volte lo stesso beneficio, salvo che una ricetta dichiari espressamente il contrario.",
+    "kind": "html"
+  },
+  {
+    "id": "6ba06ace11c4914a2dcd",
+    "it": "Gli ingredienti differenti possono produrre effetti differenti soltanto quando fanno già parte della ricetta oppure una capacità permette espressamente di utilizzarne più di uno.",
+    "kind": "html"
+  },
+  {
+    "id": "4e1dc1a0a3482c0be4f0",
+    "it": "Disponibilità e conservazione",
+    "kind": "html"
+  },
+  {
+    "id": "b942d8f30ad2d10dce61",
+    "it": "Il riferimento della Cambusa distingue ingredienti comuni, non comuni, rari e leggendari.",
+    "kind": "html"
+  },
+  {
+    "id": "94f8b91e83b3b0ceea91",
+    "it": "Alcuni prodotti possono essere acquistati nei porti. Altri devono essere pescati, raccolti o ottenuti durante l'avventura.",
+    "kind": "html"
+  },
+  {
+    "id": "ae49329706611a1840eb",
+    "it": "Il GM verifica che la ciurma possieda effettivamente gli ingredienti richiesti.",
+    "kind": "html"
+  },
+  {
+    "id": "4c6bf16136d04483cbbf",
+    "it": "La cucina non crea materie prime dal nulla.",
+    "kind": "html"
+  },
+  {
+    "id": "d6c7ebd85d51c53e370d",
+    "it": "Conservazione",
+    "kind": "html"
+  },
+  {
+    "id": "5e3a05aaed6c0cb207d4",
+    "it": "Salvo indicazioni differenti della ricetta:",
+    "kind": "html"
+  },
+  {
+    "id": "02b5987e839deb7fb235",
+    "it": "Un piatto appena preparato conserva i propri benefici per 24 ore.",
+    "kind": "html"
+  },
+  {
+    "id": "51a0583d7d64b34041ad",
+    "it": "Un ingrediente fresco si conserva normalmente per 3 giorni.",
+    "kind": "html"
+  },
+  {
+    "id": "f784ccf3c3498d2bd69e",
+    "it": "Ingredienti essiccati, salati, inscatolati o appositamente conservati seguono la durata indicata dalla loro scheda e possono normalmente durare per settimane.",
+    "kind": "html"
+  },
+  {
+    "id": "253ee24fea82166fdf1c",
+    "it": "Una Cambusa refrigerata, un contenitore adatto o un altro sistema di conservazione può prolungare questi tempi secondo la propria descrizione.",
+    "kind": "html"
+  },
+  {
+    "id": "f9de3d17c4ee8298b820",
+    "it": "Quando un alimento supera il proprio tempo di conservazione non mantiene automaticamente gli effetti meccanici registrati nella preparazione.",
+    "kind": "html"
+  },
+  {
+    "id": "3a7fa34951f29faa199a",
+    "it": "<span class=\"man-sez-n\">14.7 ·</span> La Firma del Cuoco: L'Apice",
+    "kind": "html"
+  },
+  {
+    "id": "7f2cc60be44a1529fe30",
+    "it": "L'Apice",
+    "kind": "html"
+  },
+  {
+    "id": "738f9f65c42f79ab69d2",
+    "it": "Firma · Margine +4",
+    "kind": "html"
+  },
+  {
+    "id": "88ba9e98510a82b189fe",
+    "it": "Quando il Cuoco ottiene un Critico in una Prova di Cucina, il piatto diventa un capolavoro.",
+    "kind": "html"
+  },
+  {
+    "id": "cad1063c4a3036a55e98",
+    "it": "Applica il risultato Critico della ricetta e attiva anche il Bonus di categoria previsto.",
+    "kind": "html"
+  },
+  {
+    "id": "93878669e630d53a0685",
+    "it": "La Firma non raddoppia automaticamente tutti i valori della ricetta.",
+    "kind": "html"
+  },
+  {
+    "id": "eac8a61375a5eec4a59e",
+    "it": "Il recupero è quello specificato per il Critico, modificato soltanto dai benefici effettivamente applicabili.",
+    "kind": "html"
+  },
+  {
+    "id": "a9004115702ee6e9c05f",
+    "it": "Il Talento Cuoco da Battaglia può anticipare l'attivazione del Bonus di categoria al normale Successo.",
+    "kind": "html"
+  },
+  {
+    "id": "5833170352b84ebd65bf",
+    "it": "<span class=\"man-sez-n\">14.8 ·</span> Creare un piatto personalizzato",
+    "kind": "html"
+  },
+  {
+    "id": "75538fd3b1ee5f5ba9ec",
+    "it": "Per creare una nuova ricetta, scegli innanzitutto una ricetta ufficiale di riferimento con Soglia e funzione simili.",
+    "kind": "html"
+  },
+  {
+    "id": "646782c73fe786b0b7f2",
+    "it": "La nuova ricetta utilizza quella scheda come limite di potenza.",
+    "kind": "html"
+  },
+  {
+    "id": "8dc4f9d99ac5392f3596",
+    "it": "Definisci:",
+    "kind": "html"
+  },
+  {
+    "id": "344082b15881f4f74344",
+    "it": "Nome del piatto.",
+    "kind": "html"
+  },
+  {
+    "id": "b80e67adfb30d80daa22",
+    "it": "Carne, Pesce, Verdura, Frutta, Dolci o Brodo.",
+    "kind": "html"
+  },
+  {
+    "id": "2c686fb53c6eebaf5182",
+    "it": "<b>Ingredienti</b>",
+    "kind": "html"
+  },
+  {
+    "id": "59017ca6a0d33e29dac8",
+    "it": "Materie prime necessarie.",
+    "kind": "html"
+  },
+  {
+    "id": "61b9f5fdd4c7a74d11d1",
+    "it": "Difficoltà della preparazione.",
+    "kind": "html"
+  },
+  {
+    "id": "4dfbddd84e093a1ef58e",
+    "it": "<b>Tempo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3719b299946645e40be9",
+    "it": "Tempo richiesto.",
+    "kind": "html"
+  },
+  {
+    "id": "950af8e6ef4ea053c4f9",
+    "it": "Recupero massimo.",
+    "kind": "html"
+  },
+  {
+    "id": "0e91c1e2aa6776e9685f",
+    "it": "Recupero ordinario.",
+    "kind": "html"
+  },
+  {
+    "id": "7b72b2d90219a76cb438",
+    "it": "Recupero ridotto.",
+    "kind": "html"
+  },
+  {
+    "id": "d5cae5823482377407d6",
+    "it": "Eventuale recupero minimo o assenza di benefici.",
+    "kind": "html"
+  },
+  {
+    "id": "f794347d47cbfe807823",
+    "it": "<b>Bonus</b>",
+    "kind": "html"
+  },
+  {
+    "id": "5ea0360a0980ae54f3cc",
+    "it": "Proprietà aggiuntive degli ingredienti e della categoria.",
+    "kind": "html"
+  },
+  {
+    "id": "26b4c495ed903d8aaa69",
+    "it": "Una ricetta personalizzata può redistribuire il proprio recupero tra PV e ST, ma non dovrebbe superare complessivamente il valore di una ricetta ufficiale della stessa fascia senza richiedere ingredienti più rari o una Soglia superiore.",
+    "kind": "html"
+  },
+  {
+    "id": "9d52d52d1d8ed0ea1a7f",
+    "it": "La rarità di un ingrediente non concede da sola un valore numerico universale.",
+    "kind": "html"
+  },
+  {
+    "id": "b4c2077feeccb2049988",
+    "it": "Un ingrediente raro produce soltanto il bonus indicato nella propria scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "b860278cddb1b85ce75e",
+    "it": "I benefici che appartengono ai Talenti del Cuoco — per esempio:",
+    "kind": "html"
+  },
+  {
+    "id": "2b72e55e967194a9a2c8",
+    "it": "Più destinatari.",
+    "kind": "html"
+  },
+  {
+    "id": "de888ec11f3eb7444fde",
+    "it": "Rimozione automatica di Stati.",
+    "kind": "html"
+  },
+  {
+    "id": "29d5d9d595ec4f46dbea",
+    "it": "Recuperi moltiplicati.",
+    "kind": "html"
+  },
+  {
+    "id": "e17165c2d46833e918cd",
+    "it": "Servizio rapido in battaglia.",
+    "kind": "html"
+  },
+  {
+    "id": "fc9ce4b84dbdbd6d9e8a",
+    "it": "non possono essere inseriti gratuitamente in una ricetta personalizzata.",
+    "kind": "html"
+  },
+  {
+    "id": "5b84eb3f6478033db71b",
+    "it": "Qualsiasi effetto originale deve essere definito e approvato prima della Prova di Cucina.",
+    "kind": "html"
+  },
+  {
+    "id": "0dd68f029909a68e6f78",
+    "it": "Il risultato della Prova decide quale dei quattro esiti registrati viene applicato: non permette di scegliere nuovi effetti dopo il tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "4aad529fb942fa4891b5",
+    "it": "<span class=\"man-sez-n\">14.9 ·</span> Cucinare durante la traversata",
+    "kind": "html"
+  },
+  {
+    "id": "eeef510a8a52fe789cc9",
+    "it": "Una nave con una Cambusa funzionante permette di preparare i pasti durante la navigazione, quando le condizioni lo consentono.",
+    "kind": "html"
+  },
+  {
+    "id": "446959245cdc6a267657",
+    "it": "La ciurma deve avere ingredienti sufficienti e il tempo richiesto dalle ricette.",
+    "kind": "html"
+  },
+  {
+    "id": "3680ff9a904ca50fdb88",
+    "it": "Non esiste una durata universale applicabile a ogni piatto.",
+    "kind": "html"
+  },
+  {
+    "id": "f0e795547757aa93ce01",
+    "it": "Alcune preparazioni richiedono poco tempo. Le ricette elaborate e i banchetti possono richiedere ore.",
+    "kind": "html"
+  },
+  {
+    "id": "19a9560f154e1d7481a8",
+    "it": "Il Talento Cucina Espressa permette al Cuoco di preparare durante una pausa breve un piatto che normalmente richiederebbe ore.",
+    "kind": "html"
+  },
+  {
+    "id": "cbd98612885ce13b49a7",
+    "it": "La capacità riduce il tempo di preparazione secondo il proprio effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "d34cd08a8aa10a685fde",
+    "it": "Non rende gratuiti gli ingredienti e non trasforma la cucina in un'Azione di combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "0a72d341b148d13d1abb",
+    "it": "Il Talento Il Bancone permette al Cuoco di allestire una cucina da campo ovunque disponga di un fuoco e di una superficie di lavoro.",
+    "kind": "html"
+  },
+  {
+    "id": "aa0dca814d10dd04b6b1",
+    "it": "Non subisce le normali penalità dovute alla mancanza di attrezzature.",
+    "kind": "html"
+  },
+  {
+    "id": "68c19ebdce93339bebec",
+    "it": "Il Talento non elimina la necessità degli ingredienti.",
+    "kind": "html"
+  },
+  {
+    "id": "7622718670a408622f59",
+    "it": "<span class=\"man-sez-n\">14.10 ·</span> Servire il cibo durante il combattimento",
+    "kind": "html"
+  },
+  {
+    "id": "c4e99b2c2afc613fbbdf",
+    "it": "Normalmente, la preparazione avviene prima dello scontro.",
+    "kind": "html"
+  },
+  {
+    "id": "2e088deca1f96baf1323",
+    "it": "Il Talento Servizio in Battaglia costituisce un'eccezione che permette al Cuoco di distribuire rapidamente una razione già pronta.",
+    "kind": "html"
+  },
+  {
+    "id": "6642b42b48d6fc42d975",
+    "it": "Consumare un pasto",
+    "kind": "html"
+  },
+  {
+    "id": "98ab89491d8a6896c866",
+    "it": "Un normale pasto non è un oggetto da combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "49f55317529f40388f09",
+    "it": "Fuori dallo scontro, consumare una porzione richiede normalmente alcuni minuti e il beneficio viene applicato al termine del pasto.",
+    "kind": "html"
+  },
+  {
+    "id": "d39f825e0e1b541a33bd",
+    "it": "Durante un combattimento, un personaggio non può consumare liberamente un normale piatto con una semplice Azione salvo che una capacità lo permetta espressamente.",
+    "kind": "html"
+  },
+  {
+    "id": "23e3925cc2c80366f6bf",
+    "it": "Servizio in Battaglia, Servizio Sovrano e capacità analoghe costituiscono eccezioni.",
+    "kind": "html"
+  },
+  {
+    "id": "3a1860b71cb2f246a673",
+    "it": "Talento d8",
+    "kind": "html"
+  },
+  {
+    "id": "1f00cba75ed55f4e2420",
+    "it": "Azione · Bersaglio cosciente entro 5 metri.",
+    "kind": "html"
+  },
+  {
+    "id": "8829f2505dbc58dc8bd2",
+    "it": "Requisito: possedere una porzione già preparata.",
+    "kind": "html"
+  },
+  {
+    "id": "6ffbb1d0b2730a1b0a12",
+    "it": "Servire il piatto non richiede una seconda Prova di Cucina: il risultato è già stato determinato quando la ricetta è stata preparata.",
+    "kind": "html"
+  },
+  {
+    "id": "fe73c81b5fb1437db520",
+    "it": "L’utilizzo del Talento non crea una porzione aggiuntiva né consente di scegliere un esito differente.",
+    "kind": "html"
+  },
+  {
+    "id": "879b30e3d350031f8226",
+    "it": "Il Talento Secondo Fuoco del Cuoco, disponibile nella fascia d12, permette di lanciare una razione a un compagno entro 5 metri quando questi scende sotto metà dei propri PV.",
+    "kind": "html"
+  },
+  {
+    "id": "dd0936d842419e85253d",
+    "it": "La capacità utilizza una Reazione, può essere impiegata una volta per scontro e restituisce immediatamente 1d6 ST al compagno.",
+    "kind": "html"
+  },
+  {
+    "id": "ef298b16ca55c79c8594",
+    "it": "<span class=\"man-sez-n\">14.11 ·</span> I Talenti che migliorano i piatti",
+    "kind": "html"
+  },
+  {
+    "id": "9949ecea2816de82e4cd",
+    "it": "I Talenti del Cuoco modificano la preparazione, il numero di destinatari e i benefici dei pasti.",
+    "kind": "html"
+  },
+  {
+    "id": "ca8f315745e4bdfabe8c",
+    "it": "<b>Dispensa del Cuoco · d8</b>",
+    "kind": "html"
+  },
+  {
+    "id": "0de64d10310f6c2203cf",
+    "it": "Aggiungi il dado Cucina ai tiri per cercare o pescare ingredienti.",
+    "kind": "html"
+  },
+  {
+    "id": "c7ccc717712b33153f9e",
+    "it": "<b>Mai a Stomaco Vuoto · d8</b>",
+    "kind": "html"
+  },
+  {
+    "id": "5736cf3bcdfd0dab41a6",
+    "it": "I tuoi piatti rendono almeno come uno Stentato, anche se la Prova fallisce.",
+    "kind": "html"
+  },
+  {
+    "id": "91394e693ea99eb4b4b4",
+    "it": "<b>Mano del Cuoco · Base · d8</b>",
+    "kind": "html"
+  },
+  {
+    "id": "2d8b70c3982c2ad13be6",
+    "it": "Aggiungi un dado alla risorsa recuperata dal piatto, PV oppure ST, secondo l'effetto. Se il piatto recupera entrambe, scegli una sola risorsa al momento della preparazione.",
+    "kind": "html"
+  },
+  {
+    "id": "9b75c996766eaf846049",
+    "it": "<b>Cuoco da Battaglia · d10</b>",
+    "kind": "html"
+  },
+  {
+    "id": "dd18fd1a0c37d1a47466",
+    "it": "Il Bonus di categoria si attiva già su un Successo.",
+    "kind": "html"
+  },
+  {
+    "id": "ee40f378aea7c4080791",
+    "it": "<b>Specialità · d10</b>",
+    "kind": "html"
+  },
+  {
+    "id": "6306d11e511bf408777b",
+    "it": "Scegli un piatto del catalogo e ne riduci la Soglia di 2.",
+    "kind": "html"
+  },
+  {
+    "id": "fa9dc582b160699e8aee",
+    "it": "<b>Mano del Cuoco · Migliorato · d10</b>",
+    "kind": "html"
+  },
+  {
+    "id": "feae783aa129a75306e7",
+    "it": "Una preparazione può essere consumata da due compagni; entrambi ricevono l'esito.",
+    "kind": "html"
+  },
+  {
+    "id": "3288f3f6246d163b6f18",
+    "it": "<b>Mano del Cuoco · Maestria · d12</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e237d63f659b14f53232",
+    "it": "<b>Banchetto di Guerra · d12</b>",
+    "kind": "html"
+  },
+  {
+    "id": "0d3bb2566a564dd706e7",
+    "it": "Prepari un pasto prima dello scontro e applichi l'esito a tutti i compagni che partecipano al banchetto.",
+    "kind": "html"
+  },
+  {
+    "id": "fff1d9ba149ceb6a361d",
+    "it": "I Talenti con prerequisiti mantengono la propria progressione.",
+    "kind": "html"
+  },
+  {
+    "id": "0303d76e24a235f8e1f0",
+    "it": "Mano del Cuoco · Migliorato richiede la versione Base. Mano del Cuoco · Maestria richiede la versione Migliorato.",
+    "kind": "html"
+  },
+  {
+    "id": "d423afaf985ff19b5df3",
+    "it": "Le porzioni",
+    "kind": "html"
+  },
+  {
+    "id": "9e8b379c1c83d0d33add",
+    "it": "In condizioni ordinarie, una preparazione beneficia un destinatario secondo la propria ricetta.",
+    "kind": "html"
+  },
+  {
+    "id": "69d9e46fb75dcac7515a",
+    "it": "Mano del Cuoco · Migliorato permette di estendere il risultato a due compagni.",
+    "kind": "html"
+  },
+  {
+    "id": "12a91b0a2c250b3ee9a4",
+    "it": "Banchetto di Guerra consente invece di distribuire lo stesso esito a tutti i membri della ciurma che partecipano al pasto preparato.",
+    "kind": "html"
+  },
+  {
+    "id": "fe669c067b8b9d2c4249",
+    "it": "Questi Talenti modificano esplicitamente il numero dei destinatari: non sono benefici concessi automaticamente a ogni preparazione.",
+    "kind": "html"
+  },
+  {
+    "id": "94a52004ad4262a5a12c",
+    "it": "<span class=\"man-sez-n\">14.12 ·</span> Il Banchetto Leggendario",
+    "kind": "html"
+  },
+  {
+    "id": "caeebbae2c1ed23d1b2e",
+    "it": "Ultimate · d20",
+    "kind": "html"
+  },
+  {
+    "id": "386c7d316a718e3e6203",
+    "it": "Il Cuoco prepara un banchetto capace di restituire alla ciurma le forze necessarie per affrontare un'intera avventura.",
+    "kind": "html"
+  },
+  {
+    "id": "a0ddd10dfd030019d35a",
+    "it": "Frequenza: una volta per avventura.",
+    "kind": "html"
+  },
+  {
+    "id": "82a23570d1f45a4b32f6",
+    "it": "La preparazione richiede ore di lavoro, ingredienti reali e una ciurma che si sieda a mangiare.",
+    "kind": "html"
+  },
+  {
+    "id": "338daaaefd205e381f7e",
+    "it": "Effetti immediati",
+    "kind": "html"
+  },
+  {
+    "id": "dff8c8a20fab05d23218",
+    "it": "Non è richiesta alcuna Prova di Cucina.",
+    "kind": "html"
+  },
+  {
+    "id": "a27beb04636768e9cfd0",
+    "it": "Il banchetto viene considerato automaticamente un Critico per ogni compagno che partecipa.",
+    "kind": "html"
+  },
+  {
+    "id": "416236d065a780393de3",
+    "it": "Gli effetti di recupero dei PV e della Stamina vengono raddoppiati.",
+    "kind": "html"
+  },
+  {
+    "id": "57afb03fdca6c267206a",
+    "it": "Effetti fino alla fine dell'avventura",
+    "kind": "html"
+  },
+  {
+    "id": "83995d667d14717c2b5d",
+    "it": "Ogni personaggio che ha mangiato riceve:",
+    "kind": "html"
+  },
+  {
+    "id": "81fb4ef6b80bb93ecd7a",
+    "it": "+2 ST massima",
+    "kind": "html"
+  },
+  {
+    "id": "14a340e51d2191a76e17",
+    "it": "Il bonus modifica temporaneamente il valore massimo della Stamina.",
+    "kind": "html"
+  },
+  {
+    "id": "b70a217e2d31865a01ef",
+    "it": "La volontà di rialzarsi",
+    "kind": "html"
+  },
+  {
+    "id": "b8e6c06263e7fa5a1549",
+    "it": "Il primo colpo che porterebbe il personaggio a 0 PV lo lascia invece a 1 PV.",
+    "kind": "html"
+  },
+  {
+    "id": "5793dfe4df74edf13a29",
+    "it": "Terminata l'avventura, il bonus alla Stamina massima cessa.",
+    "kind": "html"
+  },
+  {
+    "id": "d94267c80f650ae62372",
+    "it": "La protezione dal colpo fatale può intervenire una sola volta per ciascun personaggio che ha partecipato al banchetto.",
+    "kind": "html"
+  },
+  {
+    "id": "83632fdd5a93b71b0635",
+    "it": "Il Banchetto Leggendario non può essere dichiarato retroattivamente dopo che la ciurma è stata sconfitta.",
+    "kind": "html"
+  },
+  {
+    "id": "a50ed76b9c9fa71d0355",
+    "it": "Richiede una preparazione reale e un momento narrativo dedicato prima che i suoi benefici possano essere applicati.",
+    "kind": "html"
+  },
+  {
+    "id": "d3b15c31b75dd208504d",
+    "it": "<span class=\"man-sez-n\">14.13 ·</span> Esempio di preparazione",
+    "kind": "html"
+  },
+  {
+    "id": "1ed981d5e30b1f854bd5",
+    "it": "Il Cuoco della ciurma decide di preparare uno Stufato di battaglia prima di salpare.",
+    "kind": "html"
+  },
+  {
+    "id": "32fb3a005b9e6b1dbd5a",
+    "it": "La ricetta ufficiale richiede carne di selvaggina, patate, cipolle e brodo. Possiede Soglia 10 e utilizza Spirito + Cucina.",
+    "kind": "html"
+  },
+  {
+    "id": "f48785fd543ecc583827",
+    "it": "Stufato di battaglia",
+    "kind": "html"
+  },
+  {
+    "id": "6e3d3231804e204b4455",
+    "it": "Soglia 10",
+    "kind": "html"
+  },
+  {
+    "id": "7d537cbf9a911eb8eca6",
+    "it": "Carne",
+    "kind": "html"
+  },
+  {
+    "id": "3158de8ca5cb8e81ef27",
+    "it": "Il Cuoco ha Spirito d8 e Cucina d10.",
+    "kind": "html"
+  },
+  {
+    "id": "94bae33450342ea33f42",
+    "it": "Effettua il tiro e ottiene 13.",
+    "kind": "html"
+  },
+  {
+    "id": "b309e75698213b766d7d",
+    "it": "Il piatto raggiunge un normale Successo.",
+    "kind": "html"
+  },
+  {
+    "id": "3e163ecd1aef317ddd5a",
+    "it": "Beneficio dello Stufato",
+    "kind": "html"
+  },
+  {
+    "id": "7afbf3288af498f0cc52",
+    "it": "PV recuperati",
+    "kind": "html"
+  },
+  {
+    "id": "2b6024f883cf6a5f9139",
+    "it": "ST recuperata",
+    "kind": "html"
+  },
+  {
+    "id": "09be20217f07491e4117",
+    "it": "Se il Cuoco possiede Specialità",
+    "kind": "html"
+  },
+  {
+    "id": "987d6406667fce80627c",
+    "it": "Se ha scelto lo Stufato come propria Specialità, la Soglia scende da 10 a 8.",
+    "kind": "html"
+  },
+  {
+    "id": "1040d2ffd51595fc4964",
+    "it": "Con lo stesso risultato di 13, il margine diventa +5.",
+    "kind": "html"
+  },
+  {
+    "id": "97dba8cd3796b56fa869",
+    "it": "La preparazione raggiunge quindi un Critico e utilizza i benefici corrispondenti della ricetta.",
+    "kind": "html"
+  },
+  {
+    "id": "8d0aaa1de803cb1096d9",
+    "it": "Il Cuoco può registrare la preparazione nel Diario della sessione attraverso la Cambusa, annotando il piatto realizzato e il risultato ottenuto.",
+    "kind": "html"
+  },
+  {
+    "id": "b8a8e73e7594860cdccc",
+    "it": "Capitolo 15 ·",
+    "kind": "html"
+  },
+  {
+    "id": "6905d80e003448fc25ae",
+    "it": "I Legami Nakama",
+    "kind": "html"
+  },
+  {
+    "id": "553761dea18e184af46f",
+    "it": "<span class=\"man-sez-n\">15.1 ·</span> Il Legame Nakama",
+    "kind": "html"
+  },
+  {
+    "id": "3d5dc865d1be0779cbf4",
+    "it": "Un Legame Nakama rappresenta la fiducia e l’intesa sviluppate tra due compagni.",
+    "kind": "html"
+  },
+  {
+    "id": "36e967e8ea53482249ba",
+    "it": "Ogni Legame nasce a 0.",
+    "kind": "html"
+  },
+  {
+    "id": "4ec44058ec371077b72e",
+    "it": "A 0 il Legame esiste narrativamente, ma non concede ancora alcun dado.",
+    "kind": "html"
+  },
+  {
+    "id": "9d297380825ab5f133bf",
+    "it": "Quando cresce, segue la progressione:",
+    "kind": "html"
+  },
+  {
+    "id": "a1725a2b3105235c2d9a",
+    "it": "Il Legame non cresce attraverso Punti Abilità. È il Game Master a stabilire quando gli eventi vissuti insieme giustificano un aumento.",
+    "kind": "html"
+  },
+  {
+    "id": "01d45302cd241e7ce9e9",
+    "it": "<span class=\"man-sez-n\">15.2 ·</span> Aiuto Nakama",
+    "kind": "html"
+  },
+  {
+    "id": "098fdd1802d752fa4bcd",
+    "it": "Un personaggio può utilizzare il proprio Legame per aiutare un compagno quando il contributo è concretamente possibile.",
+    "kind": "html"
+  },
+  {
+    "id": "d2a9f1f9563e4478f413",
+    "it": "Uno stesso tiro può ricevere il dado Nakama di un solo compagno.",
+    "kind": "html"
+  },
+  {
+    "id": "1d4ebc5fd70bdf0a0c91",
+    "it": "Durante uno scontro",
+    "kind": "html"
+  },
+  {
+    "id": "150ef823dcd1c8333c9d",
+    "it": "Ciascun personaggio può fornire Aiuto Nakama una volta per scontro.",
+    "kind": "html"
+  },
+  {
+    "id": "c6b0fc22d3a43bd99828",
+    "it": "Ciascun personaggio può utilizzare Aiuto Nakama una volta per scena.",
+    "kind": "html"
+  },
+  {
+    "id": "dba6ad59b7ab215bb676",
+    "it": "Il compagno aiutato aggiunge al proprio tiro il dado del Legame posseduto dall’aiutante nei suoi confronti.",
+    "kind": "html"
+  },
+  {
+    "id": "dce21586cd7b4430f9de",
+    "it": "Durante il combattimento, aiutare utilizza l’Azione dell’aiutante. Se l’aiuto viene fornito fuori dal proprio turno, il personaggio rinuncia alla propria prossima Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "c58bca4bb978104b6100",
+    "it": "Fuori dal combattimento non viene applicata questa economia delle Azioni, salvo che la scena utilizzi espressamente una struttura a turni.",
+    "kind": "html"
+  },
+  {
+    "id": "e51c31fca93e6969f43e",
+    "it": "Il Game Master verifica sempre che l’intervento sia realmente possibile nella situazione.",
+    "kind": "html"
+  },
+  {
+    "id": "d3e85dedc282c7e2f296",
+    "it": "Capitolo 16 ·",
+    "kind": "html"
+  },
+  {
+    "id": "1dec228a5c97ad2d444e",
+    "it": "Avanzamento e Upgrade",
+    "kind": "html"
+  },
+  {
+    "id": "fe2bb5214598a8f2e010",
+    "it": "Nessun pirata nasce leggenda.",
+    "kind": "html"
+  },
+  {
+    "id": "7751f5ce4661e326e5b9",
+    "it": "Si diventa più forti sopravvivendo agli scontri, imparando dai propri errori e attraversando mari che sembravano impossibili. Ma crescere non significa soltanto infliggere più danni: un Navigatore può imparare a leggere correnti sconosciute, un Dottore può perfezionare le proprie cure e un Capitano può trovare il coraggio di guidare la ciurma contro un nemico molto più potente.",
+    "kind": "html"
+  },
+  {
+    "id": "02f18182db6999b97563",
+    "it": "In Grand Line Chronicles, la crescita del personaggio segue percorsi differenti:",
+    "kind": "html"
+  },
+  {
+    "id": "f7370641d0ad8eceeb58",
+    "it": "I Punti Abilità (P.A.) permettono di sviluppare Attributi, Skill e le capacità che dichiarano espressamente di utilizzarli.",
+    "kind": "html"
+  },
+  {
+    "id": "2f1a443efdd48a63a1d5",
+    "it": "Le Tecniche Custom seguono il limite dell’Attributo utilizzato.",
+    "kind": "html"
+  },
+  {
+    "id": "2b7a0bc182d30dda9ccd",
+    "it": "Gli Upgrade rappresentano i grandi momenti di crescita della storia e concedono risorse, P.A. e Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "ab762cf8ae08269537e4",
+    "it": "Frutto e Haki seguono le rispettive progressioni narrative.",
+    "kind": "html"
+  },
+  {
+    "id": "a5f08139610810ed9eb1",
+    "it": "Questi sistemi lavorano insieme, ma non sono la stessa cosa. Un pirata può perfezionare le proprie capacità attraverso l'esperienza senza dover aspettare un Upgrade. Viceversa, un Upgrade concede benefici che non si ottengono semplicemente accumulando P.A.",
+    "kind": "html"
+  },
+  {
+    "id": "14dc5a786535852d6213",
+    "it": "<span class=\"man-sez-n\">16.1 ·</span> I dadi della progressione",
+    "kind": "html"
+  }
+]

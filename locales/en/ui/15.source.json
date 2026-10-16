@@ -1,0 +1,2978 @@
+[
+  {
+    "id": "02b4e50bafe6d106bffc",
+    "it": ". La versione precedente non è più utilizzabile.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "47c726c97b263b1d9527",
+    "it": ": non più acquisito, sbloccato o compatibile.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e9082f1727902172ef78",
+    "it": ": deve occupare lo slot del Talento attivo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8357edbe5a5c03a026dd",
+    "it": ": è un Talento passivo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c97d3007faaabc65c72f",
+    "it": "Una Tecnica usa un’arma oppure un modulo, mai entrambi.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "43a2ff3e1ad89dea321e",
+    "it": ": esecutore incompatibile con la Tecnica.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f1659227217b3ab499ab",
+    "it": "inattivo · attivalo dalla scheda del modulo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "696386d90486be9a849d",
+    "it": ": utilizzi disponibili esauriti.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b6cc88a7fc063bd22e09",
+    "it": "Questa risposta impiega la tua Reazione disponibile; non concede una Reazione aggiuntiva né un’Azione extra.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "bcfad5d0765e4dcb18bf",
+    "it": "Raffica: indica un numero intero positivo di attacchi extra.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c595b06588d19f6454db",
+    "it": "attacchi extra · costi progressivi da 1 a",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "215b8fddca947ef9f6f9",
+    "it": "ST · 1 Bonus complessiva",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a227a86ea562ef8134be",
+    "it": "Raffica: indica da 1 a",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "16f66096bbf1343816c2",
+    "it": "attacchi base extra, con un numero intero.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "3553023b1e7a5f326f47",
+    "it": "base extra · costi progressivi da 1 a",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "608e0f537c25e0d1b9fd",
+    "it": "ST · 1×/turno",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "98bf227465bb4ca5ace9",
+    "it": "Raffica ordinaria: gli extra sono sempre attacchi base a mani nude, non altri usi della Tecnica. Paga prima di ciascun attacco; un mancato consuma ST ma non interrompe la sequenza. Puoi fermarti dopo qualunque extra; Il Colpo Sfonda si attiva al massimo una volta per turno.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6a8e8f0e2356fc0b07e2",
+    "it": "Tecnica di contesto: la Parata non ne esegue gli effetti o il mantenimento",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "432e73eff3d35a92224f",
+    "it": "Occhio del Ciclone gratuito",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c720e67273a85dee9b4a",
+    "it": "Portata Naturale: Gittata gratuita e senza slot; Catena −1 ST, già inclusi nel costo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "20eeab62e5ec6fba83c8",
+    "it": "Senza Contraccolpo: −1, minimo 1, già incluso nel costo; ignora solo i Contraccolpi naturali registrati",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "7eca522a32a7e9b75b30",
+    "it": "Ciò che Resta: primo turno di mantenimento gratuito; poi",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9ef79db7e9045fb19284",
+    "it": "Ciò che Resta: durata 3 turni senza sovrapprezzo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e59cf04da31843a8cd83",
+    "it": "Fonte Inesauribile: condizione dichiarata",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a61723fd07eab159edb0",
+    "it": "Fonte Inesauribile: costo 0 ST solo dentro o a ridosso di una grande fonte del tuo elemento.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6f01b5e64fce683edc0b",
+    "it": "Cariche modulo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9d7f46710be89dcb4017",
+    "it": "Cariche e ST si pagano separatamente. Il consumo avviene soltanto con l’azione esplicita nella scheda del modulo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "61b616c82c36cc396338",
+    "it": "Risorsa modulo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "09bfb62f4d1fffbc3a26",
+    "it": "Carica arma",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "50cc04402677054c6441",
+    "it": "Gestisci il consumo nella scheda dell’arma.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2c2b0405279abf18e46e",
+    "it": "ST, minimo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "d8038a9e9b6f772bdd6f",
+    "it": "Raffica: gli usi aggiuntivi della Tecnica devono essere da 0 al totale degli attacchi extra e richiedono una Tecnica offensiva Striker in mischia.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "56f93583815e49cc621f",
+    "it": "usi aggiuntivi di",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1776c4a2b1e73e7d2bcc",
+    "it": "ST ciascuno)",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f334cd0223e284324d6b",
+    "it": "attacchi base a mani nude extra e",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "db52350e0dbffe40395c",
+    "it": "usi extra della Tecnica offensiva Striker in mischia, oltre all’attacco iniziale. Ogni extra paga il costo progressivo della Raffica più il costo completo della Tecnica e dei suoi effetti, quando usata. Ogni colpo ha un tiro separato. Nessuna nuova Azione, Bonus, Special Move, attivazione Haki o riserva di movimento; paga prima di ciascun colpo e puoi interrompere la sequenza. Un mancato consuma ST ma non interrompe la Raffica. Il Colpo Sfonda si attiva al massimo una volta per turno.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e2ceac9519531e73eace",
+    "it": ": effetto non più sbloccato o compatibile (",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8094e26dbd1bc951c92a",
+    "it": ": scegli una sola versione dello stesso effetto Haki, base oppure Prestigio.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a748c8a3f40b9cd0098a",
+    "it": "Armamento: scegli un impiego coerente con la forma e l’uso della Tecnica.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c8a7effb3e5b1b4bd054",
+    "it": "Preparato prima: 0 PIP di attivazione in questa mossa",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9f70f370892cc91a403c",
+    "it": "Già attivo: 0 PIP di attivazione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "fa65993917e85c3ce15f",
+    "it": "Da attivare: 1 PIP · 1 Bonus",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8c982babe42d627b2ec5",
+    "it": "PIP effetti",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f717676aac26137664d2",
+    "it": "· dal d12 nessun ST di mantenimento",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "033448d8c47c6ff5069b",
+    "it": "Prima della mossa: attiva",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a8fa684e9b008a638def",
+    "it": "in un turno precedente (1 Azione Bonus, 1 PIP già pagato). Nel turno della mossa mantienilo:",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a36c562f82558ffa911a",
+    "it": "ST/turno, nessuna nuova Bonus o PIP di attivazione.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "13a4c8240042eac3a4b7",
+    "it": ": preparazione richiesta. Registra il Colore già attivo nello stato del combattimento solo dopo averlo attivato al tavolo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "675284db1924126072a4",
+    "it": "In questo turno: attiva",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c6dd655e107769b43485",
+    "it": "con 1 Azione Bonus e 1 PIP, incluso nel costo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0b8fb156e2ec56791206",
+    "it": "Armatura Totale già preparata: nessuna nuova Bonus o spesa PIP. Dimezza un solo attacco; togli Pronta dopo l’uso o se interrompi Armamento.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f6227dc63bc0cb88c88e",
+    "it": ": preparato in un turno precedente con 1 Azione Bonus e",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "07c08aaf49a285c20727",
+    "it": "PIP. Durata originale",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "72d71f7f7ba24fcee2cd",
+    "it": "turni; residui registrati",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "98888cc17a99b06c24eb",
+    "it": ". Non ripaga PIP e non occupa la Bonus di questa mossa. Non rinnova la durata.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "21b245e9525f676d87e2",
+    "it": ": effetto preparato assente o scaduto. Registra i turni residui nello stato del combattimento.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "310e412b2d29a5f27c18",
+    "it": "Grido / Pressione Imperiale: utilizzo condiviso già speso in questo combattimento.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4c16969c1d7cc88715c3",
+    "it": ": servono",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5add5d12475bc9728a3e",
+    "it": "PIP, disponibili",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e575e40e57bed78d0cbf",
+    "it": "Stamina: servono",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "3cbfde91c26ab1686b07",
+    "it": "ST, disponibili",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c5022b3e01e4217339f3",
+    "it": "Per colpire",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "cd861c3d5014481fd272",
+    "it": ") Anticipo Offensivo · solo questo attacco",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "485bea7e8262200e929c",
+    "it": ") Potenza del Titano",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "577e44bf76060c44bf42",
+    "it": ") Forza di Maglio Inarrestabile",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e8ae66251648c0b7d65d",
+    "it": ") Tiro Risolutivo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "83bb26e2e34ab29b5989",
+    "it": "massimo(",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f715012bb06d6696c1de",
+    "it": ") · Sovraccarico",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e83ae737394390c8ebf2",
+    "it": ") · Colpo Annientante",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f07695d460bbf469c608",
+    "it": ") / 2⌉ · Fendente d’Aria",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "460087040cb5aeeb2ec9",
+    "it": ") / 2⌋ · per ogni bersaglio dell’Area",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8f5a6b85bb8b5e01c8b5",
+    "it": "+ bonus condizionali al danno effettivamente applicabili",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4612f23a192ab9ee42dd",
+    "it": ") · Ryou sul totale, una sola volta, solo se è l’attacco fisico compatibile scelto",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "30d9184496ec237e0f56",
+    "it": "Danno · fonti",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6ad6206dfb378baaff87",
+    "it": "Effetto mirato al posto del danno. Difesa Passiva del bersaglio +2; questa difficoltà non modifica le Salvezze.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "3c1a0b6f2b2865e9d949",
+    "it": "Carica · condizionale",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a161f430099f430f39a0",
+    "it": "2 × Dadi Danno, Vantaggio, ignora copertura · al prossimo turno, solo se non vieni colpito.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "85386816d851cf10e14d",
+    "it": "Tutto o Niente · colpo pulito",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "33f8a5fb58b492cc0575",
+    "it": "3 × danno solo sul +4. Se manchi non puoi difenderti dal prossimo attacco.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b5db55854cc470cc4d61",
+    "it": "Esecuzione · Quasi Morto",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8b2e997a2702f8b14147",
+    "it": "Esecuzione, solo contro un bersaglio Quasi Morto.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "60369db90532872bb780",
+    "it": "Schianto · collisione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1305d2a5be7df0b6b046",
+    "it": "Un tiro completo di Forza (",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f1c9465769ec15a68e09",
+    "it": ") sostituisce d8: una volta al primo urto, sul bersaglio lanciato e sul primo ostacolo. Non ripete gli altri bonus del colpo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "21bfe8f3dec42599a631",
+    "it": "+ d8 Schianto, solo se il bersaglio urta qualcosa o qualcuno.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b47e116b91b51ed1b236",
+    "it": "Taglio Colossale · solo scenario",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "be158f9c3f80686a4a5c",
+    "it": ") al danno strutturale. Nessun danno aggiuntivo diretto alle creature.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b207638cca1131833c75",
+    "it": "Maglio · Parata riuscita",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2726191a75948b6c6583",
+    "it": "Metà del danno complessivo, arrotondata per difetto, se il tiro per colpire supera la difesa richiesta. Nessun effetto del colpo o innesco da colpo riuscito. Una Schivata riuscita evita tutto.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "696d0d2778c60f5d6777",
+    "it": "Maglio: Vantaggio e DP −5 fino al tuo prossimo turno, anche se manchi. Sbilancia soltanto su colpo riuscito.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ba7efe9f2fac8fb45489",
+    "it": "Rimbalzo / Catena: danno pieno a ogni bersaglio previsto. Tiri per colpire separati e un solo tiro di danno; nessun bersaglio aggiuntivo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5597057104cac1c56031",
+    "it": "Precisione Chirurgica · +4",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4ea0f218e2a057980ff9",
+    "it": "Danno normale più la conseguenza mirata su colpo pulito; 2 ST, nessuna Bonus aggiuntiva.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "bd2b1e95f942da6caaa9",
+    "it": "Colpo Pesante · minimo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2994e20925f8ec51099f",
+    "it": "Il danno non scende sotto metà del dado.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2a5c4b51164da6a853d0",
+    "it": "Colpo di Grazia · Avvelenato",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "12457d0c671d25e208b3",
+    "it": "Colpo di Grazia, solo contro un bersaglio già Avvelenato.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "fec7ae27d73dc09b016d",
+    "it": "Forma Ibrida · mischia",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "78c0b82bc1466ace5c78",
+    "it": "+1 dado ai tiri fisici e al Danno in mischia; usa il dado previsto dalla tua forma.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a01bbaeb5990adcb5626",
+    "it": "+1 dado al Danno in mischia dopo essere sceso sotto metà PV, fino a fine scontro.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6b7427aca7b3a7eab60a",
+    "it": "Ryou · Armamento",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9ae41a676e0050b0e5af",
+    "it": "Solo su un attacco fisico compatibile: calcola prima il danno totale dell’attacco scelto, con tutti i dadi e bonus effettivamente applicabili, incluse le righe condizionali soltanto quando ne ricorrono i requisiti; poi moltiplica ×2 una sola volta. Non potenzia emissioni elementali o attacchi non fisici. Non moltiplicare nuovamente le singole componenti. Il colpo dall’interno è narrativo, senza una componente numerica separata; il bersaglio conserva Difesa Passiva, Difesa Attiva e Riduzione del Danno.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ab435781581f026958aa",
+    "it": "Ryou: verifica con il GM che questa applicazione del Frutto produca un attacco fisico compatibile. La Fonte Frutto non concede automaticamente questa proprietà; senza la condizione usa il danno ordinario, senza ×2.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "13fbe804d0f367615e65",
+    "it": "Ryou Persistente · limite del turno",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4f716dddd82333d05545",
+    "it": "Un solo attacco fisico compatibile per tuo turno durante la durata. Scegli l’attacco prima del tiro: un mancato consuma l’applicazione del turno. Non aggiunge attacchi e non potenzia automaticamente tutti i colpi della Raffica; paghi le azioni e i costi ordinari. Termina se Armamento viene interrotto.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "60a43429364b211d91b5",
+    "it": "Esplosione Haki Superiore · bersagli secondari",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "7f8ac0b8d7bf24298068",
+    "it": "Gli altri nemici risolvono le difese contro il tiro originario e, se colpiti, subiscono ⌊D pertinente / 2⌋, poi le proprie riduzioni. Ryou determina il danno totale dell’attacco secondo la sua regola ×2, senza una componente numerica separata. Nessuna seconda copia sul bersaglio principale; Proiezione, Schianto ed effetti riservati al bersaglio principale non si propagano automaticamente.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "dee86e0ed29b770e7917",
+    "it": "Attributo arma da definire",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "fd05bf22cb8990aad73e",
+    "it": "Grado arma da collegare",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a0cd980b48572d9a70d4",
+    "it": "Effetto difensivo della Tecnica",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4a279cbb4e175ad33cce",
+    "it": ") Anticipo (Osservazione)",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "32c417b9e9c3e9e790b7",
+    "it": ") Atletica",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8d27dcb4a55ec7641a0d",
+    "it": "Parata con arma",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f4d889510c0380e761d1",
+    "it": "Parata con arma: spendi la Reazione e gli eventuali costi della capacità difensiva prima di tirare. La Tecnica scelta dà solo contesto e non esegue né paga i propri effetti. Un risultato pari o superiore all’attacco neutralizza il colpo. Nessun danno automatico.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a6b65d6028b4b6650ceb",
+    "it": "Dichiara la Difesa Attiva prima del tiro nemico; spendi la Reazione e il costo completo della Tecnica e degli eventuali potenziamenti prima di tirare. Un risultato pari o superiore all’attacco neutralizza il colpo. Il pareggio non infligge danni; gli effetti offensivi non si applicano automaticamente.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "fca37d8c584d183a390f",
+    "it": "Difesa Passiva attuale",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "88fa9d2d7e78fcd3a846",
+    "it": "(fino all’inizio del prossimo turno)",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "d76603e20a5047fe4246",
+    "it": "+ 4 Corazza d’Armamento (2 turni)",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "39e1941de1791334a5d6",
+    "it": "Dado Danno della Tecnica · soltanto se la Difesa Attiva supera strettamente l’attacco nemico. Il pareggio evita il colpo senza contro-danno; nessun altro effetto offensivo automatico.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "224d126721e98c6343fe",
+    "it": "Riposta · attacco separato",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "d7aaea441019a5c17fdd",
+    "it": "Dopo una Difesa Attiva riuscita con la Tecnica, anche in pareggio, puoi spendere 1 ST per un attacco base separato:",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b1d48dda40bbfea13435",
+    "it": "Grado arma compatibile",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8effc52bc744e23c04c7",
+    "it": "arma per colpire; un Dado Arma di danno. Non garantisce il colpo e non ripete automaticamente la Tecnica.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "13698331a455b732cd2b",
+    "it": "Effetto sugli alleati; Salvezza per i nemici secondo la Melodia.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "463da4fddeeea63bfdc2",
+    "it": "Spendi un’Azione principale e il costo della Tecnica. Il beneficio dura per la scena e lascia libera la Bonus.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9a7a9b127af5f66cc660",
+    "it": "· applica gli effetti della Tecnica",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2a046d78333313dca3be",
+    "it": "Fendente Sovrano: 10 m di portata con Attributo non ancora in Prestigio; danno pieno e +1 ST.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "551d548e1efb1e2de35c",
+    "it": "l’Attributo coerente con la Prigione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ddd6f402a0a9fc3f8446",
+    "it": "Salvezza ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6a5b777c4b2856aeb3a2",
+    "it": "Il bersaglio tira soltanto",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "cbfc498e424e512e7899",
+    "it": "contro Soglia",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "08c7bae7f58c978bc0c5",
+    "it": "dal Grado",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "bde59100220370d27117",
+    "it": "della Tecnica. Un risultato pari o superiore riesce.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "3213cdcc7b725c514f57",
+    "it": "La fonte non tira per la Salvezza. Se lo Stato persiste, ripeti a fine turno del bersaglio con la Soglia originaria di questa applicazione, salvo una procedura specifica.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0df138a91f7e69d58d4b",
+    "it": "Presa: contesa di Forza ogni turno, senza Salvezza graduata. Paghi 1 ST quando la applichi e 1 ST all’inizio di ogni tuo turno successivo, prima di agire; senza pagamento o presa fisica termina.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5937167ea25a1137fd34",
+    "it": "Sanguinante: non concede Salvezza automatica; lo Stato non si cumula con se stesso e termina con Medicina o una cura appropriata.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "7e1aafe98ebfda49b55c",
+    "it": "m; i bersagli devono realmente sentire la musica. Nessuna linea di vista necessaria, nessun attraversamento di ostacoli che bloccano il suono o trasmissione automatica via lumacofono.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "7669ef0f74050842af85",
+    "it": "Durata della Melodia:",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "edb1270b1e407a89a46c",
+    "it": "Massimo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0e547fc858f096cec909",
+    "it": "Canzoni Sostenute contemporaneamente.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6def8b93f6955418e4bf",
+    "it": "Salvezza · Canzone",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4cc38c44942e4d738338",
+    "it": "Arte limita il Grado utilizzabile dello strumento; il Dado Tecnica non determina questa Soglia.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "085b50eb03193d50e66a",
+    "it": "I collegamenti storici ad armi o Moduli restano conservati e non eseguono la Canzone, non ne limitano l’uso e non aggiungono bonus, cariche o costi.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "dd3f5c4d93f23978d81a",
+    "it": "Aggiorna la pagina per caricare le regole condivise delle Melodie.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "99024d2c429abffd0d09",
+    "it": "Riformarsi Altrove · Reazione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0ea38ab7a3cd2a148c66",
+    "it": "Sequenza distinta: la Tecnica usa la propria Azione e i propri costi nel momento previsto. Riformarsi Altrove impiega una Reazione, 1 volta per scontro, in risposta a un evento immediato e percepibile valutato dal GM: ti ricomponi entro 15 m in un punto visibile e raggiungibile dal tuo elemento, senza Azione principale o Reazioni dovute allo spostamento. Non autorizza questa Tecnica fuori dal tuo turno e non annulla automaticamente un attacco.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "136bcf04e8b43d5e2764",
+    "it": "Riflesso del Potere: Reazione distinta, 1 volta per scontro, 0 ST, quando tu o un alleato entro 5 m state per subire un attacco. Tutti i Dadi Danno scendono di un Grado, minimo d4; non modifica tiro per colpire, Stati o altri effetti. Non esegue la Tecnica come Reazione e non applica protezioni automaticamente.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "42b107412614924cc5c2",
+    "it": "Istinto di Sopravvivenza: 1 volta per scontro, quando scenderesti a 0 PV. Resti cosciente con 1 PV temporaneo fino alla fine del prossimo turno, poi scendi a 0 salvo vera guarigione. Nessuna Bonus, Reazione o cura automatica.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "93e19f7abac6971f153c",
+    "it": "Potere Istintivo: una singola mossa del Frutto non spende l’Azione principale, 1 volta per scena, anche fuori turno. Costi, PIP, mantenimenti e requisiti restano; nessun turno, Movimento, Bonus, Reazione o sequenza aggiuntivi.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0a098d1fc26f6bdd0de3",
+    "it": "Trasformazione Istintiva: Reazione, 0 ST, 1 volta per scena; effettua solo il cambio di forma prima del pericolo, anche senza sensi. La Tecnica della carta mantiene la propria Azione e i propri costi: la Reazione non la esegue e non attiva altri Talenti.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8e87975f4f2f8ddc4f7e",
+    "it": "Firma · Zoan",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9ac9935e64969a4311f5",
+    "it": "la Firma Zoan si attiva con un colpo pulito di margine +4 in Forma Ibrida e scegli Stordito al posto del Dado Danno aggiuntivo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "44852c676316e4c31ed6",
+    "it": "Electro applica la propria Paralisi; conserva durata e costi razziali, e la normale Salvezza ogni turno",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "fcfc93687c7b5fc5848a",
+    "it": "Salvezza condizionale ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "16cdc4b06a2c20f7cc84",
+    "it": ": il bersaglio tira soltanto",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c9aa063c09d20c1ab445",
+    "it": "la Soglia da definire dalla fonte",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5e0c1b43b1afa20ad43b",
+    "it": "). Un risultato pari o superiore riesce. Questa indicazione non applica automaticamente lo Stato e non modifica la Soglia degli effetti della Tecnica.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a70e70eb70eacc24eae2",
+    "it": "Tratti Unici: questi riferimenti sono promemoria condizionali. Non aggiungono Azioni, Bonus, Reazioni, costi, dadi o Vantaggio alla ricetta. I bonus alla Difesa Passiva già inclusi nella scheda non si sommano una seconda volta.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "d229c488ed8c1b530c79",
+    "it": "Prezzo in PV:",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "d26f684b76cd7e9db220",
+    "it": "Archivio immagini non disponibile in questo browser. La ricetta resta salvabile.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "908257fa9c0fca1de8aa",
+    "it": "Impossibile aprire l’archivio immagini.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "543e4479871aaa1491dd",
+    "it": "Chiudi le altre schede locali per aggiornare l’archivio immagini.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "808afd2e5e35bcae10ee",
+    "it": "Immagine non leggibile.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "53b234798a1e2081c759",
+    "it": "Illustrazioni molto pesanti: questa resta solo su questo dispositivo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "93e230d6807522fa9049",
+    "it": "Spazio esaurito: l’illustrazione resta solo su questo dispositivo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c8e558ff96dd079d0276",
+    "it": "Spazio immagini esaurito: la ricetta e la vecchia immagine sono intatte.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4ce2f8841a5fe7c61feb",
+    "it": "Special Move Composer",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "59c0d438c80d1cd9aa91",
+    "it": "Special Moves",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e4362c7b0b1fe2070595",
+    "it": "La carta non è più presente.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f08175a42630e40f37fa",
+    "it": "· copia",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "50723d6e9757bffb0230",
+    "it": "Lasciare il Composer e scartare le modifiche non salvate alla carta? I costi GM e lo stato Haki già registrati sulle fonti rimangono.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "47cdcf184e05c9df21e0",
+    "it": "#smc-shelf button",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "7658557ed136cdaf4120",
+    "it": "button:not(:disabled),input:not(:disabled),select:not(:disabled),textarea,[tabindex=\"0\"],summary",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "fe3e46002e6edbcb774d",
+    "it": "FONTE ORIGINALE",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "35ebaf8aa451797fa48c",
+    "it": "Nessuna descrizione aggiuntiva.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a7760567cd76348f23ae",
+    "it": "Effetto non più presente.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "da88e9ab117ab39871ef",
+    "it": "Questo pannello consulta la fonte. Le modifiche alle regole si effettuano nelle sue funzioni originali.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a52c0fd6811456fdaf69",
+    "it": "Ricetta pronta",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b954745f0ad5532b17a9",
+    "it": "Da riparare",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "afa1c82b3a287b034a89",
+    "it": "Costi da registrare",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1b62b81ac39ae68914e9",
+    "it": "Risorse / stato insufficienti",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ef2e20edbf0c5c3a1967",
+    "it": "NEL TURNO DELLA MOSSA",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9fea3895bd6359591acc",
+    "it": "Azione ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "47607f16889440ad7d5e",
+    "it": "/1 Reazione ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "483837bff556aa01db60",
+    "it": "/1 Bonus",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a9dbb69faa1eccb2ffe8",
+    "it": "Bonus libera · passivi e mantenimento non la consumano.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0189468c7ccd5685bf77",
+    "it": "Come si compone il costo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2d7bfd2bde00433b622a",
+    "it": ": costo non ancora registrato.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e9c44a6d43ce0946e4fe",
+    "it": "Totali sospesi finché i collegamenti non sono riparati.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "39a366d524ffa9731f80",
+    "it": "Illustrazione non presente su questo dispositivo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "7af2aaa431898261f66e",
+    "it": "Illustrazione non disponibile · ricetta intatta",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "10cc80b5add1b71e6c1e",
+    "it": "GRAND LINE CHRONICLES",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ba87cc39728a54e0966f",
+    "it": "SPECIAL MOVE",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e7779cda5afaeb11cd55",
+    "it": "smc-quote smc-quote-top",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "30d77ab0aeee0b2420b8",
+    "it": "La tua prossima leggenda",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0e99c0751d06cdf96721",
+    "it": "Scegli la Tecnica di base",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "36cc4c62440ed197fdf5",
+    "it": "Leggi",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "66314065f0c8fc476c9f",
+    "it": ": registra i costi approvati dal GM.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6dbbb0035efa69c3acae",
+    "it": "Sequenza di esecuzione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2aab87532985721c7f8f",
+    "it": "L’ordine è un promemoria: tempi, reazioni e condizioni restano quelli delle fonti.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4140867ef73b464e3604",
+    "it": "Fonte ↗",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ebc0bc301ae6e740c9df",
+    "it": "Note personali",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "bed99424396aa5df20a6",
+    "it": "ATTIVO",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0b285a02cb84547e7428",
+    "it": "PASSIVO",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "478ea77845e2ce6aa9f6",
+    "it": "Preparato prima · solo mantenimento",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1f2f2b0acbe03d3c85a0",
+    "it": "Da preparare prima della mossa",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e6c8b82f786b2d31b6b0",
+    "it": "Già attivo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ec8ba78699c8d320f83b",
+    "it": "Da attivare · 1 Bonus e 1 PIP",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4e07fb52f6f861dc4b88",
+    "it": "Contesto del Frutto ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "050330cfaa902d5649de",
+    "it": "Personaggio cambiato: riapri la carta dal suo dossier.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "43496a2fcdc77a04aa17",
+    "it": "IL TUO ASSO NELLA MANICA",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4bfdbd25d9be2e490648",
+    "it": "Una Tecnica. I tuoi poteri. Una carta da portare in battaglia.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "db3486d843cd41ade4a9",
+    "it": "+ Crea Special Move",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f3f489845382b7423ab0",
+    "it": "smc-button smc-primary",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "78fc7a1b768c64f83da1",
+    "it": "Dai un nome al tuo colpo più memorabile.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "35a04316a1d336c27e08",
+    "it": "Collega Tecniche, Talenti, Haki ed equipaggiamento già in scheda. Crea la tua prima carta.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1397278d3a0e0cb4c2b6",
+    "it": "Apri il Composer →",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "80cfccd7804abdc5e747",
+    "it": "Vedi tutte le",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ad9f34a0637469a49277",
+    "it": "Una carta contiene dati non leggibili. Le altre funzioni del personaggio restano disponibili; nessun dato è stato eliminato.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e3fc1ea242ec26dc9ec6",
+    "it": "Azioni ···",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ab5a217b8939bab28627",
+    "it": "Guarda carta",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b77118dc6ce317e88cba",
+    "it": "Ripara",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "3b30f34b8e9b7d0de25d",
+    "it": "Duplica",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2ccced7b9b0e766d7a15",
+    "it": "Eliminare la carta «",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0937ce25683ac8f2467c",
+    "it": "»? Tecnica, Talenti, Haki ed equipaggiamento restano in scheda.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9daa9d46bbb15a579fb7",
+    "it": "Carta eliminata. Le fonti sono intatte.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "bf7f11695a207d8975f6",
+    "it": "details[data-smc-state]",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "02ae1f1b3d9192f128b8",
+    "it": "Le tue Special Moves",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "3c96f48896941879ed44",
+    "it": "Fasi del Composer",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8bcc4ec3f1087c6bb87a",
+    "it": "PASSO",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1283f9110e9189a22adf",
+    "it": "Anteprima della carta",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a8107f769c6a59ff480a",
+    "it": "← Indietro",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "828cd1788d0a1f67332d",
+    "it": "Elaborazione immagine…",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "05b26037d4ffdfbe795b",
+    "it": "Bozza ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "49473e17c4bca4b74071",
+    "it": "smc-button smc-preview-toggle",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f5d8966eb26d91683762",
+    "it": "Avanti →",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "55b0f70b6858e081198a",
+    "it": "Salva modifiche",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9866a84de8c90dfb0413",
+    "it": "Salva carta",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8a83d0e60eb0f31545f5",
+    "it": "Modifica / ripara",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "93443ad4c27c000e17e1",
+    "it": "Stato Haki condiviso · sessione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f06bb44f2c03446c1219",
+    "it": "[data-smc-focus=\"",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "7f71ae1e185821f55a6d",
+    "it": "#smc-dialog .smc-preview",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9fd3414b2a0338449173",
+    "it": "ANTEPRIMA LIVE",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "79a4b01760a3aa84867c",
+    "it": "Compatta",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2d37d9c702fa3f28865a",
+    "it": "Carta completa",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5e7504ae3f837f3b0c46",
+    "it": "Chiudi anteprima",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "897c2ff3c2310dfb1fe3",
+    "it": "smc-link smc-preview-toggle",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "70f0eb0d4c90642edf89",
+    "it": ": costi da registrare",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "66a5a1d007aec2a35a72",
+    "it": "Dai un nome alla Special Move.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "dfc18c3ae88009adb059",
+    "it": "Scegli prima una Tecnica di base.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "46c7ea3c35a4b48b8e12",
+    "it": "Una mossa che porta la tua firma. Nome, epiteto e citazione raccontano il personaggio; le regole verranno dalle sue fonti.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2b2d2784ceac47844f37",
+    "it": "Nome della Special Move *",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "51fb1fb867ce4084e5b2",
+    "it": "Il nome che urlerai in battaglia",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "47892600d4dd7bc80c1d",
+    "it": "Epiteto / sottotitolo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5ceff2d0d1e26ffbdff3",
+    "it": "La promessa della tua ciurma",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "190a1125bad41c73d6c5",
+    "it": "Citazione personale",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "83b42ca152418ad7c7a0",
+    "it": "La Tecnica è la base meccanica. I suoi dati restano collegati alla scheda e si aggiornano insieme a lei.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9d5d571c586bdc83d6fe",
+    "it": "Non hai ancora Tecniche: creane una dal Signature Move Builder e torna qui.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1a392ec5e91ec0f0e51e",
+    "it": "Costi GM da registrare",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "bbe7b0b6f32fc8279e64",
+    "it": "Senza effetti aggiuntivi",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f3237c3236a0e6e14001",
+    "it": "Impiego della Tecnica",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b4cdca641a785a3772ea",
+    "it": "Attacco · Azione principale",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c795a634e9b8e42facb5",
+    "it": "Difesa Attiva con la Tecnica · Reazione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a9fe4189f2310e12ce48",
+    "it": "Parata con arma · Reazione, senza effetti della Tecnica",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "cb6ec6f6e00c8ca1013a",
+    "it": "Parata con arma: la Tecnica selezionata fornisce solo il contesto dello Stile e dell’Attributo. La Parata usa l’arma collegata, non esegue gli effetti della Tecnica e non ne paga il costo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "16f217ee9ffbee9e9799",
+    "it": "· da revisionare",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b343e577273f8353b977",
+    "it": "Non registrato: costo del primo utilizzo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f6a9ee67923c69ff8827",
+    "it": "Bersagli diversi già beneficiati dai tuoi Motivetti nella scena",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "180298f342d966c07c2d",
+    "it": "Questa Melodia coinvolge l’intera ciurma che può sentirla",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "bff9eee690e3b76f5a94",
+    "it": "Almeno due compagni coscienti cantano o suonano realmente con me",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "708785a2282b42776c07",
+    "it": "Uso Requiem Sovrano: esecuzione e costo sostitutivi",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2ccd4d4e935d02a79af6",
+    "it": "La Bonus è già impegnata dall’Haki. In Poteri puoi richiedere un Colore già attivo o togliere l’effetto ⚡ da attivare in questo turno.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "88bb91b3564cf9c523a8",
+    "it": "Sostituire «",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e24ee94c62f9c2bd0a48",
+    "it": "Talento non disponibile",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a89d036630df08845172",
+    "it": "» con «",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0780751b5c96a1c7a8f3",
+    "it": "»? Una carta può contenere un solo Talento attivo, anche fra i poteri del Frutto.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9b9cee07d71bf7b49210",
+    "it": "fruitSelections",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a10f2efef55ead5204c6",
+    "it": "passiveTalentIds",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e015ddb5ab2bb3de369e",
+    "it": "Nessun Talento",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ec2a5d38bd8cc0255ff0",
+    "it": "del Frutto",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "24f71739fa75b26172ad",
+    "it": "acquisito e compatibile con questa Tecnica.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "39aef9307035b0485b73",
+    "it": "Passivi, modificatori e reazioni",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "80e9828a534ce797dc1c",
+    "it": "Il Talento conserva il proprio tempo di attivazione. Una sola Bonus è condivisa con l’Haki; preparazioni e Reazioni rispettano le proprie condizioni.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "047a793804cd8aa6e5e3",
+    "it": "Non occupano la Bonus. Modificatori e Reazioni conservano i propri costi e requisiti.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f847f7ed2e22d0384e2d",
+    "it": "REAZIONE ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9e2f44aebba449c99056",
+    "it": "MODIFICATORE ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1ad1e57d70fc9005da30",
+    "it": "BONUS ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "95925ecb4595c5da2c54",
+    "it": "PASSIVO ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "832fbf6c8432282f0002",
+    "it": "Costo GM ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f96e29344994cd2f84b2",
+    "it": "Bonus impegnata dall’Haki: modifica la preparazione in Poteri.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8d4e3257a6151491ce56",
+    "it": "Indica un numero intero valido.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "adca2090fc36a81f3fca",
+    "it": "Attacchi extra totali · costi 1, 2, 3, 4… ST",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "373cb31ece3fcac4857b",
+    "it": "talentUses",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5ffcdfbb227972758a43",
+    "it": "Di questi, usi della stessa Tecnica · paghi anche il suo costo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "d865b92be7a13830664b",
+    "it": "talentTechniqueUses",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2f9610ba37ac24754c9e",
+    "it": "Attacchi base extra",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "efc1d45d0afa14cf6365",
+    "it": "ST totali",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "dad355c97b097229ae91",
+    "it": "Tratti Unici · promemoria condizionali",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "3fe840a32defb6f27591",
+    "it": "Si applicano soltanto quando ricorrono le condizioni della regola; verifica il contesto al tavolo. Associarli alla carta non cambia le formule o i costi della Tecnica.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ab870e034f7706ffb2c0",
+    "it": "Attivo ✓",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "782e9fb45c31bd406755",
+    "it": "PIP rimasti /",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8ee0797589c1e3354885",
+    "it": "Inserisci PIP fra 0 e",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4ebdc3ba6265d5414575",
+    "it": "Armatura Totale pronta ✓",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b6fd8fca9efcd4f6f3d8",
+    "it": "Armatura Totale da preparare",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5f0408a440bb5cb0ca6c",
+    "it": "Registra la preparazione già pagata nel tuo turno. Togli Pronta dopo il primo attacco che ti colpisce o se interrompi Armamento.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "bead289a53c10d8109d6",
+    "it": "· turni residui",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "48587d05650c8292e095",
+    "it": "Inserisci i turni rimasti, da 0 a",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "01553fa7da0eb6b68df0",
+    "it": "Stato condiviso da tutte le carte di questo personaggio. Registra i Colori già attivati e gli effetti preparati nei turni precedenti. Aggiorna i PIP rimasti e i turni residui dopo ogni turno; metti 0 quando l’effetto scade. I controlli non spendono ST o PIP, non fanno trascorrere il turno e non modificano la progressione Haki.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "d7f3aeee76ccfaea1b26",
+    "it": "Attivazione, effetti e mantenimento rimangono distinti. Solo l’Armamento aggiunge il suo dado al danno o alla Difesa Attiva.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a11fd28960841268e365",
+    "it": "Stato del combattimento · condiviso fra le carte",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a4cff69427df9b51cb08",
+    "it": "Attivo · 0",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6d0bebb7063371885451",
+    "it": "Da attivare · 1",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "aaf59f9dee9260712c4b",
+    "it": "PIP attivazione ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ea1f816ea5754378d77c",
+    "it": "PIP disponibili",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1d8151b73eef1cfba974",
+    "it": "Quando attivi",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b0b86278cf05c3636493",
+    "it": "Colore già attivo nello stato del combattimento",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1d0b44a32c11a0daf5f9",
+    "it": "In questa mossa · 1 Bonus + 1 PIP",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "3a3a3ca102cfe9056c6c",
+    "it": "Prima della mossa · richiede il Colore già attivo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ef77611e124ab2fdb7d2",
+    "it": "Preparazione: attiva questo Colore in un turno precedente, pagando 1 PIP e la Bonus. Nel turno della mossa applichi il mantenimento; i costi preparatori non si pagano di nuovo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0bd0752d47ed889fb2a1",
+    "it": "Impiego dell’Armamento",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "abd79d2b25b3af8fdf44",
+    "it": "Difesa Attiva · aggiungi il dado al tiro",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4eb4b32a41edd084a63e",
+    "it": "Difesa · effetti Haki, senza dado alla Difesa Passiva",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0a94ec1587d80a671d31",
+    "it": "Offesa · aggiungi il dado al danno",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8f8173028c0a5e5e4cc6",
+    "it": "Una sola Bonus: Talento, attivazione del Colore oppure effetto Haki.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "3e05d5213cb1cdcc9f6a",
+    "it": "PREPARATO",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "efea17628c56133e7c63",
+    "it": "Bonus già occupata: questo effetto non può essere attivato nella stessa mossa.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5348d813bdd05ffe57e4",
+    "it": "Usa l’effetto già preparato ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "de018ac0ee391514c1f4",
+    "it": "Uso di",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8a579634475bd315e05c",
+    "it": "Attiva in questo turno · 1 Bonus +",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "813e8ab88bde17e557af",
+    "it": "Già preparata · deve risultare Pronta",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ef8955f79d7eef64f702",
+    "it": "Già preparato · deve avere turni residui",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "04c8a9bb847291e6e46a",
+    "it": "Includi il contesto del Frutto:",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0f02648dd1956c7b4e54",
+    "it": "La descrizione personale è contesto narrativo. Seleziona sotto i Talenti acquisiti per includerne gli effetti.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4aff40690c7d94b97eb6",
+    "it": "Sono dentro o a ridosso di una grande fonte del mio elemento",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "3a13b803612af5734b0e",
+    "it": "Non hai Haki o un Frutto in scheda. Puoi proseguire con la Tecnica e i tuoi Talenti.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "65583db29dbc30a7bab6",
+    "it": "Striker · questa Tecnica si esegue a mani nude.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b1d6303dec6891f2e859",
+    "it": "Arma esecutrice",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "098de627f9b645939c94",
+    "it": "Modulo esecutore",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "16294f5988c0f89679e5",
+    "it": "Solo moduli attivi e integri. Cariche ed energia restano gestite dalla scheda del modulo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e84a91a86890a3cc7817",
+    "it": "Il Grado dell’arma non sostituisce il Dado Danno della Tecnica.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2f2d97d7fe5625ba659c",
+    "it": "weaponId",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6a07d26e6540aa7d0631",
+    "it": "moduleId",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9cdfd64ea22a781406a3",
+    "it": "Nessun esecutore compatibile disponibile. Le Tecniche del Frutto e le Canzoni mantengono le proprie fonti.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e6f1bf8456a4806069ff",
+    "it": "Collegamenti da riparare",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b004b5fe0bf8e11fa0b1",
+    "it": "Scollega",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2a5588a7520bd609a520",
+    "it": ": converti la Tecnica storica nel Costruttore prima di definirne effetti e costi.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "96407ccdeb8ed73f02ca",
+    "it": "Costi già approvati dal GM ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f6dabfad1cd5d0113cbb",
+    "it": "Registrazione sulla fonte, condivisa da tutte le carte. Inserisci 0 quando il costo è esplicitamente nullo. Questi campi non concedono nuovi effetti.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "fab10b8698b08eac255a",
+    "it": "ST all’uso",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b57e6e9f8d54b08ab8aa",
+    "it": "PIP all’uso",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "91a6879787347ee603ba",
+    "it": "Cariche / energia all’uso",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "39fdff921f5fa80ad4b9",
+    "it": "Sconto ST sulla Tecnica già approvato",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e5484a2b916b2a052540",
+    "it": "Costo minimo della Tecnica previsto dalla fonte",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "36e6a2f7b42b732b1233",
+    "it": "Colore che paga eventuali PIP",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9cce17f3c8e73c9d42b2",
+    "it": "Nessun costo PIP",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "59f6559e8cfa93549d15",
+    "it": "Registra sulla fonte",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f56353a0edb498014852",
+    "it": "Compila tutti i costi con numeri interi da 0 a 999. Per un costo PIP scegli il relativo colore.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "aa2d3b5c02b411a17359",
+    "it": "Costi registrati. Tutte le carte collegate sono aggiornate.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "65644233436adea80786",
+    "it": "Salvataggio non riuscito:",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "bac5031151497d79b9b0",
+    "it": "Ordina il tuo promemoria con il trascinamento o con le frecce. L’ordine visivo non cambia tempi, costi o legalità.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "d94e4d22770e6d91804e",
+    "it": "Sposta prima",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a6990eae88c4c3626c60",
+    "it": "Sposta dopo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "16e8abad44f89556b24c",
+    "it": "Tutti gli effetti, i limiti e le condizioni",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5435124a4c852805d5c9",
+    "it": "Note per l’esecuzione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6d944866e954be5fbc10",
+    "it": "image/png,image/jpeg,image/webp",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c526ce8b5345d883b90c",
+    "it": "Illustrazione della Special Move",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "fa310ce60f288b7b0635",
+    "it": "Illustrazione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8547157c2c0e75774961",
+    "it": "JPG, PNG o WebP. Il ritaglio riguarda solo la carta e lascia intatto il ritratto del personaggio.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5914b9fc7605ee47afca",
+    "it": "Rimuovi dalla carta",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "dcbf06eb750c80626947",
+    "it": "Fuoco orizzontale",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b1ab732ad65c34875962",
+    "it": "Fuoco verticale",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "082783e0a6ff042deeb0",
+    "it": "L’illustrazione viaggia col salvataggio: la ritrovi sugli altri dispositivi con cui sei entrato. Se le immagini diventano troppe, le ultime restano solo qui e il sito te lo dice.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f41b77ecf9c34718c15e",
+    "it": "Composizione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1c1d9698a901a65d640e",
+    "it": "Dossier · stemma e illustrazione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "50397e69db4f3002a13a",
+    "it": "Cinematica · immagine protagonista",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2fda8650d1223ca89b1e",
+    "it": "Finitura della carta",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "01f437fa39111b5a4dd4",
+    "it": "Opaca · nessun riflesso",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "4b4e1b4ef9960e50cc81",
+    "it": "Foil olografico",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "15286b04fe474418616e",
+    "it": "Lamina d’oro",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ff66dab494df1e98e04a",
+    "it": "Prismatica",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "d2cbd21db810d8e53e07",
+    "it": "Pioggia di stelle",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "df6a8eb5bcbc400c8220",
+    "it": "La finitura si vede muovendo la carta in «Guarda carta».",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ff7cf30abf4b4c5c2aeb",
+    "it": "Posizione della citazione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a99e791bd9587c4cc25d",
+    "it": "Sotto le statistiche",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "520285d542d649936456",
+    "it": "Nella parte alta dell’illustrazione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5a6d34f26c459f12eb88",
+    "it": "Stemma principale",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1af1345e9999f66e2c93",
+    "it": "Automatico · Tecnica",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2d7a142bd5356e640dab",
+    "it": "Mostra carta compatta",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "17559dc1706e9bfdbfae",
+    "it": "Mostra carta completa",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "60f479c1924e149d0d87",
+    "it": "Dai un nome alla carta.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ea9b7a3305d0d13768dd",
+    "it": "Controlla l’Azione Bonus, i collegamenti e i costi prima di salvare. Puoi salvare una mossa da preparare: sarà utilizzabile solo quando lo stato richiesto sarà registrato.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1540635493ee569fbe6e",
+    "it": "Special Move salvata.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "136cdfb380e3670bd305",
+    "it": "Carta non salvata:",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "017a448625b9d4c6ba89",
+    "it": ". La bozza è ancora qui.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "7c6ce88c8a418eb2cebc",
+    "it": "Salvataggio non riuscito.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "bd2c0a8381a27392c352",
+    "it": "Regole complete nel manuale ↗",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "0a2f432ff58a6d5eade9",
+    "it": "Prestigio non raggiunto",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "ca4bcb1d26b2058bcaca",
+    "it": "✦ Acquisito",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "60e47ae0606498c109a9",
+    "it": "◇ Puoi acquisirlo ora",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "c10754984d8550b7ff84",
+    "it": "Condizioni di utilizzo",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "1ba6d1fbfbaed2f0b906",
+    "it": ". I benefici incorporati non si sommano alla vecchia versione.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "ac2aa0b86b813642cb77",
+    "it": "prg-button subtle",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "65737fcbe81fd6d65c14",
+    "it": "✦ Acquisisci talento",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "4842651b05baf8bb560f",
+    "it": "prg-button primary",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "716c8f371a296a4a115a",
+    "it": "Ridadi rimasti:",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "c168f073412183c24c44",
+    "it": "Utilizzi rimasti:",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "e86f3dbe1186b67d14ae",
+    "it": "Togli un utilizzo segnato di",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "20b1612311a9e4786510",
+    "it": "Segna un utilizzo di",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "305411b7362129884c26",
+    "it": "− annulla un uso · + segna un uso. ST e azioni si risolvono al tavolo.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "ec15b3fa290669836dc5",
+    "it": "talenti acquisiti",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "45fabdcd14015179c9a5",
+    "it": "scelta da assegnare",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "3a14ac4a854649996ee8",
+    "it": "scelte da assegnare",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "71dd36f0706abb71549c",
+    "it": "· tutte le scelte assegnate",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "11cc2eeef14e63875e0f",
+    "it": "Il tuo repertorio",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "7f2662a765284c12554d",
+    "it": "Non hai ancora scelto un talento per questo percorso.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "331c880d5bb1880d91e0",
+    "it": "Questo percorso non ha ancora talenti di Prestigio utilizzabili.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "d2370c785560b7c4f4a5",
+    "it": "· Scegli il tuo talento",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "acf2fb539c22b1d6a558",
+    "it": "Puoi acquisire ora uno di questi talenti: livello e prerequisiti sono soddisfatti.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "fe17fe52881427e518a1",
+    "it": "Non ci sono altre scelte acquisibili ora. Le scelte non assegnate restano disponibili quando soddisfi i prerequisiti.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "192a5dea20691e36869a",
+    "it": "prg-rules prg-inactive",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "a1c608638067d7ee7621",
+    "it": "scelta conservata, ora inattiva",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "95d809e7d6a4cf262541",
+    "it": "scelte conservate, ora inattive",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "c872d063d96d545d0de0",
+    "it": "Scelte esaurite",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "a49bcbab83fc9a19df8f",
+    "it": "Il livello attuale non dispone di una scelta libera per questo talento.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "55a77df3b27d2941cfe9",
+    "it": "Percorso non disponibile per questo personaggio.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "2de5044cfd07bb4c109b",
+    "it": "Skill di Ruolo ·",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "4f63841aea1bcb016a84",
+    "it": "Le tue capacità al livello attuale. I talenti acquisiti mostrano già i potenziamenti raggiunti.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "bd8252b43c5e1b47eb60",
+    "it": "Esplora tutte le evoluzioni nel manuale ↗",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "46391c8aefd0a0f41631",
+    "it": "Potenziamenti attuali",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "0e99d8510954cd18ee7b",
+    "it": "Questo Attributo non ha ancora raggiunto il Prestigio.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "7b32ca2c80e04e222a8b",
+    "it": "Il tuo limite per Armamento e Osservazione è",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "0f0d31d2d6fe9eb62f6b",
+    "it": ". Ciascun Colore mantiene il proprio livello; il Re segue l’assegnazione del GM.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "1507baa0eefd376cdbed",
+    "it": "Fasce di danno · raggio attuale",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "0fcfeda81a4336302662",
+    "it": "D = danno del singolo impatto. Distanze dal punto colpito.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "1b67244fd0591e0e4dbe",
+    "it": "Arrotonda le frazioni per difetto. Le fasce usano il raggio massimo anche se scegli un’area più piccola.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "9fb37004239887fe2cde",
+    "it": "Usi il dado completo",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "7597730a434f4c5eb30b",
+    "it": "nei tiri di",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "4d8b3d797b30ad48a29d",
+    "it": ". Non ci sono altre capacità automatiche compatibili con i Ruoli e i talenti attualmente posseduti.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "e29f637b2fbe644b5a63",
+    "it": "Spostamento speciale nel turno",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "f1d6c6daa36960c1a8bc",
+    "it": "m rimasti",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "bd35274c241535a1ad43",
+    "it": "Metri già percorsi",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "31bc62bcb0e8a21056de",
+    "it": "Metri speciali già percorsi",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "001bb4885d62030342d1",
+    "it": "Registra metri",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "1b2424ae3e611f1ff6cd",
+    "it": "Indica da 0 a",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "8a501992aa4580996ad7",
+    "it": "Scatto e Balzo consumano lo stesso budget. Il Movimento ordinario è separato.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "e47e9dc140b5876a5175",
+    "it": "PIP complessivi · 1 Azione Bonus · 0 ST · un uso fra due riposi.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "2dfe875d20798c3f66a0",
+    "it": "Già utilizzata: serve un riposo breve o lungo.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "a6e1b70b0358a895c0b1",
+    "it": "PIP da recuperare",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "cf86406ebfae3ac95ce0",
+    "it": "Usa Riscossa e recupera PIP",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "c46be904e4af0e1407e9",
+    "it": "Il tuo Prestigio",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "a6fe3aabaae8ed46b0b6",
+    "it": "Le capacità che hai raggiunto, pronte da usare in sessione.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "7e4f4f75ab5edea8fb4a",
+    "it": "prg-portal unlocked",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "6b7a37a2f22c477d5f9d",
+    "it": "Tiri con",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "7cd57f531a2cec02fd6a",
+    "it": "Talenti di Ruolo",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "91b9ba4300ad7b165b87",
+    "it": "Scelte inattive",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "2ceab0ea80addd2011ec",
+    "it": "Non hai ancora capacità di Prestigio sbloccate.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "7c84a0d79a0e47c7417d",
+    "it": "Il registro della sessione",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "f8b0d96b20444c6d505a",
+    "it": "Aggiorna i contatori quando avviene il corrispondente evento al tavolo. Non vengono consumate automaticamente ST o azioni.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "64c5e872c0a9acf66f7c",
+    "it": "Nuovo combattimento",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "7efe9b2e8af1615a17aa",
+    "it": "Nuova battaglia navale",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "2b639d7ecdb3345beb70",
+    "it": "Nuovo Piano preparato",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "230874f5eafa594973a3",
+    "it": "Riposo breve o lungo · recupera PIP",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "85502b62bc5173227e4c",
+    "it": "✦ Prestigio",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "e22ace5ceaee43fb7dd8",
+    "it": "‹ Tutti i percorsi",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "c5ba1d9c27a0f0d876cb",
+    "it": "Prestigio del pirata",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "62832a655d0ec0a164cb",
+    "it": "button:not(:disabled),a[href],input:not(:disabled),summary,[tabindex=\"0\"]",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "7f7d9764d84bea33993b",
+    "it": "Capacità attuali ↗",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "8af8b9dc370660c25192",
+    "it": "Prestigio · capacità attuali",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "0ac159a2e0bc8b949b98",
+    "it": "Nessun effetto di Prestigio sbloccato",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "37681bff282583439f61",
+    "it": "Assegnazione del GM",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "faf8f8a8b315a8284c1e",
+    "it": "Prestigio assegnato dal GM",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "45e3b9adec2bf8babb96",
+    "it": "Prestigio del Re assegnato dal GM",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "ff1e97946e8e344c6553",
+    "it": "Nessun Prestigio",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "d734cf9a792ca12b319a",
+    "it": "Prestigio I",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "b6e945117ff208b46dca",
+    "it": "Prestigio II",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "3e4a7f47911691689b64",
+    "it": "Il GM assegna il livello. Non dipende dal dado Spirito; la riserva resta di 3 PIP.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "41fe11e0c5f5eee9f43f",
+    "it": "Dado effettivo:",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "f67a4cdc59e8c9c42fd1",
+    "it": "· limite: Spirito",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "8c0f00fceccad0189ee7",
+    "it": "Effetti ⚡: richiedono il Colore già attivo e la tua Azione Bonus. Attivare il Colore richiede una Bonus in un turno precedente.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "3532d8c5630be0a1a38a",
+    "it": "prg-haki-effect unlocked",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "0c52a822c970f60215d0",
+    "it": "Potenziata",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "b03e7e05c5c0c4d44dca",
+    "it": "Grido / Pressione Imperiale · uso segnato",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "c3989b112d98a5211b47",
+    "it": "Segna Grido / Pressione Imperiale usato",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "aeaf056bd3813b057982",
+    "it": "Un solo utilizzo per combattimento, condiviso con Grido dell’Imperatore. Il segno registra un uso già risolto al tavolo.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "a0ef82dbf31bdd9c8a02",
+    "it": "Adeguamento al limite di Spirito: il dado precedente (",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "c42281e842aee5a0a976",
+    "it": ") è conservato nello storico. Aumentare Spirito non aumenta automaticamente questo Haki.",
+    "kind": "text",
+    "context": "gestisci-pirata/prestigio-ui.js"
+  },
+  {
+    "id": "ab5173f90f491283c421",
+    "it": "400 24px Inter, system-ui, sans-serif",
+    "kind": "text",
+    "context": "gestisci-pirata/card-export.js"
+  },
+  {
+    "id": "7ed21995e1730c59e557",
+    "it": "letterSpacing",
+    "kind": "text",
+    "context": "gestisci-pirata/card-export.js"
+  },
+  {
+    "id": "a8fc208d74b7fbee9e6e",
+    "it": "px Inter, sans-serif",
+    "kind": "text",
+    "context": "gestisci-pirata/card-export.js"
+  },
+  {
+    "id": "30b342aee216455fef48",
+    "it": "px \"Cormorant Garamond\", Georgia, serif",
+    "kind": "text",
+    "context": "gestisci-pirata/card-export.js"
+  },
+  {
+    "id": "9d1cd2135d3ba97da362",
+    "it": "px \"Cinzel Decorative\", \"Marcellus SC\", serif",
+    "kind": "text",
+    "context": "gestisci-pirata/card-export.js"
+  },
+  {
+    "id": "3fc4beb4a351fd191f44",
+    "it": "px \"Marcellus SC\", serif",
+    "kind": "text",
+    "context": "gestisci-pirata/card-export.js"
+  },
+  {
+    "id": "8088da219c162b1c3733",
+    "it": "NFD",
+    "kind": "text",
+    "context": "gestisci-pirata/card-export.js"
+  },
+  {
+    "id": "99a6dbb9eb31b132dee9",
+    "it": "Ingegnere · Meccanico · Carne e Metallo",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "06881f7c0d459517e41a",
+    "it": "Questa procedura è riservata ai Cyborg.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "cfda9839400a07014519",
+    "it": "Scegli Riparazione di Campo oppure Stabilizzazione.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  }
+]

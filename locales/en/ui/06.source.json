@@ -1,0 +1,5240 @@
+[
+  {
+    "id": "07610cd2b7d63ea8ca5c",
+    "it": "impugna armi: questo pirata non ne porta.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a1f4a0669bf553f71556",
+    "it": "Il tuo Stile non porta armi di questo tipo. Puoi impugnare:",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "2802226129deec04dede",
+    "it": "</b> — le armi da lancio sono di tutti.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5a4144924a0eabead38d",
+    "it": "modalità dell'asta",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "36407edf6bbef1fde5de",
+    "it": "— tagliente o contundente — per sapere quale Stile serve.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a1e7eb7126faff4009b3",
+    "it": "Scegli il",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "08762a38742039c0d11b",
+    "it": "per verificare lo Stile.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ccf2736058c80197c77c",
+    "it": "Hai lo Stile",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "1726942e10d0f1e80738",
+    "it": "</b>: l'effetto speciale è utilizzabile secondo le sue condizioni.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "9704cff0b4e224767a65",
+    "it": "Non hai lo Stile",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0c12c6355b8c7b95c254",
+    "it": "</b>: puoi usare il Grado dell'arma, ma non il suo effetto speciale.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6d6602e4daadea79f5cb",
+    "it": "Sciabola da abbordaggio",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6bc6f2d4f67263a2e107",
+    "it": "Spada corta",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b582443b9b51bccc6c6e",
+    "it": "Pugnale",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6fe6b5eaf58f8fae26f5",
+    "it": "Spada lunga",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "94db28bd067b91072c23",
+    "it": "Mazza semplice",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0a622966db4a91651968",
+    "it": "Martello da combattimento",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ea24a9e7f5fea50cc327",
+    "it": "Clava rinforzata",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "292dcef1297606616aa2",
+    "it": "Tirapugni",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6138b7897522bde0c219",
+    "it": "Lancia semplice",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "15fc056e819a408f0497",
+    "it": "Bastone ferrato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "24dee2d4989c99ae733a",
+    "it": "Alabarda semplice",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "040fc49d3814691b7e82",
+    "it": "Tridente",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c0df99012e27d6cc3bae",
+    "it": "Pistola a pietra focaia",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7890ce5162e05ecf4af9",
+    "it": "Fucile ordinario",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f2ff55f99a74e1388524",
+    "it": "Arco semplice",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "3762cc367ca64e4fbce9",
+    "it": "Balestra leggera",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6456496da686c3c81359",
+    "it": "Coltello da lancio",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "4441d55815f55933cfb9",
+    "it": "Giavellotto",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "dd3018a035f8de2e3251",
+    "it": "Ascia da lancio",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ea3270ac8785c38bc663",
+    "it": "Shuriken",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6ebdbd4ff0dd3b1a5d9d",
+    "it": "Frusta semplice",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0802c960ead34f2670c8",
+    "it": "Catena da combattimento",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e9dd149cc345a6906453",
+    "it": "Fionda semplice",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "2781b480f571ff63b034",
+    "it": "nessun effetto",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "fd96f91c7be87bbcbbc8",
+    "it": "⚔️ Arsenale · armi d4",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "1d30f9d88d998f1fe5e8",
+    "it": "Le armi sono dei",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c80e8d2aa7b70fcd3c93",
+    "it": "Combattenti",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e409e1261153eed80f2d",
+    "it": ". Con i Ruoli attuali questo pirata non ha posti nell'Arsenale: prendi un Ruolo da Combattente per impugnarne una.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "24f7bfb03059ec0ea915",
+    "it": "Ogni Stile porta",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e435b867cad851efabe3",
+    "it": "una sola arma",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c6586017b8885a699e87",
+    "it": ", del suo tipo o da lancio. I tuoi posti:",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "21740c4b4bcb14b28571",
+    "it": "— occupati",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "eea79cdf6ac49a105afa",
+    "it": "Arsenale pieno: per un'arma nuova devi prima lasciarne una.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "40cf69174f6e0137f0ab",
+    "it": "Le armi d4 approvate che puoi aggiungere adesso. Tutte Grado",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "8ce098df5fee85db4c75",
+    "it": ", origine GLC, nessun effetto speciale. Attributo e alcune portate restano «da definire»: li scegliete al tavolo. Puoi anche partire da un foglio bianco.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7343ec7134e7f8918260",
+    "it": "+ Arma personalizzata",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "cbc9b14216fa8607aeb5",
+    "it": "Nuova arma",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a057954c269755d73907",
+    "it": "lo hai",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c0098c2eac74bbd26148",
+    "it": "· nessun effetto",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ee1926251699f814f223",
+    "it": "Manipolatore",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b1e79f3cf9bbc20643d2",
+    "it": "Sensore",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "71d0d97643a88ca43d1a",
+    "it": "Emissione",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "bf97189d3a5c35a963bb",
+    "it": "Personalizzata",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "085b993786dd23631c71",
+    "it": "Attrazione attraverso il braccio; restano Forma, Grado, Slot, ST e requisiti.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "951c08f030f1e5ec5498",
+    "it": "Prove di rilevamento termico",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6f1fa61fbccb165b9f99",
+    "it": "Vantaggio alle Prove di rilevamento termico.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b1116d8f443f5cc39d49",
+    "it": "Spostamento 20 m e Volo d10, una volta per turno.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "3b74be62f4b1571ed365",
+    "it": "Ottimizzazione del solo Spostamento (+75%).",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "fde21a62c1b16f509ff9",
+    "it": "Sconto sul costo di +1 Dado Danno, soltanto se una capacità specifica concede realmente l’effetto.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b54f725c2d4861597510",
+    "it": "Un alleato entro 3 m è bersagliato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "fb44274d0e241185a023",
+    "it": "Applica lo Scudo all’alleato bersagliato.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "bf444a3445f288984488",
+    "it": "Attrazione su bersagli metallici compatibili; restano tutti i requisiti della Tecnica.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b31cab6be45adf409ab1",
+    "it": "Spostamento 50 m e Volo d20, una volta per turno.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "8b781efffa6aa35aa063",
+    "it": "Una minaccia richiede uno spostamento d’emergenza",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c557ad7f48b3600f20c5",
+    "it": "Usa la propulsione come Reazione, con Attivazione d’emergenza.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "905b455c5c9b6504bb74",
+    "it": "Interferenze ordinarie del sensore",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f18e8d17900ad4e01a11",
+    "it": "Protegge la funzione da interferenze ordinarie specifiche del sensore.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "29705cdc2135dc9b902b",
+    "it": "10 minuti fuori dal combattimento, con la risorsa necessaria",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "461ed3dc649202a328e7",
+    "it": "Progetto · non installato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7b2db7b29b2edf72758f",
+    "it": "Non operativo · da verificare",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "fb5c083f9f6c49b217d5",
+    "it": "Inattivo",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "74a0c87ba97edab164e1",
+    "it": "Il regolamento dei Moduli non è disponibile: ricarica la pagina.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ba7aad9d538a95064add",
+    "it": "Danno da sovraccarico: tira 1",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "1aab01bd377148b8aa1d",
+    "it": "e applica il risultato ai PV del Cyborg.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ba7986e028f811b3b107",
+    "it": "Officina · Meccanica minima",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "36965ccb3560c49f7574",
+    "it": "; Prova Astuzia + Meccanica, Soglia",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "26139654045c8d06b539",
+    "it": "ore. Materiali di riferimento",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6ad26fd5c11db685b9e8",
+    "it": ", scelti dal GM. Commissione esterna",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6cc89ff3502b0cb6f978",
+    "it": "(lavoro, materiali ordinari e installazione). Installazione:",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "9f509c4726e2157da374",
+    "it": ". Riparazione Modulo:",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "2f69cd340d125530f42a",
+    "it": "fuori dal combattimento, con strumenti e ricambi; nessun recupero PV.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "fba25ce9ce8f3d16e44a",
+    "it": "Scegli una Fascia Tecnologica valida.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "2d4c9cae12ae4c953053",
+    "it": "Nuovo modulo",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7fc14901747168413bb8",
+    "it": "Scontro in corso ·",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f78bd30bdf87be3ae559",
+    "it": "il tuo turno",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5cf151a2b06065cbe098",
+    "it": "fuori dal tuo turno",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "d00e07e9ef1900207dd1",
+    "it": "· cambio gratuito",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "32454198d83683ff404f",
+    "it": "già usato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "da7c943daa4cf792718c",
+    "it": "disponibile nel tuo turno",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "11337ca1439e3ee0c59e",
+    "it": "Fuori dal combattimento: scegli liberamente il Modulo attivo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "dbb8ae8d2ea502007c46",
+    "it": "Inizio scontro",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "020ff469fdd3245fa9bb",
+    "it": "startCombat",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7fb1f65624cb31df61de",
+    "it": "Inizio del mio turno",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "51f9fcd4777593397e12",
+    "it": "beginTurn",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "22ac3572714d74d56ab3",
+    "it": "Fine del mio turno",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "79418408017b0994e9fd",
+    "it": "endTurn",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "bddd191df0e78b514ebf",
+    "it": "Fine scontro",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a1d021621f605a65c44d",
+    "it": "endCombat",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "dae85f9f8aae06d400f6",
+    "it": "⚙ Officina · progetti",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "9b194efdbad41f64b1c5",
+    "it": "Moduli installati:",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "2e2bcbb7bfddef10a7f9",
+    "it": "· liberi",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7d63018561e19f83c364",
+    "it": "</b>. I progetti non installati non occupano slot.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "cd990f7a116616e51b9b",
+    "it": "Corpo Meccanico determina slot e Fascia massima. Un progetto può essere conservato prima dell’installazione; per installarlo servono uno slot libero, Corpo Meccanico sufficiente, dispositivo completo e strumenti. La costruzione o la commissione seguono il Capitolo 10.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "efd4d3b68e6cdc25c67e",
+    "it": "+ Progetto personalizzato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f121ef57aca59c7e5ca4",
+    "it": "Catalogo · 10 Moduli pronti (Manuale §13)",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "03f94c55dba89df73758",
+    "it": "⚿ richiede",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "4dbb3299915f1e265504",
+    "it": "· Fascia",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c19c5c613ea76551021b",
+    "it": "Crea progetto",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "32befe01e6beb9b7593e",
+    "it": "⚙ Modulo",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "cf197470add08f4e940e",
+    "it": "Installato · 1 slot",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "bb4ec3bd391b26782ea9",
+    "it": "Progetto · 0 slot",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "216c5e4bb081e1822ed6",
+    "it": "· Grado d’Arma",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "78950fe0c8c879b060e6",
+    "it": "pill warn",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e6ee39b0ddc9c42c2887",
+    "it": "Da completare",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ecd81b2ac03590bd5381",
+    "it": "Lo Sconto del Catalogo non concede +1 Dado Danno. Quel beneficio si applica solo se una capacità specifica lo autorizza; gli effetti DD ritirati non vengono reinseriti nel Costruttore.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "8321dda19606734dbb52",
+    "it": "È il modulo",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a514bf9bf724cdbb9fd3",
+    "it": ", ma è danneggiato: funzione, effetto e Tecniche collegate non sono utilizzabili finché non lo ripari.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "8cb2b0fd98f7caa26610",
+    "it": "Funzione Principale ·",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e8a29b51d2c3db55e179",
+    "it": "Attiva (",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5986d81ea4ef6ad7b8ce",
+    "it": "Nessun beneficio registrato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "4765130a165517c6c89b",
+    "it": "La Funzione attiva, l’Effetto Speciale e le Tecniche collegate richiedono un Modulo installato, integro e attivo. Una funzione operativa usa normalmente 1 Azione; i Propulsori rispettano il proprio impiego per turno.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "dbe2a598eace979df504",
+    "it": "categoria da scegliere",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0c6a88fc4509b0d34689",
+    "it": "· bersaglio:",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "60343da9a74f4fdfce72",
+    "it": "Solo con modulo attivo",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "8eabe6665f7e4d43a104",
+    "it": "Testo vecchio, da riscrivere:",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "011e6be6458288bd8943",
+    "it": "Nessun effetto speciale registrato.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f8b89a1be133ad31fbbd",
+    "it": "Ricarica · 10 minuti",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6ba700a6490b64c00a36",
+    "it": "Hai completato 10 minuti fuori dal combattimento e possiedi la risorsa necessaria? La ricarica non è inclusa nel Riposo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "63aea0f57166c7e39def",
+    "it": "Le cariche sono una risorsa a parte dalla Stamina: se una Tecnica costa ST e il dispositivo una carica, si pagano entrambe.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "9189b7efb42de447c5ac",
+    "it": "Tecniche collegate",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "1781544aec5e34c8908f",
+    "it": "Modulo non installato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "88894edfae567850ab06",
+    "it": "Modulo danneggiato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f4bdbaaa5e114963228d",
+    "it": "Modulo non operativo",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0ac3396bc542be19b5d9",
+    "it": "slot click",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e491948c7b47d6b8620e",
+    "it": "slot-art slot-art-die",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7800e9bd9fb29a831225",
+    "it": "· <span class=\"pill",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "48588ec6f62dc21fe431",
+    "it": "Nessuna: nel Signature Move Builder puoi collegare una Tecnica a questo modulo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c4e65a95bf2792abde34",
+    "it": "Installa",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "4b34ce9b5eed7937866a",
+    "it": "Dispositivo completo, strumenti disponibili e intervento di",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "efef3daa8d94d1e1ed9b",
+    "it": "tempo da definire",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a9c1c1737a00156728f2",
+    "it": "concluso fuori dal combattimento? Non può coincidere con un Riposo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7350191d4084ebc25a9a",
+    "it": "È il modulo attivo",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c8cfaa196b24fbaf97fb",
+    "it": "Attiva",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "904f0af28cf3f14b02d7",
+    "it": "Ripara ·",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "fb9e34f6f718828ec42d",
+    "it": "Riparazione completata fuori dal combattimento, con strumenti e ricambi adeguati? Non recupera PV e non attiva automaticamente il Modulo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "08337368e3d3962137c2",
+    "it": "Usa funzione",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "bb1b8eb277d7f1a04042",
+    "it": "Usa Reazione",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "1dd6455ce7286ccedb34",
+    "it": "Il Trigger della scheda si è verificato e hai la normale Reazione disponibile?",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "49e493ba9d9cdaee71ba",
+    "it": "Modifica",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "77074cec2c5fa15152d8",
+    "it": "⚠ Segna danneggiato",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ca24feab860bf2d81066",
+    "it": "Solo una conseguenza o capacità che colpisce direttamente il Modulo",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a1e0fb92d66b2ca74884",
+    "it": "Disattiva",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e7cbdd5ca34d0db16b1a",
+    "it": "Disinstalla",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "aed408a116b4412c4b08",
+    "it": "✕ Rimuovi",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "dd83e2166620ca4e4386",
+    "it": "Rimuovere «",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "632223e2083585d95e6e",
+    "it": "Tecnic",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0410f97442e67c7b878a",
+    "it": "resteranno in scheda, con il collegamento da aggiornare.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "9346461b1e4f84e42384",
+    "it": "Lo slot torna libero.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f1c0a3291089d4bf53f0",
+    "it": "Una volta per turno puoi cambiare gratuitamente il modulo attivo, senza spendere Azione, Azione Bonus, Movimento o Reazione. Fuori dal tuo turno serve una capacità che lo permetta.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "4bf85c0280f9ebe8cd54",
+    "it": "Dossier del pirata",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "9f6879820aee2f51b471",
+    "it": "✎ Identità",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "ed99545ea130a69bc4f3",
+    "it": "Quanti P.A. servono per salire di dado",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "62b6f1edaad9b9f76a6e",
+    "it": "☰ Azioni",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "23f74246a13356bc2b03",
+    "it": "Stampa, esporta, importa, reset",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "98599a44a5921ee93726",
+    "it": "Ambizione · si modifica da ✎ Identità",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "10164d5a999096137eb4",
+    "it": "Nessuna ambizione scritta",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "95ac19b155f7d058c077",
+    "it": "Legami",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7b6d5cfdd0b887eb11ff",
+    "it": "Scegli la classe",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "9e23511e26ac875353a4",
+    "it": "Seconda classe",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "14a3eb5250d7b332912b",
+    "it": "Equipaggiamento",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5e171d186f32cd4444b0",
+    "it": "oltre il limite",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c5acaef92599c9aa4371",
+    "it": "Armi ·",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "d176ec98eb858f101503",
+    "it": "slot add lockd",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "14e7bd00bbc44c005281",
+    "it": "Le armi sono dei Combattenti",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c57f60c827e846a040ec",
+    "it": "Nessuna arma",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "958462a7c48f96e2d0cd",
+    "it": "serve un Ruolo da Combattente",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "bf964c63fa2915db6f22",
+    "it": "seconda spada · Più Spade",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6656d4f99c4609b2cd47",
+    "it": "Apri l'Arsenale",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "1e2728b4f2ef50394a0e",
+    "it": "Più Spade vale per due spade: anche l'altra arma deve essere una lama",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "074a496c805b1e15706d",
+    "it": "Arsenale pieno",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "fb1f01b42d18abdf0043",
+    "it": "Slot libero",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "32769992149733279378",
+    "it": "Arma · apri l'Arsenale",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "bb1ca9a0ad66edf478df",
+    "it": "Strumenti",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a8b8ab4f457ee86d51ba",
+    "it": "La tua voce",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "2b504d6e32959407856d",
+    "it": "Voce ·",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "671f3fdedd6c31d1cf38",
+    "it": "Base · sempre con te",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "dfb82e3bab6a0f2c7ae5",
+    "it": "Strumento storico",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "237b98c1f35b60367c80",
+    "it": "Corpo Meccanico ·",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "84f656b7264eee98e6ac",
+    "it": "</b> · installati",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "1120ce038e281d16713a",
+    "it": "<span class=\"pill",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5c617fdd6522184d9034",
+    "it": "Officina · progetti e Moduli",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "43fc470345c13e197ae9",
+    "it": "PIP</b>",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5059c908dd863f135259",
+    "it": "Risveglia Haki",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "d666e067a0f939f8f9c4",
+    "it": "slots right",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a322e41b378614dc900c",
+    "it": "razziale storica · archivio",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "410d4445d489e21eeb56",
+    "it": "· profilo storico da convertire",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "1be6eba7ab7b2126cf19",
+    "it": "· da correggere nel Costruttore",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "24e4bf202f5f11f7f024",
+    "it": "Frutto senza nome",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "27d90aeb07a9bd5927d8",
+    "it": "tipo da scegliere",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "562ab9391259c0464058",
+    "it": "Zaino",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "494088264c887541c24d",
+    "it": "Apri lo zaino ·",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "7f096350ac62fe788f61",
+    "it": "Zaino vuoto",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "8c0c615c25531c0b3bbf",
+    "it": "Talenti ·",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "37acea7d57e47c608cc7",
+    "it": "Nessun talento ancora.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "3da8e7035455ef0c3bf1",
+    "it": "✦ Albero dei talenti ·",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "025eca88bab70e02ecf7",
+    "it": "✦ Albero dei talenti",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "2073b806d6bfcbc17d05",
+    "it": "Solo la Skill di Ruolo, per ora.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "9959f9a20daf541fcb70",
+    "it": "+ Skill",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "382da84a8a2bfda8db75",
+    "it": "Ciurma · Legami Nakama",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "559ae952de0ac819f90a",
+    "it": "margin:-2px 0 10px",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "817a3adf7a371fe70875",
+    "it": "Ogni legame ha un dado da",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "2ca1283e5888385e5b93",
+    "it": ": cresce con la storia, e certi Talenti lo richiedono a un gradino minimo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "43d0040dabbc78bacac6",
+    "it": "Nome del compagno",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "80f6bd4cfbc239e2c05e",
+    "it": "Legame più debole",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "72ecfb0312b9dbb5279c",
+    "it": "Legame più forte",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f6643046e95a9ab5c4d2",
+    "it": "bond add",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "53ccb5b8b0ae7c106e4d",
+    "it": "Nuovo legame",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "e8e7d90fa79732936018",
+    "it": ".bond:not(.add)",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "8c97d9528b6d4fdfbd82",
+    "it": "(Ruolo)",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "8182711ba5d33fd78a53",
+    "it": "PA</i>",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "41405996d7679707b2b8",
+    "it": "nessuna ancora",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6a6f32d0ac232d53a21a",
+    "it": "(razziale)",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "baa778dfe6b8e9281b17",
+    "it": "pip</i>",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "bb0f511c21301dd61030",
+    "it": "Benefici incorporati:",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5be3f38313961ea599a5",
+    "it": "Effetto storico da verificare",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "863b1e541920266bee6c",
+    "it": "Frutto del Diavolo · Scheda ufficiale",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "dfb1e5406cd3fbb0b3b1",
+    "it": "Da registrare",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "3bd4cfeb94eaf895301a",
+    "it": "· scelta conservata / non utilizzabile",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "fd344e450af02017942e",
+    "it": "Da registrare:",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "4402bfa1aa42f68ffe10",
+    "it": "Frutto / trasformazioni indisponibili fino al Riposo Lungo.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "6f722b80156fb8ac7f43",
+    "it": "<img src=\"",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "768b790660fa1029f38c",
+    "it": "\" alt=\"\" style=\"",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "20ecb6f6af0963e5259f",
+    "it": "Grand Line Chronicles · Scheda del Pirata",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "c2968326561c6aaddc04",
+    "it": "Wanted",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f3dd2588c254742d7ac9",
+    "it": "Haki PIP",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0e55d92cd0de597763ac",
+    "it": "PA</div>",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b6c92b00e95dba6fbc10",
+    "it": "Abilità",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "86a7f47b333770c6e85f",
+    "it": "PA",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "fb4bbcf182249f0c6ae9",
+    "it": "da determinare",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "765ceec0db7708936799",
+    "it": "strumento storico",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "da82206a7d61c59e9118",
+    "it": "Tipo da verificare",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "02bf0d888f4ee5e7b925",
+    "it": "Strumento storico da verificare",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "1d74ac836f93138dc31a",
+    "it": "Salvezza",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a36554bfedac64ed7e07",
+    "it": "usato come",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "eca3f8b507ef6240227d",
+    "it": "finché l'Arte non arriva a",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "99581bfb72292c5bc5dc",
+    "it": "installati</div>",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "80328064be1ee02ff8ae",
+    "it": "tipo da definire",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "cd22eee330c20d0e7596",
+    "it": "nessun beneficio meccanico",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "84163d65b94a6178208c",
+    "it": "· consumo",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "8eff1fd10035142bd6cd",
+    "it": "· ricarica:",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "cd0b5fc52ee4fe5a8818",
+    "it": "10 minuti fuori combattimento, con risorse disponibili",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "f4015008c962dd5d72f3",
+    "it": "Da correggere:",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "37003e1cd7f2c37f5b8c",
+    "it": "Talenti di Prestigio",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "cf1fa8c20372ad42021c",
+    "it": "Prestigio degli Attributi",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0883bbc9d69fa1380346",
+    "it": "Legami Nakama",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5f67774ef6386683592f",
+    "it": "razziale ·",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0dd2cc3a98f33ff5ce12",
+    "it": "Profilo storico · da convertire nel Costruttore",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "273e5ceeee976e59c53d",
+    "it": "· arma «",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "d7e5641cef81d47ea5ed",
+    "it": "Da correggere nel Costruttore:",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "b747b356378794ec54db",
+    "it": "Nessuna tecnica.",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "452843b1c7aea2441b5c",
+    "it": "PIP)",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "5aa4a5dbbd9e58ddec44",
+    "it": "Grand Line Chronicles · Sistema «Will of D.»",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "51ed0a4e62e6ed02710f",
+    "it": "· Inventario & Note</div>",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "a26fdd05a46b60a32be2",
+    "it": "Inventario",
+    "kind": "html",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "311fbe175d20e14d86d2",
+    "it": "· modulo «",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0b27ee7090f48c231d2f",
+    "it": "/scheda-stampabile/?c=",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "fd4c1e566bb998429ade",
+    "it": "File non valido.",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "0ba1a398539b4f40e196",
+    "it": "Azzerare questo personaggio e ricominciare la sua scheda?",
+    "kind": "text",
+    "context": "gestisci-pirata/index.html"
+  },
+  {
+    "id": "00cb3dfdf9fbd803fab2",
+    "it": "Il tuo profilo · Grand Line Chronicles",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "7420351b8d403a7223dd",
+    "it": "Vai al profilo",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "2f6f6af8fd1ff5ac3f39",
+    "it": "← Torna al porto",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "0e22fdc1f2d8dc68a936",
+    "it": "Il tuo profilo",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "bb79cca8ae39fb81d6ba",
+    "it": "OLTRE L’ORIZZONTE<br><span>c’è sempre una nuova storia.</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "558af14e4ac1e9379a35",
+    "it": "<span class=\"profile-eyebrow\">REGISTRO PERSONALE</span><span class=\"cover-coordinate\" aria-hidden=\"true\">GRAND LINE · NEW WORLD</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "c873089f553850c11d25",
+    "it": "Cambia immagine",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d5cd3af52750dd31c900",
+    "it": "Cambia immagine del profilo",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "c8e054a07c840cafbb83",
+    "it": "Il tuo spazio nella Grand Line",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "7ac850b697599fadb173",
+    "it": "Modifica nome",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "0b721ef4e72e2f872ce1",
+    "it": "Nome del profilo",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "f9313399d92859f1c8e7",
+    "it": "Il tuo nome di capitano",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "964e83c6a3d00e2039a8",
+    "it": "Il tuo equipaggio, i tuoi legami. La tua rotta.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "aaacfc8ecb8ced9b1bbd",
+    "it": "La tua ciurma è ancora vuota",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "2525ad9c2355501098d0",
+    "it": "Il tuo registro",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d7304263b412c39b55d3",
+    "it": "<strong id=\"profile-char-count\">0</strong><span>Pirati</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "fbdc055bb7293f38e27e",
+    "it": "<strong id=\"profile-ship-count\">0</strong><span>Navi</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "178288240ac7614f184f",
+    "it": "<strong id=\"profile-session-count\">0</strong><span>Sessioni</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "0b82b45feaa5318ae93d",
+    "it": "<span aria-hidden=\"true\">⚙</span> Modifica profilo",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "6dcf619891fba1db020d",
+    "it": "Sezioni del profilo",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "a7bd73912b9bb30dab1f",
+    "it": "I tuoi pirati",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "ef4ffab93128dbf695c4",
+    "it": "Navi e sessioni",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "ccff78c9e74bcbcb89fe",
+    "it": "Nakama <span id=\"profile-nakama-count\" hidden></span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "7b855ce7525ebc189ccc",
+    "it": "Impostazioni",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d78af1bae66dafb3faa2",
+    "it": "<span aria-hidden=\"true\"></span><span id=\"profile-sync-text\">Salvataggi</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "0a849021afc105625e19",
+    "it": "IL TUO EQUIPAGGIO",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "7200a78a3e596c38dc43",
+    "it": "Le tue leggende.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "8732324bb01c31cf6b88",
+    "it": "Ogni volto, una storia ancora da scrivere.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "25f43c92badb19ec1739",
+    "it": "Importa il JSON esportato dalla Gestione del Pirata",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "5d3019c19a7fd40b799c",
+    "it": "↑ Importa JSON",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "06e3f37472ab94746e85",
+    "it": "+ Nuovo personaggio",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "ab90eb2b1a7bab45d065",
+    "it": "Scegli chi salpa.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "a3f2ae760ec527f24691",
+    "it": "Come vedere l’equipaggio",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "96317b4e107f53288fc0",
+    "it": "◇ Carte",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "836fc410937cfba0ad43",
+    "it": "▦ Griglia",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "6b5fbc49e01c590e8e06",
+    "it": "<span>CHARACTER SELECT</span><span id=\"deck-count\">00 / 00</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "af4e045cce30ba930737",
+    "it": "Carte dei tuoi pirati",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "80bc05eeee097d3f66e1",
+    "it": "Pirata precedente",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "638cc6344f1368d4e747",
+    "it": "Scegli un pirata",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d8be30d118da26d5d3fb",
+    "it": "Pirata successivo",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "49a2e48cf0cb72456395",
+    "it": "Scorri le carte o usa le frecce <span aria-hidden=\"true\">← →</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "ccb094915939c259d76a",
+    "it": "Il pirata selezionato",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "4d107765807ff0d03a1b",
+    "it": "PRONTO A SALPARE",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "049525609735ae4eb461",
+    "it": "<span>TAGLIA ATTUALE</span><strong id=\"dossier-bounty\"></strong>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "4b5958bbf0db51a6baa4",
+    "it": "Reputazione",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "03eb11b58b11a9e78aa1",
+    "it": "Entra in scena <span aria-hidden=\"true\">↗</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "26378656c265c609ce31",
+    "it": "Apri la scheda e riprendi l’avventura.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "77cd36049014009d7a74",
+    "it": "IL TUO DIARIO DI BORDO",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "410176fe3cd8465495f0",
+    "it": "Rotte da ricordare.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "6e8689b55b6c5d324199",
+    "it": "Navi e sessioni della tua avventura, sempre a portata di mano.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "af7abd9f35e28b6407af",
+    "it": "Le tue navi",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "a36493e922dd509d3fc9",
+    "it": "+ Nuova nave",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "2c6b1535552a4b87938a",
+    "it": "Le tue sessioni",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "6398ede96ebf84d524f4",
+    "it": "+ Nuova sessione",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "2a7cd8d185afe6ef539f",
+    "it": "NESSUNO SALPA DA SOLO",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "8ee80539a21895270393",
+    "it": "I tuoi Nakama.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "34e043bb6e12df6ed0a7",
+    "it": "Ritrova gli altri giocatori e costruisci la tua ciurma.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "a8e0bf3756cd6faec44f",
+    "it": "Vai alle Campagne ↗",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "519a1038d08243780c8d",
+    "it": "Cerca un pirata per @username",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "15910e265a5d3cfc959e",
+    "it": "Cerca",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "884e5d5aa32ba274e7f1",
+    "it": "Richieste ricevute",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "6e84111badbba2e1cf41",
+    "it": "Richieste inviate",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "6a5218744351806ece80",
+    "it": "La tua ciurma di nakama",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "697e5cba364254f06ae2",
+    "it": "IL TUO ACCOUNT",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "2af18ff0697eecfecc51",
+    "it": "Un profilo che ti somiglia.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "b3940c6dcff07f22cad1",
+    "it": "Personalizza la tua identità e tieni al sicuro le tue avventure.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "02c312fc2982c21f9c2b",
+    "it": "Impostazioni disponibili",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "b086042087ee13f77aa1",
+    "it": "Identità del giocatore <span>↗</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "efd817f17db021c45b55",
+    "it": "Username e Nakama <span>↗</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "3e8f3c0ca4ea452a1b47",
+    "it": "Salvataggi e recupero <span>↗</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "1c5766c35cf9334bb9da",
+    "it": "Accesso <span>↗</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "1882c853a85b0f5262e3",
+    "it": "Il nome del profilo e i nomi dei tuoi pirati sono indipendenti.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "416a14a3933ee1f13d93",
+    "it": "01 · IDENTITÀ",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d24aab9b4560044ed795",
+    "it": "Il giocatore dietro la leggenda.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "3dd1fa07449b52ec4f74",
+    "it": "Cambia immagine ↗",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "09e763de3936ce70231d",
+    "it": "Qualcosa di te <span>Facoltativo</span>",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "21fb0eb959aedff60d79",
+    "it": "La tua idea di avventura, il tuo motto, ciò che ti porta per mare…",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "b9b81704cb74ed436d9d",
+    "it": "Questi dettagli personalizzano il tuo profilo. Non modificano le schede dei pirati.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "182b2b2d88c0b449db67",
+    "it": "Salva profilo",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "01f8b68ff3b361d98831",
+    "it": "02 · CONNESSIONI",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "a015c64edcc8f2590ce2",
+    "it": "Il nome con cui ti trovano.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d36f126c9be46e19c58b",
+    "it": "Username pubblico",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "0b1a508b7ab9976818ce",
+    "it": "es. lupo_di_mare",
+    "kind": "attribute",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "80afc744c074866a1b39",
+    "it": "Salva username",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "64f441d7a4ae240d414b",
+    "it": "Scegli un username unico (3–20 caratteri: lettere, numeri, underscore). Gli altri giocatori lo usano per trovarti e aggiungerti ai Nakama. Puoi cambiarlo una volta ogni 14 giorni.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d4922c58b990bcae4e4f",
+    "it": "03 · SALVATAGGI",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d9ac9f360675353f85f0",
+    "it": "I tuoi salvataggi",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "748075497ed2bd912491",
+    "it": "Controllo in corso…",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "3271942987786d96cef6",
+    "it": "Riprova sincronizzazione",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "135bbc7a6a4558e5ffa7",
+    "it": "Versioni precedenti",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "769fee1a9fa16e703fad",
+    "it": "I salvataggi si aggiornano automaticamente. Se due dispositivi modificano lo stesso pirata, qui puoi confrontare e conservare le copie.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "2606f3785635a9c4323c",
+    "it": "04 · ACCESSO",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "1512dabb4c6b2e2ff08f",
+    "it": "La tua prossima partenza.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "c3fc3f59053b171ec2be",
+    "it": "Quando esci, verifichiamo prima che le tue modifiche siano al sicuro.",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "60ca5e1a53cc3d66fa83",
+    "it": "Esci dall’account ↗",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "6ca5841d6ed4a60315ca",
+    "it": "Longbraccio · Razza storica",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "e30002c3dc8777577df1",
+    "it": "Lungagamba · Razza storica",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d55ea8e4647884336a65",
+    "it": "Scheda da completare",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "478c00c1da952c489a9d",
+    "it": "Nave senza nome",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "75a2f4b1a6c3936ef828",
+    "it": "Nave da completare",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "b1fb2f1df2ea15ac40e7",
+    "it": "/nave-portale/?n=",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "2589d861a1e19ba800b0",
+    "it": "» dalle tue navi? Non è reversibile.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "c11501d98b1fd6de5f14",
+    "it": "Importazione del personaggio…",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "03dce6258280b6fc2be5",
+    "it": "Non riesco a leggere il file. Selezionalo di nuovo e riprova.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "2dd6b78f667c8e129f55",
+    "it": "invalid character",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "f7ae8d33b8a69dbcd9fb",
+    "it": "File non valido. Scegli il JSON del personaggio esportato da Gestione del Pirata → Azioni.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "58652a1da64590443741",
+    "it": "Impossibile salvare il personaggio: spazio insufficiente o salvataggio non disponibile. Nessun personaggio è stato aggiunto.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "53d76da79d613c58c4fc",
+    "it": "» importato nell’equipaggio. Puoi aprire la sua scheda.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d12073f9fc190853adf9",
+    "it": "ch-btn open",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "4334607df5d5c5a38237",
+    "it": "Apri scheda",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "0eb9bccf780916d22dfa",
+    "it": "ch-btn del",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "90c703a2667d5645c9f5",
+    "it": "Nuovo personaggio",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "12abcf9ee7d648df0253",
+    "it": "Apri",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "6cd206760d9978fb9fb1",
+    "it": "Nuova nave",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "2ae1b51449124fc6f09b",
+    "it": "Non hai ancora navi. Creane una con il riquadro qui sotto.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "9f94f177fa3f22d8a8d4",
+    "it": "nella tua ciurma",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "6ba97b84feca5dffefb8",
+    "it": "[data-profile-tab]",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d6cc90ae27c46327100f",
+    "it": "Su questo dispositivo",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "cb58d86f510fea282dd4",
+    "it": "Salvataggi al sicuro",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d106e7eea53889af7611",
+    "it": "Copie da confrontare",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "dcb30b9b90ffa1724030",
+    "it": "Salvataggi in attesa",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "be38777136f85e1b9cef",
+    "it": "Apri le impostazioni dei salvataggi",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "8e2f7ffbbdb947d813f9",
+    "it": "ArrowRight",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "48e61e2dd0a223987505",
+    "it": "ArrowLeft",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "3a78695388b38b5cceef",
+    "it": "Home",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "f4db1e48476f60753980",
+    "it": "End",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "92398ebc79994f5777d7",
+    "it": "[data-profile-go]",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "8122451092e9a4c2c44d",
+    "it": "Modifiche da salvare.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "a610d89a08754124f5d2",
+    "it": "hint ok",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "73b08510fcc6dab8ca6c",
+    "it": "Profilo aggiornato.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "af44ca515894fd4fccb8",
+    "it": "hint err",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "84eef4a6ea5ce2e0ff12",
+    "it": "Profilo non salvato. Le modifiche restano qui:",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "a91754303f104ec84406",
+    "it": "Non hai effettuato l’accesso su questo dispositivo.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "5707e8a766dbd85c49d6",
+    "it": "Ruolo da scegliere",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "a335526db19f6df9b2dd",
+    "it": "Da scegliere",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "3acf8f8e3dce6e17ccfb",
+    "it": "Nessuna taglia",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "bcd170cb6c26c3381913",
+    "it": "La tua prossima avventura comincia qui.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "c23567b53a451806ef0a",
+    "it": "carta del personaggio",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d43e8dbd08ff33e2a3d6",
+    "it": "GRAND LINE ·",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "16a7cd8f88008501bf0e",
+    "it": "Senza ruolo",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "6bf5e38004d8e5fed8d2",
+    "it": "Razza da scegliere",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d0a9675b20c136b4fe42",
+    "it": "Apri la scheda di",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "0e05027a4d9d5ffbde06",
+    "it": "scale(",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d57585552349ee16ba8b",
+    "it": ") rotate(",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "a920bb55e3e5f7f237c0",
+    "it": "deg)",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "95f99a82474b58dc6b68",
+    "it": "Non hai ancora pirati. Creane uno con il pulsante qui sopra.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "5b62ee34518be4e82896",
+    "it": "Seleziona",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "5e57f201620117298843",
+    "it": ".attiva .pc-open",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "588598521b880fac6a33",
+    "it": "Non hai ancora pirati. Creane uno con il riquadro qui sotto.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "2d7b7eb2c79ffb3f3adc",
+    "it": "Sessione senza nome",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d5bf8050e9fed3bcd843",
+    "it": "diario vuoto",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "e4a06d7330684093e0eb",
+    "it": "Da collegare  ·",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "08319ab570a1e27a24cb",
+    "it": "/sessioni/?s=",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "150883154850f678a01f",
+    "it": "» dalle tue sessioni? Non è reversibile.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "5ee0bb8905279c1a17da",
+    "it": "Nuova sessione",
+    "kind": "html",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "207384a309fce8855f48",
+    "it": "Non hai ancora sessioni. Creane una con il riquadro qui sotto.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "14e4e676a17427ca5383",
+    "it": "Aggiungi il tuo nome",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "f4aed625e942c7ec044c",
+    "it": "QuotaExceededError",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "8499dc11215b691a3d76",
+    "it": "Spazio insufficiente: l’immagine precedente è rimasta invariata.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "ffbc2d86bc63fcac40a8",
+    "it": "DOMContentLoaded",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "5990df2397078e8be537",
+    "it": "Accedi per ritrovare i tuoi Nakama.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "5de4eb94f0ec472d70a0",
+    "it": "Username impostato: potrai cambiarlo di nuovo tra",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "201d15c2c9673ea64e2b",
+    "it": "username,updated_at",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "dd0b944d7e6ab1c350f8",
+    "it": "Formato non valido: 3–20 caratteri, solo lettere, numeri e underscore.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "7f3f1c07afaf13949c13",
+    "it": "È già il tuo username.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "dc06d82c9f2dc3c9f162",
+    "it": "Puoi cambiare l'username una volta ogni 14 giorni: riprova tra",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "f064d54bb227a86b8db9",
+    "it": "Servizio non disponibile. Ricarica la pagina.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "1f13831551f9f95887e1",
+    "it": "Devi accedere per salvare l'username.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "c4f57f0165aad7c38454",
+    "it": "Salvataggio…",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "580f8258e06a52fecf3c",
+    "it": "Questo username è già preso da un altro pirata. Provane un altro.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "05cf8d92b94e4bd07ad0",
+    "it": "Errore nel salvataggio:",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "59056febe30fda60e2a3",
+    "it": "Username salvato ✓ — ora gli altri ti trovano come @",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "16cb9da6702fa2fa49ec",
+    "it": "Errore di rete. Riprova.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "4c0232bc31e5e3df987d",
+    "it": "Scrivi almeno 2 caratteri.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d72043f25fbe76af83e7",
+    "it": "Devi accedere.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "c28149fde7724c13585d",
+    "it": "Cerco…",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "ac8a95cbbc1afd7edae1",
+    "it": "user_id,username",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "e3790354684f6dc260e1",
+    "it": "Errore nella ricerca.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "cc28b7bf103795a1a40b",
+    "it": "Nessun pirata trovato con questo nome.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "9d5aec80eab79fa01939",
+    "it": "+ Aggiungi",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "8b9a810cad264d4b5218",
+    "it": "Errore di rete.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "e68a3a06e7a31e6d6022",
+    "it": "and(requester.eq.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "b101de3d40ee39cf13ba",
+    "it": ",addressee.eq.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "5a968a4de4ea1ba32ddc",
+    "it": "),and(requester.eq.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "caaf6ffa18d16f10a5a4",
+    "it": "Siete già nakama con @",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "409f8525dae0dde4192d",
+    "it": "Hai già una richiesta in attesa per @",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "ae0ee70f33500203bd79",
+    "it": "Errore nell'accettare la richiesta.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "d6ae868736e9e8e7acb1",
+    "it": "ti aveva già cercato: ora siete nakama!",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "192cdf8444abe0991655",
+    "it": "Richiesta già presente.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "fc2ef1deea2c1fb8b186",
+    "it": "Richiesta inviata a @",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "7eb0591e553925840759",
+    "it": "Nessuna richiesta.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "2a833feead255bd71f6c",
+    "it": "Accetta",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "cc2a91346b9e25a012ef",
+    "it": "Rifiuta",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "18c9d912a21072ddff18",
+    "it": "Annulla",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "0b8e8f0c5c0b797b6704",
+    "it": "Ancora nessun nakama.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "f254f5019ca7f5979a91",
+    "it": "Ora siete nakama!",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "bd44c11dffd82528c320",
+    "it": "Errore nell'accettare.",
+    "kind": "text",
+    "context": "profilo/index.html"
+  },
+  {
+    "id": "fd985e797f89788c8777",
+    "it": "Sessione · Grand Line Chronicles",
+    "kind": "html",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "3b034152f55695000be3",
+    "it": "‹ Le mie sessioni",
+    "kind": "html",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "733ff6dca7186e2ff90a",
+    "it": "Sessioni",
+    "kind": "html",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "4a9837580d36c2e9bc7f",
+    "it": "Ogni pagina conserva un pezzo di mare.",
+    "kind": "html",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "b6a7f359f0e819529d55",
+    "it": "onClick",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "236215eb6f44c1f21a62",
+    "it": "onInput",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "17b8ed2a4ca207923080",
+    "it": "onChange",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "1ac7d80badb9ba33a596",
+    "it": "card notebook",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "92c4e15f449695102548",
+    "it": "Diario di bordo",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "63e2f4e8db757c8d49cb",
+    "it": "Il tuo quaderno: scrivi a piacere, pagina dopo pagina. Si salva da solo.",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "642041b80a5809ded2f5",
+    "it": "Pagina del diario di bordo",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "2b0ccafc9c9d33bff8e5",
+    "it": "La prossima pagina della tua avventura…",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "bdf8660886277533912e",
+    "it": "‹ Precedente",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "55ab160f94486c1d1901",
+    "it": "Successiva ›",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "72505985a1fb52d82e58",
+    "it": "Pagina",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "0d0a23ffa3111a6fcefb",
+    "it": "nbbtn add",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "aea67d0724a4f4d39882",
+    "it": "+ Nuova pagina",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "0aa02d1be06b0baf0700",
+    "it": "nbbtn del",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "351381d4dc5c388f1743",
+    "it": "Elimina pagina",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "30bc5f97e28e7da705fa",
+    "it": "Eliminare questa pagina del diario?",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "fc7308cf121cf280899d",
+    "it": "salvato ✓",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "d049ae8ae85783c3dec6",
+    "it": "Questa sessione non esiste (o è stata eliminata).",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "6a76486139a21f138163",
+    "it": "↩ Torna al profilo",
+    "kind": "html",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "03c8a2e80951e4d008c6",
+    "it": "per aprirne o crearne una.",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "6fb4c6705a90a01551a0",
+    "it": "hero session-hero",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "4fd20beaa4eb677c0885",
+    "it": "Il tuo tavolo di gioco",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "ff89cacc0bf5921ae304",
+    "it": "Tocca per rinominare",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "8560236974a0a059cc1d",
+    "it": "Nome della sessione",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "bb89806b9303d23dedf5",
+    "it": "Il tuo pirata, la tua nave, le storie da ricordare.",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "618ee1adfed866f30014",
+    "it": "Il viaggio continua",
+    "kind": "html",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "965c9f491ee529ec694d",
+    "it": "Nella sessione",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "9e76b065006a97aeb756",
+    "it": "Atlante",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "890086b16b4804070e73",
+    "it": "Registro",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "9610209e365e9b8eba8a",
+    "it": "cols session-companions",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "28246d7efe1556ff44f7",
+    "it": "Chi parte con te",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "b8ba7ad2d894dbd5e96a",
+    "it": "card session-character",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "2d6bd82b82d3c70a2517",
+    "it": "Il tuo pirata",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "b088c54ff373c2ede8dd",
+    "it": "Personaggio collegato",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "eb539530e206c22c22a7",
+    "it": "— scegli un personaggio —",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "36ff30f37818ee55434e",
+    "it": "— nessun personaggio creato —",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "0d3f71893510b1374177",
+    "it": "persId",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "eeeddb87a72a7e315402",
+    "it": "Collega un personaggio esistente",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "664c6e83bdcb4c919e97",
+    "it": "Apri la scheda ↗",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "807a5a1a434e8ded4cf1",
+    "it": "linked muted",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "ef2efa1293a8a301449d",
+    "it": "Crea prima un personaggio dal",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "4c326af65b0d810b0f8c",
+    "it": "card session-ship",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "8c1e9057ded8887c2a2e",
+    "it": "La tua nave",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "390afde57225ed8252f5",
+    "it": "Nave collegata",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "ec0494e89ce4d39ccb8c",
+    "it": "— scegli una nave —",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "ca20f46c4b7f6489ed0b",
+    "it": "— nessuna nave creata —",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "d7b7092f9b4e69c111d5",
+    "it": "shipId",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "043951f1ef805aff734e",
+    "it": "Collega una nave esistente",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "6fdbb1d5b8e61924fdd2",
+    "it": "av session-art",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "b24499db10022fb775b2",
+    "it": "Sali a bordo ↗",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "678217fa9d83f0fcb29d",
+    "it": "Crea prima una nave dal",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "de0bc7f8f1f87b3a9d9d",
+    "it": "card session-map",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "f58010100813399bfd48",
+    "it": "Il mondo della ciurma",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "09872663ff176d5aa2ad",
+    "it": "Disegna ciò che il GM vi rivela: terre, montagne, boschi, fiumi e rotte. Ogni luogo ha un taccuino da riempire durante le avventure.",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "2d8aebf6e2a65e108d69",
+    "it": "/isola/?s=",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "dbf33748fdfb5ff07497",
+    "it": "card diary",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "8c982af2c25c95589d4e",
+    "it": "Registro della sessione",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "f6291c7ddce0352e9dcc",
+    "it": "Note rapide e gli oggetti/piatti inseriti da Officina e Cambusa. Per scrivere a lungo usa il Diario di bordo qui sopra.",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "b5450035d263b934956a",
+    "it": "Ancora nessuna voce. Scrivi la prima nota qui sotto.",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "8441c25b032192480e0b",
+    "it": "Eliminare questa voce dal diario?",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "ea5290b8d905b2f10ca1",
+    "it": "badge session-entry-art",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "6d10a9437baa73385c4d",
+    "it": "(senza titolo)",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "3be03258c03598198d67",
+    "it": "Titolo della nota rapida",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "d1c5a198d3f94548fe8a",
+    "it": "Titolo della voce (es. «Sbarco a Isola Gelida»)",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "5e24892925d02599e091",
+    "it": "Testo della nota rapida",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "c8798003f55e546edf38",
+    "it": "Cosa è successo…",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "db2e75f2ca7d435121f6",
+    "it": "+ Aggiungi nota",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "ecef8a87fff05ec5d01b",
+    "it": "Nota",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "e50ebf3fbd70d57acd87",
+    "it": "Nuova nota rapida",
+    "kind": "text",
+    "context": "sessioni/index.html"
+  },
+  {
+    "id": "dc7f315abb2a9bc5cd46",
+    "it": "Campagne · Grand Line Chronicles",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "d06a1901112e627b83e7",
+    "it": "‹ Torna al profilo",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "06a6961a60f23bdf8e97",
+    "it": "Lo spazio della ciurma",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "070c33c836e22caa2602",
+    "it": "Una ciurma.<br><em>Infinite storie.</em>",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "d79858ec859c042f70d3",
+    "it": "Le rotte che condividete, le isole che scoprite.<br>Il prossimo capitolo comincia qui.",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "d8f3544933ca688a8e51",
+    "it": "Ogni leggenda ha una ciurma",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "98fba4bec912a832af3d",
+    "it": "Il tuo orizzonte",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "d409e344482e37ecca0a",
+    "it": "Le tue campagne",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "a02ad954396171c764f8",
+    "it": "Scegli la storia da continuare.",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "9bef01cd23c24bb841a3",
+    "it": "Si salpa…",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "2be0a3fa96636dd3f260",
+    "it": "<span class=\"entry-number\">01</span><span><b>Crea una campagna</b><small>Traccia una nuova rotta come Game Master.</small></span><i aria-hidden=\"true\">+</i>",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "58cc161d9675fafda546",
+    "it": "Nome della nuova campagna",
+    "kind": "attribute",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "8e46d74be22e14985fb2",
+    "it": "Nome della campagna",
+    "kind": "attribute",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "9bf626657ea303393eed",
+    "it": "Crea",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "a49f763105aa709ef911",
+    "it": "Ne diventi il Game Master: potrai invitare i nakama e condividere un codice d'accesso.",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "9e2227ab431b281114bc",
+    "it": "<span class=\"entry-number\">02</span><span><b>Unisciti alla ciurma</b><small>Hai già un codice? La tua avventura ti aspetta.</small></span><i aria-hidden=\"true\">+</i>",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "a733cce6cde0560a2ce9",
+    "it": "Codice della campagna",
+    "kind": "attribute",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "2f3da46def5d736d76cc",
+    "it": "Codice (es. 7KQ4M9)",
+    "kind": "attribute",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "8c3c4342634de60cfbee",
+    "it": "Entra",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "a2afc082b0c67986cbe5",
+    "it": "La tua scheda in questa campagna (facoltativa)",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "86c237a519fab12c1ce8",
+    "it": "Chiedi il codice al Game Master della ciurma.",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "963317420cd115c0e5bd",
+    "it": "Campagna selezionata",
+    "kind": "attribute",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "8993f09b134836b8ec78",
+    "it": "La rotta è un’idea. La ciurma la rende una storia.",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "bf6ad492c1a76e8bd936",
+    "it": "ABCDEFGHJKLMNPQRSTUVWXYZ23456789",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "2adf5d640f1492def8fa",
+    "it": "Salvato ✓",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "e64bb5dc6225e9d87dbb",
+    "it": "Errore nel salvataggio.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "e004af47bda8bcebf239",
+    "it": "Errore nel caricamento.",
+    "kind": "html",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "d330e747fc8a3523180a",
+    "it": "Non sei ancora in nessuna campagna. Creane una o entra con un codice.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "91d27605da3989ed9894",
+    "it": "detailWrap",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "b700e0a1c7e275a0e3de",
+    "it": "Game Master",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "f537c6bd038e0c9bdd3d",
+    "it": "Giocatore",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "1b88200d9de439af7dac",
+    "it": "Entra nella campagna ↗",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "bba3f5baca04fc9f0f8d",
+    "it": "panel detail",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "ceda06d04a201defec98",
+    "it": "camp-section camp-brief",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "f2805ccff6fa668569a7",
+    "it": "camp-section camp-events",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "5286d3dcb0d49a4c4ace",
+    "it": "camp-section camp-chronicle",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "eb9198562069ad08567c",
+    "it": "camp-section camp-chart",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "565380a6b3e12fef15d7",
+    "it": "camp-section camp-access",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "80c12890df06e6e79998",
+    "it": "camp-section camp-crew",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "c579f2b4dd2cf41b8691",
+    "it": "camp-section camp-manage",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "0ab2e4e88ca7604b9c76",
+    "it": "Quartier generale",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "923a54288386e150f6dd",
+    "it": "Sei il Game Master",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "c9edf02461eb68ddfeb9",
+    "it": "Sei un Giocatore",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "9faf69ac93196fbd42e9",
+    "it": "Impossibile caricare la campagna:",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "82ffac0466f611ba753a",
+    "it": "Informazioni della campagna",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "500f5e9f3a6a5cac4cce",
+    "it": "Modifica le informazioni",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "dc1d99f0be8962fa3c44",
+    "it": "width:100%;resize:vertical;min-height:80px",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "b8403ee1533b8623cfe3",
+    "it": "Note, regole della casa, premesse, avvisi per la ciurma…",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "3665ffdb93adb932a84a",
+    "it": "Salva informazioni",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "85f92d24d6e5139e3a5b",
+    "it": "Informazioni salvate ✓",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "2e88689e3196017adf53",
+    "it": "Il Game Master non ha ancora scritto informazioni.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "55d94127b6e89737f86b",
+    "it": "Prossime sessioni & eventi",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "2862230bd1129acea822",
+    "it": "Nessun evento in programma.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "fcdd128a34ed256e4c7a",
+    "it": "Sessione",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "d3db22ddd0a4261c2e84",
+    "it": "btn sm danger",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "0f22e424b23ed6067ef3",
+    "it": "Programma una sessione",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "424a7d3b3f7a53fcec36",
+    "it": "Data evento",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "c249c57cd4115ce466ea",
+    "it": "flex:0 0 150px",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "d1fb27d4d6ff2391fc0b",
+    "it": "Titolo evento",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "b420acbbd5bbecca0e8d",
+    "it": "Titolo (es. Sessione 4)",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "460c157e6eeea047938b",
+    "it": "Nota evento",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "e72b210f75b6eb186f56",
+    "it": "Nota (facoltativa)",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "723113bd2c2bfecf1ffe",
+    "it": "+ Aggiungi evento",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "3afc83988385418b72dc",
+    "it": "Registro delle sessioni — cosa è successo",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "400db593c7fb9efbdecf",
+    "it": "Ancora nessuna cronaca.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "97c9f3d853b5ada00611",
+    "it": "Scrivi una cronaca",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "8773c30aea3da4802372",
+    "it": "Data della cronaca",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "4d7afeabc5e3b1931095",
+    "it": "Titolo della cronaca",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "34306bffb43065978cbe",
+    "it": "Titolo della sessione",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "b01bc7737a77e080e7a9",
+    "it": "Testo della cronaca",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "972232ed60e0367ffe4f",
+    "it": "width:100%;resize:vertical;min-height:64px",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "04c39e96ba9aa4685e62",
+    "it": "Cosa è successo in questa sessione…",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "57c5a3e2d2c650921490",
+    "it": "+ Aggiungi alla cronaca",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "fc205b95baca7553db64",
+    "it": "Il mondo della campagna",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "12162e73d6ca5f1ac70c",
+    "it": "Scegli l’atlante",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "458b1bebce6840e0ef42",
+    "it": "Il mio atlante",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "1c1979908a8448fcd52a",
+    "it": "Carta del GM",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "814757ccf9c26897f8d9",
+    "it": "Il tuo atlante personale: disegna e annota solo ciò che hai scoperto. Gli altri giocatori e il GM non vedono questi appunti.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "ccc1a2e55a4ba6e88d03",
+    "it": "La carta del Game Master è condivisa con la ciurma. Solo il GM può modificarla.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "5316c0f7b414c8c81f98",
+    "it": "/isola/?",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "e60a125a21c300a71ee5",
+    "it": "Codice d'accesso",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "ab9183b2d004556f8d3c",
+    "it": "codeShow",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "177b8e0c0794bcf1f4fb",
+    "it": "Rigenera",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "ebd162e1c0531e20da3b",
+    "it": "Copia",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "19528fcefdc41d164ef4",
+    "it": "Ciurma (",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "17113241e6b408b9c779",
+    "it": "giocatori + GM)",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "fafe93f06351e1237eef",
+    "it": "game master",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "b1d4322736b2a9a8af23",
+    "it": "Narratore della campagna",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "a94531fa07b1bbd8812c",
+    "it": "Ancora nessun giocatore. Condividi il codice o invita un nakama.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "afca6586c7f42825e224",
+    "it": "Nessuna scheda collegata",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "a5e27648c114b1c12b87",
+    "it": "Invita un nakama",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "34a95b9a65f766a890e2",
+    "it": "invSel",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "25b45ed7ccf9e58b3a1a",
+    "it": "Nakama da invitare",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "becd682b3fb447c949a4",
+    "it": "— carico i nakama… —",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "779b12074b6c4dab4be4",
+    "it": "Invita",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "2ca04fb25d40fa542568",
+    "it": "invMsg",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "2814afe00ba21c727503",
+    "it": "Elimina la campagna",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "6c06b623158799b7d28e",
+    "it": "La tua scheda in questa campagna",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "54ebc1d7d7edbe55a4d4",
+    "it": "mineChar",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "43675865ca32a38cba63",
+    "it": "Salva scheda",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "cabdd3d0ee9a0d58e0c3",
+    "it": "mineMsg",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "bd593242066f4548423c",
+    "it": "Esci dalla campagna",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "260d0a7c32a1bf5c6c68",
+    "it": "Nella campagna",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "2fd0e91194ca4c4b264c",
+    "it": "Bacheca",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "8df0bbda9f2209c6eb4d",
+    "it": "Ciurma",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "34d3a0ba1deaf21ac6e2",
+    "it": "Cronache",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "2a89cb322c5f4083dee8",
+    "it": "La tua ciurma",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "9d4f9be4dae278048081",
+    "it": "Nessun nakama da invitare",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "179d3aed8bebeac0fba5",
+    "it": "— scegli un nakama —",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "53c64e44c77154695eac",
+    "it": "Errore",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "33b0f321ceae012d4bc2",
+    "it": "createMsg",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "8c178f7f5c377a60a263",
+    "it": "Dai un nome alla campagna.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "ad9b479b3d344df58a41",
+    "it": "Creazione…",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "65190607e544780fecda",
+    "it": "Campagna creata ✓",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "50d82161d5934f10c208",
+    "it": "Non riesco a generare un codice unico, riprova.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "f0d519ff80b923d6c23d",
+    "it": "joinMsg",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "2993de03a83b35de6fef",
+    "it": "Inserisci il codice della campagna.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "d5211e994bb828b07488",
+    "it": "Entro…",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "0f2538f53405d4dd6b3d",
+    "it": "Codice non valido: nessuna campagna trovata.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "89905d97b76716272b8d",
+    "it": "Sei entrato nella campagna ✓",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "8539fc54bd386471c9ea",
+    "it": "Scegli un nakama.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "5974f92cf8cf665a65af",
+    "it": "Invito…",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "0d801e76aefd3870c3d4",
+    "it": "Nakama aggiunto alla ciurma ✓",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "82ac6bc1ba8ac1a1d0ad",
+    "it": "Rimuovere questo giocatore dalla campagna?",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "20b1cc9950e185e1f6cd",
+    "it": "Scheda aggiornata ✓",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "c233e37d1f907bfd6c97",
+    "it": "Vuoi uscire da «",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "32bfc21935bb4079369a",
+    "it": "Eliminare definitivamente «",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "61c697a51eb2e283be2c",
+    "it": "»? Tutti i membri perderanno l'accesso.",
+    "kind": "text",
+    "context": "campagne/index.html"
+  },
+  {
+    "id": "7222cc0a88a9fddbd075",
+    "it": "Plancia del Master · Grand Line Chronicles",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "27385ae4320a75a72c8b",
+    "it": "Vai agli strumenti del Master",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "d620a5e7b6fcf6b33367",
+    "it": "Il tuo profilo ↗",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "710972882b703a2061b8",
+    "it": "‹ Torna al porto",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "482168c9841a6a2e3380",
+    "it": "La regia della tua avventura",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "c0e130bb2c89b4c12577",
+    "it": "Plancia del <em>Master.</em>",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "369349c58bb1ba0471a9",
+    "it": "Prepara chi attende la ciurma.<br>Dai ritmo a ogni scontro. Lascia il segno nella storia.",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "1fc8567be2477f18cc21",
+    "it": "<span>01 · Prepara</span><i></i><span>02 · Schiera</span><i></i><span>03 · Conduci</span>",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "0a75a29a359aebe66ae3",
+    "it": "Oltre l’orizzonte",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "aa0d631d78d84441b57e",
+    "it": "La plancia, in breve <span aria-hidden=\"true\">+</span>",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "136b55320a556f6c6e3b",
+    "it": "Questa è la regia del <b>Master</b>. Nel <b>Bestiario</b> tieni gli avversari pronti all'uso — con <b>attributi</b>, PV, Difesa, attacchi e debolezze — e li puoi modificare o crearne di nuovi. Nello <b>Scontro</b> componi l'incontro aggiungendo nemici (dal bestiario o al volo) e personaggi, <b>scrivi i tiri d'iniziativa</b> usciti al tavolo, ordini il turno e tieni il conto di PV, Stamina e stati. Tutto si salva nel tuo account.",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "e3f1350695ac67d946ff",
+    "it": "Strumenti del Master",
+    "kind": "attribute",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "fe642d990bcdff8d6491",
+    "it": "<span class=\"gm-tab-kicker\">01 / Preparazione</span><strong>Bestiario</strong><small>Il tuo archivio di avversari</small>",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "d29d97469fad8c590354",
+    "it": "<span class=\"gm-tab-kicker\">02 / Al tavolo</span><strong>Scontro</strong><small>Iniziativa, risorse e condizioni</small>",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "3e09beae77894beb0559",
+    "it": "Dossier della Rotta Maggiore",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "4d2651356c7a5768340f",
+    "it": "Ogni incontro ha un volto.",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "784c3648842d54c016a1",
+    "it": "+ Nuovo avversario",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "73a4e7069512b0601bfa",
+    "it": "Cerca nell’archivio",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "5f750d7587e69856289f",
+    "it": "Nome, abilità o note…",
+    "kind": "attribute",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "374ce0b83cd08b83ee0b",
+    "it": "Fazione / natura",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "8429e8391a432d8f78b6",
+    "it": "Ogni tipo",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "32d45c9b0f66ce5abbc1",
+    "it": "Minaccia",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "6a900b68b0370e697c46",
+    "it": "Ogni minaccia",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "cb2d51930f6c642c4bde",
+    "it": "Ripristina il bestiario di partenza",
+    "kind": "attribute",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "4d47f28a64a36da501a7",
+    "it": "↺ Ripristina",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "8952061395391f63b1a3",
+    "it": "<span>Modifica la scheda. Schiera quando sei pronto.</span><span class=\"tcount\" id=\"bcount\" role=\"status\" aria-live=\"polite\"></span>",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "6bc355b927152b9aa983",
+    "it": "La scena è della ciurma",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "bb56f34b91dd4cf4a62f",
+    "it": "Ogni turno può cambiare tutto.",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "60fa93b5e7ca073f52e8",
+    "it": "Inserisci i tiri del tavolo.<br>La plancia tiene il filo.",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "cb443cbbc7d696631d2d",
+    "it": "Comandi dello scontro",
+    "kind": "attribute",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "dde0c99122dc4423f8b3",
+    "it": "Ritmo della battaglia",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "fce5950d0a8cc9b54803",
+    "it": "Round −",
+    "kind": "attribute",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "b4f6459b8ddc97559aab",
+    "it": "Diminuisci round",
+    "kind": "attribute",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "1da59aeceeb8d1efd660",
+    "it": "<span>Round</span><span id=\"roundN\">1</span>",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "8077e06c390879245106",
+    "it": "Round +",
+    "kind": "attribute",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "1e68c7616db2814e9db3",
+    "it": "Aumenta round",
+    "kind": "attribute",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "00e623e3237880052500",
+    "it": "▶ Turno",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "0dc87f8172f88674a037",
+    "it": "↕ Ordina iniziativa",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "fc990fbe52ed875acef1",
+    "it": "Schiera in campo",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "2e4eb03715525d40cdf4",
+    "it": "Dal tuo bestiario",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "f97087335335891420d3",
+    "it": "+ dal Bestiario…",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "03bb28dfec9cb14a8847",
+    "it": "Copie",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "84cbef7b19b823d91c62",
+    "it": "Aggiungi",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "6f6cdd7688993261becf",
+    "it": "+ Nemico libero",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "d8fd3125299220636a27",
+    "it": "+ Personaggio",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "3932b203c24a48ce5536",
+    "it": "🗑 Svuota",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "54ec30f6b5d40c0ee0d7",
+    "it": "Ordine di iniziativa",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "9492dfbbabb78ddb19a4",
+    "it": "<i aria-hidden=\"true\"></i> Il turno attuale è evidenziato",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "14779fea8e3ce70c12dc",
+    "it": "Promemoria del combattimento <span aria-hidden=\"true\">+</span>",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "11f13ae9b2533643ed73",
+    "it": "Il mare è tuo. La storia è della ciurma.",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "1da20b447642deaa6f42",
+    "it": "Marine",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "8a4ed6187215e38a35e7",
+    "it": "Bestia",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "32b3b02bb4b7ee288d2e",
+    "it": "Re del Mare",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "796120837694d3f3f292",
+    "it": "PNG",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "6a6ac8386005b00f2af8",
+    "it": "Boss",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "2dde7ce34401f6774898",
+    "it": "Gregario",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "9462803254653caf7f9f",
+    "it": "Soldato",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "e58de89ef05ee7f9ec14",
+    "it": "Ufficiale",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "c0f7bce355ae25238ccf",
+    "it": "Élite",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "116be0277974059ccc3b",
+    "it": "Potenziato",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "d4e67602d8e45c0c23e1",
+    "it": "Recluta della Marine",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "aa7fd6c54507251aeef4",
+    "it": "Sciabola / fucile",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "3ecf82677771e0b999d0",
+    "it": "attaccano in gruppo",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "3609e9cd896254e40df9",
+    "it": "Combattono in massa, spesso 3–5 insieme. Riempitivo di ogni base o nave.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "1d69674ca4557340f3d4",
+    "it": "Un solo colpo pulito li mette a terra; si arrendono se il comandante cade.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "dbfce116986791d9fcf0",
+    "it": "Soldato Scelto",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "3eb8d33f48c63a30c1d2",
+    "it": "Sciabola addestrata",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "2593e00c8309c60574e1",
+    "it": "Più disciplinato del gregario: tiene la formazione.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "ed9f7a9a3fbe6304035a",
+    "it": "Caposquadra (Sergente)",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "80de2bb0d74f4a4bf961",
+    "it": "Arma d'ordinanza",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "3b2480130c696c6008ef",
+    "it": "Forza d8 + arma d6",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "080d66f3dc197d36a703",
+    "it": "Coordina i soldati: i Gregari entro vista hanno +1 dado per colpire finché lui è in piedi.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "e16ec5c2b8e02230734b",
+    "it": "Abbatterlo spegne il bonus dei soldati.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "63d214dbf2b401522606",
+    "it": "Tenente Brick",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "d12d2b0b34682ee2c523",
+    "it": "Pugno di Ferro",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "0434e39950042f643469",
+    "it": "Forza d10 + Pugno d8",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "5d01dfc110a56550e4f5",
+    "it": "Striker — 1×/turno, sul +4 sfonda (Stordito 1 turno, Salvezza di Forza contro la Soglia della Skill di Ruolo)",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "67dda90892bf35b4dbf7",
+    "it": "Stile Striker. Firma (+4): il colpo sfonda, bersaglio Stordito per 1 turno se fallisce una Salvezza di Forza contro la Soglia della Skill di Ruolo; al massimo 1 attivazione per turno.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "04a13de6a0bc0f61c5d7",
+    "it": "Armamento d8 (3 PIP)",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "9b9e98a2d1abfa2fab0e",
+    "it": "Arrogante: sottovaluta i bersagli 'deboli'.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "d7c3c244e8fc8518dad0",
+    "it": "Esempio da Sale Amaro. Difesa 12 è un muro senza Haki.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "c87682d2b222290e3560",
+    "it": "Comandante Sett",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "d9eceb73cc83034a56e3",
+    "it": "Sciabola pesante",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "fc1ce24fcac54a1dec8f",
+    "it": "Forza d8 + sciabola d8",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "a8762930986590580ce8",
+    "it": "Stile Striker. Firma (+4): sfonda (Stordito per 1 turno se fallisce una Salvezza di Forza contro la Soglia della Skill di Ruolo), al massimo 1 attivazione per turno.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "33915d8f1121e7c465df",
+    "it": "Élite da abbordaggio.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "fe9e036a9a14027611de",
+    "it": "Tecnica marziale",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "61d068a3c115464b199d",
+    "it": "Tecnica d10 + Tecnica d10",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "08ef83021272d5161922",
+    "it": "sceglie la Firma del suo Stile",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "a76a4242df77cc6c8a5d",
+    "it": "Combattente completo, una Tecnica devastante a scena; spesso un Frutto o un'arte di Haki.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "656997590da682b9ab60",
+    "it": "Armamento d10 (4 PIP) · Osservazione d8",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "d1c201ddc0430b3e6a3a",
+    "it": "Boss di metà arco: servono Haki e gioco di squadra.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "59e3af4a0b2d20cf84e9",
+    "it": "Potere assoluto",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "0c5e766990f885546820",
+    "it": "Tecnica d12 + d12",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "b929e67df1aa5ccb83f8",
+    "it": "effetto di scena enorme (Logia / forza immensa)",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "6493a2ccddad11a22007",
+    "it": "Forza da catastrofe naturale: Frutto Logia o potere paragonabile. Domina lo scontro.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "9c4c779d68958bf5a31c",
+    "it": "Armamento d12 · Osservazione d10 · Re",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "949fca6767c58b894d8f",
+    "it": "Quasi imbattibile in scontro diretto: astuzia, fuga o alleati.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "247f5a47d75393665527",
+    "it": "Boss di fine saga. Da usare con parsimonia.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "fa3f739c63191ec4ed40",
+    "it": "Pirata Gregario",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "7598f801bcf7a8803d41",
+    "it": "Arma di fortuna",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "ab60d98691b5f43b2ef7",
+    "it": "Ciurmaglia rivale, in massa.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "591d57798e5382f21722",
+    "it": "Cade al primo colpo pulito; fugge se il capitano cade.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "e04035ddafa43f2a10f2",
+    "it": "Pirata Veterano",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "4a9d159ddb4306920de0",
+    "it": "Lama o pistola",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "67b609a5cf15fda478b6",
+    "it": "Un osso più duro: ha visto un mare o due.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "010e0cd87e824f5bc3ce",
+    "it": "Capitano Pirata Rivale",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "6e8582a89d604452fb58",
+    "it": "Colpo da capitano",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "3200938e9c723592c4ac",
+    "it": "Forza/Tecnica d10 + d8",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "0fda5f6b701ecb970a38",
+    "it": "ha uno Stile e una Firma (concordali)",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "86d7eb3626973aa74699",
+    "it": "Uno Stile a scelta + la sua Firma; a volte un Frutto minore. Ha una taglia.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "6517942664efa6513a4c",
+    "it": "Armamento d6 (a discrezione)",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "350efae5137122d5630b",
+    "it": "Orgoglio: accetta la sfida del Capitano avversario.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "08e4210a55c321f40501",
+    "it": "Rivale ricorrente perfetto.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "f9360cc0fc9ebc383911",
+    "it": "Bestia d'Isola",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "acacd5d9d4327af8fcb5",
+    "it": "Morso e artigli",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "bb82271a328da95d2576",
+    "it": "Predatore selvaggio: attacca a vista, non ragiona.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "5a86ffb74973e304e179",
+    "it": "Si può sviare, intimidire o intrappolare.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "aaf9509e029b98506cc5",
+    "it": "Re del Mare giovane",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "87a5afbe77e97d9fe628",
+    "it": "Morso colossale",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "727518abc40423a13082",
+    "it": "+1 gradino di Danno per la stazza",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "48c86993e17d8fd26b6a",
+    "it": "Mostro marino: la stazza alza il Dado Danno di un gradino quando conta.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "906de54a36d6649b6307",
+    "it": "Goffo e lento fuori dall'acqua; vulnerabile agli occhi.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "dc3adc2575bf106e6852",
+    "it": "Minaccia ambientale in mare aperto.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "000fbbbc91ae45c4103d",
+    "it": "Re del Mare colossale",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "8c6fa92782ffd32ca893",
+    "it": "Fauci abissali",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "a5c0b82f84b819e993e3",
+    "it": "può ingoiare una scialuppa",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "9883601873a8e179d415",
+    "it": "Colpo di coda",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "93771e18f8483dccf1f5",
+    "it": "ad area, sbilancia",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "02a247f6926bc71ee632",
+    "it": "Leviatano: due attacchi, uno ad area.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "7f986cf16b6f56b1ac0b",
+    "it": "Bersaglio enorme e prevedibile; occhi e branchie sono punti deboli.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "f51a0a434ce13e58c16c",
+    "it": "Boss ambientale: spesso si fugge, non si batte.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "647ad8812209ce8cf3b2",
+    "it": "Cittadino / PNG",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "37be1396881138b38487",
+    "it": "Niente di che",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "bf64d1aa23dcd6a1fe23",
+    "it": "non è un combattente",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "dd147d094e680cddb423",
+    "it": "Abitante comune: mercante, marinaio, informatore.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "b041b8b80e9c7b1da7de",
+    "it": "Per popolare il mondo, non per combattere.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "f1dfe4e9d5c3e42f4b2a",
+    "it": "Dossier avversario",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "2e535b0c1cab7b8f310d",
+    "it": "Nome avversario",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "4a2798662cb34c86eaf4",
+    "it": "» dal bestiario?",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "cb914e2c5877016099ea",
+    "it": "Tipo avversario",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "7c83b1616cf9f4b3cae0",
+    "it": "Minaccia avversario",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "54e6f52845de237ffc68",
+    "it": "Attacchi",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "6b0b1f131548d8baf32c",
+    "it": "Nome attacco",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "90e48a56ac223dc7643f",
+    "it": "es. Forza d8 + arma d6",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "e1352b6146dc3025520d",
+    "it": "Dado danno",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "770c793d863db7136c4b",
+    "it": "Rimuovi attacco",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "ef22bb55b048246961c8",
+    "it": "+ attacco",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "8428226e0ac997f00f4b",
+    "it": "Nuovo attacco",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "bd3c15aa83341b49a9a2",
+    "it": "Forza d6",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "1f728220ea84ab82a56e",
+    "it": "Debolezza",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "e9269c58b48ee81ffa79",
+    "it": "Copie da schierare",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "65afe3834a2cf0da2fe3",
+    "it": "⚔ Aggiungi allo Scontro",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "fbdd92d143cb105e17b8",
+    "it": "Aggiunto allo scontro ✓",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "1ef734e63e5da30d365a",
+    "it": "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#14121a;color:#f2e9d8;border:1px solid #f0a441;border-radius:10px;padding:10px 18px;font-family:'Inter',sans-serif;z-index:60",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "8773a1e0dfba457a0e11",
+    "it": "opacity .4s",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "1d7e7ff8f3c78d50d9e9",
+    "it": "personaggio / alleato",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "7c4a7685db2e8b01a3f9",
+    "it": "Nome del",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "5c054a4cfadadc7542e4",
+    "it": "PV massimi?",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "102afa8ac3b368460efa",
+    "it": "Difesa Passiva?",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "8805fbb480071cd9c2f2",
+    "it": "Iniziativa",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "4378d7eb1b59f8b6ca5c",
+    "it": "INI",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "583afd3c66b5779ec8aa",
+    "it": "Nome combattente",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "91f026c996feb33556b5",
+    "it": "PG",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "fe9414eca16c334c48db",
+    "it": "Rimuovi combattente",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "80e37ee1dc3d676dc0b4",
+    "it": "QUASI MORTO +2 dadi",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "d9293d821df07ae7934d",
+    "it": "A TERRA",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "d170a945924b01a40bb7",
+    "it": "%;background:",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "70e76d38313af0587148",
+    "it": "Quantità danno o cura",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "e40b2fb543a015599498",
+    "it": "Stamina attuale",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "05a3956d225520b1a239",
+    "it": "Nessun combattente. Aggiungili dal",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "51fda29f12e087ce7ea2",
+    "it": "Bestiario",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "53eca891273a02c42804",
+    "it": "(menu «+ dal Bestiario» o il tasto ⚔ su una scheda), oppure usa",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "059de4ff490ef7453ce4",
+    "it": "Soglie / Difese:",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "4c0c1e4766d8a7df3b07",
+    "it": "4 banale · 8 normale · 12 esperto · 16 Vice-Amm. · 20 Amm.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "16a5de770137e9b3564a",
+    "it": "+4 colpo pulito (scatta la Firma) · +1/+3 colpisce · 0 la Difesa tiene · sotto manca.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "fbf44f53df5fb4e6f382",
+    "it": "= il numero del dado difensivo.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "a2a0f0357a651ba81fcf",
+    "it": "Quasi Morto",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "6410668ea9b495b2e846",
+    "it": "a ≤25% PV: il bersaglio tira",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "e8cc93245fbdb5700ab6",
+    "it": "+2 dadi",
+    "kind": "html",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "f8b6a96ab36c7bc6e7f1",
+    "it": "Iniziativa = Tecnica + Astuzia (scrivi i tiri e poi «Ordina»).",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "427501aea0e0b085be0f",
+    "it": "#tabs .tab",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "8fc2b536ffec4c146213",
+    "it": "Nuovo avversario",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "274150723cb6c61dc5db",
+    "it": "Ripristinare il bestiario di partenza? Le tue modifiche andranno perse.",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "c5502c27e72287ba364e",
+    "it": "Svuotare lo scontro?",
+    "kind": "text",
+    "context": "plancia-master/index.html"
+  },
+  {
+    "id": "6813e7a3608e93292baf",
+    "it": "Officina &amp; Cambusa · Grand Line Chronicles",
+    "kind": "html",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "aad4b54488b874b474a6",
+    "it": "Il sapere della ciurma · Grand Line Chronicles",
+    "kind": "html",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "96c0b60dbf3b6155f122",
+    "it": "Ogni grande viaggio comincia qui. Strumenti da forgiare, ricette da scoprire e scorte per la prossima rotta.",
+    "kind": "html",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "7421ff59c4c5d8bcfc8b",
+    "it": "Officina",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "ef1680c12a7d4261622a",
+    "it": "Cambusa",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "98529ac0b249a2efe46e",
+    "it": "Mercante",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "d310e2badaf1dc404059",
+    "it": "RISERVE DI BORDO",
+    "kind": "html",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "0d9bb50e04152ae4b106",
+    "it": "Il viaggio si prepara insieme.",
+    "kind": "html",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "20291ac01e7d2124a1b8",
+    "it": "Aggiungi al diario",
+    "kind": "html",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "32290c85a4e5300f56dd",
+    "it": "Scegli la sessione in cui inserire questa voce.",
+    "kind": "html",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "df6f775c5ef8c6587c01",
+    "it": "Bussola artigianale",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "c39290a26d3ed1b9c416",
+    "it": "+d4 ai tiri di Navigazione (come bussola standard).\nNavigazione · d4 · Base\nProva: Astuzia + Meccanica · Soglia 7 · 8 ore\nIngredienti: Ferro, ago magnetico, legno, vetro\nInutile nel Grand Line (serve il Log Pose); utile nei Mari Blu.",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "2a762dfc0e40e65af738",
+    "it": "Ferro, ago magnetico, legno, vetro",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "98183e99051b6f21f884",
+    "it": "Inutile nel Grand Line (serve il Log Pose); utile nei Mari Blu.",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "9ad135be80113f21b4e5",
+    "it": "+d6 ai tiri di Navigazione nel Grand Line. Si calibra in 2d6 giorni.\nNavigazione · d6 · Standard\nProva: Astuzia + Meccanica · Soglia 11 · 20 ore\nIngredienti: Ferro magnetico raffinato, ago sensibile, vetro soffiato, cuoio\nEquivale a un Log Pose commerciale, ma funziona.",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "ef6691545d2c5523efed",
+    "it": "Standard",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "6cf09c7f82f20775b3aa",
+    "it": "Ferro magnetico raffinato, ago sensibile, vetro soffiato, cuoio",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "18df90dee2b0989ae8df",
+    "it": "Equivale a un Log Pose commerciale, ma funziona.",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "128bb7682c907ebd3c32",
+    "it": "+d6 al prossimo tiro di Navigazione sulla rotta disegnata. Uso singolo.\nNavigazione · d6 · Standard\nProva: Astuzia + Navigazione · Soglia 9 · 10 ore\nIngredienti: Pergamena di qualità, inchiostro, strumenti di misura\nCopiabile: 4 ore + Astuzia + Navigazione soglia 7.",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "985cf56e57c68aaae990",
+    "it": "Pergamena di qualità, inchiostro, strumenti di misura",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  },
+  {
+    "id": "aee23f3b23f4b377e74d",
+    "it": "Copiabile: 4 ore + Astuzia + Navigazione soglia 7.",
+    "kind": "text",
+    "context": "portale-officina-cambusa/index.html"
+  }
+]

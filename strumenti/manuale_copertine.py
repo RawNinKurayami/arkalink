@@ -14,6 +14,11 @@ MANUALI = {
     'frutti': ('manuale-frutti', 'manuale-dei-frutti-del-diavolo', 'Manuale dei Frutti del Diavolo'),
 }
 CSS = '<link rel="stylesheet" href="/manuali/copertine.css?v=1">'
+BRANDING = [
+    '<link rel="stylesheet" href="/glc-brand.css?v=1">',
+    '<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=2">',
+    '<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png?v=2">',
+]
 
 
 def applica_copertina(pagina, manuale):
@@ -25,6 +30,9 @@ def applica_copertina(pagina, manuale):
     if CSS not in pagina:
         assert pagina.count('</head>') == 1
         pagina = pagina.replace('</head>', CSS + '\n</head>', 1)
+    for link in BRANDING:
+        if link not in pagina:
+            pagina = pagina.replace('</head>', link + '\n</head>', 1)
     assert len(re.findall(r'<body(?:\s[^>]*)?>', pagina)) == 1
     pagina = re.sub(r'<body(\s[^>]*)?>',
                     lambda m: '<body' + (m.group(1) or '') +

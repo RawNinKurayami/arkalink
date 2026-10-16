@@ -1,0 +1,842 @@
+[
+  {
+    "id": "86d1b33fba5d82f1c3e0",
+    "it": "Una Tecnica con Forma Area e la propagazione di un impatto sono meccaniche differenti. Swordsman e Crusher hanno soltanto Area Ravvicinata (d8, 2 ST), centrata sul personaggio con raggio pari alla Portata effettiva dell’arma. Striker e Sniper non possiedono una Forma Area ordinaria di Stile.",
+    "kind": "html"
+  },
+  {
+    "id": "42060eb2e78b6d163127",
+    "it": "Aree diverse richiedono una Fonte speciale che le conceda espressamente. Una Tecnica Area mantiene la propria sagoma, effetti, slot e costi.",
+    "kind": "html"
+  },
+  {
+    "id": "c2c078ec10eeefdff702",
+    "it": "La distruzione ambientale del Prestigio di Forza nasce da un singolo impatto fisico identificabile sul terreno, un oggetto o una struttura. Un’Area non genera un punto d’impatto per ogni creatura e non moltiplica la scala di distruzione; si risolve un solo punto valido. La scala conserva il proprio raggio e le proprie regole.",
+    "kind": "html"
+  },
+  {
+    "id": "845864e9cf4ceffcca95",
+    "it": "Danni in base alla distanza",
+    "kind": "html"
+  },
+  {
+    "id": "e00e145669f488d03fb8",
+    "it": "Questa regola si applica ai danni propagati dal Talento Onda Titanica dello Striker, da Onda Sismica del Crusher e alla distruzione ambientale nell’area. Chiama D il danno complessivo del colpo che genera l’impatto, prima delle riduzioni del bersaglio iniziale. Comprende Potenza del Titano dello Striker, il tiro aggiuntivo di Forza di Maglio Inarrestabile del Crusher e gli altri bonus applicabili al colpo; esclude un eventuale Schianto successivo. Chiama R il raggio massimo stabilito dal Prestigio di Forza.",
+    "kind": "html"
+  },
+  {
+    "id": "8bc446d7a51954c11b45",
+    "it": "Misura la distanza di ciascuna creatura o struttura dal punto d’impatto e applica la fascia corrispondente.",
+    "kind": "html"
+  },
+  {
+    "id": "d19fa73c555f8bb382c8",
+    "it": "Distanza dal punto d’impatto",
+    "kind": "html"
+  },
+  {
+    "id": "582c7cdce914ed475361",
+    "it": "Danno propagato",
+    "kind": "html"
+  },
+  {
+    "id": "5cf01bb65cfb6c7cf4a9",
+    "it": "Fino a un quarto di R compreso",
+    "kind": "html"
+  },
+  {
+    "id": "6642594b2a9c8d0136c4",
+    "it": "Oltre un quarto e fino a metà di R compresa",
+    "kind": "html"
+  },
+  {
+    "id": "e66c1a33d1ebbc847108",
+    "it": "Metà di D",
+    "kind": "html"
+  },
+  {
+    "id": "b80d1a2f8f597d3bc328",
+    "it": "Oltre metà e fino a tre quarti di R compresi",
+    "kind": "html"
+  },
+  {
+    "id": "993c11f4b5bf542a69ee",
+    "it": "Un quarto di D",
+    "kind": "html"
+  },
+  {
+    "id": "c426724305b2816e1a43",
+    "it": "Oltre tre quarti e fino a R compreso",
+    "kind": "html"
+  },
+  {
+    "id": "450250f54a0d1a40ec4d",
+    "it": "Un ottavo di D",
+    "kind": "html"
+  },
+  {
+    "id": "37629d770a112de349ea",
+    "it": "Arrotonda ogni frazione per difetto, poi applica le riduzioni proprie del destinatario. Un risultato pari a zero non infligge danni. Il bersaglio del colpo iniziale riceve quel colpo una sola volta e non riceve anche una seconda copia del danno propagato.",
+    "kind": "html"
+  },
+  {
+    "id": "5700f0b718ed56b27260",
+    "it": "Le soglie dipendono dal raggio massimo della tua Forza. Se scegli un’area più piccola, limiti quali bersagli vengono raggiunti e mantieni le stesse soglie di danno. Oltre il raggio scelto, il colpo non si propaga.",
+    "kind": "html"
+  },
+  {
+    "id": "9b0647ea726bedde959c",
+    "it": "D fino a",
+    "kind": "html"
+  },
+  {
+    "id": "7694c060dfe3b3522c4c",
+    "it": "Metà di D fino a",
+    "kind": "html"
+  },
+  {
+    "id": "9e466d1694a9995de631",
+    "it": "Un quarto di D fino a",
+    "kind": "html"
+  },
+  {
+    "id": "aefaefc8ef3044fb061e",
+    "it": "Un ottavo di D fino a",
+    "kind": "html"
+  },
+  {
+    "id": "1593716d39e292b190f7",
+    "it": "Le colonne indicano il limite superiore di ciascuna fascia; ogni fascia successiva comincia oltre il limite della precedente. La scala dei danni non autorizza da sola un attacco ad area contro le creature: occorre sempre una capacità che le investa.",
+    "kind": "html"
+  },
+  {
+    "id": "5afa018f03525827b57e",
+    "it": "Esempio a Saikyō: un impatto da 40 danni propaga 40 danni entro 250 m, 20 oltre 250 e fino a 500 m, 10 oltre 500 e fino a 750 m, e 5 oltre 750 e fino a 1.000 m. Con la sola scala di distruzione questi valori riguardano le strutture raggiunte. Le creature li ricevono soltanto se una capacità le investe direttamente, come Onda Titanica oppure Onda Sismica, e possono applicare le proprie difese. Ogni destinatario applica poi le riduzioni pertinenti. La distruzione più intensa resta concentrata vicino al punto d’impatto.",
+    "kind": "html"
+  },
+  {
+    "id": "783f54f6513eca328d05",
+    "it": "Proiezione Colossale",
+    "kind": "html"
+  },
+  {
+    "id": "140d507f73372aa1119a",
+    "it": "Tipo: potenziamento passivo del Prestigio di Forza. Ruoli: Striker e Crusher. Costo aggiuntivo: 0 ST. Requisito di impiego: una Tecnica offensiva in mischia del proprio Ruolo con l’effetto Proiezione. Per i danni da urto: la stessa Tecnica deve contenere anche Schianto.",
+    "kind": "html"
+  },
+  {
+    "id": "398ceb577c3be56b9232",
+    "it": "Quando una Tecnica compatibile colpisce e applica Proiezione, puoi sostituire i 3 m previsti dall’effetto ordinario con la distanza massima del tuo Prestigio di Forza. Dichiara la direzione del lancio e la distanza scelta, fino al massimo consentito dalla scala.",
+    "kind": "html"
+  },
+  {
+    "id": "0358fda48406e30d1b60",
+    "it": "Con Forza d20+d8 puoi scagliare il bersaglio fino a 20 m; con Forza d20+d12 fino a 50 m. Puoi scegliere un lancio più corto. La massa e la stazza del bersaglio devono essere compatibili con ciò che la tua Forza permette di scagliare: la scala in metri non concede da sola la capacità di sollevare qualsiasi peso.",
+    "kind": "html"
+  },
+  {
+    "id": "7d0e715c62bdc90a6eea",
+    "it": "La distanza di lancio si misura dalla posizione del bersaglio colpito. È lo spostamento provocato dopo il colpo e non la portata dell’attacco: devi prima raggiungere e colpire il bersaglio con la normale portata della Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "50067493b12bb12bf6ed",
+    "it": "Questo impiego modifica l’effetto Proiezione contenuto nella Tecnica e non richiede che il bersaglio sia già Trattenuto. Il Talento ordinario chiamato Proiezione, che lancia un nemico già trattenuto fino a 5 m, mantiene le sue condizioni quando viene usato separatamente. Possederlo non sostituisce l’effetto che deve essere presente nella Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "ffa555de0d08a6682ff8",
+    "it": "Proiezione Colossale non concede un lancio su qualunque attacco base e non aggiunge gratuitamente gli effetti necessari alla Tecnica. Proiezione occupa il proprio slot Effetto e conserva il costo ordinario di 1 ST. Schianto, se presente, occupa un altro slot e conserva il costo ordinario di 2 ST. Il potenziamento del Prestigio ha costo aggiuntivo 0 ST, ma non rende gratuita la Tecnica, non aumenta gli slot e non elimina gli altri requisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "b6c51a7d9aa8f59f7e0a",
+    "it": "Gli ostacoli possono interrompere il lancio prima della distanza dichiarata. Se il primo ostacolo cede, la traiettoria può proseguire entro la distanza residua; se resiste, il bersaglio si arresta contro di esso. Eventuali urti ulteriori non ripetono il danno aggiuntivo di questa capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "d3a45be5bb7af4db5e85",
+    "it": "Schianto con Proiezione Colossale",
+    "kind": "html"
+  },
+  {
+    "id": "7976399e75c4240090be",
+    "it": "Quando la Tecnica contiene sia Proiezione sia Schianto, il primo urto del bersaglio scagliato contro una creatura o una superficie attiva il danno da Schianto. L’atterraggio sul terreno può costituire questo primo urto.",
+    "kind": "html"
+  },
+  {
+    "id": "479f2b41413d28ac6d8e",
+    "it": "Danno da Schianto = un tiro completo di Forza.",
+    "kind": "html"
+  },
+  {
+    "id": "64fab11c85b788cce38b",
+    "it": "Tira una sola volta il dado di Forza, compreso il dado di Prestigio, e somma i risultati. Con Forza d20+d8 il danno da Schianto è quindi il risultato di d20+d8. Questo tiro sostituisce il normale +1d8 di Schianto: non si sommano entrambi.",
+    "kind": "html"
+  },
+  {
+    "id": "8eb3d3df27352f803bff",
+    "it": "Applica lo stesso risultato una volta a ciascuno dei seguenti destinatari:",
+    "kind": "html"
+  },
+  {
+    "id": "21ffcc0966cf744f8ff1",
+    "it": "Il bersaglio scagliato, come danno aggiuntivo rispetto al danno iniziale della Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "034fea545eeb6a20d993",
+    "it": "La prima creatura o struttura effettivamente urtata, come danno dell’impatto.",
+    "kind": "html"
+  },
+  {
+    "id": "2266ffb436e540049197",
+    "it": "Il bersaglio scagliato ha già subito l’attacco che lo proietta; al primo urto applica le riduzioni pertinenti al danno da Schianto. Una seconda creatura coinvolta può difendersi normalmente contro il risultato per colpire della Tecnica originaria: se evita l’urto, non riceve il danno e non conta come la prima collisione effettiva. Se viene colpita, riceve soltanto il tiro di Forza, con le proprie normali riduzioni.",
+    "kind": "html"
+  },
+  {
+    "id": "4cb040e2820bcaf627e5",
+    "it": "Un ostacolo dotato di PS perde Punti Struttura pari al danno da Schianto effettivamente ricevuto. Il danno iniziale della Tecnica non viene copiato sull’ostacolo o su una seconda creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "05396b269f61738296ff",
+    "it": "Il tiro di Schianto non riceve nuovamente Potenza del Titano, il Dado Danno della Tecnica o i bonus di danno dell’Haki. La sua formula resta un solo tiro completo di Forza. La lunghezza del lancio e il numero di oggetti lungo la traiettoria non aggiungono moltiplicatori.",
+    "kind": "html"
+  },
+  {
+    "id": "aac01f89750cc0150bcc",
+    "it": "Puoi applicare questo danno da Schianto una sola volta per uso della Tecnica, al primo urto effettivo. Attraversare o incontrare altri ostacoli non genera nuove copie del tiro. Eventuali altri pericoli ambientali distinti restano regolati dalle loro regole.",
+    "kind": "html"
+  },
+  {
+    "id": "08987c1f84830b563df0",
+    "it": "Proiezione senza Schianto",
+    "kind": "html"
+  },
+  {
+    "id": "25ee5adc46b44fd0a97b",
+    "it": "Una Tecnica con Proiezione ma priva di Schianto infligge il proprio normale danno e può scagliare il bersaglio alla distanza consentita da Forza. Proiezione Colossale non le assegna danni aggiuntivi da urto, né contro il bersaglio né contro ciò che incontra.",
+    "kind": "html"
+  },
+  {
+    "id": "f6ea7f66241bf8a1bdf0",
+    "it": "Esempio completo di collisione",
+    "kind": "html"
+  },
+  {
+    "id": "a6c914bba3f5a616b7be",
+    "it": "Uno Striker possiede Forza d20+d8 e usa una Tecnica con Proiezione e Schianto. Il suo lancio massimo è di 20 m. La Tecnica colpisce e infligge 30 danni iniziali, già comprensivi degli eventuali bonus al colpo.",
+    "kind": "html"
+  },
+  {
+    "id": "466e79fd8815219ab0a2",
+    "it": "Lo Striker sceglie di scagliare il nemico verso un muro a 12 m dalla posizione di partenza del bersaglio. Il nemico urta il muro. Per Schianto, lo Striker tira d20+d8 e ottiene un totale di 18.",
+    "kind": "html"
+  },
+  {
+    "id": "90f49ad8a64d50caf170",
+    "it": "Il nemico riceve 30 danni dalla Tecnica e 18 da Schianto, per un totale di 48 prima delle eventuali riduzioni.",
+    "kind": "html"
+  },
+  {
+    "id": "6e103563753ff87caa23",
+    "it": "Il muro riceve 18 danni strutturali. Se possiede 40 PS e nessuna riduzione pertinente, scende a 22 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "c27c39a68a4980205a12",
+    "it": "Il muro resiste, quindi il lancio termina a 12 m. Non riceve i 30 danni iniziali e non si aggiunge il normale +1d8 di Schianto. Se invece cedesse e la traiettoria proseguisse, il danno da Schianto sarebbe comunque già stato applicato una volta.",
+    "kind": "html"
+  },
+  {
+    "id": "3a561ce5c12e2dac365a",
+    "it": "La stessa risoluzione si applica a un Crusher che utilizza una Tecnica compatibile con Proiezione e Schianto. La proiezione potenziata dipende da Forza, indipendentemente dalla Skill che ha sbloccato eventuali Talenti del Ruolo.",
+    "kind": "html"
+  },
+  {
+    "id": "e87b58dd4a3cc10decc6",
+    "it": "<span class=\"man-sez-n\">2.4</span><span data-prestigio-source=\"combattenti:85\">Prestigio di Tecnica</span>",
+    "kind": "html"
+  },
+  {
+    "id": "d4624470e81f1ae1ce93",
+    "it": "Per Striker e Swordsman, l&#x27;Attributo Tecnica in Prestigio concede automaticamente Spostamento Fulmineo e le possibilità di Agilità Sovrumana previste dalla sua soglia. Questi potenziamenti non occupano scelte di Talento e non richiedono che la Skill di Ruolo abbia già raggiunto il Prestigio. Sniper e Crusher non ricevono questo pacchetto di mobilità.",
+    "kind": "html"
+  },
+  {
+    "id": "3a76ddd6e543042218d1",
+    "it": "Per Striker e Swordsman, questo modulo ammette Scatto e Balzo nelle Tecniche compatibili del proprio Stile, rispettandone Grado, Forma, slot e costi. Sniper e Crusher non ricevono questo pacchetto di mobilità. Il valore di mobilità si legge sempre dall’Attributo Tecnica del personaggio, anche quando il colpo utilizza un diverso Attributo consentito. Inseguire è rimosso dal Costruttore e non fa parte della scala di Prestigio.",
+    "kind": "html"
+  },
+  {
+    "id": "1209e31ad9f8937e5c5e",
+    "it": "Scala del Prestigio di Tecnica",
+    "kind": "html"
+  },
+  {
+    "id": "12f546a842f3922ecb6c",
+    "it": "Attributo Tecnica",
+    "kind": "html"
+  },
+  {
+    "id": "b494cea9e74b45bd4fc3",
+    "it": "Spostamento speciale massimo per turno",
+    "kind": "html"
+  },
+  {
+    "id": "6a65c579da34a63fc4d5",
+    "it": "Altezza massima di un Balzo",
+    "kind": "html"
+  },
+  {
+    "id": "14f73f03c1ee648b66ea",
+    "it": "d20+d20 Saikyō",
+    "kind": "html"
+  },
+  {
+    "id": "b8c238ba29b5d0ace7ba",
+    "it": "I valori sono massimi e puoi scegliere distanze inferiori. La riga si legge dal grado attuale dell’Attributo Tecnica, senza tirare per determinare i metri. I potenziamenti dell’Attributo si applicano quando utilizzi gli effetti compatibili nella Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "147360c88652ba51f7d0",
+    "it": "Spostamento Fulmineo utilizza la scala esclusivamente con Scatto. Agilità Sovrumana utilizza la scala con Balzo. I due impieghi condividono un unico budget di spostamento speciale: combinarli o possedere più Stili compatibili non raddoppia i metri disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "3c21fbb98fafd9760d35",
+    "it": "Il budget si rinnova all’inizio del tuo turno e rimane disponibile fino all’inizio del successivo. Gli usi fuori dal tuo turno, quando consentiti dalle regole della capacità utilizzata, consumano il budget ancora disponibile. Ogni spostamento sottrae i metri effettivamente percorsi; salita e cambi di direzione fanno parte del percorso.",
+    "kind": "html"
+  },
+  {
+    "id": "113f17f133eedf21690e",
+    "it": "L’altezza del Balzo limita quanto puoi salire rispetto al punto di partenza di quel singolo salto. Non concede metri aggiuntivi: un Balzo che sale di 20 m consuma almeno 20 m del budget disponibile.",
+    "kind": "html"
+  },
+  {
+    "id": "2e41d4ede0fc368f812d",
+    "it": "Il Movimento ordinario rimane distinto e segue le proprie regole; non moltiplica automaticamente il budget di questa scala. Se l’Attributo Tecnica non è ancora in Prestigio, Scatto e Balzo conservano le distanze ordinarie.",
+    "kind": "html"
+  },
+  {
+    "id": "0080bddfb6ae18deedb1",
+    "it": "La crescita delle prime quattro soglie rimane contenuta. Il salto di scala arriva a d20+d12 e soprattutto a Saikyō: lo spostamento massimo di 1.000 m rappresenta una manovra dei maestri più forti nel proprio campo.",
+    "kind": "html"
+  },
+  {
+    "id": "9aa043b3087763fc20d5",
+    "it": "Spostamento Fulmineo",
+    "kind": "html"
+  },
+  {
+    "id": "ae6e01eca1b489de11fe",
+    "it": "Tipo: potenziamento passivo del Prestigio di Tecnica. Ruoli: Striker e Swordsman. Costo aggiuntivo: 0 ST. Requisito di impiego: una Tecnica del proprio Stile compatibile con Scatto. Limite: il budget condiviso di spostamento speciale.",
+    "kind": "html"
+  },
+  {
+    "id": "e491ab4386b99deaac7b",
+    "it": "Quando utilizzi Scatto, puoi sostituire la distanza ordinaria dell’effetto con una distanza entro il budget disponibile della scala. Puoi distribuire i metri fra più Tecniche nello stesso turno, pagando ogni volta i costi della mossa utilizzata.",
+    "kind": "html"
+  },
+  {
+    "id": "839de6dfae99d443dd69",
+    "it": "Scatto conserva la possibilità di spostarti prima o dopo il colpo. Gli attacchi richiedono i normali tiri e la normale portata dopo che hai raggiunto la posizione utile.",
+    "kind": "html"
+  },
+  {
+    "id": "c4fc638e042c9604c59b",
+    "it": "Durante questi spostamenti non provochi Reazioni dovute all’allontanamento dalla portata di un nemico. Le altre Reazioni seguono normalmente i propri eventi di attivazione. Il percorso deve essere fisicamente percorribile; Agilità Sovrumana amplia gli appoggi che puoi utilizzare.",
+    "kind": "html"
+  },
+  {
+    "id": "6dcee3c75ebe4560030c",
+    "it": "Scatto occupa il proprio slot Effetto e conserva il costo ordinario di 1 ST. Balzo occupa il proprio slot e conserva il costo ordinario di 1 ST. Le Tecniche rispettano i requisiti di Grado e le compatibilità della Forma; il potenziamento non assegna effetti o slot gratuiti.",
+    "kind": "html"
+  },
+  {
+    "id": "5195f6d2a41f85834908",
+    "it": "Esempio: con Attributo Tecnica d20+d12 hai 100 m speciali disponibili. Usi Scatto per percorrerne 40 e raggiungere un nemico, pagando il costo della Tecnica. Un uso successivo può consumare al massimo i 60 m rimasti. Cinque attacchi di Raffica non trasformano il budget in cinque spostamenti da 100 m.",
+    "kind": "html"
+  },
+  {
+    "id": "c27e7af530d331fe8aa5",
+    "it": "Agilità Sovrumana",
+    "kind": "html"
+  },
+  {
+    "id": "9b3c30efde04c4d251a0",
+    "it": "Tipo: potenziamento passivo del Prestigio di Tecnica. Ruoli: Striker e Swordsman. Costo aggiuntivo: 0 ST. Requisito per i balzi potenziati: una Tecnica del proprio Ruolo compatibile con Balzo. Costo ordinario di Balzo: 1 ST e il relativo slot Effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "d986e7856fc6f27c00e5",
+    "it": "Quando utilizzi Balzo, puoi sostituire la distanza ordinaria con una distanza entro il budget disponibile, rispettando anche l’altezza massima del singolo salto. Il grado dell’Attributo Tecnica determina inoltre le seguenti possibilità.",
+    "kind": "html"
+  },
+  {
+    "id": "20a7044bc5fa57638920",
+    "it": "Appoggi impossibili",
+    "kind": "html"
+  },
+  {
+    "id": "fd2804d1571b9c3708c2",
+    "it": "Con Attributo Tecnica d20+d4 o superiore puoi percorrere pareti, alberi delle navi, corde e superfici fragili senza interrompere il movimento a causa della precarietà dell’appoggio. Il percorso deve offrire punti effettivamente utilizzabili e devi concluderlo su un appoggio capace di sostenerti.",
+    "kind": "html"
+  },
+  {
+    "id": "330e40f3e291bd947c65",
+    "it": "Questa capacità si applica al Movimento ordinario e agli spostamenti speciali consentiti. Ciascuno consuma i metri della propria risorsa. Le pareti percorribili e i supporti precari non impongono una prova soltanto per il fatto di essere verticali o instabili; eventuali minacce e ostacoli ulteriori si risolvono normalmente.",
+    "kind": "html"
+  },
+  {
+    "id": "d80d2fee1a304a82078a",
+    "it": "Balzi nell’aria",
+    "kind": "html"
+  },
+  {
+    "id": "ad8cd1d568ede9fa1468",
+    "it": "Da Attributo Tecnica d20+d8 puoi prendere impulso nell’aria con Balzo. Puoi cambiare direzione mentre sei sospeso o durante una caduta, raggiungere un bersaglio sopra di te oppure passare verso un nuovo appoggio senza dover prima toccare terra.",
+    "kind": "html"
+  },
+  {
+    "id": "2bda6e46d1f3caf559f9",
+    "it": "Ogni uso paga il costo della Tecnica e consuma i metri effettivamente percorsi. Il limite di altezza vale per ciascun Balzo; una sequenza di balzi rimane limitata dal budget complessivo.",
+    "kind": "html"
+  },
+  {
+    "id": "5e3b46beec4137245fca",
+    "it": "Se termini la manovra senza un appoggio o una capacità che ti sostenga, riprendi a cadere. L’utilizzo della Tecnica segue la normale economia delle azioni: Balzo può essere impiegato fuori dal tuo turno soltanto quando una capacità lo consente espressamente. Questo passivo non assegna Reazioni aggiuntive.",
+    "kind": "html"
+  },
+  {
+    "id": "0915fcdf14aff57c1dd4",
+    "it": "Sospensione aerea",
+    "kind": "html"
+  },
+  {
+    "id": "5d0b8e634205da501163",
+    "it": "Da Attributo Tecnica d20+d12, dopo un Balzo aereo puoi mantenerti sospeso fino all’inizio del tuo prossimo turno. Il mantenimento fino a quel momento è compreso nell’uso di Balzo; non richiede un’altra Azione Bonus o un costo separato.",
+    "kind": "html"
+  },
+  {
+    "id": "14d87d4df5354d6f2c49",
+    "it": "All’inizio del turno successivo puoi eseguire una nuova Tecnica con Balzo prima di risolvere la caduta. La Tecnica richiede la propria azione e il proprio costo ordinari; un nuovo Balzo aereo rinnova la sospensione. Se non effettui una nuova manovra e non raggiungi un appoggio, riprendi a cadere.",
+    "kind": "html"
+  },
+  {
+    "id": "885607a91b9c9017bfdf",
+    "it": "Esempio: sei già in aria e possiedi Attributo Tecnica d20+d12. Prendi impulso con un Balzo aereo e sali fino a 50 m, usando parte dei 100 m speciali disponibili. Dopo la manovra rimani sospeso fino al prossimo turno. Nel turno successivo il budget si rinnova e puoi usare una nuova Tecnica con Balzo per continuare il combattimento in aria.",
+    "kind": "html"
+  },
+  {
+    "id": "515c7cb5b3a2cf1e7138",
+    "it": "Esempio di avvicinamento a Saikyō",
+    "kind": "html"
+  },
+  {
+    "id": "39894565fb52c41bfdcf",
+    "it": "Uno Swordsman possiede Attributo Tecnica d20+d20. Ha 1.000 m speciali disponibili e può usare una Tecnica con Scatto o Balzo per raggiungere una nave distante, purché l&#x27;intero percorso rientri nel budget e la traiettoria sia consentita. Per un attraversamento in aria utilizza Balzo e le possibilità di Agilità Sovrumana; Scatto da solo richiede un percorso fisicamente percorribile.",
+    "kind": "html"
+  },
+  {
+    "id": "380e436cd29f073822e1",
+    "it": "Se percorre 800 m, rimangono 200 m speciali fino al rinnovo del budget. Il colpo si risolve soltanto quando il bersaglio è nella normale portata della lama. Lo Swordsman paga la Tecnica, compreso 1 ST per Scatto oppure 1 ST per Balzo. Se la mossa contiene entrambi gli effetti paga entrambi, rispettando i limiti ordinari della costruzione. Il movimento non assegna un attacco aggiuntivo o un colpo automatico.",
+    "kind": "html"
+  },
+  {
+    "id": "9767c1d7e9c980f17d7c",
+    "it": "<span class=\"man-sez-n\">2.5</span><span data-prestigio-source=\"combattenti:120\">Scale di Forza e Tecnica per lo Swordsman</span>",
+    "kind": "html"
+  },
+  {
+    "id": "a0139c1abf9252f89437",
+    "it": "Fendente Sovrano e Taglio Colossale utilizzano la scala dell&#x27;Attributo previsto dal colpo, Forza oppure Tecnica. La loro acquisizione appartiene al Prestigio della Skill di Ruolo Atletica e il loro impiego richiede i Talenti descritti nella parte seconda. La scala non concede da sola queste capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "ba4754a5b7ab465cda1f",
+    "it": "Scala dei fendenti e dei tagli",
+    "kind": "html"
+  },
+  {
+    "id": "5380aa7aefabd17767b6",
+    "it": "Attributo del colpo",
+    "kind": "html"
+  },
+  {
+    "id": "f6b36c8e6ce2c0305bab",
+    "it": "Portata di Fendente Sovrano",
+    "kind": "html"
+  },
+  {
+    "id": "798ab93e467222079775",
+    "it": "Dimensione massima di Taglio Colossale",
+    "kind": "html"
+  },
+  {
+    "id": "8981690e3f63fa953b46",
+    "it": "I valori sono massimi: puoi scegliere distanze e dimensioni inferiori. I metri dipendono dal dado attuale dell’Attributo, senza tirare per determinarli. Per usare una colonna devi possedere il Talento corrispondente.",
+    "kind": "html"
+  },
+  {
+    "id": "133bc729540d7865fb4e",
+    "it": "La portata misura la distanza fra te e il punto da colpire. La dimensione del taglio misura la lunghezza della sezione che vuoi recidere nell’elemento scelto. Non è un raggio di distruzione e non assegna danni a tutti gli elementi circostanti. Taglio Colossale richiede di raggiungere il punto scelto con la portata del colpo; Fendente Sovrano permette di colpirlo da lontano.",
+    "kind": "html"
+  },
+  {
+    "id": "bf681f8f0dbe1775e14c",
+    "it": "Se l’Attributo non è ancora in Prestigio, Fendente Sovrano conserva i 10 m di Fendente d’Aria e applica comunque il danno pieno. Taglio Colossale conserva il proprio bonus strutturale, mentre la dimensione della recisione segue i limiti ordinari del colpo.",
+    "kind": "html"
+  },
+  {
+    "id": "d26c7f05df7f0b3972f8",
+    "it": "<span class=\"man-sez-n\">2.6</span><span data-prestigio-source=\"combattenti:127\">Prestigio di Astuzia</span>",
+    "kind": "html"
+  },
+  {
+    "id": "3ed8aeb1745b3ecf42a4",
+    "it": "Per lo Sniper, l&#x27;Attributo Astuzia in Prestigio concede automaticamente Calcolo Balistico Sovrumano e la scala di Geometria del Tiro. Questi potenziamenti non occupano scelte di Talento e non richiedono che Osservazione abbia già raggiunto il Prestigio. Si applicano attraverso armi a distanza o da lancio compatibili con lo Stile Sniper. Striker, Swordsman, Crusher e gli altri Ruoli non ricevono questo pacchetto in questo modulo.",
+    "kind": "html"
+  },
+  {
+    "id": "adbd8f0508ee37830b9a",
+    "it": "Astuzia determina la gittata garantita e il numero di deviazioni disponibili; il tiro per colpire mantiene l&#x27;Attributo previsto dall&#x27;arma o dalla Tecnica. L&#x27;Attributo del colpo rimane quello registrato nella sua scheda e non si cambia liberamente per utilizzare un dado più alto.",
+    "kind": "html"
+  },
+  {
+    "id": "677641e5c9eee4a7ba06",
+    "it": "Scala del Prestigio di Astuzia",
+    "kind": "html"
+  },
+  {
+    "id": "a96d9e1e1b061891e829",
+    "it": "Attributo Astuzia",
+    "kind": "html"
+  },
+  {
+    "id": "be98db5f1434e19b1477",
+    "it": "Gittata utile minima",
+    "kind": "html"
+  },
+  {
+    "id": "9ac076b3accb4d1bc9d1",
+    "it": "Deviazioni con Colpo Impossibile",
+    "kind": "html"
+  },
+  {
+    "id": "727e713b04b14066eef7",
+    "it": "Leggi la riga dal grado attuale dell&#x27;Attributo Astuzia, senza tirare per determinare i metri o le deviazioni. La crescita resta contenuta nelle prime quattro soglie; l&#x27;aumento maggiore arriva a d20+d12 e soprattutto a Saikyō. Se Astuzia non è ancora in Prestigio, restano le distanze dell&#x27;arma, i Talenti ordinari e le normali possibilità di Colpo Impossibile.",
+    "kind": "html"
+  },
+  {
+    "id": "9489050323f2cee10a78",
+    "it": "La gittata utile minima è una portata garantita dal potenziamento, non un limite che riduce le capacità precedenti. Se l&#x27;arma o Tiro Lungo permettono già di colpire oltre, mantieni quella possibilità. Le deviazioni sono invece il massimo utilizzabile per il percorso di un singolo attacco con Colpo Impossibile e puoi impiegarne meno.",
+    "kind": "html"
+  },
+  {
+    "id": "4dc96720b439d1a6d8e9",
+    "it": "Calcolo Balistico Sovrumano",
+    "kind": "html"
+  },
+  {
+    "id": "68faced9eb5ae64e2be0",
+    "it": "Tipo: potenziamento passivo del Prestigio di Astuzia. Ruolo: Sniper. Costo aggiuntivo: 0 ST. Applicazione: armi a distanza o da lancio compatibili con lo Stile.",
+    "kind": "html"
+  },
+  {
+    "id": "69bc47c7b5c1649f2f1b",
+    "it": "Sai compensare la distanza, il vento e il movimento del bersaglio per eseguire un tiro preciso. La gittata utile della tua arma diventa almeno quella della scala di Astuzia, conservando eventuali portate superiori già possedute. Entro questa distanza infliggi il danno normale, senza penalità dovute soltanto alla lontananza.",
+    "kind": "html"
+  },
+  {
+    "id": "597712a8b8eb3af7021c",
+    "it": "Il bersaglio deve essere individuato oppure devi conoscerne una posizione sufficientemente precisa per il tiro. La scala della gittata non individua automaticamente creature nascoste: per localizzarle utilizzi normalmente Osservazione, strumenti o altre capacità appropriate. Ostacoli, occultamento, difese e condizioni che impediscono materialmente l&#x27;attacco continuano a essere risolti secondo le rispettive regole.",
+    "kind": "html"
+  },
+  {
+    "id": "9767cb39c84f28861398",
+    "it": "Il potenziamento riguarda la gittata utile dell&#x27;arma. Una Tecnica mantiene i requisiti e i limiti specifici della propria Forma e dei propri Effetti. Munizioni, ricarica, azioni e costi ordinari restano necessari.",
+    "kind": "html"
+  },
+  {
+    "id": "e032ca84a344e0f2ee9d",
+    "it": "Esempio: con Astuzia d20+d12, il tuo fucile compatibile può colpire almeno fino a 1.000 m. Se riesci a individuare una sentinella a 800 m e il tiro dispone di un percorso valido, effettui il normale attacco e infliggi il danno ordinario. Se un&#x27;altra capacità ti permette già di tirare oltre 1.000 m, conservi quella possibilità.",
+    "kind": "html"
+  },
+  {
+    "id": "b5357a695c07d1b4a0b4",
+    "it": "Geometria del Tiro",
+    "kind": "html"
+  },
+  {
+    "id": "377b8560ec064c21387a",
+    "it": "Tipo: potenziamento passivo del Prestigio di Astuzia. Ruolo: Sniper. Costo aggiuntivo: 0 ST. Requisito di impiego: possedere e utilizzare Colpo Impossibile, che conserva il costo di 2 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "020ff6ef1c2440dd3d14",
+    "it": "Quando utilizzi Colpo Impossibile, puoi costruire un percorso che comprende fino al numero di deviazioni indicato dalla tua Astuzia. Le deviazioni possono essere rimbalzi su superfici o cambi di direzione consentiti dal percorso. Il tiro può anche passare attraverso aperture e feritoie: un passaggio rettilineo senza cambio di direzione non aggiunge una deviazione.",
+    "kind": "html"
+  },
+  {
+    "id": "6c5cb553214fa94039ea",
+    "it": "Ogni tratto deve offrire un percorso utilizzabile dal proiettile e una superficie adatta quando serve un rimbalzo. Una deviazione non permette di attraversare una parete solida. La traiettoria deve essere definita prima di tirare e il percorso complessivo deve rientrare nella gittata consentita all&#x27;attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "bc616f7302f6e28132f7",
+    "it": "Colpo Impossibile conserva le proprie azioni e il costo di 2 ST, oltre agli eventuali costi della Tecnica. Geometria del Tiro modifica il percorso di un attacco e non concede nuovi bersagli. Per colpire più nemici occorrono Rimbalzo, Catena o un&#x27;altra capacità appropriata, con i suoi slot, costi e limiti.",
+    "kind": "html"
+  },
+  {
+    "id": "a1c9536e4336d30167b3",
+    "it": "Esempio a Saikyō: conosci la posizione di un avversario su una nave distante 4.000 m. Usando Colpo Impossibile puoi progettare un tiro che attraversa un&#x27;apertura e utilizza fino a cinque deviazioni su superfici effettivamente disponibili, rispettando i 5.000 m complessivi della tua gittata utile minima. Paghi 2 ST e risolvi un normale attacco contro quel bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "4a625196ac885eec3136",
+    "it": "Capitolo 03",
+    "kind": "html"
+  },
+  {
+    "id": "03c2db59b611a40126ea",
+    "it": "I Talenti del Combattente",
+    "kind": "html"
+  },
+  {
+    "id": "b43a0713b0bf48109823",
+    "it": "<span class=\"man-sez-n\">3.1</span><span data-prestigio-source=\"combattenti:146\">Parte seconda Prestigio delle Skill di Ruolo</span>",
+    "kind": "html"
+  },
+  {
+    "id": "57ed4e28e6b2a22681da",
+    "it": "<span class=\"man-sez-n\">3.2</span><span data-prestigio-source=\"combattenti:147\">Acquisizione dei Talenti</span>",
+    "kind": "html"
+  },
+  {
+    "id": "9b7fb1ef6c8ab8dc9ca9",
+    "it": "La Skill di Ruolo sblocca le scelte dei Talenti di Prestigio. Ogni scelta permette di acquisire un&#x27;opzione del catalogo compatibile con il proprio Ruolo e percorso, rispettandone gli eventuali prerequisiti. Le evoluzioni incorporano la versione precedente senza sommare copie dello stesso beneficio.",
+    "kind": "html"
+  },
+  {
+    "id": "2e49ad58b472e9189fb1",
+    "it": "Dado della Skill di Ruolo",
+    "kind": "html"
+  },
+  {
+    "id": "4f3b00666fe00605a9e6",
+    "it": "Acquisizione ordinaria",
+    "kind": "html"
+  },
+  {
+    "id": "fbc8f15cdb43a4878b15",
+    "it": "Prima scelta di Talento di Prestigio",
+    "kind": "html"
+  },
+  {
+    "id": "ea7ecd43475078b6517d",
+    "it": "Aumento del dado senza una nuova scelta",
+    "kind": "html"
+  },
+  {
+    "id": "3ee2beda9dac5a258001",
+    "it": "Seconda scelta di Talento di Prestigio",
+    "kind": "html"
+  },
+  {
+    "id": "74ce944540858c369af9",
+    "it": "Terza scelta di Talento di Prestigio",
+    "kind": "html"
+  },
+  {
+    "id": "62cc3ed308fba110c020",
+    "it": "Tiri della Skill a Saikyō e applicazione delle regole particolari delle capacità possedute",
+    "kind": "html"
+  },
+  {
+    "id": "0fa04dd75eadd92656a0",
+    "it": "Il numero di scelte disponibili non assegna automaticamente tutti i Talenti elencati. Non si acquisiscono copie ripetute di un Talento già posseduto. Le possibilità automatiche degli Attributi, comprese Proiezione Colossale, Spostamento Fulmineo, Agilità Sovrumana, Calcolo Balistico Sovrumano e Geometria del Tiro, non occupano queste scelte.",
+    "kind": "html"
+  },
+  {
+    "id": "7b7a99dbce23d1e6495a",
+    "it": "Ruolo e percorso",
+    "kind": "html"
+  },
+  {
+    "id": "ce49dc24795050671d81",
+    "it": "Skill di Ruolo",
+    "kind": "html"
+  },
+  {
+    "id": "0072df642b093f049670",
+    "it": "Talenti del catalogo",
+    "kind": "html"
+  },
+  {
+    "id": "5fa0e6a1c9a3867d8bb7",
+    "it": "Striker Forza",
+    "kind": "html"
+  },
+  {
+    "id": "2b2e9053bd7b64b34abf",
+    "it": "Atletica",
+    "kind": "html"
+  },
+  {
+    "id": "97ef02c83212472d91ca",
+    "it": "Potenza del Titano, Onda Titanica, Raffica Senza Fine",
+    "kind": "html"
+  },
+  {
+    "id": "a098210aad166456ad48",
+    "it": "Striker Tecnica",
+    "kind": "html"
+  },
+  {
+    "id": "f5e16618aa6dad69591e",
+    "it": "Acrobazia",
+    "kind": "html"
+  },
+  {
+    "id": "b6d07f6ac0a4f30e8df2",
+    "it": "Precisione Assoluta, Raffica Senza Fine",
+    "kind": "html"
+  },
+  {
+    "id": "d8aed94a6f265eddb82d",
+    "it": "Fendente Sovrano, Taglio Colossale, Guardia Invalicabile, Maestria Assoluta della Lama",
+    "kind": "html"
+  },
+  {
+    "id": "9688f58e10353a3efd0d",
+    "it": "Maglio Inarrestabile, Onda Sismica, Guardia Frantumata, Arresto del Colosso",
+    "kind": "html"
+  },
+  {
+    "id": "a194f7268877317c2fd0",
+    "it": "Osservazione",
+    "kind": "html"
+  },
+  {
+    "id": "12d41ccdded5cfa682ad",
+    "it": "Tiro Risolutivo, Precisione Chirurgica, Interdizione Sovrana, Danza dei Proiettili",
+    "kind": "html"
+  },
+  {
+    "id": "c86f3632153c53e60952",
+    "it": "Lo Striker utilizza la Skill di Ruolo del proprio percorso. Atletica e Acrobazia non si sommano per raddoppiare le sue scelte. Raffica Senza Fine è comune ai due percorsi e si acquisisce una sola volta.",
+    "kind": "html"
+  },
+  {
+    "id": "190df590a7408f048360",
+    "it": "Lo Swordsman utilizza Atletica anche quando è costruito sull&#x27;Attributo Tecnica. La mobilità automatica dipende da Tecnica e non richiede di sostituire Atletica con Acrobazia. Fendente Sovrano richiede Fendente d&#x27;Aria; Guardia Invalicabile richiede Parata Perfetta.",
+    "kind": "html"
+  },
+  {
+    "id": "bb7e05d109f12b34b962",
+    "it": "Lo Sniper utilizza Osservazione come Skill di Ruolo e acquisisce i Talenti del proprio catalogo. Osservazione indica qui la Skill, distinta dal Dado Haki dell’Osservazione. Il Crusher utilizza Atletica e acquisisce i Talenti del proprio catalogo: la condivisione di Atletica non gli trasferisce i Talenti dello Striker o dello Swordsman.",
+    "kind": "html"
+  },
+  {
+    "id": "921eafb3cf95355e0fc0",
+    "it": "<span class=\"man-sez-n\">3.3</span><span data-prestigio-source=\"combattenti:155\">Striker · Talenti di Prestigio comuni</span>",
+    "kind": "html"
+  },
+  {
+    "id": "7b1b0671b4adbfb3afdf",
+    "it": "Le scelte di Atletica potenziano il danno dei colpi a mani nude e consentono di propagarne l&#x27;impatto. Raffica Senza Fine è descritta nella sezione comune ai due percorsi.",
+    "kind": "html"
+  },
+  {
+    "id": "396457cbf41f3ded250f",
+    "it": "Potenza del Titano",
+    "kind": "html"
+  },
+  {
+    "id": "481c6f272cf861c47cb0",
+    "it": "Tipo: passivo. Costo aggiuntivo: 0 ST. Applicazione: attacchi base a mani nude e Tecniche offensive dello Striker eseguite a mani nude.",
+    "kind": "html"
+  },
+  {
+    "id": "6a105e471b3d70985819",
+    "it": "Quando un tuo attacco compatibile va a segno, tira una volta il tuo intero dado di Forza e somma il risultato al normale danno del colpo. Se Forza possiede un dado di Prestigio, tira entrambi i dadi e somma i risultati.",
+    "kind": "html"
+  },
+  {
+    "id": "d9b837bfc082e6422e95",
+    "it": "Con Forza d20+d12, per esempio, il danno aggiuntivo è d20+d12. Questo beneficio si applica a ciascun colpo riuscito, compresi gli attacchi aggiuntivi concessi da Raffica Senza Fine e gli attacchi di Reazione compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "a78a5c24a22de6f981dc",
+    "it": "Il tiro di danno aggiuntivo è distinto dal tiro per colpire. Potenza del Titano non aggiunge una seconda volta il risultato della prova d’attacco e non modifica da sola portata, numero di bersagli o area del colpo. Si applicano le normali riduzioni del danno.",
+    "kind": "html"
+  },
+  {
+    "id": "d73ada3887c804064df4",
+    "it": "Quando un’altra capacità utilizza il danno totale di questo colpo, comprende anche il contributo di Potenza del Titano. Quando una capacità richiede soltanto un tiro di Forza, come lo Schianto di Proiezione Colossale, non aggiungere nuovamente questo Talento.",
+    "kind": "html"
+  },
+  {
+    "id": "52fe996a10d7def058df",
+    "it": "Esempio: una Tecnica infligge 12 danni prima di questo Talento. Con Forza d20+d8 ottieni 14 sul d20 e 5 sul d8: aggiungi 19 e il danno totale è 31, prima delle eventuali riduzioni.",
+    "kind": "html"
+  },
+  {
+    "id": "64412cf53eea04954187",
+    "it": "Onda Titanica",
+    "kind": "html"
+  },
+  {
+    "id": "62e9873741c5f366d94d",
+    "it": "Evoluzione di: Pugni che Rompono. Prerequisito: possedere Pugni che Rompono. Tipo: attivo. Attivazione: 1 Azione Bonus dopo un colpo riuscito. Costo aggiuntivo: 2 ST. Limite: 1 volta nel tuo turno. Per ampliare l’area: Forza deve aver raggiunto il Prestigio.",
+    "kind": "html"
+  },
+  {
+    "id": "d061bcef99048ddbdb18",
+    "it": "Quando nel tuo turno un attacco a mani nude o una Tecnica offensiva in mischia dello Striker colpisce una creatura, un oggetto o una superficie, puoi spendere l’Azione Bonus e 2 ST per propagare l’impatto nell’area circostante. Il raggio massimo è quello del tuo Prestigio di Forza; puoi scegliere un raggio inferiore.",
+    "kind": "html"
+  },
+  {
+    "id": "5e2996e855e1a2674fef",
+    "it": "Il Talento è l’attivazione necessaria per propagare il danno del colpo anche contro le creature. La sola scala ambientale resta disponibile senza il Talento e non consuma l’Azione Bonus o le 2 ST. Per usare Onda Titanica devi possedere il Talento, avere l’Azione Bonus e almeno 2 ST disponibili e aver messo a segno il colpo nel tuo turno. Un attacco mancato o annullato da una difesa non soddisfa la condizione. Non servono Proiezione o Schianto per questa onda.",
+    "kind": "html"
+  },
+  {
+    "id": "7b7d8883d6b42bdf6fd3",
+    "it": "L’area ha origine nel punto colpito. L’onda d’urto investe le altre creature raggiunte dall’impatto, escluso chi lo ha generato. Eventuali alleati presenti nell’area devono difendersi normalmente. Il Talento non consente di escludere liberamente singole creature dall’area scelta.",
+    "kind": "html"
+  },
+  {
+    "id": "c30eb41390e852433afb",
+    "it": "Onda Titanica è un’eccezione concessa dal Talento di Prestigio, non una Forma Area del Costruttore dello Striker. Lo Striker non possiede Tecniche Area ordinarie di Stile. L’onda nasce sempre dalla propagazione di un singolo colpo riuscito e segue esclusivamente il proprio raggio, condizioni e costi.",
+    "kind": "html"
+  },
+  {
+    "id": "5b8ac744867eeec712de",
+    "it": "Un’eventuale Area concessa da una Fonte speciale resta distinta e non moltiplica i punti d’origine né aumenta il raggio di Onda Titanica. Allo stesso modo, l’onda non aumenta né sostituisce la sagoma della Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "01dd8532f1fff13c34c8",
+    "it": "Usa il risultato del tiro per colpire originario per risolvere l’impatto contro ciascuna creatura aggiuntiva, applicando Difesa Passiva, Difese Attive, Reazioni e coperture secondo le regole ordinarie. Se il colpo contro una superficie non richiedeva un tiro, effettua un unico normale tiro per colpire valido per l’area. Ogni creatura può quindi subire un esito diverso.",
+    "kind": "html"
+  },
+  {
+    "id": "41bf8db42af7c1caad73",
+    "it": "Tira il danno del colpo iniziale una sola volta, includendo Potenza del Titano e gli altri bonus applicabili. Usa quel risultato come D e, per ciascun bersaglio aggiuntivo colpito, applica la frazione prevista dalla sua distanza dal punto d’impatto. Il bersaglio originario ha già ricevuto il colpo: non subisce una seconda copia dello stesso danno per il fatto di essere nell’area.",
+    "kind": "html"
+  },
+  {
+    "id": "e0e3fade9a1d0a707dd2",
+    "it": "Il danno propagato non comprende un eventuale Schianto successivo e gli effetti secondari rivolti al solo bersaglio iniziale non si estendono automaticamente a tutti. Le Tecniche e l’Haki conservano requisiti, costi e limiti propri.",
+    "kind": "html"
+  },
+  {
+    "id": "4b899657bd76f610ea2f",
+    "it": "Pugni che Rompono è incorporato nell’evoluzione: i colpi a mani nude continuano a infliggere danno pieno agli oggetti compatibili. Il danno pieno elimina le penalità previste per colpire quegli oggetti a mani nude; l’attenuazione con la distanza dell’impatto continua ad applicarsi. Le strutture raggiunte dall’onda ricevono il danno della propria fascia e cedono secondo la loro resistenza e i loro PS. Questo beneficio non ignora automaticamente le riduzioni del danno delle creature.",
+    "kind": "html"
+  }
+]

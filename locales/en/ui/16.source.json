@@ -1,0 +1,1946 @@
+[
+  {
+    "id": "04933c351765585957e4",
+    "it": "Serve un Meccanico; la sola Skill Meccanica non concede la Riparazione di Campo su se stessi.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "13187e8057653f55367f",
+    "it": "Definisci i dadi effettivi di Astuzia e Meccanica dell’operatore.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "c77d78b1e6a442e428dd",
+    "it": "A 0 PV non puoi intervenire normalmente su te stesso.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "b35421b95f734351a8e3",
+    "it": "Il Meccanico deve raggiungere e trattare fisicamente il Cyborg.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "fa4025de7fb12ac1cf5f",
+    "it": "Servono strumenti da Meccanico.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "0d73615e1ee4f13cd1dd",
+    "it": "Riparazione di Campo: 10 minuti fuori dal combattimento.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "38799fee009cd18f366a",
+    "it": "Servono ricambi ordinari per la Riparazione di Campo.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "e61ce0b6a61a6974b308",
+    "it": "Riparazione di Campo già ricevuta: occorre un Riposo Breve o Lungo.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "b2ce7e88efdcda322825",
+    "it": "Definisci i PV attuali e massimi prima di registrare il recupero.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "dc8e3626342f849d0f1f",
+    "it": "La normale Stabilizzazione si applica a un personaggio a 0 PV.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "6b8fe04e2a908cedb6b7",
+    "it": "Inserisci il totale della Prova Astuzia + Meccanica già tirata.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "8c5dacaca29c695e0a39",
+    "it": "Riparare un Modulo durante l’intervento richiede Carne e Metallo attivo.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "f30837f9df1398c9e90d",
+    "it": "Scegli un solo Modulo Danneggiato. Non ricostruisce Moduli Distrutti.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "5e6bce1309ab91a1589c",
+    "it": "Conferma materiali e requisiti speciali del Modulo scelto.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "3967f0747bd6dae9b72a",
+    "it": "Inserisci il risultato effettivo di",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "43c56cc4d3ec04ad82c0",
+    "it": "di Meccanica per i PV.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "dd0c8eb0ba49d25b7de7",
+    "it": "10 minuti fuori combattimento",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "dd3654e4b7b2f5f53ff9",
+    "it": "lsec cyborg-care",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "4b3a7b4fb2e5b5335220",
+    "it": "Cure e riparazioni del Cyborg",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "645b055b5246eedecaa1",
+    "it": "Riposo, cibo e recuperi diretti di PV funzionano normalmente. Le cure biologiche con Medicina non recuperano PV. Il contatore PV resta modificabile per registrare quanto avviene al tavolo.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "15ed9e0fcf89bba62b1f",
+    "it": "Recuperare PV non ripara i Moduli e non ricarica le Cariche. Manuale Cyborg §11; Stabilizzazione normale §6.12.1.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "50407bf01cdabc3c95f4",
+    "it": "Riparazione di Campo · 10 minuti",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "2a0096673b389a103989",
+    "it": "Stabilizzazione · Azione, 0 PV recuperati",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "0c33e2112d05838312d6",
+    "it": "Un Meccanico esterno",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "dcd4e27e3e4af4da6780",
+    "it": "Intervengo su me stesso",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "ad528b8d1f72f2a36d58",
+    "it": "Operatore",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "5f42aa82ccd5500c5a96",
+    "it": "Meccanica dell’operatore",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "4efced7798f9045f6070",
+    "it": "mechanicsDie",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "961b0e9e8f68ec6c0305",
+    "it": "Astuzia dell’operatore",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "902e2d65bbe8891039b6",
+    "it": "astuziaDie",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "50ee43a5e52b2eb417a4",
+    "it": "L’operatore ha acquisito Carne e Metallo",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "e8d20f8113b38b837fab",
+    "it": "carneMetallo",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "2966ca689f60242f9d28",
+    "it": "Il Meccanico raggiunge fisicamente il Cyborg",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "33b67975304759447403",
+    "it": "Astuzia da definire",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "9ca152c554862e3fae22",
+    "it": "Astuzia +",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "ebbafc2753f9fdd2dbb0",
+    "it": "Meccanica da definire",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "64fc3d6f2dae7c54d16f",
+    "it": "Meccanica · Soglia 8.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "196bfdb4b0dddf2b2792",
+    "it": "Strumenti da Meccanico disponibili",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "9cfd2e85eb999456f8fc",
+    "it": "Già ricevuta: serve un Riposo Breve o Lungo.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "fdbdfb121b401a9f0a3d",
+    "it": "Una Riparazione di Campo tra due Riposi Brevi.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "d16782278ff5990e1eaf",
+    "it": "Ricambi ordinari disponibili",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "6be8a07dfffc70ac2721",
+    "it": "Intervento svolto: 10 minuti fuori combattimento",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "0b2319de63b70f6799a5",
+    "it": "outsideCombat",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "0f436cafabd840699d62",
+    "it": ") PV, entro il massimo",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "1dc0b16473e8945779cb",
+    "it": "· Carne e Metallo attivo.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "a154705c9d8e73edc6fc",
+    "it": "Totale dei PV tirati con Meccanica",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "614b3f3a9c8d46804600",
+    "it": "healingTotal",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "682a2dd029c9a1c37d51",
+    "it": "Modulo da riparare nello stesso intervento",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "84b33809b13c8f1ce016",
+    "it": "Nessun Modulo",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "9ffedd7ad12d115cf2fc",
+    "it": "Modulo Danneggiato",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "ffca8d0c0ff78097ba41",
+    "it": "Materiali necessari al Modulo disponibili",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "0fcbf1344f22420422fb",
+    "it": "moduleMaterials",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "15b6f21ce7dcda0f563b",
+    "it": "Requisiti speciali del Modulo rispettati",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "e0186a855f5604a90751",
+    "it": "moduleRequirements",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "8b3e9fc4181ef565278c",
+    "it": "Solo a 0 PV: il successo stabilizza le ferite, senza recuperare PV, far tornare cosciente o riparare Moduli. È una normale Azione.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "e310b71c92072679ba3a",
+    "it": "Totale della Prova Astuzia + Meccanica",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "91b1df16d5a6c6e3dd28",
+    "it": "rollTotal",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "27a3f1fb3cc8e89a5111",
+    "it": "Registra l’esito già tirato",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "dc23843c57645544bc95",
+    "it": "Cyborg Stabilizzato: PV invariati.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "dbe0e31edf44dab161df",
+    "it": "Recuperati",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "cf5aa3f1028be7022653",
+    "it": "Un Modulo riparato.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "402c6c6fd3b626d29294",
+    "it": "Prova fallita: nessun recupero o riparazione, limite disponibile.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "9d4087dd65f10c2fad32",
+    "it": "Registra Riposo Breve/Lungo",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "77351070790ad93a1207",
+    "it": "Riposo completato: Riparazione di Campo disponibile.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "8a577991c8e494e581b0",
+    "it": "Registra un Riposo già completato: rende disponibile la Riparazione di Campo. I recuperi del Riposo si annotano normalmente nei contatori; le Cariche non si ricaricano.",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "3948c8ca2a6f729a7370",
+    "it": "Regole delle cure Cyborg ↗",
+    "kind": "text",
+    "context": "gestisci-pirata/cyborg-care.js"
+  },
+  {
+    "id": "ee61515ba8475201f68e",
+    "it": "Dai un nome alla Tecnica e scegli da dove nasce.",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "c1575d38f8189ead3b5e",
+    "it": "Definisci l’Attributo, la Forma e come la esegui.",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "802535a9b428e793c6b2",
+    "it": "Scegli il dado: determina la potenza e gli slot disponibili.",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "ef30fcb2c8295b8a593d",
+    "it": "Esplora una famiglia e componi gli effetti della Tecnica.",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "2141a1b4c7c48d8fb6db",
+    "it": "Rileggi la Tecnica, aggiungi il suo colore e salvala.",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "1edf16b66bfa6dd580b3",
+    "it": "La tua Tecnica",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "7f4ea65f35827c47a4a5",
+    "it": "Una nuova firma",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "52fcfde046ffcd01dbdb",
+    "it": "In corso",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "bc74557b789d653ff957",
+    "it": "Definita",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "d5d691613cd687f668c2",
+    "it": "<path class=\"smb-ray",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "9e71c4e15f3953d62eb5",
+    "it": "✓ Pronta da salvare",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "988b06290ee813e1c809",
+    "it": "Gli effetti scelti si uniranno al nucleo.",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "032194bd064b9facf79f",
+    "it": "Effetti della Tecnica",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "d7963e3187be9aa47830",
+    "it": "Rivedi",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "008fbddd17bfc8fb3a7b",
+    "it": "Scelte ·",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "3eb2a39010cc25edbad3",
+    "it": "La misura della tua forza",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "900dfe786287424c5092",
+    "it": "Scegli gli effetti",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "09ab7fd673ba6bd4c100",
+    "it": "Rivedi la Tecnica",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "1b1d6a8b6df2ac78e645",
+    "it": "Costellazione della Tecnica",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "1472339d3984150a3148",
+    "it": "[data-smb-focus]",
+    "kind": "text",
+    "context": "gestisci-pirata/signature-builder.js"
+  },
+  {
+    "id": "a65de78cc4a4c416868d",
+    "it": "Dati di stampa da aggiornare",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "166184a6930d051af156",
+    "it": "Strumento musicale",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "8375d3890ca115d64c6b",
+    "it": "Apri Azioni → Scheda illustrata (PDF) dalla gestione di questo pirata per aggiornare fonti, formule e costi delle Special Moves.",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "1115b89b644c47415062",
+    "it": "Special Move senza nome",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "e36abad49c8a763689f8",
+    "it": "m; i bersagli devono sentirti.",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "976b525404f6c6529d8f",
+    "it": ": converti la Tecnica storica nel Costruttore.",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "dd89313437b51e53f9db",
+    "it": "Impossibile preparare questa ricetta. Controlla la carta nella gestione del pirata e riapri la scheda PDF.",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "9fe69a1de39173a9144c",
+    "it": "page smp-page",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "01ffd25d39543b09d2ad",
+    "it": "Special Moves ·",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "b517c7616ca09053bba3",
+    "it": "Illustrazione in caricamento…",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "ea1d449f5db597211182",
+    "it": "Illustrazione di",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "2a1cb1dab27d259b2bac",
+    "it": "Illustrazione non disponibile su questo dispositivo. I dati della carta sono riportati qui sotto.",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "93a335fc027808a6dd8b",
+    "it": "Avvertenze della ricetta",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "4a5d5a52ec706a8ba16e",
+    "it": "Totali non disponibili: non considerarli pari a zero.",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "25a9964e04715390c7f0",
+    "it": "Composizione del costo",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "4e15e9d9dd1111b2d998",
+    "it": "Tratto Unico · promemoria condizionale",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "5edbf42fcbecc9a42aac",
+    "it": "Situazione al",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "a5d5118652ee0ad34c13",
+    "it": "Costi e disponibilità riflettono lo stato del personaggio al momento della preparazione. La stampa non consuma risorse.",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "820d014efcc52aec6470",
+    "it": ".smp-page,#smp-print-status",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "e84836ad335d96da8544",
+    "it": "Preparazione Special Moves…",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "491eefa070fdb746e192",
+    "it": "incluse nel PDF",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "090351f3a01eea769216",
+    "it": "· aggiorna i dati dalla gestione",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "f882e6314917c4327fb1",
+    "it": "illustrazioni non disponibili",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "87a644004e550f5219f2",
+    "it": "Preparazione Special Moves incompleta. Riapri la scheda illustrata dalla gestione del pirata.",
+    "kind": "text",
+    "context": "scheda-stampabile/special-moves-print.js"
+  },
+  {
+    "id": "598c2fca659639b8aa62",
+    "it": "Personaggio della ciurma",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "4ce5afdfa85bcd69872d",
+    "it": "Scheda manuale / PNG",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "2b83db40199489c103aa",
+    "it": "Dadi, Skill e Talenti seguono la scheda salvata del personaggio. Le postazioni non concedono Talenti.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "7eeda60585f272f6214a",
+    "it": "Personaggio collegato non disponibile: il riferimento è conservato. Scegli esplicitamente un altro operatore.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "1d9d2730fd52359d62c0",
+    "it": "Nome dell’operatore",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "067e1660f2a0fe181a1d",
+    "it": "Stile effettivo dell’operatore",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "93002783a71efeac3e4b",
+    "it": "Nessuno / altro",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "4d0f6fe3475e51006ca4",
+    "it": "Registra soltanto i Talenti realmente acquisiti. Grado e prerequisiti vengono verificati prima dell’uso.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "cee7662eaf0ed5c5e2d1",
+    "it": "Salva postazione",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "7899582f47c5cf938483",
+    "it": "Libera postazione",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "c851329e1d61dad95257",
+    "it": "Scheda Modulo navale",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "d3d5495e70f6d3b6759f",
+    "it": "Effetto / riferimento",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "533cd449622f95339c7b",
+    "it": "La scheda deve dichiarare attivazione, bersaglio, valore, durata/frequenza, consumi e limiti (§13.16.3). I valori non definiti dal manuale sono parametri concordati con il GM.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "b24a2a13229b07645981",
+    "it": "Bersaglio / sistema",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "63791af4477bb500dcc5",
+    "it": "Durata / frequenza",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "c49f62dc2bcccebc7663",
+    "it": "Consumi",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "8d578c36d41bf2d6ecb0",
+    "it": "Dado bonus concordato",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "8abe2aed12a1c0f5fde9",
+    "it": "Unità di Stiva aggiuntive concordate",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "e6c2cf0949d41f96ef69",
+    "it": "Bonus Iniziativa concordato",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "4dd3c139527c0feaa48a",
+    "it": "Modulo Guasto (avaria)",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "8e0e86ab0b2b82c7bab6",
+    "it": "Modulo Distrutto",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "892357d7c29bcd59c14a",
+    "it": "Installa modulo",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "0763afe049c16b8df2b4",
+    "it": "Slot non validi.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "0b803b9c28abda03f8ac",
+    "it": "Smonta",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "1685909e40ac0e682531",
+    "it": "Catalogo Moduli navali",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "282a3c1e7f1b230ddccc",
+    "it": ". Completa i parametri della scheda prima di utilizzare effetti generici.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "9fe2a0314a68e8b83492",
+    "it": "Secondo scheda",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "32e5a2d46259a0ab492a",
+    "it": "Sistema della nave",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "9c7b1232e70a01ecd7fe",
+    "it": "Secondo effetto",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "83fb7841c4f3e4bf6e36",
+    "it": "Da specificare se previsti",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "56e0062a7ea9552991fd",
+    "it": "Richiede condizioni materialmente possibili",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "adc19056d00cf5f91a81",
+    "it": "Nuovo modulo personalizzato",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "6e6d4ef16787e5f1ba4e",
+    "it": "Risolvi",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "e73d9f36601f9b598016",
+    "it": "Traversata",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "e33590451ee6bb25641c",
+    "it": "Fascia di distanza",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "73450bc5d5523f94ae68",
+    "it": "Accostati · 0–20 m",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "96dcd505859a35e31826",
+    "it": "Sotto tiro · oltre20–200 m",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "1216c0922edda7e4cbdd",
+    "it": "In vista · oltre200–600 m",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "2ffb6e98b936dd582dda",
+    "it": "All’orizzonte · oltre600 m",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "e590888b2e03f9ce0428",
+    "it": "Totale della Prova",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "e7fe5f91076491304853",
+    "it": "Operatore con Azione disponibile",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "d9fae865342d77e604a1",
+    "it": "Danno al bersaglio:",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "8c502fa2692ffd812fcb",
+    "it": "(Regolazione Fine)",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "1847df10621c2a6e9008",
+    "it": ". PS e PV sono scale separate; una cannonata alla nave non danneggia automaticamente la ciurma.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "41c1d8c7557d87b5ef0e",
+    "it": "Utilizza Cannoni gemelli (1 cannonata extra/scena)",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "ce823426d7c65b1f925e",
+    "it": "Collisione materialmente possibile",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "28d206f99bc3f1cd5a24",
+    "it": "Contraccolpo tirato (1d4 PS)",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "6bee299765bd7c05aaac",
+    "it": ". Il contraccolpo si applica comunque.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "4f9a93943ff0ab96c62c",
+    "it": "Inseguimento: Prova contrapposta",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "b6cf50d9bc12cc3ded96",
+    "it": "Totale Vele + Astuzia dell’inseguitrice",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "78ab42013cd467e9ba4a",
+    "it": "Vincere aumenta di una fascia; parità mantiene la distanza. Il fallimento concede una cannonata d’opportunità solo entro portata. Il GM stabilisce quando il contatto è perso.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "f185372dc139ac6ac965",
+    "it": "Strumenti e materiali realmente disponibili",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "8b795cae25a1bab3beed",
+    "it": "Recupero ordinario:",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "ac7c271e2b32976e94e0",
+    "it": "× intero dado Carpenteria",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "6d959db23b4be2229bf3",
+    "it": ". La Firma del Carpentiere raddoppia il totale con margine +4; massimo",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "b8de7db543108377b7ec",
+    "it": "Totale recupero dei dadi (prima della Firma)",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "37245869530da3d4f3ae",
+    "it": "Soglia stabilita dal GM",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "15742c6a10bc9f6556d4",
+    "it": "Strumenti nautici: Bussola +d4 Mari Blu; Log Pose artigianale +d6 Grand Line; carta aggiornata +d6 prossimo tiro; dettagliata +d8 per3 traversate; Eternal Pose +d10 verso la sua isola. Registra gli strumenti realmente pertinenti e il totale del tiro. Nessun danno fisso per un fallimento.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "d34afe6abc46790f35e1",
+    "it": "Dichiaro prima del tiro il d6 di Rotta dello stesso viaggio",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "2e79ef7fc7539c9f4148",
+    "it": "Registra manovra",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "801ee61443581aeecbc7",
+    "it": "Dado Rotta non disponibile.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "1200d303b302a3d1a5fe",
+    "it": "Esito non riuscito",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "1a3cc21f7b6d84b7d4e0",
+    "it": "· margine",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "45d4a44b87f26e75f825",
+    "it": "· Firma: recupero ×2",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "43e6342e9e71e1f9e004",
+    "it": "· Conservi1d6 di Rotta; il GM rivela un pericolo reale più avanti.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "0857eca8a2eeae14aaae",
+    "it": "Una Manovra per round e l’Azione dell’operatore. Talenti e Moduli possono concedere eccezioni; due tiri PNG non sono due Manovre.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "929c8addfbb1e0a0db2a",
+    "it": "Inizia battaglia",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "8f9368ab8e7cf66b90cc",
+    "it": "Nuovo round",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "d6349c74c151e6c81a0d",
+    "it": "Fine battaglia",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "cd9558acfc386bd3e1fb",
+    "it": "Round",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "032e418a76962b37b9ec",
+    "it": "· Manovre eseguite:",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "e7f7469194b96e9fa301",
+    "it": "Distanza attuale",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "26741c4d0697aeeab39d",
+    "it": "Accostati (0–20 m)",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "dfb59135f76da66a31b3",
+    "it": "Sotto tiro (oltre20–200 m)",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "deb92b4d45a10f6ca404",
+    "it": "In vista (oltre200–600 m)",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "2daafaeb9c3b9b5fbb85",
+    "it": "All’orizzonte (oltre600 m)",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "dc653575cc7cf5c68aea",
+    "it": "Postazione pronta · utilizza l’Azione",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "0c725d2251978ed0761f",
+    "it": "Prossima cannonata nemica: Soglia +4 · consumalo",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "d8fcc97d9d1ce3a38e5a",
+    "it": "Ingresso in Critica: registra1d6 Componenti",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "9d88a96a32b349e1286e",
+    "it": "Iniziativa navale:",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "5400c037ea2a73cb4669",
+    "it": "+ Astuzia del Timoniere. In combattimento misto: Tecnica + Astuzia dei PG, un round personale = un round navale. A soglia di affondamento il GM comunica cedimento lento3round, rapido1round o catastrofico immediato.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "9b16bf9e42496490d470",
+    "it": "Tiro dei Componenti",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "9cde3a85689ea353f105",
+    "it": "Anche il secondo tiro indica un componente già danneggiato. Nessun terzo tiro: il GM decide un aggravamento oppure un altro componente esposto.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "e3e7130ec102e24177fa",
+    "it": "Altro componente esposto",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "875fc2bf54841ca7db94",
+    "it": "Aggravamento narrativo",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "b38421004e6250437b52",
+    "it": "Aggravamento deciso dal GM",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "39418577cc9b74784a9e",
+    "it": "Registra scelta GM",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "8543426321b57a36a1c2",
+    "it": "Risultato1d6 (1–6)",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "cef5a80d37b7b912fdd4",
+    "it": "Secondo1d6 solo se il primo era già danneggiato",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "f381b86c64cd28b19a6b",
+    "it": "Applica componente",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "b9c6509df310f7663b44",
+    "it": "Unità di Stiva · carico registrato",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "46357e0921e7b737d16a",
+    "it": "· indipendente dagli slot Modulo.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "10da823df4e5bf1c74f2",
+    "it": "Persone a bordo (ciurma + passeggeri)",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "f7257fdc474df1f5a8e4",
+    "it": "Unità di Provviste",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "b22956352e64fc89bbd5",
+    "it": "Unità di Cargo",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "bafff30b2001ba772b33",
+    "it": "Consumo ordinario:",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "031aca50931caae7e0b9",
+    "it": "Unità/settimana;1 Unità nutre fino a5 persone. Riduzioni esplicite si applicano prima dell’arrotondamento. Non vengono generate nuove scorte dai Moduli.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "3f1d4f7d9a25ef34563f",
+    "it": "Consuma1settimana ordinaria",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "41cf0dd87cbadd306b3c",
+    "it": "Scorte insufficienti: il GM gestisce l’esaurimento, senza danni automatici.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "4492623e98b2414513bd",
+    "it": "Cibo preparato e cure restano nella Cambusa e nella scheda del pirata. Un solo pasto ordinario per scena; Aiuto Nakama: un solo dado aiutante per tiro, una volta per scontro/scena, Azione dell’aiutante in combattimento.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "3acc07ab97761dc6384f",
+    "it": "Serve una scheda o un archivio di navi.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "1a009afc6e74ceacbfdd",
+    "it": "Scheda nave non valida.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "7e0425c08a0000766f53",
+    "it": "Archivio vuoto.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "1b1cd102b2091821392e",
+    "it": "Configurazione di partenza",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "573784603c70455894b8",
+    "it": "Una statistica d8, le altre d6. Questa azione sostituisce soltanto i quattro dadi; conserva danni, risorse, Moduli, ID e dati della nave. I PS non vengono recuperati automaticamente.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "0e0a479f82e8eb14bddd",
+    "it": "Statistica a d8",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "4d6e696e831177e37123",
+    "it": "Applica configurazione",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "a9841776f7def8d72b29",
+    "it": "lbar pv",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "2c1b3eb29288cbb67581",
+    "it": "txt num",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "f6c263c345146fe86515",
+    "it": "Punti Struttura attuali",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "3a1222e81a83375bc9b7",
+    "it": "Condizione: <b style=\"color:",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "2819b5dae0799c18d72f",
+    "it": "</b> · affondamento a",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "38734b8eb0dccbc56c2e",
+    "it": "PS · integra>75% · danneggiata>50% · grave>25% · critica",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "b9544debad7465866d28",
+    "it": "Interpretazione GM di «−1 dado» sui componenti",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "b631a2cb693e860451a8",
+    "it": "Da chiarire prima del tiro",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "96076024319e93257dcb",
+    "it": "Riduci di un gradino (minimo d4)",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "b9ff27bb3b6c67dfabd8",
+    "it": "Togli il dado Nave dal pool",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "437c9b3fbf39844f9439",
+    "it": "I benefici personali richiedono tutte le condizioni della scheda; Ordini, Azioni, ST, risorse e frequenze restano quelli della capacità. Le postazioni non concedono capacità automaticamente. Le versioni evolute includono soltanto i benefici previsti, senza sommare usi o bonus della versione precedente.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "3577825032b7fce94f2f",
+    "it": "· Prova:",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "4ee2f607f817af5b9b5c",
+    "it": "Materiali della scheda Portale:",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "558161243f9ef9c6d24d",
+    "it": ". Verifica la ricetta e il tempo del progetto con il GM. Un successo migliora soltanto questa statistica; non recupera PS automaticamente.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "7c59ad2244794fd219e6",
+    "it": "Materiale consumato su fallimento (GM):",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "e70a8a5b731702979781",
+    "it": "Totale Astuzia + Carpenteria",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "941d3605ff99d8bf8246",
+    "it": "Lavoro completato con strumenti, tempo e materiali previsti",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "d4c92bf346b5cc45ce4a",
+    "it": "Cantiere in porto",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "b30fc564c1e87296b5bd",
+    "it": "Cantiere Viaggiante: lavoro possibile in mare e in metà tempo. Officina di bordo: −25%ore e il dado dichiarato nella scheda. Il GM concorda cumulo e arrotondamento dei tempi.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "e79525839ca479de8637",
+    "it": "Registra progetto",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "779333791c1b25890575",
+    "it": "Un potenziamento strutturale richiede il Cantiere fuori battaglia.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "769b38779e574a145130",
+    "it": "Assegna un operatore con Astuzia e Carpenteria.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "ba236a08ab181a1af43e",
+    "it": "Il lavoro in mare richiede Cantiere Viaggiante.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "04174d112e3c2ecb6f36",
+    "it": "Completa il progetto e registra la Prova.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "3254ac295129bf8494e0",
+    "it": "Il progetto non corrisponde al Grado attuale.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "cc27eed2d7fe6b6e1ca8",
+    "it": "Materiali mancanti:",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "d7f265771e5167bc8112",
+    "it": "Quantità consumata non valida.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "69d1d0e183a058f95031",
+    "it": "Lavori strutturali permanenti",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "bb752c1996b75aa434bf",
+    "it": "Il beneficio viene registrato soltanto dopo un lavoro completo con materiali, strumenti e tempo. Resta su questa nave quando il Carpentiere scende. Non genera Moduli né recupera PS.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "ed0273924b8753b125cf",
+    "it": "Lavoro completato con strumenti, materiali e tempo concordati",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "2ba7125df899a97cee69",
+    "it": "Completa prima il lavoro.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "4fc18b26c73b05bd224d",
+    "it": "Il Carpentiere deve possedere il Talento e i prerequisiti.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "8120045ecf76de71dde2",
+    "it": "Questo miglioramento è già registrato sulla nave.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "92496d9795a64a4cd360",
+    "it": "maestroDeiModuli",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "575b4827a1a70286722d",
+    "it": "scafoRinforzato",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "c9712fd2b72d3b18200c",
+    "it": "· lavoro già registrato",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "58252ccf8cfc1871ed81",
+    "it": "naveLeggendaria",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "5b7b70edd53eb1d46b50",
+    "it": "scafoInespugnabile",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "332670d711cd61dce369",
+    "it": "· registrato",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "104e6fdc8f1358af333c",
+    "it": "Servono lavoro completo e Talento di Prestigio valido.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "c40832aa96fe42f1de44",
+    "it": "Lavoro già registrato: il beneficio permanente non diminuisce né si cumula.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "1057ba5b939acca2b29f",
+    "it": "Nave Cresciuta:",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "83b7ca8f47ebf6df0312",
+    "it": "Servono lavoro completo e Talento Nave Cresciuta valido.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "bf501982714cee52b689",
+    "it": "Nave Cresciuta è già stata applicata.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "9075edfbabc6e4d58a88",
+    "it": "Limite ordinario d12.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "e4037d9c7c64a7cbd7a4",
+    "it": "ore · Soglia",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "c4517182453dc2cebe68",
+    "it": "Ricetta di materiali e conseguenze dettagliate: configurazione storica della campagna. Ore e Soglia: Manuale base. Il GM indica i PS ottenuti coerenti con la condizione; nessun recupero viene inventato automaticamente.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "5fabec92e86efdce1c9d",
+    "it": "· Successo:",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "ec7cbc74d7e7fe7358a4",
+    "it": "· Fallimento grave:",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "c5532bdc6f38836687a1",
+    "it": "PS finali concordati (solo riparazione scafo)",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "a2c8501c3069a96f3508",
+    "it": "Intervento completato; strumenti e materiali della ricetta disponibili",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "30e97b5a2e4cb6c1f24e",
+    "it": "Registra intervento",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "049965847b67c2140980",
+    "it": "Serve un operatore con Astuzia e Carpenteria.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "61f9b3e75744d5d49713",
+    "it": "Completa il lavoro e registra la Prova.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "a24d4faa5836f3d44b63",
+    "it": "Le riparazioni ordinarie richiedono il Cantiere fuori dalla battaglia.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "7c79d014f28f3baa95f1",
+    "it": "Registra PS finali validi, senza superare il massimo.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "c5fc52ba0f26950fc771",
+    "it": "danno lieve",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "bb55d110179c7750dfe6",
+    "it": "Il danno lieve riguarda soltanto1–10PS persi; +2PS con margine +4.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "59f415f0ff0e0e15645a",
+    "it": "I PS indicati non raggiungono la condizione prevista dal successo.",
+    "kind": "text",
+    "context": "nave-portale/nave-ui.js"
+  },
+  {
+    "id": "825635d538f024dcc6e4",
+    "it": "/campagne/?c=",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "0cfdf1f24d36c31f9842",
+    "it": "&atlas=",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "0fa4ac6d8163773296ed",
+    "it": "&loc=",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "564bab808bf7ba15b584",
+    "it": "Il luogo è stato eliminato: questi appunti non possono sostituirlo.",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "e1515f3ace6ddf965651",
+    "it": "Appunti salvati",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "45aa9fc3459cd4700958",
+    "it": "Eliminare questa pagina del taccuino?",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "be01bf376f5af09023f9",
+    "it": "Carta del GM · taccuino in sola lettura",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "1c3c865d7e6bb8053920",
+    "it": "Accesso non disponibile",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "e6a5a5ba5c4fa3edf0d3",
+    "it": "Accedi per aprire la carta del GM.",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "60264c2297de5819439b",
+    "it": "id,gm,name",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "57420f79e071e36cf76f",
+    "it": "Campagna non disponibile",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "ebd0c43364cb3cfe7f43",
+    "it": "Carta del GM ·",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "1465ddcfb0319db50dcb",
+    "it": "Campagna",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "919fa58f5df061402c9a",
+    "it": "Atlante personale · Appunti privati",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "edd15d52701be3a6ce79",
+    "it": "Diario di viaggio · Taccuino del luogo",
+    "kind": "text",
+    "context": "isola/atlas-notebook.js"
+  },
+  {
+    "id": "c273fbfda78f02a65fa3",
+    "it": "#news-editor button,#news-form input,#news-form select,#news-form textarea",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "b1251afa45ecda31a6d2",
+    "it": "Pubblicato",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "5fe93c50a85595bd6a82",
+    "it": "Aggiorna pubblicazione",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "cd7d2b0a768f920576df",
+    "it": "Ritira in bozza",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "023b433e8148556b2705",
+    "it": "Hai modifiche non salvate. Vuoi abbandonarle?",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "4e52cc5a5aa7f6e9b965",
+    "it": "Il dispaccio non è più disponibile.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "19de9e61f12bb54d322b",
+    "it": "Non riesco ad aprire il dispaccio. Il testo nell’editor è rimasto intatto.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "d87350946d8bdaff69d7",
+    "it": "L’elenco dei dispacci non è raggiungibile. Riprova ricaricando la pagina.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "b1033141afc884bd416f",
+    "it": "Aggiornare la notizia visibile a tutti?",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "bb69793aaf2f3a51feca",
+    "it": "Pubblicare questo dispaccio per tutti i visitatori?",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "1b5d76e2e34033e5758b",
+    "it": "Ritirare questo dispaccio dal giornale pubblico? Resterà nella redazione.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "01bd5b4cc295d93912cb",
+    "it": "Salvataggio in corso…",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "3eef3fa29db3ba61d7f1",
+    "it": "Dispaccio pubblicato. È visibile nella Home e nel giornale.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "d937d5308e6484ae0eb1",
+    "it": "Bozza salvata. È visibile solo alla redazione.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "a6d197b037e2096d3144",
+    "it": "dispaccio è cambiato",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "4109648c9b8a7b3685a9",
+    "it": "Salvataggio non confermato. Il testo è ancora qui: copialo prima di ricaricare e controlla l’elenco per verificare se il salvataggio è arrivato.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "1d24f1640f57bb89e901",
+    "it": "Anteprima non disponibile",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "d2cc12bfd5b9b88d0424",
+    "it": "Copertina troppo complessa. Scegli un’immagine più leggera.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "dffbcd08384a8e2e526f",
+    "it": "Immagine non leggibile",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "16e86c1675f2f6f72af6",
+    "it": "Preparo la copertina…",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "679394189121ab9e18d6",
+    "it": "Copertina pronta. Salva il dispaccio per conservarla.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "156d05ff7233978915bc",
+    "it": "Caricamento non riuscito.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "e01c968d8ccf378a8b5a",
+    "it": "Nessun dispaccio in questa rotta. Torna presto per le novità.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "136a933b18d79fa781db",
+    "it": "Il giornale non è raggiungibile. Controlla la connessione e riprova.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "196d84b399087da97649",
+    "it": "Verifico l’accesso alla redazione…",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "1bcec76336c988448535",
+    "it": "La redazione è riservata all’amministratore. Accedi con il tuo account oppure torna al giornale.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "a32d1b357a0e42093abc",
+    "it": "Questo dispaccio non esiste.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "a387d8afa68a031eec6f",
+    "it": "Questo dispaccio non è disponibile o non è ancora pubblico.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "c1cc0a9f69b3a22738d9",
+    "it": "← Tutti i dispacci",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "232e1a2461f2e96cbd4f",
+    "it": "· Grand Line Chronicles",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "bdd20095e160cdd71ce7",
+    "it": "Non riesco a leggere il dispaccio. Riprova più tardi.",
+    "kind": "text",
+    "context": "notizie/news-page.js"
+  },
+  {
+    "id": "ef2a28f03f6eafb0fe03",
+    "it": "Berry",
+    "kind": "text",
+    "context": "regole/ingredienti-cambusa.json"
+  },
+  {
+    "id": "a3eff10f157bfcc93edc",
+    "it": "Prezzi per la quantità indicata. Le Prove di reperimento sono indicative, si tirano solo nell’incertezza e non sostituiscono combattimenti o spedizioni. Il GM determina disponibilità e quantità. Dispensa del Cuoco si applica soltanto a chi possiede il Talento. Nessun ingrediente concede bonus ulteriori rispetto alla propria scheda.",
+    "kind": "text",
+    "context": "regole/ingredienti-cambusa.json"
+  }
+]

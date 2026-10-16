@@ -1,0 +1,2082 @@
+[
+  {
+    "id": "63f4fd98cdd6d056d6cf",
+    "it": "Quando il Legame Nakama raggiunge d20, invece di ridurre i Dadi Danno di uno, dimezza il danno trasferito dopo il tiro, arrotondando per difetto.",
+    "kind": "html"
+  },
+  {
+    "id": "45e087af9b1f12a48daa",
+    "it": "Le normali protezioni passive del Capitano si applicano successivamente.",
+    "kind": "html"
+  },
+  {
+    "id": "7983d12957ce87d42246",
+    "it": "Ordine del Capitano · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "fcb8149e83807ba8c77a",
+    "it": "Prerequisito: Ordine del Capitano · Base.",
+    "kind": "html"
+  },
+  {
+    "id": "b7444bcf8bdccaf7b00d",
+    "it": "Il limite di utilizzo di Ordine del Capitano aumenta a 2 volte per scontro.",
+    "kind": "html"
+  },
+  {
+    "id": "81660f42076a58675520",
+    "it": "Ogni Ordine mantiene:",
+    "kind": "html"
+  },
+  {
+    "id": "5a6a30552f4e49719015",
+    "it": "L’Azione del Capitano.",
+    "kind": "html"
+  },
+  {
+    "id": "c57af4f31c1318e8da7a",
+    "it": "Il costo di 2 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "2454cb05dc3f141a87ab",
+    "it": "La portata ordinaria di 10 metri.",
+    "kind": "html"
+  },
+  {
+    "id": "7641be8c22e71aeebc30",
+    "it": "Tutte le normali regole dell’Ordine.",
+    "kind": "html"
+  },
+  {
+    "id": "eced50a1aef36bfc6b33",
+    "it": "Il nuovo limite sostituisce quello della versione Base.",
+    "kind": "html"
+  },
+  {
+    "id": "49ce58db47b11b3727b1",
+    "it": "Voce che Arriva Lontano",
+    "kind": "html"
+  },
+  {
+    "id": "d8fe0989a4898e2f0700",
+    "it": "La portata dei tuoi Ordini e del tuo Grido di Guerra non è più limitata ai normali 10 metri.",
+    "kind": "html"
+  },
+  {
+    "id": "cb35ab01b468277a3cbd",
+    "it": "Durante uno scontro raggiungono tutti gli alleati presenti sul campo di battaglia che possano realmente vederti o sentirti.",
+    "kind": "html"
+  },
+  {
+    "id": "ad0c830c802f98aed8c6",
+    "it": "Durante una battaglia navale possono raggiungere l’intera tua nave.",
+    "kind": "html"
+  },
+  {
+    "id": "f54ce20b5529c0d79b6b",
+    "it": "Il Talento modifica esclusivamente la portata. Costi, Azioni, frequenze e altri requisiti rimangono invariati.",
+    "kind": "html"
+  },
+  {
+    "id": "8183e912044ae7f902d7",
+    "it": "Il Piano",
+    "kind": "html"
+  },
+  {
+    "id": "9eec850be2ae73691c3f",
+    "it": "Se hai avuto la possibilità di preparare lo scontro e spiegare un piano alla ciurma, create una riserva condivisa di:",
+    "kind": "html"
+  },
+  {
+    "id": "b25d9a007e7960852bec",
+    "it": "3 ridadi",
+    "kind": "html"
+  },
+  {
+    "id": "6b3894e145f2d0d75bc7",
+    "it": "Se Comunicazione è d12 o superiore:",
+    "kind": "html"
+  },
+  {
+    "id": "488fe1c97506f9dc79e4",
+    "it": "4 ridadi",
+    "kind": "html"
+  },
+  {
+    "id": "ac68b1516a32cecca2e2",
+    "it": "Un ridado permette a un alleato di ritirare un singolo dado appena lanciato.",
+    "kind": "html"
+  },
+  {
+    "id": "afb6c74fdf09d307bbde",
+    "it": "La decisione viene presa dopo aver visto il risultato del dado, ma prima che vengano applicate definitivamente le conseguenze del tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "8e980ed8535b7bf471cd",
+    "it": "Il nuovo risultato sostituisce quello precedente, anche se è peggiore.",
+    "kind": "html"
+  },
+  {
+    "id": "52ca6a752e6ce69605df",
+    "it": "Lo stesso dado non può essere ritirato più di una volta.",
+    "kind": "html"
+  },
+  {
+    "id": "db199777899201e21f2a",
+    "it": "È possibile spendere più ridadi sullo stesso pool, purché ciascuno venga utilizzato su un dado differente.",
+    "kind": "html"
+  },
+  {
+    "id": "10ef9d490296c8d56831",
+    "it": "La riserva appartiene alla ciurma nel suo insieme. Quando un ridado viene utilizzato, viene rimosso dalla riserva.",
+    "kind": "html"
+  },
+  {
+    "id": "023df01eb463defb8a36",
+    "it": "Parlamentare",
+    "kind": "html"
+  },
+  {
+    "id": "50e2f8c7108155ad2f51",
+    "it": "Azione · massimo 1 tentativo per bersaglio per scontro",
+    "kind": "html"
+  },
+  {
+    "id": "931c0461491e9d12ec2e",
+    "it": "Durante un combattimento puoi tentare di imporre una breve tregua per parlare con un avversario capace di sentirti e comprenderti.",
+    "kind": "html"
+  },
+  {
+    "id": "baa08fe71c4a81af5e1f",
+    "it": "Nemico comune:",
+    "kind": "html"
+  },
+  {
+    "id": "3548bacf4bdb4f90d70f",
+    "it": "ascolta automaticamente.",
+    "kind": "text"
+  },
+  {
+    "id": "ab5df7b03b85234b948f",
+    "it": "Nemico importante:",
+    "kind": "html"
+  },
+  {
+    "id": "27954389991b58a771e8",
+    "it": "effettua una prova contrapposta:",
+    "kind": "text"
+  },
+  {
+    "id": "d64bb8b9f4a1488f2d33",
+    "it": "Capitano: Spirito + Comunicazione.",
+    "kind": "html"
+  },
+  {
+    "id": "5e773cf70d0e623f7759",
+    "it": "Avversario: Spirito.",
+    "kind": "html"
+  },
+  {
+    "id": "a61ff40dce2b2dca16e3",
+    "it": "In caso di pareggio prevale l’avversario.",
+    "kind": "html"
+  },
+  {
+    "id": "e02217f60e8f9a6cc5aa",
+    "it": "Se il Capitano riesce, durante il prossimo turno dell’avversario quest’ultimo deve dedicare la propria Azione ad ascoltare e rispondere alla trattativa anziché effettuare un’Azione ostile.",
+    "kind": "html"
+  },
+  {
+    "id": "ff6c047e9ee0178bba81",
+    "it": "Conserva Movimento, Azione Bonus e Reazione quando possono essere utilizzati in modo non ostile o difensivo.",
+    "kind": "html"
+  },
+  {
+    "id": "3af246f8f1f434821d1d",
+    "it": "Dopo che ha ascoltato, il Capitano può effettuare la normale Prova di Comunicazione richiesta dalla proposta: tregua, informazione, resa, duello, scambio o altro accordo coerente.",
+    "kind": "html"
+  },
+  {
+    "id": "a0daab86fdf4c07c0246",
+    "it": "Parlamentare obbliga soltanto ad ascoltare. Non obbliga ad accettare la proposta.",
+    "kind": "html"
+  },
+  {
+    "id": "1f6365b2ba67e4ae30c1",
+    "it": "L’effetto termina immediatamente se:",
+    "kind": "html"
+  },
+  {
+    "id": "47bd971b99a54fb4fd7c",
+    "it": "Il Capitano o un suo alleato attacca il bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "0c4f76b3a504c100197e",
+    "it": "Il bersaglio subisce volontariamente un’altra azione ostile da parte della ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "aef4715bac4a25dbcdb9",
+    "it": "La situazione rende materialmente impossibile continuare il dialogo.",
+    "kind": "html"
+  },
+  {
+    "id": "18fd4dfc0fed8f94ce6b",
+    "it": "Se l’effetto termina prima del turno dell’avversario, questi agisce normalmente.",
+    "kind": "html"
+  },
+  {
+    "id": "fb5675a3f16a2a31c1b0",
+    "it": "Indipendentemente dall’esito, Parlamentare non può essere tentato nuovamente contro lo stesso bersaglio durante quello scontro.",
+    "kind": "html"
+  },
+  {
+    "id": "e56d81b0a6a891235dca",
+    "it": "Ordine del Capitano · Maestria",
+    "kind": "html"
+  },
+  {
+    "id": "c10a77af783e19d7cdf1",
+    "it": "Prerequisito: Ordine del Capitano · Migliorato.",
+    "kind": "html"
+  },
+  {
+    "id": "eeefa77ca891c9677b86",
+    "it": "Continui a disporre di 2 Ordini per scontro.",
+    "kind": "html"
+  },
+  {
+    "id": "69a2b961f45b9e9519e7",
+    "it": "Quando un alleato effettua l’Azione concessa da un tuo Ordine, esegue l’eventuale tiro richiesto con Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "66a272af98c7c36149b8",
+    "it": "Il costo rimane 2 ST e impartire l’Ordine utilizza la tua Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "531e53ca8c5fdb383013",
+    "it": "Si applicano normalmente portata e regole delle Azioni fuori turno.",
+    "kind": "html"
+  },
+  {
+    "id": "178799d71cf68ab493ac",
+    "it": "Secondo in Comando",
+    "kind": "html"
+  },
+  {
+    "id": "d57a83c5c605d2bab65d",
+    "it": "All’inizio dello scontro oppure durante il tuo turno nomini un compagno come tuo Vice.",
+    "kind": "html"
+  },
+  {
+    "id": "f5bdd227584c5a71665e",
+    "it": "Una volta durante quello scontro, il Vice può utilizzare la propria Azione per impartire uno dei tuoi normali Ordini del Capitano.",
+    "kind": "html"
+  },
+  {
+    "id": "439cc2e9a96124306cbd",
+    "it": "Il Vice:",
+    "kind": "html"
+  },
+  {
+    "id": "fa59f813de7c3d697dd2",
+    "it": "Paga personalmente le 2 ST richieste.",
+    "kind": "html"
+  },
+  {
+    "id": "a95bfa327891a46cca07",
+    "it": "Utilizza la normale portata dell’Ordine.",
+    "kind": "html"
+  },
+  {
+    "id": "3b5778a8392bf75046f9",
+    "it": "Deve poter essere visto o sentito dall’alleato ordinato.",
+    "kind": "html"
+  },
+  {
+    "id": "fd06964377d306f9140c",
+    "it": "Consuma uno degli utilizzi di Ordine del Capitano ancora disponibili nella tua riserva.",
+    "kind": "html"
+  },
+  {
+    "id": "c7104fe95412e5713a15",
+    "it": "Se possiedi Ordine del Capitano · Maestria, l’Azione concessa dal Vice riceve normalmente Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "0ec9d74dfcf137a3a0b0",
+    "it": "Secondo in Comando non concede al Vice gli altri Talenti del Capitano e non gli permette di utilizzare Ordine Sovrano del Manuale del Prestigio.",
+    "kind": "html"
+  },
+  {
+    "id": "423d929089cc79de3208",
+    "it": "Se il Capitano cade, il Vice conserva questa possibilità fino alla fine dello scontro.",
+    "kind": "html"
+  },
+  {
+    "id": "d74549cae1b3e191083e",
+    "it": "Nessuno Resta Indietro",
+    "kind": "html"
+  },
+  {
+    "id": "f451a823e05d3aa2217a",
+    "it": "Prerequisito: Scudo della Ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "27777686b31fd6dc8b9d",
+    "it": "Quando un compagno con cui possiedi un Legame Nakama raggiunge 0 PV, puoi utilizzare la tua Reazione per impedirgli di crollare.",
+    "kind": "html"
+  },
+  {
+    "id": "b73f930c2ec52fc98a78",
+    "it": "Il compagno rimane cosciente e viene considerato temporaneamente a 1 PV fino alla fine del suo prossimo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "539c6b3f0e5b767cf46a",
+    "it": "Questo PV rappresenta esclusivamente la capacità del personaggio di continuare ad agire grazie all’ordine del Capitano e non costituisce una cura.",
+    "kind": "html"
+  },
+  {
+    "id": "8ed3969f3e062bf11248",
+    "it": "Durante questa finestra il compagno può utilizzare normalmente Movimento, Azione, Azione Bonus e Reazione.",
+    "kind": "html"
+  },
+  {
+    "id": "3f72fcb2d8febc4364e9",
+    "it": "Se subisce almeno 1 danno, il sostegno termina immediatamente: torna a 0 PV e segue le normali regole di A Terra.",
+    "kind": "html"
+  },
+  {
+    "id": "2a2c0e7bc9677e29eb21",
+    "it": "Se prima della fine dell’effetto recupera realmente almeno 1 PV attraverso una cura o un’altra capacità, Nessuno Resta Indietro termina e il personaggio conserva normalmente i PV effettivamente recuperati.",
+    "kind": "html"
+  },
+  {
+    "id": "fe1e4743fce21d00bc34",
+    "it": "Se non riceve cure, alla fine del proprio turno successivo il sostegno termina e il personaggio torna a 0 PV, diventando A Terra secondo le normali regole.",
+    "kind": "html"
+  },
+  {
+    "id": "8bbb2fb999a0d7f77ad1",
+    "it": "Il PV temporaneo non può essere aumentato o recuperato: qualsiasi vera cura sostituisce direttamente questa condizione temporanea.",
+    "kind": "html"
+  },
+  {
+    "id": "d8763601f7937fa385d7",
+    "it": "Ritirata Ordinata",
+    "kind": "html"
+  },
+  {
+    "id": "fea4a9e8526feb09c91b",
+    "it": "Il Capitano ordina alla ciurma di sganciarsi dal combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "a999149f1bde5728fb1a",
+    "it": "Tutti i compagni possono muoversi immediatamente della propria Velocità, senza provocare attacchi di Reazione dovuti al disimpegno.",
+    "kind": "html"
+  },
+  {
+    "id": "fe49e69ca364e3beaef8",
+    "it": "Il Talento permette di effettuare una ritirata coordinata. Non impedisce ai nemici di inseguire la ciurma nei turni successivi.",
+    "kind": "html"
+  },
+  {
+    "id": "b18bff2700a443d9b5be",
+    "it": "<b>Talento Supremo · All’Arrembaggio!</b>",
+    "kind": "html"
+  },
+  {
+    "id": "2dd669ce7ce3124f356b",
+    "it": "<b>All’Arrembaggio!</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f2fef687f3206466e453",
+    "it": "5 ST1 volta per scena",
+    "kind": "html"
+  },
+  {
+    "id": "d5d23e40f202b0a8d169",
+    "it": "Il Capitano impartisce un ordine che mobilita immediatamente l’intera ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "9093702d323ff2ddc6ef",
+    "it": "Ogni alleato che può vederlo o sentirlo agisce subito, fuori dal proprio turno.",
+    "kind": "html"
+  },
+  {
+    "id": "d467c98b271dd3a34464",
+    "it": "Ciascun alleato interessato ottiene:",
+    "kind": "html"
+  },
+  {
+    "id": "6e488bed1e1becfd2720",
+    "it": "Terminata questa sequenza, il combattimento riprende normalmente dall’ordine di Iniziativa precedente.",
+    "kind": "html"
+  },
+  {
+    "id": "324e332a1eb759e8f3be",
+    "it": "Requisiti: Ambizione del Capitano e permesso del Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "ca86945886df6ec560d8",
+    "it": "All’Arrembaggio! concede a ciascun alleato interessato un Movimento e un’Azione immediati. Non sostituisce il normale turno del personaggio e non modifica permanentemente l’Iniziativa.",
+    "kind": "html"
+  },
+  {
+    "id": "0b5207b6a5cb8aec5128",
+    "it": "Capitolo 5 ·",
+    "kind": "html"
+  },
+  {
+    "id": "1ffdbb2499f63cd65e03",
+    "it": "Skill e Prove",
+    "kind": "html"
+  },
+  {
+    "id": "95263463589c231dfe1e",
+    "it": "Un pirata può essere abbastanza forte da sollevare un’ancora, ma non sapere come ripararla. Può avere un’ottima mira e non riconoscere una trappola nascosta sotto i suoi piedi.",
+    "kind": "html"
+  },
+  {
+    "id": "5ca39873708bad177a2a",
+    "it": "Gli Attributi rappresentano le capacità fondamentali del personaggio. Le Skill indicano ciò che ha imparato a fare attraverso esperienza, studio e allenamento.",
+    "kind": "html"
+  },
+  {
+    "id": "1a15ee3ac951237e40a7",
+    "it": "Quando l’esito di un’azione è incerto, Attributi e Skill lavorano insieme per determinare il risultato.",
+    "kind": "html"
+  },
+  {
+    "id": "df261d24b42a8ae37d3b",
+    "it": "<span class=\"man-sez-n\">5.1 ·</span> Come si effettua una Prova",
+    "kind": "html"
+  },
+  {
+    "id": "fbca265bb51ec3c3ba56",
+    "it": "Una Prova viene richiesta quando un personaggio tenta un’azione che potrebbe fallire e il cui esito è importante per la scena.",
+    "kind": "html"
+  },
+  {
+    "id": "420a9e92d23bd44171f2",
+    "it": "Il giocatore dichiara cosa vuole ottenere. Il Game Master individua l’Attributo e la Skill appropriati, stabilisce una Soglia e chiede il tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "3c8bd512b57698bf041b",
+    "it": "La Prova base",
+    "kind": "html"
+  },
+  {
+    "id": "cc3cc7d5282f72bd1117",
+    "it": "Attributo + Skill",
+    "kind": "html"
+  },
+  {
+    "id": "b051098612bf1762de3a",
+    "it": "Si tirano entrambi i dadi e si sommano i risultati.",
+    "kind": "html"
+  },
+  {
+    "id": "6073a3f83814ab7d0ee5",
+    "it": "Totale ≥ Soglia: l’azione riesce.",
+    "kind": "html"
+  },
+  {
+    "id": "37dd52544768566df25a",
+    "it": "Totale inferiore alla Soglia: l’azione fallisce.",
+    "kind": "html"
+  },
+  {
+    "id": "5e678570971bd23c18da",
+    "it": "Esempio: un pirata vuole individuare una sentinella nascosta. Il GM richiede Astuzia + Osservazione, con Soglia 8.",
+    "kind": "html"
+  },
+  {
+    "id": "314bb71bd5b69683ca09",
+    "it": "Il personaggio possiede Astuzia d8 e Osservazione d6. Ottiene 6 e 4, per un totale di 10.",
+    "kind": "html"
+  },
+  {
+    "id": "f4bccc5fd628b6667357",
+    "it": "La Prova riesce.",
+    "kind": "html"
+  },
+  {
+    "id": "ad2f8d6e1226651ca070",
+    "it": "Non è necessario tirare per ogni attività. Se il personaggio può compiere un’azione senza rischi o ostacoli significativi, il GM ne descrive direttamente il risultato.",
+    "kind": "html"
+  },
+  {
+    "id": "7cf645fc5d28a311e558",
+    "it": "<span class=\"man-sez-n\">5.2 ·</span> Le Soglie",
+    "kind": "html"
+  },
+  {
+    "id": "840e66c02e369b126b6e",
+    "it": "La Soglia rappresenta la difficoltà da raggiungere. Il GM la stabilisce in base alla situazione prima di risolvere la Prova.",
+    "kind": "html"
+  },
+  {
+    "id": "e731cab755d3c485e011",
+    "it": "<b>Soglia</b>",
+    "kind": "html"
+  },
+  {
+    "id": "2ca22177679daebf4248",
+    "it": "<b>Difficoltà</b>",
+    "kind": "html"
+  },
+  {
+    "id": "05ce4f248aa74108d18a",
+    "it": "Banale",
+    "kind": "html"
+  },
+  {
+    "id": "1aaf3e0e4a95dd3177b9",
+    "it": "Normale",
+    "kind": "html"
+  },
+  {
+    "id": "eb3da09db476b8f32e3d",
+    "it": "Esperto",
+    "kind": "html"
+  },
+  {
+    "id": "f0f2c56f31a42fb90bd4",
+    "it": "Da Vice-Ammiraglio",
+    "kind": "html"
+  },
+  {
+    "id": "3711d37f929cb62e42ad",
+    "it": "Da Ammiraglio",
+    "kind": "html"
+  },
+  {
+    "id": "d959f7a35b49d4c93a15",
+    "it": "Leggendaria",
+    "kind": "html"
+  },
+  {
+    "id": "0449661e002a74400c72",
+    "it": "La Soglia non dipende soltanto dall’azione dichiarata, ma anche dalle circostanze.",
+    "kind": "html"
+  },
+  {
+    "id": "ac1d759e75d6b04c76dc",
+    "it": "Arrampicarsi su una parete asciutta e piena di appigli non presenta necessariamente la stessa difficoltà di scalare una murata bagnata durante una tempesta.",
+    "kind": "html"
+  },
+  {
+    "id": "a3df45d0ffa61be55c99",
+    "it": "Il GM può quindi utilizzare Soglie differenti per azioni apparentemente simili.",
+    "kind": "html"
+  },
+  {
+    "id": "4cf1e67bdea49687b2c3",
+    "it": "La parità è sufficiente per riuscire: se la Soglia è 12 e il risultato totale è 12, la Prova ha successo.",
+    "kind": "html"
+  },
+  {
+    "id": "1f560a14b50c02f447e6",
+    "it": "<span class=\"man-sez-n\">5.3 ·</span> Il margine di successo",
+    "kind": "html"
+  },
+  {
+    "id": "21b5a96400478c906e8d",
+    "it": "Il margine misura quanto il risultato supera la Soglia.",
+    "kind": "html"
+  },
+  {
+    "id": "53135dfe4650777ab29d",
+    "it": "<b>Margine = totale ottenuto − Soglia</b>",
+    "kind": "html"
+  },
+  {
+    "id": "c79073c9a9718638d8bb",
+    "it": "Un risultato appena sufficiente permette di raggiungere l’obiettivo. Un margine elevato può produrre una riuscita particolarmente efficace.",
+    "kind": "html"
+  },
+  {
+    "id": "20cf37300659629db9b3",
+    "it": "<b>Margine</b>",
+    "kind": "html"
+  },
+  {
+    "id": "69be4d989f4e481e679e",
+    "it": "<b>Interpretazione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "014d8f7fabfe8f7aaec4",
+    "it": "Successo al limite",
+    "kind": "html"
+  },
+  {
+    "id": "7d11a885b6493cca48c0",
+    "it": "Successo",
+    "kind": "html"
+  },
+  {
+    "id": "48cf75bbe0aea6199b13",
+    "it": "+4 o superiore",
+    "kind": "html"
+  },
+  {
+    "id": "dcb0d1ca06fbcae32f42",
+    "it": "Successo con margine elevato",
+    "kind": "html"
+  },
+  {
+    "id": "1053ef23b0b7d22ac168",
+    "it": "Il GM può utilizzare il margine per arricchire la narrazione, concedendo informazioni o benefici coerenti con l’azione.",
+    "kind": "html"
+  },
+  {
+    "id": "917d894cd00f0097e837",
+    "it": "Il margine +4 ha inoltre un’importanza precisa: può attivare le Firme dei Ruoli e altri effetti che lo richiedono espressamente.",
+    "kind": "html"
+  },
+  {
+    "id": "d12d3c6d10fc53ba06c2",
+    "it": "Per esempio, un Navigatore che supera una Prova di Navigazione con margine +4 attiva Rotta Perfetta.",
+    "kind": "html"
+  },
+  {
+    "id": "75ca08a9afba362bf9b1",
+    "it": "Un margine +4 non assegna però automaticamente un bonus universale a qualsiasi Prova. Occorre seguire l’effetto della capacità coinvolta.",
+    "kind": "html"
+  },
+  {
+    "id": "0153fbbd67deab162df8",
+    "it": "<span class=\"man-sez-n\">5.4 ·</span> Le sedici Skill",
+    "kind": "html"
+  },
+  {
+    "id": "37c1b3ab53c85b867c64",
+    "it": "In Grand Line Chronicles esistono sedici Skill. Ciascuna rappresenta una disciplina distinta.",
+    "kind": "html"
+  },
+  {
+    "id": "51ede97175b997456a71",
+    "it": "<b>Ambito di utilizzo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f5e16618aa6dad69591e",
+    "it": "Acrobazia",
+    "kind": "html"
+  },
+  {
+    "id": "b164b07c035a56cab965",
+    "it": "Equilibrio, capriole, evasione.",
+    "kind": "html"
+  },
+  {
+    "id": "e92853c179b367f6f6e4",
+    "it": "Storia, lingue antiche, iscrizioni e Poneglyph.",
+    "kind": "html"
+  },
+  {
+    "id": "0cd234c8e68c18f1a1b6",
+    "it": "Musica, disegno, esibizioni e falsificazioni artistiche.",
+    "kind": "html"
+  },
+  {
+    "id": "7ff5ee019096e1a35745",
+    "it": "Artigianato",
+    "kind": "html"
+  },
+  {
+    "id": "59cf879f28a40bfbd77d",
+    "it": "Realizzazione di oggetti e attrezzi.",
+    "kind": "html"
+  },
+  {
+    "id": "0b5ac4f38f7d692cbe15",
+    "it": "Corsa, arrampicata, lotta e sforzi fisici.",
+    "kind": "html"
+  },
+  {
+    "id": "b0d6b0f28e5c9cf7703b",
+    "it": "Costruzione e riparazione della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "0abc752a2342fba22886",
+    "it": "Convincere, trattare, comandare e intimidire.",
+    "kind": "html"
+  },
+  {
+    "id": "f5c0bdfe837803bf19cc",
+    "it": "Preparazione di pasti e recupero attraverso il cibo.",
+    "kind": "html"
+  },
+  {
+    "id": "85201d216a5fe16d6fc4",
+    "it": "Esplorazione",
+    "kind": "html"
+  },
+  {
+    "id": "43cc0966e793bd17b795",
+    "it": "Orientamento e ricerca durante l’esplorazione delle isole.",
+    "kind": "html"
+  },
+  {
+    "id": "695cca0360e51b2a6072",
+    "it": "Furtività",
+    "kind": "html"
+  },
+  {
+    "id": "3cb837b149624996a454",
+    "it": "Muoversi senza essere visti e scassinare.",
+    "kind": "html"
+  },
+  {
+    "id": "6d5143e682fc4e8d6ae6",
+    "it": "Macchinari, cannoni e congegni.",
+    "kind": "html"
+  },
+  {
+    "id": "13dfaa727b035484f70c",
+    "it": "Ferite, veleni, cure e stabilizzazione.",
+    "kind": "html"
+  },
+  {
+    "id": "fa245d41206e12b56ed3",
+    "it": "Natura",
+    "kind": "html"
+  },
+  {
+    "id": "0a68d3ec2ed69be7bd9a",
+    "it": "Animali, piante e fenomeni climatici.",
+    "kind": "html"
+  },
+  {
+    "id": "98b63452d2de9df5efa0",
+    "it": "Log Pose, rotte, correnti e traversate.",
+    "kind": "html"
+  },
+  {
+    "id": "0bec1dff1e65b9718bbe",
+    "it": "Pericoli, indizi e intenzioni.",
+    "kind": "html"
+  },
+  {
+    "id": "f338e3a11d96e5d5a37f",
+    "it": "Sopravvivenza",
+    "kind": "html"
+  },
+  {
+    "id": "390e969e091fbf70e9cb",
+    "it": "Procurarsi cibo, acqua e riparo.",
+    "kind": "html"
+  },
+  {
+    "id": "9ecbcab4ca9b5e1cd847",
+    "it": "Le Skill non sono intercambiabili soltanto perché possono contribuire allo stesso obiettivo.",
+    "kind": "html"
+  },
+  {
+    "id": "244cc4f791f6d0ef3bad",
+    "it": "Esempio: per raggiungere un luogo nascosto, un pirata potrebbe utilizzare Esplorazione per trovare il percorso, Atletica per superare una parete e Furtività per evitare le guardie.",
+    "kind": "html"
+  },
+  {
+    "id": "c61f5f9d17d51585877c",
+    "it": "Sono tre attività differenti, anche se fanno parte dello stesso piano.",
+    "kind": "html"
+  },
+  {
+    "id": "7413e652d6db5ff06de2",
+    "it": "<span class=\"man-sez-n\">5.5 ·</span> Quale Attributo utilizzare?",
+    "kind": "html"
+  },
+  {
+    "id": "c0ad347907e0119d858d",
+    "it": "Il GM sceglie l’Attributo coerente con l’azione dichiarata. Le Skill non sono legate in modo permanente a un unico Attributo.",
+    "kind": "html"
+  },
+  {
+    "id": "539dd6ac2e5c1542c33d",
+    "it": "Un personaggio che tenta di arrampicarsi potrebbe utilizzare Forza + Atletica. Per individuare un indizio nascosto potrebbe utilizzare Astuzia + Osservazione.",
+    "kind": "html"
+  },
+  {
+    "id": "e1d255814a6f055355d0",
+    "it": "La scelta deve dipendere da come il personaggio affronta la situazione.",
+    "kind": "html"
+  },
+  {
+    "id": "0df3b88b1c489de30ef9",
+    "it": "Non è necessario inventare una nuova Skill per rappresentare un approccio diverso. Si utilizzano le sedici discipline esistenti, abbinate all’Attributo appropriato.",
+    "kind": "html"
+  },
+  {
+    "id": "516a6c5280f7a323ca4d",
+    "it": "<span class=\"man-sez-n\">5.6 ·</span> Skill alla creazione",
+    "kind": "html"
+  },
+  {
+    "id": "0a6390f34308bfecdbf5",
+    "it": "Ogni personaggio inizia con cinque Skill sviluppate.",
+    "kind": "html"
+  },
+  {
+    "id": "a676de0fba0d9b1fdfc7",
+    "it": "<b>Assegnazione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "34f23608acf1c9fb3834",
+    "it": "Skill libere a d6",
+    "kind": "html"
+  },
+  {
+    "id": "b6d5dd56871ab41e7e71",
+    "it": "Skill libere a d4",
+    "kind": "html"
+  },
+  {
+    "id": "76f6ea07715a265bb44b",
+    "it": "Le altre undici Skill iniziano a 0.",
+    "kind": "html"
+  },
+  {
+    "id": "2c70581aca15461b44b1",
+    "it": "La Skill di Ruolo viene determinata dal Ruolo o dallo Stile scelto. Le quattro Skill aggiuntive sono selezionate liberamente.",
+    "kind": "html"
+  },
+  {
+    "id": "0f17761e561873a2b1fc",
+    "it": "Se il personaggio possiede due Ruoli, riceve comunque un solo d8 iniziale come Skill di Ruolo: il giocatore sceglie a quale dei due assegnarlo.",
+    "kind": "html"
+  },
+  {
+    "id": "fb33558131810add921a",
+    "it": "Skill a 0",
+    "kind": "html"
+  },
+  {
+    "id": "19e4f5ddf7c576761f4f",
+    "it": "Una Skill a 0 rappresenta una disciplina che il personaggio non ha ancora sviluppato.",
+    "kind": "html"
+  },
+  {
+    "id": "b75c898b978a2d5490c8",
+    "it": "La prima volta che la utilizza o la allena in modo significativo, con l’approvazione del Game Master, può sbloccarsi direttamente a d4.",
+    "kind": "html"
+  },
+  {
+    "id": "1e5c8014241475ac31d9",
+    "it": "Da quel momento può essere migliorata spendendo Punti Abilità.",
+    "kind": "html"
+  },
+  {
+    "id": "34f8178333d4ab22402c",
+    "it": "Lo sblocco deve derivare da un’esperienza concreta. Non è sufficiente dichiarare di aver utilizzato tutte le Skill una volta per ottenere immediatamente sedici competenze.",
+    "kind": "html"
+  },
+  {
+    "id": "d9d39a8aeb61f0488f56",
+    "it": "<span class=\"man-sez-n\">5.7 ·</span> Dadi bonus e condizioni sfavorevoli",
+    "kind": "html"
+  },
+  {
+    "id": "699ebef7ccbabd11436f",
+    "it": "Le circostanze possono modificare una Prova.",
+    "kind": "html"
+  },
+  {
+    "id": "8a3cec48e5289259134d",
+    "it": "Una posizione favorevole, una preparazione accurata, l’aiuto di un compagno o un effetto speciale possono concedere dadi bonus da sommare al tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "37028d0d3711f78cb711",
+    "it": "Le condizioni avverse possono invece aumentare la Soglia oppure sottrarre dadi, secondo l’effetto applicabile.",
+    "kind": "html"
+  },
+  {
+    "id": "24f4459e02cbe132fb19",
+    "it": "Esempio: un personaggio cerca di riparare un congegno. Se dispone di strumenti appropriati e beneficia di una capacità che aggiunge Meccanica al tiro, somma il dado indicato alla normale Prova.",
+    "kind": "html"
+  },
+  {
+    "id": "4ca0c3ab68b853795f48",
+    "it": "I benefici che prevedono espressamente Vantaggio o Svantaggio seguono le rispettive regole generali.",
+    "kind": "html"
+  },
+  {
+    "id": "1cfb42db3ba1cfed59b6",
+    "it": "Non bisogna aggiungere dadi o modificatori soltanto perché un’azione è descritta in modo spettacolare: i benefici meccanici derivano dalle condizioni e dalle capacità effettivamente applicabili.",
+    "kind": "html"
+  },
+  {
+    "id": "5281a4d0c02f914c18f3",
+    "it": "<span class=\"man-sez-n\">5.8 ·</span> Skill e Tecniche",
+    "kind": "html"
+  },
+  {
+    "id": "cdf2916fbe5bc621e54c",
+    "it": "Le Skill e le Tecniche rappresentano due elementi differenti della scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "41faa787e7db52456f04",
+    "it": "Una Skill è una disciplina generale, utilizzabile in numerose situazioni: Medicina per curare, Comunicazione per trattare, Atletica per arrampicarsi.",
+    "kind": "html"
+  },
+  {
+    "id": "e994925abfb879df0357",
+    "it": "Una Tecnica è invece una mossa o un potere specifico, dotato di un proprio dado e di eventuali effetti particolari.",
+    "kind": "html"
+  },
+  {
+    "id": "66238ce6da66f69c3c79",
+    "it": "Per una normale Prova si utilizza:",
+    "kind": "html"
+  },
+  {
+    "id": "b5f09e7266cfe1dd37ca",
+    "it": "Attributo + Skill.",
+    "kind": "html"
+  },
+  {
+    "id": "b43375e26957183d3b4c",
+    "it": "Quando la situazione richiede l’utilizzo di una Tecnica, si seguono le regole specifiche di quella Tecnica, senza sostituirla automaticamente con una Skill.",
+    "kind": "html"
+  },
+  {
+    "id": "b8f28d893a0297a14171",
+    "it": "Le Skill migliorano attraverso i Punti Abilità. Le Tecniche razziali e Custom non accumulano né spendono P.A.: le razziali seguono gli sviluppi concessi dal GM, mentre il limite delle Custom dipende dall’Attributo associato.",
+    "kind": "html"
+  },
+  {
+    "id": "907757286f05a05c244e",
+    "it": "Capitolo 6 ·",
+    "kind": "html"
+  },
+  {
+    "id": "c4430364201c7eb8663b",
+    "it": "Il Combattimento",
+    "kind": "html"
+  },
+  {
+    "id": "8bb1c78af382448769b3",
+    "it": "Sulla Grand Line, uno scontro può iniziare con una cannonata, un pugno o una provocazione di troppo. Quando accade, ogni combattente deve decidere come utilizzare il proprio turno: attaccare immediatamente, preparare una Tecnica, attivare l’Haki oppure attendere il momento giusto per scatenare una Special Move.",
+    "kind": "html"
+  },
+  {
+    "id": "8f425c55bb555e8f4831",
+    "it": "Il combattimento di Grand Line Chronicles si basa su quattro risorse fondamentali: Movimento, Azione, Azione Bonus e Reazione.",
+    "kind": "html"
+  },
+  {
+    "id": "bf71d91a75385955eaca",
+    "it": "Le Tecniche determinano ciò che un personaggio può eseguire. I Talenti ne ampliano le possibilità. L’Haki può potenziarne le capacità, ma richiede una gestione attenta delle proprie risorse.",
+    "kind": "html"
+  },
+  {
+    "id": "1b4319b1be603a43892c",
+    "it": "<span class=\"man-sez-n\">6.1 ·</span> L’Iniziativa",
+    "kind": "html"
+  },
+  {
+    "id": "aa19f196c2fe6fe7382d",
+    "it": "All’inizio di ogni scontro, tutti i combattenti effettuano un tiro di Iniziativa.",
+    "kind": "html"
+  },
+  {
+    "id": "9a00f21a00f091574188",
+    "it": "Tiro di Iniziativa",
+    "kind": "html"
+  },
+  {
+    "id": "cb73e12416163f8238d4",
+    "it": "Tecnica + Astuzia",
+    "kind": "html"
+  },
+  {
+    "id": "a9e8a97bd7abfeb2ab27",
+    "it": "I combattenti agiscono dal risultato più alto al più basso.",
+    "kind": "html"
+  },
+  {
+    "id": "8b1f82ad131743c78264",
+    "it": "L’ordine di Iniziativa viene mantenuto durante i round successivi, a meno che una capacità non lo modifichi.",
+    "kind": "html"
+  },
+  {
+    "id": "bd5a6c8c121de3e20ba6",
+    "it": "Esempio: tre combattenti ottengono rispettivamente 16, 12 e 8. Il primo agisce, poi il secondo e infine il terzo. Terminati i turni, comincia un nuovo round.",
+    "kind": "html"
+  },
+  {
+    "id": "ae22f0efcbb014306409",
+    "it": "<span class=\"man-sez-n\">6.2 ·</span> Il turno di combattimento",
+    "kind": "html"
+  },
+  {
+    "id": "8a8e885f0b9f4b2a59f5",
+    "it": "Ogni personaggio dispone normalmente delle seguenti risorse.",
+    "kind": "html"
+  },
+  {
+    "id": "cb12a8458fb2460b5ae7",
+    "it": "<b>Risorsa</b>",
+    "kind": "html"
+  },
+  {
+    "id": "2f6ebbff70e3cd1d5485",
+    "it": "<b>Funzione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "44bc9382992a97441a69",
+    "it": "Spostarsi entro la propria Velocità.",
+    "kind": "html"
+  },
+  {
+    "id": "abd126ec04a46740f346",
+    "it": "Attaccare, utilizzare una Tecnica o eseguire una Special Move.",
+    "kind": "html"
+  },
+  {
+    "id": "fe714d910cbbc3173dd6",
+    "it": "Attivare un Talento attivo oppure l’Haki.",
+    "kind": "html"
+  },
+  {
+    "id": "a678cf5b59bf4da3c4d4",
+    "it": "Reazione",
+    "kind": "html"
+  },
+  {
+    "id": "bd9c79be8a557ad62e36",
+    "it": "Rispondere a un evento che permette di reagire.",
+    "kind": "html"
+  },
+  {
+    "id": "f7f6f1883614f4c64322",
+    "it": "Il personaggio può utilizzare Movimento, Azione e Azione Bonus nell’ordine che preferisce, rispettando i requisiti delle capacità utilizzate.",
+    "kind": "html"
+  },
+  {
+    "id": "45f320f1b076423dd2d5",
+    "it": "Il Movimento può anche essere suddiviso prima e dopo l’Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "9877446678d2759c30e7",
+    "it": "Non è possibile convertire liberamente un’Azione in una seconda Azione Bonus, né utilizzare due Azioni Bonus nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "6a11e44a29974ef6ea4a",
+    "it": "Un Talento o una capacità che concede espressamente un’Azione aggiuntiva costituisce un’eccezione e segue la propria descrizione.",
+    "kind": "html"
+  },
+  {
+    "id": "20e0d13e337973dbe74b",
+    "it": "6.2.1 · L’Azione",
+    "kind": "html"
+  },
+  {
+    "id": "0c04cd63aa9af1ca1e4a",
+    "it": "L’Azione rappresenta l’attività principale del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "d6729bd113465c4f4d69",
+    "it": "Può essere utilizzata per effettuare un attacco base, eseguire una Tecnica, utilizzare una Special Move o compiere un’attività che richiede un’Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "d0ed58a7711ac6e4a6e1",
+    "it": "Gli attacchi aggiuntivi possono essere effettuati soltanto quando una capacità li concede espressamente.",
+    "kind": "html"
+  },
+  {
+    "id": "b3a47ebd80c8435b7608",
+    "it": "Per esempio, Raffica permette di effettuare attacchi extra secondo i limiti e i costi del Talento. Questi attacchi non costituiscono nuove Azioni principali.",
+    "kind": "html"
+  },
+  {
+    "id": "ec81e055a104055dd9fb",
+    "it": "6.2.2 · L’Azione Bonus",
+    "kind": "html"
+  },
+  {
+    "id": "8317cadc6b07c3a50d86",
+    "it": "L’Azione Bonus permette di attivare una capacità senza consumare l’Azione principale.",
+    "kind": "html"
+  },
+  {
+    "id": "3acf0a895e579240e72f",
+    "it": "Ogni turno puoi effettuare una sola delle seguenti attivazioni:",
+    "kind": "html"
+  },
+  {
+    "id": "634f68330c4186cf42c1",
+    "it": "Talento attivo",
+    "kind": "html"
+  },
+  {
+    "id": "b7a46f29e5b2af5fcd84",
+    "it": "Attivi un Talento e paghi l’eventuale costo in Stamina.",
+    "kind": "html"
+  },
+  {
+    "id": "f1564ccfd11a5a63302e",
+    "it": "Haki",
+    "kind": "html"
+  },
+  {
+    "id": "8b7d78f76aa1385a03d8",
+    "it": "Attivi l’Haki e paghi il relativo costo di attivazione.",
+    "kind": "html"
+  },
+  {
+    "id": "45f0a697ddfc79ea46c8",
+    "it": "Regola fondamentale",
+    "kind": "html"
+  },
+  {
+    "id": "c32542f70f54ab80af31",
+    "it": "Puoi attivare un solo Talento attivo per turno.",
+    "kind": "html"
+  },
+  {
+    "id": "a5164a0961c05fd442f7",
+    "it": "Se utilizzi l’Azione Bonus per attivare l’Haki, non puoi attivare un Talento attivo nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "16bd6227db677a4b72a0",
+    "it": "Se la utilizzi per un Talento attivo, non puoi attivare l’Haki nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "cf28a7504da3c91ee929",
+    "it": "Un Talento che indica un costo di 0 ST non diventa automaticamente passivo: conta la sua classificazione. Se richiede un’attivazione ed è un Talento attivo, utilizza comunque l’Azione Bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "045963752019da8e6d27",
+    "it": "Talenti passivi",
+    "kind": "html"
+  },
+  {
+    "id": "44db2503d1e63aa9f2af",
+    "it": "I Talenti passivi si applicano automaticamente quando vengono soddisfatte le condizioni descritte.",
+    "kind": "html"
+  },
+  {
+    "id": "e93b8a23b8dc6416aef9",
+    "it": "Non consumano Azioni Bonus e non richiedono un’attivazione volontaria.",
+    "kind": "html"
+  },
+  {
+    "id": "d4a24293e016b0ec4572",
+    "it": "Un Talento passivo non aggira tuttavia i propri limiti: se può applicarsi una sola volta per turno o per scontro, tale limite rimane valido.",
+    "kind": "html"
+  },
+  {
+    "id": "7f198223ca1513cb2fa8",
+    "it": "Capacità prive di classificazione esplicita",
+    "kind": "html"
+  },
+  {
+    "id": "b664803d304de7278aef",
+    "it": "Se una capacità richiede al giocatore di scegliere volontariamente se applicarla o attivarla nel momento in cui se ne verificano le condizioni, viene considerata una capacità attiva.",
+    "kind": "html"
+  },
+  {
+    "id": "f8bca99bff2487996d5b",
+    "it": "Se non viene indicata un’altra risorsa, l’attivazione utilizza l’Azione Bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "cbcd3b2eb5d82de815bb",
+    "it": "Se invece l’effetto si applica automaticamente quando vengono soddisfatte le condizioni previste, viene considerato passivo e non utilizza l’Azione Bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "b33ae8b6b6a415f6bc1c",
+    "it": "Una capacità che indica espressamente Azione, Reazione o un’altra modalità di attivazione utilizza naturalmente quella regola specifica.",
+    "kind": "html"
+  },
+  {
+    "id": "d0629e51514bdf6348ca",
+    "it": "Talenti di Reazione",
+    "kind": "html"
+  },
+  {
+    "id": "1eb8661cec30725d85c6",
+    "it": "I Talenti che si attivano in risposta a un evento specifico e richiedono una Reazione utilizzano la Reazione, non l’Azione Bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "bcd37d2cb120f7a1652c",
+    "it": "Per esempio, Scudo della Ciurma si utilizza quando un alleato sta per subire danni.",
+    "kind": "html"
+  },
+  {
+    "id": "f991b5505dd8ca655fb4",
+    "it": "6.2.3 · Azioni concesse fuori dal turno",
+    "kind": "html"
+  },
+  {
+    "id": "8e6e26ac436cedb06ae2",
+    "it": "Alcune capacità permettono a un personaggio di agire immediatamente fuori dal proprio turno.",
+    "kind": "html"
+  },
+  {
+    "id": "89d485fed3d246cf86e9",
+    "it": "Quando una capacità concede semplicemente un’Azione, il personaggio riceve esclusivamente una normale Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "3d303cd9c577ec0191c0",
+    "it": "Non riceve automaticamente:",
+    "kind": "html"
+  },
+  {
+    "id": "e4f5ba68aadd39454ad5",
+    "it": "Movimento.",
+    "kind": "html"
+  },
+  {
+    "id": "162461e4f44794154a26",
+    "it": "Azione Bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "a35b1b3b70109a461721",
+    "it": "Reazione aggiuntiva.",
+    "kind": "html"
+  },
+  {
+    "id": "28099c12c6ce01591f18",
+    "it": "Un nuovo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "244609ec6e93ed0b97f8",
+    "it": "Le risorse già consumate non vengono recuperate e le capacità utilizzate mantengono i propri costi e limiti.",
+    "kind": "html"
+  },
+  {
+    "id": "dfbe38ffa8c16cdb5356",
+    "it": "L’Azione concessa può attivare normalmente Firme, Talenti passivi e altri effetti compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "ad64b740d4b90add32c6",
+    "it": "Tuttavia, un’Azione ottenuta fuori dal turno non può essere utilizzata per attivare un’altra capacità il cui effetto principale sia concedere a sua volta un’Azione, un Movimento o un turno fuori dal normale ordine di Iniziativa.",
+    "kind": "html"
+  },
+  {
+    "id": "15cc9029b7f3f59e0f14",
+    "it": "Questa limitazione impedisce che Ordini, Firme o capacità analoghe generino catene di Azioni fra più personaggi.",
+    "kind": "html"
+  },
+  {
+    "id": "e11dec5d68cf80500e10",
+    "it": "Quando una capacità concede espressamente anche Movimento, Azione Bonus o altre risorse, prevale la sua descrizione specifica.",
+    "kind": "html"
+  },
+  {
+    "id": "816b2f381f1d92c60025",
+    "it": "<span class=\"man-sez-n\">6.3 ·</span> Attivazione e mantenimento dell’Haki",
+    "kind": "html"
+  },
+  {
+    "id": "94ea5d2fb8199215bcfc",
+    "it": "L’Haki richiede un’attivazione prima di poter applicare i benefici che dipendono dal suo stato attivo.",
+    "kind": "html"
+  },
+  {
+    "id": "2eff8d762dec8cae9930",
+    "it": "Attivare l’Haki",
+    "kind": "html"
+  },
+  {
+    "id": "ae2629a15e28fb3d8d70",
+    "it": "1 Azione BonusCosto di attivazione previsto",
+    "kind": "html"
+  },
+  {
+    "id": "cb283440d08abe8219bf",
+    "it": "L’attivazione consuma l’Azione Bonus del turno.",
+    "kind": "html"
+  },
+  {
+    "id": "b99462bc15a26d29e8a7",
+    "it": "Una volta attivo, l’Haki può essere utilizzato secondo le regole del relativo Colore e dei suoi effetti.",
+    "kind": "html"
+  },
+  {
+    "id": "6498cf6182a1bd2a0475",
+    "it": "Mantenimento",
+    "kind": "html"
+  },
+  {
+    "id": "90f25df908bf6dddee65",
+    "it": "Un Haki già attivo non deve essere attivato nuovamente a ogni turno.",
+    "kind": "html"
+  },
+  {
+    "id": "d0795033d9f5f685aab6",
+    "it": "Per mantenerlo, il personaggio paga il costo di mantenimento previsto. Per le capacità che richiedono 1 ST per turno, paga quindi 1 ST durante ciascun turno in cui prosegue il mantenimento.",
+    "kind": "html"
+  },
+  {
+    "id": "85aa38093a28dd5eb581",
+    "it": "Il mantenimento non consuma una nuova Azione Bonus, salvo che un effetto specifico stabilisca diversamente.",
+    "kind": "html"
+  },
+  {
+    "id": "95f7ff88227dd4eb5811",
+    "it": "Questo permette di attivare l’Haki in un turno e utilizzare l’Azione Bonus del turno successivo per un Talento attivo.",
+    "kind": "html"
+  },
+  {
+    "id": "a9bb454e59f05e85886f",
+    "it": "Esempio: un combattente attiva l’Haki dell’Armamento nel primo turno. Nel secondo lo mantiene pagando la ST richiesta e utilizza la propria Azione Bonus per attivare Raffica.",
+    "kind": "html"
+  },
+  {
+    "id": "417b4cf664d5beab1b46",
+    "it": "Se l’Haki non è più attivo, occorre attivarlo nuovamente prima di applicarne i benefici.",
+    "kind": "html"
+  },
+  {
+    "id": "b95998fcf349fa57ea9e",
+    "it": "<span class=\"man-sez-n\">6.4 ·</span> Le Special Moves",
+    "kind": "html"
+  },
+  {
+    "id": "55f5285e64b1323d75c3",
+    "it": "Una Special Move è una combinazione personalizzata delle capacità possedute dal personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "676a0f6beb01326cadc2",
+    "it": "Può comprendere una Tecnica, effetti del Costruttore, benefici dell’Haki e Talenti compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "004aee5f1219c0028a4c",
+    "it": "La Special Move serve a raccogliere queste componenti in una mossa pronta da utilizzare e consultare durante il combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "a19dd21befbb441ae3e0",
+    "it": "Regola delle Special Moves",
+    "kind": "html"
+  },
+  {
+    "id": "82f0f386bdbbb3db2535",
+    "it": "Una Special Move non concede effetti aggiuntivi, non elimina i costi e non modifica l’economia delle Azioni.",
+    "kind": "html"
+  },
+  {
+    "id": "6ed00ea5efc78f3d57d2",
+    "it": "Tutte le sue componenti devono essere utilizzabili nel momento in cui la mossa viene eseguita.",
+    "kind": "html"
+  },
+  {
+    "id": "47be26f9386fd3758707",
+    "it": "Gli effetti passivi si applicano automaticamente quando vengono soddisfatte le loro condizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "357219fe4ae1f9ce46be",
+    "it": "L’Haki deve essere attivo.",
+    "kind": "html"
+  },
+  {
+    "id": "ba658424d090099d5b9e",
+    "it": "La Special Move combina un’Azione normale, effetti passivi compatibili e al massimo un effetto da attivare con l’Azione Bonus: un Talento attivo oppure un effetto attivo Haki (⚡). Anche la prima attivazione di un Colore richiede la Bonus: queste attivazioni non si possono sommare nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "3af6dea8fd976e3b6880",
+    "it": "Una Special Move offensiva utilizza normalmente l’Azione principale per eseguire l’attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "fe4b791125094266112a",
+    "it": "La sua preparazione può invece richiedere uno o più turni, a seconda delle capacità coinvolte.",
+    "kind": "html"
+  },
+  {
+    "id": "2c92f1fdffeca6af1498",
+    "it": "6.4.1 · Attivazioni nello stesso turno",
+    "kind": "html"
+  },
+  {
+    "id": "cdc78cc3604d8264f4a7",
+    "it": "Se una Special Move richiede l’Haki, ma non richiede l’attivazione di un Talento attivo né di un effetto attivo Haki (⚡), il personaggio può:",
+    "kind": "html"
+  },
+  {
+    "id": "8c6d540fe5aceedac54a",
+    "it": "Attivare l’Haki con l’Azione Bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "52445577cf53e756a5b1",
+    "it": "Eseguire la Special Move con l’Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "111806388d3b1f230455",
+    "it": "Le due operazioni possono avvenire nello stesso turno perché utilizzano risorse differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "50e1765ab2597d9383b6",
+    "it": "6.4.2 · Attivazioni su più turni",
+    "kind": "html"
+  },
+  {
+    "id": "affbb8856ffcc0f5b781",
+    "it": "Se una Special Move richiede sia l’attivazione dell’Haki sia un Talento attivo, le due attivazioni non possono essere effettuate nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "91e1a1c7c0cbc262e2aa",
+    "it": "Il personaggio può preparare la combinazione attivando l’Haki nel primo turno, mantenendolo nel secondo e utilizzando allora l’Azione Bonus per il Talento.",
+    "kind": "html"
+  },
+  {
+    "id": "0fb47c1ad1398135e595",
+    "it": "La combinazione funziona soltanto se tutti gli effetti necessari risultano ancora applicabili al momento dell’esecuzione.",
+    "kind": "html"
+  },
+  {
+    "id": "0ee8e2ada7506b787560",
+    "it": "Non è possibile accumulare anticipatamente Talenti o effetti Haki istantanei. Un effetto preparato in un turno precedente rimane disponibile soltanto se la sua durata lo consente e non è ancora scaduto. Il costo già pagato non si ripete, ma la Special Move non rinnova né prolunga la durata.",
+    "kind": "html"
+  },
+  {
+    "id": "14c4b4196e54600352c6",
+    "it": "<b>6.4.3 · Esempio completo: Diable Jambe, Burning Combo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "0f1ff6d54b510244536d",
+    "it": "Un combattente possiede una Special Move che sfrutta l’Haki dell’Armamento e il Talento Raffica · Maestria.",
+    "kind": "html"
+  },
+  {
+    "id": "4cddfba70ffad72adea9",
+    "it": "La mossa contiene inoltre effetti passivi che si applicano quando vengono soddisfatte le rispettive condizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "36537dd3843b150e9689",
+    "it": "Burning Combo",
+    "kind": "html"
+  },
+  {
+    "id": "17868765a1ba97cdf27a",
+    "it": "Sequenza di preparazione ed esecuzione",
+    "kind": "html"
+  },
+  {
+    "id": "e224f371ab05e4350107",
+    "it": "Turno 1 · Preparazione",
+    "kind": "html"
+  },
+  {
+    "id": "5aa025656b76fa002fab",
+    "it": "Azione Bonus: attivi l’Haki dell’Armamento, pagando il costo di attivazione.",
+    "kind": "html"
+  },
+  {
+    "id": "881b291bd5a364c7daf6",
+    "it": "Azione: puoi comunque effettuare un normale attacco o un’altra azione disponibile.",
+    "kind": "html"
+  },
+  {
+    "id": "341da5943d300aabef0b",
+    "it": "L’Haki rimane attivo secondo le sue regole di durata e mantenimento.",
+    "kind": "html"
+  },
+  {
+    "id": "3ebf4897652923f9e77d",
+    "it": "Turno 2 · Esecuzione",
+    "kind": "html"
+  },
+  {
+    "id": "55bb801cfba8343d4c60",
+    "it": "Combo",
+    "kind": "html"
+  },
+  {
+    "id": "10184a6fdc07a0cd8161",
+    "it": "Mantenimento: paghi il costo previsto per mantenere l’Haki attivo.",
+    "kind": "html"
+  },
+  {
+    "id": "b9d6f6022086ac112bba",
+    "it": "Azione: esegui Burning Combo con l’attacco iniziale a mani nude.",
+    "kind": "html"
+  },
+  {
+    "id": "c93d9f9cce0d34379fd6",
+    "it": "Dopo l’attacco iniziale, Azione Bonus: attivi Raffica · Maestria.",
+    "kind": "html"
+  },
+  {
+    "id": "3caa907e842119e0e6b0",
+    "it": "Puoi tentare fino a tre attacchi base extra a mani nude, pagando rispettivamente 1 ST, 2 ST e 3 ST prima di ciascuno: la sequenza completa costa 6 ST, oltre ai costi dell’attacco iniziale e dell’Haki. Puoi fermarti dopo qualsiasi attacco extra; un mancato non interrompe la sequenza. Gli attacchi extra ordinari non riutilizzano la Tecnica Burning Combo.",
+    "kind": "html"
+  },
+  {
+    "id": "48ad9f13a2b578cb6572",
+    "it": "Gli effetti passivi si applicano automaticamente quando se ne verificano le condizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "45873c13974e90863243",
+    "it": "Se il personaggio colpisce lo stesso bersaglio almeno due volte durante il turno, può attivarsi Pressione Costante, purché sia presente tra i suoi Talenti passivi.",
+    "kind": "html"
+  },
+  {
+    "id": "29f310fd2460ee3468e7",
+    "it": "Non occorre spendere una seconda Azione Bonus per applicarlo.",
+    "kind": "html"
+  },
+  {
+    "id": "dece545f2181361e6b21",
+    "it": "La Special Move non anticipa né regala alcuna attivazione: descrive una combinazione che il personaggio deve preparare e realizzare rispettando le regole.",
+    "kind": "html"
+  },
+  {
+    "id": "8333d0665b3cf11edd82",
+    "it": "<span class=\"man-sez-n\">6.5 ·</span> Movimento e distanze",
+    "kind": "html"
+  },
+  {
+    "id": "9cf72ae5cdabf1b6ad1b",
+    "it": "Le distanze sono espresse in metri.",
+    "kind": "html"
+  },
+  {
+    "id": "16428e6c96ad9d916561",
+    "it": "Non è necessario utilizzare una griglia: il Game Master può descrivere narrativamente le posizioni e ricorrere alle misure quando servono a determinare portata, copertura o possibilità di spostamento.",
+    "kind": "html"
+  },
+  {
+    "id": "2ea0dca0c645959d5e19",
+    "it": "<b>Distanza</b>",
+    "kind": "html"
+  },
+  {
+    "id": "a63ac4407ddd322ce112",
+    "it": "<b>Riferimento</b>",
+    "kind": "html"
+  },
+  {
+    "id": "853881453b1a95029dae",
+    "it": "Combattimento ravvicinato",
+    "kind": "html"
+  },
+  {
+    "id": "15a57a2d7c9c6b03e1c8",
+    "it": "Alleato nelle vicinanze",
+    "kind": "html"
+  },
+  {
+    "id": "38d20c785d1c6a20dcec",
+    "it": "Una stanza o una porzione del ponte",
+    "kind": "html"
+  },
+  {
+    "id": "e24703b62fab845e9145",
+    "it": "Una distanza significativa per il tiro",
+    "kind": "html"
+  },
+  {
+    "id": "1a0b53cb12bc95345eed",
+    "it": "50 m e oltre",
+    "kind": "html"
+  },
+  {
+    "id": "a87c12d83abb50796f57",
+    "it": "Grandi aree e scala di paesaggio",
+    "kind": "html"
+  },
+  {
+    "id": "610adac7a535a25c85e1",
+    "it": "Movimento delle Razze",
+    "kind": "html"
+  },
+  {
+    "id": "f2e7f170afe5174559c3",
+    "it": "Umano",
+    "kind": "html"
+  },
+  {
+    "id": "f38277dce28d480720e8",
+    "it": "Uomo Pesce / Tritone, in acqua",
+    "kind": "html"
+  },
+  {
+    "id": "9bff625a34b76a80404a",
+    "it": "Gigante",
+    "kind": "html"
+  },
+  {
+    "id": "f8663d2d1f1bfdb45032",
+    "it": "Mink, in Sulong",
+    "kind": "html"
+  },
+  {
+    "id": "0b681623391a7ba01f5e",
+    "it": "Lunarian",
+    "kind": "html"
+  },
+  {
+    "id": "b98c9f3a387273e94550",
+    "it": "Cyborg",
+    "kind": "html"
+  },
+  {
+    "id": "518f3b5f92082a484d54",
+    "it": "Tontatta",
+    "kind": "html"
+  },
+  {
+    "id": "b733e2bb20f711973c14",
+    "it": "Non esiste un’Azione Corsa. Rinunciare all’Azione non raddoppia il Movimento.",
+    "kind": "html"
+  },
+  {
+    "id": "2fdc5ba79823a80853fd",
+    "it": "Il personaggio può superare la propria Velocità soltanto quando una capacità specifica lo consente.",
+    "kind": "html"
+  },
+  {
+    "id": "fd861becdd1085981cf4",
+    "it": "Arrampicarsi e nuotare",
+    "kind": "html"
+  },
+  {
+    "id": "8267251f6d255599ac76",
+    "it": "Arrampicarsi e nuotare richiedono il doppio del Movimento.",
+    "kind": "html"
+  },
+  {
+    "id": "04147f78c8007960a4eb",
+    "it": "Un personaggio con Movimento 10 metri può quindi percorrere 5 metri arrampicandosi.",
+    "kind": "html"
+  },
+  {
+    "id": "9988001fade66864ea00",
+    "it": "L’Uomo Pesce non subisce questa penalità quando si muove in acqua.",
+    "kind": "html"
+  },
+  {
+    "id": "c74c306d0b04c81aae2f",
+    "it": "Saltare e cadere",
+    "kind": "html"
+  },
+  {
+    "id": "8dbd3626fe46ef663ff8",
+    "it": "Con una breve rincorsa, un personaggio può saltare in lungo fino a metà del proprio Movimento.",
+    "kind": "html"
+  },
+  {
+    "id": "3094bdb3dd13e1a588e3",
+    "it": "Le cadute iniziano a provocare danni da 3 metri di altezza. Il GM determina le conseguenze in base alla distanza e alla situazione.",
+    "kind": "html"
+  },
+  {
+    "id": "1d6e7d0e33e644380c33",
+    "it": "<span class=\"man-sez-n\">6.6 ·</span> Portata in mischia",
+    "kind": "html"
+  },
+  {
+    "id": "db0f46ec607588ffbc80",
+    "it": "La portata indica la distanza massima alla quale un personaggio può colpire un bersaglio in mischia.",
+    "kind": "html"
+  },
+  {
+    "id": "8101a4f239602dccb330",
+    "it": "<b>Attaccante o arma</b>",
+    "kind": "html"
+  },
+  {
+    "id": "829f312d66e24427d861",
+    "it": "<b>Portata</b>",
+    "kind": "html"
+  },
+  {
+    "id": "4238137782d66e9fb6d8",
+    "it": "Mani nude e armi corte",
+    "kind": "html"
+  },
+  {
+    "id": "db3ff1fe8220fa564d68",
+    "it": "Lance, bastoni e altre armi lunghe",
+    "kind": "html"
+  },
+  {
+    "id": "7b9410100f0288be041e",
+    "it": "Giganti e Zoan di grande stazza",
+    "kind": "html"
+  },
+  {
+    "id": "09b3399a060a13480d02",
+    "it": "La portata indicata da un’arma o da una Tecnica specifica prevale sui valori generali.",
+    "kind": "html"
+  },
+  {
+    "id": "33c6abef7e23078d155d",
+    "it": "Allontanarsi da un nemico",
+    "kind": "html"
+  },
+  {
+    "id": "1a276f273f6d73a7d2af",
+    "it": "Quando un personaggio abbandona la portata di un avversario che lo minaccia, quest’ultimo può utilizzare la propria Reazione per effettuare un attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "ac853d25ded69c81ad3d",
+    "it": "Alcuni Talenti consentono di sganciarsi senza provocare attacchi di Reazione.",
+    "kind": "html"
+  },
+  {
+    "id": "33b6b01b34118b9034c9",
+    "it": "Un personaggio Sbilanciato non può effettuare questo attacco se lo stato gli impedisce di utilizzare Reazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "21a453e4f450de04a5c9",
+    "it": "Spostamenti forzati",
+    "kind": "html"
+  },
+  {
+    "id": "93a8cdc0dbd003c8e84a",
+    "it": "Gli spostamenti prodotti da Spinta, Proiezione, Attrazione, Trascinamento o da un’altra capacità che muove forzatamente una creatura non provocano attacchi di Reazione dovuti all’allontanamento.",
+    "kind": "html"
+  },
+  {
+    "id": "ff4ed19da84369c81c48",
+    "it": "Se uno spostamento forzato porterebbe una creatura oltre un bordo, fuori da una superficie o in una posizione dalla quale può ragionevolmente tentare di aggrapparsi, il bersaglio può effettuare una Salvezza di Forza.",
+    "kind": "html"
+  },
+  {
+    "id": "ffc8dbe0ad5ba9688f6d",
+    "it": "Se supera la Salvezza, riesce ad afferrarsi o a fermare la caduta quando ciò è materialmente possibile.",
+    "kind": "html"
+  },
+  {
+    "id": "1961cac31a97f26858f8",
+    "it": "Il Game Master stabilisce la Soglia in base alla situazione.",
+    "kind": "html"
+  },
+  {
+    "id": "6ab441b285616ddde4ee",
+    "it": "<span class=\"man-sez-n\">6.7 ·</span> Attaccare",
+    "kind": "html"
+  },
+  {
+    "id": "dc9feef179106bde7108",
+    "it": "Quando un personaggio effettua un attacco, utilizza un Attributo e il dado appropriato al tipo di attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "9669d7e3d9c42ce9ab7e",
+    "it": "Attacco base con arma",
+    "kind": "html"
+  },
+  {
+    "id": "df017ebe1289fa5f2161",
+    "it": "Attributo + Grado dell’Arma",
+    "kind": "html"
+  },
+  {
+    "id": "fe38ea03b6677c5f77e5",
+    "it": "Danno: Dado Arma.",
+    "kind": "html"
+  },
+  {
+    "id": "a7e54b52115c8827076f",
+    "it": "Attacco base a mani nude",
+    "kind": "html"
+  },
+  {
+    "id": "3d46aaa0ac29453126c9",
+    "it": "Attributo + Skill di Ruolo utilizzata per il combattimento",
+    "kind": "html"
+  },
+  {
+    "id": "3b2ddea9e5ac1615f22e",
+    "it": "Danno: dado della stessa Skill di Ruolo.",
+    "kind": "html"
+  },
+  {
+    "id": "99afc31054d9c102f83c",
+    "it": "Attacco con Tecnica",
+    "kind": "html"
+  },
+  {
+    "id": "93646633898dd4cb7c13",
+    "it": "Attributo + Dado Tecnica",
+    "kind": "html"
+  },
+  {
+    "id": "aa7fb930cea39048b322",
+    "it": "Danno: Dado Tecnica, salvo modifiche.",
+    "kind": "html"
+  },
+  {
+    "id": "5bc7b8a06062ef6269f2",
+    "it": "L’Attributo e la Skill utilizzati devono essere compatibili con il modo in cui il personaggio sta combattendo.",
+    "kind": "html"
+  },
+  {
+    "id": "b156717dfc622a09710b",
+    "it": "L’Attributo utilizzato è quello previsto dall’arma o dalla Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "de54ae88500ad07d3d98",
+    "it": "Il risultato viene confrontato con la Difesa Passiva del bersaglio, salvo che quest’ultimo utilizzi una difesa consentita dalle proprie capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "de57a6590034591c0760",
+    "it": "<span class=\"man-sez-n\">6.8 ·</span> Difesa Passiva",
+    "kind": "html"
+  },
+  {
+    "id": "802619aacd05bc9afe71",
+    "it": "La Difesa Passiva (DP) rappresenta la capacità di evitare o resistere a un attacco senza effettuare un tiro difensivo.",
+    "kind": "html"
+  },
+  {
+    "id": "cc7541f7f266e3a52843",
+    "it": "Difesa Passiva = somma dei valori massimi del Grado dell’Attributo Razziale + 1.",
+    "kind": "html"
+  },
+  {
+    "id": "d42a97b6649900a271ff",
+    "it": "I modificatori espliciti alla Difesa Passiva concessi da Talenti, Tecniche, coperture, Haki, Tratti Unici o altri effetti si applicano dopo aver determinato questo valore base.",
+    "kind": "html"
+  },
+  {
+    "id": "bc19cee47f3a709be3de",
+    "it": "<span class=\"man-sez-n\">6.9 ·</span> Il margine dell’attacco",
+    "kind": "html"
+  },
+  {
+    "id": "dd3622a0969c305c4bb6",
+    "it": "Per determinare l’esito di un attacco si calcola il margine:",
+    "kind": "html"
+  },
+  {
+    "id": "5896f9f7bfe298915e3b",
+    "it": "<b>Margine = risultato dell’attacco − DP</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7b9d793d7dc55a8312ce",
+    "it": "Inferiore a 0",
+    "kind": "html"
+  },
+  {
+    "id": "2e5bfd7ce697d981e7b9",
+    "it": "Mancato",
+    "kind": "html"
+  },
+  {
+    "id": "f19c153f3f4edd306405",
+    "it": "Difesa riuscita, nessun danno",
+    "kind": "html"
+  },
+  {
+    "id": "544bcd7902ac59ce3c19",
+    "it": "Colpo a segno",
+    "kind": "html"
+  },
+  {
+    "id": "f128e890cdbdae314539",
+    "it": "Colpo pulito",
+    "kind": "html"
+  },
+  {
+    "id": "3460cb2216b58a873a04",
+    "it": "Se il bersaglio ha scelto una Difesa Attiva, il Margine dell’attacco viene calcolato rispetto al risultato della Difesa Attiva anziché rispetto alla Difesa Passiva.",
+    "kind": "html"
+  },
+  {
+    "id": "3d49c313a9dbd14b78fd",
+    "it": "Un pareggio viene considerato una difesa riuscita e non può produrre un colpo a segno o un colpo pulito.",
+    "kind": "html"
+  },
+  {
+    "id": "94906b06b45b4850548e",
+    "it": "A differenza delle normali Prove, pareggiare la Difesa Passiva non è sufficiente per infliggere danni.",
+    "kind": "html"
+  },
+  {
+    "id": "1fc449bb775b5dcbc05d",
+    "it": "Un attacco con margine almeno +4 è un colpo pulito.",
+    "kind": "html"
+  },
+  {
+    "id": "594f9c0d22140ac0eb8f",
+    "it": "Il personaggio infligge il normale danno e applica le eventuali capacità che si attivano con questo risultato, comprese le Firme compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "a814210d286f3aea8581",
+    "it": "Il colpo pulito non raddoppia automaticamente il danno.",
+    "kind": "html"
+  },
+  {
+    "id": "49abce16d75a91029e01",
+    "it": "Esempio: un pirata attacca un nemico con DP 9 e ottiene 14.",
+    "kind": "html"
+  },
+  {
+    "id": "426523adf75b895627ec",
+    "it": "Il margine è +5: l’attacco è un colpo pulito.",
+    "kind": "html"
+  },
+  {
+    "id": "fd9f880641f6f323904d",
+    "it": "<span class=\"man-sez-n\">6.10 ·</span> Difesa Attiva e Reazioni",
+    "kind": "html"
+  },
+  {
+    "id": "fbf7828b92f3d67280d9",
+    "it": "La Difesa Attiva utilizza la Reazione del personaggio. Deve essere dichiarata quando viene scelto come bersaglio, prima del tiro per colpire dell’attaccante; sostituisce la Difesa Passiva per quell’attacco e non permette di tornare a essa dopo un fallimento.",
+    "kind": "html"
+  },
+  {
+    "id": "42f2954f5ce971e6a4fd",
+    "it": "Parata",
+    "kind": "html"
+  },
+  {
+    "id": "ea1fab80c8e6981539eb",
+    "it": "Un personaggio che impugna un’arma compatibile può tentare una normale Parata, spendendo la Reazione e rispettando gli eventuali costi e requisiti della capacità utilizzata. Non richiede un effetto Parata nel Costruttore.",
+    "kind": "html"
+  },
+  {
+    "id": "3f676d2371d4a2271803",
+    "it": "Attributo + Dado dell’arma",
+    "kind": "html"
+  },
+  {
+    "id": "5ed0cd53b372e1523ba2",
+    "it": "La Parata riesce se raggiunge o supera il tiro dell’attacco nemico. Una Parata riuscita evita il colpo, ma non infligge automaticamente danni. Contraccolpo richiede invece una Difesa Attiva eseguita con una Tecnica d’attacco compatibile.",
+    "kind": "html"
+  },
+  {
+    "id": "764f972dec60c10dc1f9",
+    "it": "Le Reazioni sono indipendenti dall’Azione Bonus: un personaggio che ha attivato l’Haki o un Talento nel proprio turno può ancora reagire se dispone della Reazione e soddisfa le condizioni richieste.",
+    "kind": "html"
+  },
+  {
+    "id": "efcc7f09a983bab04724",
+    "it": "<span class=\"man-sez-n\">6.11 ·</span> Danni e Punti Vita",
+    "kind": "html"
+  },
+  {
+    "id": "0e9d7607422e2877c898",
+    "it": "Quando un attacco va a segno, il personaggio tira il Dado Danno previsto dall’arma o dalla Tecnica utilizzata.",
+    "kind": "html"
+  },
+  {
+    "id": "340353bcb539dead08a8",
+    "it": "Per le Tecniche, il Dado Danno corrisponde normalmente al loro Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "8da3d2a7a8ef0cb0c284",
+    "it": "<b>Grado Tecnica</b>",
+    "kind": "html"
+  },
+  {
+    "id": "52d9c1d05ca9d539424f",
+    "it": "<b>Dado Danno</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7c71fa570814d32c2e5b",
+    "it": "Il risultato viene sottratto dai Punti Vita del bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "de83d915667cc5b03818",
+    "it": "<b>PV rimanenti = PV attuali − danno subito</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f40906018b96638f5627",
+    "it": "Gli eventuali dadi aggiuntivi, moltiplicatori e modificatori derivano dagli effetti effettivamente applicabili all’attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "00f2d8cb94930e5e58e7",
+    "it": "Costi delle Tecniche",
+    "kind": "html"
+  },
+  {
+    "id": "2fe00d14e4ec61929fbc",
+    "it": "Una Tecnica utilizzata senza potenziamenti non richiede automaticamente Stamina.",
+    "kind": "html"
+  },
+  {
+    "id": "ad6ddbb5f410349006e1",
+    "it": "Gli effetti aggiuntivi del Costruttore richiedono invece i costi indicati nelle rispettive descrizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "1f57c409105ea5c213c7",
+    "it": "Quando una Special Move comprende più effetti, tutti i costi applicabili devono essere pagati. La Special Move non concede sconti impliciti.",
+    "kind": "html"
+  },
+  {
+    "id": "070ecb983d72b3941457",
+    "it": "Ordine dei calcoli",
+    "kind": "html"
+  },
+  {
+    "id": "8cbb173a5efcafe3730b",
+    "it": "Quando più effetti modificano lo stesso danno, vengono applicati nel seguente ordine:",
+    "kind": "html"
+  },
+  {
+    "id": "b24ceaf9a743ae2e0811",
+    "it": "aumenti o riduzioni di Grado dei dadi;",
+    "kind": "html"
+  },
+  {
+    "id": "e4f4dd7596699fbe944e",
+    "it": "aggiunta o rimozione di dadi;",
+    "kind": "html"
+  }
+]

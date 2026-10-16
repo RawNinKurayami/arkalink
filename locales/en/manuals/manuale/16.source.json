@@ -1,0 +1,2397 @@
+[
+  {
+    "id": "bf30b3e12e91a2146304",
+    "it": "Una capacità sbloccata attraverso Retaggio Ancestrale o Mitologico può diventare Fonte narrativa per nuove Tecniche del Frutto, rispettando normalmente le regole del Costruttore: il Talento non concede automaticamente gli effetti del Costruttore, ma la capacità che permette di rappresentarli.",
+    "kind": "html"
+  },
+  {
+    "id": "5e84093245c8ee992f00",
+    "it": "Istinto di Sopravvivenza",
+    "kind": "html"
+  },
+  {
+    "id": "1deaf9bc046b2b545574",
+    "it": "Quando scenderesti a 0 PV",
+    "kind": "html"
+  },
+  {
+    "id": "1f76381ee5523b9eb4ff",
+    "it": "Quando un attacco o un altro effetto ti porterebbe a 0 PV, l'istinto animale ti permette di rimanere in piedi.",
+    "kind": "html"
+  },
+  {
+    "id": "af205438387b48b661d3",
+    "it": "Rimani cosciente con 1 PV fino alla fine del tuo prossimo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "ec1032ad1a13bfe48ad2",
+    "it": "Il PV ottenuto è temporaneo e non rappresenta una guarigione: alla fine del tuo prossimo turno scendi a 0 PV, salvo che nel frattempo tu abbia ricevuto una vera guarigione sufficiente a mantenerti sopra 0.",
+    "kind": "html"
+  },
+  {
+    "id": "57f90caf6f58795ba4e3",
+    "it": "Trasformazione Istintiva",
+    "kind": "html"
+  },
+  {
+    "id": "e800897760a85e01bb94",
+    "it": "Quando stai per essere direttamente coinvolto da un attacco, una Tecnica ostile o un altro effetto pericoloso, puoi utilizzare la tua Reazione per trasformarti immediatamente.",
+    "kind": "html"
+  },
+  {
+    "id": "0d38f6d1f382dffd8c82",
+    "it": "La trasformazione avviene prima della risoluzione dell&#x27;effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "d978be103e4b0b532bd0",
+    "it": "Puoi utilizzare Trasformazione Istintiva anche quando sei:",
+    "kind": "html"
+  },
+  {
+    "id": "cd5d0591eb74a553b449",
+    "it": "addormentato;",
+    "kind": "html"
+  },
+  {
+    "id": "4b0519a7a4c87e2ff211",
+    "it": "Stordito;",
+    "kind": "html"
+  },
+  {
+    "id": "9ebc5da5bf34beae7bd1",
+    "it": "privo di sensi.",
+    "kind": "html"
+  },
+  {
+    "id": "d573ecc6d102f9362f9f",
+    "it": "La capacità effettua esclusivamente il cambio di forma.",
+    "kind": "html"
+  },
+  {
+    "id": "a3345afaaae24c4e6c82",
+    "it": "Non attiva automaticamente altri Talenti attivi associati alla forma assunta.",
+    "kind": "html"
+  },
+  {
+    "id": "f38a8922005271336fe6",
+    "it": "Economia delle trasformazioni",
+    "kind": "html"
+  },
+  {
+    "id": "4c9d5668331ca95f2c2d",
+    "it": "Trasformazione normale: Azione principale, 0 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "916b0170c368f9375fce",
+    "it": "Tre Forme: Azione Bonus, 0 ST, 1 volta per turno.",
+    "kind": "html"
+  },
+  {
+    "id": "4f7204753e3888f292b5",
+    "it": "Trasformazione Istintiva: Reazione, 0 ST, 1 volta per scena.",
+    "kind": "html"
+  },
+  {
+    "id": "32640d9741d756738fbe",
+    "it": "Richiamo del Sangue",
+    "kind": "html"
+  },
+  {
+    "id": "1c1e92bbdb8da7e3bac3",
+    "it": "Passivo · Narrativo",
+    "kind": "html"
+  },
+  {
+    "id": "44931b86e0201fc46098",
+    "it": "Gli animali appartenenti alla tua stessa specie, o a specie abbastanza vicine da riconoscerti, ti considerano un capobranco.",
+    "kind": "html"
+  },
+  {
+    "id": "d6e83d30de6d5df7c1cd",
+    "it": "Non ti attaccano per primi e ti permettono normalmente di attraversare il loro territorio.",
+    "kind": "html"
+  },
+  {
+    "id": "00b385af1a8ccb789293",
+    "it": "Con tempo e pazienza, possono arrivare a seguirti.",
+    "kind": "html"
+  },
+  {
+    "id": "90b39f585e9d34583241",
+    "it": "Il Talento non concede automaticamente il controllo mentale degli animali né li trasforma in combattenti subordinati senza ulteriori condizioni narrative.",
+    "kind": "html"
+  },
+  {
+    "id": "9896ff3642ebbad64813",
+    "it": "Gli animali non diventano automaticamente servitori, combattenti, compagni permanenti o creature disposte a sacrificarsi. Richieste rischiose o contrarie al loro comportamento naturale possono richiedere tempo, condizioni narrative o prove appropriate.",
+    "kind": "html"
+  },
+  {
+    "id": "0d041e7272389fb8700f",
+    "it": "9.9.6 · d20: Il Risveglio",
+    "kind": "html"
+  },
+  {
+    "id": "a0b884bab71d8847a6d7",
+    "it": "Risveglio · Zoan",
+    "kind": "html"
+  },
+  {
+    "id": "be9ecb75d553049ba60b",
+    "it": "Il personaggio raggiunge la:",
+    "kind": "html"
+  },
+  {
+    "id": "64d6a82e3a017d0ea188",
+    "it": "<b>Forma Definitiva.</b>",
+    "kind": "html"
+  },
+  {
+    "id": "5f6b72d72413295de616",
+    "it": "Corpo, istinti e caratteristiche fondamentali dello Zoan raggiungono una manifestazione impossibile attraverso la normale trasformazione.",
+    "kind": "html"
+  },
+  {
+    "id": "da21b5f7511cc9da9d8b",
+    "it": "Il Risveglio dura:",
+    "kind": "html"
+  },
+  {
+    "id": "448d43de5ea7c84df6fe",
+    "it": "Rigenerazione Risvegliata",
+    "kind": "html"
+  },
+  {
+    "id": "bc9f22d9bd75205c14f1",
+    "it": "All&#x27;inizio di ogni turno recuperi:",
+    "kind": "html"
+  },
+  {
+    "id": "17b3ca3665cff30a156b",
+    "it": "<b>1d10 PV.</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7c5a82f861c1370a42d8",
+    "it": "Non puoi superare i PV massimi.",
+    "kind": "html"
+  },
+  {
+    "id": "e7577dc5c2740b48144b",
+    "it": "Armi Naturali Risvegliate",
+    "kind": "html"
+  },
+  {
+    "id": "4a5d906b0e6aba16b701",
+    "it": "Gli attacchi effettuati direttamente attraverso il corpo trasformato o attraverso le Armi Naturali ottengono:",
+    "kind": "html"
+  },
+  {
+    "id": "3ddc72997f14e8da5072",
+    "it": "<b>+2 Dadi Danno.</b>",
+    "kind": "html"
+  },
+  {
+    "id": "84bca44793316aa9bb0e",
+    "it": "Il beneficio non concede attacchi aggiuntivi.",
+    "kind": "html"
+  },
+  {
+    "id": "97daf16bdb360e07e6a0",
+    "it": "Istinto Assoluto",
+    "kind": "html"
+  },
+  {
+    "id": "45724cd6828a6fc90511",
+    "it": "Durante la Forma Definitiva non puoi essere:",
+    "kind": "html"
+  },
+  {
+    "id": "aa25ac14fb5a6790a01f",
+    "it": "<b>Stordito</b> o <b>Sbilanciato.</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3a346be52f0d29114166",
+    "it": "Caratteristica Dominante",
+    "kind": "html"
+  },
+  {
+    "id": "837c7482f2393b2ec194",
+    "it": "Ogni Risveglio Zoan porta inoltre all&#x27;estremo una caratteristica fondamentale della creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "6f0dc72754c82d4460f7",
+    "it": "Il Beneficio viene definito attraverso la normale Linea Guida del Risveglio.",
+    "kind": "html"
+  },
+  {
+    "id": "89729ce7155511b7d5d8",
+    "it": "Può riguardare:",
+    "kind": "html"
+  },
+  {
+    "id": "4f537fcdbaef49fc4d56",
+    "it": "<b>Sensi</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f43aff1de4d21df729f9",
+    "it": "<b>Controllo del corpo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f4e67fe59059c0b68145",
+    "it": "<b>Retaggio Ancestrale o Mitologico</b>",
+    "kind": "html"
+  },
+  {
+    "id": "1e678c5119f6f457c8ab",
+    "it": "Non esiste un aumento universale a Forza o Movimento.",
+    "kind": "html"
+  },
+  {
+    "id": "81306224724b5370f058",
+    "it": "La Caratteristica Dominante deve riflettere la natura specifica della creatura e rimane invariata una volta definita.",
+    "kind": "html"
+  },
+  {
+    "id": "3da44fb63f84429b3810",
+    "it": "Prezzo del Risveglio",
+    "kind": "html"
+  },
+  {
+    "id": "ec9671635ff9fb6449ab",
+    "it": "<b>il personaggio non può utilizzare nuovamente le trasformazioni Zoan fino al prossimo Riposo Lungo.</b>",
+    "kind": "html"
+  },
+  {
+    "id": "9970e6a62cc99fd79beb",
+    "it": "Capitolo 10 ·",
+    "kind": "html"
+  },
+  {
+    "id": "bfb82ac925f17205de74",
+    "it": "Armi ed Equipaggiamento",
+    "kind": "html"
+  },
+  {
+    "id": "0f688c663730ba18e628",
+    "it": "Una spada può essere soltanto un pezzo di ferro. Oppure può essere una lama tramandata per generazioni, forgiata da un maestro e capace di accompagnare il proprio proprietario fino alla fine della Grand Line.",
+    "kind": "html"
+  },
+  {
+    "id": "c124622af61d4aa4861d",
+    "it": "In Grand Line Chronicles, le armi possiedono un'identità meccanica distinta dalle Tecniche. Il personaggio impara a combattere attraverso il proprio Stile, sviluppa le mosse attraverso il Costruttore di Tecniche e utilizza le armi come strumenti per eseguirle.",
+    "kind": "html"
+  },
+  {
+    "id": "c177ed280b0673e473d2",
+    "it": "Un'arma non genera una Tecnica: la esegue.",
+    "kind": "html"
+  },
+  {
+    "id": "fe3cbe61dcbd64e18570",
+    "it": "Il suo Grado indica la qualità dello strumento. Un eventuale effetto speciale rappresenta invece una proprietà aggiuntiva, distinta dal Grado e soggetta all'approvazione del Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "11f01b48aad232a82ea8",
+    "it": "<span class=\"man-sez-n\">10.1 ·</span> La struttura di un'arma",
+    "kind": "html"
+  },
+  {
+    "id": "6e68de5da8f5bd4db371",
+    "it": "Ogni arma è definita attraverso il Costruttore d'Arma.",
+    "kind": "html"
+  },
+  {
+    "id": "b7fd4049573a2f6847f1",
+    "it": "Scheda di un'arma",
+    "kind": "html"
+  },
+  {
+    "id": "c905c40820defcc3e9b2",
+    "it": "Identifica l'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "dd81e899f6180a7d9a3f",
+    "it": "Determina la categoria e lo Stile compatibile.",
+    "kind": "html"
+  },
+  {
+    "id": "4fefa00d1affed48cf19",
+    "it": "Grado",
+    "kind": "html"
+  },
+  {
+    "id": "d688abd95ae2483a9860",
+    "it": "Rappresenta la qualità dell'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "707eecb875fcc98a3281",
+    "it": "Attributo",
+    "kind": "html"
+  },
+  {
+    "id": "7460d4d5b19c00035f92",
+    "it": "Portata",
+    "kind": "html"
+  },
+  {
+    "id": "fe6cecc4aef729a8223a",
+    "it": "Determina la distanza alla quale può essere utilizzata.",
+    "kind": "html"
+  },
+  {
+    "id": "f1e628e4b180e1b2e740",
+    "it": "Effetto speciale",
+    "kind": "html"
+  },
+  {
+    "id": "5d328b35533496dc61f5",
+    "it": "Una proprietà aggiuntiva, se presente.",
+    "kind": "html"
+  },
+  {
+    "id": "dff2bf83391012d00b54",
+    "it": "Condizioni",
+    "kind": "html"
+  },
+  {
+    "id": "e5584c3241a206c6cc28",
+    "it": "Indicano quando l'effetto può essere applicato.",
+    "kind": "html"
+  },
+  {
+    "id": "13cf86b02a0d2508a0af",
+    "it": "Prezzo",
+    "kind": "html"
+  },
+  {
+    "id": "bc777297b8950046b4f4",
+    "it": "Eventuale costo dell'effetto speciale.",
+    "kind": "html"
+  },
+  {
+    "id": "4efa67bc53177751906d",
+    "it": "Approvazione GM",
+    "kind": "html"
+  },
+  {
+    "id": "cd085d2bfd97a4f535ae",
+    "it": "Conferma che le proprietà sono state concordate al tavolo.",
+    "kind": "html"
+  },
+  {
+    "id": "58a97dc686773a801fe3",
+    "it": "Le armi comuni non devono necessariamente possedere un effetto speciale.",
+    "kind": "html"
+  },
+  {
+    "id": "5f9d23d5aa53820bc447",
+    "it": "Una katana d8 senza effetti rimane una katana d8 perfettamente utilizzabile, purché il personaggio soddisfi i requisiti richiesti.",
+    "kind": "html"
+  },
+  {
+    "id": "817e0b8de22c7884423e",
+    "it": "Il Grado e l'effetto speciale sono due caratteristiche indipendenti: aumentare il Grado non genera automaticamente un nuovo effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "a597009bc21aa8a2a785",
+    "it": "<span class=\"man-sez-n\">10.2 ·</span> I sei tipi di arma",
+    "kind": "html"
+  },
+  {
+    "id": "83c7946e505600504064",
+    "it": "Il sistema distingue sei categorie.",
+    "kind": "html"
+  },
+  {
+    "id": "0fc63bd09042a96b4a27",
+    "it": "Katane, spade, sciabole e pugnali.",
+    "kind": "html"
+  },
+  {
+    "id": "269fa6224289a87f6289",
+    "it": "Mazze, martelli, clave e tirapugni.",
+    "kind": "html"
+  },
+  {
+    "id": "2b8c1e22593a69721c4f",
+    "it": "Lance, bastoni, alabarde e tridenti.",
+    "kind": "html"
+  },
+  {
+    "id": "89eb4cd1bb378fb6cac5",
+    "it": "Variabile",
+    "kind": "html"
+  },
+  {
+    "id": "b54257e5c970ad6ea945",
+    "it": "Pistole, fucili, archi e balestre.",
+    "kind": "html"
+  },
+  {
+    "id": "7f92591d57db4e25f025",
+    "it": "Coltelli, giavellotti, asce da lancio e shuriken.",
+    "kind": "html"
+  },
+  {
+    "id": "831df77fa11804c3feda",
+    "it": "Accesso condiviso",
+    "kind": "html"
+  },
+  {
+    "id": "ab725738f603190bf707",
+    "it": "Fruste, catene e strumenti non convenzionali.",
+    "kind": "html"
+  },
+  {
+    "id": "ac4e0792e57750ea174d",
+    "it": "Da verificare",
+    "kind": "html"
+  },
+  {
+    "id": "ab37b2366675c137e3fe",
+    "it": "L'assegnazione dello Stile determina quali armi possono essere utilizzate per eseguire le relative Tecniche e, quando consentito, sfruttarne gli effetti speciali.",
+    "kind": "html"
+  },
+  {
+    "id": "aa03777ef408570f7eb5",
+    "it": "Le armi di tipo Speciale appartengono alla struttura originaria dell'arsenale, ma lo Stile Special non è attualmente selezionabile nella scheda V2. La loro presenza nel catalogo non equivale quindi a una compatibilità automatica con gli Stili disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "153b5b418a1cf4a4417c",
+    "it": "<span class=\"man-sez-n\">10.3 ·</span> Le armi ad asta",
+    "kind": "html"
+  },
+  {
+    "id": "bad2f4576cd4e3bda0aa",
+    "it": "Le armi ad asta possiedono una particolarità: devono essere classificate in base alla propria modalità di utilizzo.",
+    "kind": "html"
+  },
+  {
+    "id": "45139842005e571a3be4",
+    "it": "Il Costruttore prevede due modalità.",
+    "kind": "html"
+  },
+  {
+    "id": "643519d151f692da8e88",
+    "it": "Tagliente",
+    "kind": "html"
+  },
+  {
+    "id": "7a779478f3aa10eac004",
+    "it": "Utilizza una punta o una lama come elemento principale.",
+    "kind": "html"
+  },
+  {
+    "id": "e6d1560383db865c62d2",
+    "it": "Utilizza l'asta come arma da impatto.",
+    "kind": "html"
+  },
+  {
+    "id": "fb5fea8cfd9b439f8906",
+    "it": "La modalità deve essere scelta durante la costruzione dell'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "57cb85a6d5bcd191583a",
+    "it": "Esempio: una lancia classificata come Tagliente richiede lo Stile Swordsman per sfruttarne l'effetto speciale. Un bastone ferrato classificato come Contundente richiede invece Crusher.",
+    "kind": "html"
+  },
+  {
+    "id": "e0fac95f35a3941124ff",
+    "it": "La modalità non può essere lasciata indefinita quando occorre stabilire la compatibilità dell'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "18df2793208dab12e9e0",
+    "it": "<span class=\"man-sez-n\">10.4 ·</span> Il Grado dell'arma",
+    "kind": "html"
+  },
+  {
+    "id": "5327c3e1c7c59b882629",
+    "it": "Il Grado rappresenta la qualità dell'arma e viene espresso attraverso un dado.",
+    "kind": "html"
+  },
+  {
+    "id": "9be0e2c9dd684718b2e8",
+    "it": "<b>Qualità</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f9e1542feac89c7c15d3",
+    "it": "Il Grado dell'arma è distinto dal Grado delle Tecniche e dal Dado razziale.",
+    "kind": "html"
+  },
+  {
+    "id": "a21063bec424216b31f1",
+    "it": "Un personaggio potrebbe possedere una katana d10 e una Tecnica d8: i due valori non diventano automaticamente identici.",
+    "kind": "html"
+  },
+  {
+    "id": "93f64c035c41366ea317",
+    "it": "10.4.1 · Requisito dell'Attributo",
+    "kind": "html"
+  },
+  {
+    "id": "ec9b67e8abdbcc6138fa",
+    "it": "Per utilizzare un'arma, il dado dell'Attributo di riferimento deve essere pari o superiore al Grado dell'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "912ead9a245b5013832e",
+    "it": "<b>Dado Attributo ≥ Grado Arma</b>",
+    "kind": "html"
+  },
+  {
+    "id": "c99a6cfba57bb5de5eee",
+    "it": "Un personaggio con Tecnica d8 può utilizzare un'arma associata a Tecnica d8, ma non soddisfa il requisito di una d10.",
+    "kind": "html"
+  },
+  {
+    "id": "1845a83a988f184cc392",
+    "it": "La regola è rilevante soprattutto quando un pirata ottiene un'arma straordinaria prima di aver sviluppato abbastanza le proprie capacità per impugnarla efficacemente.",
+    "kind": "html"
+  },
+  {
+    "id": "53f10e457aa1414cd8fa",
+    "it": "Eccezione Striker: lo Striker combatte a mani nude e non necessita di un Grado d'arma per le proprie Tecniche. Utilizza il proprio Attributo senza essere limitato dal requisito di un'arma impugnata.",
+    "kind": "html"
+  },
+  {
+    "id": "9c84d1111162555ce9c4",
+    "it": "Il Costruttore registra l'Attributo e il Grado come campi distinti. Il requisito deve essere verificato al tavolo: la sola presenza dell'arma nella scheda non dimostra che il personaggio soddisfi automaticamente ogni condizione.",
+    "kind": "html"
+  },
+  {
+    "id": "f6dabb8876b86d02d9f7",
+    "it": "<span class=\"man-sez-n\">10.5 ·</span> L'Attributo dell'arma",
+    "kind": "html"
+  },
+  {
+    "id": "195184e101f63aa01c88",
+    "it": "Ogni arma utilizza uno dei due Attributi previsti dal Costruttore.",
+    "kind": "html"
+  },
+  {
+    "id": "a3e8bf8352d23fd0c78b",
+    "it": "<b>Applicazione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "254f52eb96fccae286b1",
+    "it": "Armi utilizzate principalmente attraverso potenza e controllo fisico.",
+    "kind": "html"
+  },
+  {
+    "id": "f1b8decb2c001f9bc268",
+    "it": "Armi utilizzate principalmente attraverso precisione e abilità.",
+    "kind": "html"
+  },
+  {
+    "id": "346e43db6f7fb594ebb7",
+    "it": "L'Attributo viene scelto durante la costruzione e concordato con il GM.",
+    "kind": "html"
+  },
+  {
+    "id": "668a9e529b670a32f6d3",
+    "it": "Non è assegnato automaticamente dal nome dell'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "fb749c121853910f7cfd",
+    "it": "Due armi dello stesso Tipo possono utilizzare Attributi differenti quando il loro design e il modo di impugnarle lo giustificano.",
+    "kind": "html"
+  },
+  {
+    "id": "cb40ed415f5bba4fa920",
+    "it": "Per esempio, una spada particolarmente pesante potrebbe essere associata a Forza, mentre una lama progettata per colpi precisi potrebbe utilizzare Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "b8b3eea8b4e0d84906a0",
+    "it": "Il GM deve approvare l'associazione, evitando che l'Attributo venga modificato liberamente a ogni attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "8f1e9846f7ac383e83d2",
+    "it": "<span class=\"man-sez-n\">10.6 ·</span> Armi e combattimento",
+    "kind": "html"
+  },
+  {
+    "id": "adf21fbdf0e8c1a14aeb",
+    "it": "Un'arma può essere utilizzata per effettuare un attacco base oppure come strumento per eseguire una Tecnica compatibile.",
+    "kind": "html"
+  },
+  {
+    "id": "b2cb398be023b73b813a",
+    "it": "Le due situazioni utilizzano formule differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "4b75a515bdbc3b49ded6",
+    "it": "10.6.1 · Attacco base",
+    "kind": "html"
+  },
+  {
+    "id": "61b6e01a57b4799a43d7",
+    "it": "Quando un personaggio effettua un attacco base con un'arma, tira:",
+    "kind": "html"
+  },
+  {
+    "id": "8ebcd8d0f65e75b68367",
+    "it": "Tiro per colpire",
+    "kind": "html"
+  },
+  {
+    "id": "4138a37d9d0c43067f37",
+    "it": "Attributo + Grado Arma",
+    "kind": "html"
+  },
+  {
+    "id": "7c13de9e6fc5d340370a",
+    "it": "Il risultato viene confrontato con la Difesa del bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "ccd7a965b14bfaea15f5",
+    "it": "Il Dado Danno dell'attacco base segue il Grado dell'arma, salvo effetti che stabiliscono diversamente.",
+    "kind": "html"
+  },
+  {
+    "id": "6618fd74d4d8cf5c9f28",
+    "it": "Un pirata con Forza d8 utilizza una mazza d8.",
+    "kind": "html"
+  },
+  {
+    "id": "22c53197f7a47b7d97d2",
+    "it": "Il suo tiro per colpire è:",
+    "kind": "html"
+  },
+  {
+    "id": "2858c1f685b42175c634",
+    "it": "<b>1d8 (Forza) + 1d8 (Arma)</b>",
+    "kind": "html"
+  },
+  {
+    "id": "9e597fb73daab122e0e2",
+    "it": "Se colpisce, tira il danno dell'arma, applicando soltanto gli eventuali modificatori consentiti.",
+    "kind": "html"
+  },
+  {
+    "id": "49b208a3b38cfbca5ccc",
+    "it": "10.6.2 · Attacco con Tecnica",
+    "kind": "html"
+  },
+  {
+    "id": "a8994881ac6e97f6fef2",
+    "it": "Quando il personaggio utilizza una Tecnica, il tiro per colpire segue la formula:",
+    "kind": "html"
+  },
+  {
+    "id": "b6d44b18c22dbdbe84c6",
+    "it": "<b>Attributo + Dado Tecnica</b>",
+    "kind": "html"
+  },
+  {
+    "id": "5d62334c2c36f324e11f",
+    "it": "Il Dado Danno è quello della Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "88209814b4a156252221",
+    "it": "Il Grado dell'arma non sostituisce il Dado Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "5294fc568b00f6a0780b",
+    "it": "Una spada d12 non trasforma automaticamente una Tecnica d8 in una Tecnica d12.",
+    "kind": "html"
+  },
+  {
+    "id": "98343a73f4099f170f22",
+    "it": "L'arma permette di eseguire la mossa e può contribuire attraverso un proprio effetto speciale compatibile, ma non concede un aumento gratuito del Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "5495db2f222bc1dbc4d8",
+    "it": "<span class=\"man-sez-n\">10.7 ·</span> Portata",
+    "kind": "html"
+  },
+  {
+    "id": "9a364f3274d126a62d87",
+    "it": "La Portata indica la distanza alla quale un'arma può raggiungere il bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "a6f72fd253d6489c4711",
+    "it": "Le armi da mischia del catalogo iniziale utilizzano la dicitura generale Corpo a corpo.",
+    "kind": "html"
+  },
+  {
+    "id": "8b8b8d81a49f4df3ba35",
+    "it": "La portata effettiva può variare in base alle caratteristiche dell'arma, alla Razza del personaggio e a eventuali capacità specifiche.",
+    "kind": "html"
+  },
+  {
+    "id": "5dae4b4e3bab8ce712e5",
+    "it": "Per le armi a distanza, da lancio e speciali, il catalogo V2 non assegna ancora un valore universale in metri.",
+    "kind": "html"
+  },
+  {
+    "id": "181b1952dab4aefcfe68",
+    "it": "Il valore deve essere registrato nella scheda quando viene definito dal GM.",
+    "kind": "html"
+  },
+  {
+    "id": "84cafccb4c1fe84bb910",
+    "it": "<b>Tipo di arma</b>",
+    "kind": "html"
+  },
+  {
+    "id": "5daa1a58e8a23a24d47f",
+    "it": "<b>Indicazione iniziale</b>",
+    "kind": "html"
+  },
+  {
+    "id": "fc0c258288401c6f0a93",
+    "it": "Corpo a corpo",
+    "kind": "html"
+  },
+  {
+    "id": "f7d4efef8c7495b497c7",
+    "it": "Corpo a corpo, con portata effettiva da definire",
+    "kind": "html"
+  },
+  {
+    "id": "fafb7eb1d4dd0270fb62",
+    "it": "Portata da registrare",
+    "kind": "html"
+  },
+  {
+    "id": "c301cce8e8c4f0ed7cde",
+    "it": "Non è corretto assegnare automaticamente 20 metri a ogni pistola o 10 metri a ogni coltello da lancio. Il valore dipende dall'arma effettivamente progettata.",
+    "kind": "html"
+  },
+  {
+    "id": "4182fc8ee7f466a5d165",
+    "it": "Quando una Tecnica specifica una propria portata, si applicano anche le regole previste dalla Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "f9f845fc44b7007a5b02",
+    "it": "<span class=\"man-sez-n\">10.8 ·</span> Compatibilità con gli Stili",
+    "kind": "html"
+  },
+  {
+    "id": "a0869d865f1b4a8ba1ee",
+    "it": "Il sistema distingue tre aspetti: possedere un'arma, poterla utilizzare e poterne sfruttare l'effetto speciale.",
+    "kind": "html"
+  },
+  {
+    "id": "11a343f327db260e91cb",
+    "it": "Non sono necessariamente la stessa cosa.",
+    "kind": "html"
+  },
+  {
+    "id": "0b376d16d0cea06d8585",
+    "it": "10.8.1 · Lo Stile determina l'arsenale",
+    "kind": "html"
+  },
+  {
+    "id": "2b3a57ab6b16842baff7",
+    "it": "Le armi vengono assegnate agli Stili di Combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "0a4326aa6454d2c2797e",
+    "it": "<b>Armi associate</b>",
+    "kind": "html"
+  },
+  {
+    "id": "87f20011e76e969a6dbd",
+    "it": "Lama, arma ad asta Tagliente",
+    "kind": "html"
+  },
+  {
+    "id": "4c5c726c806bf33ddd81",
+    "it": "Contundente, arma ad asta Contundente",
+    "kind": "html"
+  },
+  {
+    "id": "c32722367a953184c794",
+    "it": "A distanza, da lancio",
+    "kind": "html"
+  },
+  {
+    "id": "0e3ed94df8385c44638f",
+    "it": "Mani nude per le Tecniche dello Stile",
+    "kind": "html"
+  },
+  {
+    "id": "918113ece48e5386e587",
+    "it": "Le armi da lancio costituiscono una categoria condivisa per i posti dell'Arsenale.",
+    "kind": "html"
+  },
+  {
+    "id": "fe72a24f8ac2e15c2d35",
+    "it": "Tuttavia, la loro compatibilità con gli effetti speciali e con le Tecniche di Stile segue l'associazione prevista per lo Sniper.",
+    "kind": "html"
+  },
+  {
+    "id": "9f08dc4f53f0d37c30a9",
+    "it": "Un Crusher può avere accesso a un'arma da lancio nel proprio Arsenale.",
+    "kind": "html"
+  },
+  {
+    "id": "8a56244711de91ad4d26",
+    "it": "Questo non lo trasforma in uno Sniper e non gli permette di eseguire Tecniche Sniper.",
+    "kind": "html"
+  },
+  {
+    "id": "2b5fc1aaeba707fb076f",
+    "it": "Per sfruttare un effetto speciale che richiede espressamente lo Stile Sniper, deve possedere quello Stile.",
+    "kind": "html"
+  },
+  {
+    "id": "3fbe0af2966762e0a9a3",
+    "it": "10.8.2 · Armi non compatibili",
+    "kind": "html"
+  },
+  {
+    "id": "12d289d9178ffe4d9abc",
+    "it": "Quando il personaggio non possiede lo Stile richiesto dall'arma, non può utilizzarne l'effetto speciale.",
+    "kind": "html"
+  },
+  {
+    "id": "e570295b488ed4770cf7",
+    "it": "La gestione V2 distingue questo caso dall'utilizzo del semplice Grado dell'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "c51fc03735617dc1581d",
+    "it": "Le limitazioni dello Stile e dell'Arsenale rimangono comunque valide: un'arma registrata nella scheda non diventa automaticamente equipaggiabile.",
+    "kind": "html"
+  },
+  {
+    "id": "bda5def3196c4fe0ae00",
+    "it": "10.8.3 · Personaggi senza ruolo Combattente",
+    "kind": "html"
+  },
+  {
+    "id": "2f31b99f066613b9e6a3",
+    "it": "Nel sistema di gestione V2, i posti dell'Arsenale dipendono dal ruolo Combattente e dagli Stili posseduti.",
+    "kind": "html"
+  },
+  {
+    "id": "42322d7870299c2c6d7d",
+    "it": "Un personaggio senza ruolo Combattente non dispone dei relativi posti d'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "aa586f14495d92b46653",
+    "it": "Può possedere oggetti nell'inventario e utilizzare gli strumenti del proprio mestiere, ma non ottiene automaticamente accesso alle Tecniche di Stile o agli effetti speciali delle armi.",
+    "kind": "html"
+  },
+  {
+    "id": "4d7bd714d9ae2c2bbc00",
+    "it": "<span class=\"man-sez-n\">10.9 ·</span> I posti dell'Arsenale",
+    "kind": "html"
+  },
+  {
+    "id": "a5a9c9d570e08eb2f3c0",
+    "it": "Ogni Stile di Combattimento concede normalmente un posto per un'arma compatibile.",
+    "kind": "html"
+  },
+  {
+    "id": "d03a48cafb086cef2a6e",
+    "it": "Un personaggio che possiede due Stili può disporre di un posto per ciascuno.",
+    "kind": "html"
+  },
+  {
+    "id": "1123128bfca6f24c682d",
+    "it": "La compatibilità viene verificata sull'insieme delle armi presenti: non basta che ciascuna arma sia genericamente compatibile, devono esistere posti sufficienti per tutte.",
+    "kind": "html"
+  },
+  {
+    "id": "14e45e045d58a4b0c672",
+    "it": "<b>Configurazione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "532ff9726d8d9632df32",
+    "it": "<b>Posti disponibili</b>",
+    "kind": "html"
+  },
+  {
+    "id": "61de0610e71e02695527",
+    "it": "Uno Stile",
+    "kind": "html"
+  },
+  {
+    "id": "d035289b0f93a98506ed",
+    "it": "1 arma",
+    "kind": "html"
+  },
+  {
+    "id": "bdcb3b6897233d651398",
+    "it": "Due Stili",
+    "kind": "html"
+  },
+  {
+    "id": "9e0b6c1f11f4f70bcff6",
+    "it": "1 arma per Stile",
+    "kind": "html"
+  },
+  {
+    "id": "f52b9dfbb62345205a6c",
+    "it": "Swordsman con Più Spade · Base",
+    "kind": "html"
+  },
+  {
+    "id": "8274d02d578ec715b7f3",
+    "it": "Possibilità di portare 2 lame",
+    "kind": "html"
+  },
+  {
+    "id": "c58bc07f5a1fe6f9b563",
+    "it": "Swordsman con due Stili complessivi",
+    "kind": "html"
+  },
+  {
+    "id": "260e73abe77b81b2052d",
+    "it": "Posti determinati dalla combinazione degli Stili e dei Talenti",
+    "kind": "html"
+  },
+  {
+    "id": "a201c1500d9e58e4cf42",
+    "it": "10.9.1 · Più Spade",
+    "kind": "html"
+  },
+  {
+    "id": "d8228dcd8e4331161eab",
+    "it": "Il Talento Più Spade · Base permette allo Swordsman di disporre di un secondo posto per una lama.",
+    "kind": "html"
+  },
+  {
+    "id": "8600c719faf0fc030929",
+    "it": "Non concede un posto generico per un'arma di qualsiasi Tipo.",
+    "kind": "html"
+  },
+  {
+    "id": "ceb7aa2a9ece475d7d56",
+    "it": "Il secondo posto è quindi riservato alle lame.",
+    "kind": "html"
+  },
+  {
+    "id": "f7ce05c4c5de32e005b1",
+    "it": "Uno Swordsman possiede Più Spade · Base.",
+    "kind": "html"
+  },
+  {
+    "id": "060b66934fedabd503be",
+    "it": "Può registrare due katane nei propri posti dedicati.",
+    "kind": "html"
+  },
+  {
+    "id": "1f1d02f100c7694fadd5",
+    "it": "Non può sostituire liberamente la seconda katana con un fucile, perché il Talento non concede compatibilità con lo Stile Sniper.",
+    "kind": "html"
+  },
+  {
+    "id": "6220aaa404527cda0bb8",
+    "it": "<span class=\"man-sez-n\">10.10 ·</span> Gli effetti speciali delle armi",
+    "kind": "html"
+  },
+  {
+    "id": "e108280997bfdedb6631",
+    "it": "Un'arma può possedere al massimo un effetto speciale.",
+    "kind": "html"
+  },
+  {
+    "id": "f52c3bb1185be4d86d49",
+    "it": "L'effetto viene definito separatamente dal Grado e concordato con il Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "f5855b648738e6686af5",
+    "it": "Un'arma d4 può possedere un effetto particolare, se la storia e il GM lo consentono. Al contrario, un'arma d20 non riceve necessariamente un effetto soltanto perché è Mitica.",
+    "kind": "html"
+  },
+  {
+    "id": "8268cadb8abd0d9270bb",
+    "it": "Il Costruttore suddivide gli effetti in cinque categorie.",
+    "kind": "html"
+  },
+  {
+    "id": "224eda973bd39472de4c",
+    "it": "Sconto",
+    "kind": "html"
+  },
+  {
+    "id": "6210b43141aef01bcc6b",
+    "it": "Riduce un costo o il numero di slot richiesti da un effetto specifico.",
+    "kind": "html"
+  },
+  {
+    "id": "2cc5248647068e677f15",
+    "it": "Sblocco",
+    "kind": "html"
+  },
+  {
+    "id": "e60ccd6321cabcda3bcc",
+    "it": "Permette di superare un requisito specifico, nei limiti stabiliti dall'effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "6884da8a55820cfe2dc8",
+    "it": "Passiva",
+    "kind": "html"
+  },
+  {
+    "id": "17e9cab37b28175dcc9d",
+    "it": "Concede un beneficio quando vengono soddisfatte le condizioni dell'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "2c8d9dcb1812d3529634",
+    "it": "Permette di intervenire in risposta a un evento specifico.",
+    "kind": "html"
+  },
+  {
+    "id": "36a219636bbf0485bf05",
+    "it": "Maledizione",
+    "kind": "html"
+  },
+  {
+    "id": "984b042c63c531f19880",
+    "it": "Offre un potere accompagnato da un prezzo o da una conseguenza negativa.",
+    "kind": "html"
+  },
+  {
+    "id": "810f201046ee8cffe9ff",
+    "it": "Gli effetti devono essere formulati in modo preciso.",
+    "kind": "html"
+  },
+  {
+    "id": "b4acc7d895604e535836",
+    "it": "Una descrizione come «la spada è estremamente potente» non costituisce una regola sufficiente.",
+    "kind": "html"
+  },
+  {
+    "id": "b1044ad0d5e71f23283d",
+    "it": "Occorre specificare quale beneficio fornisce, quando si applica, quanto costa e quali limiti possiede.",
+    "kind": "html"
+  },
+  {
+    "id": "c9273f8dbd1df3b657e8",
+    "it": "10.10.1 · Sconto",
+    "kind": "html"
+  },
+  {
+    "id": "76221ce359f73cc2610a",
+    "it": "Un effetto Sconto deve indicare esattamente:",
+    "kind": "html"
+  },
+  {
+    "id": "9f33133eeed9c5d13002",
+    "it": "Il costo che viene ridotto.",
+    "kind": "html"
+  },
+  {
+    "id": "89e3a2d1c0f3fd68011d",
+    "it": "L'effetto o la capacità interessata.",
+    "kind": "html"
+  },
+  {
+    "id": "e9949abe567997f27ec2",
+    "it": "La quantità dello sconto.",
+    "kind": "html"
+  },
+  {
+    "id": "aa52ae34771bc57f4a04",
+    "it": "Le condizioni per applicarlo.",
+    "kind": "html"
+  },
+  {
+    "id": "4387e21f46b68a72f6a9",
+    "it": "L'eventuale costo minimo residuo.",
+    "kind": "html"
+  },
+  {
+    "id": "b351c87c961aed018ade",
+    "it": "Uno Sconto non riduce automaticamente tutti i costi del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "9b098bc2f54f16a571e2",
+    "it": "Esempio di effetto personalizzato: una particolare katana potrebbe ridurre di 1 ST il costo di una specifica Tecnica, fino a un minimo di 1 ST, una volta per scontro.",
+    "kind": "html"
+  },
+  {
+    "id": "16b37320d9f27bbb205d",
+    "it": "Questi valori sono un esempio di progettazione, non un beneficio assegnato a tutte le katane.",
+    "kind": "html"
+  },
+  {
+    "id": "6b1d786328bce4afb282",
+    "it": "10.10.2 · Sblocco",
+    "kind": "html"
+  },
+  {
+    "id": "918c18ab7965a58d1fd8",
+    "it": "Un effetto Sblocco permette di derogare a un requisito definito.",
+    "kind": "html"
+  },
+  {
+    "id": "37e1677e541edbe76b47",
+    "it": "Può rendere accessibile anticipatamente un effetto del Costruttore, quando il GM lo approva.",
+    "kind": "html"
+  },
+  {
+    "id": "7dc68f2547d60da5f270",
+    "it": "La descrizione deve indicare quale requisito viene modificato.",
+    "kind": "html"
+  },
+  {
+    "id": "4270cf7663e7d8c5a166",
+    "it": "Sbloccare un effetto non elimina automaticamente tutti gli altri requisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "70306a2b81de2e21544b",
+    "it": "Se un'arma permette di utilizzare un effetto normalmente disponibile a d10 già a d8, il personaggio deve comunque rispettare gli altri vincoli della Tecnica, come compatibilità dello Stile, Fonte e disponibilità degli slot, salvo eccezioni espressamente previste.",
+    "kind": "html"
+  },
+  {
+    "id": "ab954c73e45651da8750",
+    "it": "10.10.3 · Passiva",
+    "kind": "html"
+  },
+  {
+    "id": "97fa94ab47948809ae03",
+    "it": "Una Passiva produce un beneficio senza richiedere un'attivazione volontaria ogni volta.",
+    "kind": "html"
+  },
+  {
+    "id": "b1009ad94db9297239ca",
+    "it": "Il beneficio è disponibile soltanto quando l'effetto dell'arma è effettivamente utilizzabile.",
+    "kind": "html"
+  },
+  {
+    "id": "f60ffb21a0340dfc3257",
+    "it": "Per esempio, un'arma potrebbe concedere un bonus specifico mentre viene impugnata oppure quando viene soddisfatta una condizione.",
+    "kind": "html"
+  },
+  {
+    "id": "2854ba825603b4ebf22d",
+    "it": "L'effetto non si trasferisce automaticamente a tutte le altre armi o Tecniche del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "a7eac1fe6780e98317f0",
+    "it": "10.10.4 · Reazione",
+    "kind": "html"
+  },
+  {
+    "id": "b336a0454a2d27e2f4bb",
+    "it": "Un effetto di Reazione deve specificare:",
+    "kind": "html"
+  },
+  {
+    "id": "d572c49ecc812cfdc7ea",
+    "it": "Quando: l'evento che permette di utilizzarlo.",
+    "kind": "html"
+  },
+  {
+    "id": "fcd7d60707a96cd22a25",
+    "it": "Risultato: cosa accade quando viene attivato.",
+    "kind": "html"
+  },
+  {
+    "id": "b7503fa7b40636d4c1c8",
+    "it": "Frequenza: quante volte può essere utilizzato.",
+    "kind": "html"
+  },
+  {
+    "id": "b7f00f693ad7984fe10b",
+    "it": "Prezzo: l'eventuale costo richiesto.",
+    "kind": "html"
+  },
+  {
+    "id": "c0015ca9f879c161c537",
+    "it": "Se la capacità richiede una Reazione, il personaggio deve disporre della propria Reazione.",
+    "kind": "html"
+  },
+  {
+    "id": "13daad79de7dff61d2f0",
+    "it": "Un effetto di Reazione non concede automaticamente una Reazione aggiuntiva.",
+    "kind": "html"
+  },
+  {
+    "id": "c5683b6feedf8283339e",
+    "it": "10.10.5 · Maledizione",
+    "kind": "html"
+  },
+  {
+    "id": "f5a35088388b2682d10f",
+    "it": "Una Maledizione associa un potere a un prezzo.",
+    "kind": "html"
+  },
+  {
+    "id": "61e22001332017c05eb7",
+    "it": "La descrizione deve specificare entrambi.",
+    "kind": "html"
+  },
+  {
+    "id": "9123f8e63105d685ccc8",
+    "it": "Il prezzo può riguardare Stamina, PV, cariche o una conseguenza particolare definita dal GM.",
+    "kind": "html"
+  },
+  {
+    "id": "20786d07c19498850a2a",
+    "it": "Non esiste una penalità universale assegnata a tutte le armi maledette.",
+    "kind": "html"
+  },
+  {
+    "id": "b8cec4b2eea191e09cf1",
+    "it": "Una lama maledetta potrebbe richiedere un sacrificio per attivarsi, mentre un'altra potrebbe imporre condizioni particolari al proprio utilizzatore.",
+    "kind": "html"
+  },
+  {
+    "id": "3242ce9568f08ee31416",
+    "it": "Le due armi devono essere costruite separatamente.",
+    "kind": "html"
+  },
+  {
+    "id": "1cf9234b7ea9ea613310",
+    "it": "<span class=\"man-sez-n\">10.11 ·</span> Frequenza e prezzo degli effetti",
+    "kind": "html"
+  },
+  {
+    "id": "0e48b393bd9b41ca357b",
+    "it": "Ogni effetto speciale deve riportare la propria frequenza.",
+    "kind": "html"
+  },
+  {
+    "id": "bd76f3b70c7f5752dfcf",
+    "it": "<b>Frequenza</b>",
+    "kind": "html"
+  },
+  {
+    "id": "dd0ab3e4c0ecd7d56f5d",
+    "it": "Sempre",
+    "kind": "html"
+  },
+  {
+    "id": "45c14a562002d05b559a",
+    "it": "Il beneficio si applica ogni volta che le condizioni sono soddisfatte.",
+    "kind": "html"
+  },
+  {
+    "id": "1661c7f7704db6e7824a",
+    "it": "1×/turno",
+    "kind": "html"
+  },
+  {
+    "id": "48cd75e713fc204d34fb",
+    "it": "Può essere utilizzato una volta per turno.",
+    "kind": "html"
+  },
+  {
+    "id": "5ba5ec7edf78a0c9f879",
+    "it": "Può essere utilizzato una volta per combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "70f2b6c175f337df4416",
+    "it": "1×/scena",
+    "kind": "html"
+  },
+  {
+    "id": "6cd25ac07cffdd3a0c7f",
+    "it": "Può essere utilizzato una volta per scena.",
+    "kind": "html"
+  },
+  {
+    "id": "0001305419294d70debe",
+    "it": "A cariche",
+    "kind": "html"
+  },
+  {
+    "id": "75551dddf500a28a1326",
+    "it": "Consuma una risorsa limitata.",
+    "kind": "html"
+  },
+  {
+    "id": "ec421479736cd8545369",
+    "it": "L'effetto può inoltre prevedere uno dei seguenti prezzi.",
+    "kind": "html"
+  },
+  {
+    "id": "9ccd846373f856523fb2",
+    "it": "<b>Prezzo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "abd51aff90acae0a1975",
+    "it": "Non richiede risorse aggiuntive.",
+    "kind": "html"
+  },
+  {
+    "id": "053026b2c02f8b7c3991",
+    "it": "Consuma la quantità di ST indicata.",
+    "kind": "html"
+  },
+  {
+    "id": "3428cf4ba4e41e779be0",
+    "it": "PV",
+    "kind": "html"
+  },
+  {
+    "id": "18d04a8fd0e4aa0e0423",
+    "it": "Richiede il sacrificio dei PV specificati.",
+    "kind": "html"
+  },
+  {
+    "id": "88b0a1db4ebdfc9057e3",
+    "it": "Una carica",
+    "kind": "html"
+  },
+  {
+    "id": "c15d8b35137eb111e3f1",
+    "it": "Consuma una carica dell'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "78f5742268e490385f29",
+    "it": "Altro",
+    "kind": "html"
+  },
+  {
+    "id": "06715259ff11a993d8f1",
+    "it": "Utilizza una risorsa o condizione concordata.",
+    "kind": "html"
+  },
+  {
+    "id": "693108406e970da1bb64",
+    "it": "La semplice scelta della categoria non determina il valore numerico del costo.",
+    "kind": "html"
+  },
+  {
+    "id": "b1a8b54cf7a5875ea658",
+    "it": "Se un effetto prevede un prezzo in PV o Stamina, occorre registrare la quantità.",
+    "kind": "html"
+  },
+  {
+    "id": "a2c9177dd556ae3ceaa9",
+    "it": "<span class=\"man-sez-n\">10.12 ·</span> Armi comuni e armi speciali",
+    "kind": "html"
+  },
+  {
+    "id": "7cc4dd48740cf83e86dd",
+    "it": "Il Costruttore distingue le armi senza effetto speciale da quelle che ne possiedono uno.",
+    "kind": "html"
+  },
+  {
+    "id": "e99a39425265cdc139f8",
+    "it": "Arma comune",
+    "kind": "html"
+  },
+  {
+    "id": "eef5eede5362604649b1",
+    "it": "Katana standard",
+    "kind": "html"
+  },
+  {
+    "id": "ab8b764c68c4a8a40e54",
+    "it": "Grado d4",
+    "kind": "html"
+  },
+  {
+    "id": "6e3afd54ebebea7b833a",
+    "it": "Tipo: Lama",
+    "kind": "html"
+  },
+  {
+    "id": "6b3bc5836e47f41a1659",
+    "it": "Portata: Corpo a corpo",
+    "kind": "html"
+  },
+  {
+    "id": "15a94ce49478dc67dee1",
+    "it": "Effetto: nessuno",
+    "kind": "html"
+  },
+  {
+    "id": "275eaf66ca8e681e9c0d",
+    "it": "Arma personalizzata",
+    "kind": "html"
+  },
+  {
+    "id": "535d0d671480b4d333e0",
+    "it": "Katana del Crepuscolo",
+    "kind": "html"
+  },
+  {
+    "id": "3e3221d74d44350c046d",
+    "it": "Grado d8",
+    "kind": "html"
+  },
+  {
+    "id": "3cc4623716c425843fa4",
+    "it": "Effetto: da concordare con il GM.",
+    "kind": "html"
+  },
+  {
+    "id": "47f03ca62b30d9c30fb4",
+    "it": "La seconda arma non ottiene automaticamente un effetto perché possiede un Grado superiore.",
+    "kind": "html"
+  },
+  {
+    "id": "88096bee9ee0d6a709e8",
+    "it": "Il giocatore deve progettarlo e il Game Master deve approvarlo (a meno che non sia il Game Master a creare le armi per la propria sessione con i relativi effetti).",
+    "kind": "html"
+  },
+  {
+    "id": "7ffbbe57044ac220986a",
+    "it": "L'approvazione viene annotata nella scheda dell'arma. La spunta rappresenta la registrazione dell'accordo, non una convalida automatica delle regole.",
+    "kind": "html"
+  },
+  {
+    "id": "507f5a00a60391f6f08a",
+    "it": "<span class=\"man-sez-n\">10.13 ·</span> Munizioni e ricarica",
+    "kind": "html"
+  },
+  {
+    "id": "947707ff9cfde961e21a",
+    "it": "Le armi a distanza utilizzano munizioni compatibili: proiettili, frecce, dardi o altri tipi previsti dalla loro costruzione.",
+    "kind": "html"
+  },
+  {
+    "id": "51664c3d3142e224acd9",
+    "it": "Munizioni e ricarica sono due elementi distinti. Possedere una munizione non significa che l'arma sia già carica; ricaricare, invece, non crea nuove munizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "6caf2ff749d2b8caff93",
+    "it": "La scheda dell'arma deve indicare la sua capacità e le eventuali condizioni di ricarica. Il catalogo V2 non stabilisce una capacità universale per tutte le armi: questi dettagli vanno definiti per il modello specifico, senza assegnare arbitrariamente lo stesso numero di colpi a pistole, fucili e archi.",
+    "kind": "html"
+  },
+  {
+    "id": "81a9799f5ff7ed38b0f6",
+    "it": "Ricarica ordinaria",
+    "kind": "html"
+  },
+  {
+    "id": "a28163bf87bb6dc7dd64",
+    "it": "Ricaricare un'arma richiede normalmente un'Azione, quando la sua scheda prevede una ricarica.",
+    "kind": "html"
+  },
+  {
+    "id": "bcae41d866f78c7cd71a",
+    "it": "Le armi che possono sparare più colpi prima di essere ricaricate seguono la propria capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "cffa6de3b078dc4f6945",
+    "it": "Talento Sniper · Ricarica Rapida",
+    "kind": "html"
+  },
+  {
+    "id": "81f150e6cb7c3295f197",
+    "it": "Una volta per turno, lo Sniper può ricaricare un'arma senza consumare la propria Azione principale.",
+    "kind": "html"
+  },
+  {
+    "id": "a5d1249043423cf6ced1",
+    "it": "Nel sistema V2, l'attivazione del Talento utilizza l'unica Azione Bonus del turno.",
+    "kind": "html"
+  },
+  {
+    "id": "f529ae655554b7fd3977",
+    "it": "Lo Sniper può quindi ricaricare e attaccare nello stesso turno, ma non può utilizzare anche quell'Azione Bonus per attivare l'Haki o un altro Talento attivo.",
+    "kind": "html"
+  },
+  {
+    "id": "082d83a9234eb01fe960",
+    "it": "Munizioni speciali",
+    "kind": "html"
+  },
+  {
+    "id": "a1d958ae3c9d029617b5",
+    "it": "Le munizioni speciali sono consumabili con proprietà proprie, come proiettili modificati, dardi o altri preparati.",
+    "kind": "html"
+  },
+  {
+    "id": "7741c7f751c90bb46215",
+    "it": "Per utilizzarne una, il personaggio deve possederla e l'arma deve essere compatibile. Il suo effetto si applica secondo la descrizione della munizione.",
+    "kind": "html"
+  },
+  {
+    "id": "dab646cda3ab70c49cf7",
+    "it": "Le munizioni speciali possono essere costruite attraverso le normali regole dell’Officina quando il personaggio dispone del relativo progetto, dei materiali necessari e della Skill appropriata.",
+    "kind": "html"
+  },
+  {
+    "id": "1f3d84369dd3b3d44f9f",
+    "it": "Capitolo 11 ·",
+    "kind": "html"
+  },
+  {
+    "id": "8c5ab1a67853823a790d",
+    "it": "L'Officina e il Crafting",
+    "kind": "html"
+  },
+  {
+    "id": "ca4e2ea40fccc04d7fa5",
+    "it": "Una nave pirata non sopravvive soltanto grazie ai suoi combattenti. Quando una cannonata distrugge il timone, un’arma si inceppa o un nuovo congegno potrebbe cambiare le sorti dell’arrembaggio, servono mani capaci di trasformare materiali e progetti in qualcosa di concreto.",
+    "kind": "html"
+  },
+  {
+    "id": "fb351a0fef4f65dca567",
+    "it": "L’Officina permette di costruire, modificare e riparare oggetti. Il Crafting è il sistema con cui si risolvono queste attività attraverso Skill, materiali, tempo e Prove.",
+    "kind": "html"
+  },
+  {
+    "id": "c496f81d242ec4ff42f9",
+    "it": "Non è necessario appartenere a un particolare Ruolo per tentare una costruzione. Ciò che conta è possedere la competenza richiesta dal progetto e disporre delle condizioni necessarie per realizzarlo.",
+    "kind": "html"
+  },
+  {
+    "id": "3aaecfac82344dc6b596",
+    "it": "Questo capitolo presenta le regole generali di costruzione. Oggetti particolari e progetti speciali possono essere introdotti dal Game Master durante la campagna.",
+    "kind": "html"
+  },
+  {
+    "id": "4fe7523bca1f5ab36e8c",
+    "it": "<span class=\"man-sez-n\">11.1 ·</span> Che cos'è un progetto?",
+    "kind": "html"
+  },
+  {
+    "id": "b2e5d320c2b634fd9722",
+    "it": "Un progetto descrive un oggetto che il personaggio intende costruire oppure un intervento che vuole effettuare su qualcosa di esistente.",
+    "kind": "html"
+  },
+  {
+    "id": "60c3035abc8738b9379e",
+    "it": "Può riguardare un semplice attrezzo, una munizione speciale, un'arma meccanica o un dispositivo destinato alla nave.",
+    "kind": "html"
+  },
+  {
+    "id": "e837b9708402fdd585c9",
+    "it": "Prima di iniziare, il progetto deve essere definito nelle sue caratteristiche.",
+    "kind": "html"
+  },
+  {
+    "id": "08711135430f1b9bee5b",
+    "it": "Scheda di progetto",
+    "kind": "html"
+  },
+  {
+    "id": "9aaefc667ed1e646364b",
+    "it": "Identifica l'oggetto da costruire.",
+    "kind": "html"
+  },
+  {
+    "id": "64399ebacbfd95090b0f",
+    "it": "Descrive ciò che deve fare concretamente.",
+    "kind": "html"
+  },
+  {
+    "id": "6df1bb18a59ab97df82e",
+    "it": "Skill",
+    "kind": "html"
+  },
+  {
+    "id": "1a9c4c50de2548e5fbec",
+    "it": "Determina la competenza richiesta.",
+    "kind": "html"
+  },
+  {
+    "id": "b601731dc7fa7abc0229",
+    "it": "Stabilisce la difficoltà della costruzione.",
+    "kind": "html"
+  },
+  {
+    "id": "0b0b638805b439150809",
+    "it": "Indica le ore di lavoro necessarie.",
+    "kind": "html"
+  },
+  {
+    "id": "c7a95e3bb0a919ac4b17",
+    "it": "Materiali",
+    "kind": "html"
+  },
+  {
+    "id": "f5e0e1d86baee1b6c361",
+    "it": "Elenca ingredienti e componenti richiesti.",
+    "kind": "html"
+  },
+  {
+    "id": "964371ee0112b633d27e",
+    "it": "Descrive l'eventuale beneficio meccanico.",
+    "kind": "html"
+  },
+  {
+    "id": "e29201cecdef917c7bbd",
+    "it": "Specifica utilizzi, manutenzione e altre condizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "bbc96058df447a26b5a8",
+    "it": "Un progetto può appartenere all’equipaggiamento normalmente disponibile oppure essere un progetto speciale introdotto dal Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "c218bbcefd4ab09da7d3",
+    "it": "In entrambi i casi, Funzione, Skill, Soglia, Tempo, Materiali, eventuale Effetto e Limitazioni devono essere stabiliti prima della Prova di costruzione.",
+    "kind": "html"
+  },
+  {
+    "id": "0d242fbe16224700c2a5",
+    "it": "Un risultato elevato non permette di aggiungere all’oggetto capacità che non appartengono al progetto.",
+    "kind": "html"
+  },
+  {
+    "id": "443d2cd6c2c8b6ab8913",
+    "it": "<span class=\"man-sez-n\">11.2 ·</span> Chi può costruire?",
+    "kind": "html"
+  },
+  {
+    "id": "ecf0ac2f222150fc0759",
+    "it": "Chiunque possieda la Skill adatta può tentare un progetto accessibile alle proprie competenze.",
+    "kind": "html"
+  },
+  {
+    "id": "199bc8a4fd1673d6efda",
+    "it": "La Skill dipende dall'oggetto e dall'attività.",
+    "kind": "html"
+  },
+  {
+    "id": "32645f69eade5712969c",
+    "it": "<b>Applicazioni</b>",
+    "kind": "html"
+  },
+  {
+    "id": "13c9c9814cb71fd2fbfe",
+    "it": "Attrezzi, lavorazioni manuali e oggetti comuni.",
+    "kind": "html"
+  },
+  {
+    "id": "3e304bb8daea81f2a831",
+    "it": "Congegni, motori, armi meccaniche e dispositivi.",
+    "kind": "html"
+  },
+  {
+    "id": "1e76b791c1c13cd05ee3",
+    "it": "Strutture in legno, scafo e componenti della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "8036d9da11de3613e720",
+    "it": "Strumenti e preparati medici, quando appropriato.",
+    "kind": "html"
+  },
+  {
+    "id": "3ad01d839c28b16680a4",
+    "it": "Carte nautiche e strumenti che richiedono conoscenze di rotta.",
+    "kind": "html"
+  },
+  {
+    "id": "8c1dbd961a5ee426b098",
+    "it": "La scheda del progetto determina la Prova esatta. Quando si tratta di progettare e assemblare un congegno, una formula comune è:",
+    "kind": "html"
+  },
+  {
+    "id": "f9329d12178dd63691d3",
+    "it": "Prova di costruzione",
+    "kind": "html"
+  },
+  {
+    "id": "3e8fccf13d613bea5b2e",
+    "it": "Astuzia + Meccanica",
+    "kind": "html"
+  },
+  {
+    "id": "b3d8af98fe5b2ed444ab",
+    "it": "Oppure la Skill prevista dal progetto.",
+    "kind": "html"
+  },
+  {
+    "id": "9943898123ec405c0b1b",
+    "it": "La conoscenza di una Skill non concede automaticamente i Talenti dei Ruoli che utilizzano quella stessa competenza.",
+    "kind": "html"
+  },
+  {
+    "id": "2dbeea12812969d4bb7f",
+    "it": "Un pirata con Meccanica d8 può, per esempio, costruire o riparare un dispositivo compatibile con le proprie competenze. Non possiede però Pronto Intervento o Mani nell’Olio se non ha acquisito quei Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "56b22384ba1ca1513b1d",
+    "it": "Il ruolo dell’Ingegnere",
+    "kind": "html"
+  },
+  {
+    "id": "37ecbf82b0a7a8b86156",
+    "it": "L’Ingegnere dispone di due specializzazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "d8ccb1ea583caf8e971a",
+    "it": "<b>Competenza principale</b>",
+    "kind": "html"
+  },
+  {
+    "id": "50f90ab049736fa7fdba",
+    "it": "Carpentiere · Carpenteria",
+    "kind": "html"
+  },
+  {
+    "id": "9b810e8ae5d48406f0dd",
+    "it": "Scafo, strutture e riparazioni navali.",
+    "kind": "html"
+  },
+  {
+    "id": "fb720ea57a8f266505b3",
+    "it": "Meccanico · Meccanica",
+    "kind": "html"
+  },
+  {
+    "id": "12387f72afa8bf00e7c8",
+    "it": "Macchine, cannoni, motori e dispositivi.",
+    "kind": "html"
+  },
+  {
+    "id": "1aa68a575e21a04566a0",
+    "it": "Queste specializzazioni concedono i rispettivi Talenti, ma non determinano chi possa utilizzare il Crafting. Un personaggio che possiede la Skill appropriata può tentare un progetto compatibile con le proprie competenze, rispettandone Soglia, materiali, tempo e requisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "818e6be67cf71ae5321b",
+    "it": "<span class=\"man-sez-n\">11.3 ·</span> Le fasi del Crafting",
+    "kind": "html"
+  },
+  {
+    "id": "958e8277e83d5b77a488",
+    "it": "La costruzione segue una procedura comune.",
+    "kind": "html"
+  },
+  {
+    "id": "619a7acde42d5658ac00",
+    "it": "Definire il progetto<br>Il giocatore descrive cosa vuole ottenere. Il GM stabilisce se l'oggetto è realizzabile e quali capacità può possedere.",
+    "kind": "html"
+  },
+  {
+    "id": "3104cbbaeef9c35f2f3b",
+    "it": "Determinare i requisiti<br>Si individuano Skill, Soglia, materiali, strumenti e ore di lavoro.",
+    "kind": "html"
+  },
+  {
+    "id": "0b54868de1edf9fc3146",
+    "it": "Procurarsi i materiali<br>I componenti devono essere disponibili. Alcuni possono essere acquistati, altri richiedono esplorazione o recupero.",
+    "kind": "html"
+  },
+  {
+    "id": "37c1cfcda8e773fece82",
+    "it": "Svolgere il lavoro<br>Il personaggio dedica al progetto le ore stabilite, utilizzando gli strumenti e le condizioni richieste.",
+    "kind": "html"
+  },
+  {
+    "id": "64456686bf2c80617e99",
+    "it": "Effettuare la Prova<br>Il risultato determina se il progetto riesce e quale qualità raggiunge.",
+    "kind": "html"
+  },
+  {
+    "id": "f93fa8fac011ae74845c",
+    "it": "Registrare l'oggetto<br>L'oggetto completato viene annotato nell'inventario o nella scheda appropriata, insieme a effetti e limitazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "723e64220b45685e191e",
+    "it": "Il progetto deve essere definito prima del tiro. Non è possibile attendere un risultato particolarmente alto per dichiarare che l'oggetto possiede capacità mai concordate.",
+    "kind": "html"
+  },
+  {
+    "id": "7a802070b6e2ea70f23d",
+    "it": "<span class=\"man-sez-n\">11.4 ·</span> Stabilire la Soglia",
+    "kind": "html"
+  },
+  {
+    "id": "752d9808602b6e31e39f",
+    "it": "Ogni progetto richiede una Soglia.",
+    "kind": "html"
+  },
+  {
+    "id": "b17a06ed54aaed549dbb",
+    "it": "Il GM la determina considerando la complessità dell'oggetto, la precisione necessaria, le condizioni di lavoro e le conoscenze richieste.",
+    "kind": "html"
+  },
+  {
+    "id": "0f06bf73c3202b184ec8",
+    "it": "Si utilizza la scala generale delle Prove.",
+    "kind": "html"
+  },
+  {
+    "id": "fcd51050fcd3049f8765",
+    "it": "Vice-Ammiraglio",
+    "kind": "html"
+  },
+  {
+    "id": "fd9e3040141390dec682",
+    "it": "Ammiraglio",
+    "kind": "html"
+  },
+  {
+    "id": "939309027217c24fb21d",
+    "it": "Le schede degli oggetti possono riportare Soglie specifiche che non coincidono esattamente con questi valori di riferimento.",
+    "kind": "html"
+  },
+  {
+    "id": "04081a947a51ed81d676",
+    "it": "La Soglia indicata dal progetto prevale sulla difficoltà generica.",
+    "kind": "html"
+  },
+  {
+    "id": "d674ca829ed08dc63625",
+    "it": "Un oggetto che richiede Soglia 11 mantiene Soglia 11: non deve essere automaticamente arrotondato a 12.",
+    "kind": "html"
+  },
+  {
+    "id": "3baedce72ad4e38c1865",
+    "it": "Condizioni sfavorevoli",
+    "kind": "html"
+  },
+  {
+    "id": "e67c9b65ae872682035f",
+    "it": "Lavorare senza strumenti adeguati, su una nave in tempesta o con componenti di qualità insufficiente può rendere la Prova più difficile.",
+    "kind": "html"
+  },
+  {
+    "id": "761ab533f6df88d64653",
+    "it": "Il GM applica le modifiche appropriate secondo le normali regole delle Prove.",
+    "kind": "html"
+  },
+  {
+    "id": "fa3fa10293d65dc3871f",
+    "it": "Non esiste una penalità universale per ogni attrezzo mancante. Alcuni lavori possono semplicemente essere impossibili senza l'attrezzatura necessaria.",
+    "kind": "html"
+  },
+  {
+    "id": "e095c2a435b9ac039a6f",
+    "it": "<span class=\"man-sez-n\">11.5 ·</span> Il tempo di costruzione",
+    "kind": "html"
+  },
+  {
+    "id": "3e3e9c3aed50c7f345f4",
+    "it": "Il tempo viene espresso in ore di lavoro.",
+    "kind": "html"
+  },
+  {
+    "id": "1a19780c276c02c37468",
+    "it": "Ogni progetto indica quanto tempo richiede in condizioni ordinarie.",
+    "kind": "html"
+  },
+  {
+    "id": "33aefd70d1e344cc3a3c",
+    "it": "Il personaggio può suddividere il lavoro tra più giornate, tenendo traccia delle ore completate.",
+    "kind": "html"
+  },
+  {
+    "id": "78585235729ec11df286",
+    "it": "Se un progetto richiede 20 ore e il personaggio ne completa 8, rimangono 12 ore di lavoro.",
+    "kind": "html"
+  },
+  {
+    "id": "4a9efa718669ea75228c",
+    "it": "Le ore trascorse a lavorare non equivalgono automaticamente a ore di riposo.",
+    "kind": "html"
+  },
+  {
+    "id": "ffcd1003dcb2c3b719dd",
+    "it": "Lavorare durante una traversata",
+    "kind": "html"
+  },
+  {
+    "id": "9809066034d7d50badbe",
+    "it": "L'Officina di bordo permette alla ciurma di sfruttare le traversate per costruire e riparare oggetti, purché disponga degli strumenti e dei materiali necessari.",
+    "kind": "html"
+  },
+  {
+    "id": "5cdc2b416b781f4b3cbe",
+    "it": "Il GM può interrompere il lavoro quando le condizioni non lo permettono.",
+    "kind": "html"
+  },
+  {
+    "id": "2e6d13e286ca13b4a547",
+    "it": "Un banco da lavoro può essere utilizzabile durante una navigazione tranquilla. Potrebbe invece risultare inutilizzabile mentre la nave affronta una tempesta o partecipa a una battaglia.",
+    "kind": "html"
+  },
+  {
+    "id": "7fb96423f1b3a33f6432",
+    "it": "Più personaggi sullo stesso progetto",
+    "kind": "html"
+  },
+  {
+    "id": "9190d92f42b16971f8b2",
+    "it": "Più personaggi possono collaborare quando il lavoro lo consente.",
+    "kind": "html"
+  },
+  {
+    "id": "d5c5c50cfacb0bbb74d5",
+    "it": "Il GM stabilisce come suddividere le attività.",
+    "kind": "html"
+  },
+  {
+    "id": "b801adcb2b82ba1faa31",
+    "it": "La presenza di due lavoratori non dimezza automaticamente ogni tempo di costruzione. Un processo che richiede di attendere il raffreddamento di un metallo, per esempio, non diventa istantaneo aumentando il numero di persone.",
+    "kind": "html"
+  },
+  {
+    "id": "c3f69d54da0ab2aeea81",
+    "it": "Talenti specifici possono invece modificare esplicitamente le ore necessarie.",
+    "kind": "html"
+  },
+  {
+    "id": "d19e09e846eb8f635852",
+    "it": "<span class=\"man-sez-n\">11.6 ·</span> Risolvere la Prova",
+    "kind": "html"
+  },
+  {
+    "id": "057563b66dba9602a1d1",
+    "it": "Al termine del lavoro richiesto, il personaggio effettua la Prova indicata dal progetto.",
+    "kind": "html"
+  },
+  {
+    "id": "305d7bee63df880b4adf",
+    "it": "<b>Margine = risultato − Soglia</b>",
+    "kind": "html"
+  },
+  {
+    "id": "9bd27d4647d35f65a018",
+    "it": "Il risultato determina la riuscita della costruzione.",
+    "kind": "html"
+  },
+  {
+    "id": "a8a81a29bb61430617d2",
+    "it": "Un progetto completato con un margine elevato può produrre un oggetto di qualità superiore.",
+    "kind": "html"
+  },
+  {
+    "id": "9c2218079954d2c16a3b",
+    "it": "Il sistema distingue in particolare il Capolavoro, che permette di scegliere un vantaggio di lavorazione.",
+    "kind": "html"
+  },
+  {
+    "id": "d813d6a7b91d0de5cd02",
+    "it": "<b>Esito</b>",
+    "kind": "html"
+  },
+  {
+    "id": "4f45a05be9b371976a3f",
+    "it": "Negativo",
+    "kind": "html"
+  },
+  {
+    "id": "6e62e8c545dc4f981b66",
+    "it": "La Prova fallisce.",
+    "kind": "html"
+  },
+  {
+    "id": "b1157b01ab6f6f79f023",
+    "it": "Riuscita al limite, con le eventuali complicazioni stabilite dal GM.",
+    "kind": "html"
+  },
+  {
+    "id": "e34ad42be50f3459c35a",
+    "it": "Riuscito.",
+    "kind": "html"
+  },
+  {
+    "id": "3af02c59aa1fb175ddfb",
+    "it": "Capolavoro.",
+    "kind": "html"
+  },
+  {
+    "id": "1ea064ef8733b6102164",
+    "it": "La conseguenza specifica del fallimento dipende dal progetto. Le regole attuali non prevedono che ogni fallimento distrugga automaticamente tutti i materiali.",
+    "kind": "html"
+  },
+  {
+    "id": "e1f0e65f276db161f5c1",
+    "it": "Il GM determina se il personaggio debba correggere il lavoro, procurarsi nuovi componenti oppure ricominciare una fase della costruzione.",
+    "kind": "html"
+  },
+  {
+    "id": "53260a5a38c98fcb5bb3",
+    "it": "Il Capolavoro",
+    "kind": "html"
+  },
+  {
+    "id": "e2ecf0d9f72da3247824",
+    "it": "Un Capolavoro permette di scegliere un vantaggio tra quelli previsti per la lavorazione.",
+    "kind": "html"
+  },
+  {
+    "id": "4b55156d3f3ba88ff4e2",
+    "it": "<b>Vantaggio</b>",
+    "kind": "html"
+  },
+  {
+    "id": "aa9a26f833645dfbbb95",
+    "it": "Le ore richieste vengono dimezzate.",
+    "kind": "html"
+  },
+  {
+    "id": "1470e762ad688b8d5cf9",
+    "it": "Il consumo dei materiali viene dimezzato.",
+    "kind": "html"
+  },
+  {
+    "id": "3b9876f3cef318ba1049",
+    "it": "Rifinitura",
+    "kind": "html"
+  },
+  {
+    "id": "02a1004ba58b29f90b32",
+    "it": "L'oggetto riceve una rifinitura superiore appropriata al progetto.",
+    "kind": "html"
+  },
+  {
+    "id": "18139f8488123e7ed0d5",
+    "it": "La rifinitura deve essere definita con il GM.",
+    "kind": "html"
+  },
+  {
+    "id": "268e73a5a503b7bcc426",
+    "it": "Non concede automaticamente un nuovo Dado Danno, uno slot Effetto o una capacità non prevista dal progetto.",
+    "kind": "html"
+  },
+  {
+    "id": "781a5a17834edbfbab50",
+    "it": "Un Capolavoro migliora la qualità della lavorazione; non introduce nuove funzioni o nuovi effetti nell’oggetto.",
+    "kind": "html"
+  },
+  {
+    "id": "49df3468911d8d8545e0",
+    "it": "Se scegli il vantaggio Tempo dopo la Prova, sottrai dal conteggio metà delle ore previste e rendile nuovamente disponibili per altre attività. Per esempio, un progetto da 16 ore ne consuma 8 e lascia libere le altre 8. Il beneficio si applica anche alle ore già conteggiate: il tempo di crafting viene gestito come una risorsa disponibile, senza richiedere una cronologia dettagliata.",
+    "kind": "html"
+  },
+  {
+    "id": "944d3641cb8a0041d2f9",
+    "it": "<span class=\"man-sez-n\">11.7 ·</span> I materiali",
+    "kind": "html"
+  },
+  {
+    "id": "2e0b74237c8b93077511",
+    "it": "Un progetto richiede i materiali indicati nella propria scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "097cdf902c0a9ec21683",
+    "it": "Il personaggio deve procurarseli prima di completare la costruzione.",
+    "kind": "html"
+  },
+  {
+    "id": "b201dd8aa5bac335d207",
+    "it": "I materiali possono essere acquistati, raccolti, ricavati da oggetti esistenti o ottenuti attraverso l'avventura.",
+    "kind": "html"
+  },
+  {
+    "id": "b247660d64de4ca0a625",
+    "it": "Disponibilità dei materiali",
+    "kind": "html"
+  },
+  {
+    "id": "cfd19c533edfcbe81201",
+    "it": "<b>Provenienza</b>",
+    "kind": "html"
+  },
+  {
+    "id": "6b0c60e73e992ead1437",
+    "it": "<b>Esempio di situazione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "b4000bc5568f1788abb7",
+    "it": "Acquisto",
+    "kind": "html"
+  },
+  {
+    "id": "823c9dc10fccd82799bb",
+    "it": "Comprare ferro in un porto.",
+    "kind": "html"
+  },
+  {
+    "id": "6abf80fb9d4e9be16752",
+    "it": "Reperimento",
+    "kind": "html"
+  },
+  {
+    "id": "343f1eaedb733652eb4f",
+    "it": "Cercare legname su un'isola.",
+    "kind": "html"
+  },
+  {
+    "id": "294d467e3ca1729e712a",
+    "it": "Recupero",
+    "kind": "html"
+  },
+  {
+    "id": "104bc08dc97588844b1a",
+    "it": "Smontare un macchinario abbandonato.",
+    "kind": "html"
+  },
+  {
+    "id": "fb1d8aab4ffb83bec21b",
+    "it": "Ricompensa",
+    "kind": "html"
+  },
+  {
+    "id": "0cf287de9bb9d57a098d",
+    "it": "Ottenere un componente da un artigiano.",
+    "kind": "html"
+  },
+  {
+    "id": "31688546dc6bed650551",
+    "it": "Ricerca narrativa",
+    "kind": "html"
+  },
+  {
+    "id": "7f081856179f7150e039",
+    "it": "Scoprire dove si trova un materiale unico.",
+    "kind": "html"
+  },
+  {
+    "id": "27b83274a99137972b7d",
+    "it": "Non tutti i materiali possono essere acquistati.",
+    "kind": "html"
+  },
+  {
+    "id": "0aabdce8ea9f338cd919",
+    "it": "L'agalmatolite, alcuni ingredienti abissali e altri componenti estremamente rari possono richiedere una missione dedicata.",
+    "kind": "html"
+  },
+  {
+    "id": "ad2b791142a5a06bf3a4",
+    "it": "La ricerca narrativa rappresenta il tempo necessario per scoprire informazioni, trovare un luogo o individuare un fornitore. Non è un materiale fisico da aggiungere all'inventario.",
+    "kind": "html"
+  },
+  {
+    "id": "a916e7e39b4b13252a3a",
+    "it": "Recuperare componenti",
+    "kind": "html"
+  },
+  {
+    "id": "4b82288ed27a64908220",
+    "it": "Smontare un oggetto o esplorare un relitto può permettere di recuperarne parti utilizzabili.",
+    "kind": "html"
+  },
+  {
+    "id": "369461ea17535f96233d",
+    "it": "Il GM stabilisce la quantità e lo stato dei materiali disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "00cf86a710174158e630",
+    "it": "I Talenti che migliorano il recupero, come Boscaiolo del Carpentiere e Smontatore del Meccanico, applicano i propri benefici alle relative Prove.",
+    "kind": "html"
+  },
+  {
+    "id": "74939c1c045dd3d67a3e",
+    "it": "Non è previsto che smontare un oggetto restituisca automaticamente il 100% dei materiali utilizzati per costruirlo.",
+    "kind": "html"
+  },
+  {
+    "id": "9bef2600feb1ef37b4b7",
+    "it": "<span class=\"man-sez-n\">11.8 ·</span> Il Mercante e i prezzi",
+    "kind": "html"
+  },
+  {
+    "id": "0325437180a2266847fc",
+    "it": "Il prezzo dei materiali viene espresso in Berry.",
+    "kind": "html"
+  },
+  {
+    "id": "aa8ac7dd4793d389fae6",
+    "it": "L'economia del sistema distingue cinque fasce, utili per stabilire quanto un componente sia accessibile.",
+    "kind": "html"
+  },
+  {
+    "id": "ba03ab12c3395f88393b",
+    "it": "<b>Prezzo indicativo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "2e0d9eb85e8c28c90a30",
+    "it": "<b>Reperibilità</b>",
+    "kind": "html"
+  },
+  {
+    "id": "aa3dfe6567427016751e",
+    "it": "Comune",
+    "kind": "html"
+  },
+  {
+    "id": "7a0ba17a6656d1bc3719",
+    "it": "Fino a 1.000 ฿",
+    "kind": "html"
+  },
+  {
+    "id": "7c0e9862c7df24e4657f",
+    "it": "Villaggi e insediamenti ordinari",
+    "kind": "html"
+  },
+  {
+    "id": "d9b54269151bf583783a",
+    "it": "Corrente",
+    "kind": "html"
+  },
+  {
+    "id": "5dd794c2a699525bc071",
+    "it": "Porti",
+    "kind": "html"
+  },
+  {
+    "id": "da3cdf947f5c93561019",
+    "it": "Buono",
+    "kind": "html"
+  },
+  {
+    "id": "55c544ad13adfee7cb0b",
+    "it": "Porti mercantili",
+    "kind": "html"
+  },
+  {
+    "id": "aaecb68790577b70c9ef",
+    "it": "Pregiato",
+    "kind": "html"
+  },
+  {
+    "id": "1ab502e6ef627f1fd551",
+    "it": "Grandi porti e ordinazioni",
+    "kind": "html"
+  },
+  {
+    "id": "ca0bf4efbca54893da8c",
+    "it": "Raro",
+    "kind": "html"
+  },
+  {
+    "id": "d32cfea702ce368bddd2",
+    "it": "Oltre 50.000 ฿",
+    "kind": "html"
+  },
+  {
+    "id": "4ab8c5c0f986d74a5e79",
+    "it": "Fornitori particolari o mercato nero",
+    "kind": "html"
+  },
+  {
+    "id": "96198408057c82b5a05e",
+    "it": "Queste fasce rappresentano riferimenti commerciali, non il prezzo automatico di qualunque oggetto costruito.",
+    "kind": "html"
+  },
+  {
+    "id": "c3b3d2c447ada053cc8e",
+    "it": "Le schede dei materiali riportano il costo specifico per unità o lotto.",
+    "kind": "html"
+  },
+  {
+    "id": "0fa9f861b845bf70940a",
+    "it": "Trattative e condizioni del mercato",
+    "kind": "html"
+  },
+  {
+    "id": "640794a95cb73a90e996",
+    "it": "Una buona trattativa basata su Comunicazione può ottenere uno sconto del 10–20%, quando il mercante è disposto a negoziare.",
+    "kind": "html"
+  },
+  {
+    "id": "6bd468c3e8fbaf9086ca",
+    "it": "Su un'isola isolata, durante un blocco navale o in tempo di guerra, il prezzo può raddoppiare.",
+    "kind": "html"
+  },
+  {
+    "id": "f9dd91c3e434944d8449",
+    "it": "Un pirata con una taglia elevata può inoltre subire un sovrapprezzo del 25% oppure incontrare mercanti che si rifiutano di servirlo.",
+    "kind": "html"
+  },
+  {
+    "id": "46287c1cf1d0a36cc1d9",
+    "it": "Queste condizioni non si applicano automaticamente a ogni acquisto: dipendono dal luogo e dalla situazione.",
+    "kind": "html"
+  },
+  {
+    "id": "4a45b2c5348fa913e3ff",
+    "it": "Il catalogo digitale del Mercante contiene i prezzi dei singoli ingredienti. Il manuale utilizza soltanto le regole generali del commercio.",
+    "kind": "html"
+  },
+  {
+    "id": "2308c7fecf5e8f0e39a8",
+    "it": "<span class=\"man-sez-n\">11.9 ·</span> Le quattro famiglie di oggetti costruibili",
+    "kind": "html"
+  },
+  {
+    "id": "241b0bd8d41137f6ef46",
+    "it": "L'Officina comprende numerose tipologie di progetti. Quattro famiglie sono particolarmente rilevanti per il combattimento e l'esplorazione.",
+    "kind": "html"
+  },
+  {
+    "id": "d56e6a9057f20c0c0685",
+    "it": "Munizioni",
+    "kind": "html"
+  },
+  {
+    "id": "881d1bde3670cdf07504",
+    "it": "Consumabili destinati alle armi e al combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "92d31fd0a8893ba59af6",
+    "it": "Gadget da campo",
+    "kind": "html"
+  },
+  {
+    "id": "cdfd3dbe0a6167a0cd16",
+    "it": "Attrezzature per esplorazione, mobilità e utilità.",
+    "kind": "html"
+  },
+  {
+    "id": "a908f2aed4c0eeee63bb",
+    "it": "Armi meccaniche",
+    "kind": "html"
+  },
+  {
+    "id": "a5e4b23a765cfe00ec2c",
+    "it": "Armi che incorporano dispositivi o meccanismi.",
+    "kind": "html"
+  },
+  {
+    "id": "6f4b974e5c93c8b0f8d3",
+    "it": "Moduli sperimentali",
+    "kind": "html"
+  },
+  {
+    "id": "cfb95cd532196abc9ef9",
+    "it": "Dispositivi installabili secondo le regole dei Moduli.",
+    "kind": "html"
+  },
+  {
+    "id": "84d03daa19dcad154128",
+    "it": "Le famiglie identificano il tipo di progetto. Non concedono automaticamente bonus.",
+    "kind": "html"
+  }
+]

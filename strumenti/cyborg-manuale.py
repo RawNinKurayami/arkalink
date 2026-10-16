@@ -269,6 +269,8 @@ for k in attesi:
         atteso = norm(m.group(2)) if m else atteso
     assert norm(''.join(letti.testi[k])) == atteso, 'testo diverso nel blocco %s: %r' % (k, originale[:70])
 
+from localizzazione import install_language
+uscita = install_language(uscita, 'manuale-cyborg')
 os.makedirs(USCITA, exist_ok=True)
 open(os.path.join(USCITA, 'index.html'), 'w', encoding='utf8').write(uscita)
 open(os.path.join(USCITA, 'reader.js'), 'w', encoding='utf8').write(

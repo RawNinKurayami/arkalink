@@ -1,0 +1,2057 @@
+[
+  {
+    "id": "1971ee5410f0b9abbb1d",
+    "it": "Albero dei Talenti",
+    "kind": "html"
+  },
+  {
+    "id": "7296b2a64dadd4ed26fd",
+    "it": "<b>Grado di Cucina</b>",
+    "kind": "html"
+  },
+  {
+    "id": "b099cdbf9f4f74aa13f8",
+    "it": "I Talenti diventano disponibili quando Cucina raggiunge il Grado richiesto, ma devono essere acquisiti attraverso gli Upgrade.",
+    "kind": "html"
+  },
+  {
+    "id": "cf270ed0061a37465849",
+    "it": "I primi Talenti migliorano la raccolta degli ingredienti, riducono le conseguenze delle preparazioni fallite e permettono di servire un pasto durante uno scontro.",
+    "kind": "html"
+  },
+  {
+    "id": "5bdc960c413994a91e25",
+    "it": "Dispensa del Cuoco",
+    "kind": "html"
+  },
+  {
+    "id": "d6afc3ae9258417aabc6",
+    "it": "Quando cerchi o peschi ingredienti, aggiungi il tuo dado Cucina al tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "08c2dbec0b1a856d1aa1",
+    "it": "Il beneficio riguarda il reperimento degli ingredienti, non qualsiasi prova di esplorazione.",
+    "kind": "html"
+  },
+  {
+    "id": "2f329bdb94d18d96f1da",
+    "it": "Mai a Stomaco Vuoto",
+    "kind": "html"
+  },
+  {
+    "id": "9b6bcb298871ade02fa2",
+    "it": "I tuoi piatti non falliscono mai completamente.",
+    "kind": "html"
+  },
+  {
+    "id": "64d94a06cd0dcb874059",
+    "it": "Quando una preparazione fallirebbe, il piatto produce comunque gli effetti previsti per un esito Stentato.",
+    "kind": "html"
+  },
+  {
+    "id": "a16a36a4c2da6ecdb9b0",
+    "it": "Questo non trasforma il fallimento in un Critico e non attiva automaticamente il Bonus di categoria.",
+    "kind": "html"
+  },
+  {
+    "id": "487f844f5f5635f5781b",
+    "it": "Mano del Cuoco · Base",
+    "kind": "html"
+  },
+  {
+    "id": "20ce4684ecb09d2b83fb",
+    "it": "I tuoi piatti restituiscono +1 dado della risorsa che normalmente recuperano.",
+    "kind": "html"
+  },
+  {
+    "id": "07605cf64e2340d16313",
+    "it": "Se un piatto restituisce PV, aggiungi un dado al recupero dei PV. Se restituisce Stamina, aggiungi un dado al recupero della Stamina.",
+    "kind": "html"
+  },
+  {
+    "id": "49ee74392236cb270bcb",
+    "it": "Il Talento non trasforma automaticamente un piatto che recupera PV in uno che recupera anche ST.",
+    "kind": "html"
+  },
+  {
+    "id": "7a121216191f8bdaaad5",
+    "it": "Se una ricetta recupera sia PV sia ST, scegli al momento della preparazione una delle due risorse: Mano del Cuoco · Base aggiunge il proprio dado soltanto a quella risorsa.",
+    "kind": "html"
+  },
+  {
+    "id": "0dfcae31c16af0828d85",
+    "it": "Servizio in Battaglia",
+    "kind": "html"
+  },
+  {
+    "id": "48b083577137d6c3b504",
+    "it": "Azione · Bersaglio cosciente entro 5 metri",
+    "kind": "html"
+  },
+  {
+    "id": "71592f1be69b02c10054",
+    "it": "Servi una porzione già preparata a un compagno cosciente entro 5 metri.",
+    "kind": "html"
+  },
+  {
+    "id": "117e8d5b2dc0b1bdd3d3",
+    "it": "La consegna e il consumo fanno parte della stessa Azione del Cuoco.",
+    "kind": "html"
+  },
+  {
+    "id": "8596bdf274ad6ed9b3d7",
+    "it": "Il destinatario non spende la propria Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "b15d6546c6192354b771",
+    "it": "La capacità non comprende uno spostamento del Cuoco: il bersaglio deve già trovarsi entro 5 metri.",
+    "kind": "html"
+  },
+  {
+    "id": "7f9e2509cea27319b481",
+    "it": "Deve inoltre esistere un modo fisicamente possibile di consegnargli il cibo; una parete chiusa o un altro ostacolo invalicabile impedisce il servizio.",
+    "kind": "html"
+  },
+  {
+    "id": "029bcd26e6321cb0c89e",
+    "it": "Il destinatario deve essere cosciente e materialmente in grado di mangiare o bere.",
+    "kind": "html"
+  },
+  {
+    "id": "26fd978c9d2348b27102",
+    "it": "Un personaggio Incosciente non può ricevere i benefici di un normale pasto attraverso questa capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "fc5347a7718051c4cc8c",
+    "it": "Il Cuoco acquisisce maggiore controllo sui risultati delle preparazioni e riesce a nutrire più compagni impiegando meno tempo.",
+    "kind": "html"
+  },
+  {
+    "id": "17bc4fed9c45043169be",
+    "it": "Cuoco da Battaglia",
+    "kind": "html"
+  },
+  {
+    "id": "6ecc9e68ee42ba4a1354",
+    "it": "Il Bonus di categoria di un piatto si attiva già con un normale Successo, senza richiedere un Critico.",
+    "kind": "html"
+  },
+  {
+    "id": "2d0d0154cada873c51a6",
+    "it": "Gli altri effetti del risultato seguono normalmente le regole della Cucina.",
+    "kind": "html"
+  },
+  {
+    "id": "eefe08e42d5ec2c6dd16",
+    "it": "Specialità",
+    "kind": "html"
+  },
+  {
+    "id": "e1de2d4f6199b4c6ff78",
+    "it": "Scegli un piatto del Catalogo come tua specialità.",
+    "kind": "html"
+  },
+  {
+    "id": "d649248397590e42fae3",
+    "it": "Quando prepari quel piatto, la sua Soglia viene ridotta di 2.",
+    "kind": "html"
+  },
+  {
+    "id": "6326736590a02ccb79a1",
+    "it": "Il beneficio riguarda il piatto scelto e non si estende automaticamente a tutte le ricette della stessa categoria.",
+    "kind": "html"
+  },
+  {
+    "id": "4c8fbe80d5602ff4110b",
+    "it": "Mano del Cuoco · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "c33ab0f757739980fe79",
+    "it": "Prerequisito: Mano del Cuoco · Base",
+    "kind": "html"
+  },
+  {
+    "id": "0c3bfb617337dcf1a78f",
+    "it": "Un tuo piatto può nutrire due compagni anziché uno.",
+    "kind": "html"
+  },
+  {
+    "id": "73ec4f678a119e1e9f43",
+    "it": "L’esito della preparazione vale per entrambi, che ricevono gli effetti previsti dal piatto.",
+    "kind": "html"
+  },
+  {
+    "id": "9bf925edbc8e3cbbb1ae",
+    "it": "Questa versione amplia il numero di beneficiari: non aggiunge un ulteriore dado di recupero oltre a quello già concesso dalla versione Base.",
+    "kind": "html"
+  },
+  {
+    "id": "906e002ccf2ceef113d1",
+    "it": "Cucina Espressa",
+    "kind": "html"
+  },
+  {
+    "id": "4b768bb50974de6e46cb",
+    "it": "Preparazione accelerata",
+    "kind": "html"
+  },
+  {
+    "id": "b5fd77d7a1d78aa9f2e2",
+    "it": "Puoi preparare un piatto durante una pausa breve, senza dover utilizzare necessariamente un intero blocco di lavoro.",
+    "kind": "html"
+  },
+  {
+    "id": "1d8f48835b5fd7fe317f",
+    "it": "Il Talento riduce il tempo necessario, ma non elimina gli ingredienti richiesti dalla ricetta.",
+    "kind": "html"
+  },
+  {
+    "id": "694e568e26da9b65ad3c",
+    "it": "Il Cuoco diventa capace di sostenere l’intero equipaggio, intervenire nei momenti critici e preparare pasti anche lontano dalla cucina della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "50959671ee0ccb1f071e",
+    "it": "Mano del Cuoco · Maestria",
+    "kind": "html"
+  },
+  {
+    "id": "ce3e134ff2e413f495f5",
+    "it": "Prerequisito: Mano del Cuoco · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "a1a2ba63ea2e32e331ab",
+    "it": "I tuoi piatti rimuovono anche uno Stato negativo rimovibile da chi li consuma.",
+    "kind": "html"
+  },
+  {
+    "id": "4df07699099ba65d783e",
+    "it": "Il pasto non elimina automaticamente una causa fisica, ambientale o chimica che continua ad applicare lo Stato.",
+    "kind": "html"
+  },
+  {
+    "id": "5138ad7301b88953d5cc",
+    "it": "Secondo Fuoco",
+    "kind": "html"
+  },
+  {
+    "id": "2672fcf24c862be0dec7",
+    "it": "1×/scontro",
+    "kind": "html"
+  },
+  {
+    "id": "cff8b29c0cad3c7ac825",
+    "it": "Reazione · Bersaglio entro 5 m",
+    "kind": "html"
+  },
+  {
+    "id": "a134f2e0501ef76a1bed",
+    "it": "Quando un compagno entro 5 metri scende sotto metà dei propri PV, puoi utilizzare la Reazione per lanciargli una razione.",
+    "kind": "html"
+  },
+  {
+    "id": "4625e56edaf305089057",
+    "it": "Il compagno recupera immediatamente:",
+    "kind": "html"
+  },
+  {
+    "id": "9baf4567eb84b80f0a46",
+    "it": "Secondo Fuoco non restituisce PV e non può essere utilizzato più di una volta nello stesso scontro.",
+    "kind": "html"
+  },
+  {
+    "id": "8a4015920a407211089d",
+    "it": "Banchetto di Guerra",
+    "kind": "html"
+  },
+  {
+    "id": "d810de9627b9860b9a7a",
+    "it": "Preparazione prima dello scontro",
+    "kind": "html"
+  },
+  {
+    "id": "f0d60f2eb54393f44f89",
+    "it": "Prima di un combattimento che hai avuto modo di preparare, puoi cucinare per tutta la ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "fc39330a726350043ad3",
+    "it": "L’esito ottenuto nella preparazione vale per ogni compagno che si siede a mangiare.",
+    "kind": "html"
+  },
+  {
+    "id": "ac2a50255eee56d81069",
+    "it": "Il Talento estende il risultato a tutta la ciurma senza richiedere una preparazione separata per ogni membro.",
+    "kind": "html"
+  },
+  {
+    "id": "59392967bf6dc35a07bd",
+    "it": "Il Bancone",
+    "kind": "html"
+  },
+  {
+    "id": "3f862e31ee9b48a8528b",
+    "it": "Ti bastano un fuoco e una superficie di lavoro per allestire una cucina da campo.",
+    "kind": "html"
+  },
+  {
+    "id": "082581da1cc65a9a2646",
+    "it": "Puoi preparare piatti anche fuori dalla cucina della nave, senza penalità dovute alla mancanza della normale attrezzatura.",
+    "kind": "html"
+  },
+  {
+    "id": "be89fa1906fba8f98278",
+    "it": "Gli ingredienti richiesti rimangono necessari.",
+    "kind": "html"
+  },
+  {
+    "id": "7c812f532c3f8ff5f2eb",
+    "it": "Ricetta Rubata",
+    "kind": "html"
+  },
+  {
+    "id": "11b0e352cc06a9f1fd62",
+    "it": "Ti basta assaggiare un piatto una sola volta per imparare a riprodurlo.",
+    "kind": "html"
+  },
+  {
+    "id": "13179da3078451470779",
+    "it": "La ricetta entra nel tuo repertorio e potrai prepararla nuovamente, utilizzando gli ingredienti necessari.",
+    "kind": "html"
+  },
+  {
+    "id": "7befc68abb59cfd43067",
+    "it": "Talento Supremo · Il Banchetto Leggendario",
+    "kind": "html"
+  },
+  {
+    "id": "81be94dea5ae22b40293",
+    "it": "Il Banchetto Leggendario",
+    "kind": "html"
+  },
+  {
+    "id": "dc61223fbb4ca53cbccc",
+    "it": "1 volta per avventura",
+    "kind": "html"
+  },
+  {
+    "id": "8f646cd9cee1b072423e",
+    "it": "Il Cuoco prepara un banchetto destinato a diventare parte della storia della ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "8fc61aef6ad886eed303",
+    "it": "Per utilizzarlo servono ore di preparazione, ingredienti reali e una ciurma che si sieda a tavola.",
+    "kind": "html"
+  },
+  {
+    "id": "76b85b68057f986fe9ff",
+    "it": "Non è richiesto alcun tiro di Cucina: il risultato viene considerato automaticamente un Critico per ogni compagno che partecipa.",
+    "kind": "html"
+  },
+  {
+    "id": "49cb2fa1a9a556dc50c6",
+    "it": "Effetti del banchetto",
+    "kind": "html"
+  },
+  {
+    "id": "001be4e552a03ae8455d",
+    "it": "Tutti i partecipanti ricevono gli effetti del piatto come se fosse stato preparato con un Critico.",
+    "kind": "html"
+  },
+  {
+    "id": "f9f1af026df6809cb710",
+    "it": "Il recupero di PV e Stamina viene raddoppiato.",
+    "kind": "html"
+  },
+  {
+    "id": "255954ad6903aab3885c",
+    "it": "Inoltre, fino alla fine dell’avventura, ogni partecipante riceve:",
+    "kind": "html"
+  },
+  {
+    "id": "ff75b6671829ff1f6060",
+    "it": "+2 ST",
+    "kind": "html"
+  },
+  {
+    "id": "6cec848cb7857b16949b",
+    "it": "Stamina massima",
+    "kind": "html"
+  },
+  {
+    "id": "d2b5349ca4174c04a351",
+    "it": "1 PV",
+    "kind": "html"
+  },
+  {
+    "id": "a7546654c4032f0a2917",
+    "it": "Sopravvivenza al primo colpo fatale",
+    "kind": "html"
+  },
+  {
+    "id": "4bff9356e72de9ecaf9c",
+    "it": "Il primo colpo che porterebbe un partecipante a 0 PV lo lascia invece a 1 PV.",
+    "kind": "html"
+  },
+  {
+    "id": "ee12bd0e54acbc824beb",
+    "it": "Questa protezione si applica una sola volta per ciascun personaggio che ha mangiato il banchetto.",
+    "kind": "html"
+  },
+  {
+    "id": "4a8dfeb6e184e42baf99",
+    "it": "Requisiti: Ambizione del Cuoco e permesso del Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "908f6c8c7d9e281cf15e",
+    "it": "Il Banchetto Leggendario non è una capacità attivabile istantaneamente durante un combattimento. Richiede una preparazione effettiva e coinvolge soltanto i personaggi che partecipano al pasto.",
+    "kind": "html"
+  },
+  {
+    "id": "9e94bccc5d811c594312",
+    "it": "Progressione · Mano del Cuoco",
+    "kind": "html"
+  },
+  {
+    "id": "f82f0bc355cb122e5b47",
+    "it": "Mano del Cuoco costituisce il percorso a gradini del Ruolo.",
+    "kind": "html"
+  },
+  {
+    "id": "09a8e5511e67a483caf9",
+    "it": "+1 dado alla risorsa recuperata dal piatto.",
+    "kind": "html"
+  },
+  {
+    "id": "1de25d95f6e12c1c460b",
+    "it": "Un piatto può nutrire 2 compagni.",
+    "kind": "html"
+  },
+  {
+    "id": "ee6ab311b9a5f69766d4",
+    "it": "Il piatto rimuove anche uno Stato negativo rimovibile.",
+    "kind": "html"
+  },
+  {
+    "id": "239be77573c4f6f4fd9d",
+    "it": "Ogni versione richiede quella precedente. A differenza dei Talenti che sostituiscono una capacità con una versione superiore, Mano del Cuoco amplia progressivamente i benefici del piatto.",
+    "kind": "html"
+  },
+  {
+    "id": "eede6cae1e262c8d232f",
+    "it": "Esempio · Il pasto prima dell’arrembaggio",
+    "kind": "html"
+  },
+  {
+    "id": "23797525dde1d6d916d8",
+    "it": "Un Cuoco possiede Cucina d12 e ha acquisito Mano del Cuoco · Maestria e Banchetto di Guerra.",
+    "kind": "html"
+  },
+  {
+    "id": "027b0ce6747c0f80472c",
+    "it": "Prima di assaltare una nave della Marina, prepara un piatto per l’equipaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "04eb00c6ebadc02968f3",
+    "it": "Grazie a Banchetto di Guerra, il risultato della preparazione vale per tutti i compagni che mangiano. Mano del Cuoco aumenta di un dado l’eventuale recupero previsto dal piatto e permette inoltre di rimuovere uno Stato negativo rimovibile dai beneficiari.",
+    "kind": "html"
+  },
+  {
+    "id": "b2e23d4cc897a847ff13",
+    "it": "Se il Cuoco possiede anche Cuoco da Battaglia, il Bonus di categoria viene attivato già con un normale Successo.",
+    "kind": "html"
+  },
+  {
+    "id": "143e097ef6cc152b79af",
+    "it": "<span class=\"man-sez-n\">4.8 ·</span> Navigatore",
+    "kind": "html"
+  },
+  {
+    "id": "4c5660e458eca19db41f",
+    "it": "Il Navigatore è colui che trasforma un viaggio pericoloso in una rotta percorribile. Studia il clima, legge le correnti, interpreta le carte nautiche e guida la nave attraverso mari che metterebbero in difficoltà qualsiasi altro equipaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "816ee3f86894678f5a17",
+    "it": "La sua specializzazione non riguarda soltanto il viaggio. Durante una battaglia navale, un Navigatore esperto può anticipare le cannonate, sfruttare le condizioni meteorologiche e condurre la nave in posizioni che il nemico non aveva previsto.",
+    "kind": "html"
+  },
+  {
+    "id": "a5fb5ede733a724521a6",
+    "it": "Navigatore",
+    "kind": "html"
+  },
+  {
+    "id": "1e7ed2872114b55cd482",
+    "it": "Navigazione",
+    "kind": "html"
+  },
+  {
+    "id": "abb3e922c3312b99cf26",
+    "it": "La Strada sul Mare",
+    "kind": "html"
+  },
+  {
+    "id": "2c05a31b9b25866c19a4",
+    "it": "Rotta Perfetta",
+    "kind": "html"
+  },
+  {
+    "id": "bf57550c6fa773e3fc6f",
+    "it": "Navigazione determina l’accesso ai Talenti del Ruolo e contribuisce alle prove di traversata e alle manovre previste dalle relative capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "77735826d91cd80fff2e",
+    "it": "Tratto · La Strada sul Mare",
+    "kind": "html"
+  },
+  {
+    "id": "d71ef99615b133d9d27e",
+    "it": "Il Navigatore è lo specialista delle traversate. Grazie alle proprie competenze, può contribuire direttamente ai tiri che determinano l’andamento del viaggio, trasformando la conoscenza del mare in dadi aggiuntivi.",
+    "kind": "html"
+  },
+  {
+    "id": "ef30f7169bd72011108f",
+    "it": "Le modalità specifiche con cui aggiunge Navigazione alle prove vengono definite dai Talenti e dalle regole di traversata.",
+    "kind": "html"
+  },
+  {
+    "id": "4ccde2bf20edc632f782",
+    "it": "Firma · Rotta Perfetta",
+    "kind": "html"
+  },
+  {
+    "id": "f9b1620b764f5ee9dff8",
+    "it": "Quando ottieni un margine di almeno +4 in una Prova di Navigazione legata a una traversata, individui una rotta particolarmente favorevole.",
+    "kind": "html"
+  },
+  {
+    "id": "6061f234162c33eefae5",
+    "it": "Ottieni entrambi i seguenti benefici:",
+    "kind": "html"
+  },
+  {
+    "id": "6864bd74e6f7b5bfa532",
+    "it": "Rotta preparata.",
+    "kind": "html"
+  },
+  {
+    "id": "69a7bce17e5fdd1e5889",
+    "it": "Fino al raggiungimento della destinazione, la ciurma conserva 1d6 di Rotta. Prima di effettuare una Prova direttamente collegata alla stessa traversata, il Navigatore può consumare questo dado e aggiungerlo alla Prova.",
+    "kind": "text"
+  },
+  {
+    "id": "dfbec95d643f1781b4f1",
+    "it": "Può trattarsi, per esempio, di:",
+    "kind": "html"
+  },
+  {
+    "id": "107eae93a2298040e182",
+    "it": "Superare una corrente.",
+    "kind": "html"
+  },
+  {
+    "id": "6c1814b21293655f0816",
+    "it": "Affrontare un tratto di tempesta.",
+    "kind": "html"
+  },
+  {
+    "id": "e1d1e863930d0161916c",
+    "it": "Evitare una secca.",
+    "kind": "html"
+  },
+  {
+    "id": "8478a999c059abe5fd5d",
+    "it": "Mantenere la rotta durante un imprevisto.",
+    "kind": "html"
+  },
+  {
+    "id": "303790eaa3ab5b3d0333",
+    "it": "Effettuare una nuova Prova di traversata richiesta dal viaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "73f27ff35bba85e11ff9",
+    "it": "Il dado deve essere dichiarato prima del tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "b5f776819f097e198e1c",
+    "it": "Una sola Rotta Perfetta può essere conservata per volta. Ottenere nuovamente la Firma prima di aver utilizzato il dado sostituisce quello precedente.",
+    "kind": "html"
+  },
+  {
+    "id": "3178a1ce2658c53a2f6d",
+    "it": "Pericolo anticipato.",
+    "kind": "html"
+  },
+  {
+    "id": "c769a22b9909bda2e2d5",
+    "it": "Il Game Master comunica inoltre un pericolo reale presente più avanti lungo il percorso, se ne esiste uno che la rotta permette ragionevolmente di prevedere.",
+    "kind": "text"
+  },
+  {
+    "id": "b8bad3f8562e84ff7860",
+    "it": "Se l’intera traversata viene risolta con una sola Prova e non vengono richieste ulteriori Prove prima dell’arrivo, il dado di Rotta semplicemente non viene utilizzato. Il beneficio informativo della Firma rimane comunque valido.",
+    "kind": "html"
+  },
+  {
+    "id": "6d6ca8ed170546da5b79",
+    "it": "<b>Grado di Navigazione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f66b38a67ab76793e32e",
+    "it": "I Talenti diventano disponibili al raggiungimento del Grado richiesto, ma devono essere acquisiti attraverso gli Upgrade, rispettando gli eventuali prerequisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "f30f7d05277380df79e6",
+    "it": "Questi Talenti introducono i benefici fondamentali della navigazione: guidare la nave, interpretare il clima, evitare gli attacchi e affrontare fondali pericolosi.",
+    "kind": "html"
+  },
+  {
+    "id": "adeadd4ad3732b0507e2",
+    "it": "Mano al Timone",
+    "kind": "html"
+  },
+  {
+    "id": "2fc607f8ad2b0d78c374",
+    "it": "Quando sei tu al timone, aggiungi il tuo dado Navigazione al tiro di traversata.",
+    "kind": "html"
+  },
+  {
+    "id": "43983426526d65e336d3",
+    "it": "La combinazione diventa:",
+    "kind": "html"
+  },
+  {
+    "id": "c0ededd186e25c470d90",
+    "it": "Vele + Astuzia + Navigazione",
+    "kind": "html"
+  },
+  {
+    "id": "922162bfb13788cc9508",
+    "it": "Il Talento si applica quando conduci personalmente la nave.",
+    "kind": "html"
+  },
+  {
+    "id": "b9e3e4a3edb53ee01622",
+    "it": "Occhio del Cielo",
+    "kind": "html"
+  },
+  {
+    "id": "a494a9bf393bce030ca2",
+    "it": "Effettui con Vantaggio le Prove utilizzate per prevedere condizioni meteorologiche.",
+    "kind": "html"
+  },
+  {
+    "id": "4b066c50c826aaf51794",
+    "it": "Quando riesci a prevedere un pericolo atmosferico prima di entrarvi, il Game Master deve comunicarti almeno:",
+    "kind": "html"
+  },
+  {
+    "id": "375187e8a151586d8e5f",
+    "it": "La natura generale del fenomeno.",
+    "kind": "html"
+  },
+  {
+    "id": "86bb186e5f8a4ab9b6a8",
+    "it": "La direzione o la zona da cui proviene.",
+    "kind": "html"
+  },
+  {
+    "id": "9db9177af9892cb119f2",
+    "it": "Una conseguenza concreta che potrebbe provocare.",
+    "kind": "html"
+  },
+  {
+    "id": "de2126e392a6b351092f",
+    "it": "La ciurma può quindi prepararsi prima di affrontarlo.",
+    "kind": "html"
+  },
+  {
+    "id": "667e63a52d9eef381fb3",
+    "it": "Una preparazione coerente può, secondo la situazione:",
+    "kind": "html"
+  },
+  {
+    "id": "9f93d0c0ee2d1360f410",
+    "it": "Evitare una penalità che sarebbe derivata dall’essere colti di sorpresa.",
+    "kind": "html"
+  },
+  {
+    "id": "41ae0d06e05c0a7c0eff",
+    "it": "Permettere di assicurare il carico o le vele.",
+    "kind": "html"
+  },
+  {
+    "id": "d5a53f3dd4fdb5a1c1ee",
+    "it": "Modificare la rotta.",
+    "kind": "html"
+  },
+  {
+    "id": "71854bd0c88fe69ab00c",
+    "it": "Predisporre una Manovra appropriata.",
+    "kind": "html"
+  },
+  {
+    "id": "c65bac81100f35591dd5",
+    "it": "Occhio del Cielo non impedisce la tempesta e non annulla automaticamente tutte le sue conseguenze.",
+    "kind": "html"
+  },
+  {
+    "id": "1166d800369793def719",
+    "it": "Timoniere Nato · Base",
+    "kind": "html"
+  },
+  {
+    "id": "85c6216a707734ba534d",
+    "it": "Durante una battaglia navale, la nave aggiunge il tuo dado Navigazione alle proprie manovre di evasione.",
+    "kind": "html"
+  },
+  {
+    "id": "212730c5557842d87ac0",
+    "it": "Il beneficio rappresenta la tua capacità di leggere le traiettorie delle cannonate e correggere la rotta per evitarle.",
+    "kind": "html"
+  },
+  {
+    "id": "6a7f98bbb58e779e602c",
+    "it": "Sondare il Fondale",
+    "kind": "html"
+  },
+  {
+    "id": "1476de682af7bf852c46",
+    "it": "Conosci il fondale sotto la chiglia e sai guidare la nave attraverso secche, canali stretti e acque poco profonde.",
+    "kind": "html"
+  },
+  {
+    "id": "3c1bf6ee81de6001125a",
+    "it": "Puoi sfruttare questi passaggi per sottrarti all’inseguimento di navi più grandi, che rischiano di incagliarsi tentando di seguirti.",
+    "kind": "html"
+  },
+  {
+    "id": "94864985c7294da187d9",
+    "it": "Il Talento permette di utilizzare le caratteristiche del fondale come vantaggio durante la navigazione.",
+    "kind": "html"
+  },
+  {
+    "id": "6df83ab6c59d82d397fa",
+    "it": "Il Navigatore acquisisce capacità avanzate di pianificazione e cartografia. Durante gli scontri navali può evitare un colpo particolarmente pericoloso e ottenere maggiore libertà di manovra.",
+    "kind": "html"
+  },
+  {
+    "id": "6c01a37e7d220cd7ec9f",
+    "it": "Rotta Maestra",
+    "kind": "html"
+  },
+  {
+    "id": "78331dc0797595af679b",
+    "it": "Quando tracci una rotta, anticipi sempre un pericolo del percorso, anche senza ottenere un Critico.",
+    "kind": "html"
+  },
+  {
+    "id": "86ed05c2649880bc56ae",
+    "it": "Il beneficio non richiede quindi di raggiungere il margine +4 della Firma.",
+    "kind": "html"
+  },
+  {
+    "id": "aeed1d8bbe9d7f7e9461",
+    "it": "Cartografo",
+    "kind": "html"
+  },
+  {
+    "id": "99b308690a40c072b48e",
+    "it": "Le carte nautiche che realizzi sono considerate carte dettagliate.",
+    "kind": "html"
+  },
+  {
+    "id": "e6917964829e92155c66",
+    "it": "Concedono:",
+    "kind": "html"
+  },
+  {
+    "id": "d69f0b84bed469f0d3b8",
+    "it": "alle prove in cui è previsto il beneficio di una carta nautica dettagliata.",
+    "kind": "html"
+  },
+  {
+    "id": "ab33e7b1a20b71f824a4",
+    "it": "Le tue carte sono riutilizzabili e possiedono un elevato valore commerciale nei porti.",
+    "kind": "html"
+  },
+  {
+    "id": "c75f21b3a79551cdca8b",
+    "it": "Timoniere Nato · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "334dc1e99ac92e6c60ad",
+    "it": "1× per battaglia navale",
+    "kind": "html"
+  },
+  {
+    "id": "19b02085963d4365f42f",
+    "it": "Prerequisito: Timoniere Nato · Base",
+    "kind": "html"
+  },
+  {
+    "id": "afd1f5b5a26c30801ff8",
+    "it": "Puoi annullare completamente una cannonata in arrivo.",
+    "kind": "html"
+  },
+  {
+    "id": "9bd0e3c8335271959a8e",
+    "it": "La nave evita il colpo grazie a una manovra eseguita al momento opportuno.",
+    "kind": "html"
+  },
+  {
+    "id": "29849fc91b33e5223260",
+    "it": "Il Talento annulla una singola cannonata, non l’intera salva nemica.",
+    "kind": "html"
+  },
+  {
+    "id": "9157c0400514f835abce",
+    "it": "Vento in Poppa",
+    "kind": "html"
+  },
+  {
+    "id": "68d97ebe4ea3e1dd7846",
+    "it": "Finché sei al timone e la nave dispone di vele utilizzabili, la nave può effettuare +1 Manovra navale per round.",
+    "kind": "html"
+  },
+  {
+    "id": "079077e537838bd71141",
+    "it": "Vento in Poppa aumenta il limite delle Manovre della nave, ma non concede Azioni aggiuntive ai personaggi.",
+    "kind": "html"
+  },
+  {
+    "id": "c30be88520e4b5b8b55a",
+    "it": "La seconda Manovra deve quindi essere eseguita da un membro dell’equipaggio che possieda ancora la propria Azione e occupi la postazione appropriata.",
+    "kind": "html"
+  },
+  {
+    "id": "e513ad7ba82cfc7e558e",
+    "it": "Il Navigatore può affrontare condizioni estreme, guidare l’equipaggio attraverso percorsi apparentemente impossibili e sfruttare il mare come elemento tattico.",
+    "kind": "html"
+  },
+  {
+    "id": "6b9c04bd7db54cb9904a",
+    "it": "Timoniere Nato · Maestria",
+    "kind": "html"
+  },
+  {
+    "id": "8b8b074bf99370d61e95",
+    "it": "Prerequisito: Timoniere Nato · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "c3e98566458c3a10974c",
+    "it": "Durante una battaglia navale, la nave può manovrare e sparare nello stesso turno senza penalità.",
+    "kind": "html"
+  },
+  {
+    "id": "ab9f893d0183662edcb3",
+    "it": "Il Talento elimina la penalità associata a questa combinazione, senza concedere automaticamente cannonate o Azioni aggiuntive.",
+    "kind": "html"
+  },
+  {
+    "id": "fd869f31e40be7a3aa9a",
+    "it": "La possibilità di manovrare e sparare nello stesso round autorizza entrambe le Manovre navali. La Manovra al timone e la Cannonata devono comunque essere eseguite dalle rispettive postazioni e utilizzare le Azioni dei personaggi coinvolti.",
+    "kind": "html"
+  },
+  {
+    "id": "b09faa1a2c6de258df2a",
+    "it": "Rotta Impossibile",
+    "kind": "html"
+  },
+  {
+    "id": "83d3788ab43124326ff8",
+    "it": "Sai condurre la nave attraverso percorsi che gli altri equipaggi devono normalmente aggirare.",
+    "kind": "html"
+  },
+  {
+    "id": "724c810560184a823556",
+    "it": "Puoi affrontare vortici, banchi di nebbia, zone magnetiche, correnti contrarie e secche, sfruttando le tue conoscenze per individuare una rotta percorribile.",
+    "kind": "html"
+  },
+  {
+    "id": "74e4e94e9995b0d11972",
+    "it": "Il Talento permette di superare ostacoli di navigazione particolarmente complessi, ma non rende la nave indistruttibile.",
+    "kind": "html"
+  },
+  {
+    "id": "bdf17fad365510f6bf5a",
+    "it": "Sfruttare la Tempesta",
+    "kind": "html"
+  },
+  {
+    "id": "c75508f7ba1a52186639",
+    "it": "Quando sei al timone, tu e la nave ignorate le penalità ai tiri di Navigazione e alle Manovre navali dovute esclusivamente a:",
+    "kind": "html"
+  },
+  {
+    "id": "84401c46b1512c2640ad",
+    "it": "Pioggia.",
+    "kind": "html"
+  },
+  {
+    "id": "28e934c006830100eeed",
+    "it": "Nebbia naturale.",
+    "kind": "html"
+  },
+  {
+    "id": "14b0876d8ba52cf4a87f",
+    "it": "Mare grosso.",
+    "kind": "html"
+  },
+  {
+    "id": "b40b0ac1c3008d7c5472",
+    "it": "Vento forte.",
+    "kind": "html"
+  },
+  {
+    "id": "93397c20f9d41d3546b1",
+    "it": "Tempesta.",
+    "kind": "html"
+  },
+  {
+    "id": "eed115b6f09d9fd520b4",
+    "it": "Gli effetti fisici del fenomeno continuano a esistere.",
+    "kind": "html"
+  },
+  {
+    "id": "79a06ac14e9fdedd7473",
+    "it": "Una tempesta può ancora danneggiare una vela, un’onda può ancora spazzare il ponte e una nebbia può ancora impedire materialmente di vedere qualcosa che non è individuabile con gli strumenti disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "62f52bfa9700ebc02357",
+    "it": "Le navi nemiche che non possiedono una capacità equivalente continuano a subire le normali penalità.",
+    "kind": "html"
+  },
+  {
+    "id": "e05bc1ab4ce9ab53cecc",
+    "it": "Se le conduci deliberatamente in una condizione atmosferica che padroneggi, esse effettuano con Svantaggio le Prove direttamente ostacolate da quel fenomeno.",
+    "kind": "html"
+  },
+  {
+    "id": "50406cebd879f0cd074c",
+    "it": "Mai Perduto",
+    "kind": "html"
+  },
+  {
+    "id": "61f2e21f7a77d07fe3e4",
+    "it": "Sai sempre dove ti trovi, da dove sei arrivato e in quale direzione si trova il mare aperto.",
+    "kind": "html"
+  },
+  {
+    "id": "8887b900a8c3052af0a3",
+    "it": "Questa capacità funziona anche al buio e sottocoperta.",
+    "kind": "html"
+  },
+  {
+    "id": "ed110e4e3b0485af11f6",
+    "it": "Puoi inoltre ritrovare qualsiasi luogo che hai già visitato almeno una volta.",
+    "kind": "html"
+  },
+  {
+    "id": "8c0c33339125b81aeed6",
+    "it": "Il Talento riguarda il tuo orientamento e la memoria dei percorsi: non rivela automaticamente la posizione di luoghi sconosciuti.",
+    "kind": "html"
+  },
+  {
+    "id": "89a00d6f067e3ca14c83",
+    "it": "Via di Fuga",
+    "kind": "html"
+  },
+  {
+    "id": "08cba07f719cc68214fd",
+    "it": "Quando entri in un luogo sconosciuto, individui una via d’uscita.",
+    "kind": "html"
+  },
+  {
+    "id": "4c02213aa991144bbc3c",
+    "it": "Tu e i personaggi che ti seguono potete percorrerla a velocità piena, senza perdervi e senza effettuare tiri per orientarvi.",
+    "kind": "html"
+  },
+  {
+    "id": "178f09450fa67664edc3",
+    "it": "Il Talento non elimina automaticamente eventuali nemici o ostacoli fisici presenti lungo il tragitto.",
+    "kind": "html"
+  },
+  {
+    "id": "bd634c778815e1d2f6bc",
+    "it": "Talento Supremo · La Rotta che Nessuno Conosce",
+    "kind": "html"
+  },
+  {
+    "id": "2847b318d5fd8378a897",
+    "it": "La Rotta che Nessuno Conosce",
+    "kind": "html"
+  },
+  {
+    "id": "c4901043b218ce57aea4",
+    "it": "Il Navigatore è in grado di individuare un percorso che nessun altro avrebbe saputo riconoscere.",
+    "kind": "html"
+  },
+  {
+    "id": "13923e281e64665fdb4d",
+    "it": "Il Talento può essere utilizzato in due situazioni differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "6e4f53cddf87af6ad44c",
+    "it": "In mare · Traversata impossibile",
+    "kind": "html"
+  },
+  {
+    "id": "3ec64e8119558e676b94",
+    "it": "Dichiari una destinazione che:",
+    "kind": "html"
+  },
+  {
+    "id": "306e5b3452852cc91cf0",
+    "it": "Conosci oppure sei in grado di identificare attraverso una carta, un Log Pose, un Eternal Pose o un’altra indicazione affidabile.",
+    "kind": "html"
+  },
+  {
+    "id": "3cc1d90a360f8aee485e",
+    "it": "È fisicamente raggiungibile via mare dalla nave utilizzata.",
+    "kind": "html"
+  },
+  {
+    "id": "051feab148a2c73e3420",
+    "it": "Individui una rotta straordinaria e la nave completa la traversata senza effettuare le normali Prove di Navigazione.",
+    "kind": "html"
+  },
+  {
+    "id": "0620503f73fa6178438e",
+    "it": "Durante il viaggio:",
+    "kind": "html"
+  },
+  {
+    "id": "6133af49855419344cb3",
+    "it": "Non si verificano incontri casuali o deviazioni indesiderate.",
+    "kind": "html"
+  },
+  {
+    "id": "0e3fc486d6573bd7b936",
+    "it": "Tempeste, correnti, nebbie e normali pericoli di navigazione non impediscono di raggiungere la destinazione.",
+    "kind": "html"
+  },
+  {
+    "id": "c6461428da0de848688c",
+    "it": "Il viaggio richiede comunque il normale tempo indicativo della rotta.",
+    "kind": "html"
+  },
+  {
+    "id": "ba479b3ccf5b020faeb6",
+    "it": "La nave continua a consumare normalmente provviste e altre risorse.",
+    "kind": "html"
+  },
+  {
+    "id": "3b76a9102e874ebb86e5",
+    "it": "L’Ultimate non permette di attraversare terraferma, muri invalicabili, mari fisicamente inaccessibili alla nave o altri ostacoli che renderebbero impossibile il viaggio stesso.",
+    "kind": "html"
+  },
+  {
+    "id": "e31d15f33241765f99c3",
+    "it": "Eventi narrativi inevitabili legati direttamente alla destinazione non vengono cancellati dalla capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "eb16e0c0b867069eb3a0",
+    "it": "In battaglia navale · Manovra leggendaria",
+    "kind": "html"
+  },
+  {
+    "id": "7b584ea1946877896d04",
+    "it": "La nave esce dalla linea di tiro nemica e ricompare in una posizione inattesa.",
+    "kind": "html"
+  },
+  {
+    "id": "42207080a87099fc0e60",
+    "it": "Il nemico perde il proprio turno e la tua nave spara per prima.",
+    "kind": "html"
+  },
+  {
+    "id": "59d95a3d24f4a390b7b8",
+    "it": "Requisiti: Ambizione del Navigatore e permesso del Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "d23eab892fff1ec56777",
+    "it": "La Rotta che Nessuno Conosce rappresenta il culmine della specializzazione del Navigatore: fuori dal combattimento permette di completare una traversata straordinaria; durante uno scontro navale modifica direttamente la posizione delle navi e l’ordine degli eventi.",
+    "kind": "html"
+  },
+  {
+    "id": "9213b7b71ebe71221065",
+    "it": "<span class=\"man-sez-n\">4.9 ·</span> Ingegnere",
+    "kind": "html"
+  },
+  {
+    "id": "5b2283eeec83ab2b34d8",
+    "it": "Una nave pirata non sopravvive soltanto grazie alla forza del suo equipaggio. Lo scafo deve resistere alle cannonate, i motori devono continuare a funzionare e qualcuno deve essere in grado di costruire e mantenere ciò di cui la ciurma ha bisogno.",
+    "kind": "html"
+  },
+  {
+    "id": "5fc9e3e4291496147428",
+    "it": "L’Ingegnere si occupa della costruzione, della manutenzione e della tecnologia della ciurma. Il giocatore sceglie uno dei due Stili, ciascuno dedicato a una specializzazione differente.",
+    "kind": "html"
+  },
+  {
+    "id": "65dce56252e2da822789",
+    "it": "Ingegnere",
+    "kind": "html"
+  },
+  {
+    "id": "e3cfc19608cd74045ca6",
+    "it": "Carpentiere, Meccanico",
+    "kind": "html"
+  },
+  {
+    "id": "41330b0f1297d9e3247d",
+    "it": "Grado iniziale della Skill di Ruolo",
+    "kind": "html"
+  },
+  {
+    "id": "cff2fd3634950fb2b884",
+    "it": "La Skill di Ruolo dipende dallo Stile scelto.",
+    "kind": "html"
+  },
+  {
+    "id": "b1a1fb5e131758447ced",
+    "it": "Carpentiere",
+    "kind": "html"
+  },
+  {
+    "id": "e592163fe3eddde93953",
+    "it": "Carpenteria",
+    "kind": "html"
+  },
+  {
+    "id": "96fb042bd52493adc16a",
+    "it": "Scafo, strutture e riparazioni navali",
+    "kind": "html"
+  },
+  {
+    "id": "a61b9fe06139819b3da0",
+    "it": "Meccanico",
+    "kind": "html"
+  },
+  {
+    "id": "c593c801eeac0f5758ed",
+    "it": "Meccanica",
+    "kind": "html"
+  },
+  {
+    "id": "6a82290285d3bbca3251",
+    "it": "Macchinari, cannoni e componenti meccaniche",
+    "kind": "html"
+  },
+  {
+    "id": "d19fda83414c358eb7b8",
+    "it": "I Talenti di ogni Stile diventano disponibili ai Gradi d8, d10, d12 e d20 della Skill associata. Devono comunque essere acquisiti attraverso gli Upgrade.",
+    "kind": "html"
+  },
+  {
+    "id": "c77056383c66b086579b",
+    "it": "4.9.1 · Carpentiere",
+    "kind": "html"
+  },
+  {
+    "id": "96f37f0260313fd11adb",
+    "it": "Il Carpentiere conosce ogni asse della nave, dalla chiglia all’albero maestro. Ripara i danni, rinforza le strutture e trasforma lo scafo in qualcosa di più resistente di quanto fosse al momento della costruzione.",
+    "kind": "html"
+  },
+  {
+    "id": "736b3be4122d82346a05",
+    "it": "La sua Skill di Ruolo è Carpenteria d8.",
+    "kind": "html"
+  },
+  {
+    "id": "58681901b7f2928cf319",
+    "it": "Tratto · Legno e Scafo",
+    "kind": "html"
+  },
+  {
+    "id": "bcbb87d74d8a27db5762",
+    "it": "Il Carpentiere è lo specialista della costruzione e della riparazione dello scafo. Durante una battaglia navale, la sua postazione è dedicata alle riparazioni, mentre fuori dal combattimento può occuparsi dello sviluppo strutturale della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "668960e1316854868f6b",
+    "it": "Firma · La riparazione che tiene",
+    "kind": "html"
+  },
+  {
+    "id": "32761ca486e36c721151",
+    "it": "Quando ottieni un margine di almeno +4 nella Prova di Riparazione d’Emergenza, raddoppia i PS recuperati da quell’intervento.",
+    "kind": "html"
+  },
+  {
+    "id": "d0e98e6657156c18ceee",
+    "it": "Calcola prima il recupero ordinario, compresi eventuali dadi aggiuntivi concessi dai Talenti, quindi raddoppia il totale.",
+    "kind": "html"
+  },
+  {
+    "id": "5e36afe73c1ea08529ba",
+    "it": "La Firma modifica soltanto i PS recuperati e non raddoppia altri effetti della riparazione.",
+    "kind": "html"
+  },
+  {
+    "id": "8942d9688c13104de161",
+    "it": "Riparazione d’Emergenza",
+    "kind": "html"
+  },
+  {
+    "id": "d0200567b34950875e27",
+    "it": "Azione · Battaglia navale",
+    "kind": "html"
+  },
+  {
+    "id": "9e9ed8e5875fea29b654",
+    "it": "Puoi utilizzare la manovra Riparazione d’Emergenza del Capitolo 13.",
+    "kind": "html"
+  },
+  {
+    "id": "94691bc0d1fc06c3548d",
+    "it": "Una Prova riuscita restituisce alla nave 1 Dado Carpenteria in PS, prima di applicare eventuali Talenti o la Firma.",
+    "kind": "html"
+  },
+  {
+    "id": "6ccafd9bf49d8b5b4e68",
+    "it": "Boscaiolo",
+    "kind": "html"
+  },
+  {
+    "id": "09b23484cf0cf6f589b5",
+    "it": "Quando cerchi legname o materiali da costruzione, aggiungi il tuo dado Carpenteria al tiro di Reperimento.",
+    "kind": "html"
+  },
+  {
+    "id": "135f13a0ed2c8c3d90a5",
+    "it": "Mani sul Legno · Base",
+    "kind": "html"
+  },
+  {
+    "id": "09eaf6f5dbbe63177d25",
+    "it": "Le tue Riparazioni d’Emergenza recuperano +1 Dado Carpenteria in PS.",
+    "kind": "html"
+  },
+  {
+    "id": "4c263fc336ee51cda069",
+    "it": "Normalmente recuperi quindi 2 Dadi Carpenteria invece di uno.",
+    "kind": "html"
+  },
+  {
+    "id": "f6b36f08300468b8dd53",
+    "it": "Barricata",
+    "kind": "html"
+  },
+  {
+    "id": "848c834d1571fae6f2a8",
+    "it": "Azione · Entro 5 metri",
+    "kind": "html"
+  },
+  {
+    "id": "4b58dba32bee8d3f1d13",
+    "it": "Utilizzando materiali già presenti e immediatamente disponibili — assi, casse, lamiere, mobili, relitti o elementi simili — assembli rapidamente un riparo entro 5 metri.",
+    "kind": "html"
+  },
+  {
+    "id": "12911bf7c7b83a599136",
+    "it": "Barricata non crea materiali dal nulla e non permette di costruire una struttura complessa in pochi secondi.",
+    "kind": "html"
+  },
+  {
+    "id": "472bc60d54be0269b01f",
+    "it": "Il riparo può occupare fino a circa 3 metri di larghezza e proteggere normalmente fino a tre personaggi di taglia umana disposti dietro di esso.",
+    "kind": "html"
+  },
+  {
+    "id": "47c1d8c7ffee03260336",
+    "it": "Concede Copertura Parziale, quindi Difesa Passiva +2.",
+    "kind": "html"
+  },
+  {
+    "id": "b4bb192537982c0fe54c",
+    "it": "Se la disposizione fisica copre completamente un personaggio, il GM può applicare le normali regole di Copertura Completa.",
+    "kind": "html"
+  },
+  {
+    "id": "013c1e831f67398824f8",
+    "it": "La Barricata può essere attaccata e distrutta come un normale oggetto o elemento dello scenario.",
+    "kind": "html"
+  },
+  {
+    "id": "749b5e0503d854893d21",
+    "it": "Se i materiali presenti non permettono realisticamente di assemblare un riparo, il Talento non può essere utilizzato.",
+    "kind": "html"
+  },
+  {
+    "id": "290ca80d9a12f33be2c0",
+    "it": "Cantiere Viaggiante",
+    "kind": "html"
+  },
+  {
+    "id": "51e2bf90e1e173e95564",
+    "it": "Puoi riparare e potenziare la nave anche in mare aperto, senza dover raggiungere un porto.",
+    "kind": "html"
+  },
+  {
+    "id": "b92cc0b6e90ad6f2ca4e",
+    "it": "Il tempo necessario viene dimezzato.",
+    "kind": "html"
+  },
+  {
+    "id": "fc757a2f1be60a0bfc23",
+    "it": "Maestro dei Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "6f6cc62fa150cdc2c2ab",
+    "it": "Attraverso un adattamento strutturale, una nave sulla quale hai completato i lavori ottiene +1 slot Modulo.",
+    "kind": "html"
+  },
+  {
+    "id": "dce075bc1189f7d5efa1",
+    "it": "Questo è un miglioramento permanente della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "5727ca8e11f3d1aa096e",
+    "it": "Lo stesso beneficio non può essere applicato più volte alla medesima nave da più Carpenteri.",
+    "kind": "html"
+  },
+  {
+    "id": "1b50c48dc5a7b4d7615a",
+    "it": "Lo slot aggiuntivo non concede automaticamente un Modulo.",
+    "kind": "html"
+  },
+  {
+    "id": "5146cc9806e306e677b1",
+    "it": "Mani sul Legno · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "cff3a30b31accdb163c9",
+    "it": "Prerequisito: Mani sul Legno · Base",
+    "kind": "html"
+  },
+  {
+    "id": "98643d551f0644ab9a06",
+    "it": "Con la stessa Azione puoi riparare lo scafo e rimettere in funzione un Modulo danneggiato.",
+    "kind": "html"
+  },
+  {
+    "id": "1575d784006c6f5b16a4",
+    "it": "Il Modulo deve essere danneggiato, non distrutto.",
+    "kind": "html"
+  },
+  {
+    "id": "c8a7eceb58008f832719",
+    "it": "Ponte d’Arrembaggio",
+    "kind": "html"
+  },
+  {
+    "id": "b4d17ea7c696e58b7212",
+    "it": "Azione",
+    "kind": "html"
+  },
+  {
+    "id": "f61d70ed091379371fd4",
+    "it": "Quando le due navi si trovano nella fascia Accostati, puoi predisporre rapidamente passerelle, funi e rampini già disponibili a bordo per creare un collegamento.",
+    "kind": "html"
+  },
+  {
+    "id": "0ab9cf7a9ffd8a0bcdf1",
+    "it": "Il Talento rappresenta l’impiego rapido di attrezzatura preparata: non costruisce sul momento una passerella dal legname grezzo.",
+    "kind": "html"
+  },
+  {
+    "id": "256845405613d46ddb3b",
+    "it": "Per creare un vero passaggio calpestabile, la distanza materiale fra i due ponti non può normalmente superare 10 metri.",
+    "kind": "html"
+  },
+  {
+    "id": "f21d1dfdebdacee116ce",
+    "it": "La ciurma può attraversare il collegamento senza effettuare tiri ordinari di arrembaggio e senza provocare attacchi di Reazione dovuti al passaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "adebdda12c8a12a763b9",
+    "it": "Il percorso può essere utilizzato in entrambe le direzioni.",
+    "kind": "html"
+  },
+  {
+    "id": "ff0eb3c063b29640cb6f",
+    "it": "Se le navi si allontanano oltre la distanza sostenibile, i collegamenti vengono spezzati o sganciati e il Ponte d’Arrembaggio termina.",
+    "kind": "html"
+  },
+  {
+    "id": "cc5017868167f2bba36f",
+    "it": "Un nemico può inoltre distruggere o tagliare fisicamente passerelle, funi e rampini.",
+    "kind": "html"
+  },
+  {
+    "id": "72b3c7943f70ff0062c0",
+    "it": "Mani sul Legno · Maestria",
+    "kind": "html"
+  },
+  {
+    "id": "0a9dde2f242129e50f78",
+    "it": "1 volta per battaglia navale",
+    "kind": "html"
+  },
+  {
+    "id": "e7eeab658f5853b7366c",
+    "it": "Prerequisito: Mani sul Legno · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "7695742941c0b72ff2b8",
+    "it": "Puoi rimettere in funzione un Modulo distrutto, non soltanto danneggiato.",
+    "kind": "html"
+  },
+  {
+    "id": "c2c25c7b8a40200d65bf",
+    "it": "Scafo Rinforzato",
+    "kind": "html"
+  },
+  {
+    "id": "780efdbd51ee07096d57",
+    "it": "Dopo aver completato i lavori di rinforzo sullo scafo, i Dadi Danno delle cannonate subite dalla nave diminuiscono di un gradino.",
+    "kind": "html"
+  },
+  {
+    "id": "f9b0edb76af3fa786bae",
+    "it": "Segui la normale scala:",
+    "kind": "html"
+  },
+  {
+    "id": "ada7ef56342b373cc32f",
+    "it": "Un d4 non può essere ridotto ulteriormente attraverso questo Talento.",
+    "kind": "html"
+  },
+  {
+    "id": "e29c808fc681b49e732a",
+    "it": "Se una cannonata utilizza più dadi dello stesso Grado, tutti i Dadi Danno vengono ridotti di un gradino.",
+    "kind": "html"
+  },
+  {
+    "id": "310ee04865ad40ebb01b",
+    "it": "Scafo Rinforzato modifica il danno delle cannonate, non il tiro per colpire.",
+    "kind": "html"
+  },
+  {
+    "id": "43e60b29fc88ad4b5152",
+    "it": "Il beneficio appartiene alla nave rinforzata e non richiede la presenza del Carpentiere.",
+    "kind": "html"
+  },
+  {
+    "id": "af65cb4ce885c62516d7",
+    "it": "Punto di Rottura",
+    "kind": "html"
+  },
+  {
+    "id": "956e4acd65ba38b5195f",
+    "it": "Riconosci i punti deboli di strutture e oggetti. I tuoi colpi contro questi bersagli infliggono danno pieno senza bisogno di tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "84764e56df1ea1ac763e",
+    "it": "Durante una battaglia navale puoi inoltre prendere di mira un Modulo preciso della nave nemica.",
+    "kind": "html"
+  },
+  {
+    "id": "eda2d138fa4c4ca597f5",
+    "it": "Fortificazione",
+    "kind": "html"
+  },
+  {
+    "id": "531d000a89861aeaee9a",
+    "it": "Preparazione",
+    "kind": "html"
+  },
+  {
+    "id": "6843863f9f50df7fedb5",
+    "it": "Con almeno alcune ore di lavoro e materiali appropriati puoi trasformare una posizione già esistente in un punto difendibile.",
+    "kind": "html"
+  },
+  {
+    "id": "b1f4ea57013da0961140",
+    "it": "Il Talento riguarda normalmente:",
+    "kind": "html"
+  },
+  {
+    "id": "2ae5c9b6544052103319",
+    "it": "Una stanza.",
+    "kind": "html"
+  },
+  {
+    "id": "6bd1aaac91f1ce7b923c",
+    "it": "Un ingresso.",
+    "kind": "html"
+  },
+  {
+    "id": "844187b5ccd4c85b5ffc",
+    "it": "Una porzione di ponte.",
+    "kind": "html"
+  },
+  {
+    "id": "6142d516d3a063e48ad0",
+    "it": "Un piccolo accampamento.",
+    "kind": "html"
+  },
+  {
+    "id": "b7c444b91008b832bbf2",
+    "it": "Un’altra zona circoscritta equivalente.",
+    "kind": "html"
+  },
+  {
+    "id": "95c4d2090005286c0226",
+    "it": "Chi difende la posizione beneficia di Copertura.",
+    "kind": "html"
+  },
+  {
+    "id": "9ebe2f6fce82b9d6615e",
+    "it": "Gli accessi che hai preparato possono inoltre diventare Terreno Difficile per chi tenta di raggiungerla.",
+    "kind": "html"
+  },
+  {
+    "id": "b796b541141bc006d8ee",
+    "it": "Fortificazione utilizza strutture e materiali realmente disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "e335aebea6a911901620",
+    "it": "Non permette di costruire in poche ore una fortezza, una muraglia monumentale, un ponte gigantesco o altre opere che richiederebbero un vero progetto di Cantiere.",
+    "kind": "html"
+  },
+  {
+    "id": "ab40e80e95e07952c59f",
+    "it": "Nave Cresciuta",
+    "kind": "html"
+  },
+  {
+    "id": "43dad2b3c2855e3961a2",
+    "it": "Una sola volta per nave",
+    "kind": "html"
+  },
+  {
+    "id": "37a8f9ce8dac45300f6a",
+    "it": "Prerequisito: Maestro dei Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "4ae611025ddea443f441",
+    "it": "Al termine di un intervento strutturale completo scegli: Scafo · Vele · Artiglieria · Struttura.",
+    "kind": "html"
+  },
+  {
+    "id": "250e9091739c0822b5d0",
+    "it": "Il valore scelto aumenta permanentemente di un gradino, rispettando la normale scala navale: d4 → d6 → d8 → d10 → d12.",
+    "kind": "html"
+  },
+  {
+    "id": "81322b38eda3e3e33ed3",
+    "it": "Nave Cresciuta non può portare una statistica oltre d12.",
+    "kind": "html"
+  },
+  {
+    "id": "035bfc4a7a3516d733f8",
+    "it": "Il beneficio appartiene alla nave e non richiede la tua presenza dopo il completamento dei lavori.",
+    "kind": "html"
+  },
+  {
+    "id": "844db26158e9c5fd0b58",
+    "it": "Una stessa nave può ricevere Nave Cresciuta una sola volta, indipendentemente dal numero di Carpenteri presenti.",
+    "kind": "html"
+  },
+  {
+    "id": "240e71e2ab52101e95e5",
+    "it": "Talento Supremo d20 · Lei Non Affonda",
+    "kind": "html"
+  },
+  {
+    "id": "58b6db21324e73e497cd",
+    "it": "Lei Non Affonda",
+    "kind": "html"
+  },
+  {
+    "id": "7b649eb433f0f77e2141",
+    "it": "Quando la nave dovrebbe scendere a 0 PS o meno, rimane invece a 1 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "0a49b405d925f2a08ba5",
+    "it": "Da quel momento e fino alla fine della battaglia:",
+    "kind": "html"
+  },
+  {
+    "id": "3aa89e9370841e60ac8f",
+    "it": "La nave non può scendere sotto 1 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "ffaf73a8e05e4072dd8e",
+    "it": "Può continuare a effettuare normalmente le manovre che la situazione rende possibili.",
+    "kind": "html"
+  },
+  {
+    "id": "128456ae885d9e34d5f0",
+    "it": "Tutti i suoi Moduli Distrutti funzionano temporaneamente come se fossero operativi.",
+    "kind": "html"
+  },
+  {
+    "id": "30cf23a771df9eb47a7e",
+    "it": "I colpi successivi continuano a raggiungere la nave e possono produrre conseguenze narrative, danneggiare componenti o influenzare personaggi a bordo, ma non riducono lo scafo sotto 1 PS finché l’Ultimate rimane attiva.",
+    "kind": "html"
+  },
+  {
+    "id": "a2e211b37b7266784227",
+    "it": "Lei Non Affonda non ripara realmente i danni.",
+    "kind": "html"
+  },
+  {
+    "id": "e1e45e3855c624dc9e4a",
+    "it": "Alla fine della battaglia:",
+    "kind": "html"
+  },
+  {
+    "id": "e7776018bbc31096f346",
+    "it": "La nave rimane a 1 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "45677d47df0947c7e3e1",
+    "it": "I Moduli tornano alla loro reale condizione precedente.",
+    "kind": "html"
+  },
+  {
+    "id": "a6f823269864db87a65b",
+    "it": "Il beneficio dell’Ultimate termina.",
+    "kind": "html"
+  },
+  {
+    "id": "60cf2600730461462f4f",
+    "it": "La nave necessita di un vero Cantiere per effettuare le riparazioni strutturali.",
+    "kind": "html"
+  },
+  {
+    "id": "8f8e9bc1f6230fde384e",
+    "it": "Non esiste un conto alla rovescia automatico dopo la battaglia: l’Ultimate non fa affondare la nave dopo un numero fisso di minuti o ore.",
+    "kind": "html"
+  },
+  {
+    "id": "c799fce29578dfd1401a",
+    "it": "La nave rimane però in condizioni Critiche. Tempeste, nuove battaglie, falle ancora aperte o altri pericoli possono naturalmente metterla di nuovo a rischio.",
+    "kind": "html"
+  },
+  {
+    "id": "dd8153dfa4ad9adc8a59",
+    "it": "Requisiti: Ambizione dell’Ingegnere e permesso del Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "9df71c3b17b75e44ed46",
+    "it": "4.9.2 · Meccanico",
+    "kind": "html"
+  },
+  {
+    "id": "634dd2406ab396dd43ea",
+    "it": "Il Meccanico mantiene operativi motori, cannoni, ingranaggi e congegni. Dove il Carpentiere si occupa dello scafo, il Meccanico garantisce il funzionamento delle macchine.",
+    "kind": "html"
+  },
+  {
+    "id": "a372a9e5065e9b18bd05",
+    "it": "Può inoltre occuparsi della riparazione delle componenti artificiali di un Cyborg.",
+    "kind": "html"
+  },
+  {
+    "id": "e16fe8a88c9de4eb3436",
+    "it": "La sua Skill di Ruolo è Meccanica d8.",
+    "kind": "html"
+  },
+  {
+    "id": "1c2ee9b188bc854428ab",
+    "it": "Tratto · Le Macchine Vive",
+    "kind": "html"
+  },
+  {
+    "id": "567891e1d02a3a7a527a",
+    "it": "Il Meccanico è lo specialista della manutenzione e del funzionamento dei congegni, dei cannoni e dei motori.",
+    "kind": "html"
+  },
+  {
+    "id": "8fa0c6f3cefc8153a29b",
+    "it": "Gestire un macchinario",
+    "kind": "html"
+  },
+  {
+    "id": "609dd8d9edb287a2d0bb",
+    "it": "Un macchinario non agisce autonomamente salvo che la propria scheda lo dichiari.",
+    "kind": "html"
+  },
+  {
+    "id": "125c72f3e3f23c6e3e24",
+    "it": "Utilizzarlo richiede normalmente un operatore e l’Azione, la manovra o la postazione prevista dal dispositivo.",
+    "kind": "html"
+  },
+  {
+    "id": "b9ad79ae7f999e5798ec",
+    "it": "Quando una capacità permette a un macchinario di agire due volte, la seconda attivazione:",
+    "kind": "html"
+  },
+  {
+    "id": "e8cfebbf0e21f0ab9ddb",
+    "it": "Non richiede una seconda Azione dell’operatore.",
+    "kind": "html"
+  },
+  {
+    "id": "6baa620d718b81fef2eb",
+    "it": "Viene risolta separatamente.",
+    "kind": "html"
+  },
+  {
+    "id": "af9f31730131afeb1507",
+    "it": "Consuma nuovamente munizioni, carburante, energia o altre risorse richieste.",
+    "kind": "html"
+  },
+  {
+    "id": "c78e701c0b9a4a5b739b",
+    "it": "Effettua nuovamente gli eventuali tiri previsti dal macchinario.",
+    "kind": "html"
+  },
+  {
+    "id": "2b084735cb6801a5bb40",
+    "it": "Più capacità che concedono una seconda attivazione allo stesso macchinario non si sommano.",
+    "kind": "html"
+  },
+  {
+    "id": "0d075dc9f92aff33d712",
+    "it": "Salvo una regola che dichiari espressamente il contrario, un macchinario non può ottenere più di due attivazioni nello stesso round attraverso questi effetti.",
+    "kind": "html"
+  },
+  {
+    "id": "e29c5383387f4e90dc31",
+    "it": "In battaglia navale, una seconda attivazione di un sistema non equivale automaticamente a una seconda manovra completa della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "f697c1b911e770226404",
+    "it": "Firma · Gira che è un piacere",
+    "kind": "html"
+  },
+  {
+    "id": "28760f8120e53e113e53",
+    "it": "Quando ottieni un margine di almeno +4 in una Prova di Meccanica effettuata per gestire un macchinario, quel macchinario può effettuare una seconda attivazione nello stesso round.",
+    "kind": "html"
+  },
+  {
+    "id": "dc50895d0dfb1a1eda9e",
+    "it": "La seconda attivazione segue tutte le normali regole del dispositivo e paga nuovamente eventuali munizioni, energia o altre risorse.",
+    "kind": "html"
+  },
+  {
+    "id": "834ef83f98258af6c562",
+    "it": "La Firma riguarda soltanto il macchinario che ha prodotto la Prova.",
+    "kind": "html"
+  },
+  {
+    "id": "7c71c1499250ad798e29",
+    "it": "Se lo stesso macchinario possiede già una seconda attivazione grazie a Regolazione Fine · Maestria, Tutto a Pieno Carico o un’altra capacità analoga, non ottiene ulteriori attivazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "32c2d7e2bc6d787b2a07",
+    "it": "Pronto Intervento",
+    "kind": "html"
+  },
+  {
+    "id": "2e147b734c564fb5abe0",
+    "it": "Puoi rimettere rapidamente in funzione un congegno, un cannone o una macchina Guasta.",
+    "kind": "html"
+  },
+  {
+    "id": "2c47ca0c2b70a591648c",
+    "it": "Devi poter raggiungere fisicamente il macchinario e avere accesso ai suoi comandi o ai componenti interessati.",
+    "kind": "html"
+  },
+  {
+    "id": "f8d7e7d0b2992444d25d",
+    "it": "Sono necessari strumenti adatti e, quando il danno lo richiede, ricambi ordinari.",
+    "kind": "html"
+  },
+  {
+    "id": "56a94f76ae65d083f4c8",
+    "it": "Effettua Astuzia + Meccanica contro la Soglia di riparazione del dispositivo.",
+    "kind": "html"
+  },
+  {
+    "id": "6710753b3b83f912fb64",
+    "it": "Se il macchinario non possiede una Soglia specifica, utilizza Soglia 8.",
+    "kind": "html"
+  },
+  {
+    "id": "f00b975332eaeaaff23e",
+    "it": "In caso di successo, il Guasto viene rimosso e il dispositivo torna operativo.",
+    "kind": "html"
+  },
+  {
+    "id": "31cda9d3b803f869df35",
+    "it": "Pronto Intervento:",
+    "kind": "html"
+  },
+  {
+    "id": "7225ef9c1586c3c2218e",
+    "it": "Non ricostruisce un dispositivo Distrutto.",
+    "kind": "html"
+  },
+  {
+    "id": "8516aaa3f20e849f706b",
+    "it": "Non recupera automaticamente PS.",
+    "kind": "html"
+  },
+  {
+    "id": "e68e2a4d41abb317b496",
+    "it": "Non recupera PV a un Cyborg.",
+    "kind": "html"
+  },
+  {
+    "id": "49c4838deb4206ac8be0",
+    "it": "Non ripara automaticamente un Modulo corporeo Danneggiato.",
+    "kind": "html"
+  },
+  {
+    "id": "f6b27f8110b1af4bbdc1",
+    "it": "Cyborg e Moduli corporei seguono le procedure specifiche del Manuale del Cyborg e delle capacità che li riguardano.",
+    "kind": "html"
+  },
+  {
+    "id": "e93afa58a92680d8e00a",
+    "it": "Smontatore",
+    "kind": "html"
+  },
+  {
+    "id": "b80ccf2f306a3ea374ce",
+    "it": "Quando recuperi componenti meccaniche da macchine, relitti o Cyborg, aggiungi il dado Meccanica al tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "2be811e8b6ed7504c97a",
+    "it": "Regolazione Fine · Base",
+    "kind": "html"
+  },
+  {
+    "id": "e416963c5ae9443ac63e",
+    "it": "Quando gestisci personalmente un cannone o un macchinario, ne migliori l’efficienza.",
+    "kind": "html"
+  },
+  {
+    "id": "ef45270d3b89f08a346b",
+    "it": "Se il risultato prodotto dal dispositivo è espresso in dadi, aggiungi +1 dado dello stesso tipo a quel risultato.",
+    "kind": "html"
+  },
+  {
+    "id": "1244da1cf5ec1f590cf0",
+    "it": "Un cannone che infligge 1d8 PS infligge 2d8 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "2d5f3a693728b3d848f4",
+    "it": "Una macchina che produce una quantità misurata in dadi aggiunge un dado alla propria produzione.",
+    "kind": "html"
+  },
+  {
+    "id": "1bdfb8ea64b162147608",
+    "it": "Regolazione Fine non aggiunge il dado alla Prova dell’operatore e non modifica automaticamente un valore fisso.",
+    "kind": "html"
+  },
+  {
+    "id": "e4dae6c05988948ed573",
+    "it": "I tiri effettuati per utilizzare il macchinario vengono modificati da capacità come Macchinista, non da Regolazione Fine.",
+    "kind": "html"
+  },
+  {
+    "id": "4f8005d16feebb0b7704",
+    "it": "Sabotaggio",
+    "kind": "html"
+  },
+  {
+    "id": "4cd636788ac316f57e8c",
+    "it": "Puoi mandare in avaria una macchina nemica che riesci a raggiungere fisicamente.",
+    "kind": "html"
+  },
+  {
+    "id": "6b8929315fa4cb6b39da",
+    "it": "Devi avere accesso a un comando, un meccanismo o un componente che possa realmente essere manomesso.",
+    "kind": "html"
+  },
+  {
+    "id": "21168884caeb9ca65330",
+    "it": "Effettua Astuzia + Meccanica contro la Soglia del dispositivo.",
+    "kind": "html"
+  },
+  {
+    "id": "17e216da812fb407a036",
+    "it": "Se non è prevista una Soglia:",
+    "kind": "html"
+  },
+  {
+    "id": "173bbd7d94fd08881e0f",
+    "it": "Macchinario ordinario → Soglia 8.",
+    "kind": "html"
+  },
+  {
+    "id": "45fbecd47e2479f97695",
+    "it": "Sistema complesso o protetto → Soglia 12.",
+    "kind": "html"
+  },
+  {
+    "id": "1cc00918a6b9e62656f7",
+    "it": "Se un tecnico nemico sta proteggendo attivamente il sistema, il GM può utilizzare invece una Prova contrapposta di Astuzia + Meccanica.",
+    "kind": "html"
+  },
+  {
+    "id": "b1892d56ad1c969b19f2",
+    "it": "In caso di successo, il macchinario diventa Guasto e rimane inutilizzabile finché non viene riparato.",
+    "kind": "html"
+  },
+  {
+    "id": "5e7ee4a9c422300619a0",
+    "it": "Sabotaggio non distrugge automaticamente il dispositivo.",
+    "kind": "html"
+  },
+  {
+    "id": "a5c6ca758223d3983662",
+    "it": "Non puoi sabotare una macchina dall’altra parte di una parete o un sistema al quale non possiedi un accesso materiale.",
+    "kind": "html"
+  },
+  {
+    "id": "0fd576ac0de3ede88bf4",
+    "it": "Mani nell’Olio",
+    "kind": "html"
+  },
+  {
+    "id": "dbd0db54c24d0cb3985a",
+    "it": "Quando utilizzi l’Officina, completi le riparazioni in metà tempo. I tuoi attrezzi non si consumano.",
+    "kind": "html"
+  },
+  {
+    "id": "2d29a6711ce511da633a",
+    "it": "Macchinista",
+    "kind": "html"
+  },
+  {
+    "id": "d36d729f44d0464b23f1",
+    "it": "Durante una battaglia navale aggiungi il tuo dado Meccanica ai tiri dei macchinari che gestisci.",
+    "kind": "html"
+  },
+  {
+    "id": "af6ad132a5d4208b9d5e",
+    "it": "Regolazione Fine · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "b1f8d3f1bbedbe206a81",
+    "it": "Prerequisito: Regolazione Fine · Base",
+    "kind": "html"
+  },
+  {
+    "id": "b2915d5357aa42e9ed8a",
+    "it": "Con una sola Azione puoi gestire fino a due macchinari compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "4b325cfd5dae2877e187",
+    "it": "Devi poter raggiungere i loro comandi oppure utilizzare una postazione che li colleghi realmente.",
+    "kind": "html"
+  },
+  {
+    "id": "d898a83f0c36e41282ae",
+    "it": "Ogni macchinario:",
+    "kind": "html"
+  },
+  {
+    "id": "d8b03b7e6e2b9e7bc358",
+    "it": "Conserva il proprio funzionamento.",
+    "kind": "html"
+  },
+  {
+    "id": "23e4137efebcb48ba85a",
+    "it": "Effettua separatamente i propri tiri.",
+    "kind": "html"
+  },
+  {
+    "id": "6226b1349122da65fef6",
+    "it": "Consuma separatamente munizioni ed energia.",
+    "kind": "html"
+  },
+  {
+    "id": "f2a0aaaa5fe6d14c419b",
+    "it": "Riceve normalmente i benefici compatibili di Regolazione Fine · Base.",
+    "kind": "html"
+  },
+  {
+    "id": "2543335f8e6adbc9985c",
+    "it": "Il Talento non concede due Azioni al personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "20bca353db8134e90146",
+    "it": "Batteria Regolata",
+    "kind": "html"
+  },
+  {
+    "id": "c82ec3a4b21a57da5c2c",
+    "it": "Prima della battaglia revisioni e regoli i cannoni della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "821f40a80d21292f341f",
+    "it": "Per l’intera battaglia, il valore di Artiglieria aumenta di un gradino.",
+    "kind": "html"
+  },
+  {
+    "id": "f6e8190f28f307ac97b8",
+    "it": "Al termine dello scontro i cannoni devono essere revisionati prima di poter utilizzare nuovamente questo beneficio.",
+    "kind": "html"
+  },
+  {
+    "id": "5deeaad456a607d0e52a",
+    "it": "Regolazione Fine · Maestria",
+    "kind": "html"
+  },
+  {
+    "id": "b554ce9919cb41bd0646",
+    "it": "Prerequisito: Regolazione Fine · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "7862d87d389c002c327f",
+    "it": "Scegli un cannone o un macchinario che stai gestendo.",
+    "kind": "html"
+  },
+  {
+    "id": "9ae567b5619c9e56f318",
+    "it": "Per quel round può effettuare due attivazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "026bcaabf8df1a80c76b",
+    "it": "Entrambe vengono risolte separatamente e consumano le normali risorse del dispositivo.",
+    "kind": "html"
+  }
+]

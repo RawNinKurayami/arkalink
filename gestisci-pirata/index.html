@@ -1467,6 +1467,10 @@ body.mode-gest #manage .slot-art .slot-die .dieic{width:30px;height:30px;}
 <link rel="stylesheet" href="/glc-brand.css?v=1">
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=2">
 <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png?v=2">
+<!-- GLC LANGUAGE START -->
+<link rel="stylesheet" href="/glc-i18n.css?v=1">
+<script src="/glc-i18n.js?v=1"></script>
+<!-- GLC LANGUAGE END -->
 </head>
 <body>
 <div class="wrap">
@@ -3095,7 +3099,7 @@ function progRow(die,name,subText,controls,paEl,extra){
 /* ===== ANIMAZIONE: l'icona si accende al centro e vola a rimpicciolirsi nel suo slot ===== */
 function flyIn(iconHtml,findTarget){try{const fx=el("div",{class:"flyico",html:iconHtml});document.body.appendChild(fx);const W=innerWidth,H=innerHeight;const S=120;fx.style.left=(W/2-S/2)+"px";fx.style.top=(H/2-S/2)+"px";fx.style.width=S+"px";fx.style.height=S+"px";
  setTimeout(()=>{fx.classList.add("lit");setTimeout(()=>{let t=null;try{t=findTarget&&findTarget();}catch(e){}if(t&&t.getBoundingClientRect){const r=t.getBoundingClientRect();if(r.top<0||r.bottom>H){t.scrollIntoView({block:"center",behavior:"instant"});}const r2=t.getBoundingClientRect();const cx=r2.left+r2.width/2,cy=r2.top+r2.height/2;const sc=Math.max(.15,Math.min(r2.width,r2.height,64)/S);fx.classList.add("go");fx.style.transform="translate("+(cx-W/2)+"px,"+(cy-H/2)+"px) scale("+sc+")";fx.style.opacity="0";t.classList.add("landed");setTimeout(()=>t.classList.remove("landed"),1400);}else{fx.classList.add("go");fx.style.transform="scale(.2)";fx.style.opacity="0";}setTimeout(()=>fx.remove(),900);},520);},30);}catch(e){}}
-function byText(sel,txt){const list=document.querySelectorAll(sel);for(const n of list){if((n.textContent||"").trim()===String(txt||"").trim())return n.closest(".slot,.gcard,.medal,.invtile,.bond")||n;}return null;}
+function byText(sel,txt){const list=document.querySelectorAll(sel);for(const n of list){if((window.GLCI18n?GLCI18n.originalText(n):n.textContent||"").trim()===String(txt||"").trim())return n.closest(".slot,.gcard,.medal,.invtile,.bond")||n;}return null;}
 /* ===== MODALI ===== */
 let MODAL=null;
 function closeModal(){if(MODAL){const h=MODAL._onClose;MODAL.remove();MODAL=null;document.body.classList.remove("has-modal");if(h)try{h();}catch(e){}}}
@@ -4058,7 +4062,7 @@ function renderManage(){
  /* --- barra superiore --- */
  const top=el("div",{class:"gtop"});
  const tl=el("div",{class:"gt-l"});tl.appendChild(el("div",{class:"scene-eyebrow",text:"Dossier del pirata"}));top.appendChild(tl);tl.appendChild(el("div",{class:"gh-name",text:pg.nome||"Pirata Senza Nome"}));
- const tr=el("div",{class:"gt-r"});const bn=(pg.bounty&&pg.bounty!=="0")?Number(pg.bounty):0;tr.appendChild(el("div",{class:"gh-bounty",html:"฿ "+(bn?bn.toLocaleString("it-IT"):"0")}));tr.appendChild(el("button",{class:"gbtn",text:"✎ Identità",onclick:identityModal}));tr.appendChild(el("button",{class:"gbtn",text:"⚙ Soglie P.A.",title:"Quanti P.A. servono per salire di dado",onclick:thresholdsModal}));tr.appendChild(el("button",{class:"gbtn",text:"☰ Azioni",title:"Stampa, esporta, importa, reset",onclick:actionsModal}));top.appendChild(tr);
+ const tr=el("div",{class:"gt-r"});const bn=(pg.bounty&&pg.bounty!=="0")?Number(pg.bounty):0;tr.appendChild(el("div",{class:"gh-bounty",html:"฿ "+(bn?bn.toLocaleString(window.GLCI18n?GLCI18n.locale:"it-IT"):"0")}));tr.appendChild(el("button",{class:"gbtn",text:"✎ Identità",onclick:identityModal}));tr.appendChild(el("button",{class:"gbtn",text:"⚙ Soglie P.A.",title:"Quanti P.A. servono per salire di dado",onclick:thresholdsModal}));tr.appendChild(el("button",{class:"gbtn",text:"☰ Azioni",title:"Stampa, esporta, importa, reset",onclick:actionsModal}));top.appendChild(tr);
  tr.appendChild(upgradeChoiceControl());m.appendChild(top);
  if(r?.historical)m.appendChild(el("div",{class:"compat ko",text:RACE_HISTORY_NOTE}));
  if(window.GLCPrestigeUI){const prestigeBanner=GLCPrestigeUI.banner();if(prestigeBanner)m.appendChild(prestigeBanner);}
@@ -4107,7 +4111,7 @@ function renderManage(){
   const cycle=el("div",{class:"mod-combat-controls"});modCombatControls(cycle);eq.appendChild(cycle);
  }
  {eq.appendChild(el("div",{class:"slots-h",text:"Haki"}));pg.haki.forEach((h,i)=>{const liv=hakiLevel(h);eq.appendChild(slotTile(null,h.name.replace("Haki ",""),(hakiPipAxis(h)?("<b>"+hakiPipOf(h)+" PIP</b>"):("<b>"+(h.die||"—")+"</b> · "+hakiPipOf(h)+" PIP"))+(liv?(" · "+liv):""),()=>hakiModal(i),"img:"+(IMG_ICON[h.name]||"haki-armamento")));});const hakiFree=HAKI_NAMES.filter(n=>!pg.haki.some(h=>h.name===n));if(hakiFree.length)eq.appendChild(slotAdd("Risveglia Haki",()=>{const nm=hakiFree[0];mutate(()=>pg.haki.push(HAKI_PROG[nm]?.axis==="pip"?{name:nm,die:"",pip:1}:{name:nm,die:"d6",pip:hakiPip("d6")}));flyIn(imgIcon(IMG_ICON[nm],120),()=>byText(".slots .slot-n",nm.replace("Haki ","")));setTimeout(()=>hakiModal(pg.haki.length-1),950);}));}
- if(window.GLCPrestige)pg.haki.forEach(h=>{if(!GLCPrestige.hakiLevel(pg,h))return;const tile=Array.from(eq.querySelectorAll(".slot")).find(n=>n.querySelector(".slot-n")?.textContent===h.name.replace("Haki ",""));if(tile)tile.classList.add("prg-haki-slot");});
+ if(window.GLCPrestige)pg.haki.forEach(h=>{if(!GLCPrestige.hakiLevel(pg,h))return;const tile=Array.from(eq.querySelectorAll(".slot")).find(n=>(window.GLCI18n?GLCI18n.originalText(n.querySelector(".slot-n")):n.querySelector(".slot-n")?.textContent)===h.name.replace("Haki ",""));if(tile)tile.classList.add("prg-haki-slot");});
  mid.appendChild(eq);
  mid.appendChild(el("div",{class:"stage-fig"},[el("div",{class:"stage-glow","aria-hidden":"true"}),pw,ambition,L]));
  
@@ -4155,7 +4159,7 @@ function render(){
  $("#s-ore").textContent=pg.ore!=null?pg.ore:16;
  $("#s-leg").textContent=legamiTotal();var su=$("#s-upg");if(su)su.textContent=(pg.upgrade!=null&&pg.upgrade!=="")?pg.upgrade:"\u2014";
  $("#s-haki-n").textContent=pg.haki.reduce((s,h)=>s+hakiPipOf(h),0);
- $("#s-taglia").textContent="฿ "+((pg.bounty&&pg.bounty!=="0")?Number(pg.bounty).toLocaleString("it-IT"):"0");
+ $("#s-taglia").textContent="฿ "+((pg.bounty&&pg.bounty!=="0")?Number(pg.bounty).toLocaleString(window.GLCI18n?GLCI18n.locale:"it-IT"):"0");
  const img=$("#photo"),hint=$("#ph-hint");if(pg.photo){if(img.getAttribute("src")!==pg.photo)img.src=pg.photo;applyPhotoPos();hint.style.display="none";}else{img.removeAttribute("src");img.style.display="none";hint.style.display="block";}
  {const pb=$("#pbar");if(pb){pb.classList.toggle("show",!!pg.photo);const zr=$("#pb-zoom");if(zr&&document.activeElement!==zr)zr.value=(pg.photoPos&&pg.photoPos.z)||1;}}
  const badge=(nameHtml,die)=>el("div",{class:"li"},[el("span",{class:"li-n",html:nameHtml}),el("span",{class:"dbadge",text:die})]);
@@ -4217,7 +4221,7 @@ function buildPrintSheet(){
   if(r?.historical)h+='<div class="ps-d2">'+escp(RACE_HISTORY_NOTE)+'</div>';
   if(pg.amb)h+='<div class="ps-amb">\u201c'+escp(pg.amb)+'\u201d</div>';
   h+='</div>';
-  h+='<div class="ps-bounty"><div class="ps-bk">Wanted</div><div class="ps-bv">\u0e3f '+(bountyN?bountyN.toLocaleString("it-IT"):"0")+'</div><div class="ps-bl">'+escp(bountyN?bountyLevel(bountyN):"Sconosciuto")+'</div></div>';
+  h+='<div class="ps-bounty"><div class="ps-bk">Wanted</div><div class="ps-bv">\u0e3f '+(bountyN?bountyN.toLocaleString(window.GLCI18n?GLCI18n.locale:"it-IT"):"0")+'</div><div class="ps-bl">'+escp(bountyN?bountyLevel(bountyN):"Sconosciuto")+'</div></div>';
   h+='</div>';
   if(pg.bg)h+='<div class="ps-bg"><span class="ps-bgk">Background</span> '+escp(pg.bg)+'</div>';
   h+='<div class="ps-strip">';
@@ -4269,7 +4273,7 @@ function buildPrintSheet(){
   h+='<div class="ps-page ps-page2"><div class="ps-blankhead">'+escp(pg.nome||"Pirata")+' · Inventario & Note</div>';h+='<div class="ps-blank"><div class="ps-bh">Inventario</div>';(pg.inventario||[]).forEach(function(it){h+='<div class="ps-item"><b>'+escp(it.nome||"oggetto")+'</b>'+((parseInt(it.qta)||0)!==1?' <span class="die">×'+(parseInt(it.qta)||0)+'</span>':'')+(it.note?'<div class="ps-d">'+escp(it.note)+'</div>':'')+'</div>';});h+='<div class="ps-lines"></div></div>';h+='<div class="ps-blank"><div class="ps-bh">Note</div><div class="ps-lines tall"></div></div>';h+='<div class="ps-foot">Grand Line Chronicles · Sistema «Will of D.»</div></div>';
   host.innerHTML=h;
 }
-$("#printSheet").onclick=function(){buildPrintSheet();window.print();};
+$("#printSheet").onclick=function(){buildPrintSheet();window.GLCI18n?.apply(document.getElementById("print-sheet"));window.print();};
 /* Pacchetto di stampa: tutto ciò che la Scheda illustrata non sa calcolare da sola (descrizioni dei talenti, livelli Haki, costi delle Tecniche, P.A.). */
 function modPrintRecord(m){
  const assessment=GLCCyborg.evaluate(pg,m,{catalogue:TEC_EFF,purpose:"project"});

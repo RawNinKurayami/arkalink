@@ -1,0 +1,2367 @@
+[
+  {
+    "id": "6e8fd42722d98e3fd816",
+    "it": "Un rampino, per esempio, permette di svolgere le funzioni fisiche previste dal suo progetto. Non fornisce un bonus alle Prove soltanto perché appartiene alla famiglia Gadget.",
+    "kind": "html"
+  },
+  {
+    "id": "96b72edbb76e04ab7a66",
+    "it": "Allo stesso modo, una pistola a più canne deve specificare nella propria scheda capacità, condizioni e funzionamento.",
+    "kind": "html"
+  },
+  {
+    "id": "2af613adfa7f02da8e73",
+    "it": "<span class=\"man-sez-n\">11.10 ·</span> Oggetti consumabili",
+    "kind": "html"
+  },
+  {
+    "id": "1ade44cefb1dcdd99f54",
+    "it": "Un oggetto consumabile viene utilizzato un numero limitato di volte.",
+    "kind": "html"
+  },
+  {
+    "id": "bbf75d9adda4cb53af45",
+    "it": "La sua scheda deve riportare le condizioni che ne determinano l'esaurimento.",
+    "kind": "html"
+  },
+  {
+    "id": "574af7f496aebdbeea00",
+    "it": "Una bomba viene normalmente consumata quando viene utilizzata. Un kit può invece prevedere più utilizzi prima di richiedere un rifornimento.",
+    "kind": "html"
+  },
+  {
+    "id": "359325f780bc5d94bbf6",
+    "it": "La quantità disponibile deve essere registrata nell'inventario.",
+    "kind": "html"
+  },
+  {
+    "id": "30119094a09364282107",
+    "it": "Le munizioni speciali seguono le regole del Capitolo 10.",
+    "kind": "html"
+  },
+  {
+    "id": "e4a9c14fc4e74c84d0a0",
+    "it": "L’Officina permette di costruirle, mentre l’arma determina se possono essere utilizzate.",
+    "kind": "html"
+  },
+  {
+    "id": "209cceaab259dc7eed33",
+    "it": "Ogni munizione speciale possiede un proprio progetto, che ne stabilisce Skill, Soglia, Tempo, Materiali, quantità prodotta ed eventuale Effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "139a5a2f73d60bd8592f",
+    "it": "Effetti particolari, modifiche al danno o Stati non vengono ottenuti liberamente durante la costruzione: devono essere già previsti dal progetto della munizione.",
+    "kind": "html"
+  },
+  {
+    "id": "837d8eada392d8429562",
+    "it": "<span class=\"man-sez-n\">11.11 ·</span> Modificare un oggetto",
+    "kind": "html"
+  },
+  {
+    "id": "54450c1778d9673a9bc7",
+    "it": "Un personaggio può lavorare su qualcosa che possiede già.",
+    "kind": "html"
+  },
+  {
+    "id": "9a70121ed6a40205fedd",
+    "it": "L’intervento può consistere in una riparazione, nella sostituzione di un componente oppure in una modifica prevista da un progetto specifico.",
+    "kind": "html"
+  },
+  {
+    "id": "eee1ef700a017ea6027d",
+    "it": "Il GM tratta la modifica come un normale progetto di Crafting, stabilendo Skill, Soglia, Tempo, Materiali e risultato.",
+    "kind": "html"
+  },
+  {
+    "id": "db5d2459e04b3ae15154",
+    "it": "Una modifica non aumenta automaticamente il Grado di un’arma e non aggiunge liberamente Effetti Speciali.",
+    "kind": "html"
+  },
+  {
+    "id": "2c9b689cfd5f36e6103a",
+    "it": "Il Grado dell’arma rappresenta la sua qualità e continua a seguire le normali regole del Capitolo 10.",
+    "kind": "html"
+  },
+  {
+    "id": "2c3f90bf7210e554c594",
+    "it": "Se una modifica deve concedere un nuovo beneficio meccanico, quel beneficio deve essere esplicitamente previsto dal progetto utilizzato.",
+    "kind": "html"
+  },
+  {
+    "id": "b75445704b50f5ee9b86",
+    "it": "<span class=\"man-sez-n\">11.12 ·</span> Riparare gli oggetti",
+    "kind": "html"
+  },
+  {
+    "id": "c4989913281d488530c6",
+    "it": "Riparare significa riportare un oggetto danneggiato a uno stato utilizzabile.",
+    "kind": "html"
+  },
+  {
+    "id": "517d9acb74cf646a7537",
+    "it": "La riparazione richiede una Skill appropriata, materiali e tempo.",
+    "kind": "html"
+  },
+  {
+    "id": "72f0be72debfad51274a",
+    "it": "Un macchinario viene normalmente affrontato attraverso Meccanica. Una struttura navale richiede Carpenteria.",
+    "kind": "html"
+  },
+  {
+    "id": "26e6ec235df2dd5930a0",
+    "it": "La semplice capacità di costruire qualcosa non elimina i requisiti dell'intervento.",
+    "kind": "html"
+  },
+  {
+    "id": "5a0b396b0f60857ccdb6",
+    "it": "Guasto e Distruzione",
+    "kind": "html"
+  },
+  {
+    "id": "63ce023cf08b5b3c72d8",
+    "it": "Un macchinario può trovarsi in due condizioni differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "8a939865fd3d0841ffce",
+    "it": "Guasto.",
+    "kind": "html"
+  },
+  {
+    "id": "edee5f8050f442c3f500",
+    "it": "Il dispositivo è ancora strutturalmente integro, ma una parte del suo funzionamento è bloccata, inceppata o fuori uso. Un guasto può essere eliminato attraverso una normale riparazione oppure da una capacità che permetta espressamente un intervento immediato.",
+    "kind": "text"
+  },
+  {
+    "id": "2633946c7d2a57745b60",
+    "it": "Distrutto.",
+    "kind": "html"
+  },
+  {
+    "id": "003ea174ffc217654638",
+    "it": "Il dispositivo ha subito un danno strutturale grave, ha perso componenti essenziali oppure non è più utilizzabile nella propria forma attuale. Ricostruirlo richiede normalmente tempo, materiali e le regole dell’Officina.",
+    "kind": "text"
+  },
+  {
+    "id": "411752ff5bc63620823d",
+    "it": "Una capacità che permette di rimuovere un Guasto non permette automaticamente di ricostruire un dispositivo Distrutto.",
+    "kind": "html"
+  },
+  {
+    "id": "b6289325770d68ff2954",
+    "it": "La scheda di un macchinario o una capacità specifica può stabilire condizioni differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "cd43605c8fa4cccb9376",
+    "it": "Riparazioni fuori dal combattimento",
+    "kind": "html"
+  },
+  {
+    "id": "af1062e1cf7f9a1a7f6d",
+    "it": "Il GM stabilisce la Soglia e le ore necessarie in base al danno.",
+    "kind": "html"
+  },
+  {
+    "id": "23cf1cc2197f484a1d5e",
+    "it": "Un oggetto lievemente danneggiato può richiedere un intervento breve. Uno distrutto può invece necessitare di ricostruzione completa e nuovi materiali.",
+    "kind": "html"
+  },
+  {
+    "id": "e48dc4a0de60c68ecc06",
+    "it": "Non esiste una percentuale universale di ore o materiali applicabile a ogni riparazione.",
+    "kind": "html"
+  },
+  {
+    "id": "aad7944ed4868a56074c",
+    "it": "Riparazioni durante il combattimento",
+    "kind": "html"
+  },
+  {
+    "id": "4face3e002ef3581b903",
+    "it": "Una normale attività di Crafting non diventa automaticamente eseguibile in un'Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "f634d191ae033cf6d432",
+    "it": "Per effettuare riparazioni immediate occorrono capacità che lo permettano espressamente.",
+    "kind": "html"
+  },
+  {
+    "id": "642ff40dbfd226b0d986",
+    "it": "Esempi di Talenti di riparazione",
+    "kind": "html"
+  },
+  {
+    "id": "7938f2dc635c51aba3b2",
+    "it": "Riparazione d'Emergenza · Carpentiere",
+    "kind": "html"
+  },
+  {
+    "id": "2da5d1c1030e484d658b",
+    "it": "Durante una battaglia navale, utilizzi l'Azione per riparare lo scafo. Una Prova riuscita restituisce immediatamente PS alla nave.",
+    "kind": "html"
+  },
+  {
+    "id": "8a04284e63a07bf0a26d",
+    "it": "Pronto Intervento · Meccanico",
+    "kind": "html"
+  },
+  {
+    "id": "0392d6421fca4c6e9e74",
+    "it": "Permette di rimettere rapidamente in funzione un congegno, un cannone o una macchina guasta, secondo le condizioni del Talento.",
+    "kind": "html"
+  },
+  {
+    "id": "e3b7b01f02ee9aaf37e4",
+    "it": "Mani nell'Olio · Meccanico",
+    "kind": "html"
+  },
+  {
+    "id": "15210af466f54334c708",
+    "it": "Con un'Officina disponibile, dimezzi i tempi di riparazione. I tuoi attrezzi non si consumano.",
+    "kind": "html"
+  },
+  {
+    "id": "b805329e5ee835e4eacd",
+    "it": "Quando un Talento specifica che l'intervento richiede un'Azione, la regola V2 dell'Azione Bonus non ne modifica automaticamente il funzionamento.",
+    "kind": "html"
+  },
+  {
+    "id": "351a7f1e1a494ca5c671",
+    "it": "<span class=\"man-sez-n\">11.13 ·</span> La qualità del lavoro degli Ingegneri",
+    "kind": "html"
+  },
+  {
+    "id": "141d28e3e29f0302fa63",
+    "it": "Gli Ingegneri possiedono capacità che modificano direttamente alcuni lavori legati alla propria specializzazione.",
+    "kind": "html"
+  },
+  {
+    "id": "56a88aafa58a33b8bac2",
+    "it": "Questi benefici non costituiscono regole universali dell’Officina: appartengono ai personaggi che hanno acquisito le rispettive capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "230aa8005d6f904d4db2",
+    "it": "Carpentiere · La riparazione che tiene",
+    "kind": "html"
+  },
+  {
+    "id": "a8f8558b19ed089cc291",
+    "it": "Quando il Carpentiere ottiene un margine di +4 in una Prova di Carpenteria per riparare la nave, la riparazione restituisce il doppio dei PS previsti.",
+    "kind": "html"
+  },
+  {
+    "id": "cf1eef29494821b2590d",
+    "it": "Il beneficio riguarda la riparazione dello scafo, non qualsiasi oggetto costruito dal Carpentiere.",
+    "kind": "html"
+  },
+  {
+    "id": "5a9c5362403f86efae7d",
+    "it": "Meccanico · Gira che è un piacere",
+    "kind": "html"
+  },
+  {
+    "id": "7c5ec1ddf78f423a2a85",
+    "it": "Quando il Meccanico ottiene un margine di +4 in una Prova di Meccanica mentre gestisce una macchina, quella macchina agisce due volte nel turno.",
+    "kind": "html"
+  },
+  {
+    "id": "caa6d77c632b8271c8e2",
+    "it": "La Firma riguarda il funzionamento del macchinario, non raddoppia automaticamente la qualità di ogni oggetto costruito.",
+    "kind": "html"
+  },
+  {
+    "id": "4229f90d8dae177e686c",
+    "it": "<span class=\"man-sez-n\">11.14 ·</span> Progetti speciali",
+    "kind": "html"
+  },
+  {
+    "id": "726b2f055612e1c301c4",
+    "it": "Non tutti gli oggetti costruibili nella Grand Line appartengono all’equipaggiamento comune.",
+    "kind": "html"
+  },
+  {
+    "id": "7661f0196ba493899ce8",
+    "it": "Il Game Master può introdurre durante la campagna progetti speciali: armi particolari, munizioni, strumenti, dispositivi, miglioramenti per la nave o altre tecnologie che possono essere costruite dai personaggi.",
+    "kind": "html"
+  },
+  {
+    "id": "7538169488deb606880e",
+    "it": "Un progetto speciale utilizza la stessa Scheda di Progetto di qualsiasi altra costruzione:",
+    "kind": "html"
+  },
+  {
+    "id": "abf6f0fa9156701331cf",
+    "it": "<b>Nome · Funzione · Skill · Soglia · Tempo · Materiali · Effetto · Limitazioni</b>",
+    "kind": "html"
+  },
+  {
+    "id": "fc032ab7924f54568e5a",
+    "it": "Il progetto stabilisce in anticipo ciò che l’oggetto può fare.",
+    "kind": "html"
+  },
+  {
+    "id": "d93fcb23cfc9547d0ba8",
+    "it": "Possedere il progetto non significa possedere automaticamente l’oggetto. Per realizzarlo occorre soddisfare i suoi requisiti, procurarsi i materiali, dedicare il tempo necessario ed effettuare la Prova prevista.",
+    "kind": "html"
+  },
+  {
+    "id": "6106540e4bd5fdd91c24",
+    "it": "Un personaggio può tentare la costruzione se possiede la Skill richiesta. Non è necessario appartenere a uno specifico Ruolo, salvo che il progetto stesso indichi un requisito particolare.",
+    "kind": "html"
+  },
+  {
+    "id": "f6da958bdd1794ce4d3d",
+    "it": "Gli Effetti Speciali e le altre capacità dell’oggetto vengono stabiliti dal progetto. Non possono essere aggiunti liberamente in seguito a un tiro particolarmente alto.",
+    "kind": "html"
+  },
+  {
+    "id": "d7cc5517fef01187f064",
+    "it": "Il GM può utilizzare i progetti speciali come ricompense, scoperte o opportunità della campagna e può richiedere componenti rari o condizioni particolari quando la tecnologia lo giustifica.",
+    "kind": "html"
+  },
+  {
+    "id": "6fbcf9ec3d5577969744",
+    "it": "Una volta ottenuto il progetto, la costruzione segue normalmente tutte le regole dell’Officina.",
+    "kind": "html"
+  },
+  {
+    "id": "7fed2f9c7f9238d2e547",
+    "it": "<span class=\"man-sez-n\">11.15 ·</span> Costruzione e installazione dei Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "493434db3012b1757402",
+    "it": "I Moduli utilizzano le normali regole dell’Officina, integrate dalle regole specifiche del Manuale del Cyborg.",
+    "kind": "html"
+  },
+  {
+    "id": "6949e1052a66130dd60e",
+    "it": "La Fascia Tecnologica determina la competenza minima di Meccanica, la Soglia e il tempo base necessari alla costruzione.",
+    "kind": "html"
+  },
+  {
+    "id": "55ca507fed07b150c966",
+    "it": "Un Modulo completato può esistere anche senza essere installato. In questo caso viene conservato come normale oggetto finché il Cyborg non dispone di uno slot libero e di Corpo Meccanico sufficiente.",
+    "kind": "html"
+  },
+  {
+    "id": "aba2e8b1b01994528cc8",
+    "it": "Per installare un Modulo servono:",
+    "kind": "html"
+  },
+  {
+    "id": "8cd24304f1c5ddfb21cd",
+    "it": "uno slot libero;",
+    "kind": "html"
+  },
+  {
+    "id": "33cf9036015df27ffd4f",
+    "it": "Corpo Meccanico almeno pari alla Fascia del Modulo;",
+    "kind": "html"
+  },
+  {
+    "id": "fe600528ac8bf300e077",
+    "it": "il dispositivo completo;",
+    "kind": "html"
+  },
+  {
+    "id": "331ab32d0f8db2465b18",
+    "it": "strumenti adeguati.",
+    "kind": "html"
+  },
+  {
+    "id": "72fce5ed32b28601bbcf",
+    "it": "<b>Tempo base di installazione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "ea713bc71b055ee50609",
+    "it": "30 minuti",
+    "kind": "html"
+  },
+  {
+    "id": "747f5871cb56d05b1c1d",
+    "it": "2 ore",
+    "kind": "html"
+  },
+  {
+    "id": "489a6f5a3ef53b581bee",
+    "it": "8 ore",
+    "kind": "html"
+  },
+  {
+    "id": "cd044a8f12d7ec263e60",
+    "it": "Sostituire un Modulo utilizza il tempo della nuova installazione e comprende la rimozione del precedente.",
+    "kind": "html"
+  },
+  {
+    "id": "9eefadd1ca1905d98a59",
+    "it": "Potenziare un Modulo a una Fascia superiore costituisce un nuovo progetto.",
+    "kind": "html"
+  },
+  {
+    "id": "4106bfd6a6b063dfe86b",
+    "it": "<span class=\"man-sez-n\">11.16 ·</span> Esempio completo di Crafting",
+    "kind": "html"
+  },
+  {
+    "id": "ecf3bdb93f71afe2c772",
+    "it": "Un Ingegnere vuole costruire un Log Pose artigianale per la ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "d44eac20a96e7391025a",
+    "it": "La scheda del progetto prevede Astuzia + Meccanica, Soglia 11, 20 ore di lavoro e materiali specifici: ferro magnetico raffinato, ago sensibile, vetro soffiato e cuoio.",
+    "kind": "html"
+  },
+  {
+    "id": "cf75221f1d5b2d0335c8",
+    "it": "Progetto · Log Pose artigianale",
+    "kind": "html"
+  },
+  {
+    "id": "cafa367d6e10fe7653e1",
+    "it": "Soglia 11",
+    "kind": "html"
+  },
+  {
+    "id": "23300f2c4d87f403a078",
+    "it": "20 ore",
+    "kind": "html"
+  },
+  {
+    "id": "60f01d50b417fa0045e1",
+    "it": "Il personaggio procura tutti i materiali e dispone di un'Officina adatta.",
+    "kind": "html"
+  },
+  {
+    "id": "74f2c6137235e9aa30a2",
+    "it": "Completa le ore di lavoro previste.",
+    "kind": "html"
+  },
+  {
+    "id": "3340ae93d3acadc4bfad",
+    "it": "Prova",
+    "kind": "html"
+  },
+  {
+    "id": "8ba4d27b826812ffd3cd",
+    "it": "Il risultato dei dadi è 15.",
+    "kind": "html"
+  },
+  {
+    "id": "183188700e1233a1669b",
+    "it": "Il progetto raggiunge il risultato di Capolavoro.",
+    "kind": "html"
+  },
+  {
+    "id": "19a1460875937ac9f98a",
+    "it": "Il giocatore sceglie il vantaggio sul tempo: delle 20 ore conteggiate, il progetto ne consuma soltanto 10. Le altre 10 tornano disponibili e possono essere dedicate a un altro progetto o attività. È una sottrazione dal tempo disponibile della lavorazione: non serve ricostruire una cronologia più precisa.",
+    "kind": "html"
+  },
+  {
+    "id": "97a7965065fd0d452c37",
+    "it": "Il Log Pose viene completato con le proprietà previste dalla sua scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "f79ba782bc03fb40c5b0",
+    "it": "La successiva calibrazione richiede comunque il tempo indicato dal progetto: 2d6 giorni.",
+    "kind": "html"
+  },
+  {
+    "id": "59fd22412cd05b1a9eb7",
+    "it": "La qualità della costruzione non cancella automaticamente i requisiti di funzionamento dell'oggetto.",
+    "kind": "html"
+  },
+  {
+    "id": "64e8dfa26faaf1978cb2",
+    "it": "Allo stesso modo, ottenere un Capolavoro non trasforma il Log Pose in un Eternal Pose e non gli conferisce una nuova destinazione permanente.",
+    "kind": "html"
+  },
+  {
+    "id": "1be9826435adb38dad71",
+    "it": "Il progetto produce ciò che era stato concordato, con il beneficio di lavorazione effettivamente ottenuto.",
+    "kind": "html"
+  },
+  {
+    "id": "155d82ea1eba45351f7d",
+    "it": "Capitolo 12 ·",
+    "kind": "html"
+  },
+  {
+    "id": "4b04b9b6b1f19ade9540",
+    "it": "Il Corpo Meccanico e i Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "8db4b052efe133e2669b",
+    "it": "Un braccio d'acciaio può nascondere un cannone. Una gamba meccanica può contenere un propulsore. Dietro una semplice placca metallica potrebbe celarsi uno scudo capace di salvare un compagno da una cannonata.",
+    "kind": "html"
+  },
+  {
+    "id": "1cfa75275a53fe6f4a5d",
+    "it": "Sulla Grand Line, la tecnologia non è soltanto un insieme di attrezzi: può diventare parte del corpo di un pirata.",
+    "kind": "html"
+  },
+  {
+    "id": "e0d1a78ddb885e3b7cec",
+    "it": "In Grand Line Chronicles, i Moduli sono dispositivi installabili che forniscono funzioni fisiche e, quando previsto, un effetto speciale. Il loro funzionamento è regolato da slot, requisiti tecnologici, attivazione ed eventuali risorse energetiche.",
+    "kind": "html"
+  },
+  {
+    "id": "475dd39d4b5a766250b2",
+    "it": "Un Modulo non è una Tecnica e non è necessariamente un'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "0722a1af135f4eda96a9",
+    "it": "Il suo scopo è aggiungere al personaggio una capacità concreta, che potrà essere utilizzata autonomamente oppure attraverso le Tecniche compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "28db8feff4dc7cf00cd9",
+    "it": "Questo capitolo riassume le regole fondamentali necessarie per utilizzare i Moduli durante il gioco. Le tabelle complete delle Fasce Tecnologiche, la progettazione dei Moduli, gli Effetti Speciali, Energia, costruzione, installazione e riparazione sono approfonditi nel Manuale del Cyborg.",
+    "kind": "html"
+  },
+  {
+    "id": "244e174c74120f93b829",
+    "it": "<span class=\"man-sez-n\">12.1 ·</span> Che cos'è un Modulo?",
+    "kind": "html"
+  },
+  {
+    "id": "5b96f2cabfd7bbe1918f",
+    "it": "Un Modulo è un dispositivo meccanico installato sul corpo del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "49844fc0072a501cf66b",
+    "it": "Può sostituire una parte anatomica, essere integrato in un arto oppure costituire un apparato aggiuntivo.",
+    "kind": "html"
+  },
+  {
+    "id": "2b6e60a322418d635f17",
+    "it": "Ogni Modulo possiede una funzione fisica, che descrive ciò che il dispositivo è in grado di fare.",
+    "kind": "html"
+  },
+  {
+    "id": "567e140fcf7583fc2f6c",
+    "it": "Può inoltre possedere un effetto speciale, purché venga progettato e approvato dal Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "90d046b71660fbe52872",
+    "it": "Anatomia di un Modulo",
+    "kind": "html"
+  },
+  {
+    "id": "8adf6bdad5838ec59dae",
+    "it": "<b>Campo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "a8ed3e51ade23b5e89e9",
+    "it": "<b>Contenuto</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f0d088fa6f8df350a954",
+    "it": "Identità del dispositivo",
+    "kind": "html"
+  },
+  {
+    "id": "532139faa0f165a4012b",
+    "it": "Fascia Tecnologica",
+    "kind": "html"
+  },
+  {
+    "id": "54276aa0307f83cb079c",
+    "it": "Categoria",
+    "kind": "html"
+  },
+  {
+    "id": "8850679d8a460c15505c",
+    "it": "Offensivo, Difensivo, Mobilità, Controllo o Utilità",
+    "kind": "html"
+  },
+  {
+    "id": "bec99a784067d6136c70",
+    "it": "Struttura",
+    "kind": "html"
+  },
+  {
+    "id": "d410a0f4e9309d180645",
+    "it": "Funzionale oppure Modulo-Arma",
+    "kind": "html"
+  },
+  {
+    "id": "622a39a1fc3d63af8da3",
+    "it": "Grado d’Arma",
+    "kind": "html"
+  },
+  {
+    "id": "766c2b8f3d521459ce4d",
+    "it": "Solo per un Modulo-Arma",
+    "kind": "html"
+  },
+  {
+    "id": "d8196d3495455b8ce888",
+    "it": "Funzione fisica",
+    "kind": "html"
+  },
+  {
+    "id": "9fe1d1c6fae39fb18bf9",
+    "it": "Che cosa il dispositivo è costruito per fare",
+    "kind": "html"
+  },
+  {
+    "id": "53a292644eb7606b9778",
+    "it": "Funzione inattiva",
+    "kind": "html"
+  },
+  {
+    "id": "a1b2b00b92754e92ca02",
+    "it": "Ciò che rimane utilizzabile quando è Inattivo",
+    "kind": "html"
+  },
+  {
+    "id": "bf666d4a205255fed294",
+    "it": "Funzione attiva",
+    "kind": "html"
+  },
+  {
+    "id": "69f5e48367e1d5f65bdb",
+    "it": "Ciò che può fare quando è operativo",
+    "kind": "html"
+  },
+  {
+    "id": "890c578d212ebe5ee43b",
+    "it": "Effetto Speciale",
+    "kind": "html"
+  },
+  {
+    "id": "0b302f1d67500c23bc81",
+    "it": "Facoltativo; massimo uno",
+    "kind": "html"
+  },
+  {
+    "id": "2ced24713ba057c98e46",
+    "it": "Energia",
+    "kind": "html"
+  },
+  {
+    "id": "8930212838eec20e5ea5",
+    "it": "Tipo di risorsa, quando prevista",
+    "kind": "html"
+  },
+  {
+    "id": "14783995978ada1a64ef",
+    "it": "Capacità / Consumo / Ricarica",
+    "kind": "html"
+  },
+  {
+    "id": "c46d1cd1070fc7438e1c",
+    "it": "Gestione della risorsa",
+    "kind": "html"
+  },
+  {
+    "id": "bf228e41da8fb20f8d61",
+    "it": "Tecniche compatibili",
+    "kind": "html"
+  },
+  {
+    "id": "4b28c5aeb986f86b7ed9",
+    "it": "Eventuali limiti come esecutore",
+    "kind": "html"
+  },
+  {
+    "id": "44a21990b1d05dbad75b",
+    "it": "Limiti",
+    "kind": "html"
+  },
+  {
+    "id": "ec4e7f9f8d242da78329",
+    "it": "Condizioni specifiche del progetto",
+    "kind": "html"
+  },
+  {
+    "id": "4a1e56509a0685fd67c6",
+    "it": "Integrità",
+    "kind": "html"
+  },
+  {
+    "id": "308f703726048cd0fd7d",
+    "it": "Integro oppure Danneggiato",
+    "kind": "html"
+  },
+  {
+    "id": "9f7ecbcb2bbe583d65a8",
+    "it": "Installazione",
+    "kind": "html"
+  },
+  {
+    "id": "5ff158dc8f70dd631dee",
+    "it": "Installato oppure Non installato",
+    "kind": "html"
+  },
+  {
+    "id": "8b20c37e3f9a1fe44d80",
+    "it": "Attivazione",
+    "kind": "html"
+  },
+  {
+    "id": "d70bf5727f5955411308",
+    "it": "Attivo oppure Inattivo",
+    "kind": "html"
+  },
+  {
+    "id": "ed217cde2974f0d76243",
+    "it": "La funzione fisica e l'effetto speciale sono distinti.",
+    "kind": "html"
+  },
+  {
+    "id": "1e2ebb489d8c1b42e10e",
+    "it": "Un braccio estensibile può allungarsi e afferrare oggetti perché questa è la sua funzione.",
+    "kind": "html"
+  },
+  {
+    "id": "8117766a4e54e0abadac",
+    "it": "Se il dispositivo deve anche ridurre il costo di una Tecnica con Attrazione, quello sconto deve essere registrato come effetto speciale.",
+    "kind": "html"
+  },
+  {
+    "id": "c8541ca58c8c7b1d6ed5",
+    "it": "Il semplice possesso del braccio non concede automaticamente entrambi i benefici.",
+    "kind": "html"
+  },
+  {
+    "id": "6ea2846059e7988cb415",
+    "it": "<span class=\"man-sez-n\">12.2 ·</span> Chi può utilizzare i Moduli?",
+    "kind": "html"
+  },
+  {
+    "id": "49727bbf2367436933da",
+    "it": "Il sistema prevede due fonti di accesso ai Moduli: la Razza Cyborg e, quando disponibile, l'accesso attraverso capacità specifiche.",
+    "kind": "html"
+  },
+  {
+    "id": "47f83a680367403aa1b2",
+    "it": "12.2.1 · Razza Cyborg",
+    "kind": "html"
+  },
+  {
+    "id": "eb2840b340022febe800",
+    "it": "Il Cyborg possiede la Tecnica Razziale Corpo Meccanico.",
+    "kind": "html"
+  },
+  {
+    "id": "7d9ddcaa7a3fda73e8e7",
+    "it": "Questa Tecnica Razziale permette di installare dispositivi nel proprio corpo, aumentando progressivamente il numero di slot disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "7c96d20fd1e16f38d28c",
+    "it": "La capacità dipende dal Dado razziale del Cyborg.",
+    "kind": "html"
+  },
+  {
+    "id": "a9d7260699d623f29dce",
+    "it": "Il personaggio può scegliere Moduli compatibili con il proprio livello tecnologico, rispettando i requisiti del progetto.",
+    "kind": "html"
+  },
+  {
+    "id": "734c1d4ce2d0ba617c1d",
+    "it": "<span class=\"man-sez-n\">12.3 ·</span> Gli slot del Corpo Meccanico",
+    "kind": "html"
+  },
+  {
+    "id": "8d6a5c7c9e02aa006093",
+    "it": "Gli slot rappresentano la capacità del corpo di ospitare dispositivi.",
+    "kind": "html"
+  },
+  {
+    "id": "acd13c24c125080bdb3d",
+    "it": "Ogni Modulo installato occupa uno slot.",
+    "kind": "html"
+  },
+  {
+    "id": "b3201089e4a4c3b27a5f",
+    "it": "Il numero massimo dipende dal Grado del Corpo Meccanico.",
+    "kind": "html"
+  },
+  {
+    "id": "bba1c298581a2163c283",
+    "it": "<b>Dado razziale</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7a8105d282b4fafcfce5",
+    "it": "<b>Slot disponibili</b>",
+    "kind": "html"
+  },
+  {
+    "id": "217ae7e4be3f32ecd699",
+    "it": "Gli slot vengono sbloccati con la progressione del Dado razziale.",
+    "kind": "html"
+  },
+  {
+    "id": "86ab156085ce70601d5d",
+    "it": "Un Cyborg con Corpo Meccanico d8 dispone quindi di due slot. Quando raggiunge d10, passa a tre.",
+    "kind": "html"
+  },
+  {
+    "id": "13e3fd04408f8f5ea851",
+    "it": "12.3.1 · Moduli iniziali",
+    "kind": "html"
+  },
+  {
+    "id": "7d3ab926f13171e65f80",
+    "it": "Creazione del Cyborg",
+    "kind": "html"
+  },
+  {
+    "id": "7720df45ec0ed34f96bf",
+    "it": "2 Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "6f060dfb2fd15cb01899",
+    "it": "Alla creazione il Cyborg riceve due Moduli gratuiti, senza costi di acquisto o costruzione iniziale.",
+    "kind": "html"
+  },
+  {
+    "id": "53a2b3da075ad9fb34a8",
+    "it": "I due Moduli vengono concordati con il GM. La loro installazione deve rispettare i requisiti tecnologici e gli slot effettivamente disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "3f763f77e4ce19654fe9",
+    "it": "Con Corpo Meccanico d6 il Cyborg dispone di un solo slot: può installare uno dei due Moduli iniziali. Quando raggiunge d8, gli slot diventano due e può installare anche il secondo Modulo gratuito. Possedere un Modulo non significa averlo già installato.",
+    "kind": "html"
+  },
+  {
+    "id": "d852bdd9e4bc35e34883",
+    "it": "Le successive installazioni seguono normalmente le regole dell'Officina.",
+    "kind": "html"
+  },
+  {
+    "id": "6e8411b4dcb676315b94",
+    "it": "<span class=\"man-sez-n\">12.4 ·</span> Fascia Tecnologica",
+    "kind": "html"
+  },
+  {
+    "id": "2db816177e7392753add",
+    "it": "Ogni Modulo appartiene a una Fascia Tecnologica.",
+    "kind": "html"
+  },
+  {
+    "id": "f84c9e4a91789e72234f",
+    "it": "La Fascia indica il Grado minimo di Corpo Meccanico necessario per installarlo e stabilisce il limite massimo delle sue prestazioni tecnologiche.",
+    "kind": "html"
+  },
+  {
+    "id": "99d41ec82c5869bb15bc",
+    "it": "<b>Corpo Meccanico richiesto</b>",
+    "kind": "html"
+  },
+  {
+    "id": "d841d819a2f1f49cc040",
+    "it": "Fascia Tecnologica e Grado d’Arma sono valori distinti.",
+    "kind": "html"
+  },
+  {
+    "id": "55c33a0856cc54eaec5d",
+    "it": "Un Modulo-Arma può possedere un Grado d’Arma pari o inferiore alla propria Fascia Tecnologica, mai superiore.",
+    "kind": "html"
+  },
+  {
+    "id": "cf7f9059e31b0d2ab534",
+    "it": "Esempio: Modulo d10 · Arma d8 è valido. Modulo d8 · Arma d10 non lo è.",
+    "kind": "html"
+  },
+  {
+    "id": "ca3769d18a9898c96769",
+    "it": "<span class=\"man-sez-n\">12.5 ·</span> Le cinque funzioni dei Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "ca0acef05214ed2c9b36",
+    "it": "Durante la costruzione, il giocatore assegna al Modulo la Categoria o le Categorie che descrivono la sua Funzione.",
+    "kind": "html"
+  },
+  {
+    "id": "1392554a4e11611f302d",
+    "it": "Offensivo",
+    "kind": "html"
+  },
+  {
+    "id": "710122c7fde1ca078f3b",
+    "it": "Dispositivi destinati ad attaccare.",
+    "kind": "html"
+  },
+  {
+    "id": "e91212d8c15a90fba58b",
+    "it": "Difensivo",
+    "kind": "html"
+  },
+  {
+    "id": "ba4f310273f2bb50651d",
+    "it": "Barriere, scudi e protezioni meccaniche.",
+    "kind": "html"
+  },
+  {
+    "id": "4f126eb46b0565238d2e",
+    "it": "Controllo",
+    "kind": "html"
+  },
+  {
+    "id": "17e40d69e739ee65ff6a",
+    "it": "Strumenti che afferrano, trattengono o manipolano.",
+    "kind": "html"
+  },
+  {
+    "id": "a3105fbc44b8051eddfb",
+    "it": "Mobilità",
+    "kind": "html"
+  },
+  {
+    "id": "c1bc4242bb91f5c3d9f7",
+    "it": "Propulsori, cavi e sistemi di spostamento.",
+    "kind": "html"
+  },
+  {
+    "id": "9e20e25a6fb8aa51870e",
+    "it": "Utilità",
+    "kind": "html"
+  },
+  {
+    "id": "001502e4bd97f9302ae5",
+    "it": "Strumenti e funzioni pratiche non necessariamente belliche.",
+    "kind": "html"
+  },
+  {
+    "id": "918c974b47fa821cdff7",
+    "it": "Un Modulo può possedere più di una Categoria.",
+    "kind": "html"
+  },
+  {
+    "id": "5675b117b0614ed0025a",
+    "it": "Un braccio estensibile, per esempio, potrebbe appartenere sia a Controllo sia a Mobilità.",
+    "kind": "html"
+  },
+  {
+    "id": "a6b4706b713f9c04042d",
+    "it": "Le Categorie classificano la funzione del dispositivo: non concedono bonus automatici.",
+    "kind": "html"
+  },
+  {
+    "id": "b30030f126241feb0bbe",
+    "it": "Un Modulo Offensivo non infligge danni soltanto perché è stato classificato come Offensivo. Per attaccare deve possedere una struttura adatta e rispettare le regole delle armi o delle Tecniche.",
+    "kind": "html"
+  },
+  {
+    "id": "fa13c970ca075a925d56",
+    "it": "<span class=\"man-sez-n\">12.6 ·</span> Moduli funzionali e Moduli-arma",
+    "kind": "html"
+  },
+  {
+    "id": "01a1656462ad97121b0d",
+    "it": "Ogni Modulo deve essere classificato come funzionale oppure utilizzabile come arma.",
+    "kind": "html"
+  },
+  {
+    "id": "3dcb6b359868c80c3f08",
+    "it": "12.6.1 · Moduli funzionali",
+    "kind": "html"
+  },
+  {
+    "id": "561d9f419fb34617a5a0",
+    "it": "Un Modulo funzionale svolge un compito senza possedere un Grado d'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "f2bf3d0b6568d53557d4",
+    "it": "Può trattarsi di una pinza, di un vano attrezzi o di un dispositivo che permette di illuminare l'ambiente.",
+    "kind": "html"
+  },
+  {
+    "id": "78ce04f1c6f6a38f22ab",
+    "it": "Modulo funzionale",
+    "kind": "html"
+  },
+  {
+    "id": "9edce52e16a479ad518e",
+    "it": "Pinza meccanica",
+    "kind": "html"
+  },
+  {
+    "id": "76672f8e6ebc442c0f4b",
+    "it": "Funzione: afferrare e manipolare oggetti.",
+    "kind": "html"
+  },
+  {
+    "id": "125c2b8e455444f562e8",
+    "it": "Grado d'arma: nessuno.",
+    "kind": "html"
+  },
+  {
+    "id": "2d944ffda478dfde2118",
+    "it": "Effetto speciale: facoltativo.",
+    "kind": "html"
+  },
+  {
+    "id": "ae4fb86e571eba188b14",
+    "it": "Requisito: quello indicato dal progetto.",
+    "kind": "html"
+  },
+  {
+    "id": "92af2247f7c2d4f6f5b3",
+    "it": "La sua funzione può essere utilizzata quando il dispositivo è integro e la situazione lo consente.",
+    "kind": "html"
+  },
+  {
+    "id": "e7182a0aef87a6c3cad6",
+    "it": "La pinza può afferrare qualcosa perché è stata costruita per farlo. Non concede però automaticamente un bonus alle prese o l'effetto Attrazione.",
+    "kind": "html"
+  },
+  {
+    "id": "853020c475d36a0e1671",
+    "it": "Per ottenere un beneficio meccanico ulteriore occorre una capacità che lo preveda.",
+    "kind": "html"
+  },
+  {
+    "id": "cf6af15a4e1a23a35905",
+    "it": "12.6.2 · Moduli-arma",
+    "kind": "html"
+  },
+  {
+    "id": "406aafe02f0bd6e81f8e",
+    "it": "Un Modulo-arma è un dispositivo utilizzabile per effettuare attacchi.",
+    "kind": "html"
+  },
+  {
+    "id": "4049d4ad0e080a8daa1c",
+    "it": "Possiede un Grado e segue le regole generali delle armi.",
+    "kind": "html"
+  },
+  {
+    "id": "3243846fd3ca3a73ecd4",
+    "it": "Il Grado del Modulo-arma non viene determinato automaticamente dal suo requisito tecnologico.",
+    "kind": "html"
+  },
+  {
+    "id": "fe1eab45e9624914c7b7",
+    "it": "Esempio: un cannone integrato potrebbe richiedere Corpo Meccanico d10, ma possedere Grado d8.",
+    "kind": "html"
+  },
+  {
+    "id": "321908dc5b039e6bea36",
+    "it": "Quando viene utilizzato per un attacco base, segue le regole degli attacchi con arma.",
+    "kind": "html"
+  },
+  {
+    "id": "043dc69457e2164fe0ea",
+    "it": "Quando esegue una Tecnica collegata, utilizza il Dado della Tecnica, non sostituisce automaticamente quel dado con il proprio Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "99cf94fe44985f460738",
+    "it": "<span class=\"man-sez-n\">12.7 ·</span> Attivazione dei Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "40e039f2125455359ff4",
+    "it": "Un Cyborg può possedere più Moduli installati, ma normalmente mantiene un solo Modulo Attivo alla volta.",
+    "kind": "html"
+  },
+  {
+    "id": "0a7683d6a21b17c6f766",
+    "it": "Il Modulo Attivo può utilizzare la propria Funzione attiva, il proprio Effetto Speciale e le Tecniche collegate.",
+    "kind": "html"
+  },
+  {
+    "id": "273a6d9c557ec05169da",
+    "it": "Gli altri Moduli installati rimangono Inattivi e conservano soltanto le Funzioni inattive indicate nella propria scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "ddbbcfc89bfd2eb0eefe",
+    "it": "Modulo iniziale",
+    "kind": "html"
+  },
+  {
+    "id": "a2e2b64acb7646aeb752",
+    "it": "Fuori dal combattimento il Cyborg sceglie liberamente quale Modulo mantenere Attivo.",
+    "kind": "html"
+  },
+  {
+    "id": "f5af6206fa5dbb534087",
+    "it": "All’inizio di uno scontro conserva quello già Attivo. Se non era stato dichiarato, ne sceglie uno senza spendere Azioni.",
+    "kind": "html"
+  },
+  {
+    "id": "0105b878be07a82942f0",
+    "it": "Cambiare Modulo",
+    "kind": "html"
+  },
+  {
+    "id": "b8d056711aeb26cf8b5a",
+    "it": "Una volta durante il proprio turno, il Cyborg può cambiare gratuitamente il Modulo Attivo.",
+    "kind": "html"
+  },
+  {
+    "id": "0f4ebdc69beab91fccef",
+    "it": "Il cambio non consuma Azione, Azione Bonus, Movimento o Reazione.",
+    "kind": "html"
+  },
+  {
+    "id": "e5baf78591e9954eb925",
+    "it": "Il nuovo Modulo diventa immediatamente Attivo e quello precedente diventa Inattivo.",
+    "kind": "html"
+  },
+  {
+    "id": "082a4d7597f220f5eaff",
+    "it": "Non è possibile effettuare un secondo cambio gratuito nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "369d5b978e6885ee0e25",
+    "it": "Fuori turno",
+    "kind": "html"
+  },
+  {
+    "id": "fc52d721ae5b564b5f17",
+    "it": "Normalmente non è possibile cambiare Modulo fuori dal proprio turno. Una capacità specifica può permetterlo tramite Reazione.",
+    "kind": "html"
+  },
+  {
+    "id": "86d91260b0c62a3105a8",
+    "it": "<span class=\"man-sez-n\">12.8 ·</span> Le funzioni fisiche dei Moduli inattivi",
+    "kind": "html"
+  },
+  {
+    "id": "9817a6df89d84eae7778",
+    "it": "Un Modulo Inattivo conserva soltanto la Funzione inattiva registrata nella propria scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "31967c35d63dbe913cc8",
+    "it": "La Funzione inattiva comprende proprietà fisiche che non richiedono il funzionamento operativo del sistema: per esempio un vano che continua a contenere oggetti o un arto artificiale che conserva la normale mobilità.",
+    "kind": "html"
+  },
+  {
+    "id": "dd91f388fb986e7dd93f",
+    "it": "Propulsione, sensori avanzati, benefici difensivi, Effetti Speciali e Tecniche collegate non rimangono disponibili automaticamente.",
+    "kind": "html"
+  },
+  {
+    "id": "5550ebbd0bdefe4ef8a6",
+    "it": "Se la scheda non indica alcuna Funzione inattiva, il Modulo Inattivo non concede benefici meccanici.",
+    "kind": "html"
+  },
+  {
+    "id": "cb5ede1d157cde5b461f",
+    "it": "<span class=\"man-sez-n\">12.9 ·</span> Gli effetti speciali",
+    "kind": "html"
+  },
+  {
+    "id": "ad3deeb662021605bff8",
+    "it": "Un Modulo può possedere al massimo un Effetto Speciale. L’Effetto è facoltativo e concede un solo beneficio meccanico principale.",
+    "kind": "html"
+  },
+  {
+    "id": "c71a740c79f054568fc3",
+    "it": "Le categorie disponibili sono:",
+    "kind": "html"
+  },
+  {
+    "id": "59ae6a78a1c544fcf218",
+    "it": "<b>Sconto · Sblocco · Passiva · Reazione · Maledizione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7d55003e7ec2a5236bfd",
+    "it": "La Fascia Tecnologica determina l’intensità massima dell’Effetto secondo le tabelle del Manuale del Cyborg.",
+    "kind": "html"
+  },
+  {
+    "id": "cb43b9a660eac9271aa0",
+    "it": "Un Effetto Speciale non può nascondere più benefici indipendenti e non concede automaticamente Azioni aggiuntive, Reazioni aggiuntive, Talenti, Haki, Frutti del Diavolo, Ultimate, Prestigio o risorse infinite.",
+    "kind": "html"
+  },
+  {
+    "id": "af7f8e6f254840a1a9c9",
+    "it": "Salvo eccezioni esplicite, l’Effetto richiede che il Modulo sia Installato, Integro e Attivo.",
+    "kind": "html"
+  },
+  {
+    "id": "8d48ef5192b987cbd961",
+    "it": "<span class=\"man-sez-n\">12.10 ·</span> Energia e cariche",
+    "kind": "html"
+  },
+  {
+    "id": "0904cc2eb78406f8e27e",
+    "it": "Non tutti i Moduli richiedono una risorsa separata.",
+    "kind": "html"
+  },
+  {
+    "id": "a8d60ddc6b62d95af2a1",
+    "it": "Ogni scheda indica Energia: Nessuna oppure una fonte coerente, come batteria, carburante, pressione, munizioni o altre Cariche.",
+    "kind": "html"
+  },
+  {
+    "id": "cc324d7be311abbced34",
+    "it": "Quando un Modulo utilizza Cariche, la capacità ordinaria dipende dalla Fascia:",
+    "kind": "html"
+  },
+  {
+    "id": "ddbc8598ee5ddb8c4dd3",
+    "it": "<b>Cariche massime</b>",
+    "kind": "html"
+  },
+  {
+    "id": "d3bebd7f36b9a6e454e2",
+    "it": "Un normale utilizzo consuma 1 Carica, salvo diversa indicazione del progetto.",
+    "kind": "html"
+  },
+  {
+    "id": "02761820d4bf0c022bc0",
+    "it": "Cariche e Stamina sono risorse differenti. Se una Tecnica costa ST e il Modulo che la esegue consuma una Carica, vengono pagate entrambe.",
+    "kind": "html"
+  },
+  {
+    "id": "722073e5bfd53a5b384b",
+    "it": "Le Cariche non vengono recuperate automaticamente con il Riposo.",
+    "kind": "html"
+  },
+  {
+    "id": "9d696d0390c1caecb1d7",
+    "it": "Se la risorsa necessaria è disponibile, una normale ricarica completa richiede 10 minuti fuori dal combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "9d8ef017b81edd2e389a",
+    "it": "<span class=\"man-sez-n\">12.11 ·</span> Utilizzare i Moduli in combattimento",
+    "kind": "html"
+  },
+  {
+    "id": "b876f5a3d26df73daef1",
+    "it": "Un Modulo può essere utilizzato attraverso la propria funzione fisica, come arma o come esecutore di una Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "ed3493af50cdb7863b90",
+    "it": "Queste possibilità rimangono distinte.",
+    "kind": "html"
+  },
+  {
+    "id": "667fef922c768377c854",
+    "it": "<b>Utilizzo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "370e737bf96bf3afff4d",
+    "it": "<b>Regola</b>",
+    "kind": "html"
+  },
+  {
+    "id": "aad53d181d3051c3a8d1",
+    "it": "Segue la descrizione del dispositivo.",
+    "kind": "html"
+  },
+  {
+    "id": "59beee2ea215309c6d39",
+    "it": "Attacco base",
+    "kind": "html"
+  },
+  {
+    "id": "31aac420e0e54d9d98fc",
+    "it": "Richiede un Modulo-arma utilizzabile.",
+    "kind": "html"
+  },
+  {
+    "id": "176392c5f896b2b1ae50",
+    "it": "Tecnica collegata",
+    "kind": "html"
+  },
+  {
+    "id": "1755d486667198a25d75",
+    "it": "Richiede il Modulo attivo e integro.",
+    "kind": "html"
+  },
+  {
+    "id": "9fc948cb4727bef5967e",
+    "it": "Richiede le condizioni registrate nel Modulo.",
+    "kind": "html"
+  },
+  {
+    "id": "e854716180d465a1c76b",
+    "it": "Richiede la Reazione, quando prevista.",
+    "kind": "html"
+  },
+  {
+    "id": "917cdbd52943beff3860",
+    "it": "12.11.1 · Moduli e Tecniche",
+    "kind": "html"
+  },
+  {
+    "id": "67c88e3d2eac8dca7ac8",
+    "it": "Una Tecnica può essere collegata a un Modulo compatibile attraverso il Costruttore.",
+    "kind": "html"
+  },
+  {
+    "id": "84d79b9463f43ff2fd93",
+    "it": "Il collegamento indica quale dispositivo viene utilizzato per eseguire quella mossa.",
+    "kind": "html"
+  },
+  {
+    "id": "e12d5879c7296cdbbc36",
+    "it": "Una Tecnica può utilizzare un'arma oppure un Modulo come esecutore, mai entrambi contemporaneamente.",
+    "kind": "html"
+  },
+  {
+    "id": "f7772aafe7f25915129a",
+    "it": "Il Modulo non genera la Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "38bfd1224208f5e7649f",
+    "it": "La Tecnica deve essere posseduta dal personaggio e rispettare Grado, Attributo, Forma, effetti e costi.",
+    "kind": "html"
+  },
+  {
+    "id": "626927754a13fd7cd344",
+    "it": "Se il Modulo è inattivo, occorre attivarlo prima di eseguire la Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "c80dac9262cced87ee63",
+    "it": "Se è danneggiato, la Tecnica collegata non può essere eseguita finché il dispositivo non viene riparato.",
+    "kind": "html"
+  },
+  {
+    "id": "d85b872e5fc26996eca8",
+    "it": "12.11.2 · Esempio di utilizzo",
+    "kind": "html"
+  },
+  {
+    "id": "74749c982d137b0e9ee7",
+    "it": "Esempio · Arpione Meccanico",
+    "kind": "html"
+  },
+  {
+    "id": "0982c5f006bd73d05351",
+    "it": "All’inizio del proprio turno il Cyborg possiede un altro Modulo Attivo.",
+    "kind": "html"
+  },
+  {
+    "id": "c563844bbe2e9b1afede",
+    "it": "Cambia gratuitamente il Modulo Attivo scegliendo l’Arpione Meccanico.",
+    "kind": "html"
+  },
+  {
+    "id": "10a4e91a4090ab5c564d",
+    "it": "Nello stesso turno può utilizzare la propria Azione per effettuare un attacco o eseguire una Tecnica compatibile attraverso l’Arpione.",
+    "kind": "html"
+  },
+  {
+    "id": "f1b17476cb006bc507df",
+    "it": "Se la Tecnica costa ST e l’Arpione consuma Cariche, paga entrambe le risorse.",
+    "kind": "html"
+  },
+  {
+    "id": "158cc39476ff599a0a76",
+    "it": "Il cambio del Modulo non utilizza l’Azione Bonus, che rimane quindi disponibile per Haki o Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "537e215906cc68814c3b",
+    "it": "<span class=\"man-sez-n\">12.12 ·</span> Moduli e Special Moves",
+    "kind": "html"
+  },
+  {
+    "id": "5310e71f7ea54eaf745c",
+    "it": "Una Special Move può utilizzare un Modulo come esecutore della propria Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "80fe1b232a1aec67713f",
+    "it": "Il dispositivo deve essere già attivo e integro quando la Special Move viene eseguita.",
+    "kind": "html"
+  },
+  {
+    "id": "3109942c786c776d7b90",
+    "it": "L'eventuale effetto speciale del Modulo viene applicato soltanto quando sono soddisfatte le sue condizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "d93c2bbd1cecbbf4f104",
+    "it": "La Special Move non concede attivazioni gratuite, cariche aggiuntive o sconti non previsti.",
+    "kind": "html"
+  },
+  {
+    "id": "05046114ac40805ad75f",
+    "it": "12.12.1 · Preparazione su più turni",
+    "kind": "html"
+  },
+  {
+    "id": "ae37fafc1a643a219d25",
+    "it": "Una Special Move che richiede Haki e un Talento attivo può richiedere più turni di preparazione, perché i due condividono l’Azione Bonus. Il Modulo non è la causa di questa preparazione: diventa Attivo con il cambio gratuito del turno.",
+    "kind": "html"
+  },
+  {
+    "id": "d304e6d14ba9c0529224",
+    "it": "Esempio · Colpo del Reattore",
+    "kind": "html"
+  },
+  {
+    "id": "81bdd5e52742fe7f6b72",
+    "it": "Sequenza con Modulo, Haki e Talento",
+    "kind": "html"
+  },
+  {
+    "id": "ef975a848a11201f0607",
+    "it": "Preparazione dell’Haki",
+    "kind": "html"
+  },
+  {
+    "id": "f9bacebe9669b340569b",
+    "it": "Azione Bonus: attivi l'Haki, pagando il PIP necessario.",
+    "kind": "html"
+  },
+  {
+    "id": "99fccd207785a1d5adbf",
+    "it": "Esecuzione della mossa",
+    "kind": "html"
+  },
+  {
+    "id": "1b633e6a459adab1cf55",
+    "it": "Mantieni l'Haki pagando l'eventuale costo in ST.",
+    "kind": "html"
+  },
+  {
+    "id": "668019cbea12ded4d5a0",
+    "it": "Azione Bonus: attivi un Talento compatibile.",
+    "kind": "html"
+  },
+  {
+    "id": "4ce8803fe08cfbdb9de9",
+    "it": "Cambio gratuito: rendi Attivo il Modulo, se non lo è già.",
+    "kind": "html"
+  },
+  {
+    "id": "845270e0b1ed4076b332",
+    "it": "Azione: esegui la Special Move utilizzando il Modulo.",
+    "kind": "html"
+  },
+  {
+    "id": "09bd3db8263ac095a5ed",
+    "it": "Paghi la Stamina della Tecnica e l'eventuale consumo energetico del Modulo.",
+    "kind": "html"
+  },
+  {
+    "id": "55b68e37cb2faaa35de8",
+    "it": "La sequenza è valida soltanto quando il Modulo possiede le risorse necessarie e tutte le capacità coinvolte sono compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "60b5dff7071696ad0a97",
+    "it": "Il personaggio non può selezionare un secondo Modulo come esecutore della stessa Tecnica soltanto per sommarne gli effetti.",
+    "kind": "html"
+  },
+  {
+    "id": "acc45b1030b83996150f",
+    "it": "<span class=\"man-sez-n\">12.13 ·</span> Moduli danneggiati",
+    "kind": "html"
+  },
+  {
+    "id": "c3bc21152bb555944f7c",
+    "it": "Un Modulo possiede due stati di integrità.",
+    "kind": "html"
+  },
+  {
+    "id": "1591fea61016d64e5914",
+    "it": "Integro",
+    "kind": "html"
+  },
+  {
+    "id": "1cb69732911a37611e36",
+    "it": "Operativo",
+    "kind": "html"
+  },
+  {
+    "id": "5799c4335ba0df841eda",
+    "it": "Può essere utilizzato secondo le proprie regole.",
+    "kind": "html"
+  },
+  {
+    "id": "6913245f45a64e16ee8b",
+    "it": "Danneggiato",
+    "kind": "html"
+  },
+  {
+    "id": "f24759a9e5dd7e7df266",
+    "it": "Non operativo",
+    "kind": "html"
+  },
+  {
+    "id": "34cdd44a5be928c4edde",
+    "it": "Non può utilizzare funzione, effetto e Tecniche collegate.",
+    "kind": "html"
+  },
+  {
+    "id": "55ce4487bba7c95141a5",
+    "it": "Un Modulo danneggiato smette di funzionare fino alla riparazione.",
+    "kind": "html"
+  },
+  {
+    "id": "40ca8d16b70048b3f595",
+    "it": "Se era il Modulo attivo, rimane registrato come dispositivo selezionato, ma viene segnalato come non operativo.",
+    "kind": "html"
+  },
+  {
+    "id": "0cecf1cd8ccc92861e73",
+    "it": "Il personaggio può decidere di cambiare Modulo secondo le normali regole di attivazione.",
+    "kind": "html"
+  },
+  {
+    "id": "637b7810a4fc09ca78af",
+    "it": "<b>12.13.1 · Quando si danneggia?</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7ffb409e4a36ea98700d",
+    "it": "Il danneggiamento viene determinato dal Game Master come conseguenza narrativa di un attacco, di una situazione particolare o di un sovraccarico previsto dal progetto.",
+    "kind": "html"
+  },
+  {
+    "id": "f86630d65e651e92b604",
+    "it": "I Moduli non possiedono una soglia automatica di Punti Vita.",
+    "kind": "html"
+  },
+  {
+    "id": "a2c08b0fa1ce41d26663",
+    "it": "Un personaggio non perde automaticamente un Modulo ogni volta che subisce una determinata quantità di danni.",
+    "kind": "html"
+  },
+  {
+    "id": "b4c695ee79204bcc57ab",
+    "it": "Allo stesso modo, raggiungere metà dei PV non danneggia automaticamente tutti gli impianti.",
+    "kind": "html"
+  },
+  {
+    "id": "7a65a5de2c2088b3b5f9",
+    "it": "Gli effetti che prendono di mira specificamente un dispositivo possono invece produrre conseguenze appropriate.",
+    "kind": "html"
+  },
+  {
+    "id": "662a81d47e4fcb8f7233",
+    "it": "<span class=\"man-sez-n\">12.14 ·</span> Riparare un Modulo",
+    "kind": "html"
+  },
+  {
+    "id": "0c45e22fc731cf6b1ee2",
+    "it": "Un Modulo Danneggiato deve essere riparato prima di tornare operativo.",
+    "kind": "html"
+  },
+  {
+    "id": "1e3961d6b3dd199653f4",
+    "it": "<b>Tempo di riparazione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "07d5ecb9fc7fa52a574a",
+    "it": "20 minuti",
+    "kind": "html"
+  },
+  {
+    "id": "ee175960ab5863a1fb98",
+    "it": "Con strumenti e ricambi adeguati, una normale riparazione fuori dal combattimento riesce senza bisogno di una Prova.",
+    "kind": "html"
+  },
+  {
+    "id": "9df013ad1afcac5935a7",
+    "it": "Se il lavoro avviene in condizioni difficili, con materiali insufficienti o su una tecnologia eccezionale, il GM può richiedere una Prova di Meccanica e stabilire la Soglia appropriata.",
+    "kind": "html"
+  },
+  {
+    "id": "01f17329bb37932db663",
+    "it": "Riparare un Modulo non restituisce PV al Cyborg.",
+    "kind": "html"
+  },
+  {
+    "id": "704a8b9644a6c3cb7bed",
+    "it": "Recuperare i PV del corpo e riparare l’Integrità di un Modulo sono due interventi distinti.",
+    "kind": "html"
+  },
+  {
+    "id": "aa3305db651364f0d6ce",
+    "it": "<span class=\"man-sez-n\">12.15 ·</span> Installare un nuovo Modulo",
+    "kind": "html"
+  },
+  {
+    "id": "2a6eb7df39c6eeed84e7",
+    "it": "Un progetto completato non è necessariamente un Modulo installato.",
+    "kind": "html"
+  },
+  {
+    "id": "6a679b093417ffde8ddf",
+    "it": "L'installazione segue la procedura prevista dall'Officina.",
+    "kind": "html"
+  },
+  {
+    "id": "2e27084514a522239999",
+    "it": "Preparare il progetto<br>Definisci la funzione fisica, il requisito e l'eventuale effetto speciale.",
+    "kind": "html"
+  },
+  {
+    "id": "dd756c3142a451bca13b",
+    "it": "Verificare gli slot<br>Il personaggio deve disporre di uno slot libero.",
+    "kind": "html"
+  },
+  {
+    "id": "d100afb3383091783a62",
+    "it": "Verificare la compatibilità<br>Il Corpo Meccanico deve soddisfare il requisito tecnologico.",
+    "kind": "html"
+  },
+  {
+    "id": "b7fcb491699aa2a45301",
+    "it": "Procurarsi i materiali<br>Si raccolgono i componenti necessari.",
+    "kind": "html"
+  },
+  {
+    "id": "a34096830150db40442a",
+    "it": "Effettuare l'intervento<br>Un personaggio competente lavora con strumenti e condizioni adeguate.",
+    "kind": "html"
+  },
+  {
+    "id": "cdd14cc7bf84b112792e",
+    "it": "Registrare il Modulo<br>Il dispositivo viene aggiunto al Corpo Meccanico e diventa disponibile per l'attivazione.",
+    "kind": "html"
+  },
+  {
+    "id": "4699d5e67e3d5b4f8f1b",
+    "it": "L’installazione richiede uno slot libero, Corpo Meccanico almeno pari alla Fascia, il dispositivo completo e strumenti adeguati.",
+    "kind": "html"
+  },
+  {
+    "id": "d001024a1416e73662e9",
+    "it": "Il tempo base dipende dalla Fascia:",
+    "kind": "html"
+  },
+  {
+    "id": "37ea2a763c1af63515b2",
+    "it": "<span>d6</span> <i class=\"man-freccia\">→</i> <b>30 minuti</b>",
+    "kind": "html"
+  },
+  {
+    "id": "b1416bd13871de9d1060",
+    "it": "<span>d8</span> <i class=\"man-freccia\">→</i> <b>1 ora</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e8a85854257485b7da0d",
+    "it": "<span>d10</span> <i class=\"man-freccia\">→</i> <b>2 ore</b>",
+    "kind": "html"
+  },
+  {
+    "id": "23e618bc3d8ed79d09a4",
+    "it": "<span>d12</span> <i class=\"man-freccia\">→</i> <b>4 ore</b>",
+    "kind": "html"
+  },
+  {
+    "id": "43aca0cc3be28e256651",
+    "it": "<span>d20</span> <i class=\"man-freccia\">→</i> <b>8 ore</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e38bd8d826f989761915",
+    "it": "Materiali eccezionali, condizioni particolari o tecnologie fuori standard possono modificare l’intervento secondo decisione del GM.",
+    "kind": "html"
+  },
+  {
+    "id": "02d384a5fce8899d032d",
+    "it": "I due Moduli iniziali del Cyborg costituiscono l'eccezione alla normale procedura di acquisizione: vengono concessi gratuitamente durante la creazione.",
+    "kind": "html"
+  },
+  {
+    "id": "f1b7676ece8823122e80",
+    "it": "<span class=\"man-sez-n\">12.16 ·</span> Moduli sperimentali",
+    "kind": "html"
+  },
+  {
+    "id": "c22ee30c6c59341ba9dd",
+    "it": "I Moduli sperimentali sono dispositivi che non appartengono alle proposte ordinarie.",
+    "kind": "html"
+  },
+  {
+    "id": "a31b340a58209b53ac66",
+    "it": "Possono possedere funzioni originali, ma devono rispettare la struttura comune: funzione fisica, requisito, eventuale Grado, un solo Effetto Speciale, risorse e integrità.",
+    "kind": "html"
+  },
+  {
+    "id": "88632ed68884c7280a76",
+    "it": "Il Game Master può introdurre un Modulo sperimentale come Progetto Speciale. Una volta ottenuto il progetto, qualsiasi personaggio che soddisfi i requisiti di costruzione può tentare di realizzarlo attraverso le normali regole dell’Officina.",
+    "kind": "html"
+  },
+  {
+    "id": "dbadd93e0136bc903369",
+    "it": "Un Modulo della nave non è automaticamente un Modulo corporeo.",
+    "kind": "html"
+  },
+  {
+    "id": "9dc26b5651f5fa8526d7",
+    "it": "I due tipi di dispositivo appartengono a sistemi differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "b788f68b514dba56f5c8",
+    "it": "Un motore installato nella sala macchine non occupa uno slot del Cyborg. Un cannone integrato nel braccio non occupa automaticamente uno slot della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "7b847ab4faa660afdd0f",
+    "it": "Le regole di installazione e i requisiti devono essere applicati al sistema corretto.",
+    "kind": "html"
+  },
+  {
+    "id": "8042596da0f8ea93daea",
+    "it": "<span class=\"man-sez-n\">12.17 ·</span> Scheda operativa di un Modulo",
+    "kind": "html"
+  },
+  {
+    "id": "a35c4cc60592befb59aa",
+    "it": "La scheda operativa deve permettere di consultare rapidamente lo stato del dispositivo durante una sessione.",
+    "kind": "html"
+  },
+  {
+    "id": "252ded10d119b4e486a3",
+    "it": "Modulo · Scheda",
+    "kind": "html"
+  },
+  {
+    "id": "0939548aea0fed391568",
+    "it": "Nome:",
+    "kind": "html"
+  },
+  {
+    "id": "57d7db207a6e169f977d",
+    "it": "Fascia Tecnologica:",
+    "kind": "html"
+  },
+  {
+    "id": "8a4cbf5a247881f7eb12",
+    "it": "Categoria:",
+    "kind": "html"
+  },
+  {
+    "id": "f4ded9b6fe9a63a18632",
+    "it": "Struttura:",
+    "kind": "html"
+  },
+  {
+    "id": "0cf0280bca19515ec996",
+    "it": "Grado d’Arma:",
+    "kind": "html"
+  },
+  {
+    "id": "87d2a44f99a46481f7ec",
+    "it": "Funzione fisica:",
+    "kind": "html"
+  },
+  {
+    "id": "0095f72afcc33512809b",
+    "it": "Funzione inattiva:",
+    "kind": "html"
+  },
+  {
+    "id": "469db8e84cacfa1d466e",
+    "it": "Funzione attiva:",
+    "kind": "html"
+  },
+  {
+    "id": "b5938c4a11641c28fa5f",
+    "it": "Effetto Speciale:",
+    "kind": "html"
+  },
+  {
+    "id": "0d00f70b877a2ee9ec05",
+    "it": "Energia:",
+    "kind": "html"
+  },
+  {
+    "id": "c8c8bf8fc2d5254c020f",
+    "it": "Capacità / Consumo / Ricarica:",
+    "kind": "html"
+  },
+  {
+    "id": "a98b50a50f96fe7d560d",
+    "it": "Tecniche compatibili:",
+    "kind": "html"
+  },
+  {
+    "id": "d273ee91759feca49675",
+    "it": "Limiti:",
+    "kind": "html"
+  },
+  {
+    "id": "22d676ed6e10684d0a7b",
+    "it": "Integrità: Integro / Danneggiato",
+    "kind": "html"
+  },
+  {
+    "id": "6672d1e8388c43589476",
+    "it": "Installazione: Installato / Non installato",
+    "kind": "html"
+  },
+  {
+    "id": "eb6ab393931292f6fbb4",
+    "it": "Attivazione: Attivo / Inattivo",
+    "kind": "html"
+  },
+  {
+    "id": "ddbf4b709ca34a145ffe",
+    "it": "La scheda deve conservare separati lo stato di attivazione e quello di integrità.",
+    "kind": "html"
+  },
+  {
+    "id": "17569d2810ae419fa928",
+    "it": "Un dispositivo può essere integro ma inattivo.",
+    "kind": "html"
+  },
+  {
+    "id": "1812ad2ca2e0da5423fa",
+    "it": "Può anche essere ancora selezionato come Modulo attivo pur essendo danneggiato: in quel caso non funziona finché non viene riparato o sostituito da un altro dispositivo.",
+    "kind": "html"
+  },
+  {
+    "id": "66601fdbc30759b13fc7",
+    "it": "Capitolo 13 ·",
+    "kind": "html"
+  },
+  {
+    "id": "0d53e7042a5f27e3d400",
+    "it": "La Nave e la Navigazione",
+    "kind": "html"
+  },
+  {
+    "id": "ccdb428552d41acad613",
+    "it": "Ogni ciurma ha bisogno di una nave. È il mezzo che permette di attraversare i mari, ma anche la casa dei personaggi, il luogo in cui vengono custoditi i loro tesori e, quando iniziano a tuonare i cannoni, la prima linea di difesa dell'equipaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "308cc921294eae195476",
+    "it": "In Grand Line Chronicles, la nave possiede una propria scheda, statistiche espresse attraverso dadi, Punti Struttura e Moduli installabili.",
+    "kind": "html"
+  },
+  {
+    "id": "9ebdafdfefd8192db8a0",
+    "it": "Durante una traversata è il Navigatore a guidarla. In battaglia, invece, l'intera ciurma deve collaborare attraverso le diverse postazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "594f7ad281dafa2ea2ff",
+    "it": "Una nave potente senza un equipaggio capace rimane soltanto un grande bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "8bc9ea18b697c1ad89f8",
+    "it": "<span class=\"man-sez-n\">13.1 ·</span> Creare la nave",
+    "kind": "html"
+  },
+  {
+    "id": "f5a987ebe0032dd7c7be",
+    "it": "Ogni nave possiede un'identità, una scheda tecnica e un equipaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "5880768a25efe6c5c77e",
+    "it": "Il giocatore o il Game Master devono innanzitutto definirne le caratteristiche narrative.",
+    "kind": "html"
+  },
+  {
+    "id": "d22230001b7f77ad07ba",
+    "it": "Scheda della nave",
+    "kind": "html"
+  },
+  {
+    "id": "7e247a292498901e1ec1",
+    "it": "Il nome della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "76c9c6302a94b587a348",
+    "it": "La sua categoria e struttura generale.",
+    "kind": "html"
+  },
+  {
+    "id": "d995ac48e93c2a8d3a2f",
+    "it": "<b>Polena</b>",
+    "kind": "html"
+  },
+  {
+    "id": "8e3c259c6c4d00efa758",
+    "it": "La figura che ne caratterizza la prua.",
+    "kind": "html"
+  },
+  {
+    "id": "e02b125a48c91fecb232",
+    "it": "<b>Legno</b>",
+    "kind": "html"
+  },
+  {
+    "id": "ef9fc426e28b9b952b59",
+    "it": "Il materiale principale dello scafo.",
+    "kind": "html"
+  },
+  {
+    "id": "3e570ea1ae3281214c03",
+    "it": "<b>Statistiche</b>",
+    "kind": "html"
+  },
+  {
+    "id": "294c451ac7ff5bb64207",
+    "it": "Scafo, Vele, Artiglieria e Struttura.",
+    "kind": "html"
+  },
+  {
+    "id": "eaf36f47c37269901e48",
+    "it": "<b>Punti Struttura</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e849c43240ca1b34a428",
+    "it": "La resistenza della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "6ffb8e37a482beffe4f6",
+    "it": "<b>Moduli</b>",
+    "kind": "html"
+  },
+  {
+    "id": "9c337a4d1f9bd0788958",
+    "it": "Le attrezzature installate.",
+    "kind": "html"
+  },
+  {
+    "id": "fe2bb931f5776a4c77b3",
+    "it": "<b>Equipaggio</b>",
+    "kind": "html"
+  },
+  {
+    "id": "0644f6fe0f3981fbbe89",
+    "it": "I personaggi assegnati alle postazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "ebc5359affc4f91ee076",
+    "it": "<b>Magazzino</b>",
+    "kind": "html"
+  },
+  {
+    "id": "2b8c835478279ad653df",
+    "it": "Materiali e risorse disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "d18b955d2eccbc0a93c6",
+    "it": "<b>Diario</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3b9aa3d7c41dcf013f8f",
+    "it": "Cargo, Berry e annotazioni di viaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "03ffb6ea5f741f95f197",
+    "it": "Il nome, la polena e l'aspetto non concedono automaticamente bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "bb15125c1d1e140e9a91",
+    "it": "Una polena può però diventare importante nella storia oppure acquisire proprietà specifiche attraverso un Modulo.",
+    "kind": "html"
+  },
+  {
+    "id": "8ae26ba143dd6445cb68",
+    "it": "Il tipo di nave viene descritto liberamente e approvato dal GM. Non esiste una tabella che assegni automaticamente statistiche diverse a ogni modello di imbarcazione.",
+    "kind": "html"
+  },
+  {
+    "id": "a12e5151379a78533c84",
+    "it": "<span class=\"man-sez-n\">13.2 ·</span> Le quattro statistiche",
+    "kind": "html"
+  },
+  {
+    "id": "6cb03d3977cad36ef729",
+    "it": "La nave possiede quattro statistiche fondamentali.",
+    "kind": "html"
+  },
+  {
+    "id": "9d39615dab1fb0ce772d",
+    "it": "Scafo",
+    "kind": "html"
+  },
+  {
+    "id": "6c8c1eb571b2ec0b321b",
+    "it": "Resistenza e Punti Struttura.",
+    "kind": "html"
+  },
+  {
+    "id": "c8b24ef3ec1693e590e7",
+    "it": "Vele",
+    "kind": "html"
+  },
+  {
+    "id": "d0f0c30d01d97f6474a5",
+    "it": "Navigazione, velocità, manovre e iniziativa.",
+    "kind": "html"
+  },
+  {
+    "id": "b84f158fc1a1bbffad3e",
+    "it": "Artiglieria",
+    "kind": "html"
+  },
+  {
+    "id": "b32495aafbdd5dd38a96",
+    "it": "Potenza dei cannoni e attacchi navali.",
+    "kind": "html"
+  },
+  {
+    "id": "de39e6d667f675d68fc1",
+    "it": "Capacità di installare Moduli e supportare interventi tecnici.",
+    "kind": "html"
+  },
+  {
+    "id": "a8cff15bae569edc6fba",
+    "it": "Le statistiche navali utilizzano una progressione differente da quella dei personaggi.",
+    "kind": "html"
+  },
+  {
+    "id": "f8fab80a1810190110c8",
+    "it": "Il Grado massimo ordinario delle statistiche navali è d12.",
+    "kind": "html"
+  },
+  {
+    "id": "ea202b44edaaefb9fb01",
+    "it": "A differenza delle statistiche personali, quelle della nave non raggiungono normalmente d20.",
+    "kind": "html"
+  },
+  {
+    "id": "25dd9803189fe8457111",
+    "it": "Una capacità specifica può comunque aumentare temporaneamente o permanentemente una statistica, rispettando la propria descrizione.",
+    "kind": "html"
+  },
+  {
+    "id": "997adece2837edc87f75",
+    "it": "<span class=\"man-sez-n\">13.3 ·</span> La nave di partenza",
+    "kind": "html"
+  },
+  {
+    "id": "9dad0d09629bbb2f6619",
+    "it": "Una nave iniziale possiede normalmente:",
+    "kind": "html"
+  },
+  {
+    "id": "7faf9159ef3e72929469",
+    "it": "Configurazione iniziale",
+    "kind": "html"
+  },
+  {
+    "id": "edf8a0f317d15dfa3aa2",
+    "it": "Una statistica a d8.",
+    "kind": "html"
+  },
+  {
+    "id": "020e374945b9a66b2f61",
+    "it": "Le altre tre statistiche a d6.",
+    "kind": "html"
+  },
+  {
+    "id": "8e4c52cd9dbeea079c31",
+    "it": "La ciurma sceglie quale statistica portare a d8 in accordo con il Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "cb4830fde844f6c7418d",
+    "it": "Una nave progettata per resistere agli scontri potrebbe iniziare con Scafo d8.",
+    "kind": "html"
+  },
+  {
+    "id": "fd506d30f339fda4131c",
+    "it": "Una ciurma interessata alla velocità potrebbe invece scegliere Vele d8.",
+    "kind": "html"
+  },
+  {
+    "id": "d13cd6b0cc5ef7fd1183",
+    "it": "La configurazione predefinita del Portale della Nave utilizza Scafo d8 e le altre statistiche d6, ma rappresenta soltanto un modello iniziale.",
+    "kind": "html"
+  },
+  {
+    "id": "64d59aead58145b9bc36",
+    "it": "<span class=\"man-sez-n\">13.4 ·</span> Punti Struttura",
+    "kind": "html"
+  },
+  {
+    "id": "423f7f7e684b792689c3",
+    "it": "I Punti Struttura (PS) rappresentano la resistenza della nave.",
+    "kind": "html"
+  },
+  {
+    "id": "3de9854ec4bc14b71235",
+    "it": "Funzionano come i Punti Vita di un personaggio, ma appartengono esclusivamente all'imbarcazione.",
+    "kind": "html"
+  },
+  {
+    "id": "4e7e521a55f0ffe873c5",
+    "it": "Il valore massimo dipende dal dado Scafo.",
+    "kind": "html"
+  },
+  {
+    "id": "2b77301096dd9faf7933",
+    "it": "<b>Scafo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "23bf19845c31b63c52f2",
+    "it": "<b>PS massimi</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7555116daf2e63198086",
+    "it": "Un Modulo o una capacità specifica può modificare il massimo.",
+    "kind": "html"
+  },
+  {
+    "id": "5f937b6272037e3e14f8",
+    "it": "Punti Struttura massimi",
+    "kind": "html"
+  },
+  {
+    "id": "4abdb732b90cb5b62c55",
+    "it": "PS dello Scafo + Modificatori",
+    "kind": "html"
+  },
+  {
+    "id": "3abcf2716f4a77d72d7f",
+    "it": "Quando una nave subisce danni, questi vengono sottratti dai PS attuali.",
+    "kind": "html"
+  },
+  {
+    "id": "99e310b228d491b132f3",
+    "it": "Quando viene riparata, recupera PS fino al proprio massimo, salvo effetti che prevedono condizioni differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "5697a6ec316fc96a3b99",
+    "it": "I PS della nave non vengono trasferiti ai personaggi.",
+    "kind": "html"
+  },
+  {
+    "id": "edecfc4cd5ffea5f78b2",
+    "it": "Una cannonata può danneggiare lo scafo senza infliggere automaticamente lo stesso danno a ogni pirata sul ponte.",
+    "kind": "html"
+  },
+  {
+    "id": "754a21015f2a31261d7f",
+    "it": "Il GM determina separatamente eventuali conseguenze sui personaggi esposti all'esplosione.",
+    "kind": "html"
+  },
+  {
+    "id": "24dce4ef6141ccb0d41b",
+    "it": "<span class=\"man-sez-n\">13.5 ·</span> Le condizioni della nave",
+    "kind": "html"
+  },
+  {
+    "id": "e78a7a4a02cbabd2d01c",
+    "it": "Le condizioni dipendono dalla percentuale di PS attuali rispetto al massimo.",
+    "kind": "html"
+  },
+  {
+    "id": "a19beca7a332ffb2a5d4",
+    "it": "Condizioni dello scafo",
+    "kind": "html"
+  },
+  {
+    "id": "ab35dc89a59cb91b24e2",
+    "it": "Integra",
+    "kind": "html"
+  },
+  {
+    "id": "953c1dc9865ae5e2fddc",
+    "it": "Oltre 75%",
+    "kind": "html"
+  },
+  {
+    "id": "efbd7d4043e7123c0b34",
+    "it": "La nave è in condizioni operative.",
+    "kind": "html"
+  },
+  {
+    "id": "4632b4caee8f2937d131",
+    "it": "Danneggiata",
+    "kind": "html"
+  },
+  {
+    "id": "fce9ed5b687fbc60f43a",
+    "it": "Oltre 50% fino a 75%",
+    "kind": "html"
+  },
+  {
+    "id": "9614121558ebdf328c62",
+    "it": "Lo scafo presenta danni significativi.",
+    "kind": "html"
+  },
+  {
+    "id": "72fddc2b9230f61b21b2",
+    "it": "Grave",
+    "kind": "html"
+  },
+  {
+    "id": "a62519346a625275717a",
+    "it": "Oltre 25% fino a 50%",
+    "kind": "html"
+  },
+  {
+    "id": "a51262f7fa877596fd5a",
+    "it": "La nave rischia di perdere componenti essenziali.",
+    "kind": "html"
+  },
+  {
+    "id": "5c5ea7c6b903d0969a73",
+    "it": "Critica",
+    "kind": "html"
+  },
+  {
+    "id": "7358e6a921e75210b511",
+    "it": "Oltre 0% fino a 25%",
+    "kind": "html"
+  },
+  {
+    "id": "519e44bec1b6978b66d8",
+    "it": "Un componente può cedere. La nave è prossima all'affondamento.",
+    "kind": "html"
+  },
+  {
+    "id": "afa87aae88b2c6c5696d",
+    "it": "Affondata",
+    "kind": "html"
+  },
+  {
+    "id": "be88f17b8313ac303863",
+    "it": "0 PS",
+    "kind": "html"
+  },
+  {
+    "id": "4b05fbac29da2af0667a",
+    "it": "La nave non può più continuare normalmente la navigazione o il combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "b5e1e7d99db4ab9b4d09",
+    "it": "La condizione è aggiornata quando cambiano i PS.",
+    "kind": "html"
+  },
+  {
+    "id": "abcec47565db69d1d720",
+    "it": "Una nave può quindi passare da Grave a Critica in seguito a una cannonata, oppure migliorare la propria condizione grazie alle riparazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "2b335bd6a1a80a58eb61",
+    "it": "Alcuni Moduli modificano le regole di affondamento. Compartimenti stagni, per esempio, permette alla nave di resistere oltre 0 PS e affondare soltanto a −10 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "cd98b7b25a0ac0dd2c88",
+    "it": "Questa capacità rappresenta un'eccezione alla regola ordinaria.",
+    "kind": "html"
+  },
+  {
+    "id": "6ef98fd0aa0e28779479",
+    "it": "<span class=\"man-sez-n\">13.6 ·</span> I danni ai componenti",
+    "kind": "html"
+  },
+  {
+    "id": "b0059958e644258c3cdb",
+    "it": "Una nave non è costituita da un unico blocco di Punti Struttura.",
+    "kind": "html"
+  },
+  {
+    "id": "8a5945224ae71e985828",
+    "it": "Quando una nave entra in condizione Critica per la prima volta durante una battaglia navale, tira 1d6 sulla tabella dei Componenti.",
+    "kind": "html"
+  },
+  {
+    "id": "d0de0f6e1cd7c55ca53f",
+    "it": "<b>Conseguenza</b>",
+    "kind": "html"
+  },
+  {
+    "id": "418ed715e35eaf1dde17",
+    "it": "Albero maestro",
+    "kind": "html"
+  },
+  {
+    "id": "8ebe6045c95e948214c4",
+    "it": "Vele −1 dado e velocità dimezzata.",
+    "kind": "html"
+  },
+  {
+    "id": "a173cc5ffb036e71463a",
+    "it": "Timone",
+    "kind": "html"
+  },
+  {
+    "id": "0359f7494644fa19c67c",
+    "it": "Non puoi effettuare Manovra Evasiva.",
+    "kind": "html"
+  },
+  {
+    "id": "e0722ee7f4e22fbbcc1b",
+    "it": "Batteria cannoni",
+    "kind": "html"
+  },
+  {
+    "id": "2878af73958a604aa11c",
+    "it": "Artiglieria −1 dado.",
+    "kind": "html"
+  },
+  {
+    "id": "82abbf4e205244af7b8b",
+    "it": "Stiva",
+    "kind": "html"
+  },
+  {
+    "id": "6b049a052279fccaf5ed",
+    "it": "Cargo danneggiato o perduto.",
+    "kind": "html"
+  },
+  {
+    "id": "11cd36fe2f1241e47401",
+    "it": "Sala macchine",
+    "kind": "html"
+  },
+  {
+    "id": "07a457201f17ef0757e2",
+    "it": "La nave non può muoversi attivamente.",
+    "kind": "html"
+  },
+  {
+    "id": "075559303b2cc3801202",
+    "it": "Scafo sotto la linea",
+    "kind": "html"
+  },
+  {
+    "id": "97084190be4cf6ad02dc",
+    "it": "PS massimi −10 permanentemente, finché il danno non viene riparato.",
+    "kind": "html"
+  }
+]

@@ -1,0 +1,607 @@
+[
+  {
+    "id": "b195191b0ffd43673c19",
+    "it": "Esempio: con Forza d20+d10 puoi propagare un colpo fino a 100 m di raggio. Il colpo iniziale infligge 40 danni. Una creatura colpita a 20 m riceve 40 danni; a 40 m ne riceve 20; a 60 m ne riceve 10; a 90 m ne riceve 5, prima delle rispettive riduzioni. Il bersaglio iniziale riceve una sola applicazione di 40 danni.",
+    "kind": "html"
+  },
+  {
+    "id": "e769a2ffd1f765fe3f8c",
+    "it": "<span class=\"man-sez-n\">3.4</span><span data-prestigio-source=\"combattenti:176\">Striker · Precisione</span>",
+    "kind": "html"
+  },
+  {
+    "id": "77f21218a216400db2d8",
+    "it": "Lo Striker dispone dello stesso catalogo di quattro Talenti di Prestigio sia scegliendo Atletica sia scegliendo Acrobazia: Potenza del Titano, Onda Titanica, Precisione Assoluta e Raffica Senza Fine. Le scelte si sbloccano con la Skill di Ruolo scelta ai Prestigi I, III e V. La Skill non divide i Talenti in percorsi separati e non concede scelte aggiuntive; restano validi i requisiti di ogni Talento. I potenziamenti di Forza e Tecnica restano legati ai rispettivi Attributi.",
+    "kind": "html"
+  },
+  {
+    "id": "144d87b88a06805cc919",
+    "it": "Precisione Assoluta",
+    "kind": "html"
+  },
+  {
+    "id": "8e6610ef2b992da98d3b",
+    "it": "Tipo: passivo. Costo aggiuntivo del Talento: 0 ST. Beneficio: permette di inserire Punto di Rottura nelle proprie Tecniche offensive in mischia dello Striker basate sull’Attributo Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "d02eb6c2745c03f812d6",
+    "it": "Il Talento rende disponibile un effetto di precisione da scegliere nella costruzione della mossa. Per applicarlo, la Tecnica deve contenere effettivamente Punto di Rottura, possedere lo slot necessario e pagarne il costo. Precisione Assoluta non si applica automaticamente a ogni attacco base.",
+    "kind": "html"
+  },
+  {
+    "id": "af65cb4ce885c62516d7",
+    "it": "Punto di Rottura",
+    "kind": "html"
+  },
+  {
+    "id": "41a9602c5ea4ce0d275e",
+    "it": "Famiglia: Controllo. Costo: 2 ST. Slot: 1 Effetto. Requisito: Precisione Assoluta e una Tecnica offensiva in mischia dello Striker basata sull’Attributo Tecnica. Condizione: colpo pulito, con margine almeno +4 secondo le regole ordinarie.",
+    "kind": "html"
+  },
+  {
+    "id": "b4e679064e51a004c5e6",
+    "it": "Prima dell’attacco dichiara la parte o la funzione che vuoi neutralizzare. Il punto deve essere accessibile alla portata della Tecnica e coerente con l’anatomia del bersaglio o con il funzionamento dell’oggetto. Le difese, le coperture e le condizioni necessarie a colpire quel bersaglio continuano ad applicarsi.",
+    "kind": "html"
+  },
+  {
+    "id": "1d41401a68d9a155bdfc",
+    "it": "Paga il costo dell’effetto insieme agli altri costi della Tecnica, anche se l’attacco manca o non ottiene un colpo pulito. Se ottieni soltanto un colpo a segno, infliggi il normale danno senza applicare Punto di Rottura.",
+    "kind": "html"
+  },
+  {
+    "id": "f7b3113afad79fb90364",
+    "it": "Con un colpo pulito infliggi il normale danno della Tecnica e puoi sostituire lo Stordimento o lo Sbilanciamento della Firma con uno dei seguenti risultati.",
+    "kind": "html"
+  },
+  {
+    "id": "5456eeea854c0e8201cd",
+    "it": "Mano: la mano colpita non può impugnare o utilizzare ciò che tiene. L’altra mano e le capacità che non dipendono dalla mano neutralizzata restano disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "8546c976d56b3204eab0",
+    "it": "Gamba: il bersaglio non può effettuare Movimento volontario finché non recupera la funzione. Può ancora attaccare o utilizzare capacità compatibili con la propria posizione.",
+    "kind": "html"
+  },
+  {
+    "id": "5899adbc099f7b00b1d0",
+    "it": "Presa: fai cedere una presa mantenuta con la parte colpita e liberi chi o ciò che quella presa tratteneva. Il bersaglio può tentare una nuova presa seguendo le regole ordinarie.",
+    "kind": "html"
+  },
+  {
+    "id": "f5c6ad1c49ae082898b0",
+    "it": "Componente: danneggi un elemento accessibile, come il grilletto di un’arma, il timone, una giuntura o il meccanismo di un cannone. Si applica il danno della Tecnica a quel componente, valutandone resistenza e Punti Struttura propri quando presenti; il risultato dipende dal danno sufficiente a comprometterne la funzione.",
+    "kind": "html"
+  },
+  {
+    "id": "a5915d180381b0543978",
+    "it": "La limitazione su una mano o una gamba termina quando il bersaglio spende un’Azione principale per recuperare la funzione, oppure alla fine dello scontro. Rappresenta una neutralizzazione temporanea e non una mutilazione permanente. La presa interrotta è un risultato immediato; i danni a un componente seguono invece le regole degli oggetti e delle riparazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "8ef0a1f9ced1497aeb1f",
+    "it": "Puoi mantenere una sola funzione fisica neutralizzata per bersaglio con questo effetto. Una nuova applicazione su una parte diversa sostituisce la precedente; ripetere il colpo sulla stessa parte non somma ulteriori limitazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "e5b1606d3ad9e030e7c3",
+    "it": "Punto di Rottura sostituisce soltanto lo stato della Firma per quel colpo e ne condivide il limite di una attivazione per turno. Applicare Punto di Rottura consuma l’unica attivazione della Firma; se Il Colpo Sfonda si è già attivato in quel turno, non puoi applicare nuovamente la Firma attraverso Punto di Rottura. Gli eventuali altri effetti della Tecnica seguono le proprie regole, rispettando il limite ordinario degli effetti per famiglia. Il Talento non permette di ignorare automaticamente una difesa o di colpire una parte fisicamente irraggiungibile.",
+    "kind": "html"
+  },
+  {
+    "id": "403ec0526f7fae1ced4f",
+    "it": "Esempio: dichiari di voler neutralizzare la mano con cui un nemico impugna una pistola. La Tecnica con Punto di Rottura costa 2 ST per questo effetto, oltre agli altri costi. Ottieni un colpo pulito: il nemico subisce il danno e la mano non può utilizzare la pistola. Può recuperare la funzione spendendo la sua Azione principale oppure proseguire lo scontro usando le capacità rimaste disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "ae76b95b1769d183aef1",
+    "it": "<span class=\"man-sez-n\">3.5</span><span data-prestigio-source=\"combattenti:194\">Striker · Raffica</span>",
+    "kind": "html"
+  },
+  {
+    "id": "4ccad2f92b65c74c6414",
+    "it": "Raffica Senza Fine",
+    "kind": "html"
+  },
+  {
+    "id": "fb172ec4e078d85383e5",
+    "it": "Raffica Senza Fine appartiene al catalogo comune dello Striker. La sua acquisizione utilizza Atletica oppure Acrobazia, secondo la Skill di Ruolo scelta, e una delle normali scelte di Prestigio disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "9b43d9b245bd8e4b8a21",
+    "it": "Evoluzione di: Raffica · Maestria. Tipo: attivo. Attivazione: 1 Azione Bonus dopo un attacco a mani nude. Limite: 1 attivazione nel tuo turno. Costo progressivo: 1 ST il primo attacco extra, 2 ST il secondo, 3 ST il terzo, 4 ST il quarto e così via, oltre a tutti i costi normali dell’eventuale Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "b84fe6687e12b8ad5055",
+    "it": "Dopo aver effettuato un attacco a mani nude, puoi attivare Raffica Senza Fine per eseguire una sequenza di attacchi aggiuntivi nello stesso turno. L’attacco iniziale può essere un attacco base oppure una Tecnica offensiva in mischia dello Striker eseguita a mani nude e non deve necessariamente essere andato a segno.",
+    "kind": "html"
+  },
+  {
+    "id": "d72c9fd9eb639a75495d",
+    "it": "Il costo della Raffica cresce per ogni attacco aggiuntivo effettuato durante quella attivazione: il primo costa 1 ST, il secondo 2 ST, il terzo 3 ST, il quarto 4 ST, il quinto 5 ST e così via. Non esiste un numero massimo prestabilito di attacchi extra: il limite è la Stamina che il personaggio può e decide di spendere. Ogni attacco aggiuntivo può essere un attacco base a mani nude oppure una Tecnica offensiva in mischia dello Striker. Se scegli una Tecnica, paghi sempre sia il costo progressivo di Raffica relativo a quell’attacco sia tutti i costi normali della Tecnica e dei suoi effetti. I due costi si sommano integralmente.",
+    "kind": "html"
+  },
+  {
+    "id": "76353cbf3216d27a7ff2",
+    "it": "Decidi se proseguire dopo aver risolto ciascun attacco e paghi il costo del successivo prima di tentarlo. Un attacco mancato consuma normalmente la Stamina pagata ma non interrompe Raffica Senza Fine.",
+    "kind": "html"
+  },
+  {
+    "id": "89e19826e0ea638aea44",
+    "it": "Puoi concentrare gli attacchi sullo stesso avversario oppure distribuirli tra bersagli raggiungibili. Ogni attacco conserva la propria portata, il proprio tiro per colpire, il proprio danno e le normali possibilità di difesa del bersaglio. Raffica Senza Fine non concede Movimento gratuito o spostamenti speciali. Eventuali movimenti derivano dal Movimento ancora disponibile o dagli effetti contenuti nella Tecnica impiegata e ne consumano normalmente i costi e gli eventuali budget.",
+    "kind": "html"
+  },
+  {
+    "id": "4686d7eb78caa7937ed4",
+    "it": "Gli attacchi aggiuntivi non sono nuove Azioni principali e non concedono ulteriori Azioni Bonus. Non possono essere usati per attivare altri Talenti attivi, attivare l’Haki, eseguire Tecniche di Supporto o di Potenziamento oppure utilizzare liberamente una Special Move. Talenti passivi e potenziamenti compatibili possono applicarsi ai singoli colpi secondo le proprie regole, compresi Potenza del Titano e i potenziamenti degli Attributi Proiezione Colossale, Spostamento Fulmineo e Agilità Sovrumana. Ogni Tecnica deve contenere gli effetti necessari e rispettare i relativi requisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "9fd99ff9a4a5dd444cd0",
+    "it": "Questa evoluzione incorpora completamente la catena di Raffica. Nello stesso turno non puoi sommare o riattivare Raffica · Base, Migliorato o Maestria per ottenere attacchi aggiuntivi ulteriori. Il Colpo Sfonda rimane soggetto al limite generale di una sola attivazione per turno.",
+    "kind": "html"
+  },
+  {
+    "id": "1033f7af9449c9057545",
+    "it": "Esempi di costo",
+    "kind": "html"
+  },
+  {
+    "id": "633c31079428aed1de54",
+    "it": "1° attacco extra base: Raffica 1 ST + Tecnica 0 ST = 1 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "5ae0ed7631526dbe3de6",
+    "it": "2° attacco extra base: Raffica 2 ST + Tecnica 0 ST = 2 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "fb676cf3bef915917272",
+    "it": "3° attacco extra base: Raffica 3 ST + Tecnica 0 ST = 3 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "1670db255e991d72b5db",
+    "it": "4° attacco extra base: Raffica 4 ST + Tecnica 0 ST = 4 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "fde5939cdaadf52f4a76",
+    "it": "1° extra con Tecnica da 2 ST: Raffica 1 ST + Tecnica 2 ST = 3 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "def16b013c7efb2d0f62",
+    "it": "2° extra con Tecnica da 2 ST: Raffica 2 ST + Tecnica 2 ST = 4 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "df68fdb939114eddc631",
+    "it": "3° extra con Tecnica da 2 ST: Raffica 3 ST + Tecnica 2 ST = 5 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "e31209f202c63e43266a",
+    "it": "1° extra con Scatto: Raffica 1 ST + Scatto 1 ST = 2 ST, oltre agli altri eventuali costi della Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "17b786902888843b0e90",
+    "it": "1° extra con Punto di Rottura: Raffica 1 ST + Punto di Rottura 2 ST = 3 ST, oltre agli altri eventuali costi della Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "ec597bdeb859ef2f91d1",
+    "it": "Esempio con 8 ST disponibili dopo l’attacco iniziale: puoi effettuare tre attacchi base extra pagando 1 + 2 + 3 = 6 ST. Il quarto costerebbe 4 ST e non può essere acquistato con le 2 ST rimaste. Se utilizzi invece una Tecnica da 2 ST per gli attacchi extra, il primo costa 3 ST complessivi e il secondo 4 ST, per un totale di 7 ST. Rimane 1 ST e non puoi pagare il terzo, che costerebbe 5 ST complessivi.",
+    "kind": "html"
+  },
+  {
+    "id": "02b100eb767fa3ba855c",
+    "it": "Esempio con mobilità e precisione: il primo attacco extra con una Tecnica contenente Scatto costa almeno 2 ST, di cui 1 per Raffica e 1 per Scatto, e consuma soltanto i metri effettivamente percorsi dal budget di Tecnica. Il primo attacco extra con Punto di Rottura costa almeno 3 ST, di cui 1 per Raffica e 2 per l’effetto, e richiede Precisione Assoluta. Gli altri effetti si pagano normalmente.",
+    "kind": "html"
+  },
+  {
+    "id": "4fc08a5acdd7f207dd32",
+    "it": "<span class=\"man-sez-n\">3.6</span><span data-prestigio-source=\"combattenti:216\">Swordsman con Skill di Ruolo Atletica</span>",
+    "kind": "html"
+  },
+  {
+    "id": "292cbe08355015bc18f0",
+    "it": "I quattro Talenti sono opzioni da acquisire attraverso le scelte di Atletica. La loro scala fisica dipende dall&#x27;Attributo previsto dal colpo; il tiro aggiunto da Guardia Invalicabile dipende invece dalla Skill Atletica.",
+    "kind": "html"
+  },
+  {
+    "id": "91f581f61d8ed4a11cca",
+    "it": "Fendente Sovrano",
+    "kind": "html"
+  },
+  {
+    "id": "e0856677894545b03121",
+    "it": "Evoluzione di: Fendente d’Aria. Tipo: passivo. Costo aggiuntivo per utilizzo: 1 ST. Requisito di impiego: una Tecnica offensiva Swordsman da mischia compatibile, eseguita con una lama.",
+    "kind": "html"
+  },
+  {
+    "id": "819192bf225f315d8569",
+    "it": "Quando utilizzi la Tecnica, puoi scagliare un fendente che raggiunge il bersaglio entro la portata della scala. Il costo di 1 ST si aggiunge a quello della Tecnica. Non richiede un’Azione Bonus separata.",
+    "kind": "html"
+  },
+  {
+    "id": "165593ccf9c4e02bc62b",
+    "it": "Il danno finale rimane pieno: il dimezzamento di Fendente d’Aria viene eliminato. Il Talento sostituisce la sua versione ordinaria e non richiede di pagarla una seconda volta.",
+    "kind": "html"
+  },
+  {
+    "id": "2ae565999445c3ee21dc",
+    "it": "Effettua il normale tiro per colpire della Tecnica. Il bersaglio utilizza le proprie difese e coperture secondo le regole generali. Il fendente percorre lo spazio fra te e il punto colpito; gli ostacoli possono intercettarlo e devono essere superati o danneggiati secondo le loro regole.",
+    "kind": "html"
+  },
+  {
+    "id": "c260f1963d5fd459112e",
+    "it": "La Tecnica conserva i propri effetti, slot e costi. Una Tecnica Singolo continua a colpire un solo bersaglio. Area Ravvicinata dello Swordsman conserva Grado minimo d8 e costo 2 ST: non può essere proiettata a distanza tramite Fendente Sovrano, rimane centrata sul personaggio e il raggio è pari alla Portata effettiva della lama. Fendenti ad Area a distanza richiedono una capacità che li conceda espressamente. Gli effetti che richiedono contatto fisico mantengono quella condizione.",
+    "kind": "html"
+  },
+  {
+    "id": "98c211b8b92eb9f80166",
+    "it": "Esempio: utilizzi una Tecnica basata sull’Attributo Tecnica d20+d10. Puoi raggiungere un nemico fino a 100 m. La Tecnica costa 3 ST e il suo danno finale è 28: con Fendente Sovrano paghi 4 ST e, se colpisci, infliggi 28 danni prima delle riduzioni del bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "445a866ef0289c9d2fe3",
+    "it": "Taglio Colossale",
+    "kind": "html"
+  },
+  {
+    "id": "360d013b179681c41789",
+    "it": "Tipo: attivo. Attivazione: 1 Azione Bonus prima del colpo. Costo aggiuntivo: 2 ST. Durata: il prossimo attacco con una lama nel tuo turno. Bersaglio del beneficio: un solo elemento dello scenario.",
+    "kind": "html"
+  },
+  {
+    "id": "8ab1e54767cfbeba174a",
+    "it": "Scegli cosa vuoi recidere: uno scafo, un pilastro, una parete, una massa di roccia o una sezione di una struttura più grande. La sezione scelta deve rientrare nella dimensione massima concessa dall’Attributo del colpo. Il GM definisce i PS e le eventuali resistenze dell’elemento prima del tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "90a4c07f231c2197a8a1",
+    "it": "Devi poter colpire un punto utile di quell’elemento con la normale portata dell’attacco. Per un taglio a distanza puoi utilizzare una Tecnica con Fendente Sovrano, pagando anche il suo costo.",
+    "kind": "html"
+  },
+  {
+    "id": "7b7275e288d41c6d874c",
+    "it": "Se il colpo riesce, il danno contro l’elemento scelto è:",
+    "kind": "html"
+  },
+  {
+    "id": "2cb09926ba67ee542f96",
+    "it": "Danno strutturale = danno normale dell’attacco + un tiro completo dell’Attributo utilizzato.",
+    "kind": "html"
+  },
+  {
+    "id": "34434fa2aa40c74dbf8f",
+    "it": "Il tiro aggiuntivo è un tiro di danno distinto dal tiro per colpire. Tiralo una sola volta, compreso il dado di Prestigio, e somma i risultati. Con Forza d20+d8 aggiungi d20+d8; con Attributo Tecnica d20+d12 aggiungi d20+d12.",
+    "kind": "html"
+  },
+  {
+    "id": "768cd72c96b9aa16258f",
+    "it": "Applica le resistenze pertinenti e sottrai il danno ricevuto dai PS dell’elemento. Se il danno azzera i suoi PS, lo recidi con quel singolo fendente. Se restano PS, l’elemento viene danneggiato. Per gli elementi privi di PS, il GM determina il risultato usando le normali regole degli oggetti e dei materiali.",
+    "kind": "html"
+  },
+  {
+    "id": "ada05bc19bf7010744c0",
+    "it": "Ogni utilizzo riguarda un elemento e applica il danno una sola volta. La dimensione massima indica quanto può essere grande la recisione; non moltiplica il danno. Contro una creatura questo Talento non aggiunge il bonus strutturale. Le conseguenze del cedimento, come una parete che crolla o uno scafo che si apre, vengono risolte separatamente.",
+    "kind": "html"
+  },
+  {
+    "id": "ca83db1bb3ecd31cee1b",
+    "it": "L’Azione Bonus e i 2 ST vengono spesi prima dell’attacco e rimangono consumati se manchi. Il potenziamento termina dopo quel colpo o alla fine del tuo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "6cd74a6f68dac47f885a",
+    "it": "Esempio: scegli un pilastro con 40 PS, con una sezione entro la tua scala. Il colpo infligge 25 danni e il tiro completo dell’Attributo aggiunge 18. Il danno strutturale è 43: se il pilastro non possiede riduzioni pertinenti, lo recidi. Un pilastro con 60 PS rimarrebbe invece a 17 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "f19afab7310165739dfe",
+    "it": "Guardia Invalicabile",
+    "kind": "html"
+  },
+  {
+    "id": "1ecda7979f59400ba851",
+    "it": "Evoluzione di: Parata Perfetta. Tipo: reattivo. Costo aggiuntivo: 2 ST e la tua Reazione. Requisito di impiego: una Parata con una lama contro un attacco intercettabile.",
+    "kind": "html"
+  },
+  {
+    "id": "503c2a5ff94532d6c38f",
+    "it": "Quando tenti la Parata, puoi spendere 2 ST per aggiungere un tiro completo di Atletica al normale tiro difensivo. Con Atletica in Prestigio tiri entrambi i dadi e sommi i risultati.",
+    "kind": "html"
+  },
+  {
+    "id": "01b98fed9e42b77c0c4d",
+    "it": "Tiro di Guardia Invalicabile = Attributo della Parata + Dado Arma + tiro completo di Atletica.",
+    "kind": "html"
+  },
+  {
+    "id": "b6493e5c804ee64fe24a",
+    "it": "Il tiro viene confrontato con il risultato dell’attacco secondo le regole generali della Parata. Puoi intercettare un singolo attacco fisicamente contrastabile con la lama, anche di grandi dimensioni o ad area. Compatibilità della difesa e condizioni richieste dai poteri coinvolti continuano ad applicarsi.",
+    "kind": "html"
+  },
+  {
+    "id": "b2ce31fe28a1f4db0940",
+    "it": "Una Parata riuscita protegge te e gli alleati entro 5 m dietro la tua posizione rispetto alla provenienza del colpo, purché la tua intercettazione copra effettivamente la sua traiettoria verso di loro. Un unico tiro risolve la difesa contro quell’attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "53a2ff6913475a5d7be0",
+    "it": "Puoi così intercettare una cannonata prima che raggiunga la ciurma o fermare il fronte di un grande fendente. Attacchi distinti richiedono difese distinte e Reazioni disponibili. Se la Parata fallisce, il colpo viene risolto normalmente contro i suoi bersagli.",
+    "kind": "html"
+  },
+  {
+    "id": "bb4a9d4ea42163631350",
+    "it": "Mantieni il ritentativo di Parata Perfetta: una volta per scontro, dopo una Parata fallita puoi ripetere il tiro e devi accettare il secondo risultato. Il ritentativo ripete il tiro completo di Guardia Invalicabile, senza una seconda spesa dei suoi 2 ST o un’altra Reazione.",
+    "kind": "html"
+  },
+  {
+    "id": "dbce19409d411bd197af",
+    "it": "I 2 ST si aggiungono agli eventuali costi della capacità difensiva impiegata. Guardia Invalicabile utilizza la Reazione ordinaria e non richiede l’Azione Bonus. Il Talento potenzia la Parata e non assegna un attacco in risposta.",
+    "kind": "html"
+  },
+  {
+    "id": "dd24aa91602ff6d72d9f",
+    "it": "Esempio: una cannonata viene risolta con un risultato per colpire di 38. La tua normale Parata produce 24; il tiro completo di Atletica produce 19. Il totale è 43: la Parata riesce e protegge anche i compagni nella posizione coperta dietro di te.",
+    "kind": "html"
+  },
+  {
+    "id": "1d5773983a1b02ac2dc9",
+    "it": "Maestria Assoluta della Lama",
+    "kind": "html"
+  },
+  {
+    "id": "8e2544bd8d390b3bda9c",
+    "it": "Tipo: passivo. Costo aggiuntivo: 0 ST. Applicazione: qualsiasi lama compatibile che impugni.",
+    "kind": "html"
+  },
+  {
+    "id": "043dea1dc71f4c2d6c28",
+    "it": "Qualsiasi lama che impugni utilizza d20 come Dado Arma, indipendentemente dal suo Grado originario.",
+    "kind": "html"
+  },
+  {
+    "id": "d40a0859b98003fa5b38",
+    "it": "Attacco base: Attributo previsto dalla lama + d20.",
+    "kind": "html"
+  },
+  {
+    "id": "a7591371ab7e85815edf",
+    "it": "Danno dell’attacco base: 1d20, più i benefici compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "4e3d79b519e8effd5f42",
+    "it": "Parata: Attributo previsto dalla difesa + d20.",
+    "kind": "html"
+  },
+  {
+    "id": "f5d36817045df2c0b0fd",
+    "it": "Un coltello d4, una sciabola d8 e una katana d12 utilizzano quindi d20 per questi tiri nelle tue mani. Il Talento usa sempre d20: il Prestigio di Atletica ne sblocca l’acquisizione e non aggiunge un ulteriore dado al Dado Arma.",
+    "kind": "html"
+  },
+  {
+    "id": "5fa4760d9210d33c7942",
+    "it": "La lama conserva portata, proprietà ed eventuali effetti speciali. I requisiti per impugnarla dipendono dal suo Grado originario. La maestria appartiene allo Swordsman: quando un altro personaggio impugna quell’arma, utilizza il suo normale Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "1a4f404e52edeeb5d7e7",
+    "it": "Le Tecniche Swordsman continuano a utilizzare il proprio Dado Tecnica per colpire e il proprio Dado Danno. Una Tecnica d8 rimane d8 anche se viene eseguita con una lama che utilizzi come d20. La Firma Doppio fendente segue il Dado Danno del colpo: su un attacco base con Maestria aggiunge d20; su una Tecnica aggiunge il Dado Danno previsto da quella mossa.",
+    "kind": "html"
+  },
+  {
+    "id": "9e311c3c0f6e744bfe02",
+    "it": "Maestria Assoluta della Lama può accompagnare Guardia Invalicabile: usa d20 come Dado Arma nella sua formula e aggiungi il tiro completo di Atletica una sola volta.",
+    "kind": "html"
+  },
+  {
+    "id": "2c436777bbd2753cd29b",
+    "it": "Esempio: impugni un coltello d4 associato all’Attributo Tecnica. Con Attributo Tecnica d20+d8, l’attacco base utilizza d20+d8+d20. Se colpisci, il danno base è 1d20. Con un colpo pulito, la Firma aggiunge un altro d20, per un totale di 2d20 prima degli altri benefici applicabili.",
+    "kind": "html"
+  },
+  {
+    "id": "be85e841e61b4dcbc352",
+    "it": "<span class=\"man-sez-n\">3.7</span><span data-prestigio-source=\"combattenti:257\">Crusher con Skill di Ruolo Atletica</span>",
+    "kind": "html"
+  },
+  {
+    "id": "bcd0e9d63235ef2ef400",
+    "it": "Il Crusher costruito su Forza utilizza il Prestigio dell’Attributo per distruzione ambientale e Proiezione Colossale. Atletica concede invece le scelte per acquisire i quattro Talenti seguenti. Le tre acquisizioni ordinarie a d20+d4, d20+d8 e d20+d12 permettono di scegliere tre opzioni del catalogo, rispettandone i prerequisiti; non assegnano tutti e quattro i Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "3dcab13fe14c9d9334b8",
+    "it": "I Talenti richiedono armi contundenti compatibili con il Ruolo e le regole dell’Arsenale. Il tiro per colpire mantiene l’Attributo previsto dall’arma o dalla Tecnica, senza cambiarlo liberamente. Forza determina la scala quando viene richiamata e il proprio tiro quando una capacità lo richiede; Atletica sblocca le scelte e fornisce il tiro aggiuntivo previsto da Arresto del Colosso. La crescita di una progressione non aumenta automaticamente l’altra.",
+    "kind": "html"
+  },
+  {
+    "id": "a592c6f5da4289c79c5f",
+    "it": "La Firma ordinaria del Crusher si chiama Impatto Devastante: su un colpo pulito spinge il bersaglio di 3 m, senza ST aggiuntivi. È distinta dal Talento di Prestigio Onda Titanica dello Striker. La Firma del Crusher non assegna un’onda offensiva ad area e non sostituisce l’effetto Proiezione necessario a Proiezione Colossale. Il Crusher non riceve il pacchetto di mobilità del Prestigio di Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "17607459e4b416488ad7",
+    "it": "Maglio Inarrestabile",
+    "kind": "html"
+  },
+  {
+    "id": "1c0668e95aca9bc84973",
+    "it": "Evoluzione di: Colpo Pesante Maestria. Prerequisito: possedere Colpo Pesante Maestria. Tipo: attivo, modificatore del colpo. Attivazione: dichiarazione prima dell’attacco, senza Azione Bonus aggiuntiva. Costo: 3 ST complessivi al posto delle 2 ST di Maestria. Limite: 1 volta nel tuo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "011d5b9a30978bf1a4d7",
+    "it": "Puoi accompagnare un attacco base o una Tecnica offensiva in mischia del Crusher eseguita con un’arma contundente compatibile. Paghi le 3 ST alla dichiarazione, oltre agli eventuali costi della Tecnica. Questa versione sostituisce Colpo Pesante Maestria e mantiene Vantaggio al tiro per colpire, +2 Dadi Danno e Sbilanciamento del bersaglio se il colpo va a segno.",
+    "kind": "html"
+  },
+  {
+    "id": "e78b7c40a9ee22869066",
+    "it": "La tua DP diminuisce di 5 dalla dichiarazione fino all’inizio del tuo prossimo turno. La penalità e il costo restano anche se il colpo manca, viene schivato o viene parato. Le versioni Base, Migliorato, Maestria e Maglio Inarrestabile non si sommano per ripetere bonus o penalità.",
+    "kind": "html"
+  },
+  {
+    "id": "1bb2348b4bf4b6f5015c",
+    "it": "Inoltre, tira separatamente una volta Forza, compreso il suo eventuale dado di Prestigio, e aggiungi il risultato al danno del colpo. Il tiro aggiuntivo riguarda soltanto questo attacco e non modifica il tiro per colpire.",
+    "kind": "html"
+  },
+  {
+    "id": "86fc1838c879d01adb38",
+    "it": "Danno di Maglio Inarrestabile = danno di Colpo Pesante Maestria + un tiro completo di Forza.",
+    "kind": "html"
+  },
+  {
+    "id": "56ff03f0e17da37ae386",
+    "it": "Se l’attacco supera la difesa necessaria per colpire ma il bersaglio lo ferma con una Parata riuscita, subisce comunque metà del danno complessivo, arrotondata per difetto, e poi applica le proprie riduzioni. La Parata trattiene l’arma ma trasmette parte dell’impatto.",
+    "kind": "html"
+  },
+  {
+    "id": "210e27cba65a62325c32",
+    "it": "Il danno residuo di un colpo parato non applica Sbilanciamento, la Firma, Proiezione, Schianto o altri effetti del colpo. Non conta come colpo riuscito per attivare Onda Sismica, Guardia Frantumata o Rompiguardia. Le altre difese conservano le proprie regole: una Schivata riuscita evita l’attacco e un tiro che non supera la difesa necessaria per colpire non infligge neppure il danno dimezzato.",
+    "kind": "html"
+  },
+  {
+    "id": "fe3a85bc4f11ad6a35ee",
+    "it": "Se invece il colpo va normalmente a segno, si applicano il danno intero e gli effetti compatibili. Per una successiva propagazione valida con Onda Sismica, D comprende anche questo tiro aggiuntivo di Forza. Un eventuale Schianto utilizza il proprio distinto tiro di Forza e non riceve nuovamente il bonus di Maglio Inarrestabile.",
+    "kind": "html"
+  },
+  {
+    "id": "68d22efef4f2626f7581",
+    "it": "Esempio: il danno di Maestria è 30 e il tiro aggiuntivo di Forza dà 18. Il danno diventa 48 prima delle riduzioni. Se il colpo va a segno, il bersaglio riceve 48 danni e viene Sbilanciato; se lo para con successo dopo che l’attacco ha superato la difesa necessaria, riceve 24 danni prima delle riduzioni e gli altri effetti vengono fermati. In entrambi i casi il Crusher ha speso 3 ST e mantiene DP −5 per la durata prevista.",
+    "kind": "html"
+  },
+  {
+    "id": "7e3a86f537ef58dbe881",
+    "it": "Onda Sismica",
+    "kind": "html"
+  },
+  {
+    "id": "bbe56a8e8cc8eb2d9b13",
+    "it": "Evoluzione di: Impatto a Catena. Prerequisito: possedere Impatto a Catena. Tipo: attivo. Attivazione: 1 Azione Bonus dopo un colpo riuscito nel tuo turno. Costo: 3 ST complessivi al posto delle 2 ST di Onda d’Urto. Limite: 1 volta nel tuo turno. Per questa onda: Forza almeno d20+d4 e un impatto valido su una superficie.",
+    "kind": "html"
+  },
+  {
+    "id": "2cf95259f876e88d8b1c",
+    "it": "Quando un tuo attacco contundente basato su Forza colpisce il terreno, un oggetto, una struttura o una creatura e l’impatto si trasmette a una superficie, puoi spendere l’Azione Bonus e 3 ST per attaccare anche le creature appoggiate a quella superficie. Può essere un attacco base oppure una Tecnica offensiva compatibile. Un colpo mancato, schivato o parato non consente l’attivazione.",
+    "kind": "html"
+  },
+  {
+    "id": "90bd30a2f0f803209850",
+    "it": "La sola scala di distruzione ti permette già di danneggiare lo scenario senza questi costi. Onda Sismica aggiunge danni diretti, spinta e Sbilanciamento contro le creature: usa il raggio esistente di Forza e non crea una seconda scala di distruzione.",
+    "kind": "html"
+  },
+  {
+    "id": "a71744305ae820bd2c29",
+    "it": "L’onda parte dal punto d’impatto e percorre un cono di 90°. Quando la attivi, dichiara la direzione e la lunghezza scelta, fino al raggio massimo della tua Forza. Per esempio, con Forza d20+d10 il cono può estendersi fino a 100 m; a Saikyō fino a 1.000 m. Le fasce di danno restano calcolate sul raggio massimo di Forza, anche se scegli un cono più corto.",
+    "kind": "html"
+  },
+  {
+    "id": "17a4d2472f8a58c5b08e",
+    "it": "Onda Sismica nasce sempre da un singolo impatto valido e segue la propria sagoma di Prestigio. Area Ravvicinata del Crusher, se presente nella Tecnica, conserva Grado minimo d8 e costo 2 ST, rimane centrata sul personaggio e ha raggio pari alla Portata effettiva dell’arma: non genera più coni, non crea nuovi centri di Onda Sismica e non ne aumenta il raggio.",
+    "kind": "html"
+  },
+  {
+    "id": "5c6e92fe185a82d6412c",
+    "it": "Deve essere identificabile il singolo punto in cui l’impatto contundente si scarica sulla superficie: da quel punto si risolve l’intera onda. Un’Area più ampia concessa da una Fonte speciale resta separata; Area e cono di Prestigio non aumentano reciprocamente le proprie dimensioni.",
+    "kind": "html"
+  },
+  {
+    "id": "97613e61cc2329d82970",
+    "it": "Sono coinvolte soltanto le creature appoggiate al terreno o alla superficie materialmente collegata che l’onda raggiunge. Non basta trovarsi sopra il cono mentre si vola o si è sospesi senza contatto. Un ostacolo che resiste può fermare la propagazione e una superficie separata non viene raggiunta automaticamente. Il Crusher che genera l’onda è escluso; gli alleati nella zona possono essere colpiti e non possono essere esclusi liberamente.",
+    "kind": "html"
+  },
+  {
+    "id": "708c8b84c42dce535775",
+    "it": "Usa il risultato del tiro per colpire originario contro ciascuna creatura aggiuntiva, risolvendo DP, Difese Attive, Reazioni e coperture secondo le regole normali. Se il colpo contro una superficie non richiedeva un tiro, effettua un unico normale tiro per colpire valido per l’onda. Ogni creatura può subire un esito diverso.",
+    "kind": "html"
+  },
+  {
+    "id": "9f1c05ffdbe3c3b40889",
+    "it": "Tira il danno iniziale una sola volta e usalo come D, includendo Maglio Inarrestabile e gli altri bonus applicabili al colpo, ma escludendo un eventuale Schianto successivo. Ciascuna creatura aggiuntiva colpita riceve la frazione prevista dalla distanza, poi applica le proprie riduzioni; viene inoltre spinta di 3 m in direzione di allontanamento dall’impatto e Sbilanciata, salvo protezioni pertinenti. Uno stato già presente non si somma a una seconda copia dello stesso stato.",
+    "kind": "html"
+  },
+  {
+    "id": "55b7185c50cc788ecb71",
+    "it": "Il bersaglio iniziale ha già ricevuto il colpo e non riceve una seconda copia del danno, della spinta o dello Sbilanciamento da questa onda. Gli altri effetti della Tecnica e la Firma non si estendono ai bersagli aggiuntivi. Le strutture raggiunte ricevono una sola applicazione del danno della propria fascia: la scala passiva e il Talento descrivono lo stesso impatto.",
+    "kind": "html"
+  },
+  {
+    "id": "d4690b112692f1543790",
+    "it": "Il cono sostituisce il limite di tre nemici aggiuntivi entro 3 m di Impatto a Catena. Non paghi anche le 2 ST della versione precedente e non aggiungi una seconda onda attraverso Onda d’Urto. Onda Sismica rende indisponibile Impatto a Catena come scelta separata; i suoi benefici vengono incorporati nell’evoluzione.",
+    "kind": "html"
+  },
+  {
+    "id": "b1388ff0069ab1dc54e4",
+    "it": "La spinta dell’onda resta di 3 m: non diventa un lancio da 100 m e non genera automaticamente Schianto. Proiezione Colossale e il relativo danno da urto riguardano il bersaglio della Tecnica che contiene effettivamente Proiezione e, per il danno, Schianto.",
+    "kind": "html"
+  },
+  {
+    "id": "8fce48ed3616eafbb384",
+    "it": "Esempio: con Forza d20+d10 colpisci il suolo e il danno iniziale è 40. Senza il Talento puoi danneggiare lo scenario entro il raggio scelto, fino a 100 m. Se attivi Onda Sismica pagando l’Azione Bonus e 3 ST, una creatura colpita a 20 m nel cono riceve 40 danni, a 40 m ne riceve 20, a 60 m ne riceve 10 e a 90 m ne riceve 5, prima delle riduzioni. Le creature colpite vengono anche spinte di 3 m e Sbilanciate, se prive di protezioni pertinenti.",
+    "kind": "html"
+  },
+  {
+    "id": "2708b9782a94863a4fd7",
+    "it": "Guardia Frantumata",
+    "kind": "html"
+  },
+  {
+    "id": "0a5e57f176d200affac5",
+    "it": "Evoluzione di: Rompiguardia. Prerequisito: possedere Rompiguardia. Tipo: passivo. Costo aggiuntivo: 0 ST. Azione aggiuntiva: nessuna. Limite: 1 applicazione nel tuo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "ca51a43316c61a7cf097",
+    "it": "Quando un tuo attacco diretto con un’arma contundente compatibile ottiene un colpo pulito contro una creatura, con il normale margine almeno +4, puoi aprire completamente la sua guardia. Il bersaglio subisce il normale danno del colpo.",
+    "kind": "html"
+  },
+  {
+    "id": "ef5930b213d84591e872",
+    "it": "Fino alla fine del suo prossimo turno non può effettuare Parate né utilizzare Difese Attive fondate sul blocco fisico del colpo. Può ancora schivare, allontanarsi e utilizzare difese che evitano l’attacco; conserva la propria DP e le riduzioni del danno. Una Tecnica difensiva può essere usata soltanto se il modo in cui evita l’attacco è compatibile con questa limitazione.",
+    "kind": "html"
+  },
+  {
+    "id": "892542873a2ebf9844c8",
+    "it": "L’effetto rappresenta l’arma scostata e la postura difensiva compromessa. Non distrugge automaticamente l’arma o lo scudo e non disattiva l’Haki, un Frutto o le riduzioni del bersaglio. Eventuali danni a un oggetto devono essere prodotti e risolti con le regole appropriate.",
+    "kind": "html"
+  },
+  {
+    "id": "4bdec813e083dd5089bc",
+    "it": "Se il colpo scelto va a segno senza essere pulito, applica invece il normale Rompiguardia: la prossima Parata o Difesa Attiva del bersaglio, prima della fine del suo prossimo turno, avviene in Svantaggio. Le due versioni condividono questo impiego e non producono due penalità attraverso lo stesso colpo. Una nuova applicazione non somma ulteriori divieti o durate contemporanee.",
+    "kind": "html"
+  },
+  {
+    "id": "b3a6faded6f11c08c1b6",
+    "it": "Un attacco mancato, evitato o parato non attiva il Talento. Il danno residuo di Maglio Inarrestabile dopo una Parata riuscita non apre la guardia. Onda Sismica non distribuisce Guardia Frantumata a tutte le creature raggiunte: l’effetto riguarda il bersaglio diretto del colpo scelto.",
+    "kind": "html"
+  },
+  {
+    "id": "cb21039494bfbd7df48a",
+    "it": "Esempio: nel tuo turno colpisci con un margine pulito un nemico che combatte con uno scudo. Fino alla fine del suo prossimo turno non può fermare i colpi con lo scudo o una Parata, ma può schivare e conserva le proprie altre difese compatibili. Lo scudo rimane integro finché non subisce danni strutturali sufficienti a romperlo.",
+    "kind": "html"
+  },
+  {
+    "id": "40cfb8daf580815deb90",
+    "it": "Arresto del Colosso",
+    "kind": "html"
+  },
+  {
+    "id": "e676621f8c651e436afe",
+    "it": "Evoluzione di: Colpo di Intercettazione. Prerequisiti: possedere Colpo di Intercettazione e Baricentro Assoluto. Tipo: reattivo. Attivazione: 1 Reazione quando un nemico entra nella portata della tua arma durante un movimento. Costo: 3 ST. Limite: 1 volta per turno, usando la Reazione disponibile.",
+    "kind": "html"
+  },
+  {
+    "id": "444fb39352d4cd9e3472",
+    "it": "Puoi utilizzare il Talento soltanto mentre soddisfi tutte le condizioni di Baricentro Assoluto: sei cosciente, sei a contatto con il terreno e non ti muovi volontariamente. Devi impugnare un’arma contundente compatibile e poter raggiungere il nemico nel momento in cui entra nella sua normale portata. La scala di distruzione non allunga la portata dell’intercettazione.",
+    "kind": "html"
+  }
+]

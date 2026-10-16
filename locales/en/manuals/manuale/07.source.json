@@ -1,0 +1,1887 @@
+[
+  {
+    "id": "44b21327cc0c953566cd",
+    "it": "1 volta per turno. Quando stai per diventare <b>Stordito</b> oppure <b>Sbilanciato</b>, puoi spendere 1 ST per ignorare quello stato. Il Talento impedisce l'applicazione dello stato scelto, ma non annulla automaticamente i danni dell'attacco che lo ha provocato. Non rende lo Swordsman permanentemente immune a entrambi gli stati: il beneficio richiede l'utilizzo della capacità e il relativo costo.",
+    "kind": "html"
+  },
+  {
+    "id": "a3d475f2252fb04dd629",
+    "it": "Parata Perfetta",
+    "kind": "html"
+  },
+  {
+    "id": "18b6999af1fa63a28210",
+    "it": "(1 volta per scontro) Quando fallisci una <b>Parata</b>, puoi ripetere immediatamente il tiro. Devi accettare il secondo risultato, anche se è peggiore del primo. <b>Parata Perfetta non annulla automaticamente un attacco:</b> concede un secondo tentativo di Parata.",
+    "kind": "html"
+  },
+  {
+    "id": "b8ef0046d623389277d8",
+    "it": "Taglio Netto",
+    "kind": "html"
+  },
+  {
+    "id": "1ccf21e25ddcd0a131a8",
+    "it": "(1 volta per turno) Quando un tuo colpo con una lama porta un bersaglio <b>sotto la metà dei suoi PV Massimi</b>, il bersaglio diventa:",
+    "kind": "html"
+  },
+  {
+    "id": "d86a918204e7be41a948",
+    "it": "Sanguinante",
+    "kind": "html"
+  },
+  {
+    "id": "3936a7f69051621779ad",
+    "it": "Il Talento si attiva soltanto quando il colpo soddisfa questa condizione. Le conseguenze dello stato Sanguinante seguono le regole degli Stati del capitolo sul Combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "5dee31854336ce19f0fe",
+    "it": "A questo Grado lo Swordsman sviluppa il combattimento con due lame e acquisisce maggior controllo della distanza e della precisione.",
+    "kind": "html"
+  },
+  {
+    "id": "8b09234e5e837845dbca",
+    "it": "Più Spade · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "ea6501604ccd10606d03",
+    "it": "(Attacco extra gratuito) Prerequisito: Più Spade · Base · 1 volta per turno. Dopo aver effettuato un attacco con una delle tue spade, puoi effettuare <b>un attacco base extra gratuito con la seconda lama</b>. Questo è il Grado che permette allo Swordsman di sfruttare entrambe le spade nello stesso turno. L'attacco extra deve essere un <b>attacco base</b>: non può essere sostituito liberamente con una Tecnica finché non viene acquisito Più Spade · Maestria.",
+    "kind": "html"
+  },
+  {
+    "id": "9db06620f2e2e8e5b27a",
+    "it": "Distanza di Lama",
+    "kind": "html"
+  },
+  {
+    "id": "0bcb4a9132180ca2302b",
+    "it": "1 volta per turno · Reazione. Quando un nemico entra nella tua portata in mischia, puoi spendere <b>1 ST</b> e utilizzare la tua <b>Reazione</b> per effettuare un attacco base con una spada. L'attacco viene effettuato <b>prima che il nemico completi il movimento</b>. Il Talento non concede una Reazione aggiuntiva: utilizza quella normalmente disponibile al personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "b7685c33825f9af26b52",
+    "it": "Fendente d'Aria",
+    "kind": "html"
+  },
+  {
+    "id": "2e8c5b143c0faf42a326",
+    "it": "(+1 ST)",
+    "kind": "html"
+  },
+  {
+    "id": "ff69a30829439e0a1f7c",
+    "it": "Spendendo <b>1 ST aggiuntiva</b>, una tua Tecnica Swordsman da mischia può raggiungere un bersaglio fino a:",
+    "kind": "html"
+  },
+  {
+    "id": "8f4f4ec8f6f760eb7d0d",
+    "it": "Il danno finale della Tecnica viene <b>dimezzato, arrotondando per eccesso</b>. Fendente d'Aria estende quindi la portata di una Tecnica da mischia, ma ne riduce il danno. Non concede gratuitamente un nuovo attacco e non elimina gli eventuali costi della Tecnica utilizzata.",
+    "kind": "html"
+  },
+  {
+    "id": "a62e47b50fce3c1104a6",
+    "it": "Affilatura",
+    "kind": "html"
+  },
+  {
+    "id": "d462044f5cc5f03f1a90",
+    "it": "1 volta per turno. Prima di effettuare un attacco con una spada, puoi spendere <b>1 ST</b>. Per quel singolo attacco, considera la <b>Difesa Passiva del bersaglio ridotta di 2</b>. Il modificatore non è permanente e non si applica agli attacchi degli alleati. <b>Esempio:</b> se il bersaglio possiede Difesa Passiva 13, per il tuo attacco con Affilatura viene considerata pari a <b>11</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "59169800915f84cf2be5",
+    "it": "Lo Swordsman perfeziona l'uso delle due lame, sviluppa contrattacchi e acquisisce tecniche avanzate di estrazione e difesa dell'arma.",
+    "kind": "html"
+  },
+  {
+    "id": "313bfea5d9177b7f5e28",
+    "it": "Più Spade · Maestria",
+    "kind": "html"
+  },
+  {
+    "id": "7bd0b2d886185f7e8136",
+    "it": "Prerequisito: Più Spade · Migliorato · 1 volta per turno. L'attacco extra con la seconda lama concesso da Più Spade · Migliorato può essere una <b>Tecnica Swordsman</b> anziché un attacco base. Il Talento non aggiunge un terzo attacco: modifica ciò che puoi utilizzare come attacco extra. La Tecnica scelta mantiene i propri requisiti ed eventuali costi.",
+    "kind": "html"
+  },
+  {
+    "id": "721edd0a740b3d65202e",
+    "it": "Quando utilizzi una Tecnica d’attacco Swordsman compatibile come Difesa Attiva e il risultato della tua difesa supera il tiro dell’attacco nemico, infliggi anche il normale Dado Danno della Tecnica utilizzata. Un pareggio neutralizza l’attacco ma non infligge danni. Contraccolpo non concede una Reazione aggiuntiva e non applica automaticamente gli altri effetti offensivi della Tecnica, salvo regole specifiche. Il Talento non trasforma la normale Parata in un attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "7ed81477f9aa8d3c3d2d",
+    "it": "Sguainata Fulminea",
+    "kind": "html"
+  },
+  {
+    "id": "6872bd1cbee34b3709e4",
+    "it": "(2 ST)",
+    "kind": "html"
+  },
+  {
+    "id": "dad68a4902d45ecadcfc",
+    "it": "1 volta per scontro. Se inizi lo scontro con la lama ancora nel fodero, puoi spendere <b>2 ST</b> per effettuare il tuo primo attacco <b>prima della normale Iniziativa</b>. Questo attacco viene effettuato con <b>Vantaggio</b>. La capacità richiede che la lama sia inizialmente nel fodero. Non si attiva semplicemente rinfoderandola durante il combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "d4d6fc81aed0e61bc10e",
+    "it": "Riposta",
+    "kind": "html"
+  },
+  {
+    "id": "a25a8832a272d469f359",
+    "it": "Prerequisito: Contraccolpo. Dopo una Difesa Attiva riuscita eseguita con una Tecnica d’attacco Swordsman compatibile, puoi spendere 1 ST per effettuare immediatamente un attacco base con la stessa spada. Riposta concede un attacco distinto, con il proprio tiro per colpire e le normali difese, anche se la Difesa Attiva è riuscita con un pareggio. Il pareggio non infligge il danno di Contraccolpo. Riposta non concede un’Azione generica.",
+    "kind": "html"
+  },
+  {
+    "id": "f1583cafb7b6c91b010e",
+    "it": "Lama Indistruttibile",
+    "kind": "html"
+  },
+  {
+    "id": "7583aa935e39186815be",
+    "it": "(Passivo) La tua lama non può essere <b>normalmente spezzata o danneggiata</b>. Può inoltre effettuare Parate anche contro armi di <b>Grado superiore</b>. Il Talento protegge la lama e amplia ciò che può parare, ma non significa che ogni Parata riesca automaticamente.",
+    "kind": "html"
+  },
+  {
+    "id": "f9b245da2a91ca2b1a55",
+    "it": "Talento Supremo · Asura",
+    "kind": "html"
+  },
+  {
+    "id": "bf0660ba42cde045c64a",
+    "it": "Asura",
+    "kind": "html"
+  },
+  {
+    "id": "a212cf69409063639366",
+    "it": "(Ultimate)",
+    "kind": "html"
+  },
+  {
+    "id": "b78d00f0833deab30874",
+    "it": "5 ST",
+    "kind": "html"
+  },
+  {
+    "id": "1fecb6bc9f3e5764da2a",
+    "it": "Costo",
+    "kind": "html"
+  },
+  {
+    "id": "46d7d136b71e1361fef0",
+    "it": "Per scontro",
+    "kind": "html"
+  },
+  {
+    "id": "84ec06b2cbf89c2bdb2c",
+    "it": "Richiede il permesso del Game Master. Asura concentra tutta la capacità dello Swordsman in <b>un unico colpo</b>. Per colpire effettua un solo tiro composto da:",
+    "kind": "html"
+  },
+  {
+    "id": "1416a9df26834d6fec5e",
+    "it": "Tecnica + Tecnica + Grado dell'arma",
+    "kind": "html"
+  },
+  {
+    "id": "406fb6057e55505aae7a",
+    "it": "Il dado dell'Attributo Tecnica viene quindi tirato <b>due volte e sommato</b> al dado dell'arma. Il danno dipende dal margine ottenuto rispetto alla Difesa Passiva del bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "bb1947f6caf751686c21",
+    "it": "Danno di Asura",
+    "kind": "html"
+  },
+  {
+    "id": "a36393b3f17104f8167e",
+    "it": "<b>Margine del colpo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "1df8bffcc69aca7320bf",
+    "it": "<b>Danno</b>",
+    "kind": "html"
+  },
+  {
+    "id": "66a7f0bce2424ed528f4",
+    "it": "3 Dadi Arma",
+    "kind": "html"
+  },
+  {
+    "id": "818077f3d1ba8901211a",
+    "it": "4 Dadi Arma",
+    "kind": "html"
+  },
+  {
+    "id": "28807d8eb3bae332246e",
+    "it": "5 Dadi Arma",
+    "kind": "html"
+  },
+  {
+    "id": "5b509ee175e7f2b23cc7",
+    "it": "<b>+12 o più</b>",
+    "kind": "html"
+  },
+  {
+    "id": "ed31df16c4154b301b3d",
+    "it": "6 Dadi Arma",
+    "kind": "html"
+  },
+  {
+    "id": "c452f15587f436ca4e42",
+    "it": "Il Dado Arma è il <b>Grado dell'arma utilizzata</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "24c20b949f84f7f038ca",
+    "it": "Eccezione di Asura: un margine pari a 0 infligge comunque 3 Dadi Arma, come indicato nella prima fascia della sua tabella. La normale regola del pareggio difeso resta valida per tutti gli altri attacchi.",
+    "kind": "html"
+  },
+  {
+    "id": "d91e599d67c26c94705d",
+    "it": "Esempio · Katana d12",
+    "kind": "html"
+  },
+  {
+    "id": "9528cc92413abd85d695",
+    "it": "Uno Swordsman possiede:",
+    "kind": "html"
+  },
+  {
+    "id": "d832ee1792044aec31c7",
+    "it": "<b>Tecnica d20</b>",
+    "kind": "html"
+  },
+  {
+    "id": "0dd62a34207aa2864432",
+    "it": "<b>Katana d12</b>",
+    "kind": "html"
+  },
+  {
+    "id": "30e6a991f517af859fe0",
+    "it": "Quando utilizza Asura, il suo tiro per colpire è:",
+    "kind": "html"
+  },
+  {
+    "id": "a4c86c823f9ae99e0f42",
+    "it": "Se supera la Difesa Passiva del bersaglio con un margine di almeno <b>+12</b>, infligge:",
+    "kind": "html"
+  },
+  {
+    "id": "d53df04ef4dbe9a07de5",
+    "it": "6d12 danni",
+    "kind": "html"
+  },
+  {
+    "id": "8bf186222acbb48a7024",
+    "it": "Se ottiene invece un margine compreso fra +4 e +7, infligge <b>4d12 danni</b>.",
+    "kind": "html"
+  },
+  {
+    "id": "d3e7462aa1a6c61e0b0c",
+    "it": "Regole particolari di Asura",
+    "kind": "html"
+  },
+  {
+    "id": "64f55e8869faaa747bd9",
+    "it": "Asura funziona esclusivamente secondo le proprie regole. Durante il suo utilizzo non vengono applicate altre Tecniche, Talenti, la Firma dello Stile o effetti speciali dell'arma, salvo quanto scritto nella descrizione di Asura.",
+    "kind": "html"
+  },
+  {
+    "id": "8de6c9dd5f536c9d73e9",
+    "it": "In particolare, <b>Doppio fendente non aggiunge un ulteriore Dado Danno</b>, anche quando Asura raggiunge il margine +4.",
+    "kind": "html"
+  },
+  {
+    "id": "9a4d2c352053f3a1f5fb",
+    "it": "Il danno crescente in funzione del margine è già parte dell'effetto di Asura.",
+    "kind": "html"
+  },
+  {
+    "id": "3b3770dffb9e179cde88",
+    "it": "Progressione · Più Spade",
+    "kind": "html"
+  },
+  {
+    "id": "eaae14b2a6010e25782e",
+    "it": "Più Spade è il percorso a gradini che sviluppa il combattimento con due lame.",
+    "kind": "html"
+  },
+  {
+    "id": "f2138c047bdb86b002c3",
+    "it": "Puoi portare fino a 2 spade, ma combatti con una alla volta.",
+    "kind": "html"
+  },
+  {
+    "id": "bcafae6cb72b0e60c021",
+    "it": "<b>Migliorato</b>",
+    "kind": "html"
+  },
+  {
+    "id": "4e6c212205d23501d0d3",
+    "it": "Un attacco base extra gratuito con la seconda lama, 1 volta per turno.",
+    "kind": "html"
+  },
+  {
+    "id": "70986f35bc111ff55c0d",
+    "it": "<b>Maestria</b>",
+    "kind": "html"
+  },
+  {
+    "id": "8dbee8489463603d03ce",
+    "it": "L'attacco extra con la seconda lama può diventare una Tecnica Swordsman.",
+    "kind": "html"
+  },
+  {
+    "id": "4fdef30b1e74d3f6e062",
+    "it": "Le versioni successive richiedono quelle precedenti.",
+    "kind": "html"
+  },
+  {
+    "id": "d4cd94754fcaff6882c9",
+    "it": "<b>Migliorato e Maestria non concedono due attacchi extra separati:</b> Maestria potenzia l'attacco extra già ottenuto con Migliorato.",
+    "kind": "html"
+  },
+  {
+    "id": "fbb4b04f62be005bbff8",
+    "it": "<span class=\"man-sez-n\">4.4 ·</span> Sniper",
+    "kind": "html"
+  },
+  {
+    "id": "4f422f2691aef7c4e16f",
+    "it": "Lo Sniper è un Combattente specializzato negli attacchi a distanza. Studia il campo di battaglia, sceglie una posizione favorevole e colpisce i bersagli sfruttando gittata, precisione e tempismo.",
+    "kind": "html"
+  },
+  {
+    "id": "9e7aae8d657e62b6946b",
+    "it": "Il suo percorso permette di estendere progressivamente la gittata delle armi, superare gli ostacoli alla mira e interferire con le azioni nemiche. Ai Gradi più elevati, lo Sniper può concentrare una sequenza di colpi su un singolo bersaglio attraverso il Talento Supremo Tempesta di Piombo.",
+    "kind": "html"
+  },
+  {
+    "id": "7a972bbc14808919bbd6",
+    "it": "Ruolo",
+    "kind": "html"
+  },
+  {
+    "id": "14263e28486756b33c97",
+    "it": "Combattente",
+    "kind": "html"
+  },
+  {
+    "id": "713eb6108d5d5137adb4",
+    "it": "Stile",
+    "kind": "html"
+  },
+  {
+    "id": "ce49dc24795050671d81",
+    "it": "Skill di Ruolo",
+    "kind": "html"
+  },
+  {
+    "id": "21979c48cc5af4265dca",
+    "it": "Grado iniziale",
+    "kind": "html"
+  },
+  {
+    "id": "658306061abfbaa8dd65",
+    "it": "Specializzazione",
+    "kind": "html"
+  },
+  {
+    "id": "07ab32a32edcaa5df6df",
+    "it": "Attacchi a distanza",
+    "kind": "html"
+  },
+  {
+    "id": "30f0f8574592d91b5304",
+    "it": "Tratto",
+    "kind": "html"
+  },
+  {
+    "id": "02e877fcd7e9a61fc68f",
+    "it": "La Distanza",
+    "kind": "html"
+  },
+  {
+    "id": "2cbca3bc05b90ca8eb8d",
+    "it": "Firma",
+    "kind": "html"
+  },
+  {
+    "id": "879a4ad15b23d9986569",
+    "it": "Il punto scoperto",
+    "kind": "html"
+  },
+  {
+    "id": "f4b4f7cad5fdeb485df5",
+    "it": "Lo Sniper può utilizzare soltanto Scatto, Lacerazione, Mira, Rimbalzo e Catena. La gittata della Tecnica deriva dall’arma impugnata; Tiro Lungo e le capacità di Prestigio possono superarla. Le munizioni applicano i propri effetti e non fanno parte del Costruttore. Lo Sniper non possiede una Forma Area ordinaria di Stile.",
+    "kind": "html"
+  },
+  {
+    "id": "d7cdf8e2fe5bfe47a52e",
+    "it": "I Talenti dello Sniper destinati agli attacchi a distanza non si applicano automaticamente agli attacchi corpo a corpo.",
+    "kind": "html"
+  },
+  {
+    "id": "407a81c7031ef943ed27",
+    "it": "Tratto · La Distanza",
+    "kind": "html"
+  },
+  {
+    "id": "139dd8c1b166aba95af5",
+    "it": "Sempre attivo · Gratuito",
+    "kind": "html"
+  },
+  {
+    "id": "8d49e88709ee5efac282",
+    "it": "Lo Sniper è specializzato nel combattimento a distanza, al di fuori della mischia, e nella capacità di anticipare gli avversari.",
+    "kind": "html"
+  },
+  {
+    "id": "e4d54ffd880a36c5a147",
+    "it": "Il Tratto identifica la specializzazione dello Stile, ma non assegna da solo un bonus numerico all’Iniziativa. Gli effetti specifici sulla gittata, sulla mira e sul tempismo vengono concessi dai Talenti acquisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "a966d5599a4dbe5541eb",
+    "it": "Firma · Il punto scoperto",
+    "kind": "html"
+  },
+  {
+    "id": "3df8817902e155949b2f",
+    "it": "Sempre attiva · Gratuita",
+    "kind": "html"
+  },
+  {
+    "id": "b278ce34c01bcbff8e9b",
+    "it": "Quando lo Sniper ottiene un colpo pulito con margine +4, individua un punto vulnerabile del bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "3e1b69df0f17660e6e7a",
+    "it": "Il suo prossimo colpo contro lo stesso nemico considera la Difesa Passiva del bersaglio ridotta di:",
+    "kind": "html"
+  },
+  {
+    "id": "e1731d116eff40c37f04",
+    "it": "La riduzione riguarda il prossimo colpo dello Sniper contro quel bersaglio. Non costituisce una penalità generale applicabile a tutti gli alleati, a meno che il personaggio non acquisisca Occhio del Falco.",
+    "kind": "html"
+  },
+  {
+    "id": "8a3928fe56d57bae7ba1",
+    "it": "Esempio: uno Sniper ottiene un colpo pulito contro un nemico con Difesa Passiva 13. Il suo prossimo colpo contro lo stesso avversario considera la Difesa Passiva pari a 11.",
+    "kind": "html"
+  },
+  {
+    "id": "5d2c008978f6fedbf40b",
+    "it": "Albero dei Talenti Sniper",
+    "kind": "html"
+  },
+  {
+    "id": "88604e32c80757fea766",
+    "it": "Osservazione d8",
+    "kind": "html"
+  },
+  {
+    "id": "fa1c0ea1e6d079386112",
+    "it": "Osservazione d10",
+    "kind": "html"
+  },
+  {
+    "id": "49f660a455363169ad89",
+    "it": "Osservazione d12",
+    "kind": "html"
+  },
+  {
+    "id": "1538a7efc029bb66e4e9",
+    "it": "Osservazione d20",
+    "kind": "html"
+  },
+  {
+    "id": "60751e69cebffa7d60fd",
+    "it": "Raggiungere il Grado richiesto rende disponibili i Talenti della fascia corrispondente. Ogni Talento deve comunque essere acquisito tramite la normale progressione degli Upgrade, rispettandone i prerequisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "a942f9dc6ca416a69951",
+    "it": "I Talenti iniziali permettono allo Sniper di migliorare gittata, ricarica, gestione della copertura e preparazione del tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "5162f6e4e5803f874609",
+    "it": "Tiro Lungo · Base",
+    "kind": "html"
+  },
+  {
+    "id": "6376a2c2bcea4c24a217",
+    "it": "Passivo",
+    "kind": "html"
+  },
+  {
+    "id": "a38802077d0a8f2d286e",
+    "it": "Aumenti di una fascia la gittata utile delle tue armi a distanza compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "7263e8b614d15a73d7bc",
+    "it": "Il Talento modifica la gittata dell’arma, non il Movimento del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "a5b830e8c35dd742f06a",
+    "it": "Non assegna un incremento fisso in metri: utilizza le fasce di gittata previste dalle regole dell’equipaggiamento.",
+    "kind": "html"
+  },
+  {
+    "id": "fa4f8f648625d461548e",
+    "it": "Ricarica Rapida",
+    "kind": "html"
+  },
+  {
+    "id": "11993ff7fac57c152177",
+    "it": "1 volta per turno",
+    "kind": "html"
+  },
+  {
+    "id": "8eed66e2dc1ad3dfeace",
+    "it": "Una volta per turno, ricaricare un’arma non richiede l’Azione principale: il Talento utilizza invece l’Azione Bonus, come stabilito nel §10.13.",
+    "kind": "html"
+  },
+  {
+    "id": "dbf49d12f31d5ab6add5",
+    "it": "Il Talento elimina il consumo dell’Azione per una ricarica nel turno. Non concede attacchi aggiuntivi né elimina automaticamente eventuali requisiti particolari dell’arma.",
+    "kind": "html"
+  },
+  {
+    "id": "494b751eb14d6dc73970",
+    "it": "Occhio Fermo",
+    "kind": "html"
+  },
+  {
+    "id": "536aa517e03ae04f473d",
+    "it": "Ignori la copertura parziale del bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "38178aa0df6b16d06cf3",
+    "it": "La copertura totale continua invece a impedirti normalmente di colpire.",
+    "kind": "html"
+  },
+  {
+    "id": "555902a5ce3ed2e8bdcd",
+    "it": "Occhio Fermo non permette quindi di sparare attraverso qualunque ostacolo: elimina soltanto il beneficio della copertura parziale.",
+    "kind": "html"
+  },
+  {
+    "id": "cfe144a2bd14675e91c0",
+    "it": "Appostamento",
+    "kind": "html"
+  },
+  {
+    "id": "cda073b69c7694fb4788",
+    "it": "Nessun costo ST indicato",
+    "kind": "html"
+  },
+  {
+    "id": "d472c1dfe730653dc15b",
+    "it": "Se trascorri un’Azione intera senza muoverti per prendere la mira su un bersaglio, il tuo prossimo attacco a distanza contro di lui ottiene Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "30855e860c9e36d98e65",
+    "it": "Il beneficio termina quando attacchi, quando ti muovi oppure quando subisci danno prima di effettuare l’attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "3f0937ce8099d967472f",
+    "it": "Esempio: uno Sniper rimane fermo e impiega la propria Azione per prendere la mira su un ufficiale della Marina. Se non si muove e non subisce danni prima di sparare, il suo prossimo attacco a distanza contro quell’ufficiale ha Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "37f1df6c588d214f55f9",
+    "it": "A questo Grado, lo Sniper acquisisce strumenti per controllare gli spostamenti avversari e colpire obiettivi specifici.",
+    "kind": "html"
+  },
+  {
+    "id": "ce36bf46c27b867ea156",
+    "it": "Tiro Lungo · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "d5d4aaeb224e7ff1b3da",
+    "it": "Prerequisito: Tiro Lungo · Base.",
+    "kind": "html"
+  },
+  {
+    "id": "df4fccac7d17c4ecd947",
+    "it": "La gittata utile delle tue armi a distanza aumenta di un’ulteriore fascia.",
+    "kind": "html"
+  },
+  {
+    "id": "c53e29e7736738662a24",
+    "it": "Questo incremento si aggiunge alla fascia già ottenuta con la versione Base.",
+    "kind": "html"
+  },
+  {
+    "id": "0bbc6371ff225416c273",
+    "it": "Tiro dall’Ombra",
+    "kind": "html"
+  },
+  {
+    "id": "b9c5402fb096a6e40404",
+    "it": "Se sei Nascosto e non visto, il primo attacco a distanza effettuato prima di rivelare la tua posizione ottiene Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "2db61fe12457b38051ab",
+    "it": "Il Talento richiede entrambe le condizioni: essere nascosto e non essere visto dal bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "ca38da5e1b19b4ea9146",
+    "it": "Non garantisce che il personaggio rimanga nascosto dopo l’attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "4c8306fbc59a93eb8fcd",
+    "it": "Colpo Mirato",
+    "kind": "html"
+  },
+  {
+    "id": "8d2dd232a1de36e3561a",
+    "it": "Attacco di precisione",
+    "kind": "html"
+  },
+  {
+    "id": "6d08ac247df65621adef",
+    "it": "Invece di infliggere danni, puoi scegliere un obiettivo specifico: un’arma impugnata, una gamba, una corda, un chiavistello oppure un altro elemento plausibile.",
+    "kind": "html"
+  },
+  {
+    "id": "63286a80dc682b53e401",
+    "it": "Il tiro viene effettuato contro:",
+    "kind": "html"
+  },
+  {
+    "id": "712f8ca720ded7b4fb57",
+    "it": "Difesa Passiva +2",
+    "kind": "html"
+  },
+  {
+    "id": "1595136c5734ea7ac411",
+    "it": "Se riesce, applichi l’effetto appropriato all’obiettivo scelto al posto del danno.",
+    "kind": "html"
+  },
+  {
+    "id": "6a5c77fe056d3ab5b97f",
+    "it": "La conseguenza concreta dipende da ciò che viene colpito e dalla situazione. Colpo Mirato non concede contemporaneamente il normale danno dell’attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "3ed144194a640e914993",
+    "it": "Esempio: uno Sniper vuole colpire l’arma impugnata da un nemico con Difesa Passiva 11. Effettua l’attacco contro una soglia di 13. Se riesce, applica l’effetto appropriato al bersaglio scelto invece di infliggere danni.",
+    "kind": "html"
+  },
+  {
+    "id": "77ec942239bd829bd573",
+    "it": "Tiro di Copertura",
+    "kind": "html"
+  },
+  {
+    "id": "aad3ad9afb3745dab729",
+    "it": "1 ST · Azione",
+    "kind": "html"
+  },
+  {
+    "id": "0cc947f9fd171e956d61",
+    "it": "Come Azione, spendi 1 ST e scegli una zona entro la gittata della tua arma.",
+    "kind": "html"
+  },
+  {
+    "id": "f24a1642076e0635bd17",
+    "it": "Fino all’inizio del tuo prossimo turno, il primo nemico che si muove allo scoperto in quella zona può essere bersagliato con un attacco a distanza utilizzando la tua Reazione.",
+    "kind": "html"
+  },
+  {
+    "id": "1d235997e6f747bdea63",
+    "it": "Il Talento richiede quindi preparazione e disponibilità della Reazione. Non produce un attacco automatico contro ogni nemico che attraversa la zona.",
+    "kind": "html"
+  },
+  {
+    "id": "d85339af18184766b824",
+    "it": "I Talenti avanzati permettono allo Sniper di sfruttare distanze estreme, ostacolare le azioni degli avversari e realizzare traiettorie particolarmente complesse.",
+    "kind": "html"
+  },
+  {
+    "id": "58fe3100b3a69f18df4a",
+    "it": "Tiro Lungo · Maestria",
+    "kind": "html"
+  },
+  {
+    "id": "71cd230dbda04135f0c7",
+    "it": "Prerequisito: Tiro Lungo · Migliorato.",
+    "kind": "html"
+  },
+  {
+    "id": "c3199d132bee8576b4b4",
+    "it": "Puoi attaccare a gittata estrema, fin dove esiste una linea di vista plausibile.",
+    "kind": "html"
+  },
+  {
+    "id": "fa3851679e4b7ba25d50",
+    "it": "Questo Talento rappresenta il massimo sviluppo del percorso Tiro Lungo.",
+    "kind": "html"
+  },
+  {
+    "id": "34c4b96374fe3bf8c1c8",
+    "it": "La linea di vista rimane un requisito: Maestria non permette, da sola, di colpire bersagli invisibili o completamente nascosti dietro ostacoli.",
+    "kind": "html"
+  },
+  {
+    "id": "79c979f14d4b7f3c3e12",
+    "it": "Occhio del Falco",
+    "kind": "html"
+  },
+  {
+    "id": "47b45f8ee0e35db803ff",
+    "it": "Quando ottieni un colpo pulito con margine +4, la riduzione di −2 alla Difesa Passiva concessa dalla Firma Il punto scoperto diventa utilizzabile da chiunque attacchi quel bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "45cd91c8016a5bfb4e5d",
+    "it": "L’effetto dura fino alla fine del tuo prossimo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "15ab7c4378147429114d",
+    "it": "La Firma, normalmente personale, diventa così uno strumento di supporto offensivo per tutta la ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "7a0ed627060e82cf2dbf",
+    "it": "Colpo Anticipato",
+    "kind": "html"
+  },
+  {
+    "id": "4f05f1b75a28b5189024",
+    "it": "1 volta per turno · Reazione",
+    "kind": "html"
+  },
+  {
+    "id": "9530b3fda076a997dea0",
+    "it": "Quando un nemico che stai osservando dichiara un’Azione, puoi attaccarlo come Reazione, prima che la completi.",
+    "kind": "html"
+  },
+  {
+    "id": "02515e5098b5ce95afb6",
+    "it": "Se il tuo attacco va a segno, l’Azione dichiarata dal nemico avviene in Svantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "e9910d1929ac5f123084",
+    "it": "Colpo Anticipato non annulla automaticamente l’Azione dell’avversario: ne penalizza l’esecuzione se l’attacco dello Sniper riesce.",
+    "kind": "html"
+  },
+  {
+    "id": "fd93602d79c83965e45e",
+    "it": "Colpo Impossibile",
+    "kind": "html"
+  },
+  {
+    "id": "9bff082921d808659639",
+    "it": "2 ST",
+    "kind": "html"
+  },
+  {
+    "id": "34418f5277d3ed049c1e",
+    "it": "Spendendo 2 ST, puoi tentare un attacco con una traiettoria anomala: un rimbalzo, un passaggio attraverso una feritoia, un angolo oppure un percorso che raggiunge un bersaglio fuori dalla linea di vista diretta.",
+    "kind": "html"
+  },
+  {
+    "id": "0f6194173a0dd772e55f",
+    "it": "Deve esistere un percorso plausibile per il colpo.",
+    "kind": "html"
+  },
+  {
+    "id": "b0b8ee43cff40a5a35d9",
+    "it": "Il Talento non rende i proiettili capaci di attraversare liberamente muri e ostacoli solidi.",
+    "kind": "html"
+  },
+  {
+    "id": "00205a1278551b5c556a",
+    "it": "Respiro Trattenuto",
+    "kind": "html"
+  },
+  {
+    "id": "550d93e768c588f5dfc1",
+    "it": "2 ST · 1 volta per scontro",
+    "kind": "html"
+  },
+  {
+    "id": "6c5d9e7de0296e701954",
+    "it": "Spendendo 2 ST, prepari il tuo prossimo attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "9fafdb91f9b65df9f4b3",
+    "it": "Se l’attacco va a segno, viene considerato automaticamente un colpo pulito con margine +4.",
+    "kind": "html"
+  },
+  {
+    "id": "51820ce6700cb6d02aa6",
+    "it": "Questo permette di attivare la Firma Il punto scoperto senza dover ottenere naturalmente il margine richiesto.",
+    "kind": "html"
+  },
+  {
+    "id": "f88fb3e62df505d892a5",
+    "it": "Il Talento non trasforma un attacco mancato in un successo.",
+    "kind": "html"
+  },
+  {
+    "id": "c20468e984c87e095742",
+    "it": "Talento Supremo · Tempesta di Piombo",
+    "kind": "html"
+  },
+  {
+    "id": "fb1ea6536b5ac24badbf",
+    "it": "Tempesta di Piombo",
+    "kind": "html"
+  },
+  {
+    "id": "2acd1c87d97635f0bac5",
+    "it": "Ultimate",
+    "kind": "html"
+  },
+  {
+    "id": "8dab56c23333b1903be9",
+    "it": "Richiede il permesso del Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "a2803aa5ef54a11d220d",
+    "it": "Scegli un singolo bersaglio ed effettui tre tiri per colpire separati.",
+    "kind": "html"
+  },
+  {
+    "id": "ceaa3b1a0e63a0bbca7b",
+    "it": "Ogni tiro utilizza:",
+    "kind": "html"
+  },
+  {
+    "id": "4ed55b33c454ef8236ca",
+    "it": "Attributo + Grado dell’arma",
+    "kind": "html"
+  },
+  {
+    "id": "0db96aef256914166582",
+    "it": "Ogni colpo riuscito infligge 2 Dadi Arma, per un massimo complessivo di 6 Dadi Arma.",
+    "kind": "html"
+  },
+  {
+    "id": "1bd2937a84479c46dcce",
+    "it": "<b>Colpi a segno</b>",
+    "kind": "html"
+  },
+  {
+    "id": "94e9aeab7118dcbf9a58",
+    "it": "<b>Danno complessivo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "0fc80da1cb2466a05834",
+    "it": "2 Dadi Arma",
+    "kind": "html"
+  },
+  {
+    "id": "9a409f91a844d1f6d035",
+    "it": "Munizioni fulminee",
+    "kind": "html"
+  },
+  {
+    "id": "400da4be3d3c602a8b7d",
+    "it": "Prima di ciascuno dei tre colpi puoi cambiare il tipo di proiettile, scegliendo qualsiasi munizione compatibile che possiedi.",
+    "kind": "html"
+  },
+  {
+    "id": "f8c16b97cb379d51a05e",
+    "it": "Il cambio non richiede un’Azione né Stamina aggiuntiva. Gli effetti delle munizioni utilizzate si applicano normalmente.",
+    "kind": "html"
+  },
+  {
+    "id": "12f5230017b80c0e125a",
+    "it": "Precisione chirurgica",
+    "kind": "html"
+  },
+  {
+    "id": "2b8c94a9775ec561085e",
+    "it": "Ogni colpo può essere indirizzato verso un punto specifico del bersaglio, senza rinunciare ai 2 Dadi Arma previsti dall’attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "ce1ab073362bde1254d2",
+    "it": "Regole particolari di Tempesta di Piombo",
+    "kind": "html"
+  },
+  {
+    "id": "377783aad838cff46b5f",
+    "it": "Il Talento funziona esclusivamente secondo le proprie regole.",
+    "kind": "html"
+  },
+  {
+    "id": "32b05af6e77bd456ac15",
+    "it": "Non applica altre Tecniche, Talenti, la Firma dello Stile o effetti speciali dell’arma, salvo quanto indicato espressamente nella descrizione di Tempesta di Piombo.",
+    "kind": "html"
+  },
+  {
+    "id": "88cdf1624258ecc421ee",
+    "it": "Gli effetti delle munizioni compatibili sono un’eccezione esplicitamente prevista e continuano ad applicarsi.",
+    "kind": "html"
+  },
+  {
+    "id": "9fe707c9f30f1cde203f",
+    "it": "I tre colpi sono diretti contro un singolo bersaglio. Non è possibile distribuirli liberamente tra tre nemici differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "4811fe602999f9cac34a",
+    "it": "Uno Sniper utilizza Tempesta di Piombo con un fucile di Grado d12.",
+    "kind": "html"
+  },
+  {
+    "id": "092aed09ca361c7cb92b",
+    "it": "Effettua tre tiri per colpire separati, ciascuno con Attributo + d12.",
+    "kind": "html"
+  },
+  {
+    "id": "b1db4122b3903efcbc51",
+    "it": "Se tutti e tre vanno a segno, infligge complessivamente:",
+    "kind": "html"
+  },
+  {
+    "id": "810dab98e1708b81c8ab",
+    "it": "Prima di ogni colpo può selezionare una diversa munizione compatibile tra quelle che possiede, applicandone normalmente gli effetti.",
+    "kind": "html"
+  },
+  {
+    "id": "c5f4a49df81d75e4ac93",
+    "it": "La Firma Il punto scoperto non si attiva durante la sequenza, poiché Tempesta di Piombo segue esclusivamente le proprie regole.",
+    "kind": "html"
+  },
+  {
+    "id": "ee8d1f7fdeff5c4ffb0f",
+    "it": "Progressione · Tiro Lungo",
+    "kind": "html"
+  },
+  {
+    "id": "71827905ff31ef8168e9",
+    "it": "Gittata utile +1 fascia",
+    "kind": "html"
+  },
+  {
+    "id": "46cd63a77275fbe8043b",
+    "it": "Un’ulteriore fascia di gittata",
+    "kind": "html"
+  },
+  {
+    "id": "f171b3f6041e85e682d1",
+    "it": "Gittata estrema, entro una linea di vista plausibile",
+    "kind": "html"
+  },
+  {
+    "id": "0ea74b9cd988f40e736b",
+    "it": "Ogni versione richiede la precedente. Gli incrementi delle prime due versioni sono cumulativi.",
+    "kind": "html"
+  },
+  {
+    "id": "dca109e06db63b56c6da",
+    "it": "<span class=\"man-sez-n\">4.5 ·</span> Crusher",
+    "kind": "html"
+  },
+  {
+    "id": "98d5dbe6c7cad883d706",
+    "it": "Il Crusher è un Combattente specializzato nell’utilizzo di armi contundenti. Mazze, martelli, clave e altre armi d’impatto diventano strumenti per abbattere le difese avversarie, spostare i nemici e distruggere gli ostacoli.",
+    "kind": "html"
+  },
+  {
+    "id": "cc091ca195e16b94b5d0",
+    "it": "Il suo stile si basa su un principio: ogni colpo deve avere un peso.",
+    "kind": "html"
+  },
+  {
+    "id": "04d3230b758044a308a6",
+    "it": "Il Crusher può sacrificare temporaneamente la propria difesa per aumentare la potenza degli attacchi, oppure mantenere una posizione stabile e respingere chi tenta di sopraffarlo.",
+    "kind": "html"
+  },
+  {
+    "id": "3cd3c63c83a0cc734310",
+    "it": "Combattente · Impatto",
+    "kind": "html"
+  },
+  {
+    "id": "c6104286e4b12be8d279",
+    "it": "Skill di Ruolo: Atletica",
+    "kind": "html"
+  },
+  {
+    "id": "042a0d1d5373c16afcb6",
+    "it": "Grado iniziale: d8",
+    "kind": "html"
+  },
+  {
+    "id": "0d425e3e9a0ffaf7bf34",
+    "it": "Equipaggiamento: armi contundenti compatibili",
+    "kind": "html"
+  },
+  {
+    "id": "79882cbc7b6b1fcd8a41",
+    "it": "Tratto: Il Peso del Ferro",
+    "kind": "html"
+  },
+  {
+    "id": "0dcd8d7f332172d8b220",
+    "it": "Firma: Impatto Devastante",
+    "kind": "html"
+  },
+  {
+    "id": "00dbb7062a3060e68257",
+    "it": "Il Crusher può utilizzare Sbilancio, Sfondamento, Proiezione, Guardia, Scudo d’Alleato, Furia, Schianto e Carica. Può inoltre costruire Area Ravvicinata (d8, 2 ST): cerchio centrato sul Crusher, con raggio pari alla Portata effettiva dell’arma contundente e senza Gittata. Aree più ampie richiedono una Fonte o una capacità speciale.",
+    "kind": "html"
+  },
+  {
+    "id": "91790539c421af4f8a3d",
+    "it": "Le Tecniche dello Stile Crusher possono essere utilizzate soltanto mentre il personaggio impugna e utilizza un’arma contundente compatibile.",
+    "kind": "html"
+  },
+  {
+    "id": "3807c9eedb1b3d077925",
+    "it": "Non si applicano ai colpi a mani nude né agli attacchi con armi incompatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "0016d11c9dfbd3497a7f",
+    "it": "Tratto · Il Peso del Ferro",
+    "kind": "html"
+  },
+  {
+    "id": "7c211f3172d1365ab2d6",
+    "it": "Il Crusher sa sfruttare l’inerzia delle armi contundenti, come mazze, martelli, clave, tirapugni e aste utilizzate per colpire d’impatto.",
+    "kind": "html"
+  },
+  {
+    "id": "f96546ed084216a04ab9",
+    "it": "Le armi contundenti di Grado elevato possono sbloccare i propri effetti speciali nelle sue mani.",
+    "kind": "html"
+  },
+  {
+    "id": "0fc6240524a0672df391",
+    "it": "La compatibilità effettiva dell’equipaggiamento rimane determinata dalle regole dell’Arsenale.",
+    "kind": "html"
+  },
+  {
+    "id": "5afc4ea6847c8d2e5ea5",
+    "it": "Il Tratto non aumenta automaticamente il Dado Danno: gli incrementi specifici vengono concessi dai Talenti e dalle Tecniche possedute.",
+    "kind": "html"
+  },
+  {
+    "id": "ab828f239caf20246f13",
+    "it": "Firma · Impatto Devastante",
+    "kind": "html"
+  },
+  {
+    "id": "b7cc93da6ac0a5512151",
+    "it": "Quando ottieni un colpo pulito con margine +4 utilizzando un’arma contundente, il bersaglio viene:",
+    "kind": "html"
+  },
+  {
+    "id": "5069e256e1cd0445a6bb",
+    "it": "Spinto di 3 metri",
+    "kind": "html"
+  },
+  {
+    "id": "1ffb5134fcd650760b7c",
+    "it": "Effetto della Firma",
+    "kind": "html"
+  },
+  {
+    "id": "8a2447039c0286860267",
+    "it": "Impatto Devastante non richiede l’acquisizione di un Talento e non comporta un costo aggiuntivo in Stamina.",
+    "kind": "html"
+  },
+  {
+    "id": "0379d6e069cdae2fb3d6",
+    "it": "La spinta non provoca automaticamente lo stato Sbilanciato.",
+    "kind": "html"
+  },
+  {
+    "id": "279695ef98f89e64ca2a",
+    "it": "Albero dei Talenti Crusher",
+    "kind": "html"
+  },
+  {
+    "id": "e1fbe5b502be8437f921",
+    "it": "La Skill di riferimento del Crusher è Atletica.",
+    "kind": "html"
+  },
+  {
+    "id": "87b5ea6e3c6dc1415521",
+    "it": "I Talenti diventano disponibili quando Atletica raggiunge il Grado richiesto. Devono comunque essere acquisiti attraverso gli Upgrade, rispettando gli eventuali prerequisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "87781991634d5358740c",
+    "it": "Colpo Pesante · Base",
+    "kind": "html"
+  },
+  {
+    "id": "5261b41fda9e1a315b08",
+    "it": "2 ST · 1 volta per turno",
+    "kind": "html"
+  },
+  {
+    "id": "d89a347f94411a235eda",
+    "it": "Quando attacchi con un’arma contundente, puoi spendere 2 ST per aggiungere:",
+    "kind": "html"
+  },
+  {
+    "id": "eb64e5031ac6289d91c6",
+    "it": "+1 Dado Danno",
+    "kind": "html"
+  },
+  {
+    "id": "eac4694fe11360b4ef9c",
+    "it": "In cambio, la tua Difesa Passiva diminuisce di 3 dal momento in cui dichiari l’attacco fino all’inizio del tuo prossimo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "ab15694f1373ccb39a72",
+    "it": "La penalità si applica anche se l’attacco manca.",
+    "kind": "html"
+  },
+  {
+    "id": "f67f8a1f89b6dc06e54f",
+    "it": "Esempio: un Crusher con Difesa Passiva 11 dichiara Colpo Pesante. La sua Difesa Passiva scende a 8 per la durata prevista, indipendentemente dal risultato del colpo.",
+    "kind": "html"
+  },
+  {
+    "id": "3f10d57eefdb9b20fb51",
+    "it": "Piedi Piantati",
+    "kind": "html"
+  },
+  {
+    "id": "612ad76123b707714f3c",
+    "it": "Finché non ti muovi volontariamente, i tentativi nemici di Spingerti o Sbilanciarti vengono effettuati in Svantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "7453aac8a0149dd0ee23",
+    "it": "Il Talento non impedisce automaticamente lo spostamento: rende più difficile riuscirci.",
+    "kind": "html"
+  },
+  {
+    "id": "1158a4991eb7f1161707",
+    "it": "Colpo di Rimbalzo",
+    "kind": "html"
+  },
+  {
+    "id": "74ebfe292e42d2c7706d",
+    "it": "1 ST · Reazione · 1 volta per turno",
+    "kind": "html"
+  },
+  {
+    "id": "78989d323da18efafff8",
+    "it": "Quando un nemico ti manca con un attacco in mischia, puoi spendere 1 ST e utilizzare la tua Reazione per effettuare un attacco base con un’arma contundente.",
+    "kind": "html"
+  },
+  {
+    "id": "d8500fb1d0cb44eac762",
+    "it": "Il Talento richiede che l’attacco nemico fallisca. Non si attiva quando vieni colpito.",
+    "kind": "html"
+  },
+  {
+    "id": "d4839f8be7e150066dfc",
+    "it": "Demolitore",
+    "kind": "html"
+  },
+  {
+    "id": "1f29d95faaf8851f532e",
+    "it": "I tuoi colpi con armi contundenti infliggono danno pieno contro porte, muri, strutture e oggetti.",
+    "kind": "html"
+  },
+  {
+    "id": "e07f5aa32a8df757c4af",
+    "it": "Ignori le riduzioni dovute alla semplice durezza dei materiali.",
+    "kind": "html"
+  },
+  {
+    "id": "4df6d6217adae39b4b7e",
+    "it": "Questo effetto riguarda gli ostacoli materiali e non elimina automaticamente le riduzioni del danno possedute dalle creature.",
+    "kind": "html"
+  },
+  {
+    "id": "6a3068642c93edbc2b97",
+    "it": "Colpo Pesante · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "3e1986476f1df0efe656",
+    "it": "Prerequisito: Colpo Pesante · Base.",
+    "kind": "html"
+  },
+  {
+    "id": "9023e4c8060077c0670c",
+    "it": "Quando attacchi con un’arma contundente, puoi spendere 2 ST e ottenere contemporaneamente:",
+    "kind": "html"
+  },
+  {
+    "id": "955127bb31e67033c42e",
+    "it": "+1 Dado Danno.",
+    "kind": "html"
+  },
+  {
+    "id": "cdaa79e704607918bc89",
+    "it": "Vantaggio al tiro per colpire.",
+    "kind": "html"
+  },
+  {
+    "id": "3ada37025bd7b431a43d",
+    "it": "La tua Difesa Passiva diminuisce di 3 dalla dichiarazione dell’attacco fino all’inizio del tuo prossimo turno, anche se manchi.",
+    "kind": "html"
+  },
+  {
+    "id": "b8773a228d76f08dc7eb",
+    "it": "Questa versione sostituisce Colpo Pesante · Base. Non puoi combinarle per ottenere due Dadi Danno aggiuntivi.",
+    "kind": "html"
+  },
+  {
+    "id": "fc0c1a07af242f003ad8",
+    "it": "Onda d’Urto",
+    "kind": "html"
+  },
+  {
+    "id": "93b263ecd1102546adaf",
+    "it": "Quando colpisci un nemico con un’arma contundente, puoi spendere 2 ST e scegliere un secondo avversario entro 3 metri dal bersaglio principale.",
+    "kind": "html"
+  },
+  {
+    "id": "c400b4effc995deac357",
+    "it": "Il secondo nemico viene spinto di 3 metri.",
+    "kind": "html"
+  },
+  {
+    "id": "c7a2de8a15ce86085bd9",
+    "it": "Onda d’Urto non assegna automaticamente danni aggiuntivi al secondo bersaglio: l’effetto previsto è la spinta.",
+    "kind": "html"
+  },
+  {
+    "id": "b5e9a02b13fc86dd6b0b",
+    "it": "Rompiguardia",
+    "kind": "html"
+  },
+  {
+    "id": "6397599f5b942c79e24d",
+    "it": "Quando colpisci un nemico con un’arma contundente, la sua prossima Parata o Difesa Attiva, effettuata prima della fine del suo prossimo turno, avviene in Svantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "e404339f414639dd47fa",
+    "it": "Il Talento non riduce la Difesa Passiva del bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "024363f5fdd8a4c61f53",
+    "it": "Contrappeso",
+    "kind": "html"
+  },
+  {
+    "id": "3754922ff6e1d2d79751",
+    "it": "Reazione · 1 volta per turno",
+    "kind": "html"
+  },
+  {
+    "id": "fe8b38254dda1d687e42",
+    "it": "Quando resisti con successo a un tentativo di Spingerti o Sbilanciarti, puoi utilizzare la tua Reazione per spingere di 3 metri l’avversario che ha tentato di farlo.",
+    "kind": "html"
+  },
+  {
+    "id": "a7a4b68f801f6f5ddbaf",
+    "it": "La capacità richiede una resistenza riuscita. Non si attiva se il nemico riesce a spostarti o a Sbilanciarti.",
+    "kind": "html"
+  },
+  {
+    "id": "2c2bdbebbcaf35bc3380",
+    "it": "Colpo Pesante · Maestria",
+    "kind": "html"
+  },
+  {
+    "id": "1f39b914ab1bda30f536",
+    "it": "Prerequisito: Colpo Pesante · Migliorato.",
+    "kind": "html"
+  },
+  {
+    "id": "9b6967f7ebcd1c186589",
+    "it": "Quando utilizzi questa versione, ottieni:",
+    "kind": "html"
+  },
+  {
+    "id": "80d511a4cc3f67850526",
+    "it": "+2 Dadi Danno.",
+    "kind": "html"
+  },
+  {
+    "id": "78de44a0e66935a6a7f5",
+    "it": "Se il colpo va a segno, il bersaglio cade Sbilanciato.",
+    "kind": "html"
+  },
+  {
+    "id": "1cf0f37d453f2e18ef13",
+    "it": "In cambio, la tua Difesa Passiva diminuisce di 5 fino al tuo prossimo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "94a373ddd99c7f8d1721",
+    "it": "Questa versione sostituisce le precedenti: non sommi i bonus di Base, Migliorato e Maestria.",
+    "kind": "html"
+  },
+  {
+    "id": "bf22bc54a995cc5dffb4",
+    "it": "Un Crusher possiede Difesa Passiva 13 e utilizza Colpo Pesante · Maestria.",
+    "kind": "html"
+  },
+  {
+    "id": "7f3bca137f8c4c31f24e",
+    "it": "Spende 2 ST, effettua il tiro con Vantaggio e ottiene +2 Dadi Danno.",
+    "kind": "html"
+  },
+  {
+    "id": "c0726cfae58634b48229",
+    "it": "La sua Difesa Passiva scende a 8 per la durata prevista.",
+    "kind": "html"
+  },
+  {
+    "id": "9cecbb20af048e1e6568",
+    "it": "Se colpisce, il bersaglio cade anche Sbilanciato. Se manca, la penalità difensiva rimane.",
+    "kind": "html"
+  },
+  {
+    "id": "da83a765d807a0b21a77",
+    "it": "Impatto a Catena",
+    "kind": "html"
+  },
+  {
+    "id": "e697435529c5beed5480",
+    "it": "Potenziamento di Onda d’Urto",
+    "kind": "html"
+  },
+  {
+    "id": "7d75cadb87c01cb9a888",
+    "it": "Prerequisito: Onda d’Urto.",
+    "kind": "html"
+  },
+  {
+    "id": "b1fb3a2acceea92abf3a",
+    "it": "Quando utilizzi Onda d’Urto, puoi coinvolgere fino a 3 nemici aggiuntivi entro 3 metri dal bersaglio principale.",
+    "kind": "html"
+  },
+  {
+    "id": "091877ae2d32fff9b79e",
+    "it": "Tutti i nemici aggiuntivi coinvolti vengono spinti di 3 metri.",
+    "kind": "html"
+  },
+  {
+    "id": "1ef8e8365efc9b589927",
+    "it": "Impatto a Catena amplia il numero massimo di bersagli secondari, senza aumentare automaticamente il danno.",
+    "kind": "html"
+  },
+  {
+    "id": "c803f9d90731665550ee",
+    "it": "Passivo. Quando utilizzi una Tecnica d’attacco Crusher compatibile come Difesa Attiva e il risultato della tua difesa supera il tiro dell’attacco nemico, infliggi anche il normale Dado Danno della Tecnica utilizzata. Un pareggio neutralizza l’attacco ma non infligge danni. Contraccolpo non concede una Reazione aggiuntiva e non applica automaticamente gli altri effetti offensivi della Tecnica, salvo regole specifiche. La Tecnica deve essere compatibile con l’arma contundente impugnata.",
+    "kind": "html"
+  },
+  {
+    "id": "7b9f0b15cd6d2a713f39",
+    "it": "Baricentro Assoluto",
+    "kind": "html"
+  },
+  {
+    "id": "9cbaffd4b2e0d957c60b",
+    "it": "Prerequisito: Piedi Piantati.",
+    "kind": "html"
+  },
+  {
+    "id": "c2340c56348f67cb80da",
+    "it": "Finché soddisfi tutte le seguenti condizioni, non puoi essere Spinto né Sbilanciato da effetti fisici:",
+    "kind": "html"
+  },
+  {
+    "id": "7d8986810603d3ae5ba6",
+    "it": "Rimani cosciente.",
+    "kind": "html"
+  },
+  {
+    "id": "9feafc6677477bc1a899",
+    "it": "Sei a contatto con il terreno.",
+    "kind": "html"
+  },
+  {
+    "id": "cc7e32ad11d34e536a2f",
+    "it": "Non ti muovi volontariamente.",
+    "kind": "html"
+  },
+  {
+    "id": "cb98abc1cc8a6752e76c",
+    "it": "Se una di queste condizioni viene meno, la protezione del Talento non è più applicabile.",
+    "kind": "html"
+  },
+  {
+    "id": "2d504c9095be7dfe4fb7",
+    "it": "Baricentro Assoluto rappresenta il perfezionamento di Piedi Piantati: non concede una generica immunità a qualsiasi effetto o condizione.",
+    "kind": "html"
+  },
+  {
+    "id": "a0a086bb7d6c34858abd",
+    "it": "Colpo di Intercettazione",
+    "kind": "html"
+  },
+  {
+    "id": "ef4f2e840a1076ccaa70",
+    "it": "Quando un nemico entra nella tua portata, puoi utilizzare la Reazione per effettuare un attacco base con un’arma contundente.",
+    "kind": "html"
+  },
+  {
+    "id": "9b97ee71b510d66a566d",
+    "it": "Il Talento permette di intercettare l’avversario mentre si avvicina, ma non concede Reazioni aggiuntive.",
+    "kind": "html"
+  },
+  {
+    "id": "5b1b99a01cfcb099fbfc",
+    "it": "Talento Supremo · Cataclisma",
+    "kind": "html"
+  },
+  {
+    "id": "17732be4b4ee426c6a0f",
+    "it": "Cataclisma",
+    "kind": "html"
+  },
+  {
+    "id": "df6a3a3b922bca1cbddb",
+    "it": "Cataclisma è un attacco devastante composto da due risoluzioni consecutive: un impatto diretto e un’onda d’urto.",
+    "kind": "html"
+  },
+  {
+    "id": "65860ba22e7689c615da",
+    "it": "Prima risoluzione · Impatto",
+    "kind": "html"
+  },
+  {
+    "id": "7d153b0a5f6fd0581da6",
+    "it": "Effettui un attacco contro un singolo bersaglio utilizzando:",
+    "kind": "html"
+  },
+  {
+    "id": "bace2f74b3a05ba180ca",
+    "it": "Se il tiro va a segno, il bersaglio subisce:",
+    "kind": "html"
+  },
+  {
+    "id": "8244bf2baec06a691222",
+    "it": "Seconda risoluzione · Onda d’Urto",
+    "kind": "html"
+  },
+  {
+    "id": "17e5ebb705ba76d5f457",
+    "it": "Effettui un nuovo tiro:",
+    "kind": "html"
+  },
+  {
+    "id": "13725927126a9a207668",
+    "it": "Il risultato viene confrontato con la Difesa Passiva di tutti i bersagli entro 5 metri dal punto d’impatto, compreso il bersaglio principale.",
+    "kind": "html"
+  },
+  {
+    "id": "a99d1730f47436a84126",
+    "it": "Ogni bersaglio colpito subisce:",
+    "kind": "html"
+  },
+  {
+    "id": "8c441cb7db2338f64c7c",
+    "it": "Inoltre viene spinto di 5 metri e cade Sbilanciato.",
+    "kind": "html"
+  },
+  {
+    "id": "9034ed7576b8c3e78c3c",
+    "it": "Danno complessivo",
+    "kind": "html"
+  },
+  {
+    "id": "62413889ad764e29a715",
+    "it": "<b>Bersaglio</b>",
+    "kind": "html"
+  },
+  {
+    "id": "b323767f9be13f3aed51",
+    "it": "Principale, colpito soltanto dall’Impatto",
+    "kind": "html"
+  },
+  {
+    "id": "8782a0a84725662741df",
+    "it": "Bersaglio colpito dall’Onda d’Urto",
+    "kind": "html"
+  },
+  {
+    "id": "6cf62647b4c6ac43c871",
+    "it": "Principale, colpito da entrambe le risoluzioni",
+    "kind": "html"
+  },
+  {
+    "id": "da588c529334e70de595",
+    "it": "Cataclisma devasta inoltre l’area circostante. Muri, porte, pavimenti, coperture e altre strutture subiscono le conseguenze dell’impatto secondo la situazione.",
+    "kind": "html"
+  },
+  {
+    "id": "af52d01ea8c8af6d6b85",
+    "it": "Regole particolari di Cataclisma",
+    "kind": "html"
+  },
+  {
+    "id": "0cd073df1827cd9a9b38",
+    "it": "Cataclisma funziona esclusivamente secondo le proprie regole. Non applica altre Tecniche, Talenti, la Firma dello Stile o effetti dell’arma, salvo quanto indicato nella sua descrizione.",
+    "kind": "html"
+  },
+  {
+    "id": "0b0cb0b601c22302ab59",
+    "it": "Il primo tiro riguarda un solo bersaglio. Il secondo è confrontato separatamente con la Difesa Passiva di tutti i bersagli nell’area prevista.",
+    "kind": "html"
+  },
+  {
+    "id": "ebf74930387dbe26ac56",
+    "it": "Il bersaglio principale è incluso nell’Onda d’Urto: può quindi subire entrambi gli effetti, purché entrambi i tiri vadano a segno contro di lui.",
+    "kind": "html"
+  },
+  {
+    "id": "2262de8dc9cccc8c463f",
+    "it": "Esempio · Martello d12",
+    "kind": "html"
+  },
+  {
+    "id": "13dc698a6c5398ff98ea",
+    "it": "Un Crusher utilizza Cataclisma con un martello di Grado d12.",
+    "kind": "html"
+  },
+  {
+    "id": "65b9235cd8fba8b1bc7f",
+    "it": "Il primo attacco colpisce il bersaglio principale, infliggendo 4d12 danni.",
+    "kind": "html"
+  },
+  {
+    "id": "69beb328793d2077e5bd",
+    "it": "Il secondo tiro raggiunge nuovamente lo stesso bersaglio e colpisce altri due nemici entro 5 metri dal punto d’impatto.",
+    "kind": "html"
+  },
+  {
+    "id": "9d065328868cdd2899f1",
+    "it": "Il bersaglio principale subisce altri 2d12 danni, per un totale di 6d12. Gli altri due nemici subiscono 2d12 danni ciascuno.",
+    "kind": "html"
+  },
+  {
+    "id": "cd070416292091a68e3b",
+    "it": "Tutti i bersagli raggiunti dall’Onda d’Urto vengono inoltre spinti di 5 metri e cadono Sbilanciati.",
+    "kind": "html"
+  },
+  {
+    "id": "a3bbfd45ebc45593608c",
+    "it": "Progressione · Colpo Pesante",
+    "kind": "html"
+  },
+  {
+    "id": "9277a13e153d5723e2f0",
+    "it": "Colpo Pesante è il Talento a gradini che definisce il principale compromesso offensivo del Crusher.",
+    "kind": "html"
+  },
+  {
+    "id": "3780821bf299cba2af3b",
+    "it": "<b>Beneficio</b>",
+    "kind": "html"
+  },
+  {
+    "id": "c1b39b5173116f8057ea",
+    "it": "<b>Penalità difensiva</b>",
+    "kind": "html"
+  },
+  {
+    "id": "b33be0d7df955747e725",
+    "it": "Base · d8",
+    "kind": "html"
+  },
+  {
+    "id": "e3aba5a1211b32d5a380",
+    "it": "DP −3",
+    "kind": "html"
+  },
+  {
+    "id": "dbff281ce1661073be3f",
+    "it": "Migliorato · d10",
+    "kind": "html"
+  },
+  {
+    "id": "a7d20d67ba1d5a2a11e4",
+    "it": "+1 Dado Danno, Vantaggio",
+    "kind": "html"
+  },
+  {
+    "id": "0af6cecf606939b6efbe",
+    "it": "Maestria · d12",
+    "kind": "html"
+  },
+  {
+    "id": "cf06b16189e440d59dad",
+    "it": "+2 Dadi Danno, Vantaggio, Sbilanciato se colpisce",
+    "kind": "html"
+  },
+  {
+    "id": "c6e7f9612989edd89e9a",
+    "it": "DP −5",
+    "kind": "html"
+  },
+  {
+    "id": "84b5603d04ec2246ff99",
+    "it": "Tutte e tre le versioni possono essere utilizzate una volta per turno.",
+    "kind": "html"
+  },
+  {
+    "id": "e87439ce58a778fdc3ef",
+    "it": "Ogni versione superiore richiede la precedente e la sostituisce. Le penalità difensive non si sommano fra loro.",
+    "kind": "html"
+  },
+  {
+    "id": "dda054b06c75d0b93bb2",
+    "it": "La penalità entra in vigore quando il Crusher dichiara Colpo Pesante e rimane applicabile anche se l’attacco manca.",
+    "kind": "html"
+  },
+  {
+    "id": "46226605ccd5dbb6024a",
+    "it": "<span class=\"man-sez-n\">4.6 ·</span> Dottore",
+    "kind": "html"
+  },
+  {
+    "id": "6aa82d6e773ac9298f55",
+    "it": "Il Dottore è lo specialista della ciurma che si occupa della salute, delle sostanze e delle loro applicazioni. Può salvare un compagno gravemente ferito, sviluppare antidoti oppure trasformare reagenti grezzi in preparati utilizzabili durante un combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "74b85e2a8a7e730a90c3",
+    "it": "Quando scegli Dottore, devi selezionare uno dei suoi tre Stili.",
+    "kind": "html"
+  },
+  {
+    "id": "1832116ebe0415f218b3",
+    "it": "Scheda del Ruolo",
+    "kind": "html"
+  },
+  {
+    "id": "cd35884c0ea62f6029fa",
+    "it": "Dottore",
+    "kind": "html"
+  },
+  {
+    "id": "8fbc5d4e3562e20b8473",
+    "it": "Medicina",
+    "kind": "html"
+  },
+  {
+    "id": "46112c76bb8ae5319977",
+    "it": "Stili disponibili",
+    "kind": "html"
+  },
+  {
+    "id": "301cfc8133caec5ce35d",
+    "it": "Infermeria, Tossicologo, Chimico",
+    "kind": "html"
+  },
+  {
+    "id": "6c3313340a1244dfcd2c",
+    "it": "Tutti e tre gli Stili utilizzano Medicina per accedere ai propri Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "50d371d25f0fae256380",
+    "it": "Il Grado della Skill determina quali Talenti possono essere acquisiti. Ogni Talento deve comunque essere ottenuto attraverso gli Upgrade, rispettando gli eventuali prerequisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "a72907607b120d0e6b41",
+    "it": "4.6.1 · Infermeria",
+    "kind": "html"
+  },
+  {
+    "id": "0d4be8c36972a9f76361",
+    "it": "L’Infermeria è lo Stile dedicato alle cure e al recupero. Il suo specialista può stabilizzare i feriti, ripristinare PV e Stamina, eseguire operazioni e migliorare il recupero dell’intera ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "05f527608d5b23b9a3fc",
+    "it": "Tratto · La Corsia",
+    "kind": "html"
+  },
+  {
+    "id": "d36a039fcca3e1ec86c7",
+    "it": "Il Dottore specializzato in Infermeria possiede le competenze necessarie per effettuare vere Cure da Campo.",
+    "kind": "html"
+  },
+  {
+    "id": "3fd6d5f42d316b8688eb",
+    "it": "Un personaggio che possiede Medicina può prestare primo soccorso, diagnosticare una ferita, stabilizzare un ferito e utilizzare normalmente strumenti e preparati medici.",
+    "kind": "html"
+  },
+  {
+    "id": "b7f3f8d34baef4115405",
+    "it": "La capacità di recuperare direttamente PV attraverso una Cura da Campo, invece, appartiene all’Infermeria e segue le regole riportate di seguito.",
+    "kind": "html"
+  },
+  {
+    "id": "942c981fee1426a5f4f5",
+    "it": "Cura da Campo",
+    "kind": "html"
+  },
+  {
+    "id": "54cbc21a10fa5770c82e",
+    "it": "Una Cura da Campo rappresenta un intervento medico rapido effettuato per rimettere in condizioni operative un personaggio ferito.",
+    "kind": "html"
+  },
+  {
+    "id": "b300be4de5ef97e20f4c",
+    "it": "Attivazione: Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "627523ebad7355ba76cc",
+    "it": "Bersaglio: un personaggio che puoi raggiungere e trattare fisicamente.",
+    "kind": "html"
+  },
+  {
+    "id": "cbd6c98f943f0029ecd6",
+    "it": "Prova: Astuzia + Medicina.",
+    "kind": "html"
+  },
+  {
+    "id": "6e26cd680276d8907187",
+    "it": "Soglia ordinaria: 8.",
+    "kind": "html"
+  },
+  {
+    "id": "a2c9d1b3ccf435926d74",
+    "it": "Materiali: materiale medico appropriato.",
+    "kind": "html"
+  },
+  {
+    "id": "403fbfd17e1b15effac0",
+    "it": "Per effettuare la Cura da Campo devi poter raggiungere fisicamente il paziente e utilizzare gli strumenti necessari. Una parete, una barriera chiusa o un altro ostacolo che impedisce materialmente l’intervento rende impossibile la Cura.",
+    "kind": "html"
+  },
+  {
+    "id": "c48ffabe7ecf48e0f6f3",
+    "it": "Effettua: Astuzia + Medicina contro Soglia 8.",
+    "kind": "html"
+  },
+  {
+    "id": "1f6baa9ebc141fe2bdab",
+    "it": "Se la Prova riesce, effettua un tiro completo di Medicina. Il risultato indica quanti PV recupera il paziente.",
+    "kind": "html"
+  },
+  {
+    "id": "b55f470630160bd2a181",
+    "it": "Il tiro utilizzato per determinare i PV recuperati non è una seconda Prova di riuscita: serve soltanto a quantificare la cura.",
+    "kind": "html"
+  },
+  {
+    "id": "c012f020f2414808f2d9",
+    "it": "Il recupero non può portare il personaggio oltre i propri PV Massimi.",
+    "kind": "html"
+  },
+  {
+    "id": "08bc83f2c59551a2f6f8",
+    "it": "Ogni Cura da Campo consuma la dose, il preparato o il materiale medico consumabile richiesto dall’intervento. Un Kit o uno strumento permanente non viene consumato, salvo che la propria scheda specifichi diversamente.",
+    "kind": "html"
+  },
+  {
+    "id": "be50880955498353f0c7",
+    "it": "Durante uno scontro, uno stesso personaggio può beneficiare normalmente di una sola Cura da Campo.",
+    "kind": "html"
+  },
+  {
+    "id": "321a7f6d76236ced598a",
+    "it": "Un personaggio a 0 PV può ricevere una Cura da Campo. Se l’intervento gli restituisce almeno 1 PV, torna sopra 0 PV e riprende coscienza.",
+    "kind": "html"
+  },
+  {
+    "id": "c6c7d17c2b8fa0b3e624",
+    "it": "I Cyborg non recuperano normalmente PV attraverso Medicina e seguono le regole specifiche del Manuale del Cyborg.",
+    "kind": "html"
+  },
+  {
+    "id": "df7abb7e0f2f28760f62",
+    "it": "Firma · La mano che non trema",
+    "kind": "html"
+  },
+  {
+    "id": "042c0a751a5aca385700",
+    "it": "Quando ottieni un margine di almeno +4 nella Prova di Medicina di una Cura da Campo riuscita, il paziente riceve anche entrambi i seguenti benefici:",
+    "kind": "html"
+  },
+  {
+    "id": "69a6c0c5556386c57203",
+    "it": "Recupera 1d6 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "5493f78182b17ce5db89",
+    "it": "Rimuove uno Stato negativo rimovibile a scelta.",
+    "kind": "html"
+  },
+  {
+    "id": "395f73ae9f8477086dca",
+    "it": "La Firma utilizza il margine della Prova di Cura da Campo, non il successivo tiro che determina i PV recuperati.",
+    "kind": "html"
+  },
+  {
+    "id": "8871502067cc900f5e5c",
+    "it": "La rimozione degli Stati segue le regole di Stato e causa dello Stato del Capitolo 6.",
+    "kind": "html"
+  },
+  {
+    "id": "d9e8675ccf585a493d6e",
+    "it": "Talenti d8 · Mozzo",
+    "kind": "html"
+  },
+  {
+    "id": "9292e4a2d26b85d4e232",
+    "it": "Erbe Curative",
+    "kind": "html"
+  },
+  {
+    "id": "29d3a381ab8cf9d942a9",
+    "it": "Quando cerchi ingredienti medici, aggiungi Medicina al tiro di Reperimento: Astuzia + Esplorazione + Medicina.",
+    "kind": "html"
+  },
+  {
+    "id": "290e3dc498f94726f427",
+    "it": "Specialista in Rianimazione",
+    "kind": "html"
+  },
+  {
+    "id": "e7be1bc0c0510e4e6f3a",
+    "it": "Quando stabilizzi con successo un compagno a 0 PV, gli restituisci anche 1d4 PV.",
+    "kind": "html"
+  },
+  {
+    "id": "ea3091252a66a8392c7e",
+    "it": "Se il recupero lo porta sopra 0 PV, il compagno torna cosciente.",
+    "kind": "html"
+  },
+  {
+    "id": "609bd5a648d0a70aed94",
+    "it": "Questo intervento rimane una Stabilizzazione e non conta come Cura da Campo; non consuma quindi il normale limite delle Cure da Campo sul paziente.",
+    "kind": "html"
+  }
+]

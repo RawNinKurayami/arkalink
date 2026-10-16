@@ -7,6 +7,7 @@
 
 const lista = v => Array.isArray(v) ? v : [];
 const num = (v, d) => Number.isFinite(Number(v)) ? Number(v) : d;
+const localeText = (v,personal=false) => window.GLCI18n ? GLCI18n.text(v,personal) : v;
 
 const ORO = '#f0a441', ORO_CHIARO = '#ffd394', AVORIO = '#f2e9d8', FONDO = '#0b0906';
 
@@ -20,7 +21,8 @@ function rettArrotondato(c, x, y, w, h, r) {
  c.arcTo(x, y, x + w, y, r);
  c.closePath();
 }
-function spezza(c, testo, larghezza, righeMax) {
+function spezza(c, testo, larghezza, righeMax, localized) {
+ if(!localized)testo = localeText(testo);
  const parole = String(testo || '').split(/\s+/).filter(Boolean), righe = [];
  let riga = '';
  parole.forEach(p => {
@@ -38,6 +40,7 @@ function spezza(c, testo, larghezza, righeMax) {
 }
 function scrivi(c, testo, x, y, opzioni) {
  const o = opzioni || {};
+ testo = localeText(testo,!!o.personal);
  c.save();
  c.font = o.font || '400 24px Inter, system-ui, sans-serif';
  c.fillStyle = o.colore || AVORIO;
@@ -45,7 +48,7 @@ function scrivi(c, testo, x, y, opzioni) {
  c.textBaseline = 'alphabetic';
  if (o.spaziatura && 'letterSpacing' in c) c.letterSpacing = o.spaziatura;
  if (o.ombra) { c.shadowColor = 'rgba(0,0,0,.75)'; c.shadowBlur = o.ombra; }
- const righe = o.larghezza ? spezza(c, testo, o.larghezza, o.righeMax) : [String(testo || '')];
+ const righe = o.larghezza ? spezza(c, testo, o.larghezza, o.righeMax, true) : [String(testo || '')];
  const passo = o.interlinea || (parseInt(c.font, 10) * 1.3);
  righe.forEach((riga, i) => c.fillText(riga, x, y + i * passo));
  c.restore();
@@ -171,20 +174,20 @@ async function fronte(r, W, H) {
  let y = H - margine;
  const desc = r.tech && r.tech.desc ? r.tech.desc : (m.notes || '');
  c.font = (30 * u) + 'px "Cormorant Garamond", Georgia, serif';
- const righeDesc = desc ? spezza(c, desc, larghezza, 4) : [];
+ const righeDesc = desc ? spezza(c, localeText(desc,true), larghezza, 4, true) : [];
  const altezzaDesc = righeDesc.length * 38 * u;
  c.font = 'italic ' + (34 * u) + 'px "Cormorant Garamond", Georgia, serif';
- const righeCit = p.quote ? spezza(c, '“' + p.quote + '”', larghezza, 3) : [];
+ const righeCit = p.quote ? spezza(c, localeText('“' + p.quote + '”',true), larghezza, 3, true) : [];
  const altezzaCit = righeCit.length * 44 * u;
 
  y -= altezzaDesc;
- if (righeDesc.length) scrivi(c, desc, W / 2, y + 30 * u, { font: (30 * u) + 'px "Cormorant Garamond", Georgia, serif', colore: 'rgba(242,233,216,.9)', allinea: 'center', larghezza, righeMax: 4, interlinea: 38 * u });
+ if (righeDesc.length) scrivi(c, desc, W / 2, y + 30 * u, { personal:true, font: (30 * u) + 'px "Cormorant Garamond", Georgia, serif', colore: 'rgba(242,233,216,.9)', allinea: 'center', larghezza, righeMax: 4, interlinea: 38 * u });
  y -= 26 * u;
- scrivi(c, r.tech ? r.tech.name : 'Tecnica non collegata', W / 2, y, { font: (26 * u) + 'px Inter, sans-serif', colore: 'rgba(242,233,216,.8)', allinea: 'center' });
+ scrivi(c, r.tech ? r.tech.name : 'Tecnica non collegata', W / 2, y, { personal:true, font: (26 * u) + 'px Inter, sans-serif', colore: 'rgba(242,233,216,.8)', allinea: 'center' });
  y -= 56 * u;
- scrivi(c, m.name || 'Special Move', W / 2, y, { font: '700 ' + (62 * u) + 'px "Cinzel Decorative", "Marcellus SC", serif', colore: '#fff3dd', allinea: 'center', ombra: 24 * u });
- if (p.subtitle) { y -= 34 * u; scrivi(c, p.subtitle.toUpperCase(), W / 2, y, { font: (21 * u) + 'px Inter, sans-serif', colore: ORO_CHIARO, allinea: 'center', spaziatura: (5 * u) + 'px' }); }
- if (righeCit.length) { y -= altezzaCit + 14 * u; scrivi(c, '“' + p.quote + '”', W / 2, y + 34 * u, { font: 'italic ' + (34 * u) + 'px "Cormorant Garamond", Georgia, serif', colore: '#e7d6b4', allinea: 'center', larghezza, righeMax: 3, interlinea: 44 * u }); }
+ scrivi(c, m.name || 'Special Move', W / 2, y, { personal:true, font: '700 ' + (62 * u) + 'px "Cinzel Decorative", "Marcellus SC", serif', colore: '#fff3dd', allinea: 'center', ombra: 24 * u });
+ if (p.subtitle) { y -= 34 * u; scrivi(c, p.subtitle.toUpperCase(), W / 2, y, { personal:true, font: (21 * u) + 'px Inter, sans-serif', colore: ORO_CHIARO, allinea: 'center', spaziatura: (5 * u) + 'px' }); }
+ if (righeCit.length) { y -= altezzaCit + 14 * u; scrivi(c, '“' + p.quote + '”', W / 2, y + 34 * u, { personal:true, font: 'italic ' + (34 * u) + 'px "Cormorant Garamond", Georgia, serif', colore: '#e7d6b4', allinea: 'center', larghezza, righeMax: 3, interlinea: 44 * u }); }
 
  c.restore();
  cornice(c, W, H, raggio);
@@ -241,7 +244,7 @@ async function retro(r, W, H) {
  const altezza = (scala, disegna) => {
   const f = u * scala;
   let y = margine + 26 * u;
-  if (disegna) scrivi(c, m.name || 'Special Move', margine, y, { font: '700 ' + (40 * u) + 'px "Cinzel Decorative", "Marcellus SC", serif', colore: '#fff3dd' });
+  if (disegna) scrivi(c, m.name || 'Special Move', margine, y, { personal:true, font: '700 ' + (40 * u) + 'px "Cinzel Decorative", "Marcellus SC", serif', colore: '#fff3dd' });
   y += 16 * u;
   blocchi.forEach(b => {
    if (b.tipo === 'titolo') {
@@ -339,6 +342,7 @@ async function misura(r) {
  return { W: Math.round(W), H: Math.round(W * 1.5) };
 }
 async function esporta(mossa, quali) {
+ if(window.GLCI18n)GLCI18n.protect(mossa);
  if (!window.GLCMoves || !GLCMoves.resolve) return false;
  const r = GLCMoves.resolve(mossa);
  try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch (e) {}

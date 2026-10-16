@@ -1,0 +1,932 @@
+[
+  {
+    "id": "7eb5891ec18382dc3867",
+    "it": "Prima che il nemico prosegua il movimento oltre quel punto, spendi la Reazione e 3 ST ed esegui un attacco base contundente. Al normale tiro per colpire aggiungi un tiro completo di Atletica, incluso l’eventuale dado di Prestigio. Atletica si aggiunge al tiro per colpire e non al danno.",
+    "kind": "html"
+  },
+  {
+    "id": "812297be756c60e4fcb0",
+    "it": "Tiro di Arresto del Colosso = normale tiro per colpire dell’attacco base + un tiro completo di Atletica.",
+    "kind": "html"
+  },
+  {
+    "id": "e3183819190525faa0f1",
+    "it": "Il nemico dispone delle proprie normali difese. Se il colpo va a segno e infligge danno effettivo, il suo movimento termina immediatamente e non può riprendere per il resto di quel turno. Una taglia superiore non annulla questa conseguenza: anche una creatura enorme può essere arrestata se l’attacco la colpisce e la danneggia.",
+    "kind": "html"
+  },
+  {
+    "id": "245bdb58b378d897ae21",
+    "it": "Puoi interrompere in questo modo una carica, uno scatto o un balzo quando il nemico attraversa effettivamente la portata dell’arma. Se interrompi un balzo, le cadute e la necessità di un appoggio si risolvono normalmente. Un movimento che non attraversa una posizione raggiungibile dall’arma non attiva l’intercettazione.",
+    "kind": "html"
+  },
+  {
+    "id": "23be9977fe052ddce2d5",
+    "it": "Il bersaglio conserva le azioni ancora disponibili e può usarle dalla posizione in cui è stato fermato. L’effetto arresta il movimento e non assegna automaticamente uno Stordimento o l’annullamento di ogni sua azione. Una spinta subita successivamente o un altro spostamento forzato segue le proprie regole.",
+    "kind": "html"
+  },
+  {
+    "id": "26b2cded311eadb1771d",
+    "it": "Se manchi, il nemico evita il colpo oppure le sue riduzioni portano il danno effettivo a zero, il movimento non viene arrestato. Le 3 ST e la Reazione restano spese. Il Talento utilizza la stessa intercettazione della versione precedente, senza aggiungere un secondo attacco o una seconda Reazione. Arresto del Colosso rende indisponibile Colpo di Intercettazione come scelta separata.",
+    "kind": "html"
+  },
+  {
+    "id": "09c4c4dc09aae2b98e1b",
+    "it": "L’attacco conserva il normale danno base e gli effetti compatibili con un attacco base del Ruolo. Non diventa una Tecnica e non acquisisce Proiezione o Schianto gratuitamente. Maglio Inarrestabile richiede un utilizzo nel tuo turno; Onda Sismica richiede inoltre la tua Azione Bonus e le proprie condizioni. Questi Talenti non si aggiungono automaticamente a un’intercettazione nei turni altrui.",
+    "kind": "html"
+  },
+  {
+    "id": "3af029388b577d93aa8f",
+    "it": "Esempio: rimani piantato sul terreno e un gigante entra nella portata della tua mazza durante una carica. Spendi 3 ST e la Reazione, sommi Atletica al normale attacco base e colpisci. Se il gigante subisce danno dopo le riduzioni, si arresta in quel punto e non può continuare a muoversi nel turno, ma può ancora compiere le azioni possibili da quella posizione.",
+    "kind": "html"
+  },
+  {
+    "id": "d4af688d6da62aad3512",
+    "it": "<span class=\"man-sez-n\">3.8</span><span data-prestigio-source=\"combattenti:304\">Sniper con Skill di Ruolo Osservazione</span>",
+    "kind": "html"
+  },
+  {
+    "id": "51064ed64145f7115b6f",
+    "it": "I quattro Talenti sono opzioni da acquisire attraverso le tre scelte disponibili a Osservazione d20+d4, d20+d8 e d20+d12. Non vengono assegnati tutti automaticamente. I Talenti dello Sniper richiedono attacchi a distanza eseguiti con armi compatibili con lo Stile e non si trasferiscono ai colpi corpo a corpo.",
+    "kind": "html"
+  },
+  {
+    "id": "f70c64eb949f2a60fe55",
+    "it": "Astuzia e Osservazione restano indipendenti: Astuzia determina le scale di gittata e deviazione e i propri tiri quando richiesti; Osservazione sblocca le scelte. Possedere un Talento non porta automaticamente Astuzia in Prestigio e raggiungere il Prestigio di Astuzia non assegna i Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "6b13315dc76456eb787e",
+    "it": "Tiro Risolutivo",
+    "kind": "html"
+  },
+  {
+    "id": "87868ef271ae1a0d633c",
+    "it": "Evoluzione di: Respiro Trattenuto. Prerequisito: possedere Respiro Trattenuto. Tipo: attivo. Attivazione: 1 Azione Bonus prima del tiro. Costo aggiuntivo: 2 ST. Limite: 1 volta nel tuo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "feac7c2b415c91c08417",
+    "it": "Prepari il prossimo attacco a distanza contro un singolo bersaglio, da effettuare entro la fine del tuo turno. Può essere un attacco base o una Tecnica offensiva compatibile. Se il colpo va a segno, aggiungi al danno un tiro completo di Astuzia, compreso il dado di Prestigio, e il colpo viene considerato pulito ai fini della Firma e degli altri effetti compatibili che richiedono quel risultato.",
+    "kind": "html"
+  },
+  {
+    "id": "8094110ab792c0954dd7",
+    "it": "Danno di Tiro Risolutivo = danno ordinario del colpo + un tiro completo di Astuzia.",
+    "kind": "html"
+  },
+  {
+    "id": "8a992e652e64eedd511d",
+    "it": "Il bersaglio mantiene le proprie difese. La qualifica di colpo pulito si applica soltanto dopo un attacco riuscito: non cambia il tiro per colpire e non trasforma un attacco mancato in un successo. Il danno complessivo subisce le normali riduzioni del bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "fff65ba5102ce7530a18",
+    "it": "Il beneficio si consuma con il prossimo attacco valido, anche se manca; se non lo esegui entro la fine del turno, termina. Le 2 ST vengono spese all&#x27;attivazione e si aggiungono agli eventuali costi della Tecnica. Il Talento riguarda un solo colpo contro un singolo bersaglio e non si distribuisce attraverso attacchi ad area, Rimbalzo o Catena.",
+    "kind": "html"
+  },
+  {
+    "id": "83a11c6f6d76d3aba463",
+    "it": "L&#x27;evoluzione usa questa attivazione e sostituisce il limite di Respiro Trattenuto con un utilizzo nel tuo turno. Le due versioni non si sommano per moltiplicare il beneficio. Il tiro aggiuntivo di Astuzia si applica una sola volta.",
+    "kind": "html"
+  },
+  {
+    "id": "1709bd62f43bf28243fe",
+    "it": "Esempio: con Astuzia d20+d8, un colpo infligge normalmente 12 danni. Tiri separatamente Astuzia e ottieni 19: il danno diventa 31 prima delle riduzioni. Poiché il colpo è riuscito, viene anche considerato pulito e può attivare Il punto scoperto oppure Occhio del Falco, se posseduto.",
+    "kind": "html"
+  },
+  {
+    "id": "83bfbb60ae8e186f8b52",
+    "it": "Precisione Chirurgica",
+    "kind": "html"
+  },
+  {
+    "id": "a1b538170cb9679905f2",
+    "it": "Evoluzione di: Colpo Mirato. Prerequisito: possedere Colpo Mirato. Tipo: modificatore a un attacco a distanza contro un singolo bersaglio. Attivazione: dichiarazione prima del tiro, senza Azione Bonus. Costo aggiuntivo: 2 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "e0f81013d34a2137724d",
+    "it": "Scegli un punto preciso e dichiari la conseguenza che vuoi produrre. Effettui il normale attacco contro le difese del bersaglio. Se ottieni un colpo pulito, infliggi il danno ordinario e applichi anche la conseguenza mirata, invece di rinunciare al danno come con Colpo Mirato.",
+    "kind": "html"
+  },
+  {
+    "id": "3e7475a9b94ef7c80d29",
+    "it": "Mano: il bersaglio non può utilizzare quella mano fino alla fine del suo prossimo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "2b6b3e359cd850ec46fb",
+    "it": "Gamba: il bersaglio non può effettuare Movimento volontario fino alla fine del suo prossimo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "1f716ef6f4937e09b1d5",
+    "it": "Oggetto o componente: concentri il danno sull&#x27;elemento scelto; se raggiunge 0 PS, lo rompi oppure ne interrompi il funzionamento.",
+    "kind": "html"
+  },
+  {
+    "id": "0956ea9b5b0973d0c5e0",
+    "it": "Il punto scelto deve essere raggiungibile dalla traiettoria. Una mano o una gamba viene neutralizzata temporaneamente: questo effetto non produce automaticamente una mutilazione. Sullo stesso bersaglio può essere attiva una sola neutralizzazione di un arto; una nuova applicazione sostituisce quella precedente.",
+    "kind": "html"
+  },
+  {
+    "id": "63ae275ac2e58a8b1af5",
+    "it": "Se colpisci senza ottenere un colpo pulito, infliggi soltanto il danno ordinario. Se manchi, non infliggi danno e non applichi la conseguenza. Le 2 ST si pagano anche se il tiro manca o non soddisfa il requisito. Restano i costi dell&#x27;attacco o della Tecnica utilizzata.",
+    "kind": "html"
+  },
+  {
+    "id": "972c6806355fcd150f46",
+    "it": "Quando colpisci un oggetto, il danno si applica al componente effettivamente scelto, con i suoi PS e la sua resistenza. Non infliggi lo stesso danno anche alla creatura che lo impugna o all&#x27;intera struttura. L&#x27;effetto dell&#x27;evoluzione non si somma a una seconda conseguenza gratuita di Colpo Mirato sullo stesso tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "e75d6317e1db5028a315",
+    "it": "Esempio: un ufficiale sta per utilizzare un cannone. Colpisci la sua mano con un colpo pulito: infliggi il normale danno all&#x27;ufficiale e gli impedisci di usare quella mano fino alla fine del suo prossimo turno. Se invece scegli il meccanismo del cannone, il danno si applica a quel componente e lo interrompe soltanto se lo porta a 0 PS.",
+    "kind": "html"
+  },
+  {
+    "id": "ec30902fe431cc18e088",
+    "it": "Interdizione Sovrana",
+    "kind": "html"
+  },
+  {
+    "id": "f6b351832803eaf6fd19",
+    "it": "Evoluzione di: Colpo Anticipato. Prerequisito: possedere Colpo Anticipato. Tipo: reattivo. Attivazione: 1 Reazione quando un nemico osservato dichiara un&#x27;Azione, prima che la completi. Costo aggiuntivo: 2 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "87b2005c74be22da60a6",
+    "it": "Attacchi il nemico prima che completi l&#x27;Azione dichiarata, con un attacco a distanza valido e rispettando gittata, percorso e disponibilità dell&#x27;arma. Se il tiro va a segno, infliggi il danno normale e l&#x27;Azione avversaria avviene in Svantaggio, come con Colpo Anticipato.",
+    "kind": "html"
+  },
+  {
+    "id": "a72b8ad267974d5f508e",
+    "it": "Se ottieni un colpo pulito, puoi invece impedire quell&#x27;Azione, purché il tiro interrompa concretamente ciò che serve a eseguirla. Puoi colpire la mano prima dello sparo, rompere il comando prima dell&#x27;attivazione oppure interrompere il gesto necessario a una Tecnica. Il punto e il modo in cui il colpo ostacola la manovra devono essere dichiarati prima del tiro. Se l&#x27;interruzione richiede di rompere un componente, valgono i suoi PS e la sua resistenza.",
+    "kind": "html"
+  },
+  {
+    "id": "8333f95b37bc11fd0bde",
+    "it": "L&#x27;avversario consuma l&#x27;Azione dichiarata e conserva le altre risorse e possibilità del turno. Le risorse già spese per quell&#x27;Azione restano spese. Un colpo pulito che non può interrompere materialmente la manovra applica il normale Svantaggio, senza annullarla.",
+    "kind": "html"
+  },
+  {
+    "id": "8fb0a29685947c2064d2",
+    "it": "Il Talento riguarda una manovra ancora da completare: un proiettile già partito segue normalmente la propria risoluzione. Un attacco mancato non penalizza né interrompe l&#x27;Azione nemica. La Reazione e le 2 ST vengono comunque spese; un&#x27;eventuale Tecnica paga anche i propri costi.",
+    "kind": "html"
+  },
+  {
+    "id": "8dd666899836fdb72317",
+    "it": "L&#x27;evoluzione usa la stessa Reazione del tiro anticipato e non concede una seconda Reazione o un altro attacco attraverso Colpo Anticipato. Puoi applicarla soltanto se disponi della Reazione richiesta.",
+    "kind": "html"
+  },
+  {
+    "id": "d4432a7a0734514f948b",
+    "it": "Esempio: osservi un tiratore nemico che dichiara di sparare contro un alleato. Spendi la Reazione e 2 ST e attacchi la mano che tiene l&#x27;arma. Se colpisci senza un colpo pulito, il suo tiro avviene in Svantaggio; se ottieni un colpo pulito e la manovra può essere interrotta in questo modo, il nemico consuma l&#x27;Azione senza completare lo sparo.",
+    "kind": "html"
+  },
+  {
+    "id": "955e6d5789a9bc435319",
+    "it": "Danza dei Proiettili",
+    "kind": "html"
+  },
+  {
+    "id": "7905414611edd2d56106",
+    "it": "Tipo: modificatore passivo delle Tecniche Sniper con Rimbalzo oppure Catena. Costo aggiuntivo: 1 ST per utilizzo, oltre ai costi della Tecnica. Attivazione: nessuna Azione Bonus aggiuntiva. Requisito di impiego: una Tecnica compatibile che contenga uno dei due effetti, con il relativo slot.",
+    "kind": "html"
+  },
+  {
+    "id": "3fe2e8bf402e7401ad89",
+    "it": "Quando utilizzi una Tecnica Sniper con Rimbalzo o Catena, ogni bersaglio raggiunto riceve il danno pieno della mossa, sostituendo la riduzione progressiva prevista dall&#x27;effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "5c4f63aae8f0e983750d",
+    "it": "Rimbalzo: fino a due bersagli, rispettando il limite ordinario di 5 m fra il primo e il secondo.",
+    "kind": "html"
+  },
+  {
+    "id": "8243f419f193ecca0456",
+    "it": "Catena: fino a tre bersagli disposti in fila, rispettando gli altri requisiti dell&#x27;effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "8f374dc6f8fb889708ad",
+    "it": "Effettui un tiro per colpire separato contro ciascun bersaglio e tiri il danno una sola volta. Ogni bersaglio applica normalmente difese e riduzioni. Un bersaglio mancato non riceve danno e nessun bersaglio può essere colpito due volte dalla stessa sequenza.",
+    "kind": "html"
+  },
+  {
+    "id": "699b8a3816a2db7688b8",
+    "it": "Il Talento modifica il danno degli effetti già presenti nella Tecnica; non concede nuovi slot o un numero maggiore di bersagli. Rimbalzo e Catena restano alternative della stessa famiglia e non vengono sommati per aumentare il numero di colpi.",
+    "kind": "html"
+  },
+  {
+    "id": "04b717e6d2056efe30cd",
+    "it": "Se il percorso richiede traiettorie anomale, utilizzi anche Colpo Impossibile, pagando i suoi 2 ST e rispettando il numero di deviazioni consentito da Astuzia. Geometria del Tiro può modificare il percorso, ma non elimina le distanze e la disposizione richieste da Rimbalzo o Catena.",
+    "kind": "html"
+  },
+  {
+    "id": "45599ed0f35c5a8091e2",
+    "it": "Esempio: una Tecnica con Catena colpisce tre nemici in fila e il danno tirato è 18. Con Danza dei Proiettili ogni nemico colpito riceve 18 danni prima delle proprie riduzioni, invece di 18, 9 e 4. Se l&#x27;unico costo ordinario della Tecnica è Catena da 2 ST, l&#x27;utilizzo costa 3 ST complessivi: 2 per Catena e 1 per il Talento.",
+    "kind": "html"
+  },
+  {
+    "id": "1993d023c5c37e11a834",
+    "it": "Capitolo 04",
+    "kind": "html"
+  },
+  {
+    "id": "9e9ebd182e3f7e7ab5cb",
+    "it": "Combinazioni e risoluzione al tavolo",
+    "kind": "html"
+  },
+  {
+    "id": "64692b3298a03401fccc",
+    "it": "<span class=\"man-sez-n\">4.1</span><span data-prestigio-source=\"combattenti:342\">Uso combinato e riepilogo per il tavolo</span>",
+    "kind": "html"
+  },
+  {
+    "id": "f4abedcf0029b0fcc726",
+    "it": "<span class=\"man-sez-n\">4.2</span><span data-prestigio-source=\"combattenti:343\">Attributi e Skill a gradi diversi</span>",
+    "kind": "html"
+  },
+  {
+    "id": "9a081ae63c52b4d7a670",
+    "it": "Uno Swordsman possiede Atletica d20+d8, Forza d20+d10 e Attributo Tecnica d20+d4. Atletica gli concede due scelte di Talento. Per un colpo basato su Forza, se possiede Fendente Sovrano può raggiungere 100 m e, se possiede Taglio Colossale, può tentare una recisione fino a 100 m. La sua mobilità di Tecnica resta di 10 m speciali e 5 m di altezza massima per Balzo.",
+    "kind": "html"
+  },
+  {
+    "id": "fe556449f10e2103469d",
+    "it": "Se Tecnica raggiunge d20+d12, la mobilità sale a 100 m speciali e 50 m di altezza per Balzo senza consumare una nuova scelta di Atletica. Per un colpo ancora basato su Forza d20+d10, le scale di fendente e taglio rimangono invece a 100 m. L&#x27;Attributo del colpo resta quello stabilito dalla scheda dell&#x27;arma o della Tecnica; non si cambia liberamente per utilizzare una scala più alta.",
+    "kind": "html"
+  },
+  {
+    "id": "3be892c157553f5e775e",
+    "it": "Uno Sniper possiede Astuzia d20+d12 e Osservazione d20+d8: Astuzia gli concede una gittata utile minima di 1.000 m e fino a tre deviazioni con Colpo Impossibile; Osservazione gli concede due scelte di Talento. Se Astuzia raggiunge Saikyō, gittata e deviazioni salgono a 5.000 m e cinque senza una nuova scelta di Osservazione. Se cresce soltanto Osservazione, aumentano le scelte disponibili alle soglie previste e i suoi tiri, mentre le scale di Astuzia restano uguali.",
+    "kind": "html"
+  },
+  {
+    "id": "0be040e0f74d5f7111e7",
+    "it": "<span class=\"man-sez-n\">4.3</span><span data-prestigio-source=\"combattenti:347\">Combinazioni dello Striker</span>",
+    "kind": "html"
+  },
+  {
+    "id": "1ff2876cce1e805545b4",
+    "it": "Potenza del Titano si può applicare a una Tecnica con Proiezione Colossale, se sono rispettati i requisiti di entrambi. Il danno iniziale comprende il tiro aggiuntivo di Potenza del Titano. Al primo urto, quando è presente Schianto, si effettua un diverso tiro di Forza per la collisione, senza aggiungere nuovamente il Talento o il danno della Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "1f97a41bb3063650b37b",
+    "it": "Onda Titanica e Raffica Senza Fine richiedono entrambi l&#x27;unica Azione Bonus del turno e non possono essere attivati insieme nello stesso turno. L&#x27;Haki deve essere già attivo per accompagnarli quando la sua attivazione richiede l&#x27;Azione Bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "d9fc818ad2cd3d5a3ee6",
+    "it": "Raffica Senza Fine può concedere più Tecniche offensive Striker nello stesso turno. Per ogni Tecnica aggiuntiva paghi sia il costo progressivo di Raffica relativo a quell’attacco sia tutti i costi normali della Tecnica e dei suoi effetti. Ogni Tecnica conserva i propri requisiti, il proprio limite di collisione e gli eventuali budget di movimento condivisi. Il limite di una collisione vale per ogni uso della Tecnica; il budget di mobilità vale per l’intero intervallo fra l’inizio del turno e l’inizio del turno successivo.",
+    "kind": "html"
+  },
+  {
+    "id": "e4101c5392ccf18ac4db",
+    "it": "Tecniche Area dello Striker",
+    "kind": "html"
+  },
+  {
+    "id": "575ae3c624c2eb816b11",
+    "it": "Lo Striker non possiede una Forma Area ordinaria nel proprio catalogo di Stile. Onda Titanica è una capacità di Prestigio autonoma che propaga un singolo colpo e non richiede una Tecnica Area. Se una Fonte speciale concede allo Striker un’Area, questa segue il proprio profilo e rimane distinta da Onda Titanica.",
+    "kind": "html"
+  },
+  {
+    "id": "616f9115dd3d1bc4176a",
+    "it": "<span class=\"man-sez-n\">4.4</span><span data-prestigio-source=\"combattenti:353\">Combinazioni dello Swordsman</span>",
+    "kind": "html"
+  },
+  {
+    "id": "1aa41a02ee676d42047b",
+    "it": "Fendente Sovrano e Taglio Colossale possono accompagnare la stessa Tecnica. Prima del colpo spendi l’Azione Bonus e 2 ST per Taglio Colossale; quando esegui la Tecnica aggiungi 1 ST per Fendente Sovrano. Mantieni i costi ordinari della mossa. La portata e la dimensione della recisione si leggono dalla stessa riga dell’Attributo utilizzato.",
+    "kind": "html"
+  },
+  {
+    "id": "3c80e840363ef24b38f2",
+    "it": "Esempio: con Attributo Tecnica d20+d12 puoi colpire una sezione dello scafo di una nave fino a 300 m di distanza e tentare una recisione fino a 300 m. Se la Tecnica costa 2 ST, l’utilizzo combinato costa 5 ST: 2 della Tecnica, 1 di Fendente Sovrano e 2 di Taglio Colossale. Risolvi il colpo e applica un unico danno strutturale all’elemento scelto.",
+    "kind": "html"
+  },
+  {
+    "id": "97955211aa1ffc5f6e31",
+    "it": "Guardia Invalicabile utilizza la Reazione, quindi può essere impiegata anche dopo aver speso l’Azione Bonus nel proprio turno, se la Reazione è disponibile e possiedi la Stamina necessaria. Maestria Assoluta della Lama si applica ai tiri indicati nella sua descrizione senza un’attivazione separata.",
+    "kind": "html"
+  },
+  {
+    "id": "ab7f3e96f99f04e7c2d5",
+    "it": "L’Haki e le altre capacità conservano le proprie condizioni, risorse e costi. Taglio Colossale richiede l’Azione Bonus: nello stesso turno non puoi usarla anche per attivare l’Haki. Un Colore già attivo può accompagnare i colpi compatibili secondo le sue regole.",
+    "kind": "html"
+  },
+  {
+    "id": "b6bfd0b5f872177beffe",
+    "it": "Una Tecnica con Scatto oppure Balzo può accompagnare i Talenti compatibili dello Swordsman e utilizza il budget dell’Attributo Tecnica. Per esempio, una mossa che comprende Balzo da 1 ST e viene utilizzata con Fendente Sovrano costa almeno 2 ST, prima degli altri effetti; aggiungere Taglio Colossale richiede anche l’Azione Bonus e altri 2 ST. Spostamento e portata del fendente restano due misure distinte.",
+    "kind": "html"
+  },
+  {
+    "id": "5c95edf65851533feac6",
+    "it": "<span class=\"man-sez-n\">4.5</span><span data-prestigio-source=\"combattenti:359\">Combinazioni del Crusher</span>",
+    "kind": "html"
+  },
+  {
+    "id": "14c75f5dffceb22f3a79",
+    "it": "Maglio Inarrestabile e Onda Sismica possono accompagnare lo stesso colpo valido. Prima dell’attacco dichiari Maglio e paghi 3 ST; dopo un colpo riuscito con un contatto valido sullo scenario puoi spendere l’Azione Bonus e altre 3 ST per Onda Sismica. Il totale è 6 ST, oltre agli eventuali costi della Tecnica. Il danno D dell’onda comprende i +2 Dadi Danno di Maestria e il tiro aggiuntivo di Forza di Maglio.",
+    "kind": "html"
+  },
+  {
+    "id": "00e1f5f13f93f1ed6115",
+    "it": "Se l’avversario para Maglio con successo, riceve soltanto il danno residuo previsto dal Talento. Quel risultato non consente di attivare Onda Sismica e non applica Guardia Frantumata. Se il colpo va invece a segno ed è pulito, puoi applicare Guardia Frantumata al bersaglio diretto e poi propagare l’onda; la limitazione della guardia resta soltanto su quel bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "db13953c55adf6e47893",
+    "it": "Una Tecnica del Crusher con Proiezione e Schianto può accompagnare Maglio se è compatibile. Il danno iniziale comprende il bonus di Maglio; lo Schianto è un distinto tiro completo di Forza, applicato soltanto ai destinatari del primo urto. Non copi sull’ostacolo l’intero danno iniziale e non sommi un secondo bonus di Maglio alla collisione.",
+    "kind": "html"
+  },
+  {
+    "id": "0579a504fa239e272f22",
+    "it": "Per Onda Sismica il centro e le posizioni coinvolte sono quelli del momento dell’impatto iniziale. Se il colpo produce anche una proiezione, l’onda conserva quel centro; un eventuale Schianto successivo non diventa un secondo centro della stessa onda e non aumenta D. Occorre comunque il contatto con una superficie che consenta la propagazione.",
+    "kind": "html"
+  },
+  {
+    "id": "dfee79b93ce216cffc29",
+    "it": "Una Tecnica Crusher con Area Ravvicinata conserva Grado minimo d8 e costo 2 ST, mantiene l’Area centrata sul Crusher e usa come raggio la Portata effettiva dell’arma. Non aumenta la scala di distruzione e non modifica il cono di Onda Sismica; allo stesso modo, l’onda non amplia Area Ravvicinata. Aree più ampie richiedono una Fonte speciale e restano separate dall’onda di Prestigio.",
+    "kind": "html"
+  },
+  {
+    "id": "1f6afbfd65f636bd76dc",
+    "it": "La Firma ordinaria del Crusher spinge di 3 m su un colpo pulito. Quando una stessa Tecnica applica Proiezione Colossale allo stesso bersaglio, risolvi il lancio scelto secondo quell’effetto senza aggiungere gratuitamente un secondo lancio attraverso la Firma. La spinta di 3 m ai bersagli aggiuntivi di Onda Sismica resta distinta dalla proiezione del bersaglio iniziale.",
+    "kind": "html"
+  },
+  {
+    "id": "29be624aec0ce561d115",
+    "it": "Onda Sismica richiede l’unica Azione Bonus del tuo turno. Se l’attivazione di un Haki richiede quell’azione, non puoi usarla anche per l’onda nello stesso turno; un Colore già attivo può accompagnare i colpi compatibili secondo le proprie regole. La scala ambientale passiva non consuma questa azione.",
+    "kind": "html"
+  },
+  {
+    "id": "dcd2dce855c21f5af712",
+    "it": "Arresto del Colosso utilizza la Reazione. Puoi usarlo anche dopo aver speso l’Azione Bonus, se hai la Reazione, 3 ST e tutte le condizioni di Baricentro Assoluto. Colpo di Rimbalzo, Contrappeso e altre capacità reattive continuano a richiedere la Reazione disponibile: il Prestigio non assegna Reazioni ulteriori.",
+    "kind": "html"
+  },
+  {
+    "id": "036f35b6be26a2079585",
+    "it": "<span class=\"man-sez-n\">4.6</span><span data-prestigio-source=\"combattenti:368\">Combinazioni dello Sniper</span>",
+    "kind": "html"
+  },
+  {
+    "id": "9dcca12c78287b5edb89",
+    "it": "Tiro Risolutivo e Precisione Chirurgica possono accompagnare lo stesso attacco contro un singolo bersaglio. Prima del tiro spendi l&#x27;Azione Bonus e 2 ST per Tiro Risolutivo e dichiari il punto mirato pagando altre 2 ST per Precisione Chirurgica. L&#x27;attacco mantiene le proprie difese e gli eventuali costi della Tecnica. Se va a segno, aggiungi il tiro di Astuzia al danno e il colpo viene considerato pulito, soddisfacendo anche il requisito della conseguenza mirata.",
+    "kind": "html"
+  },
+  {
+    "id": "cc2d87ed5e5f5673ba99",
+    "it": "Esempio: il tiro infligge 12 danni ordinari e il tiro aggiuntivo di Astuzia dà 19. Un colpo riuscito contro la mano infligge 31 danni prima delle riduzioni e impedisce l&#x27;uso di quella mano fino alla fine del prossimo turno del bersaglio. I due Talenti costano 4 ST; se occorre anche Colpo Impossibile, il totale sale a 6 ST, oltre agli eventuali costi della Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "478677b7ef52a1805ed5",
+    "it": "Tiro Risolutivo richiede l&#x27;unica Azione Bonus del turno. Nello stesso turno non puoi usarla anche per Ricarica Rapida o per attivare un Haki che richiede quell&#x27;azione. Un Colore già attivo può accompagnare gli attacchi compatibili secondo le proprie regole.",
+    "kind": "html"
+  },
+  {
+    "id": "9315c4598f85b519f60a",
+    "it": "Interdizione Sovrana utilizza la Reazione e può essere impiegata anche dopo aver speso l&#x27;Azione Bonus nel tuo turno, se disponi della Reazione e della Stamina necessarie. Precisione Chirurgica può modificare quel tiro pagando altre 2 ST e dichiarando prima il punto scelto; Tiro Risolutivo prepara invece il prossimo tiro entro la fine del tuo turno e non resta in attesa per una Reazione nei turni altrui.",
+    "kind": "html"
+  },
+  {
+    "id": "df9c7003b518e39db3ee",
+    "it": "Danza dei Proiettili riguarda Tecniche con più bersagli e non accompagna Tiro Risolutivo o Precisione Chirurgica, che richiedono un singolo bersaglio. Colpo Impossibile e Geometria del Tiro possono accompagnare la sequenza quando il percorso è valido e tutti i costi sono pagati. I requisiti spaziali di Rimbalzo o Catena restano necessari.",
+    "kind": "html"
+  },
+  {
+    "id": "867a89d2d127a95c2387",
+    "it": "<span class=\"man-sez-n\">4.7</span><span data-prestigio-source=\"combattenti:374\">Ultimate</span>",
+    "kind": "html"
+  },
+  {
+    "id": "211a50a9fcadda6442af",
+    "it": "Le Ultimate conservano la propria versione base e le proprie regole particolari. Il raggiungimento di Saikyō negli Attributi amplia le scale previste da questo modulo; il raggiungimento di Saikyō nella Skill modifica i suoi tiri quando richiesti. Nessuno dei due introduce un&#x27;evoluzione di Prestigio della Ultimate.",
+    "kind": "html"
+  },
+  {
+    "id": "394ee17b15922776eb24",
+    "it": "Smash Hit dello Striker mantiene le proprie regole. Le capacità di questo modulo non gli concedono azioni, effetti o attacchi ulteriori quando la sua risoluzione li esclude.",
+    "kind": "html"
+  },
+  {
+    "id": "729e41b26a4543529e14",
+    "it": "Asura dello Swordsman mantiene le proprie esclusioni di Talenti e capacità aggiuntive. Per i suoi tiri utilizza il Grado originario della lama, senza la sostituzione di Maestria Assoluta della Lama. La diversa classificazione di mobilità e proiezioni come potenziamenti degli Attributi non autorizza ad aggiungere effetti alla Ultimate: restano necessarie le compatibilità previste dalla sua descrizione.",
+    "kind": "html"
+  },
+  {
+    "id": "7fa5daf2792260e0d41a",
+    "it": "Tempesta di Piombo dello Sniper conserva la propria versione attuale da 5 ST, una volta per scontro, e segue le proprie regole particolari. Non acquisisce un&#x27;evoluzione di Prestigio e non applica Tiro Risolutivo, Precisione Chirurgica, Interdizione Sovrana, Danza dei Proiettili o altri Talenti ed effetti esclusi dalla sua descrizione. Gli effetti delle munizioni compatibili restano l&#x27;eccezione espressamente prevista. La divisione tra Attributi e Skill non autorizza a ignorare le esclusioni della Ultimate.",
+    "kind": "html"
+  },
+  {
+    "id": "898bce665455c205bd74",
+    "it": "Cataclisma del Crusher conserva la propria versione da 5 ST, una volta per scontro, con il permesso del GM previsto dal manuale. Mantiene l’impatto diretto da 4 Dadi Arma e la propria seconda risoluzione entro 5 m da 2 Dadi Arma, con spinta di 5 m e Sbilanciamento. Non applica Maglio Inarrestabile, Onda Sismica, Guardia Frantumata, Arresto del Colosso o altri Talenti, Tecniche, Firma ed effetti dell’arma esclusi dalla sua descrizione. Il raggio offensivo di 5 m non diventa quello della scala di distruzione di Forza. Le conseguenze sullo scenario seguono la situazione, i materiali e i PS.",
+    "kind": "html"
+  },
+  {
+    "id": "4b65dbd60864ae88f9dd",
+    "it": "<span class=\"man-sez-n\">4.8</span><span data-prestigio-source=\"combattenti:380\">Costi dei potenziamenti degli Attributi</span>",
+    "kind": "html"
+  },
+  {
+    "id": "29da3f58eea7eaa402f5",
+    "it": "Potenziamento",
+    "kind": "html"
+  },
+  {
+    "id": "9fbb564b35e13de1d491",
+    "it": "Costo proprio",
+    "kind": "html"
+  },
+  {
+    "id": "15f785055d00e06aa5ad",
+    "it": "Capacità necessaria",
+    "kind": "html"
+  },
+  {
+    "id": "181d02d1272fafd19505",
+    "it": "0 ST",
+    "kind": "html"
+  },
+  {
+    "id": "6c6e0f6b29971cb9340d",
+    "it": "Attacco base o Tecnica di Striker o Crusher con un impatto di Forza sullo scenario; nessuna azione aggiuntiva",
+    "kind": "html"
+  },
+  {
+    "id": "5a73214a85091725aa71",
+    "it": "Proiezione nella Tecnica; Schianto per il danno da urto",
+    "kind": "html"
+  },
+  {
+    "id": "9649597bf1aa87de246c",
+    "it": "Scatto nella Tecnica",
+    "kind": "html"
+  },
+  {
+    "id": "8b6dd702b9f5727fcf27",
+    "it": "Balzo nella Tecnica per i salti potenziati; appoggi secondo la soglia di Tecnica",
+    "kind": "html"
+  },
+  {
+    "id": "391e8baf44d87f99e38c",
+    "it": "Arma a distanza o da lancio compatibile con lo Sniper; posizione del bersaglio individuata",
+    "kind": "html"
+  },
+  {
+    "id": "da3957be68c6ff433fa8",
+    "it": "Colpo Impossibile, che conserva il proprio costo di 2 ST",
+    "kind": "html"
+  },
+  {
+    "id": "244f1d2a96a24fcf6ecf",
+    "it": "Gli effetti occupano i propri slot e conservano i costi ordinari: Proiezione 1 ST, Schianto 2 ST, Scatto 1 ST e Balzo 1 ST. Un costo aggiuntivo di 0 ST per il potenziamento non rende gratuita la Tecnica che lo utilizza. Inseguire è rimosso dal Costruttore.",
+    "kind": "html"
+  },
+  {
+    "id": "c7e3dcd265a6e451cc45",
+    "it": "<span class=\"man-sez-n\">4.9</span><span data-prestigio-source=\"combattenti:383\">Costi dei Talenti di Prestigio</span>",
+    "kind": "html"
+  },
+  {
+    "id": "fca991839d4a46c8f389",
+    "it": "Talento",
+    "kind": "html"
+  },
+  {
+    "id": "3868d2843d5924c192e2",
+    "it": "Tipo",
+    "kind": "html"
+  },
+  {
+    "id": "d587622d277c4be4a2ed",
+    "it": "Bonus",
+    "kind": "html"
+  },
+  {
+    "id": "1fecb6bc9f3e5764da2a",
+    "it": "Costo",
+    "kind": "html"
+  },
+  {
+    "id": "a6eb3e8b8f1eb79665a4",
+    "it": "Limite principale",
+    "kind": "html"
+  },
+  {
+    "id": "6376a2c2bcea4c24a217",
+    "it": "Passivo",
+    "kind": "html"
+  },
+  {
+    "id": "1ea442a134b2a184bd5d",
+    "it": "No",
+    "kind": "html"
+  },
+  {
+    "id": "90a52f9ff707e0840447",
+    "it": "Un tiro di Forza aggiunto per colpo riuscito compatibile",
+    "kind": "html"
+  },
+  {
+    "id": "057a897749729197dc0c",
+    "it": "Onda Titanica dello Striker",
+    "kind": "html"
+  },
+  {
+    "id": "39df52d249a64fe99319",
+    "it": "Attivo",
+    "kind": "html"
+  },
+  {
+    "id": "5209723fc252a0133c04",
+    "it": "Sì",
+    "kind": "html"
+  },
+  {
+    "id": "f819501c78076cd5e6fa",
+    "it": "2 ST aggiuntivi",
+    "kind": "html"
+  },
+  {
+    "id": "76e6c8f42c370a24bd80",
+    "it": "Un colpo riuscito ampliato nel proprio turno",
+    "kind": "html"
+  },
+  {
+    "id": "7c4339dc5e3d55f4c89a",
+    "it": "Abilita Punto di Rottura, che costa 2 ST e richiede uno slot",
+    "kind": "html"
+  },
+  {
+    "id": "f68b16b035e066e48798",
+    "it": "1 ST il primo attacco extra, 2 ST il secondo, 3 ST il terzo, poi +1 ST progressiva per ogni attacco extra successivo; oltre a tutti i normali costi dell’eventuale Tecnica utilizzata.",
+    "kind": "html"
+  },
+  {
+    "id": "a7f650e1c362323336c0",
+    "it": "Stamina disponibile e normali costi di ogni Tecnica",
+    "kind": "html"
+  },
+  {
+    "id": "b847a4f18048ebaa3358",
+    "it": "1 ST per utilizzo",
+    "kind": "html"
+  },
+  {
+    "id": "4a3ca0c7e0b81555ca87",
+    "it": "Tecnica Swordsman compatibile",
+    "kind": "html"
+  },
+  {
+    "id": "9bff082921d808659639",
+    "it": "2 ST",
+    "kind": "html"
+  },
+  {
+    "id": "c31948d705a10b84f654",
+    "it": "Prossimo colpo nel turno contro un elemento",
+    "kind": "html"
+  },
+  {
+    "id": "9780aa71596b2eb43917",
+    "it": "Reattivo",
+    "kind": "html"
+  },
+  {
+    "id": "7b52cc8649947fa75136",
+    "it": "2 ST e Reazione",
+    "kind": "html"
+  },
+  {
+    "id": "46dd77c040f69a7bf68c",
+    "it": "Un attacco intercettabile",
+    "kind": "html"
+  },
+  {
+    "id": "81e765a05bfb129813e3",
+    "it": "Dado Arma d20 per attacchi base e Parate",
+    "kind": "html"
+  },
+  {
+    "id": "918dba964a30353a6a8b",
+    "it": "3 ST complessivi",
+    "kind": "html"
+  },
+  {
+    "id": "15df572f533b5f6eef32",
+    "it": "Un utilizzo nel proprio turno; sostituisce Maestria",
+    "kind": "html"
+  },
+  {
+    "id": "825931407c7e70ce9784",
+    "it": "Colpo di Forza riuscito nel proprio turno e contatto con una superficie",
+    "kind": "html"
+  },
+  {
+    "id": "09b28cbea874ed1f56ba",
+    "it": "Un colpo diretto nel proprio turno; guardia aperta con colpo pulito",
+    "kind": "html"
+  },
+  {
+    "id": "fd22c4cf37af86276cb0",
+    "it": "3 ST e Reazione",
+    "kind": "html"
+  },
+  {
+    "id": "92c7935a1ee449244767",
+    "it": "Baricentro Assoluto e nemico che entra nella portata",
+    "kind": "html"
+  },
+  {
+    "id": "b83c88bc09662cff9d6e",
+    "it": "Prossimo tiro contro un singolo bersaglio entro la fine del tuo turno",
+    "kind": "html"
+  },
+  {
+    "id": "df9e9d908c1f1b565085",
+    "it": "Modificatore",
+    "kind": "html"
+  },
+  {
+    "id": "38a85efe4adb07b96aed",
+    "it": "Singolo bersaglio; conseguenza mirata solo con un colpo pulito",
+    "kind": "html"
+  },
+  {
+    "id": "3aa0af2c6ec31e63227a",
+    "it": "Azione nemica ancora da completare e concretamente interrompibile",
+    "kind": "html"
+  },
+  {
+    "id": "dde6570e6738695adc43",
+    "it": "Tecnica Sniper con Rimbalzo oppure Catena",
+    "kind": "html"
+  },
+  {
+    "id": "1c7d0cfecca9a9311101",
+    "it": "La colonna Bonus indica se il Talento richiede l&#x27;Azione Bonus. I costi si aggiungono a quelli ordinari della capacità utilizzata, salvo le sostituzioni espresse: le 3 ST di Maglio Inarrestabile sostituiscono le 2 ST di Maestria e le 3 ST di Onda Sismica sostituiscono le 2 ST di Onda d’Urto. Gli eventuali costi della Tecnica restano dovuti. Punto di Rottura richiede un colpo pulito e paga i propri 2 ST anche se il colpo manca o non ottiene il margine necessario.",
+    "kind": "html"
+  },
+  {
+    "id": "0750fa0a0cabdf3948bf",
+    "it": "<span class=\"man-sez-n\">4.10</span><span data-prestigio-source=\"combattenti:386\">Sequenza di risoluzione</span>",
+    "kind": "html"
+  },
+  {
+    "id": "8a6e3e68ca3f8fe94797",
+    "it": "Identifica il Ruolo, la Skill di Ruolo e l&#x27;Attributo previsto dal colpo.",
+    "kind": "html"
+  },
+  {
+    "id": "52eb356e25db38a25ec0",
+    "it": "Verifica i potenziamenti automatici degli Attributi e i Talenti effettivamente acquisiti tramite la Skill.",
+    "kind": "html"
+  },
+  {
+    "id": "cfeef4b291c0e7d2fa90",
+    "it": "Controlla effetti, slot, portata, budget di mobilità, eventuali PS, contatto sullo scenario, prerequisiti dei Talenti e compatibilità della Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "83cf81bfde2515470360",
+    "it": "Dichiara e paga i modificatori prima del tiro, poi risolvi attacco e difese. Dopo un colpo riuscito puoi attivare le propagazioni compatibili pagando l’Azione Bonus e il loro costo.",
+    "kind": "html"
+  },
+  {
+    "id": "d51dbc9ade50c282b0c8",
+    "it": "Applica danni, attenuazione ambientale, proiezione, eventuale primo Schianto e conseguenze mirate o interruzioni secondo le rispettive regole.",
+    "kind": "html"
+  },
+  {
+    "id": "a99276340584722bb3ba",
+    "it": "Aggiorna ST, metri speciali rimasti, Reazione e Azione Bonus disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "088037521abe1f84bbb5",
+    "it": "Capitolo 05",
+    "kind": "html"
+  },
+  {
+    "id": "9a7f3ef59ba5adebb506",
+    "it": "Il Prestigio delle Skill di Ruolo",
+    "kind": "html"
+  },
+  {
+    "id": "3d4ddb19b8afc8403ad2",
+    "it": "Questo documento raccoglie 30 Talenti di Prestigio in 10 cataloghi: Capitano, Musicista, le tre specializzazioni del Dottore, le due specializzazioni dell’Ingegnere, Navigatore, Archeologo e Cuoco. Ogni percorso sviluppa la propria Skill di Ruolo e rende più potenti le capacità della specializzazione scelta.",
+    "kind": "html"
+  },
+  {
+    "id": "ddf4959620c240b7233a",
+    "it": "Si acquisisce un Talento a d20+d4, un secondo a d20+d8 e un terzo a d20+d12. A Saikyō migliorano i Talenti già acquisiti. Le descrizioni indicano prerequisiti, attivazione, costi, limiti d’uso ed effetti della forma finale.",
+    "kind": "html"
+  },
+  {
+    "id": "dadb7b20936e0faf00a0",
+    "it": "Ruolo o Stile",
+    "kind": "html"
+  },
+  {
+    "id": "f15cb5cbbe8b88970f20",
+    "it": "Capitano",
+    "kind": "html"
+  },
+  {
+    "id": "a18187ca5115a2565e9e",
+    "it": "Comunicazione",
+    "kind": "html"
+  },
+  {
+    "id": "ccd3a6a7c5ad2884fcdf",
+    "it": "Musicista",
+    "kind": "html"
+  },
+  {
+    "id": "0bd3cf693a4c06b01ce1",
+    "it": "Arte",
+    "kind": "html"
+  },
+  {
+    "id": "574238a2397306d3f94c",
+    "it": "Dottore Tossicologo",
+    "kind": "html"
+  },
+  {
+    "id": "8fbc5d4e3562e20b8473",
+    "it": "Medicina",
+    "kind": "html"
+  },
+  {
+    "id": "f9af82198588d9d735a4",
+    "it": "Dottore Infermeria",
+    "kind": "html"
+  },
+  {
+    "id": "4559fa1a34b787bc5f15",
+    "it": "Dottore Chimico",
+    "kind": "html"
+  },
+  {
+    "id": "14098866c75d1a2e106f",
+    "it": "Ingegnere Meccanico",
+    "kind": "html"
+  },
+  {
+    "id": "c593c801eeac0f5758ed",
+    "it": "Meccanica",
+    "kind": "html"
+  },
+  {
+    "id": "11ad19925c84b8750994",
+    "it": "Ingegnere Carpentiere",
+    "kind": "html"
+  },
+  {
+    "id": "e592163fe3eddde93953",
+    "it": "Carpenteria",
+    "kind": "html"
+  },
+  {
+    "id": "a5fb5ede733a724521a6",
+    "it": "Navigatore",
+    "kind": "html"
+  },
+  {
+    "id": "1e7ed2872114b55cd482",
+    "it": "Navigazione",
+    "kind": "html"
+  },
+  {
+    "id": "aed0dceb0e27a1506de3",
+    "it": "Archeologo",
+    "kind": "html"
+  },
+  {
+    "id": "0f58926133fd72519a63",
+    "it": "Archeologia",
+    "kind": "html"
+  },
+  {
+    "id": "81f45f9898d73cbfd46c",
+    "it": "Cuoco",
+    "kind": "html"
+  },
+  {
+    "id": "ac94748dabd7ba382cdb",
+    "it": "Cucina",
+    "kind": "html"
+  },
+  {
+    "id": "0a43d860359a315e966f",
+    "it": "<span class=\"man-sez-n\">5.1</span><span data-prestigio-source=\"ruoli:6\">Regole comuni</span>",
+    "kind": "html"
+  },
+  {
+    "id": "815aa9fc086f06beb346",
+    "it": "<span class=\"man-sez-n\">5.2</span><span data-prestigio-source=\"ruoli:7\">Acquisizione e progressione</span>",
+    "kind": "html"
+  },
+  {
+    "id": "77360198d7c383133627",
+    "it": "Ogni catalogo contiene tre Talenti di Prestigio. Alle soglie che concedono una scelta si acquisisce un solo Talento del proprio percorso, rispettando i prerequisiti indicati. L’ordine è libero: i tre Talenti non sono assegnati automaticamente alle tre soglie.",
+    "kind": "html"
+  },
+  {
+    "id": "39e186cdda7fe0a929c8",
+    "it": "Prestigio",
+    "kind": "html"
+  },
+  {
+    "id": "e4ea9a43c921d668ddd4",
+    "it": "Dado completo della Skill",
+    "kind": "html"
+  },
+  {
+    "id": "37e76473d96865611dd1",
+    "it": "Acquisizione",
+    "kind": "html"
+  },
+  {
+    "id": "7fa6bd8c5e760cfaa794",
+    "it": "Prima scelta di un Talento",
+    "kind": "html"
+  },
+  {
+    "id": "3407641ae3593777b6c2",
+    "it": "Crescita della Skill e degli effetti che ne dipendono",
+    "kind": "html"
+  },
+  {
+    "id": "d64b00e52fedffd50644",
+    "it": "Seconda scelta di un Talento",
+    "kind": "html"
+  },
+  {
+    "id": "891dc880d1e4b6d752e3",
+    "it": "Terza scelta di un Talento",
+    "kind": "html"
+  },
+  {
+    "id": "d3dc9a740d446b6e602d",
+    "it": "Potenziamento dei Talenti posseduti",
+    "kind": "html"
+  },
+  {
+    "id": "d977852ad5c3a7dde982",
+    "it": "Saikyō non concede un quarto Talento. I suoi miglioramenti riguardano la Skill di Ruolo del catalogo utilizzato. Aumentare un Attributo, Spirito o un Colore dell’Haki non sblocca automaticamente questi Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "8398edda2761976eedb3",
+    "it": "Tossicologo, Infermiere e Chimico utilizzano Medicina, ma restano specializzazioni distinte.",
+    "kind": "html"
+  },
+  {
+    "id": "1622c0a8d23aa5da9a24",
+    "it": "Conoscere una Skill permette di effettuare le normali Prove previste dal regolamento; l’accesso ai Talenti di Prestigio dipende invece dal Ruolo o dallo Stile posseduto.",
+    "kind": "html"
+  },
+  {
+    "id": "10b7d161a4d325458a11",
+    "it": "Un Talento che evolve una capacità richiede quella capacità. Se evolve una Maestria, servono anche i suoi normali prerequisiti Base e Migliorato. I Talenti ordinari continuano ad applicarsi nelle parti che la descrizione del Prestigio non sostituisce.",
+    "kind": "html"
+  },
+  {
+    "id": "874e14c0b80dc8697328",
+    "it": "<span class=\"man-sez-n\">5.3</span><span data-prestigio-source=\"ruoli:14\">Azioni costi e limiti condivisi</span>",
+    "kind": "html"
+  },
+  {
+    "id": "774625a6678e26d1a6d5",
+    "it": "Ogni capacità usa l’Azione, l’Azione Bonus o la Reazione indicata. La normale disponibilità di una sola Azione Bonus per turno è condivisa fra Talenti di Ruolo, effetti attivi dell’Haki e potenziamenti di Spirito. Preparare un attacco o un preparato con un’Azione Bonus non comprende anche l’Azione necessaria a utilizzarlo, salvo che il Talento lo dica espressamente.",
+    "kind": "html"
+  },
+  {
+    "id": "17171c0a57aab87d589b",
+    "it": "Il costo riportato è il costo della forma potenziata e sostituisce quello della stessa capacità ordinaria. Munizioni, ingredienti, energia dei macchinari, porzioni e costi propri delle Tecniche restano necessari quando pertinenti. Acquisire l’evoluzione rende indisponibile la versione precedente come scelta separata. I suoi benefici non sostituiti restano incorporati nell’evoluzione.",
+    "kind": "html"
+  },
+  {
+    "id": "990b57387e6a430b7d2d",
+    "it": "Quando il Prestigio aumenta gli utilizzi di una capacità, il nuovo limite sostituisce il precedente. Gli usi della forma ordinaria e di quella potenziata attingono allo stesso limite: tre utilizzi non diventano tre più quello della forma base. I limiti per combattimento e per battaglia navale si conteggiano nel rispettivo incontro.",
+    "kind": "html"
+  },
+  {
+    "id": "88dbc415e6911e658cdf",
+    "it": "<span class=\"man-sez-n\">5.4</span><span data-prestigio-source=\"ruoli:18\">Tiri di Skill danni e recuperi</span>",
+    "kind": "html"
+  },
+  {
+    "id": "a2932fe858ae97a28589",
+    "it": "Un tiro completo di Skill comprende il d20 e il dado aggiuntivo del suo Prestigio. Con Medicina d20+d8, due tiri completi di Medicina sono due tiri separati di d20+d8, i cui risultati vengono sommati. Quando la Skill quantifica un bonus o un recupero, si aggiunge un Attributo soltanto se la regola lo richiede espressamente.",
+    "kind": "html"
+  }
+]

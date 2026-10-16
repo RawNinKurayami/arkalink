@@ -186,6 +186,10 @@ body.premium-portal .gmclose{width:44px;height:44px;min-width:44px;position:rela
 <link rel="stylesheet" href="/glc-brand.css?v=1">
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=2">
 <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png?v=2">
+<!-- GLC LANGUAGE START -->
+<link rel="stylesheet" href="/glc-i18n.css?v=1">
+<script src="/glc-i18n.js?v=1"></script>
+<!-- GLC LANGUAGE END -->
 </head>
 <body class="mode-nave premium-portal">
 <div class="portal-topbar"><a class="portal-brand glc-brand-link" href="/grand-line-chronicles/" aria-label="Grand Line Chronicles — Home"><img class="glc-title-logo" src="/img/brand/glc-logo.png" alt="Grand Line Chronicles" width="210" height="70"></a><nav class="portal-links" aria-label="Navigazione del porto"><a href="/nave-portale/" aria-current="page">Nave</a><a href="/portale-officina-cambusa/">Officina &amp; Cambusa</a><a href="/profilo/">Il tuo profilo ↗</a></nav></div>
@@ -394,7 +398,7 @@ function renderShip(){
  tl.appendChild(mkEl("p",{class:"scene-eyebrow",text:"Plancia di comando"}));
  tl.appendChild(mkEl("div",{class:"gh-name",text:shipLabel(S)}));
  const pills=mkEl("div",{class:"gh-pills"});if(S.tipo)pills.appendChild(mkEl("span",{class:"pill",text:S.tipo}));if(S.polena)pills.appendChild(mkEl("span",{class:"pill",text:"Polena: "+S.polena}));if(S.legno)pills.appendChild(mkEl("span",{class:"pill",text:S.legno}));pills.appendChild(mkEl("span",{class:"condizione",style:"color:"+col},[mkEl("i",{}),mkEl("span",{text:cn})]));tl.appendChild(pills);top.appendChild(tl);
- const tr=mkEl("div",{class:"gt-r"});tr.appendChild(mkEl("div",{class:"gh-bounty",html:"฿ "+(S.berry||0).toLocaleString("it-IT")}));tr.appendChild(mkEl("button",{class:"gbtn",text:"✎ Identità",onclick:identityModal}));tr.appendChild(mkEl("button",{class:"gbtn",text:"☰ Azioni",onclick:actionsModal}));top.appendChild(tr);
+ const tr=mkEl("div",{class:"gt-r"});tr.appendChild(mkEl("div",{class:"gh-bounty",html:"฿ "+(S.berry||0).toLocaleString(window.GLCI18n?GLCI18n.locale:"it-IT")}));tr.appendChild(mkEl("button",{class:"gbtn",text:"✎ Identità",onclick:identityModal}));tr.appendChild(mkEl("button",{class:"gbtn",text:"☰ Azioni",onclick:actionsModal}));top.appendChild(tr);
  root.appendChild(top);
  if(S.legacyModuleRecords?.length)root.appendChild(mkEl('div',{class:'ship-warning',text:'Record Modulo storici non validi conservati nell’archivio legacyModuleRecords: '+S.legacyModuleRecords.length+'. Sono inclusi nell’esportazione e non conferiscono benefici.'}));
  for(const message of GLCShip.warnings(S))root.appendChild(mkEl('div',{class:'ship-warning',text:message}));
@@ -447,7 +451,7 @@ function renderShip(){
   const up=mkEl('div',{class:'gcards one'});STAT_DEFS.forEach(([k,nm])=>{const[next,sog]=targetSoglia(S.stats[k]);if(!next){up.appendChild(gcard(dieIcon(S.stats[k],40),nm,'limite ordinario d12',''));return;}const req=(UPG_MATS[k]&&UPG_MATS[k][next])||[];up.appendChild(gcard(dieIcon(next,40),nm+' → '+next,'Soglia '+sog+' · '+carpPoolStr(),matLine(req),()=>shipUpgradeModal(k,next,sog,req)));});
   R.appendChild(sec("Potenziamenti",[mkEl("div",{class:"ship-warning",text:"Soglie e ore seguono il Manuale. Ricette materiali, prezzi e conseguenze dettagliate storiche sono configurazioni di campagna da concordare con il GM. I controlli dei dadi registrano correzioni manuali; non consumano materiali né completano progetti."}),up,mkEl('button',{class:'btn ghost',text:'Miglioramenti permanenti completati',onclick:shipImprovementsModal})]));
   const rip=mkEl("div",{class:"gcards one"});REPAIRS.forEach(r=>rip.appendChild(gcard('<span class="gc-em">'+svgIcon("hammer",24)+'</span>',r.t,r.ore+" ore · soglia <b>"+r.s+"</b>",matLine(r.mat||[]),()=>repairModal(r))));R.appendChild(sec("Riparazioni",[rip]));
-  const mag=mkEl("div",{class:"matgrid"});MATERIALS.forEach(m=>{const q=S.magazzino[m.id]||0;const t=mkEl("div",{class:"mattile"+(q?"":" zero"),title:m.rar+" · reperimento soglia "+m.soglia+(m.costo?(" · ~"+m.costo.toLocaleString("it-IT")+" ฿"):" · narrativo")+" · "+m.note},[mkEl("div",{class:"mat-art","aria-hidden":"true",html:GLCArt.html(m.id==='meccanica'?'modulo':m.id==='ferramenta'?'stile-carpentiere':'materiali',44)}),mkEl("div",{class:"matq",text:String(q)}),mkEl("div",{class:"matn",text:m.nome}),mkEl("div",{class:"matb"},[mkEl("button",{class:"pabtn",text:"−",onclick:()=>{S.magazzino[m.id]=Math.max(0,q-1);save();renderShip();}}),mkEl("button",{class:"pabtn",text:"+",onclick:()=>{S.magazzino[m.id]=q+1;save();renderShip();}})])]);mag.appendChild(t);});
+  const mag=mkEl("div",{class:"matgrid"});MATERIALS.forEach(m=>{const q=S.magazzino[m.id]||0;const t=mkEl("div",{class:"mattile"+(q?"":" zero"),title:m.rar+" · reperimento soglia "+m.soglia+(m.costo?(" · ~"+m.costo.toLocaleString(window.GLCI18n?GLCI18n.locale:"it-IT")+" ฿"):" · narrativo")+" · "+m.note},[mkEl("div",{class:"mat-art","aria-hidden":"true",html:GLCArt.html(m.id==='meccanica'?'modulo':m.id==='ferramenta'?'stile-carpentiere':'materiali',44)}),mkEl("div",{class:"matq",text:String(q)}),mkEl("div",{class:"matn",text:m.nome}),mkEl("div",{class:"matb"},[mkEl("button",{class:"pabtn",text:"−",onclick:()=>{S.magazzino[m.id]=Math.max(0,q-1);save();renderShip();}}),mkEl("button",{class:"pabtn",text:"+",onclick:()=>{S.magazzino[m.id]=q+1;save();renderShip();}})])]);mag.appendChild(t);});
   R.appendChild(sec("Magazzino",[mkEl("div",{class:"sub",style:"margin:-4px 0 8px",text:"In porto si comprano in Berry; in giro si trovano col Reperimento."}),mag]));
  }
  if(RTAB==="Diario"||RTAB==='Stampa'){

@@ -1,0 +1,2032 @@
+[
+  {
+    "id": "3a7af2d79629fc29e83f",
+    "it": "Veleno utilizza una dose con effetti, Soglia, durata e modalità d’uso propri. Colpo Pesante, Sovraccarico e Colpo Annientante sono rimossi soltanto come effetti ordinari: i Talenti e le capacità omonime indipendenti mantengono le proprie regole.",
+    "kind": "html"
+  },
+  {
+    "id": "90650f8e9be3aa20c4e3",
+    "it": "<span class=\"man-sez-n\">7.9 ·</span> Tecniche ad Area",
+    "kind": "html"
+  },
+  {
+    "id": "762a7c1023363b2f09e5",
+    "it": "La Forma Area coinvolge una porzione dello spazio. L’accesso dipende dallo Stile o da una Fonte speciale e non è universale.",
+    "kind": "html"
+  },
+  {
+    "id": "ebd1d82d6602c58cf405",
+    "it": "Area Ravvicinata di Stile",
+    "kind": "html"
+  },
+  {
+    "id": "f6682d8c264a279de29c",
+    "it": "Swordsman e Crusher possono costruire soltanto Area Ravvicinata attorno alla propria posizione. Striker e Sniper non possiedono una Forma Area ordinaria di Stile.",
+    "kind": "html"
+  },
+  {
+    "id": "63bd23c86d86ec079e29",
+    "it": "Fendente Sovrano non proietta Area Ravvicinata a distanza. Onda Titanica, Onda Sismica e altre propagazioni di Prestigio mantengono sagome, condizioni e costi propri, distinti dalla Forma Area.",
+    "kind": "html"
+  },
+  {
+    "id": "f37c6d3fd44298dd5edc",
+    "it": "Aree speciali",
+    "kind": "html"
+  },
+  {
+    "id": "12244f3d271f973d27ab",
+    "it": "Coni, linee, cerchi estesi, Gittate e altri profili ad Area sono disponibili soltanto quando una Fonte speciale li rende possibili e ne autorizza la costruzione. Un Frutto o un’arma speciale può concedere le sagome seguenti secondo la propria descrizione, rispettando Grado, slot e costi. Bombe, munizioni, preparati e altri usabili applicano direttamente il proprio profilo.",
+    "kind": "html"
+  },
+  {
+    "id": "190b09b7c633d783445b",
+    "it": "7.9.1 · Sagome delle Aree speciali",
+    "kind": "html"
+  },
+  {
+    "id": "287e15a7b07aa6b94209",
+    "it": "<b>Grado min.</b>",
+    "kind": "html"
+  },
+  {
+    "id": "2f5019613d9b09366722",
+    "it": "<b>ST</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3aefac9540834f4d11d0",
+    "it": "<b>Area</b>",
+    "kind": "html"
+  },
+  {
+    "id": "eeee5cf2b90aebe6f4d6",
+    "it": "Soffio",
+    "kind": "html"
+  },
+  {
+    "id": "41d54840df4eae9a0e4b",
+    "it": "Cono di 5 m",
+    "kind": "html"
+  },
+  {
+    "id": "33f565caa2a65eb585a8",
+    "it": "Onda",
+    "kind": "html"
+  },
+  {
+    "id": "7996a04241ca9c7317b7",
+    "it": "Cono di 10 m",
+    "kind": "html"
+  },
+  {
+    "id": "67d4858912d3482cede4",
+    "it": "Marea",
+    "kind": "html"
+  },
+  {
+    "id": "b4bccd956bbbaeef1824",
+    "it": "Cono di 20 m",
+    "kind": "html"
+  },
+  {
+    "id": "0d04dd565dcbe845e722",
+    "it": "Solco",
+    "kind": "html"
+  },
+  {
+    "id": "283ef23ecffda083c16b",
+    "it": "Linea di 10 m, larga circa 1 m",
+    "kind": "html"
+  },
+  {
+    "id": "d70d9f7a7cda353077a3",
+    "it": "Lancia",
+    "kind": "html"
+  },
+  {
+    "id": "7c7367ff0b86b7ad22ea",
+    "it": "Linea di 20 m",
+    "kind": "html"
+  },
+  {
+    "id": "319ef397832127790874",
+    "it": "Squarcio",
+    "kind": "html"
+  },
+  {
+    "id": "d003bd1c08e27606ce7d",
+    "it": "Linea di 40 m",
+    "kind": "html"
+  },
+  {
+    "id": "e7c42511b83d5cf44d8d",
+    "it": "Scoppio",
+    "kind": "html"
+  },
+  {
+    "id": "915b2be13fc11fb29d7d",
+    "it": "Cerchio di raggio 3 m",
+    "kind": "html"
+  },
+  {
+    "id": "1517eb8d78f4606f5fa3",
+    "it": "Esplosione",
+    "kind": "html"
+  },
+  {
+    "id": "67567467c052dba7b3d0",
+    "it": "Cerchio di raggio 5 m",
+    "kind": "html"
+  },
+  {
+    "id": "96ff705c8af4a55efb9f",
+    "it": "Deflagrazione",
+    "kind": "html"
+  },
+  {
+    "id": "2f979567795915178a9e",
+    "it": "Cerchio di raggio 10 m",
+    "kind": "html"
+  },
+  {
+    "id": "1ed77b5a0835262632a1",
+    "it": "Cerchio di raggio 20 m",
+    "kind": "html"
+  },
+  {
+    "id": "940ed9e8348abcb0e96e",
+    "it": "Una Tecnica contiene una sola sagoma, che non occupa slot ma conserva il proprio costo e requisito di Grado. Queste sagome non sostituiscono Area Ravvicinata del catalogo ordinario.",
+    "kind": "html"
+  },
+  {
+    "id": "5a1b4c071eae86efde81",
+    "it": "7.9.2 · Gittata delle Aree speciali",
+    "kind": "html"
+  },
+  {
+    "id": "a164ef9c00a7f038612b",
+    "it": "La Gittata determina quanto lontano può essere collocato il punto d’origine di un’Area speciale autorizzata dalla Fonte.",
+    "kind": "html"
+  },
+  {
+    "id": "37db3813683c03ca32b7",
+    "it": "Gittata Corta",
+    "kind": "html"
+  },
+  {
+    "id": "976b42a55fe6aa44955c",
+    "it": "Fino a 10 m",
+    "kind": "html"
+  },
+  {
+    "id": "afd627af9e469ef0f138",
+    "it": "Gittata Media",
+    "kind": "html"
+  },
+  {
+    "id": "f09dc04d1d2164e10e8d",
+    "it": "Fino a 20 m",
+    "kind": "html"
+  },
+  {
+    "id": "e74210da302f3ce11bc5",
+    "it": "Gittata Lunga",
+    "kind": "html"
+  },
+  {
+    "id": "7b35c3315f9a68b67968",
+    "it": "Fino a 40 m",
+    "kind": "html"
+  },
+  {
+    "id": "a6afd02524965dfa357f",
+    "it": "La Gittata è facoltativa e occupa uno slot Effetto. Senza Gittata, l’Area speciale parte dal personaggio e può coinvolgerlo direttamente. Area Ravvicinata non può ricevere Gittata.",
+    "kind": "html"
+  },
+  {
+    "id": "a301d4f08a48ad49daa0",
+    "it": "Soltanto un’Area speciale dotata di Gittata può essere utilizzata oltre la propria fascia di distanza con Soglia aumentata di 4, se compatibile con la Fonte. Questa regola non proietta Area Ravvicinata e non concede una gittata superiore alle armi Sniper: quella deriva dall’arma e dalle capacità che la estendono.",
+    "kind": "html"
+  },
+  {
+    "id": "73acf7d3c82bb0b32d43",
+    "it": "7.9.3 · Danni e Stati ad Area",
+    "kind": "html"
+  },
+  {
+    "id": "584976555db0348944a9",
+    "it": "I bersagli interessati dalla Tecnica ad Area subiscono metà del danno. Per gli Stati applicati attraverso l’Area che concedono Salvezza, la Soglia è determinata dal Grado della Tecnica che genera l’Area. Sanguinante, sostanze e Prese conservano le proprie procedure specifiche. Queste regole valgono anche per Area Ravvicinata, salvo un’eccezione espressa di una capacità specifica.",
+    "kind": "html"
+  },
+  {
+    "id": "d1a0ad1f35278d0be8af",
+    "it": "7.9.4 · Occhio del Ciclone",
+    "kind": "html"
+  },
+  {
+    "id": "ed4117e0a18fd4b9ea81",
+    "it": "Profilo speciale: d12, 1 ST, uno slot Effetto salvo eccezioni espresse. Permette di scegliere quali bersagli non vengono colpiti da una Tecnica ad Area già autorizzata. Non concede da solo l’accesso alla Forma Area e non amplia il catalogo ordinario degli Stili. Il Talento Nessuno dei Miei modifica slot, costo e requisito per le Tecniche del Frutto secondo le proprie regole.",
+    "kind": "html"
+  },
+  {
+    "id": "2fcb94dd50d031b5a701",
+    "it": "<span class=\"man-sez-n\">7.10 ·</span> Zone Persistenti",
+    "kind": "html"
+  },
+  {
+    "id": "16ac4b76a5afa5a928d1",
+    "it": "Alcune Tecniche non si esauriscono al momento dell'impatto. Una nube velenosa può rimanere sospesa sul ponte, un incendio può continuare a bruciare oppure una massa di fango può trasformare il terreno in una trappola.",
+    "kind": "html"
+  },
+  {
+    "id": "aa00b242bf18ee26a01a",
+    "it": "Questi effetti prendono il nome di Zone Persistenti.",
+    "kind": "html"
+  },
+  {
+    "id": "ab7d645c39a28db4b245",
+    "it": "Una Zona Persistente viene costruita attraverso una Tecnica con Forma Area. Utilizza la sagoma scelta per quella Tecnica e ne eredita le dimensioni.",
+    "kind": "html"
+  },
+  {
+    "id": "f575d2c6c2fe229e5b07",
+    "it": "Non è possibile assegnare alla Zona una dimensione indipendente da quella dell'Area che la genera.",
+    "kind": "html"
+  },
+  {
+    "id": "07b1bb65f87853440a08",
+    "it": "7.10.1 · Requisiti della Fonte",
+    "kind": "html"
+  },
+  {
+    "id": "0c1a0f8d23c69168f186",
+    "it": "Le Zone Persistenti sono effetti di Fonte speciale e non appartengono al catalogo ordinario degli Stili. Per crearne una attraverso una Tecnica, la Fonte deve poter lasciare realmente nell’ambiente materia, energia o una condizione persistente e autorizzare espressamente questo utilizzo.",
+    "kind": "html"
+  },
+  {
+    "id": "4a96c3da81f8cab0aebd",
+    "it": "Il GM verifica la compatibilità con il potere o con il progetto dell’arma o congegno speciale. La sola disponibilità di un’Area non autorizza una Zona; Grado, slot e costi restano dovuti.",
+    "kind": "html"
+  },
+  {
+    "id": "724efc703eacff247845",
+    "it": "Possibilità",
+    "kind": "html"
+  },
+  {
+    "id": "2faf616f14fdd0d20f9b",
+    "it": "Logia",
+    "kind": "html"
+  },
+  {
+    "id": "e71610f88caeefa3e1b5",
+    "it": "Se l’elemento e la Scheda autorizzano una Zona persistente.",
+    "kind": "html"
+  },
+  {
+    "id": "bcd574511d7b1f41021c",
+    "it": "Paramecia",
+    "kind": "html"
+  },
+  {
+    "id": "4c6b7e115d93f23d8678",
+    "it": "Se il potere e la Scheda autorizzano una condizione persistente.",
+    "kind": "html"
+  },
+  {
+    "id": "31b6e9c6c25386226de3",
+    "it": "Zoan",
+    "kind": "html"
+  },
+  {
+    "id": "f61a2d49f100e3ca487b",
+    "it": "La sola trasformazione non concede Zone; eventuali poteri speciali richiedono autorizzazione nella Scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "eb49af7743e055533f75",
+    "it": "Arma o congegno speciale",
+    "kind": "html"
+  },
+  {
+    "id": "d3a6eb497a9780111d63",
+    "it": "Se la regola e il progetto concedono espressamente una Zona. I consumabili usano il proprio profilo.",
+    "kind": "html"
+  },
+  {
+    "id": "f743648b9890f0fd6437",
+    "it": "Un Logia del fumo potrebbe creare una Cortina; un Paramecia adesivo potrebbe generare una Prigione, se la Scheda autorizza queste applicazioni. Bombe, fumogeni, preparati e veleni che creano una zona applicano direttamente il proprio profilo e non vengono ricostruiti con il Costruttore.",
+    "kind": "html"
+  },
+  {
+    "id": "530ddf841f0c2b7875b6",
+    "it": "L'effetto meccanico deve essere compatibile con ciò che la Tecnica produce nella storia.",
+    "kind": "html"
+  },
+  {
+    "id": "2a61d89be5ffef7a5731",
+    "it": "7.10.2 · Catalogo delle Zone Persistenti",
+    "kind": "html"
+  },
+  {
+    "id": "62d416ddb56a80bf01aa",
+    "it": "Terreno Alterato, Pantano, Cortina e Prigione restano profili di riferimento per Fonti speciali, non opzioni liberamente acquistabili da uno Stile.",
+    "kind": "html"
+  },
+  {
+    "id": "6a488632cddb46c3b607",
+    "it": "<b>Grado minimo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7b4d5205ee5e14e7fcd0",
+    "it": "<b>Funzionamento</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f1f7ab225a65e49bfc27",
+    "it": "Terreno Alterato",
+    "kind": "html"
+  },
+  {
+    "id": "16dfa63e0fdd3c1fa459",
+    "it": "Infligge 1d6 danni a chi si trova nella Zona all'inizio del proprio turno.",
+    "kind": "html"
+  },
+  {
+    "id": "76663a8305564ce2d572",
+    "it": "Terreno Alterato Lv2",
+    "kind": "html"
+  },
+  {
+    "id": "5410cfc946c48aac6517",
+    "it": "Infligge 2d6 danni all'inizio del turno.",
+    "kind": "html"
+  },
+  {
+    "id": "237c053337072b1882ff",
+    "it": "Terreno Alterato Lv3",
+    "kind": "html"
+  },
+  {
+    "id": "862d90b119d046e0bcfa",
+    "it": "Infligge 3d6 danni all'inizio del turno.",
+    "kind": "html"
+  },
+  {
+    "id": "1699cd09184a069eb462",
+    "it": "Pantano",
+    "kind": "html"
+  },
+  {
+    "id": "8ae83c94d0d70007f9a2",
+    "it": "Genera Terreno Difficile: Movimento dimezzato e impossibilità di effettuare Carica.",
+    "kind": "html"
+  },
+  {
+    "id": "710fe5b9dfb5e64593af",
+    "it": "Cortina",
+    "kind": "html"
+  },
+  {
+    "id": "b8f0a9b900a9d9b3ea6d",
+    "it": "Blocca la vista. Chi si trova all'interno e tenta di mirare verso l'esterno viene trattato come Accecato.",
+    "kind": "html"
+  },
+  {
+    "id": "451ad62414ab9e995e3c",
+    "it": "Prigione",
+    "kind": "html"
+  },
+  {
+    "id": "fb4a62c3108d3a14d8e3",
+    "it": "Trattiene chi si trova nella Zona. Per uscire è necessario superare una Salvezza.",
+    "kind": "html"
+  },
+  {
+    "id": "e539332cdb11c2b7482e",
+    "it": "Terreno Alterato provoca danni all'inizio del turno delle creature che si trovano nella Zona.",
+    "kind": "html"
+  },
+  {
+    "id": "83c75fcd13eb9ce9ee93",
+    "it": "Il danno dipende dal livello dell'effetto selezionato.",
+    "kind": "html"
+  },
+  {
+    "id": "94aa4ce523384f9e0a83",
+    "it": "I tre livelli rappresentano alternative della medesima famiglia: non possono essere sommati liberamente per accumularne i danni.",
+    "kind": "html"
+  },
+  {
+    "id": "dfea3c6969a489c555fe",
+    "it": "Esempio: una Tecnica crea un cerchio di fiamme con Terreno Alterato Lv2. Un nemico che si trova nella Zona all'inizio del proprio turno subisce 2d6 danni.",
+    "kind": "html"
+  },
+  {
+    "id": "3d676f306fe627c49ac6",
+    "it": "Pantano rende difficile attraversare la Zona.",
+    "kind": "html"
+  },
+  {
+    "id": "4860e6ba2736a09b0def",
+    "it": "Il Movimento viene dimezzato e non è possibile effettuare Carica al suo interno.",
+    "kind": "html"
+  },
+  {
+    "id": "41aba0fbcd39d5525fe0",
+    "it": "L'aspetto del terreno dipende dalla Fonte: potrebbe trattarsi di sabbie mobili, ghiaccio irregolare, detriti o una sostanza prodotta da un Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "f245884edbfb4def5451",
+    "it": "Cortina blocca la visibilità.",
+    "kind": "html"
+  },
+  {
+    "id": "b9c0ee8a22e4e665dce1",
+    "it": "Chi si trova al suo interno viene trattato come Accecato quando tenta di mirare verso l'esterno.",
+    "kind": "html"
+  },
+  {
+    "id": "879b1dbf8eaaa3711727",
+    "it": "La Cortina non è automaticamente una barriera fisica: impedire la vista non significa impedire il passaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "76ab7851a64bbc966390",
+    "it": "Prigione trattiene i bersagli presenti nella Zona.",
+    "kind": "html"
+  },
+  {
+    "id": "9cb5534dc204f34f46fd",
+    "it": "Un personaggio intrappolato deve superare una Salvezza con l’Attributo coerente con la forma della prigione contro la Soglia determinata dal Grado della Tecnica (§1.4). Una scheda specifica può indicare un Attributo, una Soglia o una procedura differente.",
+    "kind": "html"
+  },
+  {
+    "id": "27ed40b9ef00d737d3e2",
+    "it": "La forma concreta della prigione dipende dalla Tecnica: radici, pietra, ghiaccio, materia adesiva o altri elementi compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "f666ae9f02567f6ce5d1",
+    "it": "<span class=\"man-sez-n\">7.11 ·</span> Effetti Concatenati",
+    "kind": "html"
+  },
+  {
+    "id": "f7d5698b8132c5f52bf4",
+    "it": "Gli Effetti Concatenati ordinari sono Schianto, Rimbalzo e Catena. Aggancio è rimosso. Il catalogo resta limitato agli Stili indicati.",
+    "kind": "html"
+  },
+  {
+    "id": "5af19b579a8da367c576",
+    "it": "7.11.1 · Schianto",
+    "kind": "html"
+  },
+  {
+    "id": "a16b3ca8786b25787641",
+    "it": "Schianto (d8, 2 ST, Striker/Crusher) infligge +1d8 danni se il bersaglio urta una superficie, un ostacolo o un’altra creatura. È adatto a una Tecnica che possiede anche Proiezione: il dado aggiuntivo richiede una collisione valida e non è un acquisto generico di danno.",
+    "kind": "html"
+  },
+  {
+    "id": "19febaa4f4b49c728bb1",
+    "it": "Combinazione · Proiezione + Schianto",
+    "kind": "html"
+  },
+  {
+    "id": "3f535e419dfd10eadae5",
+    "it": "Urto del Porto",
+    "kind": "html"
+  },
+  {
+    "id": "4b1a01b9c25270b61d1b",
+    "it": "Tecnica Crusher d8 con Proiezione (1 ST) + Schianto (2 ST): costo totale dagli effetti 3 ST e 2 slot occupati.",
+    "kind": "html"
+  },
+  {
+    "id": "588094ec635007be664f",
+    "it": "Effettua il normale tiro per colpire. Se il colpo va a segno, infligge il normale Dado Danno e spinge il bersaglio di 3 m. Se la Proiezione provoca una collisione valida, aggiunge 1d8 danni.",
+    "kind": "html"
+  },
+  {
+    "id": "ff43b9a71574695a3371",
+    "it": "Proiezione appartiene alla famiglia Spostamento, Schianto ai Concatenati. La combinazione rispetta il limite ordinario di un effetto per famiglia e i 2 slot della Tecnica d8.",
+    "kind": "html"
+  },
+  {
+    "id": "7fb4612e2f615da003e7",
+    "it": "7.11.2 · Rimbalzo",
+    "kind": "html"
+  },
+  {
+    "id": "a4dacbe61be0f7cf3784",
+    "it": "Rimbalzo (d10, 2 ST, Sniper) permette al colpo di raggiungere un secondo bersaglio entro 5 m dal primo, infliggendo metà danno. Non concede bersagli ulteriori; restano le normali condizioni del tiro e della difesa.",
+    "kind": "html"
+  },
+  {
+    "id": "1eb186cd144b34354b9f",
+    "it": "7.11.3 · Catena",
+    "kind": "html"
+  },
+  {
+    "id": "2bbd2b5fe28e31d70fba",
+    "it": "Catena (d12, 2 ST, Swordsman/Sniper) raggiunge fino a tre bersagli in fila. Si effettuano tiri per colpire separati; il danno viene tirato una sola volta.",
+    "kind": "html"
+  },
+  {
+    "id": "9cd1134420bd90e00c88",
+    "it": "<b>Danno ricevuto</b>",
+    "kind": "html"
+  },
+  {
+    "id": "d43672127e1edb697d06",
+    "it": "Primo",
+    "kind": "html"
+  },
+  {
+    "id": "04206a143879f9c131b5",
+    "it": "Danno pieno",
+    "kind": "html"
+  },
+  {
+    "id": "b6a340918fa530c70925",
+    "it": "Secondo",
+    "kind": "html"
+  },
+  {
+    "id": "9ce438e00eb2cae87a45",
+    "it": "Metà del danno",
+    "kind": "html"
+  },
+  {
+    "id": "e3e535c2a264d7dc340e",
+    "it": "Terzo",
+    "kind": "html"
+  },
+  {
+    "id": "1636474f872e06d8d9fc",
+    "it": "Metà del danno del secondo",
+    "kind": "html"
+  },
+  {
+    "id": "b20e1509a38ddad22688",
+    "it": "Esempio: con 16 danni, i bersagli subiscono rispettivamente 16, 8 e 4, purché i rispettivi attacchi vadano a segno. Catena non estende automaticamente la portata dell’arma o della Fonte.",
+    "kind": "html"
+  },
+  {
+    "id": "8b4df3aae9c5a2542631",
+    "it": "<span class=\"man-sez-n\">7.12 ·</span> Melodie del Musicista",
+    "kind": "html"
+  },
+  {
+    "id": "0f1a3ef2ed20a2f5908c",
+    "it": "Il Musicista possiede una categoria esclusiva di Tecniche: le Canzoni.",
+    "kind": "html"
+  },
+  {
+    "id": "dfd256ef2e5133e2157a",
+    "it": "Una Canzone viene costruita scegliendo la Forma Canzone e una Melodia dal relativo Catalogo.",
+    "kind": "html"
+  },
+  {
+    "id": "2a0b1e080c6c6195a7a9",
+    "it": "Ogni Tecnica di questo tipo può contenere una sola Melodia.",
+    "kind": "html"
+  },
+  {
+    "id": "8ffa7dff5bcd4508ab89",
+    "it": "Le Canzoni non utilizzano il normale tiro per colpire.",
+    "kind": "html"
+  },
+  {
+    "id": "94dd02034365d518fd5c",
+    "it": "Regola delle Canzoni",
+    "kind": "html"
+  },
+  {
+    "id": "c982e6382014fadb9a8f",
+    "it": "Attivazione: il Musicista spende la propria Azione e la Stamina indicata dalla Melodia.",
+    "kind": "html"
+  },
+  {
+    "id": "0e2f9a6107769460cf68",
+    "it": "Alleati: ricevono automaticamente l'effetto, senza effettuare tiri.",
+    "kind": "html"
+  },
+  {
+    "id": "af5d61d5d83f40c058bd",
+    "it": "Nemici: effettuano una Salvezza quando la Melodia lo prevede.",
+    "kind": "html"
+  },
+  {
+    "id": "da36266425b9c11581fb",
+    "it": "Una Canzone non attiva la Firma del Musicista attraverso un margine +4, poiché il Musicista non effettua un tiro per eseguirla.",
+    "kind": "html"
+  },
+  {
+    "id": "21c8e13b5ab6362cdcb0",
+    "it": "Soglia delle Canzoni",
+    "kind": "html"
+  },
+  {
+    "id": "c24ed55f9184a71c595a",
+    "it": "Quando una Canzone richiede una Salvezza, la sua Soglia è determinata dal Grado effettivamente utilizzato dello strumento musicale.",
+    "kind": "html"
+  },
+  {
+    "id": "b779342988b1fadf0476",
+    "it": "<b>Grado dello strumento</b>",
+    "kind": "html"
+  },
+  {
+    "id": "1354d21a6bf72dfe64c3",
+    "it": "Il Grado effettivamente utilizzabile dello strumento non può superare Arte.",
+    "kind": "html"
+  },
+  {
+    "id": "36e2c562812f6ad94664",
+    "it": "Esempio: un Musicista con Arte d8 che possiede uno strumento d12 utilizza temporaneamente quello strumento come d8; le sue Canzoni avranno quindi Soglia 5.",
+    "kind": "html"
+  },
+  {
+    "id": "cd82e6513b672bf3d93a",
+    "it": "La voce rimane sempre disponibile come strumento d4 e produce quindi normalmente Soglia 3.",
+    "kind": "html"
+  },
+  {
+    "id": "3751da7948885946824d",
+    "it": "La Salvezza utilizza l’Attributo indicato dalla Melodia o dallo Stato applicato.",
+    "kind": "html"
+  },
+  {
+    "id": "74137b90b3fe4a703df7",
+    "it": "Se la Melodia non specifica un Attributo ma agisce sulla volontà, sull’emotività o sulla mente del bersaglio, utilizza normalmente Spirito.",
+    "kind": "html"
+  },
+  {
+    "id": "8e74ca0bb0e26d60c1bc",
+    "it": "7.12.1 · Catalogo delle Melodie",
+    "kind": "html"
+  },
+  {
+    "id": "9338cf155057d2e163fb",
+    "it": "<b>Melodia</b>",
+    "kind": "html"
+  },
+  {
+    "id": "4eed111f27456a8cb0df",
+    "it": "Motivetto di Vigore",
+    "kind": "html"
+  },
+  {
+    "id": "f21d18c4811b502f9786",
+    "it": "Un alleato che può sentirti recupera 1d6 ST. Ogni personaggio ne beneficia una sola volta per scena; nella stessa scena il costo aumenta di +1 ST per ogni bersaglio differente già beneficiato. Vedi Motivetto di Vigore, sotto.",
+    "kind": "html"
+  },
+  {
+    "id": "0039895e1f4184f7b93a",
+    "it": "Richiamo",
+    "kind": "html"
+  },
+  {
+    "id": "ec359e0490bcd488cce1",
+    "it": "I nemici entro 20 metri che ti sentono devono attaccare te oppure attaccano altri bersagli con Svantaggio. Salvezza.",
+    "kind": "html"
+  },
+  {
+    "id": "d9db75dd56f087bde780",
+    "it": "Marcia di Guerra",
+    "kind": "html"
+  },
+  {
+    "id": "483bf92b98b306ff49a4",
+    "it": "2 ST + 1 ST/turno",
+    "kind": "html"
+  },
+  {
+    "id": "998bcd14e03b6f631228",
+    "it": "Canzone Sostenuta: un alleato scelto ottiene +1d4 agli attacchi mentre continui a suonare.",
+    "kind": "html"
+  },
+  {
+    "id": "1835658cce446be9fda2",
+    "it": "Controcanto",
+    "kind": "html"
+  },
+  {
+    "id": "fa10141e7643230a3d81",
+    "it": "Annulla Terrore, Sopore o charme sugli alleati.",
+    "kind": "html"
+  },
+  {
+    "id": "702a75a7e44e43f8198e",
+    "it": "Requiem Beffardo",
+    "kind": "html"
+  },
+  {
+    "id": "3fe66c36ff8878e2955c",
+    "it": "Un nemico subisce Svantaggio al prossimo tiro. Salvezza.",
+    "kind": "html"
+  },
+  {
+    "id": "214b5b846cf3925f87ea",
+    "it": "Tempo",
+    "kind": "html"
+  },
+  {
+    "id": "5f2b52e015b36a8d7681",
+    "it": "Un alleato sposta la propria Iniziativa immediatamente dopo la tua per il resto dello scontro.",
+    "kind": "html"
+  },
+  {
+    "id": "c9488e51bced9e4d2581",
+    "it": "Crescendo",
+    "kind": "html"
+  },
+  {
+    "id": "98ad45e690b49ecbd80d",
+    "it": "La prossima Tecnica di un alleato costa 2 ST in meno, fino a un minimo di 1 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "f7f0d7fa7d544b3be4d4",
+    "it": "Ninnananna",
+    "kind": "html"
+  },
+  {
+    "id": "9951921c7f8901005638",
+    "it": "I nemici entro 20 metri che ti sentono diventano Addormentati se falliscono la Salvezza. Non infligge danni.",
+    "kind": "html"
+  },
+  {
+    "id": "980078106826e0ffb1f0",
+    "it": "Assolo Travolgente",
+    "kind": "html"
+  },
+  {
+    "id": "0aed971c13cf4fd99eeb",
+    "it": "Gli alleati in ascolto recuperano 1d6 ST e ottengono +1d6 al tiro per colpire. +1 ST per ogni utilizzo in più nella stessa scena.",
+    "kind": "html"
+  },
+  {
+    "id": "0dffbe5670dd6ff9ac66",
+    "it": "Inno della Ciurma",
+    "kind": "html"
+  },
+  {
+    "id": "28994f51ac9bebcb7670",
+    "it": "Per la scena, ogni compagno sceglie un proprio dado e lo tira due volte, tenendo il risultato migliore.",
+    "kind": "html"
+  },
+  {
+    "id": "115519c8a42a9ef5f022",
+    "it": "Canto di Bordo",
+    "kind": "html"
+  },
+  {
+    "id": "52f11a74636cb8741fbf",
+    "it": "Per la scena, ogni compagno a una postazione navale aggiunge +1 dado al tiro della propria postazione.",
+    "kind": "html"
+  },
+  {
+    "id": "186ebe375549f9d173b1",
+    "it": "3 ST + 1 ST/turno",
+    "kind": "html"
+  },
+  {
+    "id": "b1f6fdbd2eb4d81c3bd6",
+    "it": "Richiede il Talento Marcia Funebre. Canzone Sostenuta: ogni nemico entro 10 metri che ti sente effettua una Salvezza di Spirito; chi fallisce è Atterrito finché resta nella portata, ti sente e continui a suonare.",
+    "kind": "html"
+  },
+  {
+    "id": "06b41ef690177f4b0ad8",
+    "it": "Canzone dell'Anima",
+    "kind": "html"
+  },
+  {
+    "id": "f4b6c24029839374b4d9",
+    "it": "Talento Supremo · 1 volta per scena: chi della ciurma può sentirti, Musicista compreso, riporta la Stamina al massimo. La stessa ciurma ne beneficia una sola volta per scena.",
+    "kind": "html"
+  },
+  {
+    "id": "3acdfc29386c938a851a",
+    "it": "Le Melodie applicano soltanto gli effetti indicati. Una Canzone che restituisce Stamina non restituisce automaticamente anche Punti Vita.",
+    "kind": "html"
+  },
+  {
+    "id": "aa6e2b0e0d5d3dbda24c",
+    "it": "d6 · 2 ST",
+    "kind": "html"
+  },
+  {
+    "id": "12d8cefa4658fdff245a",
+    "it": "Un alleato che può sentirti recupera 1d6 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "9b30aed948cafc3c0f2e",
+    "it": "Uno stesso personaggio può beneficiare di Motivetto di Vigore una sola volta per scena, indipendentemente dal numero di Musicisti presenti.",
+    "kind": "html"
+  },
+  {
+    "id": "d29bce99b434c8e013a9",
+    "it": "Se durante la stessa scena utilizzi Motivetto su un nuovo bersaglio, il costo aumenta di +1 ST per ogni differente bersaglio già beneficiato attraverso le tue precedenti esecuzioni.",
+    "kind": "html"
+  },
+  {
+    "id": "bc30fe950c255d56598f",
+    "it": "Primo compagno → 2 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "603dc6665c3ce0f7309a",
+    "it": "Secondo compagno → 3 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "efade025be49f50e737e",
+    "it": "Terzo compagno → 4 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "4a33eeb26d8cff6d74bb",
+    "it": "Il Musicista può scegliere se stesso come bersaglio, ma anche in questo caso può beneficiare di Motivetto soltanto una volta per scena.",
+    "kind": "html"
+  },
+  {
+    "id": "88cfd64b3c475e9150f2",
+    "it": "Il recupero non può superare la ST Massima.",
+    "kind": "html"
+  },
+  {
+    "id": "7ed9e97bdca805dcb594",
+    "it": "Il limite di Motivetto di Vigore non si applica ad Assolo Travolgente: sono Melodie differenti. Gli eventuali limiti e aumenti di costo di Assolo Travolgente rimangono quelli indicati nella sua scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "c3d94988d43e3d63ab57",
+    "it": "Canzoni Sostenute",
+    "kind": "html"
+  },
+  {
+    "id": "8c0f91a1304bc4ab58ea",
+    "it": "Soltanto una Melodia indicata espressamente come Canzone Sostenuta, oppure il cui testo dichiari che continua finché il Musicista suona, richiede mantenimento.",
+    "kind": "html"
+  },
+  {
+    "id": "5190f063ac042760a34f",
+    "it": "Intonare la Canzone richiede normalmente:",
+    "kind": "html"
+  },
+  {
+    "id": "4513653ffb2ad8390947",
+    "it": "L’Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "5513418807e009a8b8e3",
+    "it": "Il costo iniziale indicato dalla Melodia.",
+    "kind": "html"
+  },
+  {
+    "id": "7956d77683aa520ee822",
+    "it": "A partire dal turno successivo, mantenere una Canzone Sostenuta richiede normalmente:",
+    "kind": "html"
+  },
+  {
+    "id": "8db22c4fb96ad0d8243c",
+    "it": "1 ST per turno.",
+    "kind": "html"
+  },
+  {
+    "id": "bbd70aeed7ba14c4e8ec",
+    "it": "L’Azione del Musicista.",
+    "kind": "html"
+  },
+  {
+    "id": "94065c4ebd69fd3f9f4b",
+    "it": "Pagare il mantenimento non costituisce una nuova attivazione e non applica nuovamente gli effetti iniziali della Melodia.",
+    "kind": "html"
+  },
+  {
+    "id": "f2ebc0f59bddbfed4b43",
+    "it": "Contrappunto · Base elimina il requisito di utilizzare l’Azione per mantenere la Canzone: il Musicista può agire normalmente mentre continua a suonare.",
+    "kind": "html"
+  },
+  {
+    "id": "c4059de589d76dbf53fc",
+    "it": "Contrappunto · Migliorato permette di mantenere due Canzoni contemporaneamente.",
+    "kind": "html"
+  },
+  {
+    "id": "1323cd8c951fd8befdcf",
+    "it": "Contrappunto · Maestria elimina il costo in ST del mantenimento.",
+    "kind": "html"
+  },
+  {
+    "id": "5f52437d7db939accf71",
+    "it": "Una Canzone Sostenuta termina immediatamente se:",
+    "kind": "html"
+  },
+  {
+    "id": "a5cdb3824cb079b25d26",
+    "it": "Il Musicista decide di interromperla.",
+    "kind": "html"
+  },
+  {
+    "id": "90eec37f25375c9d2824",
+    "it": "Non paga il costo di mantenimento quando richiesto.",
+    "kind": "html"
+  },
+  {
+    "id": "8077b8a1aa6f4fc2583f",
+    "it": "Perde la capacità di produrre la musica necessaria.",
+    "kind": "html"
+  },
+  {
+    "id": "6eab8a51b255f40c4cd7",
+    "it": "Perde lo strumento richiesto e non può continuare con quello stesso mezzo.",
+    "kind": "html"
+  },
+  {
+    "id": "b9b3362da32a02c44e47",
+    "it": "Diventa Incosciente.",
+    "kind": "html"
+  },
+  {
+    "id": "fee0cfe47c0848b38d1c",
+    "it": "Una condizione o un effetto gli impedisce materialmente di cantare o suonare.",
+    "kind": "html"
+  },
+  {
+    "id": "5e1ab841ed2f409110ba",
+    "it": "Essere semplicemente spostato, buttato a terra o coinvolto in combattimento non interrompe automaticamente una Canzone.",
+    "kind": "html"
+  },
+  {
+    "id": "9dbe4befaa03962bd1c1",
+    "it": "Musica Incrollabile costituisce un’eccezione specifica: Stordito e l’essere abbattuto a terra non interrompono da soli una Canzone già in corso.",
+    "kind": "html"
+  },
+  {
+    "id": "9d097b4235a76cf7bf8e",
+    "it": "Se viene perso o distrutto lo strumento utilizzato, la Canzone termina. Il Musicista può intonare successivamente una nuova Canzone utilizzando la voce o un altro strumento disponibile.",
+    "kind": "html"
+  },
+  {
+    "id": "4b0c391040e373eb2caa",
+    "it": "Portata e ascolto",
+    "kind": "html"
+  },
+  {
+    "id": "18828478dc8f520f1091",
+    "it": "Salvo che una Melodia indichi una portata differente, una Canzone possiede una portata ordinaria di:",
+    "kind": "html"
+  },
+  {
+    "id": "05113a3115cfc3b672b3",
+    "it": "<b>20 metri</b>\n",
+    "kind": "html"
+  },
+  {
+    "id": "2ae0d9c7ccfa61b52df0",
+    "it": "Essere entro la distanza non è sufficiente: il destinatario deve anche poter sentire realmente la musica.",
+    "kind": "html"
+  },
+  {
+    "id": "1dd7abc6e04e0ffda36b",
+    "it": "Non è necessaria una linea di vista.",
+    "kind": "html"
+  },
+  {
+    "id": "5502916393bd8be7de9e",
+    "it": "Pareti spesse, ambienti completamente isolati, silenzio soprannaturale o altri ostacoli che impediscono realmente al suono di raggiungere il bersaglio bloccano la Canzone.",
+    "kind": "html"
+  },
+  {
+    "id": "69b11d48d5a8f10c07b7",
+    "it": "Una porta aperta, una finestra o altri passaggi possono invece permettere al suono di propagarsi normalmente.",
+    "kind": "html"
+  },
+  {
+    "id": "97eb554ba01a20f28b0a",
+    "it": "Sott’acqua una Canzone funziona soltanto se il Musicista può effettivamente produrre musica e il bersaglio può percepirla attraverso il mezzo utilizzato.",
+    "kind": "html"
+  },
+  {
+    "id": "1cb7ee47a4fd890781c3",
+    "it": "Un lumacofono o altro mezzo di comunicazione può trasmettere una normale esibizione, ma non trasmette automaticamente gli effetti meccanici di una Canzone salvo che una capacità dichiari espressamente il contrario.",
+    "kind": "html"
+  },
+  {
+    "id": "d10def9301e20ea9ddc3",
+    "it": "7.12.2 · Gli strumenti musicali",
+    "kind": "html"
+  },
+  {
+    "id": "a13303bffbac975791ba",
+    "it": "Gli strumenti del Musicista possiedono un Grado espresso attraverso un dado.",
+    "kind": "html"
+  },
+  {
+    "id": "1a9babf746ef282057a4",
+    "it": "A differenza delle armi, non vengono utilizzati normalmente per colpire. Il loro Grado determina la difficoltà di resistere alle Canzoni.",
+    "kind": "html"
+  },
+  {
+    "id": "307b0e0c9a7187b9961b",
+    "it": "Competente",
+    "kind": "html"
+  },
+  {
+    "id": "ef2977bc573ad2d2d639",
+    "it": "Maestro",
+    "kind": "html"
+  },
+  {
+    "id": "1e836da18cc253396a1a",
+    "it": "Mitico",
+    "kind": "html"
+  },
+  {
+    "id": "295401ca987e705b205f",
+    "it": "Il Grado effettivamente utilizzabile dello strumento non può superare il dado di Arte del Musicista.",
+    "kind": "html"
+  },
+  {
+    "id": "24b654c8f3dd06533e4b",
+    "it": "Un personaggio con Arte d8 che ottiene uno strumento d12 non può sfruttarne immediatamente l'intera qualità. Per utilizzare pienamente lo strumento deve sviluppare Arte.",
+    "kind": "html"
+  },
+  {
+    "id": "a7149cbf60425a03f3a4",
+    "it": "La voce rappresenta sempre un'opzione disponibile, con Grado base d4.",
+    "kind": "html"
+  },
+  {
+    "id": "8d5783f0b564727cdf0a",
+    "it": "7.12.3 · Tipi di strumento",
+    "kind": "html"
+  },
+  {
+    "id": "d93e4b34fb1dd2f63e2a",
+    "it": "Ogni tipo di strumento offre una particolare amplificazione.",
+    "kind": "html"
+  },
+  {
+    "id": "d5aef5adc1ef0d36a436",
+    "it": "<b>Tipo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "c6236e0032645c8a80a2",
+    "it": "<b>Amplificazione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "caa5029e101ce7b6cb51",
+    "it": "Corde",
+    "kind": "html"
+  },
+  {
+    "id": "664ba0638c01907048fb",
+    "it": "Le Melodie rivolte a un singolo bersaglio costano 1 ST in meno, minimo 1.",
+    "kind": "html"
+  },
+  {
+    "id": "218d6563cdc46121a330",
+    "it": "Fiati",
+    "kind": "html"
+  },
+  {
+    "id": "6dee9cad89b1102ec81a",
+    "it": "La portata delle Canzoni aumenta da 20 a 40 metri.",
+    "kind": "html"
+  },
+  {
+    "id": "063266d6482b0232f074",
+    "it": "Percussioni",
+    "kind": "html"
+  },
+  {
+    "id": "3a43b045a03f7b3dd886",
+    "it": "Le Melodie che coinvolgono l'intera ciurma costano 1 ST in meno.",
+    "kind": "html"
+  },
+  {
+    "id": "7e66c2a3f8110701c91d",
+    "it": "Mantice",
+    "kind": "html"
+  },
+  {
+    "id": "dc4c2ae65ecc8bf54ccc",
+    "it": "Il mantenimento delle Canzoni Sostenute è gratuito per i primi due turni.",
+    "kind": "html"
+  },
+  {
+    "id": "0c788fd7e273b71945bc",
+    "it": "Voce",
+    "kind": "html"
+  },
+  {
+    "id": "474f2dc1233e1ac27c4e",
+    "it": "Non puoi essere disarmato e nessuno riconosce l'utilizzo della Tecnica prima che produca il proprio effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "66b5a0e2022b3cd74fb0",
+    "it": "La tipologia dello strumento è indipendente dal Grado: uno strumento migliore non cambia automaticamente la propria amplificazione.",
+    "kind": "html"
+  },
+  {
+    "id": "e097b597c92156cc6c10",
+    "it": "Gli strumenti particolari possono possedere un ulteriore effetto speciale, definito dal Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "41c1be09ea9309fb46b9",
+    "it": "<span class=\"man-sez-n\">7.13 ·</span> Durata delle Tecniche",
+    "kind": "html"
+  },
+  {
+    "id": "4820f4eb21183c37f4d2",
+    "it": "Una Tecnica che produce un effetto persistente deve specificarne la durata.",
+    "kind": "html"
+  },
+  {
+    "id": "92cc9f346f0367b27def",
+    "it": "Per le Tecniche ad Area, il Costruttore prevede le seguenti opzioni. Regolano la persistenza dell’Area e delle Zone autorizzate dalla Fonte; non sostituiscono le durate specifiche di Guardia, Furia, Mira o il mantenimento per turno di Presa.",
+    "kind": "html"
+  },
+  {
+    "id": "6f9e56742bbecca8ea0c",
+    "it": "<b>Durata</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7b746105b83b4d9dd9ba",
+    "it": "<b>Costo aggiuntivo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3827eb18c65988a77e17",
+    "it": "Un turno",
+    "kind": "html"
+  },
+  {
+    "id": "b4cdac86cd9c28aa2860",
+    "it": "La Tecnica mantiene l'effetto per un turno.",
+    "kind": "html"
+  },
+  {
+    "id": "bfea1f7528d34f0b2d0e",
+    "it": "Mantieni",
+    "kind": "html"
+  },
+  {
+    "id": "58d2bf6223af2292b563",
+    "it": "1 ST per turno",
+    "kind": "html"
+  },
+  {
+    "id": "f3e8f3f8d9c2c36e36d4",
+    "it": "Il personaggio paga il mantenimento per prolungare l'effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "598de12a4f7390e942e7",
+    "it": "Tre turni",
+    "kind": "html"
+  },
+  {
+    "id": "17bcfe3c41496bec3f0b",
+    "it": "L'effetto dura tre turni.",
+    "kind": "html"
+  },
+  {
+    "id": "10f7146690b3e5e4db75",
+    "it": "Tutta la scena",
+    "kind": "html"
+  },
+  {
+    "id": "2de0b4649e938f83f588",
+    "it": "Nessun sovrapprezzo indicato",
+    "kind": "html"
+  },
+  {
+    "id": "16d8c92b0e15de05bed6",
+    "it": "Opzione riservata alle Tecniche di Grado d20; restano i requisiti della Fonte.",
+    "kind": "html"
+  },
+  {
+    "id": "44ac9b253af482c4f80f",
+    "it": "Le Tecniche personalizzate non superano d20. Il requisito della durata «Tutta la scena» è d20 e non concede una progressione di Prestigio alla Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "25cd66cdc8a777df48e5",
+    "it": "La durata di una Tecnica non modifica automaticamente quella dell'Haki o dei Talenti che le vengono associati attraverso una Special Move.",
+    "kind": "html"
+  },
+  {
+    "id": "353fbf2625ab15318cfc",
+    "it": "Ogni capacità mantiene la propria durata.",
+    "kind": "html"
+  },
+  {
+    "id": "6d14c17968380a1bac8d",
+    "it": "Esempio: una Zona può rimanere attiva per tre turni, mentre un Talento utilizzato insieme alla Tecnica può avere effetto soltanto sull'attacco iniziale. La persistenza della Zona non prolunga il Talento.",
+    "kind": "html"
+  },
+  {
+    "id": "7fc3f44d7b6b32de154f",
+    "it": "<span class=\"man-sez-n\">7.14 ·</span> Armi, Moduli e Tecniche",
+    "kind": "html"
+  },
+  {
+    "id": "04262fd5201afe88ee02",
+    "it": "Le armi e i Moduli rappresentano gli strumenti attraverso cui un personaggio può eseguire determinate Tecniche.",
+    "kind": "html"
+  },
+  {
+    "id": "050f5eac02e3bede9d16",
+    "it": "Un'arma non genera una Tecnica: la esegue. Gli effetti propri dell'arma vengono definiti dal Costruttore d'Arma e rimangono distinti da quelli della Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "f967beda269482ccd5c3",
+    "it": "Una Tecnica di Stile può essere associata a un'arma o a un Modulo compatibile.",
+    "kind": "html"
+  },
+  {
+    "id": "9546d71bc0e0a3082168",
+    "it": "Non può utilizzare contemporaneamente entrambi come esecutori della medesima Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "cfd7a9f70eca28662b16",
+    "it": "Armi",
+    "kind": "html"
+  },
+  {
+    "id": "3108bface1a6c2781384",
+    "it": "Per eseguire una Tecnica attraverso un'arma, il personaggio deve rispettarne i requisiti di compatibilità, compresi quelli relativi al Grado, all'Attributo e allo Stile.",
+    "kind": "html"
+  },
+  {
+    "id": "8008600f29885307f4e2",
+    "it": "Le Tecniche Striker vengono eseguite a mani nude.",
+    "kind": "html"
+  },
+  {
+    "id": "c8bb782f043daa6999ff",
+    "it": "Le Tecniche Crusher richiedono un'arma contundente compatibile.",
+    "kind": "html"
+  },
+  {
+    "id": "962b4ff8b8749afc3e3b",
+    "it": "Un eventuale effetto speciale dell'arma viene applicato secondo le proprie condizioni e non viene trasferito automaticamente alla Tecnica soltanto perché le due schede sono collegate.",
+    "kind": "html"
+  },
+  {
+    "id": "5f50f3eb79a12f2c9773",
+    "it": "Moduli",
+    "kind": "html"
+  },
+  {
+    "id": "af0bfe4dd7502fe5945b",
+    "it": "Un Modulo deve essere installato, Integro e Attivo per eseguire una Tecnica che richiede la sua Funzione attiva.",
+    "kind": "html"
+  },
+  {
+    "id": "b54100c129499dd88da9",
+    "it": "Un Modulo Danneggiato non può essere utilizzato come esecutore della Tecnica finché non viene riparato.",
+    "kind": "html"
+  },
+  {
+    "id": "5d5f0d66fefd3ade4206",
+    "it": "Se il Modulo è Inattivo, il Cyborg deve renderlo Attivo secondo le normali regole di cambio dei Moduli. Il normale cambio del Modulo Attivo può essere effettuato gratuitamente una volta durante il proprio turno.",
+    "kind": "html"
+  },
+  {
+    "id": "c34ae3d1d5157aa5ec40",
+    "it": "Rendere Attivo un Modulo rimane distinto dall’attivazione dell’Haki e dei Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "a871f5ad61b0c3d8fdf8",
+    "it": "Il Modulo fornisce il mezzo fisico della Tecnica e le eventuali proprietà previste dalla propria scheda; non sostituisce il Dado Tecnica e non duplica effetti già presenti nella Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "16164d37a68422190384",
+    "it": "<span class=\"man-sez-n\">7.15 ·</span> Tecniche e Special Moves",
+    "kind": "html"
+  },
+  {
+    "id": "f805b6e59871c82f690a",
+    "it": "Una Tecnica costruita può essere selezionata come base di una Special Move.",
+    "kind": "html"
+  },
+  {
+    "id": "4fc3cdad64889d9dd967",
+    "it": "La Special Move è una scheda di combinazione: collega capacità già possedute dal personaggio e ne mostra formule, costi, condizioni ed eventuali preparazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "1ba22ec40cfce5d194e4",
+    "it": "Non modifica le regole delle singole componenti.",
+    "kind": "html"
+  },
+  {
+    "id": "9a5dedac6e26870b4ed9",
+    "it": "7.15.1 · Componenti di una Special Move",
+    "kind": "html"
+  },
+  {
+    "id": "0f82fb4fe3366c631a12",
+    "it": "Una Special Move può comprendere:",
+    "kind": "html"
+  },
+  {
+    "id": "73a9901b21da27d89565",
+    "it": "<b>Componente</b>",
+    "kind": "html"
+  },
+  {
+    "id": "4eb5e42fecce487a8a82",
+    "it": "Tecnica base",
+    "kind": "html"
+  },
+  {
+    "id": "971c3a025fc7a22a8668",
+    "it": "Determina la mossa eseguita e i suoi effetti.",
+    "kind": "html"
+  },
+  {
+    "id": "3634a389466f5096d3a6",
+    "it": "Un Talento attivo",
+    "kind": "html"
+  },
+  {
+    "id": "1e54ee0c236ae3c26099",
+    "it": "Aggiunge i benefici del Talento quando viene attivato.",
+    "kind": "html"
+  },
+  {
+    "id": "1ed0640a101a497aa08a",
+    "it": "Applicano automaticamente i benefici compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "eb304c976d28fd2101aa",
+    "it": "Fornisce i benefici disponibili quando è attivo e vengono pagati i relativi costi.",
+    "kind": "html"
+  },
+  {
+    "id": "e0087401f2678acbb3c8",
+    "it": "Arma o Modulo",
+    "kind": "html"
+  },
+  {
+    "id": "cabc6547090fc1a752ad",
+    "it": "Determina l'equipaggiamento utilizzato per eseguire la mossa.",
+    "kind": "html"
+  },
+  {
+    "id": "c87fbac075a49c38fe7b",
+    "it": "I componenti devono appartenere al personaggio e rispettare tutti i propri requisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "ebb4adf0bc84951a2481",
+    "it": "Una Special Move può contenere al massimo un Talento attivo. Non è possibile associare più Talenti attivi alla stessa mossa per utilizzarli contemporaneamente.",
+    "kind": "html"
+  },
+  {
+    "id": "9086a2087b20adf44a87",
+    "it": "7.15.2 · Economia delle Azioni",
+    "kind": "html"
+  },
+  {
+    "id": "51bc001d8dd442be686c",
+    "it": "L'esecuzione offensiva di una Special Move utilizza normalmente l'Azione principale.",
+    "kind": "html"
+  },
+  {
+    "id": "1232fa69db4787f4b013",
+    "it": "L'attivazione di un Talento attivo o dell'Haki richiede invece l'Azione Bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "a63f491a0c34d803e747",
+    "it": "Ogni turno il personaggio possiede una sola Azione Bonus e deve scegliere come utilizzarla.",
+    "kind": "html"
+  },
+  {
+    "id": "5283c71e9beda0f8f970",
+    "it": "Non è quindi possibile attivare contemporaneamente un Talento attivo e l'Haki nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "68f130feb81790878cdd",
+    "it": "I Talenti passivi non richiedono attivazione e si applicano quando vengono soddisfatte le loro condizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "ea657b93717329719962",
+    "it": "<b>7.15.3 · Preparare una Special Move con Haki e Talento</b>",
+    "kind": "html"
+  },
+  {
+    "id": "1cddc419c99fe6d85ac4",
+    "it": "Una Special Move che richiede sia l'Haki sia un Talento attivo può richiedere una preparazione su più turni.",
+    "kind": "html"
+  },
+  {
+    "id": "747523d56dbfb1ac5f44",
+    "it": "Esempio · Attacco preparato",
+    "kind": "html"
+  },
+  {
+    "id": "445fe28e665d972e61dc",
+    "it": "Turno 1",
+    "kind": "html"
+  },
+  {
+    "id": "9b0cd708efe406bbcc79",
+    "it": "Attivazione dell'Haki",
+    "kind": "html"
+  },
+  {
+    "id": "f40074d93265818b7f69",
+    "it": "Il personaggio utilizza la propria Azione Bonus per attivare l'Haki, pagando il costo previsto.",
+    "kind": "html"
+  },
+  {
+    "id": "8775e2692ce9d50375bb",
+    "it": "L'Azione principale rimane disponibile.",
+    "kind": "html"
+  },
+  {
+    "id": "8302d06106d57a198536",
+    "it": "Turno 2",
+    "kind": "html"
+  },
+  {
+    "id": "52a6297ca588a3ba1b34",
+    "it": "Esecuzione della Special Move",
+    "kind": "html"
+  },
+  {
+    "id": "dc76b91c6dbee5baf31d",
+    "it": "Il personaggio mantiene attivo l'Haki pagando l'eventuale costo di mantenimento.",
+    "kind": "html"
+  },
+  {
+    "id": "0d888f76748127af3935",
+    "it": "Utilizza l'Azione Bonus per attivare il Talento previsto dalla combinazione.",
+    "kind": "html"
+  },
+  {
+    "id": "fb77ac4a02c65e339d1d",
+    "it": "Utilizza l'Azione principale per eseguire la Special Move.",
+    "kind": "html"
+  },
+  {
+    "id": "2bd38e89702f4f451fdd",
+    "it": "Applica gli effetti della Tecnica, dell'Haki attivo e dei Talenti compatibili, rispettando i rispettivi costi e limiti.",
+    "kind": "html"
+  },
+  {
+    "id": "10103506687b57256e84",
+    "it": "Se la Special Move richiede l'Haki ma non un Talento attivo, il personaggio può attivare l'Haki con l'Azione Bonus ed eseguire la Tecnica con l'Azione principale nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "e65f1ce4f6532357330b",
+    "it": "La preparazione anticipata non permette di conservare un Talento oltre la sua durata naturale.",
+    "kind": "html"
+  },
+  {
+    "id": "b6175f49ce89a2e9d713",
+    "it": "7.15.4 · Costi e disponibilità",
+    "kind": "html"
+  },
+  {
+    "id": "9a4b7f811957f9e916ac",
+    "it": "Ogni componente mantiene i propri costi in Stamina, PIP e altre risorse.",
+    "kind": "html"
+  },
+  {
+    "id": "7eb5243a5c4b2e26f0a7",
+    "it": "L'Haki deve essere attivo e disporre dei PIP necessari.",
+    "kind": "html"
+  },
+  {
+    "id": "a6cedd574685f0380d81",
+    "it": "Il Talento attivo deve essere disponibile e rispettare il proprio limite di utilizzo.",
+    "kind": "html"
+  },
+  {
+    "id": "779492b030a17ceb5130",
+    "it": "L'arma o il Modulo deve essere utilizzabile.",
+    "kind": "html"
+  },
+  {
+    "id": "3cb218f9a7984a5f9ffe",
+    "it": "Se una componente non soddisfa i propri requisiti, non può contribuire alla Special Move.",
+    "kind": "html"
+  },
+  {
+    "id": "e59dd930fcddc3cc288e",
+    "it": "Un personaggio può comunque eseguire la Tecnica base senza utilizzare una capacità aggiuntiva non disponibile, purché la Tecnica stessa rimanga eseguibile.",
+    "kind": "html"
+  },
+  {
+    "id": "55809aa570752de863b5",
+    "it": "7.15.5 · La scheda della Special Move",
+    "kind": "html"
+  },
+  {
+    "id": "f6660835e0ed2c268900",
+    "it": "Una Special Move dovrebbe riportare chiaramente le informazioni necessarie per utilizzarla senza dover consultare ogni volta tutte le schede del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "ae58aaca98a90b692896",
+    "it": "Scheda · Special Move",
+    "kind": "html"
+  },
+  {
+    "id": "90c2d339a9d57c9911b5",
+    "it": "Modello",
+    "kind": "html"
+  },
+  {
+    "id": "c4f7376fc6aca59871f4",
+    "it": "Nome: nome della combinazione.",
+    "kind": "html"
+  },
+  {
+    "id": "8e7ff92a97788ae11b63",
+    "it": "Tecnica base: Tecnica utilizzata e relativo Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "97fa68da237e03087518",
+    "it": "Esecutore: arma o Modulo, se presente.",
+    "kind": "html"
+  },
+  {
+    "id": "36849afc812e861e58c2",
+    "it": "Talento attivo: massimo uno.",
+    "kind": "html"
+  },
+  {
+    "id": "1098725126639533bc6d",
+    "it": "Talenti passivi: capacità compatibili possedute.",
+    "kind": "html"
+  },
+  {
+    "id": "2f3d3d7233a02641af66",
+    "it": "Haki: Colore, effetti selezionati e stato richiesto.",
+    "kind": "html"
+  },
+  {
+    "id": "6fa5a65767a2125d7c4e",
+    "it": "Preparazione: eventuali attivazioni da effettuare nei turni precedenti.",
+    "kind": "html"
+  },
+  {
+    "id": "45e724278ae85f9afbac",
+    "it": "Azione: utilizzo dell'Azione principale per eseguire la mossa.",
+    "kind": "html"
+  },
+  {
+    "id": "2047ddff67e5cb0a41b0",
+    "it": "Costi: Stamina, PIP e altre risorse richieste.",
+    "kind": "html"
+  },
+  {
+    "id": "0d8a15ec866f049f7239",
+    "it": "Formula: tiro per colpire, Dadi Danno ed eventuali modificatori.",
+    "kind": "html"
+  },
+  {
+    "id": "8d831c00f74f4f98c358",
+    "it": "Condizioni: portata, bersaglio, equipaggiamento e altri requisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "e3df7e624fb77fac3edd",
+    "it": "La scheda non è una nuova fonte di potere: rappresenta un modo per preparare e consultare rapidamente le combinazioni del personaggio durante il combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "f437a3559f262f960fe9",
+    "it": "Capitolo 8 ·",
+    "kind": "html"
+  },
+  {
+    "id": "d9ba5a88435bba84a94e",
+    "it": "L'Haki",
+    "kind": "html"
+  },
+  {
+    "id": "748cb1a6f8b66b944276",
+    "it": "Esiste una forza che non dipende dai muscoli, dalle armi o dai Frutti del Diavolo. È la volontà di un individuo che prende forma, diventa percezione, protezione e, nei casi più straordinari, una pressione capace di piegare interi eserciti.",
+    "kind": "html"
+  },
+  {
+    "id": "8150a39bf987eddbcc4c",
+    "it": "Questa forza è chiamata Haki.",
+    "kind": "html"
+  },
+  {
+    "id": "e81d773828712a8035e5",
+    "it": "In Grand Line Chronicles, l'Haki è un potere che il personaggio sviluppa durante la propria avventura. Possiede una progressione specifica, una riserva di PIP e capacità che possono essere utilizzate autonomamente oppure associate alle Special Moves.",
+    "kind": "html"
+  },
+  {
+    "id": "08497dcb10357952f7f2",
+    "it": "La potenza dell'Haki non elimina la necessità di prepararsi: un combattente deve decidere quando attivarlo, quanto a lungo mantenerlo e quali effetti utilizzare.",
+    "kind": "html"
+  },
+  {
+    "id": "77a0440d32ae673e5ef4",
+    "it": "<span class=\"man-sez-n\">8.1 ·</span> I tre Colori dell'Haki",
+    "kind": "html"
+  },
+  {
+    "id": "25a4d0f68e82d7fd935d",
+    "it": "Esistono tre forme di Haki, chiamate Colori.",
+    "kind": "html"
+  },
+  {
+    "id": "a31f55464413a5a04657",
+    "it": "Haki dell'Armamento",
+    "kind": "html"
+  },
+  {
+    "id": "60acf18aedb1281311ce",
+    "it": "Busoshoku Haki",
+    "kind": "html"
+  },
+  {
+    "id": "ec0ed423c44e6ac22f20",
+    "it": "Indurisce il corpo e le armi, potenzia i colpi e permette di contrastare le difese dei Frutti del Diavolo.",
+    "kind": "html"
+  },
+  {
+    "id": "d9d0e5f795bcb7f70a21",
+    "it": "Haki dell'Osservazione",
+    "kind": "html"
+  },
+  {
+    "id": "a6f1eed13ceea1a4af5d",
+    "it": "Kenbunshoku Haki",
+    "kind": "html"
+  },
+  {
+    "id": "ef5c55ed43c9631e06e3",
+    "it": "Permette di percepire le presenze, anticipare gli attacchi e, ai livelli più elevati, intravedere il futuro.",
+    "kind": "html"
+  },
+  {
+    "id": "c03d4e69255a04550ccd",
+    "it": "Haki del Re",
+    "kind": "html"
+  },
+  {
+    "id": "58c27958d07ac33e8dcf",
+    "it": "Haoshoku Haki",
+    "kind": "html"
+  },
+  {
+    "id": "50b397840f1b4313b235",
+    "it": "Una manifestazione rara della volontà, capace di dominare il campo di battaglia e sopraffare gli avversari più deboli.",
+    "kind": "html"
+  },
+  {
+    "id": "a4b7543d9943f42fcf72",
+    "it": "Armamento e Osservazione crescono attraverso i Gradi dei dadi. L'Haki del Re possiede invece una progressione propria, articolata in tre livelli.",
+    "kind": "html"
+  },
+  {
+    "id": "73c45c075525aff38f85",
+    "it": "<span class=\"man-sez-n\">8.2 ·</span> Ottenere e sviluppare l'Haki",
+    "kind": "html"
+  },
+  {
+    "id": "f50e985848e3c0f0333d",
+    "it": "Alla creazione del personaggio, l'Haki parte da Nessuno.",
+    "kind": "html"
+  },
+  {
+    "id": "ca35aff268ba29c3af2b",
+    "it": "Il suo eventuale sblocco avviene nel corso della campagna, quando la storia e l'allenamento del personaggio lo giustificano.",
+    "kind": "html"
+  },
+  {
+    "id": "1d52e24b0108418f3a2b",
+    "it": "Il Game Master stabilisce quando il personaggio può acquisire un Colore e ne autorizza la progressione secondo le regole di avanzamento.",
+    "kind": "html"
+  },
+  {
+    "id": "129b55e53e4a4d6165c3",
+    "it": "Armamento e Osservazione",
+    "kind": "html"
+  },
+  {
+    "id": "5bbdc54a40345217c723",
+    "it": "Questi due Colori seguono la normale scala dei dadi:",
+    "kind": "html"
+  },
+  {
+    "id": "0a4cea50974566af3cb0",
+    "it": "1 PIP",
+    "kind": "html"
+  },
+  {
+    "id": "dec88196fe030b501c59",
+    "it": "2 PIP",
+    "kind": "html"
+  },
+  {
+    "id": "29db56013bdafadbb2ce",
+    "it": "3 PIP",
+    "kind": "html"
+  },
+  {
+    "id": "c9740b7a6d985274b412",
+    "it": "4 PIP",
+    "kind": "html"
+  },
+  {
+    "id": "a8511d6412c6602d54df",
+    "it": "5 PIP",
+    "kind": "html"
+  },
+  {
+    "id": "cb46402cf74ea5f96530",
+    "it": "Il Grado determina le capacità sbloccate e la quantità massima di PIP disponibili. Il dado di Armamento e quello di Osservazione non possono mai superare il dado di Spirito, compreso il Prestigio. Aumentare Spirito innalza il limite raggiungibile, ma non aumenta automaticamente i Colori. Oltre d20, la progressione prosegue secondo il Manuale del Prestigio; la riserva resta di 5 PIP per ciascun Colore.",
+    "kind": "html"
+  },
+  {
+    "id": "44d1a7a91c4781c111a7",
+    "it": "Un personaggio con Armamento d10 possiede anche gli effetti dei Gradi d6 e d8. Non perde le capacità precedenti quando sviluppa il Colore.",
+    "kind": "html"
+  },
+  {
+    "id": "bda2e5d2b65b0c8b903c",
+    "it": "L'Haki del Re non utilizza un dado di progressione.",
+    "kind": "html"
+  },
+  {
+    "id": "3048a5f0eaa4e79c1e58",
+    "it": "È un potere innato che il personaggio deve possedere per poterlo sviluppare. Non può essere ottenuto semplicemente dichiarando di volerlo allenare.",
+    "kind": "html"
+  },
+  {
+    "id": "cdeb0ea201a5a37b8bf2",
+    "it": "Il suo sviluppo è misurato attraverso tre livelli:",
+    "kind": "html"
+  },
+  {
+    "id": "7c2235ac4510d02a8170",
+    "it": "<b>Livello</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f4d045994b2824a0ec89",
+    "it": "Risveglio",
+    "kind": "html"
+  },
+  {
+    "id": "5199d835a3f9ede26a38",
+    "it": "Dominio",
+    "kind": "html"
+  },
+  {
+    "id": "6d060c350082d8e24978",
+    "it": "Assoluto",
+    "kind": "html"
+  },
+  {
+    "id": "7dc7dee74a2000ab0629",
+    "it": "L'accesso all'Haki del Re e la sua progressione vengono stabiliti con il Game Master. Il suo Prestigio ha tre stadi distinti, assegnati dal GM: Prestigio I, Prestigio II e Saikyō. Non utilizza un dado, non richiede soglie numeriche di Spirito e mantiene il massimo ordinario di 3 PIP.",
+    "kind": "html"
+  },
+  {
+    "id": "a1f232c6e13ef017502f",
+    "it": "<span class=\"man-sez-n\">8.3 ·</span> I PIP",
+    "kind": "html"
+  },
+  {
+    "id": "90d4f30eddba35669902",
+    "it": "I PIP rappresentano la riserva di volontà che il personaggio può spendere per attivare e utilizzare l'Haki.",
+    "kind": "html"
+  },
+  {
+    "id": "1cb73038f6364e38752d",
+    "it": "Sono una risorsa distinta dalla Stamina.",
+    "kind": "html"
+  },
+  {
+    "id": "6f8ee479913071ef6ce6",
+    "it": "<b>PIP massimi</b>",
+    "kind": "html"
+  },
+  {
+    "id": "42dc2d1a298375a46a70",
+    "it": "Questa progressione vale per Armamento e Osservazione.",
+    "kind": "html"
+  },
+  {
+    "id": "45a8a2dcd84e4fd66837",
+    "it": "L'Haki del Re dispone invece di una riserva massima di 3 PIP, raggiunta al livello Assoluto.",
+    "kind": "html"
+  },
+  {
+    "id": "7c7b04d56ade71eaf19f",
+    "it": "Ogni Colore possiede la propria riserva. I PIP dell'Armamento non possono essere spesi per pagare un effetto dell'Osservazione.",
+    "kind": "html"
+  },
+  {
+    "id": "73dbc019505887eb4b87",
+    "it": "Recuperare i PIP",
+    "kind": "html"
+  },
+  {
+    "id": "80bd78ef02c4f5b0a102",
+    "it": "I PIP spesi vengono recuperati attraverso un riposo breve.",
+    "kind": "html"
+  },
+  {
+    "id": "c060d197891599181a3b",
+    "it": "Alcuni effetti specifici, come quelli di determinati alimenti, possono prevedere ulteriori possibilità di recupero.",
+    "kind": "html"
+  },
+  {
+    "id": "e16c2150dd4593664fca",
+    "it": "Non è possibile recuperare PIP oltre il valore massimo della propria riserva.",
+    "kind": "html"
+  },
+  {
+    "id": "796b677c220704ae0994",
+    "it": "<span class=\"man-sez-n\">8.4 ·</span> Attivare l'Haki",
+    "kind": "html"
+  },
+  {
+    "id": "aea76393dc452c20c415",
+    "it": "Per utilizzare l'Haki quando richiede uno stato attivo, il personaggio deve prima attivare il Colore corrispondente.",
+    "kind": "html"
+  },
+  {
+    "id": "a2ce0fc0dd7a513386ba",
+    "it": "1 Azione Bonus",
+    "kind": "html"
+  },
+  {
+    "id": "7b1c8d6bc62ec3b88668",
+    "it": "Attivare un Colore dell'Haki richiede un'Azione Bonus e consuma 1 PIP dalla riserva di quel Colore. L’eccezione di Prestigio Sintonia dei Colori permette di attivarne due con la stessa Bonus, o tre a Spirito Saikyō: ciascun Colore paga comunque il proprio PIP. Non concede anche l’uso di un effetto attivo Haki nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "0b583218c42c88153746",
+    "it": "Una volta attivo, il personaggio può utilizzarne i benefici secondo le capacità sbloccate e i relativi costi.",
+    "kind": "html"
+  },
+  {
+    "id": "35871832e7779ae1c184",
+    "it": "L'attivazione dell'Haki non consuma l'Azione principale.",
+    "kind": "html"
+  },
+  {
+    "id": "3ce34fbd13fb7b4f76c5",
+    "it": "Un personaggio può quindi attivare l'Armamento con l'Azione Bonus ed effettuare un attacco con la propria Azione nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "c8a7a6b7d90fc43306c3",
+    "it": "Un'Azione Bonus per turno",
+    "kind": "html"
+  },
+  {
+    "id": "f02e36d444e9445c6b39",
+    "it": "L’attivazione di un Colore, un Talento attivo e un effetto attivo Haki (⚡) competono per la stessa, unica Azione Bonus. Attivare il Colore e utilizzare un suo effetto attivo richiede due Bonus separate, quindi turni diversi.",
+    "kind": "html"
+  },
+  {
+    "id": "19ad1015e07c2c3ca6df",
+    "it": "<b>Situazione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7d20be7665c83ff43300",
+    "it": "<b>Consentita?</b>",
+    "kind": "html"
+  },
+  {
+    "id": "39de3d1e369b1ff1cfa1",
+    "it": "Attivare Haki e attaccare",
+    "kind": "html"
+  },
+  {
+    "id": "5209723fc252a0133c04",
+    "it": "Sì",
+    "kind": "html"
+  },
+  {
+    "id": "061066b55f1b72015d39",
+    "it": "Attivare un Talento attivo e attaccare",
+    "kind": "html"
+  },
+  {
+    "id": "52a10bdf80fb03e91fa9",
+    "it": "Attivare Haki e un Talento attivo nello stesso turno",
+    "kind": "html"
+  },
+  {
+    "id": "1ea442a134b2a184bd5d",
+    "it": "No",
+    "kind": "html"
+  },
+  {
+    "id": "e657d5e244f1f2fe8d1d",
+    "it": "Mantenere Haki già attivo e attivare un Talento",
+    "kind": "html"
+  },
+  {
+    "id": "aa0ea5ff8465b848dabe",
+    "it": "Non si possono utilizzare due Azioni Bonus nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "ded47dbedaa0c732e9e6",
+    "it": "Se una combinazione richiede sia l'attivazione dell'Haki sia un Talento attivo, il personaggio deve prepararla distribuendo le attivazioni su più turni.",
+    "kind": "html"
+  },
+  {
+    "id": "4880ddabd200a52ea4f3",
+    "it": "<span class=\"man-sez-n\">8.5 ·</span> Mantenere l'Haki",
+    "kind": "html"
+  },
+  {
+    "id": "dea2443057b124c6e026",
+    "it": "Una volta attivato, l'Haki può essere mantenuto nei turni successivi pagando il relativo costo.",
+    "kind": "html"
+  },
+  {
+    "id": "4e59f67d158e5e422821",
+    "it": "Mantenimento ordinario",
+    "kind": "html"
+  },
+  {
+    "id": "9740a9c4c9652e8b2971",
+    "it": "Mantenere l'Haki già attivo non richiede una nuova Azione Bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "6fe1ae016b6b22ac975d",
+    "it": "Un personaggio che mantiene l'Armamento può utilizzare la propria Azione Bonus per attivare un Talento attivo.",
+    "kind": "html"
+  },
+  {
+    "id": "0c6f0319f841f4fe74cc",
+    "it": "Il mantenimento non comporta un nuovo costo di attivazione in PIP: quel PIP è già stato pagato.",
+    "kind": "html"
+  },
+  {
+    "id": "2086da3cf0f78408cd7d",
+    "it": "Se l'Haki si interrompe e il personaggio vuole utilizzarlo nuovamente, deve procedere a una nuova attivazione.",
+    "kind": "html"
+  },
+  {
+    "id": "ce8c55f0914edd78607f",
+    "it": "Eccezione · Armamento d12",
+    "kind": "html"
+  },
+  {
+    "id": "b1b534285b184b5d0af5",
+    "it": "Dal Grado d12, una volta attivato, l’Haki dell’Armamento non richiede più Stamina per essere mantenuto.",
+    "kind": "html"
+  },
+  {
+    "id": "38577864d8438e1c2689",
+    "it": "Rimane attivo finché il personaggio decide di interromperlo oppure finché una capacità o una condizione ne provoca la cessazione.",
+    "kind": "html"
+  },
+  {
+    "id": "42c2de9c09fb7eef2625",
+    "it": "<span class=\"man-sez-n\">8.6 ·</span> Effetti passivi ed effetti attivi",
+    "kind": "html"
+  },
+  {
+    "id": "bcd7f95817ce895eb7a4",
+    "it": "Ogni Grado dell'Haki può sbloccare due tipologie di benefici.",
+    "kind": "html"
+  }
+]

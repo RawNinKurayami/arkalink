@@ -1,0 +1,1826 @@
+[
+  {
+    "id": "4f56437430f0583bb163",
+    "it": "Vale per attacchi base, Tecniche offensive Striker, attacchi extra e Reazioni compatibili. Tira Forza separatamente dal tiro per colpire.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "31d56a86ff755f44a44b",
+    "it": "Non aggiungerlo nuovamente a Schianto: quello richiede soltanto il proprio tiro di Forza.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "51dc1c88eab8b19a0698",
+    "it": "Propaga il colpo alle creature entro",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "4e0614485642159d6e91",
+    "it": "m di raggio.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "9f342fbd2955f1758f85",
+    "it": "Per propagare il colpo serve Forza in Prestigio.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "3a105eaea24748833094",
+    "it": "Dopo un colpo a mani nude o di una Tecnica Striker in mischia riuscito nel tuo turno, scegli un raggio entro il tuo massimo. Gli alleati nell’area devono difendersi; tu sei escluso.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "cc22267659b7999f0b14",
+    "it": "Stesso tiro per colpire e danno iniziale, attenuato con la distanza. Niente secondo danno al bersaglio iniziale, Schianto o copia automatica degli effetti. Conservi il danno pieno agli oggetti di Pugni che Rompono.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "c0cc51e8e7af89077acb",
+    "it": "Lo Striker non ha Area ordinaria. Onda Titanica propaga un solo impatto; un’Area concessa da una Fonte speciale resta distinta e non moltiplica le origini dell’onda.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "1932615f14cca5a2b1ff",
+    "it": "Puoi inserire Punto di Rottura nelle Tecniche Striker in mischia basate su Tecnica.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "08dffa1b051fb083b0af",
+    "it": "L’effetto costa 2 ST e 1 slot. Dichiara una parte raggiungibile prima del tiro: con un colpo pulito (+4), sostituisce lo stato della Firma e conserva il danno.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "789c0a83fae989a25a96",
+    "it": "Condivide l’unica attivazione per turno della Firma: se Il Colpo Sfonda si è già attivato, Punto di Rottura non concede una seconda attivazione.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "df74cc2973a039576814",
+    "it": "Mano inutilizzabile oppure Movimento volontario bloccato: fino a un’Azione di recupero o alla fine dello scontro. In alternativa interrompi una presa o danneggi un componente secondo i suoi PS. Una sola funzione neutralizzata per bersaglio.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "2dc499d9d1c04ae0006a",
+    "it": "Dopo un attacco a mani nude, esegui attacchi extra finché puoi pagarne il costo.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "25390bdc96969016ae5c",
+    "it": "Una sola Bonus avvia la sequenza: il primo extra costa 1 ST, il secondo 2 ST, il terzo 3 ST e così via, più tutti i costi della Tecnica e dei suoi effetti se ne usi una. Paghi prima di ogni attacco e decidi se proseguire dopo ciascun colpo; un mancato consuma ST ma non interrompe la sequenza.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "bb472407f2be32f57f77",
+    "it": "Ogni extra è un attacco base a mani nude oppure una Tecnica offensiva Striker in mischia. Ogni colpo ha tiro, portata e difese propri. Non concede altre Azioni, Bonus, Movimento o attivazioni Haki. Le versioni precedenti di Raffica non si sommano.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "f1c0e6db79870e772eb7",
+    "it": "Il Colpo Sfonda può attivarsi una sola volta per turno, anche nella Raffica. Non concede Tecniche di Supporto o Potenziamento, altri Talenti attivi o Special Move libere.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "d906fd665286610a858c",
+    "it": "Fendente a distanza con danno pieno.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "4cea516ab3a98bebb2b9",
+    "it": "Usa la portata dell’Attributo della Tecnica Swordsman in mischia, eseguita con una lama. Il costo è +1 ST, senza Bonus.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "fe5c984507d6a3312061",
+    "it": "Restano Forma, bersagli, slot, effetti, ostacoli e difese normali. Gli effetti a contatto richiedono ancora il contatto.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "e6a2daff19fb43b63769",
+    "it": "Area Ravvicinata (d8, 2 ST) resta centrata su di te, con raggio pari alla Portata effettiva della lama: Fendente Sovrano non la proietta a distanza. Un fendente ad Area a distanza richiede una capacità espressa.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "a62612957fa85983f823",
+    "it": "Recidi un elemento dello scenario: sezione massima",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "2ae4cfbb72919d5616c6",
+    "it": "Prima del prossimo attacco con lama nel tuo turno, dichiara l’elemento. Se colpisci, aggiungi un tiro completo dell’Attributo del colpo al danno strutturale.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "a00707a75c86568230c4",
+    "it": "Servono portata valida e danno sufficiente ad azzerare i PS dell’elemento, dopo le resistenze. Il bonus non colpisce automaticamente creature nella sezione; l’Attributo deve essere in Prestigio per questa scala.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "8a8e8c04e3874d3eaf30",
+    "it": "Alla Parata con lama aggiungi un tiro completo di Atletica (",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "ce256e4115582f99d693",
+    "it": "Formula: Attributo della Parata + Dado Arma + Atletica. Una riuscita protegge anche gli alleati entro 5 m dietro di te, se la lama intercetta realmente la traiettoria.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "3e0c636f75bf974e4486",
+    "it": "Solo attacchi fisicamente intercettabili. Una volta per scontro puoi ripetere la Parata fallita accettando il secondo risultato, senza ripagare ST o Reazione. Restano eventuali costi della difesa.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "604487b7c37f3fc1a0f5",
+    "it": "Ogni lama compatibile che impugni usa d20 come Dado Arma.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "584228e9df0356836172",
+    "it": "Attacco base e Parata: Attributo + d20. Danno base: 1d20, più i benefici compatibili.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "05be9050d9fa9e06fb1f",
+    "it": "Il Grado reale, i requisiti e le proprietà dell’arma restano gli stessi. Le Tecniche conservano i propri dadi; il Prestigio non aggiunge un secondo dado al Dado Arma.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "f12d3d83d1b71ea2a1e9",
+    "it": "Vantaggio al colpo, +2 Dadi Danno, +Forza (",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "e45c466f2fd6d785c7f2",
+    "it": ") ai danni e Sbilanciamento se colpisci.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "25a2c170f63f4b68b5f6",
+    "it": "Dichiara prima di un attacco contundente compatibile nel tuo turno. DP −5 fino all’inizio del tuo prossimo turno, anche se manchi. Le 3 ST sostituiscono il costo di Maestria.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "908f751f2b5e4e500d25",
+    "it": "Il bersaglio evita Sbilanciato con una Salvezza di Tecnica contro Soglia",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "0421a1f7aeccb0f899ee",
+    "it": "dalla Skill di Ruolo (",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "e0f382c4c7798940fa01",
+    "it": "). La fonte non tira; il pareggio salva.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "50b69dc20b0d59713ed8",
+    "it": "Se il tiro supera la difesa per colpire ma una Parata riesce: metà del danno, arrotondata per difetto, poi le riduzioni; nessun altro effetto del colpo. Una Schivata riuscita evita tutto.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7133949cd5eedfa8ebae",
+    "it": "Cono di 90° fino a",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "f667a3e4c57f2edf3340",
+    "it": "m: danno attenuato, spinta di 3 m e Sbilanciamento.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "e9e86fcf044dfaf20d1c",
+    "it": "Per generare l’onda serve Forza in Prestigio.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "01f4322c86c0a1aff067",
+    "it": "Dopo un colpo contundente di Forza riuscito nel tuo turno: deve trasmettersi a una superficie. Colpisce solo le creature appoggiate alla superficie collegata, compresi gli alleati; tu sei escluso.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "79c039ead502fca3acf3",
+    "it": "La Salvezza di Tecnica contro Sbilanciato usa Soglia",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "2af3efb648e892292652",
+    "it": "), anche se Forza ha un altro Grado. Il pareggio salva.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "c56a5bb6f33ae630afd8",
+    "it": "Stesso tiro per colpire e danno iniziale, con fasce calcolate sul raggio massimo. Niente duplicazione sul bersaglio iniziale, Schianto o propagazione degli altri effetti. Le 3 ST sostituiscono il costo dell’onda precedente.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "d849f0d3aed3c9ae1289",
+    "it": "Area Ravvicinata (d8, 2 ST) resta centrata sul Crusher e usa la Portata effettiva dell’arma. Non genera più coni e non aumenta la sagoma di Onda Sismica.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "aa15868a480516d3ff2a",
+    "it": "Con un colpo contundente pulito, impedisci Parate e blocchi fisici fino alla fine del prossimo turno del bersaglio.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "ef8839de1cf5705af4b1",
+    "it": "Con un colpo riuscito ma non pulito: la sua prossima Parata o Difesa Attiva entro quella scadenza ha Svantaggio.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7f8ff4728e01387748bf",
+    "it": "Schivata, DP e riduzioni restano valide. Solo il bersaglio diretto; niente attivazione dal danno residuo di un colpo parato o dai bersagli dell’onda.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "efbdb6a03622cc2d4030",
+    "it": "Intercetta con un attacco base contundente: aggiungi Atletica (",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "9e62fabb2f9416fe3862",
+    "it": ") al tiro per colpire.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "39156b32efb341a10392",
+    "it": "Una volta per turno, quando un nemico entra nella portata dell’arma. Devi rispettare Baricentro Assoluto: cosciente, a terra, senza Movimento volontario.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "6150e1c908885188326f",
+    "it": "Se colpisci e infliggi danno effettivo, il suo Movimento termina per quel turno. Conserva le altre azioni. Non è una Tecnica e Atletica non si somma al danno.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "aeca3d0d35035c90fd1f",
+    "it": "Al prossimo attacco a distanza Singolo riuscito aggiungi Astuzia (",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "33df3d95de01adf88327",
+    "it": ") al danno e lo consideri pulito.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "cad61ee2b6fe897df271",
+    "it": "Attiva prima del tiro, una volta nel tuo turno. Il beneficio scade con il prossimo attacco valido, anche mancato, o alla fine del turno.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "c049307b360e12ac15bb",
+    "it": "Non modifica il tiro per colpire e non si distribuisce tramite Area, Rimbalzo o Catena. Restano i costi e le difese normali.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "0b632b973f7d267c5d7b",
+    "it": "Un colpo a distanza pulito infligge il normale danno e neutralizza il punto dichiarato.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "2b2c7f56385832ce4b28",
+    "it": "Mano inutilizzabile o Movimento volontario bloccato fino alla fine del prossimo turno del bersaglio. Un oggetto viene interrotto solo se il danno azzera i suoi PS.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "f0119c17c8ef20d7557b",
+    "it": "Un solo arto neutralizzato per bersaglio; serve una traiettoria valida. Con un colpo non pulito infliggi solo il danno. Il costo si paga anche se manchi.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5f58d753fe8d4757f6ed",
+    "it": "Attacca a distanza prima che un nemico osservato completi l’Azione dichiarata.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "96231dbba25f98b92f11",
+    "it": "Se colpisci, infliggi danno e la sua Azione ha Svantaggio. Con un colpo pulito puoi impedirla se interrompi concretamente ciò che serve a eseguirla, dichiarato prima del tiro.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "fd41798cf3f751f629fb",
+    "it": "Il nemico consuma l’Azione ma conserva le altre possibilità. Restano portata, difese e PS dei componenti; non puoi fermare un proiettile già partito.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "92b0b84fe94adc8089a1",
+    "it": "I bersagli di Rimbalzo o Catena ricevono il danno pieno della Tecnica.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "3531f652420abacdb27e",
+    "it": "Rimbalzo: fino a 2 bersagli, entro 5 m fra loro. Catena: fino a 3 in fila. Tiro per colpire separato, un solo tiro di danno; ogni bersaglio mantiene le difese.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "de1306e9ff22314a4f91",
+    "it": "Servono gli effetti e gli slot nella Tecnica. +1 ST per utilizzo; nessuna Bonus. Traiettorie anomale richiedono anche Colpo Impossibile e i suoi 2 ST.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "273dc2de3f4f8f752895",
+    "it": "Due alleati",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "c1fbbb44b8439068717c",
+    "it": "Un alleato",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "508deab62d37a517f7c8",
+    "it": "ti vedono o sentono eseguono",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "c707abfdb24e6afd1593",
+    "it": "ti vede o sente esegue",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "b20e680a9b04f9550882",
+    "it": "subito Movimento e Azione con Vantaggio.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "1149002e820c9680bd09",
+    "it": "L’intervento non consuma il turno normale degli alleati e non concede una Bonus. Ciascuno paga i propri costi.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "59a5685d86d987e7ede9",
+    "it": "Il limite è condiviso con gli ordini ordinari.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "683c88ec8932d7c9a601",
+    "it": "L’ordine ai due alleati conta come un solo utilizzo.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5851ea2c17c6f421d45f",
+    "it": "Gli alleati che ti sentono rimuovono uno Stato negativo rimovibile e aggiungono Comunicazione (",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "239872b0054ebcfa94d2",
+    "it": "ai prossimi due tiri.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "2ff6e200b4a2d4b2d83e",
+    "it": "al prossimo tiro.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "06ea25c3833b56f7c3f1",
+    "it": "Tira Comunicazione una sola volta, senza Spirito: tutti ricevono quel risultato. Si applica alle prove pertinenti, non direttamente ai danni.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "215542c7fdede8114529",
+    "it": "L’utilizzo è condiviso con Grido di Guerra.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "f196e156ba24f7c60745",
+    "it": "Prepara",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5929accf475bca2fc87c",
+    "it": "ridadi condivisi per la ciurma.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "df09097e06dc3cb5f0f5",
+    "it": "Contromossa: prima del tiro di un attacco nemico percepito, spendi Reazione e 2 ridadi per muovere",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5a6582555bebf9236771",
+    "it": "alleati raggiunti dai comandi, incluso te, fino alla loro Velocità senza Reazioni da disimpegno.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "d2b6b165efda0c4732b6",
+    "it": "Solo chi esce davvero dalla portata o area evita l’attacco. Restano le condizioni di preparazione de Il Piano.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "c75644f4e5ec4a0868be",
+    "it": "Canzoni insieme, senza ST di mantenimento.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "0f724bb751ef340f9a57",
+    "it": "Una sola Azione può intonare due Canzoni distinte: paghi entrambe le attivazioni; Fiato Lungo si applica a ciascuna.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "6d4b63615eff5443e145",
+    "it": "Stessa Melodia sullo stesso bersaglio non somma benefici. Ogni Canzone conserva portata, durata e destinatari. Le Canzoni cessano comunque se non puoi più suonare (incoscienza, strumento perso) o se i bersagli non ti sentono.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "fe08d90c1ed6cdb9c980",
+    "it": "Benefici delle Canzoni ×",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "fddae8764082748e8369",
+    "it": ": dadi di recupero ST, dadi bonus alle prove e sconti ST.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7dca4a6f9cfe967e844d",
+    "it": "ST, sempre 1 volta per scena per beneficiario. Marcia: +",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "200b28a9f9aba8f4abf6",
+    "it": "al tiro previsto. Crescendo: −",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "1d166f901bbc2001eb35",
+    "it": "ST alla Tecnica, minimo 1 ST quando previsto.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "9ff0aad69e581ce00856",
+    "it": "Restano invariati Vantaggio, ridadi, portata, bersagli, costi, sconti PIP e Canzone dell’Anima.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "513c6f8db4067002d7a4",
+    "it": "Raggio",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "cace6d0ac6ad3787ef9c",
+    "it": "m · Soglia",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "ffc6a561429532a06e9e",
+    "it": "da Arte (",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "a0a561d04280a4d6cde4",
+    "it": "I nemici che ti sentono effettuano una Salvezza di Spirito: chi fallisce ha Svantaggio a tutti i tiri fino all’inizio del tuo prossimo turno. Nessun danno diretto o tiro per colpire; sostituisce l’esecuzione di Requiem Beffardo.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "105360425a88450e09a7",
+    "it": "La Soglia deriva dal pool completo di Arte; non si somma la Soglia dello strumento. Il bersaglio tira il proprio pool completo di Spirito e riesce se raggiunge o supera la Soglia.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "1392708596214787ac65",
+    "it": "Con Coro della Ciurma e due compagni realmente partecipanti al canto, il raggio diventa 1.000 m.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "c376bc852d7762e5a3ab",
+    "it": "I bersagli devono poter sentire davvero la musica: il raggio non attraversa ostacoli che bloccano il suono.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "24b06d01247d518f1733",
+    "it": "Veleni: usa la più alta tra la Soglia propria e",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "e0a81d6cc0583ed306cf",
+    "it": "da Medicina (",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "1cd3c653d16865998b65",
+    "it": "). Su Salvezza fallita, un Attributo ridotto di",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "ee4b96cad39f35829b75",
+    "it": "Questo beneficio sostituisce il +2 di Tossine Raffinate — Base e non si somma a esso. La riduzione dura fino a un antidoto efficace, segue anche i dadi di Prestigio e non scende sotto d4.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "942505ee555f1a97d655",
+    "it": "Applicazioni ripetute sullo stesso Attributo non sommano riduzioni.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "caaf3a1d86ab6a270775",
+    "it": "Nube di",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "ca14217d49be786e4e5c",
+    "it": "m di raggio, centro entro",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "95c4229560d864c5b791",
+    "it": "m, durata",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "75ec8d06720dccf255a1",
+    "it": "Consuma una dose di Veleno inalabile, senza tiro per colpire; il centro dev’essere visibile e raggiungibile, mai oltre ostacoli solidi. Chi è nella nube quando compare, vi entra per la prima volta nel proprio turno o vi inizia il turno effettua la Salvezza: se fallisce è Avvelenato per la durata del veleno e Accecato finché resta nella nube. Uscire termina solo Accecato.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "c29b8d470ae5f0ef8ba5",
+    "it": "Usa la normale Salvezza della dose. Con Tossine Sovrane acquisito, la Soglia è la più alta tra quella propria del veleno e quella da Medicina; non aggiungere il +2 ordinario. Anche gli alleati sono esposti; Profilassi protegge solo chi è stato trattato per quella tossina. Valgono pareti, ventilazione, acqua e maschere.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "bcc32e654afb4afd9ca1",
+    "it": "Entro",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "b3d81211bf5dc6f51cbc",
+    "it": "m, neutralizzi tutti i veleni di un alleato e ripristini gli Attributi ridotti dalle tossine.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "a574106095211ee218ea",
+    "it": "Consuma una dose di antidoto preparata da te: la portata è quanto raggiungi con la Reazione, su un percorso praticabile. Rimuove gli stati delle sostanze, ma non restituisce i PV persi. Gli utilizzi sono condivisi con Antidoto Istantaneo.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "77c83a4422031b1b466a",
+    "it": "Il bersaglio è immune alle tossine appena neutralizzate per il resto del combattimento.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "90cdce845eeea7b1b990",
+    "it": "Cure da Campo riuscite: PV recuperati ×",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "8b5ade265f3f4112bff0",
+    "it": "e fino a",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5f88dd3eb3098a0167bb",
+    "it": "Stati negativi rimovibili rimossi.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "f01db406f1abf2ca55b9",
+    "it": "Calcola prima il recupero ordinario con i bonus. Restano Prova di Cura da Campo, materiali, accesso fisico al paziente, limite sul paziente e numero di pazienti consentito da Mani da Chirurgo — Migliorato.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "9ff6ac7a32f38a407ed3",
+    "it": "Il moltiplicatore non si applica alla ST o alla rianimazione di Intervento Prodigioso.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "c1a0c968c5908bea2aa9",
+    "it": "Raggiungi un alleato a 0 PV entro",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "f31727be2fe55169a2e1",
+    "it": "m: stabilizzi e restituisci un tiro di Medicina (",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7bdc926fbe72637541d6",
+    "it": ") in PV.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "78cbbdcc4dc7c4f31768",
+    "it": "Deve essere ancora in vita: lo spostamento fa parte della Reazione, su un percorso praticabile e con accesso fisico al paziente. Non superi i PV massimi; il tiro misura il recupero e non è una seconda prova. Sostituisce l’1d4 di Specialista in Rianimazione.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "220125cb9a4bce0b3ff1",
+    "it": "Non consuma il limite delle Cure da Campo e non riceve il moltiplicatore di Chirurgia Leggendaria. Usi condivisi con Intervento Immediato.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "8190d2bc3fccf5f8416c",
+    "it": "Gli attacchi che sfruttano la debolezza",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "56fe12718e0fe5781111",
+    "it": "ignorano la Riduzione del Danno fissa.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "4237e152e19d7134119e",
+    "it": "considerano metà della Riduzione del Danno fissa, per difetto.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7e79f5e395aac335b2a8",
+    "it": "Prova di Medicina contro DP su un nemico vivente visibile. Se riesci, il beneficio dura fino all’inizio del tuo secondo turno successivo. Una sola Diagnosi attiva.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "bed6dc18da2dda4d8594",
+    "it": "DP e Difese Attive restano valide. Il primo alleato che sfrutta la debolezza conserva il Vantaggio ordinario.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "172c43d3e512e82c5ce6",
+    "it": "Il danno iniziale dei preparati offensivi diventa ×",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "32527ce25bd6760f6dbc",
+    "it": "Il danno iniziale è il Dado Danno della scheda del preparato, compreso il dado di Reazioni Violente — Base; applica poi difese e riduzioni. Non moltiplica bruciature o altri danni successivi, né modifica gli stati.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "392a0d986a26433bba1a",
+    "it": "Combina",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "2aec505c666bcc8bb03e",
+    "it": "famiglie differenti di reagenti in una dose.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "ddbc7ac9a2557253a434",
+    "it": "Ogni componente deve avere una scheda completa ed essere preparabile da te; servono gli ingredienti di tutte. Si sommano gli effetti distinti, non i danni completi: usa una volta il danno iniziale della componente più potente.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "1d3089de8c53b8c0205f",
+    "it": "Raggio minore fra le componenti, durate proprie, nessun cumulo dello stesso stato. Una sola Azione usa e consuma la dose.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "fba2e7e762dfd5f7d46c",
+    "it": "Preparato ad area: raggio massimo",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "a5e5e69cada9c9a37e7d",
+    "it": "m, lancio entro",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "8ba631b0880a02d86586",
+    "it": "La Bonus prepara la diffusione: serve ancora l’Azione per lanciare e consumare la dose. L’origine dev’essere visibile e raggiungibile, mai oltre pareti o ostacoli solidi.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "72540b3e8a7acf459bb9",
+    "it": "Il raggio comprende già il raddoppio ordinario. Lancio Preciso determina chi puoi escludere; danni, Stati e Salvezze restano quelli del preparato: cambiano solo diffusione e Portata di lancio.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "b9ed29bd7735f2205135",
+    "it": "Costruisci con",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "822a27fc1690227fe100",
+    "it": "del tempo e",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "d632f98ebab3482d3894",
+    "it": "dei materiali di lavorazione.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "8632bcfe0b46166b8325",
+    "it": "Sostituisce le riduzioni del Capolavoro. Componenti indispensabili, strumenti, prova e requisiti restano necessari.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "bcdbe030aecd61646d96",
+    "it": "Il progetto conserva i propri effetti e il normale effetto unico della Maestria.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "fe55fc02f8312cf6e185",
+    "it": "Usa subito un prototipo già preparato, fino al Grado",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "3fdee7c1f6513fc34366",
+    "it": "Devi averne definito la funzione e possedere i componenti. Tiri e Salvezze si risolvono normalmente; dopo un uso il prototipo va ricostruito.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "a14dc0b2d24755f2b531",
+    "it": "Gli utilizzi sono condivisi con Prototipo da Campo.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "cfc74f9b092183fd2b4f",
+    "it": "Moltiplica ×",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "37149132ea61a9830611",
+    "it": "un valore della tua invenzione: danno proprio, portata o danno assorbito.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5cf83a1bb2b94a75e1f6",
+    "it": "Vale per il prossimo uso entro fine turno. Poi il congegno è inutilizzabile fino all’inizio del tuo prossimo turno.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "a86e339e7b5896b2c94c",
+    "it": "Per un’arma moltiplica solo i suoi dadi, non Attributi, Tecniche o Haki. Non modifica Azioni, precisione o Soglie; restano i consumi normali.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "3bcdb97a1abfa76e6629",
+    "it": "Con una sola Azione gestisci",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "13f821c190afbea44c5e",
+    "it": "Servono comandi raggiungibili o una postazione realmente collegata. Ogni macchina paga tiri, energia e munizioni propri.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "1ac8f9acbb994375daba",
+    "it": "I benefici che concedono una seconda attivazione non si moltiplicano fra loro, e ogni attivazione paga i propri consumi. Le macchine non diventano autonome; nessuna Azione ai personaggi né manovre navali in più.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7fee7490ae870a17b3df",
+    "it": "Ripristina un macchinario; oppure cura un Cyborg con",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7702281d21d46faca58c",
+    "it": "tiri di Meccanica (",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "c332ba275721538c5b1d",
+    "it": ") e ripara",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "19524ea975067e1f34e3",
+    "it": "2 Moduli.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "9845ddb67870c70fb1a6",
+    "it": "1 Modulo.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "9fbf293834bbe7164625",
+    "it": "Servono Prova di riparazione riuscita, attrezzi, ricambi e componenti: puoi intervenire anche su un dispositivo Distrutto, oltre il limite di Pronto Intervento. Il Cyborg deve essere vivo; non superi i PV massimi.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "6a35fe7b3cc48e93eb3e",
+    "it": "Puoi ripristinare Moduli danneggiati o distrutti. Un Cyborg a 0 PV torna cosciente se recupera PV; per il resto valgono le regole del Manuale del Cyborg.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "e45a3d3e267f21d39934",
+    "it": "Sabota o controlla",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "82f61a287de0eaae605e",
+    "it": "tutti i macchinari",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "fcb3f01636720aaa2a0a",
+    "it": "fino a 3 macchinari",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "2dd9f0c11f5049fbf76c",
+    "it": "dello stesso sistema collegato.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "8b3d7b47099c4e4a07ab",
+    "it": "Raggiungi fisicamente un comando o collegamento, come per Sabotaggio, e supera la prova di Meccanica. Fuori uso per la battaglia oppure controllo per la scena: usarli richiede comunque Azioni e consumi.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "d395ae1c14ec9e1da196",
+    "it": "Un avversario può riprendere il controllo raggiungendo il sistema, spendendo un’Azione ed eguagliando o superando il tuo tiro di Meccanica.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5b30b9b6ca7c16db822a",
+    "it": "Riparazione d’emergenza riuscita: PS recuperati ×",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "31d17560f44452ddce1c",
+    "it": "2 Moduli distrutti ripristinati.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "392f641d94c04c5b1e86",
+    "it": "1 Modulo distrutto ripristinato.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "53ca7180b4e02e641722",
+    "it": "Ordine: Dado Carpenteria della riparazione, +1 dado di Mani sul Legno — Base, raddoppio della Firma, poi il moltiplicatore. Servono materiali; non superi i PS massimi. Restano gli interventi della versione Migliorata.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "c83bcddb7c9910be2e67",
+    "it": "Gli utilizzi sono condivisi con il ripristino ordinario della Maestria.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "91597ce12f4fef15e11a",
+    "it": "A fine costruzione o ristrutturazione completa: +",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "9821c6c8c47369a8e41a",
+    "it": "% PS massimi e",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5e928024e4ae74f42dbe",
+    "it": "slot Modulo aggiuntivi totali.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5738ed05bedcfbe3df07",
+    "it": "Miglioramento permanente della nave: una sola applicazione per nave, non segue il Carpentiere su un’altra nave. PS arrotondati per eccesso. Gli slot includono quello di Maestro dei Moduli; i Moduli vanno costruiti e installati.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "981a91752db61dcd0dc6",
+    "it": "Richiede vero lavoro in cantiere, materiali e tempi del progetto. Non trasforma Barricata in una costruzione istantanea.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "e41bcbdb32c28d7516c5",
+    "it": "Lo Scafo rinforzato subisce",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7d67240a6e2a80ae8bb2",
+    "it": "un quarto",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7cc510f62ae7862bd620",
+    "it": "dei danni da impatti fisici, arrotondati per eccesso.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "35aef5c5a170860635ad",
+    "it": "Vale dopo i lavori di rinforzo, per cannonate, speronamenti e altri impatti. Sostituisce la riduzione di un gradino dei Dadi Danno di Scafo Rinforzato.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "e3d5c2ba3f37061bd60e",
+    "it": "Con una manovra evasiva annulli tutti i colpi di una salva in arrivo.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "2e6a86aa99f237ad5118",
+    "it": "Devi essere al timone e la nave deve poter manovrare. Attacchi separati richiedono usi separati; il limite è condiviso con Timoniere Nato — Migliorato.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "48005f5d21022fb056c7",
+    "it": "Con la stessa Reazione puoi anche guadagnare o perdere una fascia di distanza, secondo il Movimento della nave.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "b4b72bb961f4fb5974c3",
+    "it": "Verso una destinazione già raggiunta, la traversata richiede",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "ec9cda23e1ad1f9b1dee",
+    "it": "del tempo ordinario.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "032225f9c3471578c5c3",
+    "it": "Prepara la rotta con correnti, venti e passaggi. Restano le prove di traversata e i pericoli: il viaggio va comunque svolto.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "13103c09c915a75d2d41",
+    "it": "Una carta completata o aggiornata da te concede +",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "2d23716dc4202a22a268",
+    "it": "alle prove che la utilizzano.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "b9fed781ba8590d377d2",
+    "it": "Il dado di Navigazione si registra al completamento: la carta conserva quel valore e può essere usata da un altro navigatore.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "3d9c951429107a76d24d",
+    "it": "Le carte già realizzate non cambiano automaticamente: per migliorarle serve nuovo lavoro cartografico.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "54b41251dd046cff12fc",
+    "it": "Traduzione riuscita: testo completo e dettaglio della Firma, anche senza margine +4.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "697d423186ec02957ea9",
+    "it": "Una singola iscrizione o stele leggibile, incluso un Poneglyph, richiede al massimo",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "8b3986f78b4306e18ad1",
+    "it": ". Mantieni un tempo inferiore se già previsto; archivi e molte iscrizioni richiedono studio delle singole parti.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "6d1ec50449c11fea492d",
+    "it": "In 5 minuti ottieni",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "6b8124ab60ca48d32438",
+    "it": "3 risposte",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "f516b024dae9f0e35a0a",
+    "it": "2 risposte a scelta",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "29a8f2c4bd7b3b303690",
+    "it": "da tracce e testimonianze di un soggetto antico.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "29d45e70371d9e68672e",
+    "it": "Domande: funzione originaria; pericolo o difesa documentati; modo corretto di accedere, usare o disattivare.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "0d5026fe2091a79a6cec",
+    "it": "Le risposte dipendono da storia, iscrizioni, materiali e conoscenze effettivamente disponibili.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "1baa0797768d51eb6afe",
+    "it": "Intervieni su",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "c28b4c9caefe0b1ce32a",
+    "it": "2 meccanismi collegati",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "fe1aac6a34071744ad0d",
+    "it": "un meccanismo antico",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "6ef0ff4e40af099e0101",
+    "it": "mentre sta per scattare: attiva, blocca o inverti, se possibile.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "2d804b17af98f681925d",
+    "it": "Devi aver identificato il dispositivo e raggiungere un comando o collegamento utile. Restano i suoi danni, effetti e Salvezze.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "a8f561962206de644e66",
+    "it": "I due interventi consumano una sola Reazione, un solo costo e un utilizzo.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "d4c223c13dbf0d057566",
+    "it": "Piatti ordinari: recupero PV e ST ×",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5a82039847c1e669743a",
+    "it": "Calcola prima ricetta, ingredienti e bonus. Se il piatto recupera sia PV sia ST le moltiplica entrambe, ma non aggiunge una risorsa che la ricetta non dà; conserva il normale numero di destinatari.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "3505c376b6c55e13200e",
+    "it": "Servi subito fino a",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5fcebc3b86b5ee6bb208",
+    "it": "personaggi coscienti entro",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "2257f283b7fc0cdaa8cf",
+    "it": "m, incluso te.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "1be1eda73251ed1dd01a",
+    "it": "Consumano porzioni già preparate senza spendere un’Azione. Devi avere e consumare cibo sufficiente.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "3dba1e37472234dcb708",
+    "it": "Restano i destinatari per preparazione di Mano del Cuoco. Nutrimento Leggendario si applica solo se acquisito.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "4608b4741c64d2b80b1d",
+    "it": "Servi un compagno entro",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "e31c6316ddb3ccff69de",
+    "it": "m quando",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "60900994d5f7f65a662b",
+    "it": "subisce danni.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "6c5df35bcdc0255a9d08",
+    "it": "scende sotto metà PV.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "0564cfc878e7194d556d",
+    "it": "Deve essere cosciente e poter consumare una porzione già pronta. Riceve tutti gli effetti del piatto; consumi la porzione.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "0255a83db5aa39420caf",
+    "it": "Nutrimento Leggendario si applica se acquisito. Gli utilizzi sono condivisi con Secondo Fuoco.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "f48ea963f152aa520e68",
+    "it": "Contro paura, intimidazione e coercizione, Spirito vale",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "4928309009f394fe57bf",
+    "it": ", prima di Skill e modificatori.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5cc9e69f67f3226321eb",
+    "it": "Solo quando la regola prevede davvero un tiro di Spirito: confronta comunque il risultato con la difficoltà. Non modifica attacchi o danni e non crea prove contro effetti automatici.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "2f335edd55241bb60603",
+    "it": "Colori Haki posseduti con una sola Bonus: 1 PIP da ciascuna riserva.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "4f4bc87057152cb3d410",
+    "it": "Attiva i Colori, non gli effetti ⚡. Restano i mantenimenti ordinari e servono i PIP in ogni riserva.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5941b351c13c193aaf93",
+    "it": "Recupera fino a",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "3cb91d9da2fbc575e02d",
+    "it": "PIP complessivi da distribuire fra i tuoi Colori.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "e8574f330605995e2555",
+    "it": "Una volta fra due riposi brevi o lunghi. Nessuna riserva supera il massimo; gli eventuali PIP in eccesso sono persi.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "572f1a66c971be0f59d7",
+    "it": "Funziona anche a riserve vuote o Colori spenti. Non accende Haki e non ripristina gli usi per combattimento.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "a51e99b20fd15a17588a",
+    "it": "Consulta le condizioni di utilizzo nel manuale.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "b13f1dc431466cc641f9",
+    "it": "1 / 2 / 3 / 4 / … ST per extra + costo completo Tecnica",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "544202ee9da099d6a8c1",
+    "it": "fino all’inizio del tuo prossimo turno",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "f7460023e95abb6bfb77",
+    "it": "fino all’inizio del tuo",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "4b7e866b8ab4c5efb06c",
+    "it": "turno successivo",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "4bb66fccffb2f90c57f6",
+    "it": "Dimezzi i danni di tutti gli attacchi ricevuti",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "ffeb7dc8a7d902b6717f",
+    "it": "Arrotonda per eccesso, poi applica le riduzioni. Include attacchi con Haki, non automaticamente cadute o pericoli ambientali. Non si somma ad Armatura Totale sullo stesso attacco.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "e78506b04d76bfc24f98",
+    "it": "Esplosione di",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "308e3e456b2aa9fd5017",
+    "it": "m di raggio dal punto raggiunto dal tuo attacco fisico.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7fb1f3c225764736376b",
+    "it": "I nemici secondari si difendono dallo stesso tiro: se colpiti ricevono metà del danno pertinente, per difetto, poi le riduzioni. Niente seconda copia sul bersaglio principale, Proiezione, Schianto o effetti riservati al singolo bersaglio. Ryou modifica il danno totale dell’attacco secondo la propria regola, senza una componente numerica separata.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "07d95c74875a02640629",
+    "it": "Ryou per",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "fb543961c37c1020f5aa",
+    "it": "turni: calcoli il danno totale, con tutti i dadi e bonus applicabili, e lo moltiplichi ×2 una sola volta per un attacco fisico nel tuo turno.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7470c7cb99bd5f15535d",
+    "it": "Scegli l’attacco prima del tiro: anche se manca consuma l’unica applicazione del turno. Il colpo dall’interno è soltanto narrativo. Non aggiunge attacchi, non si applica automaticamente a tutti i colpi di una Raffica e conserva le difese ordinarie. Dura",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5897d9c163456b76ffb9",
+    "it": "e termina se interrompi Armamento.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "51129fb03d266a4308cb",
+    "it": "+3 tiri completi di Osservazione (",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7c48cdd2241fcee108bb",
+    "it": ") a una Schivata o una Difesa Attiva con Tecnica d’attacco.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "0de4217b201be22eae9f",
+    "it": "Dichiara prima del tiro scelto,",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5b8205ef0d7562ff74fa",
+    "it": ". Paga la Reazione e le risorse normali della difesa, inclusi i costi della Tecnica. Non concede danni in risposta: Contraccolpo richiede di superare il tiro avversario, mentre il pareggio difende soltanto. Nessun dado al danno o Reazione aggiuntiva; non si somma ad Anticipo base.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "9af267cb8b7c0fba4531",
+    "it": "Gli attacchi fisici normali non ti colpiscono per",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "6dc040d0894e9cbb9e6c",
+    "it": "Dura",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "0323a2f7db44c33bffa5",
+    "it": ". Haki e Area restano efficaci. Non protegge automaticamente da cadute, crolli o altri pericoli; termina interrompendo Osservazione.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "0c6a6d8f706cb7f28b40",
+    "it": "tiri completi di Osservazione (",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "86ad4231dfe9aecb9106",
+    "it": ") al tiro per colpire di un solo attacco fisico.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7abf311f8624bd5e56f0",
+    "it": "Dichiara prima del tiro. Non aggiunge danni e non garantisce il colpo: le difese restano valide. L’attacco paga le proprie Azioni e Tecniche; non si somma ad Anticipo difensivo sullo stesso tiro.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "75e5395e1cf80e511c8e",
+    "it": "Un nemico percepito entro",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "d0b11f8f8dfa0678b242",
+    "it": "m perde la prossima Azione e interrompe Haki e Tecniche mantenute.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "70d88d46c79e9cc0c614",
+    "it": "Non può riattivare i Colori fino alla fine del suo secondo turno successivo. Non cancella tutto il turno né i poteri non mantenuti.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "d9e0eca2f2a14e343942",
+    "it": "Un utilizzo per combattimento, condiviso con Grido dell’Imperatore. Nessuna prova di Spirito aggiunta.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "002fd870db807d84c633",
+    "it": "Massimizzi e raddoppi i Dadi Danno di un solo attacco fisico.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "f289e6f41b56b7070854",
+    "it": "Dichiara prima del tiro per colpire, che resta necessario. Attributi, Skill, Haki e bonus fissi non vengono massimizzati o raddoppiati. Restano difese e costi dell’attacco.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "aacc0b6ddc7a1fb908bc",
+    "it": "Dadi Danno massimizzati e raddoppiati; il bersaglio non può usare la difesa attiva di Osservazione contro questo attacco.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "5585cd03ebec5220a971",
+    "it": "Un solo attacco fisico, una sola Bonus e 3 PIP totali. Non massimizza Attributi, Skill o Haki. Schivata, Parata e altre difese fisiche restano valide: il colpo non è automatico.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "eba073e43c85f98ca8af",
+    "it": "Non spegne Osservazione e non toglie i suoi passivi; i suoi effetti possono ancora valere contro altri attacchi.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "a64abe59f2854d161ac4",
+    "it": "Consulta le condizioni nel manuale.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "f6b8653972d06d95a1ca",
+    "it": "· potenziata",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "ecf3c1bd818b0ce06c4b",
+    "it": "· standard",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "7b09bec4602b4105cb55",
+    "it": ": Azione Bonus ·",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "c1ec360f347a3d38f3f3",
+    "it": "Richiede il Colore già attivo. Attivarlo e usare un effetto ⚡ richiedono Bonus separate, in turni diversi.",
+    "kind": "text",
+    "context": "regole/prestigio-presentazione.js"
+  },
+  {
+    "id": "9d156b63e2e73a05ea91",
+    "it": "AFFONDATA",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "77fee90ff81786270625",
+    "it": "INTEGRA",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "9656c2b9bc18442fd08e",
+    "it": "DANNEGGIATA",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "7951bf3d20dc60161ee0",
+    "it": "GRAVE",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "daeedbbd930ad1af0722",
+    "it": "CRITICA",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "8924f4d2938f3c03b72a",
+    "it": "Registra settimane complete; per tratte parziali concorda le provviste col GM.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "7591c9894c703607eb16",
+    "it": "Manovra sconosciuta.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "38489aebe39d6257e29c",
+    "it": "Statistica navale fuori dalla scala ordinaria d4–d12: serve una capacità esplicita prima dell’uso.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "0aba6a60f1c9d0281719",
+    "it": "Componente danneggiato: dichiara come il GM applica «−1 dado» alla formula.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "e31beb58d67745a1b6e7",
+    "it": "Assegna un operatore alla postazione",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "0cc31a369cd1ec8e5a66",
+    "it": "Serve il dado",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "7274242ee3ea2d01759c",
+    "it": "dell’operatore.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "5a6498f295798e9c0ecf",
+    "it": "La nave ha raggiunto la soglia di affondamento.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "0d1c07c453604bbbb884",
+    "it": "Il Timone danneggiato impedisce la Manovra Evasiva.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "183fab865a0f346568f8",
+    "it": "La Sala macchine danneggiata impedisce il movimento attivo.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "f1e9237d40eb1a481e2b",
+    "it": ": specifica quale dado aggiunge la scheda (§13.16.3).",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "4039ecf27cd83893e7df",
+    "it": "Serve Riparazione d’Emergenza acquisita o una capacità esplicita.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "686ea71aca2ed6f40dba",
+    "it": "Serve il dado Carpenteria.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "5f042d5c9a65beac44df",
+    "it": "All’orizzonte: Artiglieria ordinaria fuori portata.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "0162ffb87738d62c9727",
+    "it": "Non è materialmente possibile la collisione.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "f55f4a37c4c087c3abe6",
+    "it": "PS non validi.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "c176ec212db72e9b928e",
+    "it": "Componente sconosciuto.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "3797f622ef6c3db986ba",
+    "it": "Nessun tiro Componenti richiesto: eventuale secondo duplicato richiede la scelta del GM.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "1d81402c0c2e6bf700a8",
+    "it": "Il tiro Componenti deve essere 1–6.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "f453de3beeebf5c97cd5",
+    "it": "Componente già danneggiato: ritira una sola volta.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "1a3ae79a0d68248a85ba",
+    "it": "Non è richiesta una scelta GM.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "e32086b7f7a152e371d7",
+    "it": "Indica un componente esposto oppure descrivi l’aggravamento.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "c0071ae46d25a6baafd9",
+    "it": "La battaglia è già iniziata.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "2ad02b88d31682b6d34c",
+    "it": "Inizia prima la battaglia.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "7177351c14f237745266",
+    "it": "Inizia la battaglia e il round.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "843309af82da87bb3de4",
+    "it": "L’operatore ha già utilizzato la sua Azione in questo round.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "8074fb4436d70e71a378",
+    "it": "La nave ha esaurito le Manovre disponibili per questo round.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "db2da1c09a806d011177",
+    "it": "L’operatore non ha un’Azione disponibile.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "cae5e5c551ed32d3ce96",
+    "it": "Registra il totale della Prova.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "6002571833cbd4d347f7",
+    "it": "Servono strumenti e materiali disponibili.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "8cac6dde085165addd2a",
+    "it": "Conferma la collisione e registra il contraccolpo 1d4.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "d161fb44b7337f650722",
+    "it": "Registra la Soglia o il tiro avversario.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "a4775d095bfae3bd6462",
+    "it": "Registra il recupero tirato con il dado Carpenteria.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "91c4f27c2963e3ad6605",
+    "it": "Cannoni gemelli non disponibili.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "b6b069ba545807a2443a",
+    "it": "Gli slot devono essere un intero positivo.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  }
+]

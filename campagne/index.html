@@ -93,6 +93,10 @@ label.fld{display:block;font-family:'Inter',sans-serif;letter-spacing:.05em;text
 <link rel="stylesheet" href="/glc-brand.css?v=1">
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=2">
 <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png?v=2">
+<!-- GLC LANGUAGE START -->
+<link rel="stylesheet" href="/glc-i18n.css?v=1">
+<script src="/glc-i18n.js?v=1"></script>
+<!-- GLC LANGUAGE END -->
 </head>
 <body class="premium-portal voyage-page mode-campaign">
 <header class="portal-topbar">
@@ -191,7 +195,7 @@ function renderCampaigns(){
   CAMPS.forEach(function(c){
     var card=el("button",{type:"button","aria-pressed":String(SELECTED===c.id),class:"ccard "+(c._role==="gm"?"gm":"")+(SELECTED===c.id?" sel":""),onClick:function(){SELECTED=c.id;renderDetail(c);renderCampaigns();window.scrollTo({top:Math.max(0,document.getElementById("detailWrap").getBoundingClientRect().top+window.scrollY-24),behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});}});
     card.appendChild(el("span",{class:"campaign-card-mark","aria-hidden":"true",html:GLCArt.html(c._role==='gm'?'ruolo-capitano':'legame',52)}));
-    card.appendChild(el("span",{class:"campaign-name",text:c.name}));
+    card.appendChild(el("span",{class:"campaign-name",translate:"no",text:c.name}));
     card.appendChild(el("span",{class:"badge "+(c._role==="gm"?"gm":"pl"),text:c._role==="gm"?"Game Master":"Giocatore"}));
     card.appendChild(el("div",{class:"meta",text:"Entra nella campagna ↗"}));
     grid.appendChild(card);
@@ -216,7 +220,7 @@ async function renderDetail(c){
   var crew=el("section",{class:"camp-section camp-crew",id:"camp-crew"});
   var manage=el("section",{class:"camp-section camp-manage"});
   p.appendChild(el("p",{class:"voyage-eyebrow",text:"Quartier generale"}));
-  p.appendChild(el("div",{class:"row"},[el("h3",{class:"dt",text:c.name}),el("span",{class:"badge "+(isGM?"gm":"pl"),text:isGM?"Sei il Game Master":"Sei un Giocatore",style:"margin-left:8px"})]));
+  p.appendChild(el("div",{class:"row"},[el("h3",{class:"dt",translate:"no",text:c.name}),el("span",{class:"badge "+(isGM?"gm":"pl"),text:isGM?"Sei il Game Master":"Sei un Giocatore",style:"margin-left:8px"})]));
 
   // membri
   var memR=await SB().from("campaign_members").select("*").eq("campaign_id",c.id);

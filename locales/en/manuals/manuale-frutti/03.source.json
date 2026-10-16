@@ -1,0 +1,2682 @@
+[
+  {
+    "id": "6a5d72fc9c3c96298252",
+    "it": "Quando un nemico ti colpisce in mischia a mani nude o utilizzando un&#x27;altra parte del proprio corpo, subisce:",
+    "kind": "html"
+  },
+  {
+    "id": "55dd31dd8dd56785c5f0",
+    "it": "1d6 Danni del tuo elemento.",
+    "kind": "html"
+  },
+  {
+    "id": "205ce53f0158787f0e8a",
+    "it": "Trasforma il corpo elementale stesso in un pericolo per chi entra in contatto fisico diretto con il Logia.",
+    "kind": "html"
+  },
+  {
+    "id": "d0bbbaf2c6367c723d55",
+    "it": "Il danno si applica:",
+    "kind": "html"
+  },
+  {
+    "id": "073da3f4e9d729efcb4e",
+    "it": "una volta per ogni attacco che produce contatto fisico diretto.",
+    "kind": "html"
+  },
+  {
+    "id": "3748f5f7da8931e591f5",
+    "it": "Il numero di colpi descritto narrativamente non aumenta il numero di attivazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "ae2b08f08dc25a54f0c9",
+    "it": "Un&#x27;arma normalmente evita il contatto diretto del corpo dell&#x27;attaccante.",
+    "kind": "html"
+  },
+  {
+    "id": "555095b18ac43192da07",
+    "it": "Compatibilità",
+    "kind": "html"
+  },
+  {
+    "id": "d09420ef7c15d190061b",
+    "it": "Il Talento deve avere senso per l&#x27;elemento.",
+    "kind": "html"
+  },
+  {
+    "id": "1599e0f9e5c33139aae8",
+    "it": "Per alcuni elementi la conseguenza al contatto è immediata.",
+    "kind": "html"
+  },
+  {
+    "id": "36cd35cf59dea3032133",
+    "it": "Per altri potrebbe non esserlo.",
+    "kind": "html"
+  },
+  {
+    "id": "9127074bd62c1d2d1154",
+    "it": "Il GM non deve inventare una proprietà dannosa che l&#x27;elemento non possiede soltanto per rendere utilizzabile il Talento.",
+    "kind": "html"
+  },
+  {
+    "id": "3e344f261b1cdf869905",
+    "it": "Se il contatto con quell&#x27;elemento non può ragionevolmente produrre danno, il Talento può non essere appropriato per quello specifico Logia.",
+    "kind": "html"
+  },
+  {
+    "id": "e9ee21cf11031d1f0c73",
+    "it": "Fonte Inesauribile",
+    "kind": "html"
+  },
+  {
+    "id": "33e31c4b3840aa014081",
+    "it": "<b>Prerequisito: Nutrirsi dell&#x27;Elemento</b><br>Passivo",
+    "kind": "html"
+  },
+  {
+    "id": "098ed4ab5f22bf6f231f",
+    "it": "Quando ti trovi dentro o immediatamente a ridosso di una grande fonte del tuo elemento, le tue Tecniche del Frutto non costano Stamina.",
+    "kind": "html"
+  },
+  {
+    "id": "8354c22c3eb4b23dd595",
+    "it": "Il beneficio riguarda le Tecniche del Frutto e richiede che la fonte sia effettivamente disponibile.",
+    "kind": "html"
+  },
+  {
+    "id": "87e9c84850e2d4a47b6d",
+    "it": "Una fonte piccola o puramente decorativa non soddisfa automaticamente la condizione.",
+    "kind": "html"
+  },
+  {
+    "id": "376dd966ba46c3f155f4",
+    "it": "Trasforma l&#x27;ambiente ideale del Logia in una condizione di dominio energetico.",
+    "kind": "html"
+  },
+  {
+    "id": "053643bee869b239a955",
+    "it": "La fonte deve essere:",
+    "kind": "html"
+  },
+  {
+    "id": "4b21ac46d8a5f1ea01bc",
+    "it": "grande;",
+    "kind": "html"
+  },
+  {
+    "id": "24c5e661791da741c489",
+    "it": "significativa;",
+    "kind": "html"
+  },
+  {
+    "id": "8c13bde24d7ed397bb2a",
+    "it": "realmente presente nell&#x27;ambiente.",
+    "kind": "html"
+  },
+  {
+    "id": "5e45668d45779b1a4b8d",
+    "it": "Il personaggio deve trovarsi dentro o immediatamente a ridosso della fonte.",
+    "kind": "html"
+  },
+  {
+    "id": "0e02ef1a13b5a4532d36",
+    "it": "Una fonte creata deliberatamente dal personaggio non diventa automaticamente valida.",
+    "kind": "html"
+  },
+  {
+    "id": "c597a0031d03977cde4c",
+    "it": "Il beneficio riguarda esclusivamente:",
+    "kind": "html"
+  },
+  {
+    "id": "22a4b63a7e7ec49e0eab",
+    "it": "le Tecniche del Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "a73cfc0b1a5c9874dfe7",
+    "it": "Non elimina automaticamente costi di Talenti, Haki o altre risorse.",
+    "kind": "html"
+  },
+  {
+    "id": "fe7d94500e4dc73ffa3d",
+    "it": "Forma Perduta",
+    "kind": "html"
+  },
+  {
+    "id": "877c97730b0af0003f28",
+    "it": "<b>Talento attivo · Azione Bonus</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f46da87d480d4c67dd75",
+    "it": "Il personaggio disperde completamente il proprio corpo nell&#x27;elemento.",
+    "kind": "html"
+  },
+  {
+    "id": "f67d8edc30a3a3246f79",
+    "it": "Può assumere la forma di una nube, corrente, fiamma diffusa o altra manifestazione coerente.",
+    "kind": "html"
+  },
+  {
+    "id": "ee092f72ee3abcdb86a7",
+    "it": "La trasformazione dura un&#x27;intera scena.",
+    "kind": "html"
+  },
+  {
+    "id": "992e051d2f994c5f661e",
+    "it": "Durante questo stato:",
+    "kind": "html"
+  },
+  {
+    "id": "2cf1911c5d503c6201a6",
+    "it": "non può impugnare o utilizzare oggetti;",
+    "kind": "html"
+  },
+  {
+    "id": "f7d2f24c2a010f87bb69",
+    "it": "non può effettuare attacchi;",
+    "kind": "html"
+  },
+  {
+    "id": "2830649c49751d7ed770",
+    "it": "può muoversi ovunque il proprio elemento possa arrivare;",
+    "kind": "html"
+  },
+  {
+    "id": "87fcf0a3de4be324b7b1",
+    "it": "può attraversare barriere non ermetiche;",
+    "kind": "html"
+  },
+  {
+    "id": "3307ff7ddd0e67d39d89",
+    "it": "non può essere riconosciuto attraverso il proprio normale aspetto.",
+    "kind": "html"
+  },
+  {
+    "id": "193f4996fcbb93ae2f9a",
+    "it": "Tornare alla forma ordinaria richiede un&#x27;Azione principale.",
+    "kind": "html"
+  },
+  {
+    "id": "e71a9b5f94d61f0aeba0",
+    "it": "È una capacità di dispersione, infiltrazione e mobilità.",
+    "kind": "html"
+  },
+  {
+    "id": "53e798dabe0c6a2f4066",
+    "it": "Non è una forma offensiva.",
+    "kind": "html"
+  },
+  {
+    "id": "18469965d2facfa955bb",
+    "it": "«può muoversi ovunque il proprio elemento possa arrivare»",
+    "kind": "html"
+  },
+  {
+    "id": "be9dd1e68eb0b3b9a4b8",
+    "it": "descrive i percorsi possibili.",
+    "kind": "html"
+  },
+  {
+    "id": "942c7521daf1e2db02fb",
+    "it": "Non concede movimento illimitato.",
+    "kind": "html"
+  },
+  {
+    "id": "ec3a4b99de50d48d9c71",
+    "it": "Il personaggio continua normalmente a rispettare il proprio Movimento salvo capacità che stabiliscano diversamente.",
+    "kind": "html"
+  },
+  {
+    "id": "368dc9f415ab6369fb42",
+    "it": "Durante Forma Perduta non può:",
+    "kind": "html"
+  },
+  {
+    "id": "f7a54fcc133b38b27d1c",
+    "it": "attaccare;",
+    "kind": "html"
+  },
+  {
+    "id": "a785ac702b037d4f82cf",
+    "it": "utilizzare Tecniche offensive;",
+    "kind": "html"
+  },
+  {
+    "id": "42fee52adcda2b1e8225",
+    "it": "impugnare o utilizzare oggetti.",
+    "kind": "html"
+  },
+  {
+    "id": "3acaf38a92eed007d535",
+    "it": "La natura dell&#x27;elemento determina quali barriere possano essere attraversate.",
+    "kind": "html"
+  },
+  {
+    "id": "1b42ca38cd4c116b2b69",
+    "it": "<span class=\"man-sez-n\">7.6 ·</span> <span data-frutti-source=\"826\">d20 · Risveglio Logia</span>",
+    "kind": "html"
+  },
+  {
+    "id": "b99441bcf0c93cafa235",
+    "it": "Risveglio · Logia",
+    "kind": "html"
+  },
+  {
+    "id": "74a6c97da0f4eaee2bef",
+    "it": "<b>Ultimate</b>",
+    "kind": "html"
+  },
+  {
+    "id": "cf56f94108ad24d56a2c",
+    "it": "Requisiti: Dado del Frutto d20, Ambizione e permesso del Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "6f3b0a20c06fc4259be6",
+    "it": "Il personaggio raggiunge la manifestazione più elevata del proprio elemento.",
+    "kind": "html"
+  },
+  {
+    "id": "9d234c8ea46a48497233",
+    "it": "Durante il Risveglio, l&#x27;elemento non rappresenta più soltanto il corpo del personaggio o ciò che egli controlla direttamente.",
+    "kind": "html"
+  },
+  {
+    "id": "a11a1add484e596d050e",
+    "it": "La sua presenza invade e modifica l&#x27;ambiente circostante.",
+    "kind": "html"
+  },
+  {
+    "id": "e4f585ab4ad3df61b3ee",
+    "it": "Il Risveglio Logia viene costruito utilizzando la normale Linea Guida del Risveglio.",
+    "kind": "html"
+  },
+  {
+    "id": "8a2a1f8977e78b50aa5a",
+    "it": "Devono quindi essere definiti prima dell&#x27;acquisizione:",
+    "kind": "html"
+  },
+  {
+    "id": "c0828069c130c5582337",
+    "it": "Nome;",
+    "kind": "html"
+  },
+  {
+    "id": "ab16ee53303d86ad0772",
+    "it": "Principio Risvegliato;",
+    "kind": "html"
+  },
+  {
+    "id": "1483381188bec9fa62a2",
+    "it": "Manifestazione;",
+    "kind": "html"
+  },
+  {
+    "id": "01d6929aee23355408c2",
+    "it": "Famiglie coinvolte;",
+    "kind": "html"
+  },
+  {
+    "id": "198190f0023863a680f5",
+    "it": "Benefici concordati;",
+    "kind": "html"
+  },
+  {
+    "id": "30144f9a7527549a32ed",
+    "it": "Area o Portata;",
+    "kind": "html"
+  },
+  {
+    "id": "4a69d293b9dcc11e7536",
+    "it": "Bersagli validi;",
+    "kind": "html"
+  },
+  {
+    "id": "5f48ef099724750e41f3",
+    "it": "Permanenza;",
+    "kind": "html"
+  },
+  {
+    "id": "8cad55052858f455086c",
+    "it": "Limiti superati;",
+    "kind": "html"
+  },
+  {
+    "id": "c5344c80e8c069bbffd2",
+    "it": "Limiti mantenuti;",
+    "kind": "html"
+  },
+  {
+    "id": "26f73f0d568650fd07b1",
+    "it": "Prezzo.",
+    "kind": "html"
+  },
+  {
+    "id": "3c7205d98f42647cc826",
+    "it": "Il Risveglio non viene improvvisato durante l&#x27;attivazione.",
+    "kind": "html"
+  },
+  {
+    "id": "db5f9f55d24727c3c3e4",
+    "it": "Caratteristica propria del Risveglio Logia",
+    "kind": "html"
+  },
+  {
+    "id": "c593cb778c9ecb34b904",
+    "it": "Ogni Risveglio Logia possiede una caratteristica fondamentale:",
+    "kind": "html"
+  },
+  {
+    "id": "a85e0cc7e032eef3fc1f",
+    "it": "Saturazione Elementale",
+    "kind": "html"
+  },
+  {
+    "id": "70b7240eac8382f4cac0",
+    "it": "Durante il Risveglio, l&#x27;elemento del personaggio invade l&#x27;ambiente all&#x27;interno dell&#x27;Area stabilita nella propria Scheda del Risveglio.",
+    "kind": "html"
+  },
+  {
+    "id": "b29bbd365e0275009909",
+    "it": "La manifestazione concreta dipende dall&#x27;elemento.",
+    "kind": "html"
+  },
+  {
+    "id": "0e0fad292711854d21ec",
+    "it": "Un Logia del fuoco potrebbe riempire la zona di calore, fiamme e combustione.",
+    "kind": "html"
+  },
+  {
+    "id": "590adc78a8251b268239",
+    "it": "Un Logia del ghiaccio potrebbe trasformare progressivamente l&#x27;ambiente in una distesa congelata.",
+    "kind": "html"
+  },
+  {
+    "id": "acaf067766055c081391",
+    "it": "Un Logia del fumo potrebbe saturare lo spazio con una massa densa e persistente.",
+    "kind": "html"
+  },
+  {
+    "id": "4d8d422622b5a49f433b",
+    "it": "Non esiste una dimensione universale dell&#x27;Area.",
+    "kind": "html"
+  },
+  {
+    "id": "ed02c76e2afe69bf7c07",
+    "it": "L&#x27;estensione viene definita attraverso la normale Scheda del Risveglio.",
+    "kind": "html"
+  },
+  {
+    "id": "a54735417329710c1935",
+    "it": "Ambiente Ostile",
+    "kind": "html"
+  },
+  {
+    "id": "1ffd353194b283ca1de4",
+    "it": "La Saturazione Elementale modifica le condizioni della scena.",
+    "kind": "html"
+  },
+  {
+    "id": "e465d52907961385f477",
+    "it": "Ogni Risveglio Logia deve quindi definire uno o più effetti ambientali coerenti con la natura dell&#x27;elemento.",
+    "kind": "html"
+  },
+  {
+    "id": "32da508d33979213ecc3",
+    "it": "Questi effetti non sono universali.",
+    "kind": "html"
+  },
+  {
+    "id": "95e88063f23209afc0ba",
+    "it": "Cambiano da Frutto a Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "5be2050a43f4722c34ab",
+    "it": "Possono essere rappresentati attraverso Condizioni idonee alla natura dell&#x27;elemento o attraverso altre conseguenze meccaniche concordate con il Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "9f1555082a3a5dc8f02f",
+    "it": "un elemento che impedisce la vista potrebbe produrre una Condizione legata alla percezione;",
+    "kind": "html"
+  },
+  {
+    "id": "8954f53683817fbc0c08",
+    "it": "un elemento estremamente freddo potrebbe produrre conseguenze coerenti con congelamento o limitazione del movimento;",
+    "kind": "html"
+  },
+  {
+    "id": "2a6dd6d52749c44df624",
+    "it": "un elemento soffocante potrebbe produrre una conseguenza appropriata alla respirazione;",
+    "kind": "html"
+  },
+  {
+    "id": "c1d072c1cb63b3990cc9",
+    "it": "un elemento che provoca paura, dolore, corrosione o altre reazioni deve utilizzare una conseguenza coerente con quelle proprietà.",
+    "kind": "html"
+  },
+  {
+    "id": "df47fd9634a797318c74",
+    "it": "La Condizione scelta deve essere definita quando viene creato il Risveglio.",
+    "kind": "html"
+  },
+  {
+    "id": "6fef4ada84f4de80015a",
+    "it": "Non può cambiare liberamente durante ogni turno.",
+    "kind": "html"
+  },
+  {
+    "id": "a8cfc9816b4ef4761c50",
+    "it": "Applicazione delle Condizioni",
+    "kind": "html"
+  },
+  {
+    "id": "98b2465520de091922d3",
+    "it": "Quando Ambiente Ostile applica una Condizione a una creatura ostile, si utilizzano normalmente le regole previste per quella Condizione.",
+    "kind": "html"
+  },
+  {
+    "id": "9807647e63f0f66eff56",
+    "it": "Se Ambiente Ostile applica una Condizione che utilizza la normale Salvezza degli Stati, la Soglia è determinata dal Dado del Frutto. Una Scheda del Risveglio può indicare una Soglia propria soltanto quando la specifica Condizione o la natura del potere richiede una regola differente. Poiché il Risveglio richiede normalmente il vertice del Dado del Frutto, un Risveglio Logia d20 utilizza normalmente Soglia 11 per le Condizioni salvabili che non possiedono una regola specifica.",
+    "kind": "html"
+  },
+  {
+    "id": "d814e7149408461a6c41",
+    "it": "Il Risveglio non permette automaticamente di ignorare le normali difese previste dal sistema.",
+    "kind": "html"
+  },
+  {
+    "id": "d29a508a4e65a6c97d61",
+    "it": "Giocatore e Game Master devono stabilire nella Scheda del Risveglio:",
+    "kind": "html"
+  },
+  {
+    "id": "a12081c913d9646ed90b",
+    "it": "quale Condizione può essere applicata;",
+    "kind": "html"
+  },
+  {
+    "id": "18bd1337541c0d1b2488",
+    "it": "in quali circostanze;",
+    "kind": "html"
+  },
+  {
+    "id": "28df7b0e2c037966e651",
+    "it": "quando viene verificata;",
+    "kind": "html"
+  },
+  {
+    "id": "f3df4c06bb908efe7e8f",
+    "it": "come può essere rimossa o superata.",
+    "kind": "html"
+  },
+  {
+    "id": "907f7772f00979632e55",
+    "it": "Famiglie del Risveglio",
+    "kind": "html"
+  },
+  {
+    "id": "ffc0701804ce0a14ebc1",
+    "it": "Oltre alla Saturazione Elementale e ad Ambiente Ostile, il Risveglio Logia segue le normali Famiglie della Linea Guida del Risveglio:",
+    "kind": "html"
+  },
+  {
+    "id": "0e0a92e4be640aaf9738",
+    "it": "<b>Origine</b>",
+    "kind": "html"
+  },
+  {
+    "id": "20eff8ed7556202b73d9",
+    "it": "<b>Costi / Sconti</b>",
+    "kind": "html"
+  },
+  {
+    "id": "aa81d72b894ccaac7a5f",
+    "it": "<b>Espansione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "05bd4bc0e0c40177ad6c",
+    "it": "<b>Difesa</b>",
+    "kind": "html"
+  },
+  {
+    "id": "5124d682df0515616472",
+    "it": "<b>Attacco</b>",
+    "kind": "html"
+  },
+  {
+    "id": "9e713726395dc6801248",
+    "it": "<b>Controllo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "8b45d354c21f9e8806f8",
+    "it": "Le Famiglie non concedono automaticamente alcun bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "5784ba5f745d58bd9ab0",
+    "it": "Identificano esclusivamente quali aspetti dell&#x27;elemento vengono portati oltre la normale padronanza.",
+    "kind": "html"
+  },
+  {
+    "id": "2fbafe0accc14111feb2",
+    "it": "I Benefici concreti vengono concordati tra giocatore e Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "8cb7347d93a5063c8206",
+    "it": "Esempio · Risveglio del Fuoco",
+    "kind": "html"
+  },
+  {
+    "id": "4fbb023e18bb0062f7b2",
+    "it": "La presenza del fuoco non dipende più soltanto dal corpo dell&#x27;utilizzatore o dalle singole fonti controllate.",
+    "kind": "html"
+  },
+  {
+    "id": "1aaf489383222d778719",
+    "it": "L&#x27;ambiente viene progressivamente invaso dalle fiamme.",
+    "kind": "html"
+  },
+  {
+    "id": "6df536b36b749c6e18bf",
+    "it": "<b>Saturazione Elementale</b>",
+    "kind": "html"
+  },
+  {
+    "id": "4e6750af6d982d300c64",
+    "it": "Il fuoco occupa e modifica l&#x27;Area definita nella Scheda del Risveglio.",
+    "kind": "html"
+  },
+  {
+    "id": "f7acadf9fe0d91fc88fd",
+    "it": "<b>Ambiente Ostile</b>",
+    "kind": "html"
+  },
+  {
+    "id": "ac62e32a8850d7994511",
+    "it": "Giocatore e GM stabiliscono una conseguenza appropriata al calore e alle fiamme e definiscono le eventuali Condizioni applicabili.",
+    "kind": "html"
+  },
+  {
+    "id": "288f0975033259b10bbc",
+    "it": "<b>Famiglie</b>",
+    "kind": "html"
+  },
+  {
+    "id": "22e970526bbbd8edaf30",
+    "it": "Possono essere scelte, per esempio, Espansione, Dominio, Origine o altre Famiglie appropriate.",
+    "kind": "html"
+  },
+  {
+    "id": "b371539adc0359cae883",
+    "it": "I Benefici concreti vengono definiti separatamente.",
+    "kind": "html"
+  },
+  {
+    "id": "1b38b5e2c6639afa1412",
+    "it": "Il Risveglio non concede automaticamente tutti questi vantaggi soltanto perché appartiene alla categoria Logia.",
+    "kind": "html"
+  },
+  {
+    "id": "34c7543190c6004adc26",
+    "it": "Esempio · Risveglio del Fumo",
+    "kind": "html"
+  },
+  {
+    "id": "43856c5870618ae964b6",
+    "it": "Il fumo diventa una presenza dominante nell&#x27;intera zona.",
+    "kind": "html"
+  },
+  {
+    "id": "64e4baf12ad25a60286d",
+    "it": "Una massa sempre più densa invade l&#x27;ambiente e permane finché il Risveglio è attivo.",
+    "kind": "html"
+  },
+  {
+    "id": "e9e0626a30fd727d7890",
+    "it": "Lo spazio viene occupato dal fumo secondo Area e Portata definite nella Scheda.",
+    "kind": "html"
+  },
+  {
+    "id": "2bf42313320c6dbec239",
+    "it": "Il Risveglio può utilizzare Condizioni coerenti con visibilità, respirazione o altre proprietà effettivamente possedute dall&#x27;elemento.",
+    "kind": "html"
+  },
+  {
+    "id": "452eca76e391ada8a6f9",
+    "it": "Le condizioni esatte devono essere stabilite preventivamente.",
+    "kind": "html"
+  },
+  {
+    "id": "3da44fb63f84429b3810",
+    "it": "Prezzo del Risveglio",
+    "kind": "html"
+  },
+  {
+    "id": "8c319aaa31e38ae787a8",
+    "it": "Terminare volontariamente il Risveglio in anticipo non evita il prezzo previsto.",
+    "kind": "html"
+  },
+  {
+    "id": "42535fe61380a52f15e9",
+    "it": "Struttura finale del Risveglio Logia",
+    "kind": "html"
+  },
+  {
+    "id": "9bc30a42b3c06ece3d12",
+    "it": "Il Risveglio Logia è quindi composto da due livelli.",
+    "kind": "html"
+  },
+  {
+    "id": "c734368207d6f13d5277",
+    "it": "<b>Identità Logia</b>",
+    "kind": "html"
+  },
+  {
+    "id": "fd32e278601ecb80f23c",
+    "it": "Saturazione Elementale.",
+    "kind": "html"
+  },
+  {
+    "id": "be036e3cfec8e7dd97a3",
+    "it": "Ambiente Ostile coerente con l&#x27;elemento.",
+    "kind": "html"
+  },
+  {
+    "id": "772a658b5fa9b2dd8177",
+    "it": "<b>Costruzione personalizzata</b>",
+    "kind": "html"
+  },
+  {
+    "id": "b4d2cb8a17108a9fa8ed",
+    "it": "Tutto il resto segue la normale Linea Guida del Risveglio e viene costruito attraverso Manifestazione, Famiglie, Benefici e Limitazioni concordate.",
+    "kind": "html"
+  },
+  {
+    "id": "e396ff1abe757606ae5b",
+    "it": "In questo modo tutti i Risvegli Logia condividono la stessa filosofia senza diventare copie meccaniche dello stesso potere.",
+    "kind": "html"
+  },
+  {
+    "id": "f437a3559f262f960fe9",
+    "it": "Capitolo 8 ·",
+    "kind": "html"
+  },
+  {
+    "id": "b4d24c86778a4c62b180",
+    "it": "Gli Zoan permettono al possessore di trasformarsi in una creatura animale e di combinarne le caratteristiche con il proprio corpo.",
+    "kind": "html"
+  },
+  {
+    "id": "e111ed9a0b47ebdf3d14",
+    "it": "Il loro sviluppo è principalmente legato a:",
+    "kind": "html"
+  },
+  {
+    "id": "31b3089423d44efda8e8",
+    "it": "forza fisica;",
+    "kind": "html"
+  },
+  {
+    "id": "c86e0375c089b9fb63df",
+    "it": "resistenza;",
+    "kind": "html"
+  },
+  {
+    "id": "bd928b0dbcc67d3cba00",
+    "it": "mobilità;",
+    "kind": "html"
+  },
+  {
+    "id": "20b2cd7c6e6c049ba5cf",
+    "it": "sensi;",
+    "kind": "html"
+  },
+  {
+    "id": "22be3fd63988472447c5",
+    "it": "armi naturali;",
+    "kind": "html"
+  },
+  {
+    "id": "66e14b88b2b796a1b1fc",
+    "it": "istinti;",
+    "kind": "html"
+  },
+  {
+    "id": "08e08df95de3eddad2f0",
+    "it": "caratteristiche biologiche della creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "f3348bfa4acd2de6058d",
+    "it": "Ogni Zoan possiede tre forme fondamentali:",
+    "kind": "html"
+  },
+  {
+    "id": "1a56df38f3a47dff9e27",
+    "it": "<b>Forma Umana</b><br>L&#x27;aspetto ordinario del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "0a841e0f604af7d6beeb",
+    "it": "<b>Forma Ibrida</b><br>Combina anatomia umana e caratteristiche della creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "c3f22c67eeb97a942296",
+    "it": "<b>Forma Bestiale</b><br>Assume completamente la forma della creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "56aed9b77d3d3ead9328",
+    "it": "<span class=\"man-sez-n\">8.1 ·</span> <span data-frutti-source=\"943\">Scheda della Creatura</span>",
+    "kind": "html"
+  },
+  {
+    "id": "a46c4ec4eecbfe88ff2b",
+    "it": "Quando viene definito uno Zoan, giocatore e Game Master compilano una breve Scheda della Creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "92cbcc212c2cdf591d48",
+    "it": "Devono essere indicati:",
+    "kind": "html"
+  },
+  {
+    "id": "752dc2a39c81609b0a27",
+    "it": "<b>Specie</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e499820b895800b79c2d",
+    "it": "La creatura rappresentata dal Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "a762dd3286c56a63cbb1",
+    "it": "<b>Categoria</b>",
+    "kind": "html"
+  },
+  {
+    "id": "ccdf77f2aa2a0d4c763e",
+    "it": "Ordinario, Ancestrale oppure Mitologico.",
+    "kind": "html"
+  },
+  {
+    "id": "af517319e58ed75c132e",
+    "it": "<b>Stazza Bestiale</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e44be4bb93eb3a63ccc8",
+    "it": "La dimensione raggiunta dalla Forma Bestiale.",
+    "kind": "html"
+  },
+  {
+    "id": "b4c139b44437a816cebd",
+    "it": "<b>Anatomia</b>",
+    "kind": "html"
+  },
+  {
+    "id": "181ace47f11593b0f36f",
+    "it": "Artigli, zanne, corna, ali, coda, guscio, aculei o altre strutture caratteristiche.",
+    "kind": "html"
+  },
+  {
+    "id": "7dac6ece889471cf006b",
+    "it": "<b>Modalità di movimento</b>",
+    "kind": "html"
+  },
+  {
+    "id": "9156260c81e6e0c650c5",
+    "it": "Corsa, volo, arrampicata, scavo o altre forme di locomozione.",
+    "kind": "html"
+  },
+  {
+    "id": "d86f98e9329ef3287e98",
+    "it": "<b>Sensi caratteristici</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e47441ce0c2bb8bc8d67",
+    "it": "Olfatto, vista, udito, ecolocalizzazione, percezione delle vibrazioni o altri sensi propri della specie.",
+    "kind": "html"
+  },
+  {
+    "id": "7250cd8ea7d282a5d55c",
+    "it": "<b>Capacità naturali</b>",
+    "kind": "html"
+  },
+  {
+    "id": "19dd962ac1fa46d336df",
+    "it": "Caratteristiche biologiche che la creatura possiede naturalmente.",
+    "kind": "html"
+  },
+  {
+    "id": "7188450e646093729b04",
+    "it": "<b>Retaggio</b>",
+    "kind": "html"
+  },
+  {
+    "id": "1022d6ce962a36da1628",
+    "it": "Per gli Zoan Ancestrali e Mitologici vengono inoltre registrate le caratteristiche eccezionali che potranno essere sviluppate durante la crescita del Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "d3aa32b70e7ffab87fb0",
+    "it": "<span class=\"man-sez-n\">8.2 ·</span> <span data-frutti-source=\"962\">Anatomia e vantaggi meccanici</span>",
+    "kind": "html"
+  },
+  {
+    "id": "10cdd3be5d5144be4e93",
+    "it": "Le caratteristiche fisiche della creatura esistono realmente quando il personaggio assume una forma appropriata.",
+    "kind": "html"
+  },
+  {
+    "id": "77bdf38a3a1d5bbc3926",
+    "it": "Uno Zoan volatile possiede ali.",
+    "kind": "html"
+  },
+  {
+    "id": "4ba38aa569ee7e8e0719",
+    "it": "Uno Zoan felino possiede artigli.",
+    "kind": "html"
+  },
+  {
+    "id": "d7689980171201ab8986",
+    "it": "Uno Zoan dotato di corna possiede realmente quelle corna.",
+    "kind": "html"
+  },
+  {
+    "id": "806fa4b8bf9ee5e9b19e",
+    "it": "Uno Zoan con un guscio possiede realmente quella struttura.",
+    "kind": "html"
+  },
+  {
+    "id": "790430e0e783f1f4096e",
+    "it": "Questo concede le normali possibilità narrative derivanti dall&#x27;anatomia.",
+    "kind": "html"
+  },
+  {
+    "id": "160d5f7f00a669ad9647",
+    "it": "Non concede automaticamente bonus numerici.",
+    "kind": "html"
+  },
+  {
+    "id": "c67e5160d59dabc07b6e",
+    "it": "avere ali permette di volare, ma non aumenta automaticamente il Movimento;",
+    "kind": "html"
+  },
+  {
+    "id": "07c683e0548f90bbdb0e",
+    "it": "avere artigli permette di utilizzarli fisicamente, ma non li rende automaticamente Armi Naturali di Grado pari al Frutto;",
+    "kind": "html"
+  },
+  {
+    "id": "39e53fd286cef2149444",
+    "it": "avere un guscio non concede automaticamente Riduzione del Danno;",
+    "kind": "html"
+  },
+  {
+    "id": "f79e43c363b206e5c7d4",
+    "it": "avere un olfatto sviluppato non permette automaticamente di individuare creature nascoste entro una distanza fissa.",
+    "kind": "html"
+  },
+  {
+    "id": "91e5b4e4ff6c6be19bb5",
+    "it": "I Talenti trasformano queste caratteristiche naturali in vantaggi meccanici specifici.",
+    "kind": "html"
+  },
+  {
+    "id": "72aede69244fefa683d0",
+    "it": "<span class=\"man-sez-n\">8.3 ·</span> <span data-frutti-source=\"976\">Tratto · Le Tre Forme</span>",
+    "kind": "html"
+  },
+  {
+    "id": "50b230f693a9fe69dc7e",
+    "it": "<b>Gratuito</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e1491ee1ff6700665ab4",
+    "it": "Il personaggio può trasformarsi nella propria Forma Ibrida o Bestiale e ritornare alla Forma Umana.",
+    "kind": "html"
+  },
+  {
+    "id": "1c34b25d9f2f64f6ff80",
+    "it": "La trasformazione:",
+    "kind": "html"
+  },
+  {
+    "id": "4fd82d55e7297147340f",
+    "it": "non costa Stamina;",
+    "kind": "html"
+  },
+  {
+    "id": "16276d2ab4035e4e7b5f",
+    "it": "non occupa Slot Effetto;",
+    "kind": "html"
+  },
+  {
+    "id": "1ef6854b21678b2e2837",
+    "it": "non richiede una Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "c1b23a2d2b35089e91af",
+    "it": "Una trasformazione normale utilizza l&#x27;Azione principale.",
+    "kind": "html"
+  },
+  {
+    "id": "c49a7cb8b9b7a9c4a26c",
+    "it": "In Forma Ibrida o Bestiale il corpo assume le caratteristiche anatomiche appropriate della creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "5e8ebdb1491d29ebf32b",
+    "it": "<span class=\"man-sez-n\">8.4 ·</span> <span data-frutti-source=\"985\">Firma · Il Colpo Travolge</span>",
+    "kind": "html"
+  },
+  {
+    "id": "c450b01f0f17c5cc52af",
+    "it": "<b>Colpo pulito · Margine +4</b>",
+    "kind": "html"
+  },
+  {
+    "id": "89484218e034766b9c73",
+    "it": "Quando il personaggio ottiene un Colpo Pulito mentre si trova in Forma Ibrida, sceglie uno dei seguenti effetti:",
+    "kind": "html"
+  },
+  {
+    "id": "51f4d343de363bb3f139",
+    "it": "<b>Stordimento</b>",
+    "kind": "html"
+  },
+  {
+    "id": "92a7c597afe51e7c3403",
+    "it": "Il bersaglio diventa Stordito.",
+    "kind": "html"
+  },
+  {
+    "id": "55349c16f292ebd35842",
+    "it": "<b>Danno aggiuntivo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "5e5b354825bf45b7129d",
+    "it": "Aggiungi 1 Dado Danno all&#x27;attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "cb0a4effe931e7c655d8",
+    "it": "Il personaggio sceglie un solo effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "baa01b9950896ca40072",
+    "it": "La Firma richiede la Forma Ibrida.",
+    "kind": "html"
+  },
+  {
+    "id": "b2013e924bd915ec6c53",
+    "it": "<span class=\"man-sez-n\">8.5 ·</span> <span data-frutti-source=\"994\">d4–d6 · Il Dono</span>",
+    "kind": "html"
+  },
+  {
+    "id": "0ccecc76cfef3541d41c",
+    "it": "Forma Ibrida",
+    "kind": "html"
+  },
+  {
+    "id": "9ccb8c2d1d4c6156b637",
+    "it": "Assumi la Forma Ibrida e sfrutti pienamente la combinazione tra anatomia umana e animale.",
+    "kind": "html"
+  },
+  {
+    "id": "e1393ac6aaeb3ce3097e",
+    "it": "Per l&#x27;intera scena ottieni:",
+    "kind": "html"
+  },
+  {
+    "id": "6a9f5843e1f4abb92317",
+    "it": "+1 dado ai tiri fisici basati su Forza e Atletica.",
+    "kind": "html"
+  },
+  {
+    "id": "2660abb10c87fdff3b11",
+    "it": "+1 Dado Danno agli attacchi in mischia.",
+    "kind": "html"
+  },
+  {
+    "id": "250b8573caaf1c3de7e4",
+    "it": "Il beneficio al danno si applica agli attacchi compatibili con la Forma Ibrida.",
+    "kind": "html"
+  },
+  {
+    "id": "6dcaaa59c783269c8b73",
+    "it": "Il Talento non modifica automaticamente tutti gli Attributi.",
+    "kind": "html"
+  },
+  {
+    "id": "400f93cbe357b73d1f6e",
+    "it": "La Forma Ibrida può essere assunta anche senza questo Talento.",
+    "kind": "html"
+  },
+  {
+    "id": "a1b866d5bcd3b82ffce1",
+    "it": "Il Talento rappresenta la capacità di utilizzarla come vera configurazione da combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "ed88bdcfd6e31c049131",
+    "it": "Istinto Animale",
+    "kind": "html"
+  },
+  {
+    "id": "692fa0461ed4a9587bac",
+    "it": "Gli istinti della creatura diventano parte naturale del comportamento del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "d318af3d3308d8bccea1",
+    "it": "Durante l&#x27;esplorazione aggiungi:",
+    "kind": "html"
+  },
+  {
+    "id": "417db2771b18e7961824",
+    "it": "alle prove appropriate di:",
+    "kind": "html"
+  },
+  {
+    "id": "1bec970714cbfd6a877a",
+    "it": "Osservazione;",
+    "kind": "html"
+  },
+  {
+    "id": "ecb4dfa2af6d5f951401",
+    "it": "Sopravvivenza;",
+    "kind": "html"
+  },
+  {
+    "id": "d340dfd13b7565036116",
+    "it": "inseguimento.",
+    "kind": "html"
+  },
+  {
+    "id": "388955b2007e071d55f6",
+    "it": "Il bonus si applica soltanto quando gli istinti della creatura offrono realmente un vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "42201ede710af769120c",
+    "it": "Puoi inoltre affrontare ambienti e terreni normalmente difficili quando la natura della creatura lo giustifica.",
+    "kind": "html"
+  },
+  {
+    "id": "b1c243123ed7cc2165aa",
+    "it": "una creatura arboricola può muoversi con facilità tra alberi e rami;",
+    "kind": "html"
+  },
+  {
+    "id": "2fddd1fc8fb4351a1a22",
+    "it": "una creatura montana può affrontare superfici ripide;",
+    "kind": "html"
+  },
+  {
+    "id": "23e3064251dc60854102",
+    "it": "un predatore può seguire meglio una preda.",
+    "kind": "html"
+  },
+  {
+    "id": "26e28a50bd4e21c9e2bf",
+    "it": "Istinto Animale non sostituisce Sensi Animali.",
+    "kind": "html"
+  },
+  {
+    "id": "e3acae20dca2eff478ba",
+    "it": "Tre Forme",
+    "kind": "html"
+  },
+  {
+    "id": "86ef82f2f7183439e87a",
+    "it": "<b>Gratuito</b><br>1 volta per turno",
+    "kind": "html"
+  },
+  {
+    "id": "aafb17c46fd9ade05931",
+    "it": "Puoi passare liberamente tra Forma Umana, Ibrida e Bestiale una volta per turno, senza consumare l&#x27;Azione principale.",
+    "kind": "html"
+  },
+  {
+    "id": "8a109c10dbf1e503e3a7",
+    "it": "Il cambio può avvenire anche durante una sequenza di colpi.",
+    "kind": "html"
+  },
+  {
+    "id": "2a07e25c07f6a1e60b84",
+    "it": "Il Talento non concede nuove Azioni né permette un numero illimitato di trasformazioni nello stesso turno.",
+    "kind": "html"
+  },
+  {
+    "id": "32e234a39d8f0346743e",
+    "it": "Il cambio di forma utilizza l&#x27;Azione Bonus e non costa Stamina.",
+    "kind": "html"
+  },
+  {
+    "id": "5fe5d29db5ea72b47597",
+    "it": "Artigli e Zanne",
+    "kind": "html"
+  },
+  {
+    "id": "320136069f5709d289da",
+    "it": "Le caratteristiche offensive naturali dello Zoan diventano vere Armi Naturali.",
+    "kind": "html"
+  },
+  {
+    "id": "f41f1816cf7f90d09a91",
+    "it": "Possono comprendere:",
+    "kind": "html"
+  },
+  {
+    "id": "03cd395ef4bde8b59883",
+    "it": "artigli;",
+    "kind": "html"
+  },
+  {
+    "id": "85b29c78bd760e9c8b4a",
+    "it": "zanne;",
+    "kind": "html"
+  },
+  {
+    "id": "35a13bf7a8c24df5e945",
+    "it": "corna;",
+    "kind": "html"
+  },
+  {
+    "id": "e630764b6ecb15452e51",
+    "it": "rostro;",
+    "kind": "html"
+  },
+  {
+    "id": "2b4a0f4a638e8bfb82f9",
+    "it": "coda;",
+    "kind": "html"
+  },
+  {
+    "id": "a6b92d520366e8e3e87c",
+    "it": "spuntoni;",
+    "kind": "html"
+  },
+  {
+    "id": "8c762a4df938f3db53b9",
+    "it": "aculei;",
+    "kind": "html"
+  },
+  {
+    "id": "610b7531add46a2fa36f",
+    "it": "chele;",
+    "kind": "html"
+  },
+  {
+    "id": "7670d174c85a8e1d2bec",
+    "it": "pungiglioni;",
+    "kind": "html"
+  },
+  {
+    "id": "21bbf4514cda5d5458d7",
+    "it": "altre strutture appropriate alla creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "4f88a41adf0832e394c7",
+    "it": "Quando acquisisci il Talento, registra le Armi Naturali disponibili nelle forme appropriate.",
+    "kind": "html"
+  },
+  {
+    "id": "ec194f3a0cd79a3dc1d1",
+    "it": "Scheda dell&#x27;Arma Naturale",
+    "kind": "html"
+  },
+  {
+    "id": "3530e53005a9c452c715",
+    "it": "Per ogni Arma Naturale devono essere indicati:",
+    "kind": "html"
+  },
+  {
+    "id": "e93dddacd70e37dac633",
+    "it": "<b>Parte anatomica</b>",
+    "kind": "html"
+  },
+  {
+    "id": "099d1658af0ec4c3e9ec",
+    "it": "<b>Forma disponibile</b>",
+    "kind": "html"
+  },
+  {
+    "id": "84cafccb4c1fe84bb910",
+    "it": "<b>Tipo di arma</b>",
+    "kind": "html"
+  },
+  {
+    "id": "bd4fe6dd379736194593",
+    "it": "<b>Grado</b>",
+    "kind": "html"
+  },
+  {
+    "id": "c389bb27340ced948d98",
+    "it": "<b>Attributo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "829f312d66e24427d861",
+    "it": "<b>Portata</b>",
+    "kind": "html"
+  },
+  {
+    "id": "4fefa00d1affed48cf19",
+    "it": "Grado",
+    "kind": "html"
+  },
+  {
+    "id": "34b1cde254c0766c14b3",
+    "it": "Il Grado dell&#x27;Arma Naturale è pari al:",
+    "kind": "html"
+  },
+  {
+    "id": "52b11ce514cc82c0ff9b",
+    "it": "Dado del Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "6ddac77f33c2c9b0a2f5",
+    "it": "Uno Zoan d8 possiede quindi Armi Naturali d8.",
+    "kind": "html"
+  },
+  {
+    "id": "41fe2d8536d1dcd1142c",
+    "it": "Uno Zoan d12 possiede Armi Naturali d12.",
+    "kind": "html"
+  },
+  {
+    "id": "2309366f40d38f6eeaac",
+    "it": "Tipo di arma",
+    "kind": "html"
+  },
+  {
+    "id": "cde0c1e555818caa33fa",
+    "it": "Ogni Arma Naturale viene associata a uno dei normali tipi di arma del sistema.",
+    "kind": "html"
+  },
+  {
+    "id": "cdde17f54519a05b1056",
+    "it": "<b>Tipo appropriato</b>",
+    "kind": "html"
+  },
+  {
+    "id": "c5fb2df83698e6a3ecb2",
+    "it": "Artigli, zanne, lame naturali, rostro tagliente",
+    "kind": "html"
+  },
+  {
+    "id": "7e7c621a3034cc7c5874",
+    "it": "Lama",
+    "kind": "html"
+  },
+  {
+    "id": "1cbc26483c8076282b60",
+    "it": "Zoccoli, testate, coda pesante, pugni animali",
+    "kind": "html"
+  },
+  {
+    "id": "61f121d2c519b4ec6219",
+    "it": "Contundente",
+    "kind": "html"
+  },
+  {
+    "id": "123d90652348bb54cfe0",
+    "it": "Corna lunghe, pungiglioni, zanne perforanti",
+    "kind": "html"
+  },
+  {
+    "id": "ebaa6174b72ce34cf2c1",
+    "it": "Ad asta",
+    "kind": "html"
+  },
+  {
+    "id": "0e9d5c46d33f5d9a2589",
+    "it": "Aculei o proiettili prodotti direttamente dal corpo",
+    "kind": "html"
+  },
+  {
+    "id": "c08ce910d1295c61a233",
+    "it": "A distanza",
+    "kind": "html"
+  },
+  {
+    "id": "9477fe0b7e5ee6923807",
+    "it": "Parti anatomiche staccate e lanciate",
+    "kind": "html"
+  },
+  {
+    "id": "ab185b0afedd63722d50",
+    "it": "Da lancio",
+    "kind": "html"
+  },
+  {
+    "id": "a65b7d0586f598912f60",
+    "it": "Lingue, code prensili, tentacoli e anatomie particolari",
+    "kind": "html"
+  },
+  {
+    "id": "75a46e0a6369c2b02829",
+    "it": "Speciale",
+    "kind": "html"
+  },
+  {
+    "id": "0f7b0cef305d775476c8",
+    "it": "La classificazione viene scelta quando l&#x27;Arma Naturale viene registrata e non cambia da un attacco all&#x27;altro.",
+    "kind": "html"
+  },
+  {
+    "id": "7460d4d5b19c00035f92",
+    "it": "Portata",
+    "kind": "html"
+  },
+  {
+    "id": "292458eabfb159ffa29b",
+    "it": "Le Armi Naturali da mischia utilizzano normalmente la portata appropriata alla Forma e alla Stazza dello Zoan.",
+    "kind": "html"
+  },
+  {
+    "id": "1878ac8b6a790bd1cae5",
+    "it": "Se l&#x27;Arma Naturale può essere utilizzata a distanza, la sua Portata viene registrata quando il Talento viene acquisito.",
+    "kind": "html"
+  },
+  {
+    "id": "5e1ced62a455dd50ec6e",
+    "it": "Per esempio, una creatura capace di sparare aculei può possedere un&#x27;Arma Naturale di tipo A distanza.",
+    "kind": "html"
+  },
+  {
+    "id": "d7299783362c2d331c0f",
+    "it": "Personaggi senza Ruolo Combattente",
+    "kind": "html"
+  },
+  {
+    "id": "ca7f0fc91ce0f1480ae7",
+    "it": "Le Armi Naturali rappresentano un&#x27;eccezione alle normali limitazioni dell&#x27;Arsenale.",
+    "kind": "html"
+  },
+  {
+    "id": "35c58f5a335568359164",
+    "it": "Un personaggio può effettuare attacchi base con le proprie Armi Naturali anche se non possiede il Ruolo Combattente.",
+    "kind": "html"
+  },
+  {
+    "id": "04001b6fdddc428341f5",
+    "it": "Le Armi Naturali:",
+    "kind": "html"
+  },
+  {
+    "id": "a7d7ea324fdd6ac7d015",
+    "it": "non occupano posti dell&#x27;Arsenale;",
+    "kind": "html"
+  },
+  {
+    "id": "12e5b982b67c40e33030",
+    "it": "non richiedono uno Stile di Combattimento per essere utilizzate in un attacco base;",
+    "kind": "html"
+  },
+  {
+    "id": "cf05ea3eb79192d6e217",
+    "it": "non possono essere disarmate normalmente.",
+    "kind": "html"
+  },
+  {
+    "id": "63e9488f6427e9559221",
+    "it": "Artigli e Zanne non concede però automaticamente:",
+    "kind": "html"
+  },
+  {
+    "id": "035e8c0616ff733de32a",
+    "it": "Tecniche Swordsman;",
+    "kind": "html"
+  },
+  {
+    "id": "f463d4184ca355ceb986",
+    "it": "Tecniche Crusher;",
+    "kind": "html"
+  },
+  {
+    "id": "4a9f0919431fd01d5f0a",
+    "it": "Tecniche Sniper;",
+    "kind": "html"
+  },
+  {
+    "id": "208307ba2c5644525505",
+    "it": "Talenti appartenenti agli Stili di Combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "3f0ef22a937bb0fc6055",
+    "it": "Il personaggio può combattere efficacemente attraverso il proprio corpo Zoan senza diventare automaticamente un Combattente specializzato.",
+    "kind": "html"
+  },
+  {
+    "id": "e26212a87c122c859da7",
+    "it": "<span class=\"man-sez-n\">8.6 ·</span> <span data-frutti-source=\"1077\">d8–d10 · Il Controllo</span>",
+    "kind": "html"
+  },
+  {
+    "id": "2fbefa620b4f8afba77a",
+    "it": "Sensi Animali",
+    "kind": "html"
+  },
+  {
+    "id": "c3db3ed851ec48790e19",
+    "it": "I sensi caratteristici della creatura raggiungono un livello eccezionale.",
+    "kind": "html"
+  },
+  {
+    "id": "1f6ec99300e88dd8c1ed",
+    "it": "Quando acquisisci il Talento, vengono identificati i sensi appropriati allo Zoan.",
+    "kind": "html"
+  },
+  {
+    "id": "e6b752eb67a6323c24e8",
+    "it": "olfatto;",
+    "kind": "html"
+  },
+  {
+    "id": "85b9838de9c62092d01a",
+    "it": "udito;",
+    "kind": "html"
+  },
+  {
+    "id": "6d41a5bfdd0721eba5e6",
+    "it": "vista;",
+    "kind": "html"
+  },
+  {
+    "id": "3c83580a159ec55d38b2",
+    "it": "ecolocalizzazione;",
+    "kind": "html"
+  },
+  {
+    "id": "fae50f764bd3110916c9",
+    "it": "percezione delle vibrazioni;",
+    "kind": "html"
+  },
+  {
+    "id": "1aec9b6946de8b01cb9b",
+    "it": "percezione termica;",
+    "kind": "html"
+  },
+  {
+    "id": "4f62bcdba878e49344b7",
+    "it": "altre capacità sensoriali proprie della creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "c60b3fccc6c53983d2a1",
+    "it": "Attraverso questi sensi puoi individuare creature nascoste entro:",
+    "kind": "html"
+  },
+  {
+    "id": "e295b56b0d83b9860013",
+    "it": "<b>20 metri</b>",
+    "kind": "html"
+  },
+  {
+    "id": "15f01f53c951e1906fa7",
+    "it": "anche quando non puoi vederle direttamente, purché il senso scelto possa effettivamente rilevarle.",
+    "kind": "html"
+  },
+  {
+    "id": "f87003a7ac13d423313b",
+    "it": "Puoi inoltre seguire tracce vecchie di giorni quando il senso utilizzato lo permette.",
+    "kind": "html"
+  },
+  {
+    "id": "151db76fc8abb66edddf",
+    "it": "Il Talento non concede automaticamente tutti i sensi della lista.",
+    "kind": "html"
+  },
+  {
+    "id": "ec1c9f7be0eacbddaced",
+    "it": "Si utilizzano esclusivamente quelli coerenti con la creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "348b2442048597d31d7c",
+    "it": "Corsa Bestiale",
+    "kind": "html"
+  },
+  {
+    "id": "9e57aab2d2f5f48363b6",
+    "it": "<b>Passivo · Forma Bestiale</b>",
+    "kind": "html"
+  },
+  {
+    "id": "ee72f7a0a7045075f5f8",
+    "it": "La Forma Bestiale sfrutta pienamente la propria modalità naturale di locomozione.",
+    "kind": "html"
+  },
+  {
+    "id": "6ef914fb3efa11f62444",
+    "it": "Quando acquisisci il Talento, associa lo Zoan a una Famiglia di Movimento.",
+    "kind": "html"
+  },
+  {
+    "id": "da5a86d14c09a95ac4a5",
+    "it": "<b>Famiglia</b>",
+    "kind": "html"
+  },
+  {
+    "id": "436410f8b1ccdfc34a86",
+    "it": "<b>Esempi</b>",
+    "kind": "html"
+  },
+  {
+    "id": "49655f5f28d6b59d1315",
+    "it": "<b>Aumento</b>",
+    "kind": "html"
+  },
+  {
+    "id": "c72418d72c29a278aae2",
+    "it": "Scattatore terrestre",
+    "kind": "html"
+  },
+  {
+    "id": "3b5eb2d8612a6fbbb980",
+    "it": "Felini, canidi veloci, equidi, antilopi, struzzi, predatori bipedi",
+    "kind": "html"
+  },
+  {
+    "id": "7f323f87f69137bcf69d",
+    "it": "+4 m sul terreno",
+    "kind": "html"
+  },
+  {
+    "id": "2ddc7ac4be0b266e92ee",
+    "it": "Massiccio terrestre",
+    "kind": "html"
+  },
+  {
+    "id": "42082395b8de0fa86b13",
+    "it": "Orsi, bovidi, cinghiali, rinoceronti, elefanti, grandi dinosauri pesanti",
+    "kind": "html"
+  },
+  {
+    "id": "6688ce47d20d9a4d6796",
+    "it": "+2 m sul terreno",
+    "kind": "html"
+  },
+  {
+    "id": "e3569332e91280f99c32",
+    "it": "Arrampicatore",
+    "kind": "html"
+  },
+  {
+    "id": "a8fae47a1b2eb003dbb4",
+    "it": "Primati, caprini, gechi, animali arboricoli",
+    "kind": "html"
+  },
+  {
+    "id": "df8072bf3071f7d8331c",
+    "it": "+2 m normalmente; +4 m durante arrampicata o movimento su superfici appropriate",
+    "kind": "html"
+  },
+  {
+    "id": "97ea265cb4b17dbe3d50",
+    "it": "Volatore",
+    "kind": "html"
+  },
+  {
+    "id": "952316900cfe7215c3a9",
+    "it": "Uccelli, pipistrelli, insetti alati, pterosauri",
+    "kind": "html"
+  },
+  {
+    "id": "bc4445fdf4ee823d3e91",
+    "it": "+2 m sul terreno; +4 m durante il volo",
+    "kind": "html"
+  },
+  {
+    "id": "d22820c5bd62459bff4e",
+    "it": "Scavatore",
+    "kind": "html"
+  },
+  {
+    "id": "6f161eda1cff8903c7ed",
+    "it": "Talpe, tassi, insetti e creature scavatrici",
+    "kind": "html"
+  },
+  {
+    "id": "99a8c3728cc400cd9e9f",
+    "it": "+2 m sul terreno; +4 m durante lo scavo in terreno appropriato",
+    "kind": "html"
+  },
+  {
+    "id": "9d199d8206b9987c1789",
+    "it": "Serpentino",
+    "kind": "html"
+  },
+  {
+    "id": "98dcb3fdc84bac86e9d7",
+    "it": "Serpenti e grandi creature striscianti",
+    "kind": "html"
+  },
+  {
+    "id": "49942b803d6997ed7ed8",
+    "it": "+3 m negli spostamenti compatibili con questa locomozione",
+    "kind": "html"
+  },
+  {
+    "id": "97b04946d4e0eec7f24a",
+    "it": "La Famiglia viene registrata quando il Talento viene acquisito.",
+    "kind": "html"
+  },
+  {
+    "id": "12c653e57c4669373bdb",
+    "it": "Non può essere cambiata liberamente.",
+    "kind": "html"
+  },
+  {
+    "id": "3472bbe888bef427ed1c",
+    "it": "Terreno Difficile",
+    "kind": "html"
+  },
+  {
+    "id": "e4891e90427c1cac37ad",
+    "it": "In Forma Bestiale ignori il Terreno Difficile naturale quando la tua modalità di locomozione è adatta a quell&#x27;ambiente.",
+    "kind": "html"
+  },
+  {
+    "id": "a41fa92ab30e483e1dc1",
+    "it": "Un arrampicatore può ignorare molte difficoltà legate a pareti e pendii.",
+    "kind": "html"
+  },
+  {
+    "id": "f099266d6d7298c82074",
+    "it": "Uno scattatore terrestre può attraversare più facilmente terreno aperto accidentato.",
+    "kind": "html"
+  },
+  {
+    "id": "24f49dba160910762eb8",
+    "it": "Un volatore può ignorare molti ostacoli del terreno quando si trova in aria.",
+    "kind": "html"
+  },
+  {
+    "id": "ffa3613192bcf1af1d5a",
+    "it": "Creature acquatiche",
+    "kind": "html"
+  },
+  {
+    "id": "90edde2b55087dcc8ccd",
+    "it": "Non esiste una Famiglia di Movimento acquatico.",
+    "kind": "html"
+  },
+  {
+    "id": "7a582b38603ee2af6abc",
+    "it": "Un utilizzatore di Frutto del Diavolo mantiene sempre la propria debolezza al mare.",
+    "kind": "html"
+  },
+  {
+    "id": "975519b488303af0cf52",
+    "it": "Uno Zoan basato su una creatura acquatica può possederne anatomia e caratteristiche, ma l&#x27;immersione continua a produrre le normali conseguenze dei Frutti del Diavolo.",
+    "kind": "html"
+  },
+  {
+    "id": "e8e697619e908ea5c2b0",
+    "it": "Stazza",
+    "kind": "html"
+  },
+  {
+    "id": "06f1f11c701c98bb2c59",
+    "it": "La massa e le dimensioni della Forma Bestiale diventano un vantaggio concreto durante il combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "e7f6eb315a3639677077",
+    "it": "La Stazza viene registrata nella Scheda della Creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "7de69ccfb6828f6792dd",
+    "it": "<b>Stazza</b>",
+    "kind": "html"
+  },
+  {
+    "id": "17b4a9d3c49d18b1d32a",
+    "it": "<b>Dimensione indicativa</b>",
+    "kind": "html"
+  },
+  {
+    "id": "b5d0bcd23747c6e68f6f",
+    "it": "<b>Portata in mischia</b>",
+    "kind": "html"
+  },
+  {
+    "id": "71ad97503396fa76aad0",
+    "it": "Piccola / Media",
+    "kind": "html"
+  },
+  {
+    "id": "b651815696b9946ddc8f",
+    "it": "fino a circa 2,5 m",
+    "kind": "html"
+  },
+  {
+    "id": "45fbe99b103ce035103d",
+    "it": "Grande",
+    "kind": "html"
+  },
+  {
+    "id": "ee105f1ed5a292b2045a",
+    "it": "circa 2,5–5 m",
+    "kind": "html"
+  },
+  {
+    "id": "588839f3a74d2f5dfebc",
+    "it": "Enorme",
+    "kind": "html"
+  },
+  {
+    "id": "4115077cd5ea0872d5fa",
+    "it": "circa 5–8 m",
+    "kind": "html"
+  },
+  {
+    "id": "1fc75de8d999246836ae",
+    "it": "Gigantesca",
+    "kind": "html"
+  },
+  {
+    "id": "1b3f50e62ecc932f7b30",
+    "it": "circa 8–12 m",
+    "kind": "html"
+  },
+  {
+    "id": "141b7c402b93797e2248",
+    "it": "Colossale",
+    "kind": "html"
+  },
+  {
+    "id": "21d703cb3f528c22a417",
+    "it": "oltre 12 m",
+    "kind": "html"
+  },
+  {
+    "id": "6757cac65c02015f626d",
+    "it": "Le dimensioni sono riferimenti di gioco.",
+    "kind": "html"
+  },
+  {
+    "id": "432af2b7170fb19ffc19",
+    "it": "La Forma Bestiale effettiva determina la categoria appropriata.",
+    "kind": "html"
+  },
+  {
+    "id": "2e69aeea0b15e3b64feb",
+    "it": "Gli attacchi in mischia effettuati attraverso il corpo o le Armi Naturali utilizzano la Portata prevista dalla Stazza quando questa è superiore alla normale portata dell&#x27;arma.",
+    "kind": "html"
+  },
+  {
+    "id": "cb104077ad956983dc07",
+    "it": "Travolgere",
+    "kind": "html"
+  },
+  {
+    "id": "deeeb23f13124014fdb6",
+    "it": "Quando ti muovi attraverso lo spazio occupato da una creatura di Stazza inferiore alla tua, puoi travolgerla.",
+    "kind": "html"
+  },
+  {
+    "id": "2601db70fde0973f91d2",
+    "it": "Il bersaglio diventa:",
+    "kind": "html"
+  },
+  {
+    "id": "fdc8545adba39fa96df9",
+    "it": "Sbilanciato.",
+    "kind": "html"
+  },
+  {
+    "id": "3ebca32de9f213c13ab2",
+    "it": "Il Talento non permette di travolgere normalmente creature della stessa Stazza o superiori.",
+    "kind": "html"
+  },
+  {
+    "id": "0228da16630d0382488d",
+    "it": "Trasporto",
+    "kind": "html"
+  },
+  {
+    "id": "820923199dc2593133c8",
+    "it": "Uno Zoan di Stazza Grande o superiore può trasportare almeno un personaggio di dimensioni normali senza ridurre il proprio Movimento.",
+    "kind": "html"
+  },
+  {
+    "id": "07b87cfe8c76de8b70ca",
+    "it": "Creature ancora più grandi possono trasportare quantità superiori secondo la normale logica della loro anatomia.",
+    "kind": "html"
+  },
+  {
+    "id": "6c75b95eeef75c7e6c80",
+    "it": "Limite",
+    "kind": "html"
+  },
+  {
+    "id": "2dbdd3cc61af29efebf8",
+    "it": "Il Talento Stazza non rende più grande uno Zoan.",
+    "kind": "html"
+  },
+  {
+    "id": "8ecb5ca510cc884deb4e",
+    "it": "Trasforma in vantaggio meccanico una grande dimensione che la Forma Bestiale possiede già.",
+    "kind": "html"
+  },
+  {
+    "id": "870032b5a8f4fc8754d3",
+    "it": "Uno Zoan naturalmente Piccolo o Medio non acquisisce Portata aggiuntiva semplicemente scegliendo questo Talento.",
+    "kind": "html"
+  },
+  {
+    "id": "ad8e03c18805e5401e71",
+    "it": "Ferocia Crescente",
+    "kind": "html"
+  },
+  {
+    "id": "a630ae832eea963062e2",
+    "it": "Quando i tuoi PV scendono sotto la metà del valore massimo, gli istinti della creatura diventano più aggressivi.",
+    "kind": "html"
+  },
+  {
+    "id": "0c4ec4f61dcd672f4312",
+    "it": "Ottieni:",
+    "kind": "html"
+  },
+  {
+    "id": "83c169215fb8733e0749",
+    "it": "Una volta attivato, Ferocia Crescente rimane attivo fino alla fine dello scontro.",
+    "kind": "html"
+  },
+  {
+    "id": "3fe000af9f43bd7ed3bf",
+    "it": "Essere successivamente curato sopra metà PV non rimuove il beneficio.",
+    "kind": "html"
+  },
+  {
+    "id": "473ca6822135b6eb4fb1",
+    "it": "Il Talento non richiede Azione Bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "7aa4d5133a2c6f86b1f8",
+    "it": "<span class=\"man-sez-n\">8.7 ·</span> <span data-frutti-source=\"1141\">d12 · La Padronanza</span>",
+    "kind": "html"
+  },
+  {
+    "id": "50b3004e9be6278303c2",
+    "it": "Resistenza Bestiale",
+    "kind": "html"
+  },
+  {
+    "id": "0a3fb4dcdd1997aa6110",
+    "it": "<b>Passivo · Forma Ibrida o Bestiale</b>",
+    "kind": "html"
+  },
+  {
+    "id": "57a66d1381cbb8db50f9",
+    "it": "Il corpo trasformato sviluppa una resistenza eccezionale alle ferite.",
+    "kind": "html"
+  },
+  {
+    "id": "983cb42d8eb4a7d4f732",
+    "it": "1 volta per round, quando subisci danno da un attacco, puoi ridurre di:",
+    "kind": "html"
+  },
+  {
+    "id": "ecad588fe790574eba44",
+    "it": "<b>1 Grado</b>",
+    "kind": "html"
+  },
+  {
+    "id": "8da86f18949d74178d00",
+    "it": "tutti i Dadi Danno di quell&#x27;attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "caec1f19fb01302ff767",
+    "it": "Il d4 rappresenta il minimo.",
+    "kind": "html"
+  },
+  {
+    "id": "a4c10f034f244ddba256",
+    "it": "Resistenza Bestiale non utilizza la Reazione.",
+    "kind": "html"
+  },
+  {
+    "id": "ccc39bc1855fea6169fc",
+    "it": "Il Talento modifica esclusivamente i Dadi Danno.",
+    "kind": "html"
+  },
+  {
+    "id": "27f11e8f58e76f4b286c",
+    "it": "Non elimina automaticamente:",
+    "kind": "html"
+  },
+  {
+    "id": "87fee9fc6f86748731af",
+    "it": "effetti secondari;",
+    "kind": "html"
+  },
+  {
+    "id": "cda582f3dfbfa1ab02d2",
+    "it": "condizioni;",
+    "kind": "html"
+  },
+  {
+    "id": "abf02f4047804c24153f",
+    "it": "danni fissi non espressi attraverso Dadi Danno.",
+    "kind": "html"
+  },
+  {
+    "id": "ec9b7c0299a4760b503a",
+    "it": "Retaggio Ancestrale",
+    "kind": "html"
+  },
+  {
+    "id": "4e9fc072d40851aca4c6",
+    "it": "<b>Passivo</b><br>Requisito: Zoan Ancestrale",
+    "kind": "html"
+  },
+  {
+    "id": "d7f23a421a53cf326a56",
+    "it": "Il personaggio raggiunge una padronanza sufficiente per sfruttare una caratteristica eccezionale della propria creatura ancestrale.",
+    "kind": "html"
+  },
+  {
+    "id": "3c5f55dcd8fdda72bd0d",
+    "it": "Lo Zoan era già Ancestrale fin dalla creazione del Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "b4052d4cb05867652129",
+    "it": "Il Talento non modifica la categoria del Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "5882de33ae273ac2bbc4",
+    "it": "Sblocca invece una capacità avanzata collegata alla natura ancestrale della creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "436a975b692059f7a8c6",
+    "it": "Può trattarsi di:",
+    "kind": "html"
+  },
+  {
+    "id": "160968d7cac4871f1766",
+    "it": "una struttura corporea eccezionale;",
+    "kind": "html"
+  },
+  {
+    "id": "c3b8eb4019e40da70451",
+    "it": "un&#x27;Arma Naturale particolare;",
+    "kind": "html"
+  },
+  {
+    "id": "61dd6ae4097fee3fcfc3",
+    "it": "una conformazione fisica unica;",
+    "kind": "html"
+  },
+  {
+    "id": "7e21d48e50b1affe2f7d",
+    "it": "una capacità biologica straordinaria;",
+    "kind": "html"
+  },
+  {
+    "id": "3616761eadbc20c72ec2",
+    "it": "una stazza eccezionale;",
+    "kind": "html"
+  },
+  {
+    "id": "2ea1379d30fedb61b587",
+    "it": "un&#x27;altra caratteristica propria della specie.",
+    "kind": "html"
+  },
+  {
+    "id": "5c88f9b84f613d052c5f",
+    "it": "La caratteristica potenziale viene registrata nella Scheda della Creatura fin dalla creazione del Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "73844ed3d42ee3307b92",
+    "it": "Il Talento rappresenta il momento in cui il personaggio impara a sfruttarla pienamente.",
+    "kind": "html"
+  },
+  {
+    "id": "64dbbbca2c564f5a2a2e",
+    "it": "Retaggio Mitologico",
+    "kind": "html"
+  },
+  {
+    "id": "696c39ae65be5557d6af",
+    "it": "<b>Passivo</b><br>Requisito: Zoan Mitologico",
+    "kind": "html"
+  },
+  {
+    "id": "5f817cbd1f62af85d3cc",
+    "it": "Il personaggio raggiunge una padronanza sufficiente per manifestare una delle capacità soprannaturali della propria creatura mitologica.",
+    "kind": "html"
+  },
+  {
+    "id": "400ac7798632c595f419",
+    "it": "Lo Zoan era già Mitologico fin dalla creazione del Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "e1f18f6124d649612ff8",
+    "it": "Il Talento non modifica la categoria.",
+    "kind": "html"
+  },
+  {
+    "id": "37fcc9ee3411192e734c",
+    "it": "Sblocca una capacità soprannaturale precedentemente non padroneggiata.",
+    "kind": "html"
+  },
+  {
+    "id": "f91334cd7e97695fbd5e",
+    "it": "un elemento;",
+    "kind": "html"
+  },
+  {
+    "id": "2c5f901cf2dc03bb4ccb",
+    "it": "un fenomeno soprannaturale;",
+    "kind": "html"
+  },
+  {
+    "id": "ce0de710f10a9db5c195",
+    "it": "una capacità rigenerativa;",
+    "kind": "html"
+  },
+  {
+    "id": "00579bbd850919c4af8a",
+    "it": "una manifestazione mistica;",
+    "kind": "html"
+  },
+  {
+    "id": "2642c5867275a7a5cbdb",
+    "it": "una proprietà esclusiva della creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "9b608f5f1cec0d2a5823",
+    "it": "La capacità deve essere coerente con il Retaggio indicato nella Scheda della Creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "552bb89c836d00f6f2a6",
+    "it": "Tecniche del Retaggio",
+    "kind": "html"
+  },
+  {
+    "id": "a2baf9848219e6e0ad4f",
+    "it": "Quando Retaggio Mitologico o Ancestrale sblocca una nuova capacità, questa può diventare una Fonte narrativa valida per creare nuove Tecniche del Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "a1ccd8ce2e68a1f77828",
+    "it": "Il Talento non concede automaticamente gli effetti del Costruttore.",
+    "kind": "html"
+  },
+  {
+    "id": "69ea771befdae644e8df",
+    "it": "Concede la capacità che permette di rappresentarli.",
+    "kind": "html"
+  },
+  {
+    "id": "c629b33388a99b9543d0",
+    "it": "Esempio · Drago Mitologico",
+    "kind": "html"
+  },
+  {
+    "id": "9ed808166bea5b114f82",
+    "it": "Il personaggio possiede fin dall&#x27;inizio uno Zoan Mitologico del Drago.",
+    "kind": "html"
+  },
+  {
+    "id": "c1b1ac71e13df54c8422",
+    "it": "La natura mitologica del Frutto è già registrata.",
+    "kind": "html"
+  },
+  {
+    "id": "d39175f13f85c589316e",
+    "it": "Al d12 acquisisce Retaggio Mitologico e sblocca:",
+    "kind": "html"
+  },
+  {
+    "id": "0a661d486b1c6f9c05b3",
+    "it": "generazione del fuoco.",
+    "kind": "html"
+  },
+  {
+    "id": "8dc84ee57a06ffa5120a",
+    "it": "Da quel momento può utilizzare il fuoco come capacità del proprio Zoan e costruire Tecniche del Frutto coerenti con quella manifestazione.",
+    "kind": "html"
+  },
+  {
+    "id": "93f9232341601f0c82cb",
+    "it": "Il personaggio non è diventato un drago mitologico al d12.",
+    "kind": "html"
+  },
+  {
+    "id": "e73fb41dc309d538c448",
+    "it": "Ha finalmente imparato a padroneggiare una delle sue caratteristiche superiori.",
+    "kind": "html"
+  },
+  {
+    "id": "5e84093245c8ee992f00",
+    "it": "Istinto di Sopravvivenza",
+    "kind": "html"
+  },
+  {
+    "id": "88d4aed6f15ea79b4740",
+    "it": "<b>1 volta per scontro</b><br>Quando scenderesti a 0 PV",
+    "kind": "html"
+  },
+  {
+    "id": "0796fcefc712425ec88e",
+    "it": "Quando un attacco o un altro effetto dovrebbe portarti a 0 PV, l&#x27;istinto animale ti permette di continuare a combattere.",
+    "kind": "html"
+  },
+  {
+    "id": "da83143abd91eb41e15c",
+    "it": "Rimani cosciente con:",
+    "kind": "html"
+  },
+  {
+    "id": "2d9d5685e126993ecc88",
+    "it": "<b>1 PV</b>",
+    "kind": "html"
+  },
+  {
+    "id": "58e227abb2d6333be12d",
+    "it": "fino alla fine del tuo prossimo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "4fa2d9df2e7f855a52c1",
+    "it": "Il PV ottenuto è temporaneo e non rappresenta una guarigione.",
+    "kind": "html"
+  },
+  {
+    "id": "ffde032e970f4a666dbf",
+    "it": "Alla fine del tuo prossimo turno scendi a:",
+    "kind": "html"
+  },
+  {
+    "id": "e300317b992e5834fe78",
+    "it": "<b>0 PV</b>",
+    "kind": "html"
+  },
+  {
+    "id": "d7420a4e456e6c4b01d4",
+    "it": "salvo che nel frattempo tu abbia ricevuto una vera guarigione sufficiente a mantenerti sopra 0.",
+    "kind": "html"
+  },
+  {
+    "id": "57f90caf6f58795ba4e3",
+    "it": "Trasformazione Istintiva",
+    "kind": "html"
+  },
+  {
+    "id": "dc31ff93f3d2f99e395e",
+    "it": "<b>Reazione</b><br>1 volta per scena<br>0 ST",
+    "kind": "html"
+  },
+  {
+    "id": "bb32b9222f8d5bb3935d",
+    "it": "Il corpo reagisce automaticamente a un pericolo imminente.",
+    "kind": "html"
+  },
+  {
+    "id": "c12ca58626ad1a9ba954",
+    "it": "Quando stai per essere direttamente coinvolto da:",
+    "kind": "html"
+  },
+  {
+    "id": "0d1d75c7b23bd7bd2d0c",
+    "it": "una Tecnica ostile;",
+    "kind": "html"
+  },
+  {
+    "id": "d99ece971034416ef1ad",
+    "it": "un effetto pericoloso;",
+    "kind": "html"
+  },
+  {
+    "id": "278ba15a60f0fa41e9d7",
+    "it": "puoi utilizzare la tua Reazione per trasformarti immediatamente.",
+    "kind": "html"
+  },
+  {
+    "id": "0d38f6d1f382dffd8c82",
+    "it": "La trasformazione avviene prima della risoluzione dell&#x27;effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "d978be103e4b0b532bd0",
+    "it": "Puoi utilizzare Trasformazione Istintiva anche quando sei:",
+    "kind": "html"
+  },
+  {
+    "id": "cd5d0591eb74a553b449",
+    "it": "addormentato;",
+    "kind": "html"
+  },
+  {
+    "id": "4b0519a7a4c87e2ff211",
+    "it": "Stordito;",
+    "kind": "html"
+  },
+  {
+    "id": "9ebc5da5bf34beae7bd1",
+    "it": "privo di sensi.",
+    "kind": "html"
+  },
+  {
+    "id": "f38a8922005271336fe6",
+    "it": "Economia delle trasformazioni",
+    "kind": "html"
+  },
+  {
+    "id": "c495e92949a14ce41e38",
+    "it": "<b>Trasformazione normale</b>",
+    "kind": "html"
+  },
+  {
+    "id": "9586002ec7d199c9fb77",
+    "it": "Azione principale.<br>0 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "2659129f69d6819bccb1",
+    "it": "<b>Tre Forme</b>",
+    "kind": "html"
+  },
+  {
+    "id": "62e45e37bb872b655177",
+    "it": "Azione Bonus.<br>0 ST.<br>1 volta per turno.",
+    "kind": "html"
+  },
+  {
+    "id": "3ac9d348a1d5d281c5f3",
+    "it": "<b>Trasformazione Istintiva</b>",
+    "kind": "html"
+  },
+  {
+    "id": "74d03dbc6f04d23a5fa0",
+    "it": "Reazione.<br>0 ST.<br>1 volta per scena.",
+    "kind": "html"
+  },
+  {
+    "id": "e934a578ed5226687e8c",
+    "it": "Trasformazione Istintiva effettua esclusivamente il cambio di forma.",
+    "kind": "html"
+  },
+  {
+    "id": "649b75028a11034bfb1b",
+    "it": "Non attiva automaticamente altri Talenti attivi.",
+    "kind": "html"
+  },
+  {
+    "id": "32640d9741d756738fbe",
+    "it": "Richiamo del Sangue",
+    "kind": "html"
+  },
+  {
+    "id": "b628befedd20d3901965",
+    "it": "<b>Passivo · Narrativo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "ccda5b29331409872d80",
+    "it": "Gli animali appartenenti alla stessa specie della tua Forma Bestiale, o a specie abbastanza affini da riconoscerti, percepiscono nel personaggio una presenza familiare e dominante.",
+    "kind": "html"
+  },
+  {
+    "id": "8980ae303d9e510e7e97",
+    "it": "Normalmente:",
+    "kind": "html"
+  },
+  {
+    "id": "152b0c5e90ebd6a527ea",
+    "it": "non ti attaccano per primi;",
+    "kind": "html"
+  },
+  {
+    "id": "a29f3e336cd4e9b33d36",
+    "it": "permettono il passaggio attraverso il proprio territorio;",
+    "kind": "html"
+  },
+  {
+    "id": "a2a92c13491b97a8a331",
+    "it": "possono tollerare la tua presenza;",
+    "kind": "html"
+  },
+  {
+    "id": "09c8cf008ede0f198c0d",
+    "it": "con tempo e interazioni appropriate possono arrivare a seguirti.",
+    "kind": "html"
+  },
+  {
+    "id": "976b1e679446aed91c86",
+    "it": "Il Talento non concede controllo mentale.",
+    "kind": "html"
+  },
+  {
+    "id": "9835b8d6b7c0ce158efd",
+    "it": "Gli animali non diventano automaticamente:",
+    "kind": "html"
+  },
+  {
+    "id": "4a3c7bb0e51f45398a54",
+    "it": "servitori;",
+    "kind": "html"
+  },
+  {
+    "id": "cc1f43c5e5361826c82a",
+    "it": "combattenti;",
+    "kind": "html"
+  },
+  {
+    "id": "186013079caa1a3ecbf5",
+    "it": "compagni permanenti;",
+    "kind": "html"
+  },
+  {
+    "id": "707af7cd473d9da6b360",
+    "it": "creature disposte a sacrificarsi.",
+    "kind": "html"
+  },
+  {
+    "id": "fe448413a11306f93f6a",
+    "it": "Richieste rischiose o contrarie al loro comportamento naturale possono richiedere tempo, condizioni narrative o prove appropriate.",
+    "kind": "html"
+  },
+  {
+    "id": "82bcef1f62b951ae9ca9",
+    "it": "<span class=\"man-sez-n\">8.8 ·</span> <span data-frutti-source=\"1246\">d20 · Il Risveglio</span>",
+    "kind": "html"
+  },
+  {
+    "id": "a0b884bab71d8847a6d7",
+    "it": "Risveglio · Zoan",
+    "kind": "html"
+  },
+  {
+    "id": "7c34bc9fa813a2a6daba",
+    "it": "Requisiti:",
+    "kind": "html"
+  },
+  {
+    "id": "1663021a5b057a5b7472",
+    "it": "Dado del Frutto d20;",
+    "kind": "html"
+  },
+  {
+    "id": "7c2bced7e8b59082b55a",
+    "it": "Ambizione;",
+    "kind": "html"
+  },
+  {
+    "id": "d2cd274e9e3afe112bd5",
+    "it": "permesso del Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "be9ecb75d553049ba60b",
+    "it": "Il personaggio raggiunge la:",
+    "kind": "html"
+  },
+  {
+    "id": "0407338e57cfa2677e39",
+    "it": "Forma Definitiva",
+    "kind": "html"
+  },
+  {
+    "id": "4932993c717e43b6ad72",
+    "it": "La Forma Definitiva rappresenta la manifestazione estrema della creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "d1119cc18dbefb4f5e15",
+    "it": "Il corpo, gli istinti e le caratteristiche fondamentali dello Zoan raggiungono un livello impossibile attraverso la normale trasformazione.",
+    "kind": "html"
+  },
+  {
+    "id": "da21b5f7511cc9da9d8b",
+    "it": "Il Risveglio dura:",
+    "kind": "html"
+  },
+  {
+    "id": "448d43de5ea7c84df6fe",
+    "it": "Rigenerazione Risvegliata",
+    "kind": "html"
+  },
+  {
+    "id": "acfffd886d0af3318ba1",
+    "it": "All&#x27;inizio di ogni tuo turno recuperi:",
+    "kind": "html"
+  },
+  {
+    "id": "38163c931e5e17485ecf",
+    "it": "1d10 PV.",
+    "kind": "html"
+  },
+  {
+    "id": "57bed5dcc7b0917eadc9",
+    "it": "Non puoi superare i tuoi PV massimi.",
+    "kind": "html"
+  },
+  {
+    "id": "e7577dc5c2740b48144b",
+    "it": "Armi Naturali Risvegliate",
+    "kind": "html"
+  },
+  {
+    "id": "4a5d906b0e6aba16b701",
+    "it": "Gli attacchi effettuati direttamente attraverso il corpo trasformato o attraverso le Armi Naturali ottengono:",
+    "kind": "html"
+  },
+  {
+    "id": "80d511a4cc3f67850526",
+    "it": "+2 Dadi Danno.",
+    "kind": "html"
+  },
+  {
+    "id": "9a987f1790629002f35b",
+    "it": "Il beneficio può applicarsi a:",
+    "kind": "html"
+  },
+  {
+    "id": "f4d8a3754ef3d0ac9d63",
+    "it": "pugni o arti trasformati;",
+    "kind": "html"
+  },
+  {
+    "id": "507a2ba113f7047868c3",
+    "it": "altre Armi Naturali coerenti con la Forma Definitiva.",
+    "kind": "html"
+  },
+  {
+    "id": "bcc0b1409f7fca4ab7f6",
+    "it": "Il bonus non concede attacchi aggiuntivi.",
+    "kind": "html"
+  },
+  {
+    "id": "97daf16bdb360e07e6a0",
+    "it": "Istinto Assoluto",
+    "kind": "html"
+  },
+  {
+    "id": "45724cd6828a6fc90511",
+    "it": "Durante la Forma Definitiva non puoi essere:",
+    "kind": "html"
+  },
+  {
+    "id": "478a239846b90e17be84",
+    "it": "<b>Stordito</b>",
+    "kind": "html"
+  },
+  {
+    "id": "3a346be52f0d29114166",
+    "it": "Caratteristica Dominante",
+    "kind": "html"
+  },
+  {
+    "id": "837c7482f2393b2ec194",
+    "it": "Ogni Risveglio Zoan porta inoltre all&#x27;estremo una caratteristica fondamentale della creatura.",
+    "kind": "html"
+  },
+  {
+    "id": "b5b5b23dee625dd2ced0",
+    "it": "Questa viene definita utilizzando la normale Linea Guida del Risveglio.",
+    "kind": "html"
+  },
+  {
+    "id": "99b47bfe168f528f1b70",
+    "it": "Può riguardare, quando appropriato:",
+    "kind": "html"
+  },
+  {
+    "id": "bf7259ad5cf33a8adc1e",
+    "it": "<b>Movimento</b>",
+    "kind": "html"
+  },
+  {
+    "id": "df490ce6762a9a5b534c",
+    "it": "Una creatura costruita sulla velocità o sul volo può raggiungere capacità di spostamento eccezionali.",
+    "kind": "html"
+  },
+  {
+    "id": "dfd443df3b9a2e212450",
+    "it": "Una creatura corazzata, resistente o particolarmente difficile da abbattere può sviluppare una difesa superiore.",
+    "kind": "html"
+  },
+  {
+    "id": "660e0225c459b0c53f2c",
+    "it": "Una creatura naturalmente enorme può portare ulteriormente all&#x27;estremo massa, portata e presenza fisica.",
+    "kind": "html"
+  },
+  {
+    "id": "4f537fcdbaef49fc4d56",
+    "it": "<b>Sensi</b>",
+    "kind": "html"
+  },
+  {
+    "id": "0cc7f32fbc79cc1c1ab4",
+    "it": "Una creatura specializzata nella percezione può sviluppare capacità sensoriali eccezionali.",
+    "kind": "html"
+  },
+  {
+    "id": "f43aff1de4d21df729f9",
+    "it": "<b>Controllo del corpo</b>",
+    "kind": "html"
+  },
+  {
+    "id": "a6278c748f1898d3ed39",
+    "it": "Una creatura estremamente agile, flessibile o adattabile può ottenere una padronanza superiore del proprio corpo.",
+    "kind": "html"
+  },
+  {
+    "id": "f14a07b3940742267178",
+    "it": "Uno Zoan Ancestrale o Mitologico che abbia già sbloccato il proprio Retaggio può portarne la capacità a una manifestazione superiore.",
+    "kind": "html"
+  },
+  {
+    "id": "ed1f43fcaecad550294a",
+    "it": "Il beneficio concreto viene definito quando viene progettato il Risveglio e rimane fisso.",
+    "kind": "html"
+  },
+  {
+    "id": "267f445f8f88736ac84a",
+    "it": "Identità del Risveglio Zoan",
+    "kind": "html"
+  },
+  {
+    "id": "628d8d73f4e9a4c2b5d3",
+    "it": "Il Risveglio Zoan non concede un aumento universale a Forza o Movimento.",
+    "kind": "html"
+  },
+  {
+    "id": "06e2768473e89836a58c",
+    "it": "Ogni creatura sviluppa invece ciò che la rende realmente eccezionale.",
+    "kind": "html"
+  },
+  {
+    "id": "af7a452a13a582509d7f",
+    "it": "Un felino può raggiungere una velocità estrema.",
+    "kind": "html"
+  },
+  {
+    "id": "380aeb728f014a014052",
+    "it": "Una creatura corazzata può sviluppare una difesa straordinaria.",
+    "kind": "html"
+  },
+  {
+    "id": "69889f779e0d06652f22",
+    "it": "Un grande erbivoro può aumentare enormemente massa e capacità di travolgere.",
+    "kind": "html"
+  },
+  {
+    "id": "20c56e6b105ea3c8baca",
+    "it": "Un volatile può portare la propria mobilità aerea oltre i normali limiti.",
+    "kind": "html"
+  },
+  {
+    "id": "5817477b1a41de4d764d",
+    "it": "Un Mitologico può portare il proprio Retaggio soprannaturale a una nuova manifestazione.",
+    "kind": "html"
+  },
+  {
+    "id": "c2f5cce6ca38950cac04",
+    "it": "In questo modo due Zoan differenti producono Risvegli realmente differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "09363cf0663757fca256",
+    "it": "Alla fine della scena:",
+    "kind": "html"
+  },
+  {
+    "id": "b102176321d0e2e94ff0",
+    "it": "la Stamina del personaggio scende a 0.",
+    "kind": "html"
+  },
+  {
+    "id": "a13d7a3e6e71885be278",
+    "it": "Il personaggio non può utilizzare nuovamente le trasformazioni Zoan fino al prossimo:",
+    "kind": "html"
+  },
+  {
+    "id": "cdf646d77ca706dcb402",
+    "it": "Riposo Lungo.",
+    "kind": "html"
+  },
+  {
+    "id": "cae77c210904860697ed",
+    "it": "Terminare volontariamente il Risveglio prima della fine della scena non evita queste conseguenze.",
+    "kind": "html"
+  }
+]

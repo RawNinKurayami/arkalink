@@ -3,7 +3,7 @@
  'use strict';
  const make=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n;};
  const icon=(name,size=24)=>{const n=make('span','ds-icon');n.innerHTML=svgIcon(name,size);n.setAttribute('aria-hidden','true');return n;};
- const text=(n)=>n?.textContent?.trim()||'';
+ const text=(n)=>(window.GLCI18n?GLCI18n.originalText(n):n?.textContent||'').trim();
  const titles={signature:'Signature Move',legacy:'Tecnica',module:'Modulo',weapon:'Arma personale'};
  function section(title,nodes=[],cls=''){
   const s=make('section','ds-section '+cls);

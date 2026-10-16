@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cyborg Manual · Grand Line Chronicles</title>
+<meta name="description" content="The Cyborg manual: Mechanical Body, Modules, Technology Tiers, Charges and a guide to builds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/glc-theme.css">
+<link rel="stylesheet" href="/manuale/manuale.css?v=20">
+<link rel="stylesheet" href="/manuale-cyborg/cyborg.css?v=1">
+<script src="/manuale-cyborg/reader.js?v=1" defer></script>
+<link rel="stylesheet" href="/manuali/copertine.css?v=1">
+<link rel="stylesheet" href="/glc-brand.css?v=1">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png?v=2">
+<!-- GLC LANGUAGE START -->
+<link rel="stylesheet" href="/glc-i18n.css?v=1">
+<script src="/glc-i18n.js?v=1"></script>
+<link rel="alternate" hreflang="it" href="https://arkalink.com/manuale-cyborg/">
+<link rel="alternate" hreflang="en" href="https://arkalink.com/en/manuale-cyborg/">
+<link rel="canonical" href="https://arkalink.com/en/manuale-cyborg/">
+<!-- GLC LANGUAGE END -->
+</head>
+<body class="manuale-cyborg" data-manuale-copertina="cyborg">
+<div class="man-cover-bg" aria-hidden="true"><img src="/img/copertine/manuale-del-cyborg.webp" alt="" width="1024" height="1536" decoding="async"></div>
+<div class="glc-bg" aria-hidden="true"></div>
+<header class="man-top">
+  <a class="man-marchio glc-brand-link" href="/grand-line-chronicles/?lang=en" aria-label="Grand Line Chronicles — Home"><img class="glc-title-logo" src="/img/brand/glc-logo.png" alt="Grand Line Chronicles" width="210" height="70"></a>
+  <div class="man-strumenti">
+    <button class="man-btn" id="man-apri-indice" type="button" aria-expanded="false" title="Contents" aria-label="Contents">☰<span class="man-etichetta"> Contents</span></button>
+    <button class="man-btn" id="man-stampa" type="button" title="Print or save as PDF" aria-label="Print or save as PDF">⎙<span class="man-etichetta"> Print · PDF</span></button>
+    <a class="man-btn" href="/manuali/?lang=en" title="Manual Library" aria-label="Manual Library">‹<span class="man-etichetta"> Library</span></a>
+  </div>
+</header>
+
+<div class="man-velo" id="man-velo" hidden></div>
+
+<button class="man-gancio" id="man-gancio" type="button" aria-label="Open the manual contents">
+  <span class="g-segno" aria-hidden="true">☰</span><span>Contents</span>
+</button>
+
+<nav class="man-indice" id="man-indice" aria-label="Manual contents">
+    <h2>Contents</h2>
+    <input class="man-cerca" id="man-cerca" type="search" placeholder="Search for a chapter or section" aria-label="Search the contents" autocomplete="off">
+    <ol id="man-nav">
+<li class="man-i-cap"><a href="#cap-1" data-id="cap-1"><span class="n">1</span>Being a Cyborg</a><ol class="man-i-sez">
+<li><a href="#sez-1-1" data-id="sez-1-1">1.1 · Mechanical Body</a></li>
+<li><a href="#sez-1-2" data-id="sez-1-2">1.2 · Modules</a></li>
+<li><a href="#sez-1-3" data-id="sez-1-3">1.3 · Modules and Techniques</a></li>
+<li><a href="#sez-1-4" data-id="sez-1-4">1.4 · General principle</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-2" data-id="cap-2"><span class="n">2</span>Mechanical Body</a><ol class="man-i-sez">
+<li><a href="#sez-2-1" data-id="sez-2-1">2.1 · Progression</a></li>
+<li><a href="#sez-2-2" data-id="sez-2-2">2.2 · Slots and Technology Tier</a></li>
+<li><a href="#sez-2-3" data-id="sez-2-3">2.3 · Technology Tier and Weapon Grade</a></li>
+<li><a href="#sez-2-4" data-id="sez-2-4">2.4 · Growth</a></li>
+<li><a href="#sez-2-5" data-id="sez-2-5">2.5 · Independent values</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-3" data-id="cap-3"><span class="n">3</span>Anatomy of a Module</a><ol class="man-i-sez">
+<li><a href="#sez-3-1" data-id="sez-3-1">3.1 · Sheet fields</a></li>
+<li><a href="#sez-3-2" data-id="sez-3-2">3.2 · Installation, integrity and activation</a></li>
+<li><a href="#sez-3-3" data-id="sez-3-3">3.3 · Inactive function and active function</a></li>
+<li><a href="#sez-3-4" data-id="sez-3-4">3.4 · Effects, energy and limits</a></li>
+<li><a href="#sez-3-5" data-id="sez-3-5">3.5 · Sheet template</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-4" data-id="cap-4"><span class="n">4</span>Technology Tiers</a><ol class="man-i-sez">
+<li><a href="#sez-4-1" data-id="sez-4-1">4.1 · General scale</a></li>
+<li><a href="#sez-4-2" data-id="sez-4-2">4.2 · Mobility and flight</a></li>
+<li><a href="#sez-4-3" data-id="sez-4-3">4.3 · Protection</a></li>
+<li><a href="#sez-4-4" data-id="sez-4-4">4.4 · Tier limits</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-5" data-id="cap-5"><span class="n">5</span>Module Functions</a><ol class="man-i-sez">
+<li><a href="#sez-5-1" data-id="sez-5-1">5.1 · Offensive</a></li>
+<li><a href="#sez-5-2" data-id="sez-5-2">5.2 · Defensive</a></li>
+<li><a href="#sez-5-3" data-id="sez-5-3">5.3 · Mobility</a></li>
+<li><a href="#sez-5-4" data-id="sez-5-4">5.4 · Control</a></li>
+<li><a href="#sez-5-5" data-id="sez-5-5">5.5 · Utility</a></li>
+<li><a href="#sez-5-6" data-id="sez-5-6">5.6 · Emissions</a></li>
+<li><a href="#sez-5-7" data-id="sez-5-7">5.7 · Creative use</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-6" data-id="cap-6"><span class="n">6</span>Special Effects</a><ol class="man-i-sez">
+<li><a href="#sez-6-1" data-id="sez-6-1">6.1 · Discount</a></li>
+<li><a href="#sez-6-2" data-id="sez-6-2">6.2 · Unlock</a></li>
+<li><a href="#sez-6-3" data-id="sez-6-3">6.3 · Passive</a></li>
+<li><a href="#sez-6-4" data-id="sez-6-4">6.4 · Reaction</a></li>
+<li><a href="#sez-6-5" data-id="sez-6-5">6.5 · Curse</a></li>
+<li><a href="#sez-6-6" data-id="sez-6-6">6.6 · Common rules</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-7" data-id="cap-7"><span class="n">7</span>Energy and Charges</a><ol class="man-i-sez">
+<li><a href="#sez-7-1" data-id="sez-7-1">7.1 · Charges</a></li>
+<li><a href="#sez-7-2" data-id="sez-7-2">7.2 · Charges and Stamina</a></li>
+<li><a href="#sez-7-3" data-id="sez-7-3">7.3 · Recharging</a></li>
+<li><a href="#sez-7-4" data-id="sez-7-4">7.4 · Common sources</a></li>
+<li><a href="#sez-7-5" data-id="sez-7-5">7.5 · Modules without Charges</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-8" data-id="cap-8"><span class="n">8</span>Weapon Modules and Techniques</a><ol class="man-i-sez">
+<li><a href="#sez-8-1" data-id="sez-8-1">8.1 · Weapon Grade</a></li>
+<li><a href="#sez-8-2" data-id="sez-8-2">8.2 · Basic attack</a></li>
+<li><a href="#sez-8-3" data-id="sez-8-3">8.3 · The Module as the means of executing a Technique</a></li>
+<li><a href="#sez-8-4" data-id="sez-8-4">8.4 · Grade and compatibility</a></li>
+<li><a href="#sez-8-5" data-id="sez-8-5">8.5 · No duplication</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-9" data-id="cap-9"><span class="n">9</span>Module Activation</a><ol class="man-i-sez">
+<li><a href="#sez-9-1" data-id="sez-9-1">9.1 · Active Module</a></li>
+<li><a href="#sez-9-2" data-id="sez-9-2">9.2 · Initial Module</a></li>
+<li><a href="#sez-9-3" data-id="sez-9-3">9.3 · Switch Module</a></li>
+<li><a href="#sez-9-4" data-id="sez-9-4">9.4 · Duration and shutdown</a></li>
+<li><a href="#sez-9-5" data-id="sez-9-5">9.5 · Outside your turn</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-10" data-id="cap-10"><span class="n">10</span>Construction, Installation and Integrity</a><ol class="man-i-sez">
+<li><a href="#sez-10-1" data-id="sez-10-1">10.1 · Building a Module</a></li>
+<li><a href="#sez-10-2" data-id="sez-10-2">10.2 · Materials and design freedom</a></li>
+<li><a href="#sez-10-3" data-id="sez-10-3">10.3 · Commissioning the work</a></li>
+<li><a href="#sez-10-4" data-id="sez-10-4">10.4 · Construction example</a></li>
+<li><a href="#sez-10-5" data-id="sez-10-5">10.5 · Installing, replacing and upgrading</a></li>
+<li><a href="#sez-10-6" data-id="sez-10-6">10.6 · Module integrity and repair</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-11" data-id="cap-11"><span class="n">11</span>The Cyborg's Body and Healing</a><ol class="man-i-sez">
+<li><a href="#sez-11-1" data-id="sez-11-1">11.1 · Quick reference</a></li>
+<li><a href="#sez-11-2" data-id="sez-11-2">11.2 · Field Repair</a></li>
+<li><a href="#sez-11-3" data-id="sez-11-3">11.3 · Flesh and Metal</a></li>
+<li><a href="#sez-11-4" data-id="sez-11-4">11.4 · HP and Modules remain separate</a></li>
+<li><a href="#sez-11-5" data-id="sez-11-5">11.5 · Stabilising a Cyborg</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-12" data-id="cap-12"><span class="n">12</span>Prosthetics, Gadgets and Non-Cyborg Characters</a><ol class="man-i-sez">
+<li><a href="#sez-12-1" data-id="sez-12-1">12.1 · Ordinary prosthetics and gadgets</a></li>
+<li><a href="#sez-12-2" data-id="sez-12-2">12.2 · When it becomes a true Module</a></li>
+<li><a href="#sez-12-3" data-id="sez-12-3">12.3 · Non-Cyborg characters</a></li>
+<li><a href="#sez-12-4" data-id="sez-12-4">12.4 · Legacy rules</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-13" data-id="cap-13"><span class="n">13</span>Quick Module Catalogue</a><ol class="man-i-sez">
+</ol></li>
+<li class="man-i-cap"><a href="#cap-14" data-id="cap-14"><span class="n">14</span>Creating a Custom Module</a><ol class="man-i-sez">
+<li><a href="#sez-14-1" data-id="sez-14-1">14.1 · Quick procedure</a></li>
+<li><a href="#sez-14-2" data-id="sez-14-2">14.2 · Consistency check</a></li>
+<li><a href="#sez-14-3" data-id="sez-14-3">14.3 · Example</a></li>
+<li><a href="#sez-14-4" data-id="sez-14-4">14.4 · Final rule</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-15" data-id="cap-15"><span class="n">15</span>Guide to Cyborg Builds</a><ol class="man-i-sez">
+<li><a href="#sez-15-1" data-id="sez-15-1">15.1 · Before choosing the Role</a></li>
+<li><a href="#sez-15-2" data-id="sez-15-2">15.2 · Roles that combine well with Cyborg</a></li>
+<li><a href="#sez-15-3" data-id="sez-15-3">15.3 · Planning Prestige</a></li>
+<li><a href="#sez-15-4" data-id="sez-15-4">15.4 · Particularly useful Prestige Talents</a></li>
+<li><a href="#sez-15-5" data-id="sez-15-5">15.5 · Haki and Cyborg</a></li>
+<li><a href="#sez-15-6" data-id="sez-15-6">15.6 · Build examples</a></li>
+<li><a href="#sez-15-7" data-id="sez-15-7">15.7 · Final advice</a></li>
+</ol></li>
+<li class="man-i-cap"><a href="#cap-16" data-id="cap-16"><span class="n">16</span>Cyborg Summary</a><ol class="man-i-sez">
+</ol></li>
+    </ol>
+    <p class="man-vuoto" id="man-nessuno" hidden>No entry with this name.</p>
+</nav>
+
+<div class="man-scena">
+  <div class="man-libro" id="man-libro">
+    <main translate="no" class="man-foglio" id="man-foglio">
+    <div class="man-frontespizio">
+      <figure class="man-copertina">
+        <picture>
+          <source media="screen" type="image/webp" srcset="/img/copertine/manuale-del-cyborg.webp">
+          <img src="/img/copertine/manuale-del-cyborg.jpg" alt="Cyborg Manual cover" width="1024" height="1536" fetchpriority="high">
+        </picture>
+      </figure>
+      <p class="occhiello">Grand Line Chronicles</p>
+      <h1>Manual<br>of the Cyborg</h1>
+      <p class="sotto">Official guidelines · Mechanical Body, Modules, Technology Tiers and builds.</p>
+      <a class="man-pdf-download" href="/en/manuale-cyborg/manuale.pdf" download aria-label="Download the Cyborg Manual with its cover as a PDF">Download the manual · PDF <span aria-hidden="true">↓</span></a>
+    </div>
+
+    <nav class="man-somm" aria-label="Contents">
+      <h2>Contents</h2>
+      <ol>
+<li class="s-cap">1 · Being a Cyborg</li>
+<li class="s-sez"><b>1.1</b>Mechanical Body</li>
+<li class="s-sez"><b>1.2</b>Modules</li>
+<li class="s-sez"><b>1.3</b>Modules and Techniques</li>
+<li class="s-sez"><b>1.4</b>General principle</li>
+<li class="s-cap">2 · Mechanical Body</li>
+<li class="s-sez"><b>2.1</b>Progression</li>
+<li class="s-sez"><b>2.2</b>Slots and Technology Tier</li>
+<li class="s-sez"><b>2.3</b>Technology Tier and Weapon Grade</li>
+<li class="s-sez"><b>2.4</b>Growth</li>
+<li class="s-sez"><b>2.5</b>Independent values</li>
+<li class="s-cap">3 · Anatomy of a Module</li>
+<li class="s-sez"><b>3.1</b>Sheet fields</li>
+<li class="s-sez"><b>3.2</b>Installation, integrity and activation</li>
+<li class="s-sez"><b>3.3</b>Inactive function and active function</li>
+<li class="s-sez"><b>3.4</b>Effects, energy and limits</li>
+<li class="s-sez"><b>3.5</b>Sheet template</li>
+<li class="s-cap">4 · Technology Tiers</li>
+<li class="s-sez"><b>4.1</b>General scale</li>
+<li class="s-sez"><b>4.2</b>Mobility and flight</li>
+<li class="s-sez"><b>4.3</b>Protection</li>
+<li class="s-sez"><b>4.4</b>Tier limits</li>
+<li class="s-cap">5 · Module Functions</li>
+<li class="s-sez"><b>5.1</b>Offensive</li>
+<li class="s-sez"><b>5.2</b>Defensive</li>
+<li class="s-sez"><b>5.3</b>Mobility</li>
+<li class="s-sez"><b>5.4</b>Control</li>
+<li class="s-sez"><b>5.5</b>Utility</li>
+<li class="s-sez"><b>5.6</b>Emissions</li>
+<li class="s-sez"><b>5.7</b>Creative use</li>
+<li class="s-cap">6 · Special Effects</li>
+<li class="s-sez"><b>6.1</b>Discount</li>
+<li class="s-sez"><b>6.2</b>Unlock</li>
+<li class="s-sez"><b>6.3</b>Passive</li>
+<li class="s-sez"><b>6.4</b>Reaction</li>
+<li class="s-sez"><b>6.5</b>Curse</li>
+<li class="s-sez"><b>6.6</b>Common rules</li>
+<li class="s-cap">7 · Energy and Charges</li>
+<li class="s-sez"><b>7.1</b>Charges</li>
+<li class="s-sez"><b>7.2</b>Charges and Stamina</li>
+<li class="s-sez"><b>7.3</b>Recharging</li>
+<li class="s-sez"><b>7.4</b>Common sources</li>
+<li class="s-sez"><b>7.5</b>Modules without Charges</li>
+<li class="s-cap">8 · Weapon Modules and Techniques</li>
+<li class="s-sez"><b>8.1</b>Weapon Grade</li>
+<li class="s-sez"><b>8.2</b>Basic attack</li>
+<li class="s-sez"><b>8.3</b>The Module as the means of executing a Technique</li>
+<li class="s-sez"><b>8.4</b>Grade and compatibility</li>
+<li class="s-sez"><b>8.5</b>No duplication</li>
+<li class="s-cap">9 · Module Activation</li>
+<li class="s-sez"><b>9.1</b>Active Module</li>
+<li class="s-sez"><b>9.2</b>Initial Module</li>
+<li class="s-sez"><b>9.3</b>Switch Module</li>
+<li class="s-sez"><b>9.4</b>Duration and shutdown</li>
+<li class="s-sez"><b>9.5</b>Outside your turn</li>
+<li class="s-cap">10 · Construction, Installation and Integrity</li>
+<li class="s-sez"><b>10.1</b>Building a Module</li>
+<li class="s-sez"><b>10.2</b>Materials and design freedom</li>
+<li class="s-sez"><b>10.3</b>Commissioning the work</li>
+<li class="s-sez"><b>10.4</b>Construction example</li>
+<li class="s-sez"><b>10.5</b>Installing, replacing and upgrading</li>
+<li class="s-sez"><b>10.6</b>Module integrity and repair</li>
+<li class="s-cap">11 · The Cyborg's Body and Healing</li>
+<li class="s-sez"><b>11.1</b>Quick reference</li>
+<li class="s-sez"><b>11.2</b>Field Repair</li>
+<li class="s-sez"><b>11.3</b>Flesh and Metal</li>
+<li class="s-sez"><b>11.4</b>HP and Modules remain separate</li>
+<li class="s-sez"><b>11.5</b>Stabilising a Cyborg</li>
+<li class="s-cap">12 · Prosthetics, Gadgets and Non-Cyborg Characters</li>
+<li class="s-sez"><b>12.1</b>Ordinary prosthetics and gadgets</li>
+<li class="s-sez"><b>12.2</b>When it becomes a true Module</li>
+<li class="s-sez"><b>12.3</b>Non-Cyborg characters</li>
+<li class="s-sez"><b>12.4</b>Legacy rules</li>
+<li class="s-cap">13 · Quick Module Catalogue</li>
+<li class="s-cap">14 · Creating a Custom Module</li>
+<li class="s-sez"><b>14.1</b>Quick procedure</li>
+<li class="s-sez"><b>14.2</b>Consistency check</li>
+<li class="s-sez"><b>14.3</b>Example</li>
+<li class="s-sez"><b>14.4</b>Final rule</li>
+<li class="s-cap">15 · Guide to Cyborg Builds</li>
+<li class="s-sez"><b>15.1</b>Before choosing the Role</li>
+<li class="s-sez"><b>15.2</b>Roles that combine well with Cyborg</li>
+<li class="s-sez"><b>15.3</b>Planning Prestige</li>
+<li class="s-sez"><b>15.4</b>Particularly useful Prestige Talents</li>
+<li class="s-sez"><b>15.5</b>Haki and Cyborg</li>
+<li class="s-sez"><b>15.6</b>Build examples</li>
+<li class="s-sez"><b>15.7</b>Final advice</li>
+<li class="s-cap">16 · Cyborg Summary</li>
+      </ol>
+    </nav>
+
+<p class="man-guida" data-cyborg-source="1">Grand Line Chronicles · Guidelines for Mechanical Body and Modules</p>
+<p class="man-guida" data-cyborg-source="2">A Cyborg does not simply carry tools: they integrate them into their body. Mechanical Body establishes how many Modules it can house and what technological level it can support; Modules define what that technology can do.</p>
+<p class="man-guida" data-cyborg-source="3">This manual gathers the rules needed to design clear, comparable Modules that can be used at the table, without turning every technological description into an unlimited collection of bonuses.</p>
+<section class="man-cap" id="cap-1" data-cap="1"><header class="man-cap-h"><span class="man-cap-n">Chapter 1 ·</span> <h1 data-cyborg-source="4">Being a Cyborg</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="5">A Cyborg is an individual whose body has been modified through prosthetics, implants and integrated mechanical devices. Two Cyborgs of the same Grade can have completely different bodies: one could be a weapons platform, while another focuses on mobility, sensors or tools.</p>
+<h2 id="sez-1-1" class="man-sez"><span class="man-sez-n">1.1 ·</span> <span data-cyborg-source="6">Mechanical Body</span></h2>
+<p class="man-guida" data-cyborg-source="7">Every Cyborg possesses the Racial Technique Mechanical Body. Its Grade represents the quality and level of integration of the technology in the body, not the character's amount of metal or mass.</p>
+<p class="man-guida" data-cyborg-source="8">Mechanical Body determines two things: the number of available slots and the maximum Technology Tier of installable Modules.</p>
+<h2 id="sez-1-2" class="man-sez"><span class="man-sez-n">1.2 ·</span> <span data-cyborg-source="9">Modules</span></h2>
+<p class="man-guida" data-cyborg-source="10">A Module is a technological device integrated into the body and recorded as part of Mechanical Body. It can be an artificial limb, a weapon, a thruster, armour, a sensor, a tool or another consistent system.</p>
+<p class="man-guida" data-cyborg-source="11">Every Module must have a concrete function. Calling a device “advanced” grants no benefits: what it is designed to do must be defined.</p>
+<h2 id="sez-1-3" class="man-sez"><span class="man-sez-n">1.3 ·</span> <span data-cyborg-source="12">Modules and Techniques</span></h2>
+<p class="man-guida" data-cyborg-source="13">A Module is not a Technique. The Module is the device; the Technique is the particular way the character uses their abilities.</p>
+<p class="man-guida" data-cyborg-source="14">A Module can be used according to its function or as the means of executing a compatible Technique. It does not automatically grant Signature Move Builder Effects, roll bonuses, Statuses, additional damage or other properties not specified in its sheet.</p>
+<h2 id="sez-1-4" class="man-sez"><span class="man-sez-n">1.4 ·</span> <span data-cyborg-source="15">General principle</span></h2>
+<p class="man-regola" data-cyborg-source="16">The function states what a Module can do; the Technology Tier establishes how much it can do. Special Effects introduce any exceptions. Slots, energy, activation and integrity establish when the device can be used.</p>
+<p class="man-guida" data-cyborg-source="17">The narrative description cannot freely increase power, distance or autonomy. At the same time, the rules define limits and values without imposing the same arsenal on every Cyborg.</p>
+</div></section>
+<section class="man-cap" id="cap-2" data-cap="2"><header class="man-cap-h"><span class="man-cap-n">Chapter 2 ·</span> <h1 data-cyborg-source="18">Mechanical Body</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="19">Mechanical Body measures the Cyborg's level of technological integration. Its ordinary progression is d6 → d8 → d10 → d12 → d20 and it has no Prestige progression.</p>
+<h2 id="sez-2-1" class="man-sez"><span class="man-sez-n">2.1 ·</span> <span data-cyborg-source="20">Progression</span></h2>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="21"><table class="man-tab"><thead><tr><th scope="col"><b>Mechanical Body</b></th><th scope="col"><b>Available Slots</b></th><th scope="col"><b>Maximum Tier</b></th></tr></thead><tbody><tr><td>d6</td><td>1</td><td>d6</td></tr><tr><td>d8</td><td>2</td><td>d8</td></tr><tr><td>d10</td><td>3</td><td>d10</td></tr><tr><td>d12</td><td>4</td><td>d12</td></tr><tr><td>d20</td><td>5</td><td>d20</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="22">A Cyborg can install Modules of their own Technology Tier or a lower Tier. Having a free slot does not allow a device beyond their Mechanical Body Grade to be installed.</p>
+<h2 id="sez-2-2" class="man-sez"><span class="man-sez-n">2.2 ·</span> <span data-cyborg-source="23">Slots and Technology Tier</span></h2>
+<p class="man-guida" data-cyborg-source="24">Slots measure how many Modules can be integrated; Technology Tier measures how advanced each Module can be.</p>
+<p class="man-regola" data-cyborg-source="25">Every installed Module normally occupies 1 slot, regardless of Tier.</p>
+<p class="man-guida" data-cyborg-source="26">A slot does not necessarily correspond to an anatomical part. Multiple Modules can occupy the same part of the body if the configuration is plausible, but independent technological systems remain separate Modules.</p>
+<h2 id="sez-2-3" class="man-sez"><span class="man-sez-n">2.3 ·</span> <span data-cyborg-source="27">Technology Tier and Weapon Grade</span></h2>
+<p class="man-guida" data-cyborg-source="28">Technology Tier indicates the Mechanical Body requirement. Weapon Grade instead indicates the die used by a Weapon Module. The two values are separate: a Tier d10 cannon could, for example, be a d8 weapon.</p>
+<h2 id="sez-2-4" class="man-sez"><span class="man-sez-n">2.4 ·</span> <span data-cyborg-source="29">Growth</span></h2>
+<p class="man-guida" data-cyborg-source="30">When Mechanical Body increases in Grade, the Cyborg gains the new slot specified by the table and can install Modules of the new Tier. They do not receive a new Module for free.</p>
+<p class="man-guida" data-cyborg-source="31">Modules already owned do not automatically increase in Tier. To improve them, they must be modified, rebuilt or replaced through the specified procedures.</p>
+<h2 id="sez-2-5" class="man-sez"><span class="man-sez-n">2.5 ·</span> <span data-cyborg-source="32">Independent values</span></h2>
+<p class="man-guida" data-cyborg-source="33">Mechanical Body is independent of the Strength Attribute. Increasing Mechanical Body does not increase Strength, Passive Defence, unarmed damage or general lifting capacity. Increasing Strength does not grant slots or access to higher Tiers.</p>
+<p class="man-guida" data-cyborg-source="34">The ordinary limit is d20: 5 slots and Modules up to Tier d20. Any exceptions must come from a specific ability.</p>
+</div></section>
+<section class="man-cap" id="cap-3" data-cap="3"><header class="man-cap-h"><span class="man-cap-n">Chapter 3 ·</span> <h1 data-cyborg-source="35">Anatomy of a Module</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="36">Every Module uses a standard sheet. The sheet separates function, operational state, any Special Effects and resources, so what the device can do is always clear.</p>
+<h2 id="sez-3-1" class="man-sez"><span class="man-sez-n">3.1 ·</span> <span data-cyborg-source="37">Sheet fields</span></h2>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="38"><table class="man-tab"><thead><tr><th scope="col"><b>Field</b></th><th scope="col"><b>Contents</b></th></tr></thead><tbody><tr><td>Name</td><td>The device's identity.</td></tr><tr><td>Technology Tier</td><td>d6, d8, d10, d12 o d20.</td></tr><tr><td>Category</td><td>Offensive, Defensive, Mobility, Control, Utility.</td></tr><tr><td>Structure</td><td>Functional or Weapon Module.</td></tr><tr><td>Weapon Grade</td><td>Only if the Module can be used as a weapon.</td></tr><tr><td>Physical function</td><td>What the device is built to do.</td></tr><tr><td>Inactive function</td><td>What remains usable while inactive.</td></tr><tr><td>Active function</td><td>What the Module can do when operational.</td></tr><tr><td>Special Effect</td><td>Optional; maximum one.</td></tr><tr><td>Energy</td><td>Resource type, if applicable.</td></tr><tr><td>Capacity / Consumption / Recharging</td><td>Management of the energy resource.</td></tr><tr><td>Compatible Techniques</td><td>Any limitations on use as the means of execution.</td></tr><tr><td>Limits</td><td>Specific design conditions.</td></tr><tr><td>Integrity</td><td>Intact or Damaged.</td></tr><tr><td>Installation</td><td>Installed or Not installed.</td></tr><tr><td>Activation</td><td>Active or Inactive.</td></tr></tbody></table></div>
+<h2 id="sez-3-2" class="man-sez"><span class="man-sez-n">3.2 ·</span> <span data-cyborg-source="39">Installation, integrity and activation</span></h2>
+<p class="man-guida" data-cyborg-source="40">A Module can exist without being installed. Only an installed Module occupies a slot and becomes part of the Mechanical Body system.</p>
+<p class="man-guida" data-cyborg-source="41">An Intact Module is functional; a Damaged Module cannot use its Operational Function, Special Effect or Techniques that require it until repaired.</p>
+<p class="man-regola" data-cyborg-source="42">An installed, intact Module can be Active or Inactive. Being installed, being intact and being active are three distinct conditions.</p>
+<h2 id="sez-3-3" class="man-sez"><span class="man-sez-n">3.3 ·</span> <span data-cyborg-source="43">Inactive function and active function</span></h2>
+<p class="man-guida" data-cyborg-source="44">The Inactive function includes only physical properties not requiring the system's operational functioning: for example, a compartment that continues to hold objects or an artificial limb retaining normal mobility if the design provides for it.</p>
+<p class="man-guida" data-cyborg-source="45">Propulsion, advanced sensors, defensive bonuses, Special Effects and linked Techniques do not automatically remain active. If the sheet specifies no Inactive function, an inactive Module grants no mechanical benefits.</p>
+<p class="man-guida" data-cyborg-source="46">The Active function instead describes the device's normal functioning when installed, intact and active.</p>
+<h2 id="sez-3-4" class="man-sez"><span class="man-sez-n">3.4 ·</span> <span data-cyborg-source="47">Effects, energy and limits</span></h2>
+<p class="man-guida" data-cyborg-source="48">A Module can have at most one Special Effect. If it uses a dedicated resource, the sheet specifies capacity, consumption and recharging. Compatible Techniques and Limits specify any further conditions without granting additional benefits.</p>
+<h2 id="sez-3-5" class="man-sez"><span class="man-sez-n">3.5 ·</span> <span data-cyborg-source="49">Sheet template</span></h2>
+<p class="man-guida" data-cyborg-source="50">Name:</p>
+<p class="man-guida" data-cyborg-source="51">Technology Tier:</p>
+<p class="man-guida" data-cyborg-source="52">Category:</p>
+<p class="man-guida" data-cyborg-source="53">Structure:</p>
+<p class="man-guida" data-cyborg-source="54">Weapon Grade:</p>
+<p class="man-guida" data-cyborg-source="55">Physical function:</p>
+<p class="man-guida" data-cyborg-source="56">Inactive function:</p>
+<p class="man-guida" data-cyborg-source="57">Active function:</p>
+<p class="man-guida" data-cyborg-source="58">Special Effect:</p>
+<p class="man-guida" data-cyborg-source="59">Energy:</p>
+<p class="man-guida" data-cyborg-source="60">Capacity / Consumption / Recharging:</p>
+<p class="man-guida" data-cyborg-source="61">Compatible Techniques:</p>
+<p class="man-guida" data-cyborg-source="62">Limits:</p>
+<p class="man-guida" data-cyborg-source="63">Integrity:</p>
+<p class="man-guida" data-cyborg-source="64">Installation:</p>
+<p class="man-guida" data-cyborg-source="65">Activation:</p>
+</div></section>
+<section class="man-cap" id="cap-4" data-cap="4"><header class="man-cap-h"><span class="man-cap-n">Chapter 4 ·</span> <h1 data-cyborg-source="66">Technology Tiers</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="67">Technology Tier establishes the maximum limit of the Module's Main Function. It does not automatically grant every capability in the same row: each device uses only the parameters needed for its function.</p>
+<h2 id="sez-4-1" class="man-sez"><span class="man-sez-n">4.1 ·</span> <span data-cyborg-source="68">General scale</span></h2>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="69"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Functional reach</b></th><th scope="col"><b>Displacement</b></th><th scope="col"><b>Mechanical strength</b></th><th scope="col"><b>Sensors</b></th><th scope="col"><b>Functional area</b></th></tr></thead><tbody><tr><td>d6</td><td>3 m</td><td>5 m</td><td>100 kg</td><td>10 m</td><td>1 m</td></tr><tr><td>d8</td><td>5 m</td><td>10 m</td><td>250 kg</td><td>25 m</td><td>2 m</td></tr><tr><td>d10</td><td>10 m</td><td>20 m</td><td>500 kg</td><td>50 m</td><td>3 m</td></tr><tr><td>d12</td><td>20 m</td><td>30 m</td><td>2 t</td><td>100 m</td><td>5 m</td></tr><tr><td>d20</td><td>50 m</td><td>50 m</td><td>10 t</td><td>300 m</td><td>10 m</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="70">Functional reach indicates how far a device can act physically; Displacement indicates the distance generated by a Mobility Function; Mechanical strength indicates the ordinary operating load; Sensors and Functional area indicate their respective maximum radii.</p>
+<h2 id="sez-4-2" class="man-sez"><span class="man-sez-n">4.2 ·</span> <span data-cyborg-source="71">Mobility and flight</span></h2>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="72"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Propulsion capability</b></th></tr></thead><tbody><tr><td>d6</td><td>Assisted thrust: acceleration, jumps, braking and corrections. No continuous flight.</td></tr><tr><td>d8</td><td>Brief aerial Displacement: can lift off, but must finish on a surface.</td></tr><tr><td>d10</td><td>Flight: three-dimensional movement and staying airborne while the system is operational.</td></tr><tr><td>d12</td><td>Advanced flight: stable control in complex manoeuvres and ordinary difficult conditions.</td></tr><tr><td>d20</td><td>Legendary flight: maximum ordinary technological control, always within distance and energy limits.</td></tr></tbody></table></div>
+<h2 id="sez-4-3" class="man-sez"><span class="man-sez-n">4.3 ·</span> <span data-cyborg-source="73">Protection</span></h2>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="74"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Protected scale</b></th></tr></thead><tbody><tr><td>d6</td><td>Part of the body or a limited direction</td></tr><tr><td>d8</td><td>The entire user</td></tr><tr><td>d10</td><td>User + 1 adjacent target or a small barrier</td></tr><tr><td>d12</td><td>Small group or extended barrier</td></tr><tr><td>d20</td><td>Group or broad defensive position</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="75">The Tier establishes the scale of protection, not the damage cancelled: the specific benefit depends on the chosen Defensive Function.</p>
+<h2 id="sez-4-4" class="man-sez"><span class="man-sez-n">4.4 ·</span> <span data-cyborg-source="76">Tier limits</span></h2>
+<p class="man-guida" data-cyborg-source="77">The tables represent normal operating conditions. Temporarily exceeding a load or operating in extreme conditions may require an appropriate Check, but does not permanently turn a Module into a higher Tier.</p>
+<p class="man-guida" data-cyborg-source="78">No Tier automatically grants Builder effects such as Grapple, Launch, Statuses, Areas, Ranges or other combat results. Tier describes only the device's material capability. Combat effects come from specific Functions, Special Effects, Weapon Modules, Techniques or Talents. Areas and Persistent Zones require a function or design expressly producing them. The ordinary Builder no longer grants additional damage dice as a purchasable effect.</p>
+<p class="man-regola" data-cyborg-source="79">A Module has one Main Function. Secondary components necessary for it to function are allowed, but independent mechanical abilities require a compatible Special Effect or a second Module.</p>
+</div></section>
+<section class="man-cap" id="cap-5" data-cap="5"><header class="man-cap-h"><span class="man-cap-n">Chapter 5 ·</span> <h1 data-cyborg-source="80">Module Functions</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="81">The Main Function is what the Module can normally do. A continuous Function operates while the Module is active; an operational Function normally requires 1 Action unless its description states otherwise.</p>
+<h2 id="sez-5-1" class="man-sez"><span class="man-sez-n">5.1 ·</span> <span data-cyborg-source="82">Offensive</span></h2>
+<p class="man-guida" data-cyborg-source="83">A Module directly dealing damage must be a Weapon Module or use a Technique or ability expressly assigning damage or Statuses.</p>
+<p class="man-guida" data-cyborg-source="84">A Weapon Module states whether it is Melee or Ranged and has a Weapon Grade. Technology Tier establishes whether the body can support it; Weapon Grade determines its offensive effectiveness.</p>
+<h2 id="sez-5-2" class="man-sez"><span class="man-sez-n">5.2 ·</span> <span data-cyborg-source="85">Defensive</span></h2>
+<p class="man-guida" data-cyborg-source="86">The two main Defensive Functions are Armour and Shield/Barrier.</p>
+<h3 class="man-sub" id="5-2-1-corazza" data-cyborg-source="87">5.2.1 · Armour</h3>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="88"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Physical damage reduction</b></th></tr></thead><tbody><tr><td>d6</td><td>−1</td></tr><tr><td>d8</td><td>−2</td></tr><tr><td>d10</td><td>−3</td></tr><tr><td>d12</td><td>−4</td></tr><tr><td>d20</td><td>−6</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="89">Reduction applies after any halving and cannot take damage below 0. Specific resistances to fire, cold, electricity, acid, poison, Haki or other damage require a property provided by the design.</p>
+<h3 class="man-sub" id="5-2-2-scudo-o-barriera" data-cyborg-source="90">5.2.2 · Shield or Barrier</h3>
+<p class="man-guida" data-cyborg-source="91">When correctly facing the threat, grants Partial Cover: PD +2. Tier increases the protected scale, not the bonus.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="92"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Protection</b></th></tr></thead><tbody><tr><td>d6</td><td>User against a declared direction</td></tr><tr><td>d8</td><td>User</td></tr><tr><td>d10</td><td>User + 1 ally within 2 m</td></tr><tr><td>d12</td><td>User + up to 3 allies within 3 m</td></tr><tr><td>d20</td><td>User + allies within 5 m</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="93">Partial Cover does not stack with another identical source; the best benefit is used. Full Cover requires a specific ability.</p>
+<h2 id="sez-5-3" class="man-sez"><span class="man-sez-n">5.3 ·</span> <span data-cyborg-source="94">Mobility</span></h2>
+<p class="man-guida" data-cyborg-source="95">A Thruster uses the Displacement of its Tier once per turn. This Displacement adds to normal Movement and does not constitute an additional Action. Available flight capabilities depend on Tier according to Chapter 4. Any energy consumption is paid normally.</p>
+<h2 id="sez-5-4" class="man-sez"><span class="man-sez-n">5.4 ·</span> <span data-cyborg-source="96">Control</span></h2>
+<p class="man-guida" data-cyborg-source="97">Manipulators, cables, harpoons and similar systems use their Tier's Functional reach and Mechanical strength to grasp, support, move or operate objects.</p>
+<p class="man-guida" data-cyborg-source="98">Against a creature, physically reaching it does not automatically grant Grapple, Immobilised, Attraction, Launch or other forced displacement. These results require a normal appropriate check, a Technique with an effect compatible with its Style, or a Module Function or Special Effect expressly granting them.</p>
+<p class="man-guida" data-cyborg-source="99">An anchoring system can support the Cyborg, pull objects within its load capacity or allow an anchored point to be reached, always within the device's Reach.</p>
+<h2 id="sez-5-5" class="man-sez"><span class="man-sez-n">5.5 ·</span> <span data-cyborg-source="100">Utility</span></h2>
+<p class="man-guida" data-cyborg-source="101">Utility Modules include sensors, integrated tools, and analysis, communication, lighting and storage systems.</p>
+<p class="man-guida" data-cyborg-source="102">A Sensor is designed for a defined type of information and uses the radius specified by its Tier. It does not automatically detect everything within that radius: concealment, interference and environmental conditions may require a Check.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="103"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Integrated tool</b></th></tr></thead><tbody><tr><td>d6</td><td>Single common implement or tool</td></tr><tr><td>d8</td><td>Small professional set</td></tr><tr><td>d10</td><td>Advanced precision equipment</td></tr><tr><td>d12</td><td>Portable specialised technical workstation</td></tr><tr><td>d20</td><td>Mobile laboratory specialising in a single field</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="104">An Integrated tool replaces the necessary equipment, but does not automatically increase the Skill, provide materials or grant professional Talents.</p>
+<h2 id="sez-5-6" class="man-sez"><span class="man-sez-n">5.6 ·</span> <span data-cyborg-source="105">Emissions</span></h2>
+<p class="man-guida" data-cyborg-source="106">A Module can emit light, smoke, foam, steam, signals, liquids or other elements within its Tier's Functional area. Emission alone does not automatically inflict damage, Statuses, Advantage or Disadvantage: a rule granting a combat effect is needed to obtain one.</p>
+<h2 id="sez-5-7" class="man-sez"><span class="man-sez-n">5.7 ·</span> <span data-cyborg-source="107">Creative use</span></h2>
+<p class="man-guida" data-cyborg-source="108">A player can propose creative uses consistent with the Function. The GM can permit them directly or require a Check. Creative use does not turn the Module into a Function it does not possess or automatically duplicate effects already supplied by Techniques or Special Effects.</p>
+</div></section>
+<section class="man-cap" id="cap-6" data-cap="6"><header class="man-cap-h"><span class="man-cap-n">Chapter 6 ·</span> <h1 data-cyborg-source="109">Special Effects</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="110">A Special Effect is an additional property of the Module. It is optional, and each Module can have at most one. A single Effect grants only one main mechanical benefit: conditions and limits can specify it, but cannot conceal multiple independent advantages.</p>
+<p class="man-guida" data-cyborg-source="111">The Special Effect belongs to the same Technology Tier as the Module and must be consistent with its functioning.</p>
+<h2 id="sez-6-1" class="man-sez"><span class="man-sez-n">6.1 ·</span> <span data-cyborg-source="112">Discount</span></h2>
+<p class="man-guida" data-cyborg-source="113">Reduces the cost of a specific ability used through the Module. It must precisely identify the Technique, Builder Effect or ability concerned.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="114"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Discount Points</b></th></tr></thead><tbody><tr><td>d6</td><td>1</td></tr><tr><td>d8</td><td>2</td></tr><tr><td>d10</td><td>3</td></tr><tr><td>d12</td><td>4</td></tr><tr><td>d20</td><td>5</td></tr></tbody></table></div>
+<ul class="man-punti"><li data-cyborg-source="115">1 Discount Point = −1 ST. The cost cannot fall below 1 ST.</li><li data-cyborg-source="116">From d8: 2 Discount Points = −1 Effect Slot. A Slot can decrease to 0.</li><li data-cyborg-source="117">The Discount does not grant the ability, remove requirements or apply outside the Module.</li><li data-cyborg-source="118">Multiple Discounts on the same cost do not automatically stack: use the best.</li></ul>
+<h2 id="sez-6-2" class="man-sez"><span class="man-sez-n">6.2 ·</span> <span data-cyborg-source="119">Unlock</span></h2>
+<p class="man-guida" data-cyborg-source="120">Makes one Signature Move Builder Effect materially enabled by the technology available through the Module.</p>
+<p class="man-guida" data-cyborg-source="121">The unlocked Effect cannot have a minimum Grade above the Module's Tier. Unlock does not reduce the minimum Grade or remove Form, Slots, ST, Talent prerequisites, Haki, Fruits, Ultimate, Prestige or fundamental limits of the Role Manuals.</p>
+<h2 id="sez-6-3" class="man-sez"><span class="man-sez-n">6.3 ·</span> <span data-cyborg-source="122">Passive</span></h2>
+<p class="man-guida" data-cyborg-source="123">A Passive works while the Module is installed, intact and active. The main models are:</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="124"><table class="man-tab"><thead><tr><th scope="col"><b>Model</b></th><th scope="col"><b>Requirement</b></th><th scope="col"><b>Effect</b></th></tr></thead><tbody><tr><td>Optimisation</td><td>d6+</td><td>Improves one parameter of the Main Function.</td></tr><tr><td>Stabilisation</td><td>d8+</td><td>Advantage on a very specific type of Check linked to the Function.</td></tr><tr><td>Compensation</td><td>d10+</td><td>Ignores a specific operational penalty hindering the Function.</td></tr><tr><td>Specialised Resistance</td><td>d12+</td><td>Protects the Function against a very specific category of interference.</td></tr><tr><td>Legendary System</td><td>d20</td><td>Maximum expression of one of the previous models, without immunities or extra actions.</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="125">For Optimisation, the maximum increase of the chosen parameter is:</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="126"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Maximum increase</b></th></tr></thead><tbody><tr><td>d6</td><td>+25%</td></tr><tr><td>d8</td><td>+50%</td></tr><tr><td>d10</td><td>+75%</td></tr><tr><td>d12</td><td>+100%</td></tr><tr><td>d20</td><td>+150%</td></tr></tbody></table></div>
+<h2 id="sez-6-4" class="man-sez"><span class="man-sez-n">6.4 ·</span> <span data-cyborg-source="127">Reaction</span></h2>
+<p class="man-guida" data-cyborg-source="128">Allows a Module property to be used in response to a specific Trigger. The sheet must state the Trigger, effect, frequency and any costs. The Reaction does not grant additional Reactions.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="129"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Maximum frequency</b></th></tr></thead><tbody><tr><td>d6</td><td>1 time per combat</td></tr><tr><td>d8</td><td>2 times per combat</td></tr><tr><td>d10</td><td>1 time per round</td></tr><tr><td>d12</td><td>1 time per round</td></tr><tr><td>d20</td><td>1 time per round</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="130">The Reaction uses only one Module Function and normally pays Energy, Charges, ST or Ammunition. From d12, it can use a Function that would normally require an Action, provided the Trigger is specific. At d20, it can include the Module's Emergency Activation as part of the same Reaction.</p>
+<h2 id="sez-6-5" class="man-sez"><span class="man-sez-n">6.5 ·</span> <span data-cyborg-source="131">Curse</span></h2>
+<p class="man-guida" data-cyborg-source="132">A Curse expands a Discount, Unlock, Passive or Reaction in only one aspect, but imposes a real mechanical consequence. It can represent overload, instability, overheating or experimental technology.</p>
+<ul class="man-punti"><li data-cyborg-source="133">Discount: can extend to a small, consistent family of effects.</li><li data-cyborg-source="134">Unlock: can include 2 closely linked Effects.</li><li data-cyborg-source="135">Passive: can extend the benefit to two closely related conditions.</li><li data-cyborg-source="136">Reaction: can increase by 1 use per combat, without exceeding the normal Reaction economy.</li></ul>
+<p class="man-guida" data-cyborg-source="137">Possible prices of the Curse:</p>
+<ul class="man-punti"><li data-cyborg-source="138">Doubled consumption.</li><li data-cyborg-source="139">+1 ST per use.</li><li data-cyborg-source="140">Overheating: the Module becomes Inactive until the start of the next turn.</li><li data-cyborg-source="141">Overload damage according to Tier.</li><li data-cyborg-source="142">Specific operational vulnerability.</li></ul>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="143"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Overload damage</b></th></tr></thead><tbody><tr><td>d6</td><td>1d4</td></tr><tr><td>d8</td><td>1d6</td></tr><tr><td>d10</td><td>1d8</td></tr><tr><td>d12</td><td>1d10</td></tr><tr><td>d20</td><td>1d12</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="144">The consequence must be truly relevant. A Curse does not allow Tier d20 to be exceeded.</p>
+<h2 id="sez-6-6" class="man-sez"><span class="man-sez-n">6.6 ·</span> <span data-cyborg-source="145">Common rules</span></h2>
+<ul class="man-punti"><li data-cyborg-source="146">Unless explicitly excepted, a Special Effect requires the Module to be Installed, Intact and Active.</li><li data-cyborg-source="147">If it modifies a Technique, the Technique must be executed through that Module.</li><li data-cyborg-source="148">Identical effects do not automatically multiply: two sources of Advantage remain a single Advantage; two identical Unlocks give no further benefits.</li><li data-cyborg-source="149">No normal Special Effect grants additional Actions, additional Reactions, Ultimate, Haki, Prestige, Devil Fruits, Role Talents, general immunity or infinite resources.</li></ul>
+</div></section>
+<section class="man-cap" id="cap-7" data-cap="7"><header class="man-cap-h"><span class="man-cap-n">Chapter 7 ·</span> <h1 data-cyborg-source="150">Energy and Charges</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="151">Not all Modules require a separate resource. Each sheet specifies Energy: None or a consistent source such as a battery, fuel, pressure, ammunition or other Charges. Energy limits uses that actually require it, not every normal movement of the device.</p>
+<h2 id="sez-7-1" class="man-sez"><span class="man-sez-n">7.1 ·</span> <span data-cyborg-source="152">Charges</span></h2>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="153"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Maximum Charges</b></th></tr></thead><tbody><tr><td>d6</td><td>3</td></tr><tr><td>d8</td><td>4</td></tr><tr><td>d10</td><td>5</td></tr><tr><td>d12</td><td>6</td></tr><tr><td>d20</td><td>8</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="154">A normal use consumes 1 Charge. Particularly intense Functions can specify higher consumption or an upkeep cost; consumption must appear in the sheet.</p>
+<h2 id="sez-7-2" class="man-sez"><span class="man-sez-n">7.2 ·</span> <span data-cyborg-source="155">Charges and Stamina</span></h2>
+<p class="man-guida" data-cyborg-source="156">Charges and Stamina are different resources. If a Technique costs ST and the Module executing it consumes Charges, both are paid. Charges do not replace the Technique's cost.</p>
+<h2 id="sez-7-3" class="man-sez"><span class="man-sez-n">7.3 ·</span> <span data-cyborg-source="157">Recharging</span></h2>
+<p class="man-guida" data-cyborg-source="158">Charges are not automatically recovered through Rest. If the necessary resource is available, a normal full recharge requires 10 minutes outside combat. Ammunition, special fuels or rare resources must be owned, purchased or produced according to the design.</p>
+<h2 id="sez-7-4" class="man-sez"><span class="man-sez-n">7.4 ·</span> <span data-cyborg-source="159">Common sources</span></h2>
+<p class="man-guida" data-cyborg-source="160">An easy-to-find source does not make the Module infinite. A 5-Charge tank remains a 5-Charge tank even if it uses water, air, coal or electricity and the source is immediately available.</p>
+<h2 id="sez-7-5" class="man-sez"><span class="man-sez-n">7.5 ·</span> <span data-cyborg-source="161">Modules without Charges</span></h2>
+<p class="man-guida" data-cyborg-source="162">A Module with Energy: None can normally use its Function. Actions, ST, limits, activation and any Special Effects specified by the sheet still apply.</p>
+</div></section>
+<section class="man-cap" id="cap-8" data-cap="8"><header class="man-cap-h"><span class="man-cap-n">Chapter 8 ·</span> <h1 data-cyborg-source="163">Weapon Modules and Techniques</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="164">A Module built to deal damage directly can be classified as a Weapon Module and has both a Technology Tier and a Weapon Grade.</p>
+<h2 id="sez-8-1" class="man-sez"><span class="man-sez-n">8.1 ·</span> <span data-cyborg-source="165">Weapon Grade</span></h2>
+<p class="man-guida" data-cyborg-source="166">Weapon Grade follows the scale d4 → d6 → d8 → d10 → d12 → d20 and cannot exceed the Module's Technology Tier.</p>
+<p class="man-guida" data-cyborg-source="167">Example: d10 Module · d8 Weapon is valid; d8 Module · d10 Weapon is not.</p>
+<h2 id="sez-8-2" class="man-sez"><span class="man-sez-n">8.2 ·</span> <span data-cyborg-source="168">Basic attack</span></h2>
+<p class="man-guida" data-cyborg-source="169">When a Weapon Module makes a normal attack, it uses:</p>
+<p class="man-regola" data-cyborg-source="170">Attack roll = Attribute + Weapon Grade</p>
+<p class="man-regola" data-cyborg-source="171">Damage = Weapon Die</p>
+<p class="man-guida" data-cyborg-source="172">Range, ammunition and special conditions depend on the design or Catalogue entry.</p>
+<h2 id="sez-8-3" class="man-sez"><span class="man-sez-n">8.3 ·</span> <span data-cyborg-source="173">The Module as the means of executing a Technique</span></h2>
+<p class="man-guida" data-cyborg-source="174">A Module can execute a compatible Technique, but does not replace the Technique Die. The Technique normally uses Attribute + Technique Die and its own Damage Die. The Module provides the physical means, its Function, any Special Effect and any Charge costs.</p>
+<h2 id="sez-8-4" class="man-sez"><span class="man-sez-n">8.4 ·</span> <span data-cyborg-source="175">Grade and compatibility</span></h2>
+<p class="man-guida" data-cyborg-source="176">The Technique's Grade still depends on the Attribute used and does not increase because the Module has a higher Tier. The Technique must also be physically compatible with the device and meet Form, Slots, ST, requirements and any Role limitations.</p>
+<h2 id="sez-8-5" class="man-sez"><span class="man-sez-n">8.5 ·</span> <span data-cyborg-source="177">No duplication</span></h2>
+<p class="man-guida" data-cyborg-source="178">When a Technique uses a property already made possible by the Module, that property is the means of the action and is not applied twice. A telescopic arm allowing a target to be reached does not add a second Attraction to a Technique that already has Attraction.</p>
+</div></section>
+<section class="man-cap" id="cap-9" data-cap="9"><header class="man-cap-h"><span class="man-cap-n">Chapter 9 ·</span> <h1 data-cyborg-source="179">Module Activation</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="180">The Cyborg can have multiple Modules installed, but normally keeps only one Active Module at a time.</p>
+<h2 id="sez-9-1" class="man-sez"><span class="man-sez-n">9.1 ·</span> <span data-cyborg-source="181">Active Module</span></h2>
+<p class="man-guida" data-cyborg-source="182">The Active Module can use its Active function, Special Effect and linked Techniques. The other installed Modules remain Inactive and retain only any Inactive functions specified in their sheets.</p>
+<h2 id="sez-9-2" class="man-sez"><span class="man-sez-n">9.2 ·</span> <span data-cyborg-source="183">Initial Module</span></h2>
+<p class="man-guida" data-cyborg-source="184">Outside combat, the Cyborg freely chooses which Module to keep active. At the start of a battle they retain the one already active; if none was declared, they choose one without spending Actions.</p>
+<h2 id="sez-9-3" class="man-sez"><span class="man-sez-n">9.3 ·</span> <span data-cyborg-source="185">Switch Module</span></h2>
+<p class="man-guida" data-cyborg-source="186">Once during their turn, the Cyborg can switch their Active Module for free. Switching uses no Action, Bonus Action, Movement or Reaction.</p>
+<p class="man-regola" data-cyborg-source="187">The new Module immediately becomes Active and the previous one Inactive. A second free switch in the same turn is not possible.</p>
+<h2 id="sez-9-4" class="man-sez"><span class="man-sez-n">9.4 ·</span> <span data-cyborg-source="188">Duration and shutdown</span></h2>
+<p class="man-guida" data-cyborg-source="189">A Module remains Active until replaced, voluntarily shut down, Damaged, deprived of its necessary resource or deactivated by a specific ability. It does not automatically shut down at the end of a turn or battle.</p>
+<p class="man-guida" data-cyborg-source="190">Voluntarily shutting down a Module during your turn is free, but does not grant a second switch in the same turn.</p>
+<h2 id="sez-9-5" class="man-sez"><span class="man-sez-n">9.5 ·</span> <span data-cyborg-source="191">Outside your turn</span></h2>
+<p class="man-guida" data-cyborg-source="192">Normally, you cannot switch Modules outside your turn. An Effect or ability with Emergency Activation can do so through a Reaction; the new Module immediately replaces the previous one.</p>
+</div></section>
+<section class="man-cap" id="cap-10" data-cap="10"><header class="man-cap-h"><span class="man-cap-n">Chapter 10 ·</span> <h1 data-cyborg-source="193">Construction, Installation and Integrity</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="194">A Module can be built by the crew, commissioned from a professional or obtained during the adventure. Technology Tier determines its construction difficulty; function, materials and appearance remain linked to the individual design.</p>
+<h2 id="sez-10-1" class="man-sez"><span class="man-sez-n">10.1 ·</span> <span data-cyborg-source="195">Building a Module</span></h2>
+<p class="man-guida" data-cyborg-source="196">Construction normally uses Cunning + Mechanics. The Module's Tier establishes the minimum Mechanics Grade, Threshold and base work time.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="197"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Minimum Mechanics</b></th><th scope="col"><b>Threshold</b></th><th scope="col"><b>Time</b></th><th scope="col"><b>Materials(reference)</b></th><th scope="col"><b>Externalprofessional</b></th></tr></thead><tbody><tr><td>d6</td><td>d6</td><td>8</td><td>8 hours</td><td>≈ 1,000 ฿</td><td>5,000 ฿</td></tr><tr><td>d8</td><td>d8</td><td>10</td><td>16 hours</td><td>≈ 5,000 ฿</td><td>15,000 ฿</td></tr><tr><td>d10</td><td>d10</td><td>12</td><td>24 hours</td><td>≈ 15,000 ฿</td><td>35,000 ฿</td></tr><tr><td>d12</td><td>d12</td><td>16</td><td>48 hours</td><td>≈ 40,000 ฿</td><td>85,000 ฿</td></tr><tr><td>d20</td><td>d20</td><td>20</td><td>96 hours</td><td>100,000 ฿+</td><td>200,000 ฿+</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="198">The Mechanics requirement indicates the minimum proficiency needed to attempt the design. Engineer Talents can normally modify time, materials, results or other conditions when their descriptions allow it.</p>
+<p class="man-guida" data-cyborg-source="199">The table provides reference values. A particularly simple, bulky, experimental or unconventional design can be modified by the GM without changing the Module's Technology Tier.</p>
+<h2 id="sez-10-2" class="man-sez"><span class="man-sez-n">10.2 ·</span> <span data-cyborg-source="200">Materials and design freedom</span></h2>
+<p class="man-guida" data-cyborg-source="201">There is no universal list of mandatory materials for each Tier. Materials vary by Module and are chosen by the GM based on what the device must actually do.</p>
+<p class="man-guida" data-cyborg-source="202">The GM has full creative freedom to decide components, quantities, availability and origin: they can be purchased, salvaged from machinery, obtained as a reward or become the objective of a search during the adventure.</p>
+<p class="man-guida" data-cyborg-source="203">The indicative value given in the table serves only as an economic reference. It is not a shopping list or a mandatory cost. If the crew already owns some components, they do not have to pay for them again; if the design requires rare or unique materials, the GM can increase their value or require them to be obtained narratively.</p>
+<p class="man-regola" data-cyborg-source="204">A rare material does not automatically make the Module more powerful: mechanical values still depend on Tier, Function and any Special Effect.</p>
+<h2 id="sez-10-3" class="man-sez"><span class="man-sez-n">10.3 ·</span> <span data-cyborg-source="205">Commissioning the work</span></h2>
+<p class="man-guida" data-cyborg-source="206">A Cyborg can entrust construction to a Mechanic or external workshop. The price in the External professional column normally includes labour, ordinary materials and installation.</p>
+<p class="man-guida" data-cyborg-source="207">Exceptional materials, unique components or technologies requiring a specific adventure are not automatically included in the price. A professional capable of building d12 or d20 Modules is not guaranteed merely by possessing Berry and remains the GM's choice.</p>
+<p class="man-guida" data-cyborg-source="208">When the work is commissioned, the player does not make the construction Check: the hired professional is assumed to have the required proficiency.</p>
+<h2 id="sez-10-4" class="man-sez"><span class="man-sez-n">10.4 ·</span> <span data-cyborg-source="209">Construction example</span></h2>
+<p class="man-regola" data-cyborg-source="210">d8 Telescopic Arm</p>
+<ul class="man-punti"><li data-cyborg-source="211">Technology Tier: d8.</li><li data-cyborg-source="212">Function: extendable arm within the normal d8 Reach.</li><li data-cyborg-source="213">Minimum Mechanics: d8.</li><li data-cyborg-source="214">Check: Cunning + Mechanics against Threshold 10.</li><li data-cyborg-source="215">Time: 16 hours of work.</li><li data-cyborg-source="216">Materials: chosen by the GM from those consistent with the design; indicative total value about 5,000 ฿.</li><li data-cyborg-source="217">External commission: about 15,000 ฿, including installation and ordinary materials.</li></ul>
+<p class="man-guida" data-cyborg-source="218">The GM can freely decide which components from their Catalogue are needed. If the character salvages them during the adventure, they use them instead of purchasing them. A margin of +4 in construction normally uses the Masterpiece rules already provided by the Workshop.</p>
+<h2 id="sez-10-5" class="man-sez"><span class="man-sez-n">10.5 ·</span> <span data-cyborg-source="219">Installing, replacing and upgrading</span></h2>
+<p class="man-guida" data-cyborg-source="220">Installing a Module requires a free slot, Mechanical Body at least equal to its Tier, the complete device and suitable tools.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="221"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Base installation time</b></th></tr></thead><tbody><tr><td>d6</td><td>30 minutes</td></tr><tr><td>d8</td><td>1 hour</td></tr><tr><td>d10</td><td>2 hours</td></tr><tr><td>d12</td><td>4 hours</td></tr><tr><td>d20</td><td>8 hours</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="222">Replacing a Module takes the time for the new installation and includes removing the previous one. An operation cannot be performed simultaneously with a Rest.</p>
+<p class="man-guida" data-cyborg-source="223">Upgrading a Module to a higher Tier is a new design: the Cyborg must meet the new requirement, and the GM determines which components of the old device can be reused. Upgrading does not occur automatically when Mechanical Body increases.</p>
+<h2 id="sez-10-6" class="man-sez"><span class="man-sez-n">10.6 ·</span> <span data-cyborg-source="224">Module integrity and repair</span></h2>
+<p class="man-guida" data-cyborg-source="225">A Module has two states: Intact and Damaged. Normal damage suffered by the Cyborg does not automatically damage installed Modules.</p>
+<p class="man-guida" data-cyborg-source="226">A Module can become Damaged when a rule targets it, a consequence directly affects the device, or the design suffers an Overload or specified malfunction.</p>
+<p class="man-guida" data-cyborg-source="227">A Damaged Module cannot use its Active function, Special Effect or linked Techniques until repaired.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="228"><table class="man-tab"><thead><tr><th scope="col"><b>Tier</b></th><th scope="col"><b>Repair time</b></th></tr></thead><tbody><tr><td>d6</td><td>10 minutes</td></tr><tr><td>d8</td><td>20 minutes</td></tr><tr><td>d10</td><td>30 minutes</td></tr><tr><td>d12</td><td>1 hour</td></tr><tr><td>d20</td><td>2 hours</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="229">With suitable tools and spare parts, a normal repair outside combat succeeds without a Check. If the work takes place in difficult conditions, with insufficient materials or on exceptional technology, the GM can require Mechanics and define an appropriate Threshold.</p>
+<p class="man-regola" data-cyborg-source="230">Repairing a Module does not automatically restore HP to the Cyborg. Repairing the Cyborg's body and repairing a Module are two distinct operations.</p>
+</div></section>
+<section class="man-cap" id="cap-11" data-cap="11"><header class="man-cap-h"><span class="man-cap-n">Chapter 11 ·</span> <h1 data-cyborg-source="231">The Cyborg's Body and Healing</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="232">Hit Points represent the Cyborg's overall integrity. Module Integrity is managed separately: a Cyborg can be severely wounded with all Modules intact, or be at full health with a Damaged Module.</p>
+<h2 id="sez-11-1" class="man-sez"><span class="man-sez-n">11.1 ·</span> <span data-cyborg-source="233">Quick reference</span></h2>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="234"><table class="man-tab"><thead><tr><th scope="col"><b>Recovery source</b></th><th scope="col"><b>Effect on the Cyborg</b></th></tr></thead><tbody><tr><td>Short Rest</td><td>Works normally.</td></tr><tr><td>Long Rest</td><td>Works normally.</td></tr><tr><td>Food and Galley</td><td>Normally restore HP and ST.</td></tr><tr><td>Normal healing with Medicine</td><td>Does not restore HP to the Cyborg.</td></tr><tr><td>The Mechanic's Field Repair</td><td>Restores HP according to this chapter's rules.</td></tr><tr><td>An effect directly restoring HP</td><td>Works normally, unless the ability has a specific limitation.</td></tr><tr><td>Repairing a Module</td><td>Does not restore HP to the Cyborg.</td></tr><tr><td>Cyborg HP recovery</td><td>Does not automatically repair Damaged Modules.</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="235">Biological healing expressly acting on flesh, organs or natural processes does not automatically work on a Cyborg body. When an ability simply restores HP without imposing a biological nature on the healing, it works normally unless stated otherwise.</p>
+<h2 id="sez-11-2" class="man-sez"><span class="man-sez-n">11.2 ·</span> <span data-cyborg-source="236">Field Repair</span></h2>
+<p class="man-guida" data-cyborg-source="237">Outside combat, a Mechanic can directly repair a Cyborg's body. The operation requires Mechanic's tools, ordinary spare parts and 10 minutes of work.</p>
+<p class="man-regola" data-cyborg-source="238">Check: Cunning + Mechanics against Threshold 8.</p>
+<p class="man-regola" data-cyborg-source="239">Success: the Cyborg recovers 1 Mechanics Die of HP.</p>
+<p class="man-guida" data-cyborg-source="240">A Cyborg can benefit from only one Field Repair between two Short Rests. A Cyborg who personally has the Mechanic's skills can perform the operation on themselves.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="241"><table class="man-tab"><thead><tr><th scope="col"><b>Mechanics</b></th><th scope="col"><b>HP restored</b></th></tr></thead><tbody><tr><td>d6</td><td>1d6</td></tr><tr><td>d8</td><td>1d8</td></tr><tr><td>d10</td><td>1d10</td></tr><tr><td>d12</td><td>1d12</td></tr><tr><td>d20</td><td>1d20</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="242">Field Repair cannot normally be performed during a battle. A specific ability can create an exception.</p>
+<h2 id="sez-11-3" class="man-sez"><span class="man-sez-n">11.3 ·</span> <span data-cyborg-source="243">Flesh and Metal</span></h2>
+<p class="man-regola" data-cyborg-source="244">d12 Talent · Passive</p>
+<p class="man-guida" data-cyborg-source="245">When performing Field Repair on a Cyborg, add +1 Mechanics Die to the HP restored. If the target also has a Damaged Module, during the same operation you can restore one Module to operation, provided the materials needed for its repair are available.</p>
+<p class="man-guida" data-cyborg-source="246">Flesh and Metal does not remove any special Module requirements or allow unique or destroyed components to be rebuilt for free.</p>
+<h2 id="sez-11-4" class="man-sez"><span class="man-sez-n">11.4 ·</span> <span data-cyborg-source="247">HP and Modules remain separate</span></h2>
+<p class="man-guida" data-cyborg-source="248">Recovering HP does not change the state of Modules. Repairing a Module does not restore HP, unless an ability expressly states both.</p>
+<p class="man-guida" data-cyborg-source="249">Being a Cyborg does not automatically grant self-repair in combat. Immediate healing, instant repairs or additional recovery require a Technique, Talent, Special Effect or another ability allowing them.</p>
+<h2 id="sez-11-5" class="man-sez"><span class="man-sez-n">11.5 ·</span> <span data-cyborg-source="250">Stabilising a Cyborg</span></h2>
+<p class="man-guida" data-cyborg-source="251">Normal Stabilisation through Medicine represents a biological operation and does not automatically apply to a Cyborg body.</p>
+<p class="man-guida" data-cyborg-source="252">An equivalent operation must use Mechanics or an ability expressly allowing work on a Cyborg.</p>
+<p class="man-guida" data-cyborg-source="253">Stabilising a Cyborg does not automatically restore HP or repair their Modules.</p>
+<p class="man-guida" data-cyborg-source="254">HP recovery still follows Field Repair and the Cyborg's other specific abilities.</p>
+</div></section>
+<section class="man-cap" id="cap-12" data-cap="12"><header class="man-cap-h"><span class="man-cap-n">Chapter 12 ·</span> <h1 data-cyborg-source="255">Prosthetics, Gadgets and Non-Cyborg Characters</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="256">Not every mechanical object connected to a body is a Module.</p>
+<h2 id="sez-12-1" class="man-sez"><span class="man-sez-n">12.1 ·</span> <span data-cyborg-source="257">Ordinary prosthetics and gadgets</span></h2>
+<p class="man-guida" data-cyborg-source="258">A simple prosthetic, worn tool or gadget can be ordinary equipment. In this case it does not occupy slots or use Activation, Special Effects or Technology Tiers from the Module system.</p>
+<p class="man-guida" data-cyborg-source="259">An ordinary object does not become a Module merely because it is attached to the body.</p>
+<h2 id="sez-12-2" class="man-sez"><span class="man-sez-n">12.2 ·</span> <span data-cyborg-source="260">When it becomes a true Module</span></h2>
+<p class="man-guida" data-cyborg-source="261">A device is a Module when designed and recorded as such, occupying a slot and using this manual's rules. Only then can it gain Tier Functions, Special Effects and Technique links provided for Modules.</p>
+<h2 id="sez-12-3" class="man-sez"><span class="man-sez-n">12.3 ·</span> <span data-cyborg-source="262">Non-Cyborg characters</span></h2>
+<p class="man-guida" data-cyborg-source="263">A non-Cyborg character can use normal prosthetics and gadgets as equipment. To install a true Module, they must possess an ability explicitly granting access to slots and the Module system.</p>
+<p class="man-guida" data-cyborg-source="264">Mere proficiency in Mechanics allows devices to be built or repaired, but does not automatically grant slots in your body.</p>
+<h2 id="sez-12-4" class="man-sez"><span class="man-sez-n">12.4 ·</span> <span data-cyborg-source="265">Legacy rules</span></h2>
+<p class="man-guida" data-cyborg-source="266">Abilities from previous configurations, such as Modular Arsenal or Self-Repair, are not automatically part of normal V2 progression. If the GM decides to import them, they work according to their own sheets and do not establish precedents for creating more powerful new Modules.</p>
+</div></section>
+<section class="man-cap" id="cap-13" data-cap="13"><header class="man-cap-h"><span class="man-cap-n">Chapter 13 ·</span> <h1 data-cyborg-source="267">Quick Module Catalogue</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="268">These Modules are ready-to-use examples. They can be freely renamed and described without modifying their mechanical values.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="269"><table class="man-tab"><thead><tr><th scope="col"><b>Name</b></th><th scope="col"><b>Tier</b></th><th scope="col"><b>Category</b></th><th scope="col"><b>Function</b></th><th scope="col"><b>Effect / Energy</b></th></tr></thead><tbody><tr><td>Tool Arm</td><td>d6</td><td>Utility · Control</td><td>3 m manipulator; integrates a single common tool.</td><td>None · None</td></tr><tr><td>Chest Plates</td><td>d6</td><td>Defensive</td><td>Armour: −1 physical damage reduction.</td><td>None · None</td></tr><tr><td>Telescopic Arm</td><td>d8</td><td>Control · Utility</td><td>5 m manipulator, 250 kg load.</td><td>Unlock: Attraction · None</td></tr><tr><td>Thermal Eye</td><td>d8</td><td>Utility</td><td>Detects heat sources within 25 m.</td><td>Stabilisation on thermal detection Checks · None</td></tr><tr><td>Jet Heel</td><td>d10</td><td>Mobility</td><td>20 m Displacement and d10 Flight.</td><td>Displacement Optimisation (+75%) · 5 Charges</td></tr><tr><td>Pressure Cannon</td><td>d10</td><td>Offensive</td><td>d10 ranged Weapon Module.</td><td>Discount: +1 Damage Die · 5 Charges</td></tr><tr><td>Automatic Guard</td><td>d12</td><td>Defensive</td><td>Shield: PD +2; protects the user + up to 3 allies within 3 m.</td><td>Reaction: applies the Shield to a targeted ally · None</td></tr><tr><td>Magnetic Coil</td><td>d12</td><td>Control</td><td>Manipulates metal objects within 20 m, up to 2 t.</td><td>Unlock: Attraction · 6 Charges</td></tr><tr><td>Phoenix Engine</td><td>d20</td><td>Mobility</td><td>50 m Displacement and d20 Flight.</td><td>Reaction with Emergency Activation · 8 Charges</td></tr><tr><td>Horizon Eye</td><td>d20</td><td>Utility</td><td>Specialised sensor up to 300 m.</td><td>Specialised Resistance against ordinary sensor interference · None</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="270">The Catalogue does not limit custom creation: it serves as a quick reference for understanding what level of performance is appropriate to each Tier.</p>
+</div></section>
+<section class="man-cap" id="cap-14" data-cap="14"><header class="man-cap-h"><span class="man-cap-n">Chapter 14 ·</span> <h1 data-cyborg-source="271">Creating a Custom Module</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="272">Creating a Module does not require a new sub-rule. Use this procedure and stop when the sheet already clearly describes the device.</p>
+<h2 id="sez-14-1" class="man-sez"><span class="man-sez-n">14.1 ·</span> <span data-cyborg-source="273">Quick procedure</span></h2>
+<ol class="man-passi"><li data-cyborg-source="274">Define the concept: what is the device and what is its Main Function?</li><li data-cyborg-source="275">Choose the Tier, which cannot exceed Mechanical Body.</li><li data-cyborg-source="276">Assign Category and Structure: Functional or Weapon Module.</li><li data-cyborg-source="277">Take only the values needed for the Function from Chapter 4 and apply Chapter 5's rules.</li><li data-cyborg-source="278">If needed, add only one Special Effect from Chapter 6.</li><li data-cyborg-source="279">Decide whether it uses Energy or Charges and record consumption and recharging.</li><li data-cyborg-source="280">Complete Limits, Compatible Techniques and the final sheet; then build and install it according to Chapter 10.</li></ol>
+<h2 id="sez-14-2" class="man-sez"><span class="man-sez-n">14.2 ·</span> <span data-cyborg-source="281">Consistency check</span></h2>
+<p class="man-guida" data-cyborg-source="282">Before approving the design, check four questions:</p>
+<ul class="man-punti"><li data-cyborg-source="283">Is it doing one main thing, or does it contain multiple hidden Modules?</li><li data-cyborg-source="284">Do the values respect the chosen Tier?</li><li data-cyborg-source="285">Do damage, Statuses or Technique modifications come from a rule that actually grants them?</li><li data-cyborg-source="286">Is the Special Effect a single benefit, or does it conceal multiple independent advantages?</li></ul>
+<p class="man-regola" data-cyborg-source="287">If the four answers are clear, the Module is normally ready to use.</p>
+<h2 id="sez-14-3" class="man-sez"><span class="man-sez-n">14.3 ·</span> <span data-cyborg-source="288">Example</span></h2>
+<p class="man-guida" data-cyborg-source="289">Design: Mechanical Harpoon</p>
+<ul class="man-punti"><li data-cyborg-source="290">Character's Mechanical Body: d10.</li><li data-cyborg-source="291">Chosen Tier: d10.</li><li data-cyborg-source="292">Category: Control · Mobility.</li><li data-cyborg-source="293">Structure: Functional.</li><li data-cyborg-source="294">Function: cable and harpoon with 10 m Reach and a 500 kg operating load; can anchor and drag compatible objects.</li><li data-cyborg-source="295">Special Effect: Unlock · Attraction.</li><li data-cyborg-source="296">Energy: None.</li><li data-cyborg-source="297">Compatible Techniques: Techniques executed through a cable or harpoon.</li></ul>
+<p class="man-guida" data-cyborg-source="298">The Module can therefore attach, support or pull objects within its limits. Against a creature it does not automatically apply Attraction: to do so, it uses a compatible Technique benefiting from the Module's Unlock.</p>
+<h2 id="sez-14-4" class="man-sez"><span class="man-sez-n">14.4 ·</span> <span data-cyborg-source="299">Final rule</span></h2>
+<p class="man-regola" data-cyborg-source="300">The Module system should expand the Cyborg's possibilities, not turn every device into its own ruleset. If a function is already covered by the tables, use the table; if an effect is already covered by the Builder, use the Builder.</p>
+</div></section>
+<section class="man-cap" id="cap-15" data-cap="15"><header class="man-cap-h"><span class="man-cap-n">Chapter 15 ·</span> <h1 data-cyborg-source="301">Guide to Cyborg Builds</h1></header><div class="man-cap-corpo">
+<p class="man-guida" data-cyborg-source="302">This chapter introduces no additional requirements. It is a guide to choosing Roles, Skills, Talents, Prestige and Haki when creating a Cyborg. A character can completely ignore these combinations and build their path in any other way allowed by the rules.</p>
+<p class="man-regola" data-cyborg-source="303">Being a Cyborg does not require choosing Engineer, Mechanics or a particular Haki. Modules can be built, purchased or commissioned: the Role describes what the character does, not what they must be to use their mechanical body.</p>
+<h2 id="sez-15-1" class="man-sez"><span class="man-sez-n">15.1 ·</span> <span data-cyborg-source="304">Before choosing the Role</span></h2>
+<p class="man-guida" data-cyborg-source="305">Mechanical Body, Attributes, Skills and Roles grow separately. Mechanical Body determines Module slots and Technology Tier and ordinarily stops at d20; it does not enter Prestige. Attributes, Role Skills and Haki can instead continue beyond d20 according to the Prestige Manual.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="306"><table class="man-tab"><thead><tr><th scope="col"><b>If you want...</b></th><th scope="col"><b>Priority</b></th><th scope="col"><b>Why</b></th></tr></thead><tbody><tr><td>More Modules or more advanced Modules</td><td>Mechanical Body</td><td>Increases slots and maximum Technology Tier.</td></tr><tr><td>To build and repair personally</td><td>Cunning + Mechanics</td><td>This is the typical combination for designs, Workshop and Field Repairs.</td></tr><tr><td>To fight with power and impact</td><td>Strength + Athletics</td><td>Naturally pairs with Crusher and physical Striker.</td></tr><tr><td>To fight with mobility and precision</td><td>Technique + Acrobatics / Athletics</td><td>Favours technical Striker and mobile Swordsman.</td></tr><tr><td>To use ranged Weapon Modules</td><td>Observation + the weapon's Attribute; Cunning in Sniper Prestige</td><td>Sniper enhances precision and range; the actual Attribute remains the one recorded in the weapon or Technique.</td></tr><tr><td>To build around Haki</td><td>Spirit + the chosen Colour</td><td>Spirit supports access to advanced Colour combinations.</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="307">Mechanics is not necessary to activate or use a Module. A Cyborg without Mechanics can be an excellent fighter, captain, navigator or any other profession and entrust construction and maintenance to an ally or external professional.</p>
+<h2 id="sez-15-2" class="man-sez"><span class="man-sez-n">15.2 ·</span> <span data-cyborg-source="308">Roles that combine well with Cyborg</span></h2>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="309"><table class="man-tab"><thead><tr><th scope="col"><b>Role / Style</b></th><th scope="col"><b>Synergy</b></th><th scope="col"><b>Caution</b></th></tr></thead><tbody><tr><td>Engineer · Mechanic</td><td>Repairs, component salvage, maintenance and self-sufficiency. The most direct choice for a Cyborg wanting to manage their own body personally.</td><td>Does not by itself increase Module damage and is not mandatory for using them.</td></tr><tr><td>Fighter · Sniper</td><td>Excellent for cannons, rifles and other ranged Weapon Modules; sensors and mobility help create lines of fire.</td><td>Sniper Talents require compatible ranged attacks.</td></tr><tr><td>Fighter · Crusher</td><td>Excellent for integrated blunt weapons, armour, anchoring and heavy frontline builds.</td><td>Crusher abilities require a compatible blunt weapon.</td></tr><tr><td>Fighter · Swordsman</td><td>Integrated blades, mobility systems and defence produce a very aggressive, precise Cyborg.</td><td>The Style's abilities still require a compatible Blade.</td></tr><tr><td>Fighter · Striker</td><td>Thrusters, armour, sensors and control systems can support an unarmed fighter without replacing their Style.</td><td>A Weapon Module does not become a Striker attack: Striker Techniques remain unarmed.</td></tr><tr><td>Captain</td><td>Barriers, sensors, communication and control make a support and command Cyborg highly effective.</td><td>Power comes from orders and the team, not the number of offensive Modules.</td></tr></tbody></table></div>
+<h2 id="sez-15-3" class="man-sez"><span class="man-sez-n">15.3 ·</span> <span data-cyborg-source="310">Planning Prestige</span></h2>
+<p class="man-guida" data-cyborg-source="311">Role Skill Prestige and Attribute Prestige are independent progressions. Taking Athletics, Observation or Mechanics beyond d20 does not automatically bring Strength, Cunning or Technique into Prestige, and vice versa.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="312"><table class="man-tab"><thead><tr><th scope="col"><b>Role Skill Die</b></th><th scope="col"><b>What you gain</b></th></tr></thead><tbody><tr><td>d20+d4</td><td>First choice of a Prestige Talent.</td></tr><tr><td>d20+d6</td><td>Skill growth; no new choice.</td></tr><tr><td>d20+d8</td><td>Second choice of a Prestige Talent.</td></tr><tr><td>d20+d10</td><td>Skill growth; no new choice.</td></tr><tr><td>d20+d12</td><td>Third choice of a Prestige Talent.</td></tr><tr><td>d20+d20 · Saikyō</td><td>Owned Talents apply their Saikyō versions; you do not gain a fourth choice.</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="313">For a Cyborg, the most natural pairings between Attribute Prestige and Role path are:</p>
+<ul class="man-punti"><li data-cyborg-source="314">Strength + Crusher or physical Striker: Strength Prestige expands environmental destruction and Colossal Launch when the abilities used are compatible.</li><li data-cyborg-source="315">Technique + technical Striker or mobile Swordsman: Technique Prestige develops Lightning Displacement and Superhuman Agility in compatible paths.</li><li data-cyborg-source="316">Cunning + Sniper: Cunning Prestige develops effective range and Shot Geometry; Observation remains the Skill that unlocks Sniper Talents.</li><li data-cyborg-source="317">Spirit + Haki build: Spirit Prestige allows investment in Indomitable Will, Colour Attunement and Resurgence of Will.</li></ul>
+<h2 id="sez-15-4" class="man-sez"><span class="man-sez-n">15.4 ·</span> <span data-cyborg-source="318">Particularly useful Prestige Talents</span></h2>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="319"><table class="man-tab"><thead><tr><th scope="col"><b>Path</b></th><th scope="col"><b>Choices well suited to a Cyborg</b></th><th scope="col"><b>When to prefer them</b></th></tr></thead><tbody><tr><td>Mechanic</td><td>Prodigious Reconstruction · Mechanical Direction · Machine Dominion</td><td>Prodigious Reconstruction is the most direct choice for a frontline or self-sufficient Cyborg; the other two favour managing and controlling systems.</td></tr><tr><td>Sniper</td><td>Decisive Shot · Surgical Precision · Sovereign Interdiction · Bullet Dance</td><td>You have only three choices: single-target damage, targeted shots, reactive control or multiple targets should be chosen based on the type of Weapon Module used.</td></tr><tr><td>Crusher</td><td>Unstoppable Maul · Seismic Wave · Shattered Guard · Colossus Stop</td><td>You have only three choices: Seismic Wave for area, Colossus Stop for control, Shattered Guard against defences, Maul for frontal pressure.</td></tr><tr><td>Swordsman</td><td>Sovereign Slash · Colossal Cut · Impassable Guard · Absolute Blade Mastery</td><td>You have only three choices: direct the path towards reach/cutting, defence or general blade mastery.</td></tr><tr><td>Striker · Strength</td><td>Titan’s Power · Titanic Wave · Endless Flurry</td><td>A very straightforward path for those wanting to turn the mechanical body into an impact platform without using Weapon Modules for blows.</td></tr><tr><td>Striker · Technique</td><td>Absolute Precision · Breaking Point through compatible Techniques · Endless Flurry</td><td>A path for mobility, precision and neutralising parts or components.</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="320">The preceding rows are recommended priorities, not a mandatory sequence. When a catalogue offers more Talents than the three available choices, the player must decide which function to sacrifice. Choosing three abilities that support the same identity is often more effective than chasing every possibility in the catalogue.</p>
+<h2 id="sez-15-5" class="man-sez"><span class="man-sez-n">15.5 ·</span> <span data-cyborg-source="321">Haki and Cyborg</span></h2>
+<p class="man-guida" data-cyborg-source="322">Haki does not depend on Mechanical Body and is not necessary to be an effective Cyborg. When developed, however, it can complement some archetypes very well.</p>
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="323"><table class="man-tab"><thead><tr><th scope="col"><b>Colour</b></th><th scope="col"><b>Recommended builds</b></th><th scope="col"><b>Prestige and utility</b></th></tr></thead><tbody><tr><td>Armament</td><td>Crusher, Swordsman, physical Striker, defensive Cyborgs</td><td>At d20+d4 it unlocks Superior Full Armour; at d20+d8 Superior Haki Burst; at d20+d12 Persistent Ryou. It is the most natural choice for those fighting directly.</td></tr><tr><td>Observation</td><td>Sniper, technical Striker, scouts, reactive builds</td><td>At d20+d4 Superior Anticipation; at d20+d8 Extended Brief Foresight; at d20+d12 Offensive Anticipation. Excellent for precision and survival.</td></tr><tr><td>Conqueror’s</td><td>Captains, dominant frontliners, characters built around willpower</td><td>It is rare and depends on the GM. It should not be considered a build requirement; if present, its Prestige develops Imperial Pressure, Sovereign Impact and finally Unreadable Will.</td></tr></tbody></table></div>
+<p class="man-guida" data-cyborg-source="324">If the character invests in multiple Colours, Spirit Prestige becomes particularly interesting. Colour Attunement reduces the difficulty of activating multiple Haki Colours with the same Bonus Action economy, while Resurgence of Will allows PIP to be recovered and distributed among existing reserves.</p>
+<h2 id="sez-15-6" class="man-sez"><span class="man-sez-n">15.6 ·</span> <span data-cyborg-source="325">Build examples</span></h2>
+<h3 class="man-sub" id="artigliere-cyborg" data-cyborg-source="326">Cyborg Gunner</h3>
+<ul class="man-punti"><li data-cyborg-source="327">Key Role: Fighter · Sniper. The second Role is unrestricted; Engineer · Mechanic is particularly suitable if the character wants to personally maintain their systems.</li><li data-cyborg-source="328">Priorities: Cunning, Observation and the Attribute used by the Weapon Module.</li><li data-cyborg-source="329">Modules: integrated cannon or rifle, sensor, thruster or positioning system.</li><li data-cyborg-source="330">Talents: Long Shot, Targeted Shot, Anticipated Shot and other Sniper abilities compatible with the weapon used.</li><li data-cyborg-source="331">Prestige: Cunning develops range and trajectory control; Observation grants access to Sniper Prestige Talents. If the character also chooses Mechanic, Mechanics Prestige can develop the abilities of that path.</li><li data-cyborg-source="332">Haki: Observation is the most natural choice; Armament remains valid for those wanting to increase their attacks' effectiveness.</li></ul>
+<h3 class="man-sub" id="juggernaut" data-cyborg-source="333">Juggernaut</h3>
+<ul class="man-punti"><li data-cyborg-source="334">Roles: Fighter · Crusher + Engineer · Mechanic.</li><li data-cyborg-source="335">Priorities: Strength, Athletics and Mechanics.</li><li data-cyborg-source="336">Modules: compatible integrated blunt weapon, Armour, anchoring and brief thruster.</li><li data-cyborg-source="337">Talents: Heavy Strike, Planted Feet / Absolute Centre of Gravity, Rapid Response and Flesh and Metal.</li><li data-cyborg-source="338">Prestige: Strength for destruction and launching; Athletics for Unstoppable Maul, Seismic Wave or Colossus Stop. Prodigious Reconstruction is excellent if Mechanics also enters Prestige.</li><li data-cyborg-source="339">Haki: Armament; Spirit becomes interesting if the build invests heavily in Haki upkeep.</li></ul>
+<h3 class="man-sub" id="lama-integrata" data-cyborg-source="340">Integrated Blade</h3>
+<ul class="man-punti"><li data-cyborg-source="341">Roles: Fighter · Swordsman. The second Role is unrestricted; Engineer · Mechanic is a suitable choice if the character wants to personally maintain their Modules.</li><li data-cyborg-source="342">Priorities: Athletics and the Attribute chosen for blade Techniques. Technique favours mobility; Strength favours a more destructive approach.</li><li data-cyborg-source="343">Modules: compatible integrated blade, thruster, shield or sensor.</li><li data-cyborg-source="344">Prestige: Athletics unlocks Sovereign Slash, Colossal Cut, Impassable Guard and Absolute Blade Mastery; Technique in Prestige adds the mobility package when compatible.</li><li data-cyborg-source="345">Haki: Armament is the most immediate choice; Observation is excellent for a more defensive and reactive variant.</li></ul>
+<h3 class="man-sub" id="assaltatore-mobile" data-cyborg-source="346">Mobile Assaulter</h3>
+<ul class="man-punti"><li data-cyborg-source="347">Roles: Fighter · Striker + an unrestricted second Role; Engineer is useful but not necessary.</li><li data-cyborg-source="348">Priorities: Strength + Athletics for impact or Technique + Acrobatics for mobility and precision.</li><li data-cyborg-source="349">Modules: thrusters, armour, sensors, cables and utility systems. Avoid basing Striker Techniques on a Weapon Module: the Style remains unarmed.</li><li data-cyborg-source="350">Prestige: Strength leads towards Titan’s Power and Titanic Wave; Technique develops mobility and Absolute Precision. Endless Flurry is common to both paths.</li><li data-cyborg-source="351">Haki: Armament for the Strength path; Observation for the Technique path. Both are valid if the character develops sufficient Spirit.</li></ul>
+<h3 class="man-sub" id="officina-vivente" data-cyborg-source="352">Living Workshop</h3>
+<ul class="man-punti"><li data-cyborg-source="353">Key Role: Engineer · Mechanic. The second Role can be freely chosen based on the desired function in the crew.</li><li data-cyborg-source="354">Priorities: Cunning + Mechanics; high Mechanical Body if the character wants to use many different Modules.</li><li data-cyborg-source="355">Modules: integrated tools, sensors, repair systems, defences and a single emergency offensive Module.</li><li data-cyborg-source="356">Crafting: the character can normally build and repair devices using Mechanics and other appropriate Skills. Special designs can be obtained during the campaign and built according to Workshop rules.</li><li data-cyborg-source="357">Prestige: Prodigious Reconstruction is particularly suitable for keeping themselves and other Cyborgs operational; Mechanical Direction and Machine Dominion instead favour managing systems.</li><li data-cyborg-source="358">Haki: entirely optional. A technology-oriented Cyborg can mainly invest in their Skills, Talents and Modules.</li></ul>
+<h3 class="man-sub" id="comandante-meccanizzato" data-cyborg-source="359">Mechanised Commander</h3>
+<ul class="man-punti"><li data-cyborg-source="360">Roles: Captain + a technological or combat path of your choice.</li><li data-cyborg-source="361">Priorities: Spirit, Communication and the statistics needed for the second Role.</li><li data-cyborg-source="362">Modules: sensors, communication, barrier, field control and mobility.</li><li data-cyborg-source="363">Prestige: Communication develops the Captain's catalogue; Spirit in Prestige is particularly effective if the character possesses multiple Haki Colours.</li><li data-cyborg-source="364">Haki: Observation to read the field; Conqueror’s only if granted by the story and GM.</li></ul>
+<h2 id="sez-15-7" class="man-sez"><span class="man-sez-n">15.7 ·</span> <span data-cyborg-source="365">Final advice</span></h2>
+<p class="man-regola" data-cyborg-source="366">First choose what you want to do during a scene; then choose Modules, Role and progressions that make it more interesting. Do not build the character around the idea that a Cyborg must have Mechanics, five weapons or every possible system.</p>
+<p class="man-guida" data-cyborg-source="367">A successful build tends to have two or three strong ideas: for example, mobility + precision, armour + control, or design + support. Slots are limited precisely to encourage the player to give their technology an identity. The rest can be entrusted to the crew, ordinary equipment or a professional.</p>
+</div></section>
+<section class="man-cap" id="cap-16" data-cap="16"><header class="man-cap-h"><span class="man-cap-n">Chapter 16 ·</span> <h1 data-cyborg-source="368">Cyborg Summary</h1></header><div class="man-cap-corpo">
+<div class="man-tab-wrap" tabindex="0" role="region" aria-label="Rules table" data-cyborg-source="369"><table class="man-tab"><thead><tr><th scope="col"><b>Element</b></th><th scope="col"><b>Quick rule</b></th></tr></thead><tbody><tr><td>Mechanical Body</td><td>d6–d20; determines slots and maximum Tier.</td></tr><tr><td>Slots</td><td>1 / 2 / 3 / 4 / 5; each Module normally occupies 1 slot.</td></tr><tr><td>Module</td><td>One Main Function, maximum 1 Special Effect.</td></tr><tr><td>Activation</td><td>1 Active Module; 1 free switch per turn.</td></tr><tr><td>Charges</td><td>3 / 4 / 5 / 6 / 8 when used by the design.</td></tr><tr><td>Weapon Module</td><td>Weapon Grade ≤ Technology Tier.</td></tr><tr><td>Integrity</td><td>Intact or Damaged; the Cyborg's HP do not automatically damage Modules.</td></tr><tr><td>Recovery</td><td>Rest and Galley work normally; biological healing does not restore HP.</td></tr><tr><td>Construction</td><td>Tier = minimum Mechanics, Threshold and time; materials and components are chosen by the GM.</td></tr><tr><td>Common prosthetics</td><td>They are not Modules and use no slots, except through specific abilities.</td></tr></tbody></table></div>
+</div></section>
+      <span class="man-fine" id="man-fine" aria-hidden="true"></span>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

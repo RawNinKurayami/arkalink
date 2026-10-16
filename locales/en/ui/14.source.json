@@ -1,0 +1,3542 @@
+[
+  {
+    "id": "749a0ebec2828481a051",
+    "it": "Slot insufficienti.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "0a057d8605a4e6d6aeac",
+    "it": ": Grado storico",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "c5f64d63713a5685570f",
+    "it": "non compreso nel catalogo ordinario d4–d12.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "49ef299e848d3bb3c81e",
+    "it": "Moduli storici oltre capacità: conservati; nuove installazioni bloccate.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "339ce8d3e4a1141d28d6",
+    "it": "PS storici oltre massimo attuale: correggili consapevolmente.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "bbeb4fcfe00cac5524ec",
+    "it": "timone gemello",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "d5293070042c441a7911",
+    "it": "cabina del navigatore",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "8426f02bfa75177f38f4",
+    "it": "officina di bordo",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "f8d301e47d0b32e02f71",
+    "it": "arpioni dabbordaggio",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "aeee3ebeab3de330dde9",
+    "it": ": manca il dado del bonus.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "9a4166cff5ca56133bb5",
+    "it": "stiva ampliata",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "6bbec53659b24d257970",
+    "it": ": indica quante Unità di Stiva aggiunge.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "4d675ed4eda36b42a056",
+    "it": "chiglia veloce",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "cbb0764fe196cb66a8eb",
+    "it": ": indica il bonus di Iniziativa.",
+    "kind": "text",
+    "context": "regole/nave.js"
+  },
+  {
+    "id": "b86d04daaee5e77c603e",
+    "it": "Scegli una ricetta ufficiale di riferimento.",
+    "kind": "text",
+    "context": "regole/cambusa.js"
+  },
+  {
+    "id": "bccc668115420e95c98e",
+    "it": "Inserisci il nome del piatto.",
+    "kind": "text",
+    "context": "regole/cambusa.js"
+  },
+  {
+    "id": "10eb486bb24ba62da704",
+    "it": "Scegli una categoria.",
+    "kind": "text",
+    "context": "regole/cambusa.js"
+  },
+  {
+    "id": "77c1088cfb138a830180",
+    "it": "Indica gli ingredienti richiesti dalla ricetta.",
+    "kind": "text",
+    "context": "regole/cambusa.js"
+  },
+  {
+    "id": "05d653c1f0d1deb2982d",
+    "it": "La Soglia deve essere un intero positivo.",
+    "kind": "text",
+    "context": "regole/cambusa.js"
+  },
+  {
+    "id": "645ba77f7cb0eed3c90b",
+    "it": "Una ricetta ammette un solo Ingrediente Extra.",
+    "kind": "text",
+    "context": "regole/cambusa.js"
+  },
+  {
+    "id": "f54e35373f391430c71a",
+    "it": "Completa nome e beneficio dell’Ingrediente Extra.",
+    "kind": "text",
+    "context": "regole/cambusa.js"
+  },
+  {
+    "id": "a912c69471522af721b0",
+    "it": "Ricetta di riferimento:",
+    "kind": "text",
+    "context": "regole/cambusa.js"
+  },
+  {
+    "id": "0531e7ac91182700730e",
+    "it": "Ingredienti richiesti:",
+    "kind": "text",
+    "context": "regole/cambusa.js"
+  },
+  {
+    "id": "cda0abdb914bbcf7fd87",
+    "it": "Prova: Spirito + Cucina · Soglia",
+    "kind": "text",
+    "context": "regole/cambusa.js"
+  },
+  {
+    "id": "4d96bc4453be5c5201bc",
+    "it": "Bonus della ricetta concordati:",
+    "kind": "text",
+    "context": "regole/cambusa.js"
+  },
+  {
+    "id": "734d570fbba6a3836c50",
+    "it": "Ingrediente Extra:",
+    "kind": "text",
+    "context": "regole/cambusa.js"
+  },
+  {
+    "id": "650a27f035a17a60ee9d",
+    "it": "Bozza: valori da approvare con il GM prima della Prova.",
+    "kind": "text",
+    "context": "regole/cambusa.js"
+  },
+  {
+    "id": "36b9a085ae6bac44a6e8",
+    "it": "Nome della Forma",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "1f1c860135c0c1768b22",
+    "it": "costoAttivazione",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "b9cea97c531e8748d585",
+    "it": "Costo di attivazione",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "03c6439670d5339c693d",
+    "it": "Costo di mantenimento",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "ab261dc7131b37734d1e",
+    "it": "Limitazioni della Forma",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "32c5469c4d5c3410b777",
+    "it": "Nome del Risveglio",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "97683a00b97b7c0fde92",
+    "it": "Manifestazione del Risveglio",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "8e6b0e9e1234a23908a8",
+    "it": "Bersagli validi del Risveglio",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "0d7092a1ee96ef1b5d9f",
+    "it": "Creature viventi nel Risveglio",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "35ba60d72306c9d4f107",
+    "it": "Permanenza del Risveglio",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "371ae5322b7ab1a503c5",
+    "it": "limitiSuperati",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "deb1ac90178bfec86ef0",
+    "it": "limitiMantenuti",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "759d5d7a7b7e8334d04f",
+    "it": "Nuova Applicazione",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "dbf6a40648847962a8d8",
+    "it": "Proprietà permanente",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "20d2342dc6293131f075",
+    "it": "Nuova famiglia di Applicazioni",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "addf0f77be3829d8ba25",
+    "it": "Sensi scelti",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "0f60429c65209ca1bb4e",
+    "it": "Capacità sbloccata",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "56dc76d34d82ae45d19a",
+    "it": "Il Potere Unico · Sempre attivo. Il Nucleo e le Applicazioni concordate definiscono ciò che il Frutto può fare; i vantaggi meccanici richiedono Tecniche, Talenti o benefici espliciti.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "8948bbda1b5347cfee9d",
+    "it": "L’impronta del potere · Colpo pulito +4 con una Tecnica del Frutto. Conseguenza coerente concordata col GM; gli Stati della Firma usano il Dado del Frutto per la Salvezza, gli effetti della Tecnica il Grado della Tecnica.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "2ea0d9c0c4f719b976f6",
+    "it": "L’Elemento · Sempre attivo. La natura elementale non costa ST né slot. Gli attacchi senza Haki o Pietra di Mare possono mancare o infliggere metà danno secondo natura e situazione decise dal GM. L’Haki non cancella indiscriminatamente il potere.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "3c5153e0d2e29753c870",
+    "it": "L’elemento dilaga · Colpo pulito +4 usando il Frutto. L’elemento si espande in una zona coerente; la Firma non assegna dimensioni o costi numerici universali.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "528a56bef7106ae09862",
+    "it": "Le Tre Forme · Umana, Ibrida e Bestiale. Cambio normale: Azione principale, 0 ST, nessuna Tecnica o slot. L’anatomia appropriata concede possibilità narrative; i bonus numerici dipendono dai Talenti.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "b1e65786e095b5ff7aa6",
+    "it": "Il Colpo Travolge · Colpo pulito +4 in Forma Ibrida: scegli Stordito (Salvezza di Forza dalla Soglia del Dado del Frutto) oppure +1 Dado Danno, mai entrambi.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "098e6f491eb549085ac8",
+    "it": "Frutto ·",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "b615fda950724fe784b0",
+    "it": "Categoria Zoan",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "96320ae8a00ac4593636",
+    "it": "Scheda dell’Arma Naturale da correggere.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "0a9743b4dbbcde8af24b",
+    "it": "Richiede uno Zoan posseduto e Artigli e Zanne acquisito e sbloccato.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "168a1cfa2996019e9323",
+    "it": "Manca l’ID dell’Arma Naturale.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "68dbff289e65215cf760",
+    "it": "L’ID dell’Arma Naturale è duplicato: correggi il record conservato.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "48e413ef70e1b43a6a7e",
+    "it": "Manca il nome dell’Arma Naturale.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "ee379ef2f88aff6c6785",
+    "it": "Registra la parte anatomica.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "9aa6c51205217cde7b5e",
+    "it": "Registra un normale tipo d’arma.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "4df1dd55c60bec8b8f89",
+    "it": "Registra l’Attributo dell’arma: Forza o Tecnica.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "fb7e5693c7f7bf9a1d2c",
+    "it": "Registra la modalità dell’asta.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "da5a907d7973a63fc06e",
+    "it": "Registra le forme nelle quali l’anatomia è disponibile.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "f684aeac7321d12125cd",
+    "it": "Registra la Portata concordata.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "d5c5aaa80f763bb6b41c",
+    "it": "Il Dado del Frutto deve essere da d4 a d20.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "adc7c40f6a714a076e9f",
+    "it": "L’Arma Naturale richiede",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "fc4ad0eda496bafdf0b5",
+    "it": "; il Grado resta il Dado del Frutto, senza riduzione automatica.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "593d0cf0cde0293afc76",
+    "it": "L’Arma Naturale non è disponibile nella forma attuale registrata (",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "f6548f13a931a40e008a",
+    "it": "Frutto / trasformazioni indisponibili fino al prossimo Riposo Lungo.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "9928a56403c1d2e2df69",
+    "it": "Stazza in Forma Bestiale: Portata in mischia = maggiore fra",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "89efaa44ab445019c0f5",
+    "it": "m. Nessun aumento in Ibrida.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "cd20110b08567b1c76b2",
+    "it": "Firma Zoan · Quando questo attacco base ottiene un colpo pulito +4 in Forma Ibrida, scegli Stordito (Salvezza di Forza contro Soglia",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "1e6a640b5f7c902c8e73",
+    "it": "dal Dado del Frutto",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "b5891426a79fc0265582",
+    "it": ") oppure +1 Dado Danno",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "7252afba61d198546c11",
+    "it": "del colpo, mai entrambi. Non si applica automaticamente.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "e6e9a0fb70be58c3703c",
+    "it": "Attacco base: Azione principale. Non richiede Ruolo Combattente o Stile; non concede Tecniche o Talenti di Stile e non occupa l’Arsenale.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "ccbb346d7d311869991a",
+    "it": "Forma Perduta già attiva: non consente attacchi, Tecniche offensive o interazione materiale.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "a38d37ce8acbaa89e213",
+    "it": "L’Arma Naturale collegata non è più disponibile.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "6affddb0b7cb1e0d5a0d",
+    "it": "tipoZoan",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "187e87b9fab0a4d23c7d",
+    "it": "scelteTalenti",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "1b54d886d6251c1242b4",
+    "it": "Permesso del GM",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "81ec382d640187c277fc",
+    "it": "Scelte dei Talenti",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "3afd532807af7c31ba6c",
+    "it": "Scheda della Creatura",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "5e5e7b216d079ce3ff36",
+    "it": "Famiglia di Movimento",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "43dde87419ffaa4e2875",
+    "it": "Forma di Combattimento ·",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "9203529501673797f4d2",
+    "it": "Talento acquisito e sbloccato",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "7e993c6db3255d66dda1",
+    "it": "Progetto / scelta conservata, Talento non utilizzabile",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "97465661ba44e74a0f3d",
+    "it": "Risveglio ·",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "976ff00430c43f5bd9c3",
+    "it": "Approvazione GM registrata",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "f0e29c117786f769232f",
+    "it": "Le definizioni registrano possibilità e scelte concordate: non assegnano automaticamente Talenti, effetti del Costruttore o bonus. Le scelte restano conservate se cambiano Tipo, Grado o requisiti. Debolezze: mare, Pietra di Mare, Haki; l’Armamento supera alcune difese, non cancella ogni proprietà del Frutto.",
+    "kind": "text",
+    "context": "regole/frutti.js"
+  },
+  {
+    "id": "b721254a97408d7f84e7",
+    "it": "smcId",
+    "kind": "text",
+    "context": "regole/nave-talenti.js"
+  },
+  {
+    "id": "d4a91aa6d526e0c613e4",
+    "it": "smcAlias",
+    "kind": "text",
+    "context": "regole/nave-talenti.js"
+  },
+  {
+    "id": "865b093d3624e9e8e0bb",
+    "it": "Dado del Frutto da d4 a d20, senza Prestigio",
+    "kind": "text",
+    "context": "regole/talenti.js"
+  },
+  {
+    "id": "cd539f487a672a008d63",
+    "it": "Scegli prima una seconda classe.",
+    "kind": "text",
+    "context": "regole/talenti.js"
+  },
+  {
+    "id": "ef29ae299f8605c7c1fb",
+    "it": "roleSkillChoice",
+    "kind": "text",
+    "context": "regole/talenti.js"
+  },
+  {
+    "id": "7c5990df66d12dbf0edb",
+    "it": "Carica il catalogo Tratti prima del motore delle Sinergie.",
+    "kind": "text",
+    "context": "regole/tratti.js"
+  },
+  {
+    "id": "d4107b45469bfd1cca20",
+    "it": "Registra una scelta di Talento concessa da un Upgrade per acquisire il Tratto.",
+    "kind": "text",
+    "context": "regole/tratti.js"
+  },
+  {
+    "id": "ca861c68513f8b02565a",
+    "it": "Non hai una scelta di Talento da Upgrade disponibile.",
+    "kind": "text",
+    "context": "regole/tratti.js"
+  },
+  {
+    "id": "54f995eb00524c7ab2fc",
+    "it": "non acquisito",
+    "kind": "text",
+    "context": "regole/tratti.js"
+  },
+  {
+    "id": "8fea5128656051806f38",
+    "it": "Sostituito da",
+    "kind": "text",
+    "context": "regole/tratti.js"
+  },
+  {
+    "id": "2be45f2cf536de1f2b6f",
+    "it": "Personaggio non disponibile.",
+    "kind": "text",
+    "context": "regole/tratti.js"
+  },
+  {
+    "id": "7e2c9efe49c34d5b036f",
+    "it": "Tratto Unico non presente nel catalogo.",
+    "kind": "text",
+    "context": "regole/tratti.js"
+  },
+  {
+    "id": "ccd2f840d55649d1e15b",
+    "it": "Tratto già acquisito.",
+    "kind": "text",
+    "context": "regole/tratti.js"
+  },
+  {
+    "id": "ce1f302da4ab2848c3a5",
+    "it": "Tratto non disponibile.",
+    "kind": "text",
+    "context": "regole/tratti.js"
+  },
+  {
+    "id": "29e1a08e33b023ac2d3e",
+    "it": "Rimuovi prima",
+    "kind": "text",
+    "context": "regole/tratti.js"
+  },
+  {
+    "id": "ba5abf95e018fa6503e6",
+    "it": ": richiede questo Tratto acquisito.",
+    "kind": "text",
+    "context": "regole/tratti.js"
+  },
+  {
+    "id": "385aab7da9e9c48f5ff4",
+    "it": "Scelta di Talento non disponibile.",
+    "kind": "text",
+    "context": "regole/tratti.js"
+  },
+  {
+    "id": "4bcc954e62b7f5ac775c",
+    "it": "La portata ordinaria delle Canzoni passa da 20 a 40 m; le portate specifiche restano proprie.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "232b7806e4da0a8f980e",
+    "it": "Le Melodie che coinvolgono l’intera ciurma costano 1 ST in meno.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "2a9244aaf0faa99de1ec",
+    "it": "Non puoi essere disarmato; nessuno riconosce la Tecnica prima che produca il proprio effetto.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "f93edec745d7d06256fc",
+    "it": "Un alleato che ti sente, anche tu, recupera 1d6 ST, senza superare la ST Massima. Ogni personaggio ne beneficia 1×/scena, anche con più Musicisti; +1 ST per ogni diverso bersaglio già beneficiato dalle tue precedenti esecuzioni.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "7276c1a202b476f61735",
+    "it": "Immediata",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "8d3c95706a1eb5e233fc",
+    "it": "Ogni nemico entro la portata che ti sente deve attaccare te oppure attacca altri bersagli con Svantaggio (Salvezza).",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "ec19f5a2549dc0dccf3b",
+    "it": "Canzone Sostenuta: un alleato scelto ha +1d4 agli attacchi finché continui a suonare.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "81ec9e9b0e54419263f4",
+    "it": "Finché continui a suonare",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "d08e6e23e193d27f7a53",
+    "it": "Annulli Terrore, Sopore o charme sugli alleati che ti sentono.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "bda4830f005b17fdd7ff",
+    "it": "Un nemico che ti sente ha Svantaggio al suo prossimo tiro se fallisce la Salvezza.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "ca455332142861714adb",
+    "it": "Prossimo tiro del bersaglio",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "6d6f18ceb444584e413b",
+    "it": "Un alleato sposta la propria Iniziativa subito dopo la tua per il resto dello scontro.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "9c5a1ac850debc333ccd",
+    "it": "Resto dello scontro",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "2b5b4c54142f7b96a9fd",
+    "it": "La prossima Tecnica di un alleato costa 2 ST in meno, minimo 1.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "ee324c8f2f1b0cce38ee",
+    "it": "Prossima Tecnica dell’alleato",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "fb684e1916d13cd652f9",
+    "it": "I nemici entro la portata che ti sentono diventano Addormentati se falliscono la Salvezza. Nessun danno.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "2a6407488ee03e83877e",
+    "it": "Secondo lo Stato Addormentato",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "758c394c962e4f33b729",
+    "it": "Gli alleati in ascolto recuperano 1d6 ST e hanno +1d6 al tiro per colpire. +1 ST per ogni utilizzo in più nella stessa scena.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "ec2ea6491c1c28d3df50",
+    "it": "Per la scena, ogni compagno sceglie un proprio dado e lo tira due volte tenendo il migliore.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "78926d6f5532bbd8121f",
+    "it": "In battaglia navale, per la scena ogni compagno a una postazione aggiunge +1 dado al tiro della sua postazione.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "38cc04aed0cbb5f9b7d7",
+    "it": "Canzone Sostenuta: ogni nemico entro la portata che ti sente tira Spirito; chi fallisce è Atterrito finché resta in portata, ti sente e continui a suonare.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "4f41afb837697b751535",
+    "it": "Finché resti in portata, senti la musica e il Musicista suona",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "e1d65e426f12c4b4dd84",
+    "it": "Ultimate, 1×/scena: chi della ciurma ti sente, tu compreso, riporta la ST al massimo. La stessa ciurma ne beneficia una sola volta per scena, anche con più Musicisti. Nessun recupero di PV o PIP; richiede Ambizione del Musicista e permesso del GM.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "9ee89a660f2089fd7d3b",
+    "it": "Musicista · Musicista ·",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "3a4bd30a7e9feb4f3df5",
+    "it": "Strumento storico da revisionare",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "22ecaf152e44fe5b7cb9",
+    "it": "La registrazione storica dello strumento non è un oggetto valido; resta conservata e non concede uno strumento utilizzabile.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "be8a6664ff2c88bd7877",
+    "it": "Il Grado storico dello strumento",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "188288ecce7550621048",
+    "it": "è conservato: gli strumenti ordinari vanno da d4 a d20. Scegli uno strumento valido o la voce.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "b519ed112777f33dbc66",
+    "it": "Il tipo storico dello strumento è conservato: scegli Corde, Fiati, Percussioni, Mantice o Voce.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "7be9838358e2f91acc92",
+    "it": "Definisci il dado corrente di Arte per utilizzare lo strumento.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "2fa29c403affa4e8d3c9",
+    "it": "Strumento senza nome",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "5f989a771b511d42fc35",
+    "it": "Strumento non disponibile",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "7b07fde4f9f983b5572b",
+    "it": "Lo strumento collegato non è più disponibile. Il riferimento resta conservato: scegli uno strumento posseduto o la voce.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "bd4b714a33e27ac95043",
+    "it": "La Forma Canzone è riservata al Musicista.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "e8ce942a2f5b4000b54d",
+    "it": "Le Melodie richiedono Fonte Stile e Forma Canzone.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "9b439b92f81cb8302df0",
+    "it": "Una Canzone contiene esattamente una Melodia del catalogo.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "c7a97059dba8794e22fb",
+    "it": "Melodia da scegliere",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "91f8a861a095f44e50ce",
+    "it": "Le Canzoni personalizzate hanno Grado da d4 a d20; il Grado storico resta conservato.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "cfeadaca405e6534b9bc",
+    "it": "Scegli l’Attributo associato alla Canzone.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "91f69b911b93c20c0d5a",
+    "it": "Il Grado della Canzone non può superare l’Attributo associato. Arte limita lo strumento, non sostituisce questo requisito.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "a68dd54010f3a9f96d29",
+    "it": "La Melodia",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "6c88f2340a7322a79f7e",
+    "it": "richiede una Tecnica almeno",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "884e71cd7dd4bf4eeaf0",
+    "it": "Richiede il Talento acquisito e utilizzabile",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "3cf570a62287f73feade",
+    "it": "Grado effettivo dello strumento",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "3f8a2d07399e7c22ddb1",
+    "it": "Requiem Sovrano richiede Requiem Beffardo e il relativo Talento di Prestigio acquisito e utilizzabile.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "37a65041c65af0661e84",
+    "it": "Arte completa",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "95412eae902af9931437",
+    "it": "Fino all’inizio del tuo turno successivo",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "11b9965fb51410553fca",
+    "it": "Requiem Sovrano: tutti i nemici nel raggio che ti sentono tirano Spirito contro la Soglia di Arte. Chi fallisce ha Svantaggio a tutti i tiri fino all’inizio del tuo turno successivo. Nessun danno; questa esecuzione sostituisce Requiem Beffardo e ne sostituisce il costo.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "0c2c06425db0aeed4163",
+    "it": "Requiem Sovrano: una sola Azione; costo sostitutivo",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "f32db5914f81984b67f3",
+    "it": "ST, senza sommare il costo di Beffardo o la Soglia dello strumento.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "372f194760bb17c7826c",
+    "it": ": il costo mostrato è quello del primo utilizzo. Indica il conteggio precedente per calcolare l’esecuzione successiva; nessun registro di scena viene modificato.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "87e9b2c26bea58e725c8",
+    "it": ": indica un numero intero da 0 a 999.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "fb0818b47fe02ca0be85",
+    "it": "precedenti, +",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "db02867b88911c494f88",
+    "it": "Motivetto · bersagli diversi già beneficiati",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "734f726f9c5f7fc0cfd2",
+    "it": "Assolo · utilizzi precedenti nella scena",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "be3c8808db8e2fdc444f",
+    "it": "Corde: −1 ST, minimo 1, per questa Melodia a un bersaglio.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "4df58947c683863a898c",
+    "it": "Percussioni: −1 ST, la Melodia coinvolge l’intera ciurma.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "0711137b42c9ae9b8ceb",
+    "it": "Percussioni: lo sconto richiede che questa esecuzione coinvolga l’intera ciurma; dichiaralo nel contesto.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "e13c9a74164b927c4408",
+    "it": "Fiato Lungo: −1 ST, minimo 1.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "87d543cff88a8f5eb2c4",
+    "it": "Fiati: portata ordinaria 20 → 40 m; nessuna modifica alle portate specifiche.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "4835b175457e83878dfb",
+    "it": "Coro della Ciurma richiede il Talento acquisito e utilizzabile.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "25cf33c4acbf4cf7e982",
+    "it": "Coro della Ciurma: portata ×2; almeno due compagni coscienti partecipano realmente. A bordo il canto raggiunge gli ambienti collegati dove si sente, senza rendere la nave un bersaglio.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "9128eddc4b4876fc7aea",
+    "it": "Coro della Ciurma: dichiara almeno due compagni coscienti che cantano o suonano realmente per raddoppiare la portata.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "ea0243dd0d31e3aef59a",
+    "it": "Questa Melodia non richiede mantenimento.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "cf99d93474edda7947c9",
+    "it": "Dal turno successivo mantenere richiede",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "587fc046abc338844f6b",
+    "it": "e l’Azione del Musicista.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "10935cc52d0a9a6519bd",
+    "it": "senza impegnare l’Azione grazie a Contrappunto.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "289e09ac02195e24f613",
+    "it": "Mantice: il mantenimento è gratuito per i primi due turni; poi 1 ST/turno.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "9a2fc105a8dbca339a2b",
+    "it": "Mantenere non intona di nuovo la Canzone e non ripete i suoi effetti iniziali.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "2920487339f34ee29150",
+    "it": "Contrappunto / Orchestra: mantenimento gratuito in ST.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "8fef690116ea4e067c2a",
+    "it": "Risonanza Leggendaria: benefici numerici ordinari ×",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "4340f03958ac6df30156",
+    "it": "; costi, Vantaggio, ridadi, portata e bersagli restano propri.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "2ee59ae2c1502f97b9d3",
+    "it": "Requiem: se il nemico ha già perso almeno 1 PV nello scontro, tira questa Salvezza con Svantaggio. Nessuna seconda Melodia.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "ab0874318e58718cf917",
+    "it": "Ogni beneficiario, anche il Musicista, riceve Motivetto una sola volta per scena, indipendentemente dal numero di Musicisti. Recupero entro la ST Massima; non restituisce PV.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "b9c400a4a321d8b6f60e",
+    "it": "Effetto speciale dello strumento, concordato con il GM:",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "4975b9adb0a9b91ef800",
+    "it": "Non viene applicato automaticamente.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "23d0f363aba53a8a1b01",
+    "it": "Svantaggio a tutti i tiri",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "157801f17a57ab1e26cb",
+    "it": "Il bersaglio tira soltanto Spirito contro",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "ff4f8bd188eb1788bf2d",
+    "it": "la Soglia da definire",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "6e33b41e6d1645724a0f",
+    "it": "da Arte completa (",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "1575249ab05bf1cc1f64",
+    "it": "Grado da definire",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "b9fc380555d9b078ec25",
+    "it": "dal Grado effettivo",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "999b28ab9895a25408ba",
+    "it": "dello strumento",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "16b09c77c44c0babf79b",
+    "it": ". Un risultato pari o superiore riesce.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "139f68621bc35a00d929",
+    "it": "La Sostenuta termina se smetti, non paghi il mantenimento dovuto, perdi lo strumento usato, diventi Incosciente o non puoi più produrre la musica. Muoversi o essere a terra non la interrompe automaticamente. Musica Incrollabile, se acquisita, impedisce che Stordito o l’essere abbattuto interrompano da soli il canto; non rende immuni agli Stati.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "48612d7b4ca7ebd3dd58",
+    "it": "· primi due turni gratuiti",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "7834dd8215366e307e40",
+    "it": "· primo utilizzo",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "dcda8817f4ea802e8921",
+    "it": "Intonare richiede l’Azione principale; nessun tiro per colpire, nessuna Firma da margine +4.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "d59ca139f373b143ebd7",
+    "it": "Orchestra Vivente permette due Canzoni distinte con una sola Azione, pagando ciascuna; ogni Tecnica continua a contenere una sola Melodia.",
+    "kind": "text",
+    "context": "regole/melodie.js"
+  },
+  {
+    "id": "0f7cede4cc0e08c3ea38",
+    "it": "Spinta assistita; nessun volo continuativo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "31b27ffcaaeb369f0ba6",
+    "it": "Spostamento aereo breve; termina su una superficie.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "fa142de52a21202a9fc8",
+    "it": "Volo e permanenza in aria finché operativo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "47b28f98407869fa9b60",
+    "it": "Volo avanzato in condizioni difficili ordinarie.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "2a8ccfcb075850a3ff86",
+    "it": "Volo leggendario, entro distanza ed energia.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "82e0f85f67817bcdc335",
+    "it": "Urto",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "fa0c6d8647f3a2d1a152",
+    "it": "consumo raddoppiato",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "67a60322af37bb6c42b8",
+    "it": "consumo ×2",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "d31b0730cd9108bcc1c3",
+    "it": "cariche doppie",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "baaabaa84922a33f9c34",
+    "it": "+1 st per utilizzo",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "9b224dd4683a97808a7f",
+    "it": "+1 st",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "4bd1954214d090d8b10b",
+    "it": "surriscaldamento fino al prossimo turno",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "59c8d33132d288b3d38a",
+    "it": "danno da sovraccarico",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "b5abe3c632b0e0b12352",
+    "it": "vulnerabilità operativa specifica",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "83bb38af15069c5f6327",
+    "it": "Il sistema Corpo Meccanico richiede un Cyborg; le capacità Legacy non concedono accesso automaticamente.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "bd00c504db20ba2797f0",
+    "it": "Corpo Meccanico deve avere Grado da d6 a d20, senza progressione di Prestigio.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "94e790b8f36e21a6715e",
+    "it": "La Fascia Tecnologica del Modulo deve essere d6, d8, d10, d12 o d20.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "63e9cf9e4abf788cd36a",
+    "it": "non permette Moduli di Fascia",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "d64f4b486b1d9b1191aa",
+    "it": "I Moduli installati superano gli slot disponibili di Corpo Meccanico.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "bf3154bf0c0c2d468f4f",
+    "it": "Il Modulo deve essere installato per eseguire o costruire una Tecnica collegata.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "2615c44b2129698d4b49",
+    "it": "Il Modulo è Danneggiato: Funzione attiva, Effetto Speciale e Tecniche collegate richiedono la riparazione.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "f1f9cf442676e5fb3e53",
+    "it": "Definisci la Funzione attiva concreta del Modulo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "b8d01bdc4fdea842c6bd",
+    "it": "La Funzione è Operativa oppure Continua.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "91427d14442b302a5d48",
+    "it": "Scegli categorie di Modulo valide.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "c1906c3280b7bb83818a",
+    "it": "Definisci un Grado d’Arma da d4 a d20.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "29eb6a893239d9c85f22",
+    "it": "Il Grado d’Arma non può superare la Fascia Tecnologica del Modulo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "197bc15dd6ba6f8fbe4d",
+    "it": "Definisci un tipo di arma fisica compatibile con l’Arsenale.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "613d273d431045d9d331",
+    "it": "Un’arma Ad asta deve indicare Tagliente oppure Contundente.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "59f9c4c56e97720d3046",
+    "it": "Il Modulo-Arma deve registrare Forza oppure Tecnica come Attributo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "08039b1cb94cadacd298",
+    "it": "Il Grado d’Arma richiede",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "5e017097a47392d703ba",
+    "it": "Una Funzione Arma richiede la struttura Modulo-Arma.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "76e2383e361729f3bde7",
+    "it": "L’Effetto Speciale storico deve essere registrato con una categoria e parametri strutturati.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "3456332c55c93a79e390",
+    "it": "La Maledizione deve indicare quale Sconto, Sblocco, Passiva o Reazione amplia.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "8d07969679143234bb92",
+    "it": "La Maledizione richiede una conseguenza meccanica reale e registrata, non un limite soltanto narrativo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "1d94393765a70f67bec4",
+    "it": "Lo Sconto richiede un singolo bersaglio preciso: Effetto o Tecnica.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "e92c701be43bac54357b",
+    "it": "Registra lo Sconto in ST e Slot con valori numerici; il testo storico non assegna uno Sconto automaticamente.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "1fa7053942d045407db8",
+    "it": "I valori di Sconto devono essere interi non negativi.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "d208267e1b43ec119e37",
+    "it": "Lo Sconto supera i",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "3b49591996cf68a3f837",
+    "it": "Punti Sconto della Fascia",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "b1b49186ea57f8dd50e1",
+    "it": "Ridurre uno Slot Effetto richiede almeno Fascia d8.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "59b5841b820e9e693b01",
+    "it": "Lo Sconto deve ridurre almeno un costo specifico.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "44d20157a25458759ff1",
+    "it": "Registra il nome esatto dell’Effetto sbloccato nella lista Sblocchi.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "cc7a0a7df514e17342b4",
+    "it": "Sblocco concede un solo Effetto; una Maledizione può concederne due strettamente collegati.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "89862527698e9d7c34b7",
+    "it": "Ogni Sblocco deve indicare un nome unico e completo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "68dad2aa2eab21ad1c8c",
+    "it": ": Effetto assente dal catalogo aggiornato.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "38e63bd9edca83f52ee7",
+    "it": "richiede una Fascia almeno",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "e037615610eb12727b51",
+    "it": "Scegli un modello di Passiva del Manuale del Cyborg.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "e09cda7ae75c87e9ba61",
+    "it": "richiede almeno Fascia",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "39c0e252eba3e242a099",
+    "it": "La Passiva deve indicare un parametro o una condizione specifica della propria Funzione.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "7103baa0ee066e615d59",
+    "it": "Ottimizzazione migliora un solo parametro numerico della Funzione Principale.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "dc4e5a567d2ef502fbd5",
+    "it": "L’aumento di Ottimizzazione deve restare entro il limite percentuale della Fascia.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "711aeded34c19b64dd86",
+    "it": "Registra un Trigger specifico della Reazione.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "7106f9a46dbfabc26856",
+    "it": "La Reazione deve indicare una frequenza per scontro oppure per round.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "68b331fe15aed724e457",
+    "it": "Questa Fascia permette soltanto Reazioni limitate per scontro.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "a3bd61d1c903a27ea2a9",
+    "it": "La frequenza supera gli utilizzi ammessi dalla Fascia.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "617befb4245867bf3033",
+    "it": "Usare come Reazione una Funzione normalmente da Azione richiede almeno Fascia d12.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "1e52851a11d8c3948955",
+    "it": "L’Attivazione d’emergenza come parte della Reazione richiede Fascia d20.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "866215125db41b88eb6f",
+    "it": "Il parametro",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "441a011860ac71c23139",
+    "it": "supera il limite della Funzione in Fascia",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "0c5f8634addd2e0c2cd4",
+    "it": "La capacità di Cariche deve essere un intero positivo entro il limite della Fascia.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "20ebc4212b26f9ca771c",
+    "it": "Le Cariche attuali devono essere intere, tra 0 e la capacità registrata.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "81aa9bdb9fb68ef0c38c",
+    "it": "Registra un consumo intero positivo; un uso normale consuma 1 Carica.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "94e1cec4967944d0e407",
+    "it": "Il consumo di un utilizzo non può superare la capacità di Cariche del Modulo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "801f34dc02e540deeeec",
+    "it": "Consumo raddoppiato richiede una risorsa effettivamente consumata.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "8233bea325e00ef02da0",
+    "it": "Il Modulo non è installato.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "eb7b96eaa33aca109107",
+    "it": "Il Modulo è Danneggiato.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "d7cfcdd6966988a9e870",
+    "it": "Il Modulo è Inattivo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "83aa90189835053a3564",
+    "it": "Il Modulo surriscaldato resta Inattivo fino all’inizio del prossimo turno.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "4a0a4bd0f98b9c76d24c",
+    "it": "Il Modulo non dispone delle Cariche necessarie.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "25ae668e9db3fdf7d951",
+    "it": "Il Modulo collegato non è registrato.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "d7aa0cad1225af45a4b4",
+    "it": "La Tecnica non rispetta le compatibilità strutturate del Modulo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "16814ef504f7747c1552",
+    "it": "Un Effetto della Tecnica non è compatibile con questo Modulo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "115f3a03e87dcf938551",
+    "it": "Modulo non presente sul pirata.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "8d6528982e00b68f6469",
+    "it": "Avvia lo scontro prima di iniziare il turno.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "570e55a65c367ed2aced",
+    "it": "Solo un Modulo installato e Integro può diventare Attivo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "27fa14284018556661c7",
+    "it": "Il cambio gratuito del Modulo avviene soltanto durante il proprio turno.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "01afca4659c2b31cf922",
+    "it": "Hai già effettuato il cambio gratuito del Modulo in questo turno.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "d9bbeb99471a828600c0",
+    "it": "Lo spegnimento volontario avviene durante il proprio turno.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "0e59bfc80c5d4353ff49",
+    "it": "Il Modulo non è operativo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "1cbfdbc894edc02446a5",
+    "it": "Stamina insufficiente per il prezzo meccanico del Modulo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "6afa02a90809c0bed44d",
+    "it": "Il Modulo non possiede una Reazione registrata.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "d87f7113f1568c83a1f3",
+    "it": "La Reazione non è disponibile.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "5443cd93168068d78756",
+    "it": "Gli utilizzi della Reazione sono esauriti per questo",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "cb98439cadf26d67414a",
+    "it": "L’Attivazione d’emergenza è già stata utilizzata in questo round.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "154d26542dcf6f7d816a",
+    "it": "Installare o rimuovere un Modulo richiede un intervento fuori dal combattimento.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "70c72d1714b5edbc30a0",
+    "it": "Nessuno slot libero per installare il Modulo.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "c221f5c998731d06682a",
+    "it": "Una normale riparazione del Modulo avviene fuori dal combattimento.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "4773f63c57e5d4205292",
+    "it": "La ricarica normale richiede 10 minuti fuori dal combattimento.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "7a38857c1249d224d379",
+    "it": "La risorsa prevista dal progetto deve essere disponibile per ricaricare.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "1f5bc9c5e9fd782202db",
+    "it": "Il Modulo non utilizza Cariche.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "dc30528505e55d8709b5",
+    "it": "La capacità di Cariche non è valida.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "0f577e9b926526625b75",
+    "it": "10 minuti fuori combattimento, con la risorsa disponibile.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "454486a4198575c106fa",
+    "it": "Definire Forza oppure Tecnica con il GM. Lo Sconto non concede dadi danno aggiuntivi: il bersaglio deve essere già concesso da una regola specifica.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "1a39810deb3f1a4bebd2",
+    "it": "Un alleato entro la protezione dello Scudo viene bersagliato.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "6be68c6392a6cef6d882",
+    "it": "Una minaccia richiede immediatamente lo spostamento del Cyborg.",
+    "kind": "text",
+    "context": "regole/cyborg.js"
+  },
+  {
+    "id": "2a7a94748fb2f5040963",
+    "it": "Da sbloccare",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "6941faee7dffbc4fb24d",
+    "it": "Sbloccato",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "1539723201dc06e36844",
+    "it": "[data-ut-focus]",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "c681cc0e549d591c5d33",
+    "it": "Scelte degli Upgrade",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "ce534dd3ee624357e97a",
+    "it": "Correggi",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "d9f9dc40351ce7037187",
+    "it": "Correggi il totale delle scelte concesse dal GM",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "361f960b287ec3beac10",
+    "it": "Totale scelte concesse dal GM",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "c500fb9c127e3d245b32",
+    "it": "Una scelta per Talenti ordinari o Tratti Unici. P.A., PV e ST si registrano separatamente; il Prestigio usa le proprie scelte.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "13ea8e1b771d66460505",
+    "it": "Salva conteggio",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "fa37f5e6b302fc6f4858",
+    "it": "scelta disponibile",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "76e171399dc9582064ab",
+    "it": "scelte disponibili",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "b3359df8fd5866ffbc71",
+    "it": "Upgrade registrato · +1 scelta",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "98c15c55f0e9867dd533",
+    "it": "Conteggio aggiornato",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "ef938130f8ce7d17652a",
+    "it": "Registrazione non riuscita.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "f9a4c667bc891ad5efbd",
+    "it": "+ Registra Upgrade",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "e5b341847904f757daed",
+    "it": "ut-button ut-upgrade-grant",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "b4d491aed084657c203b",
+    "it": "Registra una scelta di Talento già concessa dal GM",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "866359aae0349f41e645",
+    "it": "(max-width: 760px)",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "3d02eea0e68adeacb266",
+    "it": "Il salvataggio del personaggio non è disponibile.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "8373b7b57a170a770676",
+    "it": "Tratto acquisito.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "1ad73e00111f2b6c23eb",
+    "it": "Scelta rimossa e nuovamente disponibile.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "f1fe3793b98b2623e088",
+    "it": "Non è stato possibile registrare la scelta.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "c2b86f382636b04703d0",
+    "it": "La tua crescita",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "69412ecc63d01e7e7edb",
+    "it": "Tratti Unici",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "94aedd2b63e284ff649d",
+    "it": "Registra l’Upgrade dalla scheda del pirata.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "fa7745409aff1eb0d4c2",
+    "it": "Correggi le scelte dalla scheda del pirata.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "e37aeab01683ea34b9f5",
+    "it": "Sinergie per Attributo",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "2996a51b0b2eacf7fa11",
+    "it": "Cerca in tutti i Tratti",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "f8a41e230c80e941c3c5",
+    "it": "Cerca un Tratto, una Skill, un beneficio…",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "e7a483b513299d818459",
+    "it": "Filtra per Skill",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "e34702e86b9d6cefa551",
+    "it": "Tutte le Skill",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "5ff3b1debbb4e7ba4f96",
+    "it": "Stato dei Tratti",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "c2839ebaf47ed7802b35",
+    "it": "Sigilli dei Tratti Unici",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "475a3327e2029fbca636",
+    "it": "Dettaglio del Tratto",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "cafcd968de9fa40e9e2d",
+    "it": "✓ Acquisito",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "cb15f1f5289461b34c79",
+    "it": "◇ Sbloccato",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "4f1cf5a9602085e15e78",
+    "it": "○ Da sbloccare",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "c984149a1d3ff0ab943f",
+    "it": "Le linee indicano solo le Evoluzioni.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "7fe4a7a65ab10e37a704",
+    "it": "Manuale · §16.9 ↗",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "c1f4c1b04bc50cf751c5",
+    "it": "Sinergie",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "2003ae8fb6f8e4be31b7",
+    "it": "attivi ·",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "f3fe8612764a08687df2",
+    "it": "Tutte le Sinergie",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "f4f6f8dc555f8ee0d316",
+    "it": "Attributo + Skill aprono un sigillo. Una scelta di Upgrade ti permette di acquisirlo.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "ec4be66f485f2412275b",
+    "it": "Ricerca in tutti i Tratti",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "7eb4b144957bb8eb0dad",
+    "it": "Costellazione delle Sinergie",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "f7f4acf956a0b6ef2754",
+    "it": "sigilli ·",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "2fac6ba3ec01ee46bc2d",
+    "it": "non allenata",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "33c7a1df4c7c49800cf6",
+    "it": "Evoluzione →",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "d55cd9093d0e710c338c",
+    "it": "Nessun sigillo in questa vista",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "afbdf4a46db7d9972696",
+    "it": "Nessun Tratto con i requisiti raggiunti corrisponde ai filtri. Esplora tutti i sigilli per vedere cosa ti manca.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "a6ce94c238cd2bff81f2",
+    "it": "Cambia Attributo o rimuovi i filtri per esplorare le altre Sinergie.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "75e481cea8c5a0966f74",
+    "it": "Mostra tutti i Tratti",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "ffa33ea52fe1d80630ef",
+    "it": "↑ Torna ai sigilli",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "36bc1f2cdc1eca1a1de8",
+    "it": "Seleziona un sigillo per vedere beneficio e requisiti.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "16711bb3288ab59c69d0",
+    "it": "Evoluzione di",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "c7f7308317de5a96f84b",
+    "it": "Il nuovo beneficio sostituisce il precedente: non si sommano.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "6ac70d8641e05a2a5a31",
+    "it": "Vedi il Tratto acquisito",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "c7aebaa8ed2857beca47",
+    "it": "Vai al prerequisito",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "3bbd5fd4e42b3f55bb69",
+    "it": "Il beneficio precedente non si somma.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "608e31b342b06c295a17",
+    "it": "La scelta resta acquisita. Il beneficio torna attivo quando soddisfi di nuovo i requisiti.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "026fdb15f972698b55ac",
+    "it": "Leggi nel manuale ↗",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "3d86753673bc837e4467",
+    "it": "Acquisisci · 1 scelta",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "36c51740160239873766",
+    "it": "Serve una scelta di Upgrade",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "ee1902d556c6993bdb40",
+    "it": "Requisiti da raggiungere",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "bb2d1feb37eac1951841",
+    "it": "ut-button ut-acquire",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "e1ee993724cca150e8ad",
+    "it": "Usa una scelta condivisa con i Talenti ordinari.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "9b4a796be0f478f0c9bf",
+    "it": "Registra un Upgrade già concesso dal GM con il tasto in alto.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "0fa09456cd7d5e55cad8",
+    "it": "✓ Beneficio attivo sulla tua scheda",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "fff3173193205f815423",
+    "it": "↗ Beneficio evoluto",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "ca082046eaacce102dbb",
+    "it": "Scelta conservata · beneficio inattivo",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "dfc280821363ff34bd63",
+    "it": "Gestisci acquisizione",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "8521c3e56a142d5ba85b",
+    "it": "Rimuovi scelta",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "7883735d8b57ba07e7d4",
+    "it": ": richiede questo Tratto.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "7f65ef4af637ae9b3483",
+    "it": "Tutti",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "83f476dc084011b84103",
+    "it": "Sbloccati",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "c33e2d0fd6621a450eae",
+    "it": "Acquisiti",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "4f740b3fcbbec1f5a2d5",
+    "it": "button,input,select,summary,a[href]",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "14fdc0f6c77f7978b7ad",
+    "it": "DETAILS",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "6997c676311472227ac6",
+    "it": "SUMMARY",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "64c4d3a42cbed29a98d6",
+    "it": "talstrip unique-trait-summary",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "152baeba5ebd32736c9c",
+    "it": "Tratti Unici ·",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "a752aa771960d59560b7",
+    "it": "✦ Esplora le Sinergie",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "4b8cd2d19b3a4002b8a1",
+    "it": "gbtn gold",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "2460f352db3cb8880c9b",
+    "it": "Nessun Tratto acquisito. Esplora i sigilli per scoprire le tue Sinergie.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "caa9c5e2ff1bb5693338",
+    "it": "Tratti sbloccati dai tuoi Attributi e dalle tue Skill.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "4df8c2bbb88277c7df62",
+    "it": "Le Sinergie si aprono facendo crescere Attributi e Skill.",
+    "kind": "text",
+    "context": "gestisci-pirata/tratti-ui.js"
+  },
+  {
+    "id": "be9dab529db9bb1dbce4",
+    "it": "Signature Move",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "2bd1caf840b9b3f78cc1",
+    "it": "Arma personale",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "5f6af6c2bab3eeaeaef4",
+    "it": "Progetto di Modulo",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "ac31ec5646d576f0c67b",
+    "it": "Modulo installato",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "2067cd6e59594c957ca5",
+    "it": "Specifiche complete",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "f2e9d7ab1e013bb7c79d",
+    "it": "Effetti della tecnica",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "d0e0ce8ab4dcf80de3c0",
+    "it": "Capacità razziale",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "015ed6b088851c36d276",
+    "it": "Nessun effetto selezionato.",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "5f1c14dedf7b85802a0d",
+    "it": "Condizioni e collegamenti",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "27df1121d6b6a67db675",
+    "it": "Descrizione e colore",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "10791ecb5cd6193bcfa3",
+    "it": "tecnica libera",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "ef3d00d7665cdca615e9",
+    "it": "Non installato · 0 slot",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "3f535f73e6acb4ae9da0",
+    "it": "Stato operativo",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "5e1a65ad6315ad32a884",
+    "it": "Da assegnare",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "150578f75a7275574dd0",
+    "it": "Attributo Arma",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "a47ef47d9d85d4e9195a",
+    "it": "Limite Cariche della Fascia",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "a1c98c1ad74366e5faf8",
+    "it": "✦ Potenziamenti del Prestigio",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "59cbc5dc3b48433696d9",
+    "it": "Accordo GM",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "412ffb2d7267495bc98f",
+    "it": "Approvata",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "8527d2db0f50d642dd12",
+    "it": "Maestria della Lama · attacco base e Parata",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "1d52358cf0efe6c83f64",
+    "it": "Categoria da scegliere",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "e3d02dfb2cf09b628cfc",
+    "it": "Nessuna descrizione registrata.",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "02b4eab46f86935bd9fa",
+    "it": "Dettaglio",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "d4ac5f9136e642e982a4",
+    "it": "Note · da rivedere",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "a12d5826a13285fd5e87",
+    "it": "Nessuna Tecnica collegata.",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "0333317adf24fedde6aa",
+    "it": "Modifica arma",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "caa8b31b1bd81ee31203",
+    "it": "Soglie P.A.",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "92ba655a14fcf8e2ebc3",
+    "it": "Rotta di crescita",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "894fed2440f1519cb0bc",
+    "it": "Dossier personale",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "61a017f2e9d799b687be",
+    "it": "Identità del pirata",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "a3385c682ba8ecc36348",
+    "it": "Banco d’arsenale",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "8b4c8b54caa35fc49d4c",
+    "it": "Progetti del Corpo Meccanico",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "752d5e98277bf7b837d9",
+    "it": "Competenze del pirata",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "47713c6df49c8d5aab82",
+    "it": "Aggiungi una Skill",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "7ce54f361046dadf1a4e",
+    "it": "Volontà e potere",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "3599d06ffb92be60e0d6",
+    "it": "Potere del mare",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "2f207b81a52e81922335",
+    "it": "Arsenale del musicista",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "b4ab32ff35a17466bca8",
+    "it": "Equipaggiamento personale",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "0049e1fa755b9ad1df4e",
+    "it": "Registro del pirata",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "60cea18eb561d9eb944d",
+    "it": "Stampa, esporta, importa",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "73f5cf84c6a5740119ee",
+    "it": "details[data-ds-disclosure][open]",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "e4cd1c1ddced5cefe673",
+    "it": "Grand Line Chronicles · Dossier",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "d1e983e4004199555df3",
+    "it": "details[data-ds-disclosure]",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "7788e12826d219d5eac6",
+    "it": "button,input,select,textarea,.classopt,.catcard,.invtile,.medal.click,.gcard.click",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "51bbddf598e2b4f54ba1",
+    "it": "button,input,select,textarea",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "7a951315a4882878baf9",
+    "it": ":scope > .fld",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "8c3b4c6a604f7647c2d3",
+    "it": "input,select,textarea",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "9e00db9a7895bff95e18",
+    "it": ".addrow button",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "7f10e41caeb7353cc101",
+    "it": "button,input,select,textarea,summary,[tabindex=\"0\"]",
+    "kind": "text",
+    "context": "gestisci-pirata/dossiers.js"
+  },
+  {
+    "id": "d37dac5396196afb2f57",
+    "it": "cvw-edge cvw-edge-",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "a07d3b73f64c3c8a445a",
+    "it": "cvw-face cvw-front",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "fe005b331257cc6f7d13",
+    "it": "Special Move",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "788bc315a638d5a6ef33",
+    "it": "Tecnica non collegata",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "dd8997067a91719e0262",
+    "it": "cvw-face cvw-back",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "ebbd0d5ebbfe3a11616f",
+    "it": "ST / turno",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "a4291ee824dae67ad6b1",
+    "it": "PIP / turno",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "1db04deb8a84543431a8",
+    "it": "Tiri",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "52c3d2c058668beff588",
+    "it": "Effetti e condizioni",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "38cd333a1716290478a8",
+    "it": "Questa carta non ha ancora effetti da mostrare.",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "39f5c89aac4356c144b5",
+    "it": "daDecidere",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "614ba99921a3b627416f",
+    "it": "Chiudi ✕",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "16b580e5d59935599b24",
+    "it": "cvw-btn cvw-primary",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "b9ef93d62b0ce5c07166",
+    "it": "Gira la carta ↻",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "41f36d06ed7c0abc5c6b",
+    "it": "Scarica fronte e retro",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "e30ca2a35650f586f550",
+    "it": "Preparo le immagini…",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "d5b43f81100a86e96ea8",
+    "it": "Scaricate ✓",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "d30d221667577f6ce8f9",
+    "it": "Non riuscito",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "9e132cb0a3ece12d2199",
+    "it": "(pointer: coarse)",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "4c025e9164eb8db03556",
+    "it": "Inclina col telefono",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "b3abba2d7e797125a686",
+    "it": "Permesso negato",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "0d996451ddf3f8835ec0",
+    "it": "Ferma l’inclinazione",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "f14e91bbfe339e895c74",
+    "it": "Inclinazione non disponibile",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "7878e534d7feba23e31b",
+    "it": "Trascina per inclinarla · tocca la carta o premi Spazio per girarla · Esc per chiudere",
+    "kind": "text",
+    "context": "gestisci-pirata/card-view.js"
+  },
+  {
+    "id": "9aaa09899d78969b528d",
+    "it": "Dai un nome all’arma e scegli il suo Tipo.",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "951aac8bf80500069273",
+    "it": "Definisci il Grado dell’arma e la sua eventuale modalità.",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "da94d795a44e1c7271a8",
+    "it": "Scegli l’Attributo associato all’arma.",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "af7e0bcb1f9256ac1562",
+    "it": "Registra la portata concordata al tavolo.",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "a373f7c5bd4746fabf40",
+    "it": "Associa un solo effetto speciale, con le sue condizioni.",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "3e14dff703ad01eacd06",
+    "it": "Rileggi l’arma e annota l’approvazione del GM.",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "a2c088bcf6a8f69b1fda",
+    "it": "Prima il dispositivo: nome, funzione fisica e ruoli.",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "315745c2622a3e3a4244",
+    "it": "Definisci la Fascia Tecnologica e l’eventuale Grado d’Arma, entro la Fascia.",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "be8e8ccad8e3b8690855",
+    "it": "Registra ciò che il modulo concede e le sue condizioni.",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "38b589178d6dd99e4525",
+    "it": "Configura una risorsa separata, soltanto se il dispositivo la usa.",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "b5c7332de27864646211",
+    "it": "Indica lo stato del dispositivo e gli accordi per ripararlo.",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "e8f831048d5d0e46ed5b",
+    "it": "Rileggi il progetto e accedi alla sua scheda operativa.",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "205c8946cee777db8668",
+    "it": "Tipo da definire",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "7c33e781ca31851ca8bc",
+    "it": "GM · Approvata",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "32552a8d93210995221e",
+    "it": "Scheda arma",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "6f25a81bcd71ecf6a444",
+    "it": "· limite",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "8f6ba084847cdc071124",
+    "it": "· Funzionale",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "7ef1c68fd924d0c37a8b",
+    "it": "bl-step eq-substep",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "c467c5ea4f8df501834e",
+    "it": "· In corso",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "6f5db81f83cdfc05e3c8",
+    "it": "<path class=\"eq-ray",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "8f798968500b9316f6a4",
+    "it": ".bl-plate .n",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "f70ba1f4bcc764ac3e88",
+    "it": "Chiudi il riepilogo",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "6a50f5e36b65e2ef813b",
+    "it": "Progetto meccanico",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "2af8096e203a0f63c81e",
+    "it": "Officina del Corpo Meccanico",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "163d15077a06f1bc4d4e",
+    "it": "viewBox",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "44663d28787c0c0d696a",
+    "it": "preserveAspectRatio",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "3c2d507ca8c1e11959bf",
+    "it": "Modifica effetto",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "695bfd55cd9d1039e833",
+    "it": "Ruoli del modulo",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "d969d1fe3154548ffd55",
+    "it": "Progetto personale",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "17418bf16fd0a12a317c",
+    "it": ".smb-chips[aria-label=\"Attributo\"]",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "a8155af1057a5bd24207",
+    "it": "Una categoria",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "42bb6341566e8543e8b9",
+    "it": "input,textarea,select",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "e126f10b9901eefe39d7",
+    "it": ".fld,.lab",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "5fbf89500f1e12b27404",
+    "it": "· limite di Fascia",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "a75b700ffaf9c63611c0",
+    "it": "Modifica il progetto",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "1789715c9a348359b2c8",
+    "it": "[data-eq-focus]",
+    "kind": "text",
+    "context": "gestisci-pirata/equipment-builder.js"
+  },
+  {
+    "id": "bc24cd57368f63f73fd6",
+    "it": "Poteri",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ab4557cc9a8e31ee9f88",
+    "it": "Ricetta",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e49ce2b7336b8eb12d29",
+    "it": "Raffica — Base|Raffica — Migliorato|Raffica — Maestria",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "d1d3870ea787df503a3c",
+    "it": "Slancio|Guardia Rotta",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "dce04bbc510c957e9608",
+    "it": "Colpo Pesante — Base|Colpo Pesante — Migliorato|Colpo Pesante — Maestria",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "dfe25fb99b691b16f568",
+    "it": "Piedi Piantati|Baricentro Assoluto",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f13780bc4a08b95b394d",
+    "it": "Onda d’Urto|Onda d'Urto|Rompiguardia",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "924b345a9ef6c1e94d7c",
+    "it": "Taglio Netto|Fendente d’Aria|Fendente d'Aria|Affilatura|Sguainata Fulminea",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "00970ee912dc27373d51",
+    "it": "Più Spade — Migliorato|Più Spade — Maestria",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "3d0b2746b501430fe96a",
+    "it": "twoBlades",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c85acc432962916e4dd2",
+    "it": "Tiro Lungo — Base|Tiro Lungo — Migliorato|Tiro Lungo — Maestria|Occhio Fermo|Occhio del Falco",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ecbe20a76d12fcc4894d",
+    "it": "Appostamento|Colpo Mirato|Colpo Impossibile|Respiro Trattenuto|Colpo Anticipato|Tiro di Copertura|Ricarica Rapida|Tiro dall'Ombra",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b204fb2c6feb491acf13",
+    "it": "Tossine Raffinate — Base|Tossine Raffinate — Migliorato|Tossine Raffinate — Maestria",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "105e81dc15722704272f",
+    "it": "Musica Incrollabile|Contrappunto — Base|Contrappunto — Migliorato|Contrappunto — Maestria|Fiato Lungo|Requiem|Il Canto che Resta|Coro della Ciurma",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9cfbefc465fe9c2e276d",
+    "it": "reactiveEvent",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5bad6b20cc562956f5e8",
+    "it": "Potere Versatile|Dono Passivo|Seconda Natura",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6d6d4ddb10b65181715a",
+    "it": "Doppio Uso|Potere Istintivo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "0b31d2f7d88751cae057",
+    "it": "freeMain",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "006a8cf6423f42be4806",
+    "it": "Ciò che Resta|Nessuno dei Miei|Portata Naturale|Senza Contraccolpo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8aa6271d25f657141a5c",
+    "it": "Sentire l’Elemento|Sentire l'Elemento|Corpo Diffuso",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "749c3bdbbde5e00c43da",
+    "it": "Sempre in Forma|Assorbire|Chi Ti Tocca",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9086b7822871269ad36e",
+    "it": "Elemento Onnipresente|Dominio dell’Elemento|Dominio dell'Elemento|Fonte Inesauribile",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1cbe119e5cb0fb5a388b",
+    "it": "Artigli e Zanne|Stazza|Ferocia Crescente",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "57a8f3c3edd497e29406",
+    "it": "Retaggio Ancestrale|Retaggio Mitologico|Retaggio Ancestrale / Mitologico|Zoan Mitologico / Ancestrale",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "d02f35ebf060d2bb2998",
+    "it": "Istinto di Sopravvivenza|Trasformazione Istintiva",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "10247ce0e92dac0e58c2",
+    "it": "Il personaggio attivo è cambiato. Riapri la carta sul suo proprietario.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8ca6060ccec2e0444006",
+    "it": "Beneficio incorporato —",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "839ac453f78bb1df36be",
+    "it": "Prestigio ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f747479b27fbae28e6e2",
+    "it": "uniqueTrait",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "e018ed1556ee4e65d75c",
+    "it": "Tipo: Passivo · Requisiti:",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5563d46aa53112469f4c",
+    "it": "Si applica soltanto quando ricorrono le condizioni della regola; verifica il contesto al tavolo. Non modifica automaticamente il tiro o il costo della Tecnica.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "24bb4c47724e7c031629",
+    "it": "Tratto Unico ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6e9c585519cbeb2c59b2",
+    "it": "Progetto corrente della Forma · valori concordati con il GM",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1b892440e95ffe048136",
+    "it": "naturalWeapon",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "46eade2656c1093e6a7b",
+    "it": "Fuori Arsenale; richiede Artigli e Zanne. Non concede Stili o loro Talenti.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1e683f5755bf0bde15d6",
+    "it": "Strumento d4 sempre disponibile.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5776ff5296a60db5f629",
+    "it": "Voce · d4",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "11d94d6d1bc6df6d425f",
+    "it": "Modulo senza nome",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a39bef7ad6233f63675e",
+    "it": "Attivo · operativo",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "7e351017a0267cce355e",
+    "it": "Skill di Ruolo corrente:",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ddac5b5a3f789ef2f9e0",
+    "it": ". Quattro tiri con",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6915e57894ddb49e79a2",
+    "it": ", tutti con Vantaggio; il Dado Danno usa lo stesso pool",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "34ed44b8872a9125117f",
+    "it": "successfulDefense",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "67a34b8a1198c89a988a",
+    "it": "Cura",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1dc3e203d1cc3d880143",
+    "it": "Il Colpo Sfonda si attiva su",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2310c371d7aaf2818075",
+    "it": "un attacco base a mani nude",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c660cd68046ae3f7025f",
+    "it": "questa Tecnica offensiva Striker",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "37683a9769c3f9b51e06",
+    "it": "con colpo pulito di margine +4, al massimo una volta per turno fra tutti i colpi, e scegli lo Stato previsto per 1 turno",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8f9ec91a493010878cdc",
+    "it": "· attacco base",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "de54f8c62b1b1d923648",
+    "it": "Smash Hit ottiene almeno tre colpi riusciti nella sua unica combinazione; i singoli colpi non attivano Pressione Costante, Guardia Rotta o Il Colpo Sfonda",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "17b7be84c33ff59b2b63",
+    "it": "Attributo scelto + (",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b49ab1c0f2874c46ddc4",
+    "it": "Nessun danno",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "bd8bf857627c5bdee8f0",
+    "it": "altre Tecniche",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8f13d04ed8a73a99e3d2",
+    "it": "altri Talenti",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "1726cf8d4bb4ee5b555f",
+    "it": "Firma dello Stile",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "aa838d9ba6cc62a68b38",
+    "it": "effetti dell’arma",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "3919d05bf2d7995dbdbd",
+    "it": "il Talento lancia una creatura già Trattenuta, rispettando le condizioni della Proiezione; vale anche per il secondo nemico colpito nella collisione",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "66346960ad6500eccd97",
+    "it": "Colpo Pesante Maestria applica Sbilanciato dopo un colpo riuscito",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "753696fcf107cf5e084e",
+    "it": "Punti di Pressione si applica con un colpo riuscito in mischia a una creatura vivente, una volta per scontro",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "54ae56f63895943573ab",
+    "it": "Colpo di Grazia colpisce una creatura già Avvelenata e il colpo la porta sotto metà PV; questa Salvezza è distinta da quella della dose",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "aee53dd3c203e1b75ca9",
+    "it": "Stazza travolge una creatura di Stazza inferiore muovendoti attraverso di lei in Forma Bestiale",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "58f7fd2780e402864d90",
+    "it": "l’Onda d’Urto di Cataclisma colpisce il bersaglio, secondo la procedura propria della Ultimate",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c74434f4bbad99321fda",
+    "it": "Scegli una Tecnica esistente.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "171c440d4a129cecb1f3",
+    "it": "Questa Tecnica Razziale appartiene a una Razza storica rimossa dal regolamento corrente. I dati e i riferimenti della carta sono conservati, ma la capacità non è disponibile per l’esecuzione.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "886bea6e9b9e2afbb14d",
+    "it": "Questa Tecnica storica richiede la conversione nel Costruttore: scegli Fonte, Stile, Forma e profilo degli effetti. La descrizione libera e un costo registrato non sostituiscono la validazione delle regole.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "13f623067f421ae14a61",
+    "it": "Le Tecniche personalizzate non possono superare d20. Correggi il Grado della Tecnica salvata.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "abfad544a8b485f851ae",
+    "it": "Manca l’Attributo della Tecnica salvata.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "97fae26946f2c2ee8a63",
+    "it": "Il Grado della Tecnica salvata supera il suo Attributo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "04779a03249d1cd06cd9",
+    "it": "La Tecnica non rispetta più il valore di",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "43005c58a03cd48d40f2",
+    "it": "nella scheda.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "238dbc31ab1dee9b2c37",
+    "it": "Lo Stile della Tecnica non è più disponibile.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "7a691dba200439894123",
+    "it": "Uno o più effetti della Tecnica non sono più compatibili con dado, forma o Stile.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "eb5b71ccadf1240fca24",
+    "it": "Manca il dado dell’Attributo della Tecnica.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "8855ef6949dfb97b4bcf",
+    "it": "La Tecnica appartiene a un altro Frutto.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "fbf2060fc8280ec96c4c",
+    "it": ": questo effetto non può essere conservato da un turno precedente (",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "5691b086c40254c2b5e3",
+    "it": "Armatura Totale va preparata nel proprio turno con 1 Bonus e 1 PIP: seleziona l’effetto già preparato prima della difesa.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "87ea390543d883a01c2f",
+    "it": "Sintonia dei Colori ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9528c186562291a8f2e4",
+    "it": "attivazioni (1 PIP ciascuna)",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "34475231d45fab5c8f28",
+    "it": "Una sola Azione Bonus per turno:",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "7dfba523df4909dde81a",
+    "it": ". Scegli un solo effetto attivo; l’Haki e gli effetti persistenti necessari vanno preparati nei turni precedenti.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f5cff985934f45e23f31",
+    "it": "Una sola Reazione disponibile:",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c0b7c7267e966f1d9aa8",
+    "it": ". La ricetta non concede Reazioni aggiuntive.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c01cc127096e448d3f2f",
+    "it": "Una sola Azione principale:",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "526ebb0ab2d2274356eb",
+    "it": ". Le preparazioni vanno eseguite nel turno previsto dalla loro regola.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "78ba56f16e2a7776c9db",
+    "it": "maintenanceST",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "871bdb0ef0cd206e27c5",
+    "it": "maintenancePIP",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "6d553acd9874ea5b51e7",
+    "it": "discountST",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "776555ed50cd5f017a22",
+    "it": "minimumST",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "00d3c1a37fbf6405a97e",
+    "it": "Economia del turno:",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "b8bcf2accea966fa5fb1",
+    "it": "Azione normale +",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "c021d0def3e5aeeca57e",
+    "it": "/1 Reazione +",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "18e506d85a0f02a08bb3",
+    "it": "/1 Azione Bonus",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "18f938b8077cea768374",
+    "it": "(Bonus libera)",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2d55f48e3d6d7c571611",
+    "it": ". I passivi e il mantenimento Haki non occupano la Bonus.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "9b3e6cc135037dc138a0",
+    "it": "Catalogo dei Tratti Unici non disponibile. Aggiorna la pagina prima di utilizzare questa carta.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "687c95e38c793b8323dd",
+    "it": "Tratto Unico non più presente nel catalogo ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "ef3178266a3fb42cd952",
+    "it": ": non più acquisito. La carta conserva il riferimento finché non lo correggi.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "cde1b81fc86ba971f891",
+    "it": ": inattivo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "48dcfbb0ea6798b4014f",
+    "it": "Fonte non più presente ·",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "a44ea97be089ca1550c1",
+    "it": "La Difesa Attiva con una Tecnica richiede una Tecnica d’attacco compatibile.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "3dfdacddc1863f1be0bf",
+    "it": "La Parata con arma richiede una Tecnica di contesto Swordsman o Crusher e un’arma da mischia compatibile.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "f8ab7ccbeeeeb0d6b2a6",
+    "it": "Parata: collega l’arma compatibile effettivamente impugnata.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "dee6df687c0ffa39b270",
+    "it": "Lo strumento musicale si collega soltanto a una Canzone.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "2502e69fd79d49006a91",
+    "it": "La carta contiene più di un Talento attivo.",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  },
+  {
+    "id": "7e0edbd90a4a70c34fda",
+    "it": ": evoluto in",
+    "kind": "text",
+    "context": "gestisci-pirata/special-moves.js"
+  }
+]

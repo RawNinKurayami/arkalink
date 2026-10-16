@@ -1,0 +1,2102 @@
+[
+  {
+    "id": "be98caa42d7486fa00b5",
+    "it": "Se lo stesso macchinario riceve già una seconda attivazione dalla Firma Gira che è un Piacere o da un’altra capacità, non ottiene una terza attivazione.",
+    "kind": "html"
+  },
+  {
+    "id": "e9a6a842647d3daf923a",
+    "it": "Carne e Metallo",
+    "kind": "html"
+  },
+  {
+    "id": "859a4d85d06e3c0d3167",
+    "it": "Quando effettui una Riparazione di Campo su un Cyborg, aggiungi +1 Dado Meccanica ai PV recuperati.",
+    "kind": "html"
+  },
+  {
+    "id": "29c9657cea7d17b167f4",
+    "it": "Se il bersaglio possiede anche un Modulo Danneggiato, durante lo stesso intervento puoi riportare operativo un Modulo, purché siano disponibili i materiali necessari alla sua riparazione.",
+    "kind": "html"
+  },
+  {
+    "id": "9ad37c5d8e1b9eef9674",
+    "it": "Carne e Metallo non elimina eventuali requisiti speciali del Modulo e non permette di ricostruire gratuitamente componenti unici o distrutti.",
+    "kind": "html"
+  },
+  {
+    "id": "c4fe9358a4d87fd1e46b",
+    "it": "Trappola Meccanica",
+    "kind": "html"
+  },
+  {
+    "id": "8359e4aa56dbabf2adf2",
+    "it": "Preparazione · 5 minuti",
+    "kind": "html"
+  },
+  {
+    "id": "facc4baa6a97f4c6dd9b",
+    "it": "Utilizzando strumenti e materiali appropriati, puoi installare una trappola in un punto, un passaggio oppure su un oggetto.",
+    "kind": "html"
+  },
+  {
+    "id": "0a4b6f1d21f995b81d05",
+    "it": "Puoi mantenere al massimo due trappole innescate contemporaneamente.",
+    "kind": "html"
+  },
+  {
+    "id": "7dacbd7653d54487eb03",
+    "it": "<b>Individuarla.</b> Un personaggio che cerca attivamente la trappola effettua Astuzia + Osservazione contro Soglia 10.",
+    "kind": "html"
+  },
+  {
+    "id": "3dc3fdfa109ee4e7ff74",
+    "it": "<b>Disinnescarla.</b> Richiede un’Azione e Astuzia + Meccanica contro Soglia 10.",
+    "kind": "html"
+  },
+  {
+    "id": "277e81e532b0b23a8c7d",
+    "it": "Attivazione. Il primo nemico che soddisfa il trigger della trappola effettua una Salvezza di Tecnica contro la Soglia determinata dal Grado di Meccanica del creatore al momento della preparazione (§1.4). Se riesce, evita l’effetto; se fallisce, diventa Sbilanciato e Trattenuto.",
+    "kind": "html"
+  },
+  {
+    "id": "ce4f574069cb371f2cab",
+    "it": "Liberarsi. Il bersaglio Trattenuto può spendere un’Azione ed effettuare una Salvezza di Forza oppure Tecnica contro la stessa Soglia della trappola. In caso di successo si libera. Questa procedura specifica prevale sulla normale contesa di Trattenuto.",
+    "kind": "html"
+  },
+  {
+    "id": "ad7a813738e0051b4bed",
+    "it": "La trappola conserva la Soglia determinata al momento della preparazione; un successivo aumento di Meccanica non modifica retroattivamente le trappole già preparate.",
+    "kind": "html"
+  },
+  {
+    "id": "1205fa0982f03e3fefe1",
+    "it": "Una trappola scattata deve essere nuovamente preparata prima di poter funzionare ancora.",
+    "kind": "html"
+  },
+  {
+    "id": "a80834f9c8702dc8ddae",
+    "it": "Sabotaggio Profondo",
+    "kind": "html"
+  },
+  {
+    "id": "fe637c5d7517034c3684",
+    "it": "Prerequisito: Sabotaggio",
+    "kind": "html"
+  },
+  {
+    "id": "25b10b4ba7ee62329de4",
+    "it": "Quando raggiungi fisicamente un Modulo, un punto di comando oppure un collegamento essenziale della nave nemica, puoi tentare di metterlo completamente fuori uso.",
+    "kind": "html"
+  },
+  {
+    "id": "522918e1105a36f39b1a",
+    "it": "Effettua Astuzia + Meccanica contro la Soglia prevista dal sistema; se non ne possiede una, utilizza Soglia 12.",
+    "kind": "html"
+  },
+  {
+    "id": "38929957e32e74230589",
+    "it": "In caso di successo, il Modulo rimane inutilizzabile per il resto della battaglia.",
+    "kind": "html"
+  },
+  {
+    "id": "fd80c4c3e68eca984106",
+    "it": "Il Modulo non viene considerato Distrutto: viene profondamente sabotato.",
+    "kind": "html"
+  },
+  {
+    "id": "1523a3c0bab5d238af4c",
+    "it": "Pronto Intervento non è sufficiente a rimetterlo in funzione durante quella battaglia.",
+    "kind": "html"
+  },
+  {
+    "id": "81b2ecf8baa661d9f839",
+    "it": "Una capacità che dichiari espressamente di poter contrastare un sabotaggio profondo può costituire un’eccezione.",
+    "kind": "html"
+  },
+  {
+    "id": "a825e221a8d3671d03c7",
+    "it": "Ingranaggi e Serrature",
+    "kind": "html"
+  },
+  {
+    "id": "829fe0aefa1d01f7f693",
+    "it": "Passivo · Fuori dal combattimento",
+    "kind": "html"
+  },
+  {
+    "id": "9e19043fb90ac569e0a1",
+    "it": "Con strumenti adeguati, tempo e la possibilità di lavorare senza essere interrotto puoi aprire normali meccanismi pur non possedendone la chiave.",
+    "kind": "html"
+  },
+  {
+    "id": "1a3eb41693f51d1551dd",
+    "it": "Comprende:",
+    "kind": "html"
+  },
+  {
+    "id": "e7c140a66300cc47224a",
+    "it": "Lucchetti.",
+    "kind": "html"
+  },
+  {
+    "id": "0aa09812b0874ddfd5fc",
+    "it": "Manette.",
+    "kind": "html"
+  },
+  {
+    "id": "89cd2790a67114ad47b1",
+    "it": "Casseforti.",
+    "kind": "html"
+  },
+  {
+    "id": "9e3eea56b1516aeeb1b6",
+    "it": "Portelli.",
+    "kind": "html"
+  },
+  {
+    "id": "6e898fe794c08f41b5e0",
+    "it": "Serrature e meccanismi a ingranaggi.",
+    "kind": "html"
+  },
+  {
+    "id": "80d829d080f1ed7b7631",
+    "it": "Un normale meccanismo richiede fino a 10 minuti di lavoro e non necessita di Prova.",
+    "kind": "html"
+  },
+  {
+    "id": "37a0a7eda8346acf0efb",
+    "it": "Meccanismi eccezionali, unici, danneggiati oppure costruiti specificamente per resistere alla manomissione possono richiedere Astuzia + Meccanica contro la propria Soglia.",
+    "kind": "html"
+  },
+  {
+    "id": "cdca66cbeb6ded9c3af5",
+    "it": "Il Talento riguarda sistemi realmente meccanici: non supera automaticamente sigilli, poteri, materiali impossibili da lavorare o sistemi appartenenti a una tecnologia completamente differente.",
+    "kind": "html"
+  },
+  {
+    "id": "d7a8857dea451e966f27",
+    "it": "Se il meccanismo contiene una trappola, la individui prima di attivarla.",
+    "kind": "html"
+  },
+  {
+    "id": "0b289d3112767b334a79",
+    "it": "Individuarla non significa disinnescarla automaticamente.",
+    "kind": "html"
+  },
+  {
+    "id": "1da505e264507fc20c7c",
+    "it": "Talento Supremo d20 · Tutto a Pieno Carico",
+    "kind": "html"
+  },
+  {
+    "id": "301530e68c7ce2ede3b9",
+    "it": "Tutto a Pieno Carico",
+    "kind": "html"
+  },
+  {
+    "id": "ebc35b14bf3edbb8a10a",
+    "it": "Frequenza: 1 volta per battaglia navale",
+    "kind": "html"
+  },
+  {
+    "id": "02d264783197c6afe769",
+    "it": "Per un round spingi tutti i sistemi della nave oltre i normali limiti operativi.",
+    "kind": "html"
+  },
+  {
+    "id": "55c17a1a96ac9244db76",
+    "it": "Durante quel round:",
+    "kind": "html"
+  },
+  {
+    "id": "f9d17a95e2d038d8f48d",
+    "it": "Ogni cannone e macchinario che viene effettivamente utilizzato può effettuare due attivazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "44fc207fda5bce316a29",
+    "it": "I normali costi di munizioni, carburante ed energia vengono pagati per ogni attivazione.",
+    "kind": "html"
+  },
+  {
+    "id": "07da08fa89a7f1fdda64",
+    "it": "I Moduli Danneggiati possono funzionare temporaneamente come se fossero integri.",
+    "kind": "html"
+  },
+  {
+    "id": "46d3d282cb77c732f46a",
+    "it": "Le seconde attivazioni non si sommano a Firma, Regolazione Fine · Maestria o altri effetti analoghi.",
+    "kind": "html"
+  },
+  {
+    "id": "d93bb3c597d42e439245",
+    "it": "Al termine del round il sovraccarico produce obbligatoriamente un cedimento.",
+    "kind": "html"
+  },
+  {
+    "id": "1a440c4fba8618e7b986",
+    "it": "Il Game Master sceglie un sistema che abbia realmente beneficiato dell’Ultimate:",
+    "kind": "html"
+  },
+  {
+    "id": "c8447ded32c604ae15b3",
+    "it": "Un normale macchinario operativo diventa Guasto.",
+    "kind": "html"
+  },
+  {
+    "id": "9b0408980c9cd45f7863",
+    "it": "Un Modulo Integro diventa Danneggiato.",
+    "kind": "html"
+  },
+  {
+    "id": "e440dc405989634367da",
+    "it": "Un Modulo già Danneggiato che è stato costretto a funzionare può diventare Distrutto.",
+    "kind": "html"
+  },
+  {
+    "id": "9c8662aa639f485e3077",
+    "it": "Il cedimento non può essere assegnato arbitrariamente a un sistema che non è stato utilizzato durante il sovraccarico e non distrugge automaticamente l’intera nave.",
+    "kind": "html"
+  },
+  {
+    "id": "53802525b6a58086aa36",
+    "it": "La riparazione successiva segue le normali regole del componente interessato.",
+    "kind": "html"
+  },
+  {
+    "id": "090ab6e1a4cfad4fe617",
+    "it": "<span class=\"man-sez-n\">4.10 ·</span> Archeologo",
+    "kind": "html"
+  },
+  {
+    "id": "fe09553260b5706b27c8",
+    "it": "La Grand Line custodisce rovine, civiltà scomparse, iscrizioni dimenticate e segreti che molti preferirebbero lasciare sepolti.",
+    "kind": "html"
+  },
+  {
+    "id": "8b3f66a9e23857e357ed",
+    "it": "L’Archeologo è lo specialista capace di ricostruire la storia attraverso ciò che resta del passato. Sa interpretare antichi documenti, individuare meccanismi nascosti e riconoscere il significato di reperti apparentemente insignificanti.",
+    "kind": "html"
+  },
+  {
+    "id": "0a9277bd091eca014ff4",
+    "it": "La sua conoscenza può aprire un passaggio dimenticato, rivelare una debolezza nemica o condurre la ciurma verso una scoperta che cambia il corso dell’avventura.",
+    "kind": "html"
+  },
+  {
+    "id": "aed0dceb0e27a1506de3",
+    "it": "Archeologo",
+    "kind": "html"
+  },
+  {
+    "id": "0f58926133fd72519a63",
+    "it": "Archeologia",
+    "kind": "html"
+  },
+  {
+    "id": "13dd1843457775b30e79",
+    "it": "La Memoria della Ciurma",
+    "kind": "html"
+  },
+  {
+    "id": "4ca4f8f818978d7c083c",
+    "it": "L’Archeologo utilizza Archeologia come Skill di riferimento per accedere ai propri Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "9ca3d33813f00e8054ce",
+    "it": "Tratto · La Memoria della Ciurma",
+    "kind": "html"
+  },
+  {
+    "id": "ff8acc8c7ee4251aca48",
+    "it": "L’Archeologo interpreta le tracce lasciate dalle civiltà del passato. Dove gli altri vedono soltanto pietre e rovine, può riconoscere iscrizioni, testimonianze e indicazioni utili alla ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "51ccb083b34a677f4f9a",
+    "it": "Il Tratto definisce la sua specializzazione nella ricerca storica. I benefici meccanici specifici vengono concessi dai Talenti acquisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "a6a1c47f5d30145f2c5b",
+    "it": "Quando ottieni un tiro di Archeologia riuscito con margine +4, puoi ottenere un risultato superiore a quello normalmente previsto dalla prova.",
+    "kind": "html"
+  },
+  {
+    "id": "e220915e46fc4c1ae185",
+    "it": "A seconda dell’attività svolta:",
+    "kind": "html"
+  },
+  {
+    "id": "b2676b60298f02c0b5b7",
+    "it": "Traduzione: comprendi interamente il testo e individui anche un dettaglio nascosto.",
+    "kind": "html"
+  },
+  {
+    "id": "a95e2da49fb8c0ea3d05",
+    "it": "Esplorazione: riconosci una trappola prima che venga attivata.",
+    "kind": "html"
+  },
+  {
+    "id": "8497a59f1e8d9644e4a9",
+    "it": "La Firma non conferisce automaticamente entrambe le informazioni: si applica all’attività che ha prodotto il risultato.",
+    "kind": "html"
+  },
+  {
+    "id": "251cdec3a1892ed8bf05",
+    "it": "Esame Archeologico",
+    "kind": "html"
+  },
+  {
+    "id": "32c056d2796d471199c2",
+    "it": "Quando un Archeologo studia un luogo, un reperto, un’iscrizione o una testimonianza materiale, deve esistere qualcosa da cui ricavare l’informazione:",
+    "kind": "html"
+  },
+  {
+    "id": "00bd0e5e48020c6a5c38",
+    "it": "Architettura.",
+    "kind": "html"
+  },
+  {
+    "id": "30e755d06fdf6632f00d",
+    "it": "Simboli.",
+    "kind": "html"
+  },
+  {
+    "id": "0694ddeb26b554d50db8",
+    "it": "Tracce di utilizzo.",
+    "kind": "html"
+  },
+  {
+    "id": "e3f04e7daf31e18cb034",
+    "it": "Iscrizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "992bd29fbed3db6031ed",
+    "it": "Danni.",
+    "kind": "html"
+  },
+  {
+    "id": "ec57082bdc3ef6c0aa3c",
+    "it": "Oggetti.",
+    "kind": "html"
+  },
+  {
+    "id": "3c61ca1bd804156ea179",
+    "it": "Testimonianze già conosciute.",
+    "kind": "html"
+  },
+  {
+    "id": "16618812765b0c12b455",
+    "it": "Un normale esame richiede circa 5 minuti.",
+    "kind": "html"
+  },
+  {
+    "id": "ec0abb3adaefe1a97363",
+    "it": "Se l’informazione è incerta o nascosta, il Game Master richiede una Prova di Astuzia + Archeologia contro una Soglia appropriata.",
+    "kind": "html"
+  },
+  {
+    "id": "1a84ce32851eb1c6ccba",
+    "it": "In caso di successo, il giocatore può formulare una domanda concreta sul soggetto esaminato e il Game Master fornisce un’informazione vera e utilizzabile derivabile dalle tracce presenti.",
+    "kind": "html"
+  },
+  {
+    "id": "12094176f417d61891a2",
+    "it": "Un fallimento non fornisce informazioni false: significa che le tracce disponibili non sono state interpretate correttamente o non sono sufficienti per ottenere quella risposta.",
+    "kind": "html"
+  },
+  {
+    "id": "42b8f2bb469250b75848",
+    "it": "Una singola Prova non rende l’Archeologo onnisciente e non rivela informazioni che non abbiano lasciato alcuna traccia.",
+    "kind": "html"
+  },
+  {
+    "id": "e4646f9d865192ef046d",
+    "it": "Tempi di traduzione e studio",
+    "kind": "html"
+  },
+  {
+    "id": "6540983791ea9a395a60",
+    "it": "Il tempo necessario dipende dalla quantità e dalla complessità del materiale.",
+    "kind": "html"
+  },
+  {
+    "id": "115cd4d7bba09c7784a9",
+    "it": "<b>Materiale</b>",
+    "kind": "html"
+  },
+  {
+    "id": "7a68668320c821bc3d21",
+    "it": "<b>Tempo ordinario</b>",
+    "kind": "html"
+  },
+  {
+    "id": "e69b4c6595abd1ebd376",
+    "it": "Simbolo, frase o breve iscrizione",
+    "kind": "html"
+  },
+  {
+    "id": "8b088e56d5c18c51d1ac",
+    "it": "10 minuti",
+    "kind": "html"
+  },
+  {
+    "id": "d67b0f0a4c5ed8afa0c5",
+    "it": "Tavola, stele o testo medio",
+    "kind": "html"
+  },
+  {
+    "id": "1571c1392174d51eabf9",
+    "it": "1 ora",
+    "kind": "html"
+  },
+  {
+    "id": "62e5b0424780610bd20d",
+    "it": "Grande iscrizione, codice complesso o Poneglyph",
+    "kind": "html"
+  },
+  {
+    "id": "4b53dc56df310260421e",
+    "it": "4 ore",
+    "kind": "html"
+  },
+  {
+    "id": "d7a2b7289c49f4ae4a72",
+    "it": "Archivio o raccolta",
+    "kind": "html"
+  },
+  {
+    "id": "7cdf7a14e06b8bcce9d6",
+    "it": "Una o più sessioni di studio",
+    "kind": "html"
+  },
+  {
+    "id": "5cff483709cd86d926b8",
+    "it": "Questi tempi presuppongono che il testo sia materialmente leggibile.",
+    "kind": "html"
+  },
+  {
+    "id": "80929187636bc636dc0f",
+    "it": "Copie incomplete, parti mancanti o superfici danneggiate possono rendere impossibile una traduzione completa.",
+    "kind": "html"
+  },
+  {
+    "id": "648c9aa16b0574c7c9d8",
+    "it": "<b>Grado di Archeologia</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f8ae95081d01751db7db",
+    "it": "Raggiungere il Grado richiesto permette di acquisire i Talenti corrispondenti attraverso gli Upgrade. Restano validi gli eventuali prerequisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "3cad2166feb36fc0d072",
+    "it": "I Talenti iniziali permettono all’Archeologo di studiare iscrizioni, individuare passaggi nascosti e sfruttare la conformazione delle rovine.",
+    "kind": "html"
+  },
+  {
+    "id": "032cb92ce10105e56e08",
+    "it": "Maestro del Calco",
+    "kind": "html"
+  },
+  {
+    "id": "def6cc69c3fa401f8c97",
+    "it": "Puoi decifrare un’iscrizione anche a bordo della nave, utilizzandone un calco.",
+    "kind": "html"
+  },
+  {
+    "id": "7f983b3a997f994d1986",
+    "it": "Effettui la prova con Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "24e84978d8374e72de0e",
+    "it": "I calchi che realizzi non si consumano durante lo studio e possono essere riutilizzati.",
+    "kind": "html"
+  },
+  {
+    "id": "d1894cf55e085644617d",
+    "it": "Occhio delle Rovine",
+    "kind": "html"
+  },
+  {
+    "id": "dd257e99485d86941a60",
+    "it": "Quando esamini un sito antico, puoi individuare trappole e passaggi nascosti già con un normale Successo.",
+    "kind": "html"
+  },
+  {
+    "id": "0e8fbceaa967b0a4c288",
+    "it": "Non è necessario ottenere il margine +4 previsto dalla Firma.",
+    "kind": "html"
+  },
+  {
+    "id": "8051f80086d2d1218e80",
+    "it": "Scrittura Morta · Base",
+    "kind": "html"
+  },
+  {
+    "id": "57a6cfbc04967c0d3670",
+    "it": "Aggiungi +1 dado a ogni prova dedicata a tradurre, decifrare o leggere iscrizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "ce40d9750f32277fd0f6",
+    "it": "Il beneficio riguarda l’interpretazione dei testi e delle scritture, non qualsiasi prova di Archeologia.",
+    "kind": "html"
+  },
+  {
+    "id": "433e16c2e258e33acfe0",
+    "it": "Terreno Conosciuto",
+    "kind": "html"
+  },
+  {
+    "id": "0e450a2129493a48d8a1",
+    "it": "1 volta per scontro per la copertura",
+    "kind": "html"
+  },
+  {
+    "id": "a56a113c86617ef21f39",
+    "it": "All’interno di una rovina, un tempio o un altro sito antico, ignori le penalità dovute al terreno sconosciuto.",
+    "kind": "html"
+  },
+  {
+    "id": "5fdf79df921d45fa153e",
+    "it": "Inoltre, una volta per scontro, puoi indicare un punto vantaggioso dell’ambiente.",
+    "kind": "html"
+  },
+  {
+    "id": "ab81499065191ec9f32d",
+    "it": "Chi raggiunge quel punto ottiene Copertura.",
+    "kind": "html"
+  },
+  {
+    "id": "62c1520f2625b883ac09",
+    "it": "L’Archeologo approfondisce le proprie conoscenze. Impara a riconoscere reperti, interpretare scritture perdute e ricavare informazioni dalla storia di chi incontra.",
+    "kind": "html"
+  },
+  {
+    "id": "58053636deeb2e0523d3",
+    "it": "Antiquario",
+    "kind": "html"
+  },
+  {
+    "id": "fe085327a2b555daee5a",
+    "it": "Quando identifichi reperti o tenti di riconoscere un falso, ottieni un dado aggiuntivo alla prova.",
+    "kind": "html"
+  },
+  {
+    "id": "c4a0bcc201f955264705",
+    "it": "Se riesci a ricostruire e rivelare la storia di un reperto, ne aumenti anche il valore.",
+    "kind": "html"
+  },
+  {
+    "id": "0ea42e962f6abe51d09c",
+    "it": "Il Talento non stabilisce un incremento monetario fisso: il valore dipende dall’oggetto e dal suo contesto.",
+    "kind": "html"
+  },
+  {
+    "id": "9b7b53e0ab4f7fb17675",
+    "it": "Studioso",
+    "kind": "html"
+  },
+  {
+    "id": "7b8dd1fc375046ed71ab",
+    "it": "Dimezzi il tempo necessario per realizzare trattati, copie commentate e mappe storiche.",
+    "kind": "html"
+  },
+  {
+    "id": "9cb6a46a449da7e08a21",
+    "it": "Una mappa storica completata da te può essere utilizzata dal Navigatore come carta nautica dettagliata e concede normalmente +d8 quando è pertinente.",
+    "kind": "html"
+  },
+  {
+    "id": "f5b2e88a8ed658f307d9",
+    "it": "Scrittura Morta · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "7faa8c16788bb044244a",
+    "it": "Prerequisito: Scrittura Morta · Base",
+    "kind": "html"
+  },
+  {
+    "id": "3be39ece9b6003849f52",
+    "it": "Puoi leggere scritture che nessun altro conosce più.",
+    "kind": "html"
+  },
+  {
+    "id": "99ad029d489e4f50bc0d",
+    "it": "Il Talento comprende alfabeti perduti, codici di civiltà scomparse e iscrizioni normalmente considerate indecifrabili.",
+    "kind": "html"
+  },
+  {
+    "id": "94efef4c2db014435a8c",
+    "it": "Non concede ancora automaticamente la capacità di leggere i Poneglyph, che viene acquisita con Scrittura Morta · Maestria.",
+    "kind": "html"
+  },
+  {
+    "id": "f40fd3c85201229bd9e6",
+    "it": "Insegne e Cicatrici",
+    "kind": "html"
+  },
+  {
+    "id": "e4fbaab50db60378a959",
+    "it": "Riconoscimento",
+    "kind": "html"
+  },
+  {
+    "id": "9c06ecbbf11c2d8b141c",
+    "it": "Esaminando per almeno un momento un individuo, un’arma, uno stemma, un tatuaggio, un’uniforme o altri segni riconoscibili, puoi tentare di ricostruirne una parte della storia.",
+    "kind": "html"
+  },
+  {
+    "id": "576480c798687b9700ff",
+    "it": "Fuori dal combattimento l’esame richiede normalmente circa un minuto.",
+    "kind": "html"
+  },
+  {
+    "id": "a3aa458ff30a68fd4d4d",
+    "it": "Durante uno scontro richiede la tua Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "68556d0f08d7574f6f79",
+    "it": "Effettua Astuzia + Archeologia contro la Soglia stabilita dal Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "962e1ecf010197753fb3",
+    "it": "In caso di successo, ottieni un’informazione vera e utile che possa essere dedotta dai segni osservati.",
+    "kind": "html"
+  },
+  {
+    "id": "1e25f72957211740c8e7",
+    "it": "Il Talento può rivelare, per esempio:",
+    "kind": "html"
+  },
+  {
+    "id": "b208a673c5317979ea1c",
+    "it": "Appartenenza a un’organizzazione.",
+    "kind": "html"
+  },
+  {
+    "id": "afa063ae74302ab2ada0",
+    "it": "Provenienza culturale.",
+    "kind": "html"
+  },
+  {
+    "id": "bce2effcbafd5b523c4a",
+    "it": "Una guerra o battaglia a cui il soggetto sembra aver partecipato.",
+    "kind": "html"
+  },
+  {
+    "id": "6618b6bf4bd6701985d3",
+    "it": "Il significato di un simbolo.",
+    "kind": "html"
+  },
+  {
+    "id": "74f782996310ddb5d681",
+    "it": "La funzione storica di un’arma o di un’uniforme.",
+    "kind": "html"
+  },
+  {
+    "id": "951f225c0508d41db9d5",
+    "it": "Non rivela automaticamente pensieri, capacità segrete o eventi che non abbiano lasciato tracce riconoscibili.",
+    "kind": "html"
+  },
+  {
+    "id": "82d84f1010aaf41039b8",
+    "it": "Il Veterano è capace di interpretare testimonianze eccezionalmente rare, utilizzare i meccanismi delle rovine e preservare le scoperte della ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "ce2c1e9908a0b0c08ef6",
+    "it": "Scrittura Morta · Maestria",
+    "kind": "html"
+  },
+  {
+    "id": "ce27915fa457304a93e9",
+    "it": "Prerequisito: Scrittura Morta · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "a960ba33e029ad7bdf97",
+    "it": "Hai acquisito la capacità di leggere i Poneglyph.",
+    "kind": "html"
+  },
+  {
+    "id": "6e6624cebf26ad04e3e8",
+    "it": "La lettura richiede comunque tempo e impegno: possedere il Talento non significa comprenderne istantaneamente l’intero contenuto.",
+    "kind": "html"
+  },
+  {
+    "id": "0e8151541f94c9b53e1f",
+    "it": "Questa capacità permette alla ciurma di accedere direttamente alle informazioni custodite dalle antiche iscrizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "ee34434e9aa9fe6d40e1",
+    "it": "Un Poneglyph segue normalmente il riferimento di 4 ore di studio per una grande iscrizione.",
+    "kind": "html"
+  },
+  {
+    "id": "84bc4a1ab89d4cb145b0",
+    "it": "Il Talento permette di leggerlo: non garantisce che una superficie danneggiata o incompleta contenga ancora tutte le informazioni originarie.",
+    "kind": "html"
+  },
+  {
+    "id": "a3cfa174ebf923516ad2",
+    "it": "Meccanismi Antichi",
+    "kind": "html"
+  },
+  {
+    "id": "de32778766cf33fd470e",
+    "it": "Sai comprendere e utilizzare i meccanismi costruiti dalle civiltà antiche.",
+    "kind": "html"
+  },
+  {
+    "id": "0833e0dad180d5ab610a",
+    "it": "Quando puoi esaminare un dispositivo integro per almeno 5 minuti, ne comprendi:",
+    "kind": "html"
+  },
+  {
+    "id": "34ac4d8e0d068f7bd1dc",
+    "it": "La funzione generale.",
+    "kind": "html"
+  },
+  {
+    "id": "d55969d5440a346e3925",
+    "it": "Il normale metodo di attivazione.",
+    "kind": "html"
+  },
+  {
+    "id": "a164c76ba9a5ea4f06e9",
+    "it": "Gli eventuali comandi fisicamente accessibili.",
+    "kind": "html"
+  },
+  {
+    "id": "24004884321abac3bc32",
+    "it": "Se il dispositivo è integro, accessibile e il suo funzionamento è stato compreso, puoi utilizzare le sue normali funzioni senza doverlo sfondare e senza attivare accidentalmente trappole che hai già identificato.",
+    "kind": "html"
+  },
+  {
+    "id": "3526453ea2a24e841995",
+    "it": "Comprendere un dispositivo non significa automaticamente:",
+    "kind": "html"
+  },
+  {
+    "id": "cc95505bc3b144cb56ae",
+    "it": "Individuare ogni trappola nascosta.",
+    "kind": "html"
+  },
+  {
+    "id": "c08d24ff55cdd978bd3c",
+    "it": "Riparare parti mancanti.",
+    "kind": "html"
+  },
+  {
+    "id": "13f5e164e1410b765d4f",
+    "it": "Fornirgli energia.",
+    "kind": "html"
+  },
+  {
+    "id": "8bdd30545eb226891c08",
+    "it": "Aggirare un meccanismo deliberatamente bloccato.",
+    "kind": "html"
+  },
+  {
+    "id": "71ad93a48b95bbdb60a1",
+    "it": "Comandarlo a distanza quando non possiede un sistema di controllo remoto.",
+    "kind": "html"
+  },
+  {
+    "id": "f09d09d9707ae7c36995",
+    "it": "Quando il meccanismo è particolarmente complesso, danneggiato o deve essere utilizzato sotto pressione, il Game Master può richiedere Astuzia + Archeologia contro la Soglia del dispositivo.",
+    "kind": "html"
+  },
+  {
+    "id": "e67019bef22b7085c15b",
+    "it": "Trappola Antica",
+    "kind": "html"
+  },
+  {
+    "id": "0564ef053451777f5221",
+    "it": "Prerequisito: Occhio delle Rovine",
+    "kind": "html"
+  },
+  {
+    "id": "46eee7c1c3d5b9c98763",
+    "it": "Puoi utilizzare una trappola antica che hai già individuato e di cui hai compreso il funzionamento.",
+    "kind": "html"
+  },
+  {
+    "id": "8f0e7985d6ce5604f5ea",
+    "it": "Devi poter raggiungere il comando, l’innesco o un altro punto realmente utilizzabile.",
+    "kind": "html"
+  },
+  {
+    "id": "daa6b3ae3f5c797d7d2a",
+    "it": "Come Azione puoi attivarla quando un bersaglio si trova già nella zona in cui la trappola può colpire.",
+    "kind": "html"
+  },
+  {
+    "id": "ab88247c40ead5d61026",
+    "it": "Il bersaglio risolve i danni, gli Stati e le Salvezze previsti dalla trappola stessa.",
+    "kind": "html"
+  },
+  {
+    "id": "1bf5935b5eaafd9fa39e",
+    "it": "Trappola Antica:",
+    "kind": "html"
+  },
+  {
+    "id": "45dbce392ca81481ad15",
+    "it": "Non crea una nuova trappola.",
+    "kind": "html"
+  },
+  {
+    "id": "a6a82507d9e2fa761ac1",
+    "it": "Non cambia il suo danno.",
+    "kind": "html"
+  },
+  {
+    "id": "52e886e797976e85442d",
+    "it": "Non cambia la sua area.",
+    "kind": "html"
+  },
+  {
+    "id": "9d5db4c89e47185b8c3a",
+    "it": "Non permette di attivarla da una distanza che il dispositivo non supporta.",
+    "kind": "html"
+  },
+  {
+    "id": "e8423b147953fd19eba8",
+    "it": "La versione ordinaria non utilizza la Reazione.",
+    "kind": "html"
+  },
+  {
+    "id": "3cb94e1bc154a4506958",
+    "it": "Maestro dei Meccanismi Antichi del Manuale del Prestigio è ciò che permette di intervenire immediatamente quando una creatura raggiunge il punto d’attivazione.",
+    "kind": "html"
+  },
+  {
+    "id": "c7824b31d231a39aeb1a",
+    "it": "Memoria del Mondo",
+    "kind": "html"
+  },
+  {
+    "id": "0a86ac1d003045130c5c",
+    "it": "Nessun tiro",
+    "kind": "html"
+  },
+  {
+    "id": "55f5c22eece8661d60c0",
+    "it": "Quando la ciurma sente parlare di un luogo, una rovina, un’isola o un reperto, conosci già qualcosa al riguardo.",
+    "kind": "html"
+  },
+  {
+    "id": "1d67b9def0923750c5ea",
+    "it": "Il Game Master ti comunica un frammento di informazione vero, anche quando si tratta di una conoscenza scomoda o inattesa.",
+    "kind": "html"
+  },
+  {
+    "id": "a696504b79abc297e96f",
+    "it": "Il Talento non rivela necessariamente tutti i segreti del soggetto: garantisce una conoscenza concreta da cui iniziare.",
+    "kind": "html"
+  },
+  {
+    "id": "a4afe08c1965bac5d600",
+    "it": "Memoria del Mondo non richiede un Esame Archeologico e non necessita di tracce fisiche davanti al personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "82e7ebb16ff79d970201",
+    "it": "Fornisce una conoscenza storica già posseduta dall’Archeologo.",
+    "kind": "html"
+  },
+  {
+    "id": "1ba638e6740427489310",
+    "it": "Normalmente concede un’informazione concreta per soggetto quando questo diventa rilevante per la prima volta nell’avventura.",
+    "kind": "html"
+  },
+  {
+    "id": "aa54cfc224c191b10ee4",
+    "it": "Risentire ripetutamente lo stesso nome non produce automaticamente nuove informazioni.",
+    "kind": "html"
+  },
+  {
+    "id": "7333ea975cbd6d77b6e0",
+    "it": "Custode del Sapere",
+    "kind": "html"
+  },
+  {
+    "id": "5e58332bcf71b3b6f4aa",
+    "it": "Le conoscenze che hai raccolto vengono conservate attraverso archivi, calchi e copie custodite anche altrove.",
+    "kind": "html"
+  },
+  {
+    "id": "3359ef12087e9cfd9b6c",
+    "it": "Se la biblioteca di bordo viene distrutta o i documenti originali vanno perduti, la ciurma conserva l’accesso ai risultati dei tuoi studi.",
+    "kind": "html"
+  },
+  {
+    "id": "79a8352f194d2f79471f",
+    "it": "Il Talento protegge il sapere già acquisito, non rivela informazioni che non hai ancora scoperto.",
+    "kind": "html"
+  },
+  {
+    "id": "351569826bca364c40b6",
+    "it": "Talento Supremo · La Voce delle Pietre",
+    "kind": "html"
+  },
+  {
+    "id": "fddb09e937ef6d7e5297",
+    "it": "La Voce delle Pietre",
+    "kind": "html"
+  },
+  {
+    "id": "df09b507de6123d1cee1",
+    "it": "L’Archeologo raggiunge una comprensione straordinaria delle testimonianze e dei meccanismi lasciati dalle antiche civiltà.",
+    "kind": "html"
+  },
+  {
+    "id": "c147d8327f3e9d55eb1c",
+    "it": "Il Talento può essere utilizzato in due modi differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "409cb2241213a8cb2c34",
+    "it": "Fuori dal combattimento · Rivelazione",
+    "kind": "html"
+  },
+  {
+    "id": "df382e57efb8cb64502e",
+    "it": "Studiando un’iscrizione o un reperto, ricavi un’informazione concreta e utilizzabile che modifica il corso dell’arco narrativo.",
+    "kind": "html"
+  },
+  {
+    "id": "f16379308a8bf4be561f",
+    "it": "La scoperta viene fornita dal Game Master e deve avere una conseguenza reale per l’avventura.",
+    "kind": "html"
+  },
+  {
+    "id": "1e6563a7fd40d22baf99",
+    "it": "Dentro una rovina · Dominio dei meccanismi",
+    "kind": "html"
+  },
+  {
+    "id": "2bf003b4dd4de8b3f904",
+    "it": "Per una scena comprendi completamente il sistema di controllo dei meccanismi antichi presenti nel sito.",
+    "kind": "html"
+  },
+  {
+    "id": "efdf883e53ded8ffd25a",
+    "it": "Puoi comandare soltanto dispositivi:",
+    "kind": "html"
+  },
+  {
+    "id": "c01ebe5aec90bf2de2be",
+    "it": "Realmente esistenti.",
+    "kind": "html"
+  },
+  {
+    "id": "f3a38d174451b644a3d7",
+    "it": "Ancora funzionanti.",
+    "kind": "html"
+  },
+  {
+    "id": "d8aa1849c585ad465ef2",
+    "it": "Collegati al sistema che hai compreso.",
+    "kind": "html"
+  },
+  {
+    "id": "87f366c469403c2fbbd1",
+    "it": "Provvisti dell’energia o della forza necessaria a funzionare.",
+    "kind": "html"
+  },
+  {
+    "id": "37d74a5a360435389224",
+    "it": "La capacità non ricostruisce parti mancanti e non crea funzioni che il dispositivo non possiede.",
+    "kind": "html"
+  },
+  {
+    "id": "a9cff6712f3039bfaef4",
+    "it": "Aprire una porta può soltanto aprire quella porta. Un sistema di contrappesi può muovere le parti a cui è realmente collegato. Una trappola utilizza i propri danni, la propria area e le proprie Salvezze.",
+    "kind": "html"
+  },
+  {
+    "id": "06eba58d3db41c89e5b0",
+    "it": "L’Ultimate non concede Azioni aggiuntive.",
+    "kind": "html"
+  },
+  {
+    "id": "afc0af99d44bab388ca5",
+    "it": "Attivare un meccanismo utilizza l’Azione normalmente prevista dal dispositivo; se il dispositivo non possiede una procedura specifica, impartire un comando significativo richiede la tua Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "8b23562be995e6feada9",
+    "it": "Puoi controllare a distanza un meccanismo soltanto se la rovina possiede realmente un collegamento che lo consente.",
+    "kind": "html"
+  },
+  {
+    "id": "94494ba2d26402b44fd3",
+    "it": "La rivelazione narrativa dell’altra forma dell’Ultimate rimane invece nelle mani del Game Master e deve produrre una conseguenza concreta per l’avventura.",
+    "kind": "html"
+  },
+  {
+    "id": "7c254310f13cedc55ed8",
+    "it": "Requisiti: Ambizione dell’Archeologo e permesso del Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "be2a69a06496034e253d",
+    "it": "La Voce delle Pietre può essere utilizzata una sola volta per avventura, scegliendo una delle due applicazioni al momento dell’attivazione.",
+    "kind": "html"
+  },
+  {
+    "id": "31d4382c861c4d7f682b",
+    "it": "<span class=\"man-sez-n\">4.11 ·</span> Musicista",
+    "kind": "html"
+  },
+  {
+    "id": "7037ce0d166ee36632f3",
+    "it": "Il Musicista è la voce della ciurma. Le sue melodie possono restituire energia ai compagni, spezzare la paura, indebolire gli avversari e trasformare un equipaggio disorganizzato in un gruppo capace di agire all’unisono.",
+    "kind": "html"
+  },
+  {
+    "id": "68878f93b174eb8b78f2",
+    "it": "La sua specializzazione non si limita al combattimento. Una canzone può aprire le porte di un porto ostile, tramandare un messaggio segreto o rendere celebre una ciurma prima ancora del suo arrivo.",
+    "kind": "html"
+  },
+  {
+    "id": "ccd3a6a7c5ad2884fcdf",
+    "it": "Musicista",
+    "kind": "html"
+  },
+  {
+    "id": "0bd3cf693a4c06b01ce1",
+    "it": "Arte",
+    "kind": "html"
+  },
+  {
+    "id": "56133627aec6281fabfb",
+    "it": "Il Moltiplicatore della Ciurma",
+    "kind": "html"
+  },
+  {
+    "id": "975704036505a66b21ec",
+    "it": "La nota che arriva all’anima",
+    "kind": "html"
+  },
+  {
+    "id": "c4abec8902915d15501b",
+    "it": "Il Musicista utilizza Arte come Skill di riferimento per accedere ai propri Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "9c1a591b7109de572e1d",
+    "it": "Tratto · Il Moltiplicatore della Ciurma",
+    "kind": "html"
+  },
+  {
+    "id": "552598dcfe3e040375aa",
+    "it": "Il Musicista sostiene l’equipaggio attraverso le proprie Canzoni. Può restituire Stamina durante una battaglia, contrastare la paura e concedere benefici ai compagni.",
+    "kind": "html"
+  },
+  {
+    "id": "f9bc37f16626fa16d744",
+    "it": "Lo strumento musicale non è automaticamente un’arma. Per combattere direttamente, il Musicista utilizza le normali regole del combattimento e le capacità a cui ha accesso.",
+    "kind": "html"
+  },
+  {
+    "id": "bc69677d4dcc5bf856cb",
+    "it": "Firma · La nota che arriva all’anima",
+    "kind": "html"
+  },
+  {
+    "id": "0924d6df5a41b70a7b65",
+    "it": "Fuori dal combattimento, quando ottieni un tiro di Arte riuscito con margine +4, la tua esibizione conquista chi ti ascolta.",
+    "kind": "html"
+  },
+  {
+    "id": "6f36b2c277ad3d5cd596",
+    "it": "Puoi ottenere qualcosa che il pubblico non aveva inizialmente intenzione di concederti, come un favore, un’informazione, un passaggio oppure la promessa di mantenere il silenzio su un evento.",
+    "kind": "html"
+  },
+  {
+    "id": "c2bd4bf91e9fafbc0e87",
+    "it": "La concessione deve essere coerente con la situazione e con le persone coinvolte.",
+    "kind": "html"
+  },
+  {
+    "id": "d244f4b5a55944f8f3c5",
+    "it": "La Firma non si attiva sulle Canzoni in battaglia: queste non richiedono un tiro del Musicista e, di conseguenza, non producono un margine +4.",
+    "kind": "html"
+  },
+  {
+    "id": "cb06ec0410d031aeb23f",
+    "it": "Come funzionano le Canzoni",
+    "kind": "html"
+  },
+  {
+    "id": "239f835963edd3f68ea9",
+    "it": "Le Canzoni costituiscono una particolare categoria di Tecniche del Musicista.",
+    "kind": "html"
+  },
+  {
+    "id": "a12002f0e4e7654ac960",
+    "it": "Il Musicista non effettua un tiro per suonare una Canzone. Spende la propria Azione e la Stamina richiesta dalla Melodia, quindi l’effetto viene prodotto.",
+    "kind": "html"
+  },
+  {
+    "id": "8eb8e37345910a4a363c",
+    "it": "<b>Destinatario</b>",
+    "kind": "html"
+  },
+  {
+    "id": "cb783d7c1f5f5b3152a4",
+    "it": "<b>Risoluzione</b>",
+    "kind": "html"
+  },
+  {
+    "id": "66e523a2752f4d1bb4ee",
+    "it": "Alleato",
+    "kind": "html"
+  },
+  {
+    "id": "e3b0fa6d428a63ee60c1",
+    "it": "Riceve automaticamente l’effetto, senza effettuare tiri.",
+    "kind": "html"
+  },
+  {
+    "id": "77c01061c58c5008e6de",
+    "it": "Nemico",
+    "kind": "html"
+  },
+  {
+    "id": "34b8f3354762b7bcfcc5",
+    "it": "Effettua una Salvezza quando la Melodia lo prevede.",
+    "kind": "html"
+  },
+  {
+    "id": "589968c64aca8d67a6a7",
+    "it": "Soglia della Salvezza",
+    "kind": "html"
+  },
+  {
+    "id": "0683291b059ef531a5cb",
+    "it": "Determinata dal Grado dello strumento musicale.",
+    "kind": "html"
+  },
+  {
+    "id": "3793a6fd3845a0903c1e",
+    "it": "Ogni Melodia costituisce una Canzone completa: una Tecnica può contenere una sola Melodia.",
+    "kind": "html"
+  },
+  {
+    "id": "7d87d9230a11c355b360",
+    "it": "Le Canzoni che richiedono mantenimento seguono le regole della propria durata e dei relativi costi. I Talenti Contrappunto modificano progressivamente questi limiti.",
+    "kind": "html"
+  },
+  {
+    "id": "a634a6ec2304b7e61a60",
+    "it": "<b>Grado di Arte</b>",
+    "kind": "html"
+  },
+  {
+    "id": "74fcf3d9072ef6299687",
+    "it": "I Talenti devono essere acquisiti tramite gli Upgrade. Raggiungere un nuovo Grado di Arte li rende disponibili, ma non li assegna automaticamente.",
+    "kind": "html"
+  },
+  {
+    "id": "a5df451cf2622613bbb0",
+    "it": "Musica Incrollabile",
+    "kind": "html"
+  },
+  {
+    "id": "666df86bc1042a47bed9",
+    "it": "La tua musica non si interrompe quando diventi Stordito o vieni messo a terra.",
+    "kind": "html"
+  },
+  {
+    "id": "55e7e6b9280027a018f9",
+    "it": "Puoi quindi continuare a sostenere una Canzone nonostante queste condizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "66ce935e1e6cb7ef9cec",
+    "it": "Il Talento non concede immunità agli stati: impedisce che siano sufficienti, da soli, a fermare la tua esibizione.",
+    "kind": "html"
+  },
+  {
+    "id": "d6547fd77cf036546a76",
+    "it": "Anima dell’Intrattenitore",
+    "kind": "html"
+  },
+  {
+    "id": "f24c63c708fe93c87d22",
+    "it": "Fuori dal combattimento, le tue esibizioni vengono effettuate con Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "1180ac5875e866d29ac9",
+    "it": "Il tiro previsto è:",
+    "kind": "html"
+  },
+  {
+    "id": "32af7910fab58668bf4e",
+    "it": "Spirito + Arte, con Vantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "055e95c64d52053de544",
+    "it": "Questa capacità riguarda le esibizioni artistiche, non tutte le prove che utilizzano Spirito.",
+    "kind": "html"
+  },
+  {
+    "id": "a236d90b35cebc6aa25d",
+    "it": "Contrappunto · Base",
+    "kind": "html"
+  },
+  {
+    "id": "9a31b2ef7713c9fddb10",
+    "it": "Mantenere una Canzone non ti impedisce più di agire.",
+    "kind": "html"
+  },
+  {
+    "id": "dc1d2af94313488238cc",
+    "it": "Puoi continuare a suonare ed effettuare normalmente il tuo turno.",
+    "kind": "html"
+  },
+  {
+    "id": "3bef6522b11c1c722f97",
+    "it": "Il Talento non elimina i costi di mantenimento della Canzone: modifica soltanto la possibilità di agire mentre la sostieni.",
+    "kind": "html"
+  },
+  {
+    "id": "aebe13af8c0c1f8392b5",
+    "it": "Ritmo di Battaglia",
+    "kind": "html"
+  },
+  {
+    "id": "92cbc8546280ab2eed50",
+    "it": "Passivo · Beneficio aggiuntivo 1 volta per scontro",
+    "kind": "html"
+  },
+  {
+    "id": "2847fd2aa25ae10f1862",
+    "it": "All’inizio di uno scontro, ogni alleato che può sentirti ottiene:",
+    "kind": "html"
+  },
+  {
+    "id": "8084943c0abb87f7d132",
+    "it": "+1 all’Iniziativa.",
+    "kind": "html"
+  },
+  {
+    "id": "28dcd8e403d9ddc0b078",
+    "it": "Inoltre, una volta per scontro, puoi far agire due compagni consecutivamente, saltando temporaneamente i personaggi che si troverebbero fra loro nell’ordine di Iniziativa.",
+    "kind": "html"
+  },
+  {
+    "id": "7ea96a911b43c4cb318c",
+    "it": "Questo beneficio modifica l’ordine delle azioni, ma non concede un turno supplementare ai compagni.",
+    "kind": "html"
+  },
+  {
+    "id": "11004722c0f0cde7a47f",
+    "it": "Fiato Lungo",
+    "kind": "html"
+  },
+  {
+    "id": "c63ea17254c913f917c9",
+    "it": "Il costo delle tue Canzoni diminuisce di 1 ST, fino a un minimo di 1 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "1308c53157c1a70e1f0c",
+    "it": "La riduzione non può rendere gratuita una Canzone che normalmente richiede Stamina.",
+    "kind": "html"
+  },
+  {
+    "id": "98becfac47a012744145",
+    "it": "Contrappunto · Migliorato",
+    "kind": "html"
+  },
+  {
+    "id": "84b9c3d0fbfa55ef5a7c",
+    "it": "Prerequisito: Contrappunto · Base.",
+    "kind": "html"
+  },
+  {
+    "id": "b8586c32618f06fec620",
+    "it": "Puoi mantenere due Canzoni attive contemporaneamente.",
+    "kind": "html"
+  },
+  {
+    "id": "9377f84119e0ac1a9c2b",
+    "it": "Le Canzoni conservano i rispettivi effetti e costi. Questo Talento aumenta il numero di Canzoni che puoi sostenere, senza eliminare la Stamina necessaria.",
+    "kind": "html"
+  },
+  {
+    "id": "83e54c382962cd323456",
+    "it": "Requiem",
+    "kind": "html"
+  },
+  {
+    "id": "45a5fb9a71cd7453d589",
+    "it": "Passivo · Potenzia Requiem Beffardo",
+    "kind": "html"
+  },
+  {
+    "id": "89a73cb63983976d90ff",
+    "it": "Hai perfezionato la Melodia Requiem Beffardo.",
+    "kind": "html"
+  },
+  {
+    "id": "fffb8cf56fa8958a98b0",
+    "it": "Requiem Beffardo conserva:",
+    "kind": "html"
+  },
+  {
+    "id": "d4b055d9ccb273325b39",
+    "it": "Grado minimo d8.",
+    "kind": "html"
+  },
+  {
+    "id": "5e542966eae043e18f1c",
+    "it": "Costo 1 ST.",
+    "kind": "html"
+  },
+  {
+    "id": "b587a32cce50eabb5e3c",
+    "it": "La normale Azione richiesta per intonare una Canzone.",
+    "kind": "html"
+  },
+  {
+    "id": "5eddf2b2230821cb5650",
+    "it": "Un bersaglio che possa sentirti.",
+    "kind": "html"
+  },
+  {
+    "id": "b2b784b70c6a7da40767",
+    "it": "La normale Salvezza determinata dallo strumento.",
+    "kind": "html"
+  },
+  {
+    "id": "318db6562038bbb95b6e",
+    "it": "Se il bersaglio fallisce la Salvezza, subisce Svantaggio al proprio prossimo tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "cab2570c1a5fa2441230",
+    "it": "Se il bersaglio ha già perso almeno 1 PV durante lo scontro, effettua la Salvezza contro Requiem Beffardo con Svantaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "b6f830647797af5adcaf",
+    "it": "Requiem non costituisce una seconda Melodia e non può essere utilizzato contemporaneamente a una copia separata di Requiem Beffardo.",
+    "kind": "html"
+  },
+  {
+    "id": "ef6f9a3eaabad074f5ed",
+    "it": "Il Canto che Resta",
+    "kind": "html"
+  },
+  {
+    "id": "8f437b216dba95ca3800",
+    "it": "Puoi nascondere un messaggio all’interno di una melodia: una rotta, un nome, una combinazione o un’altra informazione.",
+    "kind": "html"
+  },
+  {
+    "id": "7b63892728fda8343e98",
+    "it": "Chi conosce il motivo musicale ricorda perfettamente il messaggio, anche dopo molti anni.",
+    "kind": "html"
+  },
+  {
+    "id": "afb0866a4d9c111a5a59",
+    "it": "Chi non lo conosce percepisce soltanto una normale canzone e non riconosce il contenuto nascosto.",
+    "kind": "html"
+  },
+  {
+    "id": "e6f47d8d71843ead60f1",
+    "it": "Contrappunto · Maestria",
+    "kind": "html"
+  },
+  {
+    "id": "0fbc647e3164fb68aee0",
+    "it": "Prerequisito: Contrappunto · Migliorato.",
+    "kind": "html"
+  },
+  {
+    "id": "362e85925102bd54d108",
+    "it": "Mantenere le tue Canzoni non richiede più Stamina per turno.",
+    "kind": "html"
+  },
+  {
+    "id": "4aa964f9b2810906e9c2",
+    "it": "Paghi soltanto il costo necessario per intonarle.",
+    "kind": "html"
+  },
+  {
+    "id": "6ba86a138c41c01dec7c",
+    "it": "Rimangono validi gli altri requisiti delle Canzoni, inclusa la possibilità di mantenerne contemporaneamente un massimo di due grazie a Contrappunto · Migliorato.",
+    "kind": "html"
+  },
+  {
+    "id": "99a2f17f49b84ac23673",
+    "it": "Coro della Ciurma",
+    "kind": "html"
+  },
+  {
+    "id": "a8440fd3f086a6013723",
+    "it": "Quando almeno due compagni partecipano realmente al canto insieme a te, la portata delle tue Canzoni viene raddoppiata.",
+    "kind": "html"
+  },
+  {
+    "id": "8666b8ce3c17230992e1",
+    "it": "Inoltre, a bordo di una nave, la Canzone può propagarsi attraverso tutti gli ambienti collegati nei quali il Coro può essere realmente udito.",
+    "kind": "html"
+  },
+  {
+    "id": "36219c2ae9d4c101bc2f",
+    "it": "I due compagni che partecipano al Coro:",
+    "kind": "html"
+  },
+  {
+    "id": "03812161ef90ea2c140b",
+    "it": "Devono essere coscienti.",
+    "kind": "html"
+  },
+  {
+    "id": "95178401a20f6d4d9a2a",
+    "it": "Devono poter vocalizzare o contribuire musicalmente.",
+    "kind": "html"
+  },
+  {
+    "id": "09fbb248e405f8bde38e",
+    "it": "Devono scegliere volontariamente di partecipare.",
+    "kind": "html"
+  },
+  {
+    "id": "429443c1c0331a4d0ad0",
+    "it": "Non spendono Azione, Azione Bonus o Movimento soltanto per sostenere il Coro.",
+    "kind": "html"
+  },
+  {
+    "id": "161914db23c46beab8c2",
+    "it": "Possono continuare normalmente a combattere e agire.",
+    "kind": "html"
+  },
+  {
+    "id": "5d60ae552eedc8ffcb7d",
+    "it": "Se meno di due compagni possono continuare a partecipare, il beneficio del Coro termina immediatamente.",
+    "kind": "html"
+  },
+  {
+    "id": "5183a9f924162cb5b098",
+    "it": "Coro della Ciurma non rende la nave un normale bersaglio delle Canzoni.",
+    "kind": "html"
+  },
+  {
+    "id": "5f82c5adcd16892a89ff",
+    "it": "Una Melodia che influenza persone continua a influenzare persone.",
+    "kind": "html"
+  },
+  {
+    "id": "601c61fa3467dd1a4407",
+    "it": "Soltanto una Melodia che dichiara espressamente di influenzare una nave, una postazione o un’attività navale — come Canto di Bordo — produce quell’effetto.",
+    "kind": "html"
+  },
+  {
+    "id": "abecd71ebbe656d39d72",
+    "it": "Marcia Funebre",
+    "kind": "html"
+  },
+  {
+    "id": "64ab26530ab193633ee3",
+    "it": "Melodia offensiva · Canzone Sostenuta",
+    "kind": "html"
+  },
+  {
+    "id": "580d46b24223d935d758",
+    "it": "Prerequisito: Requiem.",
+    "kind": "html"
+  },
+  {
+    "id": "dd96fa2c3b2add0a6191",
+    "it": "Azione · 3 ST + 1 ST per turno · Raggio: 10 metri",
+    "kind": "html"
+  },
+  {
+    "id": "db314da2b07e95deeaf4",
+    "it": "Intoni una melodia capace di spezzare il coraggio dei nemici.",
+    "kind": "html"
+  },
+  {
+    "id": "c50ee9f9055d1668f6f8",
+    "it": "Quando la Canzone viene intonata, ogni nemico entro 10 metri che può sentirti effettua una Salvezza di Spirito contro la Soglia della Canzone.",
+    "kind": "html"
+  },
+  {
+    "id": "9d69a086ab2008c6af29",
+    "it": "Chi fallisce diventa Atterrito finché:",
+    "kind": "html"
+  },
+  {
+    "id": "778c361a563f49737373",
+    "it": "Rimane entro la portata della Canzone.",
+    "kind": "html"
+  },
+  {
+    "id": "826a134f631447ac0a2c",
+    "it": "Può continuare a sentirti.",
+    "kind": "html"
+  },
+  {
+    "id": "a4a46b361a17097bd694",
+    "it": "Continui a mantenere Marcia Funebre.",
+    "kind": "html"
+  },
+  {
+    "id": "f5c14458543917f6b795",
+    "it": "Un bersaglio che esce dalla portata o non può più sentire la musica termina immediatamente Atterrito.",
+    "kind": "html"
+  },
+  {
+    "id": "63c89d7a8aafcbb68772",
+    "it": "Marcia Funebre è una Canzone Sostenuta e segue tutte le normali regole di mantenimento.",
+    "kind": "html"
+  },
+  {
+    "id": "efe94ca93c1fa6851d99",
+    "it": "Suonare per i Caduti",
+    "kind": "html"
+  },
+  {
+    "id": "43a1988eac803eab3b04",
+    "it": "Quando un compagno ancora in vita raggiunge 0 PV e può sentirti, puoi iniziare immediatamente a sostenerlo attraverso la tua musica.",
+    "kind": "html"
+  },
+  {
+    "id": "4919ab0ab4b9c4a512d8",
+    "it": "Il compagno rimane cosciente e Stabilizzato a 0 PV finché continui a suonare.",
+    "kind": "html"
+  },
+  {
+    "id": "0210e8749456e9151357",
+    "it": "Durante questo periodo può:",
+    "kind": "html"
+  },
+  {
+    "id": "3d62a313152326d602a1",
+    "it": "Effettuare normalmente il proprio Movimento.",
+    "kind": "html"
+  },
+  {
+    "id": "b5da009421f5792dcd44",
+    "it": "Utilizzare Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "9d81830c4ce0afc4c1b6",
+    "it": "Utilizzare Azione Bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "cec48f405c458c60eb67",
+    "it": "Utilizzare Reazione.",
+    "kind": "html"
+  },
+  {
+    "id": "fdcf75f8126b438bc069",
+    "it": "Utilizzare Tecniche e Talenti normalmente disponibili.",
+    "kind": "html"
+  },
+  {
+    "id": "89769006895d0ec6599e",
+    "it": "Rimane tuttavia a 0 PV: il Talento non costituisce una cura.",
+    "kind": "html"
+  },
+  {
+    "id": "080cf4c15e8a0ec0a336",
+    "it": "Se il compagno subisce nuovi danni mentre è ancora a 0 PV, Suonare per i Caduti termina immediatamente su di lui e si applicano le normali conseguenze previste per un personaggio A Terra che continua a essere danneggiato.",
+    "kind": "html"
+  },
+  {
+    "id": "cd1c49af20aba56af1b7",
+    "it": "Se riceve una vera cura e sale sopra 0 PV, non ha più bisogno del sostegno e continua normalmente con i PV recuperati.",
+    "kind": "html"
+  },
+  {
+    "id": "21df6811aa91bd168de4",
+    "it": "Se la musica viene interrotta mentre il compagno possiede ancora 0 PV, perde immediatamente coscienza e torna a seguire le normali regole di A Terra.",
+    "kind": "html"
+  },
+  {
+    "id": "a967d91ba4a2cda4c6ab",
+    "it": "Per continuare a sostenerlo devi poter produrre musica e il compagno deve continuare a sentirti.",
+    "kind": "html"
+  },
+  {
+    "id": "2d87d64966eb6c23b563",
+    "it": "Suonare per i Caduti non è una Cura da Campo e non consuma il relativo limite.",
+    "kind": "html"
+  },
+  {
+    "id": "66d6c014f7831ae5a595",
+    "it": "Leggenda in Musica",
+    "kind": "html"
+  },
+  {
+    "id": "4591ec2583058a530022",
+    "it": "Le tue canzoni si diffondono di porto in porto, contribuendo alla fama della ciurma anche nei luoghi che non ha ancora visitato.",
+    "kind": "html"
+  },
+  {
+    "id": "bf09561ae1f661f13ac3",
+    "it": "Ottieni Vantaggio nelle prove con cui cerchi di farti ascoltare, riconoscere o credere davanti a folle ed equipaggi.",
+    "kind": "html"
+  },
+  {
+    "id": "f6c7623ec6bc5045385c",
+    "it": "Il Talento rappresenta la reputazione costruita attraverso la tua musica, non un controllo automatico sulle decisioni di chi ti ascolta.",
+    "kind": "html"
+  },
+  {
+    "id": "514bb7bb53cd62006860",
+    "it": "Talento Supremo · Canzone dell’Anima",
+    "kind": "html"
+  },
+  {
+    "id": "44a40e5a7a51baba0d27",
+    "it": "Canzone dell’Anima",
+    "kind": "html"
+  },
+  {
+    "id": "d3a190fa0d93d1f42457",
+    "it": "Costo: 6 ST",
+    "kind": "html"
+  },
+  {
+    "id": "8297f3e5d213cc02db31",
+    "it": "Melodia-firma d20 del Catalogo delle Melodie",
+    "kind": "html"
+  },
+  {
+    "id": "fcdc0bcd9a0ea770a58b",
+    "it": "Il Musicista intona una Melodia capace di richiamare le energie dell’intera ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "aba874d8e736418b0b14",
+    "it": "Tutti i membri della tua ciurma che possono sentirti, Musicista compreso, riportano immediatamente la propria Stamina al valore massimo attuale.",
+    "kind": "html"
+  },
+  {
+    "id": "9f00d4e9e560007d30fc",
+    "it": "Il costo di 6 ST viene pagato prima di applicare il recupero.",
+    "kind": "html"
+  },
+  {
+    "id": "22322aa9f3718e20715a",
+    "it": "Canzone dell’Anima non recupera PIP dell’Haki, PV o altre risorse.",
+    "kind": "html"
+  },
+  {
+    "id": "6126d1ac5e1a4de520e5",
+    "it": "La stessa ciurma può beneficiare di Canzone dell’Anima una sola volta per scena, indipendentemente dal numero di Musicisti che la compongono.",
+    "kind": "html"
+  },
+  {
+    "id": "03b722561dc949d1c1fc",
+    "it": "Un secondo Musicista non può quindi utilizzare la propria Canzone dell’Anima nella stessa scena per ripristinare nuovamente la Stamina della stessa ciurma.",
+    "kind": "html"
+  },
+  {
+    "id": "9d8555793ad00a1adc48",
+    "it": "Requisiti: Ambizione del Musicista e permesso del Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "bae79c5fb3bd0fca4fa7",
+    "it": "<span class=\"man-sez-n\">4.12 ·</span> Capitano",
+    "kind": "html"
+  },
+  {
+    "id": "d4cfaed5edd2e2f68025",
+    "it": "Il Capitano tiene unita la ciurma e ne dirige le azioni. Durante uno scontro coordina gli alleati, individua i bersagli prioritari e impartisce ordini che possono cambiare l’andamento della battaglia.",
+    "kind": "html"
+  },
+  {
+    "id": "5084520ca2a69381e509",
+    "it": "Fuori dal combattimento rappresenta la ciurma nelle trattative, stringe alleanze e prende decisioni che ne determinano la rotta.",
+    "kind": "html"
+  },
+  {
+    "id": "f15cb5cbbe8b88970f20",
+    "it": "Capitano",
+    "kind": "html"
+  },
+  {
+    "id": "a18187ca5115a2565e9e",
+    "it": "Comunicazione",
+    "kind": "html"
+  },
+  {
+    "id": "7136990a48742cf52545",
+    "it": "La Voce che Comanda",
+    "kind": "html"
+  },
+  {
+    "id": "12ea005c6745cc048adc",
+    "it": "L’ordine che cambia tutto",
+    "kind": "html"
+  },
+  {
+    "id": "66a1bb948d25f8a50a51",
+    "it": "Tratto · La Voce che Comanda",
+    "kind": "html"
+  },
+  {
+    "id": "aa98f6c9e7f3993031ba",
+    "it": "Il Capitano è l’unico Ruolo che può trasformare direttamente la Comunicazione in Ordini capaci di far muovere e agire un compagno.",
+    "kind": "html"
+  },
+  {
+    "id": "1945f7a80a057b35d266",
+    "it": "Fuori dal combattimento, Comunicazione rappresenta anche la sua capacità di gestire trattative, patti, minacce e alleanze tra equipaggi.",
+    "kind": "html"
+  },
+  {
+    "id": "458ffa2069d40f341c4a",
+    "it": "Gli effetti specifici degli Ordini, inclusi costi e frequenza, sono definiti dai relativi Talenti.",
+    "kind": "html"
+  },
+  {
+    "id": "fe1532382da6d04770d8",
+    "it": "Firma · L’ordine che cambia tutto",
+    "kind": "html"
+  },
+  {
+    "id": "45b20196487115d47d51",
+    "it": "Gratuita · Sempre attiva · Massimo 1 volta per round",
+    "kind": "html"
+  },
+  {
+    "id": "23f13815add529507511",
+    "it": "La Firma si attiva quando il Capitano ottiene:",
+    "kind": "html"
+  },
+  {
+    "id": "458376f733724c94e4ac",
+    "it": "Un colpo pulito con margine +4, oppure",
+    "kind": "html"
+  },
+  {
+    "id": "6af48f2a6df80bcabace",
+    "it": "Una Prova di Comunicazione riuscita con margine +4.",
+    "kind": "html"
+  },
+  {
+    "id": "7621f2c1d7442dbea741",
+    "it": "Scegli un alleato che possa vederti o sentirti.",
+    "kind": "html"
+  },
+  {
+    "id": "f7bffb1cb4c44f933c07",
+    "it": "L’alleato può effettuare immediatamente un’Azione, fuori dal proprio turno.",
+    "kind": "html"
+  },
+  {
+    "id": "61f22743d8105aa60f6f",
+    "it": "Non riceve Movimento, Azione Bonus o una nuova Reazione.",
+    "kind": "html"
+  },
+  {
+    "id": "342ebe25b732bdf6653f",
+    "it": "L’Azione concessa non consuma il normale turno dell’alleato.",
+    "kind": "html"
+  },
+  {
+    "id": "7cf723e26ef24a973bd8",
+    "it": "L’alleato paga normalmente ST, PIP, munizioni e qualsiasi altra risorsa richiesta dall’Azione scelta.",
+    "kind": "html"
+  },
+  {
+    "id": "df1fd8bd93912867a01c",
+    "it": "La Firma può attivarsi al massimo una volta per round, indipendentemente da quanti margini +4 ottieni.",
+    "kind": "html"
+  },
+  {
+    "id": "3f9a82226e0de16d9a4d",
+    "it": "L’Azione concessa segue le normali regole delle Azioni fuori turno e non può generare un’altra catena di Azioni tramite Ordini, questa stessa Firma o capacità equivalenti.",
+    "kind": "html"
+  },
+  {
+    "id": "4b25170f30d7592112af",
+    "it": "Ogni Talento deve essere acquisito attraverso gli Upgrade. Raggiungere il Grado richiesto ne permette l’acquisizione, ma non lo assegna automaticamente.",
+    "kind": "html"
+  },
+  {
+    "id": "18ec98eaa2592a090be0",
+    "it": "Grido di Guerra",
+    "kind": "html"
+  },
+  {
+    "id": "87ef9be511fe65b8e525",
+    "it": "Gratuito · 1 volta per scontro",
+    "kind": "html"
+  },
+  {
+    "id": "6d615e2e459a97819395",
+    "it": "Il Capitano incita i compagni con un grido che raggiunge tutti gli alleati in grado di sentirlo.",
+    "kind": "html"
+  },
+  {
+    "id": "e460e7475ee69a31966c",
+    "it": "Ogni alleato interessato:",
+    "kind": "html"
+  },
+  {
+    "id": "a4fff3cad7a29bc55e55",
+    "it": "Aggiunge +1 dado al proprio prossimo tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "c706f0d5769ffab4ae04",
+    "it": "Grido di Guerra non elimina cause fisiche o ambientali che continuano ad applicare uno Stato.",
+    "kind": "html"
+  },
+  {
+    "id": "83e0f51b2b43bc53e2fd",
+    "it": "Il Talento non richiede Stamina.",
+    "kind": "html"
+  },
+  {
+    "id": "1ea48d468d4cbe578660",
+    "it": "Ordine del Capitano · Base",
+    "kind": "html"
+  },
+  {
+    "id": "9add3c56db45e0c10f40",
+    "it": "Azione · 2 ST · 1 volta per scontro",
+    "kind": "html"
+  },
+  {
+    "id": "a7a1149f04d87a7e757c",
+    "it": "Scegli un alleato entro 10 metri che possa percepire chiaramente il tuo Ordine.",
+    "kind": "html"
+  },
+  {
+    "id": "cad7704777df7301f916",
+    "it": "L’Ordine può essere impartito verbalmente oppure attraverso un gesto inequivocabile, purché l’alleato possa realmente sentirti o vederti.",
+    "kind": "html"
+  },
+  {
+    "id": "9737939506ef6a61bef4",
+    "it": "L’alleato effettua immediatamente un’Azione fuori dal proprio turno.",
+    "kind": "html"
+  },
+  {
+    "id": "134ae5386d3a4af86714",
+    "it": "Non riceve Movimento, Azione Bonus o una Reazione aggiuntiva.",
+    "kind": "html"
+  },
+  {
+    "id": "7d25ec259d1c116be089",
+    "it": "L’Azione del Capitano viene spesa per impartire l’Ordine.",
+    "kind": "html"
+  },
+  {
+    "id": "4a28414f305f2e256441",
+    "it": "L’alleato conserva il proprio normale turno e paga tutti i costi dell’Azione scelta.",
+    "kind": "html"
+  },
+  {
+    "id": "a90fda3aa220045dd783",
+    "it": "L’Azione concessa segue le normali regole delle Azioni fuori turno.",
+    "kind": "html"
+  },
+  {
+    "id": "8a6eb8f70405c5013e0d",
+    "it": "Un Lumacofono o un altro mezzo di comunicazione può trasmettere un normale messaggio, ma non estende automaticamente la portata meccanica di un Ordine.",
+    "kind": "html"
+  },
+  {
+    "id": "e2316228646ab42daf58",
+    "it": "Una capacità o un equipaggiamento deve dichiarare espressamente di poter trasmettere gli Ordini oltre la loro normale portata.",
+    "kind": "html"
+  },
+  {
+    "id": "4a4c250eefac99a574df",
+    "it": "Occhio del Comandante",
+    "kind": "html"
+  },
+  {
+    "id": "5874e4475baaf0bb1dc1",
+    "it": "All’inizio dello scontro, il Capitano e i suoi alleati possono scambiarsi liberamente le rispettive posizioni nell’ordine di Iniziativa.",
+    "kind": "html"
+  },
+  {
+    "id": "1caf953645473bae49bb",
+    "it": "Dopo aver definito l’ordine, il Capitano può indicare un Bersaglio Prioritario.",
+    "kind": "html"
+  },
+  {
+    "id": "e54456c443493028e40a",
+    "it": "Può esistere un solo Bersaglio Prioritario alla volta.",
+    "kind": "html"
+  },
+  {
+    "id": "ee2cf57bcefd09d65bfc",
+    "it": "Il primo alleato che attacca quel bersaglio durante ciascun round considera la sua Difesa Passiva ridotta di 2 per quell’attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "63d5d8b3e465011a8a60",
+    "it": "All’inizio di ogni nuovo round, prima che agisca il primo personaggio, il Capitano può cambiare gratuitamente il Bersaglio Prioritario.",
+    "kind": "html"
+  },
+  {
+    "id": "fbfeea5054c6c46ff6b0",
+    "it": "Se non dichiara un nuovo bersaglio, rimane quello precedente.",
+    "kind": "html"
+  },
+  {
+    "id": "e44199b1eba437c47a29",
+    "it": "Se il bersaglio viene sconfitto, il Capitano potrà indicarne uno nuovo all’inizio del round successivo.",
+    "kind": "html"
+  },
+  {
+    "id": "4dca7ea82e2db8af42fa",
+    "it": "Il beneficio può essere utilizzato una sola volta per round, anche se più alleati attaccano lo stesso bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "b6c43a96e177245df034",
+    "it": "Esempio: il Capitano individua un ufficiale con Difesa Passiva 13 e lo dichiara bersaglio prioritario. Il primo alleato che lo attacca nel round considera la sua Difesa Passiva pari a 11.",
+    "kind": "html"
+  },
+  {
+    "id": "8086e02a1631fb47adf9",
+    "it": "Scudo della Ciurma",
+    "kind": "html"
+  },
+  {
+    "id": "bb3d800e977d1e4c00a5",
+    "it": "Reazione · Bersaglio entro 5 metri",
+    "kind": "html"
+  },
+  {
+    "id": "f952b5181774050c034a",
+    "it": "Requisito: Legame Nakama di almeno d8.",
+    "kind": "html"
+  },
+  {
+    "id": "087423dd97875d4bd07f",
+    "it": "Quando un alleato entro 5 metri sta per subire danni da una fonte dalla quale puoi materialmente proteggerlo, puoi utilizzare la tua Reazione per interporti e ricevere quei danni al suo posto.",
+    "kind": "html"
+  },
+  {
+    "id": "477672764b57e5ef45cb",
+    "it": "Scudo della Ciurma può intercettare, per esempio:",
+    "kind": "html"
+  },
+  {
+    "id": "ff068306fe3a458662dc",
+    "it": "Un attacco diretto.",
+    "kind": "html"
+  },
+  {
+    "id": "6eca1bee36e1447d5521",
+    "it": "Un proiettile.",
+    "kind": "html"
+  },
+  {
+    "id": "c3edb92ef7079e7cc8e4",
+    "it": "Un colpo in mischia.",
+    "kind": "html"
+  },
+  {
+    "id": "4ca59a4a39f52da52e81",
+    "it": "Una Tecnica che infligge direttamente danni.",
+    "kind": "html"
+  },
+  {
+    "id": "5a6cce85343cd96ff91a",
+    "it": "La porzione di danno subita dall’alleato a causa di un effetto ad Area, se puoi realisticamente frapporre il tuo corpo.",
+    "kind": "html"
+  },
+  {
+    "id": "557e946ac87006acc2c2",
+    "it": "Non può trasferire danni già in corso o privi di una fonte intercettabile, come:",
+    "kind": "html"
+  },
+  {
+    "id": "300c21e4705b87273af8",
+    "it": "Avvelenamento già applicato.",
+    "kind": "html"
+  },
+  {
+    "id": "66d8689f223137c89d82",
+    "it": "Bruciatura già attiva.",
+    "kind": "html"
+  },
+  {
+    "id": "9c2ffb32e9044323fd63",
+    "it": "Danni da soffocamento.",
+    "kind": "html"
+  },
+  {
+    "id": "534679708dad7d33caf6",
+    "it": "Una caduta.",
+    "kind": "html"
+  },
+  {
+    "id": "ac3a49f26efdf94dd790",
+    "it": "Danni auto-inflitti.",
+    "kind": "html"
+  },
+  {
+    "id": "8da9e7ffffc63560c215",
+    "it": "Altre conseguenze che non possono essere fisicamente intercettate.",
+    "kind": "html"
+  },
+  {
+    "id": "d535daa9f0f8e2b8a76d",
+    "it": "Una volta trasferito il danno, l’alleato non lo subisce.",
+    "kind": "html"
+  },
+  {
+    "id": "ecd7321a4faf55bc6768",
+    "it": "Il Capitano riduce i Dadi Danno trasferiti di un dado, fino a un minimo di un dado.",
+    "kind": "html"
+  },
+  {
+    "id": "110010faa17b68c4b54b",
+    "it": "Successivamente applica le proprie normali protezioni passive, Riduzioni del Danno e altri effetti difensivi compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "00bbaa3a0334081cfc16",
+    "it": "Le difese dell’alleato non vengono applicate, poiché non è più lui a ricevere il danno.",
+    "kind": "html"
+  },
+  {
+    "id": "b0ae1e66887850e8ce5d",
+    "it": "Poiché Scudo della Ciurma utilizza la Reazione del Capitano, il Capitano non può utilizzare una seconda capacità che richieda Reazione contro lo stesso danno.",
+    "kind": "html"
+  },
+  {
+    "id": "bb1b63352112e94f5caf",
+    "it": "Se il Capitano era già coinvolto autonomamente nello stesso effetto ad Area, risolve separatamente i propri danni e quelli trasferiti dall’alleato.",
+    "kind": "html"
+  }
+]

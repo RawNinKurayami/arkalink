@@ -89,7 +89,7 @@ function mount(host,opts={}){
   if(view.status==='available'&&!st.available)return false;
   if(view.status==='acquired'&&!st.acquired)return false;
   if(view.status==='locked'&&st.status!=='locked')return false;
-  return !view.search||[st.name,st.skill,st.attribute,...st.effects].join(' ').toLocaleLowerCase('it').includes(view.search.trim().toLocaleLowerCase('it'));
+  return !view.search||[st.name,st.skill,st.attribute,...st.effects].map(v=>window.GLCI18n?GLCI18n.searchText(v):v).join(' ').toLocaleLowerCase('it').includes(view.search.trim().toLocaleLowerCase('it'));
  }
  function select(id,reset=false){
   const st=T.trait(id);if(!st)return;

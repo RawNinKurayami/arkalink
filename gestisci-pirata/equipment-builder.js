@@ -155,7 +155,7 @@
     if(stage.querySelector('.eq-section'))return;
     const all=[...stage.children];
     const attr=all.find(n=>n.querySelector('.smb-chips[aria-label="Attributo"]'));
-    const range=all.find(n=>n.querySelector('.fld')?.textContent==='Portata');
+    const range=all.find(n=>(window.GLCI18n?GLCI18n.originalText(n.querySelector('.fld')):n.querySelector('.fld')?.textContent)==='Portata');
     if(!attr||!range)return;
     const ai=all.indexOf(attr),ri=all.indexOf(range);
     stage.replaceChildren(section(v,'Grado',all.slice(0,ai)),section(v,'Attributo',all.slice(ai,ri)),section(v,'Portata',all.slice(ri)));
@@ -201,7 +201,7 @@
       const label=input.parentElement.querySelector('.fld,.lab');
       if(label&&!input.hasAttribute('aria-label'))input.setAttribute('aria-label',label.textContent);
       input.dataset.eqFocus='field-'+(label?label.textContent:i);
-      if(label&&(label.textContent==='Nome'||label.textContent==="Nome dell'arma"))input.classList.add('eq-name-input');
+      if(label&&((window.GLCI18n?GLCI18n.originalText(label):label.textContent)==='Nome'||(window.GLCI18n?GLCI18n.originalText(label):label.textContent)==="Nome dell'arma"))input.classList.add('eq-name-input');
     });
     if(kind==='module'&&BLD.step===3&&o.fuel&&o.fuel.on&&!stage.querySelector('.eq-energy-preview')){
       const gauge=make('div','eq-energy-preview');gauge.setAttribute('role','status');stage.prepend(gauge);

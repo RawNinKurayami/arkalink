@@ -1,0 +1,1667 @@
+[
+  {
+    "id": "b82273c7bf191c9d78e2",
+    "it": "Gli effetti passivi si applicano automaticamente quando vengono soddisfatte le rispettive condizioni. Non richiedono di spendere un'Azione Bonus per ciascun effetto. Se dipendono dall'Haki attivo, il Colore deve naturalmente essere già stato attivato.",
+    "kind": "html"
+  },
+  {
+    "id": "15b0d6c5d5a53672383b",
+    "it": "Ogni effetto attivo (⚡) richiede una scelta del giocatore, 1 Azione Bonus e il pagamento del costo in PIP indicato. Non può essere attivato nello stesso turno di un Talento attivo, della prima attivazione di un Colore o di un altro effetto attivo Haki.",
+    "kind": "html"
+  },
+  {
+    "id": "4e97c61a556b7cd4f783",
+    "it": "Gli effetti attivi devono essere dichiarati prima del tiro al quale vengono applicati, quando è previsto un tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "104ecc7c208409e56808",
+    "it": "L'utilizzo di un effetto dell'Haki già attivo durante un attacco non richiede di attivare nuovamente l'intero Colore.",
+    "kind": "html"
+  },
+  {
+    "id": "d80c1d8e7d417badeed6",
+    "it": "Un personaggio possiede Armamento d10, quindi dispone di 3 PIP.",
+    "kind": "html"
+  },
+  {
+    "id": "3dbd389b80651c231bec",
+    "it": "Nel primo turno attiva l’Haki con 1 Azione Bonus e 1 PIP. Gliene rimangono 2.",
+    "kind": "html"
+  },
+  {
+    "id": "b83b4182d8828fcb2e3e",
+    "it": "In un turno successivo mantiene l’Haki pagando 1 ST e utilizza la Bonus per Esplosione Haki, pagando 1 PIP. Esegue l’attacco con l’Azione normale; la riserva scende a 1 PIP. Nello stesso turno non può attivare anche un Talento.",
+    "kind": "html"
+  },
+  {
+    "id": "8db524ff797f958ee1e7",
+    "it": "Se mantiene l'Haki nei turni successivi, non deve spendere un altro PIP di attivazione.",
+    "kind": "html"
+  },
+  {
+    "id": "72759b1f77989b3da8ce",
+    "it": "<span class=\"man-sez-n\">8.7 ·</span> Haki dell’Armamento",
+    "kind": "html"
+  },
+  {
+    "id": "814c4f45da37927a0f1f",
+    "it": "L’Haki dell’Armamento permette di rivestire il proprio corpo, le armi e gli attacchi con la propria volontà.",
+    "kind": "html"
+  },
+  {
+    "id": "76e509ee0a7482f51a19",
+    "it": "Può essere utilizzato sia offensivamente sia difensivamente e permette inoltre di colpire direttamente il corpo di utilizzatori Logia normalmente intangibili, salvo capacità specifiche che stabiliscano diversamente.",
+    "kind": "html"
+  },
+  {
+    "id": "8ffbe39f8f798f038c24",
+    "it": "Quando l’Armamento è attivo, il personaggio può applicare il proprio Dado Armamento agli utilizzi compatibili.",
+    "kind": "html"
+  },
+  {
+    "id": "5e3138cadde79d4fc05d",
+    "it": "Armamento offensivo",
+    "kind": "html"
+  },
+  {
+    "id": "c386e9f8a4d70f7d9d3b",
+    "it": "Quando un attacco fisico viene potenziato dall’Armamento, il personaggio aggiunge il proprio Dado Armamento al danno.",
+    "kind": "html"
+  },
+  {
+    "id": "054e1999a9f0ab8928f4",
+    "it": "+1 Dado Armamento al danno",
+    "kind": "html"
+  },
+  {
+    "id": "e45f9f5d15382ac59d09",
+    "it": "Non è necessario che l’attacco faccia parte di una Special Move. L’Armamento può essere applicato normalmente a un attacco base, a una Tecnica o a qualsiasi altra capacità compatibile.",
+    "kind": "html"
+  },
+  {
+    "id": "2518eadce58ef53c15a0",
+    "it": "Una Special Move non concede un utilizzo speciale dell’Haki: rappresenta semplicemente una combinazione organizzata di capacità già possedute dal personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "767efe8bd76cb730356e",
+    "it": "Armamento difensivo",
+    "kind": "html"
+  },
+  {
+    "id": "9154efb99b4c0f7bef41",
+    "it": "L’Haki dell’Armamento non viene mai tirato insieme alla Difesa Passiva. La Difesa Passiva rimane un valore fisso e non riceve automaticamente il Dado Armamento.",
+    "kind": "html"
+  },
+  {
+    "id": "a9d38c7a451bdd953ae6",
+    "it": "Quando il personaggio effettua una Difesa Attiva compatibile mentre l’Armamento è attivo, aggiunge il proprio Dado Armamento al tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "d31ea0c7bb0a856c9678",
+    "it": "Difesa Attiva compatibile = formula della Difesa Attiva + Dado Armamento",
+    "kind": "html"
+  },
+  {
+    "id": "66971ef7a2c2fa2be5c3",
+    "it": "Forza d10 + Atletica d8 + Armamento d8",
+    "kind": "html"
+  },
+  {
+    "id": "9895e9458a9b27baacc5",
+    "it": "Come per ogni Difesa Attiva, il pareggio favorisce il difensore.",
+    "kind": "html"
+  },
+  {
+    "id": "b65a331049eef19cbc2c",
+    "it": "<span>Difesa ≥ Attacco</span> <i class=\"man-freccia\">→</i> <b>difesa riuscita</b>",
+    "kind": "html"
+  },
+  {
+    "id": "751866f36313c8b95023",
+    "it": "<span>Difesa &lt; Attacco</span> <i class=\"man-freccia\">→</i> <b>il personaggio viene colpito</b>",
+    "kind": "html"
+  },
+  {
+    "id": "f4ac14b1b668ca1507e7",
+    "it": "Il semplice utilizzo del Dado Armamento non richiede PIP aggiuntivi oltre all’attivazione dell’Haki. Gli effetti speciali riportati nella progressione richiedono invece il costo indicato.",
+    "kind": "html"
+  },
+  {
+    "id": "215f0e7588b63596dbb6",
+    "it": "8.7.1 · d6: Competente",
+    "kind": "html"
+  },
+  {
+    "id": "3c89e09e4ce1b1ddfa60",
+    "it": "1 PIP massimo",
+    "kind": "html"
+  },
+  {
+    "id": "1d01c3e02db83c8c149e",
+    "it": "Passivo · Controllo dell’Armamento",
+    "kind": "html"
+  },
+  {
+    "id": "da50ad01a9ac8907749b",
+    "it": "Una volta attivato, l’Armamento può essere mantenuto pagando:",
+    "kind": "html"
+  },
+  {
+    "id": "d8e5318ff924ab85fa85",
+    "it": "L’utilizzo normale del Dado Armamento non richiede ulteriori PIP. I PIP vengono spesi per l’attivazione dell’Haki e per gli effetti speciali che riportano un costo specifico.",
+    "kind": "html"
+  },
+  {
+    "id": "575671f6a168f002a7a8",
+    "it": "A questo Grado non è disponibile un effetto attivo aggiuntivo.",
+    "kind": "html"
+  },
+  {
+    "id": "5d03e5aa05e12eefc214",
+    "it": "8.7.2 · d8: Esperto",
+    "kind": "html"
+  },
+  {
+    "id": "8603bb3abf610c9abab9",
+    "it": "2 PIP massimi",
+    "kind": "html"
+  },
+  {
+    "id": "0c200159ed97fa119ee5",
+    "it": "Passivo · Armamento Condensato",
+    "kind": "html"
+  },
+  {
+    "id": "b28967e7fb063bdba97c",
+    "it": "Quando il personaggio tira il proprio Dado Armamento per determinare il danno, qualsiasi risultato inferiore alla metà del valore massimo del dado viene considerato pari alla metà.",
+    "kind": "html"
+  },
+  {
+    "id": "d971c908e7424385162e",
+    "it": "Armamento d8: risultati 1-3 contano come 4.",
+    "kind": "html"
+  },
+  {
+    "id": "2f35e0c13184157c8961",
+    "it": "Armamento d10: risultati 1-4 contano come 5.",
+    "kind": "html"
+  },
+  {
+    "id": "d044dc28331da130cbce",
+    "it": "Armamento d12: risultati 1-5 contano come 6.",
+    "kind": "html"
+  },
+  {
+    "id": "67e9ca4e10f18b3943ba",
+    "it": "Armamento d20: risultati 1-9 contano come 10.",
+    "kind": "html"
+  },
+  {
+    "id": "034d3d0c46485dd10fdc",
+    "it": "Attivo · Armatura Totale",
+    "kind": "html"
+  },
+  {
+    "id": "5a07f8c7798156a81143",
+    "it": "Nel proprio turno, con Armamento già attivo, il personaggio prepara Armatura Totale spendendo 1 Azione Bonus e 1 PIP. Non può attivarla dopo essere stato colpito nel turno di un avversario.",
+    "kind": "html"
+  },
+  {
+    "id": "fa5956b9f1e06d917982",
+    "it": "Il danno di quel singolo attacco viene dimezzato, arrotondando per eccesso.",
+    "kind": "html"
+  },
+  {
+    "id": "17b69d294ab8f1919b68",
+    "it": "Esempio: 13 danni diventano 7 danni.",
+    "kind": "html"
+  },
+  {
+    "id": "3deb0f81f9a7eaa52ebe",
+    "it": "La protezione preparata si applica al prossimo singolo attacco che colpisce il personaggio nei turni successivi dei nemici, finché Armamento resta attivo. Si consuma quando dimezza quel danno e non protegge automaticamente dagli attacchi successivi. Per prepararla di nuovo occorre pagare nuovamente la Bonus e 1 PIP nel proprio turno.",
+    "kind": "html"
+  },
+  {
+    "id": "87a8c0d15b5db179465a",
+    "it": "8.7.3 · d10: Maestro",
+    "kind": "html"
+  },
+  {
+    "id": "0c84fb0d475824774573",
+    "it": "3 PIP massimi",
+    "kind": "html"
+  },
+  {
+    "id": "2442f6b1dff46abbdc31",
+    "it": "Passivo · Difesa Rafforzata",
+    "kind": "html"
+  },
+  {
+    "id": "0112458fd2e2030bb209",
+    "it": "Quando il personaggio utilizza il proprio Dado Armamento in una Difesa Attiva, tira il Dado Armamento due volte e mantiene il risultato migliore. Gli altri dadi della Difesa Attiva vengono tirati normalmente.",
+    "kind": "html"
+  },
+  {
+    "id": "534785b258aac0ba9497",
+    "it": "Attivo · Esplosione Haki",
+    "kind": "html"
+  },
+  {
+    "id": "db5663cd1df1fd433a7a",
+    "it": "Offensivo · Area",
+    "kind": "html"
+  },
+  {
+    "id": "d18f9c1539f1c6da2cff",
+    "it": "Dopo un attacco, il personaggio può liberare un’esplosione di Haki in un’area di 5 metri.",
+    "kind": "html"
+  },
+  {
+    "id": "440e80f1bad99cfff2e7",
+    "it": "I nemici raggiunti dall’esplosione subiscono metà del danno dell’attacco.",
+    "kind": "html"
+  },
+  {
+    "id": "b4dafbfb8446fcc24b69",
+    "it": "Il bersaglio principale continua a subire normalmente il danno completo dell’attacco originale.",
+    "kind": "html"
+  },
+  {
+    "id": "b4dae25faa3840576174",
+    "it": "8.7.4 · d12: Leggenda",
+    "kind": "html"
+  },
+  {
+    "id": "47585e63c07efc600903",
+    "it": "4 PIP massimi",
+    "kind": "html"
+  },
+  {
+    "id": "cb81dedbf2de04ad4316",
+    "it": "Passivo · Padronanza dell’Armamento",
+    "kind": "html"
+  },
+  {
+    "id": "73c305c018b255fcb0fb",
+    "it": "Una volta attivato, l’Haki dell’Armamento non richiede più Stamina per essere mantenuto.",
+    "kind": "html"
+  },
+  {
+    "id": "79723fa863695fe54d6b",
+    "it": "Attivo · Corazza d’Armamento",
+    "kind": "html"
+  },
+  {
+    "id": "06834b58ba1ed33b88aa",
+    "it": "Difesa · 2 turni",
+    "kind": "html"
+  },
+  {
+    "id": "aa13853458c85c1f8cea",
+    "it": "Il personaggio concentra l’Armamento su tutto il proprio corpo.",
+    "kind": "html"
+  },
+  {
+    "id": "52b13c2d24826d213366",
+    "it": "+4 Difesa Passiva per 2 turni",
+    "kind": "html"
+  },
+  {
+    "id": "6c459c5e20800eea856f",
+    "it": "Esempio: Difesa Passiva 11 → Difesa Passiva 15.",
+    "kind": "html"
+  },
+  {
+    "id": "52f1835f420cbfa47b6d",
+    "it": "Il bonus modifica esclusivamente la Difesa Passiva. Non aggiunge dadi alla Difesa Attiva.",
+    "kind": "html"
+  },
+  {
+    "id": "d255927797b0555bab02",
+    "it": "8.7.5 · d20: Mitico",
+    "kind": "html"
+  },
+  {
+    "id": "3d953bbaabcecdadc048",
+    "it": "5 PIP massimi",
+    "kind": "html"
+  },
+  {
+    "id": "a325cced74dc40c57411",
+    "it": "Passivo · Armamento Perfetto",
+    "kind": "html"
+  },
+  {
+    "id": "dee5dd5456e5472ebace",
+    "it": "Ogni volta che il personaggio tira il proprio Dado Armamento, lo tira due volte e mantiene il risultato migliore.",
+    "kind": "html"
+  },
+  {
+    "id": "4c9805fcd2f38074e47d",
+    "it": "Il beneficio si applica agli utilizzi offensivi e difensivi del Dado Armamento. Quando viene utilizzato in Difesa Attiva, sostituisce naturalmente Difesa Rafforzata: il dado non viene tirato ulteriori volte.",
+    "kind": "html"
+  },
+  {
+    "id": "cec84b3e7665aeaeae8f",
+    "it": "Attivo · Ryou",
+    "kind": "html"
+  },
+  {
+    "id": "821deb3dcb25d0610ae3",
+    "it": "3 PIP · Offensivo",
+    "kind": "html"
+  },
+  {
+    "id": "e3ea2e7e97fdfbc90822",
+    "it": "L’Armamento penetra le difese esterne e colpisce il bersaglio dall’interno. Questo aspetto è narrativo e descrive la manifestazione del Ryou: non crea una categoria meccanica separata di danno interno.",
+    "kind": "html"
+  },
+  {
+    "id": "0bd19152e9f136d8ad7e",
+    "it": "Quando applichi Ryou a un attacco fisico compatibile, calcola normalmente il danno totale dell’attacco, comprendendo tutti i dadi e i bonus effettivamente applicabili, quindi moltiplica il risultato ×2.",
+    "kind": "html"
+  },
+  {
+    "id": "4d277d3440bd7a055a39",
+    "it": "Ryou raddoppia il totale una sola volta. Non raddoppiare separatamente le singole componenti per poi moltiplicare nuovamente il risultato.",
+    "kind": "html"
+  },
+  {
+    "id": "4f7fde5555f041892493",
+    "it": "Ryou non rende il colpo automatico e non impedisce al bersaglio di utilizzare Difesa Passiva, Difesa Attiva, Riduzione del Danno o altre difese normalmente consentite, salvo una regola specifica che stabilisca diversamente.",
+    "kind": "html"
+  },
+  {
+    "id": "1bd86ceec11073b52a73",
+    "it": "<span class=\"man-sez-n\">8.8 ·</span> Haki dell'Osservazione",
+    "kind": "html"
+  },
+  {
+    "id": "0da049abe76dfebcfc39",
+    "it": "L'Osservazione affina la percezione del combattente. Gli permette di riconoscere presenze nascoste, individuare intenzioni ostili e reagire a pericoli che altri non riescono nemmeno a vedere.",
+    "kind": "html"
+  },
+  {
+    "id": "7d90ef39d0da7f217ef8",
+    "it": "L'Osservazione utilizza gli stessi Gradi e la stessa progressione dei PIP dell'Armamento.",
+    "kind": "html"
+  },
+  {
+    "id": "1ed04c9ac96133a84494",
+    "it": "Le sue capacità si concentrano sulla percezione, sulla difesa e sul sostegno ai compagni.",
+    "kind": "html"
+  },
+  {
+    "id": "c68e4dfeae73dbfc37c6",
+    "it": "8.8.1 · d6: Competente",
+    "kind": "html"
+  },
+  {
+    "id": "e18bcb1b801856ff3bb1",
+    "it": "Passivo · Controllo dell'Osservazione",
+    "kind": "html"
+  },
+  {
+    "id": "1b3a313bb2a171848d87",
+    "it": "Il personaggio può mantenere attivo l'Haki pagando 1 ST per turno.",
+    "kind": "html"
+  },
+  {
+    "id": "87a3f3b48855acdb217c",
+    "it": "Le capacità potenziate dall'Osservazione non richiedono PIP aggiuntivi se non è previsto uno specifico effetto attivo.",
+    "kind": "html"
+  },
+  {
+    "id": "74f9f4d696308fd1cfd2",
+    "it": "A questo Grado non è ancora disponibile un effetto speciale aggiuntivo.",
+    "kind": "html"
+  },
+  {
+    "id": "8ac7785b19c7b2b90da7",
+    "it": "8.8.2 · d8: Esperto",
+    "kind": "html"
+  },
+  {
+    "id": "3328d3fbf7632d0d56fc",
+    "it": "Passivo · Vista a 360°",
+    "kind": "html"
+  },
+  {
+    "id": "eea5e23f133905f4c1be",
+    "it": "Il personaggio non può essere sorpreso attraverso i normali attacchi alle spalle.",
+    "kind": "html"
+  },
+  {
+    "id": "68eadd6052cc31310887",
+    "it": "Gli attacchi provenienti da dietro perdono il beneficio della sorpresa.",
+    "kind": "html"
+  },
+  {
+    "id": "9770ebc3bbddb1a83d76",
+    "it": "Il passivo non rende automaticamente il personaggio immune a ogni forma di occultamento soprannaturale o a effetti che prevedono regole specifiche.",
+    "kind": "html"
+  },
+  {
+    "id": "3e13845759cb1d3a2ad8",
+    "it": "Attivo · Anticipo",
+    "kind": "html"
+  },
+  {
+    "id": "8df34cabac3ef3277629",
+    "it": "Il personaggio anticipa il movimento dell'avversario.",
+    "kind": "html"
+  },
+  {
+    "id": "8cfaf9e53ed7be7642d2",
+    "it": "Aggiunge due dadi del proprio Grado di Osservazione a un tiro difensivo compatibile effettuato per una Schivata oppure per una Difesa Attiva eseguita con una Tecnica d’attacco. Il beneficio non concede automaticamente danni: eventuali danni in risposta richiedono un Talento come Contraccolpo e ne rispettano tutte le condizioni, compreso il superamento del tiro avversario.",
+    "kind": "html"
+  },
+  {
+    "id": "4fc87a476513e029cbd3",
+    "it": "Esempio: con Osservazione d8, Anticipo aggiunge 2d8 al tiro difensivo compatibile.",
+    "kind": "html"
+  },
+  {
+    "id": "2216e5dcb13f11146fa3",
+    "it": "8.8.3 · d10: Maestro",
+    "kind": "html"
+  },
+  {
+    "id": "529a5226cd9f8eb312fd",
+    "it": "Passivo · Lettura del Campo",
+    "kind": "html"
+  },
+  {
+    "id": "364655b5ba3a0887a25e",
+    "it": "Il personaggio percepisce la posizione di tutti i nemici presenti nella scena e ne riconosce approssimativamente i Punti Vita.",
+    "kind": "html"
+  },
+  {
+    "id": "f425fe3535e68341de30",
+    "it": "Il GM può descrivere le condizioni dei bersagli in modo narrativo: illesi, feriti, gravemente feriti o prossimi al collasso.",
+    "kind": "html"
+  },
+  {
+    "id": "d07432a8b09e1ddf6163",
+    "it": "L'effetto fornisce una valutazione approssimativa, non necessariamente il valore esatto dei PV di ogni avversario.",
+    "kind": "html"
+  },
+  {
+    "id": "c55621ef032669caafe9",
+    "it": "Attivo · Guida Nakama",
+    "kind": "html"
+  },
+  {
+    "id": "7ee24fef068aa17956ce",
+    "it": "Supporto · 1 turno",
+    "kind": "html"
+  },
+  {
+    "id": "4e850adb4cd2dc23a4d3",
+    "it": "Il personaggio trasmette ai compagni la propria percezione del campo di battaglia.",
+    "kind": "html"
+  },
+  {
+    "id": "d266992fcda34ff532c5",
+    "it": "Per un turno, tutti i compagni che si trovano nella sua linea di vista aggiungono il suo dado di Osservazione come bonus ai propri tiri.",
+    "kind": "html"
+  },
+  {
+    "id": "61cf82d8a5a9b1eeebd2",
+    "it": "Esempio: un personaggio con Osservazione d10 utilizza Guida Nakama. Per un turno, i compagni interessati ricevono un dado d10 aggiuntivo.",
+    "kind": "html"
+  },
+  {
+    "id": "bf7795d012543211433e",
+    "it": "8.8.4 · d12: Leggenda",
+    "kind": "html"
+  },
+  {
+    "id": "393ace0928b9a6ad6e65",
+    "it": "Passivo · Visione Futura",
+    "kind": "html"
+  },
+  {
+    "id": "cb09f0680d8ee915e38a",
+    "it": "1 volta per sessione",
+    "kind": "html"
+  },
+  {
+    "id": "02f9394e5f219acb93f4",
+    "it": "All'inizio di una scena, il giocatore può chiedere al Game Master cosa sta per accadere.",
+    "kind": "html"
+  },
+  {
+    "id": "6fa32a4c9071f6629dfc",
+    "it": "Il GM fornisce una previsione coerente con gli eventi imminenti.",
+    "kind": "html"
+  },
+  {
+    "id": "64e484f64e9ea6758f70",
+    "it": "La capacità non permette di conoscere arbitrariamente l'intera trama o eventi che non appartengono alla scena imminente.",
+    "kind": "html"
+  },
+  {
+    "id": "5e3ea60634f2f918065d",
+    "it": "Attivo · Previsione Breve",
+    "kind": "html"
+  },
+  {
+    "id": "8370256179a3b1fed885",
+    "it": "Difesa · 1 turno",
+    "kind": "html"
+  },
+  {
+    "id": "fc379cf886e6e714b43f",
+    "it": "Per un turno, gli attacchi fisici normali non possono colpire il personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "66cd96cfd11e38a8b322",
+    "it": "Rimangono efficaci gli attacchi che utilizzano Haki e quelli ad Area, secondo le rispettive regole.",
+    "kind": "html"
+  },
+  {
+    "id": "849ef5495078fb9715ab",
+    "it": "L'effetto non costituisce quindi un'immunità assoluta a ogni forma di danno.",
+    "kind": "html"
+  },
+  {
+    "id": "194441ae5639f84f1796",
+    "it": "8.8.5 · d20: Mitico",
+    "kind": "html"
+  },
+  {
+    "id": "14ecf6737d5b68ce9504",
+    "it": "Passivo · Osservazione Universale",
+    "kind": "html"
+  },
+  {
+    "id": "a7465d5fa3bd47aa5777",
+    "it": "Il personaggio percepisce ogni essere vivente presente sull'isola.",
+    "kind": "html"
+  },
+  {
+    "id": "c28d0928dabde3092406",
+    "it": "I nemici non possono nascondersi o organizzare un'imboscata senza che il personaggio ne percepisca la presenza.",
+    "kind": "html"
+  },
+  {
+    "id": "e4da563b5821fc13251a",
+    "it": "La capacità riguarda la percezione delle presenze, non una conoscenza automatica dei loro pensieri o delle loro intenzioni dettagliate.",
+    "kind": "html"
+  },
+  {
+    "id": "5f81abf6f77264b0fb6b",
+    "it": "Attivo · Previsione Futura",
+    "kind": "html"
+  },
+  {
+    "id": "d53a57fc46d1a0fef73d",
+    "it": "Per due turni, il personaggio anticipa il combattimento con una precisione straordinaria.",
+    "kind": "html"
+  },
+  {
+    "id": "fd4803bd6cbe5f9d0fcf",
+    "it": "Durante questo periodo:",
+    "kind": "html"
+  },
+  {
+    "id": "6c1be33a7751060fadfc",
+    "it": "Attacco: i suoi attacchi ignorano la difesa.",
+    "kind": "html"
+  },
+  {
+    "id": "915c29588e691c088ac1",
+    "it": "Difesa: schiva automaticamente ogni colpo.",
+    "kind": "html"
+  },
+  {
+    "id": "aabc34e2903978f5e21a",
+    "it": "L'effetto dura due turni e deve essere attivato pagando il costo di 3 PIP.",
+    "kind": "html"
+  },
+  {
+    "id": "de7cb4c49f53b346713b",
+    "it": "Conflitto tra Previsioni Future",
+    "kind": "html"
+  },
+  {
+    "id": "75b340a9a03eb77d51eb",
+    "it": "Quando due personaggi possiedono contemporaneamente Previsione Futura attiva e i rispettivi automatismi entrano direttamente in conflitto, ha precedenza la Previsione Futura attivata per prima.",
+    "kind": "html"
+  },
+  {
+    "id": "81dfea18d94bb6e3074c",
+    "it": "L’effetto attivato successivamente non annulla quello precedente.",
+    "kind": "html"
+  },
+  {
+    "id": "f394b8a7960826857a75",
+    "it": "La seconda Previsione rimane comunque attiva e continua a funzionare normalmente contro gli altri personaggi e contro tutte le situazioni nelle quali non entra in conflitto con quella precedente.",
+    "kind": "html"
+  },
+  {
+    "id": "30e5279e1b1969c56226",
+    "it": "Esempio: se il primo personaggio attiva Previsione Futura e successivamente il secondo fa lo stesso, quando il primo attacca il secondo prevale il suo effetto che ignora la difesa. Quando invece il secondo attacca il primo, prevale la schivata automatica della Previsione attivata per prima.",
+    "kind": "html"
+  },
+  {
+    "id": "4da54395bc9c4b72c2d2",
+    "it": "<span class=\"man-sez-n\">8.9 ·</span> Haki del Re",
+    "kind": "html"
+  },
+  {
+    "id": "3c5b071b66028d6eb566",
+    "it": "L’Haki del Re è un potere raro, legato alla volontà innata del personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "67e21e56e1432955e1a8",
+    "it": "La sua progressione non segue i dadi dell’Armamento e dell’Osservazione. È articolata in tre livelli, ciascuno caratterizzato da capacità passive e, quando previste, da effetti attivi.",
+    "kind": "html"
+  },
+  {
+    "id": "f0e8c96f89cb0528b6e6",
+    "it": "L’Haki del Re possiede un massimo di 3 PIP.",
+    "kind": "html"
+  },
+  {
+    "id": "3b8d4c98d2b21911cd04",
+    "it": "I suoi effetti passivi si applicano automaticamente quando si verificano le condizioni indicate, senza spendere PIP per ciascun bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "c03fb289909e84dfc1d6",
+    "it": "Gli effetti attivi richiedono invece il pagamento del relativo costo. Quando un effetto attivo richiede il Colore già attivo, si applica anche il normale costo di attivazione dell’Haki.",
+    "kind": "html"
+  },
+  {
+    "id": "45d8f0a226a378efac2d",
+    "it": "8.9.1 · Livello 1: Risveglio",
+    "kind": "html"
+  },
+  {
+    "id": "b5aa60133f7575c76e7c",
+    "it": "Passivo · Stordimento di Massa",
+    "kind": "html"
+  },
+  {
+    "id": "d9384e9cebb415a72815",
+    "it": "La volontà del personaggio travolge gli avversari meno resistenti.",
+    "kind": "html"
+  },
+  {
+    "id": "ca3a23a36b5793440903",
+    "it": "Tutti i PNG minori con PV pari o inferiori a 15 presenti nella scena vengono automaticamente Storditi.",
+    "kind": "html"
+  },
+  {
+    "id": "f33bc6ed30587b4f4469",
+    "it": "Non è richiesto alcun tiro.",
+    "kind": "html"
+  },
+  {
+    "id": "8b5042404c765fe97ff8",
+    "it": "L’effetto non si applica automaticamente ai nemici importanti e ai boss soltanto perché hanno pochi PV: il bersaglio deve appartenere alla categoria dei PNG minori prevista dalla capacità.",
+    "kind": "html"
+  },
+  {
+    "id": "56f2cede4e2cfbf5dc77",
+    "it": "Questo livello non concede un effetto attivo aggiuntivo.",
+    "kind": "html"
+  },
+  {
+    "id": "5b9810228dc198791942",
+    "it": "8.9.2 · Livello 2: Dominio",
+    "kind": "html"
+  },
+  {
+    "id": "d407d0bdbdf3704b756d",
+    "it": "Passivo · Aura Intimidatoria",
+    "kind": "html"
+  },
+  {
+    "id": "1d8bb3e4be509e0570eb",
+    "it": "Finché i nemici rimangono nella scena, quelli con Spirito inferiore a d8 subiscono una penalità di:",
+    "kind": "html"
+  },
+  {
+    "id": "cfef03ba38c9f0d6b879",
+    "it": "−2 ai propri tiri",
+    "kind": "html"
+  },
+  {
+    "id": "15f559974af2a04b7341",
+    "it": "Il beneficio è automatico e non richiede un tiro separato contro ciascun bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "ef863dd2d3d97d32affa",
+    "it": "Attivo · Grido dell’Imperatore",
+    "kind": "html"
+  },
+  {
+    "id": "430f5af710085db3cccc",
+    "it": "1 volta per combattimento",
+    "kind": "html"
+  },
+  {
+    "id": "05eb71afe70099588dd1",
+    "it": "Il personaggio concentra la propria volontà su un avversario.",
+    "kind": "html"
+  },
+  {
+    "id": "2b29cccc2095f21d6011",
+    "it": "Un nemico scelto perde la propria prossima Azione.",
+    "kind": "html"
+  },
+  {
+    "id": "7d43d2b3aeba662a6674",
+    "it": "La capacità può essere utilizzata anche contro un boss.",
+    "kind": "html"
+  },
+  {
+    "id": "7cdb3eed50f473eacf6b",
+    "it": "Il limite di utilizzo è di una volta per combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "fd673419a1cee4e54e61",
+    "it": "8.9.3 · Livello 3: Assoluto",
+    "kind": "html"
+  },
+  {
+    "id": "012fa96c71c802b19a32",
+    "it": "Passivo · Dominio del Campo",
+    "kind": "html"
+  },
+  {
+    "id": "c66681746e9033d6a4da",
+    "it": "All’inizio del combattimento, la volontà del personaggio travolge i PNG minori.",
+    "kind": "html"
+  },
+  {
+    "id": "077cebae28ec25dfe60b",
+    "it": "I loro PV attuali vengono dimezzati immediatamente, arrotondando per difetto.",
+    "kind": "html"
+  },
+  {
+    "id": "75857f79ddd715426978",
+    "it": "Esempio: un PNG minore possiede 15 PV. L’effetto li riduce a 7.",
+    "kind": "html"
+  },
+  {
+    "id": "7196007651c0fb1f1d00",
+    "it": "La capacità si applica una sola volta all’inizio dello scontro, non ripetutamente a ogni turno.",
+    "kind": "html"
+  },
+  {
+    "id": "6cf4ddb9a95413a2f85e",
+    "it": "Attivo · Rivestimento del Re",
+    "kind": "html"
+  },
+  {
+    "id": "983c62116712b3fa1e48",
+    "it": "Attacco fisico",
+    "kind": "html"
+  },
+  {
+    "id": "123be5572facb5a60282",
+    "it": "Il personaggio concentra l’Haki del Re su un singolo attacco fisico, rivestendolo completamente con la propria volontà.",
+    "kind": "html"
+  },
+  {
+    "id": "7908ef62edd862780e8e",
+    "it": "L’effetto deve essere dichiarato prima di effettuare il tiro per colpire.",
+    "kind": "html"
+  },
+  {
+    "id": "dd62d02b8aa3b260d28e",
+    "it": "Se l’attacco va a segno:",
+    "kind": "html"
+  },
+  {
+    "id": "c8fc43d6b405eb930641",
+    "it": "i Dadi Danno dell’attacco non vengono tirati;",
+    "kind": "html"
+  },
+  {
+    "id": "63eac3ba635accf6bd79",
+    "it": "ogni Dado Danno assume automaticamente il proprio risultato massimo.",
+    "kind": "html"
+  },
+  {
+    "id": "9f4845daa323b34a7ce1",
+    "it": "Esempi:",
+    "kind": "html"
+  },
+  {
+    "id": "5554cbe3db7555b0e9ef",
+    "it": "2d10 → 20 danni.",
+    "kind": "html"
+  },
+  {
+    "id": "19f871642fdb45b9bf6f",
+    "it": "3d12 → 36 danni.",
+    "kind": "html"
+  },
+  {
+    "id": "afd5d0ef1556906ce44e",
+    "it": "2d20 → 40 danni.",
+    "kind": "html"
+  },
+  {
+    "id": "fe58b14fb8caf0e0f4ce",
+    "it": "Eventuali componenti dell’attacco che non fanno parte dei Dadi Danno seguono normalmente le proprie regole.",
+    "kind": "html"
+  },
+  {
+    "id": "7e8b8a69fb57da645090",
+    "it": "Rivestimento del Re non garantisce che l’attacco colpisca: il tiro per colpire e la difesa del bersaglio vengono risolti normalmente.",
+    "kind": "html"
+  },
+  {
+    "id": "f641bc1c8fa3e0c442f9",
+    "it": "Al Livello Assoluto, l’attivazione dell’Haki del Re costa 1 PIP e Rivestimento del Re ne costa 2: utilizzarli insieme consuma l’intera riserva di 3 PIP. Il personaggio deve quindi recuperare i PIP attraverso un Riposo Breve prima di poter utilizzare nuovamente Rivestimento del Re.",
+    "kind": "html"
+  },
+  {
+    "id": "b2753f42b4a15736076b",
+    "it": "<span class=\"man-sez-n\">8.10 ·</span> Haki e Frutti del Diavolo",
+    "kind": "html"
+  },
+  {
+    "id": "a78e1a248de4e7fb4a10",
+    "it": "L'Haki dell'Armamento permette di contrastare le difese normalmente offerte dai Frutti del Diavolo.",
+    "kind": "html"
+  },
+  {
+    "id": "53c1200dce380b75e1c6",
+    "it": "La sua interazione più importante riguarda i Logia.",
+    "kind": "html"
+  },
+  {
+    "id": "d659fd39dc34ea0e50fb",
+    "it": "Un utilizzatore Logia può normalmente lasciare che gli attacchi ordinari attraversino il proprio corpo elementale.",
+    "kind": "html"
+  },
+  {
+    "id": "3621c79b51e66d1bed2d",
+    "it": "L'Armamento permette invece di colpirne il corpo, superando questa intangibilità ordinaria.",
+    "kind": "html"
+  },
+  {
+    "id": "9da0d4c95ebe982cdd7e",
+    "it": "Ciò non significa che ogni colpo con Haki annulli automaticamente tutti i poteri del bersaglio.",
+    "kind": "html"
+  },
+  {
+    "id": "939a1e44cc6a0bfb74d8",
+    "it": "Rimangono valide le capacità specifiche del Frutto, le Tecniche difensive e gli effetti avanzati che prevedono espressamente interazioni differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "6066fd2ecf8fd9956037",
+    "it": "L'Haki non elimina inoltre le regole delle altre debolezze dei Frutti, come il mare e la Pietra di Mare.",
+    "kind": "html"
+  },
+  {
+    "id": "b7f446646ca3c4848c13",
+    "it": "<span class=\"man-sez-n\">8.11 ·</span> Haki e Special Moves",
+    "kind": "html"
+  },
+  {
+    "id": "c3baa412399b1d008998",
+    "it": "Una Special Move può utilizzare uno o più benefici dell'Haki posseduto dal personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "5df9af1a8723b247ead4",
+    "it": "La Special Move non attiva gratuitamente l'Haki e non modifica i costi degli effetti selezionati.",
+    "kind": "html"
+  },
+  {
+    "id": "9697d8fc29e12bfde2cf",
+    "it": "Per applicare un beneficio che richiede l'Haki attivo, il relativo Colore deve essere stato attivato.",
+    "kind": "html"
+  },
+  {
+    "id": "6c870a85570abc7bc3b8",
+    "it": "Per applicare un effetto che costa PIP, il personaggio deve possedere e spendere i PIP necessari.",
+    "kind": "html"
+  },
+  {
+    "id": "9c0884969e97ff39ed98",
+    "it": "8.11.1 · Special Move con solo Haki",
+    "kind": "html"
+  },
+  {
+    "id": "0996285f08cc163152ee",
+    "it": "Se una Special Move non richiede l’attivazione di un Talento né di un effetto attivo Haki (⚡), il personaggio può attivare il Colore con la Bonus ed eseguire la mossa con l’Azione normale nello stesso turno. Se vuole usare un effetto ⚡, il Colore deve essere già attivo da un turno precedente.",
+    "kind": "html"
+  },
+  {
+    "id": "3daf0dfca294cdcb42cc",
+    "it": "8.11.2 · Special Move con Haki e Talento attivo",
+    "kind": "html"
+  },
+  {
+    "id": "ff380d8e72731d182b69",
+    "it": "Se una Special Move richiede entrambi, il personaggio deve distribuirne le attivazioni su più turni.",
+    "kind": "html"
+  },
+  {
+    "id": "5628ee166471167165ad",
+    "it": "<span class=\"man-sez-n\">8.12 ·</span> Utilizzare più effetti dell'Haki",
+    "kind": "html"
+  },
+  {
+    "id": "6a3bde5ae81e269d9a54",
+    "it": "Gli effetti passivi già sbloccati si applicano quando vengono soddisfatte le rispettive condizioni.",
+    "kind": "html"
+  },
+  {
+    "id": "6f12864ffb9051ec0f5f",
+    "it": "Gli effetti attivi consumano i PIP riportati nelle loro descrizioni e ciascuno richiede 1 Azione Bonus. Si può attivare un solo effetto nel turno, in alternativa a un Talento attivo o all’attivazione di un Colore.",
+    "kind": "html"
+  },
+  {
+    "id": "e7e5d8ed230a97a5a7ab",
+    "it": "Il personaggio deve dichiarare quali effetti sta utilizzando e pagarne il costo complessivo.",
+    "kind": "html"
+  },
+  {
+    "id": "493c9d7e9800dbfde508",
+    "it": "Non è possibile utilizzare un effetto di un Grado non ancora raggiunto.",
+    "kind": "html"
+  },
+  {
+    "id": "f8e5b66374c5fa747c32",
+    "it": "Esempio · Armamento d20",
+    "kind": "html"
+  },
+  {
+    "id": "7a850e098780928756c1",
+    "it": "Un personaggio dispone di 5 PIP.",
+    "kind": "html"
+  },
+  {
+    "id": "ef7fb7e612390bb7ff6d",
+    "it": "Nel primo turno attiva l’Haki con 1 Azione Bonus e 1 PIP. La riserva scende a 4.",
+    "kind": "html"
+  },
+  {
+    "id": "c97922d46713d00ea836",
+    "it": "In un turno successivo, mentre mantiene l’Haki, usa la Bonus per Ryou e paga 3 PIP. Esegue l’attacco con l’Azione normale e rimane con 1 PIP. Non può attivare un Talento nello stesso turno, né conservare Ryou per un attacco in un turno successivo.",
+    "kind": "html"
+  },
+  {
+    "id": "d7201bbf3a310952d6e7",
+    "it": "Per attivare altri effetti servono i relativi PIP e la Bonus di un altro turno. Più benefici attivi possono coesistere soltanto se preparati separatamente e ancora in durata: per esempio, un effetto di 2 turni può accompagnare un Talento attivato nel turno seguente, purché non sia scaduto. Non si pagano di nuovo i PIP già spesi e non si rinnova la durata.",
+    "kind": "html"
+  },
+  {
+    "id": "0fe3af2bd4cc3cab8147",
+    "it": "Il costo di attivazione e quello degli effetti speciali sono distinti.",
+    "kind": "html"
+  },
+  {
+    "id": "38eb68ff9d6798af1ae1",
+    "it": "Attivazione del Colore ed effetto attivo devono avvenire in turni diversi perché ciascuno richiede la propria Azione Bonus. Il mantenimento del Colore e i passivi, invece, non richiedono una nuova Bonus.",
+    "kind": "html"
+  },
+  {
+    "id": "4e869344ea0284cd5d5e",
+    "it": "<span class=\"man-sez-n\">8.13 ·</span> Interruzione e recupero",
+    "kind": "html"
+  },
+  {
+    "id": "f183811cc7eaf014be4a",
+    "it": "Un Colore dell’Haki già attivo non si interrompe soltanto perché la sua riserva di PIP raggiunge 0, anche quando l’ultimo PIP è stato speso per attivarlo.",
+    "kind": "html"
+  },
+  {
+    "id": "279186a9f4e3a9624ae6",
+    "it": "Finché il personaggio paga la Stamina richiesta per il mantenimento, il Colore e i suoi benefici ordinari restano attivi. Se il Grado raggiunto elimina il costo di mantenimento, il Colore già attivato può rimanere attivo anche con 0 PIP senza spendere ST.",
+    "kind": "html"
+  },
+  {
+    "id": "8ff07953e8e7bf06e673",
+    "it": "Con 0 PIP non è possibile attivare un Colore spento né attivare nuovi effetti che richiedono PIP. Un effetto già pagato conserva soltanto la durata e gli utilizzi previsti dalla propria descrizione: l’esaurimento della riserva non lo rinnova e non lo annulla automaticamente.",
+    "kind": "html"
+  },
+  {
+    "id": "0944a49c3a3ee987777e",
+    "it": "Un Colore si interrompe quando:",
+    "kind": "html"
+  },
+  {
+    "id": "019325f2429e2768ab02",
+    "it": "il personaggio decide di non mantenerlo;",
+    "kind": "html"
+  },
+  {
+    "id": "2e226c8f6eb6e1150818",
+    "it": "non paga il costo di mantenimento richiesto;",
+    "kind": "html"
+  },
+  {
+    "id": "8d8c4a15f36bda69890e",
+    "it": "perde conoscenza;",
+    "kind": "html"
+  },
+  {
+    "id": "07c287cef5e22ef1d76e",
+    "it": "subisce uno Stato o un effetto che gli impedisce di mantenerlo, come Stordito.",
+    "kind": "html"
+  },
+  {
+    "id": "63c89a0cf23a2a19b57d",
+    "it": "Quando l’Haki si interrompe, cessano i benefici che richiedono il Colore attivo. Gli effetti con durata autonoma seguono la propria descrizione. Per riattivare il Colore servono normalmente 1 Azione Bonus e 1 PIP.",
+    "kind": "html"
+  },
+  {
+    "id": "4305d2b0541e52a6e70b",
+    "it": "I PIP vengono recuperati attraverso un Riposo breve o capacità che ne prevedono espressamente il recupero, senza superare il massimo del Colore. L’Haki non sostituisce la Stamina: mantenimento, Tecniche e Talenti conservano i propri costi.",
+    "kind": "html"
+  },
+  {
+    "id": "4df0440ec2f474d0f5dd",
+    "it": "Capitolo 9 ·",
+    "kind": "html"
+  },
+  {
+    "id": "8bee01bad2b7e0d64232",
+    "it": "I Frutti del Diavolo",
+    "kind": "html"
+  },
+  {
+    "id": "9d759d8a60aab5bb54b9",
+    "it": "Un solo morso può cambiare il destino di un pirata.",
+    "kind": "html"
+  },
+  {
+    "id": "4c53ed13ed43f988c228",
+    "it": "C'è chi diventa di gomma, chi si trasforma in una creatura leggendaria e chi acquisisce il potere di un elemento naturale. Nessun Frutto è identico a un altro, ma tutti condividono una caratteristica: concedono capacità straordinarie in cambio di una vulnerabilità permanente al mare.",
+    "kind": "html"
+  },
+  {
+    "id": "e057dde22e16c1e21805",
+    "it": "In Grand Line Chronicles, i Frutti del Diavolo sono poteri personalizzabili. Il giocatore ne definisce il concetto insieme al Game Master, mentre il Dado del Frutto, i Talenti e il Costruttore di Tecniche ne regolano la crescita.",
+    "kind": "html"
+  },
+  {
+    "id": "2a5cfee91ba1c11c6ade",
+    "it": "Il Frutto non sostituisce lo Stile di Combattimento del personaggio. Si aggiunge alle sue capacità, permettendogli di sviluppare un modo di combattere unico.",
+    "kind": "html"
+  },
+  {
+    "id": "79fdb08a9684dbb8ffdd",
+    "it": "<b>Manuale dei Frutti del Diavolo.</b> Questo capitolo riassume le regole dei Frutti. La Scheda di Identità del Frutto, la spiegazione e il chiarimento definitivo di ogni Talento, Tratto e Firma e le linee guida per Forma di Combattimento e Risveglio si trovano nel Manuale dei Frutti del Diavolo (Biblioteca · Volume 04): per approfondire consulta quel manuale, che in caso di differenze prevale.",
+    "kind": "html"
+  },
+  {
+    "id": "4a47b1ed9fd2a3937adc",
+    "it": "<span class=\"man-sez-n\">9.1 ·</span> Ottenere un Frutto del Diavolo",
+    "kind": "html"
+  },
+  {
+    "id": "77d395cd56ccd1d74774",
+    "it": "Il possesso di un Frutto del Diavolo è facoltativo e richiede l'approvazione del Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "f043532af7bd4470f881",
+    "it": "Il personaggio può iniziare la campagna con un Frutto oppure ottenerlo durante l'avventura.",
+    "kind": "html"
+  },
+  {
+    "id": "1420c83f87db38f05c7a",
+    "it": "Quando acquisisce il potere, il giocatore deve definirne le caratteristiche fondamentali.",
+    "kind": "html"
+  },
+  {
+    "id": "5086900635fec3efdf73",
+    "it": "Nome",
+    "kind": "html"
+  },
+  {
+    "id": "5e833783d7321e1a0738",
+    "it": "Nome del Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "3868d2843d5924c192e2",
+    "it": "Tipo",
+    "kind": "html"
+  },
+  {
+    "id": "1472ee8ad8271d27afc7",
+    "it": "Paramecia, Logia o Zoan.",
+    "kind": "html"
+  },
+  {
+    "id": "6fb818621896d9df8a82",
+    "it": "Descrizione",
+    "kind": "html"
+  },
+  {
+    "id": "bf9cba180f896b23b72a",
+    "it": "Natura del potere e sue possibilità.",
+    "kind": "html"
+  },
+  {
+    "id": "3d16e968359a874c173f",
+    "it": "Grado di padronanza del potere.",
+    "kind": "html"
+  },
+  {
+    "id": "7d50c3ece19428b88ffc",
+    "it": "Capacità fondamentale associata al tipo.",
+    "kind": "html"
+  },
+  {
+    "id": "f901513462b65e12328f",
+    "it": "Effetto che si attiva nelle condizioni previste.",
+    "kind": "html"
+  },
+  {
+    "id": "16698a8aab600bfc3e44",
+    "it": "Capacità acquisite attraverso la crescita.",
+    "kind": "html"
+  },
+  {
+    "id": "e3edce42c99f646048f7",
+    "it": "Il Frutto non deve necessariamente essere orientato al combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "947c595e7a164e93fb62",
+    "it": "Un potere apparentemente modesto può rivelarsi utile nell'esplorazione, nella navigazione, nella costruzione di oggetti o nelle interazioni sociali.",
+    "kind": "html"
+  },
+  {
+    "id": "8743a9f1e4b27a27f596",
+    "it": "La sua efficacia dipende dalle applicazioni sviluppate dal personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "f451a122a28b641b9bd0",
+    "it": "<span class=\"man-sez-n\">9.2 ·</span> I tre tipi di Frutto",
+    "kind": "html"
+  },
+  {
+    "id": "2e96066ae73d15f44343",
+    "it": "I Frutti del Diavolo appartengono a tre categorie.",
+    "kind": "html"
+  },
+  {
+    "id": "1e3e5fe87ca670e04c31",
+    "it": "Il potere unico",
+    "kind": "html"
+  },
+  {
+    "id": "46033ea40a1353f9dee2",
+    "it": "Conferisce una proprietà straordinaria al corpo, permette di produrre una sostanza oppure modifica la materia e l'ambiente.",
+    "kind": "html"
+  },
+  {
+    "id": "249d51964fca16874c50",
+    "it": "L'elemento",
+    "kind": "html"
+  },
+  {
+    "id": "fee9ac90808f2903c600",
+    "it": "Permette di diventare e controllare un elemento naturale, acquisendone le proprietà.",
+    "kind": "html"
+  },
+  {
+    "id": "78a089410a1480af603c",
+    "it": "La trasformazione",
+    "kind": "html"
+  },
+  {
+    "id": "c0b77398aa2cf5ea1c1b",
+    "it": "Consente di assumere una forma animale e una forma ibrida, modificando il corpo e le capacità fisiche.",
+    "kind": "html"
+  },
+  {
+    "id": "38cb8be0cc1e1543a5e4",
+    "it": "Ogni tipo possiede un Tratto, una Firma e un Albero dei Talenti specifico.",
+    "kind": "html"
+  },
+  {
+    "id": "eda969db932110b24fab",
+    "it": "I Frutti mitologici e ancestrali appartengono alla categoria Zoan, ma possono ottenere caratteristiche particolari attraverso le capacità previste dal relativo Albero.",
+    "kind": "html"
+  },
+  {
+    "id": "1ae2af450e168b906761",
+    "it": "<span class=\"man-sez-n\">9.3 ·</span> Debolezze e interazioni",
+    "kind": "html"
+  },
+  {
+    "id": "28f1a5b80f3c053a8e40",
+    "it": "Gli utilizzatori di un Frutto del Diavolo condividono due debolezze fondamentali: il mare e l’Agalmatolite, detta Pietra di Mare.",
+    "kind": "html"
+  },
+  {
+    "id": "bddef261779854768c3c",
+    "it": "Il mare",
+    "kind": "html"
+  },
+  {
+    "id": "e41afbe346993b6f03ca",
+    "it": "Quando cade in acqua e resta immerso, il fruitore perde tutte le forze, non può nuotare e rimane inerme. Non può compiere Azioni principali, Azioni Bonus o Reazioni né effettuare Movimento volontario. Ha bisogno di essere soccorso.",
+    "kind": "html"
+  },
+  {
+    "id": "775af9f7f16985c348ea",
+    "it": "Un Uomo Pesce o Tritone può continuare a respirare sott’acqua e non annega, ma perde comunque la capacità di nuotare e rimane inerme sul fondo finché non viene liberato dall’acqua.",
+    "kind": "html"
+  },
+  {
+    "id": "2de06ebfd4cda95f258f",
+    "it": "Agalmatolite · Pietra di Mare",
+    "kind": "html"
+  },
+  {
+    "id": "21261161c27e58236e88",
+    "it": "Il contatto con la Pietra di Mare priva il fruitore delle proprie azioni, come l’immersione. Un contatto subito durante il turno avversario gli fa perdere le azioni del suo prossimo turno, comprese Azione principale, Azione Bonus e Reazioni. Se il contatto permane, il personaggio continua a perdere tutte le azioni e non può muoversi volontariamente finché non viene liberato.",
+    "kind": "html"
+  },
+  {
+    "id": "1b7ae759818d6f708176",
+    "it": "Un contatto singolo non impone una paralisi permanente: esaurita la perdita del prossimo turno, se non è più a contatto con la Pietra di Mare il personaggio può tornare ad agire. Un contatto continuo rinnova invece la condizione.",
+    "kind": "html"
+  },
+  {
+    "id": "12234efe2a2b987d0d79",
+    "it": "Haki e interazione con i Frutti",
+    "kind": "html"
+  },
+  {
+    "id": "07fb4d5a68432a3888f1",
+    "it": "L’Haki non è una debolezza equivalente al mare o alla Pietra di Mare. L’Armamento permette di colpire il corpo dei Logia nonostante l’intangibilità ordinaria, secondo le regole del Colore, ma non toglie automaticamente le azioni e non annulla indiscriminatamente tutte le proprietà o i poteri del Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "d48680ea6d9d3bdfe2d7",
+    "it": "<span class=\"man-sez-n\">9.4 ·</span> Il Dado del Frutto",
+    "kind": "html"
+  },
+  {
+    "id": "625dc778aa2546803b74",
+    "it": "Il Dado del Frutto rappresenta il livello di padronanza raggiunto dal personaggio.",
+    "kind": "html"
+  },
+  {
+    "id": "665bd2c603e067e0e156",
+    "it": "Non determina quale potere possiede, ma quanto riesce a controllarlo.",
+    "kind": "html"
+  },
+  {
+    "id": "81aa50aa0be5dd5f6d3b",
+    "it": "Un utilizzatore inesperto potrebbe produrre il proprio elemento senza riuscire a modellarlo con precisione. Un esperto potrebbe invece impiegarlo in modi completamente differenti.",
+    "kind": "html"
+  },
+  {
+    "id": "5075aa26bc5565335969",
+    "it": "La progressione segue questa scala:",
+    "kind": "html"
+  },
+  {
+    "id": "f946472f3bc309029337",
+    "it": "<b>Padronanza</b>",
+    "kind": "html"
+  },
+  {
+    "id": "45bad7317d9a541cd702",
+    "it": "Il potere si è manifestato.",
+    "kind": "html"
+  },
+  {
+    "id": "cfb9e043fca490de37c9",
+    "it": "Il personaggio comincia a comprenderlo.",
+    "kind": "html"
+  },
+  {
+    "id": "891fce0a7ff762cd9dc8",
+    "it": "Controllo affidabile.",
+    "kind": "html"
+  },
+  {
+    "id": "13e404a4344004f71203",
+    "it": "Padronanza avanzata.",
+    "kind": "html"
+  },
+  {
+    "id": "88bb7af21a6f551fabb1",
+    "it": "Maestria.",
+    "kind": "html"
+  },
+  {
+    "id": "b41cea0add4d41c1a883",
+    "it": "Vetta del potere, necessaria per il Risveglio.",
+    "kind": "html"
+  },
+  {
+    "id": "e22195d4f46f4d57720d",
+    "it": "Il Dado del Frutto parte normalmente da d4.",
+    "kind": "html"
+  },
+  {
+    "id": "4c481ca9878e620ce3e6",
+    "it": "9.4.1 · Come cresce",
+    "kind": "html"
+  },
+  {
+    "id": "47b39907485c2a0ceff0",
+    "it": "Il Dado del Frutto non viene aumentato spendendo Punti Abilità.",
+    "kind": "html"
+  },
+  {
+    "id": "ec0a8893cc1c2c746f47",
+    "it": "È il Game Master a determinarne l'avanzamento quando la crescita del personaggio lo giustifica.",
+    "kind": "html"
+  },
+  {
+    "id": "0ccb329f2ff0347f4c50",
+    "it": "Un miglioramento può essere associato all'allenamento, a una scoperta sul funzionamento del Frutto, a una sconfitta significativa o alla conclusione di un arco narrativo.",
+    "kind": "html"
+  },
+  {
+    "id": "049811ded7f912276c63",
+    "it": "Il dado non deve aumentare automaticamente dopo ogni combattimento.",
+    "kind": "html"
+  },
+  {
+    "id": "27624bf2b7b946af607d",
+    "it": "9.4.2 · Cosa determina",
+    "kind": "html"
+  },
+  {
+    "id": "46db0684c2738da42e02",
+    "it": "Il Dado del Frutto svolge due funzioni.",
+    "kind": "html"
+  },
+  {
+    "id": "142052b2c62f9fe39805",
+    "it": "Limita le Tecniche del Frutto: nessuna Tecnica che utilizza il Frutto come Fonte può superare il suo Grado.",
+    "kind": "html"
+  },
+  {
+    "id": "32fdbe1aa539de33b73c",
+    "it": "Sblocca i Talenti del Frutto: ogni fascia dell'Albero richiede una padronanza minima.",
+    "kind": "html"
+  },
+  {
+    "id": "7129488a51970b7d2e09",
+    "it": "Progressione dei Talenti",
+    "kind": "html"
+  },
+  {
+    "id": "e854ca0f8f5c63799866",
+    "it": "d4–d6 · Il Dono<br>Il personaggio esplora le possibilità iniziali del potere.",
+    "kind": "html"
+  },
+  {
+    "id": "1bf27aeefd8ffcb1f20f",
+    "it": "d8–d10 · Il Controllo<br>Il Frutto diventa più versatile ed efficiente.",
+    "kind": "html"
+  },
+  {
+    "id": "396ea71b1dba38665e69",
+    "it": "d12 · La Padronanza<br>Il personaggio sviluppa applicazioni avanzate.",
+    "kind": "html"
+  },
+  {
+    "id": "58f064ad25e1f8885305",
+    "it": "d20 · Il Risveglio<br>Diventa possibile raggiungere la manifestazione più elevata del potere.",
+    "kind": "html"
+  },
+  {
+    "id": "4ecac2613918e38026de",
+    "it": "<span class=\"man-sez-n\">9.5 ·</span> Costruire le Tecniche del Frutto",
+    "kind": "html"
+  },
+  {
+    "id": "d13ec01d64272809e898",
+    "it": "Le Tecniche del Frutto utilizzano il Costruttore del Capitolo 7, ma il Frutto è una Fonte speciale. Gli effetti devono essere coerenti con il Nucleo del Potere e con la Scheda di Identità. Quando la natura del Frutto lo permette, il GM può autorizzare effetti, Aree, Gittate o Zone Persistenti estranei al catalogo ordinario di uno Stile. L’autorizzazione non elimina Grado, slot o costi ST: un Frutto deve poter produrre realmente il risultato.",
+    "kind": "html"
+  },
+  {
+    "id": "18b7d5816f52142551ef",
+    "it": "Per crearne una, il giocatore seleziona Frutto come Fonte e definisce Attributo, Forma, Grado ed effetti.",
+    "kind": "html"
+  },
+  {
+    "id": "e0473e1a6426d99ffbe9",
+    "it": "La Tecnica deve rispettare tre condizioni fondamentali:",
+    "kind": "html"
+  },
+  {
+    "id": "483847bc9481b71fbf66",
+    "it": "Il suo Grado non può superare il Dado dell'Attributo utilizzato.",
+    "kind": "html"
+  },
+  {
+    "id": "2422fe589f507467e180",
+    "it": "Il suo Grado non può superare il Dado del Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "5c822c3cbe93717b63a9",
+    "it": "Gli effetti scelti devono essere coerenti con la natura del potere e con le regole del Costruttore.",
+    "kind": "html"
+  },
+  {
+    "id": "5cb6c052cd31f0338b8b",
+    "it": "Il Game Master verifica la compatibilità narrativa della Tecnica.",
+    "kind": "html"
+  },
+  {
+    "id": "f8f84c839c04d55ebafc",
+    "it": "Un Frutto capace di produrre cera può creare barriere e strutture. Non può produrre liberamente fulmini soltanto perché nel Catalogo esiste un effetto adatto a un attacco elettrico.",
+    "kind": "html"
+  },
+  {
+    "id": "9316f69b7a34de9ab94c",
+    "it": "Tecniche d4 e d6",
+    "kind": "html"
+  },
+  {
+    "id": "3f0673494d5f7491b36c",
+    "it": "Le Tecniche d4 e d6 possiedono 0 slot Effetto e non possono selezionare effetti che occupano slot, salvo una capacità che conceda espressamente un’eccezione.",
+    "kind": "html"
+  },
+  {
+    "id": "7d5cebeed2dfe3c6e54a",
+    "it": "Gli effetti che occupano slot diventano normalmente disponibili dal Grado d8, rispettando i relativi requisiti. Le sagome autorizzate dalla Fonte non occupano slot, ma conservano il proprio Grado minimo e costo (§7.9).",
+    "kind": "html"
+  },
+  {
+    "id": "774c98318978c97b5e1f",
+    "it": "Questo limite riguarda le Tecniche costruite. Non elimina il Tratto naturale del Frutto o le capacità dei Talenti già posseduti.",
+    "kind": "html"
+  },
+  {
+    "id": "501508ba4003ef145b92",
+    "it": "Costi",
+    "kind": "html"
+  },
+  {
+    "id": "87ec8f639f6a79dd8a76",
+    "it": "Le Tecniche del Frutto pagano la Stamina prevista dai propri effetti.",
+    "kind": "html"
+  },
+  {
+    "id": "ed08adf0a7743053ea68",
+    "it": "Il fatto di possedere un Frutto non rende automaticamente gratuite tutte le Tecniche che ne derivano.",
+    "kind": "html"
+  },
+  {
+    "id": "a2d6e84d3acc3e70403b",
+    "it": "Talenti specifici possono ridurre o eliminare determinati costi.",
+    "kind": "html"
+  },
+  {
+    "id": "b6338380d8bd0347c5da",
+    "it": "Quando un effetto inserito in una Tecnica del Frutto applica uno Stato che concede Salvezza, la Soglia è determinata dal Grado della Tecnica, non direttamente dal Dado del Frutto (§1.4 del Manuale del Gioco).",
+    "kind": "html"
+  },
+  {
+    "id": "47157161c9f0d93a79cf",
+    "it": "<span class=\"man-sez-n\">9.6 ·</span> I Talenti del Frutto",
+    "kind": "html"
+  },
+  {
+    "id": "eefa0d716464698bc18f",
+    "it": "Ogni tipo di Frutto possiede un Albero dedicato.",
+    "kind": "html"
+  },
+  {
+    "id": "03898d717a8fea7cd430",
+    "it": "I Talenti si acquisiscono attraverso gli Upgrade, scegliendo tra quelli disponibili in base al Dado del Frutto e rispettando gli eventuali prerequisiti.",
+    "kind": "html"
+  },
+  {
+    "id": "11f5cf90effd0bc2c714",
+    "it": "Raggiungere un Grado sblocca l'accesso ai Talenti, ma non assegna automaticamente tutti quelli della fascia.",
+    "kind": "html"
+  },
+  {
+    "id": "a2a3cecc84fff74f1146",
+    "it": "I Talenti possono rappresentare capacità passive, attivazioni volontarie, Reazioni o eccezioni particolari.",
+    "kind": "html"
+  },
+  {
+    "id": "b02511b7a80d6e6d91b1",
+    "it": "Nel sistema V2, un Talento che richiede un'attivazione volontaria utilizza normalmente l'Azione Bonus. Quando la sua descrizione prevede una Reazione, un'attivazione gratuita o un altro funzionamento esplicito, prevale quella regola.",
+    "kind": "html"
+  },
+  {
+    "id": "17253cd657ab0e3f8443",
+    "it": "I passivi si applicano automaticamente quando le loro condizioni sono soddisfatte.",
+    "kind": "html"
+  },
+  {
+    "id": "f371a537cd6be5cdd2fc",
+    "it": "Ogni Talento del Frutto è spiegato e chiarito nel Manuale dei Frutti del Diavolo, che in caso di dubbio prevale su questo riassunto.",
+    "kind": "html"
+  },
+  {
+    "id": "87fc15bb3ac1ef42baa3",
+    "it": "<span class=\"man-sez-n\">9.7 ·</span> Paramecia",
+    "kind": "html"
+  },
+  {
+    "id": "20845f6f8854711bb964",
+    "it": "I Paramecia comprendono poteri estremamente diversi tra loro. Possono alterare il corpo, produrre materia oppure intervenire sull'ambiente.",
+    "kind": "html"
+  },
+  {
+    "id": "a8491ca849c61fb55d45",
+    "it": "Il loro principio fondamentale è la libertà creativa: giocatore e Game Master definiscono un potere riconoscibile e ne sviluppano le applicazioni senza trasformarlo in una raccolta illimitata di capacità scollegate.",
+    "kind": "html"
+  },
+  {
+    "id": "5b2e328d636cf7e41da4",
+    "it": "9.7.1 · Tratto: Il Potere Unico",
+    "kind": "html"
+  },
+  {
+    "id": "253ed86196f6dde5aa4b",
+    "it": "Sempre attivo",
+    "kind": "html"
+  },
+  {
+    "id": "4e137ac66c443f9b28a9",
+    "it": "Il personaggio altera corpo, materia o ambiente attraverso un potere concordato con il Game Master.",
+    "kind": "html"
+  },
+  {
+    "id": "b10cef49783a42c77699",
+    "it": "La natura del Frutto determina ciò che il personaggio può fare.",
+    "kind": "html"
+  },
+  {
+    "id": "a4ad31482c9f675739d2",
+    "it": "Non esiste una tabella universale che assegna a ogni Paramecia lo stesso insieme di effetti.",
+    "kind": "html"
+  },
+  {
+    "id": "cd7375fd86f4c6ce40c9",
+    "it": "Il Tratto rappresenta le proprietà fondamentali del Frutto, non uno sblocco da acquistare.",
+    "kind": "html"
+  },
+  {
+    "id": "d44e501c40341f5f80b4",
+    "it": "9.7.2 · Firma: L'impronta del potere",
+    "kind": "html"
+  },
+  {
+    "id": "e4a106922d9649aff6aa",
+    "it": "Colpo pulito · Margine +4",
+    "kind": "html"
+  },
+  {
+    "id": "cf63a0e2af89e8129849",
+    "it": "Quando il personaggio ottiene un colpo pulito con una Tecnica del Frutto, il potere lascia una conseguenza aggiuntiva coerente con la sua natura.",
+    "kind": "html"
+  },
+  {
+    "id": "63447579e6f1c87fe3a0",
+    "it": "Può trattarsi di un'alterazione del terreno, di uno stato oppure di una zona che rimane dopo l'impatto.",
+    "kind": "html"
+  },
+  {
+    "id": "942b6e721c4fbb5f148b",
+    "it": "L'applicazione concreta viene definita insieme al Game Master secondo il potere posseduto.",
+    "kind": "html"
+  },
+  {
+    "id": "e9404bdb3d695c844ec4",
+    "it": "La Firma non concede al giocatore l'accesso permanente a ogni effetto del Catalogo: rappresenta la conseguenza speciale del colpo pulito.",
+    "kind": "html"
+  },
+  {
+    "id": "541092bf9ef1a84f7610",
+    "it": "Se la conseguenza della Firma è uno Stato che concede Salvezza, la Soglia è determinata dal Dado del Frutto (§1.4 del Manuale del Gioco), perché lo Stato è prodotto dalla Firma e non selezionato come effetto della Tecnica. Il colpo pulito della Tecnica resta necessario.",
+    "kind": "html"
+  },
+  {
+    "id": "54dc191ab0a2b9e2a49b",
+    "it": "9.7.3 · d4–d6: Il Dono",
+    "kind": "html"
+  },
+  {
+    "id": "f031f6a737aac574993b",
+    "it": "Potere Versatile",
+    "kind": "html"
+  },
+  {
+    "id": "2197d4438225e89e80d8",
+    "it": "Sblocchi una nuova applicazione del Frutto.",
+    "kind": "html"
+  },
+  {
+    "id": "3c6c526f294bc6e5519f",
+    "it": "Potresti imparare a utilizzare il potere a distanza, applicarlo al tuo corpo oppure impiegarlo per difenderti.",
+    "kind": "html"
+  },
+  {
+    "id": "c8bb7a2e1e52c57023b9",
+    "it": "La nuova applicazione permette di sviluppare un'intera famiglia di Tecniche che prima non potevi costruire.",
+    "kind": "html"
+  },
+  {
+    "id": "be8f0011af2fab4c251f",
+    "it": "La scelta deve essere coerente con il concetto originario del Frutto.",
+    "kind": "html"
+  }
+]

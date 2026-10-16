@@ -38,6 +38,7 @@
     n.append(make('dt', '', label), make('dd', '', value)); return n;
   }
   function core(h) {
+    if(window.GLCI18n)GLCI18n.protect(TBUILD);
     h.classList.add('smb-core');
     const seal = make('div', 'smb-core-seal');
     seal.append(icon('smb-core-engraving', smbSigil()), icon('smb-core-emblem', sourceIcon(74)));
