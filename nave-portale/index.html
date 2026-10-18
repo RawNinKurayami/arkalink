@@ -179,7 +179,7 @@ body.premium-portal .gmclose{width:44px;height:44px;min-width:44px;position:rela
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.js" integrity="sha384-iLddHTLokph6Omwoyid4XKxHaWa6w41BnoEj0q5oOrzmYPpHIKt1wyjReA7s//pP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>window.GLC={saveKey:"glc_nave_v1",gate:true,profileUrl:"/profilo/"};</script>
 <script src="/glc-sync.js?v=2"></script>
-<script src="/glc-auth.js?v=4"></script>
+<script src="/glc-auth.js?v=5"></script>
 <script src="/glc-images.js?v=1"></script>
 <link rel="stylesheet" href="/glc-portals.css?v=1">
 <link rel="stylesheet" href="scena-nave.css?v=7">
@@ -192,7 +192,7 @@ body.premium-portal .gmclose{width:44px;height:44px;min-width:44px;position:rela
 <!-- GLC LANGUAGE END -->
 </head>
 <body class="mode-nave premium-portal">
-<div class="portal-topbar"><a class="portal-brand glc-brand-link" href="/grand-line-chronicles/" aria-label="Grand Line Chronicles — Home"><img class="glc-title-logo" src="/img/brand/glc-logo.png" alt="Grand Line Chronicles" width="210" height="70"></a><nav class="portal-links" aria-label="Navigazione del porto"><a href="/nave-portale/" aria-current="page">Nave</a><a href="/portale-officina-cambusa/">Officina &amp; Cambusa</a><a href="/profilo/">Il tuo profilo ↗</a></nav></div>
+<div class="portal-topbar"><a class="portal-brand glc-brand-link" href="/grand-line-chronicles/" aria-label="Grand Line Chronicles — Home"><img class="glc-title-logo" src="/img/brand/glc-logo.png" alt="Grand Line Chronicles" width="210" height="70"></a><nav class="portal-links" aria-label="Navigazione del porto"><a href="/nave-portale/" aria-current="page">Nave</a><a href="/portale-officina-cambusa/">Officina &amp; Cambusa</a><a href="/profilo/">Il tuo profilo ↗</a></nav><span id="glc-login-slot"></span></div>
 <div class="wrap">
   <header class="top">
     <div class="wheel">☸</div>
@@ -207,7 +207,6 @@ body.premium-portal .gmclose{width:44px;height:44px;min-width:44px;position:rela
     <button class="btn ghost sm" id="importBtn">⬆ Importa</button>
     <button class="btn ghost sm" id="resetBtn">↺ Azzera</button>
     <span class="saved" id="saved">salvato</span>
-    <span id="glc-login-slot"></span>
     <input type="file" id="importFile" accept="application/json" style="display:none;" />
   </div>
   <div id="ship"></div>

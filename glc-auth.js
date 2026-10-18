@@ -10,7 +10,7 @@
   var SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFuenhnbHF3bXFic3RocHFueGhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxNDU2MDAsImV4cCI6MjA5NzcyMTYwMH0.aCPTlWmNapvU17ZwedkkhNztMG4PuskpZx3D9EfunIU";
   var SAVE_KEYS = CFG.saveKey ? (Array.isArray(CFG.saveKey) ? CFG.saveKey.slice() : [CFG.saveKey]) : [];
   var GATE = !!CFG.gate;
-  var PROFILE_URL = CFG.profileUrl || "";
+  var PROFILE_URL = CFG.profileUrl || "/profilo/";
   var REDIRECT = location.origin + location.pathname;
   var callbackParams = new URLSearchParams(location.hash.slice(1));
   var callbackError = callbackParams.get("error_code") || callbackParams.get("error");
@@ -48,20 +48,21 @@
     /* controllo nello slot (barra in alto della home) */
     ".glc-slot{display:inline-flex;align-items:center;gap:9px}"+
     ".glc-slot .glc-accedi,.glc-bar-out .glc-accedi{font-family:'Marcellus SC',serif;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:#23170a;background:linear-gradient(180deg,#ecca77,#c9a24a);border:none;border-radius:999px;padding:9px 18px;cursor:pointer}"+
-    ".glc-slot .glc-who,.glc-bar-in .glc-who{font-family:'Cormorant Garamond',serif;font-size:.96rem;color:#a8c6bd}.glc-slot .glc-who b,.glc-bar-in .glc-who b{color:#ecca77;font-weight:600}"+
-    ".glc-slot .glc-prof,.glc-bar-in .glc-prof{font-family:'Marcellus SC',serif;letter-spacing:.1em;text-transform:uppercase;font-size:10px;color:#ecca77;text-decoration:none;border:1px solid rgba(201,162,74,.55);border-radius:999px;padding:6px 12px}.glc-slot .glc-prof:hover,.glc-bar-in .glc-prof:hover{background:rgba(201,162,74,.15)}"+
-    ".glc-slot .glc-out,.glc-bar-in .glc-out{border:1px solid rgba(201,162,74,.55);background:transparent;color:#ecca77;border-radius:999px;padding:6px 13px;font-family:'Marcellus SC',serif;letter-spacing:.1em;text-transform:uppercase;font-size:10px;cursor:pointer}"+
-    ".glc-slot .glc-who,.glc-bar-in .glc-who{display:inline-flex;align-items:center;gap:8px;min-width:0}"+
-    /* il nome non deve mai allargare la pagina: si tronca, e sul telefono resta
-       solo l'avatar (il nome completo è nel tooltip) */
-    ".glc-slot{min-width:0;max-width:100%}.glc-slot .glc-name,.glc-bar-in .glc-name{display:inline-block;max-width:16em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle}"+
-    "@media(max-width:640px){.glc-slot .glc-name,.glc-bar-in .glc-name{display:none}.glc-slot,.glc-bar-in{gap:6px}"+
-    ".glc-slot .glc-prof,.glc-bar-in .glc-prof,.glc-slot .glc-out,.glc-bar-in .glc-out{padding:5px 9px}#glc-bar{right:8px;top:8px;gap:6px;padding:5px 6px 5px 8px}}"+
-    ".glc-ava{width:26px;height:26px;border-radius:50%;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,#fff8ec,#efdcb4);border:1.5px solid rgba(201,162,74,.7);flex:none}"+
-    ".glc-ava img{width:100%;height:100%;object-fit:cover;display:block}"+
-    ".glc-ava svg{width:15px;height:15px;color:#9a7a3e}"+
-    /* barra fissa (strumenti, quando loggato) */
-    "#glc-bar{position:fixed;top:10px;right:12px;z-index:9000;display:flex;align-items:center;gap:10px;background:rgba(10,25,32,.85);border:1px solid rgba(201,162,74,.4);border-radius:999px;padding:6px 8px 6px 14px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}"+
+    /* One avatar opens the same account disclosure in inline and floating headers. */
+    ".glc-slot{position:relative;flex:none;min-width:0;z-index:40}"+
+    "#glc-bar{position:fixed;top:max(10px,env(safe-area-inset-top));right:max(12px,env(safe-area-inset-right));z-index:9000;display:flex;padding:0;background:transparent!important;border:0!important;border-radius:50%}#glc-bar:empty{display:none}"+
+    "#glc-account-toggle{position:relative;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;min-width:44px;min-height:44px;padding:4px;margin:0;border:1px solid #ffd39465;border-radius:50%;background:#101015;color:#ffd394;cursor:pointer;box-shadow:0 3px 14px #0004;line-height:1}"+
+    "#glc-account-toggle:hover,#glc-account-toggle[aria-expanded=true]{border-color:#ffd394;background:#231d17}#glc-account-toggle:focus-visible,#glc-account-menu a:focus-visible,#glc-account-menu button:focus-visible{outline:2px solid #ffd394;outline-offset:3px}"+
+    "#glc-account-toggle:after{content:'';position:absolute;right:0;bottom:0;width:8px;height:8px;border:2px solid #101015;border-radius:50%;background:#ffd394}"+
+    ".glc-ava{width:34px;height:34px;border-radius:50%;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,#fff8ec,#efdcb4);flex:none}.glc-ava img{width:100%;height:100%;object-fit:cover;display:block}.glc-ava svg{width:19px;height:19px;color:#9a7a3e}"+
+    "#glc-account-menu{position:absolute;top:calc(100% + 10px);right:0;z-index:9001;box-sizing:border-box;display:grid;gap:4px;width:min(256px,calc(100vw - 32px));max-height:calc(100dvh - 90px);overflow:auto;margin:0;padding:12px;border:1px solid #ffd39440;border-radius:16px;background:#111015;box-shadow:0 18px 50px #0009;color:#f2e9d8;text-align:left;font:14px/1.4 'Inter',system-ui,sans-serif;letter-spacing:normal;text-transform:none}"+
+    "#glc-account-menu[hidden]{display:none!important}#glc-account-menu .glc-account-identity{display:block;padding:7px 10px 13px;margin:0 0 4px;border-bottom:1px solid #ffd39420}#glc-account-menu .glc-account-caption{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#a99f91;margin-bottom:4px}"+
+    "#glc-account-menu .glc-name{display:block!important;max-width:100%!important;color:#ffd394;font-size:14px;font-weight:600;white-space:normal;overflow-wrap:anywhere}"+
+    "#glc-account-menu .glc-prof,#glc-account-menu .glc-out{display:flex;align-items:center;justify-content:space-between;gap:12px;box-sizing:border-box;width:100%;min-height:44px;padding:11px 12px!important;margin:0;border:0!important;border-radius:9px!important;background:transparent;color:#eee5d7!important;font:500 14px/1.4 'Inter',system-ui,sans-serif!important;text-decoration:none;text-transform:none;letter-spacing:normal!important;text-align:left;cursor:pointer}"+
+    "#glc-account-menu .glc-prof:hover,#glc-account-menu .glc-out:hover{background:#ffd39412!important}#glc-account-menu svg{width:18px;height:18px;flex:none;color:#c5a16c}"+
+    "@media(max-width:700px){.premium-portal .portal-topbar.glc-account-header>.portal-links{order:2;flex-basis:100%}.portal-topbar.glc-account-header>#glc-login-slot{margin-left:auto}}"+
+    "@media(max-width:640px){header.glc-account-header.glc-language-host{height:auto;min-height:70px;row-gap:10px;padding-top:12px;padding-bottom:12px}}"+
+    "@media(max-width:360px){.glc-account-header .glc-brand-link .glc-title-logo{width:128px}}"+
     "#glc-flash{position:fixed;bottom:16px;left:50%;transform:translateX(-50%) translateY(20px);z-index:9500;background:rgba(10,25,32,.93);color:#ecdcb6;border:1px solid rgba(201,162,74,.45);border-radius:6px;padding:9px 16px;font-family:'Cormorant Garamond',serif;font-size:.96rem;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none}"+
     "#glc-flash.show{opacity:1;transform:translateX(-50%) translateY(0)}#glc-flash.err{border-color:#9a241a;color:#f0c9b0}"+
     "@media(prefers-reduced-motion:reduce){#glc-auth,#glc-flash{transition:none}}";
@@ -431,7 +432,7 @@
       }catch(e){}
     }
     var nm = document.querySelector("#glc-login-slot .glc-name") || document.querySelector("#glc-bar .glc-name");
-    if(nm){ nm.textContent = uname ? ("@" + uname) : (currentUser.email || "\u2014"); if(nm.parentNode) nm.parentNode.title = nm.textContent; }
+    if(nm){ nm.textContent = uname ? ("@" + uname) : (currentUser.email || "\u2014"); if(nm.parentNode) nm.parentNode.title = nm.textContent; if(el("glc-account-toggle"))el("glc-account-toggle").title=nm.textContent; }
     var av = document.querySelector("#glc-login-slot .glc-ava") || document.querySelector("#glc-bar .glc-ava");
     if(av && avatar){ av.innerHTML = '<img src="' + escapeHtml(avatar) + '" alt="">'; }
   }
@@ -440,14 +441,23 @@
   function renderControl(){
     var slot = document.getElementById("glc-login-slot");
     var host = slot || document.getElementById("glc-bar");
+    if(slot&&slot.parentElement)slot.parentElement.classList.add("glc-account-header");
     if(currentUser){
       if(!host){ host = document.createElement("div"); host.id = "glc-bar"; document.body.appendChild(host); }
       host.className = slot ? "glc-slot in" : "glc-bar-in";
       var prof0 = {}; try{ prof0 = JSON.parse(localStorage.getItem("glc_profile_v1") || "{}") || {}; }catch(e){}
       var uname0 = (prof0.username || "").trim();
       var nameStr = uname0 ? ("@" + uname0) : (currentUser.email || "\u2014");
-      host.innerHTML = '<span class="glc-who" title="' + escapeHtml(nameStr) + '">' + avatarHTML(prof0.avatar) + '<b class="glc-name">' + escapeHtml(nameStr) + '</b></span>' + (PROFILE_URL ? '<a class="glc-prof" href="' + PROFILE_URL + '">Profilo</a>' : '') + '<button class="glc-out" id="glc-out">Esci</button>';
-      document.getElementById("glc-out").onclick = logout;
+      host.innerHTML = '<button type="button" id="glc-account-toggle" aria-label="Account" aria-expanded="false" aria-controls="glc-account-menu" title="' + escapeHtml(nameStr) + '">' + avatarHTML(prof0.avatar) + '</button>' +
+        '<nav id="glc-account-menu" aria-label="Account" hidden><span class="glc-account-identity"><span class="glc-account-caption">Account</span><b class="glc-name">' + escapeHtml(nameStr) + '</b></span>' +
+        '<a class="glc-prof" href="' + escapeHtml(PROFILE_URL) + '">Profilo<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg></a>' +
+        '<button type="button" class="glc-out" id="glc-out">Esci<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 4H4v16h5m6-13 5 5-5 5M8 12h12"/></svg></button></nav>';
+      document.getElementById("glc-account-toggle").onclick = function(){
+        var menu=el("glc-account-menu"),opening=menu.hidden;
+        menu.hidden=!opening;this.setAttribute("aria-expanded",String(opening));
+        if(opening)positionAccountMenu();
+      };
+      document.getElementById("glc-out").onclick = function(){closeAccountMenu(true);return logout();};
       enrichControl();
     } else {
       if(!slot){ var b = document.getElementById("glc-bar"); if(b) b.innerHTML = ""; return; } // strumenti: niente barra (copre l'overlay)
@@ -456,6 +466,34 @@
       document.getElementById("glc-accedi").onclick = openOverlay;
     }
   }
+  function positionAccountMenu(){
+    var menu=el("glc-account-menu");if(!menu||menu.hidden)return;
+    menu.style.right="0px";
+    var bounds=menu.getBoundingClientRect(),width=document.documentElement.clientWidth||window.innerWidth;
+    var left=Math.max(12,Math.min(bounds.left,width-bounds.width-12));
+    menu.style.right=(bounds.left-left)+"px";
+  }
+  window.addEventListener("resize",positionAccountMenu);
+  function closeAccountMenu(restoreFocus){
+    var menu=el("glc-account-menu"),toggle=el("glc-account-toggle");
+    if(!menu||menu.hidden)return;
+    menu.hidden=true;if(toggle){toggle.setAttribute("aria-expanded","false");if(restoreFocus)toggle.focus();}
+  }
+  function dismissAccountMenu(event){
+    var menu=el("glc-account-menu"),host=el("glc-login-slot")||el("glc-bar");
+    if(menu&&!menu.hidden&&host&&!host.contains(event.target))closeAccountMenu(false);
+  }
+  document.addEventListener("pointerdown",dismissAccountMenu);
+  document.addEventListener("focusin",dismissAccountMenu);
+  document.addEventListener("focusout",function(){
+    var menu=el("glc-account-menu");
+    if(menu&&!menu.hidden)setTimeout(function(){dismissAccountMenu({target:document.activeElement});},0);
+  });
+  window.addEventListener("blur",function(){closeAccountMenu(false);});
+  document.addEventListener("keydown",function(event){
+    var menu=el("glc-account-menu");
+    if(event.key==="Escape"&&menu&&!menu.hidden){event.preventDefault();closeAccountMenu(true);}
+  });
   /* Uscendo non deve restare niente di personale su questo dispositivo: non
      bastano le chiavi della pagina, perché ogni pagina ne sincronizza solo
      alcune e il resto (ritratto, navi, sessioni) rimarrebbe a chi entra dopo.
