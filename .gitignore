@@ -12,3 +12,7 @@ _forgia-src/dist/
 # Python build and verification caches
 __pycache__/
 *.py[cod]
+
+# Local catalogue artwork production logs and visual checks
+/artifacts/catalog-art/
+/img/catalogo/*.pending

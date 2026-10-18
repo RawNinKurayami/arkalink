@@ -103,9 +103,11 @@ select.txt{width:100%; font-family:'Inter',sans-serif; font-size:17px; color:var
 </style>
 <script src="/glc-images.js?v=1"></script>
 <script src="/glc-art.js?v=1"></script>
+<script src="/img/catalogo/catalog.js?v=1"></script>
+<script src="/glc-catalog-art.js?v=1"></script>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/glc-portals.css?v=1">
-<link rel="stylesheet" href="atelier.css?v=2">
+<link rel="stylesheet" href="atelier.css?v=3">
 <link rel="stylesheet" href="/glc-brand.css?v=1">
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=2">
 <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png?v=2">
@@ -257,8 +259,7 @@ function flash(msg){var f=el("div",{text:msg,style:"position:fixed;left:50%;bott
 function itemCard(o,opts){
   opts=opts||{};
   var food=!!(opts.price&&o.dati&&o.dati.categoria==='Ingredienti'),d=o.dati||{},facts=null;
-  var pic=el("div",{class:"pic"});
-  if(o.img){ pic.style.backgroundImage="url('"+o.img+"')"; pic.textContent=""; } else { pic.classList.add('empty-art');pic.innerHTML=GLCArt.html(food?'provviste':GLCArt.categoryKey(Object.assign({},o,{tipo:o.tipo||opts.diaryKind})),88); }
+  var pic=GLCCatalogArt.createPicture(o,{kind:o.tipo||opts.diaryKind||'oggetto',personal:!!opts.mine,food:food});
   var description=o.descrizione||o.desc||'',lines=description.split('\n'),lead=lines.shift(),detail=null;
   if(lines.length){detail=el('details',{class:'card-details'},[el('summary',{text:'Dettagli e regole'}),el('p',{text:lines.join('\n')})]);}
   if(food){var r=d.reperimento||{},method=r.metodo||'Reperimento';facts=el('dl',{class:'ingredient-facts'},[el('dt',{text:'Dove si trova'}),el('dd',{text:d.dove||'Disponibilità decisa dal GM'}),el('dt',{text:method[0].toUpperCase()+method.slice(1)}),el('dd',{text:r.prova?r.prova+' · Soglia '+r.soglia:'Acquisto ordinario: nessuna Prova'}),r.prova&&d.acquistabile?el('dd',{text:'Acquisto presso un fornitore: nessuna Prova.'}):null]);}
@@ -582,7 +583,7 @@ function renderCambusa(){
   p.appendChild(ref);
   p.appendChild(el("div",{class:"subh",text:"Ingredienti notevoli"}));
   var ref2=el("div",{class:"reftbl"});
-  INGR_NOTE.forEach(function(r){ ref2.appendChild(el("div",{class:"refrow"},[el("div",{class:"rf-nm"},[el('a',{class:'ibtn ghost',href:'/portale-officina-cambusa/?tab=mercante&ingrediente='+encodeURIComponent(r.nome),text:r.nome+' ↗',onClick:function(event){event.preventDefault();openMerchantIngredient(r.nome);}})]),el("div",{class:"rf-bd",html:r.cat+" \u00b7 "+r.rarita+"<br><i>"+r.dove+"</i>"}),el("div",{class:"rf-bn",text:r.bonus})])); });
+  INGR_NOTE.forEach(function(r){ ref2.appendChild(el("div",{class:"refrow"},[el("div",{class:"rf-nm rf-nm--illustrated"},[GLCCatalogArt.createPicture(r,{kind:'ingrediente',compact:true,food:true}),el('a',{class:'ibtn ghost',href:'/portale-officina-cambusa/?tab=mercante&ingrediente='+encodeURIComponent(r.nome),text:r.nome+' ↗',onClick:function(event){event.preventDefault();openMerchantIngredient(r.nome);}})]),el("div",{class:"rf-bd",html:r.cat+" \u00b7 "+r.rarita+"<br><i>"+r.dove+"</i>"}),el("div",{class:"rf-bn",text:r.bonus})])); });
   p.appendChild(ref2);
   loadDishes();
 }

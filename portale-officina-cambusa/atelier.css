@@ -19,3 +19,13 @@ body.mode-atelier .wrap{max-width:1440px;padding:34px clamp(20px,4vw,64px) 30px}
 .atelier-localnav{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px}.atelier-localnav a{padding:9px 14px;min-height:40px;display:inline-flex;align-items:center;background:#ffffff04;border:1px solid var(--portal-line);border-radius:7px;font:11px var(--portal-ui);color:var(--portal-muted);text-decoration:none}.atelier-localnav a:last-child{color:var(--gold-soft);border-color:#ffd39430}.atelier-localnav a:hover{background:#ffd3940b}.mode-atelier [id]{scroll-margin-top:24px}
 
 .mode-atelier .imgprev>img{width:64px;height:64px;object-fit:contain;pointer-events:none}
+
+/* Each catalogue illustration keeps its own silhouette and reserved space. */
+.mode-atelier .item .catalog-art,.mode-atelier .item .catalog-art.empty-art{height:190px;overflow:hidden;background:radial-gradient(ellipse at 50% 80%,#ffd3940a,transparent 68%),#0c0d11;padding:14px;box-sizing:border-box;flex:none;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+.mode-atelier .catalog-art>.catalog-art-image{display:block;width:100%;height:100%;max-width:100%;object-fit:contain;object-position:center;filter:drop-shadow(0 8px 10px #0005)}
+.mode-atelier .catalog-art--illustrated:before{content:none}
+.mode-atelier .catalog-art--compact{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);place-items:center;flex:none;width:76px;height:76px;padding:4px;box-sizing:border-box;border-radius:8px;background:#0c0d11;overflow:hidden}
+.mode-atelier .catalog-art--compact.empty-art>.glc-art{width:54px;height:54px}
+.mode-atelier .rf-nm--illustrated{display:flex;align-items:center;gap:12px;min-width:0}
+.mode-atelier .rf-nm--illustrated>a{min-width:0;overflow-wrap:anywhere}
+@media(max-width:640px){.mode-atelier .item .catalog-art,.mode-atelier .item .catalog-art.empty-art{height:210px}.mode-atelier .catalog-art--compact{width:64px;height:64px}.mode-atelier .rf-nm--illustrated{gap:10px}}
